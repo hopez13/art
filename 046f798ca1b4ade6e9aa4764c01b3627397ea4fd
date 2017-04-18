@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88a9d9c_2a3ed18e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T13:54:17Z",
+      "side": 1,
+      "message": "We used packed fields from HInstruction for such booleans.",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 19
+      },
+      "revId": "046f798ca1b4ade6e9aa4764c01b3627397ea4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
