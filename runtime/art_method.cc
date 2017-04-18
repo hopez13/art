@@ -43,6 +43,7 @@
 #include "mirror/object-inl.h"
 #include "mirror/string.h"
 #include "oat_file-inl.h"
+#include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
 #include "well_known_classes.h"
 
@@ -379,13 +380,17 @@ void ArtMethod::RegisterNative(const void* native_method, bool is_fast) {
   if (is_fast) {
     AddAccessFlags(kAccFastNative);
   }
-  SetEntryPointFromJni(native_method);
+  void* new_native_method = nullptr;
+  Runtime::Current()->GetRuntimeCallbacks()->RegisterNativeMethod(this,
+                                                                  native_method,
+                                                                  /*out*/&new_native_method);
+  SetEntryPointFromJni(new_native_method);
 }
 
 void ArtMethod::UnregisterNative() {
   CHECK(IsNative() && !IsFastNative()) << PrettyMethod();
   // restore stub to lookup native pointer via dlsym
-  RegisterNative(GetJniDlsymLookupStub(), false);
+  SetEntryPointFromJni(GetJniDlsymLookupStub());
 }
 
 bool ArtMethod::IsOverridableByDefaultMethod() {
