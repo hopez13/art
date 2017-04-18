@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "403b7c1d_dc9af126",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-18T21:20:03Z",
+      "side": 1,
+      "message": "Is there a reason for a define instead of a constexpr (to avoid bitrot)?",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "5ed0e1d7b149c6670feecaf9604c10c8ad5576ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
