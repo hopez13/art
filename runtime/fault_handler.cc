@@ -21,6 +21,7 @@
 #include <sys/ucontext.h>
 
 #include "art_method-inl.h"
+#include "base/safe_copy.h"
 #include "base/stl_util.h"
 #include "mirror/class.h"
 #include "oat_quick_method_header.h"
@@ -41,6 +42,49 @@ extern "C" __attribute__((visibility("default"))) void art_sigsegv_fault() {
 static bool art_fault_handler(int sig, siginfo_t* info, void* context) {
   return fault_manager.HandleFault(sig, info, context);
 }
+
+#if defined(__linux__)
+static mirror::Class* SafeGetDeclaringClass(ArtMethod* method) {
+  char* method_declaring_class = reinterpret_cast<char*>(method) +
+                                 ArtMethod::DeclaringClassOffset().SizeValue();
+
+  mirror::Class* cls;
+  ssize_t rc = SafeCopy(&cls, method_declaring_class, sizeof(cls));
+  CHECK_NE(-1, rc);
+  if (rc != sizeof(cls)) {
+    return nullptr;
+  }
+  return cls;
+}
+
+static mirror::Class* SafeGetClass(mirror::Object* obj) {
+  char* obj_cls = reinterpret_cast<char*>(obj) + mirror::Object::ClassOffset().SizeValue();
+  mirror::Class* cls;
+  ssize_t rc = SafeCopy(&cls, obj_cls, sizeof(cls));
+  CHECK_NE(-1, rc);
+  if (rc != sizeof(cls)) {
+    return nullptr;
+  }
+
+  return cls;
+}
+
+static bool SafeVerifyClassClass(mirror::Class* cls) {
+  mirror::Class* c_c = SafeGetClass(cls);
+  return c_c != nullptr && c_c == SafeGetClass(c_c);
+}
+
+#else
+
+static mirror::Class* SafeGetDeclaringClass(ArtMethod* method_obj) {
+  return method_obj->GetDeclaringClassUnchecked<kWithoutReadBarrier>();
+}
+
+static bool SafeVerifyClassClass(ArtClass* cls) {
+  return VerifyClassClass(cls);
+}
+#endif
+
 
 FaultManager::FaultManager() : initialized_(false) {
   sigaction(SIGSEGV, nullptr, &oldaction_);
@@ -193,18 +237,18 @@ bool FaultManager::IsInGeneratedCode(siginfo_t* siginfo, void* context, bool che
   // Check that the class pointer inside the object is not null and is aligned.
   // TODO: Method might be not a heap address, and GetClass could fault.
   // No read barrier because method_obj may not be a real object.
-  mirror::Class* cls = method_obj->GetDeclaringClassUnchecked<kWithoutReadBarrier>();
+  mirror::Class* cls = SafeGetDeclaringClass(method_obj);
   if (cls == nullptr) {
     VLOG(signals) << "not a class";
     return false;
   }
+
   if (!IsAligned<kObjectAlignment>(cls)) {
     VLOG(signals) << "not aligned";
     return false;
   }
 
-
-  if (!VerifyClassClass(cls)) {
+  if (!SafeVerifyClassClass(cls)) {
     VLOG(signals) << "not a class class";
     return false;
   }
