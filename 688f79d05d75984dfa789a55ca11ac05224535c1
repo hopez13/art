@@ -22,6 +22,64 @@
       "revId": "688f79d05d75984dfa789a55ca11ac05224535c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed2c1e42_c7dbf27d",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-18T10:53:58Z",
+      "side": 1,
+      "message": "What about valgrind and reading uninitialized values?",
+      "parentUuid": "32c6ac85_8c72b4de",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 5
+      },
+      "revId": "688f79d05d75984dfa789a55ca11ac05224535c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39c1265a_bc33d948",
+        "filename": "runtime/base/safe_copy_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-18T10:53:58Z",
+      "side": 1,
+      "message": "Disable if not linux.",
+      "revId": "688f79d05d75984dfa789a55ca11ac05224535c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6048ee08_de131cba",
+        "filename": "runtime/base/safe_copy_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-18T10:53:58Z",
+      "side": 1,
+      "message": "munmap()?",
+      "revId": "688f79d05d75984dfa789a55ca11ac05224535c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
