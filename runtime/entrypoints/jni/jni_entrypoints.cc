@@ -46,7 +46,8 @@ extern "C" void* artFindNativeMethod(Thread* self) {
   } else {
     // Register so that future calls don't come here
     method->RegisterNative(native_code, false);
-    return native_code;
+    // Pull out of the method itself in case the loading got hooked and modified.
+    return method->GetEntryPointFromJni();
   }
 }
 
