@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2f911c7a_97079cd4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:34:49Z",
+      "side": 1,
+      "message": "The problem is if I remove the constructor fences, it will mutate the instruction uses.\n\nWhat is the guarantee then regarding mutating it while also iterating over it? Usually such things are perhaps an error?\n\nIs there other code that does the same thing elsewhere?",
+      "parentUuid": "5d2950b0_fae1290a",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2156affd_8a51b656",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -130,6 +154,30 @@
       "writtenOn": "2017-04-18T12:44:47Z",
       "side": 1,
       "message": "Drop, that\u0027s NewArray, which you don\u0027t put fences on.",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88ba7e17_52d0ad48",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:34:49Z",
+      "side": 1,
+      "message": "My next CL will add fences for newArray.\n\nRemove in this CL, and re-add in next CL?",
+      "parentUuid": "2156affd_8a51b656",
       "range": {
         "startLine": 585,
         "startChar": 0,
@@ -200,6 +248,30 @@
       "writtenOn": "2017-04-18T12:44:47Z",
       "side": 1,
       "message": "Please set it when building the graph, I currently don\u0027t see the value of infering it.",
+      "range": {
+        "startLine": 534,
+        "startChar": 2,
+        "endLine": 536,
+        "endChar": 44
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0909600_a1ebea2f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:34:49Z",
+      "side": 1,
+      "message": "Apologies, I misunderstood the \"cache the this pointer\" request. I\u0027ll fix this.",
+      "parentUuid": "88b65b69_cbe5a5a6",
       "range": {
         "startLine": 534,
         "startChar": 2,
