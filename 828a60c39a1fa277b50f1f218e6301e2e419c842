@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1a4c11f_34a8f781",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-18T10:25:10Z",
+      "side": 1,
+      "message": "Nit: Other uses of WARN_UNUSED in the ART code base seem to always place that macro after the closing parenthesis (i.e., between line 247 and 248 in this case).",
+      "range": {
+        "startLine": 243,
+        "startChar": 2,
+        "endLine": 243,
+        "endChar": 13
+      },
+      "revId": "828a60c39a1fa277b50f1f218e6301e2e419c842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
