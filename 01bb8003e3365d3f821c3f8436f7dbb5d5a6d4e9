@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "864abb71_4b1b010d",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T17:48:55Z",
+      "side": 1,
+      "message": "it\u0027s ok. I made the comment before getting to that part",
+      "parentUuid": "783eb634_75ebeafc",
+      "range": {
+        "startLine": 601,
+        "startChar": 9,
+        "endLine": 601,
+        "endChar": 24
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8e34332_071d8230",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 4
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "cde01562_80392e15",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T17:48:55Z",
+      "side": 1,
+      "message": "It is a different behavior because for userdebug builds this path will never be taken and it\u0027s a functional path. In user builds you may return the cache value right away while in userdebug the value is always recomputed.\n\nwhat you want to do is\n\nif (cache_value ... ) { \n  if (kIsDebug...) { extra verification }\n  return cache_value}\nelse { recompute and return );",
+      "parentUuid": "84a3ab22_f357c25f",
+      "range": {
+        "startLine": 531,
+        "startChar": 52,
+        "endLine": 531,
+        "endChar": 65
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88b65b69_cbe5a5a6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -319,6 +367,30 @@
       "side": 1,
       "message": "Honestly I don\u0027t know, but I tried using the first one blindly and it would DCHECK-fail that every time.\n\nShould I add a test for this somehow/somewhere? Please advise.",
       "parentUuid": "c82dc2b6_2f43ef54",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 539,
+        "endChar": 63
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6a6c57d_f3616be1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T17:48:55Z",
+      "side": 1,
+      "message": "If a DCHECK was failing you can trace the method and add a checker test extracted from that method.\n\nYou can dump the CFG of any method to help you with that by using kStringFilter in optimizing_compiler.cc. (you could also manually try to dump it but it\u0027s too much of a hassle imo)",
+      "parentUuid": "731b6591_f40cbe98",
       "range": {
         "startLine": 538,
         "startChar": 2,
@@ -436,6 +508,30 @@
       "side": 1,
       "message": "I don\u0027t know if that would be correct?\n\nRemoveEnvironmentUses(this) is static and can\u0027t be accessed from that file.\n\nAlso inputs_ is private and can\u0027t be accessed from that file.",
       "parentUuid": "ab0657b6_d48d193d",
+      "range": {
+        "startLine": 1215,
+        "startChar": 36,
+        "endLine": 1215,
+        "endChar": 51
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75261172_c631fbf8",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T17:48:55Z",
+      "side": 1,
+      "message": "Right... hmm, I think it\u0027s ok to keep it here then.",
+      "parentUuid": "9b5ceede_e3b956be",
       "range": {
         "startLine": 1215,
         "startChar": 36,
