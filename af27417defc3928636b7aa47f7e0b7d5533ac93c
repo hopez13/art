@@ -22,6 +22,30 @@
       "revId": "af27417defc3928636b7aa47f7e0b7d5533ac93c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29f77336_ce93fccc",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-04-18T16:07:27Z",
+      "side": 1,
+      "message": "Thanks Roland for catching this.\n\nIsn\u0027t there a lint check or something in ART (or repohooks) that would catch this ?",
+      "parentUuid": "78e28fc8_25eb086e",
+      "range": {
+        "startLine": 1259,
+        "startChar": 0,
+        "endLine": 1259,
+        "endChar": 104
+      },
+      "revId": "af27417defc3928636b7aa47f7e0b7d5533ac93c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
