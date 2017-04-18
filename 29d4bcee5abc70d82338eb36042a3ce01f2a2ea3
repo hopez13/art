@@ -22,6 +22,30 @@
       "revId": "29d4bcee5abc70d82338eb36042a3ce01f2a2ea3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c22e17a_76db1342",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-04-18T22:37:17Z",
+      "side": 1,
+      "message": "I was thinking about this at first, but I decided against it. The slowdown should be nonexistent, but adding (well, ceasing to remove) spurious crashes to debug builds seemed like a bad idea.",
+      "parentUuid": "f46d53c3_1bab0f3b",
+      "range": {
+        "startLine": 50,
+        "startChar": 34,
+        "endLine": 50,
+        "endChar": 39
+      },
+      "revId": "29d4bcee5abc70d82338eb36042a3ce01f2a2ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
