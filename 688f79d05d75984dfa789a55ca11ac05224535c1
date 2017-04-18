@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b2d512fe_e1c78979",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-18T15:16:10Z",
+      "side": 1,
+      "message": "Then the check needs to be duplicated for all pc increments below (or just memset the buffer to zero).",
+      "parentUuid": "ed2c1e42_c7dbf27d",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 5
+      },
+      "revId": "688f79d05d75984dfa789a55ca11ac05224535c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39c1265a_bc33d948",
         "filename": "runtime/base/safe_copy_test.cc",
         "patchSetId": 1
