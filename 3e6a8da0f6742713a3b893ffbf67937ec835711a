@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d096f6c_03fb8472",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T12:11:45Z",
+      "side": 1,
+      "message": "4 longs?",
+      "range": {
+        "startLine": 369,
+        "startChar": 16,
+        "endLine": 369,
+        "endChar": 18
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef6229b0_d5f8776c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T12:11:45Z",
+      "side": 1,
+      "message": "This should really be handled by the instruction simplifier, changing the type to the unsigned version.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 3
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62760b66_613e4381",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T12:11:45Z",
+      "side": 1,
+      "message": "What about HUshr? For unsigned arithmentic, \"\u003e\u003e\u003e\" makes more sense.",
+      "range": {
+        "startLine": 1174,
+        "startChar": 6,
+        "endLine": 1174,
+        "endChar": 26
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c153fd02_1cc107e2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T12:11:45Z",
+      "side": 1,
+      "message": "So the \"+1\" must be last?\n\n  (a+b)+1 OK\n  (a+1)+b not recognized",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1181,
+        "endChar": 5
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "534e6953_b74f7922",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T12:11:45Z",
+      "side": 1,
+      "message": "I think we should really extend the types that the compiler understands instead of entrenching this kind of hacks.",
+      "range": {
+        "startLine": 352,
+        "startChar": 17,
+        "endLine": 352,
+        "endChar": 33
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77007022_ee8ef050",
+        "filename": "test/646-checker-hadd-byte/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T12:11:45Z",
+      "side": 1,
+      "message": "Why not M?",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 18
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ba4cba4_5953c1b5",
+        "filename": "test/646-checker-hadd-byte/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T12:11:45Z",
+      "side": 1,
+      "message": "More tests relying on the LICM? (sget-object)",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 8
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b81e1eac_5c4ba89c",
+        "filename": "test/646-checker-hadd-char/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T12:11:45Z",
+      "side": 1,
+      "message": "This could be eliminated by InstructionSimplifierVisitor.",
+      "range": {
+        "startLine": 58,
+        "startChar": 31,
+        "endLine": 58,
+        "endChar": 54
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
