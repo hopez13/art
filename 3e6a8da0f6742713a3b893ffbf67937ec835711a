@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "8a432779_d4d6f760",
+        "filename": "test/646-checker-hadd-byte/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:32:49Z",
+      "side": 1,
+      "message": "Can you explain why? We have LICM, why can\u0027t we rely on that (many other tests are doing exactly this?)",
+      "parentUuid": "6ae302ff_85bd2421",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 8
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b81e1eac_5c4ba89c",
         "filename": "test/646-checker-hadd-char/src/Main.java",
         "patchSetId": 6
@@ -414,6 +438,30 @@
       "side": 1,
       "message": "Even without that because of the limited range of \"char\".",
       "parentUuid": "72534be8_831503eb",
+      "range": {
+        "startLine": 58,
+        "startChar": 31,
+        "endLine": 58,
+        "endChar": 54
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9a626c8_74dea4e4",
+        "filename": "test/646-checker-hadd-char/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:32:49Z",
+      "side": 1,
+      "message": "Oh yes, sorry. This was the test case where I make sure the idiom is still recognized when an unnecessary and is performed. I guess you are saying that you don\u0027t want to test the pattern here since we may remove it with an already now valid transformation. Sounds fair.",
+      "parentUuid": "85a8b16e_06352f6e",
       "range": {
         "startLine": 58,
         "startChar": 31,
