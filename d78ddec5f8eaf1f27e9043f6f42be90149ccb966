@@ -146,6 +146,57 @@
       "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "176de863_71bc63e6",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T20:55:44Z",
+      "side": 1,
+      "message": "I don\u0027t see calls to RegisterNative, how is that being tested?",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6410ccd6_6ae24797",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T20:55:44Z",
+      "side": 1,
+      "message": "Is it supposed to be registered somewhere? How is it finding it?",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "334957d9_ccff1108",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T20:55:44Z",
+      "side": 1,
+      "message": "Is this supporting @FastNative/@CriticalNative or isnt it? Its not clear.",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
