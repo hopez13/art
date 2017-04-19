@@ -141,6 +141,30 @@
       "revId": "29d4bcee5abc70d82338eb36042a3ce01f2a2ea3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6991393a_e8f07d1d",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-04-19T17:53:01Z",
+      "side": 1,
+      "message": "Yep, deleted.",
+      "parentUuid": "2a970f43_bf23d69a",
+      "range": {
+        "startLine": 270,
+        "startChar": 2,
+        "endLine": 270,
+        "endChar": 72
+      },
+      "revId": "29d4bcee5abc70d82338eb36042a3ce01f2a2ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
