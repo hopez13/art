@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "6ae302ff_85bd2421",
+        "filename": "test/646-checker-hadd-byte/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:28:34Z",
+      "side": 1,
+      "message": "I\u0027d still prefer reading the fields (bo, b1, b2) into local variables before the loop. In this case, before the min_length calculation.",
+      "parentUuid": "38f8651c_ff687c3c",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 8
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b81e1eac_5c4ba89c",
         "filename": "test/646-checker-hadd-char/src/Main.java",
         "patchSetId": 6
@@ -366,6 +390,30 @@
       "side": 1,
       "message": "yes, as soon as we have a way to expressing zero extension",
       "parentUuid": "b81e1eac_5c4ba89c",
+      "range": {
+        "startLine": 58,
+        "startChar": 31,
+        "endLine": 58,
+        "endChar": 54
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85a8b16e_06352f6e",
+        "filename": "test/646-checker-hadd-char/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:28:34Z",
+      "side": 1,
+      "message": "Even without that because of the limited range of \"char\".",
+      "parentUuid": "72534be8_831503eb",
       "range": {
         "startLine": 58,
         "startChar": 31,
