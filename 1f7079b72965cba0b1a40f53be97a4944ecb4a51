@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4fc8b28d_c53a5100",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-19T16:36:58Z",
+      "side": 1,
+      "message": "dex2oat could have failed and I hope apps would have been prepared for the scenario. Not a great pro argument though :). Also, the compat here might already be affected by vdex (e.g. assuming that apps expect a single file as the interface suggests) \n\nThe issue is a bit similar with not compiling into the optimize directory with BaseDexClassCloader. The difference is, here we get an actual explicit end location.",
+      "parentUuid": "ad4fda99_1cda4c66",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "1f7079b72965cba0b1a40f53be97a4944ecb4a51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80d4c503_8937f5ad",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
