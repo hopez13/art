@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afd8502d_5c3fceea",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-19T16:56:06Z",
+      "side": 1,
+      "message": "You touch it, you fix it?\n\nRemove kAccFastNative, maybe?",
+      "range": {
+        "startLine": 394,
+        "startChar": 2,
+        "endLine": 394,
+        "endChar": 48
+      },
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
