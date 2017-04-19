@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "bae13bff_5269b376",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T16:45:50Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "f5f88a07_8d649039",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 7
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3291e0f_63b8d8ab",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T16:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13b520c4_0fc0dac3",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 8
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6fd88fe3_db304c8e",
         "filename": "test/986-native-method-bind/info.txt",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-04-19T16:33:12Z",
       "side": 1,
       "message": "native method binding, I think.",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 20
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c77e88f_859c977a",
+        "filename": "test/986-native-method-bind/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T16:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fd88fe3_db304c8e",
       "range": {
         "startLine": 1,
         "startChar": 12,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d507b470_e953b990",
+        "filename": "test/986-native-method-bind/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T16:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61748b8d_bec6aa45",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9e319e4_430897cb",
         "filename": "test/986-native-method-bind/src/art/Test986.java",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2017-04-19T16:33:12Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdcebe8a_64ecd470",
+        "filename": "test/986-native-method-bind/src/art/Test986.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T16:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9e319e4_430897cb",
       "range": {
         "startLine": 2,
         "startChar": 17,
