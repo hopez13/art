@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "572941f1_931f06f7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-19T09:35:56Z",
+      "side": 1,
+      "message": "I think there was, but now that we changed these lists to stl, I can\u0027t recall where :(\n\nCan you use std::remove_if?",
+      "parentUuid": "2f911c7a_97079cd4",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2156affd_8a51b656",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
