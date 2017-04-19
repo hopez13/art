@@ -22,6 +22,30 @@
       "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18c3268c_b00e11f1",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T16:58:19Z",
+      "side": 1,
+      "message": "You cannot unregister fast-native functions.\n\nThe CHECK 2 lines above makes sure of that.",
+      "parentUuid": "afd8502d_5c3fceea",
+      "range": {
+        "startLine": 394,
+        "startChar": 2,
+        "endLine": 394,
+        "endChar": 48
+      },
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
