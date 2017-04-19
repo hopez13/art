@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0795644c_5dcf704a",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T18:34:21Z",
+      "side": 1,
+      "message": "constexpr over const whenever possible, I think that might even unroll the loop in L1676?",
+      "parentUuid": "b7b578af_02a6d849",
+      "range": {
+        "startLine": 1670,
+        "startChar": 2,
+        "endLine": 1670,
+        "endChar": 12
+      },
+      "revId": "1fab9046d7d2973990cf2762390e6b49a1e3db11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "067ae5fd_2167d54f",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 8
@@ -88,6 +112,23 @@
         "endLine": 1693,
         "endChar": 23
       },
+      "revId": "1fab9046d7d2973990cf2762390e6b49a1e3db11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02737a7a_cbf1f50c",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T18:34:21Z",
+      "side": 1,
+      "message": "Please include a comment about deterministic placement of not executed followed by executed (and why)",
       "revId": "1fab9046d7d2973990cf2762390e6b49a1e3db11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
