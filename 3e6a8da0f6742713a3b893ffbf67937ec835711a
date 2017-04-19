@@ -379,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "0e496acd_593e9596",
+        "filename": "test/646-checker-hadd-byte/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:54:10Z",
+      "side": 1,
+      "message": "Unit tests are supposed to have as few dependencies as possible. Otherwise they start to look more like integration tests.",
+      "parentUuid": "8a432779_d4d6f760",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 8
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b81e1eac_5c4ba89c",
         "filename": "test/646-checker-hadd-char/src/Main.java",
         "patchSetId": 6
