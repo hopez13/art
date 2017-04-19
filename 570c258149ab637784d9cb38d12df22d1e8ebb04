@@ -99,6 +99,30 @@
       "revId": "570c258149ab637784d9cb38d12df22d1e8ebb04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2748aa02_fd9b0657",
+        "filename": "test/646-checker-hadd-alt-byte/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T17:12:15Z",
+      "side": 1,
+      "message": "In that case, add a comment just below \"Test halving add idioms\" to explain the discrepancy between the \u003e\u003e\u003e in tested functions and \u003e\u003e in expectations.",
+      "parentUuid": "d00bc9f6_4f6a6481",
+      "range": {
+        "startLine": 202,
+        "startChar": 41,
+        "endLine": 202,
+        "endChar": 43
+      },
+      "revId": "570c258149ab637784d9cb38d12df22d1e8ebb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
