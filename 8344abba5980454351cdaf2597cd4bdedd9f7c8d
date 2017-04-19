@@ -324,6 +324,24 @@
     },
     {
       "key": {
+        "uuid": "281b03d5_7ee7a1c1",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T09:25:15Z",
+      "side": 1,
+      "message": "Renamed to baker_custom_value1_. The LinkerPatch is not supposed to know architecture-specific stuff.",
+      "parentUuid": "4e671ac7_4a018bbc",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7da93837_22e63cb6",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 27
@@ -476,6 +494,24 @@
       "writtenOn": "2017-04-18T16:02:05Z",
       "side": 1,
       "message": "purpose?",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a95604e9_e60340f5",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T09:25:15Z",
+      "side": 1,
+      "message": "Pad to the same size as RawThunkParams.",
+      "parentUuid": "8eb54d54_bf790ce1",
       "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -2150,6 +2186,24 @@
       "writtenOn": "2017-04-18T16:02:05Z",
       "side": 1,
       "message": "+2 indentation",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "468db198_c9afef3b",
+        "filename": "test/160-read-barrier-stress/src/Main.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T09:25:15Z",
+      "side": 1,
+      "message": "We\u0027re not very consistent but we usually use 4-space indentation in .java files.",
+      "parentUuid": "d303ed58_1470fd34",
       "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
