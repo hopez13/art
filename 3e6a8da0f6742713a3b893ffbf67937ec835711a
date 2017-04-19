@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d5c4b896_52ca8b92",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:10:01Z",
+      "side": 1,
+      "message": "Ah yes. An even wider vector :-)\n\nRemoved the int/long cases for now (also per Artem\u0027s feedback).",
+      "parentUuid": "9d096f6c_03fb8472",
+      "range": {
+        "startLine": 369,
+        "startChar": 16,
+        "endLine": 369,
+        "endChar": 18
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef6229b0_d5f8776c",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-19T12:11:45Z",
       "side": 1,
       "message": "This should really be handled by the instruction simplifier, changing the type to the unsigned version.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 3
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b27fc8a_554ab2ca",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:10:01Z",
+      "side": 1,
+      "message": "Even if we would extend our type system to express zero and sign extension properly, this would only simplify parts of this method, since we still want to test if operands behave correctly with zero/sign extension in narrower format. A lot of other idioms will build on these two building blocks, so I would really like to proceed with this (and will be more than happy to adapt again when we do the type changes; it won\u0027t impact the parts in the vectorizer itself below).",
+      "parentUuid": "ef6229b0_d5f8776c",
       "range": {
         "startLine": 153,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "04beef71_a8d17b7f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:10:01Z",
+      "side": 1,
+      "message": "As usual, sharp eye. This particular idiom works for both \u003e\u003e and \u003e\u003e\u003e, regardless of sign/zero ext in the final instruction. I was going to add that one case later, since it requires double the tests, but since you asked, did it in this CL.",
+      "parentUuid": "62760b66_613e4381",
+      "range": {
+        "startLine": 1174,
+        "startChar": 6,
+        "endLine": 1174,
+        "endChar": 26
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c153fd02_1cc107e2",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-19T12:11:45Z",
       "side": 1,
       "message": "So the \"+1\" must be last?\n\n  (a+b)+1 OK\n  (a+1)+b not recognized",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1181,
+        "endChar": 5
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95fc8c7e_86865804",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:10:01Z",
+      "side": 1,
+      "message": "Yes, agreed, this was a bit quick through the corner to get the demo for Google IO working. I should really account for associativity and commutativity",
+      "parentUuid": "c153fd02_1cc107e2",
       "range": {
         "startLine": 1178,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9b75a373_410faf4d",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:10:01Z",
+      "side": 1,
+      "message": "Well, I admit there is a certain hackery involved with idioms, but unless we plan to extend the type system with *narrow* data types, we need to have idioms for all these cases (as reflected by having low level instructions for each).",
+      "parentUuid": "534e6953_b74f7922",
+      "range": {
+        "startLine": 352,
+        "startChar": 17,
+        "endLine": 352,
+        "endChar": 33
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77007022_ee8ef050",
         "filename": "test/646-checker-hadd-byte/src/Main.java",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2017-04-19T12:11:45Z",
       "side": 1,
       "message": "Why not M?",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 18
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5404cabb_eb08ecae",
+        "filename": "test/646-checker-hadd-byte/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:10:01Z",
+      "side": 1,
+      "message": "This way BCE kicks in, making the intermediate I was looking at a bit easier (would not matter for the pattern though).",
+      "parentUuid": "77007022_ee8ef050",
       "range": {
         "startLine": 46,
         "startChar": 8,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "38f8651c_ff687c3c",
+        "filename": "test/646-checker-hadd-byte/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:10:01Z",
+      "side": 1,
+      "message": "That\u0027s why we have it",
+      "parentUuid": "4ba4cba4_5953c1b5",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 8
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b81e1eac_5c4ba89c",
         "filename": "test/646-checker-hadd-char/src/Main.java",
         "patchSetId": 6
@@ -174,6 +342,30 @@
       "writtenOn": "2017-04-19T12:11:45Z",
       "side": 1,
       "message": "This could be eliminated by InstructionSimplifierVisitor.",
+      "range": {
+        "startLine": 58,
+        "startChar": 31,
+        "endLine": 58,
+        "endChar": 54
+      },
+      "revId": "3e6a8da0f6742713a3b893ffbf67937ec835711a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72534be8_831503eb",
+        "filename": "test/646-checker-hadd-char/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-19T15:10:01Z",
+      "side": 1,
+      "message": "yes, as soon as we have a way to expressing zero extension",
+      "parentUuid": "b81e1eac_5c4ba89c",
       "range": {
         "startLine": 58,
         "startChar": 31,
