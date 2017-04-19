@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "c218791c_98a06995",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T21:21:16Z",
+      "side": 1,
+      "message": "After looking at everything JNI-specific this seems like the only genuine change that needed to happen.",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8954b4e7_820e2301",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T21:21:16Z",
+      "side": 1,
+      "message": "Doing it this way removed the CHECK(native_method !\u003d nullptr) which should be put back in",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afd8502d_5c3fceea",
         "filename": "runtime/art_method.cc",
         "patchSetId": 5
@@ -97,6 +131,23 @@
     },
     {
       "key": {
+        "uuid": "50dca658_2dd2e289",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T21:21:16Z",
+      "side": 1,
+      "message": "This change to return a void* seems unnecessary.. calling GetEntryPointFromJni seems perfectly fine.",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00da10f6_c8960c12",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
@@ -108,6 +159,29 @@
       "writtenOn": "2017-04-19T20:45:05Z",
       "side": 1,
       "message": "Comments?",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0a8026f_c76b95c5",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T21:21:16Z",
+      "side": 1,
+      "message": "These changes seem gratuitous and inconsistent\n\nconst void* in some places, void const* other places.",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 16
+      },
       "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -143,6 +217,47 @@
       "side": 1,
       "message": "agampe@ asked for the function to be marked as WARN_UNUSED but here we don\u0027t need to do anything with it.",
       "parentUuid": "bcc7c134_8756de36",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351f423d_b12a86c1",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2281,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T21:21:16Z",
+      "side": 1,
+      "message": "I think the intentions here were good but this RegisterNative is only called in 3 places (2 with your CL)",
+      "parentUuid": "c38680d5_93da156d",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff95d9ea_a2203ea5",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T21:21:16Z",
+      "side": 1,
+      "message": "nit: Copying the callback? Seems unnecessary.",
+      "range": {
+        "startLine": 206,
+        "startChar": 6,
+        "endLine": 206,
+        "endChar": 10
+      },
       "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
