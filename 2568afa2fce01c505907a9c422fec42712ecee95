@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5f88a07_8d649039",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-19T16:25:17Z",
+      "side": 1,
+      "message": "const void*\n\nAlso please add WARN_UNUSED.",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 7
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
