@@ -22,6 +22,98 @@
       "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b520c4_0fc0dac3",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-19T16:33:12Z",
+      "side": 1,
+      "message": "This is cryptic.  What does it return?  A comment, please.",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 8
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fd88fe3_db304c8e",
+        "filename": "test/986-native-method-bind/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-19T16:33:12Z",
+      "side": 1,
+      "message": "native method binding, I think.",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 20
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61748b8d_bec6aa45",
+        "filename": "test/986-native-method-bind/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-19T16:33:12Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9e319e4_430897cb",
+        "filename": "test/986-native-method-bind/src/art/Test986.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-19T16:33:12Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "2568afa2fce01c505907a9c422fec42712ecee95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
