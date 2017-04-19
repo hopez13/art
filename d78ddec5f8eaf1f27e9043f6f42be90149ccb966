@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "269bcb73_c2b20fc4",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T20:48:34Z",
+      "side": 1,
+      "message": "Just setting the method back to having no bound implementation.",
+      "parentUuid": "a334a088_cfb82bd0",
+      "range": {
+        "startLine": 394,
+        "startChar": 2,
+        "endLine": 394,
+        "endChar": 48
+      },
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00da10f6_c8960c12",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
@@ -101,6 +125,24 @@
       "writtenOn": "2017-04-19T20:45:05Z",
       "side": 1,
       "message": "Why?",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c38680d5_93da156d",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2281,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T20:48:34Z",
+      "side": 1,
+      "message": "agampe@ asked for the function to be marked as WARN_UNUSED but here we don\u0027t need to do anything with it.",
+      "parentUuid": "bcc7c134_8756de36",
       "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
