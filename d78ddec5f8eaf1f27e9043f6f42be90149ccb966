@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7b548320_92552c96",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T21:33:26Z",
+      "side": 1,
+      "message": "The spec specifically mentions that unloads aren\u0027t sent so we also needed the change to Unregister.",
+      "parentUuid": "7aa0cb5e_8474e4f1",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8954b4e7_820e2301",
         "filename": "runtime/art_method.cc",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2017-04-19T21:21:16Z",
       "side": 1,
       "message": "Doing it this way removed the CHECK(native_method !\u003d nullptr) which should be put back in",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f228338c_4ebd72a0",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T21:33:26Z",
+      "side": 1,
+      "message": "JniDLsymLookupStub can never be null.",
+      "parentUuid": "8954b4e7_820e2301",
       "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -166,6 +202,24 @@
     },
     {
       "key": {
+        "uuid": "74a0b0b2_1f7b22de",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T21:33:26Z",
+      "side": 1,
+      "message": "ngeoffray disagrees.",
+      "parentUuid": "50dca658_2dd2e289",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00da10f6_c8960c12",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
@@ -194,6 +248,30 @@
       "writtenOn": "2017-04-19T21:21:16Z",
       "side": 1,
       "message": "These changes seem gratuitous and inconsistent\n\nconst void* in some places, void const* other places.",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30bf3858_d3754b8f",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T21:33:26Z",
+      "side": 1,
+      "message": "const differs slightly for declarations and variables meaning we needed to switch them.",
+      "parentUuid": "e0a8026f_c76b95c5",
       "range": {
         "startLine": 28,
         "startChar": 11,
@@ -299,6 +377,24 @@
     },
     {
       "key": {
+        "uuid": "52d9ba20_7f4a5487",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T21:33:26Z",
+      "side": 1,
+      "message": "That is called by calling BindAgentJNIForClass in the Test986.java file.",
+      "parentUuid": "176de863_71bc63e6",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6410ccd6_6ae24797",
         "filename": "test/986-native-method-bind/native_bind.cc",
         "patchSetId": 5
@@ -316,6 +412,24 @@
     },
     {
       "key": {
+        "uuid": "7a5dcfec_c303b95e",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T21:33:26Z",
+      "side": 1,
+      "message": "see above.",
+      "parentUuid": "6410ccd6_6ae24797",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "334957d9_ccff1108",
         "filename": "test/986-native-method-bind/native_bind.cc",
         "patchSetId": 5
@@ -327,6 +441,24 @@
       "writtenOn": "2017-04-19T20:55:44Z",
       "side": 1,
       "message": "Is this supporting @FastNative/@CriticalNative or isnt it? Its not clear.",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46849c14_351008e9",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-19T21:33:26Z",
+      "side": 1,
+      "message": "no specific support is required. It is up to the agent author to ensure that the returned function pointer matches the expected ABI",
+      "parentUuid": "334957d9_ccff1108",
       "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
