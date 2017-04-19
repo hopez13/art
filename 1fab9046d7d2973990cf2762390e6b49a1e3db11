@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0632537b_d8e37096",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-19T20:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "067ae5fd_2167d54f",
+      "range": {
+        "startLine": 1681,
+        "startChar": 6,
+        "endLine": 1681,
+        "endChar": 12
+      },
+      "revId": "1fab9046d7d2973990cf2762390e6b49a1e3db11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0df39d9_077f0dec",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 8
@@ -83,6 +107,30 @@
       "writtenOn": "2017-04-19T18:21:40Z",
       "side": 1,
       "message": "Did you actually see this \"continue\" execute?  It seems to me this is an error condition.",
+      "range": {
+        "startLine": 1688,
+        "startChar": 0,
+        "endLine": 1688,
+        "endChar": 66
+      },
+      "revId": "1fab9046d7d2973990cf2762390e6b49a1e3db11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6bf0ec4_dd0d6e63",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1688,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-19T20:05:39Z",
+      "side": 1,
+      "message": "Are you talking about line 1689 condition?\n\nThe condition makes sure that we are not making any modification to the last code item/",
+      "parentUuid": "e0df39d9_077f0dec",
       "range": {
         "startLine": 1688,
         "startChar": 0,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b359de48_44284417",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-19T20:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1503998d_d60dbdbe",
+      "range": {
+        "startLine": 1693,
+        "startChar": 7,
+        "endLine": 1693,
+        "endChar": 23
+      },
+      "revId": "1fab9046d7d2973990cf2762390e6b49a1e3db11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02737a7a_cbf1f50c",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 8
@@ -129,6 +201,24 @@
       "writtenOn": "2017-04-19T18:34:21Z",
       "side": 1,
       "message": "Please include a comment about deterministic placement of not executed followed by executed (and why)",
+      "revId": "1fab9046d7d2973990cf2762390e6b49a1e3db11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "235ee166_109a6a6c",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-19T20:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02737a7a_cbf1f50c",
       "revId": "1fab9046d7d2973990cf2762390e6b49a1e3db11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
