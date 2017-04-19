@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c9246be_34c6a7ad",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-19T08:31:02Z",
+      "side": 1,
+      "message": "Maybe just have RegisterNative return the entry point? So this method does not have to worry about such redefinition.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 42
+      },
+      "revId": "c9e09ce825155aa2b229ea57c40e7b5c15450efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
