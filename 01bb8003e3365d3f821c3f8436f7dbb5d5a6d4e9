@@ -297,6 +297,24 @@
     },
     {
       "key": {
+        "uuid": "ebcf6014_eee0f478",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T17:01:36Z",
+      "side": 1,
+      "message": "You\u0027re right, I was looking at the wrong RemoveInstruction()... in HInstructionList rather than HBasicBlock. But passing ensure_safety\u003dfalse would avoid RemoveAsUser().\n\nAnyway, keeping track of the \"before\" iterator should do the trick while being more readable and keeping more DCHECK()s.",
+      "parentUuid": "2a0c2ece_8ad09fc7",
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9334df40_9b161621",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
