@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7aa0cb5e_8474e4f1",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T21:24:12Z",
+      "side": 1,
+      "message": "There should also be a comment here to make it clear why it\u0027s actually required\n\n   // Send JVMTI_EVENT_NATIVE_METHOD_BIND (NativeMethodBind) event\n\nor similarly worded such that it both mentions jvmti and the exact names that can be searched in the specification",
+      "parentUuid": "c218791c_98a06995",
+      "revId": "d78ddec5f8eaf1f27e9043f6f42be90149ccb966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8954b4e7_820e2301",
         "filename": "runtime/art_method.cc",
         "patchSetId": 5
