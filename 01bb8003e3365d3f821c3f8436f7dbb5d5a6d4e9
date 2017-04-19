@@ -238,6 +238,47 @@
     },
     {
       "key": {
+        "uuid": "61df6885_16c3a402",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:11:43Z",
+      "side": 1,
+      "message": "Yes, please.",
+      "parentUuid": "88ba7e17_52d0ad48",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ced71841_1a8f51a7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:11:43Z",
+      "side": 1,
+      "message": "Hmm, instruction-\u003eGetUses() gives you a const list. We need access to the mutable container to do\n\n  instruction-\u003eGetUses().remove_if(\n      [](const HUseListNode\u003cHInstruction*\u003e\u0026 node) {\n        HInstruction* user \u003d node.GetUser();\n        if (user-\u003eIsConstructorFence()) {\n          user-\u003eRemoveEnvironmentUsers();\n          user-\u003eGetBlock()-\u003eRemoveInstruction(user);\n          return true;\n        } else {\n          return false;\n        }\n      });",
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9334df40_9b161621",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -592,6 +633,52 @@
     },
     {
       "key": {
+        "uuid": "8e1c8449_f85e2303",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:11:43Z",
+      "side": 1,
+      "message": "What does this have to do with inputs?\n\nThe fence has type kPrimVoid, so it cannot have any environment uses at all?",
+      "range": {
+        "startLine": 1216,
+        "startChar": 0,
+        "endLine": 1217,
+        "endChar": 32
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac43e3ff_cde76bbc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:11:43Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1220,
+        "startChar": 0,
+        "endLine": 1220,
+        "endChar": 21
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48912224_9a2d2807",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -710,6 +797,30 @@
     },
     {
       "key": {
+        "uuid": "61156c2b_a7a456f0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6551,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:11:43Z",
+      "side": 1,
+      "message": "You could override GetInputRecords() (see HLoadClass as an example) but I\u0027m not sure it\u0027s worth the effort (HLoadClass::GetInputRecords() was written before we had HVariableInputSizeInstruction).",
+      "parentUuid": "88b76b9d_4dbe7d09",
+      "range": {
+        "startLine": 6551,
+        "startChar": 39,
+        "endLine": 6551,
+        "endChar": 68
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3deecffb_e5988c4f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -789,6 +900,75 @@
         "startChar": 39,
         "endLine": 6580,
         "endChar": 60
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595b3178_b20f654c",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:11:43Z",
+      "side": 1,
+      "message": "No corresponding name in arena_allocator.cc? Please sync past https://android-review.googlesource.com/371872 and it won\u0027t build.",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 35
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f36efa0c_eee13d40",
+        "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:11:43Z",
+      "side": 1,
+      "message": "No other pass is allowed to merge the two fences if the reference does not escape in between?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 72
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65480300_75193d9d",
+        "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T15:11:43Z",
+      "side": 1,
+      "message": "Why is this here? It\u0027s separating the CHECKer statements above from the method below.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 27
       },
       "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
