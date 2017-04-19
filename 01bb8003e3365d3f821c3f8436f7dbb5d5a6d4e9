@@ -279,6 +279,24 @@
     },
     {
       "key": {
+        "uuid": "2a0c2ece_8ad09fc7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-19T16:38:54Z",
+      "side": 1,
+      "message": "I\u0027m not sure if that will quite work, RemoveInstruction will call RemoveAsUser so it will remove the use from GetUses just as this function is returning true?\n\n(plus not to mention the remove_if predicate should ideally have no side effects)\n\nI think erase_after might be the way to go here, I got some code working in isolation with intrusive_forward_list and just trying to figure out how to integrate it with the indices and raw input records now before I upload it.",
+      "parentUuid": "ced71841_1a8f51a7",
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9334df40_9b161621",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
