@@ -16,6 +16,47 @@
       "revId": "570c258149ab637784d9cb38d12df22d1e8ebb04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "369bec17_1e97b515",
+        "filename": "test/646-checker-hadd-alt-byte/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T16:47:14Z",
+      "side": 1,
+      "message": "Good enough for me.",
+      "parentUuid": "cdec7a1f_fa08db8c",
+      "revId": "570c258149ab637784d9cb38d12df22d1e8ebb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea7b86e7_8b7aee9f",
+        "filename": "test/646-checker-hadd-alt-byte/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-19T16:47:14Z",
+      "side": 1,
+      "message": "\u003e\u003e\u003e (also below and in the other \"alt\" tests)",
+      "range": {
+        "startLine": 202,
+        "startChar": 41,
+        "endLine": 202,
+        "endChar": 43
+      },
+      "revId": "570c258149ab637784d9cb38d12df22d1e8ebb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
