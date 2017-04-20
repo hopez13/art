@@ -266,6 +266,24 @@
       "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb1054_8c0f3ff0",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T17:53:31Z",
+      "side": 1,
+      "message": "part of this test is checking that BindMethods calls work. Those are done by BindAgentJNIForClass which searches for implementations with dlsym. That code doesn\u0027t know about long names.",
+      "parentUuid": "d7c5c1e5_dead827e",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
