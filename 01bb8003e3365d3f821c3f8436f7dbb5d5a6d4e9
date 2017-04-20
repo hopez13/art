@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "b68a311c_3fa384ee",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Ok this was quite tricky to figure it out because of re-entrant iterators, but it should be very efficient now.\n\nEverything is done in one pass, it uses completely O(1) memory, it is almost completely linear except for inputs having to be renumbered (which makes it O(uses_length * max_input_length) worst case) in #RemoveInputAt\n\nSince I expect the use to usually only occur in the input once (at least for variadic instructions) we can\u0027t really make it any better without changing the variable-size instruction to leave holes where inputs used to be.",
+      "parentUuid": "8b6493c1_2e1108be",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2156affd_8a51b656",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -304,6 +328,23 @@
         "endLine": 587,
         "endChar": 7
       },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "529222fc_73b9a1ad",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Moved to nodes.cc so it can be in the HConstructorFence class.",
       "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -458,6 +499,30 @@
     },
     {
       "key": {
+        "uuid": "a28f8b65_35f0833f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "726aa385_a2081aea",
+      "range": {
+        "startLine": 531,
+        "startChar": 52,
+        "endLine": 531,
+        "endChar": 65
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88b65b69_cbe5a5a6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -493,6 +558,30 @@
       "side": 1,
       "message": "Apologies, I misunderstood the \"cache the this pointer\" request. I\u0027ll fix this.",
       "parentUuid": "88b65b69_cbe5a5a6",
+      "range": {
+        "startLine": 534,
+        "startChar": 2,
+        "endLine": 536,
+        "endChar": 44
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87fa2ee_2c3057d0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0909600_a1ebea2f",
       "range": {
         "startLine": 534,
         "startChar": 2,
@@ -576,6 +665,30 @@
     },
     {
       "key": {
+        "uuid": "1edef2d3_eef9e02e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6a6c57d_f3616be1",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 539,
+        "endChar": 63
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f82bacd_b8e0c8be",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -587,6 +700,30 @@
       "writtenOn": "2017-04-13T21:19:51Z",
       "side": 1,
       "message": "I think you reversed the comments here.",
+      "range": {
+        "startLine": 566,
+        "startChar": 16,
+        "endLine": 566,
+        "endChar": 24
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb462218_fc9bd905",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f82bacd_b8e0c8be",
       "range": {
         "startLine": 566,
         "startChar": 16,
@@ -717,6 +854,30 @@
     },
     {
       "key": {
+        "uuid": "4350838d_fffb491f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75261172_c631fbf8",
+      "range": {
+        "startLine": 1215,
+        "startChar": 36,
+        "endLine": 1215,
+        "endChar": 51
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e1c8449_f85e2303",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -835,6 +996,30 @@
     },
     {
       "key": {
+        "uuid": "09f7afc2_6fc5176a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac43e3ff_cde76bbc",
+      "range": {
+        "startLine": 1220,
+        "startChar": 0,
+        "endLine": 1220,
+        "endChar": 21
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48912224_9a2d2807",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -870,6 +1055,30 @@
       "side": 1,
       "message": "Yes",
       "parentUuid": "48912224_9a2d2807",
+      "range": {
+        "startLine": 6543,
+        "startChar": 3,
+        "endLine": 6543,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21d24129_3f9e1c8f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6543,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3441673_af76152c",
       "range": {
         "startLine": 6543,
         "startChar": 3,
@@ -977,6 +1186,30 @@
     },
     {
       "key": {
+        "uuid": "9a777b24_6e913481",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6551,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30f9959c_48843212",
+      "range": {
+        "startLine": 6551,
+        "startChar": 39,
+        "endLine": 6551,
+        "endChar": 68
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3deecffb_e5988c4f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -988,6 +1221,24 @@
       "writtenOn": "2017-04-13T21:19:51Z",
       "side": 1,
       "message": "alignment is weird here.",
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17dd9a1d_ea61c183",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6561,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Fixed.\n\nSorry, writing it in a very narrow vim tab because I have like 10+  files open in one window.",
+      "parentUuid": "3deecffb_e5988c4f",
       "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1063,6 +1314,54 @@
     },
     {
       "key": {
+        "uuid": "1889505f_ba642b61",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6580,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba30b0ff_92eb7c9e",
+      "range": {
+        "startLine": 6580,
+        "startChar": 39,
+        "endLine": 6580,
+        "endChar": 60
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "967697fb_3d075eb6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6580,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a62ebff_ad4bd37b",
+      "range": {
+        "startLine": 6580,
+        "startChar": 17,
+        "endLine": 6580,
+        "endChar": 20
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595b3178_b20f654c",
         "filename": "runtime/base/arena_allocator.h",
         "patchSetId": 4
@@ -1074,6 +1373,30 @@
       "writtenOn": "2017-04-19T15:11:43Z",
       "side": 1,
       "message": "No corresponding name in arena_allocator.cc? Please sync past https://android-review.googlesource.com/371872 and it won\u0027t build.",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 35
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d0d6b96_c69ca79c",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595b3178_b20f654c",
       "range": {
         "startLine": 62,
         "startChar": 2,
@@ -1133,6 +1456,30 @@
     },
     {
       "key": {
+        "uuid": "9f9ec94c_d3b98289",
+        "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7ad0dd4_4950f1b8",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 72
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65480300_75193d9d",
         "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
         "patchSetId": 4
@@ -1168,6 +1515,30 @@
       "side": 1,
       "message": "I\u0027ll fix this. I don\u0027t think I meant to have this line added.\n\nI think it\u0027s just a stylistic issue and not a correctness issue if I\u0027m understanding correctly?",
       "parentUuid": "65480300_75193d9d",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 27
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1abf2ab3_46f7d3c3",
+        "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T23:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "724918dc_da492deb",
       "range": {
         "startLine": 131,
         "startChar": 0,
