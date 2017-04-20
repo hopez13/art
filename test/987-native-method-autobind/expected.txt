@@ -1,0 +1,10 @@
+JNI_OnLoad called
+public static native long Transform.getPointerFor(java.lang.String) not being redefined
+public static native void Transform.callOneMethod(java.lang.Class,java.lang.reflect.Method,java.lang.reflect.Method) being redefined
+Goodbye
+public static native void Transform.resetNativeImplementation() not being redefined
+public static native void Transform.callOneMethod(java.lang.Class,java.lang.reflect.Method,java.lang.reflect.Method) being redefined
+Hello
+Goodbye
+public static native void Transform.callOneMethod(java.lang.Class,java.lang.reflect.Method,java.lang.reflect.Method) not being redefined
+Hello
