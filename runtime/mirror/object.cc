@@ -281,12 +281,13 @@ std::string Object::PrettyTypeOf(ObjPtr<mirror::Object> obj) {
 }
 
 std::string Object::PrettyTypeOf() {
-  if (GetClass() == nullptr) {
+  ObjPtr<mirror::Class> klass = GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>();
+  if (klass == nullptr) {
     return "(raw)";
   }
   std::string temp;
-  std::string result(PrettyDescriptor(GetClass()->GetDescriptor(&temp)));
-  if (IsClass()) {
+  std::string result(PrettyDescriptor(klass->GetDescriptor(&temp)));
+  if (klass->IsClassClass()) {
     result += "<" + PrettyDescriptor(AsClass()->GetDescriptor(&temp)) + ">";
   }
   return result;
