@@ -22,6 +22,30 @@
       "revId": "d230a147456976165af460ae152d7739724a768e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1df06cd3_45c7159a",
+        "filename": "test/647-sinking-catch/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-20T15:39:51Z",
+      "side": 1,
+      "message": "Yes, removed.",
+      "parentUuid": "cf780e34_ffab39f1",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 13
+      },
+      "revId": "d230a147456976165af460ae152d7739724a768e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
