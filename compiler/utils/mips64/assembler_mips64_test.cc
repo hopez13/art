@@ -1970,6 +1970,50 @@ TEST_F(AssemblerMIPS64Test, LoadFpuFromOffset) {
   __ LoadFpuFromOffset(mips64::kLoadDoubleword, mips64::F0, mips64::A0, -32768);
   __ LoadFpuFromOffset(mips64::kLoadDoubleword, mips64::F0, mips64::A0, 0xABCDEF00);
 
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 0);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 1);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 2);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 4);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 8);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 511);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 512);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 513);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 514);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 516);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 1022);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 1024);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 1025);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 1026);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 1028);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 2044);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 2048);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 2049);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 2050);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 2052);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 4088);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 4096);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 4097);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 4098);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 4100);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 4104);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 0x7FFC);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 0x8000);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 0x10000);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 0x12345678);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 0x12350078);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -256);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -511);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -513);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -1022);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -1026);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -2044);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -2052);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -4096);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -4104);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, -32768);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 0xABCDEF00);
+  __ LoadFpuFromOffset(mips64::kLoadQuadword, mips64::F0, mips64::A0, 0x7FFFABCD);
+
   const char* expected =
       "lwc1 $f0, 0($a0)\n"
       "lwc1 $f0, 4($a0)\n"
@@ -2010,7 +2054,78 @@ TEST_F(AssemblerMIPS64Test, LoadFpuFromOffset) {
       "ldc1 $f0, -256($a0)\n"
       "ldc1 $f0, -32768($a0)\n"
       "daui $at, $a0, 0xABCE\n"
-      "ldc1 $f0, -0x1100($at) # 0xEF00\n";
+      "ldc1 $f0, -0x1100($at) # 0xEF00\n"
+
+      "ld.d $w0, 0($a0)\n"
+      "ld.b $w0, 1($a0)\n"
+      "ld.h $w0, 2($a0)\n"
+      "ld.w $w0, 4($a0)\n"
+      "ld.d $w0, 8($a0)\n"
+      "ld.b $w0, 511($a0)\n"
+      "ld.d $w0, 512($a0)\n"
+      "daddiu $at, $a0, 512\n"
+      "ld.b $w0, 1($at)\n"
+      "ld.h $w0, 514($a0)\n"
+      "ld.w $w0, 516($a0)\n"
+      "ld.h $w0, 1022($a0)\n"
+      "ld.d $w0, 1024($a0)\n"
+      "daddiu $at, $a0, 1024\n"
+      "ld.b $w0, 1($at)\n"
+      "daddiu $at, $a0, 1024\n"
+      "ld.h $w0, 2($at)\n"
+      "ld.w $w0, 1028($a0)\n"
+      "ld.w $w0, 2044($a0)\n"
+      "ld.d $w0, 2048($a0)\n"
+      "daddiu $at, $a0, 2048\n"
+      "ld.b $w0, 1($at)\n"
+      "daddiu $at, $a0, 2048\n"
+      "ld.h $w0, 2($at)\n"
+      "daddiu $at, $a0, 2048\n"
+      "ld.w $w0, 4($at)\n"
+      "ld.d $w0, 4088($a0)\n"
+      "daddiu $at, $a0, 4096\n"
+      "ld.d $w0, 0($at)\n"
+      "daddiu $at, $a0, 4096\n"
+      "ld.b $w0, 1($at)\n"
+      "daddiu $at, $a0, 4096\n"
+      "ld.h $w0, 2($at)\n"
+      "daddiu $at, $a0, 4096\n"
+      "ld.w $w0, 4($at)\n"
+      "daddiu $at, $a0, 4104\n"
+      "ld.d $w0, 0($at)\n"
+      "daddiu $at, $a0, 0x7FF8\n"
+      "ld.w $w0, 4($at)\n"
+      "daddiu $at, $a0, 0x7FF8\n"
+      "ld.d $w0, 8($at)\n"
+      "daui $at, $a0, 0x1\n"
+      "ld.d $w0, 0($at)\n"
+      "daui $at, $a0, 0x1234\n"
+      "daddiu $at, $at, 0x5678\n"
+      "ld.d $w0, 0($at)\n"
+      "daui $at, $a0, 0x1235\n"
+      "ld.d $w0, 0x78($at)\n"
+      "ld.d $w0, -256($a0)\n"
+      "ld.b $w0, -511($a0)\n"
+      "daddiu $at, $a0, -520\n"
+      "ld.b $w0, 7($at)\n"
+      "ld.h $w0, -1022($a0)\n"
+      "daddiu $at, $a0, -1032\n"
+      "ld.h $w0, 6($at)\n"
+      "ld.w $w0, -2044($a0)\n"
+      "daddiu $at, $a0, -2056\n"
+      "ld.w $w0, 4($at)\n"
+      "ld.d $w0, -4096($a0)\n"
+      "daddiu $at, $a0, -4104\n"
+      "ld.d $w0, 0($at)\n"
+      "daddiu $at, $a0, -32768\n"
+      "ld.d $w0, 0($at)\n"
+      "daui $at, $a0, 0xABCE\n"
+      "daddiu $at, $at, -4352 # 0xEF00\n"
+      "ld.d $w0, 0($at)\n"
+      "daui $at, $a0, 0x8000\n"
+      "dahi $at, $at, 1\n"
+      "daddiu $at, $at, -21560 # 0xABC8\n"
+      "ld.b $w0, 5($at)\n";
   DriverStr(expected, "LoadFpuFromOffset");
 }
 
@@ -2200,6 +2315,50 @@ TEST_F(AssemblerMIPS64Test, StoreFpuToOffset) {
   __ StoreFpuToOffset(mips64::kStoreDoubleword, mips64::F0, mips64::A0, -32768);
   __ StoreFpuToOffset(mips64::kStoreDoubleword, mips64::F0, mips64::A0, 0xABCDEF00);
 
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 0);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 1);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 2);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 4);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 8);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 511);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 512);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 513);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 514);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 516);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 1022);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 1024);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 1025);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 1026);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 1028);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 2044);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 2048);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 2049);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 2050);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 2052);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 4088);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 4096);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 4097);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 4098);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 4100);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 4104);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 0x7FFC);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 0x8000);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 0x10000);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 0x12345678);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 0x12350078);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -256);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -511);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -513);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -1022);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -1026);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -2044);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -2052);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -4096);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -4104);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, -32768);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 0xABCDEF00);
+  __ StoreFpuToOffset(mips64::kStoreQuadword, mips64::F0, mips64::A0, 0x7FFFABCD);
+
   const char* expected =
       "swc1 $f0, 0($a0)\n"
       "swc1 $f0, 4($a0)\n"
@@ -2240,7 +2399,78 @@ TEST_F(AssemblerMIPS64Test, StoreFpuToOffset) {
       "sdc1 $f0, -256($a0)\n"
       "sdc1 $f0, -32768($a0)\n"
       "daui $at, $a0, 0xABCE\n"
-      "sdc1 $f0, -0x1100($at)\n";
+      "sdc1 $f0, -0x1100($at)\n"
+
+      "st.d $w0, 0($a0)\n"
+      "st.b $w0, 1($a0)\n"
+      "st.h $w0, 2($a0)\n"
+      "st.w $w0, 4($a0)\n"
+      "st.d $w0, 8($a0)\n"
+      "st.b $w0, 511($a0)\n"
+      "st.d $w0, 512($a0)\n"
+      "daddiu $at, $a0, 512\n"
+      "st.b $w0, 1($at)\n"
+      "st.h $w0, 514($a0)\n"
+      "st.w $w0, 516($a0)\n"
+      "st.h $w0, 1022($a0)\n"
+      "st.d $w0, 1024($a0)\n"
+      "daddiu $at, $a0, 1024\n"
+      "st.b $w0, 1($at)\n"
+      "daddiu $at, $a0, 1024\n"
+      "st.h $w0, 2($at)\n"
+      "st.w $w0, 1028($a0)\n"
+      "st.w $w0, 2044($a0)\n"
+      "st.d $w0, 2048($a0)\n"
+      "daddiu $at, $a0, 2048\n"
+      "st.b $w0, 1($at)\n"
+      "daddiu $at, $a0, 2048\n"
+      "st.h $w0, 2($at)\n"
+      "daddiu $at, $a0, 2048\n"
+      "st.w $w0, 4($at)\n"
+      "st.d $w0, 4088($a0)\n"
+      "daddiu $at, $a0, 4096\n"
+      "st.d $w0, 0($at)\n"
+      "daddiu $at, $a0, 4096\n"
+      "st.b $w0, 1($at)\n"
+      "daddiu $at, $a0, 4096\n"
+      "st.h $w0, 2($at)\n"
+      "daddiu $at, $a0, 4096\n"
+      "st.w $w0, 4($at)\n"
+      "daddiu $at, $a0, 4104\n"
+      "st.d $w0, 0($at)\n"
+      "daddiu $at, $a0, 0x7FF8\n"
+      "st.w $w0, 4($at)\n"
+      "daddiu $at, $a0, 0x7FF8\n"
+      "st.d $w0, 8($at)\n"
+      "daui $at, $a0, 0x1\n"
+      "st.d $w0, 0($at)\n"
+      "daui $at, $a0, 0x1234\n"
+      "daddiu $at, $at, 0x5678\n"
+      "st.d $w0, 0($at)\n"
+      "daui $at, $a0, 0x1235\n"
+      "st.d $w0, 0x78($at)\n"
+      "st.d $w0, -256($a0)\n"
+      "st.b $w0, -511($a0)\n"
+      "daddiu $at, $a0, -520\n"
+      "st.b $w0, 7($at)\n"
+      "st.h $w0, -1022($a0)\n"
+      "daddiu $at, $a0, -1032\n"
+      "st.h $w0, 6($at)\n"
+      "st.w $w0, -2044($a0)\n"
+      "daddiu $at, $a0, -2056\n"
+      "st.w $w0, 4($at)\n"
+      "st.d $w0, -4096($a0)\n"
+      "daddiu $at, $a0, -4104\n"
+      "st.d $w0, 0($at)\n"
+      "daddiu $at, $a0, -32768\n"
+      "st.d $w0, 0($at)\n"
+      "daui $at, $a0, 0xABCE\n"
+      "daddiu $at, $at, -4352 # 0xEF00\n"
+      "st.d $w0, 0($at)\n"
+      "daui $at, $a0, 0x8000\n"
+      "dahi $at, $at, 1\n"
+      "daddiu $at, $at, -21560 # 0xABC8\n"
+      "st.b $w0, 5($at)\n";
   DriverStr(expected, "StoreFpuToOffset");
 }
 
