@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "42bfdbce_95cc1aff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-20T17:38:32Z",
+      "side": 1,
+      "message": "assuming the apk/dex location is\n\n..../awesome.apk \nthe backround job will generate files in\n..../oat/isa/awesome.odex\n\nThat basically corresponds to the odex location in oat file assistant and is the magic path which will be search when dex files are loaded.",
+      "parentUuid": "a5073a36_a15dbc59",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "1f7079b72965cba0b1a40f53be97a4944ecb4a51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80d4c503_8937f5ad",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
