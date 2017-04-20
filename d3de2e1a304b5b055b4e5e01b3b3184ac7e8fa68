@@ -105,6 +105,24 @@
       "revId": "d3de2e1a304b5b055b4e5e01b3b3184ac7e8fa68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b73cffc_3325ffe5",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T20:39:04Z",
+      "side": 1,
+      "message": "What does binding have to do with this bug?\n\nBug is to allow JNI native methods to be looked up from agent libraries.",
+      "parentUuid": "0ce75fd3_430ae3b0",
+      "revId": "d3de2e1a304b5b055b4e5e01b3b3184ac7e8fa68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
