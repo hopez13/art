@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "28b08366_5571c8b5",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T17:16:13Z",
+      "side": 1,
+      "message": "At the moment it is not supported.\n\nAgents should have the same ISA as the device.",
+      "parentUuid": "c0f0437b_ff7fd100",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0780c4_6341f840",
         "filename": "runtime/java_vm_ext.cc",
         "patchSetId": 2
