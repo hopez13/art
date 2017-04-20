@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "b1e44ab9_6de3e388",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T12:14:26Z",
+      "side": 1,
+      "message": "I\u0027ve added an extra test that does test the specific message.",
+      "parentUuid": "eafa566a_6fc11a9f",
+      "range": {
+        "startLine": 2606,
+        "startChar": 35,
+        "endLine": 2606,
+        "endChar": 58
+      },
+      "revId": "73eb92937948a64532cd006eb452df1fab75d92c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44c79cce_02563238",
         "filename": "test/647-jni-get-field-id/get_field_id.cc",
         "patchSetId": 1
