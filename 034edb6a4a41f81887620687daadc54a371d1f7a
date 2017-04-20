@@ -180,6 +180,24 @@
     },
     {
       "key": {
+        "uuid": "f68ee2f4_3f879aea",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T17:44:38Z",
+      "side": 1,
+      "message": "how about this:\n\n   Tooling interface (TI) support:\n\n   Look-up JNI native methods from libraries passed via -agentlib or -agentpath. Agent libraries are searched for native methods after all jni libraries.",
+      "parentUuid": "5ae4fd45_4a20f4f5",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "260f7728_1fde514b",
         "filename": "test/986-native-method-bind/native_bind.cc",
         "patchSetId": 2
@@ -227,6 +245,24 @@
       "side": 1,
       "message": "The test makes use of BindAgentJNIForClass which doesn\u0027t search for long names to do manual binding.",
       "parentUuid": "4c57ca63_42ef766e",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c5c1e5_dead827e",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T17:44:38Z",
+      "side": 1,
+      "message": "I don\u0027t understand.\n\nYou added support for both long and short name lookup, but I only see one function here so how can it be testing both?",
+      "parentUuid": "a29fe8ac_093fa855",
       "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
