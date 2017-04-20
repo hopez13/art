@@ -22,6 +22,30 @@
       "revId": "f7af4c2c85c29dae01a30eb0b426675d45b8ce1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "786063a8_b48ae373",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T18:29:47Z",
+      "side": 1,
+      "message": "we never unload agents except when the runtime is shutting down.",
+      "parentUuid": "68615e55_45ac0e14",
+      "range": {
+        "startLine": 952,
+        "startChar": 17,
+        "endLine": 952,
+        "endChar": 40
+      },
+      "revId": "f7af4c2c85c29dae01a30eb0b426675d45b8ce1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
