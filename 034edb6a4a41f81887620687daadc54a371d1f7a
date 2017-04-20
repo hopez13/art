@@ -216,6 +216,24 @@
     },
     {
       "key": {
+        "uuid": "e511b36c_6b911520",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-20T18:16:55Z",
+      "side": 1,
+      "message": "Alex, would you please work with Igor to make this a reasonable comment? Igor\u0027s point is valid that this code doesn\u0027t really say what an agent is, or why agent libraries should be searched (and why we decide to search all agents, including those attached in the live phase).\n\nWhile Igor thinks the parameters are good here, I think this comment should refer to agent.h, and we should explicitly explain our TI agent lifecycle (and parameters etc) there. In a sense, a big comment block in agent.h should be the TI agent spec, that you can reference here.\n\nIgor would like to have the words \"agent,\" \"tooling interface\" and \"TI\" in the comment. I agree with that. A two-liner explaining that we have to search all (active) agents and referring then to agent.h seems good.",
+      "parentUuid": "180000dd_aa2d10ca",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "260f7728_1fde514b",
         "filename": "test/986-native-method-bind/native_bind.cc",
         "patchSetId": 2
