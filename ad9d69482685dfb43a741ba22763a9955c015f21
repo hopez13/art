@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "676be0b0_f8435063",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T16:25:31Z",
+      "side": 1,
+      "message": "I guess. Maybe something for a follow up though.",
+      "parentUuid": "990bd7e9_98c5c8f3",
+      "range": {
+        "startLine": 935,
+        "startChar": 2,
+        "endLine": 948,
+        "endChar": 3
+      },
+      "revId": "ad9d69482685dfb43a741ba22763a9955c015f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f12fd81d_27c1863f",
         "filename": "runtime/java_vm_ext.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-20T16:22:45Z",
       "side": 1,
       "message": "Does this need to be here?",
+      "range": {
+        "startLine": 211,
+        "startChar": 1,
+        "endLine": 212,
+        "endChar": 44
+      },
+      "revId": "ad9d69482685dfb43a741ba22763a9955c015f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57e3a6e7_ffbad243",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T16:25:31Z",
+      "side": 1,
+      "message": "I suppose I could just make it a static method.",
+      "parentUuid": "f12fd81d_27c1863f",
       "range": {
         "startLine": 211,
         "startChar": 1,
