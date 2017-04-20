@@ -69,6 +69,24 @@
       "revId": "d3de2e1a304b5b055b4e5e01b3b3184ac7e8fa68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3b0da59_75ca58c0",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T19:53:26Z",
+      "side": 1,
+      "message": "I don\u0027t really understand, it\u0027s calling RegisterNatives here explicitly.\n\nI was under the impression the test would be for implicit registration.\n\nWhat am I missing here?",
+      "parentUuid": "91008ce5_e87d7f50",
+      "revId": "d3de2e1a304b5b055b4e5e01b3b3184ac7e8fa68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
