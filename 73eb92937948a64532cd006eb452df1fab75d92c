@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3976070f_5dc2d852",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-20T11:36:16Z",
+      "side": 1,
+      "message": "I would argue that making sure we don\u0027t regress and go back to giving an odd message is worth testing, but if you two think otherwise, fine with me.",
+      "parentUuid": "02fb810f_913797b8",
+      "range": {
+        "startLine": 2606,
+        "startChar": 35,
+        "endLine": 2606,
+        "endChar": 58
+      },
+      "revId": "73eb92937948a64532cd006eb452df1fab75d92c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44c79cce_02563238",
         "filename": "test/647-jni-get-field-id/get_field_id.cc",
         "patchSetId": 1
