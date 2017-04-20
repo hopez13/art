@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50de3f9a_35541d48",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-20T00:09:11Z",
+      "side": 1,
+      "message": "Why do we need this?  It re-introduces a layering problem (dependency from dex_file* on Runtime).",
+      "range": {
+        "startLine": 240,
+        "startChar": 2,
+        "endLine": 240,
+        "endChar": 78
+      },
+      "revId": "ad57a77360c3139e9d2534746a789bfdb26dc806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
