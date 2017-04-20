@@ -2802,6 +2802,85 @@ void Mips64Assembler::AdjustBaseAndOffset(GpuRegister& base,
   CHECK_EQ(misalignment, offset & (kMips64DoublewordSize - 1));
 }
 
+void Mips64Assembler::AdjustBaseOffsetAndElementSizeShift(GpuRegister& base,
+                                                          int32_t& offset,
+                                                          int32_t& element_size_shift) {
+  // This method is used to adjust the base register, offset and element_size_shift
+  // for a vector load/store when the offset doesn't fit into allowed number of bits.
+  // MSA ld.df and st.df instructions take signed offsets as arguments, but maximum
+  // offset is dependant on the size of the data format df (10-bit offsets for ld.b,
+  // 11-bit for ld.h, 12-bit for ld.w and 13-bit for ld.d).
+  // If element_size_shift is non-negative at entry, it won't be changed, but offset
+  // will be checked for appropriate alignment. If negative at entry, it will be
+  // adjusted based on offset for maximum fit.
+  // It's assumed that `base` is a multiple of 8 and we preserve the "alignment" of
+  // `offset` by adjusting it by a multiple of 8.
+
+  CHECK_NE(base, AT);  // Must not overwrite the register `base` while loading `offset`.
+
+  if (element_size_shift >= 0) {
+    CHECK_LE(element_size_shift, TIMES_8);
+    CHECK_EQ((offset >> element_size_shift) << element_size_shift, offset);
+  } else if (IsAligned<kMips64DoublewordSize>(offset)) {
+    element_size_shift = TIMES_8;
+  } else if (IsAligned<kMips64WordSize>(offset)) {
+    element_size_shift = TIMES_4;
+  } else if (IsAligned<kMips64HalfwordSize>(offset)) {
+    element_size_shift = TIMES_2;
+  } else {
+    element_size_shift = TIMES_1;
+  }
+
+  if (IsInt<13>(offset << (TIMES_8 - element_size_shift))) {
+    // Nothing to do: `offset` fits.
+    return;
+  }
+
+  // First, see if `offset` can be represented as a sum of two signed offsets.
+  // This can save an instruction.
+  constexpr int32_t kMaxDeltaForSimpleAdjustment = 0x7ff8;  // Max int16_t that's a multiple of 8.
+  const int32_t kMaxLoadStoreOffset = 0x1ff << element_size_shift;
+  const int32_t kMaxOffsetForSimpleAdjustment = kMaxDeltaForSimpleAdjustment + kMaxLoadStoreOffset;
+
+  if (IsInt<16>(offset)) {
+    int32_t delta = (offset >> TIMES_8) << TIMES_8;
+    Daddiu(AT, base, delta);
+    offset -= delta;
+  } else if (0 <= offset && offset <= kMaxOffsetForSimpleAdjustment) {
+    Daddiu(AT, base, kMaxDeltaForSimpleAdjustment);
+    offset -= kMaxDeltaForSimpleAdjustment;
+  } else if (-kMaxOffsetForSimpleAdjustment <= offset && offset < 0) {
+    Daddiu(AT, base, -kMaxDeltaForSimpleAdjustment);
+    offset += kMaxDeltaForSimpleAdjustment;
+  } else {
+    // In more complex cases take advantage of the daui instruction, e.g.:
+    //    daui   AT, base, offset_high
+    //   [dahi   AT, 1]                        // When `offset` is close to +2GB.
+    //   [daddiu AT, AT, delta]                // When `offset_low` can't fit for ld.df.
+    //    ld.df   reg, (offset_low - delta)(AT)
+    int16_t offset_low = Low16Bits(offset);
+    int16_t offset_high = High16Bits(offset);
+    bool overflow_hi16 = false;
+
+    if (offset_low < 0) {
+      offset_high++;
+      overflow_hi16 = (offset_high == -32768);
+    }
+    Daui(AT, base, offset_high);
+    if (overflow_hi16) {
+      Dahi(AT, 1);
+    }
+    if (!IsInt<13>(offset_low << (TIMES_8 - element_size_shift))) {
+      int16_t delta = (offset_low >> TIMES_8) << TIMES_8;
+      Daddiu(AT, AT, delta);
+      offset_low -= delta;
+    }
+    offset = offset_low;
+  }
+  base = AT;
+  CHECK(IsInt<13>(offset << (TIMES_8 - element_size_shift)));
+}
+
 void Mips64Assembler::LoadFromOffset(LoadOperandType type,
                                      GpuRegister reg,
                                      GpuRegister base,
