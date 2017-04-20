@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "8b6493c1_2e1108be",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T17:43:42Z",
+      "side": 1,
+      "message": "The correct reference should have been IntrusiveForwardList\u003c\u003e::remove_if() (mirroring the std::forward_list\u003c\u003e::remove_if()) but we have already discussed that below, see line 645.",
+      "parentUuid": "d768e747_5ffdcee8",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2156affd_8a51b656",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -728,6 +752,30 @@
       "side": 1,
       "message": "This function is in the base class, it can be in any type.",
       "parentUuid": "8e1c8449_f85e2303",
+      "range": {
+        "startLine": 1216,
+        "startChar": 0,
+        "endLine": 1217,
+        "endChar": 32
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b1c7693_413fc844",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T17:43:42Z",
+      "side": 1,
+      "message": "But the name is \"RemoveAllInputs()\" and that is rather misleading if we\u0027re also touching environment uses.",
+      "parentUuid": "4048b286_5e1f54f3",
       "range": {
         "startLine": 1216,
         "startChar": 0,
