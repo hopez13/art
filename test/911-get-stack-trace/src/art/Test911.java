@@ -18,11 +18,6 @@ package art;
 
 public class Test911 {
   public static void run() throws Exception {
-    Main.bindAgentJNIForClass(AllTraces.class);
-    Main.bindAgentJNIForClass(Frames.class);
-    Main.bindAgentJNIForClass(PrintThread.class);
-    Main.bindAgentJNIForClass(ThreadListTraces.class);
-
     SameThread.doTest();
 
     System.out.println();

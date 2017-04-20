@@ -22,7 +22,7 @@ From top
  bar (IIILart/ControlData;)J 0 26
  foo (IIILart/ControlData;)I 0 21
  doTest ()V 38 25
- run ()V 20 26
+ run ()V 0 21
  main ([Ljava/lang/String;)V 0 19
 ---------
  print (Ljava/lang/Thread;II)V 0 36
@@ -43,7 +43,7 @@ From top
  bar (IIILart/ControlData;)J 0 26
  foo (IIILart/ControlData;)I 0 21
  doTest ()V 42 26
- run ()V 20 26
+ run ()V 0 21
  main ([Ljava/lang/String;)V 0 19
 ---------
  getStackTrace (Ljava/lang/Thread;II)[[Ljava/lang/String; -1 -2
@@ -64,7 +64,7 @@ From bottom
  bar (IIILart/ControlData;)J 0 26
  foo (IIILart/ControlData;)I 0 21
  doTest ()V 65 32
- run ()V 20 26
+ run ()V 0 21
  main ([Ljava/lang/String;)V 0 19
 ---------
  foo (IIILart/ControlData;)I 0 21
@@ -360,7 +360,7 @@ main
  getAllStackTraces (I)[[Ljava/lang/Object; -1 -2
  printAll (I)V 0 75
  doTest ()V 128 59
- run ()V 44 38
+ run ()V 24 33
  main ([Ljava/lang/String;)V 0 19
 
 ---------
@@ -593,7 +593,7 @@ main
  getAllStackTraces (I)[[Ljava/lang/Object; -1 -2
  printAll (I)V 0 75
  doTest ()V 133 61
- run ()V 44 38
+ run ()V 24 33
  main ([Ljava/lang/String;)V 0 19
 
 
@@ -663,7 +663,7 @@ main
  getThreadListStackTraces ([Ljava/lang/Thread;I)[[Ljava/lang/Object; -1 -2
  printList ([Ljava/lang/Thread;I)V 0 68
  doTest ()V 116 54
- run ()V 52 42
+ run ()V 32 37
  main ([Ljava/lang/String;)V 0 19
 
 ---------
@@ -776,7 +776,7 @@ main
  getThreadListStackTraces ([Ljava/lang/Thread;I)[[Ljava/lang/Object; -1 -2
  printList ([Ljava/lang/Thread;I)V 0 68
  doTest ()V 121 56
- run ()V 52 42
+ run ()V 32 37
  main ([Ljava/lang/String;)V 0 19
 
 
@@ -788,7 +788,7 @@ JVMTI_ERROR_ILLEGAL_ARGUMENT
 [public static native java.lang.Object[] art.Frames.getFrameLocation(java.lang.Thread,int), ffffffff]
 [public static void art.Frames.doTestSameThread(), 38]
 [public static void art.Frames.doTest() throws java.lang.Exception, 0]
-[public static void art.Test911.run() throws java.lang.Exception, 3c]
+[public static void art.Test911.run() throws java.lang.Exception, 28]
 [public static void Main.main(java.lang.String[]) throws java.lang.Exception, 0]
 JVMTI_ERROR_NO_MORE_FRAMES
 
