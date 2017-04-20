@@ -306,10 +306,13 @@ class SuspendCheckSlowPathMIPS64 : public SlowPathCodeMIPS64 {
       : SlowPathCodeMIPS64(instruction), successor_(successor) {}
 
   void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
+    LocationSummary* locations = instruction_->GetLocations();
     CodeGeneratorMIPS64* mips64_codegen = down_cast<CodeGeneratorMIPS64*>(codegen);
     __ Bind(GetEntryLabel());
+    SaveLiveRegisters(codegen, locations);     // Only saves live vector registers for SIMD.
     mips64_codegen->InvokeRuntime(kQuickTestSuspend, instruction_, instruction_->GetDexPc(), this);
     CheckEntrypointTypes<kQuickTestSuspend, void, void>();
+    RestoreLiveRegisters(codegen, locations);  // Only restores live vector registers for SIMD.
     if (successor_ == nullptr) {
       __ Bc(GetReturnLabel());
     } else {
@@ -947,7 +950,7 @@ CodeGeneratorMIPS64::CodeGeneratorMIPS64(HGraph* graph,
       location_builder_(graph, this),
       instruction_visitor_(graph, this),
       move_resolver_(graph->GetArena(), this),
-      assembler_(graph->GetArena()),
+      assembler_(graph->GetArena(), &isa_features),
       isa_features_(isa_features),
       uint32_literals_(std::less<uint32_t>(),
                        graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
@@ -1640,13 +1643,21 @@ size_t CodeGeneratorMIPS64::RestoreCoreRegister(size_t stack_index, uint32_t reg
 }
 
 size_t CodeGeneratorMIPS64::SaveFloatingPointRegister(size_t stack_index, uint32_t reg_id) {
-  __ StoreFpuToOffset(kStoreDoubleword, FpuRegister(reg_id), SP, stack_index);
-  return kMips64DoublewordSize;
+  if (GetGraph()->HasSIMD()) {
+    __ StB(VectorRegister(reg_id), SP, stack_index);
+  } else {
+    __ StoreFpuToOffset(kStoreDoubleword, FpuRegister(reg_id), SP, stack_index);
+  }
+  return GetFloatingPointSpillSlotSize();
 }
 
 size_t CodeGeneratorMIPS64::RestoreFloatingPointRegister(size_t stack_index, uint32_t reg_id) {
-  __ LoadFpuFromOffset(kLoadDoubleword, FpuRegister(reg_id), SP, stack_index);
-  return kMips64DoublewordSize;
+  if (GetGraph()->HasSIMD()) {
+    __ LdB(VectorRegister(reg_id), SP, stack_index);
+  } else {
+    __ LoadFpuFromOffset(kLoadDoubleword, FpuRegister(reg_id), SP, stack_index);
+  }
+  return GetFloatingPointSpillSlotSize();
 }
 
 void CodeGeneratorMIPS64::DumpCoreRegister(std::ostream& stream, int reg) const {
@@ -5798,7 +5809,11 @@ void InstructionCodeGeneratorMIPS64::VisitUnresolvedStaticFieldSet(
 void LocationsBuilderMIPS64::VisitSuspendCheck(HSuspendCheck* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
-  locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
+  // In suspend check slow path, usually there are no caller-save registers at all.
+  // If SIMD instructions are present, however, we force spilling all live SIMD
+  // registers in full width (since the runtime only saves/restores lower part).
+  locations->SetCustomSlowPathCallerSaves(
+      GetGraph()->HasSIMD() ? RegisterSet::AllFpu() : RegisterSet::Empty());
 }
 
 void InstructionCodeGeneratorMIPS64::VisitSuspendCheck(HSuspendCheck* instruction) {
