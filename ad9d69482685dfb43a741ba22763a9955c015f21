@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "990bd7e9_98c5c8f3",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-20T16:22:45Z",
+      "side": 1,
+      "message": "Does this require an agent lock? Are we just hoping the std::list is enough?",
+      "range": {
+        "startLine": 935,
+        "startChar": 2,
+        "endLine": 948,
+        "endChar": 3
+      },
+      "revId": "ad9d69482685dfb43a741ba22763a9955c015f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f12fd81d_27c1863f",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-20T16:22:45Z",
+      "side": 1,
+      "message": "Does this need to be here?",
+      "range": {
+        "startLine": 211,
+        "startChar": 1,
+        "endLine": 212,
+        "endChar": 44
+      },
+      "revId": "ad9d69482685dfb43a741ba22763a9955c015f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
