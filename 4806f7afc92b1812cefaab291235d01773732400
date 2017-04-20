@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "877f09f1_187cd257",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T17:11:19Z",
+      "side": 0,
+      "message": "So this should be smarter. If dalvikvm is XY-bitness, it should try looking up dex2oatXY first before falling back to a dex2oat [without XY].",
+      "revId": "4806f7afc92b1812cefaab291235d01773732400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
