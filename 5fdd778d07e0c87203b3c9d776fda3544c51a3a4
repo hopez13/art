@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70cac2a6_97eae9e7",
+        "filename": "test/647-jni-get-field-id/expected.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T13:04:47Z",
+      "side": 1,
+      "message": "Without the changes in class_linker.cc, this would be a ClassNotFoundException.",
+      "range": {
+        "startLine": 6,
+        "startChar": 22,
+        "endLine": 6,
+        "endChar": 42
+      },
+      "revId": "5fdd778d07e0c87203b3c9d776fda3544c51a3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b300ad60_49fdcf70",
+        "filename": "test/647-jni-get-field-id/expected.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T13:04:47Z",
+      "side": 1,
+      "message": "Without the changes in class_linker.cc, this is\n\n  java.lang.reflect.InvocationTargetException\n  ...\n  Caused by: java.lang.Error: findClass(\"Bad.Class\")\n         at MyClassLoader.loadClass(Main.java:102)\n         ... 5 more",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 65
+      },
+      "revId": "5fdd778d07e0c87203b3c9d776fda3544c51a3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
