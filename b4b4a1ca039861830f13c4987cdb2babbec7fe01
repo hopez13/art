@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "594b3930_decc888c",
+        "filename": "test/986-native-method-bind/src/art/Test986.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T21:51:34Z",
+      "side": 1,
+      "message": "We probably want to check that we can not modify the pointer and everything works.",
+      "parentUuid": "9551f7c3_91a3cd0e",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 23
+      },
+      "revId": "b4b4a1ca039861830f13c4987cdb2babbec7fe01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33b66ad9_74627c3b",
         "filename": "test/986-native-method-bind/src/art/Test986.java",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "db8589c9_94fa3470",
+        "filename": "test/986-native-method-bind/src/art/Test986.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T21:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33b66ad9_74627c3b",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 45
+      },
+      "revId": "b4b4a1ca039861830f13c4987cdb2babbec7fe01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be698f40_784f8403",
         "filename": "test/987-agent-bind/src/art/Redefinition.java",
         "patchSetId": 6
@@ -59,6 +107,24 @@
       "writtenOn": "2017-04-20T21:40:14Z",
       "side": 1,
       "message": "Not needed?",
+      "revId": "b4b4a1ca039861830f13c4987cdb2babbec7fe01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53bd4f48_42512532",
+        "filename": "test/987-agent-bind/src/art/Redefinition.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T21:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be698f40_784f8403",
       "revId": "b4b4a1ca039861830f13c4987cdb2babbec7fe01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
