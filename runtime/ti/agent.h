@@ -56,6 +56,8 @@ class Agent {
     return !GetArgs().empty();
   }
 
+  void* FindSymbol(const std::string& name) const;
+
   LoadError Load(/*out*/jint* call_res, /*out*/std::string* error_msg) {
     VLOG(agents) << "Loading agent: " << name_ << " " << args_;
     return DoLoadHelper(false, call_res, error_msg);

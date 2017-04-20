@@ -208,6 +208,9 @@ class JavaVMExt : public JavaVM {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::jni_weak_globals_lock_);
 
+  void* FindCodeForNativeMethodInAgents(ArtMethod* m)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   Runtime* const runtime_;
 
   // Used for testing. By default, we'll LOG(FATAL) the reason.
