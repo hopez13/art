@@ -43,6 +43,11 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test986_00024Transform_sayHi(
   doUpPrintCall(env, "doSayHi");
 }
 
+extern "C" JNIEXPORT void JNICALL Java_art_Test986_00024Transform_sayHi2(
+    JNIEnv* env, jclass klass ATTRIBUTE_UNUSED) {
+  doUpPrintCall(env, "doSayHi2");
+}
+
 extern "C" JNIEXPORT void JNICALL NoReallySayGoodbye(JNIEnv* env, jclass klass ATTRIBUTE_UNUSED) {
   doUpPrintCall(env, "doSayBye");
 }
