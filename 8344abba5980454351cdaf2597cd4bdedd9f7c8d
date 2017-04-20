@@ -518,6 +518,24 @@
     },
     {
       "key": {
+        "uuid": "5374cff1_fb945fd1",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-20T03:26:10Z",
+      "side": 1,
+      "message": "Ah, I meant, add a comment to that effect (or call the field dummy_padding or so).",
+      "parentUuid": "a95604e9_e60340f5",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8396da55_e84cd523",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
         "patchSetId": 27
