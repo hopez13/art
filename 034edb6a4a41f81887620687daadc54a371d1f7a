@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "ada27854_48058f97",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T17:22:57Z",
+      "side": 1,
+      "message": "Ok let\u0027s leave that in as a comment as well\n\n   // Unlike regular JNI lookup, native bridges for agents are not supported; must have same ISA as the device.",
+      "parentUuid": "28b08366_5571c8b5",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0780c4_6341f840",
         "filename": "runtime/java_vm_ext.cc",
         "patchSetId": 2
