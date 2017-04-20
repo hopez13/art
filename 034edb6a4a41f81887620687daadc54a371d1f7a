@@ -198,6 +198,24 @@
     },
     {
       "key": {
+        "uuid": "180000dd_aa2d10ca",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T17:57:37Z",
+      "side": 1,
+      "message": "agents can be passed in other ways.\n\nI think the current comment is sufficient.",
+      "parentUuid": "f68ee2f4_3f879aea",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "260f7728_1fde514b",
         "filename": "test/986-native-method-bind/native_bind.cc",
         "patchSetId": 2
