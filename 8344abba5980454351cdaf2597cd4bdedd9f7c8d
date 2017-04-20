@@ -536,6 +536,24 @@
     },
     {
       "key": {
+        "uuid": "bf935b7c_89a642bf",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T15:17:49Z",
+      "side": 1,
+      "message": "I\u0027m adding some static_assert()s in https://android-review.googlesource.com/#/c/372512/4/compiler/linker/arm/relative_patcher_arm_base.h@80 as a documentation of the intent.",
+      "parentUuid": "5374cff1_fb945fd1",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8396da55_e84cd523",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
         "patchSetId": 27
