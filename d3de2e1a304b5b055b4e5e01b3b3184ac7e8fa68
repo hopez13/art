@@ -159,6 +159,24 @@
       "revId": "d3de2e1a304b5b055b4e5e01b3b3184ac7e8fa68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6f4f71f_a76273b9",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T21:21:21Z",
+      "side": 1,
+      "message": "It cannot even get to the intercept until it has found the method.\n\nWe need to pass in the current method pointer.",
+      "parentUuid": "68f9c70e_93c9b2ee",
+      "revId": "d3de2e1a304b5b055b4e5e01b3b3184ac7e8fa68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
