@@ -32,6 +32,7 @@ public class Test986 {
   // A class with a native method we can play with.
   static class Transform {
     private static native void sayHi();
+    private static native void sayHi2();
   }
 
   public static void run() throws Exception {
@@ -42,6 +43,10 @@ public class Test986 {
 
   private static void setNativeTransform(Method method, String dest) {
     SymbolMap.put(method, dest);
+  }
+
+  private static void removeNativeTransform(Method method) {
+    SymbolMap.remove(method);
   }
 
   /**
@@ -58,12 +63,24 @@ public class Test986 {
 
   public static void doTest() throws Exception {
     Method say_hi_method = Transform.class.getDeclaredMethod("sayHi");
-    // TODO We should test auto-binding but due to the way this is run that will be annoying.
-    Main.bindAgentJNIForClass(Transform.class);
-    Transform.sayHi();
+
+    // Test we will autobind normally.
+    Transform.sayHi2();
+
+    // Test we can get in the middle of autobind
     setNativeTransform(say_hi_method, "NoReallySayGoodbye");
+    Transform.sayHi();
+
+    // Test we can get in between manual bind.
+    setNativeTransform(say_hi_method, "Java_art_Test986_00024Transform_sayHi2");
     Main.bindAgentJNIForClass(Transform.class);
     Transform.sayHi();
+
+    // Test we can get rid of transform
+    removeNativeTransform(say_hi_method);
+    Main.bindAgentJNIForClass(Transform.class);
+    Transform.sayHi();
+
     Main.bindAgentJNIForClass(Main.class);
     Main.bindAgentJNIForClass(Test986.class);
   }
@@ -71,6 +88,10 @@ public class Test986 {
   // Functions called from native code.
   public static void doSayHi() {
     System.out.println("Hello");
+  }
+
+  public static void doSayHi2() {
+    System.out.println("Hello - 2");
   }
 
   public static void doSayBye() {
