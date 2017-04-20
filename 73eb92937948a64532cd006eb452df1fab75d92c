@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4408550e_0d41aeb3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T10:46:12Z",
+      "side": 1,
+      "message": "I did check manually. As the commit message says,\n\n  Test: Manually check exception messages by setting\n        PRINT_MESSAGE to true in 647-jni-get-field-id.\n        Automated tests that verify a specific message\n        are not desirable.\n\nThe last sentence is borrowed from some narayan\u0027s CL.",
+      "parentUuid": "4aa9b29f_ceb81164",
+      "range": {
+        "startLine": 2606,
+        "startChar": 35,
+        "endLine": 2606,
+        "endChar": 58
+      },
+      "revId": "73eb92937948a64532cd006eb452df1fab75d92c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44c79cce_02563238",
         "filename": "test/647-jni-get-field-id/get_field_id.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f231a15a_897130ee",
+        "filename": "test/647-jni-get-field-id/get_field_id.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T10:46:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44c79cce_02563238",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "73eb92937948a64532cd006eb452df1fab75d92c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bcd9213_d857de46",
         "filename": "test/647-jni-get-field-id/src/Main.java",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-04-20T10:41:07Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "73eb92937948a64532cd006eb452df1fab75d92c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6751a528_af7d23ea",
+        "filename": "test/647-jni-get-field-id/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-20T10:46:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bcd9213_d857de46",
       "range": {
         "startLine": 2,
         "startChar": 17,
