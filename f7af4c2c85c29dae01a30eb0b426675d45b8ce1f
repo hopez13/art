@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68615e55_45ac0e14",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2017-04-20T18:25:47Z",
+      "side": 1,
+      "message": "just curious, where is the un-binding done if we unload agents?",
+      "range": {
+        "startLine": 952,
+        "startChar": 17,
+        "endLine": 952,
+        "endChar": 40
+      },
+      "revId": "f7af4c2c85c29dae01a30eb0b426675d45b8ce1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
