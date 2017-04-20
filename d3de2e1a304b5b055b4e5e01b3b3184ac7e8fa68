@@ -123,6 +123,24 @@
       "revId": "d3de2e1a304b5b055b4e5e01b3b3184ac7e8fa68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1de4297_71ab85bb",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-20T20:47:58Z",
+      "side": 1,
+      "message": "you asked that I test with Long names.\n\nThis is needed to do that.\n\nI changed sayHi to use the long name.\n\nIn  a part of this test we also want to make sure that everything still works when RegisterNatives is called directly.\n\nPreviously we would use the BindAgentJNIForClass function to do this.\n\nThat function doesn\u0027t work with long names like sayHi\u0027s.\n\nTherefore we add this function to do the registration.",
+      "parentUuid": "8b73cffc_3325ffe5",
+      "revId": "d3de2e1a304b5b055b4e5e01b3b3184ac7e8fa68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
