@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10ad11b2_2f375c82",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T16:53:16Z",
+      "side": 1,
+      "message": "Since you seem to like refactoring code in your CLs, can you refactor this with FindNativeMethod for library lookup?\n\n   template \u003ctypename T, typename VlogFunc\u003e\n   static void* FindSymbolForMethod(T\u0026 source, ArtMethod* m, VlogFunc\u0026 vlog_func) {\n     std::string jni_name \u003d m-\u003eJniShortName();\n     void* fn \u003d source.FindSymbol(jni_name);\n     if (fn \u003d\u003d nullptr) {\n       jni_name \u003d m-\u003eJniLongName();\n       fn \u003d source.FindSymbol(jni_name);\n     }\n     if (fn !\u003d nullptr) {\n       VLOG(jni) \u003c\u003c Found implementation for \" \u003c\u003c m-\u003ePrettyMethod()  \n                 \u003c\u003c (symbol : \" \u003c\u003c jni_name \u003c\u003c \") in \" \u003c\u003c vlog_func();\n     }\n     return fn;\n   }\n\n   // in FindCodeForNativeMethod\n   FindSymbolForMethod(agent, m, /* vlog_func */ [\u0026]() { return agent; });\n\n   // in FindNativeMethod\n   FindSymbolForMethod(library, m, /* vlog_func */ [\u0026]() { return library-\u003eGetPath(); });\n\n(not sure about lambda usage, maybe you can do it cleaner)",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0780c4_6341f840",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T16:53:16Z",
+      "side": 1,
+      "message": "Can we quote this verbatim from the specification?\n\n\u003e JVMTI agent support:\n\n\u003e Libraries loaded with -agentlib: or -agentpath: will be searched for JNI native method implementations to facilitate the use of Java programming language code in tools, as is needed for bytecode instrumentation.\n\n\u003e The agent libraries will be searched after all other libraries have been searched.",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
