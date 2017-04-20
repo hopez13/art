@@ -284,6 +284,24 @@
       "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "656e0b65_98e1ce67",
+        "filename": "test/986-native-method-bind/native_bind.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-20T17:55:52Z",
+      "side": 1,
+      "message": "I\u0027d prefer, too, to make this explicit. Especially since the binding might be removed after this CL.",
+      "parentUuid": "2ecb1054_8c0f3ff0",
+      "revId": "034edb6a4a41f81887620687daadc54a371d1f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
