@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "d768e747_5ffdcee8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T17:21:43Z",
+      "side": 1,
+      "message": "std::remove_if just shuffles the \"removed\" nodes to the end , then it would require a second pass to chop off the removed parts because it returns the \"past-the-end\" iterator and not the \"before-the-end\" iterator which the forward_list api requires (to avoid a 2nd pass).",
+      "parentUuid": "572941f1_931f06f7",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2156affd_8a51b656",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -692,6 +716,30 @@
     },
     {
       "key": {
+        "uuid": "4048b286_5e1f54f3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T17:21:43Z",
+      "side": 1,
+      "message": "This function is in the base class, it can be in any type.",
+      "parentUuid": "8e1c8449_f85e2303",
+      "range": {
+        "startLine": 1216,
+        "startChar": 0,
+        "endLine": 1217,
+        "endChar": 32
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac43e3ff_cde76bbc",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -989,6 +1037,30 @@
     },
     {
       "key": {
+        "uuid": "a7ad0dd4_4950f1b8",
+        "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T17:21:43Z",
+      "side": 1,
+      "message": "This was b/37001605 which I fixed and merged already. So I should uncomment this test. Thanks for spotting this.",
+      "parentUuid": "f36efa0c_eee13d40",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 72
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65480300_75193d9d",
         "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
         "patchSetId": 4
@@ -1000,6 +1072,30 @@
       "writtenOn": "2017-04-19T15:11:43Z",
       "side": 1,
       "message": "Why is this here? It\u0027s separating the CHECKer statements above from the method below.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 27
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "724918dc_da492deb",
+        "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-20T17:21:43Z",
+      "side": 1,
+      "message": "I\u0027ll fix this. I don\u0027t think I meant to have this line added.\n\nI think it\u0027s just a stylistic issue and not a correctness issue if I\u0027m understanding correctly?",
+      "parentUuid": "65480300_75193d9d",
       "range": {
         "startLine": 131,
         "startChar": 0,
