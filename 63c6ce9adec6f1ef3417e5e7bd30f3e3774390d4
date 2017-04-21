@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6128b5a2_d166f928",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-21T17:46:24Z",
+      "side": 1,
+      "message": "It looks like a larger refactor to do this, but it seems to me that a better layering would have this not be public.  Seems to me it should be private behind the Vdex open...  Not necessary at the moment to address.",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 23
+      },
+      "revId": "63c6ce9adec6f1ef3417e5e7bd30f3e3774390d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fc3271e_136b3ffb",
+        "filename": "runtime/vdex_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-21T17:46:24Z",
+      "side": 1,
+      "message": "This test doesn\u0027t test very much, as I discovered writing dexdiag tests, but shouldn\u0027t we at least have a TODO for a real open with and without unquickening?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "63c6ce9adec6f1ef3417e5e7bd30f3e3774390d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da0de97c_6a8018bd",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-21T17:46:24Z",
+      "side": 1,
+      "message": "There\u0027s a marvelous utility template in dex2oat.cc called\nMakeNonOwningPointerVector\n\nIf you put that someplace visible you could use it for this purpose.",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 42
+      },
+      "revId": "865cfaacc22b05f5b10fcd74bca22d07e2b13fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
