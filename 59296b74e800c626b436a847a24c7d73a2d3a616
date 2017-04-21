@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "800afb2d_121bd85d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a31536f_e0a08ba0",
+      "range": {
+        "startLine": 1168,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 12
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29e25fb9_38b9e0f2",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-21T09:51:38Z",
       "side": 1,
       "message": "We have a helper function for this, \"ctor_fence-\u003eInputAt(input_index)\".",
+      "range": {
+        "startLine": 1210,
+        "startChar": 29,
+        "endLine": 1210,
+        "endChar": 88
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b70e360_b1bc8e71",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29e25fb9_38b9e0f2",
       "range": {
         "startLine": 1210,
         "startChar": 29,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "f222c5b1_b9c4c4bb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "Pretty much.\n\nOtherwise I\u0027d have a DCHECK here, it\u0027s extra code either way. This is a constant time check so don\u0027t think it\u0027s a performance problem.",
+      "parentUuid": "3ab6714b_6c253463",
+      "range": {
+        "startLine": 1218,
+        "startChar": 0,
+        "endLine": 1218,
+        "endChar": 43
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d43fe093_eb3243c2",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -106,6 +178,30 @@
       "writtenOn": "2017-04-21T10:06:58Z",
       "side": 1,
       "message": "Can\u0027t you just call this instead of RemoveInput first?",
+      "range": {
+        "startLine": 1219,
+        "startChar": 0,
+        "endLine": 1219,
+        "endChar": 62
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97a11166_8552f6da",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "That didn\u0027t seem to work for me, see L1207.",
+      "parentUuid": "d43fe093_eb3243c2",
       "range": {
         "startLine": 1219,
         "startChar": 0,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "48648cf5_ca9edfa5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6553,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "Thanks. English. :)",
+      "parentUuid": "1c7c9c0e_841a0c2e",
+      "range": {
+        "startLine": 6553,
+        "startChar": 77,
+        "endLine": 6553,
+        "endChar": 79
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be56e9eb_ffe0784b",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "cae3f3c9_adf65166",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6569,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "Ok, I double checked style guide and I concur.\n\nI fixed it to be 4 spaces.\n\n(Whether the comment is correctly indented or not is perhaps a separate question that\u0027s unaddressed in the style guide, although so far nobody has remarked about it so I doubt we care enough to establish specificity).",
+      "parentUuid": "be56e9eb_ffe0784b",
+      "range": {
+        "startLine": 6569,
+        "startChar": 6,
+        "endLine": 6569,
+        "endChar": 8
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2313ee0d_4e4e8e70",
         "filename": "runtime/base/arena_allocator.cc",
         "patchSetId": 5
@@ -175,6 +319,30 @@
       "writtenOn": "2017-04-21T09:51:38Z",
       "side": 1,
       "message": "Abbreviate and add a space at the end, maybe \"CtorFenceIns \".",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97b4b15d_1d563a35",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "Ok done.\n\nI suppose all widths must match and have a space? I added a comment on top.",
+      "parentUuid": "2313ee0d_4e4e8e70",
       "range": {
         "startLine": 52,
         "startChar": 2,

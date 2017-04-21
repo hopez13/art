@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "46f8a52b_525d98c6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "Right, I was just considering the future.\n\nFence merging covers even the trivial case like\n\n       x \u003d new-instance X\n       ...\n       y \u003d new-instance Y\n       ...\n       constructor-fence(x,y)\n\nSo it\u0027s likely we\u0027d want to have at least some super simple version of it.\n\nI suppose at that point we can revisit that, in reality I doubt we\u0027d see very many merges so probably not a big problem. \n\nGoing forward, the other analyses will be much more expensive than this routine, and probably deserve more thought relative to this routine.\n\n--- \n\nThe performance concern also applies if we ever wanted to generalize some of this to any variable-input-sized instruction.",
+      "parentUuid": "eb2bcb83_57ffec45",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2156affd_8a51b656",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -346,6 +370,30 @@
       "side": 1,
       "message": "Yes, please.",
       "parentUuid": "88ba7e17_52d0ad48",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cae69b1d_afbed9e9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:07:06Z",
+      "side": 1,
+      "message": "Oops, forgot to remove this. Done.",
+      "parentUuid": "61df6885_16c3a402",
       "range": {
         "startLine": 585,
         "startChar": 0,
