@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e6b8fc3b_93d6ac09",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-21T17:59:32Z",
+      "side": 1,
+      "message": "For now this allows me to have one superclass for all vector operations. We may refine later if needed.",
+      "parentUuid": "acd14108_699c11ae",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 58
+      },
+      "revId": "292ae96fa5cb89d829d96a8c3eacee39d4b34ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9b1fcaa_d9f788cc",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 1
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "decd656c_d4c4922e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-21T17:59:32Z",
+      "side": 1,
+      "message": "Do I? I usually just ask for a space before the argument, but I am ok doing this.",
+      "parentUuid": "5ffba03b_d5230fd2",
+      "range": {
+        "startLine": 126,
+        "startChar": 22,
+        "endLine": 126,
+        "endChar": 24
+      },
+      "revId": "292ae96fa5cb89d829d96a8c3eacee39d4b34ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac42c23d_9f6d0603",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 1
@@ -76,6 +124,30 @@
       "writtenOn": "2017-04-21T17:34:13Z",
       "side": 1,
       "message": "nit: scalars_length ? reorder scalars packed_type to go before scalars?",
+      "range": {
+        "startLine": 610,
+        "startChar": 24,
+        "endLine": 610,
+        "endChar": 37
+      },
+      "revId": "292ae96fa5cb89d829d96a8c3eacee39d4b34ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2b503d_f0b72c99",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-21T17:59:32Z",
+      "side": 1,
+      "message": "I think they will always be the same.",
+      "parentUuid": "ac42c23d_9f6d0603",
       "range": {
         "startLine": 610,
         "startChar": 24,
