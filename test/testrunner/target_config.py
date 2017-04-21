@@ -24,7 +24,12 @@ target_config = {
 
     'art-test' : {
         'make' : 'test-art-host-gtest',
-        'run-test' : [],
+        'run-test' : ['--optimizing',
+                      '--interpreter',
+                      '--jit',
+                      '--interp-ac',
+                      '--regalloc_gc',
+                      '--speed-profile'],
         'env' : {
             'ART_USE_READ_BARRIER' : 'true'
         }
