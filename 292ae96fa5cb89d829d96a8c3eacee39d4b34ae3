@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "acd14108_699c11ae",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:34:13Z",
+      "side": 1,
+      "message": "This is a bit odd.\n\nIt is variable-input-size but the code below is unary, binary, etc.\n\nIs there actually anything at runtime which needs true variability like a Phi(x,y,z) -\u003e Phi(x,y)?\n\nIf it\u0027s just to express vectorizing things 2-way,4-way,etc that could be done with a templated size.\n----------------\n\nConsider also that besides being slightly confusing the ArenaVector requires to store VariableInputSizeInstructions requires more overhead than a flat array.",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 58
+      },
+      "revId": "292ae96fa5cb89d829d96a8c3eacee39d4b34ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9b1fcaa_d9f788cc",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 1
@@ -13,6 +36,52 @@
       "writtenOn": "2017-04-21T16:59:41Z",
       "side": 1,
       "message": "Igor, some refactoring you requested in a previous CL \n(moving operands assignment into superclass)",
+      "revId": "292ae96fa5cb89d829d96a8c3eacee39d4b34ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ffba03b_d5230fd2",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:34:13Z",
+      "side": 1,
+      "message": "nit: I think you always tell me to add a space here  :)\n\n    /* number_of_inputs */",
+      "range": {
+        "startLine": 126,
+        "startChar": 22,
+        "endLine": 126,
+        "endChar": 24
+      },
+      "revId": "292ae96fa5cb89d829d96a8c3eacee39d4b34ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac42c23d_9f6d0603",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-21T17:34:13Z",
+      "side": 1,
+      "message": "nit: scalars_length ? reorder scalars packed_type to go before scalars?",
+      "range": {
+        "startLine": 610,
+        "startChar": 24,
+        "endLine": 610,
+        "endChar": 37
+      },
       "revId": "292ae96fa5cb89d829d96a8c3eacee39d4b34ae3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
