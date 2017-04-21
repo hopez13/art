@@ -42,7 +42,12 @@ class Dex2oatEnvironmentTest : public CommonRuntimeTest {
     CommonRuntimeTest::SetUp();
 
     // Create a scratch directory to work from.
-    scratch_dir_ = android_data_ + "/Dex2oatEnvironmentTest";
+    UniqueCPtr<const char[]> android_data_real(realpath(android_data_.c_str(), nullptr));
+    ASSERT_TRUE(android_data_real != nullptr)
+      << "Could not get the realpath of the android data" << android_data_ << strerror(errno);
+
+    scratch_dir_.assign(android_data_real.get());
+    scratch_dir_ += "/Dex2oatEnvironmentTest";
     ASSERT_EQ(0, mkdir(scratch_dir_.c_str(), 0700));
 
     // Create a subdirectory in scratch for odex files.
