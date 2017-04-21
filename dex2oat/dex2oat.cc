@@ -1261,6 +1261,7 @@ class Dex2Oat FINAL {
     }
 
     // OAT and VDEX file handling
+    bool eagerly_unquicken_vdex = DoDexLayoutOptimizations();
 
     if (oat_fd_ == -1) {
       DCHECK(!oat_filenames_.empty());
@@ -1282,6 +1283,7 @@ class Dex2Oat FINAL {
           input_vdex_file_ = VdexFile::Open(input_vdex_,
                                             /* writable */ false,
                                             /* low_4gb */ false,
+                                            eagerly_unquicken_vdex,
                                             &error_msg);
         }
 
@@ -1329,6 +1331,7 @@ class Dex2Oat FINAL {
                                             "vdex",
                                             /* writable */ false,
                                             /* low_4gb */ false,
+                                            eagerly_unquicken_vdex,
                                             &error_msg);
           // If there's any problem with the passed vdex, just warn and proceed
           // without it.
@@ -2091,10 +2094,6 @@ class Dex2Oat FINAL {
 
   bool DoDexLayoutOptimizations() const {
     return DoProfileGuidedOptimizations();
-  }
-
-  bool HasInputVdexFile() const {
-    return input_vdex_file_ != nullptr || input_vdex_fd_ != -1 || !input_vdex_.empty();
   }
 
   bool LoadProfile() {
@@ -2886,13 +2885,6 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
   if (dex2oat->UseProfile()) {
     if (!dex2oat->LoadProfile()) {
       LOG(ERROR) << "Failed to process profile file";
-      return dex2oat::ReturnCode::kOther;
-    }
-  }
-
-  if (dex2oat->DoDexLayoutOptimizations()) {
-    if (dex2oat->HasInputVdexFile()) {
-      LOG(ERROR) << "Dexlayout is incompatible with an input VDEX";
       return dex2oat::ReturnCode::kOther;
     }
   }
