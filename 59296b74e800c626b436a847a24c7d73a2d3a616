@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "edddc557_cb95b764",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-21T10:06:58Z",
+      "side": 1,
+      "message": "How can that not be true?",
+      "range": {
+        "startLine": 1218,
+        "startChar": 0,
+        "endLine": 1218,
+        "endChar": 43
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d43fe093_eb3243c2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-21T10:06:58Z",
+      "side": 1,
+      "message": "Can\u0027t you just call this instead of RemoveInput first?",
+      "range": {
+        "startLine": 1219,
+        "startChar": 0,
+        "endLine": 1219,
+        "endChar": 62
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c7c9c0e_841a0c2e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
