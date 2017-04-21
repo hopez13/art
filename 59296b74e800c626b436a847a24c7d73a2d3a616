@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "3ab6714b_6c253463",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-21T10:24:11Z",
+      "side": 1,
+      "message": "Ready for the future when we merge fences I guess.",
+      "parentUuid": "edddc557_cb95b764",
+      "range": {
+        "startLine": 1218,
+        "startChar": 0,
+        "endLine": 1218,
+        "endChar": 43
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d43fe093_eb3243c2",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
