@@ -16,6 +16,52 @@
       "revId": "f791937f195273d4b301a7dc0d688fe712ab4c83",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "977c0c87_4d49f260",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-04-21T22:35:17Z",
+      "side": 1,
+      "message": "Two things here:\n\n1. We need a \"macro\" instruction like StoreFpuToOffset() below which would take a larger than 10-bit offset. It should take a 32-bit offset and replicate some of the logic of AdjustBaseAndOffset().\n\n2. I\u0027ve heard that x86 instructions that load vector registers record internally the format (element size), which lets the CPU locate the vector elements more efficiently in the vector ALUs/pipelines/whatever. If there\u0027s a format/element mismatch between the intended vector use and its load/store, there may be additional delays. Reportedly, this is what happens on x86. And I think MSA isn\u0027t too different in this respect, otherwise we wouldn\u0027t have the .df part in ld and st. I think we should take this into account. Aart, can you help finding out the format/element size of the vector being saved here and loaded in RestoreFloatingPointRegister() below?",
+      "range": {
+        "startLine": 1647,
+        "startChar": 0,
+        "endLine": 1647,
+        "endChar": 52
+      },
+      "revId": "f791937f195273d4b301a7dc0d688fe712ab4c83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1a48d01_7d89becb",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-04-21T22:35:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1656,
+        "startChar": 0,
+        "endLine": 1656,
+        "endChar": 52
+      },
+      "revId": "f791937f195273d4b301a7dc0d688fe712ab4c83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
