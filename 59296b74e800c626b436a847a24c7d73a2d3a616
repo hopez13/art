@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a31536f_e0a08ba0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-21T09:51:38Z",
+      "side": 1,
+      "message": "I\u0027d get rid of this because the keyword \"static\" is rather ambiguous. And we do not mark other static member functions this way.",
+      "range": {
+        "startLine": 1168,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 12
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29e25fb9_38b9e0f2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-21T09:51:38Z",
+      "side": 1,
+      "message": "We have a helper function for this, \"ctor_fence-\u003eInputAt(input_index)\".",
+      "range": {
+        "startLine": 1210,
+        "startChar": 29,
+        "endLine": 1210,
+        "endChar": 88
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c7c9c0e_841a0c2e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6553,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-21T09:51:38Z",
+      "side": 1,
+      "message": "Nit: move the dot inside the brackets.",
+      "range": {
+        "startLine": 6553,
+        "startChar": 77,
+        "endLine": 6553,
+        "endChar": 79
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be56e9eb_ffe0784b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6569,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-21T09:51:38Z",
+      "side": 1,
+      "message": "Actually, I think this should be 4 spaces from the \"HConstructorFence(...)\" at line 6560 rather than 4 spaces from the comment. The comment just makes that indentation look a bit odd.",
+      "range": {
+        "startLine": 6569,
+        "startChar": 6,
+        "endLine": 6569,
+        "endChar": 8
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2313ee0d_4e4e8e70",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-21T09:51:38Z",
+      "side": 1,
+      "message": "Abbreviate and add a space at the end, maybe \"CtorFenceIns \".",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

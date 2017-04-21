@@ -263,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "eb2bcb83_57ffec45",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-21T09:51:38Z",
+      "side": 1,
+      "message": "I\u0027d expect the fence to have just one input, so the renumbering should be a no-op. (As long as we don\u0027t implement fence merging.)",
+      "parentUuid": "b68a311c_3fa384ee",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2156affd_8a51b656",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
