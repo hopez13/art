@@ -22,6 +22,30 @@
       "revId": "bc632f05acd06f9000e67517fdeb8296f739e079",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98dc032f_f57019ff",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-21T17:21:10Z",
+      "side": 1,
+      "message": "True, I should have made it clearer that all the from-space data accessed from PrettyTypeOf is constant.",
+      "parentUuid": "dc58112b_309606b8",
+      "range": {
+        "startLine": 284,
+        "startChar": 66,
+        "endLine": 284,
+        "endChar": 93
+      },
+      "revId": "bc632f05acd06f9000e67517fdeb8296f739e079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
