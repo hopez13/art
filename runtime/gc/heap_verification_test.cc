@@ -15,8 +15,12 @@
  */
 
 #include "common_runtime_test.h"
+
+#include "class_linker.h"
 #include "verification.h"
+#include "mirror/object_array.h"
 #include "mirror/string.h"
+#include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 
 namespace art {
