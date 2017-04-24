@@ -352,6 +352,30 @@
       "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e7eefb8_15bf6089",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-24T08:54:53Z",
+      "side": 1,
+      "message": "\"Must\" sounds a bit strong but the output looks messy otherwise.",
+      "parentUuid": "97b4b15d_1d563a35",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "59296b74e800c626b436a847a24c7d73a2d3a616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
