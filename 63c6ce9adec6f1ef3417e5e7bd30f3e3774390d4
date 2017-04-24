@@ -45,6 +45,30 @@
       "revId": "63c6ce9adec6f1ef3417e5e7bd30f3e3774390d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a68540d3_90dfd21f",
+        "filename": "runtime/vdex_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-24T12:46:33Z",
+      "side": 1,
+      "message": "The Test stanza in the commit message was WIP :). Latest PS contains adjustments to our run-tests to pass an input-vdex/output-vdex which will force the unquickening before going to dexlayout.",
+      "parentUuid": "6fc3271e_136b3ffb",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "63c6ce9adec6f1ef3417e5e7bd30f3e3774390d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
