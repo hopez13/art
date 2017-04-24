@@ -31,6 +31,9 @@ namespace art {
 // Enables vectorization (SIMDization) in the loop optimizer.
 static constexpr bool kEnableVectorization = true;
 
+static constexpr int SIMD_DEFAULT_UNROLL_FACTOR = 2;
+static constexpr int SIMD_NO_UNROLL_FACTOR = 1;
+
 // Remove the instruction from the graph. A bit more elaborate than the usual
 // instruction removal, since there may be a cycle in the use structure.
 static void RemoveFromCycle(HInstruction* instruction) {
@@ -204,6 +207,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       induction_simplication_count_(0),
       simplified_(false),
       vector_length_(0),
+      unrolling_factor_(SIMD_NO_UNROLL_FACTOR),
       vector_refs_(nullptr),
       vector_map_(nullptr) {
 }
@@ -482,6 +486,7 @@ void HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
 bool HLoopOptimization::CanVectorize(LoopNode* node, HBasicBlock* block, int64_t trip_count) {
   // Reset vector bookkeeping.
   vector_length_ = 0;
+  unrolling_factor_ = SIMD_NO_UNROLL_FACTOR;
   vector_refs_->clear();
   vector_runtime_test_a_ =
   vector_runtime_test_b_= nullptr;
@@ -548,6 +553,28 @@ bool HLoopOptimization::CanVectorize(LoopNode* node, HBasicBlock* block, int64_t
   return true;
 }
 
+// Return optimal unroll factor for the loop when unrolling is beneficial and 1 otherwise.
+uint32_t HLoopOptimization::CalculateBeneficialUnrollingFactor(LoopNode* node ATTRIBUTE_UNUSED,
+    int64_t trip_count ATTRIBUTE_UNUSED) {
+  uint32_t unroll_factor = SIMD_DEFAULT_UNROLL_FACTOR;
+  DCHECK_GE(unroll_factor, 1u);
+
+  return unroll_factor;
+}
+
+void HLoopOptimization::ClearVectorMapForUnrolling(LoopNode* node) {
+  for (auto i = vector_map_->begin(), e = vector_map_->end(); i != e;) {
+    HInstruction* scalar_instr = i->first;
+    // Don't erase instructions defined outside the loop - we don't want to replicate them during
+    // unrolling.
+    if (node->loop_info->IsDefinedOutOfTheLoop(scalar_instr)) {
+      ++i;
+    } else {
+      i = vector_map_->erase(i);
+    }
+  }
+}
+
 void HLoopOptimization::Vectorize(LoopNode* node,
                                   HBasicBlock* block,
                                   HBasicBlock* exit,
@@ -555,10 +582,17 @@ void HLoopOptimization::Vectorize(LoopNode* node,
   Primitive::Type induc_type = Primitive::kPrimInt;
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
+  uint32_t iter_length = vector_length_;
+  uint32_t unroll_factor = CalculateBeneficialUnrollingFactor(node, trip_count);
+
+  if (unroll_factor != 1) {
+    iter_length *= unroll_factor;
+    unrolling_factor_ = unroll_factor;
+  }
 
   // A cleanup is needed for any unknown trip count or for a known trip count
   // with remainder iterations after vectorization.
-  bool needs_cleanup = trip_count == 0 || (trip_count % vector_length_) != 0;
+  bool needs_cleanup = trip_count == 0 || (trip_count % iter_length) != 0;
 
   // Adjust vector bookkeeping.
   iset_->clear();  // prepare phi induction
@@ -571,11 +605,11 @@ void HLoopOptimization::Vectorize(LoopNode* node,
   HInstruction* stc = induction_range_.GenerateTripCount(node->loop_info, graph_, preheader);
   HInstruction* vtc = stc;
   if (needs_cleanup) {
-    DCHECK(IsPowerOfTwo(vector_length_));
+    DCHECK(IsPowerOfTwo(iter_length));
     HInstruction* rem = Insert(
         preheader, new (global_allocator_) HAnd(induc_type,
                                                 stc,
-                                                graph_->GetIntConstant(vector_length_ - 1)));
+                                                graph_->GetIntConstant(iter_length - 1)));
     vtc = Insert(preheader, new (global_allocator_) HSub(induc_type, stc, rem));
   }
 
@@ -647,29 +681,45 @@ void HLoopOptimization::GenerateNewLoop(LoopNode* node,
   // for (i = lo; i < hi; i += step)
   //    <loop-body>
   HInstruction* cond = new (global_allocator_) HAboveOrEqual(vector_phi_, hi);
-  vector_header_->AddPhi(vector_phi_);
+  vector_header_->AddPhi(vector_phi_->AsPhi());
   vector_header_->AddInstruction(cond);
   vector_header_->AddInstruction(new (global_allocator_) HIf(cond));
-  for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
-    bool vectorized_def = VectorizeDef(node, it.Current(), /*generate_code*/ true);
-    DCHECK(vectorized_def);
-  }
-  // Generate body from the instruction map, but in original program order.
   HEnvironment* env = vector_header_->GetFirstInstruction()->GetEnvironment();
-  for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
-    auto i = vector_map_->find(it.Current());
-    if (i != vector_map_->end() && !i->second->IsInBlock()) {
-      Insert(vector_body_, i->second);
-      // Deal with instructions that need an environment, such as the scalar intrinsics.
-      if (i->second->NeedsEnvironment()) {
-        i->second->CopyEnvironmentFromWithLoopPhiAdjustment(env, vector_header_);
+  HPhi* original_phi = vector_phi_->AsPhi();
+  HInstruction* inc = nullptr;
+
+  // Unroll the vector version of the loop if it has been considered beneficial.
+  uint32_t e = (vector_mode_ == kVector) ? unrolling_factor_ : SIMD_NO_UNROLL_FACTOR;
+  for (uint32_t count = 0; count < e; count++) {
+    if (vector_mode_ == kVector) {
+      ClearVectorMapForUnrolling(node);
+    } else {
+      vector_map_->clear();
+    }
+
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      bool vectorized_def = VectorizeDef(node, it.Current(), /*generate_code*/ true);
+      DCHECK(vectorized_def);
+    }
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      auto i = vector_map_->find(it.Current());
+      if (i != vector_map_->end() && !i->second->IsInBlock()) {
+        Insert(vector_body_, i->second);
+        // Deal with instructions that need an environment, such as the scalar intrinsics.
+        if (i->second->NeedsEnvironment()) {
+          i->second->CopyEnvironmentFromWithLoopPhiAdjustment(env, vector_header_);
+        }
       }
     }
+    inc = new (global_allocator_) HAdd(induc_type, vector_phi_, step);
+    Insert(vector_body_, inc);
+    vector_phi_ = inc;
   }
+
   // Finalize increment and phi.
-  HInstruction* inc = new (global_allocator_) HAdd(induc_type, vector_phi_, step);
-  vector_phi_->AddInput(lo);
-  vector_phi_->AddInput(Insert(vector_body_, inc));
+  original_phi->AddInput(lo);
+  original_phi->AddInput(inc);
+  vector_phi_ = original_phi;
 }
 
 // TODO: accept reductions at left-hand-side, mixed-type store idioms, etc.

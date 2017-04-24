@@ -162,6 +162,9 @@ class HLoopOptimization : public HOptimization {
                           bool collect_loop_uses);
   void RemoveDeadInstructions(const HInstructionList& list);
 
+  uint32_t CalculateBeneficialUnrollingFactor(LoopNode* node, int64_t trip_count);
+  void ClearVectorMapForUnrolling(LoopNode* node);
+
   // Compiler driver (to query ISA features).
   const CompilerDriver* compiler_driver_;
 
@@ -195,6 +198,9 @@ class HLoopOptimization : public HOptimization {
   // Number of "lanes" for selected packed type.
   uint32_t vector_length_;
 
+  // Unrolling factor for the current loop. If equals to 1 no unrolling is performed.
+  uint32_t unrolling_factor_;
+
   // Set of array references in the vector loop.
   // Contents reside in phase-local heap memory.
   ArenaSet<ArrayReference>* vector_refs_;
@@ -211,7 +217,7 @@ class HLoopOptimization : public HOptimization {
   HBasicBlock* vector_body_;  // body of the new loop
   HInstruction* vector_runtime_test_a_;
   HInstruction* vector_runtime_test_b_;  // defines a != b runtime test
-  HPhi* vector_phi_;  // the Phi representing the normalized loop index
+  HInstruction* vector_phi_;  // the Phi representing the normalized loop index
   VectorMode vector_mode_;  // selects synthesis mode
 
   friend class LoopOptimizationTest;
