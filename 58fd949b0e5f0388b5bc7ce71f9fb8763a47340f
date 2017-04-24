@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e61b019_3019df70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-24T23:32:32Z",
+      "side": 1,
+      "message": "Can also disable test by setting env variable.\nhttps://cs.corp.google.com/aosp-master/art/test/knownfailures.json?sq\u0026q\u003dknownfailures.+package:%5Eaosp-master$\u0026l\u003d290",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "58fd949b0e5f0388b5bc7ce71f9fb8763a47340f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "682f3dc4_7d2d4e2a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-24T23:32:32Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 454,
+        "startChar": 38,
+        "endLine": 454,
+        "endChar": 46
+      },
+      "revId": "58fd949b0e5f0388b5bc7ce71f9fb8763a47340f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7023cb49_860c8f40",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-24T23:32:32Z",
+      "side": 1,
+      "message": "as above.",
+      "range": {
+        "startLine": 456,
+        "startChar": 40,
+        "endLine": 456,
+        "endChar": 49
+      },
+      "revId": "58fd949b0e5f0388b5bc7ce71f9fb8763a47340f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
