@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ced6443c_8a7307b8",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-24T17:33:51Z",
+      "side": 1,
+      "message": "In the future I think it could just bin the methods according to some criteria and then layout all the bins contiguously, and also separates logic between layout and layout policy. That\u0027s how we do the re-layout in image_writer for image files.",
+      "revId": "8db6bf4587e343c88b14a1fcb7e1d14742352606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f6b174_415e2f66",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1711,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-24T17:33:51Z",
+      "side": 1,
+      "message": "nit: non-executed (hyphenate it) everywhere you have \"non executed\"",
+      "range": {
+        "startLine": 1711,
+        "startChar": 22,
+        "endLine": 1711,
+        "endChar": 33
+      },
+      "revId": "8db6bf4587e343c88b14a1fcb7e1d14742352606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80e5bcdc_55c82996",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1713,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-24T17:33:51Z",
+      "side": 1,
+      "message": "replace with \"The relative placement has no effect on correctness; it is used to ensure the layout is deterministic\"",
+      "range": {
+        "startLine": 1712,
+        "startChar": 0,
+        "endLine": 1713,
+        "endChar": 14
+      },
+      "revId": "8db6bf4587e343c88b14a1fcb7e1d14742352606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
