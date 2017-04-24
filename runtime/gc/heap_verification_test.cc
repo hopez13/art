@@ -16,6 +16,7 @@
 
 #include "common_runtime_test.h"
 
+#include "base/memory_tool.h"
 #include "class_linker.h"
 #include "handle_scope-inl.h"
 #include "mirror/object-inl.h"
@@ -64,6 +65,7 @@ TEST_F(VerificationTest, IsValidHeapObjectAddress) {
 }
 
 TEST_F(VerificationTest, IsValidClass) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   ScopedObjectAccess soa(Thread::Current());
   VariableSizedHandleScope hs(soa.Self());
   Handle<mirror::String> string(
@@ -80,6 +82,7 @@ TEST_F(VerificationTest, IsValidClass) {
 }
 
 TEST_F(VerificationTest, DumpObjectInfo) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   ScopedLogSeverity sls(LogSeverity::INFO);
   ScopedObjectAccess soa(Thread::Current());
   Runtime* const runtime = Runtime::Current();
@@ -102,6 +105,7 @@ TEST_F(VerificationTest, DumpObjectInfo) {
 }
 
 TEST_F(VerificationTest, LogHeapCorruption) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   ScopedLogSeverity sls(LogSeverity::INFO);
   ScopedObjectAccess soa(Thread::Current());
   Runtime* const runtime = Runtime::Current();
