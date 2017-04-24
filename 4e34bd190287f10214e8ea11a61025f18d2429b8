@@ -22,6 +22,30 @@
       "revId": "4e34bd190287f10214e8ea11a61025f18d2429b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b829aceb_1b395562",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-24T20:38:40Z",
+      "side": 0,
+      "message": "I made it so that ART_TEST_SPEED_PROFILE is only set for ART_TEST_FULL. Should it have been part of the default?",
+      "parentUuid": "0b001673_1e154f15",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "4e34bd190287f10214e8ea11a61025f18d2429b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
