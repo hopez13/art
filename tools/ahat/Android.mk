@@ -69,8 +69,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := ahat-test-dump
 LOCAL_MODULE_TAGS := tests
 LOCAL_SRC_FILES := $(call all-java-files-under, test-dump)
-LOCAL_ADDITIONAL_DEPENDENCIES := $(AHAT_TEST_DUMP_PROGUARD_CONFIG)
-LOCAL_JACK_FLAGS := --config-proguard $(AHAT_TEST_DUMP_PROGUARD_CONFIG)
+LOCAL_PROGUARD_FLAG_FILES := $(AHAT_TEST_DUMP_PROGUARD_CONFIG)
 include $(BUILD_HOST_DALVIK_JAVA_LIBRARY)
 
 # Determine the location of the test-dump.jar and test-dump.hprof files.
