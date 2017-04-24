@@ -22,6 +22,54 @@
       "revId": "23caed84eba735b2615f5962b5161f6dc9e8bd4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3cd276c_1642b35a",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-24T12:22:22Z",
+      "side": 1,
+      "message": "It\u0027s consistently not error checked in the ART repo. Looking at the man page of setpriority, it looks like if that failed, then setpriority will handle it in another error.",
+      "parentUuid": "b4458453_275f9a43",
+      "range": {
+        "startLine": 440,
+        "startChar": 20,
+        "endLine": 440,
+        "endChar": 56
+      },
+      "revId": "23caed84eba735b2615f5962b5161f6dc9e8bd4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6de80436_0b24af8f",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-24T12:22:22Z",
+      "side": 1,
+      "message": "It\u0027s concistently not checked in the ART sources. I guess, looking at the man page of setpriority, the assumption is that setpriority will handle it.",
+      "parentUuid": "b4458453_275f9a43",
+      "range": {
+        "startLine": 440,
+        "startChar": 20,
+        "endLine": 440,
+        "endChar": 56
+      },
+      "revId": "23caed84eba735b2615f5962b5161f6dc9e8bd4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
