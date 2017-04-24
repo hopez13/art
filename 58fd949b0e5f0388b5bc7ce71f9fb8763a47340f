@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1ec31d82_e3d362dd",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-24T23:38:39Z",
+      "side": 1,
+      "message": "if we just have\n\n   if env.WHATEVER:\n\nit will match the implicit true against the \u0027default\u0027 value. see the env.py comments about \u0027possible values\u0027",
+      "parentUuid": "682f3dc4_7d2d4e2a",
+      "range": {
+        "startLine": 454,
+        "startChar": 38,
+        "endLine": 454,
+        "endChar": 46
+      },
+      "revId": "58fd949b0e5f0388b5bc7ce71f9fb8763a47340f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7023cb49_860c8f40",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2017-04-24T23:32:32Z",
       "side": 1,
       "message": "as above.",
+      "range": {
+        "startLine": 456,
+        "startChar": 40,
+        "endLine": 456,
+        "endChar": 49
+      },
+      "revId": "58fd949b0e5f0388b5bc7ce71f9fb8763a47340f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "978969a0_f965bd94",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-24T23:38:39Z",
+      "side": 1,
+      "message": "simply to be consistent with above",
+      "parentUuid": "7023cb49_860c8f40",
       "range": {
         "startLine": 456,
         "startChar": 40,
