@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "374fc9cd_4f3bac4b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T18:45:19Z",
+      "side": 1,
+      "message": "It was for an HNewInstance that had the problem.\n\nIt makes sense because it tries to dereference input-\u003eGetBlock()-\u003ewhatever and then segfaults at that point.\n\n(If it was optimized we likely wouldn\u0027t see this because dereferencing null is undefined behavior)",
+      "parentUuid": "b90ecb98_f6f8ccfe",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 36
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9285cd2c_ebfcede0",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 7
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "1e4c7204_71583755",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T18:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4e92e58_cf461b81",
+      "range": {
+        "startLine": 350,
+        "startChar": 29,
+        "endLine": 351,
+        "endChar": 68
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d5b088f_373e1970",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 7
@@ -167,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "67d978ab_aea7bc1a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T18:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d5b088f_373e1970",
+      "range": {
+        "startLine": 1465,
+        "startChar": 8,
+        "endLine": 1465,
+        "endChar": 31
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92c8b9ea_24c50921",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -178,6 +250,24 @@
       "writtenOn": "2017-04-25T13:18:03Z",
       "side": 1,
       "message": "Maybe add a comment also for what the debug check is about.",
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d02dd12_3369e6c3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T18:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92c8b9ea_24c50921",
       "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -303,6 +393,30 @@
     },
     {
       "key": {
+        "uuid": "224901e0_b2d8082b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2450,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T18:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f619b930_f2c05141",
+      "range": {
+        "startLine": 2450,
+        "startChar": 4,
+        "endLine": 2450,
+        "endChar": 66
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41102324_30f4b356",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -314,6 +428,30 @@
       "writtenOn": "2017-04-25T13:18:03Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 6582,
+        "startChar": 33,
+        "endLine": 6582,
+        "endChar": 34
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21b9e233_386b3100",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 6582,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T18:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41102324_30f4b356",
       "range": {
         "startLine": 6582,
         "startChar": 33,
