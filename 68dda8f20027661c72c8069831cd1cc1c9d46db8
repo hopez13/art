@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7983ef8_d020dd9d",
+        "filename": "runtime/gc/heap_verification_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T11:47:26Z",
+      "side": 1,
+      "message": "Could you add comment in the code whenever you use this? It will help get context early when figuring out why it was disabled.",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "68dda8f20027661c72c8069831cd1cc1c9d46db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
