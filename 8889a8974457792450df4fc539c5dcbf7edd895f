@@ -70,6 +70,30 @@
       "revId": "8889a8974457792450df4fc539c5dcbf7edd895f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81768bfc_69e28926",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T17:39:52Z",
+      "side": 1,
+      "message": "Well it\u0027s 2+ reasons. I didn\u0027t have a chance to investigate the other ones, it\u0027s very many failures and each one needs individual attention.\n\nFor now I reworded to make it more clear (see follow up CL) but once we break each one out individually I\u0027ll split out description on case-by-case basis.",
+      "parentUuid": "b49d0468_26a977b4",
+      "range": {
+        "startLine": 664,
+        "startChar": 24,
+        "endLine": 664,
+        "endChar": 68
+      },
+      "revId": "8889a8974457792450df4fc539c5dcbf7edd895f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
