@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cc109a1_96b886f4",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "Maybe say that this is the 32-bit version of LDR (size\u003d10), and thus that S\u003d1 means that the left shift amount is #2?  (This can be deduced by the fact that the destination register is `Wt` and because references are 32-bit values, but I think a reminder can do no harm…)",
+      "range": {
+        "startLine": 323,
+        "startChar": 90,
+        "endLine": 323,
+        "endChar": 92
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "720f3504_8e2037aa",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "Does this change also requires the Oat file version number to be bumped?",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf58f2a3_321a563a",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "`ref_reg`? (or `dest_reg`?)",
+      "range": {
+        "startLine": 506,
+        "startChar": 48,
+        "endLine": 506,
+        "endChar": 56
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2a004c_7ca63ae0",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 903,
+        "startChar": 72,
+        "endLine": 903,
+        "endChar": 80
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64a6a1b5_1ab5626c",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 991,
+        "startChar": 33,
+        "endLine": 991,
+        "endChar": 41
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f184e7d9_8bb61094",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "Ditto? (And likewise below.)",
+      "range": {
+        "startLine": 1003,
+        "startChar": 35,
+        "endLine": 1003,
+        "endChar": 43
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdd971f2_755c9a01",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1159,
+        "startChar": 13,
+        "endLine": 1159,
+        "endChar": 21
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d54acac_fe8fea92",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2780,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "Nit: Should we move that change to its own CL?",
+      "range": {
+        "startLine": 2763,
+        "startChar": 0,
+        "endLine": 2780,
+        "endChar": 4
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fa97d4_ec033739",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6152,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "Maybe add an explanatory comment similar to the ones in GenerateGcRootFieldLoad and GenerateFieldLoadWithBakerReadBarrier?",
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40120938_c7e03dbc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6154,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T15:52:01Z",
+      "side": 1,
+      "message": "kPrimLong? or maybe use XRegisterFrom instead of RegisterFrom, as the index register is expected to be an X register?",
+      "range": {
+        "startLine": 6154,
+        "startChar": 56,
+        "endLine": 6154,
+        "endChar": 64
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
