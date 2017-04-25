@@ -255,6 +255,30 @@
     },
     {
       "key": {
+        "uuid": "297baeed_34794d8d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2450,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T14:18:43Z",
+      "side": 1,
+      "message": "RemoveInputAt makes sense [outside of prepare_for_registers_allocation] for phis if removing an entire block, and for fences when removing a fence for a single object.\n\nI can delete L2450 altogether if there\u0027s no better way to word it?",
+      "parentUuid": "cfc59ba6_b623329e",
+      "range": {
+        "startLine": 2450,
+        "startChar": 4,
+        "endLine": 2450,
+        "endChar": 66
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41102324_30f4b356",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
