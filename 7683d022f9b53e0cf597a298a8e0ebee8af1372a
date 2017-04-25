@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4dde334_b1b3047a",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-25T23:12:04Z",
+      "side": 1,
+      "message": "I\u0027ve been meaning to ask someone, but why doesn\u0027t this just use the bit syntax in C?\n\n   struct S {\n        int x : 1;\n   };",
+      "revId": "7683d022f9b53e0cf597a298a8e0ebee8af1372a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
