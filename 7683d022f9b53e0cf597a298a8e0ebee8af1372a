@@ -16,6 +16,24 @@
       "revId": "7683d022f9b53e0cf597a298a8e0ebee8af1372a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0765cfd3_cd675194",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-25T23:15:55Z",
+      "side": 1,
+      "message": "I am not sure what the original design decision was, but does that syntax apply across inheritance?",
+      "parentUuid": "b4dde334_b1b3047a",
+      "revId": "7683d022f9b53e0cf597a298a8e0ebee8af1372a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
