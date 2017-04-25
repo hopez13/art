@@ -70,6 +70,30 @@
       "revId": "d1dd18016bd38968e64f0483e2c8e2b8d2755a6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9550816e_5e399979",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-25T16:22:04Z",
+      "side": 1,
+      "message": "I think it\u0027s because of the former; alas, we don\u0027t have much information on the crash. But given that the test itself is very simple (though very long), I\u0027d say failures are due to stress-testing.\n\nWe should improve error reporting, but that\u0027s outside of the scope of this bug/CL.\n\nWe chatted with Nicolas; I\u0027ll try to restrict the scope of the test without disabling it totally.",
+      "parentUuid": "773b8cc2_f2cbb4db",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "d1dd18016bd38968e64f0483e2c8e2b8d2755a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
