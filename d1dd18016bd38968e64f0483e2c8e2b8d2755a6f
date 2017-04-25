@@ -46,6 +46,30 @@
       "revId": "d1dd18016bd38968e64f0483e2c8e2b8d2755a6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773b8cc2_f2cbb4db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-04-25T16:11:21Z",
+      "side": 1,
+      "message": "Was it a failure due to something like running out of memory on the bot, or was it a bug ? If it\u0027s the latter, shouldn\u0027t we revert since it implies the fix was incomplete ?\n\nAnyway, up to you and Nicolas.",
+      "parentUuid": "5c74abe5_6c4d83de",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "d1dd18016bd38968e64f0483e2c8e2b8d2755a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
