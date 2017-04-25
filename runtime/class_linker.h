@@ -27,7 +27,6 @@
 #include "base/enums.h"
 #include "base/macros.h"
 #include "base/mutex.h"
-#include "class_table.h"
 #include "dex_cache_resolved_classes.h"
 #include "dex_file.h"
 #include "dex_file_types.h"
@@ -35,7 +34,6 @@
 #include "handle.h"
 #include "jni.h"
 #include "mirror/class.h"
-#include "object_callbacks.h"
 #include "verifier/verifier_enums.h"
 
 namespace art {
@@ -59,6 +57,7 @@ namespace mirror {
   class StackTraceElement;
 }  // namespace mirror
 
+class ClassTable;
 template<class T> class Handle;
 class ImtConflictTable;
 template<typename T> class LengthPrefixedArray;
@@ -135,6 +134,34 @@ class ClassLinker {
     kJavaLangStackTraceElementArrayClass,
     kDalvikSystemClassExt,
     kClassRootsMax,
+  };
+
+  struct DexCacheData {
+    // Construct an invalid data object.
+    DexCacheData()
+        : weak_root(nullptr),
+          dex_file(nullptr),
+          resolved_methods(nullptr),
+          class_table(nullptr) { }
+
+    // Check if the data is valid.
+    bool IsValid() const {
+      return dex_file != nullptr;
+    }
+
+    // Weak root to the DexCache. Note: Do not decode this unnecessarily or else class unloading may
+    // not work properly.
+    jweak weak_root;
+    // The following two fields are caches to the DexCache's fields and here to avoid unnecessary
+    // jweak decode that triggers read barriers (and mark them alive unnecessarily and mess with
+    // class unloading.)
+    const DexFile* dex_file;
+    ArtMethod** resolved_methods;
+    // Identify the associated class loader's class table. This is used to make sure that
+    // the Java call to native DexCache.setResolvedType() inserts the resolved type in that
+    // class table. It is also used to make sure we don't register the same dex cache with
+    // multiple class loaders.
+    ClassTable* class_table;
   };
 
   explicit ClassLinker(InternTable* intern_table);
@@ -390,6 +417,15 @@ class ClassLinker {
                                            ObjPtr<mirror::ClassLoader> class_loader)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  void RegisterDexFileLocked(const DexFile& dex_file,
+                             ObjPtr<mirror::DexCache> dex_cache,
+                             ObjPtr<mirror::ClassLoader> class_loader)
+      REQUIRES(Locks::dex_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  DexCacheData FindDexCacheDataLocked(const DexFile& dex_file)
+      REQUIRES(Locks::dex_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   void RegisterBootClassPathDexFile(const DexFile& dex_file, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -641,40 +677,15 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns null if not found.
+  // This returns a pointer to the class-table, without requiring any locking - including the
+  // boot class-table. It is the caller's responsibility to access this under lock, if required.
   ClassTable* ClassTableForClassLoader(ObjPtr<mirror::ClassLoader> class_loader)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      NO_THREAD_SAFETY_ANALYSIS;
 
   void AppendToBootClassPath(Thread* self, const DexFile& dex_file)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
-
-  struct DexCacheData {
-    // Construct an invalid data object.
-    DexCacheData()
-        : weak_root(nullptr),
-          dex_file(nullptr),
-          resolved_methods(nullptr),
-          class_table(nullptr) { }
-
-    // Check if the data is valid.
-    bool IsValid() const {
-      return dex_file != nullptr;
-    }
-
-    // Weak root to the DexCache. Note: Do not decode this unnecessarily or else class unloading may
-    // not work properly.
-    jweak weak_root;
-    // The following two fields are caches to the DexCache's fields and here to avoid unnecessary
-    // jweak decode that triggers read barriers (and mark them alive unnecessarily and mess with
-    // class unloading.)
-    const DexFile* dex_file;
-    ArtMethod** resolved_methods;
-    // Identify the associated class loader's class table. This is used to make sure that
-    // the Java call to native DexCache.setResolvedType() inserts the resolved type in that
-    // class table. It is also used to make sure we don't register the same dex cache with
-    // multiple class loaders.
-    ClassTable* class_table;
-  };
 
  private:
   class LinkInterfaceMethodsHelper;
@@ -828,14 +839,6 @@ class ClassLinker {
                                 bool is_static)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void RegisterDexFileLocked(const DexFile& dex_file,
-                             ObjPtr<mirror::DexCache> dex_cache,
-                             ObjPtr<mirror::ClassLoader> class_loader)
-      REQUIRES(Locks::dex_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  DexCacheData FindDexCacheDataLocked(const DexFile& dex_file)
-      REQUIRES(Locks::dex_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_);
   static ObjPtr<mirror::DexCache> DecodeDexCache(Thread* self, const DexCacheData& data)
       REQUIRES_SHARED(Locks::mutator_lock_);
   // Called to ensure that the dex cache has been registered with the same class loader.
@@ -1111,18 +1114,6 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::classlinker_classes_lock_);
 
-  // new_class_set is the set of classes that were read from the class table section in the image.
-  // If there was no class table section, it is null.
-  bool UpdateAppImageClassLoadersAndDexCaches(
-      gc::space::ImageSpace* space,
-      Handle<mirror::ClassLoader> class_loader,
-      Handle<mirror::ObjectArray<mirror::DexCache>> dex_caches,
-      ClassTable::ClassSet* new_class_set,
-      bool* out_forward_dex_cache_array,
-      std::string* out_error_msg)
-      REQUIRES(!Locks::dex_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
   // Check that c1 == FindSystemClass(self, descriptor). Abort with class dumps otherwise.
   void CheckSystemClass(Thread* self, Handle<mirror::Class> c1, const char* descriptor)
       REQUIRES(!Locks::dex_lock_)
@@ -1172,7 +1163,7 @@ class ClassLinker {
       GUARDED_BY(Locks::classlinker_classes_lock_);
 
   // Boot class path table. Since the class loader for this is null.
-  ClassTable boot_class_table_ GUARDED_BY(Locks::classlinker_classes_lock_);
+  std::unique_ptr<ClassTable> boot_class_table_ GUARDED_BY(Locks::classlinker_classes_lock_);
 
   // New class roots, only used by CMS since the GC needs to mark these in the pause.
   std::vector<GcRoot<mirror::Class>> new_class_roots_ GUARDED_BY(Locks::classlinker_classes_lock_);
