@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "cc4414a9_5ab2b43a",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-25T22:25:23Z",
+      "side": 1,
+      "message": "Finding out more details on what is actually being moved is TBD with a more elaborate type system (also useful to avoid wide moves in the resolver on ARM). I am less sure if the type consistency is as important on x86 as it used to be; from what I heard, mixing is okay.",
+      "parentUuid": "977c0c87_4d49f260",
+      "range": {
+        "startLine": 1647,
+        "startChar": 0,
+        "endLine": 1647,
+        "endChar": 52
+      },
+      "revId": "f791937f195273d4b301a7dc0d688fe712ab4c83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1a48d01_7d89becb",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 1
