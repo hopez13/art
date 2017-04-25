@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "40c66ad2_6602dba3",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-04-25T10:22:29Z",
+      "side": 1,
+      "message": "That makes it hard to detect problems in this code - if we try forever, we\u0027ll silently spin in the signal catcher thread and that scenario will be pretty hard to detect after the fact (in bug reports etc.).\n\nI don\u0027t have a strong opinion on this matter, so I\u0027m happy to be convinced otherwise.",
+      "parentUuid": "116b4cda_52305011",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 21
+      },
+      "revId": "09859a7bd051338116eec114a92773d88d1c857d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12face08_d7b51643",
         "filename": "test/987-stack-trace-dumping/run",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-24T12:32:19Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "09859a7bd051338116eec114a92773d88d1c857d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b375661_d87a514f",
+        "filename": "test/987-stack-trace-dumping/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-04-25T10:22:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12face08_d7b51643",
       "range": {
         "startLine": 3,
         "startChar": 12,
