@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e75a992b_ba6112c1",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-25T22:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "093b154e_db16bb27",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "1688a7037882c2f8e7a09b72c9c43a782a60dc65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86eb05a8_2f3d1791",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-25T22:21:54Z",
       "side": 1,
       "message": "You already modify it so much. Move it into DumpHeapObject?",
+      "range": {
+        "startLine": 1073,
+        "startChar": 0,
+        "endLine": 1104,
+        "endChar": 2
+      },
+      "revId": "1688a7037882c2f8e7a09b72c9c43a782a60dc65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fde8f60_90671705",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-25T22:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86eb05a8_2f3d1791",
       "range": {
         "startLine": 1073,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "240cff6d_dd0b4758",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-25T22:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8de1009a_7165bd1c",
+      "range": {
+        "startLine": 1299,
+        "startChar": 2,
+        "endLine": 1299,
+        "endChar": 63
+      },
+      "revId": "1688a7037882c2f8e7a09b72c9c43a782a60dc65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f59811cd_a28847bd",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "0a8fa219_939591bd",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-25T22:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f59811cd_a28847bd",
+      "range": {
+        "startLine": 1320,
+        "startChar": 12,
+        "endLine": 1320,
+        "endChar": 25
+      },
+      "revId": "1688a7037882c2f8e7a09b72c9c43a782a60dc65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e83e330_d1285daf",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2017-04-25T22:21:54Z",
       "side": 1,
       "message": "Comment, and constant, maybe? (Especially since the String code above is a lot more complex)",
+      "range": {
+        "startLine": 1445,
+        "startChar": 32,
+        "endLine": 1445,
+        "endChar": 33
+      },
+      "revId": "1688a7037882c2f8e7a09b72c9c43a782a60dc65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bbd0ad2_fc41f91c",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1445,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-25T22:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e83e330_d1285daf",
       "range": {
         "startLine": 1445,
         "startChar": 32,
