@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9bb0415_d30c2b0f",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-25T17:26:02Z",
+      "side": 1,
+      "message": "This should be \"Tests that use jack to build (not javac/dx).\"",
+      "range": {
+        "startLine": 664,
+        "startChar": 24,
+        "endLine": 664,
+        "endChar": 68
+      },
+      "revId": "8889a8974457792450df4fc539c5dcbf7edd895f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
