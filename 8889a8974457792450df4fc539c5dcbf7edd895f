@@ -46,6 +46,30 @@
       "revId": "8889a8974457792450df4fc539c5dcbf7edd895f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b49d0468_26a977b4",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-25T17:30:56Z",
+      "side": 1,
+      "message": "Break the list in 2 different set based on the reason.",
+      "parentUuid": "a30a0764_5dcccc8b",
+      "range": {
+        "startLine": 664,
+        "startChar": 24,
+        "endLine": 664,
+        "endChar": 68
+      },
+      "revId": "8889a8974457792450df4fc539c5dcbf7edd895f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
