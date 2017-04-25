@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9fd3111_9fe3405f",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T13:18:03Z",
+      "side": 1,
+      "message": "This cannot happen by looking at the lines above.",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 36
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9285cd2c_ebfcede0",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T13:18:03Z",
+      "side": 1,
+      "message": "Why did you change the wording? Instructions don\u0027t have \"edges\", they\u0027re just part of lists.",
+      "range": {
+        "startLine": 350,
+        "startChar": 29,
+        "endLine": 351,
+        "endChar": 68
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d5b088f_373e1970",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T13:18:03Z",
+      "side": 1,
+      "message": "Add a \"\u003c\u003c\" to explain why obj should not be null.",
+      "range": {
+        "startLine": 1465,
+        "startChar": 8,
+        "endLine": 1465,
+        "endChar": 31
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c8b9ea_24c50921",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T13:18:03Z",
+      "side": 1,
+      "message": "Maybe add a comment also for what the debug check is about.",
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba1a271e_82585b18",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2450,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T13:18:03Z",
+      "side": 1,
+      "message": "That\u0027s an odd wording. I\u0027d drop the comment all together, RemoveAllInputs is just a general purpose helper.",
+      "range": {
+        "startLine": 2450,
+        "startChar": 4,
+        "endLine": 2450,
+        "endChar": 66
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41102324_30f4b356",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 6582,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T13:18:03Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 6582,
+        "startChar": 33,
+        "endLine": 6582,
+        "endChar": 34
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
