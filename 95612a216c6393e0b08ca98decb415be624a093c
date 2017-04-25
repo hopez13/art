@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "884180a2_b55cf1db",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cc109a1_96b886f4",
+      "range": {
+        "startLine": 323,
+        "startChar": 90,
+        "endLine": 323,
+        "endChar": 92
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "720f3504_8e2037aa",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-25T15:52:01Z",
       "side": 1,
       "message": "Does this change also requires the Oat file version number to be bumped?",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17fec289_b87774a7",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "No, the entrypoint is already in place, so even new code can actually work with old runtime (assuming a revert).\n\nAnd the enumerator here is really irrelevant in that respect as it\u0027s never stored to disk.",
+      "parentUuid": "720f3504_8e2037aa",
       "range": {
         "startLine": 32,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6f69138c_042782d1",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf58f2a3_321a563a",
+      "range": {
+        "startLine": 506,
+        "startChar": 48,
+        "endLine": 506,
+        "endChar": 56
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df2a004c_7ca63ae0",
         "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-25T15:52:01Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 903,
+        "startChar": 72,
+        "endLine": 903,
+        "endChar": 80
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b24f84_793dcdae",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df2a004c_7ca63ae0",
       "range": {
         "startLine": 903,
         "startChar": 72,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "cce0cb9b_80af57c0",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64a6a1b5_1ab5626c",
+      "range": {
+        "startLine": 991,
+        "startChar": 33,
+        "endLine": 991,
+        "endChar": 41
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f184e7d9_8bb61094",
         "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2017-04-25T15:52:01Z",
       "side": 1,
       "message": "Ditto? (And likewise below.)",
+      "range": {
+        "startLine": 1003,
+        "startChar": 35,
+        "endLine": 1003,
+        "endChar": 43
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bed6391_3029f632",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f184e7d9_8bb61094",
       "range": {
         "startLine": 1003,
         "startChar": 35,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "bbcf811f_0b77cc82",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdd971f2_755c9a01",
+      "range": {
+        "startLine": 1159,
+        "startChar": 13,
+        "endLine": 1159,
+        "endChar": 21
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d54acac_fe8fea92",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2017-04-25T15:52:01Z",
       "side": 1,
       "message": "Nit: Should we move that change to its own CL?",
+      "range": {
+        "startLine": 2763,
+        "startChar": 0,
+        "endLine": 2780,
+        "endChar": 4
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62ff906a_bb2ef2e2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2780,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "I think it belongs in this CL because this is where the GenerateArrayLoadWithBakerReadBarrier() really depends on it, see the DCHECK(!needs_null_check) at line 6181.",
+      "parentUuid": "6d54acac_fe8fea92",
       "range": {
         "startLine": 2763,
         "startChar": 0,
@@ -203,6 +395,24 @@
     },
     {
       "key": {
+        "uuid": "06443ed1_00ae823f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90fa97d4_ec033739",
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40120938_c7e03dbc",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 7
@@ -214,6 +424,30 @@
       "writtenOn": "2017-04-25T15:52:01Z",
       "side": 1,
       "message": "kPrimLong? or maybe use XRegisterFrom instead of RegisterFrom, as the index register is expected to be an X register?",
+      "range": {
+        "startLine": 6154,
+        "startChar": 56,
+        "endLine": 6154,
+        "endChar": 64
+      },
+      "revId": "95612a216c6393e0b08ca98decb415be624a093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3915128_c801e650",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6154,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-25T17:20:58Z",
+      "side": 1,
+      "message": "kPrimInt is exactly what we\u0027d get from\n\n  instruction-\u003eAsArrayGet()-\u003eGetIndex()-\u003eGetType()\n\nWe just know that it\u0027s non-negative (negative index would have failed the bounds check), so it doesn\u0027t matter if we use SXTX, UXTX or LSL below.",
+      "parentUuid": "40120938_c7e03dbc",
       "range": {
         "startLine": 6154,
         "startChar": 56,
