@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b90ecb98_f6f8ccfe",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T14:13:22Z",
+      "side": 1,
+      "message": "I guess input-\u003eGetBlock()-\u003eGetPhis() got optimized.",
+      "parentUuid": "e4fdb6d6_aea22ad0",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 36
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9285cd2c_ebfcede0",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 7
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I just wanted to disambiguate this case L350 vs L345\n\nIf you\u0027re ok with the 2 cases, can you please suggest some specific wording if not this?\n\nOtherwise I can just remove the first case, although it seems potentially helpful.",
       "parentUuid": "9285cd2c_ebfcede0",
+      "range": {
+        "startLine": 350,
+        "startChar": 29,
+        "endLine": 351,
+        "endChar": 68
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4e92e58_cf461b81",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T14:13:22Z",
+      "side": 1,
+      "message": "The check whether block is null could say the input is not in any block.",
+      "parentUuid": "bf539ab2_7c856fbc",
       "range": {
         "startLine": 350,
         "startChar": 29,
@@ -171,6 +219,30 @@
       "side": 1,
       "message": "My intention was to stress that it\u0027s not really safe outside of prepare_for_register_allocation because dropping inputs like this blindly is dangerous (i.e. can affect correctness).",
       "parentUuid": "ba1a271e_82585b18",
+      "range": {
+        "startLine": 2450,
+        "startChar": 4,
+        "endLine": 2450,
+        "endChar": 66
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfc59ba6_b623329e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2450,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-25T14:13:22Z",
+      "side": 1,
+      "message": "Sure, just like things like RemoveInputAt and friends. These are helpers.",
+      "parentUuid": "c8f440d0_fb89733d",
       "range": {
         "startLine": 2450,
         "startChar": 4,
