@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fbf23ed0_e398632e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6537,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T18:30:37Z",
+      "side": 1,
+      "message": "How about \"Further, anything written before the freeze, and read by dereferencing through the final field, must also be visible ( so a final object field ...\"",
+      "parentUuid": "c8e35f14_1ff24537",
+      "range": {
+        "startLine": 6537,
+        "startChar": 33,
+        "endLine": 6537,
+        "endChar": 45
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34a04f87_f65f9fd3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "It\u0027s trying to hand-waive this equivalence:\n\n   class Object {\n       final Class header;\n   }\n\n   T new_instance\u003cT\u003e() {\n      Object ptr \u003d alloc(T.class.size);\n      ptr.header \u003d T.class;\n      // freeze(ptr.header)\n      return ptr;\n   }",
       "parentUuid": "34a04f87_f65f9fd3",
+      "range": {
+        "startLine": 6542,
+        "startChar": 46,
+        "endLine": 6542,
+        "endChar": 53
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6daea00_1b0c363b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6542,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T18:30:37Z",
+      "side": 1,
+      "message": "maybe \u0027class pointer \"final field\"\u0027 instead?",
+      "parentUuid": "6c815ffd_bedc33d5",
       "range": {
         "startLine": 6542,
         "startChar": 46,
@@ -213,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "5e7ca50c_ce2ebe2c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6549,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T18:30:37Z",
+      "side": 1,
+      "message": "That helps. Put that in a comment? But I still have concerns; see below.",
+      "parentUuid": "3f826777_dce70af9",
+      "range": {
+        "startLine": 6549,
+        "startChar": 73,
+        "endLine": 6549,
+        "endChar": 83
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6fe8d6c4_8309393f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -248,6 +320,30 @@
       "side": 1,
       "message": "Sort of.\n\nThat\u0027s too general for the memory model semantics described above (since it doesn\u0027t mention non-final stores).\n\nAt the same time it\u0027s too specific than what the current implementation lets us do in HIR:\n\nThe only way we can prevent reordering is through the \"side effects\" state described on L6562 here. It\u0027s not fine-grained enough to track the object being fenced, it would apply to *all* stores [of a specific shorty type]",
       "parentUuid": "6fe8d6c4_8309393f",
+      "range": {
+        "startLine": 6558,
+        "startChar": 7,
+        "endLine": 6558,
+        "endChar": 81
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df0b61a5_054e2aab",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6558,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T18:30:37Z",
+      "side": 1,
+      "message": "I think it\u0027s important to get the semantics pinned down. My concern is that the normal notion of \"input\" doesn\u0027t reflect all the reordering constraints for a fence. I think if we have\n\na.final_ \u003d b;\nb.x \u003d c;\nHConstructorFence(a);\n\nthen it\u0027s unsafe to reorder the last statement with respect to either of the earlier ones. The \"all reads\" side effect captures that, but not particularly well. It also prevents later non-publishing (e.g. primitive) stores from moving up to before the HConstructorFence, which is unnecessary.\n\nHaving the object a as an input prevents reordering with respect to assignments to a. But that doesn\u0027t seem like a very useful constraint?\n\nThis can apply to non-final stores to a, right? If we have\n\na.final_ \u003d a;\na.x \u003d x;\nHConstructorFence(a);\nstatic_ \u003d a;\n\n\nthen I think a later static_.final_.x must see the value written before the HConstructorFence/freeze?",
+      "parentUuid": "8b15a547_e561817c",
       "range": {
         "startLine": 6558,
         "startChar": 7,
@@ -342,6 +438,30 @@
       "side": 1,
       "message": "Yes, I tried to address that as an extra case on L6566-6567, perhaps it was unclear?",
       "parentUuid": "203b049f_aac0e278",
+      "range": {
+        "startLine": 6565,
+        "startChar": 60,
+        "endLine": 6565,
+        "endChar": 85
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35b1cfe2_7ea83868",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6565,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T18:30:37Z",
+      "side": 1,
+      "message": "I think it\u0027s unclear. \"were written\" where? I\u0027m not sure it\u0027s easy to usefully narrow the set of prior stores affected by this.",
+      "parentUuid": "4cd7559a_f33f8b9f",
       "range": {
         "startLine": 6565,
         "startChar": 60,
