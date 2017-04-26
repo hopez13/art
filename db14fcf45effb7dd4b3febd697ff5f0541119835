@@ -22,6 +22,30 @@
       "revId": "db14fcf45effb7dd4b3febd697ff5f0541119835",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9012809e_cc97ec0d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-26T09:28:49Z",
+      "side": 1,
+      "message": "Ah I\u0027ve looked at your commit message after writing this comment.\n\nDo we really gain anything by handling string char at in the vectorizer? What kind of code will we optimize?",
+      "parentUuid": "43af211d_e5ed7d06",
+      "range": {
+        "startLine": 1004,
+        "startChar": 6,
+        "endLine": 1004,
+        "endChar": 67
+      },
+      "revId": "db14fcf45effb7dd4b3febd697ff5f0541119835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
