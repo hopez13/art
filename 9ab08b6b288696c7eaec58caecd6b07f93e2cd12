@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c8e35f14_1ff24537",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6537,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T00:27:59Z",
+      "side": 1,
+      "message": "Ok, I can see how this is a bit confusing.\n\nHow about \"as the final fields after the freeze\" ?",
+      "parentUuid": "ce67c144_4ef4afe9",
+      "range": {
+        "startLine": 6537,
+        "startChar": 33,
+        "endLine": 6537,
+        "endChar": 45
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34a04f87_f65f9fd3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "6c815ffd_bedc33d5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6542,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T00:27:59Z",
+      "side": 1,
+      "message": "It\u0027s trying to hand-waive this equivalence:\n\n   class Object {\n       final Class header;\n   }\n\n   T new_instance\u003cT\u003e() {\n      Object ptr \u003d alloc(T.class.size);\n      ptr.header \u003d T.class;\n      // freeze(ptr.header)\n      return ptr;\n   }",
+      "parentUuid": "34a04f87_f65f9fd3",
+      "range": {
+        "startLine": 6542,
+        "startChar": 46,
+        "endLine": 6542,
+        "endChar": 53
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67c991d5_831bdcbe",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -82,6 +130,30 @@
       "writtenOn": "2017-04-26T00:13:32Z",
       "side": 1,
       "message": "What\u0027s a fence \"input\"? Is this distinct from the \"fence object\"?",
+      "range": {
+        "startLine": 6549,
+        "startChar": 73,
+        "endLine": 6549,
+        "endChar": 83
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f826777_dce70af9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6549,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T00:27:59Z",
+      "side": 1,
+      "message": "Optimizing compiler terminology. An \"input\" A for an instruction `B` means that B-uses-A \n\n      B \u003d some-inst(A)\n\nThe initial state is that when building the CFG, HConstructorFence has a single input (the fence object). Successive passes can either add more inputs (not yet implemented, but it would be fence merging) or remove inputs (as in LSE).\n\n     // initial, after building\n     HConstructorFence(fence_object)\n\n     // after some fence merging\n     HConstructorFence(x, y, z, ..., wN)\n\n     // after LSE\n     HConstructorFence(y, z, ... wN-1)\n\n     // special: after prepare_for_register_allocation\n     HConstructorFence()",
+      "parentUuid": "67c991d5_831bdcbe",
       "range": {
         "startLine": 6549,
         "startChar": 73,
@@ -151,6 +223,30 @@
       "writtenOn": "2017-04-26T00:13:32Z",
       "side": 1,
       "message": "I don\u0027t understand. It also orders stores that may be accessed through the final field, right?",
+      "range": {
+        "startLine": 6565,
+        "startChar": 60,
+        "endLine": 6565,
+        "endChar": 85
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cd7559a_f33f8b9f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6565,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T00:27:59Z",
+      "side": 1,
+      "message": "Yes, I tried to address that as an extra case on L6566-6567, perhaps it was unclear?",
+      "parentUuid": "203b049f_aac0e278",
       "range": {
         "startLine": 6565,
         "startChar": 60,

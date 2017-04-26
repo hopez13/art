@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "169568ec_a9be9dc8",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T00:27:59Z",
+      "side": 1,
+      "message": "Ah, yes, I misunderstood Nicolas\u0027s point originally. Yes, it should... I\u0027m surprised this even works because it should be proven always-false by line 342/343 due to the UB.",
+      "parentUuid": "4a7cf5a0_00514073",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 36
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9285cd2c_ebfcede0",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 7
