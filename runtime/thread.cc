@@ -34,7 +34,7 @@
 
 #include "android-base/stringprintf.h"
 
-#include "arch/context.h"
+#include "arch/arch_context.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/bit_utils.h"
@@ -3413,11 +3413,10 @@ void Thread::VisitRoots(RootVisitor* visitor) {
     verifier->VisitRoots(visitor, RootInfo(kRootNativeStack, thread_id));
   }
   // Visit roots on this thread's stack
-  Context* context = GetLongJumpContext();
+  ArchContext context;
   RootCallbackVisitor visitor_to_callback(visitor, thread_id);
-  ReferenceMapVisitor<RootCallbackVisitor, kPrecise> mapper(this, context, visitor_to_callback);
+  ReferenceMapVisitor<RootCallbackVisitor, kPrecise> mapper(this, &context, visitor_to_callback);
   mapper.template WalkStack<StackVisitor::CountTransitions::kNo>(false);
-  ReleaseLongJumpContext(context);
   for (instrumentation::InstrumentationStackFrame& frame : *GetInstrumentationStack()) {
     visitor->VisitRootIfNonNull(&frame.this_object_, RootInfo(kRootVMInternal, thread_id));
   }
