@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d20fc7b_08f1f3b9",
+        "filename": "runtime/arch/context-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-26T23:01:59Z",
+      "side": 1,
+      "message": "Could you maybe add a comment here that this file is special-purpose for cases where it\u0027s OK to break abstraction, and that most users should use Context::Create()?",
+      "revId": "38b598b6a97ccff35ecacd6ecbd3bea45d7f6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
