@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "af80d986_d4013767",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6537,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T22:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbf23ed0_e398632e",
+      "range": {
+        "startLine": 6537,
+        "startChar": 33,
+        "endLine": 6537,
+        "endChar": 45
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34a04f87_f65f9fd3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -214,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "af5e113e_f122feb6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6542,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T22:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6daea00_1b0c363b",
+      "range": {
+        "startLine": 6542,
+        "startChar": 46,
+        "endLine": 6542,
+        "endChar": 53
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67c991d5_831bdcbe",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -273,6 +321,30 @@
       "side": 1,
       "message": "That helps. Put that in a comment? But I still have concerns; see below.",
       "parentUuid": "3f826777_dce70af9",
+      "range": {
+        "startLine": 6549,
+        "startChar": 73,
+        "endLine": 6549,
+        "endChar": 83
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "988445f1_0d3f4697",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6549,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T22:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e7ca50c_ce2ebe2c",
       "range": {
         "startLine": 6549,
         "startChar": 73,
@@ -486,6 +558,30 @@
       "side": 1,
       "message": "I think it\u0027s unclear. \"were written\" where? I\u0027m not sure it\u0027s easy to usefully narrow the set of prior stores affected by this.",
       "parentUuid": "4cd7559a_f33f8b9f",
+      "range": {
+        "startLine": 6565,
+        "startChar": 60,
+        "endLine": 6565,
+        "endChar": 85
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0921069e_cc326fb3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6565,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T22:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35b1cfe2_7ea83868",
       "range": {
         "startLine": 6565,
         "startChar": 60,
