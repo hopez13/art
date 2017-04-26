@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d44f612c_77bf0a77",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 6522,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T19:17:51Z",
+      "side": 1,
+      "message": "Igor and I agreed that it would be good to pin down the real semantics of a constructor fence, even if we initially treat it as though it had stronger semantics. There was some concern whether Nicolas would agree.\n\nHere\u0027s my attempt to state what it does:\n\nIt orders all prior stores to fields that could be accessed via a final field of the specified object, with respect to any subsequent store that might \"publish\" (i.e.make visible) the specified object to another thread.\n\nWe claim the \"all reads\" constraint below enforces a superset of that constraint.\n\nIf there are no final reference fields initialized by the constructor, then restricting the \"all reads\" to primitive types of final fields in the object together with all reference types also works. But that\u0027s inherently too strong a constraint. In this case, we really care only about earlier primitive writes and later reference writes. We strongly suspect there is no way to express that in the current infrastructure.",
+      "range": {
+        "startLine": 6520,
+        "startChar": 3,
+        "endLine": 6522,
+        "endChar": 97
+      },
+      "revId": "81ffa1f5d1719048b7482bec7020a0924aafbcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7907286a_66c378ab",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 6564,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T19:17:51Z",
+      "side": 1,
+      "message": "Igor and I discussed the role of the input(s) here. I think it would be useful to clarify that this is not an input in a real sense, but just a convenient place to stash the information about the associated object. The real constraint is the \"all reads\" side effect. That\u0027s actually too strong, so there will be a few places in the code that understand that.",
+      "range": {
+        "startLine": 6562,
+        "startChar": 37,
+        "endLine": 6564,
+        "endChar": 95
+      },
+      "revId": "81ffa1f5d1719048b7482bec7020a0924aafbcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c5400c6_89c765c3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 6579,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T19:17:51Z",
+      "side": 1,
+      "message": "\"reference field writes\" would be much clearer for me. For me, but maybe not most code readers here, it would also be good to clarify that we\u0027re talking about very coarse types here, not Java object types.",
+      "range": {
+        "startLine": 6579,
+        "startChar": 33,
+        "endLine": 6579,
+        "endChar": 39
+      },
+      "revId": "81ffa1f5d1719048b7482bec7020a0924aafbcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
