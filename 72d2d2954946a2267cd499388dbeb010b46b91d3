@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f1f07a4_40d74a9b",
+        "filename": "runtime/arch/context-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T22:45:21Z",
+      "side": 1,
+      "message": "It seems unintentional to export \u0027RUNTIME_CONTEXT_TYPE\u0027 from this header?\n\nIf so add this here:\n\n    #undef RUNTIME_CONTEXT_TYPE\n\nso that the #defines don\u0027t pollute other headers",
+      "revId": "72d2d2954946a2267cd499388dbeb010b46b91d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
