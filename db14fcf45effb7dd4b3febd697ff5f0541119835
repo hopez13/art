@@ -70,6 +70,30 @@
       "revId": "db14fcf45effb7dd4b3febd697ff5f0541119835",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aab0c617_9b5a9d7e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-26T15:57:58Z",
+      "side": 1,
+      "message": "Note that this CL just makes booleans bitmaps and add the is_string_char_at boolean to the array load (which seems a good idea, even if it is dead now, for when we enable later, or when people copy and paste this cloning method).\n\nAs for usefulness, the golden rule of vectorization is that you want to be able to vectorize everything, but let proper cost heuristics decide when to proceed (something coming up post O of course). You never know where a simple looking construct shows up.\n\nAs an example, in Dacapo, we have the following loop in calculateSumDB() (the actual loop is more complex, but this is the core idea).\n\n   long result \u003d 0;\n\n   for (int i \u003d 0; i \u003c v.length(); i++) {\n      result +\u003d v.charAt(i);\n   }\n\nSuch a 16-bit to 64-bit reduction is an awesome candidate for vectorization!",
+      "parentUuid": "9c3eae97_cce65cfa",
+      "range": {
+        "startLine": 1004,
+        "startChar": 6,
+        "endLine": 1004,
+        "endChar": 67
+      },
+      "revId": "db14fcf45effb7dd4b3febd697ff5f0541119835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
