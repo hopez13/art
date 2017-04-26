@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d65b1e83_4f66dba9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6532,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T17:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acdd3b74_e347db4f",
+      "range": {
+        "startLine": 6532,
+        "startChar": 70,
+        "endLine": 6532,
+        "endChar": 84
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce67c144_4ef4afe9",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -200,6 +224,30 @@
       "writtenOn": "2017-04-26T00:13:32Z",
       "side": 1,
       "message": "Is it safe to say that the fence orders stores before the fence with respect to any publishing (to another thread) store of fence_object?",
+      "range": {
+        "startLine": 6558,
+        "startChar": 7,
+        "endLine": 6558,
+        "endChar": 81
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b15a547_e561817c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6558,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T17:31:37Z",
+      "side": 1,
+      "message": "Sort of.\n\nThat\u0027s too general for the memory model semantics described above (since it doesn\u0027t mention non-final stores).\n\nAt the same time it\u0027s too specific than what the current implementation lets us do in HIR:\n\nThe only way we can prevent reordering is through the \"side effects\" state described on L6562 here. It\u0027s not fine-grained enough to track the object being fenced, it would apply to *all* stores [of a specific shorty type]",
+      "parentUuid": "6fe8d6c4_8309393f",
       "range": {
         "startLine": 6558,
         "startChar": 7,
