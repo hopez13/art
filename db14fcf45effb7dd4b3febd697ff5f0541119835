@@ -46,6 +46,30 @@
       "revId": "db14fcf45effb7dd4b3febd697ff5f0541119835",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c3eae97_cce65cfa",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-26T14:05:52Z",
+      "side": 1,
+      "message": "Bug 37151445, https://android-review.googlesource.com/370001 .\n\n  // String digits0 \u003d all unicode zeros\n  char[] digits9 \u003d new char[digits0.length()];\n  for (int i \u003d 0; i \u003c digits0.length(); ++i] {\n    digits9[i] \u003d digits0.charAt(i) + 9;\n  }\n\nNot sure that\u0027s worth the effort.",
+      "parentUuid": "9012809e_cc97ec0d",
+      "range": {
+        "startLine": 1004,
+        "startChar": 6,
+        "endLine": 1004,
+        "endChar": 67
+      },
+      "revId": "db14fcf45effb7dd4b3febd697ff5f0541119835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
