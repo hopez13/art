@@ -356,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "9067907a_f5f3a25c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6558,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T18:40:26Z",
+      "side": 1,
+      "message": "\u003e The \"all reads\" side effect captures that, but not particularly well. It also prevents later non-publishing (e.g. primitive) stores from moving up to before the HConstructorFence, which is unnecessary.\n\nI completely agree. It seems it is a limitation of the current implementation and I\u0027m not sure if there\u0027s much we can do without overhauling the rest of the optimizing compiler?\n\nIt is because of this limitation that I\u0027m not really sure how we can be more specific in this comment since it would be inaccurate with respect to the actual code.\n\n\u003e Having the object a as an input prevents reordering with respect to assignments to a. But that doesn\u0027t seem like a very useful constraint?\n\nIn this CL having it as an input is primarily so LSE knows which fence to delete if an object never escapes.\n\nIn future CLs having it as an input allows us to move the fences around to different basic blocks without violating the \"safe-publish\" guarantee (correct publishes of X always succeed the constructor fence of X)",
+      "parentUuid": "df0b61a5_054e2aab",
+      "range": {
+        "startLine": 6558,
+        "startChar": 7,
+        "endLine": 6558,
+        "endChar": 81
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "162ce4f9_fe022f47",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
