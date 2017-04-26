@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8411e257_016a8be6",
+        "filename": "runtime/arch/arch_context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T22:13:47Z",
+      "side": 1,
+      "message": "Please please -inl in the name becomes it pulls in a ton of other stuff.",
+      "parentUuid": "024d0638_12a2ba15",
+      "revId": "0d4acc410c673460b5a97e7c7c447f3fc7db418b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17d4b427_7c8b1bca",
         "filename": "runtime/arch/arch_context.h",
         "patchSetId": 1
@@ -36,6 +54,23 @@
         "endLine": 25,
         "endChar": 17
       },
+      "revId": "0d4acc410c673460b5a97e7c7c447f3fc7db418b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b063d59b_9f7bbb4a",
+        "filename": "runtime/arch/arch_context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T22:13:47Z",
+      "side": 1,
+      "message": "I think this could be cleaner with either of these 2 approaches?\n\nIf we ever have a need to access non-runtime ISAs then the template-based approach is more useful. But it does have the same problem of repeating the namespace every time.\n\n   template \u003cInstructionSet isa\u003e\n   struct ArchContext;\n\n#if arm\n   namespace art {\n   template \u003c\u003e\n   struct ArchContext\u003ckArm\u003e { using type \u003d arm::ArmContext; }; \n   }\n#endif\n\n#if x86_64\n   namespace art {\n   template \u003c\u003e\n   struct ArchContext\u003ckX86_64\u003e { using type \u003d x86_64::X86_64Context; };\n#endif\n   }\n\n   ....\n\n   namespace art{\n   using RuntimeContextType \u003d ArchContext\u003ckRuntimeIsa\u003e::type;\n   }\n\nor macros? This seems strictly less-repetitive than current approach.\n\n#if arm\n   #define ARCH_CONTEXT_TYPE arm::ArmContext;\n#else if x86_64\n   #define ARCH_CONTEXT_TYPE x86_64::X86_64Context;\n#endif\n   ....\n\n   namespace art {\n   using RuntimeContextType \u003d ARCH_CONTEXT_TYPE;\n   #undef ARCH_CONTEXT_TYPE\n   }",
       "revId": "0d4acc410c673460b5a97e7c7c447f3fc7db418b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
