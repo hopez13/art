@@ -115,7 +115,7 @@ std::string SignalCatcher::GetStackTraceFileName() {
 
     for (uint32_t i = 0; i < kMaxRetries; ++i) {
         std::srand(NanoTime());
-        // Sample output for PID 1234 : /data/anr-pid1234-cafeffee.txt
+        // Sample output for PID 1234 : /data/anr/anr-pid1234-cafeffee.txt
         const std::string file_name = android::base::StringPrintf(
             "%s/anr-pid%" PRId32 "-%08" PRIx32 ".txt",
             stack_trace_dir_.c_str(),
@@ -144,7 +144,7 @@ void SignalCatcher::Output(const std::string& s) {
   ScopedThreadStateChange tsc(Thread::Current(), kWaitingForSignalCatcherOutput);
   int fd = open(stack_trace_file.c_str(), O_APPEND | O_CREAT | O_WRONLY, 0666);
   if (fd == -1) {
-    PLOG(ERROR) << "Unable to open stack trace file '" << stack_trace_file_ << "'";
+    PLOG(ERROR) << "Unable to open stack trace file '" << stack_trace_file << "'";
     return;
   }
   std::unique_ptr<File> file(new File(fd, stack_trace_file, true));
