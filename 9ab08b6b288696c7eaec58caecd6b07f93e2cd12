@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f63d5970_d77904ed",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2449,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-26T09:20:31Z",
+      "side": 1,
+      "message": "And I\u0027d drop this too. Maybe it only makes sense for constructor fences today, but other instructions might use it independently of compiler passes.\n\nAgain, those are just helpers :)",
+      "range": {
+        "startLine": 2449,
+        "startChar": 2,
+        "endLine": 2449,
+        "endChar": 72
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acdd3b74_e347db4f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
