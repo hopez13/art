@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cf304d23_b2a9afaa",
+        "filename": "runtime/arch/context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-26T22:13:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "2f7542ff_4494228c",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "18457f487316b2ed2dd584f3e1f07e939e18aef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04c09931_c3673091",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-26T21:37:17Z",
       "side": 0,
       "message": "Keep. No transitive includes.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "18457f487316b2ed2dd584f3e1f07e939e18aef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43ecad36_cda1db13",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-26T22:13:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "04c09931_c3673091",
       "range": {
         "startLine": 37,
         "startChar": 0,
