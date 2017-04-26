@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acdd3b74_e347db4f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6532,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T00:13:32Z",
+      "side": 1,
+      "message": "Add \"after constructor completion\". This doesn\u0027t otherwise hold.",
+      "range": {
+        "startLine": 6532,
+        "startChar": 70,
+        "endLine": 6532,
+        "endChar": 84
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce67c144_4ef4afe9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6537,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T00:13:32Z",
+      "side": 1,
+      "message": "I think it\u0027s at least as up-to-date as the freeze. If the constructor first writes final field f, and then f.a, and contains no unsafe publication, then a later read of f.a through f must see the value written in the constructor (or a later or concurrent write).",
+      "range": {
+        "startLine": 6537,
+        "startChar": 33,
+        "endLine": 6537,
+        "endChar": 45
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34a04f87_f65f9fd3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6542,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T00:13:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure what \"final\" means. It writes the class and zero initializes.",
+      "range": {
+        "startLine": 6542,
+        "startChar": 46,
+        "endLine": 6542,
+        "endChar": 53
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67c991d5_831bdcbe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6549,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T00:13:32Z",
+      "side": 1,
+      "message": "What\u0027s a fence \"input\"? Is this distinct from the \"fence object\"?",
+      "range": {
+        "startLine": 6549,
+        "startChar": 73,
+        "endLine": 6549,
+        "endChar": 83
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fe8d6c4_8309393f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6558,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T00:13:32Z",
+      "side": 1,
+      "message": "Is it safe to say that the fence orders stores before the fence with respect to any publishing (to another thread) store of fence_object?",
+      "range": {
+        "startLine": 6558,
+        "startChar": 7,
+        "endLine": 6558,
+        "endChar": 81
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "162ce4f9_fe022f47",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6563,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T00:13:32Z",
+      "side": 1,
+      "message": "from",
+      "range": {
+        "startLine": 6563,
+        "startChar": 17,
+        "endLine": 6563,
+        "endChar": 19
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "203b049f_aac0e278",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6565,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T00:13:32Z",
+      "side": 1,
+      "message": "I don\u0027t understand. It also orders stores that may be accessed through the final field, right?",
+      "range": {
+        "startLine": 6565,
+        "startChar": 60,
+        "endLine": 6565,
+        "endChar": 85
+      },
+      "revId": "9ab08b6b288696c7eaec58caecd6b07f93e2cd12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

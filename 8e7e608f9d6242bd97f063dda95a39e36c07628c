@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "4a7cf5a0_00514073",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-26T00:13:32Z",
+      "side": 1,
+      "message": "Doesn\u0027t it nonetheless make sense to move this test above the dereferences? As it stands, this test is at best useful with a particular set of compiler idiosyncracies.",
+      "parentUuid": "374fc9cd_4f3bac4b",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 36
+      },
+      "revId": "8e7e608f9d6242bd97f063dda95a39e36c07628c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9285cd2c_ebfcede0",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 7
