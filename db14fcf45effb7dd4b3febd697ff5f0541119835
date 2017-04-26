@@ -94,6 +94,30 @@
       "revId": "db14fcf45effb7dd4b3febd697ff5f0541119835",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be3042fa_710ccce0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-26T16:25:51Z",
+      "side": 1,
+      "message": "Is that safe to vectorize without a prior transformation?\n\n    long result \u003d 0;\n    char[] tmp \u003d v.toCharArray();\n    for (int i \u003d 0; i \u003c tmp.length; i++) {\n           result +\u003d tmp[i];\n    }\n\n----\n\nthe underlying problem being that the string might be ascii and charAt would then have to inflate it\n\n(or alternatively emitting two code paths for compressed/uncompressed strings first)",
+      "parentUuid": "aab0c617_9b5a9d7e",
+      "range": {
+        "startLine": 1004,
+        "startChar": 6,
+        "endLine": 1004,
+        "endChar": 67
+      },
+      "revId": "db14fcf45effb7dd4b3febd697ff5f0541119835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
