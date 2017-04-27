@@ -523,7 +523,7 @@
             "645-checker-abs-simd",
             "706-checker-scheduler"],
         "description": ["Checker tests are not compatible with jvmti."],
-        "variant": "jvmti-stress"
+        "variant": "jvmti-stress | redefine-stress | trace-stress"
     },
     {
         "tests": [
@@ -531,7 +531,7 @@
             "964-default-iface-init-gen"
         ],
         "description": ["Tests that just take too long with jvmti-stress"],
-        "variant": "jvmti-stress"
+        "variant": "jvmti-stress | redefine-stress | trace-stress"
     },
     {
         "tests": [
@@ -551,7 +551,7 @@
             "dexter/slicer."
         ],
         "bug": "b/37272822",
-        "variant": "jvmti-stress"
+        "variant": "jvmti-stress | redefine-stress"
     },
     {
         "tests": [
@@ -562,7 +562,7 @@
             "981-dedup-original-dex"
         ],
         "description": ["Tests that require exact knowledge of the number of plugins and agents."],
-        "variant": "jvmti-stress"
+        "variant": "jvmti-stress | redefine-stress | trace-stress"
     },
     {
         "tests": [
@@ -574,7 +574,7 @@
         "description": [
             "Tests that use illegal dex files or otherwise break dexter assumptions"
         ],
-        "variant": "jvmti-stress"
+        "variant": "jvmti-stress | redefine-stress"
     },
     {
         "tests": [
@@ -590,7 +590,7 @@
             "Tests that use custom class loaders or other features not supported ",
             "by our JVMTI implementation"
         ],
-        "variant": "jvmti-stress"
+        "variant": "jvmti-stress | redefine-stress"
     },
     {
         "tests": [
@@ -601,7 +601,7 @@
             "Tests that use annotations and debug data that is not kept around by dexter."
         ],
         "bug": "b/37239009",
-        "variant": "jvmti-stress"
+        "variant": "jvmti-stress | redefine-stress"
     },
     {
         "tests": [

@@ -20,6 +20,7 @@
 
 #include "arch/context.h"
 #include "art_method-inl.h"
+#include "art_field-inl.h"
 #include "atomic.h"
 #include "class_linker.h"
 #include "debugger.h"
@@ -31,6 +32,7 @@
 #include "interpreter/interpreter.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
+#include "jvalue-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache.h"
 #include "mirror/object_array-inl.h"
@@ -920,9 +922,11 @@ void Instrumentation::MethodEnterEventImpl(Thread* thread, mirror::Object* this_
                                            ArtMethod* method,
                                            uint32_t dex_pc) const {
   if (HasMethodEntryListeners()) {
+    StackHandleScope<1> hs(thread);
+    Handle<mirror::Object> thiz(hs.NewHandle(this_object));
     for (InstrumentationListener* listener : method_entry_listeners_) {
       if (listener != nullptr) {
-        listener->MethodEntered(thread, this_object, method, dex_pc);
+        listener->MethodEntered(thread, thiz.Get(), method, dex_pc);
       }
     }
   }
@@ -932,9 +936,20 @@ void Instrumentation::MethodExitEventImpl(Thread* thread, mirror::Object* this_o
                                           ArtMethod* method,
                                           uint32_t dex_pc, const JValue& return_value) const {
   if (HasMethodExitListeners()) {
+    StackHandleScope<2> hs(thread);
+    bool is_return_object = !method->GetReturnType(false)->IsPrimitive();
+    Handle<mirror::Object> thiz(hs.NewHandle(this_object));
+    Handle<mirror::Object> result(hs.NewHandle(is_return_object ? return_value.GetL() : nullptr));
+    JValue v;
+    if (!is_return_object) {
+      v.SetJ(return_value.GetJ());
+    }
     for (InstrumentationListener* listener : method_exit_listeners_) {
       if (listener != nullptr) {
-        listener->MethodExited(thread, this_object, method, dex_pc, return_value);
+        if (is_return_object) {
+          v.SetL(result.Get());
+        }
+        listener->MethodExited(thread, thiz.Get(), method, dex_pc, v);
       }
     }
   }
@@ -944,9 +959,11 @@ void Instrumentation::MethodUnwindEvent(Thread* thread, mirror::Object* this_obj
                                         ArtMethod* method,
                                         uint32_t dex_pc) const {
   if (HasMethodUnwindListeners()) {
+    StackHandleScope<1> hs(thread);
+    Handle<mirror::Object> thiz(hs.NewHandle(this_object));
     for (InstrumentationListener* listener : method_unwind_listeners_) {
       if (listener != nullptr) {
-        listener->MethodUnwind(thread, this_object, method, dex_pc);
+        listener->MethodUnwind(thread, thiz.Get(), method, dex_pc);
       }
     }
   }
@@ -955,9 +972,11 @@ void Instrumentation::MethodUnwindEvent(Thread* thread, mirror::Object* this_obj
 void Instrumentation::DexPcMovedEventImpl(Thread* thread, mirror::Object* this_object,
                                           ArtMethod* method,
                                           uint32_t dex_pc) const {
+  StackHandleScope<1> hs(thread);
+  Handle<mirror::Object> thiz(hs.NewHandle(this_object));
   for (InstrumentationListener* listener : dex_pc_listeners_) {
     if (listener != nullptr) {
-      listener->DexPcMoved(thread, this_object, method, dex_pc);
+      listener->DexPcMoved(thread, thiz.Get(), method, dex_pc);
     }
   }
 }
@@ -973,6 +992,7 @@ void Instrumentation::BranchImpl(Thread* thread,
   }
 }
 
+// TODO Make this consistent with all the others.
 void Instrumentation::InvokeVirtualOrInterfaceImpl(Thread* thread,
                                                    mirror::Object* this_object,
                                                    ArtMethod* caller,
@@ -991,9 +1011,11 @@ void Instrumentation::InvokeVirtualOrInterfaceImpl(Thread* thread,
 void Instrumentation::FieldReadEventImpl(Thread* thread, mirror::Object* this_object,
                                          ArtMethod* method, uint32_t dex_pc,
                                          ArtField* field) const {
+  StackHandleScope<1> hs(thread);
+  Handle<mirror::Object> thiz(hs.NewHandle(this_object));
   for (InstrumentationListener* listener : field_read_listeners_) {
     if (listener != nullptr) {
-      listener->FieldRead(thread, this_object, method, dex_pc, field);
+      listener->FieldRead(thread, thiz.Get(), method, dex_pc, field);
     }
   }
 }
@@ -1001,9 +1023,20 @@ void Instrumentation::FieldReadEventImpl(Thread* thread, mirror::Object* this_ob
 void Instrumentation::FieldWriteEventImpl(Thread* thread, mirror::Object* this_object,
                                          ArtMethod* method, uint32_t dex_pc,
                                          ArtField* field, const JValue& field_value) const {
+  StackHandleScope<2> hs(thread);
+  bool is_return_object = field->GetTypeAsPrimitiveType() == Primitive::kPrimNot;
+  Handle<mirror::Object> thiz(hs.NewHandle(this_object));
+  Handle<mirror::Object> result(hs.NewHandle(is_return_object ? field_value.GetL() : nullptr));
+  JValue v;
+  if (!is_return_object) {
+    v.SetJ(field_value.GetJ());
+  }
   for (InstrumentationListener* listener : field_write_listeners_) {
     if (listener != nullptr) {
-      listener->FieldWritten(thread, this_object, method, dex_pc, field, field_value);
+      if (is_return_object) {
+        v.SetL(result.Get());
+      }
+      listener->FieldWritten(thread, thiz.Get(), method, dex_pc, field, v);
     }
   }
 }

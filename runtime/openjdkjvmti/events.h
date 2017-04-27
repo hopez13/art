@@ -29,6 +29,7 @@ namespace openjdkjvmti {
 struct ArtJvmTiEnv;
 class JvmtiAllocationListener;
 class JvmtiGcPauseListener;
+class JvmtiMethodTraceListener;
 
 // an enum for ArtEvents. This differs from the JVMTI events only in that we distinguish between
 // retransformation capable and incapable loading
@@ -137,6 +138,9 @@ class EventHandler {
   EventHandler();
   ~EventHandler();
 
+  // do cleanup for the event handler.
+  void Shutdown();
+
   // Register an env. It is assumed that this happens on env creation, that is, no events are
   // enabled, yet.
   void RegisterArtJvmTiEnv(ArtJvmTiEnv* env);
@@ -211,6 +215,7 @@ class EventHandler {
 
   std::unique_ptr<JvmtiAllocationListener> alloc_listener_;
   std::unique_ptr<JvmtiGcPauseListener> gc_pause_listener_;
+  std::unique_ptr<JvmtiMethodTraceListener> method_trace_listener_;
 };
 
 }  // namespace openjdkjvmti
