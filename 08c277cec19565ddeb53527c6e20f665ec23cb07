@@ -118,6 +118,30 @@
       "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdc30d9c_3f1c12e8",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-27T17:15:57Z",
+      "side": 1,
+      "message": "FdFile guards that we introduced to ensure instances are only destructed after being flushed and closed (when we lacked deletion in dex2oat in some error cases). That\u0027s why there\u0027s FlushCloseOrErase (as a helper).",
+      "parentUuid": "8037bb8c_d75ce868",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
