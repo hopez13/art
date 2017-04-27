@@ -262,6 +262,30 @@
       "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50fa443c_8dea167b",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-27T20:16:39Z",
+      "side": 1,
+      "message": "It may or may not be, I gotta check the code for that. I thought autoclose is the default, but I don\u0027t remember.",
+      "parentUuid": "bce6d487_f3ded322",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
