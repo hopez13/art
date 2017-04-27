@@ -224,72 +224,86 @@ class OatDumpTest : public CommonRuntimeTest {
 // Disable tests on arm and mips as they are taking too long to run. b/27824283.
 #if !defined(__arm__) && !defined(__mips__)
 TEST_F(OatDumpTest, TestImage) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kDynamic, kModeArt, {}, kListAndCode, &error_msg)) << error_msg;
 }
 TEST_F(OatDumpTest, TestImageStatic) {
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {}, kListAndCode, &error_msg)) << error_msg;
 }
 
 TEST_F(OatDumpTest, TestOatImage) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kDynamic, kModeOat, {}, kListAndCode, &error_msg)) << error_msg;
 }
 TEST_F(OatDumpTest, TestOatImageStatic) {
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeOat, {}, kListAndCode, &error_msg)) << error_msg;
 }
 
 TEST_F(OatDumpTest, TestNoDumpVmap) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kDynamic, kModeArt, {"--no-dump:vmap"}, kListAndCode, &error_msg)) << error_msg;
 }
 TEST_F(OatDumpTest, TestNoDumpVmapStatic) {
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {"--no-dump:vmap"}, kListAndCode, &error_msg)) << error_msg;
 }
 
 TEST_F(OatDumpTest, TestNoDisassemble) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kDynamic, kModeArt, {"--no-disassemble"}, kListAndCode, &error_msg))
       << error_msg;
 }
 TEST_F(OatDumpTest, TestNoDisassembleStatic) {
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {"--no-disassemble"}, kListAndCode, &error_msg)) << error_msg;
 }
 
 TEST_F(OatDumpTest, TestListClasses) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kDynamic, kModeArt, {"--list-classes"}, kListOnly, &error_msg)) << error_msg;
 }
 TEST_F(OatDumpTest, TestListClassesStatic) {
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {"--list-classes"}, kListOnly, &error_msg)) << error_msg;
 }
 
 TEST_F(OatDumpTest, TestListMethods) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kDynamic, kModeArt, {"--list-methods"}, kListOnly, &error_msg)) << error_msg;
 }
 TEST_F(OatDumpTest, TestListMethodsStatic) {
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {"--list-methods"}, kListOnly, &error_msg)) << error_msg;
 }
 
 TEST_F(OatDumpTest, TestSymbolize) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kDynamic, kModeSymbolize, {}, kListOnly, &error_msg)) << error_msg;
 }
 TEST_F(OatDumpTest, TestSymbolizeStatic) {
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
+  TEST_DISABLED_FOR_MEMORY_TOOL();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeSymbolize, {}, kListOnly, &error_msg)) << error_msg;
 }
