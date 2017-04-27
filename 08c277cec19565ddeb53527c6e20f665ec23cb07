@@ -190,6 +190,30 @@
       "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fdd507_c606bd48",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-27T18:20:46Z",
+      "side": 1,
+      "message": "If you encounter an error condition and want to return early, you just want stuff destroyed, you do not want to be forced to manually clean up an FdFile. That\u0027s just too error prone, you shall forget to do the cleanup in some paths.\n\nAnd yes, that\u0027s out of scope for this CL.",
+      "parentUuid": "cb60812b_d062c40c",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
