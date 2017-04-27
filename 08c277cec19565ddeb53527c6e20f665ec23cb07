@@ -214,6 +214,30 @@
       "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ffd3872_8c426fb9",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-27T19:54:10Z",
+      "side": 1,
+      "message": "So how do you encounter the \"failure on close\" or \"lack of close?\" If you don\u0027t force them to be explicit or somehow checked, you\u0027ll find out once something goes wrong, only, which may be too late (see L).\n\nAgain, note that you can configure FdFile in the constructor (and I think a setter) to a) ignore guards and b) autoclose on destruction.",
+      "parentUuid": "48fdd507_c606bd48",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
