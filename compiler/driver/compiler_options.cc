@@ -46,6 +46,7 @@ CompilerOptions::CompilerOptions()
       dump_cfg_file_name_(""),
       dump_cfg_append_(false),
       force_determinism_(false),
+      honor_noinline_(false),
       register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorDefault),
       passes_to_run_(nullptr) {
 }
@@ -76,6 +77,7 @@ CompilerOptions::CompilerOptions(CompilerFilter::Filter compiler_filter,
                                  const std::string& dump_cfg_file_name,
                                  bool dump_cfg_append,
                                  bool force_determinism,
+                                 bool honor_noinline,
                                  RegisterAllocator::Strategy regalloc_strategy,
                                  const std::vector<std::string>* passes_to_run)
     : compiler_filter_(compiler_filter),
@@ -103,6 +105,7 @@ CompilerOptions::CompilerOptions(CompilerFilter::Filter compiler_filter,
       dump_cfg_file_name_(dump_cfg_file_name),
       dump_cfg_append_(dump_cfg_append),
       force_determinism_(force_determinism),
+      honor_noinline_(honor_noinline),
       register_allocation_strategy_(regalloc_strategy),
       passes_to_run_(passes_to_run) {
 }
@@ -200,8 +203,10 @@ bool CompilerOptions::ParseCompilerOption(const StringPiece& option, UsageFn Usa
     ParseDumpInitFailures(option, Usage);
   } else if (option.starts_with("--dump-cfg=")) {
     dump_cfg_file_name_ = option.substr(strlen("--dump-cfg=")).data();
-  } else if (option.starts_with("--dump-cfg-append")) {
+  } else if (option == "--dump-cfg-append") {
     dump_cfg_append_ = true;
+  } else if (option == "--honor-noinline") {
+    honor_noinline_ = true;
   } else if (option.starts_with("--register-allocation-strategy=")) {
     ParseRegisterAllocationStrategy(option, Usage);
   } else {
