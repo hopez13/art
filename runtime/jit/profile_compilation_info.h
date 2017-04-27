@@ -376,6 +376,10 @@ class ProfileCompilationInfo {
                                 const std::string& source,
                                 /*out*/std::string* error);
 
+    ProfileLoadSatus FillFromBuffer(uint8_t* buffer_ptr,
+                                    const std::string& source,
+                                    /*out*/std::string* error);
+
     // Reads an uint value (high bits to low bits) and advances the current pointer
     // with the number of bits read.
     template <typename T> bool ReadUintAndAdvance(/*out*/ T* value);
@@ -383,6 +387,10 @@ class ProfileCompilationInfo {
     // Compares the given data with the content current pointer. If the contents are
     // equal it advances the current pointer by data_size.
     bool CompareAndAdvance(const uint8_t* data, size_t data_size);
+
+    size_t CountUnreadBytes();
+
+    void Advance(size_t data_size);
 
     // Returns true if the buffer has more data to read.
     bool HasMoreData();
@@ -403,10 +411,11 @@ class ProfileCompilationInfo {
   // lines into number_of_dex_files.
   ProfileLoadSatus ReadProfileHeader(int fd,
                                      /*out*/uint8_t* number_of_dex_files,
+                                     /*out*/size_t* size_uncompressed_data,
                                      /*out*/std::string* error);
 
   // Read the header of a profile line from the given fd.
-  ProfileLoadSatus ReadProfileLineHeader(int fd,
+  ProfileLoadSatus ReadProfileLineHeader(SafeBuffer& buffer,
                                          /*out*/ProfileLineHeader* line_header,
                                          /*out*/std::string* error);
 
@@ -417,7 +426,7 @@ class ProfileCompilationInfo {
                                      /*out*/std::string* error);
 
   // Read a single profile line from the given fd.
-  ProfileLoadSatus ReadProfileLine(int fd,
+  ProfileLoadSatus ReadProfileLine(SafeBuffer& buffer,
                                    uint8_t number_of_dex_files,
                                    const ProfileLineHeader& line_header,
                                    /*out*/std::string* error);
