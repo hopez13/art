@@ -73,6 +73,7 @@ class CompilerOptions FINAL {
                   const std::string& dump_cfg_file_name,
                   bool dump_cfg_append,
                   bool force_determinism,
+                  bool honor_noinline,
                   RegisterAllocator::Strategy regalloc_strategy,
                   const std::vector<std::string>* passes_to_run);
 
@@ -249,6 +250,10 @@ class CompilerOptions FINAL {
     return force_determinism_;
   }
 
+  bool HonorsNoinline() const {
+    return honor_noinline_;
+  }
+
   RegisterAllocator::Strategy GetRegisterAllocationStrategy() const {
     return register_allocation_strategy_;
   }
@@ -310,6 +315,10 @@ class CompilerOptions FINAL {
   // Whether the compiler should trade performance for determinism to guarantee exactly reproducible
   // outcomes.
   bool force_determinism_;
+
+  // If true, do not try to inline methods whose name contain the
+  // substring "$noinline$" (this is for testing purpose only).
+  bool honor_noinline_;
 
   RegisterAllocator::Strategy register_allocation_strategy_;
 

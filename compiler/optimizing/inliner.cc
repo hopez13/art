@@ -152,7 +152,8 @@ void HInliner::Run() {
       HInvoke* call = instruction->AsInvoke();
       // As long as the call is not intrinsified, it is worth trying to inline.
       if (call != nullptr && call->GetIntrinsic() == Intrinsics::kNone) {
-        if (kIsDebugBuild && IsCompilingWithCoreImage()) {
+        if (compiler_driver_->GetCompilerOptions().HonorsNoinline() &&
+            IsCompilingWithCoreImage()) {
           // Debugging case: directives in method names control or assert on inlining.
           std::string callee_name = outer_compilation_unit_.GetDexFile()->PrettyMethod(
               call->GetDexMethodIndex(), /* with_signature */ false);
