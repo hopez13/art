@@ -27,6 +27,7 @@
 #include "modifiers.h"
 #include "obj_ptr.h"
 #include "offsets.h"
+#include "primitive.h"
 #include "read_barrier_option.h"
 
 namespace art {

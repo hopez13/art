@@ -1630,8 +1630,10 @@ ENTRY art_quick_instrumentation_entry
     @ preserve r0 (not normally an arg) knowing there is a spare slot in kSaveRefsAndArgs.
     str   r0, [sp, #4]
     mov   r2, r9         @ pass Thread::Current
-    mov   r3, lr         @ pass LR
-    blx   artInstrumentationMethodEntryFromCode  @ (Method*, Object*, Thread*, LR)
+    mov   r3, sp         @ pass SP
+    blx   artInstrumentationMethodEntryFromCode  @ (Method*, Object*, Thread*, SP)
+    cbz   r0, .Ldeliver_instrumentation_entry_exception
+                         @ Deliver exception if we got nullptr as function.
     mov   r12, r0        @ r12 holds reference to code
     ldr   r0, [sp, #4]   @ restore r0
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
@@ -1647,17 +1649,18 @@ art_quick_instrumentation_exit:
     .cfi_adjust_cfa_offset 8
     .cfi_rel_offset r0, 0
     .cfi_rel_offset r1, 4
+    mov   r2, sp         @ store gpr_res pointer.
     vpush {d0}           @ save fp return value
     .cfi_adjust_cfa_offset 8
+    mov   r3, sp         @ store fpr_res pointer
     sub   sp, #8         @ space for return value argument. Note: AAPCS stack alignment is 8B, no
                          @ need to align by 16.
     .cfi_adjust_cfa_offset 8
-    vstr  d0, [sp]       @ d0 -> [sp] for fpr_res
-    mov   r2, r0         @ pass return value as gpr_res
-    mov   r3, r1
-    mov   r0, r9         @ pass Thread::Current
     mov   r1, r12        @ pass SP
-    blx   artInstrumentationMethodExitFromCode  @ (Thread*, SP, gpr_res, fpr_res)
+    mov   r0, r9         @ pass Thread::Current
+    blx   artInstrumentationMethodExitFromCode  @ (Thread*, SP, gpr_res*, fpr_res*)
+    cbz   r0, .Ldeliver_instrumentation_exit_exception
+                         @ Deliver exception if we got nullptr as function.
     add   sp, #8
     .cfi_adjust_cfa_offset -8
 
@@ -1672,6 +1675,17 @@ art_quick_instrumentation_exit:
     add sp, #32          @ remove callee save frame
     .cfi_adjust_cfa_offset -32
     bx    r2             @ return
+    @ TODO These jmps are annoying.
+.Ldeliver_instrumentation_exit_exception:
+    add sp, #24          @ Pop exit frame.
+    @ TODO I don't know why we don't want to remove the callee save frame from here.
+    b .Ldo_deliver_instrumentation_exception
+.Ldeliver_instrumentation_entry_exception:
+    @ Deliver exception for art_quick_instrumentation_entry placed after
+    @ art_quick_instrumentation_exit so that the fallthrough works.
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+.Ldo_deliver_instrumentation_exception:
+    DELIVER_PENDING_EXCEPTION
 END art_quick_instrumentation_entry
 
     /*

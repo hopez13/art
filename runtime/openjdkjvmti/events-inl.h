@@ -135,6 +135,8 @@ inline void EventHandler::DispatchClassFileLoadHookEvent(art::Thread* thread,
       continue;
     }
     if (ShouldDispatch<kEvent>(env, thread)) {
+      jthrowable thr = jnienv->ExceptionOccurred();
+      jnienv->ExceptionClear();
       jint new_len = 0;
       unsigned char* new_data = nullptr;
       auto callback = impl::GetCallback<kEvent>(env);
@@ -148,6 +150,12 @@ inline void EventHandler::DispatchClassFileLoadHookEvent(art::Thread* thread,
                current_class_data,
                &new_len,
                &new_data);
+      if (thr != nullptr) {
+        if (!jnienv->ExceptionCheck()) {
+          jnienv->Throw(thr);
+        }
+        jnienv->DeleteLocalRef(thr);
+      }
       if (new_data != nullptr && new_data != current_class_data) {
         // Destroy the data the last transformer made. We skip this if the previous state was the
         // initial one since we don't know here which jvmtiEnv allocated it.
@@ -176,6 +184,28 @@ inline void EventHandler::DispatchEvent(art::Thread* thread, Args... args) const
   for (ArtJvmTiEnv* env : envs) {
     if (env != nullptr) {
       DispatchEvent<kEvent, Args...>(env, thread, args...);
+    }
+  }
+}
+
+// Events with JNIEnvs need to stash pending exceptions since they can cause new ones to be thrown.
+// In accordance with the JVMTI specification we allow exceptions originating from events to
+// overwrite the current exception, including exceptions originating from earlier events.
+// TODO It would be nice to add the overwritten exceptions to the suppressed exceptions list of the
+// newest exception.
+template <ArtJvmtiEvent kEvent, typename ...Args>
+inline void EventHandler::DispatchEvent(art::Thread* thread, JNIEnv* jnienv, Args... args) const {
+  for (ArtJvmTiEnv* env : envs) {
+    if (env != nullptr) {
+      jthrowable thr = jnienv->ExceptionOccurred();
+      jnienv->ExceptionClear();
+      DispatchEvent<kEvent, JNIEnv*, Args...>(env, thread, jnienv, args...);
+      if (thr != nullptr) {
+        if (!jnienv->ExceptionCheck()) {
+          jnienv->Throw(thr);
+        }
+        jnienv->DeleteLocalRef(thr);
+      }
     }
   }
 }

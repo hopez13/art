@@ -396,8 +396,13 @@ CharArray* String::ToCharArray(Thread* self) {
 void String::GetChars(int32_t start, int32_t end, Handle<CharArray> array, int32_t index) {
   uint16_t* data = array->GetData() + index;
   if (IsCompressed()) {
-    for (int i = start; i < end; ++i) {
-      data[i-start] = CharAt(i);
+    if (LIKELY(start != end)) {
+      DCHECK_LT(start, end);
+      DCHECK_LE(end, GetLength())
+          << "start: " << start << " end: " << end << " len: " << GetLength();
+      for (int i = start; i < end; ++i) {
+        data[i-start] = CharAt(i);
+      }
     }
   } else {
     uint16_t* value = GetValue() + start;
