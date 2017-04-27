@@ -70,6 +70,30 @@
       "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "692daf6e_39412d52",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-27T17:04:04Z",
+      "side": 1,
+      "message": "How is it a no-op? It closes the file descriptor, which flush does not. (I added this exactly because destructing the file object triggered the guards...)\n\nAll this does is add an extra datasync. Is this really a problem?",
+      "parentUuid": "9c5ebe80_ec0e19b7",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
