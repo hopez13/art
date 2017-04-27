@@ -94,7 +94,7 @@ public class Main {
             /* spin for a bit */
             long start, end;
             start = System.nanoTime();
-            for (int i = 0; i < 1000000; i++) {
+            for (int i = 0; i < 100000; i++) {
                 j++;
             }
             end = System.nanoTime();
