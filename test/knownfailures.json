@@ -668,8 +668,8 @@
     },
     {
         "tests": "648-many-direct-methods",
-        "variant": "optimizing",
-        "description": "Test disabled with AOT because of dex2oatd timeouts.",
+        "variant": "debug",
+        "description": "Test disabled in debug mode because of dex2oatd timeouts.",
         "bug": "b/33650497"
     },
     {
