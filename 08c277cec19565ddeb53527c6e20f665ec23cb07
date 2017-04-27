@@ -22,6 +22,30 @@
       "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56ca61b9_d550cb6a",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-27T16:01:09Z",
+      "side": 1,
+      "message": "It\u0027s flushed, but not closed. It felt better to use this \"idiom\" for simplicity.",
+      "parentUuid": "2e60c205_f453ed92",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
