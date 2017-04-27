@@ -68,6 +68,30 @@
       "revId": "c2e21abf4b700f44aaf6b3d2d50822d9bbb51522",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "895206c7_e6d8ef68",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 6602,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-27T20:47:52Z",
+      "side": 1,
+      "message": "Yes, indeed. Thanks for catching this!\n\nSo it should always have the reference read side effect + whatever non-reference final field types there are.\n\nIf there are any final reference field stores, it should be AllReads",
+      "parentUuid": "fc30ce74_ca448726",
+      "range": {
+        "startLine": 6602,
+        "startChar": 13,
+        "endLine": 6602,
+        "endChar": 46
+      },
+      "revId": "c2e21abf4b700f44aaf6b3d2d50822d9bbb51522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
