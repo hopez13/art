@@ -1892,10 +1892,10 @@ END art_invoke_obsolete_method_stub
     .extern artInstrumentationMethodExitFromCode
 ENTRY art_quick_instrumentation_entry
     SETUP_SAVE_REFS_AND_ARGS_FRAME
+    move     $a3, $sp       # pass sp
     sw       $a0, 28($sp)   # save arg0 in free arg slot
-    move     $a3, $ra       # pass $ra
     la       $t9, artInstrumentationMethodEntryFromCode
-    jalr     $t9            # (Method*, Object*, Thread*, LR)
+    jalr     $t9            # (Method*, Object*, Thread*, SP)
     move     $a2, rSELF     # pass Thread::Current
     move     $t9, $v0       # $t9 holds reference to code
     lw       $a0, 28($sp)   # restore arg0 from free arg slot

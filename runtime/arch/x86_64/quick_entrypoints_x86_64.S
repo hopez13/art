@@ -1920,19 +1920,24 @@ DEFINE_FUNCTION art_quick_instrumentation_entry
     movq %rdi, %r12               // Preserve method pointer in a callee-save.
 
     movq %gs:THREAD_SELF_OFFSET, %rdx   // Pass thread.
-    movq FRAME_SIZE_SAVE_REFS_AND_ARGS-8(%rsp), %rcx   // Pass return PC.
+    movq %rsp, %rcx                     // Pass SP.
 
-    call SYMBOL(artInstrumentationMethodEntryFromCode) // (Method*, Object*, Thread*, LR)
+    call SYMBOL(artInstrumentationMethodEntryFromCode) // (Method*, Object*, Thread*, SP)
 
                                   // %rax = result of call.
-    movq %r12, %rdi               // Reload method pointer.
+    testq %rax, %rax
+    jz 1f
 
+    movq %r12, %rdi               // Reload method pointer.
     leaq art_quick_instrumentation_exit(%rip), %r12   // Set up return through instrumentation
     movq %r12, FRAME_SIZE_SAVE_REFS_AND_ARGS-8(%rsp)  // exit.
 
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
 
     jmp *%rax                     // Tail call to intended method.
+1:
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    DELIVER_PENDING_EXCEPTION
 #endif  // __APPLE__
 END_FUNCTION art_quick_instrumentation_entry
 
@@ -1948,15 +1953,20 @@ DEFINE_FUNCTION art_quick_instrumentation_exit
     movq  %rsp, %rsi                          // Pass SP.
 
     PUSH rax                  // Save integer result.
+    movq %rsp, %rdx           // Pass integer result pointer.
+
     subq LITERAL(8), %rsp     // Save floating-point result.
     CFI_ADJUST_CFA_OFFSET(8)
     movq %xmm0, (%rsp)
+    movq %rsp, %rcx           // Pass floating-point result pointer.
 
     movq  %gs:THREAD_SELF_OFFSET, %rdi        // Pass Thread.
-    movq  %rax, %rdx                          // Pass integer result.
-    movq  %xmm0, %rcx                         // Pass floating-point result.
 
-    call SYMBOL(artInstrumentationMethodExitFromCode)   // (Thread*, SP, gpr_res, fpr_res)
+    call SYMBOL(artInstrumentationMethodExitFromCode)   // (Thread*, SP, gpr_res*, fpr_res*)
+
+    testq %rax, %rax          // Check if we have a return-pc to go to. If we don't then there was
+                              // an exception
+    jz 1f
 
     movq  %rax, %rdi          // Store return PC
     movq  %rdx, %rsi          // Store second return PC in hidden arg.
@@ -1971,6 +1981,11 @@ DEFINE_FUNCTION art_quick_instrumentation_exit
     addq LITERAL(8), %rsp     // Drop fake return pc.
 
     jmp   *%rdi               // Return.
+1:
+    addq LITERAL(16), %rsp    // Pop the stack.
+    CFI_ADJUST_CFA_OFFSET(-16)
+    RESTORE_SAVE_REFS_ONLY_FRAME
+    DELIVER_PENDING_EXCEPTION
 END_FUNCTION art_quick_instrumentation_exit
 
     /*

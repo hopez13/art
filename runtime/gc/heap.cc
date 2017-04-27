@@ -22,6 +22,9 @@
 
 #include "android-base/stringprintf.h"
 
+#include "native_stack_dump.h"
+#include "utils.h"
+
 #include "allocation_listener.h"
 #include "art_field-inl.h"
 #include "backtrace_helper.h"
@@ -2799,6 +2802,7 @@ void Heap::LogGC(GcCause gc_cause, collector::GarbageCollector* collector) {
               << percent_free << "% free, " << PrettySize(current_heap_size) << "/"
               << PrettySize(total_memory) << ", " << "paused " << pause_string.str()
               << " total " << PrettyDuration((duration / 1000) * 1000);
+    // DumpNativeStack(LOG_STREAM(INFO), GetTid());
     VLOG(heap) << Dumpable<TimingLogger>(*current_gc_iteration_.GetTimings());
   }
 }

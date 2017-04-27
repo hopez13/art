@@ -1832,11 +1832,12 @@ END art_invoke_obsolete_method_stub
     .extern artInstrumentationMethodExitFromCode
 ENTRY art_quick_instrumentation_entry
     SETUP_SAVE_REFS_AND_ARGS_FRAME
+    move     $t0, $sp          # remember bottom of caller's frame
     daddiu   $sp, $sp, -16     # space for saving arg0
     .cfi_adjust_cfa_offset 16
     sd       $a0, 0($sp)       # save arg0
-    move     $a3, $ra          # pass $ra
-    jal      artInstrumentationMethodEntryFromCode  # (Method*, Object*, Thread*, RA)
+    move     $a3, $t0          # pass $sp
+    jal      artInstrumentationMethodEntryFromCode  # (Method*, Object*, Thread*, SP)
     move     $a2, rSELF        # pass Thread::Current
     move     $t9, $v0          # $t9 holds reference to code
     ld       $a0, 0($sp)       # restore arg0
