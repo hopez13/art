@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8f330ba9_b66f6bec",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 6536,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-27T23:03:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d128224_8298f591",
+      "range": {
+        "startLine": 6536,
+        "startChar": 22,
+        "endLine": 6536,
+        "endChar": 24
+      },
+      "revId": "c2e21abf4b700f44aaf6b3d2d50822d9bbb51522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abab263c_143c30b5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-27T20:13:29Z",
       "side": 1,
       "message": "publication?",
+      "range": {
+        "startLine": 6537,
+        "startChar": 70,
+        "endLine": 6537,
+        "endChar": 77
+      },
+      "revId": "c2e21abf4b700f44aaf6b3d2d50822d9bbb51522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1bf5ab_325e7865",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 6537,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-27T23:03:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abab263c_143c30b5",
       "range": {
         "startLine": 6537,
         "startChar": 70,
@@ -83,6 +131,30 @@
       "side": 1,
       "message": "Yes, indeed. Thanks for catching this!\n\nSo it should always have the reference read side effect + whatever non-reference final field types there are.\n\nIf there are any final reference field stores, it should be AllReads",
       "parentUuid": "fc30ce74_ca448726",
+      "range": {
+        "startLine": 6602,
+        "startChar": 13,
+        "endLine": 6602,
+        "endChar": 46
+      },
+      "revId": "c2e21abf4b700f44aaf6b3d2d50822d9bbb51522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61f8b393_61fd05b9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 6602,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-27T23:03:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "895206c7_e6d8ef68",
       "range": {
         "startLine": 6602,
         "startChar": 13,
