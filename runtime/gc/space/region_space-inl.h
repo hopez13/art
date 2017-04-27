@@ -19,6 +19,7 @@
 
 #include "region_space.h"
 #include "thread-inl.h"
+#include "mirror/object-inl.h"
 
 namespace art {
 namespace gc {

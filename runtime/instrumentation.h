@@ -434,7 +434,7 @@ class Instrumentation {
   // Called when an instrumented method is exited. Removes the pushed instrumentation frame
   // returning the intended link register. Generates method exit events.
   TwoWordReturn PopInstrumentationStackFrame(Thread* self, uintptr_t* return_pc,
-                                             uint64_t gpr_result, uint64_t fpr_result)
+                                             uint64_t* gpr_result, uint64_t* fpr_result)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
 
   // Pops an instrumentation frame from the current thread and generate an unwind event.
