@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb2d66b7_645bb1a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-27T18:14:13Z",
+      "side": 1,
+      "message": "Any code size changes?",
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1011fbf_5a5d4288",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-27T18:14:13Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 485,
+        "startChar": 16,
+        "endLine": 485,
+        "endChar": 17
+      },
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c9ac6f3_7a91380a",
+        "filename": "compiler/optimizing/scheduler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-27T18:14:13Z",
+      "side": 1,
+      "message": "Despite not having the dependency between low word and high word instructions?",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "655a56bd_90ead54f",
+        "filename": "compiler/optimizing/scheduler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-27T18:14:13Z",
+      "side": 1,
+      "message": "Unnamed constant? Or should that be \"2 *\" instead of \"2 +\"?",
+      "range": {
+        "startLine": 537,
+        "startChar": 37,
+        "endLine": 537,
+        "endChar": 38
+      },
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3e8853a_d81ed933",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-27T18:14:13Z",
+      "side": 1,
+      "message": "Can we run 2 tests when both are enabled? (Shared code by introducing helper function in SchedulerTest.)",
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
