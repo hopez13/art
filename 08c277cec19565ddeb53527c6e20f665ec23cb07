@@ -166,6 +166,30 @@
       "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb60812b_d062c40c",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-27T17:30:28Z",
+      "side": 1,
+      "message": "Please tell me how they utterly break RAII.\n\nFdFile has enough state to configure things. It can autoclose on destruction, if necessary. We decided it is better to make some things explicit, to correctly account for errors and make their handling explicit so we can reason about it more sanely in the presence of convoluted ownership. I don\u0027t get your complaint.\n\nIt is anyways outside the scope of a leak fix to change the whole API.",
+      "parentUuid": "debfab4e_617ad6e9",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "08c277cec19565ddeb53527c6e20f665ec23cb07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
