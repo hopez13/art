@@ -285,7 +285,6 @@ extern "C" int sigaction(int signal, const struct sigaction* new_action, struct 
 
   // Will only get here if the signal chain has not been claimed.  We want
   // to pass the sigaction on to the kernel via the real sigaction in libc.
-  InitializeSignalChain();
   return linked_sigaction(signal, new_action, old_action);
 }
 
@@ -311,7 +310,6 @@ extern "C" sighandler_t signal(int signo, sighandler_t handler) {
 
   // Will only get here if the signal chain has not been claimed.  We want
   // to pass the sigaction on to the kernel via the real sigaction in libc.
-  InitializeSignalChain();
   if (linked_sigaction(signo, &sa, &sa) == -1) {
     return SIG_ERR;
   }
@@ -348,23 +346,10 @@ extern "C" int sigprocmask(int how, const sigset_t* bionic_new_set, sigset_t* bi
     new_set_ptr = &tmpset;
   }
 
-  InitializeSignalChain();
   return linked_sigprocmask(how, new_set_ptr, bionic_old_set);
 }
 
-extern "C" void InitializeSignalChain() {
-  // Warning.
-  // Don't call this from within a signal context as it makes calls to
-  // dlsym.  Calling into the dynamic linker will result in locks being
-  // taken and if it so happens that a signal occurs while one of these
-  // locks is already taken, dlsym will block trying to reenter a
-  // mutex and we will never get out of it.
-  static bool initialized = false;
-  if (initialized) {
-    // Don't initialize twice.
-    return;
-  }
-
+__attribute__((constructor)) static void InitializeSignalChain() {
   void* linked_sigaction_sym = dlsym(RTLD_NEXT, "sigaction");
   if (linked_sigaction_sym == nullptr) {
     linked_sigaction_sym = dlsym(RTLD_DEFAULT, "sigaction");
@@ -385,7 +370,6 @@ extern "C" void InitializeSignalChain() {
 
   linked_sigaction = reinterpret_cast<decltype(linked_sigaction)>(linked_sigaction_sym);
   linked_sigprocmask = reinterpret_cast<decltype(linked_sigprocmask)>(linked_sigprocmask_sym);
-  initialized = true;
 }
 
 extern "C" void AddSpecialSignalHandlerFn(int signal, SpecialSignalHandlerFn fn) {
@@ -413,8 +397,8 @@ extern "C" void EnsureFrontOfChain(int signal) {
 
   // Read the current action without looking at the chain, it should be the expected action.
   struct sigaction current_action;
-  InitializeSignalChain();
   linked_sigaction(signal, nullptr, &current_action);
+
   // If the sigactions don't match then we put the current action on the chain and make ourself as
   // the main action.
   if (current_action.sa_sigaction != SignalChain::Handler) {
