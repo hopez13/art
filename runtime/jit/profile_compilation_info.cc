@@ -18,11 +18,15 @@
 
 #include "errno.h"
 #include <limits.h>
+#include <lz4hc.h>
 #include <vector>
 #include <stdlib.h>
 #include <sys/file.h>
 #include <sys/stat.h>
 #include <sys/uio.h>
+#include <sys/types.h>
+#include <unistd.h>
+
 
 #include "base/mutex.h"
 #include "base/scoped_flock.h"
@@ -39,7 +43,7 @@ namespace art {
 const uint8_t ProfileCompilationInfo::kProfileMagic[] = { 'p', 'r', 'o', '\0' };
 // Last profile version: fix profman merges. Update profile version to force
 // regeneration of possibly faulty profiles.
-const uint8_t ProfileCompilationInfo::kProfileVersion[] = { '0', '0', '5', '\0' };
+const uint8_t ProfileCompilationInfo::kProfileVersion[] = { '0', '0', '6', '\0' };
 
 static constexpr uint16_t kMaxDexFileKeyLength = PATH_MAX;
 
@@ -227,8 +231,6 @@ bool ProfileCompilationInfo::Save(int fd) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   DCHECK_GE(fd, 0);
 
-  // Cache at most 50KB before writing.
-  static constexpr size_t kMaxSizeToKeepBeforeWriting = 50 * KB;
   // Use a vector wrapper to avoid keeping track of offsets when we add elements.
   std::vector<uint8_t> buffer;
   WriteBuffer(fd, kProfileMagic, sizeof(kProfileMagic));
@@ -236,16 +238,28 @@ bool ProfileCompilationInfo::Save(int fd) {
   DCHECK_LE(info_.size(), std::numeric_limits<uint8_t>::max());
   AddUintToBuffer(&buffer, static_cast<uint8_t>(info_.size()));
 
+  // Make sure that the buffer has enough capacity to avoid repeated resizings
+  // while we add data.
+  uint32_t required_capacity = 0;
+  for (const DexFileData* dex_data_ptr : info_) {
+    const DexFileData& dex_data = *dex_data_ptr;
+    uint32_t methods_region_size = GetMethodsRegionSize(dex_data);
+    required_capacity += kLineHeaderSize +
+        dex_data.profile_key.size() +
+        sizeof(uint16_t) * dex_data.class_set.size() +
+        methods_region_size;
+  }
+  AddUintToBuffer(&buffer, required_capacity);
+  WriteBuffer(fd, buffer.data(), buffer.size());
+  // Make sure that the buffer has enough capacity to avoid repeated resizings
+  // while we add data.
+  buffer.reserve(required_capacity);
+  buffer.clear();
+
   // Dex files must be written in the order of their profile index. This
   // avoids writing the index in the output file and simplifies the parsing logic.
   for (const DexFileData* dex_data_ptr : info_) {
     const DexFileData& dex_data = *dex_data_ptr;
-    if (buffer.size() > kMaxSizeToKeepBeforeWriting) {
-      if (!WriteBuffer(fd, buffer.data(), buffer.size())) {
-        return false;
-      }
-      buffer.clear();
-    }
 
     // Note that we allow dex files without any methods or classes, so that
     // inline caches can refer valid dex files.
@@ -255,22 +269,15 @@ bool ProfileCompilationInfo::Save(int fd) {
       return false;
     }
 
-    // Make sure that the buffer has enough capacity to avoid repeated resizings
-    // while we add data.
     uint32_t methods_region_size = GetMethodsRegionSize(dex_data);
-    size_t required_capacity = buffer.size() +
-        kLineHeaderSize +
-        dex_data.profile_key.size() +
-        sizeof(uint16_t) * dex_data.class_set.size() +
-        methods_region_size;
 
-    buffer.reserve(required_capacity);
     DCHECK_LE(dex_data.profile_key.size(), std::numeric_limits<uint16_t>::max());
     DCHECK_LE(dex_data.class_set.size(), std::numeric_limits<uint16_t>::max());
     AddUintToBuffer(&buffer, static_cast<uint16_t>(dex_data.profile_key.size()));
     AddUintToBuffer(&buffer, static_cast<uint16_t>(dex_data.class_set.size()));
     AddUintToBuffer(&buffer, methods_region_size);  // uint32_t
     AddUintToBuffer(&buffer, dex_data.checksum);  // uint32_t
+    VLOG(profiler) << "profiler_size1" << dex_data.profile_key.size();
 
     AddStringToBuffer(&buffer, dex_data.profile_key);
 
@@ -281,12 +288,18 @@ bool ProfileCompilationInfo::Save(int fd) {
     for (const auto& class_id : dex_data.class_set) {
       AddUintToBuffer(&buffer, class_id.index_);
     }
-
-    DCHECK_LE(required_capacity, buffer.size())
-        << "Failed to add the expected number of bytes in the buffer";
   }
 
-  return WriteBuffer(fd, buffer.data(), buffer.size());
+  const size_t compressed_max_size = LZ4_compressBound(required_capacity);
+  std::unique_ptr<uint8_t[]> compressed_data(new uint8_t[compressed_max_size]);
+  size_t data_size = LZ4_compress_HC(reinterpret_cast<const char*>(buffer.data()),
+                                     reinterpret_cast<char*>(&compressed_data[0]),
+                                     required_capacity,
+                                     compressed_max_size,
+                                     0);
+
+  VLOG(profiler) << "Compressed from " << required_capacity << " to " << data_size;
+  return WriteBuffer(fd, compressed_data.get(), data_size);
 }
 
 void ProfileCompilationInfo::AddInlineCacheToBuffer(std::vector<uint8_t>* buffer,
@@ -385,6 +398,7 @@ ProfileCompilationInfo::DexFileData* ProfileCompilationInfo::GetOrAddDexFileData
     // when encoding. The number is well above what we expect for normal applications.
     if (kIsDebugBuild) {
       LOG(ERROR) << "Exceeded the maximum number of dex files (255). Something went wrong";
+      LOG(ERROR) << profile_key_map_.size();
     }
     profile_key_map_.erase(profile_key);
     return nullptr;
@@ -580,7 +594,8 @@ bool ProfileCompilationInfo::ReadMethods(SafeBuffer& buffer,
                                          uint8_t number_of_dex_files,
                                          const ProfileLineHeader& line_header,
                                          /*out*/std::string* error) {
-  while (buffer.HasMoreData()) {
+  size_t buffer_unread_after_operation = buffer.CountUnreadBytes() - line_header.method_region_size_bytes;
+  while (buffer.CountUnreadBytes() > buffer_unread_after_operation) {
     DexFileData* const data = GetOrAddDexFileData(line_header.dex_location, line_header.checksum);
     uint16_t method_index;
     READ_UINT(uint16_t, buffer, method_index, error);
@@ -608,16 +623,6 @@ bool ProfileCompilationInfo::ReadClasses(SafeBuffer& buffer,
     }
   }
   return true;
-}
-
-// Tests for EOF by trying to read 1 byte from the descriptor.
-// Returns:
-//   0 if the descriptor is at the EOF,
-//  -1 if there was an IO error
-//   1 if the descriptor has more content to read
-static int testEOF(int fd) {
-  uint8_t buffer[1];
-  return TEMP_FAILURE_RETRY(read(fd, buffer, 1));
 }
 
 // Reads an uint value previously written with AddUintToBuffer.
@@ -671,35 +676,57 @@ ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::SafeBuffer::Fil
   return kProfileLoadSuccess;
 }
 
+size_t ProfileCompilationInfo::SafeBuffer::CountUnreadBytes() {
+  return ptr_end_ - ptr_current_;
+}
+
+void ProfileCompilationInfo::SafeBuffer::Advance(size_t data_size) {
+  ptr_current_ += data_size;
+}
+
 ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::ReadProfileHeader(
       int fd,
       /*out*/uint8_t* number_of_dex_files,
+      /*out*/uint32_t* size_uncompressed_data,
       /*out*/std::string* error) {
   // Read magic and version
   const size_t kMagicVersionSize =
     sizeof(kProfileMagic) +
     sizeof(kProfileVersion) +
-    sizeof(uint8_t);  // number of dex files
+    sizeof(uint8_t) +  // number of dex files
+    sizeof(uint32_t);
 
   SafeBuffer safe_buffer(kMagicVersionSize);
+  VLOG(profiler) << "..1";
 
   ProfileLoadSatus status = safe_buffer.FillFromFd(fd, "ReadProfileHeader", error);
   if (status != kProfileLoadSuccess) {
+    *error = "error1";
     return status;
   }
+  VLOG(profiler) << "..2";
 
   if (!safe_buffer.CompareAndAdvance(kProfileMagic, sizeof(kProfileMagic))) {
     *error = "Profile missing magic";
     return kProfileLoadVersionMismatch;
   }
+  VLOG(profiler) << "..3";
   if (!safe_buffer.CompareAndAdvance(kProfileVersion, sizeof(kProfileVersion))) {
     *error = "Profile version mismatch";
     return kProfileLoadVersionMismatch;
   }
+  VLOG(profiler) << "..4";
   if (!safe_buffer.ReadUintAndAdvance<uint8_t>(number_of_dex_files)) {
     *error = "Cannot read the number of dex files";
     return kProfileLoadBadData;
   }
+  VLOG(profiler) << "....." << *number_of_dex_files;
+  VLOG(profiler) << "..5";
+  if (!safe_buffer.ReadUintAndAdvance<uint32_t>(size_uncompressed_data)) {
+    *error = "Cannot read the size of uncompressed data";
+    return kProfileLoadBadData;
+  }
+  VLOG(profiler) << "..6";
   return kProfileLoadSuccess;
 }
 
@@ -715,17 +742,16 @@ bool ProfileCompilationInfo::ReadProfileLineHeaderElements(SafeBuffer& buffer,
 }
 
 ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::ReadProfileLineHeader(
-      int fd,
-      /*out*/ProfileLineHeader* line_header,
-      /*out*/std::string* error) {
-  SafeBuffer header_buffer(kLineHeaderSize);
-  ProfileLoadSatus status = header_buffer.FillFromFd(fd, "ReadProfileLineHeader", error);
-  if (status != kProfileLoadSuccess) {
-    return status;
+    SafeBuffer& buffer,
+    /*out*/ProfileLineHeader* line_header,
+    /*out*/std::string* error) {
+  if (buffer.CountUnreadBytes() < kLineHeaderSize) {
+    *error += "Profile EOF reached prematurely for ReadProfileLineHeader";
+    return kProfileLoadBadData;
   }
 
   uint16_t dex_location_size;
-  if (!ReadProfileLineHeaderElements(header_buffer, &dex_location_size, line_header, error)) {
+  if (!ReadProfileLineHeaderElements(buffer, &dex_location_size, line_header, error)) {
     return kProfileLoadBadData;
   }
 
@@ -735,18 +761,19 @@ ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::ReadProfileLine
     return kProfileLoadBadData;
   }
 
-  SafeBuffer location_buffer(dex_location_size);
-  status = location_buffer.FillFromFd(fd, "ReadProfileHeaderDexLocation", error);
-  if (status != kProfileLoadSuccess) {
-    return status;
+  if (buffer.CountUnreadBytes() < dex_location_size) {
+    *error += "Profile EOF reached prematurely for ReadProfileHeaderDexLocation";
+    return kProfileLoadBadData;
   }
+  uint8_t* base_ptr = buffer.ptr_current_;
   line_header->dex_location.assign(
-      reinterpret_cast<char*>(location_buffer.Get()), dex_location_size);
+      reinterpret_cast<char*>(base_ptr), dex_location_size);
+  buffer.Advance(dex_location_size);
   return kProfileLoadSuccess;
 }
 
 ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::ReadProfileLine(
-      int fd,
+      SafeBuffer& buffer,
       uint8_t number_of_dex_files,
       const ProfileLineHeader& line_header,
       /*out*/std::string* error) {
@@ -757,10 +784,9 @@ ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::ReadProfileLine
   }
 
   {
-    SafeBuffer buffer(line_header.method_region_size_bytes);
-    ProfileLoadSatus status = buffer.FillFromFd(fd, "ReadProfileLineMethods", error);
-    if (status != kProfileLoadSuccess) {
-      return status;
+    if (buffer.CountUnreadBytes() < line_header.method_region_size_bytes) {
+      *error += "Profile EOF reached prematurely for ReadProfileLineMethods";
+      return kProfileLoadBadData;
     }
 
     if (!ReadMethods(buffer, number_of_dex_files, line_header, error)) {
@@ -769,10 +795,9 @@ ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::ReadProfileLine
   }
 
   {
-    SafeBuffer buffer(sizeof(uint16_t) * line_header.class_set_size);
-    ProfileLoadSatus status = buffer.FillFromFd(fd, "ReadProfileLineClasses", error);
-    if (status != kProfileLoadSuccess) {
-      return status;
+    if (buffer.CountUnreadBytes() < line_header.class_set_size) {
+      *error += "Profile EOF reached prematurely for ReadProfileLineMethods";
+      return kProfileLoadBadData;
     }
     if (!ReadClasses(buffer, line_header.class_set_size, line_header, error)) {
       return kProfileLoadBadData;
@@ -817,36 +842,82 @@ ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::LoadInternal(
   }
   // Read profile header: magic + version + number_of_dex_files.
   uint8_t number_of_dex_files;
-  ProfileLoadSatus status = ReadProfileHeader(fd, &number_of_dex_files, error);
+  uint32_t size_uncompressed_data;
+  ProfileLoadSatus status = ReadProfileHeader(fd,
+                                              &number_of_dex_files,
+                                              &size_uncompressed_data,
+                                              error);
+
+  if (status != kProfileLoadSuccess) {
+    VLOG(profiler) << error;
+    return status;
+  }
+  LOG(WARNING) << "size_uncompress" << size_uncompressed_data;
+
+  off_t cur = lseek(fd, (size_t) 0, SEEK_CUR);
+  off_t end = lseek(fd, (size_t) 0, SEEK_END);
+  LOG(WARNING) << cur << ".." << end;
+  size_t uncompressed_data = end - cur;
+  lseek(fd, cur - end, SEEK_END);
+
+  std::unique_ptr<uint8_t[]> compressed_data(new uint8_t[uncompressed_data]);
+  int bytes_read =
+      TEMP_FAILURE_RETRY(read(fd, compressed_data.get(), uncompressed_data));
+
+  if (bytes_read < static_cast<int>(uncompressed_data)) {
+    *error += "Profile EOF reached prematurely";
+    VLOG(profiler) << "in";
+    return kProfileLoadBadData;
+  } else if (bytes_read < 0) {
+    *error += "Profile IO error";
+    *error += strerror(errno);
+    return kProfileLoadIOError;
+  }
+
   if (status != kProfileLoadSuccess) {
     return status;
+  }
+
+  SafeBuffer uncompressed_profile(size_uncompressed_data);
+
+  int actual_uncompressed_data = LZ4_decompress_safe(
+      reinterpret_cast<char *>(compressed_data.get()),
+      reinterpret_cast<char *>(uncompressed_profile.Get()),
+      end - cur,
+      size_uncompressed_data);
+
+  LOG(WARNING) << "compressed_size" << end-cur << "uncompress_size" << actual_uncompressed_data;
+
+  if ((size_t)actual_uncompressed_data != size_uncompressed_data) {
+    *error = "less_uncompressed_data";
+    LOG(WARNING) << ".." << actual_uncompressed_data;
+    LOG(WARNING) << ".." << size_uncompressed_data;
+    return kProfileLoadIOError;
   }
 
   for (uint8_t k = 0; k < number_of_dex_files; k++) {
     ProfileLineHeader line_header;
 
     // First, read the line header to get the amount of data we need to read.
-    status = ReadProfileLineHeader(fd, &line_header, error);
+    status = ReadProfileLineHeader(uncompressed_profile, &line_header, error);
     if (status != kProfileLoadSuccess) {
       return status;
     }
 
     // Now read the actual profile line.
-    status = ReadProfileLine(fd, number_of_dex_files, line_header, error);
+    status = ReadProfileLine(uncompressed_profile, number_of_dex_files, line_header, error);
     if (status != kProfileLoadSuccess) {
       return status;
     }
   }
 
   // Check that we read everything and that profiles don't contain junk data.
-  int result = testEOF(fd);
-  if (result == 0) {
-    return kProfileLoadSuccess;
-  } else if (result < 0) {
-    return kProfileLoadIOError;
-  } else {
+  if (uncompressed_profile.CountUnreadBytes() > 0) {
     *error = "Unexpected content in the profile file";
+    VLOG(profiler) << ".." << uncompressed_profile.CountUnreadBytes();
     return kProfileLoadBadData;
+  } else {
+    return kProfileLoadSuccess;
   }
 }
 
