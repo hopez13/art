@@ -275,6 +275,15 @@ class ProfileCompilationInfo {
   static bool Equals(const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi1,
                      const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi2);
 
+  std::unique_ptr<uint8_t[]> deflate_buffer(uint8_t* in_buffer,
+                          uint32_t in_size,
+                          uint32_t& out_size);
+
+  int inflate_buffer(uint8_t* in_buffer,
+                          uint8_t* out_buffer,
+                          uint32_t in_size,
+                          uint32_t out_size);
+
  private:
   enum ProfileLoadSatus {
     kProfileLoadWouldOverwiteData,
@@ -376,6 +385,10 @@ class ProfileCompilationInfo {
                                 const std::string& source,
                                 /*out*/std::string* error);
 
+    ProfileLoadSatus FillFromBuffer(uint8_t* buffer_ptr,
+                                    const std::string& source,
+                                    /*out*/std::string* error);
+
     // Reads an uint value (high bits to low bits) and advances the current pointer
     // with the number of bits read.
     template <typename T> bool ReadUintAndAdvance(/*out*/ T* value);
@@ -384,15 +397,22 @@ class ProfileCompilationInfo {
     // equal it advances the current pointer by data_size.
     bool CompareAndAdvance(const uint8_t* data, size_t data_size);
 
+    // Advances current pointer by data_size.
+    void Advance(size_t data_size);
+
+    // Returns the count of unread bytes.
+    size_t CountUnreadBytes();
+
     // Returns true if the buffer has more data to read.
     bool HasMoreData();
 
     // Get the underlying raw buffer.
     uint8_t* Get() { return storage_.get(); }
 
+    uint8_t* ptr_current_;
+
    private:
     std::unique_ptr<uint8_t[]> storage_;
-    uint8_t* ptr_current_;
     uint8_t* ptr_end_;
   };
 
@@ -403,10 +423,11 @@ class ProfileCompilationInfo {
   // lines into number_of_dex_files.
   ProfileLoadSatus ReadProfileHeader(int fd,
                                      /*out*/uint8_t* number_of_dex_files,
+                                     /*out*/uint32_t* size_uncompressed_data,
                                      /*out*/std::string* error);
 
   // Read the header of a profile line from the given fd.
-  ProfileLoadSatus ReadProfileLineHeader(int fd,
+  ProfileLoadSatus ReadProfileLineHeader(SafeBuffer& buffer,
                                          /*out*/ProfileLineHeader* line_header,
                                          /*out*/std::string* error);
 
@@ -417,7 +438,7 @@ class ProfileCompilationInfo {
                                      /*out*/std::string* error);
 
   // Read a single profile line from the given fd.
-  ProfileLoadSatus ReadProfileLine(int fd,
+  ProfileLoadSatus ReadProfileLine(SafeBuffer& buffer,
                                    uint8_t number_of_dex_files,
                                    const ProfileLineHeader& line_header,
                                    /*out*/std::string* error);
