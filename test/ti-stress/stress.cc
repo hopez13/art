@@ -20,6 +20,7 @@
 #include <fstream>
 #include <stdio.h>
 #include <sstream>
+#include <strstream>
 
 #include "jvmti.h"
 #include "exec_utils.h"
@@ -95,7 +96,6 @@ static void doJvmtiMethodBind(jvmtiEnv* jvmtienv,
   if (thread == nullptr) {
     info.name = const_cast<char*>("<NULLPTR>");
   } else if (jvmtienv->GetThreadInfo(thread, &info) != JVMTI_ERROR_NONE) {
-    LOG(WARNING) << "Unable to get thread info!";
     info.name = const_cast<char*>("<UNKNOWN THREAD>");
   }
   char *fname, *fsig, *fgen;
@@ -115,8 +115,8 @@ static void doJvmtiMethodBind(jvmtiEnv* jvmtienv,
     env->DeleteLocalRef(klass);
     return;
   }
-  LOG(INFO) << "Loading native method \"" << cname << "->" << fname << fsig << "\". Thread is "
-            << info.name;
+  LOG(INFO) << "Loading native method \"" << cname << "->" << fname << fsig << "\". Thread is \""
+            << info.name << "\"";
   jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(cname));
   jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(cgen));
   jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fname));
@@ -124,6 +124,151 @@ static void doJvmtiMethodBind(jvmtiEnv* jvmtienv,
   jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fgen));
   env->DeleteLocalRef(klass);
   return;
+}
+
+static std::string GetName(jvmtiEnv* jvmtienv, JNIEnv* jnienv, jobject obj) {
+  jclass klass = jnienv->GetObjectClass(obj);
+  char *cname, *cgen;
+  if (jvmtienv->GetClassSignature(klass, &cname, &cgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get class name!";
+    jnienv->DeleteLocalRef(klass);
+    return "<UNKNOWN>";
+  }
+  std::string name(cname);
+  if (name == "Ljava/lang/String;") {
+    jstring str = reinterpret_cast<jstring>(obj);
+    const char* val = jnienv->GetStringUTFChars(str, nullptr);
+    if (val == nullptr) {
+      name += " (unable to get value)";
+    } else {
+      std::ostringstream oss;
+      oss << name << " (value: \"" << val << "\")";
+      name = oss.str();
+      jnienv->ReleaseStringUTFChars(str, val);
+    }
+  }
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(cname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(cgen));
+  jnienv->DeleteLocalRef(klass);
+  return name;
+}
+
+static std::string GetValOf(jvmtiEnv* env, JNIEnv* jnienv, std::string type, jvalue val) {
+  std::ostringstream oss;
+  switch (type[0]) {
+    case '[':
+    case 'L':
+      return val.l != nullptr ? GetName(env, jnienv, val.l) : "null";
+    case 'Z':
+      return val.z == JNI_TRUE ? "true" : "false";
+    case 'B':
+      oss << val.b;
+      return oss.str();
+    case 'C':
+      oss << val.c;
+      return oss.str();
+    case 'S':
+      oss << val.s;
+      return oss.str();
+    case 'I':
+      oss << val.i;
+      return oss.str();
+    case 'J':
+      oss << val.j;
+      return oss.str();
+    case 'F':
+      oss << val.f;
+      return oss.str();
+    case 'D':
+      oss << val.d;
+      return oss.str();
+    case 'V':
+      return "<void>";
+    default:
+      return "<ERROR Found type " + type + ">";
+  }
+}
+
+void JNICALL MethodExitHook(jvmtiEnv* jvmtienv,
+                            JNIEnv* env,
+                            jthread thread,
+                            jmethodID m,
+                            jboolean was_popped_by_exception,
+                            jvalue val) {
+  jvmtiThreadInfo info;
+  if (thread == nullptr) {
+    info.name = const_cast<char*>("<NULLPTR>");
+  } else if (jvmtienv->GetThreadInfo(thread, &info) != JVMTI_ERROR_NONE) {
+    // LOG(WARNING) << "Unable to get thread info!";
+    info.name = const_cast<char*>("<UNKNOWN THREAD>");
+  }
+  char *fname, *fsig, *fgen;
+  char *cname, *cgen;
+  jclass klass = nullptr;
+  if (jvmtienv->GetMethodDeclaringClass(m, &klass) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get method declaring class!";
+    return;
+  }
+  if (jvmtienv->GetMethodName(m, &fname, &fsig, &fgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get method name!";
+    env->DeleteLocalRef(klass);
+    return;
+  }
+  if (jvmtienv->GetClassSignature(klass, &cname, &cgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get class name!";
+    env->DeleteLocalRef(klass);
+    return;
+  }
+  std::string type(fsig);
+  type = type.substr(type.find(")") + 1);
+  std::string out_val(was_popped_by_exception ? "" : GetValOf(jvmtienv, env, type, val));
+  LOG(INFO) << "Leaving method \"" << cname << "->" << fname << fsig << "\". Thread is \""
+            << info.name << "\"." << std::endl
+            << "    Cause: " << (was_popped_by_exception ? "exception" : "return ")
+            << out_val << ".";
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(cname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(cgen));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fsig));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fgen));
+  env->DeleteLocalRef(klass);
+}
+
+void JNICALL MethodEntryHook(jvmtiEnv* jvmtienv,
+                             JNIEnv* env,
+                             jthread thread,
+                             jmethodID m) {
+  jvmtiThreadInfo info;
+  if (thread == nullptr) {
+    info.name = const_cast<char*>("<NULLPTR>");
+  } else if (jvmtienv->GetThreadInfo(thread, &info) != JVMTI_ERROR_NONE) {
+    info.name = const_cast<char*>("<UNKNOWN THREAD>");
+  }
+  char *fname, *fsig, *fgen;
+  char *cname, *cgen;
+  jclass klass = nullptr;
+  if (jvmtienv->GetMethodDeclaringClass(m, &klass) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get method declaring class!";
+    return;
+  }
+  if (jvmtienv->GetMethodName(m, &fname, &fsig, &fgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get method name!";
+    env->DeleteLocalRef(klass);
+    return;
+  }
+  if (jvmtienv->GetClassSignature(klass, &cname, &cgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get class name!";
+    env->DeleteLocalRef(klass);
+    return;
+  }
+  LOG(INFO) << "Entering method \"" << cname << "->" << fname << fsig << "\". Thread is \""
+            << info.name << "\"";
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(cname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(cgen));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fsig));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fgen));
+  env->DeleteLocalRef(klass);
 }
 
 // The hook we are using.
@@ -198,6 +343,16 @@ static void JNICALL EnsureVMClassloaderInitializedCB(jvmtiEnv *jvmti_env,
              JVMTI_ERROR_NONE);
     data->vm_class_loader_initialized = true;
   }
+  if (jvmti_env->SetEventNotificationMode(JVMTI_ENABLE,
+                                          JVMTI_EVENT_METHOD_ENTRY,
+                                          nullptr) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to enable JVMTI_EVENT_METHOD_ENTRY event!";
+  }
+  if (jvmti_env->SetEventNotificationMode(JVMTI_ENABLE,
+                                      JVMTI_EVENT_METHOD_EXIT,
+                                      nullptr) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to enable JVMTI_EVENT_METHOD_EXIT event!";
+  }
 }
 
 extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* vm,
@@ -234,6 +389,9 @@ extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* vm,
   cb.ClassFileLoadHook = ClassFileLoadHookSecretNoOp;
   cb.NativeMethodBind = doJvmtiMethodBind;
   cb.VMInit = EnsureVMClassloaderInitializedCB;
+  // cb.VMDeath = ShutdownHook;
+  cb.MethodEntry = MethodEntryHook;
+  cb.MethodExit = MethodExitHook;
   if (jvmti->SetEventCallbacks(&cb, sizeof(cb)) != JVMTI_ERROR_NONE) {
     LOG(ERROR) << "Unable to set class file load hook cb!";
     return 1;
