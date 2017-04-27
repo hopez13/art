@@ -2174,6 +2174,9 @@ void CodeGeneratorARM64::GenerateMemoryBarrier(MemBarrierKind kind) {
 
 void InstructionCodeGeneratorARM64::GenerateSuspendCheck(HSuspendCheck* instruction,
                                                          HBasicBlock* successor) {
+  UNUSED(instruction);
+  UNUSED(successor);
+#if 0
   SuspendCheckSlowPathARM64* slow_path =
       down_cast<SuspendCheckSlowPathARM64*>(instruction->GetSlowPath());
   if (slow_path == nullptr) {
@@ -2200,6 +2203,7 @@ void InstructionCodeGeneratorARM64::GenerateSuspendCheck(HSuspendCheck* instruct
     __ B(slow_path->GetEntryLabel());
     // slow_path will return to GetLabelOf(successor).
   }
+#endif
 }
 
 InstructionCodeGeneratorARM64::InstructionCodeGeneratorARM64(HGraph* graph,

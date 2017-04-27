@@ -6405,6 +6405,9 @@ void InstructionCodeGeneratorARMVIXL::VisitSuspendCheck(HSuspendCheck* instructi
 
 void InstructionCodeGeneratorARMVIXL::GenerateSuspendCheck(HSuspendCheck* instruction,
                                                            HBasicBlock* successor) {
+  UNUSED(instruction);
+  UNUSED(successor);
+#if 0
   SuspendCheckSlowPathARMVIXL* slow_path =
       down_cast<SuspendCheckSlowPathARMVIXL*>(instruction->GetSlowPath());
   if (slow_path == nullptr) {
@@ -6430,6 +6433,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateSuspendCheck(HSuspendCheck* instru
     __ CompareAndBranchIfZero(temp, codegen_->GetLabelOf(successor));
     __ B(slow_path->GetEntryLabel());
   }
+#endif
 }
 
 ArmVIXLAssembler* ParallelMoveResolverARMVIXL::GetAssembler() const {

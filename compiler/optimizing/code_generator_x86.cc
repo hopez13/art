@@ -5733,6 +5733,9 @@ void InstructionCodeGeneratorX86::VisitSuspendCheck(HSuspendCheck* instruction) 
 
 void InstructionCodeGeneratorX86::GenerateSuspendCheck(HSuspendCheck* instruction,
                                                        HBasicBlock* successor) {
+  UNUSED(instruction);
+  UNUSED(successor);
+#if 0
   SuspendCheckSlowPathX86* slow_path =
       down_cast<SuspendCheckSlowPathX86*>(instruction->GetSlowPath());
   if (slow_path == nullptr) {
@@ -5756,6 +5759,7 @@ void InstructionCodeGeneratorX86::GenerateSuspendCheck(HSuspendCheck* instructio
     __ j(kEqual, codegen_->GetLabelOf(successor));
     __ jmp(slow_path->GetEntryLabel());
   }
+#endif
 }
 
 X86Assembler* ParallelMoveResolverX86::GetAssembler() const {
