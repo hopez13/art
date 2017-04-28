@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "523f5fac_a1586442",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-04-28T10:34:19Z",
+      "side": 1,
+      "message": "Doing a valid collision check up the parent chain would require some refactoring, wouldn\u0027t it ? We\u0027ll need to call CollisionCheck here, rather than once at the end.. also, it will make the interaction with AreSharedLibrariesOk awkward..",
+      "parentUuid": "a7d34082_b1cb5ff9",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 3
+      },
+      "revId": "16f0248c5e09667610e73be549f0d33d6c493f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afa15736_b9809f92",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-28T10:27:21Z",
       "side": 1,
       "message": "This looks odd. How about.\n\nif (!oat_file_assistant.HasOriginalDexFiles()) {\n  LOG(WARNING) \u003c\u003c \"Found ..., but cannot fallback to APK. This is dangerous\".\n  accept_oat_file \u003d true;\n} else {\n  LOG(WARNING) \u003c\u003c \"Found ..., This wastes ...\";\n}",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 671,
+        "endChar": 56
+      },
+      "revId": "16f0248c5e09667610e73be549f0d33d6c493f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6ab0a31_0ad8ee10",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-04-28T10:34:19Z",
+      "side": 1,
+      "message": "We\u0027re currently setting accept_oat_file\u003dtrue even if !IsDexFileFallBackEnabled(). That will change with your suggestion - is that what you intend ?",
+      "parentUuid": "afa15736_b9809f92",
       "range": {
         "startLine": 666,
         "startChar": 0,
