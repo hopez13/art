@@ -118,6 +118,23 @@
       "revId": "fa338b630579dd105dc86b5167f2861c59f8a658",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10b299c1_99213825",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-28T16:18:25Z",
+      "side": 1,
+      "message": "and courtesy Artem for providing me the fastest way of doing this zero extension!",
+      "revId": "fa338b630579dd105dc86b5167f2861c59f8a658",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
