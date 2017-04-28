@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "95d81bdd_5ace0928",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2447,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-28T09:49:19Z",
+      "side": 1,
+      "message": "I guess you\u0027re talking memory delete? I\u0027d drop that comment too then :) We never memory delete instructions until the end of the compilation.",
+      "range": {
+        "startLine": 2447,
+        "startChar": 67,
+        "endLine": 2447,
+        "endChar": 74
+      },
+      "revId": "7e2dbc41743646b0f115f990bef698f6d30e8139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d60d0d5_41128f4c",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 12
