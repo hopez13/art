@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#ifndef ART_OATDUMP_OATDUMP_TEST_H_
+#define ART_OATDUMP_OATDUMP_TEST_H_
+
 #include <sstream>
 #include <string>
 #include <vector>
@@ -221,77 +224,6 @@ class OatDumpTest : public CommonRuntimeTest {
   std::string core_oat_location_;
 };
 
-// Disable tests on arm and mips as they are taking too long to run. b/27824283.
-#if !defined(__arm__) && !defined(__mips__)
-TEST_F(OatDumpTest, TestImage) {
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kDynamic, kModeArt, {}, kListAndCode, &error_msg)) << error_msg;
-}
-TEST_F(OatDumpTest, TestImageStatic) {
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kStatic, kModeArt, {}, kListAndCode, &error_msg)) << error_msg;
-}
-
-TEST_F(OatDumpTest, TestOatImage) {
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kDynamic, kModeOat, {}, kListAndCode, &error_msg)) << error_msg;
-}
-TEST_F(OatDumpTest, TestOatImageStatic) {
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kStatic, kModeOat, {}, kListAndCode, &error_msg)) << error_msg;
-}
-
-TEST_F(OatDumpTest, TestNoDumpVmap) {
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kDynamic, kModeArt, {"--no-dump:vmap"}, kListAndCode, &error_msg)) << error_msg;
-}
-TEST_F(OatDumpTest, TestNoDumpVmapStatic) {
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kStatic, kModeArt, {"--no-dump:vmap"}, kListAndCode, &error_msg)) << error_msg;
-}
-
-TEST_F(OatDumpTest, TestNoDisassemble) {
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kDynamic, kModeArt, {"--no-disassemble"}, kListAndCode, &error_msg))
-      << error_msg;
-}
-TEST_F(OatDumpTest, TestNoDisassembleStatic) {
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kStatic, kModeArt, {"--no-disassemble"}, kListAndCode, &error_msg)) << error_msg;
-}
-
-TEST_F(OatDumpTest, TestListClasses) {
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kDynamic, kModeArt, {"--list-classes"}, kListOnly, &error_msg)) << error_msg;
-}
-TEST_F(OatDumpTest, TestListClassesStatic) {
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kStatic, kModeArt, {"--list-classes"}, kListOnly, &error_msg)) << error_msg;
-}
-
-TEST_F(OatDumpTest, TestListMethods) {
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kDynamic, kModeArt, {"--list-methods"}, kListOnly, &error_msg)) << error_msg;
-}
-TEST_F(OatDumpTest, TestListMethodsStatic) {
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kStatic, kModeArt, {"--list-methods"}, kListOnly, &error_msg)) << error_msg;
-}
-
-TEST_F(OatDumpTest, TestSymbolize) {
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kDynamic, kModeSymbolize, {}, kListOnly, &error_msg)) << error_msg;
-}
-TEST_F(OatDumpTest, TestSymbolizeStatic) {
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
-  std::string error_msg;
-  ASSERT_TRUE(Exec(kStatic, kModeSymbolize, {}, kListOnly, &error_msg)) << error_msg;
-}
-#endif
 }  // namespace art
+
+#endif  // ART_OATDUMP_OATDUMP_TEST_H_
