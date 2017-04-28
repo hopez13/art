@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a5ffe17_ac9a43e0",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-28T19:50:19Z",
+      "side": 1,
+      "message": "It seems really strange to me that this is handled in the codegen\n\nIf there\u0027s multiple charAts all the branches are redundant\n     x.charAt(0)\n     x.charAt(1)\n\netc\n\nand likewise for loops\n \n    for (i \u003d ...) \n        x.charAt(i)\n\nalthough in the latter case we\u0027d need loop splitting optimization.\n\n(Plus the existing non-vectorizing code seems to share this inefficiency)\n\nIs it worthwhile to investigate if it\u0027s possible to move this handling into the HIR?\n\n-------\nAt the very least it\u0027s quite strange that HArrayGet is doing String#charAt, it is not a char array lookup, it seems like it should be HStringGet, HCharAt, some kind of intrinsic, etc.",
+      "revId": "472821b210a7fc7a4d2e3d45762c7b5b9628a35b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
