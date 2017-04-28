@@ -22,6 +22,30 @@
       "revId": "fa338b630579dd105dc86b5167f2861c59f8a658",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "530afa58_c7af64a0",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-28T15:55:52Z",
+      "side": 1,
+      "message": "Yes, good idea. Even though it seemed to work, I did not like this releasing and then using either. Changed.",
+      "parentUuid": "7f612f2e_ac2cff89",
+      "range": {
+        "startLine": 797,
+        "startChar": 4,
+        "endLine": 797,
+        "endChar": 31
+      },
+      "revId": "fa338b630579dd105dc86b5167f2861c59f8a658",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
