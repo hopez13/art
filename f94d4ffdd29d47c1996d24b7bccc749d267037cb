@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "889f31a5_336d53c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-04-28T15:41:49Z",
+      "side": 1,
+      "message": "There should be no obvious code size impact because scheduler only change the instruction order. \nAnd I have double confirmed locally by building with \u0026 without ARM scheduler, the size changes to boot.oat files are negligible.\nHere is the detailed data:\n  | oat files                                | with sched size (bytes) | without sched size (bytes) | size change |\n  |------------------------------------------+-------------------------+----------------------------+-------------|\n  | arm/boot-conscrypt.oat                   |                  376596 |                     376612 |  0.99995752 |\n  | arm/boot-ims-common.oat                  |                  215772 |                     215772 |           1 |\n  | arm/boot-legacy-test.oat                 |                   34484 |                      34484 |           1 |\n  | arm/boot-framework.oat                   |                21978096 |                   21978096 |           1 |\n  | arm/boot-org.apache.http.legacy.boot.oat |                  648188 |                     648212 |  0.99996298 |\n  | arm/boot-ext.oat                         |                  330236 |                     330248 |  0.99996366 |\n  | arm/boot-core-libart.oat                 |                 3515520 |                    3515480 |   1.0000114 |\n  | arm/boot-bouncycastle.oat                |                  335164 |                     335152 |   1.0000358 |\n  | arm/boot-apache-xml.oat                  |                  152400 |                     152400 |           1 |\n  | arm/boot-okhttp.oat                      |                  523580 |                     523588 |  0.99998472 |\n  | arm/boot.oat                             |                 7563840 |                    7563976 |  0.99998202 |\n  | arm/boot-voip-common.oat                 |                  111016 |                     111016 |           1 |\n  | arm/boot-telephony-common.oat            |                 2887060 |                    2887088 |  0.99999030 |\n   #+TBLFM: $4\u003d($2/$3)",
+      "parentUuid": "eb2d66b7_645bb1a3",
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1011fbf_5a5d4288",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-04-27T18:14:13Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 485,
+        "startChar": 16,
+        "endLine": 485,
+        "endChar": 17
+      },
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d833f088_948a0790",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-04-28T15:41:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1011fbf_5a5d4288",
       "range": {
         "startLine": 485,
         "startChar": 16,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "a87b1263_df20d873",
+        "filename": "compiler/optimizing/scheduler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-04-28T15:41:49Z",
+      "side": 1,
+      "message": "That is a good point. I have changed this in the new PS.\nFor HAdd and HSub, I\u0027ve added an internal \u0027nop latency\u0027 represent the dependency in ADDS+ADC pair.",
+      "parentUuid": "6c9ac6f3_7a91380a",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "655a56bd_90ead54f",
         "filename": "compiler/optimizing/scheduler_arm.cc",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2017-04-27T18:14:13Z",
       "side": 1,
       "message": "Unnamed constant? Or should that be \"2 *\" instead of \"2 +\"?",
+      "range": {
+        "startLine": 537,
+        "startChar": 37,
+        "endLine": 537,
+        "endChar": 38
+      },
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4a8477e_dd764ec1",
+        "filename": "compiler/optimizing/scheduler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-04-28T15:41:49Z",
+      "side": 1,
+      "message": "Oops, it should be \"2 *\", thanks.\nDone.",
+      "parentUuid": "655a56bd_90ead54f",
       "range": {
         "startLine": 537,
         "startChar": 37,
