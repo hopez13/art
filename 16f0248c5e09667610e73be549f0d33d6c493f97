@@ -117,6 +117,30 @@
       "revId": "16f0248c5e09667610e73be549f0d33d6c493f97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3814fd22_df267993",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-28T11:44:09Z",
+      "side": 1,
+      "message": "No, that wasn\u0027t what I intended. Then maybe, just print two different messages whether we have original dex files, and keep the flag change as it is today?",
+      "parentUuid": "b6ab0a31_0ad8ee10",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 671,
+        "endChar": 56
+      },
+      "revId": "16f0248c5e09667610e73be549f0d33d6c493f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
