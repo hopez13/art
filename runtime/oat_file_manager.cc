@@ -546,8 +546,8 @@ bool OatFileManager::HasCollisions(const OatFile* oat_file,
   std::vector<const DexFile*> dex_files_loaded;
 
   // Try to get dex files from the given class loader. If the class loader is null, or we do
-  // not support one of the class loaders in the chain, conservatively compare against all
-  // (non-boot) oat files.
+  // not support one of the class loaders in the chain, we do nothing and assume the collision
+  // check has succeeded.
   bool class_loader_ok = false;
   {
     ScopedObjectAccess soa(Thread::Current());
@@ -566,37 +566,20 @@ bool OatFileManager::HasCollisions(const OatFile* oat_file,
     } else if (h_class_loader != nullptr) {
       VLOG(class_linker) << "Something unsupported with "
                          << mirror::Class::PrettyClass(h_class_loader->GetClass());
+
+      // This is a class loader we don't recognize. Our earlier strategy would
+      // be to perform a global duplicate class check (with all loaded oat files)
+      // but that seems overly conservative - we have no way of knowing that
+      // those files are present in the same loader hierarchy. Among other
+      // things, it hurt GMS core and its filtering class loader.
     }
   }
 
-  // Dex files are registered late - once a class is actually being loaded. We have to compare
-  // against the open oat files. Take the oat_file_manager_lock_ that protects oat_files_ accesses.
-  ReaderMutexLock mu(Thread::Current(), *Locks::oat_file_manager_lock_);
-
-  // Vector that holds the newly opened dex files live, this is done to prevent leaks.
-  std::vector<std::unique_ptr<const DexFile>> opened_dex_files;
-
+  // Exit if we find a class loader we don't recognize. Proceed to check shared
+  // libraries and do a full class loader check otherwise.
   if (!class_loader_ok) {
-    // Add dex files from already loaded oat files, but skip boot.
-
-    // Clean up the dex files.
-    dex_files_loaded.clear();
-
-    std::vector<const OatFile*> boot_oat_files = GetBootOatFiles();
-    // The same OatFile can be loaded multiple times at different addresses. In this case, we don't
-    // need to check both against each other since they would have resolved the same way at compile
-    // time.
-    std::unordered_set<std::string> unique_locations;
-    for (const std::unique_ptr<const OatFile>& loaded_oat_file : oat_files_) {
-      DCHECK_NE(loaded_oat_file.get(), oat_file);
-      const std::string& location = loaded_oat_file->GetLocation();
-      if (std::find(boot_oat_files.begin(), boot_oat_files.end(), loaded_oat_file.get()) ==
-          boot_oat_files.end() && location != oat_file->GetLocation() &&
-          unique_locations.find(location) == unique_locations.end()) {
-        unique_locations.insert(location);
-        AddDexFilesFromOat(loaded_oat_file.get(), &dex_files_loaded, &opened_dex_files);
-      }
-    }
+      VLOG(class_linker) << "Skipping duplicate class check due to unrecognized classloader";
+      return false;
   }
 
   // Exit if shared libraries are ok. Do a full duplicate classes check otherwise.
@@ -605,6 +588,9 @@ bool OatFileManager::HasCollisions(const OatFile* oat_file,
   if (AreSharedLibrariesOk(shared_libraries, dex_files_loaded)) {
     return false;
   }
+
+  // Vector that holds the newly opened dex files live, this is done to prevent leaks.
+  std::vector<std::unique_ptr<const DexFile>> opened_dex_files;
 
   ScopedTrace st("Collision check");
   // Add dex files from the oat file to check.
@@ -677,8 +663,14 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
     if (!accept_oat_file) {
       // Failed the collision check. Print warning.
       if (Runtime::Current()->IsDexFileFallbackEnabled()) {
-        LOG(WARNING) << "Found duplicate classes, falling back to interpreter mode for "
+        LOG(WARNING) << "Found duplicate classes, falling back to extracting from APK : "
                      << dex_location;
+        // We won't waste RAM or hurt startup performance if we have no original
+        // dex files, but we are executing potentially incorrect code in this
+        // case. (We warn about that later).
+        if (!oat_file_assistant.HasOriginalDexFiles()) {
+            LOG(WARNING) << "NOTE: This wastes RAM and hurts startup performance.";
+        }
       } else {
         LOG(WARNING) << "Found duplicate classes, dex-file-fallback disabled, will be failing to "
                         " load classes for " << dex_location;
