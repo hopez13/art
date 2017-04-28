@@ -22,6 +22,29 @@
       "revId": "89e081975daeeb2c79e363196de3ec55d0d919a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60270162_33ae68ad",
+        "filename": "test/ti-stress/stress.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-28T22:54:19Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is a good idea. It means we stress-test the interpreter only.",
+      "range": {
+        "startLine": 346,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 3
+      },
+      "revId": "89e081975daeeb2c79e363196de3ec55d0d919a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
