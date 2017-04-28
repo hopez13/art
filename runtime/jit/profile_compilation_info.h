@@ -271,6 +271,11 @@ class ProfileCompilationInfo {
                                   std::vector<std::unique_ptr<const DexFile>>& dex_files,
                                   uint32_t random_seed);
 
+  uint32_t deflate_buffer(uint8_t* in_buffer,
+                          uint8_t* out_buffer,
+                          uint32_t in_size,
+                          uint32_t out_size);
+
   // Check that the given profile method info contain the same data.
   static bool Equals(const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi1,
                      const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi2);
@@ -370,6 +375,8 @@ class ProfileCompilationInfo {
       ptr_current_ = storage_.get();
       ptr_end_ = ptr_current_ + size;
     }
+
+    void Advance(size_t data_size);
 
     // Reads the content of the descriptor at the current position.
     ProfileLoadSatus FillFromFd(int fd,

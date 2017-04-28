@@ -20,6 +20,7 @@
 
 #include <sys/types.h>
 #include <unistd.h>
+#include <jit/profile_compilation_info.h>
 
 #include "base/unix_file/fd_file.h"
 #include "common_runtime_test.h"
@@ -41,7 +42,7 @@ static const char kDexFileLayoutInputDex[] =
     "AAAAdQEAAAAQAAABAAAAjAEAAA==";
 
 static const char kDexFileLayoutInputProfile[] =
-    "cHJvADAwNQABCwABAAAAAAD1KW3+Y2xhc3Nlcy5kZXgBAA==";
+    "cHJvADAwNgABGQAAAEALAAEAAQDwAvUpbf5jbGFzc2VzLmRleAEA";
 
 // Dex file with catch handler unreferenced by try blocks.
 // Constructed by building a dex file with try/catch blocks and hex editing.
@@ -316,6 +317,12 @@ class DexLayoutTest : public CommonRuntimeTest {
     WriteFileBase64(kDexFileLayoutInputDex, dex_file.c_str());
     std::string profile_file = tmp_dir + "primary.prof";
     WriteFileBase64(kDexFileLayoutInputProfile, profile_file.c_str());
+    ProfileCompilationInfo info;
+    info.Load(open("/usr/local/google/home/shubhamajmera/aosp/maps.prof", O_SYNC, O_RDWR));
+    char filename[] = "/usr/local/google/home/shubhamajmera/aosp/cat";
+    int fd = open(filename, O_WRONLY);
+    info.Save(fd);
+    close(fd);
     std::string output_dex = tmp_dir + "classes.dex.new";
 
     std::string dexlayout = GetTestAndroidRoot() + "/bin/dexlayout";
