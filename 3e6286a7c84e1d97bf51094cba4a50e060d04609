@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c89f61c2_83b5f13a",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-28T22:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf215b5c_af7d9379",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 4
+      },
+      "revId": "3e6286a7c84e1d97bf51094cba4a50e060d04609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2650178c_a33322c7",
         "filename": "runtime/openjdkjvmti/events.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-28T22:13:06Z",
       "side": 1,
       "message": "Technically it\u0027s the only C++-defined way to get a value out of JValue... :-)",
+      "range": {
+        "startLine": 356,
+        "startChar": 8,
+        "endLine": 356,
+        "endChar": 80
+      },
+      "revId": "3e6286a7c84e1d97bf51094cba4a50e060d04609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d81574ad_058e4e8f",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-28T22:38:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2650178c_a33322c7",
       "range": {
         "startLine": 356,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0c87be4_8d0726e4",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-28T22:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eec59eca_b1506697",
+      "range": {
+        "startLine": 369,
+        "startChar": 40,
+        "endLine": 369,
+        "endChar": 68
+      },
+      "revId": "3e6286a7c84e1d97bf51094cba4a50e060d04609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "073243fe_5d1c1743",
         "filename": "runtime/openjdkjvmti/events.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-28T22:13:06Z",
       "side": 1,
       "message": "Use a helper method to reduce code duplication.",
+      "range": {
+        "startLine": 393,
+        "startChar": 6,
+        "endLine": 405,
+        "endChar": 25
+      },
+      "revId": "3e6286a7c84e1d97bf51094cba4a50e060d04609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "114ac2ce_92419c15",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-28T22:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "073243fe_5d1c1743",
       "range": {
         "startLine": 393,
         "startChar": 6,
