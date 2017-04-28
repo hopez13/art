@@ -22,6 +22,52 @@
       "revId": "04aa213e96c1095e8d1e07cbc426d009777de241",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d952a84_25c4daaa",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-28T15:37:46Z",
+      "side": 1,
+      "message": "LOG(WARNING) ?",
+      "range": {
+        "startLine": 581,
+        "startChar": 6,
+        "endLine": 581,
+        "endChar": 24
+      },
+      "revId": "04aa213e96c1095e8d1e07cbc426d009777de241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95aa4bee_37620b0f",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-28T15:37:46Z",
+      "side": 1,
+      "message": "is it used outside testing?",
+      "range": {
+        "startLine": 682,
+        "startChar": 73,
+        "endLine": 682,
+        "endChar": 95
+      },
+      "revId": "04aa213e96c1095e8d1e07cbc426d009777de241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
