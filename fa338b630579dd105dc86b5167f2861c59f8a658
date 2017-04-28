@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f612f2e_ac2cff89",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-28T09:27:35Z",
+      "side": 1,
+      "message": "This looks dangerous. I think it would be better to return it to the caller through a \"/*out*/ Register* scratch\" parameter and the caller can release it if needed with \"if (scratch.IsValid()) { temps.Release(scratch); }\".",
+      "range": {
+        "startLine": 797,
+        "startChar": 4,
+        "endLine": 797,
+        "endChar": 31
+      },
+      "revId": "fa338b630579dd105dc86b5167f2861c59f8a658",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
