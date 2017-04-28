@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "533a6b3a_8a7b4010",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-28T23:40:47Z",
+      "side": 1,
+      "message": "Forgot it.\n\nDone",
+      "parentUuid": "3a7b8302_95a2bab6",
+      "range": {
+        "startLine": 336,
+        "startChar": 6,
+        "endLine": 336,
+        "endChar": 96
+      },
+      "revId": "89e081975daeeb2c79e363196de3ec55d0d919a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60270162_33ae68ad",
         "filename": "test/ti-stress/stress.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-28T22:54:19Z",
       "side": 1,
       "message": "I\u0027m not sure this is a good idea. It means we stress-test the interpreter only.",
+      "range": {
+        "startLine": 346,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 3
+      },
+      "revId": "89e081975daeeb2c79e363196de3ec55d0d919a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81fff0ad_f5ee3c67",
+        "filename": "test/ti-stress/stress.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-28T23:40:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60270162_33ae68ad",
       "range": {
         "startLine": 346,
         "startChar": 0,
