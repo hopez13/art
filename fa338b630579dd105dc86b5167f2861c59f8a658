@@ -94,6 +94,30 @@
       "revId": "fa338b630579dd105dc86b5167f2861c59f8a658",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f22c599_7c814ca3",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-28T16:12:07Z",
+      "side": 1,
+      "message": "I am guessing you realized this, but just for the reviewing history, I thought it would be a good idea to release early so the 2nd address computations (which uses size 2 rather than 1) could claim it again.",
+      "parentUuid": "d896670d_380185c2",
+      "range": {
+        "startLine": 797,
+        "startChar": 4,
+        "endLine": 797,
+        "endChar": 31
+      },
+      "revId": "fa338b630579dd105dc86b5167f2861c59f8a658",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
