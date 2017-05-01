@@ -36,6 +36,7 @@
 #include "oat.h"
 #include "obj_ptr-inl.h"
 #include "quick/quick_method_frame_info.h"
+#include "primitive.h"
 #include "read_barrier-inl.h"
 #include "runtime-inl.h"
 #include "scoped_thread_state_change-inl.h"
@@ -338,6 +339,10 @@ inline const char* ArtMethod::GetReturnTypeDescriptor() {
   const DexFile::MethodId& method_id = dex_file->GetMethodId(GetDexMethodIndex());
   const DexFile::ProtoId& proto_id = dex_file->GetMethodPrototype(method_id);
   return dex_file->GetTypeDescriptor(dex_file->GetTypeId(proto_id.return_type_idx_));
+}
+
+inline Primitive::Type ArtMethod::GetReturnTypePrimitive() {
+  return Primitive::GetType(GetReturnTypeDescriptor()[0]);
 }
 
 inline const char* ArtMethod::GetTypeDescriptorFromTypeIdx(dex::TypeIndex type_idx) {
