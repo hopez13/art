@@ -571,6 +571,8 @@ class ArtMethod FINAL {
 
   const char* GetReturnTypeDescriptor() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  ALWAYS_INLINE Primitive::Type GetReturnTypePrimitive() REQUIRES_SHARED(Locks::mutator_lock_);
+
   const char* GetTypeDescriptorFromTypeIdx(dex::TypeIndex type_idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
