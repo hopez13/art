@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ffb8bce4_5423df32",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-05-01T21:01:00Z",
+      "side": 1,
+      "message": "I thought so too but the one pre-existing use of handles (ExceptionCaught) uses Thread::Current() so I wasn\u0027t totally sure.\n\nI can change it if you want.",
+      "parentUuid": "dabfcc19_0a5ca890",
+      "range": {
+        "startLine": 951,
+        "startChar": 27,
+        "endLine": 951,
+        "endChar": 31
+      },
+      "revId": "ed3b00618ab8ce339fcb4b3e2349ac852c391348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "269ff182_dc8f4bb9",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 1
