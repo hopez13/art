@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6e641ca_63606b28",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-01T19:50:32Z",
+      "side": 1,
+      "message": "I think single-letter names are against the style guide except when it\u0027s completely obvious (loop counters), and it makes it a bit hard to follow here.",
+      "revId": "2787ee37b958e5c572f51cb4ff936171c2b70db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3db7732_8d07a656",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-01T19:50:32Z",
+      "side": 1,
+      "message": "(no action needed)\n\nunrelated question: why is this #undef here? Does anything ever need it to NOT be undefd? (just thinking it should go into dex_instruction_list.h not into the caller)",
+      "revId": "2787ee37b958e5c572f51cb4ff936171c2b70db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
