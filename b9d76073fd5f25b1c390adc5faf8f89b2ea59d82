@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35e62bb7_5e6233ef",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3163,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "Redundant cast, remove.",
+      "range": {
+        "startLine": 3163,
+        "startChar": 26,
+        "endLine": 3163,
+        "endChar": 47
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "109a6c71_b23b2f6d",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 3168,
+        "startChar": 0,
+        "endLine": 3168,
+        "endChar": 72
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5864c016_f4573163",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3171,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "__ LoadConst32(calling_convention.GetRegisterAt(0), address);",
+      "range": {
+        "startLine": 3171,
+        "startChar": 6,
+        "endLine": 3171,
+        "endChar": 62
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0598e091_394bf3c7",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3175,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "__ StoreConstToOffset(kStoreWord, value, out, info.value_offset, TMP);",
+      "range": {
+        "startLine": 3174,
+        "startChar": 0,
+        "endLine": 3175,
+        "endChar": 40
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6da43518_27f0376c",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2594,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "LoadConst64",
+      "range": {
+        "startLine": 2594,
+        "startChar": 9,
+        "endLine": 2594,
+        "endChar": 20
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc775065_995297c1",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2599,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 2599,
+        "startChar": 0,
+        "endLine": 2599,
+        "endChar": 78
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f819f3a_d1789093",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2602,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "__ LoadConst64(calling_convention.GetRegisterAt(0), address);",
+      "range": {
+        "startLine": 2602,
+        "startChar": 6,
+        "endLine": 2602,
+        "endChar": 40
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dab7c1e_b1c5ae6e",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "__ StoreConstToOffset(kStoreWord, value, out, info.value_offset, TMP);",
+      "range": {
+        "startLine": 2605,
+        "startChar": 0,
+        "endLine": 2606,
+        "endChar": 40
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae0f3ffe_ba964972",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2629,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-01T18:58:21Z",
+      "side": 1,
+      "message": "Lwu",
+      "range": {
+        "startLine": 2629,
+        "startChar": 7,
+        "endLine": 2629,
+        "endChar": 9
+      },
+      "revId": "b9d76073fd5f25b1c390adc5faf8f89b2ea59d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
