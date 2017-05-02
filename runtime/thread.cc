@@ -3604,4 +3604,9 @@ mirror::Object* Thread::GetPeerFromOtherThread() const {
   return peer;
 }
 
+void Thread::SwitchToReadBarrierEntrypoints() {
+  // Make sure entrypoints aren't null.
+  UpdateReadBarrierEntrypoints(&tlsPtr_.quick_entrypoints, /* is_marking */ true);
+}
+
 }  // namespace art

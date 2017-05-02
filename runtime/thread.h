@@ -1180,6 +1180,9 @@ class Thread {
     return false;
   }
 
+  // Switch to the read barrier marking entrypoints instead of possibly null ones.
+  void SwitchToReadBarrierEntrypoints();
+
   static jobject CreateCompileTimePeer(JNIEnv* env,
                                        const char* name,
                                        bool as_daemon,
