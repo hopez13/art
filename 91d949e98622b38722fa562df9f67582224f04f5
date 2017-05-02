@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5909303_a3d899e0",
+        "filename": "compiler/optimizing/scheduler_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-02T10:30:03Z",
+      "side": 1,
+      "message": "Can you avoid this and pass the code generator to the constructor?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 3
+      },
+      "revId": "91d949e98622b38722fa562df9f67582224f04f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
