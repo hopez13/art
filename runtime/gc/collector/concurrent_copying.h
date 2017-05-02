@@ -165,6 +165,9 @@ class ConcurrentCopying : public GarbageCollector {
   void GrayAllDirtyImmuneObjects()
       REQUIRES(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
+  void GrayAllNewlyDirtyImmuneObjects()
+      REQUIRES(Locks::mutator_lock_)
+      REQUIRES(!mark_stack_lock_);
   void VerifyGrayImmuneObjects()
       REQUIRES(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
@@ -339,7 +342,7 @@ class ConcurrentCopying : public GarbageCollector {
   class DisableMarkingCheckpoint;
   class DisableWeakRefAccessCallback;
   class FlipCallback;
-  class GrayImmuneObjectVisitor;
+  template <bool kConcurrent> class GrayImmuneObjectVisitor;
   class ImmuneSpaceScanObjVisitor;
   class LostCopyVisitor;
   class RefFieldsVisitor;
