@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "023bd5c9_de3ece10",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-02T10:26:49Z",
+      "side": 1,
+      "message": "I\u0027d like to avoid a special flag for this. So I\u0027m personally fine checking IsCoreImage. We can hoist the check out of the loop to avoid querying in the loop.",
+      "range": {
+        "startLine": 155,
+        "startChar": 12,
+        "endLine": 156,
+        "endChar": 38
+      },
+      "revId": "01cd38d0d6de5de14633df048462fef33f22af7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
