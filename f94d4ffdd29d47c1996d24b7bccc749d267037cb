@@ -192,6 +192,24 @@
       "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ace7a386_b1251ca9",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-05-02T16:27:29Z",
+      "side": 1,
+      "message": "Yes. In PS3 I\u0027ve moved following test function into SchedulerTest, and have made it into two seperate tests for ARM64 and ARM schedulers.",
+      "parentUuid": "a3e8853a_d81ed933",
+      "revId": "f94d4ffdd29d47c1996d24b7bccc749d267037cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
