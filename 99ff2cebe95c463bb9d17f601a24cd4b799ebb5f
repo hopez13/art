@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19eef6b6_fc01d4f3",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-05-02T12:38:44Z",
+      "side": 1,
+      "message": "assemble?",
+      "range": {
+        "startLine": 86,
+        "startChar": 32,
+        "endLine": 86,
+        "endChar": 34
+      },
+      "revId": "99ff2cebe95c463bb9d17f601a24cd4b799ebb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f4c0d23_3cd52bc4",
+        "filename": "test/551-checker-shifter-operand/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-05-02T12:38:44Z",
+      "side": 1,
+      "message": "s/a ${SMALI_ARGS}/${SMALI_ARGS} assemble/",
+      "range": {
+        "startLine": 171,
+        "startChar": 21,
+        "endLine": 171,
+        "endChar": 23
+      },
+      "revId": "99ff2cebe95c463bb9d17f601a24cd4b799ebb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "458aa423_078e2fd7",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-05-02T12:38:44Z",
+      "side": 1,
+      "message": "s/a ${SMALI_ARGS}/${SMALI_ARGS} assemble/",
+      "range": {
+        "startLine": 278,
+        "startChar": 21,
+        "endLine": 278,
+        "endChar": 22
+      },
+      "revId": "99ff2cebe95c463bb9d17f601a24cd4b799ebb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dbcc1c_d171bbbe",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-05-02T12:38:44Z",
+      "side": 1,
+      "message": "s/a ${SMALI_ARGS}/${SMALI_ARGS} assemble/",
+      "range": {
+        "startLine": 290,
+        "startChar": 20,
+        "endLine": 290,
+        "endChar": 23
+      },
+      "revId": "99ff2cebe95c463bb9d17f601a24cd4b799ebb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
