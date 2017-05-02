@@ -34,6 +34,24 @@
       "revId": "b66d9a5ff0f6ed40326728ead762dd7cf44ff541",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5200c85a_8e57254e",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-02T15:29:16Z",
+      "side": 1,
+      "message": "Well, I mean, the advantage would be an a *lot* smaller diff. And image_base_test isn\u0027t that bad. (Anyways, just a comment, not a nit...)",
+      "parentUuid": "b12e920b_357cc3e6",
+      "revId": "b66d9a5ff0f6ed40326728ead762dd7cf44ff541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
