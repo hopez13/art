@@ -1180,6 +1180,8 @@ class Thread {
     return false;
   }
 
+  void SwitchToReadBarrierEntrypoints();
+
   static jobject CreateCompileTimePeer(JNIEnv* env,
                                        const char* name,
                                        bool as_daemon,
