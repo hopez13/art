@@ -288,6 +288,12 @@ void SchedulingLatencyVisitorARM::VisitIntermediateAddress(HIntermediateAddress*
   last_visited_latency_ = kArmIntegerOpLatency;
 }
 
+void SchedulingLatencyVisitorARM::VisitIntermediateAddressIndex(
+    HIntermediateAddressIndex* ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "IntermediateAddressIndex is not implemented for ARM";
+  UNREACHABLE();
+}
+
 void SchedulingLatencyVisitorARM::VisitMultiplyAccumulate(HMultiplyAccumulate* ATTRIBUTE_UNUSED) {
   last_visited_latency_ = kArmMulIntegerLatency;
 }
