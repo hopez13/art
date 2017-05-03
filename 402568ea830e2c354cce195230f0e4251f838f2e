@@ -134,6 +134,98 @@
     },
     {
       "key": {
+        "uuid": "5657b0f3_0e1c0e9b",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-03T08:50:30Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 909,
+        "startChar": 66,
+        "endLine": 909,
+        "endChar": 73
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8e13f18_65f5fd5d",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-03T08:50:30Z",
+      "side": 1,
+      "message": "uint32_t*",
+      "range": {
+        "startLine": 911,
+        "startChar": 66,
+        "endLine": 911,
+        "endChar": 75
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f833a1fa_df71c210",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-03T08:50:30Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 937,
+        "startChar": 43,
+        "endLine": 937,
+        "endChar": 51
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5a436f0_c9fcf8cc",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-03T08:50:30Z",
+      "side": 1,
+      "message": "should be last.",
+      "range": {
+        "startLine": 938,
+        "startChar": 43,
+        "endLine": 938,
+        "endChar": 61
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0d0bebc_db926fad",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 9
