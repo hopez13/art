@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69e91cb9_1226326e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-03T19:02:11Z",
+      "side": 1,
+      "message": "Maybe special-case this only for *non-android* 32-bit x86? It sounds like *android* 32-bit x86 is fine without this?",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 89
+      },
+      "revId": "9df0aed63b56f26db04f274325b7bc700c8cd605",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
