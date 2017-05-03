@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b0fba3e_95c11be7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "321f781d_be0d11b0",
+      "range": {
+        "startLine": 168,
+        "startChar": 30,
+        "endLine": 168,
+        "endChar": 33
+      },
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f098fe51_5fbaaaf1",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "72353f64_21030e10",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f098fe51_5fbaaaf1",
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd9bb68_9f0ab601",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2017-05-02T23:50:36Z",
       "side": 1,
       "message": "Why set this to false here if we do the same later in DisableMarkingCallback below? I\u0027m not sure what\u0027s the intended behavior here. If it\u0027s an arbitrary choice, DisableMarkingCallback seems like a better place to do so as the name of the flag/field suggests that it\u0027s set until the end of marking.",
+      "range": {
+        "startLine": 235,
+        "startChar": 57,
+        "endLine": 235,
+        "endChar": 62
+      },
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d47dd51e_d001e603",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "It was flipped, oops.",
+      "parentUuid": "1cd9bb68_9f0ab601",
       "range": {
         "startLine": 235,
         "startChar": 57,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "0883fe24_b3217de7",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d760c5fe_db4508bf",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc223e7a_7976d2b1",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 3
@@ -99,6 +189,30 @@
       "writtenOn": "2017-05-02T23:50:36Z",
       "side": 1,
       "message": "Likewise, how about is_using_read_barrier_entrypoints_?",
+      "range": {
+        "startLine": 124,
+        "startChar": 11,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bec3b955_6d2359f2",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc223e7a_7976d2b1",
       "range": {
         "startLine": 124,
         "startChar": 11,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "2e6fcdd5_5c0a25d4",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ffb2151_79aeaba5",
+      "range": {
+        "startLine": 263,
+        "startChar": 7,
+        "endLine": 263,
+        "endChar": 37
+      },
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98eac253_db0bf975",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -145,6 +283,30 @@
       "writtenOn": "2017-05-02T23:50:36Z",
       "side": 1,
       "message": "Would this call be redundant when is_marking is true because SwitchToReadBarrierEntrypoints() below should have already filling in the entrypoints? This may be worth clarifying/cleaning up.",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 71
+      },
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "061ad00c_536b2184",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "Only if the function below was actually called, this only happens for baker.",
+      "parentUuid": "98eac253_db0bf975",
       "range": {
         "startLine": 137,
         "startChar": 2,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "3bc54cdf_9d16531e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3609,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36a30cd2_c07126fe",
+      "range": {
+        "startLine": 3609,
+        "startChar": 59,
+        "endLine": 3609,
+        "endChar": 80
+      },
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cc422b2_4cc0c8a6",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -191,6 +377,30 @@
       "writtenOn": "2017-05-02T23:50:36Z",
       "side": 1,
       "message": "SetReadBarrierEntrypoints?",
+      "range": {
+        "startLine": 1184,
+        "startChar": 7,
+        "endLine": 1184,
+        "endChar": 37
+      },
+      "revId": "de2a82855133b78be4f7159a0a44059592d1ce52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca1b7ec2_2cab2974",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-03T02:43:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cc422b2_4cc0c8a6",
       "range": {
         "startLine": 1184,
         "startChar": 7,
