@@ -22,6 +22,30 @@
       "revId": "9df0aed63b56f26db04f274325b7bc700c8cd605",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2858920e_63b25422",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2017-05-03T19:22:52Z",
+      "side": 1,
+      "message": "Ah right, in fact this is not about x86 at all.\nShadow starts at 0 on all android targets, and at 0x04000000 otherwise.",
+      "parentUuid": "69e91cb9_1226326e",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 89
+      },
+      "revId": "9df0aed63b56f26db04f274325b7bc700c8cd605",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
