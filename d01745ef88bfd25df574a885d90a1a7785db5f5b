@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7e8b6b9_67fcbbcc",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-03T08:54:39Z",
+      "side": 1,
+      "message": "Move before line 341:\n\nif (input-\u003eGetBlock() \u003d\u003d nullptr) {\n  ...\n} else {\n  const HInstructionList\u0026 list \u003d input-\u003eIsPhi()\n        ? input-\u003eGetBlock()-\u003eGetPhis()\n        : input-\u003eGetBlock()-\u003eGetInstructions();\n  ...\n}",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 51
+      },
+      "revId": "d01745ef88bfd25df574a885d90a1a7785db5f5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
