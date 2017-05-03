@@ -8146,8 +8146,9 @@ void InstructionCodeGeneratorARMVIXL::GenerateGcRootFieldLoad(
 
         UseScratchRegisterScope temps(GetVIXLAssembler());
         ExcludeIPAndBakerCcEntrypointRegister(&temps, instruction);
-        uint32_t custom_data =
-            linker::Thumb2RelativePatcher::EncodeBakerReadBarrierGcRootData(root_reg.GetCode());
+        bool narrow = (obj.GetCode() < 8) && (root_reg.GetCode() < 8) && (offset < 32u);
+        uint32_t custom_data = linker::Thumb2RelativePatcher::EncodeBakerReadBarrierGcRootData(
+            root_reg.GetCode(), narrow);
         vixl32::Label* bne_label = codegen_->NewBakerReadBarrierPatch(custom_data);
 
         // entrypoint_reg =
@@ -8162,15 +8163,16 @@ void InstructionCodeGeneratorARMVIXL::GenerateGcRootFieldLoad(
         vixl32::Label return_address;
         EmitAdrCode adr(GetVIXLAssembler(), lr, &return_address);
         __ cmp(kBakerCcEntrypointRegister, Operand(0));
-        static_assert(
-            BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_OFFSET == -8,
-            "GC root LDR must be 2 32-bit instructions (8B) before the return address label.");
         // Currently the offset is always within range. If that changes,
         // we shall have to split the load the same way as for fields.
         DCHECK_LT(offset, kReferenceLoadMinFarOffset);
-        __ ldr(EncodingSize(Wide), root_reg, MemOperand(obj, offset));
+        ptrdiff_t old_offset = GetVIXLAssembler()->GetBuffer()->GetCursorOffset();
+        __ ldr(EncodingSize(narrow ? Narrow : Wide), root_reg, MemOperand(obj, offset));
         EmitPlaceholderBne(codegen_, bne_label);
         __ Bind(&return_address);
+        DCHECK_EQ(old_offset - GetVIXLAssembler()->GetBuffer()->GetCursorOffset(),
+                  narrow ? BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_NARROW_OFFSET
+                         : BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_WIDE_OFFSET);
       } else {
         // Note that we do not actually check the value of
         // `GetIsGcMarking()` to decide whether to mark the loaded GC
@@ -8275,6 +8277,8 @@ void CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier(HInstruction* i
     //   gray_return_address:
 
     DCHECK_ALIGNED(offset, sizeof(mirror::HeapReference<mirror::Object>));
+    vixl32::Register ref_reg = RegisterFrom(ref, Primitive::kPrimNot);
+    bool narrow = (obj.GetCode() < 8) && (ref_reg.GetCode() < 8) && (offset < 32u);
     vixl32::Register base = obj;
     if (offset >= kReferenceLoadMinFarOffset) {
       base = RegisterFrom(temp);
@@ -8282,12 +8286,15 @@ void CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier(HInstruction* i
       static_assert(IsPowerOfTwo(kReferenceLoadMinFarOffset), "Expecting a power of 2.");
       __ Add(base, obj, Operand(offset & ~(kReferenceLoadMinFarOffset - 1u)));
       offset &= (kReferenceLoadMinFarOffset - 1u);
+      // Use narrow LDR only for small offsets. Generating narrow encoding LDR for the large
+      // offsets with `(offset & (kReferenceLoadMinFarOffset - 1u)) < 32u` would most likely
+      // increase the overall code size when taking the generated thunks into account.
+      DCHECK(!narrow);
     }
     UseScratchRegisterScope temps(GetVIXLAssembler());
     ExcludeIPAndBakerCcEntrypointRegister(&temps, instruction);
     uint32_t custom_data = linker::Thumb2RelativePatcher::EncodeBakerReadBarrierFieldData(
-        base.GetCode(),
-        obj.GetCode());
+        base.GetCode(), obj.GetCode(), narrow);
     vixl32::Label* bne_label = NewBakerReadBarrierPatch(custom_data);
 
     // entrypoint_reg =
@@ -8304,19 +8311,23 @@ void CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier(HInstruction* i
     EmitAdrCode adr(GetVIXLAssembler(), lr, &return_address);
     __ cmp(kBakerCcEntrypointRegister, Operand(0));
     EmitPlaceholderBne(this, bne_label);
-    static_assert(BAKER_MARK_INTROSPECTION_FIELD_LDR_OFFSET == (kPoisonHeapReferences ? -8 : -4),
-                  "Field LDR must be 1 32-bit instruction (4B) before the return address label; "
-                  " 2 32-bit instructions (8B) for heap poisoning.");
-    vixl32::Register ref_reg = RegisterFrom(ref, Primitive::kPrimNot);
-    __ ldr(EncodingSize(Wide), ref_reg, MemOperand(base, offset));
+    ptrdiff_t old_offset = GetVIXLAssembler()->GetBuffer()->GetCursorOffset();
+    __ ldr(EncodingSize(narrow ? Narrow : Wide), ref_reg, MemOperand(base, offset));
     if (needs_null_check) {
       MaybeRecordImplicitNullCheck(instruction);
     }
-    // Note: We need a Wide NEG for the unpoisoning.
+    // Note: We need a specific width for the unpoisoning NEG.
     if (kPoisonHeapReferences) {
-      __ rsb(EncodingSize(Wide), ref_reg, ref_reg, Operand(0));
+      if (narrow) {
+        __ rsbs(EncodingSize(Narrow), ref_reg, ref_reg, Operand(0));
+      } else {
+        __ rsb(EncodingSize(Wide), ref_reg, ref_reg, Operand(0));
+      }
     }
     __ Bind(&return_address);
+    DCHECK_EQ(old_offset - GetVIXLAssembler()->GetBuffer()->GetCursorOffset(),
+              narrow ? BAKER_MARK_INTROSPECTION_FIELD_LDR_NARROW_OFFSET
+                     : BAKER_MARK_INTROSPECTION_FIELD_LDR_WIDE_OFFSET);
     return;
   }
 
@@ -8392,9 +8403,7 @@ void CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier(HInstruction* i
     EmitAdrCode adr(GetVIXLAssembler(), lr, &return_address);
     __ cmp(kBakerCcEntrypointRegister, Operand(0));
     EmitPlaceholderBne(this, bne_label);
-    static_assert(BAKER_MARK_INTROSPECTION_ARRAY_LDR_OFFSET == (kPoisonHeapReferences ? -8 : -4),
-                  "Array LDR must be 1 32-bit instruction (4B) before the return address label; "
-                  " 2 32-bit instructions (8B) for heap poisoning.");
+    ptrdiff_t old_offset = GetVIXLAssembler()->GetBuffer()->GetCursorOffset();
     __ ldr(ref_reg, MemOperand(data_reg, index_reg, vixl32::LSL, scale_factor));
     DCHECK(!needs_null_check);  // The thunk cannot handle the null check.
     // Note: We need a Wide NEG for the unpoisoning.
@@ -8402,6 +8411,8 @@ void CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier(HInstruction* i
       __ rsb(EncodingSize(Wide), ref_reg, ref_reg, Operand(0));
     }
     __ Bind(&return_address);
+    DCHECK_EQ(old_offset - GetVIXLAssembler()->GetBuffer()->GetCursorOffset(),
+              BAKER_MARK_INTROSPECTION_ARRAY_LDR_OFFSET);
     return;
   }
 
