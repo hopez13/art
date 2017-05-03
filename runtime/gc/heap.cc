@@ -150,8 +150,13 @@ static constexpr bool kUsePartialTlabs = true;
 static uint8_t* const kPreferredAllocSpaceBegin =
     reinterpret_cast<uint8_t*>(300 * MB - Heap::kDefaultNonMovingSpaceCapacity);
 #else
+#ifdef __arm__
 // For 32-bit, use 0x20000000 because asan reserves 0x04000000 - 0x20000000.
 static uint8_t* const kPreferredAllocSpaceBegin = reinterpret_cast<uint8_t*>(0x20000000);
+#else
+// For 32-bit x86, use 0x40000000 because asan uses most of the space below this.
+static uint8_t* const kPreferredAllocSpaceBegin = reinterpret_cast<uint8_t*>(0x40000000);
+#endif
 #endif
 
 static inline bool CareAboutPauseTimes() {
