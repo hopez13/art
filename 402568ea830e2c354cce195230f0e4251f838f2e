@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7591dd07_9d7326e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "Could you add some sample saving? (e.g. the data you showed me on maps, search, youtube).",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 54
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b3fce8d_44275ffc",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "extra new line.",
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "460ecc49_3a0f8580",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "Update comment with the reason for the last version update.",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e00bce31_a9401491",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "Could you log a warning if the required capacity is higher than say 1MB.",
+      "range": {
+        "startLine": 259,
+        "startChar": 17,
+        "endLine": 259,
+        "endChar": 34
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b87db4bc_690feb76",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 601,
+        "startChar": 81,
+        "endLine": 601,
+        "endChar": 105
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151677a1_5f1aef81",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "always check the return codes in case of errors.",
+      "range": {
+        "startLine": 851,
+        "startChar": 17,
+        "endLine": 851,
+        "endChar": 22
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0d0bebc_db926fad",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "the alignment should be:\n\ndeflate_buffer(param1\n                         param2....)",
+      "range": {
+        "startLine": 278,
+        "startChar": 29,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2ea0ff1_d42128be",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "document and make private",
+      "range": {
+        "startLine": 278,
+        "startChar": 29,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7775916_1c6e5da3",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "out parameters should be pointers.",
+      "range": {
+        "startLine": 280,
+        "startChar": 36,
+        "endLine": 280,
+        "endChar": 44
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c5e7a4a_073f646c",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "same remarks as for delfate: docs, alignment and out parameters.",
+      "range": {
+        "startLine": 282,
+        "startChar": 6,
+        "endLine": 282,
+        "endChar": 20
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1ae2c3_2bbf2034",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "all out params should be at the end.",
+      "range": {
+        "startLine": 283,
+        "startChar": 35,
+        "endLine": 283,
+        "endChar": 45
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d5a605b_53fcbcc6",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-03T03:00:13Z",
+      "side": 1,
+      "message": "why making it public?",
+      "range": {
+        "startLine": 412,
+        "startChar": 13,
+        "endLine": 412,
+        "endChar": 25
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
