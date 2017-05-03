@@ -16,6 +16,13 @@
 
 #include "fault_handler.h"
 
+#ifdef ART_TARGET_ANDROID
+#include <android/log.h>
+#else
+#include <stdarg.h>
+#include <iostream>
+#endif
+
 #include <setjmp.h>
 #include <sys/mman.h>
 #include <sys/ucontext.h>
@@ -34,6 +41,79 @@ namespace art {
 // Static fault manger object accessed by signal handler.
 FaultManager fault_manager;
 
+static void log(const char* format, ...) {
+  char buf[256];
+  va_list ap;
+  va_start(ap, format);
+  vsnprintf(buf, sizeof(buf), format, ap);
+#ifdef ART_TARGET_ANDROID
+  __android_log_write(ANDROID_LOG_ERROR, "libart", buf);
+#else
+  std::cout << "libart: " << buf << "\n";
+#endif
+  va_end(ap);
+}
+
+#define fatal(...) log(__VA_ARGS__); abort()
+
+static pthread_key_t GetHandlingSignalKey() {
+  static pthread_key_t key;
+  static std::once_flag once;
+  std::call_once(once, []() {
+    int rc = pthread_key_create(&key, nullptr);
+    if (rc != 0) {
+      fatal("failed to create sigchain pthread key: %s", strerror(rc));
+    }
+  });
+  return key;
+}
+
+static bool GetHandlingSignalStatus() {
+  void* result = pthread_getspecific(GetHandlingSignalKey());
+  return reinterpret_cast<uintptr_t>(result);
+}
+
+static void SetHandlingSignalStatus(bool value) {
+  pthread_setspecific(GetHandlingSignalKey(),
+                      reinterpret_cast<void*>(static_cast<uintptr_t>(value)));
+}
+
+class ScopedHandlingSignal {
+ public:
+  ScopedHandlingSignal() : original_value_(GetHandlingSignalStatus()) {
+  }
+
+  ~ScopedHandlingSignal() {
+    SetHandlingSignalStatus(original_value_);
+  }
+
+ private:
+  bool original_value_;
+};
+
+class ScopedSignalUnblocker {
+ public:
+  explicit ScopedSignalUnblocker(const std::initializer_list<int>& signals) {
+    sigset_t new_mask;
+    sigemptyset(&new_mask);
+    for (int signal : signals) {
+      sigaddset(&new_mask, signal);
+    }
+    if (sigprocmask(SIG_UNBLOCK, &new_mask, &previous_mask_) != 0) {
+      fatal("failed to unblock signals: %s", strerror(errno));
+    }
+  }
+
+  ~ScopedSignalUnblocker() {
+    if (sigprocmask(SIG_SETMASK, &previous_mask_, nullptr) != 0) {
+      fatal("failed to unblock signals: %s", strerror(errno));
+    }
+  }
+
+ private:
+  sigset_t previous_mask_;
+};
+
 extern "C" __attribute__((visibility("default"))) void art_sigsegv_fault() {
   // Set a breakpoint here to be informed when a SIGSEGV is unhandled by ART.
   VLOG(signals)<< "Caught unknown SIGSEGV in ART fault handler - chaining to next handler.";
@@ -41,7 +121,18 @@ extern "C" __attribute__((visibility("default"))) void art_sigsegv_fault() {
 
 // Signal handler called on SIGSEGV.
 static bool art_fault_handler(int sig, siginfo_t* info, void* context) {
-  return fault_manager.HandleFault(sig, info, context);
+  ScopedHandlingSignal handling_signal;
+
+  if (!GetHandlingSignalStatus()) {
+    ScopedSignalUnblocker unblocked { SIGABRT, SIGBUS, SIGFPE, SIGILL, SIGSEGV }; // NOLINT
+    SetHandlingSignalStatus(true);
+    return fault_manager.HandleFault(sig, info, context);
+  }
+  return false;
+}
+
+static bool art_fault_handler_enterable() {
+    return !GetHandlingSignalStatus();
 }
 
 #if defined(__linux__)
@@ -129,7 +220,7 @@ FaultManager::~FaultManager() {
 
 void FaultManager::Init() {
   CHECK(!initialized_);
-  AddSpecialSignalHandlerFn(SIGSEGV, art_fault_handler);
+  AddSpecialSignalHandlerFn(SIGSEGV, art_fault_handler, art_fault_handler_enterable);
   initialized_ = true;
 }
 

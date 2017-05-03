@@ -71,7 +71,7 @@ static void log(const char* format, ...) {
 #ifdef ART_TARGET_ANDROID
   __android_log_write(ANDROID_LOG_ERROR, "libsigchain", buf);
 #else
-  std::cout << buf << "\n";
+  std::cout << "libsigchain: " << buf << "\n";
 #endif
   va_end(ap);
 }
@@ -93,39 +93,47 @@ namespace art {
 static decltype(&sigaction) linked_sigaction;
 static decltype(&sigprocmask) linked_sigprocmask;
 
-static pthread_key_t GetHandlingSignalKey() {
-  static pthread_key_t key;
-  static std::once_flag once;
-  std::call_once(once, []() {
-    int rc = pthread_key_create(&key, nullptr);
-    if (rc != 0) {
-      fatal("failed to create sigchain pthread key: %s", strerror(rc));
-    }
-  });
-  return key;
-}
-
-static bool GetHandlingSignal() {
-  void* result = pthread_getspecific(GetHandlingSignalKey());
-  return reinterpret_cast<uintptr_t>(result);
-}
-
-static void SetHandlingSignal(bool value) {
-  pthread_setspecific(GetHandlingSignalKey(),
-                      reinterpret_cast<void*>(static_cast<uintptr_t>(value)));
-}
-
-class ScopedHandlingSignal {
+class SpecialHandlerFunctionSet {
  public:
-  ScopedHandlingSignal() : original_value_(GetHandlingSignal()) {
+  SpecialHandlerFunctionSet() : handler_(nullptr), enterable_(nullptr) {
   }
 
-  ~ScopedHandlingSignal() {
-    SetHandlingSignal(original_value_);
+  bool SetHandler(SpecialSignalHandlerFn handler,
+                  SpecialHandlerEnterableFn enterable) {
+    if (handler_ == nullptr) {
+      handler_ = handler;
+      enterable_ = enterable;
+      return true;
+    }
+    return false;
+  }
+
+  SpecialSignalHandlerFn GetHandler() {
+    return handler_;
+  }
+
+  bool Enterable() const {
+    if (enterable_ == nullptr) {
+      return true;
+    }
+    return enterable_();
+  }
+
+  void CleanHandler() {
+    handler_ = nullptr;
+    enterable_ = nullptr;
+  }
+
+  bool HandleSignal(int signo, siginfo_t* siginfo, void* ucontext_raw) const {
+    if (handler_ == nullptr) {
+      return false;
+    }
+    return handler_(signo, siginfo, ucontext_raw);
   }
 
  private:
-  bool original_value_;
+  SpecialSignalHandlerFn handler_;
+  SpecialHandlerEnterableFn enterable_;
 };
 
 class SignalChain {
@@ -161,11 +169,11 @@ class SignalChain {
     return action_;
   }
 
-  void AddSpecialHandler(SpecialSignalHandlerFn fn) {
-    for (SpecialSignalHandlerFn& slot : special_handlers_) {
-      if (slot == nullptr) {
-        slot = fn;
-        return;
+  void AddSpecialHandler(SpecialSignalHandlerFn handler,
+                         SpecialHandlerEnterableFn enterable) {
+    for (auto& slot : special_handlers_) {
+      if (slot.SetHandler(handler, enterable)) {
+          return;
       }
     }
 
@@ -176,11 +184,11 @@ class SignalChain {
     // This isn't thread safe, but it's unlikely to be a real problem.
     size_t len = sizeof(special_handlers_)/sizeof(*special_handlers_);
     for (size_t i = 0; i < len; ++i) {
-      if (special_handlers_[i] == fn) {
+      if (special_handlers_[i].GetHandler() == fn) {
         for (size_t j = i; j < len - 1; ++j) {
           special_handlers_[j] = special_handlers_[j + 1];
         }
-        special_handlers_[len - 1] = nullptr;
+        special_handlers_[len - 1].CleanHandler();
         return;
       }
     }
@@ -194,47 +202,21 @@ class SignalChain {
  private:
   bool claimed_;
   struct sigaction action_;
-  SpecialSignalHandlerFn special_handlers_[2];
+  SpecialHandlerFunctionSet special_handlers_[2];
 };
 
 static SignalChain chains[_NSIG];
 
-class ScopedSignalUnblocker {
- public:
-  explicit ScopedSignalUnblocker(const std::initializer_list<int>& signals) {
-    sigset_t new_mask;
-    sigemptyset(&new_mask);
-    for (int signal : signals) {
-      sigaddset(&new_mask, signal);
-    }
-    if (sigprocmask(SIG_UNBLOCK, &new_mask, &previous_mask_) != 0) {
-      fatal("failed to unblock signals: %s", strerror(errno));
-    }
-  }
-
-  ~ScopedSignalUnblocker() {
-    if (sigprocmask(SIG_SETMASK, &previous_mask_, nullptr) != 0) {
-      fatal("failed to unblock signals: %s", strerror(errno));
-    }
-  }
-
- private:
-  sigset_t previous_mask_;
-};
-
 void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
-  ScopedHandlingSignal handling_signal;
-
   // Try the special handlers first.
   // If one of them crashes, we'll reenter this handler and pass that crash onto the user handler.
-  if (!GetHandlingSignal()) {
-    ScopedSignalUnblocker unblocked { SIGABRT, SIGBUS, SIGFPE, SIGILL, SIGSEGV }; // NOLINT
-    SetHandlingSignal(true);
-
-    for (const auto& handler : chains[signo].special_handlers_) {
-      if (handler != nullptr && handler(signo, siginfo, ucontext_raw)) {
-        return;
-      }
+  for (const auto& slot : chains[signo].special_handlers_) {
+    if (!slot.Enterable()) {
+      // crash in this signal handler, ignore all other special handlers.
+      break;
+    }
+    if (slot.HandleSignal(signo, siginfo, ucontext_raw)) {
+      return;
     }
   }
 
@@ -326,11 +308,6 @@ extern "C" sighandler_t bsd_signal(int signo, sighandler_t handler) {
 #endif
 
 extern "C" int sigprocmask(int how, const sigset_t* bionic_new_set, sigset_t* bionic_old_set) {
-  // When inside a signal handler, forward directly to the actual sigprocmask.
-  if (GetHandlingSignal()) {
-    return linked_sigprocmask(how, bionic_new_set, bionic_old_set);
-  }
-
   const sigset_t* new_set_ptr = bionic_new_set;
   sigset_t tmpset;
   if (bionic_new_set != nullptr) {
@@ -388,13 +365,14 @@ extern "C" void InitializeSignalChain() {
   initialized = true;
 }
 
-extern "C" void AddSpecialSignalHandlerFn(int signal, SpecialSignalHandlerFn fn) {
+extern "C" void AddSpecialSignalHandlerFn(int signal, SpecialSignalHandlerFn handler,
+                                          SpecialHandlerEnterableFn enterable) {
   if (signal <= 0 || signal >= _NSIG) {
     fatal("Invalid signal %d", signal);
   }
 
   // Set the managed_handler.
-  chains[signal].AddSpecialHandler(fn);
+  chains[signal].AddSpecialHandler(handler, enterable);
   chains[signal].Claim(signal);
 }
 

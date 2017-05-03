@@ -59,7 +59,8 @@ extern "C" void EnsureFrontOfChain(int signal ATTRIBUTE_UNUSED) {
 }
 
 extern "C" void AddSpecialSignalHandlerFn(int signal ATTRIBUTE_UNUSED,
-                                          SpecialSignalHandlerFn fn ATTRIBUTE_UNUSED) {
+                                          SpecialSignalHandlerFn handler ATTRIBUTE_UNUSED,
+                                          SpecialHandlerEnterableFn enterable ATTRIBUTE_UNUSED) {
   log("SetSpecialSignalHandlerFn is not exported by the main executable.");
   abort();
 }
