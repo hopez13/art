@@ -88,6 +88,29 @@
     },
     {
       "key": {
+        "uuid": "380f9fee_ee6022e3",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "this is an odd default. why is it 1 ?",
+      "range": {
+        "startLine": 295,
+        "startChar": 25,
+        "endLine": 295,
+        "endChar": 26
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b87db4bc_690feb76",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 9
@@ -111,6 +134,29 @@
     },
     {
       "key": {
+        "uuid": "73e21d18_1184762d",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "uncompressed_data_size",
+      "range": {
+        "startLine": 841,
+        "startChar": 11,
+        "endLine": 841,
+        "endChar": 33
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "151677a1_5f1aef81",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 9
@@ -127,6 +173,144 @@
         "startChar": 17,
         "endLine": 851,
         "endChar": 22
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1778fd55_3f2bc2d7",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "needs error checking.",
+      "range": {
+        "startLine": 854,
+        "startChar": 2,
+        "endLine": 854,
+        "endChar": 69
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c75df4ec_65a074fb",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "you can\u0027t assume read will read the full number of bytes. use android::base::ReadFully",
+      "range": {
+        "startLine": 857,
+        "startChar": 2,
+        "endLine": 858,
+        "endChar": 80
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06dd939f_3e098af0",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "how can this happen ?",
+      "range": {
+        "startLine": 869,
+        "startChar": 2,
+        "endLine": 871,
+        "endChar": 3
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78893fea_9f8c4532",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "oddly asymmetric naming. this should be named uncompressed_data (to match uncompressed_data_size as well as compressed_data)",
+      "range": {
+        "startLine": 873,
+        "startChar": 13,
+        "endLine": 873,
+        "endChar": 33
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b098c7e_7f9d6e23",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "to mirror calin\u0027s earlier comment, we should probably sanity check this size. we don\u0027t want to allocate a gigantic buffer because the app has meddled with the header.",
+      "range": {
+        "startLine": 873,
+        "startChar": 1,
+        "endLine": 873,
+        "endChar": 58
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d833af80_fb6cc3e1",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "you need to add a descriptive string to *error",
+      "range": {
+        "startLine": 881,
+        "startChar": 4,
+        "endLine": 881,
+        "endChar": 31
       },
       "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -272,6 +456,54 @@
     },
     {
       "key": {
+        "uuid": "a04cfea8_f85576ba",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "Also :\n(1) this should be called DeflaterBuffer\n(2) in_buffer should be \"const uint8_t*\"",
+      "parentUuid": "c0d0bebc_db926fad",
+      "range": {
+        "startLine": 278,
+        "startChar": 29,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f36e24dc_2d736201",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "Also, this should be called DeflateBuffer",
+      "parentUuid": "c0d0bebc_db926fad",
+      "range": {
+        "startLine": 278,
+        "startChar": 29,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7775916_1c6e5da3",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 9
@@ -306,6 +538,30 @@
       "writtenOn": "2017-05-03T03:00:13Z",
       "side": 1,
       "message": "same remarks as for delfate: docs, alignment and out parameters.",
+      "range": {
+        "startLine": 282,
+        "startChar": 6,
+        "endLine": 282,
+        "endChar": 20
+      },
+      "revId": "402568ea830e2c354cce195230f0e4251f838f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c6f228_0de47cf7",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-03T10:46:29Z",
+      "side": 1,
+      "message": "const uint8_t*",
+      "parentUuid": "7c5e7a4a_073f646c",
       "range": {
         "startLine": 282,
         "startChar": 6,
