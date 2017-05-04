@@ -22,6 +22,30 @@
       "revId": "91d949e98622b38722fa562df9f67582224f04f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cde0d5a1_5c194e39",
+        "filename": "compiler/optimizing/scheduler_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-05-04T14:06:25Z",
+      "side": 1,
+      "message": "Done.\nOK, I\u0027ve moved the code generator passing to the constructor of SchedulingLatencyVisitorARM.",
+      "parentUuid": "d5909303_a3d899e0",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 3
+      },
+      "revId": "91d949e98622b38722fa562df9f67582224f04f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
