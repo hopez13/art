@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb0b5cb7_e123ed27",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-04T13:19:16Z",
+      "side": 1,
+      "message": "Well, if you changed the MipsRelativePatcher to allow individual halfs to be patched separately (as on arm64), you could reuse the \"PC+high_half\" in the slow path. And even the R2 code could avoid the ADDIU and emit LW/SW directly.\n\nBut that\u0027s clearly out of scope for this CL.",
+      "range": {
+        "startLine": 7138,
+        "startChar": 9,
+        "endLine": 7138,
+        "endChar": 28
+      },
+      "revId": "c61c0761150340263160b568d8a952e9a3d80d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
