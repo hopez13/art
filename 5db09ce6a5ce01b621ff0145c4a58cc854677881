@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7dec5874_8b12f079",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-04T18:29:16Z",
+      "side": 1,
+      "message": "Yeah, wanted to avoid that for the first round. After refactoring, it\u0027s easier to add, so I should do it.",
+      "parentUuid": "7a40f82e_f737ea67",
+      "range": {
+        "startLine": 1187,
+        "startChar": 8,
+        "endLine": 1188,
+        "endChar": 10
+      },
+      "revId": "5db09ce6a5ce01b621ff0145c4a58cc854677881",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "369be0c4_0217a907",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2017-05-04T18:14:46Z",
       "side": 1,
       "message": "Nit: ABSENT_INFORMATION seems more appropriate.",
+      "range": {
+        "startLine": 1420,
+        "startChar": 17,
+        "endLine": 1420,
+        "endChar": 26
+      },
+      "revId": "5db09ce6a5ce01b621ff0145c4a58cc854677881",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70a1ab80_29396702",
+        "filename": "runtime/openjdkjvmti/ti_heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-04T18:29:16Z",
+      "side": 1,
+      "message": "I don\u0027t think so. It\u0027s not that heap info is absent. It\u0027s that there\u0027s no object.",
+      "parentUuid": "239fedf8_791fe4b8",
       "range": {
         "startLine": 1420,
         "startChar": 17,
