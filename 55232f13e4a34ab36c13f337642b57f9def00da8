@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3a12528_c915c91c",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-05-04T00:13:41Z",
+      "side": 1,
+      "message": "This looks like an unrelated test change.  Please remove from this CL.  Similarly the last diff.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 93
+      },
+      "revId": "55232f13e4a34ab36c13f337642b57f9def00da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cdbd318_09e9613e",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-05-04T00:13:41Z",
+      "side": 1,
+      "message": "The more I look at the logic, this doesn\u0027t actually catch the error we had earlier in the code, but it\u0027s fine. Today the two functions below (DisplayMapping...) return false only for \"hard\" errors where we couldn\u0027t open the page map.  We would need to add another return flag or whatever to say whether anything was printed.  Just FYI.",
+      "range": {
+        "startLine": 514,
+        "startChar": 4,
+        "endLine": 514,
+        "endChar": 15
+      },
+      "revId": "55232f13e4a34ab36c13f337642b57f9def00da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
