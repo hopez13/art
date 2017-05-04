@@ -22,6 +22,30 @@
       "revId": "3bb950f1e2bcdf388e428ca2a2e18654d9b8b215",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704f4c63_80b43fc3",
+        "filename": "runtime/openjdkjvmti/ti_heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-04T22:34:30Z",
+      "side": 1,
+      "message": "Undid the stripping of the comment from hprof.cc.",
+      "parentUuid": "a9d41085_1b02d321",
+      "range": {
+        "startLine": 1431,
+        "startChar": 20,
+        "endLine": 1431,
+        "endChar": 32
+      },
+      "revId": "3bb950f1e2bcdf388e428ca2a2e18654d9b8b215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
