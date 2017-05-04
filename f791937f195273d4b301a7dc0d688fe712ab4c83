@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "df95bc27_1d518218",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-05-04T14:32:26Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "448dffb3_3edad420",
+      "revId": "f791937f195273d4b301a7dc0d688fe712ab4c83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "977c0c87_4d49f260",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 1
@@ -66,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "8b60766d_1eaa1ec4",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-05-04T14:32:26Z",
+      "side": 1,
+      "message": "Extended to take 32-bit offset.",
+      "parentUuid": "cc4414a9_5ab2b43a",
+      "range": {
+        "startLine": 1647,
+        "startChar": 0,
+        "endLine": 1647,
+        "endChar": 52
+      },
+      "revId": "f791937f195273d4b301a7dc0d688fe712ab4c83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1a48d01_7d89becb",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 1
@@ -77,6 +119,30 @@
       "writtenOn": "2017-04-21T22:35:17Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1656,
+        "startChar": 0,
+        "endLine": 1656,
+        "endChar": 52
+      },
+      "revId": "f791937f195273d4b301a7dc0d688fe712ab4c83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2256426f_ea1ef5c0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-05-04T14:32:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1a48d01_7d89becb",
       "range": {
         "startLine": 1656,
         "startChar": 0,
