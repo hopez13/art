@@ -118,7 +118,14 @@ void InitializeNativeBridge(JNIEnv* env, const char* instruction_set) {
       for (int signal = 0; signal < _NSIG; ++signal) {
         android::NativeBridgeSignalHandlerFn fn = android::NativeBridgeGetSignalHandler(signal);
         if (fn != nullptr) {
-          AddSpecialSignalHandlerFn(signal, fn);
+          sigset_t mask;
+          sigfillset(&mask);
+          SigchainAction sa = {
+            .sc_sigaction = fn,
+            .sc_mask = mask,
+            .sc_flags = SIGCHAIN_NORETURN,
+          };
+          AddSpecialSignalHandlerFn(signal, &sa);
         }
       }
 #endif
