@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "33365ecc_df9b169c",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-05-04T17:24:27Z",
+      "side": 1,
+      "message": "Ah.  Great.",
+      "parentUuid": "991fbfb3_8953d7e5",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 93
+      },
+      "revId": "55232f13e4a34ab36c13f337642b57f9def00da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cdbd318_09e9613e",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Yeah. Totally agree with it. If you would like, I can work on the above suggestion.",
       "parentUuid": "1cdbd318_09e9613e",
+      "range": {
+        "startLine": 514,
+        "startChar": 4,
+        "endLine": 514,
+        "endChar": 15
+      },
+      "revId": "55232f13e4a34ab36c13f337642b57f9def00da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2b49181_d50ff8a9",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-05-04T17:24:27Z",
+      "side": 1,
+      "message": "Not for this CL.  Future work.",
+      "parentUuid": "eb396a5a_2e0a9db7",
       "range": {
         "startLine": 514,
         "startChar": 4,
