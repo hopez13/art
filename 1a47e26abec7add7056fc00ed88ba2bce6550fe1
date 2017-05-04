@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "568e0dc0_611642de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-04T09:17:48Z",
+      "side": 1,
+      "message": "Also checks for null and marked bit.",
+      "revId": "1a47e26abec7add7056fc00ed88ba2bce6550fe1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0366719e_f2617374",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
