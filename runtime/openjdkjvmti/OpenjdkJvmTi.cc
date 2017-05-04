@@ -1078,9 +1078,159 @@ class JvmtiFunctions {
                                           jint* extension_count_ptr,
                                           jvmtiExtensionFunctionInfo** extensions) {
     ENSURE_VALID_ENV(env);
-    // We do not have any extension functions.
-    *extension_count_ptr = 0;
-    *extensions = nullptr;
+    ENSURE_NON_NULL(extension_count_ptr);
+    ENSURE_NON_NULL(extensions);
+
+    std::vector<jvmtiExtensionFunctionInfo> ext_vector;
+
+    // Holders for allocated values.
+    std::vector<JvmtiUniquePtr<char[]>> char_buffers;
+    std::vector<JvmtiUniquePtr<jvmtiParamInfo[]>> param_buffers;
+    std::vector<JvmtiUniquePtr<jvmtiError[]>> error_buffers;
+    jvmtiError error;
+
+    // Heap extensions.
+    {
+      jvmtiExtensionFunctionInfo get_object_heap_id;
+      get_object_heap_id.func =
+          reinterpret_cast<jvmtiExtensionFunction>(HeapExtensions::GetObjectHeapId);
+
+      JvmtiUniquePtr<char[]> id = CopyString(env,
+                                             "com.android.art.heap.get_object_heap_id",
+                                             &error);
+      if (id == nullptr) {
+        return error;
+      }
+      get_object_heap_id.id = id.get();
+      char_buffers.push_back(std::move(id));
+
+      JvmtiUniquePtr<char[]> descr = CopyString(
+          env,
+          "Retrieve the heap id of the the object tagged with the given argument. An arbitrary "
+          "object is chosen if multiple objects exist with the same tag.",
+          &error);
+      if (descr == nullptr) {
+        return error;
+      }
+      get_object_heap_id.short_description = descr.get();
+      char_buffers.push_back(std::move(descr));
+
+      get_object_heap_id.param_count = 2;
+      JvmtiUniquePtr<jvmtiParamInfo[]> params =
+          AllocJvmtiUniquePtr<jvmtiParamInfo[]>(env, 2u, &error);
+      if (params == nullptr) {
+        return error;
+      }
+      get_object_heap_id.params = params.get();
+      param_buffers.push_back(std::move(params));
+      {
+        JvmtiUniquePtr<char[]> param_name = CopyString(env, "tag", &error);
+        if (param_name == nullptr) {
+          return error;
+        }
+        get_object_heap_id.params[0].name = param_name.get();
+        char_buffers.push_back(std::move(param_name));
+
+        get_object_heap_id.params[0].kind = JVMTI_KIND_IN;
+        get_object_heap_id.params[0].base_type = JVMTI_TYPE_JLONG;
+        get_object_heap_id.params[0].null_ok = false;
+      }
+      {
+        JvmtiUniquePtr<char[]> param_name = CopyString(env, "heap_id", &error);
+        if (param_name == nullptr) {
+          return error;
+        }
+        get_object_heap_id.params[1].name = param_name.get();
+        char_buffers.push_back(std::move(param_name));
+
+        get_object_heap_id.params[1].kind = JVMTI_KIND_OUT;
+        get_object_heap_id.params[1].base_type = JVMTI_TYPE_JINT;
+        get_object_heap_id.params[1].null_ok = false;
+      }
+      get_object_heap_id.error_count = 0;
+      get_object_heap_id.errors = nullptr;
+
+      ext_vector.push_back(get_object_heap_id);
+    }
+
+    {
+      jvmtiExtensionFunctionInfo get_heap_name;
+      get_heap_name.func = reinterpret_cast<jvmtiExtensionFunction>(HeapExtensions::GetHeapName);
+
+      JvmtiUniquePtr<char[]> id = CopyString(env, "com.android.art.heap.get_heap_name", &error);
+      if (id == nullptr) {
+        return error;
+      }
+      get_heap_name.id = id.get();
+      char_buffers.push_back(std::move(id));
+
+      JvmtiUniquePtr<char[]> descr = CopyString(
+          env, "Retrieve the name of the heap with the given id", &error);
+      if (descr == nullptr) {
+        return error;
+      }
+      get_heap_name.short_description = descr.get();
+      char_buffers.push_back(std::move(descr));
+
+      get_heap_name.param_count = 2;
+      JvmtiUniquePtr<jvmtiParamInfo[]> params =
+          AllocJvmtiUniquePtr<jvmtiParamInfo[]>(env, 2u, &error);
+      if (params == nullptr) {
+        return error;
+      }
+      get_heap_name.params = params.get();
+      param_buffers.push_back(std::move(params));
+      {
+        JvmtiUniquePtr<char[]> param_name = CopyString(env, "heap_id", &error);
+        if (param_name == nullptr) {
+          return error;
+        }
+        get_heap_name.params[0].name = param_name.get();
+        char_buffers.push_back(std::move(param_name));
+
+        get_heap_name.params[0].kind = JVMTI_KIND_IN;
+        get_heap_name.params[0].base_type = JVMTI_TYPE_JINT;
+        get_heap_name.params[0].null_ok = false;
+      }
+      {
+        JvmtiUniquePtr<char[]> param_name = CopyString(env, "heap_name", &error);
+        if (param_name == nullptr) {
+          return error;
+        }
+        get_heap_name.params[1].name = param_name.get();
+        char_buffers.push_back(std::move(param_name));
+
+        get_heap_name.params[1].kind = JVMTI_KIND_ALLOC_BUF;
+        get_heap_name.params[1].base_type = JVMTI_TYPE_CCHAR;
+        get_heap_name.params[1].null_ok = false;
+      }
+      get_heap_name.error_count = 0;
+      get_heap_name.errors = nullptr;
+
+      ext_vector.push_back(get_heap_name);
+    }
+
+    *extension_count_ptr = ext_vector.size();
+    JvmtiUniquePtr<jvmtiExtensionFunctionInfo[]> out_data =
+        AllocJvmtiUniquePtr<jvmtiExtensionFunctionInfo[]>(env, ext_vector.size(), &error);
+    if (out_data == nullptr) {
+      return error;
+    }
+    memcpy(out_data.get(),
+           ext_vector.data(),
+           ext_vector.size() * sizeof(jvmtiExtensionFunctionInfo));
+    *extensions = out_data.release();
+
+    // Release all the buffer holders, we're OK now.
+    for (auto& holder : char_buffers) {
+      holder.release();
+    }
+    for (auto& holder : param_buffers) {
+      holder.release();
+    }
+    for (auto& holder : error_buffers) {
+      holder.release();
+    }
 
     return ERR(NONE);
   }
