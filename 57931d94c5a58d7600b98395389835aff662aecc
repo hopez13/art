@@ -16,6 +16,23 @@
       "revId": "57931d94c5a58d7600b98395389835aff662aecc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dfb0e95_f260aff1",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1104175
+      },
+      "writtenOn": "2017-05-05T06:45:38Z",
+      "side": 1,
+      "message": "no longer unblock claimed signals anymore? (we are not very clear about why blocking/unblocking claimed signals before invoking chained handler... just raise the question)",
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
