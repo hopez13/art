@@ -833,19 +833,14 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
     // TODO: accept symbolic, albeit loop invariant shift factors.
     HInstruction* opa = instruction->InputAt(0);
     HInstruction* opb = instruction->InputAt(1);
-    int64_t value = 0;
-    if (VectorizeUse(node, opa, generate_code, type, restrictions) && IsInt64AndGet(opb, &value)) {
-      // Make sure shift distance only looks at lower bits, as defined for sequential shifts.
-      int64_t mask = (instruction->GetType() == Primitive::kPrimLong)
-          ? kMaxLongShiftDistance
-          : kMaxIntShiftDistance;
-      int64_t distance = value & mask;
+    int64_t distance = 0;
+    if (VectorizeUse(node, opa, generate_code, type, restrictions) &&
+        IsInt64AndGet(opb, &distance)) {
       // Restrict shift distance to packed data type width.
       int64_t max_distance = Primitive::ComponentSize(type) * 8;
       if (0 <= distance && distance < max_distance) {
         if (generate_code) {
-          HInstruction* s = graph_->GetIntConstant(distance);
-          GenerateVecOp(instruction, vector_map_->Get(opa), s, type);
+          GenerateVecOp(instruction, vector_map_->Get(opa), opb, type);
         }
         return true;
       }
