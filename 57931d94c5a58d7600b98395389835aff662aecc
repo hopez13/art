@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "577147fa_34df3b09",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-05-05T20:51:28Z",
+      "side": 1,
+      "message": "No, when we return from this handler, the restorer will reset it back to the one from before this signal happened.",
+      "parentUuid": "4f5e6a2f_88231567",
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8dfb0e95_f260aff1",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-05-05T06:45:38Z",
       "side": 1,
       "message": "no longer unblock claimed signals anymore? (we are not very clear about why blocking/unblocking claimed signals before invoking chained handler... just raise the question)",
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0898fcd2_232adc38",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-05-05T20:51:28Z",
+      "side": 1,
+      "message": "I don\u0027t think there was a good reason to unblock the claimed signals here. AFAIK ART doesn\u0027t allow you to use JNI from inside a signal handler, and if you\u0027re jumping out of a signal handler, you really need to either be siglongjmping which will restore the signal mask or you need to manually do it yourself.",
+      "parentUuid": "8dfb0e95_f260aff1",
       "revId": "57931d94c5a58d7600b98395389835aff662aecc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
