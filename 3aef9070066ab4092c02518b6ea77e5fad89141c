@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af4f59cb_99a11830",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-05T14:04:24Z",
+      "side": 1,
+      "message": "The base class leaves it to the derived classes to choose whether to use the field.",
+      "parentUuid": "604a0f42_fef23d84",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e3a5091_27cc86ce",
         "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-05T12:28:02Z",
       "side": 1,
       "message": "Is this needed, as the method returns `void`?",
+      "range": {
+        "startLine": 143,
+        "startChar": 8,
+        "endLine": 143,
+        "endChar": 22
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb8aa694_23e1a1e9",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-05T14:04:24Z",
+      "side": 1,
+      "message": "Style consistency: I don\u0027t like the style being dependent on the return type.",
+      "parentUuid": "9e3a5091_27cc86ce",
       "range": {
         "startLine": 143,
         "startChar": 8,
