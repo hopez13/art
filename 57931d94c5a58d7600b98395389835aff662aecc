@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f5e6a2f_88231567",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1104175
+      },
+      "writtenOn": "2017-05-05T01:16:26Z",
+      "side": 1,
+      "message": "do we need to restore mask if signal is handled?",
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
