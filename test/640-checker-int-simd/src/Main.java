@@ -76,6 +76,7 @@ public class Main {
   /// CHECK-DAG: ArraySet loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-START: void Main.div(int) loop_optimization (after)
+  /// CHECK-NOT: VecDiv
   //
   //  Not supported on any architecture.
   //
@@ -159,14 +160,54 @@ public class Main {
   // Shift sanity.
   //
 
+  /// CHECK-START: void Main.shr32() loop_optimization (before)
+  /// CHECK-DAG: <<Phi:i\d+>> Phi                                 loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Get:i\d+>> ArrayGet                            loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:              ArraySet [{{l\d+}},<<Phi>>,<<Get>>] loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-START-ARM64: void Main.shr32() loop_optimization (after)
+  /// CHECK-DAG: <<Phi:i\d+>> Phi                                 loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Get:d\d+>> VecLoad                             loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:              VecStore [{{l\d+}},<<Phi>>,<<Get>>] loop:<<Loop>>      outer_loop:none
   static void shr32() {
     for (int i = 0; i < 128; i++)
       a[i] >>>= 32;  // 0, since & 31
   }
 
+  /// CHECK-START: void Main.shr33() loop_optimization (before)
+  /// CHECK-DAG: <<Dist:i\d+>> IntConstant 1                         loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>  Phi                                   loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Get:i\d+>>  ArrayGet                              loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<UShr:i\d+>> UShr [<<Get>>,<<Dist>>]               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:               ArraySet [{{l\d+}},{{i\d+}},<<UShr>>] loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-START-ARM64: void Main.shr33() loop_optimization (after)
+  /// CHECK-DAG: <<Dist:i\d+>> IntConstant 1                        loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>  Phi                                  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Get:d\d+>>  VecLoad                              loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<UShr:d\d+>> VecUShr [<<Get>>,<<Dist>>]           loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:               VecStore [{{l\d+}},<<Phi>>,<<UShr>>] loop:<<Loop>>      outer_loop:none
   static void shr33() {
     for (int i = 0; i < 128; i++)
       a[i] >>>= 33;  // 1, since & 31
+  }
+
+  /// CHECK-START: void Main.shrMinus254() loop_optimization (before)
+  /// CHECK-DAG: <<Dist:i\d+>> IntConstant 2                         loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>  Phi                                   loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Get:i\d+>>  ArrayGet                              loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<UShr:i\d+>> UShr [<<Get>>,<<Dist>>]               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:               ArraySet [{{l\d+}},{{i\d+}},<<UShr>>] loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-START-ARM64: void Main.shrMinus254() loop_optimization (after)
+  /// CHECK-DAG: <<Dist:i\d+>> IntConstant 2                         loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>  Phi                                  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Get:d\d+>>  VecLoad                              loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<UShr:d\d+>> VecUShr [<<Get>>,<<Dist>>]           loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:               VecStore [{{l\d+}},<<Phi>>,<<UShr>>] loop:<<Loop>>      outer_loop:none
+  static void shrMinus254() {
+    for (int i = 0; i < 128; i++)
+      a[i] >>>= -254;  // 2, since & 31
   }
 
   //
@@ -240,9 +281,14 @@ public class Main {
     for (int i = 0; i < 128; i++) {
       expectEquals(0x1fffffff, a[i], "shr33");
     }
+    shrMinus254();
+    for (int i = 0; i < 128; i++) {
+      expectEquals(0x07ffffff, a[i], "shrMinus255");
+    }
+    // Bit-wise not operator.
     not();
     for (int i = 0; i < 128; i++) {
-      expectEquals(0xe0000000, a[i], "not");
+      expectEquals(0xf8000000, a[i], "not");
     }
     // Done.
     System.out.println("passed");
