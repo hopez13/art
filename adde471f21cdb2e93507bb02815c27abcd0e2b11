@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a5dd277_87207644",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9afc9c30_be1d80a7",
+      "range": {
+        "startLine": 254,
+        "startChar": 26,
+        "endLine": 254,
+        "endChar": 33
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00bf8f94_30466917",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-05T02:27:11Z",
       "side": 1,
       "message": "you need to write this as well and check it at read time.",
+      "range": {
+        "startLine": 300,
+        "startChar": 64,
+        "endLine": 300,
+        "endChar": 75
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f746a325_2d23f585",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00bf8f94_30466917",
       "range": {
         "startLine": 300,
         "startChar": 64,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "046d7bef_c4df02f1",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a8f9fd2_06492348",
+      "range": {
+        "startLine": 605,
+        "startChar": 9,
+        "endLine": 605,
+        "endChar": 66
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d43c8f11_0e103f93",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2017-05-05T02:27:11Z",
       "side": 1,
       "message": "Avoid pointer subtraction. It\u0027s error prone and could easily break if we change types.  You can keep track  of the number of bytes read and only DCHECK that you don\u0027t got after the end",
+      "range": {
+        "startLine": 683,
+        "startChar": 9,
+        "endLine": 683,
+        "endChar": 32
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "883b2212_2b5e009a",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "I extracted this out from l665.\nI would prefer to keep the same as it will require to increment the counter everywhere we are reading from buffer.\n\nWhat we could do is - (ptr_end_ - ptr_current_)*sizeof(*ptr_current);",
+      "parentUuid": "d43c8f11_0e103f93",
       "range": {
         "startLine": 683,
         "startChar": 9,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "88f9b072_adedd3a2",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "That would only be useful for the case of equality.",
+      "parentUuid": "473e5568_85179337",
+      "range": {
+        "startLine": 747,
+        "startChar": 6,
+        "endLine": 747,
+        "endChar": 49
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f121567_2a643070",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 10
@@ -128,6 +248,30 @@
       "writtenOn": "2017-05-05T02:27:11Z",
       "side": 1,
       "message": "same comment as L254.",
+      "range": {
+        "startLine": 850,
+        "startChar": 31,
+        "endLine": 850,
+        "endChar": 38
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6f183ce_546ee4f2",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f121567_2a643070",
       "range": {
         "startLine": 850,
         "startChar": 31,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "b1e2f102_55b4b8c7",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79422c7e_59d0a1b2",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 3
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c97c871_ff02a889",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 10
@@ -174,6 +342,30 @@
       "writtenOn": "2017-05-05T02:27:11Z",
       "side": 1,
       "message": "be more specific.",
+      "range": {
+        "startLine": 873,
+        "startChar": 26,
+        "endLine": 873,
+        "endChar": 31
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "270b1818_7d8321d6",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c97c871_ff02a889",
       "range": {
         "startLine": 873,
         "startChar": 26,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "ee570110_de4d6551",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9f2aba8_a52fb6cb",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 42
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7a2d20d_e20f5b52",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 10
@@ -226,6 +442,24 @@
     },
     {
       "key": {
+        "uuid": "31cc1cfe_41c4de51",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a2d20d_e20f5b52",
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b334de9f_3cbdb3c7",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 10
@@ -237,6 +471,30 @@
       "writtenOn": "2017-05-05T02:27:11Z",
       "side": 1,
       "message": "is this on out param? mark it as such then.",
+      "range": {
+        "startLine": 359,
+        "startChar": 54,
+        "endLine": 359,
+        "endChar": 74
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27982bcd_72e3efc7",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b334de9f_3cbdb3c7",
       "range": {
         "startLine": 359,
         "startChar": 54,
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "2352b068_7241283b",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5642ecc1_4bf2f5da",
+      "range": {
+        "startLine": 362,
+        "startChar": 44,
+        "endLine": 362,
+        "endChar": 46
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5dc8032_255ae93b",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 10
@@ -283,6 +565,30 @@
       "writtenOn": "2017-05-05T02:27:11Z",
       "side": 1,
       "message": "document the return.",
+      "range": {
+        "startLine": 363,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 5
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "088e0e9e_38412960",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-05T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5dc8032_255ae93b",
       "range": {
         "startLine": 363,
         "startChar": 2,
