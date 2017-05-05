@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "505ce89e_ff2f5577",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-05T15:08:04Z",
+      "side": 1,
+      "message": "Vladimir and I just had an offline conversation about this; with this CL, `BakerReadBarrierParams` is now more of a raw \"Baker\" view of the linker patch\u0027s data, hence the presence of the second field.",
+      "parentUuid": "141c4f7d_1f4ec050",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e3a5091_27cc86ce",
         "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
         "patchSetId": 7
