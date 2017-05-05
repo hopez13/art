@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9afc9c30_be1d80a7",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "introduce a symbolic constant: e.g. kProfileSizeWarningThresholds.\n\nAnd have a safety net to abort in case it\u0027s  too much.\n\nLike:\nif (required_capacity\u003e kProfileSizeAbortThreshold) { LOG(ERROR) \u003c\u003c \"...\"; return;}\nelse if (required_capacity \u003e kProfileSizeWarningThreshold) {LOG(WARNING) ...}\n\nThe warning is just a nice optional which we could set lower.\n\nThe rationale is that a huge allocation here can kill the app and it\u0027s not expected. If we get \u003e 1MB something probably went wrong.\n\nNote to self: I wonder if we should just use that as a sign to block profiling (and go to speed compiling).  i.e. if the cost of profiling gets too high maybe we should just dynamically scale back (e.g. drop caches) or even stop for good by marking for speed compilation.",
+      "range": {
+        "startLine": 254,
+        "startChar": 26,
+        "endLine": 254,
+        "endChar": 33
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00bf8f94_30466917",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "you need to write this as well and check it at read time.",
+      "range": {
+        "startLine": 300,
+        "startChar": 64,
+        "endLine": 300,
+        "endChar": 75
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a8f9fd2_06492348",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "this makes me nervous as in theory you may try to read more than what the buffer has. There\u0027s no check on method_region_size_bytes.",
+      "range": {
+        "startLine": 605,
+        "startChar": 9,
+        "endLine": 605,
+        "endChar": 66
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d43c8f11_0e103f93",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "Avoid pointer subtraction. It\u0027s error prone and could easily break if we change types.  You can keep track  of the number of bytes read and only DCHECK that you don\u0027t got after the end",
+      "range": {
+        "startLine": 683,
+        "startChar": 9,
+        "endLine": 683,
+        "endChar": 32
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "473e5568_85179337",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "you can abstract this with:\n\nbuffer.CanStillReadBytes(nr_of_bytes_you_need_to_read), and also use it at L605.",
+      "range": {
+        "startLine": 747,
+        "startChar": 6,
+        "endLine": 747,
+        "endChar": 49
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f121567_2a643070",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "same comment as L254.",
+      "range": {
+        "startLine": 850,
+        "startChar": 31,
+        "endLine": 850,
+        "endChar": 38
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79422c7e_59d0a1b2",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "As commented in the save method. Store the number of compressed bytes in the header and read exactly that amount. If there\u0027s anything extra in the file you need to abort and return false.\n\nSo you need the compressed size in the header to know how much you should read.\n\nThe uncompress size is usefull to CHECK that after unzipping you get what you expected.",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 3
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c97c871_ff02a889",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "be more specific.",
+      "range": {
+        "startLine": 873,
+        "startChar": 26,
+        "endLine": 873,
+        "endChar": 31
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9f2aba8_a52fb6cb",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "You need to document the return type,  and the compressed_data_size param (they are not obvious).",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 42
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a2d20d_e20f5b52",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "alignment",
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b334de9f_3cbdb3c7",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "is this on out param? mark it as such then.",
+      "range": {
+        "startLine": 359,
+        "startChar": 54,
+        "endLine": 359,
+        "endChar": 74
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5642ecc1_4bf2f5da",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "in",
+      "range": {
+        "startLine": 362,
+        "startChar": 44,
+        "endLine": 362,
+        "endChar": 46
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5dc8032_255ae93b",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-05T02:27:11Z",
+      "side": 1,
+      "message": "document the return.",
+      "range": {
+        "startLine": 363,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 5
+      },
+      "revId": "adde471f21cdb2e93507bb02815c27abcd0e2b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
