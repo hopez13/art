@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "59804fba_240a195b",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-05T23:46:44Z",
+      "side": 1,
+      "message": "Double?",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 28
+      },
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f5e6a2f_88231567",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 1
@@ -69,6 +92,52 @@
       "revId": "57931d94c5a58d7600b98395389835aff662aecc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a618824d_6bb792a1",
+        "filename": "sigchainlib/sigchain.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-05T23:46:44Z",
+      "side": 1,
+      "message": "Please document. It\u0027s more specifically MAY_NOT_RETURN, so a comment on what this bit means would be nice.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 52
+      },
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5297de4_8a4d5832",
+        "filename": "sigchainlib/sigchain.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-05T23:46:44Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
