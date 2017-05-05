@@ -2253,12 +2253,16 @@ class InitializeClassVisitor : public CompilationVisitor {
     Handle<mirror::Class> klass(
         hs.NewHandle(manager_->GetClassLinker()->FindClass(soa.Self(), descriptor, class_loader)));
 
+    mirror::Class::Status old_status;
+
     if (klass != nullptr && !SkipClass(jclass_loader, dex_file, klass.Get())) {
       // Only try to initialize classes that were successfully verified.
+      old_status = klass->GetStatus();
       if (klass->IsVerified()) {
         // Attempt to initialize the class but bail if we either need to initialize the super-class
         // or static fields.
         manager_->GetClassLinker()->EnsureInitialized(soa.Self(), klass, false, false);
+        old_status = klass->GetStatus();
         if (!klass->IsInitialized()) {
           // We don't want non-trivial class initialization occurring on multiple threads due to
           // deadlock problems. For example, a parent class is initialized (holding its lock) that
@@ -2273,13 +2277,21 @@ class InitializeClassVisitor : public CompilationVisitor {
           // Attempt to initialize allowing initialization of parent classes but still not static
           // fields.
           manager_->GetClassLinker()->EnsureInitialized(soa.Self(), klass, false, true);
+          old_status = klass->GetStatus();
           if (!klass->IsInitialized()) {
             // We need to initialize static fields, we only do this for image classes that aren't
             // marked with the $NoPreloadHolder (which implies this should not be initialized early).
-            bool can_init_static_fields =
-                manager_->GetCompiler()->GetCompilerOptions().IsBootImage() &&
-                manager_->GetCompiler()->IsImageClass(descriptor) &&
-                !StringPiece(descriptor).ends_with("$NoPreloadHolder;");
+            bool can_init_static_fields = false;
+            if (manager_->GetCompiler()->GetCompilerOptions().IsBootImage()) {
+              can_init_static_fields = manager_->GetCompiler()->IsImageClass(descriptor) &&
+                  !StringPiece(descriptor).ends_with("$NoPreloadHolder;");
+            } else {
+              can_init_static_fields = manager_->GetCompiler()->IsImageClass(descriptor) &&
+                  manager_->GetCompiler()->GetCompilerOptions().IsAppImage() &&
+                  !soa.Self()->IsExceptionPending() &&
+                  NoClinitInDependency(klass, soa.Self(), &class_loader);
+            }
+
             if (can_init_static_fields) {
               VLOG(compiler) << "Initializing: " << descriptor;
               // TODO multithreading support. We should ensure the current compilation thread has
@@ -2291,7 +2303,6 @@ class InitializeClassVisitor : public CompilationVisitor {
 
               // Run the class initializer in transaction mode.
               runtime->EnterTransactionMode(&transaction);
-              const mirror::Class::Status old_status = klass->GetStatus();
               bool success = manager_->GetClassLinker()->EnsureInitialized(soa.Self(), klass, true,
                                                                            true);
               // TODO we detach transaction from runtime to indicate we quit the transactional
@@ -2332,7 +2343,9 @@ class InitializeClassVisitor : public CompilationVisitor {
       }
       // Record the final class status if necessary.
       ClassReference ref(manager_->GetDexFile(), class_def_index);
-      manager_->GetCompiler()->RecordClassStatus(ref, klass->GetStatus());
+      // back up the status before doing initialization for static encoded fiels,
+      // cause the static encoded branch want to remain the status to uninitialized.
+      manager_->GetCompiler()->RecordClassStatus(ref, old_status);
     }
     // Clear any class not found or verification exceptions.
     soa.Self()->ClearException();
@@ -2390,6 +2403,64 @@ class InitializeClassVisitor : public CompilationVisitor {
     }
   }
 
+  bool NoPotentialInternStrings(Handle<mirror::Class> klass,
+                                Handle<mirror::ClassLoader> *class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    StackHandleScope<1> hs(Thread::Current());
+    Handle<mirror::DexCache> h_dex_cache = hs.NewHandle(klass->GetDexCache());
+    const DexFile* dex_file = h_dex_cache->GetDexFile();
+    const DexFile::ClassDef* class_def = klass->GetClassDef();
+    annotations::RuntimeEncodedStaticFieldValueIterator value_it(*dex_file,
+                                                                 &h_dex_cache,
+                                                                 class_loader,
+                                                                 manager_->GetClassLinker(),
+                                                                 *class_def);
+
+    const auto jString = annotations::RuntimeEncodedStaticFieldValueIterator::kString;
+    for ( ; value_it.HasNext(); value_it.Next()) {
+      if (value_it.GetValueType() == jString) {
+        // We don't want cache the static encoded strings which is a potential intern.
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  // In this phase the classes contain class initializer is ignored. Make sure no
+  // clinit appears in it's super class chain and interfaces.
+  bool NoClinitInDependency(const Handle<mirror::Class> &klass,
+                            Thread *self,
+                            Handle<mirror::ClassLoader> *class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    ArtMethod* clinit =
+        klass->FindClassInitializer(manager_->GetClassLinker()->GetImagePointerSize());
+    if (clinit != nullptr) {
+      VLOG(compiler)
+        << klass->PrettyClass() << ' ' << clinit->PrettyMethod(true);
+      return false;
+    }
+    if (klass->HasSuperClass()) {
+      ObjPtr<mirror::Class> super_class = klass->GetSuperClass();
+      StackHandleScope<1> hs(self);
+      Handle<mirror::Class> handle_scope_super(hs.NewHandle(super_class));
+      if (!NoClinitInDependency(handle_scope_super, self, class_loader))
+        return false;
+    }
+    ObjPtr<mirror::Class> klassPtr(klass.Get());
+    uint32_t numIf = klass->NumDirectInterfaces();
+    for (size_t i = 0; i < numIf; i++) {
+      ObjPtr<mirror::Class>
+          interface = mirror::Class::GetDirectInterface(self, klassPtr, i);
+      StackHandleScope<1> hs(self);
+      Handle<mirror::Class> handle_interface(hs.NewHandle(interface));
+      if (!NoClinitInDependency(handle_interface, self, class_loader))
+        return false;
+    }
+
+    return NoPotentialInternStrings(klass, class_loader);
+  }
+
   const ParallelCompilationManager* const manager_;
 };
 
@@ -2404,15 +2475,20 @@ void CompilerDriver::InitializeClasses(jobject jni_class_loader,
   ThreadPool* init_thread_pool = force_determinism
                                      ? single_thread_pool_.get()
                                      : parallel_thread_pool_.get();
+
   size_t init_thread_count = force_determinism ? 1U : parallel_thread_count_;
 
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   ParallelCompilationManager context(class_linker, jni_class_loader, this, &dex_file, dex_files,
                                      init_thread_pool);
-  if (GetCompilerOptions().IsBootImage()) {
+
+  if (GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsAppImage()) {
+    // Set the concurrency thread to 1 to support initialization for App Images since transaction
+    // doesn't support multithreading now.
     // TODO: remove this when transactional mode supports multithreading.
     init_thread_count = 1U;
   }
+
   InitializeClassVisitor visitor(&context);
   context.ForAll(0, dex_file.NumClassDefs(), &visitor, init_thread_count);
 }
