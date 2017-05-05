@@ -4696,6 +4696,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
   if (!klass->IsInterface() && klass->HasSuperClass()) {
     ObjPtr<mirror::Class> super_class = klass->GetSuperClass();
     if (!super_class->IsInitialized()) {
+      // Now should never reach here
       CHECK(!super_class->IsInterface());
       CHECK(can_init_parents);
       StackHandleScope<1> hs(self);
