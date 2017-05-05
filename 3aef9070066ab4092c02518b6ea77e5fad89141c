@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "141c4f7d_1f4ec050",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-05T14:56:07Z",
+      "side": 1,
+      "message": "I\u0027m not sure to follow. With this CL, it now seems all the information about Baker read barriers parameters is stored entirely on `custom_value1` (for all Baker read barrier thunk types), making `custom_value2` superfluous IMO.",
+      "parentUuid": "af4f59cb_99a11830",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e3a5091_27cc86ce",
         "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
         "patchSetId": 7
