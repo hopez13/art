@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "604a0f42_fef23d84",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-05T12:28:02Z",
+      "side": 1,
+      "message": "`BakerReadBarrierParams::custom_value2` does not seem to be used (`LinkerPatch::BakerReadBarrierBranchPatch` seems to be always called with two arguments). Maybe remove it, and rename `LinkerPatch::baker_custom_value2` as `LinkerPatch::unused_value`?",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e3a5091_27cc86ce",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-05T12:28:02Z",
+      "side": 1,
+      "message": "Is this needed, as the method returns `void`?",
+      "range": {
+        "startLine": 143,
+        "startChar": 8,
+        "endLine": 143,
+        "endChar": 22
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd29b01d_553bb890",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-05T12:28:02Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 293,
+        "startChar": 6,
+        "endLine": 293,
+        "endChar": 20
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feeef571_4c166af5",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-05T12:28:02Z",
+      "side": 1,
+      "message": "Is this needed, as the method returns `void`?",
+      "range": {
+        "startLine": 344,
+        "startChar": 8,
+        "endLine": 344,
+        "endChar": 22
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d23de47b_e262e78a",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-05T12:28:02Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 20
+      },
+      "revId": "3aef9070066ab4092c02518b6ea77e5fad89141c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
