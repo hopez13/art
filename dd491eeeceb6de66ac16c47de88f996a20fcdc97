@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e1508d5_76c1b84d",
+        "filename": "test/640-checker-int-simd/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-05T21:11:54Z",
+      "side": 1,
+      "message": "note that I initially wanted to test before/after simplification, but depending on whether we use jack or class+dx, this may already have been optimized.\n\nso I did the next best thing and test if at least this is simplified by the time loop opt runs",
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
