@@ -2276,12 +2276,21 @@ class InitializeClassVisitor : public CompilationVisitor {
           if (!klass->IsInitialized()) {
             // We need to initialize static fields, we only do this for image classes that aren't
             // marked with the $NoPreloadHolder (which implies this should not be initialized early).
-            bool can_init_static_fields =
-                manager_->GetCompiler()->GetCompilerOptions().IsBootImage() &&
-                manager_->GetCompiler()->IsImageClass(descriptor) &&
-                !StringPiece(descriptor).ends_with("$NoPreloadHolder;");
+            bool can_init_static_fields = false;
+            if (manager_->GetCompiler()->GetCompilerOptions().IsBootImage()) {
+              can_init_static_fields =
+                  manager_->GetCompiler()->IsImageClass(descriptor) &&
+                      !StringPiece(descriptor).ends_with("$NoPreloadHolder;");
+            } else if (manager_->GetCompiler()->GetCompilerOptions().IsAppImage()) {
+              can_init_static_fields =
+                  manager_->GetCompiler()->IsImageClass(descriptor) &&
+                      !StringPiece(descriptor).ends_with("$NoPreloadHolder;") &&
+                      !soa.Self()->IsExceptionPending() &&
+                      NoClinitInDependency(klass, soa.Self());
+            }
             if (can_init_static_fields) {
               VLOG(compiler) << "Initializing: " << descriptor;
+              VLOG(profiler) << "Static Encoded Case, isBootImage: " << manager_->GetCompiler()->GetCompilerOptions().IsBootImage() << ' ' << descriptor;
               // TODO multithreading support. We should ensure the current compilation thread has
               // exclusive access to the runtime and the transaction. To achieve this, we could use
               // a ReaderWriterMutex but we're holding the mutator lock so we fail mutex sanity
@@ -2390,6 +2399,33 @@ class InitializeClassVisitor : public CompilationVisitor {
     }
   }
 
+  bool NoClinitInDependency(const Handle<mirror::Class> &klass, Thread *self)
+  REQUIRES_SHARED(Locks::mutator_lock_) {
+    ArtMethod* clinit = klass->FindClassInitializer(manager_->GetClassLinker()->GetImagePointerSize());
+    if (clinit != nullptr) {
+      VLOG(profiler) << klass->PrettyClass() << ' ' << clinit->PrettyMethod(true) << ' ';
+      return false;
+    }
+    if (klass->HasSuperClass()) {
+      ObjPtr<mirror::Class> super_class = klass->GetSuperClass();
+      StackHandleScope<1> hs(self);
+      Handle<mirror::Class> handle_scope_super(hs.NewHandle(super_class));
+      if (!NoClinitInDependency(handle_scope_super, self))
+        return false;
+    }
+    ObjPtr<mirror::Class> klassPtr(klass.Get());
+    uint32_t numIf = klass->NumDirectInterfaces();
+    for (size_t i = 0; i < numIf; i++) {
+      ObjPtr<mirror::Class> interface = mirror::Class::GetDirectInterface(self, klassPtr, i);
+      StackHandleScope<1> hs(self);
+      Handle<mirror::Class> handle_interface(hs.NewHandle(interface));
+      if (!NoClinitInDependency(handle_interface, self))
+        return false;
+    }
+
+    return true;
+  }
+
   const ParallelCompilationManager* const manager_;
 };
 
@@ -2404,15 +2440,18 @@ void CompilerDriver::InitializeClasses(jobject jni_class_loader,
   ThreadPool* init_thread_pool = force_determinism
                                      ? single_thread_pool_.get()
                                      : parallel_thread_pool_.get();
+
   size_t init_thread_count = force_determinism ? 1U : parallel_thread_count_;
 
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   ParallelCompilationManager context(class_linker, jni_class_loader, this, &dex_file, dex_files,
                                      init_thread_pool);
-  if (GetCompilerOptions().IsBootImage()) {
+
+  if (GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsAppImage()) {
     // TODO: remove this when transactional mode supports multithreading.
     init_thread_count = 1U;
   }
+
   InitializeClassVisitor visitor(&context);
   context.ForAll(0, dex_file.NumClassDefs(), &visitor, init_thread_count);
 }

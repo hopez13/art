@@ -28,6 +28,8 @@
 
 #include "jni.h"
 #include "jvmti.h"
+#include "mirror/class.h"
+#include "scoped_thread_state_change-inl.h"
 
 // Test infrastructure
 #include "jni_helper.h"
@@ -1076,6 +1078,12 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test913_iterateThroughHeapExt(
   jvmtiError ret = gIterateThroughHeapExt(jvmti_env, 0, nullptr, &callbacks, nullptr);
   JvmtiErrorToException(env, jvmti_env, ret);
   CHECK(gFoundExt);
+}
+
+extern "C" JNIEXPORT jboolean JNICALL Java_art_Test913_checkInitialized(JNIEnv*, jclass, jclass c) {
+  ScopedObjectAccess soa(Thread::Current());
+  ObjPtr<mirror::Class> klass_ptr = soa.Decode<mirror::Class>(c);
+  return klass_ptr->IsInitialized();
 }
 
 }  // namespace Test913Heaps

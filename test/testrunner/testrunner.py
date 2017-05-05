@@ -125,6 +125,7 @@ verbose = False
 dry_run = False
 build = False
 gdb = False
+log = ''
 gdb_arg = ''
 stop_testrunner = False
 
@@ -339,6 +340,9 @@ def run_tests(tests):
     options_all += ' --gdb'
     if gdb_arg:
       options_all += ' --gdb-arg ' + gdb_arg
+
+  if log:
+    options_all += ' --dev --runtime-options -verbose:' + log
 
   config = itertools.product(tests, TARGET_TYPES, RUN_TYPES, PREBUILD_TYPES,
                              COMPILER_TYPES, RELOCATE_TYPES, TRACE_TYPES,
@@ -848,6 +852,7 @@ def parse_option():
   global gdb
   global gdb_arg
   global timeout
+  global log
 
   parser = argparse.ArgumentParser(description="Runs all or a subset of the ART test suite.")
   parser.add_argument('-t', '--test', dest='test', help='name of the test')
@@ -875,6 +880,7 @@ def parse_option():
   parser.set_defaults(build = env.ART_TEST_RUN_TEST_BUILD)
   parser.add_argument('--gdb', action='store_true', dest='gdb')
   parser.add_argument('--gdb-arg', dest='gdb_arg')
+  parser.add_argument('--log', dest='log', help="log module")
 
   options = vars(parser.parse_args())
   if options['build_target']:

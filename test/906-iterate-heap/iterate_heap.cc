@@ -29,6 +29,8 @@
 #include "jni.h"
 #include "jvmti.h"
 #include "scoped_primitive_array.h"
+#include "mirror/class.h"
+#include "scoped_thread_state_change-inl.h"
 
 // Test infrastructure
 #include "jvmti_helper.h"
@@ -406,6 +408,12 @@ extern "C" JNIEXPORT jstring JNICALL Java_art_Test906_iterateThroughHeapPrimitiv
     return nullptr;
   }
   return env->NewStringUTF(ffc.data.c_str());
+}
+
+extern "C" JNIEXPORT jboolean JNICALL Java_art_Test906_checkInitialized(JNIEnv*, jclass, jclass c) {
+  ScopedObjectAccess soa(Thread::Current());
+  ObjPtr<mirror::Class> klass_ptr = soa.Decode<mirror::Class>(c);
+  return klass_ptr->IsInitialized();
 }
 
 }  // namespace Test906IterateHeap

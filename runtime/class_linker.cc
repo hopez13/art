@@ -4798,7 +4798,6 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
     }
   }
 
-
   if (!self->IsExceptionPending()) {
     ArtMethod* clinit = klass->FindClassInitializer(image_pointer_size_);
     if (clinit != nullptr) {
