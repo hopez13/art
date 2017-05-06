@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7dee90ea_050ceb93",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2807,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "int",
+      "range": {
+        "startLine": 2807,
+        "startChar": 58,
+        "endLine": 2807,
+        "endChar": 65
+      },
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5d65486_871a2816",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2817,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "Remove. There\u0027s no use in maintaining `offset` as a multiple of 8. It was useful with 64-bit longs/doubles to see if we need one 64-bit load/store or two 32-bit ones. Here you update `element_size_shift` to tell the caller what load/store instruction to use.",
+      "range": {
+        "startLine": 2816,
+        "startChar": 48,
+        "endLine": 2817,
+        "endChar": 48
+      },
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f745354a_f6f4b0aa",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2823,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "CHECK_GE(JAVASTYLE_CTZ(offset), element_size_shift);",
+      "range": {
+        "startLine": 2823,
+        "startChar": 4,
+        "endLine": 2823,
+        "endChar": 75
+      },
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e19869c_f692cb1e",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2834,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "This overflows with `offset` \u003d 0x7FFFFFFC.\n\nI recommend rewriting this method in a safer and cleaner way (in particular, the last case with dahi+daui+daddiu looks intimidating).\n\nReplace this entire if with the following (correcting for overly long lines if needed):\n\n  const int low_len \u003d 10 + element_size_shift;  // How many low bits of `offset` ld.df/st.df will take.\n  int16_t low \u003d offset \u0026 ((1 \u003c\u003c low_len) - 1);  // Isolate these bits.\n  low -\u003d (low \u0026 (1 \u003c\u003c (low_len - 1))) \u003c\u003c 1;  // Sign-extend these bits.\n  if (low \u003d\u003d offset) {\n    return;  // `offset` fits into ld.df/st.df.\n  }",
+      "range": {
+        "startLine": 2834,
+        "startChar": 16,
+        "endLine": 2834,
+        "endChar": 56
+      },
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5e25ddf_9cb70f06",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2841,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "// Max int16_t that\u0027s a multiple of element size.\nconstexpr int32_t kMaxDeltaForSimpleAdjustment \u003d 0x8000 - (1 \u003c\u003c element_size_shift);",
+      "range": {
+        "startLine": 2841,
+        "startChar": 0,
+        "endLine": 2841,
+        "endChar": 98
+      },
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1999385c_ad452395",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2842,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "// Max ld.df/st.df offset that\u0027s a multiple of element size.",
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "352a558a_c0aa73cf",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2848,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "Simply:\n\n    Daddiu(AT, base, offset);\n    offset \u003d 0;",
+      "range": {
+        "startLine": 2846,
+        "startChar": 0,
+        "endLine": 2848,
+        "endChar": 20
+      },
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e11fecd_d0a9c02d",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2878,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "Replace with (correcting for overly long lines if needed):\n\n    //\n    // Let\u0027s treat `offset` as 64-bit to simplify handling of sign\n    // extensions in the instructions that supply its smaller signed parts.\n    //\n    // 16-bit or smaller parts of `offset`:\n    // |63  top  48|47  hi  32|31  upper  16|15  mid  13-10|12-9  low  0|\n    //\n    // Instructions that supply each part as a signed integer addend:\n    // |dati       |dahi      |daui         |daddiu        |ld.df/st.df |\n    //\n    // `top` is always 0, so dati isn\u0027t used.\n    // `hi` is 1 when `offset` is close to +2GB and 0 otherwise.\n    //\n    uint64_t tmp \u003d static_cast\u003cuint64_t\u003e(offset) - low;  // Exclude `low` from the rest of `offset`\n                                                         // (accounts for sign of `low`).\n    tmp +\u003d (tmp \u0026 (UINT64_C(1) \u003c\u003c 15)) \u003c\u003c 1;  // Account for sign extension in daddiu.\n    tmp +\u003d (tmp \u0026 (UINT64_C(1) \u003c\u003c 31)) \u003c\u003c 1;  // Account for sign extension in daui.\n    int16_t mid \u003d Low16Bits(tmp);\n    int16_t upper \u003d High16Bits(tmp);\n    int16_t hi \u003d Low16Bits(High32Bits(tmp));\n    Daui(AT, base, upper);\n    if (hi !\u003d 0) {\n      CHECK_EQ(hi, 1);\n      Dahi(AT, hi);\n    }\n    if (mid !\u003d 0) {\n      Daddiu(AT, AT, mid);\n    }\n    offset \u003d low;",
+      "range": {
+        "startLine": 2856,
+        "startChar": 0,
+        "endLine": 2878,
+        "endChar": 24
+      },
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd3d5835_c29590bb",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-06T01:59:13Z",
+      "side": 1,
+      "message": "Replace with:\n\n  CHECK_GE(JAVASTYLE_CTZ(offset), element_size_shift);\n  CHECK(IsInt\u003c10\u003e(offset \u003e\u003e element_size_shift));",
+      "range": {
+        "startLine": 2881,
+        "startChar": 0,
+        "endLine": 2881,
+        "endChar": 61
+      },
+      "revId": "69cd04410d4ee08b71c365bbf844815c735b0ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
