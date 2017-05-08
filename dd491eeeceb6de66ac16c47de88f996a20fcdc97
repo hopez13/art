@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "bfd0f3a6_4507cc05",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-08T08:40:55Z",
+      "side": 1,
+      "message": "mask?",
+      "range": {
+        "startLine": 260,
+        "startChar": 12,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a43dac7c_94fed0cf",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-08T08:40:55Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 837,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 102
+      },
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e1508d5_76c1b84d",
         "filename": "test/640-checker-int-simd/src/Main.java",
         "patchSetId": 1
