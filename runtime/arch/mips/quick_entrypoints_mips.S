@@ -1991,9 +1991,9 @@ END art_quick_deoptimize
 ENTRY art_quick_deoptimize_from_compiled_code
     SETUP_SAVE_EVERYTHING_FRAME
     la       $t9, artDeoptimizeFromCompiledCode
-    jalr     $t9                            # artDeoptimizeFromCompiledCode(Thread*)
+    jalr     $t9                            # artDeoptimizeFromCompiledCode(DeoptimizationKind, Thread*)
                                             # Returns caller method's frame size.
-    move     $a0, rSELF                     # pass Thread::current
+    move     $a1, rSELF                     # pass Thread::current
 END art_quick_deoptimize_from_compiled_code
 
     /*

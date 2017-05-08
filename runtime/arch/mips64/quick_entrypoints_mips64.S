@@ -1925,9 +1925,9 @@ END art_quick_deoptimize
     .extern artDeoptimizeFromCompiledCode
 ENTRY_NO_GP art_quick_deoptimize_from_compiled_code
     SETUP_SAVE_EVERYTHING_FRAME
-    jal      artDeoptimizeFromCompiledCode    # artDeoptimizeFromCompiledCode(Thread*, SP)
+    jal      artDeoptimizeFromCompiledCode    # artDeoptimizeFromCompiledCode(DeoptimizationKind, Thread*)
                                               # Returns caller method's frame size.
-    move     $a0, rSELF                       # pass Thread::current
+    move     $a1, rSELF                       # pass Thread::current
 END art_quick_deoptimize_from_compiled_code
 
   .set push
