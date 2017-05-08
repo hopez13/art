@@ -91,6 +91,30 @@
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdaf713c_4ac9e631",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-08T14:18:25Z",
+      "side": 1,
+      "message": "Yes, brittle, but hopefully this will at least mitigate the performance regressions by not duplicating DMBs executed at first.\n\n\u003e Isn\u0027t the HNewInstance on input of the fence?\n\nYes but it doesn\u0027t say much because to be fully robust it would need to say \u0027if there\u0027s no publishes of X between fence(x) and x \u003d new-instance\u0027 then it\u0027s safe to do this.\n\nIt has to happen at the same pass as the entrypoint gets set to Initialized, otherwise it\u0027s too early to do the fence removal [i.e. if it is initially Resolved and is later changed to Initialized, it is unsafe if the fence was already removed].\n\n---\nTo potentially make it less brittle: What I could do afterwards split out the publish analysis into a separate file (like escape analysis) and we could reuse it here to do this.\n\nThat being said, in terms of *performance* the CFRE pass I will add later will remove all the redundant fences. This trick in prepare_for_registers_allocation is purely to get the code size back by moving the DMB into the entrypoint if its allowed.",
+      "parentUuid": "dadd3a7f_d5b4a953",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 57
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
