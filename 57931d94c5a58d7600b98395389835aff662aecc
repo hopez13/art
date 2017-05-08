@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "69339677_b69ac0dd",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-05-08T20:40:31Z",
+      "side": 1,
+      "message": "Oops, removed",
+      "parentUuid": "59804fba_240a195b",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 28
+      },
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f5e6a2f_88231567",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 1
@@ -154,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "df29f131_821f5e35",
+        "filename": "sigchainlib/sigchain.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-05-08T20:40:31Z",
+      "side": 1,
+      "message": "Renamed to SIGCHAIN_ALLOW_NORETURN, added a comment",
+      "parentUuid": "a618824d_6bb792a1",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 52
+      },
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5297de4_8a4d5832",
         "filename": "sigchainlib/sigchain.h",
         "patchSetId": 1
@@ -165,6 +213,30 @@
       "writtenOn": "2017-05-05T23:46:44Z",
       "side": 1,
       "message": "Why?",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "57931d94c5a58d7600b98395389835aff662aecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fb3ff2b_2caa73a0",
+        "filename": "sigchainlib/sigchain.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-05-08T20:40:31Z",
+      "side": 1,
+      "message": "Are you asking why this is 64bit, or why this isn\u0027t unsigned long? For the first, because struct sigaction uses an unsigned long, and for the second, because of your stupid cpplint rules :-P",
+      "parentUuid": "a5297de4_8a4d5832",
       "range": {
         "startLine": 30,
         "startChar": 2,
