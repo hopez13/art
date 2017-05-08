@@ -117,8 +117,7 @@ ScopedFlock::~ScopedFlock() {
   if (file_.get() != nullptr) {
     int flock_result = TEMP_FAILURE_RETRY(flock(file_->Fd(), LOCK_UN));
     if (flock_result != 0) {
-      PLOG(FATAL) << "Unable to unlock file " << file_->GetPath();
-      UNREACHABLE();
+      PLOG(WARNING) << "Unable to unlock file " << file_->GetPath();
     }
     int close_result = -1;
     if (file_->ReadOnlyMode()) {
