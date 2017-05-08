@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f39e0aa_b3357fa4",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-08T08:31:47Z",
+      "side": 1,
+      "message": "What is the purpose of these \u0026\u003d ?\n\nshouldn\u0027t you return early on error ? (the current code doesn\u0027t - it will continue to write even if WriteBuffer returned false).",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 67
+      },
+      "revId": "3d60badbc59410311d4e4eebf23a11ea4db847cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98cb8ac0_8fa30dbd",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-08T08:31:47Z",
+      "side": 1,
+      "message": "please use the current return types.. lseek returns off_t",
+      "range": {
+        "startLine": 888,
+        "startChar": 0,
+        "endLine": 889,
+        "endChar": 48
+      },
+      "revId": "3d60badbc59410311d4e4eebf23a11ea4db847cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "639b9011_e24c8c9e",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-08T08:31:47Z",
+      "side": 1,
+      "message": "document units... bytes, kilobytes, bits ?",
+      "range": {
+        "startLine": 287,
+        "startChar": 2,
+        "endLine": 288,
+        "endChar": 56
+      },
+      "revId": "3d60badbc59410311d4e4eebf23a11ea4db847cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea84b6f_faf1b412",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-08T08:31:47Z",
+      "side": 1,
+      "message": "\"const uint8_t*\"",
+      "range": {
+        "startLine": 368,
+        "startChar": 34,
+        "endLine": 368,
+        "endChar": 35
+      },
+      "revId": "3d60badbc59410311d4e4eebf23a11ea4db847cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
