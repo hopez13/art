@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb8c2538_28b5b384",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-08T17:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2a4a97b_3e3625b3",
+      "range": {
+        "startLine": 13,
+        "startChar": 13,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0750a04_b7b41806",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-08T10:28:22Z",
       "side": 1,
       "message": "Did you run those tests? I\u0027d expect a 551-checker-shifter-operand failure on arm64.",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5db48f7_37e11506",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-08T17:12:41Z",
+      "side": 1,
+      "message": "Hmm. I thought I did but perhaps not on target. Leave it to Vladimir and glance at a CL and emit the lists of failures in our test suite without actually running it :-)",
+      "parentUuid": "a0750a04_b7b41806",
       "range": {
         "startLine": 15,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b8e243a2_af7c5b31",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-08T17:12:41Z",
+      "side": 1,
+      "message": "I had a hard time coming up with a good name, so I used the vague msk. But mask does not seem to capture it either. How about masked? or masked_cst?",
+      "parentUuid": "bfd0f3a6_4507cc05",
+      "range": {
+        "startLine": 260,
+        "startChar": 12,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a43dac7c_94fed0cf",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-05-08T08:40:55Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 837,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 102
+      },
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60f94b68_2805c1a0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-08T17:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a43dac7c_94fed0cf",
       "range": {
         "startLine": 837,
         "startChar": 0,
@@ -123,6 +219,24 @@
       "side": 1,
       "message": "You can use an $inline$constantX() helper, see https://android-review.googlesource.com/220081 .",
       "parentUuid": "1e1508d5_76c1b84d",
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f26f875e_5530be11",
+        "filename": "test/640-checker-int-simd/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-08T17:12:41Z",
+      "side": 1,
+      "message": "Ah, nice suggestion. Yes that will give me more confidence in testing the optimization.",
+      "parentUuid": "5374a241_70239f46",
       "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
