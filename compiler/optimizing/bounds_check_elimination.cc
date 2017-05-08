@@ -1620,7 +1620,7 @@ class BCEVisitor : public HGraphVisitor {
     HInstruction* suspend = loop->GetSuspendCheck();
     block->InsertInstructionBefore(condition, block->GetLastInstruction());
     HDeoptimize* deoptimize = new (GetGraph()->GetArena()) HDeoptimize(
-        GetGraph()->GetArena(), condition, HDeoptimize::Kind::kBCE, suspend->GetDexPc());
+        GetGraph()->GetArena(), condition, DeoptimizationKind::kBCE, suspend->GetDexPc());
     block->InsertInstructionBefore(deoptimize, block->GetLastInstruction());
     if (suspend->HasEnvironment()) {
       deoptimize->CopyEnvironmentFromWithLoopPhiAdjustment(
@@ -1633,7 +1633,7 @@ class BCEVisitor : public HGraphVisitor {
     HBasicBlock* block = bounds_check->GetBlock();
     block->InsertInstructionBefore(condition, bounds_check);
     HDeoptimize* deoptimize = new (GetGraph()->GetArena()) HDeoptimize(
-        GetGraph()->GetArena(), condition, HDeoptimize::Kind::kBCE, bounds_check->GetDexPc());
+        GetGraph()->GetArena(), condition, DeoptimizationKind::kBCE, bounds_check->GetDexPc());
     block->InsertInstructionBefore(deoptimize, bounds_check);
     deoptimize->CopyEnvironmentFrom(bounds_check->GetEnvironment());
   }

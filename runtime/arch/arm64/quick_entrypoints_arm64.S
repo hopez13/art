@@ -2230,8 +2230,8 @@ END art_quick_deoptimize
     .extern artDeoptimizeFromCompiledCode
 ENTRY art_quick_deoptimize_from_compiled_code
     SETUP_SAVE_EVERYTHING_FRAME
-    mov    x0, xSELF                      // Pass thread.
-    bl     artDeoptimizeFromCompiledCode  // artDeoptimizeFromCompiledCode(Thread*)
+    mov    x1, xSELF                      // Pass thread.
+    bl     artDeoptimizeFromCompiledCode  // artDeoptimizeFromCompiledCode(DeoptimizationKind, Thread*)
     brk 0
 END art_quick_deoptimize_from_compiled_code
 
