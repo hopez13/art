@@ -25,6 +25,9 @@
 
 namespace art {
 
+// A scoped file-lock implemented using flock. The file is locked by calling the Init function and
+// is released during destruction. Note that failing to unlock the file only causes a warning to be
+// printed. Users should take care that this does not cause potential deadlocks.
 class ScopedFlock {
  public:
   ScopedFlock();
