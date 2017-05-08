@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70507aa2_bac8858d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-08T22:37:42Z",
+      "side": 1,
+      "message": "is this \"most of places\" or all places? I think we only have\ntwo use case:\n1) non blocking\n2) blocking but the external process (dex2oat) will timeout and we\u0027ll kill it. \n\nCould you look at the use cases and confirm the above? and expand the documentation.\n\nAlso, add a note in .h that an unlock failure will only trigger a warning.",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "78dec16d050a76606e1d6dfab533ebf81277abf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
