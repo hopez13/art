@@ -22,6 +22,30 @@
       "revId": "78dec16d050a76606e1d6dfab533ebf81277abf8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d334723d_9430f05c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-05-08T23:05:32Z",
+      "side": 1,
+      "message": "\u003e is this \"most of places\" or all places? I think we only have\n\u003e two use case:\n\u003e 1) non blocking\n\u003e 2) blocking but the external process (dex2oat) will timeout and we\u0027ll kill it. \n\u003e \n\u003e Could you look at the use cases and confirm the above? and expand the documentation.\n\u003e \n\nThat is exactly what I found. What do you think we should add to the documentation.\n\n\u003e Also, add a note in .h that an unlock failure will only trigger a warning.\n\nDone",
+      "parentUuid": "70507aa2_bac8858d",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "78dec16d050a76606e1d6dfab533ebf81277abf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
