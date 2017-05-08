@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "b0b4084e_9501b98c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-08T15:49:49Z",
+      "side": 1,
+      "message": "Line too long; do we need to repeat the \"artDeoptimizeFromCompiledCode\"? We omit that for artQuickGenericJniTrampoline() for example.",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34d51fd7_e983f35f",
         "filename": "runtime/deoptimization_kind.h",
         "patchSetId": 2
@@ -94,6 +111,23 @@
     },
     {
       "key": {
+        "uuid": "c7998de5_c21148cd",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-08T15:49:49Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c \"Unexpected kind \" \u003c\u003c i; UNREACHABLE(); and remove the return statement below.",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "020eb858_ce77a5b8",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 2
@@ -111,6 +145,23 @@
         "endLine": 550,
         "endChar": 47
       },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dac45ca7_30d07953",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-08T15:49:49Z",
+      "side": 1,
+      "message": "DCHECK(kind \u003c DeoptimizationKind::kLast); and it would be better to make the DeoptimizationKind\u0027s underlying type unsigned.\n\nOr DCHECK_LE if you add an operator\u003c\u003c.",
       "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
