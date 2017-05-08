@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f532edf_a95b8c6c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1696,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-08T15:28:05Z",
+      "side": 1,
+      "message": "Would be nice to add this to the comment above the declaration.",
+      "range": {
+        "startLine": 1696,
+        "startChar": 74,
+        "endLine": 1696,
+        "endChar": 92
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34d51fd7_e983f35f",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-08T15:28:05Z",
+      "side": 1,
+      "message": "enum class to avoid bad casts?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 4
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79af6ce8_9a6ebd4e",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-08T15:28:05Z",
+      "side": 1,
+      "message": "kLast \u003d kFullFrame?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26fe630e_94b122bd",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-08T15:28:05Z",
+      "side": 1,
+      "message": "Move to after switch to get case coverage (warn\u003derror on missing cases)",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "020eb858_ce77a5b8",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-08T15:28:05Z",
+      "side": 1,
+      "message": "Are you sure this shouldn\u0027t go into the VLOG_IS_ON above? This sounds *way* to chatty.",
+      "range": {
+        "startLine": 547,
+        "startChar": 2,
+        "endLine": 550,
+        "endChar": 47
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6141b8c9_e16de6a3",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-08T15:28:05Z",
+      "side": 1,
+      "message": "Array lengths prefer size_t",
+      "range": {
+        "startLine": 688,
+        "startChar": 39,
+        "endLine": 688,
+        "endChar": 47
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
