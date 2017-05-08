@@ -46,6 +46,30 @@
       "revId": "78dec16d050a76606e1d6dfab533ebf81277abf8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "984daa82_3a2d4bed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-08T23:09:23Z",
+      "side": 1,
+      "message": "\u003e \u003e is this \"most of places\" or all places? I think we only have\n \u003e \u003e two use case:\n \u003e \u003e 1) non blocking\n \u003e \u003e 2) blocking but the external process (dex2oat) will timeout and\n \u003e we\u0027ll kill it.\n \u003e \u003e\n \u003e \u003e Could you look at the use cases and confirm the above? and expand\n \u003e the documentation.\n \u003e \u003e\n \u003e \n \u003e That is exactly what I found. What do you think we should add to\n \u003e the documentation.\n \nI would add in the commit message but also in the header of scoped_flock:\n\nIs is safe to log only a warning because in our use case:\n1) ...\n2) ...\nwe can ensure we don\u0027t deadlock.\n\nIt\u0027s better to make clear in the code that we analyzed the use-cases.",
+      "parentUuid": "d334723d_9430f05c",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "78dec16d050a76606e1d6dfab533ebf81277abf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
