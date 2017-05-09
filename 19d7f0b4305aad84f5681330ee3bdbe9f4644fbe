@@ -37,6 +37,42 @@
     },
     {
       "key": {
+        "uuid": "c8a28587_550c4743",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7e3d303_b9ffec50",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e747d014_1f82d6c9",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32208273_db7467d2",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f532edf_a95b8c6c",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
@@ -77,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "8f7f041c_842b3f7e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1696,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "Done for Vladimir comment.\n\nAndreas, not sure what you are suggesting?",
+      "parentUuid": "b0b4084e_9501b98c",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34d51fd7_e983f35f",
         "filename": "runtime/deoptimization_kind.h",
         "patchSetId": 2
@@ -88,6 +142,30 @@
       "writtenOn": "2017-05-08T15:28:05Z",
       "side": 1,
       "message": "enum class to avoid bad casts?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 4
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee0e6410_d1ade602",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "I\u0027ve followed what we do for optimizing_compiler_stats.h where we iterate over an integer. Not sure if that makes me a cool kid.",
+      "parentUuid": "34d51fd7_e983f35f",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -117,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "fd488686_d491d312",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fd884cb_0195fd28",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79af6ce8_9a6ebd4e",
         "filename": "runtime/deoptimization_kind.h",
         "patchSetId": 2
@@ -128,6 +224,30 @@
       "writtenOn": "2017-05-08T15:28:05Z",
       "side": 1,
       "message": "kLast \u003d kFullFrame?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "addc29ee_4d90da63",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "ditto about doing the same as optimizing_compiler_stats.h.",
+      "parentUuid": "79af6ce8_9a6ebd4e",
       "range": {
         "startLine": 29,
         "startChar": 2,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "3ebffd2e_4552daa9",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26fe630e_94b122bd",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7998de5_c21148cd",
         "filename": "runtime/deoptimization_kind.h",
         "patchSetId": 2
@@ -174,6 +318,24 @@
       "writtenOn": "2017-05-08T15:49:49Z",
       "side": 1,
       "message": "LOG(FATAL) \u003c\u003c \"Unexpected kind \" \u003c\u003c i; UNREACHABLE(); and remove the return statement below.",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c23b11d_2e86d084",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7998de5_c21148cd",
       "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -203,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "c592514b_4e97f113",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "I\u0027d like to get the logs for now, it may help diagnosing. We can probably revert after the diagnosing, but I don\u0027t believe it will be that chatty. We don\u0027t do that many optimizations in \"normal\" circumstances.",
+      "parentUuid": "020eb858_ce77a5b8",
+      "range": {
+        "startLine": 547,
+        "startChar": 2,
+        "endLine": 550,
+        "endChar": 47
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dac45ca7_30d07953",
         "filename": "runtime/runtime.h",
         "patchSetId": 2
@@ -220,6 +406,24 @@
     },
     {
       "key": {
+        "uuid": "7d1de80e_a935e5f0",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dac45ca7_30d07953",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6141b8c9_e16de6a3",
         "filename": "runtime/runtime.h",
         "patchSetId": 2
@@ -231,6 +435,30 @@
       "writtenOn": "2017-05-08T15:28:05Z",
       "side": 1,
       "message": "Array lengths prefer size_t",
+      "range": {
+        "startLine": 688,
+        "startChar": 39,
+        "endLine": 688,
+        "endChar": 47
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a291f8e5_f3b4658e",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T13:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6141b8c9_e16de6a3",
       "range": {
         "startLine": 688,
         "startChar": 39,
