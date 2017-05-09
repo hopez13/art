@@ -41,6 +41,8 @@ class PACKED(4) OatQuickMethodHeader {
 
   ~OatQuickMethodHeader();
 
+  OatQuickMethodHeader(const OatQuickMethodHeader&) = default;
+
   static OatQuickMethodHeader* FromCodePointer(const void* code_ptr) {
     uintptr_t code = reinterpret_cast<uintptr_t>(code_ptr);
     uintptr_t header = code - OFFSETOF_MEMBER(OatQuickMethodHeader, code_);
