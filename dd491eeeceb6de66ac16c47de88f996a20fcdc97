@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "5cd6131d_ccd46309",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-09T11:39:45Z",
+      "side": 1,
+      "message": "masked_cst sgtm (even though I would have probably replaced \u0027cst\u0027 with \u0027constant\u0027 and \u0027masked_cst\u0027 with \u0027masked_constant\u0027, but that\u0027s really a nit and ok for me if you prefer \u0027cst\u0027).",
+      "parentUuid": "b8e243a2_af7c5b31",
+      "range": {
+        "startLine": 260,
+        "startChar": 12,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a43dac7c_94fed0cf",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
