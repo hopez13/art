@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c7e3d303_b9ffec50",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-09T11:52:51Z",
+      "side": 1,
+      "message": "Maybe also kBCENull if called from CanHandleNullCheck().",
+      "parentUuid": "32208273_db7467d2",
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f532edf_a95b8c6c",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
