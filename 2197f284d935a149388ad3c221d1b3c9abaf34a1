@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "db8ea8d1_6b43a4e6",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d011578b_9164b087",
+      "range": {
+        "startLine": 261,
+        "startChar": 18,
+        "endLine": 261,
+        "endChar": 46
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85557788_890cee18",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 13
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "bb52caa0_e1b64cd9",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "736ff394_313ae76d",
+      "range": {
+        "startLine": 628,
+        "startChar": 10,
+        "endLine": 628,
+        "endChar": 12
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a249ae7d_45084644",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 13
@@ -105,6 +153,30 @@
       "writtenOn": "2017-05-09T00:56:59Z",
       "side": 1,
       "message": "verify before the while that buffer.CountUnreadBytes() \u003e line_header.method_region_size_bytes. If not log an error and return false.",
+      "range": {
+        "startLine": 631,
+        "startChar": 1,
+        "endLine": 631,
+        "endChar": 77
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7636489_8e14f2e1",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "That case is covered on l641. If the size if condition doesn\u0027t hold, it will not go in while and the condition on l641 will hit.",
+      "parentUuid": "a249ae7d_45084644",
       "range": {
         "startLine": 631,
         "startChar": 1,
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "a60ce870_887f6fac",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3580f962_94e08674",
+      "range": {
+        "startLine": 890,
+        "startChar": 17,
+        "endLine": 891,
+        "endChar": 29
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "984755b2_73a1cfd1",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 13
@@ -151,6 +247,30 @@
       "writtenOn": "2017-05-09T00:56:59Z",
       "side": 1,
       "message": "return kProfileLoadIOError;",
+      "range": {
+        "startLine": 906,
+        "startChar": 4,
+        "endLine": 906,
+        "endChar": 54
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80005ab5_a752cc1c",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "984755b2_73a1cfd1",
       "range": {
         "startLine": 906,
         "startChar": 4,
@@ -186,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "56ec9037_e0035a1d",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d3f2a71_e26d525d",
+      "range": {
+        "startLine": 908,
+        "startChar": 18,
+        "endLine": 908,
+        "endChar": 25
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4dad8459_20e5080f",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 13
@@ -209,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "65452c40_e5ace78f",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dad8459_20e5080f",
+      "range": {
+        "startLine": 909,
+        "startChar": 15,
+        "endLine": 909,
+        "endChar": 31
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf024b94_4fd39cfd",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 13
@@ -220,6 +388,30 @@
       "writtenOn": "2017-05-09T00:56:59Z",
       "side": 1,
       "message": "return kProfileLoadIOError",
+      "range": {
+        "startLine": 914,
+        "startChar": 3,
+        "endLine": 914,
+        "endChar": 54
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e375eb4_8d485d2a",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf024b94_4fd39cfd",
       "range": {
         "startLine": 914,
         "startChar": 3,
@@ -278,6 +470,30 @@
     },
     {
       "key": {
+        "uuid": "b90b881a_cb0447d0",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2ff8676_d7a0271d",
+      "range": {
+        "startLine": 288,
+        "startChar": 49,
+        "endLine": 288,
+        "endChar": 56
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf3ee60c_bf1f46e7",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 13
@@ -289,6 +505,30 @@
       "writtenOn": "2017-05-09T00:56:59Z",
       "side": 1,
       "message": "1 * MB",
+      "range": {
+        "startLine": 289,
+        "startChar": 47,
+        "endLine": 289,
+        "endChar": 55
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab434866_5a173b59",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf3ee60c_bf1f46e7",
       "range": {
         "startLine": 289,
         "startChar": 47,
@@ -324,6 +564,30 @@
     },
     {
       "key": {
+        "uuid": "784e8a80_7108129c",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1688289_42ec34cd",
+      "range": {
+        "startLine": 368,
+        "startChar": 5,
+        "endLine": 368,
+        "endChar": 12
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "712fe016_21f1d66d",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 13
@@ -335,6 +599,30 @@
       "writtenOn": "2017-05-09T00:56:59Z",
       "side": 1,
       "message": "the \u0027*\u0027 is miss aligned.\n\nyou also need to /*out*/",
+      "range": {
+        "startLine": 372,
+        "startChar": 20,
+        "endLine": 372,
+        "endChar": 39
+      },
+      "revId": "2197f284d935a149388ad3c221d1b3c9abaf34a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0cc0fbe_1df12310",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "712fe016_21f1d66d",
       "range": {
         "startLine": 372,
         "startChar": 20,

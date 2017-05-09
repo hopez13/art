@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a90bed9_0a12a0be",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f39e0aa_b3357fa4",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 67
+      },
+      "revId": "3d60badbc59410311d4e4eebf23a11ea4db847cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98cb8ac0_8fa30dbd",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-08T08:31:47Z",
       "side": 1,
       "message": "please use the current return types.. lseek returns off_t",
+      "range": {
+        "startLine": 888,
+        "startChar": 0,
+        "endLine": 889,
+        "endChar": 48
+      },
+      "revId": "3d60badbc59410311d4e4eebf23a11ea4db847cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13ddc902_8041a292",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "If I remember correctly, it was causing 32 bit tests to fail.",
+      "parentUuid": "98cb8ac0_8fa30dbd",
       "range": {
         "startLine": 888,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0dd984b5_34c9b92b",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "639b9011_e24c8c9e",
+      "range": {
+        "startLine": 287,
+        "startChar": 2,
+        "endLine": 288,
+        "endChar": 56
+      },
+      "revId": "3d60badbc59410311d4e4eebf23a11ea4db847cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cea84b6f_faf1b412",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2017-05-08T08:31:47Z",
       "side": 1,
       "message": "\"const uint8_t*\"",
+      "range": {
+        "startLine": 368,
+        "startChar": 34,
+        "endLine": 368,
+        "endChar": 35
+      },
+      "revId": "3d60badbc59410311d4e4eebf23a11ea4db847cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a909c163_6e2db72b",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T17:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cea84b6f_faf1b412",
       "range": {
         "startLine": 368,
         "startChar": 34,
