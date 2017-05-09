@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "277f5b6b_24b28b95",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-09T15:05:13Z",
+      "side": 1,
+      "message": "I think enum class is preferable to avoid polluting the namespace with a lot of symbols. The \"kLast\" is pretty bad at namespace scope.\n\n(And for example the name \"kJitInlineCache\" does not even remotely suggest it\u0027s a deoptimization kind.)",
+      "parentUuid": "ee0e6410_d1ade602",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 4
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fd884cb_0195fd28",
         "filename": "runtime/deoptimization_kind.h",
         "patchSetId": 2
