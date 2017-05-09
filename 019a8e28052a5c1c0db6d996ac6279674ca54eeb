@@ -70,6 +70,30 @@
       "revId": "019a8e28052a5c1c0db6d996ac6279674ca54eeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78cf9967_08681627",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-05-09T15:34:14Z",
+      "side": 1,
+      "message": "Good point. Fixed, test added.",
+      "parentUuid": "8a27443b_074d96ec",
+      "range": {
+        "startLine": 1428,
+        "startChar": 4,
+        "endLine": 1428,
+        "endChar": 34
+      },
+      "revId": "019a8e28052a5c1c0db6d996ac6279674ca54eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
