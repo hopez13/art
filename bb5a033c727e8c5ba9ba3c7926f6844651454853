@@ -93,6 +93,23 @@
     },
     {
       "key": {
+        "uuid": "9de8ff54_e5ee66ac",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-05-09T23:30:36Z",
+      "side": 1,
+      "message": "klass-\u003eIsStringClass()\nThe alignment also seems off here, but it should take one line with IsStringClass() anyway.",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69c7c0ef_e9726a60",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
