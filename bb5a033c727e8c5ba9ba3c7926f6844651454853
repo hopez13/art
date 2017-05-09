@@ -233,6 +233,30 @@
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b100e88_066ffe66",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T20:52:44Z",
+      "side": 1,
+      "message": "It cannot happen *before* this pass for correctness reasons. I explain in the comments why.\n\nSo how can I do it in a \"proper optimization step\" then? Please let me know.",
+      "parentUuid": "c8636903_b12f48d5",
+      "range": {
+        "startLine": 182,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 5
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
