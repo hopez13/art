@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "219658b5_577fa44e",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T17:19:42Z",
+      "side": 1,
+      "message": "this is very nitpicky, so feel free to ignore, but I don\u0027t like the Loop before and Null after BCE.\n\nHow about kLoopBoundsBCE and kLoopNullBCE (and kBlockBCE)?",
+      "revId": "efe7d54579eb86aeb5d4c5309babe566a6f97567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
