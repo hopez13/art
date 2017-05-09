@@ -39,6 +39,24 @@
       "revId": "e09231fca0b4e1105a6c8bf87aa3e8a6002e4a28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22f13759_3646a44c",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-09T20:08:27Z",
+      "side": 1,
+      "message": "Warnings would be hard to catch here. We could raise an exception maybe?",
+      "parentUuid": "5ad8a22d_a2e14733",
+      "revId": "e09231fca0b4e1105a6c8bf87aa3e8a6002e4a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
