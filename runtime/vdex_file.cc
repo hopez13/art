@@ -28,6 +28,7 @@
 
 namespace art {
 
+constexpr uint8_t VdexFile::Header::kVdexInvalidMagic[4];
 constexpr uint8_t VdexFile::Header::kVdexMagic[4];
 constexpr uint8_t VdexFile::Header::kVdexVersion[4];
 
@@ -37,6 +38,15 @@ bool VdexFile::Header::IsMagicValid() const {
 
 bool VdexFile::Header::IsVersionValid() const {
   return (memcmp(version_, kVdexVersion, sizeof(kVdexVersion)) == 0);
+}
+
+VdexFile::Header::Header()
+    : number_of_dex_files_(0),
+      dex_size_(0),
+      verifier_deps_size_(0),
+      quickening_info_size_(0) {
+  memset(magic_, 0, sizeof(kVdexMagic));
+  memset(version_, 0, sizeof(kVdexVersion));
 }
 
 VdexFile::Header::Header(uint32_t number_of_dex_files,

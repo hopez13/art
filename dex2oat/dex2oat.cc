@@ -1374,6 +1374,24 @@ class Dex2Oat FINAL {
       oat_filenames_.push_back(oat_location_.c_str());
     }
 
+    // If we're updating in place a vdex file, be defensive and put an invalid vdex magic in case
+    // dex2oat gets killed.
+    if (update_input_vdex_) {
+      std::unique_ptr<BufferedOutputStream> vdex_out(MakeUnique<BufferedOutputStream>(
+          MakeUnique<FileOutputStream>(vdex_files_.back().get())));
+      if (!vdex_out->WriteFully(&VdexFile::Header::kVdexInvalidMagic,
+                                arraysize(VdexFile::Header::kVdexInvalidMagic))) {
+        PLOG(ERROR) << "Failed to invalidate vdex header. File: " << vdex_out->GetLocation();
+        return false;
+      }
+
+      if (!vdex_out->Flush()) {
+        PLOG(ERROR) << "Failed to flush stream after invalidating header of vdex file."
+                    << " File: " << vdex_out->GetLocation();
+        return false;
+      }
+    }
+
     // Swap file handling
     //
     // If the swap fd is not -1, we assume this is the file descriptor of an open but unlinked file

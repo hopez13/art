@@ -45,6 +45,7 @@ class VdexFile {
  public:
   struct Header {
    public:
+    Header();
     Header(uint32_t number_of_dex_files_,
            uint32_t dex_size,
            uint32_t verifier_deps_size,
@@ -60,6 +61,8 @@ class VdexFile {
     uint32_t GetVerifierDepsSize() const { return verifier_deps_size_; }
     uint32_t GetQuickeningInfoSize() const { return quickening_info_size_; }
     uint32_t GetNumberOfDexFiles() const { return number_of_dex_files_; }
+
+    static constexpr uint8_t kVdexInvalidMagic[] = { 'w', 'd', 'e', 'x' };
 
    private:
     static constexpr uint8_t kVdexMagic[] = { 'v', 'd', 'e', 'x' };
