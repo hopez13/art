@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80ad3183_88eceb76",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T17:36:39Z",
+      "side": 1,
+      "message": "nit: include name of parameter, no magic numbers\n\n\n    /* index */ 1",
+      "range": {
+        "startLine": 278,
+        "startChar": 72,
+        "endLine": 278,
+        "endChar": 73
+      },
+      "revId": "aa5e56cf6b2e29002c7b3282bcda76cbf7267561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01dcd764_36491983",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T17:36:39Z",
+      "side": 1,
+      "message": "nit:\n\n   /* out */ \u0026distance",
+      "range": {
+        "startLine": 838,
+        "startChar": 26,
+        "endLine": 838,
+        "endChar": 27
+      },
+      "revId": "aa5e56cf6b2e29002c7b3282bcda76cbf7267561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
