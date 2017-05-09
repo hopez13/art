@@ -226,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "c89df392_ea02dcbb",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-09T17:08:01Z",
+      "side": 1,
+      "message": "You cannot, just use a size_t and static_cast\u003c\u003es as necessary.",
+      "parentUuid": "c0f7ce53_55fd2a1a",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 4
+      },
+      "revId": "19d7f0b4305aad84f5681330ee3bdbe9f4644fbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fd884cb_0195fd28",
         "filename": "runtime/deoptimization_kind.h",
         "patchSetId": 2
