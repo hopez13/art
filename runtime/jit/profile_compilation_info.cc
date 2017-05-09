@@ -45,8 +45,9 @@
 namespace art {
 
 const uint8_t ProfileCompilationInfo::kProfileMagic[] = { 'p', 'r', 'o', '\0' };
-// Last profile version: Compress profile data.
-const uint8_t ProfileCompilationInfo::kProfileVersion[] = { '0', '0', '6', '\0' };
+// Last profile version: Instead of method id, put the difference with the last
+// method's id.
+const uint8_t ProfileCompilationInfo::kProfileVersion[] = { '0', '0', '7', '\0' };
 
 static constexpr uint16_t kMaxDexFileKeyLength = PATH_MAX;
 
@@ -301,8 +302,11 @@ bool ProfileCompilationInfo::Save(int fd) {
 
     AddStringToBuffer(&buffer, dex_data.profile_key);
 
+    uint16_t last_method_id = 0;
     for (const auto& method_it : dex_data.method_map) {
-      AddUintToBuffer(&buffer, method_it.first);
+      uint16_t diff_with_last_method_id = method_it.first - last_method_id;
+      last_method_id = method_it.first;
+      AddUintToBuffer(&buffer, diff_with_last_method_id);
       AddInlineCacheToBuffer(&buffer, method_it.second);
     }
     for (const auto& class_id : dex_data.class_set) {
@@ -628,11 +632,13 @@ bool ProfileCompilationInfo::ReadMethods(SafeBuffer& buffer,
   uint32_t  unread_bytes_before_operation = buffer.CountUnreadBytes();
   size_t expected_unread_bytes_after_operation = buffer.CountUnreadBytes()
       - line_header.method_region_size_bytes;
+  uint16_t last_method_id = 0;
   while (buffer.CountUnreadBytes() > expected_unread_bytes_after_operation) {
     DexFileData* const data = GetOrAddDexFileData(line_header.dex_location, line_header.checksum);
-    uint16_t method_index;
-    READ_UINT(uint16_t, buffer, method_index, error);
-
+    uint16_t diff_with_last_method_id;
+    READ_UINT(uint16_t, buffer, diff_with_last_method_id, error);
+    uint16_t method_index = last_method_id + diff_with_last_method_id;
+    last_method_id = method_index;
     auto it = data->method_map.FindOrAdd(method_index);
     if (!ReadInlineCache(buffer, number_of_dex_files, &(it->second), error)) {
       return false;
