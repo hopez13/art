@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "ef1bb842_ba726242",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T21:04:41Z",
+      "side": 1,
+      "message": "add your perf measurements here",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cf1cac9_69b6d16b",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T21:04:41Z",
+      "side": 1,
+      "message": "for only ... but reads a bit hard. It becomes more clear from the comments below so either rephrase, or just make this comment\n\n// Check it is safe to move ConstructorFence\n\nand leave the details to comments below",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31325c9c_14e2cc3f",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T21:04:41Z",
+      "side": 1,
+      "message": "you have two variables (ptr and boolean) that are used for almost the same thing\n\nif you would rename prev_inst into \"new_instance_inst\" then you could check for nullptr below\n\nless \"state\" to remember while reading",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3489fb88_0a03a690",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T21:04:41Z",
+      "side": 1,
+      "message": "TODO: ?",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78d9d076_65ecb6e0",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -254,6 +322,40 @@
         "endLine": 189,
         "endChar": 5
       },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "607da069_3110eb3b",
+        "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T21:04:41Z",
+      "side": 1,
+      "message": "don\u0027t we want a CHECK-NOT if you want exactly three?",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "847ee3cb_c98c9d5d",
+        "filename": "test/529-checker-unresolved/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T21:04:41Z",
+      "side": 1,
+      "message": "is relying on this being B2 okay? I realize  this was in the original, but it now jumps out to me",
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
