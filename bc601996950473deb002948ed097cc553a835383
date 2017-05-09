@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6240471_908a3b38",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "\u003c\u003c base_reg",
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09329a08_e991fe75",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "\u003c\u003c root_reg",
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be62fc9f_29a100a0",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "3-5",
+      "range": {
+        "startLine": 55,
+        "startChar": 73,
+        "endLine": 55,
+        "endChar": 76
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0451db4_028b16f3",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "0-2",
+      "range": {
+        "startLine": 55,
+        "startChar": 61,
+        "endLine": 55,
+        "endChar": 64
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd56a3cd_e1f29a51",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "(6 - 2)?",
+      "range": {
+        "startLine": 1127,
+        "startChar": 49,
+        "endLine": 1127,
+        "endChar": 50
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2441fd53_b9d66b13",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1146,
+        "startChar": 49,
+        "endLine": 1146,
+        "endChar": 50
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18b86ba2_9c8cd46a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8052,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "Maybe encapsulate that test into a method, and use it here and in line 8183?",
+      "range": {
+        "startLine": 8052,
+        "startChar": 22,
+        "endLine": 8052,
+        "endChar": 67
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7730815e_29ae3597",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "I only realize now that this should be\n\n  HeapReference\u003cmirror::Object\u003e\n\n(here and in other back ends).",
+      "range": {
+        "startLine": 8178,
+        "startChar": 11,
+        "endLine": 8178,
+        "endChar": 33
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08739dfc_883077ad",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8220,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "I realized that we should probably add a second, optional argument `SetCc set_cc` (set by default to `kCcDontCare`) to these methods:\n\n  ArmAssembler::PoisonHeapReference\n  ArmAssembler::UnpoisonHeapReference\n  ArmAssembler::MaybePoisonHeapReference\n  ArmAssembler::MaybeUnpoisonHeapReference\n\nas they may generate an RSBS (affecting the flags register). This would be needed for cases where the flags register needs to be preserved (by explicitly setting `set_cc` to `kCcKeep`).\n\n(This could be done in a separate CL.)",
+      "range": {
+        "startLine": 8220,
+        "startChar": 20,
+        "endLine": 8220,
+        "endChar": 46
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "358466ea_88ea6dec",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8270,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "Likewise, this should be `HeapReference\u003cmirror::Object\u003e`.",
+      "range": {
+        "startLine": 8270,
+        "startChar": 11,
+        "endLine": 8270,
+        "endChar": 33
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee98ed14_30f9c74a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8161,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 8161,
+        "startChar": 22,
+        "endLine": 8161,
+        "endChar": 87
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b1f3043_ddc1607d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8334,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-05-09T13:55:35Z",
+      "side": 1,
+      "message": "I\u0027d mention that RSBS is used instead of RSB here because it is the only 16-bit RSB instruction that can be used outside an IT block.",
+      "range": {
+        "startLine": 8334,
+        "startChar": 11,
+        "endLine": 8334,
+        "endChar": 15
+      },
+      "revId": "bc601996950473deb002948ed097cc553a835383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
