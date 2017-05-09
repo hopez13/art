@@ -34,6 +34,24 @@
       "revId": "1c3c943cc640a434d507058c60514d1e152fb197",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c3d6dea_1e82b77b",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T17:21:52Z",
+      "side": 1,
+      "message": "If nobody else chimes in, feel free to ignore my suggestion. I generally like having the loop logic at top just to avoid hunting for the ++use_it somewhere down, but don\u0027t feel super strong about it either.",
+      "parentUuid": "eb96015c_c8641bb7",
+      "revId": "1c3c943cc640a434d507058c60514d1e152fb197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
