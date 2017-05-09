@@ -46,6 +46,30 @@
       "revId": "019a8e28052a5c1c0db6d996ac6279674ca54eeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a27443b_074d96ec",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-09T15:10:50Z",
+      "side": 1,
+      "message": "However, what about primitive classes? int.class?",
+      "parentUuid": "69684a27_705edb83",
+      "range": {
+        "startLine": 1428,
+        "startChar": 4,
+        "endLine": 1428,
+        "endChar": 34
+      },
+      "revId": "019a8e28052a5c1c0db6d996ac6279674ca54eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
