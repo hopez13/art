@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "78d9d076_65ecb6e0",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-09T20:35:58Z",
+      "side": 1,
+      "message": "I wouldn\u0027t call this a hack but I don\u0027t want to argue about its actually semantics :)",
+      "range": {
+        "startLine": 1007,
+        "startChar": 14,
+        "endLine": 1007,
+        "endChar": 18
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69c7c0ef_e9726a60",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -183,6 +206,29 @@
         "startChar": 0,
         "endLine": 179,
         "endChar": 57
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8636903_b12f48d5",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-09T20:35:58Z",
+      "side": 1,
+      "message": "If go on with this after Vladimir suggestion for measurements you should do it in a proper optimization step. Maybe in the simplifier if a full pass gets to expensive.",
+      "range": {
+        "startLine": 182,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 5
       },
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
