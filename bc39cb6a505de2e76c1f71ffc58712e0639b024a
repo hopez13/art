@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81f4cce3_3ad0b934",
+        "filename": "test/640-checker-int-simd/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-09T09:21:15Z",
+      "side": 1,
+      "message": "TODO: Eliminate the loop after LSE.",
+      "revId": "bc39cb6a505de2e76c1f71ffc58712e0639b024a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c682dd8d_b93530b6",
+        "filename": "test/640-checker-int-simd/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-09T09:21:15Z",
+      "side": 1,
+      "message": "254",
+      "range": {
+        "startLine": 312,
+        "startChar": 46,
+        "endLine": 312,
+        "endChar": 49
+      },
+      "revId": "bc39cb6a505de2e76c1f71ffc58712e0639b024a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbf348cf_bb6fec2c",
+        "filename": "test/640-checker-long-simd/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-09T09:21:15Z",
+      "side": 1,
+      "message": "Minus254",
+      "range": {
+        "startLine": 310,
+        "startChar": 50,
+        "endLine": 310,
+        "endChar": 52
+      },
+      "revId": "bc39cb6a505de2e76c1f71ffc58712e0639b024a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
