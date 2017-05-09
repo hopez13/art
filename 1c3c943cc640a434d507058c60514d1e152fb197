@@ -16,6 +16,24 @@
       "revId": "1c3c943cc640a434d507058c60514d1e152fb197",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb96015c_c8641bb7",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-09T11:45:11Z",
+      "side": 1,
+      "message": "I\u0027ve considered that and decided against it when the condition is composed of two comparisons. But it\u0027s a minor style preference and I don\u0027t mind changing that if more people think a for-loop would be better.",
+      "parentUuid": "0a7ac356_38c99f95",
+      "revId": "1c3c943cc640a434d507058c60514d1e152fb197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
