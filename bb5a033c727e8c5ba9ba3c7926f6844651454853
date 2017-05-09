@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "878e2337_c40bee2b",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T18:12:03Z",
+      "side": 1,
+      "message": "This auto seems ok, since the type is directly clear from the constructor. Just browsing through our code, we seem to have a mixed bag of auto uses. Can you give some rules on when and what to avoid?",
+      "parentUuid": "0813c293_121ec691",
+      "range": {
+        "startLine": 1047,
+        "startChar": 2,
+        "endLine": 1047,
+        "endChar": 6
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de2288cb_988cbac7",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
