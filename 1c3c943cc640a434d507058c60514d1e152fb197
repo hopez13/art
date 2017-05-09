@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fec162be_137c5c92",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T17:34:22Z",
+      "side": 1,
+      "message": "nit: IMHO this makes it much harder to read, can you include the type somewhere/somehow? It\u0027s very hard to understand what *use_it type is.\n\nI\u0027m only mentioning it for this file but every other file has this same issue.",
+      "revId": "1c3c943cc640a434d507058c60514d1e152fb197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a7ac356_38c99f95",
         "filename": "compiler/optimizing/register_allocation_resolver.cc",
         "patchSetId": 1
