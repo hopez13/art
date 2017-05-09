@@ -328,6 +328,30 @@
     },
     {
       "key": {
+        "uuid": "d3308f69_69e984df",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T21:22:21Z",
+      "side": 1,
+      "message": "Thought about this some more.\n\nIf we are more invasive on HNewInstance, we can flag it as having the barrier internal (or not). Then once we get to this pass, it can look at the flag and set the right entrypoint.\n\nAnd the way this could work is to have 4 logical entrypoint states\n\n   resolved-without-barrier\n   resolved-with-barrier\n   initialized-without-barrier\n   initialized-with-barrier\n\n(note: not sure about the soundness of resolved-without-barrier, possibly unsound).\n\nTo save Thread space if they end up being the same code (turns out the -with-barrier and -without-barrier cases have the same code) it can just not take up an extra field (but the GetXOffset function can return the same offset for 2 different states).\n\n----------------\n\nI was hesitant to do this because it\u0027s more invasive/complicated. Also it seems Vmarko is unsure if we even want to add more entrypoints.",
+      "parentUuid": "8b100e88_066ffe66",
+      "range": {
+        "startLine": 182,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 5
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "607da069_3110eb3b",
         "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
         "patchSetId": 1
@@ -345,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "b724f592_e1453e4d",
+        "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T21:22:21Z",
+      "side": 1,
+      "message": "Does it need that? I thought the CHECK-NEXT already covers it.",
+      "parentUuid": "607da069_3110eb3b",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "847ee3cb_c98c9d5d",
         "filename": "test/529-checker-unresolved/src/Main.java",
         "patchSetId": 1
@@ -356,6 +398,24 @@
       "writtenOn": "2017-05-09T21:04:41Z",
       "side": 1,
       "message": "is relying on this being B2 okay? I realize  this was in the original, but it now jumps out to me",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c4c1ea_2208edb1",
+        "filename": "test/529-checker-unresolved/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T21:22:21Z",
+      "side": 1,
+      "message": "I don\u0027t think I understand the question (I didn\u0027t write this test), can you elaborate?",
+      "parentUuid": "847ee3cb_c98c9d5d",
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
