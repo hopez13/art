@@ -187,6 +187,30 @@
     },
     {
       "key": {
+        "uuid": "f14752be_eddb053a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2617,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T21:24:12Z",
+      "side": 1,
+      "message": "Yes, I will remove, but can someone tell me if this is right? I think it\u0027s right, but I\u0027d like to make sure.",
+      "parentUuid": "de2288cb_988cbac7",
+      "range": {
+        "startLine": 2617,
+        "startChar": 6,
+        "endLine": 2617,
+        "endChar": 64
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19a67aaa_ec354114",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 1
