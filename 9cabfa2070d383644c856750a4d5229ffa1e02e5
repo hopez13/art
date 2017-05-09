@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ccb2a60_c9f6b140",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T21:58:12Z",
+      "side": 1,
+      "message": "Please don\u0027t duplicate the call\n\n   stdout \u003d subprocess.PIPE if gdb else None\n   proc \u003d subprocess.Popen(..., stdout\u003dstdout, ...)",
+      "revId": "9cabfa2070d383644c856750a4d5229ffa1e02e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
