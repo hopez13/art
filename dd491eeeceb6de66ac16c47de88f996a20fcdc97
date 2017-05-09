@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "ae1443ce_0062d8af",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-09T17:34:55Z",
+      "side": 1,
+      "message": "I actually don\u0027t particularly like cst, but it was there, and seems consistent with the style used in more simplification rules. So I am leaving a name cleanup for later.",
+      "parentUuid": "5cd6131d_ccd46309",
+      "range": {
+        "startLine": 260,
+        "startChar": 12,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "dd491eeeceb6de66ac16c47de88f996a20fcdc97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a43dac7c_94fed0cf",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
