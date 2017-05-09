@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0813c293_121ec691",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-09T17:51:36Z",
+      "side": 1,
+      "message": "I seem to recall this was discussed in the past on go/art-style-guide ?\n\nI found an example for exactly this (Other C++ Features \u003e Auto) and it seemed to be agreed on at the time?\n\n  // Rewriting slightly with auto, the type is completely obvious from the RHS:\n \n   auto obj \u003d new Object(args); /// \u003c---- this. Same as L1047.\n   auto x \u003d std::make_shared\u003cObject\u003e(args);\n   auto y \u003d std::shared_ptr\u003cObject\u003e(obj);\n   auto address \u003d reinterpret_cast\u003cuintptr_t\u003e(obj) + offset;\n\nIf we don\u0027t want to use auto in optimizing at all, then fine, though I see 48 instances of auto in \u0027optimizing\u0027; nearly all of which are non-obvious and could be rewritten with an explicit type without loss of correctness or performance.",
+      "parentUuid": "69c7c0ef_e9726a60",
+      "range": {
+        "startLine": 1047,
+        "startChar": 2,
+        "endLine": 1047,
+        "endChar": 6
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de2288cb_988cbac7",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
