@@ -205,6 +205,30 @@
     },
     {
       "key": {
+        "uuid": "829bd41b_07fe7155",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T13:51:54Z",
+      "side": 1,
+      "message": "Why? Richard\u0027s argument about \"greppability\" does not apply as the line already contains \"HConstructorFence\".",
+      "parentUuid": "d39a43b7_9e145551",
+      "range": {
+        "startLine": 1047,
+        "startChar": 2,
+        "endLine": 1047,
+        "endChar": 6
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de2288cb_988cbac7",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
