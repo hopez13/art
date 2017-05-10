@@ -22,6 +22,30 @@
       "revId": "88abba2b0cb0151d89e16da3e64025878dc2f142",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "842b9d9d_f49b148b",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T13:53:57Z",
+      "side": 1,
+      "message": "It looks self-explanatory to me. (And we want to drop the old backend soon anyway.)",
+      "parentUuid": "d8b5de33_e90c48af",
+      "range": {
+        "startLine": 927,
+        "startChar": 0,
+        "endLine": 932,
+        "endChar": 3
+      },
+      "revId": "88abba2b0cb0151d89e16da3e64025878dc2f142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
