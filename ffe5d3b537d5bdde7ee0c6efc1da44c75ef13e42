@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75c7a622_9432145b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T18:06:45Z",
+      "side": 1,
+      "message": "I want the hook to be private and as such the \u0026HUseListNode\u003cT\u003e::hook is inaccessible outside the HUseListNode\u003cT\u003e. That seems to include the context of the default parameter.\n\nThe other unfortunate result is that the hook needs to be above rather than below with the other data members.",
+      "parentUuid": "1e3edc4d_0ba3c72b",
+      "range": {
+        "startLine": 1493,
+        "startChar": 23,
+        "endLine": 1493,
+        "endChar": 93
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e2886a_f1a1b35b",
         "filename": "compiler/optimizing/register_allocation_resolver.cc",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2017-05-10T17:32:02Z",
       "side": 1,
       "message": "(nit nit nit . Sorry!)\n\nI guess this auto is ok because it\u0027s clearly used on L330, 331 only.\n\nThe scope of it is a bit long for my liking (326-350) though. This whole function is way too long.\n\nIs there any reason not to refactor 332-350 to a separate helper function to shrink this down?",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c997175_f9152562",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T18:06:45Z",
+      "side": 1,
+      "message": "Would it help to move the assignment to \"use_it\" before the loop?",
+      "parentUuid": "15e2886a_f1a1b35b",
       "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

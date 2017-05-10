@@ -16,6 +16,24 @@
       "revId": "b9c3a99096c746b09af611e55e11b86600374011",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a69d5db4_dd03dd75",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T18:06:45Z",
+      "side": 0,
+      "message": "Seems unnecessary when using the FindMatchingUseRange().",
+      "parentUuid": "3b182db1_09cbc555",
+      "revId": "b9c3a99096c746b09af611e55e11b86600374011",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
