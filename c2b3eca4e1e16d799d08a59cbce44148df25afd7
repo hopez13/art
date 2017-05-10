@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "331362b8_bf2242a7",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-10T17:41:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51282507_c63880b1",
+      "range": {
+        "startLine": 658,
+        "startChar": 41,
+        "endLine": 658,
+        "endChar": 65
+      },
+      "revId": "c2b3eca4e1e16d799d08a59cbce44148df25afd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac72adb4_efda2af0",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 18
@@ -59,6 +83,30 @@
       "writtenOn": "2017-05-10T01:58:06Z",
       "side": 1,
       "message": "thinking more about these lseeks: I don\u0027t think you need to seek forth and back. It\u0027s a hassle and a bit overkill. We already have compressed_data_size.\n\nBasically you can:\n- remove L908 to L922\n- add a simple test for EOF after L925 and return error if there\u0027s still data.",
+      "range": {
+        "startLine": 908,
+        "startChar": 0,
+        "endLine": 909,
+        "endChar": 46
+      },
+      "revId": "c2b3eca4e1e16d799d08a59cbce44148df25afd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1686888e_8bfaff62",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-10T17:41:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2152c19_d04f4cd2",
       "range": {
         "startLine": 908,
         "startChar": 0,
