@@ -1199,12 +1199,52 @@ void Hprof::DumpHeapClass(mirror::Class* klass) {
     return;
   }
   const size_t num_static_fields = klass->NumStaticFields();
-  // Total class size including embedded IMT, embedded vtable, and static fields.
+  // Total class size including IMT ptr, embedded vtable, and static fields.
   const size_t class_size = klass->GetClassSize();
   // Class size excluding static fields (relies on reference fields being the first static fields).
   const size_t class_size_without_overhead = sizeof(mirror::Class);
   CHECK_LE(class_size_without_overhead, class_size);
-  const size_t overhead_size = class_size - class_size_without_overhead;
+  const size_t base_overhead_size = class_size - class_size_without_overhead;
+
+  // Tools (ahat/Studio) will count the static fields and count them for the class size. Subtract
+  // them from the overhead.
+  size_t class_static_fields_size = 0;
+  for (ArtField& class_static_field : klass->GetSFields()) {
+    size_t size = 0;
+    SignatureToBasicTypeAndSize(class_static_field.GetTypeDescriptor(), &size);
+    class_static_fields_size += size;
+  }
+
+  CHECK_GE(base_overhead_size, class_static_fields_size);
+  const size_t base_no_statics_overhead_size = base_overhead_size - class_static_fields_size;
+
+  // Calculate IMT overhead.
+  size_t imt_overhead = 0;
+  if (klass->ShouldHaveImt()) {
+    const PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+    DCHECK(klass->GetImt(pointer_size) != nullptr);
+
+    // IMTs can be shared.
+    mirror::Class* super_klass = klass->GetSuperClass();
+    bool found_dupe = false;
+    while (super_klass != nullptr) {
+      if (super_klass->ShouldHaveImt()) {
+        found_dupe = klass->GetImt(pointer_size) == super_klass->GetImt(pointer_size);
+        break;
+      }
+      super_klass = super_klass->GetSuperClass();
+    }
+    if (!found_dupe) {
+      imt_overhead = ImTable::SizeInBytes(pointer_size);
+    }
+  }
+
+  const size_t overhead_size = base_no_statics_overhead_size + imt_overhead;
+
+  // Note: Tools will double-count any other static fields we emit. E.g., we'll emit instance
+  //       fields of Class to make them visible. It seems bad to try to deduct those fields from
+  //       overhead_size (as it might be too small). It should be more reasonable to let tools
+  //       detect this (and then track the actual overhead better).
 
   if (overhead_size != 0) {
     // Create a byte array to reflect the allocation of the
@@ -1245,47 +1285,73 @@ void Hprof::DumpHeapClass(mirror::Class* klass) {
   __ AddU2(0);  // empty const pool
 
   // Static fields
-  if (overhead_size == 0) {
-    __ AddU2(static_cast<uint16_t>(0));
-  } else {
-    __ AddU2(static_cast<uint16_t>(num_static_fields + 1));
+  //
+  // Note: we report Class' instance fields here, too. This is for visibility reasons. (b/38167721)
+  mirror::Class* class_class = klass->GetClass();
+
+  const size_t static_fields_reported = class_class->NumInstanceFields()
+                                        + (overhead_size != 0 ? 1 : 0)
+                                        + num_static_fields;
+  __ AddU2(dchecked_integral_cast<uint16_t>(static_fields_reported));
+
+  if (overhead_size != 0) {
     __ AddStringId(LookupStringId(kClassOverheadName));
     __ AddU1(hprof_basic_object);
     __ AddClassStaticsId(klass);
+  }
 
-    for (size_t i = 0; i < num_static_fields; ++i) {
-      ArtField* f = klass->GetStaticField(i);
+  // Helper lambda to emit the given static field. The second argument name_fn will be called to
+  // generate the name to emit. This can be used to emit something else than the field's actual
+  // name.
+  auto static_field_writer = [&](ArtField& field, auto name_fn)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    __ AddStringId(LookupStringId(name_fn(field)));
 
-      size_t size;
-      HprofBasicType t = SignatureToBasicTypeAndSize(f->GetTypeDescriptor(), &size);
-      __ AddStringId(LookupStringId(f->GetName()));
-      __ AddU1(t);
-      switch (t) {
-        case hprof_basic_byte:
-          __ AddU1(f->GetByte(klass));
-          break;
-        case hprof_basic_boolean:
-          __ AddU1(f->GetBoolean(klass));
-          break;
-        case hprof_basic_char:
-          __ AddU2(f->GetChar(klass));
-          break;
-        case hprof_basic_short:
-          __ AddU2(f->GetShort(klass));
-          break;
-        case hprof_basic_float:
-        case hprof_basic_int:
-        case hprof_basic_object:
-          __ AddU4(f->Get32(klass));
-          break;
-        case hprof_basic_double:
-        case hprof_basic_long:
-          __ AddU8(f->Get64(klass));
-          break;
-        default:
-          LOG(FATAL) << "Unexpected size " << size;
-          UNREACHABLE();
-      }
+    size_t size;
+    HprofBasicType t = SignatureToBasicTypeAndSize(field.GetTypeDescriptor(), &size);
+    __ AddU1(t);
+    switch (t) {
+      case hprof_basic_byte:
+        __ AddU1(field.GetByte(klass));
+        return;
+      case hprof_basic_boolean:
+        __ AddU1(field.GetBoolean(klass));
+        return;
+      case hprof_basic_char:
+        __ AddU2(field.GetChar(klass));
+        return;
+      case hprof_basic_short:
+        __ AddU2(field.GetShort(klass));
+        return;
+      case hprof_basic_float:
+      case hprof_basic_int:
+      case hprof_basic_object:
+        __ AddU4(field.Get32(klass));
+        return;
+      case hprof_basic_double:
+      case hprof_basic_long:
+        __ AddU8(field.Get64(klass));
+        return;
+    }
+    LOG(FATAL) << "Unexpected size " << size;
+    UNREACHABLE();
+  };
+
+  {
+    auto class_instance_field_name_fn = [](ArtField& field) REQUIRES_SHARED(Locks::mutator_lock_) {
+      return std::string("$class$") + field.GetName();
+    };
+    for (ArtField& class_instance_field : class_class->GetIFields()) {
+      static_field_writer(class_instance_field, class_instance_field_name_fn);
+    }
+  }
+
+  {
+    auto class_static_field_name_fn = [](ArtField& field) REQUIRES_SHARED(Locks::mutator_lock_) {
+      return field.GetName();
+    };
+    for (ArtField& class_static_field : klass->GetSFields()) {
+      static_field_writer(class_static_field, class_static_field_name_fn);
     }
   }
 
