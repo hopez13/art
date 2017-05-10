@@ -9067,12 +9067,12 @@ static void PatchJitRootUse(uint8_t* code,
 
 void CodeGeneratorARM::EmitJitRootPatches(uint8_t* code, const uint8_t* roots_data) {
   for (const auto& entry : jit_string_patches_) {
-    const auto& it = jit_string_roots_.find(entry.first);
+    const auto it = jit_string_roots_.find(entry.first);
     DCHECK(it != jit_string_roots_.end());
     PatchJitRootUse(code, roots_data, entry.second, it->second);
   }
   for (const auto& entry : jit_class_patches_) {
-    const auto& it = jit_class_roots_.find(entry.first);
+    const auto it = jit_class_roots_.find(entry.first);
     DCHECK(it != jit_class_roots_.end());
     PatchJitRootUse(code, roots_data, entry.second, it->second);
   }
