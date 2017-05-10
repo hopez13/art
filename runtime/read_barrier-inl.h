@@ -182,6 +182,18 @@ inline MirrorType* ReadBarrier::BarrierForRoot(mirror::CompressedReference<Mirro
   }
 }
 
+template <typename MirrorType>
+inline MirrorType* ReadBarrier::IsMarked(MirrorType* ref) {
+  if (!kUseReadBarrier) {
+    return ref;
+  }
+  if (ref == nullptr) {
+    return nullptr;
+  }
+  return reinterpret_cast<MirrorType*>(
+      Runtime::Current()->GetHeap()->ConcurrentCopyingCollector()->IsMarked(ref));
+}
+
 inline bool ReadBarrier::IsDuringStartup() {
   gc::Heap* heap = Runtime::Current()->GetHeap();
   if (heap == nullptr) {
