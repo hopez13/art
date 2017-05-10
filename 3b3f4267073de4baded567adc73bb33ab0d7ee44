@@ -46,6 +46,30 @@
       "revId": "3b3f4267073de4baded567adc73bb33ab0d7ee44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83b105b2_9cef1290",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-10T15:36:30Z",
+      "side": 1,
+      "message": "I\u0027m just saying that 0x1 isn\u0027t the greatest sentinel. We had enough \"corruption\" before that wrote small integers into unexpected areas.\n\nMaybe we can rely on a SIGBUS for 0xebad6071 being misaligned. Maybe we can explicitly map that single page and mprotect it.\n\n(Anyways, just a comment, not blocking the CL in any way)",
+      "parentUuid": "07184d43_526d73d5",
+      "range": {
+        "startLine": 328,
+        "startChar": 77,
+        "endLine": 328,
+        "endChar": 80
+      },
+      "revId": "3b3f4267073de4baded567adc73bb33ab0d7ee44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
