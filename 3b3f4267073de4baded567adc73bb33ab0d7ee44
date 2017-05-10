@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f9f68ac_9019050f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-10T15:11:51Z",
+      "side": 1,
+      "message": "Something more eye-popping would be nice, maybe. Clobbering register in Contexts uses kBadGprBase \u003d 0xebad6070.",
+      "range": {
+        "startLine": 328,
+        "startChar": 77,
+        "endLine": 328,
+        "endChar": 80
+      },
+      "revId": "3b3f4267073de4baded567adc73bb33ab0d7ee44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
