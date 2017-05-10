@@ -181,6 +181,30 @@
     },
     {
       "key": {
+        "uuid": "d39a43b7_9e145551",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-10T13:44:08Z",
+      "side": 1,
+      "message": "We avoid it in the compiler.",
+      "parentUuid": "878e2337_c40bee2b",
+      "range": {
+        "startLine": 1047,
+        "startChar": 2,
+        "endLine": 1047,
+        "endChar": 6
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de2288cb_988cbac7",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -216,6 +240,30 @@
       "side": 1,
       "message": "Yes, I will remove, but can someone tell me if this is right? I think it\u0027s right, but I\u0027d like to make sure.",
       "parentUuid": "de2288cb_988cbac7",
+      "range": {
+        "startLine": 2617,
+        "startChar": 6,
+        "endLine": 2617,
+        "endChar": 64
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4914af9_b2891865",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2617,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-10T13:44:08Z",
+      "side": 1,
+      "message": "Depends what you want the users of the allocation to use: either the new instance, or the fence.\n\nDuring our last discussion, using the fence was something to investigate in the future.",
+      "parentUuid": "f14752be_eddb053a",
       "range": {
         "startLine": 2617,
         "startChar": 6,
