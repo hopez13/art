@@ -758,6 +758,24 @@
     },
     {
       "key": {
+        "uuid": "56d159d4_f10700ef",
+        "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-10T18:52:23Z",
+      "side": 1,
+      "message": "CHECK-NOT seems a bit less brittle. Having \u0027next\u0027 checks for the return void following. Using \u0027not\u0027 make sure there is no other occurrence after the first three matches. So it is not necessarily wrong, but imho using the CHECK-NOT fits the typical idiom a bit better",
+      "parentUuid": "85770903_97f3491f",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "847ee3cb_c98c9d5d",
         "filename": "test/529-checker-unresolved/src/Main.java",
         "patchSetId": 1
