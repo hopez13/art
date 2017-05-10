@@ -184,7 +184,7 @@ class GcRootSource {
 template<class MirrorType>
 class GcRoot {
  public:
-  template<ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<ReadBarrierOption kReadBarrierOption = kWithReadBarrier, bool kOnlyCheckIsMarked = false>
   ALWAYS_INLINE MirrorType* Read(GcRootSource* gc_root_source = nullptr) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 

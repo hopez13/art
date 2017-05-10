@@ -27,10 +27,11 @@
 namespace art {
 
 template<class MirrorType>
-template<ReadBarrierOption kReadBarrierOption>
+template<ReadBarrierOption kReadBarrierOption, bool kOnlyCheckIsMarked>
 inline MirrorType* GcRoot<MirrorType>::Read(GcRootSource* gc_root_source) const {
   return down_cast<MirrorType*>(
-      ReadBarrier::BarrierForRoot<mirror::Object, kReadBarrierOption>(&root_, gc_root_source));
+      ReadBarrier::BarrierForRoot<mirror::Object, kReadBarrierOption, kOnlyCheckIsMarked>(
+          &root_, gc_root_source));
 }
 
 template<class MirrorType>

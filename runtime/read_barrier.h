@@ -59,7 +59,9 @@ class ReadBarrier {
 
   // It's up to the implementation whether the given root gets updated
   // whereas the return value must be an updated reference.
-  template <typename MirrorType, ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template <typename MirrorType,
+            ReadBarrierOption kReadBarrierOption = kWithReadBarrier,
+            bool kOnlyCheckIsMarked = false>
   ALWAYS_INLINE static MirrorType* BarrierForRoot(mirror::CompressedReference<MirrorType>* root,
                                                   GcRootSource* gc_root_source = nullptr)
       REQUIRES_SHARED(Locks::mutator_lock_);
