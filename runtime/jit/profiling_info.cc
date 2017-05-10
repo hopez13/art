@@ -90,7 +90,10 @@ InlineCache* ProfilingInfo::GetInlineCache(uint32_t dex_pc) {
 void ProfilingInfo::AddInvokeInfo(uint32_t dex_pc, mirror::Class* cls) {
   InlineCache* cache = GetInlineCache(dex_pc);
   for (size_t i = 0; i < InlineCache::kIndividualCacheSize; ++i) {
-    mirror::Class* existing = cache->classes_[i].Read();
+    // We do not want to do a read barrier, as the classes in the profiling info
+    // are weak roots.
+    mirror::Class* existing =
+        cache->classes_[i].Read<kWithReadBarrier, /* kOnlyCheckIsMarked */ true>();
     if (existing == cls) {
       // Receiver type is already in the cache, nothing else to do.
       return;
