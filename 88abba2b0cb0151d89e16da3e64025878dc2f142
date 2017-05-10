@@ -46,6 +46,30 @@
       "revId": "88abba2b0cb0151d89e16da3e64025878dc2f142",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a17754b_8c27040e",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-10T13:56:02Z",
+      "side": 1,
+      "message": "Having a double force is confusing. At least explaining that it\u0027s for convenience.\n\nBut right, old backend, you can scratch my suggestion.",
+      "parentUuid": "842b9d9d_f49b148b",
+      "range": {
+        "startLine": 927,
+        "startChar": 0,
+        "endLine": 932,
+        "endChar": 3
+      },
+      "revId": "88abba2b0cb0151d89e16da3e64025878dc2f142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
