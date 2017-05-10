@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "152898ad_2acf7580",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9070,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:27:58Z",
+      "side": 1,
+      "message": "The string_index is not the best name.",
+      "parentUuid": "05fc730b_8c0995f9",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98c10995_2e9baa23",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
