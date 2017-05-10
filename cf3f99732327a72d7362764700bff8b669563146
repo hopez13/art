@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "4c89f68c_6a0909b0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9070,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "It\u0027s a literal that points to the entry in the JIT root table.\n\nDone.",
+      "parentUuid": "aafa5cb9_79295223",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98c10995_2e9baa23",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -101,6 +119,24 @@
       "writtenOn": "2017-05-10T17:01:44Z",
       "side": 1,
       "message": "Same as L9070",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dc83279_6f5c35d0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9075,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98c10995_2e9baa23",
       "revId": "cf3f99732327a72d7362764700bff8b669563146",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -124,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "2641d2e0_6be8d67d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6574,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb8aa71d_e01e316f",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee8df0e0_22c5a81d",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -135,6 +189,24 @@
       "writtenOn": "2017-05-10T17:01:44Z",
       "side": 1,
       "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eca884ae_abefa853",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6579,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee8df0e0_22c5a81d",
       "revId": "cf3f99732327a72d7362764700bff8b669563146",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -158,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "671a81e0_9e1be110",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9dfbcfb_f6402baf",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd7c91b4_b17a62e0",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 3
@@ -169,6 +259,24 @@
       "writtenOn": "2017-05-10T17:01:44Z",
       "side": 1,
       "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16d9db28_ac6dcd02",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9259,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd7c91b4_b17a62e0",
       "revId": "cf3f99732327a72d7362764700bff8b669563146",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -192,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "7822cdab_17a29d8d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1783,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done (only half of the ARM changes is applicable)",
+      "parentUuid": "d4383679_428b252d",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eec558b2_f7c53038",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -203,6 +329,24 @@
       "writtenOn": "2017-05-10T17:01:44Z",
       "side": 1,
       "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cdc117c_d00ebd38",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eec558b2_f7c53038",
       "revId": "cf3f99732327a72d7362764700bff8b669563146",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -226,6 +370,24 @@
     },
     {
       "key": {
+        "uuid": "2caf36d8_a45cfe29",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1589,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cba09ca_dfcc68a9",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "689e9eb5_1588240e",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 3
@@ -237,6 +399,24 @@
       "writtenOn": "2017-05-10T17:01:44Z",
       "side": 1,
       "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f6528d0_a42b10a4",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "689e9eb5_1588240e",
       "revId": "cf3f99732327a72d7362764700bff8b669563146",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -260,6 +440,24 @@
     },
     {
       "key": {
+        "uuid": "f0d0f811_3adb737d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7845,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done (only half of the ARM changes is applicable)",
+      "parentUuid": "d1315c86_b90d326a",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22c9d559_5a8e4568",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -271,6 +469,24 @@
       "writtenOn": "2017-05-10T17:01:44Z",
       "side": 1,
       "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6738d88_8359f41d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7852,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22c9d559_5a8e4568",
       "revId": "cf3f99732327a72d7362764700bff8b669563146",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -294,6 +510,24 @@
     },
     {
       "key": {
+        "uuid": "099b620a_fe355069",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done (only half of the ARM changes is applicable)",
+      "parentUuid": "78b5854b_0d1a4c9a",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75b6c6c2_19800142",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -305,6 +539,24 @@
       "writtenOn": "2017-05-10T17:01:44Z",
       "side": 1,
       "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64340b82_4fbc8667",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75b6c6c2_19800142",
       "revId": "cf3f99732327a72d7362764700bff8b669563146",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -328,6 +580,24 @@
     },
     {
       "key": {
+        "uuid": "68ff83a8_012186a6",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf933c1c_7df7e4a6",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09f35d87_e7c82e27",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 3
@@ -339,6 +609,24 @@
       "writtenOn": "2017-05-10T17:01:44Z",
       "side": 1,
       "message": "const?",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3924500_78942251",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09f35d87_e7c82e27",
       "revId": "cf3f99732327a72d7362764700bff8b669563146",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
