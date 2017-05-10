@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04f370ce_da1e1ceb",
+        "filename": "runtime/oat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T09:52:32Z",
+      "side": 1,
+      "message": "Nit: I usually do not add a blank line between copy constructor and copy assignment if they are \"\u003ddefault\".",
+      "revId": "a4cdb3875a94e352322eb4d9453316d6f56c8793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b68097a_bd04509d",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T09:52:32Z",
+      "side": 1,
+      "message": "Move the copy assignment next to the copy constructor.",
+      "revId": "a4cdb3875a94e352322eb4d9453316d6f56c8793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
