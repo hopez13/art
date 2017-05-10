@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "aafa5cb9_79295223",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9070,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:33:39Z",
+      "side": 1,
+      "message": "Isn\u0027t it the dex index? I don\u0027t know this code that well, that\u0027s what it seemed like based on the comments.\n\n  uint64_t some_variable_name_that_makes_sense \u003d it-\u003esecond;\n\n^ is my general point :).",
+      "parentUuid": "152898ad_2acf7580",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98c10995_2e9baa23",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
