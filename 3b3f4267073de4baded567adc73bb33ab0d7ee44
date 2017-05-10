@@ -94,6 +94,30 @@
       "revId": "3b3f4267073de4baded567adc73bb33ab0d7ee44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a925f80_b8e1da2f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T15:45:38Z",
+      "side": 1,
+      "message": "On ARM CPUs we\u0027re always running with unaligned access allowed, so only a handful of instructions (for example, exclusive load/store) would fault.",
+      "parentUuid": "83b105b2_9cef1290",
+      "range": {
+        "startLine": 328,
+        "startChar": 77,
+        "endLine": 328,
+        "endChar": 80
+      },
+      "revId": "3b3f4267073de4baded567adc73bb33ab0d7ee44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
