@@ -776,6 +776,24 @@
     },
     {
       "key": {
+        "uuid": "aaecb244_a9da09fc",
+        "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T21:22:12Z",
+      "side": 1,
+      "message": "Thanks, I updated this entire test file to be less brittle.",
+      "parentUuid": "56d159d4_f10700ef",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "847ee3cb_c98c9d5d",
         "filename": "test/529-checker-unresolved/src/Main.java",
         "patchSetId": 1
