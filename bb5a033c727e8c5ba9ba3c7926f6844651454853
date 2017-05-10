@@ -460,6 +460,24 @@
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3f5f524_c9e55fb9",
+        "filename": "test/529-checker-unresolved/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-10T04:03:07Z",
+      "side": 1,
+      "message": "the loop:B2 tests exactly for the loop\u0027s header being basic block with label 2. That seems awfully brittle (just observing, I realize this was not yours)",
+      "parentUuid": "64c4c1ea_2208edb1",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
