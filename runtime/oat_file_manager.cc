@@ -22,6 +22,15 @@
 
 #include "android-base/stringprintf.h"
 
+// For dex tracking through poisoning. Note: Requires forcing sanitization. This is the reason for
+// the ifdefs and early include.
+#ifdef ART_DEX_FILE_ACCESS_TRACKING
+#ifndef ART_ENABLE_ADDRESS_SANITIZER
+#define ART_ENABLE_ADDRESS_SANITIZER
+#endif
+#endif
+#include "base/memory_tool.h"
+
 #include "art_field-inl.h"
 #include "base/bit_vector-inl.h"
 #include "base/logging.h"
@@ -48,6 +57,14 @@ using android::base::StringPrintf;
 
 // If true, then we attempt to load the application image if it exists.
 static constexpr bool kEnableAppImage = true;
+
+// If true, poison dex files to track accesses.
+static constexpr bool kDexFileAccessTracking =
+#ifdef ART_DEX_FILE_ACCESS_TRACKING
+    true;
+#else
+    false;
+#endif
 
 const OatFile* OatFileManager::RegisterOatFile(std::unique_ptr<const OatFile> oat_file) {
   WriterMutexLock mu(Thread::Current(), *Locks::oat_file_manager_lock_);
@@ -599,6 +616,14 @@ bool OatFileManager::HasCollisions(const OatFile* oat_file,
   return CollisionCheck(dex_files_loaded, dex_files_unloaded, error_msg);
 }
 
+static void RegisterDexFileForAccessTracking(const DexFile* dex_file) {
+  if (kDexFileAccessTracking) {
+    LOG(ERROR) << dex_file->GetLocation() + " @ " << std::hex
+               << reinterpret_cast<uintptr_t>(dex_file->Begin());
+    MEMORY_TOOL_MAKE_NOACCESS(dex_file->Begin(), dex_file->Size());
+  }
+}
+
 std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
     const char* dex_location,
     jobject class_loader,
@@ -737,6 +762,11 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
             // Successfully added image space to heap, release the map so that it does not get
             // freed.
             image_space.release();
+
+            // Register for tracking.
+            for (const auto& dex_file : dex_files) {
+              RegisterDexFileForAccessTracking(dex_file.get());
+            }
           } else {
             LOG(INFO) << "Failed to add image file " << temp_error_msg;
             dex_files.clear();
@@ -756,6 +786,11 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
     if (!added_image_space) {
       DCHECK(dex_files.empty());
       dex_files = oat_file_assistant.LoadDexFiles(*source_oat_file, dex_location);
+
+      // Register for tracking.
+      for (const auto& dex_file : dex_files) {
+        RegisterDexFileForAccessTracking(dex_file.get());
+      }
     }
     if (dex_files.empty()) {
       error_msgs->push_back("Failed to open dex files from " + source_oat_file->GetLocation());
