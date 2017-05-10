@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a164f134_4a515435",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:29:10Z",
+      "side": 1,
+      "message": "I don\u0027t really get it.\n\nWhy does it even need to be a field, what if it just used CRTP\n\n   class HUseListNode : public IntrusiveForwardListHook\u003cHUseListNode\u003e {...}\n\nThen we don\u0027t need any of these hooks,usings,etc in the HUseListNode?",
+      "parentUuid": "75c7a622_9432145b",
+      "range": {
+        "startLine": 1493,
+        "startChar": 23,
+        "endLine": 1493,
+        "endChar": 93
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e2886a_f1a1b35b",
         "filename": "compiler/optimizing/register_allocation_resolver.cc",
         "patchSetId": 3
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "Would it help to move the assignment to \"use_it\" before the loop?",
       "parentUuid": "15e2886a_f1a1b35b",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96f5bf22_1c17d6c7",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:29:10Z",
+      "side": 1,
+      "message": "Probably not worth fixing, the original code is just confusing because the function is too long. auto doesn\u0027t really makes things worse.\n\n------------\n\nI don\u0027t know, if people aren\u0027t scared of lambdas I think this kind of approach is the optimal one in terms of minimizing lifetimes:\n\n   Container\u003cK,V\u003e::iterator use_it \u003d ([\u0026]() {\n      auto matching_use_range \u003d ...();\n      DCHECK(...)\n      for (const T\u0026 t : matching_use_range) {\n         process_beginning_range(t);\n      }\n\n      return matching_use_range.end();\n   })();\n\nor even the lambda-less:\n\n   T var;\n   {\n     .....\n     var \u003d some_result();\n   }\n\n(which unfortunately needs an extra move and is thus slower than the lambda variant)",
+      "parentUuid": "1c997175_f9152562",
       "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
