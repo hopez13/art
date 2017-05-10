@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e3edc4d_0ba3c72b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "Why do we need this? Can we just make it default to this?\n\n(I imagine this looks very scary to most people and it seems unnecessarily complicated to specify these extra 2 parameters everywhere)",
+      "range": {
+        "startLine": 1493,
+        "startChar": 23,
+        "endLine": 1493,
+        "endChar": 93
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e2886a_f1a1b35b",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "(nit nit nit . Sorry!)\n\nI guess this auto is ok because it\u0027s clearly used on L330, 331 only.\n\nThe scope of it is a bit long for my liking (326-350) though. This whole function is way too long.\n\nIs there any reason not to refactor 332-350 to a separate helper function to shrink this down?",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55e3aaeb_d3018b80",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "What is this, can\u0027t find it on cs/ ?",
+      "range": {
+        "startLine": 327,
+        "startChar": 10,
+        "endLine": 327,
+        "endChar": 30
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6518b559_13dd30c7",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "nit: Please leave comment for why it\u0027s getEnd + 1",
+      "range": {
+        "startLine": 327,
+        "startChar": 67,
+        "endLine": 327,
+        "endChar": 87
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2104c0f2_5afc3741",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "Nice.",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f90fffbc_989fccf0",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "nit: same as 326-327",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9db20cb_e5461d19",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "nit: Include a comment for why the +1 ?",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec53abe6_e2892d55",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "nit: comment for +1 ?",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b84f0b_943ed479",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:32:02Z",
+      "side": 1,
+      "message": "(general thoughts. no action needed)\n\nI can see how IterationRange\u003cIterator\u003e makes it for a very very long type name at the use site\n\n  IterationRange\u003cSomeMap\u003cK,V\u003e::iterator\u003e\n\nIt would almost be preferrable if it just specified the container type\n\n  IterationRange\u003cSomeMap\u003cK,V\u003e\u003e and it just knew to look at ::iterator, ::const_iterator, etc automatically.\n\nYet another thought is just to erase away the original type, I think with devirtualizing it could be same performance right?\n\n  IterationRange\u003cstd::pair\u003cK,V\u003e\u003e\n\nOr maybe to have specific types of ranges if we don\u0027t trust devirtualization..\n\n  ArrayRange\u003cK\u003e (this is just ArrayRef today)\n  MapRange\u003cK,V\u003e\n  IntrusiveForwardListRange\u003cK\u003e\n......\n\nI really wish C++ let had partial autos\n\n  auto\u003cK,V\u003e range \u003d FindMatchingUseRange(...)\n\nwould be the easiest.",
+      "range": {
+        "startLine": 228,
+        "startChar": 7,
+        "endLine": 228,
+        "endChar": 21
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
