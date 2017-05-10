@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6c8a2d36_1acf2174",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T13:40:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fec162be_137c5c92",
+      "revId": "1c3c943cc640a434d507058c60514d1e152fb197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a7ac356_38c99f95",
         "filename": "compiler/optimizing/register_allocation_resolver.cc",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "If nobody else chimes in, feel free to ignore my suggestion. I generally like having the loop logic at top just to avoid hunting for the ++use_it somewhere down, but don\u0027t feel super strong about it either.",
       "parentUuid": "eb96015c_c8641bb7",
+      "revId": "1c3c943cc640a434d507058c60514d1e152fb197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a119e733_fa274f62",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T13:40:36Z",
+      "side": 1,
+      "message": "Rewritten using range-based loop.",
+      "parentUuid": "7c3d6dea_1e82b77b",
       "revId": "1c3c943cc640a434d507058c60514d1e152fb197",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

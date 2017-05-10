@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6291a029_5d222819",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T13:40:36Z",
+      "side": 1,
+      "message": "Andreas, is there a reason why there was \"\u003c\" instead of \"\u003c\u003d\" as in the other two places? (I\u0027m just preserving the existing semantics by omitting the \"+1\" added for the other two cases.)",
+      "range": {
+        "startLine": 991,
+        "startChar": 69,
+        "endLine": 991,
+        "endChar": 70
+      },
+      "revId": "e9dc73499fe170e38c2542066bd27f640aca0c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
