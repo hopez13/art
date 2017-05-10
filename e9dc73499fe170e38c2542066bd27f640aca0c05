@@ -45,6 +45,30 @@
       "revId": "e9dc73499fe170e38c2542066bd27f640aca0c05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6357f03_d855dd4f",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T17:04:28Z",
+      "side": 1,
+      "message": "Introduced a local variable here and in other places. (Kept this style in the test.)",
+      "parentUuid": "2a018746_07ebadca",
+      "range": {
+        "startLine": 300,
+        "startChar": 21,
+        "endLine": 300,
+        "endChar": 22
+      },
+      "revId": "e9dc73499fe170e38c2542066bd27f640aca0c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
