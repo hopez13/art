@@ -70,6 +70,30 @@
       "revId": "3b3f4267073de4baded567adc73bb33ab0d7ee44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f32389fd_1194aae6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-10T15:39:59Z",
+      "side": 1,
+      "message": "I know it\u0027s not the greatest sentinel. But I cannot afford a read to a potentially accessible address, as I want the crash to happen just as if there was no sentinel.\n\nThis is supposedly a class, so reads can be of different size.\n\nBefore I went with 0x1, we\u0027ve chatted with Vladimir if there was another address we could poke into, but didn\u0027t know any. Obviously, I\u0027ll take any better sentinel that would ensure a crash.",
+      "parentUuid": "83b105b2_9cef1290",
+      "range": {
+        "startLine": 328,
+        "startChar": 77,
+        "endLine": 328,
+        "endChar": 80
+      },
+      "revId": "3b3f4267073de4baded567adc73bb33ab0d7ee44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
