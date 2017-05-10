@@ -22,6 +22,30 @@
       "revId": "270970e660d3c99e62a88b18144d159dd8699c55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da8c6b6a_78b7acc5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9070,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-10T16:41:30Z",
+      "side": 0,
+      "message": "Because I don\u0027t like binding a const reference to a temporary. It\u0027s such a weird language corner case that very few people understand what that actually means.",
+      "parentUuid": "b905d95a_679e5984",
+      "range": {
+        "startLine": 9070,
+        "startChar": 15,
+        "endLine": 9070,
+        "endChar": 16
+      },
+      "revId": "270970e660d3c99e62a88b18144d159dd8699c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
