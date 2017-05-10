@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b487b7f_38403cc0",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Can this type be explicit here?",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05fc730b_8c0995f9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9070,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Consider this for readability, as with the previous files that were changed:\n\n   const StringReference\u0026 string_ref \u003d entry.first;\n   Literal* string_literal \u003d entry.second;\n\n   const auto it \u003d jit_string_roots_.find(string_ref);\n   DCHECK(...)\n   uint64_t string_index \u003d it-\u003esecond;\n   PatchJitRootUse(code, roots_data, string_literal, string_index);\n\nI think an acceptable alternative to not introduce all these temps is to instead use the explicit type for the iterator\n\n   for (const std::pair\u003cStringReference, Literal*\u003e\u0026 entry : jit_string_patches_) {\n     const ArenaSafeMap\u003cStringReference, uint64_t, StringReferenceValueComparator\u003e::iterator it \u003d ...;\n     DCHECK(...)\n     PatchJitRootUse(...)\n\n   }",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98c10995_2e9baa23",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9075,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb8aa71d_e01e316f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6574,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee8df0e0_22c5a81d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6579,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9dfbcfb_f6402baf",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9254,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd7c91b4_b17a62e0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9259,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4383679_428b252d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1783,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eec558b2_f7c53038",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cba09ca_dfcc68a9",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1589,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "689e9eb5_1588240e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1315c86_b90d326a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7845,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22c9d559_5a8e4568",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7852,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78b5854b_0d1a4c9a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75b6c6c2_19800142",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7159,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "Same as L9070 in code_generator_arm.cc",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf933c1c_7df7e4a6",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09f35d87_e7c82e27",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "cf3f99732327a72d7362764700bff8b669563146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

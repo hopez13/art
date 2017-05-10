@@ -46,6 +46,30 @@
       "revId": "270970e660d3c99e62a88b18144d159dd8699c55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3c75358_956b0ce9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9070,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T17:01:44Z",
+      "side": 0,
+      "message": "I think this trick usually only makes sense in the rare case that the copy/move constructor is non-public.\n\n+1 for removing it to make it more clean, thanks.",
+      "parentUuid": "da8c6b6a_78b7acc5",
+      "range": {
+        "startLine": 9070,
+        "startChar": 15,
+        "endLine": 9070,
+        "endChar": 16
+      },
+      "revId": "270970e660d3c99e62a88b18144d159dd8699c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
