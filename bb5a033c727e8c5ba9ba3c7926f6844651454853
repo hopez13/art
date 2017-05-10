@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ca510af1_d625385a",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cf1cac9_69b6d16b",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31325c9c_14e2cc3f",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 1
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "6d921499_69418d4f",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31325c9c_14e2cc3f",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3489fb88_0a03a690",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 1
@@ -64,6 +100,24 @@
       "writtenOn": "2017-05-09T21:04:41Z",
       "side": 1,
       "message": "TODO: ?",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5f1981b_5873f202",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "This isn\u0027t a TODO, I was hoping Nicolas would comment here regarding correctness.",
+      "parentUuid": "3489fb88_0a03a690",
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +147,30 @@
     },
     {
       "key": {
+        "uuid": "e117a580_1678aa14",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78d9d076_65ecb6e0",
+      "range": {
+        "startLine": 1007,
+        "startChar": 14,
+        "endLine": 1007,
+        "endChar": 18
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9de8ff54_e5ee66ac",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -104,6 +182,24 @@
       "writtenOn": "2017-05-09T23:30:36Z",
       "side": 1,
       "message": "klass-\u003eIsStringClass()\nThe alignment also seems off here, but it should take one line with IsStringClass() anyway.",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a9bdd0a_cb1c78fa",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Done\n\n(Alignment should\u0027ve been fine, 4 spaces indent over the start of the subexpression at \"if (\" )",
+      "parentUuid": "9de8ff54_e5ee66ac",
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -277,6 +373,30 @@
     },
     {
       "key": {
+        "uuid": "2221dbc7_d6161c31",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "8b1c5d4b_f452ea12",
+      "range": {
+        "startLine": 1047,
+        "startChar": 2,
+        "endLine": 1047,
+        "endChar": 6
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de2288cb_988cbac7",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -371,6 +491,30 @@
     },
     {
       "key": {
+        "uuid": "e0c58f13_5d7a2fe6",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19a67aaa_ec354114",
+      "range": {
+        "startLine": 171,
+        "startChar": 70,
+        "endLine": 171,
+        "endChar": 76
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dadd3a7f_d5b4a953",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 1
@@ -430,6 +574,30 @@
       "side": 1,
       "message": "Measure the code size impact first to see if that\u0027s really desirable. I\u0027d expect the code size increase to be small enough and I\u0027d rather avoid adding new entrypoints and increasing sizeof(Thread).",
       "parentUuid": "fdaf713c_4ac9e631",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 57
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3840bae5_02b3422a",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Measurements added to commit message.\n\nAny other actions to take here?",
+      "parentUuid": "120b2250_d2df3423",
       "range": {
         "startLine": 175,
         "startChar": 0,
@@ -513,6 +681,30 @@
     },
     {
       "key": {
+        "uuid": "9935d2a8_75d3f9e0",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "What is the action to take here? \n\nI can also clean this up once I introduce a separate fence redundancy pass to group it with all the other fence logic.\n\n(TODO added)",
+      "parentUuid": "d3308f69_69e984df",
+      "range": {
+        "startLine": 182,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 5
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "607da069_3110eb3b",
         "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
         "patchSetId": 1
@@ -542,6 +734,24 @@
       "side": 1,
       "message": "Does it need that? I thought the CHECK-NEXT already covers it.",
       "parentUuid": "607da069_3110eb3b",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85770903_97f3491f",
+        "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Looking at CHECKER README this doesn\u0027t seem obviously wrong.\n\nI am assuming matching is greedy.\n\n   A A A D \n   1 2 3 4 \n\n\"CHECKS\" should be consumed in 1,2,3,4\n\nSo input like\n\n   A A A A D\n   1 2 3 4 5\n\nwould fail at (4).\n\nIf it was instead doing more complicated look-ahead/track-back parsing I suppose it could discard (1) and resume matching at 2-5.\n----\nPlease someone who knows CHECKER better than me chime in here.",
+      "parentUuid": "b724f592_e1453e4d",
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -595,6 +805,24 @@
       "side": 1,
       "message": "the loop:B2 tests exactly for the loop\u0027s header being basic block with label 2. That seems awfully brittle (just observing, I realize this was not yours)",
       "parentUuid": "64c4c1ea_2208edb1",
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "991d7c27_ed3692a6",
+        "filename": "test/529-checker-unresolved/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-10T18:43:24Z",
+      "side": 1,
+      "message": "Got it. Fixed.",
+      "parentUuid": "b3f5f524_c9e55fb9",
       "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
