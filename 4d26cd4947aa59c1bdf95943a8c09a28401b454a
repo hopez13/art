@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ce7de7f3_270efae0",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-10T16:53:39Z",
+      "side": 1,
+      "message": "Comment that it returns null if the GcRoot is not marked?",
+      "range": {
+        "startLine": 190,
+        "startChar": 28,
+        "endLine": 190,
+        "endChar": 40
+      },
+      "revId": "4d26cd4947aa59c1bdf95943a8c09a28401b454a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17dcdb07_6710ec9c",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 3
@@ -13,6 +36,30 @@
       "writtenOn": "2017-05-10T16:49:37Z",
       "side": 1,
       "message": "Mathieu, is that sensible?",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 3
+      },
+      "revId": "4d26cd4947aa59c1bdf95943a8c09a28401b454a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b19e2cf1_521f4100",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-10T16:53:39Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s safe to call IsMarked if the GC is not running, maybe return ref if !self-\u003eGetIsGcMarking()?",
+      "parentUuid": "17dcdb07_6710ec9c",
       "range": {
         "startLine": 187,
         "startChar": 0,
