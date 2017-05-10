@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76b23d8a_3452571a",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-10T02:02:07Z",
+      "side": 1,
+      "message": "use \u0027index\u0027 instead of \u0027id\u0027. Usually the method_id refers to something else and I don\u0027t want to overload the term (see DexFile.h)",
+      "range": {
+        "startLine": 309,
+        "startChar": 25,
+        "endLine": 309,
+        "endChar": 27
+      },
+      "revId": "f6e316bc4ab7b039d1e600cd0ce67fca1f37cbee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7be48ce3_399dd566",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-10T02:02:07Z",
+      "side": 1,
+      "message": "add\nDCHECK_GT(method_it.first, last_method_id);",
+      "range": {
+        "startLine": 313,
+        "startChar": 6,
+        "endLine": 313,
+        "endChar": 74
+      },
+      "revId": "f6e316bc4ab7b039d1e600cd0ce67fca1f37cbee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26903253_b158d438",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-10T02:02:07Z",
+      "side": 1,
+      "message": "ditto: use index.",
+      "range": {
+        "startLine": 319,
+        "startChar": 24,
+        "endLine": 319,
+        "endChar": 26
+      },
+      "revId": "f6e316bc4ab7b039d1e600cd0ce67fca1f37cbee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1af28871_e798378c",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-10T02:02:07Z",
+      "side": 1,
+      "message": "add\nDCHECK_GT(class_id.index_, last_class_id)",
+      "range": {
+        "startLine": 323,
+        "startChar": 6,
+        "endLine": 323,
+        "endChar": 73
+      },
+      "revId": "f6e316bc4ab7b039d1e600cd0ce67fca1f37cbee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40b13bab_2ff0a886",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-10T02:02:07Z",
+      "side": 1,
+      "message": "index, here and below",
+      "range": {
+        "startLine": 647,
+        "startChar": 23,
+        "endLine": 647,
+        "endChar": 25
+      },
+      "revId": "f6e316bc4ab7b039d1e600cd0ce67fca1f37cbee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
