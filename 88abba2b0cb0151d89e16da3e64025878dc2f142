@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8b5de33_e90c48af",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-10T13:50:20Z",
+      "side": 1,
+      "message": "It\u0027d be good to add a comment about the reason for the new flag. When only looking at this class, it looks very surprising.",
+      "range": {
+        "startLine": 927,
+        "startChar": 0,
+        "endLine": 932,
+        "endChar": 3
+      },
+      "revId": "88abba2b0cb0151d89e16da3e64025878dc2f142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
