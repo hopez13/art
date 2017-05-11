@@ -70,20 +70,29 @@ static const vixl::aarch64::FPRegister kParameterFPRegisters[] = {
 };
 static constexpr size_t kParameterFPRegistersLength = arraysize(kParameterFPRegisters);
 
-// Thread Register
+// Thread Register.
 const vixl::aarch64::Register tr = vixl::aarch64::x19;
+// Marking Register.
+// TODO: Use a caller-save register (e.g. x18, or maybe x15), instead
+// of using a callee-save register?
+const vixl::aarch64::Register mr = vixl::aarch64::x20;
 // Method register on invoke.
 static const vixl::aarch64::Register kArtMethodRegister = vixl::aarch64::x0;
 const vixl::aarch64::CPURegList vixl_reserved_core_registers(vixl::aarch64::ip0,
                                                              vixl::aarch64::ip1);
 const vixl::aarch64::CPURegList vixl_reserved_fp_registers(vixl::aarch64::d31);
 
-const vixl::aarch64::CPURegList runtime_reserved_core_registers(tr, vixl::aarch64::lr);
+// Reserve X20 as Marking Register when emitting Baker read barriers.
+const vixl::aarch64::CPURegList runtime_reserved_core_registers =
+    (kEmitCompilerReadBarrier && kUseBakerReadBarrier)
+        ? vixl::aarch64::CPURegList(tr, mr, vixl::aarch64::lr)
+        : vixl::aarch64::CPURegList(tr, vixl::aarch64::lr);
 
-// Callee-saved registers AAPCS64 (without x19 - Thread Register)
+// Callee-save registers AAPCS64, without x19 (Thread Register) or
+// x20 (Marking Register).
 const vixl::aarch64::CPURegList callee_saved_core_registers(vixl::aarch64::CPURegister::kRegister,
                                                             vixl::aarch64::kXRegSize,
-                                                            vixl::aarch64::x20.GetCode(),
+                                                            vixl::aarch64::x21.GetCode(),
                                                             vixl::aarch64::x30.GetCode());
 const vixl::aarch64::CPURegList callee_saved_fp_registers(vixl::aarch64::CPURegister::kFPRegister,
                                                           vixl::aarch64::kDRegSize,
