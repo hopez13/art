@@ -397,6 +397,30 @@
     },
     {
       "key": {
+        "uuid": "3d59b8d0_f4ec0920",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "Sure you\u0027ll find auto in the code base. The general rule is to not use it unless writing the type is as useless as writing \u0027auto\u0027. Which is usually the case with stl iterators.",
+      "parentUuid": "8b1c5d4b_f452ea12",
+      "range": {
+        "startLine": 1047,
+        "startChar": 2,
+        "endLine": 1047,
+        "endChar": 6
+      },
+      "revId": "bb5a033c727e8c5ba9ba3c7926f6844651454853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de2288cb_988cbac7",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1

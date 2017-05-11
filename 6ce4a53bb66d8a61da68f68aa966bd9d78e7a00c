@@ -2,6 +2,397 @@
   "comments": [
     {
       "key": {
+        "uuid": "39beb125_b0b6120a",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "Why this scope?",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 5
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3911e5_bc795157",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "Please add a helper in HConstructorFence for this. Something like HConstructorFence::IsForAllocation.",
+      "range": {
+        "startLine": 62,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46d444dd_40b76b42",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "I think you can move this to the helper.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 5
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1ab008c_782b3f44",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "I don\u0027t think so.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 40
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99bca53d_8558d100",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 409,
+        "startChar": 8,
+        "endLine": 410,
+        "endChar": 48
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d409016_339e60fa",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "HNewInstance",
+      "range": {
+        "startLine": 989,
+        "startChar": 2,
+        "endLine": 989,
+        "endChar": 6
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56f92678_b407872f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "Remove these spaces.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 9,
+        "endLine": 1003,
+        "endChar": 13
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eeb42c7_672f918d",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 1028,
+        "startChar": 51,
+        "endLine": 1028,
+        "endChar": 59
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee28f397_6c7306fa",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "Why the question mark?",
+      "range": {
+        "startLine": 1049,
+        "startChar": 11,
+        "endLine": 1049,
+        "endChar": 62
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bcad3ba_b88ec90c",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "Start with capital (same below).",
+      "range": {
+        "startLine": 1054,
+        "startChar": 5,
+        "endLine": 1054,
+        "endChar": 9
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef371994_19d5525e",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "HNew Instance and HNewArray",
+      "range": {
+        "startLine": 293,
+        "startChar": 35,
+        "endLine": 293,
+        "endChar": 41
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "775a78dc_eda0c861",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "Allocations",
+      "range": {
+        "startLine": 295,
+        "startChar": 31,
+        "endLine": 295,
+        "endChar": 35
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1556f685_be4bade0",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "allocation",
+      "range": {
+        "startLine": 295,
+        "startChar": 49,
+        "endLine": 295,
+        "endChar": 61
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9db1357_64b57fd9",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "How about instruction_simplifier?",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 38
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b8a86f_2a547e11",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "Use the helper on HConstructorFence I mention earlier.",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 57
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b6c6dae_78ed2e7a",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "This is misplaced. Or at least mention that you are talking about the code in the .S files.",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 70
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc59d7b0_2b5e0c04",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-11T08:54:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 75
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05355ef3_65ba9c27",
         "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
         "patchSetId": 3
