@@ -580,6 +580,13 @@ if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
   fi
 fi
 
+# Make sure we delete any existing compiler artifacts.
+# This enables tests to call the RUN script multiple times in a row
+# without worrying about interference.
+rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.odex
+rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.vdex
+rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.art
+
 if [ "$PREBUILD" = "y" ]; then
   mkdir_locations="${mkdir_locations} ${DEX_LOCATION}/oat/$ISA"
   if [ "$APP_IMAGE" = "y" ]; then
