@@ -22,6 +22,30 @@
       "revId": "373eb5565b5b9aef126a0b755b3b4af0c55e6ac8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57cf7c35_9809c06e",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 3
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-11T18:10:30Z",
+      "side": 1,
+      "message": "I should have guarded it by host but I thought \"-f\" is enough.\n\nIt\u0027s ok on device because we delete the entire dex_location before push:\n\"adb shell rm -r $DEX_LOCATION\"",
+      "parentUuid": "0c1f7214_6aa525a6",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 588,
+        "endChar": 43
+      },
+      "revId": "373eb5565b5b9aef126a0b755b3b4af0c55e6ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
