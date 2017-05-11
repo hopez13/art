@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "93755e63_4a567ed0",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-11T15:11:02Z",
+      "side": 1,
+      "message": "I believe we never fix up things to be consistent. E.g., the runtime-internal-objects stuff isn\u0027t accounted for in the class dumps instance size.\n\nAlso since there\u0027s no size in a class-dump for this class, I believe this is still OK.\n\nOpinion on that reasoning?",
+      "parentUuid": "f5972c13_d2383eb3",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efd91c4c_383907e9",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2017-05-11T14:38:46Z",
       "side": 1,
       "message": "This is an anonymous function? Can you document what it does? Are there problems with making it a normal function instead?",
+      "range": {
+        "startLine": 1263,
+        "startChar": 2,
+        "endLine": 1263,
+        "endChar": 63
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "963d13ec_6134d3d2",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-11T15:11:02Z",
+      "side": 1,
+      "message": "No real problems. I like lambdas for their scoping. Writing static fields is pretty much specific to class dumps, so would not be shared with any other function.",
+      "parentUuid": "e35665ce_c43d302c",
       "range": {
         "startLine": 1263,
         "startChar": 2,
