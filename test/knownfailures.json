@@ -684,5 +684,13 @@
             "The java.lang.Integer.valueOf intrinsic is not supported in PIC mode."
         ],
         "variant": "optimizing & pictest | speed-profile & pictest"
+    },
+    {
+        "tests": "137-cfi",
+        "description": [
+            "The cfi test fails in no prebuild mode."
+        ],
+        "bug": "b/38213479",
+        "variant": "no-prebuild"
     }
 ]
