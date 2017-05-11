@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0796062_b9475fe2",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T14:41:08Z",
+      "side": 1,
+      "message": "You already have that value in `out`.",
+      "range": {
+        "startLine": 2573,
+        "startChar": 4,
+        "endLine": 2573,
+        "endChar": 22
+      },
+      "revId": "2704834e7f346a06682c113a2ec9929d2eb6b5d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f3255f5_b011380f",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T14:41:08Z",
+      "side": 1,
+      "message": "You already have that value in `out`.",
+      "range": {
+        "startLine": 913,
+        "startChar": 4,
+        "endLine": 913,
+        "endChar": 23
+      },
+      "revId": "2704834e7f346a06682c113a2ec9929d2eb6b5d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc2e3db1_4ca2b620",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T14:41:08Z",
+      "side": 1,
+      "message": "You\u0027re a bit inconsistent here, the kPrimDouble case is using TMP.",
+      "range": {
+        "startLine": 924,
+        "startChar": 13,
+        "endLine": 924,
+        "endChar": 15
+      },
+      "revId": "2704834e7f346a06682c113a2ec9929d2eb6b5d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
