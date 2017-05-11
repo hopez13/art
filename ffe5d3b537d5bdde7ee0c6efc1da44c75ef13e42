@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "db400697_49f29629",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:42:20Z",
+      "side": 1,
+      "message": "Yes, I though about that option. It still says \"public\" (base class instead of member).",
+      "parentUuid": "a164f134_4a515435",
+      "range": {
+        "startLine": 1493,
+        "startChar": 23,
+        "endLine": 1493,
+        "endChar": 93
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e2886a_f1a1b35b",
         "filename": "compiler/optimizing/register_allocation_resolver.cc",
         "patchSetId": 3
@@ -172,6 +196,54 @@
     },
     {
       "key": {
+        "uuid": "41cbee81_29e48b67",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6518b559_13dd30c7",
+      "range": {
+        "startLine": 327,
+        "startChar": 67,
+        "endLine": 327,
+        "endChar": 87
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00a0613b_d6a487d2",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:42:20Z",
+      "side": 1,
+      "message": "That\u0027s newly added in this CL in ssa_liveness_analysis.h . Feel free to suggest a better place for it. It\u0027s used here and in the register_allocator_graph_color.cc .",
+      "parentUuid": "55e3aaeb_d3018b80",
+      "range": {
+        "startLine": 327,
+        "startChar": 10,
+        "endLine": 327,
+        "endChar": 30
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2104c0f2_5afc3741",
         "filename": "compiler/optimizing/register_allocation_resolver.cc",
         "patchSetId": 3
@@ -206,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "3a5e1ec3_f9728838",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f90fffbc_989fccf0",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9db20cb_e5461d19",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 3
@@ -223,6 +313,24 @@
     },
     {
       "key": {
+        "uuid": "38867263_d927de87",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:42:20Z",
+      "side": 1,
+      "message": "Done (though I\u0027m just documenting what\u0027s going on here, unaware if I correctly captured the intent)",
+      "parentUuid": "e9db20cb_e5461d19",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec53abe6_e2892d55",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 3
@@ -234,6 +342,24 @@
       "writtenOn": "2017-05-10T17:32:02Z",
       "side": 1,
       "message": "nit: comment for +1 ?",
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8950e1d6_62cbb7ec",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec53abe6_e2892d55",
       "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
