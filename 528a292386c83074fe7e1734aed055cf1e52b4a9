@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "aaf7ceb8_b1d8b566",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-11T16:21:28Z",
+      "side": 1,
+      "message": "I think most heap dump tools determine the size of a class object by taking the instance size associated with instances of java.lang.Class and adding the size of the static fields. This means they would end up double counting the class object instance fields? Let me think about that.",
+      "parentUuid": "93755e63_4a567ed0",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efd91c4c_383907e9",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "No real problems. I like lambdas for their scoping. Writing static fields is pretty much specific to class dumps, so would not be shared with any other function.",
       "parentUuid": "e35665ce_c43d302c",
+      "range": {
+        "startLine": 1263,
+        "startChar": 2,
+        "endLine": 1263,
+        "endChar": 63
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd78fdf_d9df7ec3",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-11T16:21:28Z",
+      "side": 1,
+      "message": "It took me a long time to figure out what this was doing, perhaps because I am not very familiar with lambdas in C++. It would have been easier for me to understand if it was a normal function.\n\nI would still like a comment at least describing what the static_field_writer function does and what name_fn is.",
+      "parentUuid": "963d13ec_6134d3d2",
       "range": {
         "startLine": 1263,
         "startChar": 2,
