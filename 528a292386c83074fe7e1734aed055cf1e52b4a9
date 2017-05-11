@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5972c13_d2383eb3",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-11T14:38:46Z",
+      "side": 1,
+      "message": "Is this overhead_size still correct? Now that we include the instance fields as static fields, should their size be subtracted from overhead_size?",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efd91c4c_383907e9",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-11T14:38:46Z",
+      "side": 1,
+      "message": "Add a link to the bug in the comment to give more context for this somewhat subtle point?",
+      "range": {
+        "startLine": 1249,
+        "startChar": 0,
+        "endLine": 1249,
+        "endChar": 54
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e35665ce_c43d302c",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-11T14:38:46Z",
+      "side": 1,
+      "message": "This is an anonymous function? Can you document what it does? Are there problems with making it a normal function instead?",
+      "range": {
+        "startLine": 1263,
+        "startChar": 2,
+        "endLine": 1263,
+        "endChar": 63
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
