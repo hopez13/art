@@ -580,6 +580,13 @@ if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
   fi
 fi
 
+# Make sure we delete any existing compiler artifacts.
+# This enables tests to call the RUN script multiple times in a row
+# without worring about interference.
+rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.odex
+rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.vdex
+rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.art
+
 if [ "$PREBUILD" = "y" ]; then
   mkdir_locations="${mkdir_locations} ${DEX_LOCATION}/oat/$ISA"
   if [ "$APP_IMAGE" = "y" ]; then
@@ -617,6 +624,13 @@ if [ "$PREBUILD" = "y" ]; then
   elif [ "$TEST_VDEX" = "y" ]; then
     vdex_cmdline="${dex2oat_cmdline} ${VDEX_FILTER} --input-vdex=$DEX_LOCATION/oat/$ISA/$TEST_NAME.vdex"
   fi
+else
+  # No prebuild mode.
+  # Make sure we delete any compiler artifacts in case the test invokes RUN
+  # multiple times.
+  rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.odex
+  rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.vdex
+  rm -f $DEX_LOCATION/oat/$ISA/$TEST_NAME.art
 fi
 
 if [ "$STRIP_DEX" = "y" ]; then
