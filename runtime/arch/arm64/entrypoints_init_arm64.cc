@@ -31,7 +31,7 @@
 namespace art {
 
 // Cast entrypoints.
-extern "C" size_t artInstanceOfFromCode(mirror::Object* obj, mirror::Class* ref_class);
+extern "C" size_t art_quick_instance_of(mirror::Object* obj, mirror::Class* ref_class);
 
 // Read barrier entrypoints.
 // art_quick_read_barrier_mark_regX uses an non-standard calling
@@ -135,7 +135,7 @@ void InitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qpoints) {
   DefaultInitEntryPoints(jpoints, qpoints);
 
   // Cast
-  qpoints->pInstanceofNonTrivial = artInstanceOfFromCode;
+  qpoints->pInstanceofNonTrivial = art_quick_instance_of;
   qpoints->pCheckInstanceOf = art_quick_check_instance_of;
 
   // Math
