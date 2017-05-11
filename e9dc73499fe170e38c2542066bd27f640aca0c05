@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3006519b_9aa1de64",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-11T16:43:13Z",
+      "side": 1,
+      "message": "Mingyao? It does seem a bit strange with the split in line 986.\n\n(Note that except for literals I don\u0027t think there\u0027s an immediate use of a just-started interval.)",
+      "parentUuid": "6291a029_5d222819",
+      "range": {
+        "startLine": 991,
+        "startChar": 69,
+        "endLine": 991,
+        "endChar": 70
+      },
+      "revId": "e9dc73499fe170e38c2542066bd27f640aca0c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a018746_07ebadca",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
