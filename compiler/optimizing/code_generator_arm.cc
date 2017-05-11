@@ -3339,15 +3339,17 @@ void InstructionCodeGeneratorARM::HandleCondition(HCondition* cond) {
 
   DCHECK(Primitive::IsIntegralType(type) || type == Primitive::kPrimNot) << type;
 
-  if (type == Primitive::kPrimBoolean) {
+  const IfCondition condition = cond->GetCondition();
+
+  if (type == Primitive::kPrimBoolean && cond->GetRight()->GetType() == Primitive::kPrimBoolean &&
+      (condition == kCondEQ || condition == kCondNE)) {
     const LocationSummary* const locations = cond->GetLocations();
-    const IfCondition c = cond->GetCondition();
     Register left = locations->InAt(0).AsRegister<Register>();
     const Register out = locations->Out().AsRegister<Register>();
     const Location right_loc = locations->InAt(1);
 
     // All other cases are handled by the instruction simplifier.
-    DCHECK((c == kCondEQ || c == kCondNE) && !right_loc.IsConstant());
+    DCHECK(!right_loc.IsConstant());
 
     Register right = right_loc.AsRegister<Register>();
 
@@ -3358,7 +3360,7 @@ void InstructionCodeGeneratorARM::HandleCondition(HCondition* cond) {
 
     __ eor(out, left, ShifterOperand(right));
 
-    if (c == kCondEQ) {
+    if (condition == kCondEQ) {
       __ eor(out, out, ShifterOperand(1));
     }
 

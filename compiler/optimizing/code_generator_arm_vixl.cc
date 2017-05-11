@@ -3425,14 +3425,16 @@ void InstructionCodeGeneratorARMVIXL::HandleCondition(HCondition* cond) {
 
   DCHECK(Primitive::IsIntegralType(type) || type == Primitive::kPrimNot) << type;
 
-  if (type == Primitive::kPrimBoolean) {
-    const IfCondition c = cond->GetCondition();
+  const IfCondition condition = cond->GetCondition();
+
+  if (type == Primitive::kPrimBoolean && cond->GetRight()->GetType() == Primitive::kPrimBoolean &&
+      (condition == kCondEQ || condition == kCondNE)) {
     vixl32::Register left = InputRegisterAt(cond, 0);
     const vixl32::Register out = OutputRegister(cond);
     const Location right_loc = cond->GetLocations()->InAt(1);
 
     // All other cases are handled by the instruction simplifier.
-    DCHECK((c == kCondEQ || c == kCondNE) && !right_loc.IsConstant());
+    DCHECK(!right_loc.IsConstant());
 
     vixl32::Register right = RegisterFrom(right_loc);
 
@@ -3443,7 +3445,7 @@ void InstructionCodeGeneratorARMVIXL::HandleCondition(HCondition* cond) {
 
     __ Eor(out, left, right);
 
-    if (c == kCondEQ) {
+    if (condition == kCondEQ) {
       __ Eor(out, out, 1);
     }
 
