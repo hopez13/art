@@ -136,7 +136,11 @@ void Arm64Context::DoLongJump() {
   for (size_t i = 0; i < kNumberOfDRegisters; ++i) {
     fprs[i] = fprs_[i] != nullptr ? *fprs_[i] : Arm64Context::kBadFprBase + i;
   }
-  DCHECK_EQ(reinterpret_cast<uintptr_t>(Thread::Current()), gprs[TR]);
+  Thread* self = Thread::Current();
+  // Ensure the Thread Register contains the address of the current thread.
+  DCHECK_EQ(reinterpret_cast<uintptr_t>(self), gprs[TR]);
+  // Refresh the Marking Register (X20).
+  gprs[X20] = self->GetIsGcMarking();
   art_quick_do_long_jump(gprs, fprs);
 }
 

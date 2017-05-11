@@ -70,20 +70,23 @@ static const vixl::aarch64::FPRegister kParameterFPRegisters[] = {
 };
 static constexpr size_t kParameterFPRegistersLength = arraysize(kParameterFPRegisters);
 
-// Thread Register
+// Thread Register.
 const vixl::aarch64::Register tr = vixl::aarch64::x19;
+// Marking Register.
+const vixl::aarch64::Register mr = vixl::aarch64::x20;
 // Method register on invoke.
 static const vixl::aarch64::Register kArtMethodRegister = vixl::aarch64::x0;
 const vixl::aarch64::CPURegList vixl_reserved_core_registers(vixl::aarch64::ip0,
                                                              vixl::aarch64::ip1);
 const vixl::aarch64::CPURegList vixl_reserved_fp_registers(vixl::aarch64::d31);
 
-const vixl::aarch64::CPURegList runtime_reserved_core_registers(tr, vixl::aarch64::lr);
+const vixl::aarch64::CPURegList runtime_reserved_core_registers(mr, tr, vixl::aarch64::lr);
 
-// Callee-saved registers AAPCS64 (without x19 - Thread Register)
+// Callee-save registers AAPCS64, without x19 (Thread Register) or
+// x20 (Marking Register).
 const vixl::aarch64::CPURegList callee_saved_core_registers(vixl::aarch64::CPURegister::kRegister,
                                                             vixl::aarch64::kXRegSize,
-                                                            vixl::aarch64::x20.GetCode(),
+                                                            vixl::aarch64::x21.GetCode(),
                                                             vixl::aarch64::x30.GetCode());
 const vixl::aarch64::CPURegList callee_saved_fp_registers(vixl::aarch64::CPURegister::kFPRegister,
                                                           vixl::aarch64::kDRegSize,
@@ -610,6 +613,10 @@ class CodeGeneratorARM64 : public CodeGenerator {
   void EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_patches) OVERRIDE;
 
   void EmitJitRootPatches(uint8_t* code, const uint8_t* roots_data) OVERRIDE;
+
+  // Generate code loading the GC marking state into the Marking
+  // Register (MR, i.e. W20).
+  void RefreshMarkingRegister();
 
   // Fast path implementation of ReadBarrier::Barrier for a heap
   // reference field load when Baker's read barriers are used.
