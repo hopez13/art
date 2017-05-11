@@ -314,6 +314,10 @@ class InstructionCodeGeneratorMIPS64 : public InstructionCodeGenerator {
                                  uint32_t num_entries,
                                  HBasicBlock* switch_block,
                                  HBasicBlock* default_block);
+  int32_t VecAddress(LocationSummary* locations,
+                     size_t size,
+                     bool is_string_char_at,
+                     /* out */ GpuRegister* adjusted_base);
 
   Mips64Assembler* const assembler_;
   CodeGeneratorMIPS64* const codegen_;
