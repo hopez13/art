@@ -20,6 +20,8 @@
 #include <memory>
 #include <string>
 
+#include "android-base/unique_fd.h"
+
 #include "base/macros.h"
 #include "os.h"
 
@@ -47,35 +49,16 @@ class ScopedFlock {
   // locking will be retried if the file changed. In non-blocking mode, false
   // is returned and no attempt is made to re-acquire the lock.
   //
-  // The argument `flush_on_close` controls whether or not the file
-  // will be explicitly flushed before close.
-  //
   // The file is opened with the provided flags.
-  bool Init(const char* filename,
-            int flags,
-            bool block,
-            bool flush_on_close,
-            std::string* error_msg);
-  // Calls Init(filename, flags, block, true, error_msg);
-  bool Init(const char* filename, int flags, bool block, std::string* error_msg);
-  // Calls Init(filename, O_CREAT | O_RDWR, true, errror_msg)
-  bool Init(const char* filename, std::string* error_msg);
   // Attempt to acquire an exclusive file lock (see flock(2)) on 'file'.
   // Returns true if the lock could be acquired or false if an error
   // occured.
-  bool Init(File* file, std::string* error_msg);
-
-  // Returns the (locked) file associated with this instance.
-  File* GetFile() const;
-
-  // Returns whether a file is held.
-  bool HasFile();
+  bool Init(File* file, bool block, std::string* error_msg);
 
   ~ScopedFlock();
 
  private:
-  std::unique_ptr<File> file_;
-  bool flush_on_close_;
+  android::base::unique_fd locked_fd_;
   DISALLOW_COPY_AND_ASSIGN(ScopedFlock);
 };
 
