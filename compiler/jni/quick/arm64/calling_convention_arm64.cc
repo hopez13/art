@@ -58,7 +58,13 @@ static constexpr ManagedRegister kCalleeSaveRegisters[] = {
     // Call chain: managed code(java) --> jni method --> jni function.
     // Thread register(X19) is saved on stack.
     Arm64ManagedRegister::FromXRegister(X19),
+#if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
+    // Do not consider X20 (Marking Register) as a callee-save in the case
+    // of Baker read barriers, as it will be overwritten (refreshed) in
+    // the jni method epilogue (see Arm64JNIMacroAssembler::RemoveFrame).
+#else
     Arm64ManagedRegister::FromXRegister(X20),
+#endif
     Arm64ManagedRegister::FromXRegister(X21),
     Arm64ManagedRegister::FromXRegister(X22),
     Arm64ManagedRegister::FromXRegister(X23),
@@ -108,7 +114,14 @@ static constexpr uint32_t kFpCalleeSpillMask = CalculateFpCalleeSpillMask();
 
 // Calling convention
 ManagedRegister Arm64ManagedRuntimeCallingConvention::InterproceduralScratchRegister() {
-  return Arm64ManagedRegister::FromXRegister(X20);  // saved on entry restored on exit
+  // X20 is safe to use as a scratch register:
+  // - with Baker read barriers, it reserved as Marking Register, and
+  //   thus does not need to be saved/restored; it is restored
+  //   (refreshed) on exit (see Arm64JNIMacroAssembler::RemoveFrame);
+  // - in other cases, it is saved on entry (in
+  //   Arm64JNIMacroAssembler::BuildFrame) and restored on exit (in
+  //   Arm64JNIMacroAssembler::RemoveFrame).
+  return Arm64ManagedRegister::FromXRegister(X20);
 }
 
 ManagedRegister Arm64JniCallingConvention::InterproceduralScratchRegister() {

@@ -729,7 +729,7 @@ class ReadBarrierMarkSlowPathBaseARM : public SlowPathCodeARM {
     } else {
       // Entrypoint is not already loaded, load from the thread.
       int32_t entry_point_offset =
-          CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref_reg);
+          Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref_reg);
       // This runtime call does not require a stack map.
       arm_codegen->InvokeRuntimeWithoutRecordingPcInfo(entry_point_offset, instruction_, this);
     }
@@ -8421,7 +8421,7 @@ void InstructionCodeGeneratorARM::GenerateGcRootFieldLoad(HInstruction* instruct
         //     Thread::Current()->pReadBarrierMarkReg12, i.e. pReadBarrierMarkIntrospection.
         DCHECK_EQ(IP, 12);
         const int32_t entry_point_offset =
-            CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(IP);
+            Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(IP);
         __ LoadFromOffset(kLoadWord, kBakerCcEntrypointRegister, TR, entry_point_offset);
 
         Label return_address;
@@ -8462,7 +8462,7 @@ void InstructionCodeGeneratorARM::GenerateGcRootFieldLoad(HInstruction* instruct
 
         // temp = Thread::Current()->pReadBarrierMarkReg ## root.reg()
         const int32_t entry_point_offset =
-            CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(root.reg());
+            Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(root.reg());
         // Loading the entrypoint does not require a load acquire since it is only changed when
         // threads are suspended or running a checkpoint.
         __ LoadFromOffset(kLoadWord, temp.AsRegister<Register>(), TR, entry_point_offset);
@@ -8565,7 +8565,7 @@ void CodeGeneratorARM::GenerateFieldLoadWithBakerReadBarrier(HInstruction* instr
     //     Thread::Current()->pReadBarrierMarkReg12, i.e. pReadBarrierMarkIntrospection.
     DCHECK_EQ(IP, 12);
     const int32_t entry_point_offset =
-        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(IP);
+        Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(IP);
     __ LoadFromOffset(kLoadWord, kBakerCcEntrypointRegister, TR, entry_point_offset);
 
     Label return_address;
@@ -8648,7 +8648,7 @@ void CodeGeneratorARM::GenerateArrayLoadWithBakerReadBarrier(HInstruction* instr
     //     Thread::Current()->pReadBarrierMarkReg16, i.e. pReadBarrierMarkIntrospection.
     DCHECK_EQ(IP, 12);
     const int32_t entry_point_offset =
-        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(IP);
+        Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(IP);
     __ LoadFromOffset(kLoadWord, kBakerCcEntrypointRegister, TR, entry_point_offset);
     __ AddConstant(data_reg, obj, data_offset);
 
@@ -8729,7 +8729,7 @@ void CodeGeneratorARM::GenerateReferenceLoadWithBakerReadBarrier(HInstruction* i
 
   // temp2 = Thread::Current()->pReadBarrierMarkReg ## ref.reg()
   const int32_t entry_point_offset =
-      CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref.reg());
+      Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref.reg());
   // Loading the entrypoint does not require a load acquire since it is only changed when
   // threads are suspended or running a checkpoint.
   __ LoadFromOffset(kLoadWord, temp2.AsRegister<Register>(), TR, entry_point_offset);
@@ -8798,7 +8798,7 @@ void CodeGeneratorARM::UpdateReferenceFieldWithBakerReadBarrier(HInstruction* in
 
   // temp3 = Thread::Current()->pReadBarrierMarkReg ## ref.reg()
   const int32_t entry_point_offset =
-      CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref.reg());
+      Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref.reg());
   // Loading the entrypoint does not require a load acquire since it is only changed when
   // threads are suspended or running a checkpoint.
   __ LoadFromOffset(kLoadWord, temp3.AsRegister<Register>(), TR, entry_point_offset);

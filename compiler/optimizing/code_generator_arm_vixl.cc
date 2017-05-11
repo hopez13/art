@@ -786,7 +786,7 @@ class ReadBarrierMarkSlowPathBaseARMVIXL : public SlowPathCodeARMVIXL {
     } else {
       // Entrypoint is not already loaded, load from the thread.
       int32_t entry_point_offset =
-          CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref_reg.GetCode());
+          Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref_reg.GetCode());
       // This runtime call does not require a stack map.
       arm_codegen->InvokeRuntimeWithoutRecordingPcInfo(entry_point_offset, instruction_, this);
     }
@@ -8552,7 +8552,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateGcRootFieldLoad(
         //     Thread::Current()->pReadBarrierMarkReg12, i.e. pReadBarrierMarkIntrospection.
         DCHECK_EQ(ip.GetCode(), 12u);
         const int32_t entry_point_offset =
-            CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ip.GetCode());
+            Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ip.GetCode());
         __ Ldr(kBakerCcEntrypointRegister, MemOperand(tr, entry_point_offset));
 
         vixl::EmissionCheckScope guard(GetVIXLAssembler(),
@@ -8594,7 +8594,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateGcRootFieldLoad(
 
         // temp = Thread::Current()->pReadBarrierMarkReg ## root.reg()
         const int32_t entry_point_offset =
-            CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(root.reg());
+            Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(root.reg());
         // Loading the entrypoint does not require a load acquire since it is only changed when
         // threads are suspended or running a checkpoint.
         GetAssembler()->LoadFromOffset(kLoadWord, RegisterFrom(temp), tr, entry_point_offset);
@@ -8698,7 +8698,7 @@ void CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier(HInstruction* i
     //     Thread::Current()->pReadBarrierMarkReg12, i.e. pReadBarrierMarkIntrospection.
     DCHECK_EQ(ip.GetCode(), 12u);
     const int32_t entry_point_offset =
-        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ip.GetCode());
+        Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ip.GetCode());
     __ Ldr(kBakerCcEntrypointRegister, MemOperand(tr, entry_point_offset));
 
     vixl::EmissionCheckScope guard(
@@ -8790,7 +8790,7 @@ void CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier(HInstruction* i
     //     Thread::Current()->pReadBarrierMarkReg16, i.e. pReadBarrierMarkIntrospection.
     DCHECK_EQ(ip.GetCode(), 12u);
     const int32_t entry_point_offset =
-        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ip.GetCode());
+        Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ip.GetCode());
     __ Ldr(kBakerCcEntrypointRegister, MemOperand(tr, entry_point_offset));
     __ Add(data_reg, obj, Operand(data_offset));
 
@@ -8876,7 +8876,7 @@ void CodeGeneratorARMVIXL::GenerateReferenceLoadWithBakerReadBarrier(HInstructio
 
   // temp2 = Thread::Current()->pReadBarrierMarkReg ## ref.reg()
   const int32_t entry_point_offset =
-      CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref.reg());
+      Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref.reg());
   // Loading the entrypoint does not require a load acquire since it is only changed when
   // threads are suspended or running a checkpoint.
   GetAssembler()->LoadFromOffset(kLoadWord, RegisterFrom(temp2), tr, entry_point_offset);
@@ -8944,7 +8944,7 @@ void CodeGeneratorARMVIXL::UpdateReferenceFieldWithBakerReadBarrier(HInstruction
 
   // temp3 = Thread::Current()->pReadBarrierMarkReg ## ref.reg()
   const int32_t entry_point_offset =
-      CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref.reg());
+      Thread::ReadBarrierMarkEntryPointsOffset<kArmPointerSize>(ref.reg());
   // Loading the entrypoint does not require a load acquire since it is only changed when
   // threads are suspended or running a checkpoint.
   GetAssembler()->LoadFromOffset(kLoadWord, RegisterFrom(temp3), tr, entry_point_offset);
