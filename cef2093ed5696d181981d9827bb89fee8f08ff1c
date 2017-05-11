@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "502de7b7_5f23ed1e",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-11T11:51:59Z",
+      "side": 1,
+      "message": "minor nit: this bool variable is pretty pointless now. It would be clearer if you just did\n\nif (!WriteBuffer(fd.....)) {\n}\n\netc.\n\nThis is not a correctness issue, so feel free to fix it in a separate change. Same for the comment below.",
+      "range": {
+        "startLine": 244,
+        "startChar": 2,
+        "endLine": 244,
+        "endChar": 17
+      },
+      "revId": "cef2093ed5696d181981d9827bb89fee8f08ff1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "263d035c_9ebfa073",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-05-11T11:51:59Z",
+      "side": 1,
+      "message": "this is return true; essentially. We would have returned false earlier if this was ever false.",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 17
+      },
+      "revId": "cef2093ed5696d181981d9827bb89fee8f08ff1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
