@@ -17,7 +17,10 @@
 #ifndef ART_LIBARTBASE_BASE_SAFE_COPY_H_
 #define ART_LIBARTBASE_BASE_SAFE_COPY_H_
 
+#include <stdint.h>
 #include <sys/types.h>
+
+#include "base/bit_utils.h"
 
 namespace art {
 
@@ -25,6 +28,24 @@ namespace art {
 // Returns -1 if safe copy isn't implemented on the platform, or if the transfer is too large.
 // Returns 0 if src is unreadable.
 ssize_t SafeCopy(void *dst, const void *src, size_t len);
+
+template <typename T, size_t kAlignment = alignof(T)>
+struct SafeRawData {
+  alignas(kAlignment) uint8_t bytes[sizeof(T)];
+
+  T* Copy(const void* src) {
+    if (src == nullptr ||
+        !IsAligned<kAlignment>(src) ||
+        SafeCopy(bytes, src, sizeof(T)) != sizeof(T)) {
+      return nullptr;
+    } else {
+      return reinterpret_cast<T*>(bytes);
+    }
+  }
+  const T* CopyArrayElement(const void* src, size_t index) {
+    return Copy(reinterpret_cast<const T*>(src) + index);
+  }
+};
 
 }  // namespace art
 
