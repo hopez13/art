@@ -33,6 +33,14 @@
 #define xIP1 x17
 #define wIP1 w17
 
+#ifdef USE_READ_BARRIER
+# ifdef USE_BAKER_READ_BARRIER
+// Marking Register, holding Thread::Current()->GetIsGcMarking().
+// Only used with the Concurrent Copying (CC) garbage
+// collector, with the Baker read barrier configuration.
+#define wMR w20
+# endif  // USE_BAKER_READ_BARRIER
+#endif  // USE_READ_BARRIER
 
 .macro ENTRY name
     .type \name, #function
@@ -55,14 +63,14 @@
     END \name
 .endm
 
-// Macros to poison (negate) the reference for heap poisoning.
+// Macro to poison (negate) the reference for heap poisoning.
 .macro POISON_HEAP_REF rRef
 #ifdef USE_HEAP_POISONING
     neg \rRef, \rRef
 #endif  // USE_HEAP_POISONING
 .endm
 
-// Macros to unpoison (negate) the reference for heap poisoning.
+// Macro to unpoison (negate) the reference for heap poisoning.
 .macro UNPOISON_HEAP_REF rRef
 #ifdef USE_HEAP_POISONING
     neg \rRef, \rRef
