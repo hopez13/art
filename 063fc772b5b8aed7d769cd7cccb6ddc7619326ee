@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "c9dfbea7_28b98419",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:21:29Z",
+      "side": 1,
+      "message": "This should be ListOfDependentPairs.",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 79
+      },
+      "revId": "063fc772b5b8aed7d769cd7cccb6ddc7619326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9c0a929_732c259c",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:21:29Z",
+      "side": 1,
+      "message": "To avoid the extra lookup, this should be merged with the previous line as\n\n    it \u003d cha_dependency_map_.emplace(method, new ListOfDependentPairs()).first;\n\nIf you remove the unnecessary indirection, drop the \"new\" and you could also replace the whole thing including the \"find()\" with\n\n    const auto it \u003d cha_dependency_map_.insert(\n        decltype(cha_dependency_map_)::value_type(\n            method, ListOfDependentPairs())).first;\n\nwhich works just fine whether there was already an entry in the map or not. I avoid emplace() in this case because it tends to allocate memory before doing the lookup and then deallocate if an entry was already found. I avoid std::make_pair() as it cannot infer the \"const\" on the first type.",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 42
+      },
+      "revId": "063fc772b5b8aed7d769cd7cccb6ddc7619326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bed67b0_5dea76ed",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:21:29Z",
+      "side": 1,
+      "message": "RemoveAllDependenciesFor",
+      "range": {
+        "startLine": 54,
+        "startChar": 29,
+        "endLine": 54,
+        "endChar": 48
+      },
+      "revId": "063fc772b5b8aed7d769cd7cccb6ddc7619326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aeea8a1_2b607736",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:21:29Z",
+      "side": 1,
+      "message": "If you remove the indirection, this is simply\n\n    cha_dependency_map_.erase(method);",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 3
+      },
+      "revId": "063fc772b5b8aed7d769cd7cccb6ddc7619326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfd18e2d_d221ea0d",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:21:29Z",
+      "side": 1,
+      "message": "This is O(n^2). Either do the canonical removal from std::vector\u003c\u003e,\n\n  v.erase(std::remove_if(v.begin(), v.end(), predicate), v.end());\n\nor replace the \"erase\" with moving (or swapping) the last element into \"*it\" and a pop_back(). (Order of elements does not matter here.)",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 7
+      },
+      "revId": "063fc772b5b8aed7d769cd7cccb6ddc7619326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f169fbb_059a3532",
+        "filename": "runtime/cha.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T09:21:29Z",
+      "side": 1,
+      "message": "This looks like a very unnecessary indirection.",
+      "range": {
+        "startLine": 136,
+        "startChar": 53,
+        "endLine": 136,
+        "endChar": 54
+      },
+      "revId": "063fc772b5b8aed7d769cd7cccb6ddc7619326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a88b32df_032a70e1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 16
