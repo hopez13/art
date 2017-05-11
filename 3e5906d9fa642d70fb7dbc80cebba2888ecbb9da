@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b7bd47a_503cd1e6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-11T13:13:52Z",
+      "side": 1,
+      "message": "Should we actually print this? Trying to do so may lead to another SIGSEGV (and dropping of this abort message) if the `klass` data has been zeroed out.",
+      "range": {
+        "startLine": 5100,
+        "startChar": 29,
+        "endLine": 5100,
+        "endChar": 54
+      },
+      "revId": "3e5906d9fa642d70fb7dbc80cebba2888ecbb9da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
