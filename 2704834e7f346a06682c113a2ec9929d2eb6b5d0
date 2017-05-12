@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "00fb1546_f720dc71",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-05-12T13:09:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0796062_b9475fe2",
+      "range": {
+        "startLine": 2573,
+        "startChar": 4,
+        "endLine": 2573,
+        "endChar": 22
+      },
+      "revId": "2704834e7f346a06682c113a2ec9929d2eb6b5d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f3255f5_b011380f",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6d9f1cd9_bc42785a",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-05-12T13:09:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f3255f5_b011380f",
+      "range": {
+        "startLine": 913,
+        "startChar": 4,
+        "endLine": 913,
+        "endChar": 23
+      },
+      "revId": "2704834e7f346a06682c113a2ec9929d2eb6b5d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc2e3db1_4ca2b620",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-05-11T14:41:08Z",
       "side": 1,
       "message": "You\u0027re a bit inconsistent here, the kPrimDouble case is using TMP.",
+      "range": {
+        "startLine": 924,
+        "startChar": 13,
+        "endLine": 924,
+        "endChar": 15
+      },
+      "revId": "2704834e7f346a06682c113a2ec9929d2eb6b5d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e7cffd8_925c882b",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-05-12T13:09:13Z",
+      "side": 1,
+      "message": "Done. As well as in few other places to be in order with comments.",
+      "parentUuid": "fc2e3db1_4ca2b620",
       "range": {
         "startLine": 924,
         "startChar": 13,
