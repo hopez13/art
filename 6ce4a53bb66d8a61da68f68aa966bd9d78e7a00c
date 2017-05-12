@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19a5298e_afed79d6",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39beb125_b0b6120a",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 5
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a3911e5_bc795157",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-11T08:54:20Z",
       "side": 1,
       "message": "Please add a helper in HConstructorFence for this. Something like HConstructorFence::IsForAllocation.",
+      "range": {
+        "startLine": 62,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6563f9ea_901e526a",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a3911e5_bc795157",
       "range": {
         "startLine": 62,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6805a24a_877fd2ea",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46d444dd_40b76b42",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 5
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1ab008c_782b3f44",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-05-11T08:54:20Z",
       "side": 1,
       "message": "I don\u0027t think so.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 40
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a17f4a5_0a336605",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1ab008c_782b3f44",
       "range": {
         "startLine": 89,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0ff30fb8_9fb9eb4c",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99bca53d_8558d100",
+      "range": {
+        "startLine": 409,
+        "startChar": 8,
+        "endLine": 410,
+        "endChar": 48
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d409016_339e60fa",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2017-05-11T08:54:20Z",
       "side": 1,
       "message": "HNewInstance",
+      "range": {
+        "startLine": 989,
+        "startChar": 2,
+        "endLine": 989,
+        "endChar": 6
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a2f1ce0_309f01e2",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d409016_339e60fa",
       "range": {
         "startLine": 989,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "bc6a3b46_1b699dec",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "It\u0027s the style compliant way to overflow a subexpression, it needs to be 4 spaces indented towards the start of the first line of the subexpression\n\n    DCHECK(.....\n           ^ subexpression begins here\n           ||||\n               ^ overflow begins here\n\ngo/art-style-guide has an example of this",
+      "parentUuid": "56f92678_b407872f",
+      "range": {
+        "startLine": 1003,
+        "startChar": 9,
+        "endLine": 1003,
+        "endChar": 13
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2eeb42c7_672f918d",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 3
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "647ddd8f_70e6e141",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eeb42c7_672f918d",
+      "range": {
+        "startLine": 1028,
+        "startChar": 51,
+        "endLine": 1028,
+        "endChar": 59
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee28f397_6c7306fa",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 3
@@ -197,6 +389,30 @@
       "writtenOn": "2017-05-11T08:54:20Z",
       "side": 1,
       "message": "Why the question mark?",
+      "range": {
+        "startLine": 1049,
+        "startChar": 11,
+        "endLine": 1049,
+        "endChar": 62
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4704d89_bad99a7a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Removed this because it was just a note for myself and I didn\u0027t mean to check this in.",
+      "parentUuid": "ee28f397_6c7306fa",
       "range": {
         "startLine": 1049,
         "startChar": 11,
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "449a81fd_0c438819",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef371994_19d5525e",
+      "range": {
+        "startLine": 293,
+        "startChar": 35,
+        "endLine": 293,
+        "endChar": 41
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "775a78dc_eda0c861",
         "filename": "compiler/optimizing/instruction_builder.h",
         "patchSetId": 3
@@ -301,6 +541,54 @@
     },
     {
       "key": {
+        "uuid": "53360745_d6230423",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1556f685_be4bade0",
+      "range": {
+        "startLine": 295,
+        "startChar": 49,
+        "endLine": 295,
+        "endChar": 61
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da2bf51b_d5f6ebe4",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "775a78dc_eda0c861",
+      "range": {
+        "startLine": 295,
+        "startChar": 31,
+        "endLine": 295,
+        "endChar": 35
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9db1357_64b57fd9",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 3
@@ -312,6 +600,30 @@
       "writtenOn": "2017-05-11T08:54:20Z",
       "side": 1,
       "message": "How about instruction_simplifier?",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 38
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9478e07_b32b84cb",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "I can\u0027t just move it as is, it only sets the entrypoint to Resolved in this phase.\n\nIf you want it to still work correctly I need to add extra changes, for example:\n\nAdd an extra flag to HNewInstance , e.g. \"EmitsBarrier\" and in this prepare_for_register_allocation check that flag and set it to Resolved then (even if it would\u0027ve otherwise been Initialized).\n----\n\nLet me know how you would like to proceed. Or we can just delete this altogether... it\u0027s not needed for correctness.",
+      "parentUuid": "a9db1357_64b57fd9",
       "range": {
         "startLine": 179,
         "startChar": 2,
@@ -347,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "fcfb47bd_1f56b868",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b8a86f_2a547e11",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 57
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b6c6dae_78ed2e7a",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 3
@@ -370,6 +706,30 @@
     },
     {
       "key": {
+        "uuid": "c7309141_ef3db835",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b6c6dae_78ed2e7a",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 70
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc59d7b0_2b5e0c04",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 3
@@ -381,6 +741,30 @@
       "writtenOn": "2017-05-11T08:54:20Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 75
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a7367fc_209a4ea3",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-12T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc59d7b0_2b5e0c04",
       "range": {
         "startLine": 198,
         "startChar": 0,
