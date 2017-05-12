@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ba18492b_6370d397",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-05-12T08:41:08Z",
+      "side": 1,
+      "message": "Thanks for the comments! I\u0027ll remove the indirection.\nJust to clarify, when you say \"avoid std::make_pair ...\", you don\u0027t mean the one on line 41, right? That line is still needed.",
+      "parentUuid": "b9c0a929_732c259c",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 42
+      },
+      "revId": "063fc772b5b8aed7d769cd7cccb6ddc7619326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bed67b0_5dea76ed",
         "filename": "runtime/cha.cc",
         "patchSetId": 16
