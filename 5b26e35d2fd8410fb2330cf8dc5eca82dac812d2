@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab3f79c2_c4e800c6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-12T12:53:49Z",
+      "side": 1,
+      "message": "Nit: we use kSimd... instead.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 60
+      },
+      "revId": "5b26e35d2fd8410fb2330cf8dc5eca82dac812d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29aac2e4_8e65577a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-12T12:53:49Z",
+      "side": 1,
+      "message": "Nit: this should go to utils.",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 563,
+        "endChar": 1
+      },
+      "revId": "5b26e35d2fd8410fb2330cf8dc5eca82dac812d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
