@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade65ab7_a77e0933",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3938,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-12T18:39:38Z",
+      "side": 0,
+      "message": "It\u0027s not clear to me what\u0027s the scenario where double blocking GCs happened unexpectedly (ie. what was the bug). Can you describe it?",
+      "range": {
+        "startLine": 3936,
+        "startChar": 29,
+        "endLine": 3938,
+        "endChar": 33
+      },
+      "revId": "c8a5b6c38a4e934a7953b07cc12046b01c32ae5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

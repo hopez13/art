@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "453354bf_beac4c8f",
+        "filename": "runtime/gc/gc_cause.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-12T18:39:38Z",
+      "side": 1,
+      "message": "Maybe add a comment that this one now means non-blocking/background to be clearer?",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a953836f_d2648ef5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3533,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-12T18:39:38Z",
+      "side": 1,
+      "message": "Remove this line because this cause isn\u0027t blocking any more?",
+      "range": {
+        "startLine": 3533,
+        "startChar": 8,
+        "endLine": 3533,
+        "endChar": 42
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4009d7c7_79776b2d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3976,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-12T18:39:38Z",
+      "side": 1,
+      "message": "Would kGcCauseForNativeAllocBlocking be better here now that kGcCauseForNativeAlloc means background/non-blocking?",
+      "range": {
+        "startLine": 3976,
+        "startChar": 48,
+        "endLine": 3976,
+        "endChar": 70
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
