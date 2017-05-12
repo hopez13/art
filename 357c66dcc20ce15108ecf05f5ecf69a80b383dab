@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e639fde5_ddc20686",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "So that we can handle relative paths (+sym links) gracefully.\n\nIf we get a relative path here and don\u0027t resolve the current directory might not be the dex parent directory.",
+      "parentUuid": "fd5b4728_2facc9cc",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 28
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de8ee774_b51ffe20",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-10T14:00:15Z",
       "side": 1,
       "message": "The correctness argument here is more subtle than I like. We know based solely on the dex location whether we would generate an oat file in the \u0027oat\u0027 location or the \u0027odex\u0027 location. The correctness argument is easier if we put the lock file in the same directory as the generated oat file, because if you can create the oat file, you can create the lock.\n\nThis implies preparing the output directory for the lock as well as generating the oat file, but I don\u0027t see anything wrong with that.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 94
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b84c55ce_a0352c05",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "We can do that. I think it will have the same subtle implications but we can be more explicit if you think it adds clarity and use the oat locations.",
+      "parentUuid": "de8ee774_b51ffe20",
       "range": {
         "startLine": 169,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "585a747c_7d32f781",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "will do.",
+      "parentUuid": "af65b3b6_892b9794",
+      "range": {
+        "startLine": 514,
+        "startChar": 12,
+        "endLine": 514,
+        "endChar": 34
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "675b7480_cfc2971e",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-05-10T14:00:15Z",
       "side": 1,
       "message": "I would prefer you make and use a general utility function that does the equivalent of \"mkdir -p\" rather than introducing this function.",
+      "range": {
+        "startLine": 594,
+        "startChar": 12,
+        "endLine": 594,
+        "endChar": 34
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b63da95_6017d37a",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "I guess I could. We\u0027re the sole user but an utility sounds nice.",
+      "parentUuid": "675b7480_cfc2971e",
       "range": {
         "startLine": 594,
         "startChar": 12,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b3eaeaf2_c11c3a39",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "I meant to revise this a bit.\n\nThe motivation to have info as an argument is to make sure we try to generate the oat file for whatever location is considered the best. It makes things easier to reason about.\n\nThat said I also thought about relying on the writable flag.",
+      "parentUuid": "73e3a646_713ce294",
+      "range": {
+        "startLine": 617,
+        "startChar": 6,
+        "endLine": 617,
+        "endChar": 41
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2ab5de5_8c35c83d",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-05-10T14:00:15Z",
       "side": 1,
       "message": "Why is this better than OS::FileExists?",
+      "range": {
+        "startLine": 638,
+        "startChar": 1,
+        "endLine": 639,
+        "endChar": 74
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc6251df_b020ba18",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "because I use the result at L654.",
+      "parentUuid": "e2ab5de5_8c35c83d",
       "range": {
         "startLine": 638,
         "startChar": 1,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "bdd2c207_58d78731",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "17a87180_b0d77a69",
+      "range": {
+        "startLine": 715,
+        "startChar": 19,
+        "endLine": 715,
+        "endChar": 23
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a815898b_05430734",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2017-05-10T14:00:15Z",
       "side": 1,
       "message": "Why change the behavior of GetBestInfo? Doesn\u0027t the existing behavior do what you want?\n\nFor prebuilt apps, the oat_ file is preferred, as before.\nFor secondary dex locations, there will be no oat_ file, so odex_ is used as desired.",
+      "range": {
+        "startLine": 876,
+        "startChar": 0,
+        "endLine": 914,
+        "endChar": 59
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35ccadec_8d6fcf7e",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "I found the previous implementation to subtle and complex to analyze. Also, it doesn\u0027t give me what I want always because if there\u0027s no odex location it will pick the dalvik cache location even if I could generate the odex (but not the dalvik cache one). It has subtle ramifications in our testing environment that are hard to reason about.",
+      "parentUuid": "a815898b_05430734",
       "range": {
         "startLine": 876,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "355404c5_99a3ec09",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "oversight",
+      "parentUuid": "13b2a0e0_48721ac1",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5ab5662_545cc4ec",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2017-05-10T14:00:15Z",
       "side": 1,
       "message": "Document where the oat file will be generated, because it now depends on whether the dex location is on the system partition or not. Document that MakeUpToDate will create a directory structure if needed as a side effect.",
+      "range": {
+        "startLine": 172,
+        "startChar": 1,
+        "endLine": 181,
+        "endChar": 43
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea19b47d_c03329c9",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "will do",
+      "parentUuid": "e5ab5662_545cc4ec",
       "range": {
         "startLine": 172,
         "startChar": 1,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "702e2b0f_92ac46cd",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "9804bba7_c8208e17",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 61
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "404885e6_af2e4c70",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 2
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "dfaa31ad_c3ef749a",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "because we don\u0027t check if \u0027info\u0027 really needs an oat file update.",
+      "parentUuid": "404885e6_af2e4c70",
+      "range": {
+        "startLine": 376,
+        "startChar": 41,
+        "endLine": 376,
+        "endChar": 49
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d1e2518_29ad7eab",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 2
@@ -289,6 +577,30 @@
       "writtenOn": "2017-05-10T14:00:15Z",
       "side": 1,
       "message": "Call this \u0027generate_at_odex_location_\u0027.\n\nTesting whether the parent directory of the dex file is writable is a heuristic used to infer whether the dex location is preinstalled. I\u0027m concerned because there are many reasons you may or may not have permission to write the dex file directory that do not correspond to whether the dex location is preinstalled. It also means ART\u0027s behavior will change subtly depending on permissions used at runtime.\n\nI wish there was a more explicit way to tell ART which dex locations are preinstalled. That will make the behavior more obvious and I suspect simplify testing. I\u0027m not sure how to do that though. Something like a command line argument describing prefixes of dex locations that are preinstalled or not?",
+      "range": {
+        "startLine": 424,
+        "startChar": 2,
+        "endLine": 424,
+        "endChar": 36
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f753a0ca_f1e6e94c",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-12T07:25:28Z",
+      "side": 1,
+      "message": "I would say so-so :).\nIt will be good to know that we are dealing with a prebuild. It could simplify the story but will not solve all the corner cases. We just have too many options and too many fallback modes IMO.\n\nFor now I think it\u0027s ok to take into account the file permissions when selecting the oat file. Not ideal, but I think the rules are relatively simple.\n\n1) If you can write in the current dex location then that\u0027s were the oat files go.\n2) if you cannot write in the current dex location then you go to dalvik-cache.\n\nThe only tricky parts are: test env and root system (though I don\u0027t think we should optimize for them)",
+      "parentUuid": "1d1e2518_29ad7eab",
       "range": {
         "startLine": 424,
         "startChar": 2,
