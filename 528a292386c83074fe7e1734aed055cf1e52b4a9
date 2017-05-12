@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d7240e07_79549aa2",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-12T00:55:39Z",
+      "side": 1,
+      "message": "But aren\u0027t we \"double-counting\" then already because of the overhead array?",
+      "parentUuid": "aaf7ceb8_b1d8b566",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efd91c4c_383907e9",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2017-05-11T14:38:46Z",
       "side": 1,
       "message": "Add a link to the bug in the comment to give more context for this somewhat subtle point?",
+      "range": {
+        "startLine": 1249,
+        "startChar": 0,
+        "endLine": 1249,
+        "endChar": 54
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fd4bee_972edf5d",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-12T00:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efd91c4c_383907e9",
       "range": {
         "startLine": 1249,
         "startChar": 0,
@@ -155,6 +203,30 @@
       "side": 1,
       "message": "It took me a long time to figure out what this was doing, perhaps because I am not very familiar with lambdas in C++. It would have been easier for me to understand if it was a normal function.\n\nI would still like a comment at least describing what the static_field_writer function does and what name_fn is.",
       "parentUuid": "963d13ec_6134d3d2",
+      "range": {
+        "startLine": 1263,
+        "startChar": 2,
+        "endLine": 1263,
+        "endChar": 63
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de344c72_d0c1b9c8",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-12T00:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fd78fdf_d9df7ec3",
       "range": {
         "startLine": 1263,
         "startChar": 2,
