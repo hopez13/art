@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "1efe4d55_171e24dc",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-12T16:37:50Z",
+      "side": 1,
+      "message": "Wasn\u0027t the overhead supposed to include (embedded) vtable etc? That doesn\u0027t seem accounted for in your suggestion?",
+      "parentUuid": "22779245_676931d6",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efd91c4c_383907e9",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
