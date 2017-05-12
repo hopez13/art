@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "e360ec9c_b901f55e",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-12T14:15:01Z",
+      "side": 1,
+      "message": "OK, that\u0027s mostly because I know how the side effects are being used in the compiler :) But I get your point, comment removed.",
+      "parentUuid": "91b1738a_317d72ae",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c937fe8_402d631d",
         "filename": "compiler/intrinsics_list.h",
         "patchSetId": 5
@@ -299,6 +323,30 @@
     },
     {
       "key": {
+        "uuid": "a3b9a5d3_b6c7686b",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2771,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-12T14:15:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23651768_08a5ac65",
+      "range": {
+        "startLine": 2771,
+        "startChar": 59,
+        "endLine": 2771,
+        "endChar": 74
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73110e9e_c49a4fe8",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 5
@@ -310,6 +358,30 @@
       "writtenOn": "2017-04-07T14:13:44Z",
       "side": 1,
       "message": "LDAR and STLR always have offset #0, so we\u0027re making the macro assembler materialize the TR+offset twice. We could do that explicitly and save an instruction.",
+      "range": {
+        "startLine": 3040,
+        "startChar": 2,
+        "endLine": 3040,
+        "endChar": 20
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a6d2304_6cc5917e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3040,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-12T14:15:01Z",
+      "side": 1,
+      "message": "Ah, actually I hit a static_assert with Ldar. Done.",
+      "parentUuid": "73110e9e_c49a4fe8",
       "range": {
         "startLine": 3040,
         "startChar": 2,
@@ -380,6 +452,30 @@
     },
     {
       "key": {
+        "uuid": "e299034c_46c394aa",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-12T14:15:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f380bf97_55d016f9",
+      "range": {
+        "startLine": 3170,
+        "startChar": 38,
+        "endLine": 3170,
+        "endChar": 39
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1098172_d1faf187",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 5
@@ -391,6 +487,30 @@
       "writtenOn": "2017-04-07T14:13:44Z",
       "side": 1,
       "message": "Remove the extra line.",
+      "range": {
+        "startLine": 3124,
+        "startChar": 0,
+        "endLine": 3124,
+        "endChar": 0
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41b331db_06f7af73",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-12T14:15:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1098172_d1faf187",
       "range": {
         "startLine": 3124,
         "startChar": 0,
