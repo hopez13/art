@@ -1241,6 +1241,7 @@ class Heap {
   // RegisterNativeAllocation.
   Mutex* native_blocking_gc_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
   std::unique_ptr<ConditionVariable> native_blocking_gc_cond_ GUARDED_BY(native_blocking_gc_lock_);
+  bool native_blocking_gc_is_assigned_ GUARDED_BY(native_blocking_gc_lock_);
   bool native_blocking_gc_in_progress_ GUARDED_BY(native_blocking_gc_lock_);
   uint32_t native_blocking_gcs_finished_ GUARDED_BY(native_blocking_gc_lock_);
 
