@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "22779245_676931d6",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-12T13:58:26Z",
+      "side": 1,
+      "message": "It looks like we were partially double counting. We were double counting static fields, but not double counting java.lang.Class object instance fields. At least in perflib/ahat/studio. For example, in the ahat test dump with this change I see:\n\n4 bytes for the real single static field.\n4 bytes for the $overhead reference.\n108 bytes for the class object instance fields.\n$overhead is a reference to an array of size 108 bytes.\nahat shows the class object size is 240 (2 * (4 + 4 + 108)), with an additional 108 bytes retained by the $overhead array.\n\nI think the correct thing to do is remove $overhead entirely, but continue to use the class_size_without_overhead for the size of java.lang.Class instances at line 1234 of this patch set.",
+      "parentUuid": "d7240e07_79549aa2",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efd91c4c_383907e9",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
