@@ -22,6 +22,30 @@
       "revId": "12da636714df00c5b720b5f59ff0c1a6b6024e64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a35508c_9da182d9",
+        "filename": "runtime/native_bridge_art_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-13T02:34:00Z",
+      "side": 1,
+      "message": "you forgot this.",
+      "parentUuid": "4f926a60_c10b13ae",
+      "range": {
+        "startLine": 126,
+        "startChar": 24,
+        "endLine": 126,
+        "endChar": 47
+      },
+      "revId": "12da636714df00c5b720b5f59ff0c1a6b6024e64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
