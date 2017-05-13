@@ -636,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "0f10c6cb_ccbef9a6",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-13T02:58:05Z",
+      "side": 1,
+      "message": "Sorry for the lag in reviewing this.\n\nI think adding extra flags to HNewInstance is OK and is the way to move forward. We do this with other instructions as well. (e.g. when we set the types).\n\nI can see that this  currently depends on PrepareForRegisterAllocation::VisitInvokeStaticOrDirect. I don\u0027t remember right now why we do it here and not somewhere else. Maybe because we didn\u0027t find a good phase for it and we just dump it here? Vladimir do you remember?\n\nThis dependency might not be easy to fix right away so I\u0027m ok if you address this in a follow up.",
+      "parentUuid": "a9478e07_b32b84cb",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 38
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b8a86f_2a547e11",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 3
