@@ -660,6 +660,30 @@
     },
     {
       "key": {
+        "uuid": "d399799f_e788e8b5",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-13T15:14:50Z",
+      "side": 1,
+      "message": "Ok, maybe we can sync up with Nicolas next week about this.",
+      "parentUuid": "0f10c6cb_ccbef9a6",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 38
+      },
+      "revId": "6ce4a53bb66d8a61da68f68aa966bd9d78e7a00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b8a86f_2a547e11",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 3
