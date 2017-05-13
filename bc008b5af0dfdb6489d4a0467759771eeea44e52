@@ -22,6 +22,30 @@
       "revId": "bc008b5af0dfdb6489d4a0467759771eeea44e52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efa0630c_91c0d142",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-05-13T00:49:50Z",
+      "side": 1,
+      "message": "You\u0027re right. I\u0027ve found another way to fix the JIT issue.",
+      "parentUuid": "4ed5a1ab_335431b4",
+      "range": {
+        "startLine": 934,
+        "startChar": 43,
+        "endLine": 934,
+        "endChar": 81
+      },
+      "revId": "bc008b5af0dfdb6489d4a0467759771eeea44e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
