@@ -163,6 +163,9 @@ class ProfileCompilationInfo {
     bool is_missing_types;
     bool is_megamorphic;
     ClassSet classes;
+    uint8_t flags;
+    uint32_t dex_pc;
+    std::vector<ClassReference> classes2;
   };
 
   // The inline cache map: DexPc -> DexPcData.
@@ -196,18 +199,20 @@ class ProfileCompilationInfo {
   // If the current profile is non-empty the load will fail.
   bool Load(int fd);
 
+  // Load profile information from the given file
+  // If the current profile is non-empty the load will fail.
+  // If clear_if_invalid is true and the file is invalid the method returns clears the
+  // the file and returns true.
+  bool Load(const std::string& filename, bool clear_if_invalid);
+
   // Merge the data from another ProfileCompilationInfo into the current object.
   bool MergeWith(const ProfileCompilationInfo& info);
 
   // Save the profile data to the given file descriptor.
   bool Save(int fd);
 
-  // Load and merge profile information from the given file into the current
-  // object and tries to save it back to disk.
-  // If `force` is true then the save will go through even if the given file
-  // has bad data or its version does not match. In this cases the profile content
-  // is ignored.
-  bool MergeAndSave(const std::string& filename, uint64_t* bytes_written, bool force);
+  // Save the current profile into the given file. The file will be cleared before saving.
+  bool Save(const std::string& filename, uint64_t* bytes_written);
 
   // Return the number of methods that were profiled.
   uint32_t GetNumberOfMethods() const;
@@ -307,6 +312,9 @@ class ProfileCompilationInfo {
     // The classes which have been profiled. Note that these don't necessarily include
     // all the classes that can be found in the inline caches reference.
     std::set<dex::TypeIndex> class_set;
+    std::vector<uint16_t> classes;
+    std::vector<uint16_t> methods;
+    std::vector<std::vector<DexPcData>> inline_caches;
 
     bool operator==(const DexFileData& other) const {
       return checksum == other.checksum && method_map == other.method_map;
