@@ -27,6 +27,7 @@
 #include "imtable-inl.h"
 #include "interpreter/interpreter.h"
 #include "linear_alloc.h"
+#include "method_bss_mapping.h"
 #include "method_handles.h"
 #include "method_reference.h"
 #include "mirror/class-inl.h"
@@ -1104,6 +1105,30 @@ extern "C" const void* artQuickResolutionTrampoline(
     DCHECK_EQ(caller->GetDexFile(), called_method.dex_file);
     called = linker->ResolveMethod<ClassLinker::kForceICCECheck>(
         self, called_method.dex_method_index, caller, invoke_type);
+
+    // Update .bss entry in oat file if any.
+    if (called != nullptr && called_method.dex_file->GetOatDexFile() != nullptr) {
+      const MethodBssMapping* mapping =
+          called_method.dex_file->GetOatDexFile()->GetMethodBssMapping();
+      if (mapping != nullptr) {
+        MethodBssMappingEntry search_value = { called_method.dex_method_index, 0u };
+        auto lb = std::lower_bound(mapping->begin(),
+                                   mapping->end(),
+                                   search_value,
+                                   MethodBssMappingEntryComparator());
+        if (lb != mapping->end() && lb->method_index == called_method.dex_method_index) {
+          size_t bss_offset = lb->bss_offset;
+          DCHECK_ALIGNED(bss_offset, static_cast<size_t>(kRuntimePointerSize));
+          const OatFile* oat_file = called_method.dex_file->GetOatDexFile()->GetOatFile();
+          ArtMethod** method_entry = reinterpret_cast<ArtMethod**>(const_cast<uint8_t*>(
+              oat_file->BssBegin() + bss_offset));
+          DCHECK_GE(method_entry, oat_file->GetBssMethods().data());
+          DCHECK_LT(method_entry,
+                    oat_file->GetBssMethods().data() + oat_file->GetBssMethods().size());
+          *method_entry = called;
+        }
+      }
+    }
   }
   const void* code = nullptr;
   if (LIKELY(!self->IsExceptionPending())) {
