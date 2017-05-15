@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "80884ede_38b7c6fa",
+        "filename": "runtime/gc/gc_cause.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-15T21:34:56Z",
+      "side": 1,
+      "message": "It may be worth emphasizing that kGcCauseForNativeAlloc could cause a blocking gc if we run a non-concurrent collector while kGcCauseForNativeAllocBlocking is always a blocking gc.\n\nThat is, \"Blocking\" in kGcCauseForNativeAllocBlocking refers to the blocking watermark. And the lack of \"Blocking\" in kGcCauseForNativeAlloc in contrast to kGcCauseForNativeAllocBlocking doesn\u0027t necessarily mean it\u0027s always a non-blocking gc.",
+      "parentUuid": "195512ea_634e1b2f",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a953836f_d2648ef5",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "b5ec28a7_7c24e424",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3533,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-15T21:34:56Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "9018d9ee_8d6e90f7",
+      "range": {
+        "startLine": 3533,
+        "startChar": 8,
+        "endLine": 3533,
+        "endChar": 42
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4009d7c7_79776b2d",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "This specific call was the motivation for me to change the meaning of kGcCauseForNativeAlloc. I\u0027m using that flag so that CollectGarbageInternal knows if it needs to set native_blocking_gc_in_progress_ to true when GC starts for real. Otherwise the call to CollectGarbageInternal here would modify native_blocking_gc_in_progress_, which I think would break the logic without additional changes.\n\nWill IsGcConcurrent ever return false in practice?",
       "parentUuid": "4009d7c7_79776b2d",
+      "range": {
+        "startLine": 3976,
+        "startChar": 48,
+        "endLine": 3976,
+        "endChar": 70
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "584881d2_1174903f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3976,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-15T21:34:56Z",
+      "side": 1,
+      "message": "I think IsGcConcurrent() would return false if we run with a non-concurrent collector.",
+      "parentUuid": "ffea436b_6904e078",
       "range": {
         "startLine": 3976,
         "startChar": 48,

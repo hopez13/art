@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8feeebde_11040d0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-15T21:34:56Z",
+      "side": 1,
+      "message": "So, the new intended behavior is:\n\n- If a blocking gc is in progress, we will wait for that blocking gc to finish and then we (one of the threads) will run another blocking gc after it.\n\n- If a blocking gc is assigned but not in progress, we will wait for that blocking gc to finish, but won\u0027t run another one.\n\n- If a blocking gc is not assigned nor in progress, we will run a blocking gc.\n\n?\n\nI think it\u0027s already said in the comment in RegisterNativeAllocation(). But a comment along the line of the above text that contrasts the difference between assigned vs in-progress might be worth adding.",
+      "range": {
+        "startLine": 22,
+        "startChar": 14,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "4c13f4217dc1340d6cdc75dc78eb8eda3ea56fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
