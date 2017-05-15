@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e80bfed_59ef3aec",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "I think you can remove some duplicated logic by moving this outside the if statement and doing can_init_static_fields \u003d can_init_static_fields \u0026\u0026 NoClinitInDependency(klass, soa.Self()); for the app image case.",
+      "range": {
+        "startLine": 2281,
+        "startChar": 6,
+        "endLine": 2283,
+        "endChar": 78
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c682bf35_4500d196",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2293,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "Merge with previous VLOG statement? And make sure the line is less than 100 characters.",
+      "range": {
+        "startLine": 2293,
+        "startChar": 40,
+        "endLine": 2293,
+        "endChar": 53
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fb2350e_5ec8070a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2402,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "I thought of another case, technically string encoded statics need to be interned (see String.intern). We may want to avoid cases where there are string encoded statics for now. Do you mind adding the logic for that?",
+      "range": {
+        "startLine": 2402,
+        "startChar": 7,
+        "endLine": 2402,
+        "endChar": 27
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "355ba2a5_0c9c5e68",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2403,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "Fix indentation, should be 4 more spaces here.",
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cde53ac2_54dcafa2",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2404,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 2404,
+        "startChar": 52,
+        "endLine": 2404,
+        "endChar": 60
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b66cc89_97e97e2f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2406,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "VLOG(compiler), and either add more detail or delete this logging.",
+      "range": {
+        "startLine": 2406,
+        "startChar": 11,
+        "endLine": 2406,
+        "endChar": 19
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f856ba3e_74a042c0",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2418,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "Did we determine if we needed to initialize the interfaces? I thought this was maybe not necessary.",
+      "range": {
+        "startLine": 2418,
+        "startChar": 27,
+        "endLine": 2418,
+        "endChar": 32
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05e6ad1f_7202bbc8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2450,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "Add a comment that this is because transaction is only single threaded?",
+      "range": {
+        "startLine": 2450,
+        "startChar": 44,
+        "endLine": 2450,
+        "endChar": 77
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48c744d2_0397f69e",
+        "filename": "test/596-app-images/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T18:18:38Z",
+      "side": 1,
+      "message": "Delete?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 8
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
