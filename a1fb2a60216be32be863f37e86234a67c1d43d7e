@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63bb422d_24efddd7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T21:44:34Z",
+      "side": 1,
+      "message": "Delete this line?",
+      "revId": "a1fb2a60216be32be863f37e86234a67c1d43d7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d1bb1ed_a0a8a287",
+        "filename": "test/906-iterate-heap/iterate_heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T21:44:34Z",
+      "side": 1,
+      "message": "!\u003d 0 to make sure its a valid JNI_TRUE or JNI_FALSE value?",
+      "range": {
+        "startLine": 417,
+        "startChar": 9,
+        "endLine": 417,
+        "endChar": 48
+      },
+      "revId": "a1fb2a60216be32be863f37e86234a67c1d43d7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac1d593a_e86dc2a2",
+        "filename": "test/913-heaps/heaps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-15T21:44:34Z",
+      "side": 1,
+      "message": "Same as other comment.",
+      "range": {
+        "startLine": 1087,
+        "startChar": 9,
+        "endLine": 1087,
+        "endChar": 48
+      },
+      "revId": "a1fb2a60216be32be863f37e86234a67c1d43d7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
