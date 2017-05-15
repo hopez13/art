@@ -410,9 +410,9 @@ class CodeGeneratorX86_64 : public CodeGenerator {
 
   void RecordBootStringPatch(HLoadString* load_string);
   void RecordBootTypePatch(HLoadClass* load_class);
+  Label* NewMethodBssEntryPatch(MethodReference target_method);
   Label* NewTypeBssEntryPatch(HLoadClass* load_class);
   Label* NewStringBssEntryPatch(HLoadString* load_string);
-  Label* NewPcRelativeDexCacheArrayPatch(const DexFile& dex_file, uint32_t element_offset);
   Label* NewJitRootStringPatch(const DexFile& dex_file,
                                dex::StringIndex dex_index,
                                Handle<mirror::String> handle);
@@ -601,8 +601,8 @@ class CodeGeneratorX86_64 : public CodeGenerator {
   // Used for fixups to the constant area.
   int constant_area_start_;
 
-  // PC-relative DexCache access info.
-  ArenaDeque<PatchInfo<Label>> pc_relative_dex_cache_patches_;
+  // PC-relative method patch info for kBssEntry.
+  ArenaDeque<PatchInfo<Label>> method_bss_entry_patches_;
   // String patch locations; type depends on configuration (app .bss or boot image).
   ArenaDeque<PatchInfo<Label>> string_patches_;
   // PC-relative type patch info for kBootImageLinkTimePcRelative.

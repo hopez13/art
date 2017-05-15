@@ -565,6 +565,13 @@ class CodeGeneratorARM64 : public CodeGenerator {
                                                dex::TypeIndex type_index,
                                                vixl::aarch64::Label* adrp_label = nullptr);
 
+  // Add a new .bss entry method patch for an instruction and return
+  // the label to be bound before the instruction. The instruction will be
+  // either the ADRP (pass `adrp_label = null`) or the LDR (pass `adrp_label`
+  // pointing to the associated ADRP patch label).
+  vixl::aarch64::Label* NewMethodBssEntryPatch(MethodReference target_method,
+                                               vixl::aarch64::Label* adrp_label = nullptr);
+
   // Add a new .bss entry type patch for an instruction and return the label
   // to be bound before the instruction. The instruction will be either the
   // ADRP (pass `adrp_label = null`) or the ADD (pass `adrp_label` pointing
@@ -572,15 +579,6 @@ class CodeGeneratorARM64 : public CodeGenerator {
   vixl::aarch64::Label* NewBssEntryTypePatch(const DexFile& dex_file,
                                              dex::TypeIndex type_index,
                                              vixl::aarch64::Label* adrp_label = nullptr);
-
-  // Add a new PC-relative dex cache array patch for an instruction and return
-  // the label to be bound before the instruction. The instruction will be
-  // either the ADRP (pass `adrp_label = null`) or the LDR (pass `adrp_label`
-  // pointing to the associated ADRP patch label).
-  vixl::aarch64::Label* NewPcRelativeDexCacheArrayPatch(
-      const DexFile& dex_file,
-      uint32_t element_offset,
-      vixl::aarch64::Label* adrp_label = nullptr);
 
   // Add a new baker read barrier patch and return the label to be bound
   // before the CBNZ instruction.
@@ -733,8 +731,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
                                         vixl::aarch64::Literal<uint32_t>*,
                                         TypeReferenceValueComparator>;
 
-  vixl::aarch64::Literal<uint32_t>* DeduplicateUint32Literal(uint32_t value,
-                                                             Uint32ToLiteralMap* map);
+  vixl::aarch64::Literal<uint32_t>* DeduplicateUint32Literal(uint32_t value);
   vixl::aarch64::Literal<uint64_t>* DeduplicateUint64Literal(uint64_t value);
 
   // The PcRelativePatchInfo is used for PC-relative addressing of dex cache arrays
@@ -785,8 +782,8 @@ class CodeGeneratorARM64 : public CodeGenerator {
   Uint32ToLiteralMap uint32_literals_;
   // Deduplication map for 64-bit literals, used for non-patchable method address or method code.
   Uint64ToLiteralMap uint64_literals_;
-  // PC-relative DexCache access info.
-  ArenaDeque<PcRelativePatchInfo> pc_relative_dex_cache_patches_;
+  // PC-relative method patch info for kBssEntry.
+  ArenaDeque<PcRelativePatchInfo> method_bss_entry_patches_;
   // PC-relative String patch info; type depends on configuration (app .bss or boot image PIC).
   ArenaDeque<PcRelativePatchInfo> pc_relative_string_patches_;
   // PC-relative type patch info for kBootImageLinkTimePcRelative.

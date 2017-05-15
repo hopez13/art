@@ -256,8 +256,14 @@ class OatFile {
     return BssEnd() - BssBegin();
   }
 
+  size_t BssMethodsOffset() const {
+    // Note: This is used only for symbolizer and needs to return a valid .bss offset.
+    return (bss_methods_ != nullptr) ? bss_methods_ - BssBegin() : BssRootsOffset();
+  }
+
   size_t BssRootsOffset() const {
-    return bss_roots_ - BssBegin();
+    // Note: This is used only for symbolizer and needs to return a valid .bss offset.
+    return (bss_roots_ != nullptr) ? bss_roots_ - BssBegin() : BssSize();
   }
 
   size_t DexSize() const {
@@ -273,6 +279,7 @@ class OatFile {
   const uint8_t* DexBegin() const;
   const uint8_t* DexEnd() const;
 
+  ArrayRef<ArtMethod*> GetBssMethods() const;
   ArrayRef<GcRoot<mirror::Object>> GetBssGcRoots() const;
 
   // Returns the absolute dex location for the encoded relative dex location.
@@ -323,6 +330,9 @@ class OatFile {
 
   // Pointer to the end of the .bss section, if present, otherwise null.
   uint8_t* bss_end_;
+
+  // Pointer to the beginning of the ArtMethod*s in .bss section, if present, otherwise null.
+  uint8_t* bss_methods_;
 
   // Pointer to the beginning of the GC roots in .bss section, if present, otherwise null.
   uint8_t* bss_roots_;
