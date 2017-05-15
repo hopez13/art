@@ -246,6 +246,9 @@ bool OatFileBase::ComputeFields(uint8_t* requested_base,
     }
     // Readjust to be non-inclusive upper bound.
     bss_end_ += sizeof(uint32_t);
+    // Find bss methods if present.
+    bss_methods_ =
+        const_cast<uint8_t*>(FindDynamicSymbolAddress("oatbssmethods", &symbol_error_msg));
     // Find bss roots if present.
     bss_roots_ = const_cast<uint8_t*>(FindDynamicSymbolAddress("oatbssroots", &symbol_error_msg));
   }
@@ -311,51 +314,63 @@ bool OatFileBase::Setup(const char* abs_dex_location, std::string* error_msg) {
                               cause.c_str());
     return false;
   }
-  const uint8_t* oat = Begin();
-  oat += sizeof(OatHeader);
-  if (oat > End()) {
-    *error_msg = StringPrintf("In oat file '%s' found truncated OatHeader", GetLocation().c_str());
-    return false;
-  }
-
-  oat += GetOatHeader().GetKeyValueStoreSize();
-  if (oat > End()) {
-    *error_msg = StringPrintf("In oat file '%s' found truncated variable-size data: "
-                                  "%p + %zu + %u <= %p",
+  PointerSize pointer_size = GetInstructionSetPointerSize(GetOatHeader().GetInstructionSet());
+  size_t key_value_store_size =
+      (Size() >= sizeof(OatHeader)) ? GetOatHeader().GetKeyValueStoreSize() : 0u;
+  if (Size() < sizeof(OatHeader) + key_value_store_size) {
+    *error_msg = StringPrintf("In oat file '%s' found truncated OatHeader, "
+                                  "size = %zu < %zu + %zu",
                               GetLocation().c_str(),
-                              Begin(),
+                              Size(),
                               sizeof(OatHeader),
-                              GetOatHeader().GetKeyValueStoreSize(),
-                              End());
+                              key_value_store_size);
     return false;
   }
 
-  if (!IsAligned<alignof(GcRoot<mirror::Object>)>(bss_begin_) ||
-      !IsAligned<alignof(GcRoot<mirror::Object>)>(bss_roots_) ||
+  size_t oat_dex_files_offset = GetOatHeader().GetOatDexFilesOffset();
+  if (oat_dex_files_offset < GetOatHeader().GetHeaderSize() || oat_dex_files_offset > Size()) {
+    *error_msg = StringPrintf("In oat file '%s' found invalid oat dex files offset: "
+                                  "%zu is not in [%zu, %zu]",
+                              GetLocation().c_str(),
+                              oat_dex_files_offset,
+                              GetOatHeader().GetHeaderSize(),
+                              Size());
+    return false;
+  }
+  const uint8_t* oat = Begin() + oat_dex_files_offset;  // Jump to the OatDexFile records.
+
+  DCHECK_GE(static_cast<size_t>(pointer_size), alignof(GcRoot<mirror::Object>));
+  if (!IsAligned<kPageSize>(bss_begin_) ||
+      !IsAlignedParam(bss_methods_, static_cast<size_t>(pointer_size)) ||
+      !IsAlignedParam(bss_roots_, static_cast<size_t>(pointer_size)) ||
       !IsAligned<alignof(GcRoot<mirror::Object>)>(bss_end_)) {
     *error_msg = StringPrintf("In oat file '%s' found unaligned bss symbol(s): "
-                                  "begin = %p, roots = %p, end = %p",
+                                  "begin = %p, methods_ = %p, roots = %p, end = %p",
                               GetLocation().c_str(),
                               bss_begin_,
+                              bss_methods_,
                               bss_roots_,
                               bss_end_);
     return false;
   }
 
-  if (bss_roots_ != nullptr && (bss_roots_ < bss_begin_ || bss_roots_ > bss_end_)) {
-    *error_msg = StringPrintf("In oat file '%s' found bss roots outside .bss: "
-                                  "%p is outside range [%p, %p]",
+  if ((bss_methods_ != nullptr && (bss_methods_ < bss_begin_ || bss_methods_ > bss_end_)) ||
+      (bss_roots_ != nullptr && (bss_roots_ < bss_begin_ || bss_roots_ > bss_end_)) ||
+      (bss_methods_ != nullptr && bss_roots_ != nullptr && bss_methods_ > bss_roots_)) {
+    *error_msg = StringPrintf("In oat file '%s' found bss symbol(s) outside .bss or unordered: "
+                                  "begin = %p, methods_ = %p, roots = %p, end = %p",
                               GetLocation().c_str(),
-                              bss_roots_,
                               bss_begin_,
+                              bss_methods_,
+                              bss_roots_,
                               bss_end_);
     return false;
   }
 
-  PointerSize pointer_size = GetInstructionSetPointerSize(GetOatHeader().GetInstructionSet());
-  uint8_t* dex_cache_arrays = (bss_begin_ == bss_roots_) ? nullptr : bss_begin_;
+  uint8_t* after_arrays = (bss_methods_ != nullptr) ? bss_methods_ : bss_roots_;  // May be null.
+  uint8_t* dex_cache_arrays = (bss_begin_ == after_arrays) ? nullptr : bss_begin_;
   uint8_t* dex_cache_arrays_end =
-      (bss_begin_ == bss_roots_) ? nullptr : (bss_roots_ != nullptr) ? bss_roots_ : bss_end_;
+      (bss_begin_ == after_arrays) ? nullptr : (after_arrays != nullptr) ? after_arrays : bss_end_;
   DCHECK_EQ(dex_cache_arrays != nullptr, dex_cache_arrays_end != nullptr);
   uint32_t dex_file_count = GetOatHeader().GetDexFileCount();
   oat_dex_files_storage_.reserve(dex_file_count);
@@ -1158,6 +1173,7 @@ OatFile::OatFile(const std::string& location, bool is_executable)
       end_(nullptr),
       bss_begin_(nullptr),
       bss_end_(nullptr),
+      bss_methods_(nullptr),
       bss_roots_(nullptr),
       is_executable_(is_executable),
       secondary_lookup_lock_("OatFile secondary lookup lock", kOatFileSecondaryLookupLock) {
@@ -1196,6 +1212,17 @@ const uint8_t* OatFile::DexBegin() const {
 
 const uint8_t* OatFile::DexEnd() const {
   return kIsVdexEnabled ? vdex_->End() : End();
+}
+
+ArrayRef<ArtMethod*> OatFile::GetBssMethods() const {
+  if (bss_methods_ != nullptr) {
+    auto* methods = reinterpret_cast<ArtMethod**>(bss_methods_);
+    auto* methods_end =
+        reinterpret_cast<ArtMethod**>(bss_roots_ != nullptr ? bss_roots_ : bss_end_);
+    return ArrayRef<ArtMethod*>(methods, methods_end - methods);
+  } else {
+    return ArrayRef<ArtMethod*>();
+  }
 }
 
 ArrayRef<GcRoot<mirror::Object>> OatFile::GetBssGcRoots() const {

@@ -60,11 +60,6 @@ namespace verifier {
 
 // OatHeader         variable length with count of D OatDexFiles
 //
-// OatDexFile[0]     one variable sized OatDexFile with offsets to Dex and OatClasses
-// OatDexFile[1]
-// ...
-// OatDexFile[D]
-//
 // TypeLookupTable[0] one descriptor to class def index hash table for each OatDexFile.
 // TypeLookupTable[1]
 // ...
@@ -94,6 +89,11 @@ namespace verifier {
 // MappingTable      MappingTables are deduplicated.
 // ...
 // MappingTable
+//
+// OatDexFile[0]     one variable sized OatDexFile with offsets to Dex and OatClasses
+// OatDexFile[1]
+// ...
+// OatDexFile[D]
 //
 // padding           if necessary so that the following code will be page aligned
 //
@@ -217,6 +217,10 @@ class OatWriter {
     return bss_size_;
   }
 
+  size_t GetBssMethodsOffset() const {
+    return bss_methods_offset_;
+  }
+
   size_t GetBssRootsOffset() const {
     return bss_roots_offset_;
   }
@@ -304,14 +308,14 @@ class OatWriter {
 
   bool WriteClassOffsets(OutputStream* out);
   bool WriteClasses(OutputStream* out);
-  size_t WriteMaps(OutputStream* out, const size_t file_offset, size_t relative_offset);
-  size_t WriteCode(OutputStream* out, const size_t file_offset, size_t relative_offset);
-  size_t WriteCodeDexFiles(OutputStream* out, const size_t file_offset, size_t relative_offset);
+  size_t WriteMaps(OutputStream* out, size_t file_offset, size_t relative_offset);
+  size_t WriteOatDexFiles(OutputStream* out, size_t file_offset, size_t relative_offset);
+  size_t WriteCode(OutputStream* out, size_t file_offset, size_t relative_offset);
+  size_t WriteCodeDexFiles(OutputStream* out, size_t file_offset, size_t relative_offset);
 
   bool RecordOatDataOffset(OutputStream* out);
   bool ReadDexFileHeader(File* oat_file, OatDexFile* oat_dex_file);
   bool ValidateDexFileHeader(const uint8_t* raw_header, const char* location);
-  bool WriteOatDexFiles(OutputStream* oat_rodata);
   bool WriteTypeLookupTables(OutputStream* oat_rodata,
                              const std::vector<std::unique_ptr<const DexFile>>& opened_dex_files);
   bool WriteCodeAlignment(OutputStream* out, uint32_t aligned_code_delta);
@@ -368,8 +372,16 @@ class OatWriter {
   // The size of the required .bss section holding the DexCache data and GC roots.
   size_t bss_size_;
 
+  // The offset of the methods in .bss section.
+  size_t bss_methods_offset_;
+
   // The offset of the GC roots in .bss section.
   size_t bss_roots_offset_;
+
+  // Map for allocating ArtMethod entries in .bss. Indexed by MethodReference for the target
+  // method in the dex file with the "method reference value comparator" for deduplication.
+  // The value is the target offset for patching, starting at `bss_start_ + bss_methods_offset_`.
+  SafeMap<MethodReference, size_t, MethodReferenceValueComparator> bss_method_entries_;
 
   // Map for allocating Class entries in .bss. Indexed by TypeReference for the source
   // type in the dex file with the "type value comparator" for deduplication. The value
