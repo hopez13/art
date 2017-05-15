@@ -200,6 +200,52 @@
       "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a646afb7_41238262",
+        "filename": "test/906-iterate-heap/iterate_heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-15T18:42:36Z",
+      "side": 1,
+      "message": "Do not use here. This must be runnable in CTS.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d55e4e7_21931646",
+        "filename": "test/913-heaps/heaps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-15T18:42:36Z",
+      "side": 1,
+      "message": "Do not use here. This must be runnable in CTS.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "646ebc098835173f1dbb2bf41e70a999615a4d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
