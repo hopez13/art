@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfab0e54_a4242a5f",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-15T20:16:35Z",
+      "side": 1,
+      "message": "You will have to add VecMin prior to merging (or set no-min-max). Similar for VecMax.",
+      "revId": "54fdde4052edf84052ed81a257f8eb2dc04ddf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8710db0a_b4e4205a",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-15T20:16:35Z",
+      "side": 1,
+      "message": "uint32_t (and Uint32Value())?",
+      "revId": "54fdde4052edf84052ed81a257f8eb2dc04ddf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69e98bf_bcbc2000",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-15T20:16:35Z",
+      "side": 1,
+      "message": "(1) just to be pedantic, mips64 default implies msa, right?\n\n(2) I am a bit on the fence on duplicating all the checker patterns here. It would be nice if we could do something like CHECK-START-ARM64,MIPS, but I don\u0027t think we have that facility yet. Now, once x86 becomes SSE4.1 by default, we have to remove all those extra lines again.\n\nBut not really related to your CL, just thinking out loud.",
+      "revId": "54fdde4052edf84052ed81a257f8eb2dc04ddf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
