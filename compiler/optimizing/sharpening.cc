@@ -109,15 +109,8 @@ void HSharpening::SharpenInvokeStaticOrDirect(HInvokeStaticOrDirect* invoke,
     method_load_data = reinterpret_cast<uintptr_t>(callee);
     code_ptr_location = HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;
   } else {
-    // Use PC-relative access to the dex cache arrays.
-    method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative;
-    // Note: we use the invoke's graph instead of the codegen graph, which are
-    // different when inlining (the codegen graph is the most outer graph). The
-    // invoke's dex method index is relative to the dex file where the invoke's graph
-    // was built from.
-    DexCacheArraysLayout layout(GetInstructionSetPointerSize(codegen->GetInstructionSet()),
-                                &invoke->GetBlock()->GetGraph()->GetDexFile());
-    method_load_data = layout.MethodOffset(invoke->GetDexMethodIndex());
+    // Use PC-relative access to the .bss methods arrays.
+    method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kBssEntry;
     code_ptr_location = HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;
   }
 

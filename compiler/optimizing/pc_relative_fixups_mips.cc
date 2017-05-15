@@ -58,6 +58,18 @@ class PCRelativeHandlerVisitor : public HGraphVisitor {
     DCHECK(base_ != nullptr);
   }
 
+  void VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invoke) OVERRIDE {
+    // If this is an invoke with PC-relative access to the .bss methods array,
+    // we need to add the base as the special input.
+    if (invoke->HasBssEntry() &&
+        !IsCallFreeIntrinsic<IntrinsicLocationsBuilderMIPS>(invoke, codegen_)) {
+      InitializePCRelativeBasePointer();
+      // Add the special argument base to the method.
+      DCHECK(!invoke->HasCurrentMethodInput());
+      invoke->AddSpecialInput(base_);
+    }
+  }
+
   void VisitLoadClass(HLoadClass* load_class) OVERRIDE {
     HLoadClass::LoadKind load_kind = load_class->GetLoadKind();
     switch (load_kind) {

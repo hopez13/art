@@ -485,9 +485,8 @@ class CodeGeneratorARM : public CodeGenerator {
   PcRelativePatchInfo* NewPcRelativeStringPatch(const DexFile& dex_file,
                                                 dex::StringIndex string_index);
   PcRelativePatchInfo* NewPcRelativeTypePatch(const DexFile& dex_file, dex::TypeIndex type_index);
+  PcRelativePatchInfo* NewMethodBssEntryPatch(MethodReference target_method);
   PcRelativePatchInfo* NewTypeBssEntryPatch(const DexFile& dex_file, dex::TypeIndex type_index);
-  PcRelativePatchInfo* NewPcRelativeDexCacheArrayPatch(const DexFile& dex_file,
-                                                       uint32_t element_offset);
 
   // Add a new baker read barrier patch and return the label to be bound
   // before the BNE instruction.
@@ -660,8 +659,8 @@ class CodeGeneratorARM : public CodeGenerator {
 
   // Deduplication map for 32-bit literals, used for non-patchable boot image addresses.
   Uint32ToLiteralMap uint32_literals_;
-  // PC-relative patch info for each HArmDexCacheArraysBase.
-  ArenaDeque<PcRelativePatchInfo> pc_relative_dex_cache_patches_;
+  // PC-relative method patch info for kBssEntry.
+  ArenaDeque<PcRelativePatchInfo> method_bss_entry_patches_;
   // PC-relative String patch info; type depends on configuration (app .bss or boot image PIC).
   ArenaDeque<PcRelativePatchInfo> pc_relative_string_patches_;
   // PC-relative type patch info for kBootImageLinkTimePcRelative.

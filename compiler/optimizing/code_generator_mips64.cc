@@ -957,7 +957,7 @@ CodeGeneratorMIPS64::CodeGeneratorMIPS64(HGraph* graph,
                        graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       uint64_literals_(std::less<uint64_t>(),
                        graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
-      pc_relative_dex_cache_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
+      method_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       pc_relative_string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       pc_relative_type_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       type_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
@@ -1439,21 +1439,21 @@ inline void CodeGeneratorMIPS64::EmitPcRelativeLinkerPatches(
 void CodeGeneratorMIPS64::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_patches) {
   DCHECK(linker_patches->empty());
   size_t size =
-      pc_relative_dex_cache_patches_.size() +
+      method_bss_entry_patches_.size() +
       pc_relative_string_patches_.size() +
       pc_relative_type_patches_.size() +
       type_bss_entry_patches_.size();
   linker_patches->reserve(size);
-  EmitPcRelativeLinkerPatches<LinkerPatch::DexCacheArrayPatch>(pc_relative_dex_cache_patches_,
-                                                               linker_patches);
-  if (!GetCompilerOptions().IsBootImage()) {
-    DCHECK(pc_relative_type_patches_.empty());
-    EmitPcRelativeLinkerPatches<LinkerPatch::StringBssEntryPatch>(pc_relative_string_patches_,
-                                                                  linker_patches);
-  } else {
+  EmitPcRelativeLinkerPatches<LinkerPatch::MethodBssEntryPatch>(method_bss_entry_patches_,
+                                                                linker_patches);
+  if (GetCompilerOptions().IsBootImage()) {
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeTypePatch>(pc_relative_type_patches_,
                                                                 linker_patches);
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeStringPatch>(pc_relative_string_patches_,
+                                                                  linker_patches);
+  } else {
+    DCHECK(pc_relative_type_patches_.empty());
+    EmitPcRelativeLinkerPatches<LinkerPatch::StringBssEntryPatch>(pc_relative_string_patches_,
                                                                   linker_patches);
   }
   EmitPcRelativeLinkerPatches<LinkerPatch::TypeBssEntryPatch>(type_bss_entry_patches_,
@@ -1471,14 +1471,16 @@ CodeGeneratorMIPS64::PcRelativePatchInfo* CodeGeneratorMIPS64::NewPcRelativeType
   return NewPcRelativePatch(dex_file, type_index.index_, &pc_relative_type_patches_);
 }
 
+CodeGeneratorMIPS64::PcRelativePatchInfo* CodeGeneratorMIPS64::NewMethodBssEntryPatch(
+    MethodReference target_method) {
+  return NewPcRelativePatch(*target_method.dex_file,
+                            target_method.dex_method_index,
+                            &method_bss_entry_patches_);
+}
+
 CodeGeneratorMIPS64::PcRelativePatchInfo* CodeGeneratorMIPS64::NewTypeBssEntryPatch(
     const DexFile& dex_file, dex::TypeIndex type_index) {
   return NewPcRelativePatch(dex_file, type_index.index_, &type_bss_entry_patches_);
-}
-
-CodeGeneratorMIPS64::PcRelativePatchInfo* CodeGeneratorMIPS64::NewPcRelativeDexCacheArrayPatch(
-    const DexFile& dex_file, uint32_t element_offset) {
-  return NewPcRelativePatch(dex_file, element_offset, &pc_relative_dex_cache_patches_);
 }
 
 CodeGeneratorMIPS64::PcRelativePatchInfo* CodeGeneratorMIPS64::NewPcRelativePatch(
@@ -4928,10 +4930,9 @@ void CodeGeneratorMIPS64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invo
                      kLoadDoubleword,
                      DeduplicateUint64Literal(invoke->GetMethodAddress()));
       break;
-    case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative: {
-      uint32_t offset = invoke->GetDexCacheArrayOffset();
+    case HInvokeStaticOrDirect::MethodLoadKind::kBssEntry: {
       CodeGeneratorMIPS64::PcRelativePatchInfo* info =
-          NewPcRelativeDexCacheArrayPatch(invoke->GetDexFileForPcRelativeDexCache(), offset);
+          NewMethodBssEntryPatch(invoke->GetTargetMethod());
       EmitPcRelativeAddressPlaceholderHigh(info, AT);
       __ Ld(temp.AsRegister<GpuRegister>(), AT, /* placeholder */ 0x5678);
       break;

@@ -40,10 +40,6 @@ namespace mips {
 static constexpr int kCurrentMethodStackOffset = 0;
 static constexpr Register kMethodRegisterArgument = A0;
 
-// We'll maximize the range of a single load instruction for dex cache array accesses
-// by aligning offset -32768 with the offset of the first used element.
-static constexpr uint32_t kDexCacheArrayLwOffset = 0x8000;
-
 Location MipsReturnLocation(Primitive::Type return_type) {
   switch (return_type) {
     case Primitive::kPrimBoolean:
@@ -1060,7 +1056,7 @@ CodeGeneratorMIPS::CodeGeneratorMIPS(HGraph* graph,
       isa_features_(isa_features),
       uint32_literals_(std::less<uint32_t>(),
                        graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
-      pc_relative_dex_cache_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
+      method_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       pc_relative_string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       pc_relative_type_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       type_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
@@ -1601,21 +1597,21 @@ inline void CodeGeneratorMIPS::EmitPcRelativeLinkerPatches(
 void CodeGeneratorMIPS::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_patches) {
   DCHECK(linker_patches->empty());
   size_t size =
-      pc_relative_dex_cache_patches_.size() +
+      method_bss_entry_patches_.size() +
       pc_relative_string_patches_.size() +
       pc_relative_type_patches_.size() +
       type_bss_entry_patches_.size();
   linker_patches->reserve(size);
-  EmitPcRelativeLinkerPatches<LinkerPatch::DexCacheArrayPatch>(pc_relative_dex_cache_patches_,
-                                                               linker_patches);
-  if (!GetCompilerOptions().IsBootImage()) {
-    DCHECK(pc_relative_type_patches_.empty());
-    EmitPcRelativeLinkerPatches<LinkerPatch::StringBssEntryPatch>(pc_relative_string_patches_,
-                                                                  linker_patches);
-  } else {
+  EmitPcRelativeLinkerPatches<LinkerPatch::MethodBssEntryPatch>(method_bss_entry_patches_,
+                                                                linker_patches);
+  if (GetCompilerOptions().IsBootImage()) {
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeTypePatch>(pc_relative_type_patches_,
                                                                 linker_patches);
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeStringPatch>(pc_relative_string_patches_,
+                                                                  linker_patches);
+  } else {
+    DCHECK(pc_relative_type_patches_.empty());
+    EmitPcRelativeLinkerPatches<LinkerPatch::StringBssEntryPatch>(pc_relative_string_patches_,
                                                                   linker_patches);
   }
   EmitPcRelativeLinkerPatches<LinkerPatch::TypeBssEntryPatch>(type_bss_entry_patches_,
@@ -1633,14 +1629,16 @@ CodeGeneratorMIPS::PcRelativePatchInfo* CodeGeneratorMIPS::NewPcRelativeTypePatc
   return NewPcRelativePatch(dex_file, type_index.index_, &pc_relative_type_patches_);
 }
 
+CodeGeneratorMIPS::PcRelativePatchInfo* CodeGeneratorMIPS::NewMethodBssEntryPatch(
+    MethodReference target_method) {
+  return NewPcRelativePatch(*target_method.dex_file,
+                            target_method.dex_method_index,
+                            &method_bss_entry_patches_);
+}
+
 CodeGeneratorMIPS::PcRelativePatchInfo* CodeGeneratorMIPS::NewTypeBssEntryPatch(
     const DexFile& dex_file, dex::TypeIndex type_index) {
   return NewPcRelativePatch(dex_file, type_index.index_, &type_bss_entry_patches_);
-}
-
-CodeGeneratorMIPS::PcRelativePatchInfo* CodeGeneratorMIPS::NewPcRelativeDexCacheArrayPatch(
-    const DexFile& dex_file, uint32_t element_offset) {
-  return NewPcRelativePatch(dex_file, element_offset, &pc_relative_dex_cache_patches_);
 }
 
 CodeGeneratorMIPS::PcRelativePatchInfo* CodeGeneratorMIPS::NewPcRelativePatch(
@@ -6947,7 +6945,7 @@ void LocationsBuilderMIPS::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invo
   DCHECK(!invoke->IsStaticWithExplicitClinitCheck());
 
   bool is_r6 = codegen_->GetInstructionSetFeatures().IsR6();
-  bool has_extra_input = invoke->HasPcRelativeDexCache() && !is_r6;
+  bool has_extra_input = invoke->HasBssEntry() && !is_r6;
 
   IntrinsicLocationsBuilderMIPS intrinsic(codegen_);
   if (intrinsic.TryDispatch(invoke)) {
@@ -6987,7 +6985,7 @@ HLoadString::LoadKind CodeGeneratorMIPS::GetSupportedLoadStringKind(
     HLoadString::LoadKind desired_string_load_kind) {
   // We disable PC-relative load on pre-R6 when there is an irreducible loop, as the optimization
   // is incompatible with it.
-  // TODO: Create as many MipsDexCacheArraysBase instructions as needed for methods
+  // TODO: Create as many HMipsComputeBaseMethodAddress instructions as needed for methods
   // with irreducible loops.
   bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
   bool is_r6 = GetInstructionSetFeatures().IsR6();
@@ -7017,6 +7015,8 @@ HLoadClass::LoadKind CodeGeneratorMIPS::GetSupportedLoadClassKind(
     HLoadClass::LoadKind desired_class_load_kind) {
   // We disable PC-relative load on pre-R6 when there is an irreducible loop, as the optimization
   // is incompatible with it.
+  // TODO: Create as many HMipsComputeBaseMethodAddress instructions as needed for methods
+  // with irreducible loops.
   bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
   bool is_r6 = GetInstructionSetFeatures().IsR6();
   bool fallback_load = has_irreducible_loops && !is_r6;
@@ -7080,11 +7080,13 @@ HInvokeStaticOrDirect::DispatchInfo CodeGeneratorMIPS::GetSupportedInvokeStaticO
   HInvokeStaticOrDirect::DispatchInfo dispatch_info = desired_dispatch_info;
   // We disable PC-relative load on pre-R6 when there is an irreducible loop, as the optimization
   // is incompatible with it.
+  // TODO: Create as many HMipsComputeBaseMethodAddress instructions as needed for methods
+  // with irreducible loops.
   bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
   bool is_r6 = GetInstructionSetFeatures().IsR6();
   bool fallback_load = has_irreducible_loops && !is_r6;
   switch (dispatch_info.method_load_kind) {
-    case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative:
+    case HInvokeStaticOrDirect::MethodLoadKind::kBssEntry:
       break;
     default:
       fallback_load = false;
@@ -7103,7 +7105,7 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke
   HInvokeStaticOrDirect::MethodLoadKind method_load_kind = invoke->GetMethodLoadKind();
   HInvokeStaticOrDirect::CodePtrLocation code_ptr_location = invoke->GetCodePtrLocation();
   bool is_r6 = GetInstructionSetFeatures().IsR6();
-  Register base_reg = (invoke->HasPcRelativeDexCache() && !is_r6)
+  Register base_reg = (invoke->HasBssEntry() && !is_r6)
       ? GetInvokeStaticOrDirectExtraParameter(invoke, temp.AsRegister<Register>())
       : ZERO;
 
@@ -7124,23 +7126,16 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       __ LoadConst32(temp.AsRegister<Register>(), invoke->GetMethodAddress());
       break;
-    case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative:
-      if (is_r6) {
-        uint32_t offset = invoke->GetDexCacheArrayOffset();
-        CodeGeneratorMIPS::PcRelativePatchInfo* info =
-            NewPcRelativeDexCacheArrayPatch(invoke->GetDexFileForPcRelativeDexCache(), offset);
-        bool reordering = __ SetReorder(false);
-        EmitPcRelativeAddressPlaceholderHigh(info, TMP, ZERO);
-        __ Lw(temp.AsRegister<Register>(), TMP, /* placeholder */ 0x5678);
-        __ SetReorder(reordering);
-      } else {
-        HMipsDexCacheArraysBase* base =
-            invoke->InputAt(invoke->GetSpecialInputIndex())->AsMipsDexCacheArraysBase();
-        int32_t offset =
-            invoke->GetDexCacheArrayOffset() - base->GetElementOffset() - kDexCacheArrayLwOffset;
-        __ LoadFromOffset(kLoadWord, temp.AsRegister<Register>(), base_reg, offset);
-      }
+    case HInvokeStaticOrDirect::MethodLoadKind::kBssEntry: {
+      CodeGeneratorMIPS::PcRelativePatchInfo* info =
+          NewMethodBssEntryPatch(invoke->GetTargetMethod());
+      Register temp_reg = temp.AsRegister<Register>();
+      bool reordering = __ SetReorder(false);
+      EmitPcRelativeAddressPlaceholderHigh(info, TMP, base_reg);
+      __ Lw(temp_reg, TMP, /* placeholder */ 0x5678);
+      __ SetReorder(reordering);
       break;
+    }
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCacheViaMethod: {
       Location current_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
       Register reg = temp.AsRegister<Register>();
@@ -8708,27 +8703,9 @@ void InstructionCodeGeneratorMIPS::VisitMipsComputeBaseMethodAddress(
   __ Nal();
   // Grab the return address off RA.
   __ Move(reg, RA);
-  // TODO: Can we share this code with that of VisitMipsDexCacheArraysBase()?
 
   // Remember this offset (the obtained PC value) for later use with constant area.
   __ BindPcRelBaseLabel();
-}
-
-void LocationsBuilderMIPS::VisitMipsDexCacheArraysBase(HMipsDexCacheArraysBase* base) {
-  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(base);
-  locations->SetOut(Location::RequiresRegister());
-}
-
-void InstructionCodeGeneratorMIPS::VisitMipsDexCacheArraysBase(HMipsDexCacheArraysBase* base) {
-  Register reg = base->GetLocations()->Out().AsRegister<Register>();
-  CodeGeneratorMIPS::PcRelativePatchInfo* info =
-      codegen_->NewPcRelativeDexCacheArrayPatch(base->GetDexFile(), base->GetElementOffset());
-  CHECK(!codegen_->GetInstructionSetFeatures().IsR6());
-  bool reordering = __ SetReorder(false);
-  // TODO: Reuse MipsComputeBaseMethodAddress on R2 instead of passing ZERO to force emitting NAL.
-  codegen_->EmitPcRelativeAddressPlaceholderHigh(info, reg, ZERO);
-  __ Addiu(reg, reg, /* placeholder */ 0x5678);
-  __ SetReorder(reordering);
 }
 
 void LocationsBuilderMIPS::VisitInvokeUnresolved(HInvokeUnresolved* invoke) {
