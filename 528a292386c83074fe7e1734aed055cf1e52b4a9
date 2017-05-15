@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "5d51a6e6_88426da2",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-15T17:40:50Z",
+      "side": 1,
+      "message": "I think it makes more sense to keep this opaque.",
+      "parentUuid": "7f16f872_387c8b2e",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efd91c4c_383907e9",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
