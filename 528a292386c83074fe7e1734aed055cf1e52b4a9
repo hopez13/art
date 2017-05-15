@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "7f16f872_387c8b2e",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-15T08:22:50Z",
+      "side": 1,
+      "message": "I\u0027m not that familiar with how class objects are laid out. If they have an embedded vtable or embedded IMT that is not considered a java.lang.Class instance field or static field for the class, it may be worth adding them.\n\nYou could use $overhead approach for that. Alternatively, if they are arrays inlined into the class object, maybe add a $ field for each element of the relevant array and call it $vtable_0, $vtable_1, etc.?",
+      "parentUuid": "1efe4d55_171e24dc",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efd91c4c_383907e9",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
