@@ -1031,7 +1031,7 @@ CodeGeneratorX86::CodeGeneratorX86(HGraph* graph,
       move_resolver_(graph->GetArena(), this),
       assembler_(graph->GetArena()),
       isa_features_(isa_features),
-      pc_relative_dex_cache_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
+      method_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       boot_image_type_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       type_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
@@ -2167,7 +2167,7 @@ void LocationsBuilderX86::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invok
 
   IntrinsicLocationsBuilderX86 intrinsic(codegen_);
   if (intrinsic.TryDispatch(invoke)) {
-    if (invoke->GetLocations()->CanCall() && invoke->HasPcRelativeDexCache()) {
+    if (invoke->GetLocations()->CanCall() && invoke->HasBssEntry()) {
       invoke->GetLocations()->SetInAt(invoke->GetSpecialInputIndex(), Location::Any());
     }
     return;
@@ -2176,7 +2176,7 @@ void LocationsBuilderX86::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invok
   HandleInvoke(invoke);
 
   // For PC-relative dex cache the invoke has an extra input, the PC-relative address base.
-  if (invoke->HasPcRelativeDexCache()) {
+  if (invoke->HasBssEntry()) {
     invoke->GetLocations()->SetInAt(invoke->GetSpecialInputIndex(), Location::RequiresRegister());
   }
 }
@@ -4546,16 +4546,14 @@ Location CodeGeneratorX86::GenerateCalleeMethodStaticOrDirectCall(HInvokeStaticO
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       __ movl(temp.AsRegister<Register>(), Immediate(invoke->GetMethodAddress()));
       break;
-    case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative: {
+    case HInvokeStaticOrDirect::MethodLoadKind::kBssEntry: {
       Register base_reg = GetInvokeStaticOrDirectExtraParameter(invoke,
                                                                 temp.AsRegister<Register>());
       __ movl(temp.AsRegister<Register>(), Address(base_reg, kDummy32BitOffset));
       // Bind a new fixup label at the end of the "movl" insn.
-      uint32_t offset = invoke->GetDexCacheArrayOffset();
-      __ Bind(NewPcRelativeDexCacheArrayPatch(
+      __ Bind(NewMethodBssEntryPatch(
           invoke->InputAt(invoke->GetSpecialInputIndex())->AsX86ComputeBaseMethodAddress(),
-          invoke->GetDexFileForPcRelativeDexCache(),
-          offset));
+          invoke->GetTargetMethod()));
       break;
     }
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCacheViaMethod: {
@@ -4648,6 +4646,16 @@ void CodeGeneratorX86::RecordBootTypePatch(HLoadClass* load_class) {
   __ Bind(&boot_image_type_patches_.back().label);
 }
 
+Label* CodeGeneratorX86::NewMethodBssEntryPatch(
+    HX86ComputeBaseMethodAddress* method_address,
+    MethodReference target_method) {
+  // Add the patch entry and bind its label at the end of the instruction.
+  method_bss_entry_patches_.emplace_back(method_address,
+                                         *target_method.dex_file,
+                                         target_method.dex_method_index);
+  return &method_bss_entry_patches_.back().label;
+}
+
 Label* CodeGeneratorX86::NewTypeBssEntryPatch(HLoadClass* load_class) {
   HX86ComputeBaseMethodAddress* address =
       load_class->InputAt(0)->AsX86ComputeBaseMethodAddress();
@@ -4663,15 +4671,6 @@ Label* CodeGeneratorX86::NewStringBssEntryPatch(HLoadString* load_string) {
   string_patches_.emplace_back(
       address, load_string->GetDexFile(), load_string->GetStringIndex().index_);
   return &string_patches_.back().label;
-}
-
-Label* CodeGeneratorX86::NewPcRelativeDexCacheArrayPatch(
-    HX86ComputeBaseMethodAddress* method_address,
-    const DexFile& dex_file,
-    uint32_t element_offset) {
-  // Add the patch entry and bind its label at the end of the instruction.
-  pc_relative_dex_cache_patches_.emplace_back(method_address, dex_file, element_offset);
-  return &pc_relative_dex_cache_patches_.back().label;
 }
 
 // The label points to the end of the "movl" or another instruction but the literal offset
@@ -4692,13 +4691,13 @@ inline void CodeGeneratorX86::EmitPcRelativeLinkerPatches(
 void CodeGeneratorX86::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_patches) {
   DCHECK(linker_patches->empty());
   size_t size =
-      pc_relative_dex_cache_patches_.size() +
+      method_bss_entry_patches_.size() +
       string_patches_.size() +
       boot_image_type_patches_.size() +
       type_bss_entry_patches_.size();
   linker_patches->reserve(size);
-  EmitPcRelativeLinkerPatches<LinkerPatch::DexCacheArrayPatch>(pc_relative_dex_cache_patches_,
-                                                               linker_patches);
+  EmitPcRelativeLinkerPatches<LinkerPatch::MethodBssEntryPatch>(method_bss_entry_patches_,
+                                                                linker_patches);
   if (GetCompilerOptions().IsBootImage()) {
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeTypePatch>(boot_image_type_patches_,
                                                                 linker_patches);

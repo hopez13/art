@@ -294,7 +294,9 @@ OatWriter::OatWriter(bool compiling_boot_image, TimingLogger* timings, ProfileCo
     oat_size_(0u),
     bss_start_(0u),
     bss_size_(0u),
+    bss_methods_offset_(0u),
     bss_roots_offset_(0u),
+    bss_method_entries_(),
     bss_type_entries_(),
     bss_string_entries_(),
     oat_data_offset_(0u),
@@ -858,6 +860,9 @@ class OatWriter::InitCodeMethodVisitor : public OatDexMethodVisitor {
             if (!patch.IsPcRelative()) {
               writer_->absolute_patch_locations_.push_back(base_loc + patch.LiteralOffset());
             }
+            if (patch.GetType() == LinkerPatch::Type::kMethodBssEntry) {
+              writer_->bss_method_entries_.Overwrite(patch.TargetMethod(), /* placeholder */ 0u);
+            }
             if (patch.GetType() == LinkerPatch::Type::kTypeBssEntry) {
               TypeReference ref(patch.TargetTypeDexFile(), patch.TargetTypeIndex());
               writer_->bss_type_entries_.Overwrite(ref, /* placeholder */ 0u);
@@ -1131,8 +1136,7 @@ class OatWriter::InitImageMethodVisitor : public OatDexMethodVisitor {
       // Should already have been resolved by the compiler, just peek into the dex cache.
       // It may not be resolved if the class failed to verify, in this case, don't set the
       // entrypoint. This is not fatal since the dex cache will contain a resolution method.
-      method = dex_cache->GetResolvedMethod(it.GetMemberIndex(),
-          class_linker_->GetImagePointerSize());
+      method = dex_cache->GetResolvedMethod(it.GetMemberIndex(), pointer_size_);
     }
     if (method != nullptr &&
         compiled_method != nullptr &&
@@ -1171,7 +1175,7 @@ class OatWriter::InitImageMethodVisitor : public OatDexMethodVisitor {
     }
   }
 
- protected:
+ private:
   const PointerSize pointer_size_;
   const std::vector<const DexFile*>* dex_files_;
   ClassLinker* const class_linker_;
@@ -1183,6 +1187,7 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
   WriteCodeMethodVisitor(OatWriter* writer, OutputStream* out, const size_t file_offset,
                          size_t relative_offset) SHARED_LOCK_FUNCTION(Locks::mutator_lock_)
     : OatDexMethodVisitor(writer, relative_offset),
+      pointer_size_(GetInstructionSetPointerSize(writer_->compiler_driver_->GetInstructionSet())),
       class_loader_(writer->HasImage() ? writer->image_writer_->GetClassLoader() : nullptr),
       out_(out),
       file_offset_(file_offset),
@@ -1275,6 +1280,14 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
           for (const LinkerPatch& patch : compiled_method->GetPatches()) {
             uint32_t literal_offset = patch.LiteralOffset();
             switch (patch.GetType()) {
+              case LinkerPatch::Type::kMethodBssEntry: {
+                uint32_t target_offset = writer_->bss_method_entries_.Get(patch.TargetMethod());
+                writer_->relative_patcher_->PatchPcRelativeReference(&patched_code_,
+                                                                     patch,
+                                                                     offset_ + literal_offset,
+                                                                     target_offset);
+                break;
+              }
               case LinkerPatch::Type::kCallRelative: {
                 // NOTE: Relative calls across oat files are not supported.
                 uint32_t target_offset = GetTargetOffset(patch);
@@ -1365,6 +1378,7 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
   }
 
  private:
+  const PointerSize pointer_size_;
   ObjPtr<mirror::ClassLoader> class_loader_;
   OutputStream* const out_;
   const size_t file_offset_;
@@ -1385,8 +1399,7 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
     ObjPtr<mirror::DexCache> dex_cache =
         (dex_file_ == ref.dex_file) ? dex_cache_ : class_linker_->FindDexCache(
             Thread::Current(), *ref.dex_file);
-    ArtMethod* method = dex_cache->GetResolvedMethod(
-        ref.dex_method_index, class_linker_->GetImagePointerSize());
+    ArtMethod* method = dex_cache->GetResolvedMethod(ref.dex_method_index, pointer_size_);
     CHECK(method != nullptr);
     return method;
   }
@@ -1398,9 +1411,8 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
     if (UNLIKELY(target_offset == 0)) {
       ArtMethod* target = GetTargetMethod(patch);
       DCHECK(target != nullptr);
-      PointerSize size =
-          GetInstructionSetPointerSize(writer_->compiler_driver_->GetInstructionSet());
-      const void* oat_code_offset = target->GetEntryPointFromQuickCompiledCodePtrSize(size);
+      const void* oat_code_offset =
+          target->GetEntryPointFromQuickCompiledCodePtrSize(pointer_size_);
       if (oat_code_offset != 0) {
         DCHECK(!writer_->HasBootImage());
         DCHECK(!Runtime::Current()->GetClassLinker()->IsQuickResolutionStub(oat_code_offset));
@@ -1824,7 +1836,7 @@ size_t OatWriter::InitOatCodeDexFiles(size_t offset) {
 void OatWriter::InitBssLayout(InstructionSet instruction_set) {
   if (HasBootImage()) {
     DCHECK(bss_string_entries_.empty());
-    if (bss_type_entries_.empty()) {
+    if (bss_method_entries_.empty() && bss_type_entries_.empty()) {
       // Nothing to put to the .bss section.
       return;
     }
@@ -1833,13 +1845,22 @@ void OatWriter::InitBssLayout(InstructionSet instruction_set) {
   // Allocate space for app dex cache arrays in the .bss section.
   bss_start_ = RoundUp(oat_size_, kPageSize);
   bss_size_ = 0u;
+  PointerSize pointer_size = GetInstructionSetPointerSize(instruction_set);
   if (!HasBootImage()) {
-    PointerSize pointer_size = GetInstructionSetPointerSize(instruction_set);
     for (const DexFile* dex_file : *dex_files_) {
       dex_cache_arrays_offsets_.Put(dex_file, bss_start_ + bss_size_);
       DexCacheArraysLayout layout(pointer_size, dex_file);
       bss_size_ += layout.Size();
     }
+  }
+
+  bss_methods_offset_ = bss_size_;
+
+  // Prepare offsets for .bss ArtMethod entries.
+  for (auto& entry : bss_method_entries_) {
+    DCHECK_EQ(entry.second, 0u);
+    entry.second = bss_start_ + bss_size_;
+    bss_size_ += static_cast<size_t>(pointer_size);
   }
 
   bss_roots_offset_ = bss_size_;

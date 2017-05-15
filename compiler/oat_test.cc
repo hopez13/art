@@ -220,6 +220,7 @@ class OatTest : public CommonCompilerTest {
     elf_writer->PrepareDynamicSection(rodata_size,
                                       text_size,
                                       oat_writer.GetBssSize(),
+                                      oat_writer.GetBssMethodsOffset(),
                                       oat_writer.GetBssRootsOffset());
 
     if (kIsVdexEnabled) {

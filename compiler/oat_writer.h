@@ -217,6 +217,10 @@ class OatWriter {
     return bss_size_;
   }
 
+  size_t GetBssMethodsOffset() const {
+    return bss_methods_offset_;
+  }
+
   size_t GetBssRootsOffset() const {
     return bss_roots_offset_;
   }
@@ -368,8 +372,16 @@ class OatWriter {
   // The size of the required .bss section holding the DexCache data and GC roots.
   size_t bss_size_;
 
+  // The offset of the methods in .bss section.
+  size_t bss_methods_offset_;
+
   // The offset of the GC roots in .bss section.
   size_t bss_roots_offset_;
+
+  // Map for allocating ArtMethod entries in .bss. Indexed by MethodReference for the target
+  // method in the dex file with the "method reference value comparator" for deduplication.
+  // The value is the target offset for patching, starting at `bss_start_ + bss_methods_offset_`.
+  SafeMap<MethodReference, size_t, MethodReferenceValueComparator> bss_method_entries_;
 
   // Map for allocating Class entries in .bss. Indexed by TypeReference for the source
   // type in the dex file with the "type value comparator" for deduplication. The value

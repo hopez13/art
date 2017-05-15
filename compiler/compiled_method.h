@@ -120,6 +120,7 @@ class LinkerPatch {
   // patch_type_ as an uintN_t and do explicit static_cast<>s.
   enum class Type : uint8_t {
     kMethod,
+    kMethodBssEntry,          // NOTE: Actual patching is instruction_set-dependent.
     kCall,
     kCallRelative,            // NOTE: Actual patching is instruction_set-dependent.
     kTypeRelative,            // NOTE: Actual patching is instruction_set-dependent.
@@ -135,6 +136,16 @@ class LinkerPatch {
                                  uint32_t target_method_idx) {
     LinkerPatch patch(literal_offset, Type::kMethod, target_dex_file);
     patch.method_idx_ = target_method_idx;
+    return patch;
+  }
+
+  static LinkerPatch MethodBssEntryPatch(size_t literal_offset,
+                                         const DexFile* target_dex_file,
+                                         uint32_t pc_insn_offset,
+                                         uint32_t target_method_idx) {
+    LinkerPatch patch(literal_offset, Type::kMethodBssEntry, target_dex_file);
+    patch.method_idx_ = target_method_idx;
+    patch.pc_insn_offset_ = pc_insn_offset;
     return patch;
   }
 
@@ -226,6 +237,7 @@ class LinkerPatch {
 
   bool IsPcRelative() const {
     switch (GetType()) {
+      case Type::kMethodBssEntry:
       case Type::kCallRelative:
       case Type::kTypeRelative:
       case Type::kTypeBssEntry:
@@ -241,6 +253,7 @@ class LinkerPatch {
 
   MethodReference TargetMethod() const {
     DCHECK(patch_type_ == Type::kMethod ||
+           patch_type_ == Type::kMethodBssEntry ||
            patch_type_ == Type::kCall ||
            patch_type_ == Type::kCallRelative);
     return MethodReference(target_dex_file_, method_idx_);
@@ -281,7 +294,8 @@ class LinkerPatch {
   }
 
   uint32_t PcInsnOffset() const {
-    DCHECK(patch_type_ == Type::kTypeRelative ||
+    DCHECK(patch_type_ == Type::kMethodBssEntry ||
+           patch_type_ == Type::kTypeRelative ||
            patch_type_ == Type::kTypeBssEntry ||
            patch_type_ == Type::kStringRelative ||
            patch_type_ == Type::kStringBssEntry ||
