@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "6c50df19_475fe738",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-15T19:04:49Z",
+      "side": 1,
+      "message": "(But I don\u0027t know how to filter out the instance ones. There are classes without embedded vtable [or small vtable?] So I don\u0027t think I can avoid that double-counting.)",
+      "parentUuid": "5d51a6e6_88426da2",
+      "range": {
+        "startLine": 1207,
+        "startChar": 15,
+        "endLine": 1207,
+        "endChar": 28
+      },
+      "revId": "528a292386c83074fe7e1734aed055cf1e52b4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efd91c4c_383907e9",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 1
