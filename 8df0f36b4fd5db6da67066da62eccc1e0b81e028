@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c76333d_0d2bfe2e",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-16T13:36:29Z",
+      "side": 1,
+      "message": "Without having kGcCauseForNativeAlloc here in addition to kGcCauseForNativeAllocBlocking, the 004-NativeAllocations test fails with ART_DEFAULT_GC_TYPE\u003dGSS.\n\nIn this case we run NativeAlloc generational semispace bps GC whenever the first native GC watermark is triggered but the finalizers that call RegisterNativeFree are never called. Is that expected?\n\nWhat does it mean to collect_from_space_only_, and why do finalizers not get invoked with repeated kGcTypePartial GCs for GSS?",
+      "range": {
+        "startLine": 195,
+        "startChar": 47,
+        "endLine": 195,
+        "endChar": 80
+      },
+      "revId": "8df0f36b4fd5db6da67066da62eccc1e0b81e028",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
