@@ -22,6 +22,30 @@
       "revId": "0897e1c405bf43e6e124a226789582de58904be0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5458f9b5_d7b10ea4",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-16T23:26:27Z",
+      "side": 1,
+      "message": "There\u0027s no reason to do this *after* Wait. You either do this here (and skip all pending tasks), or you don\u0027t, and finish all of them.\n\n(You \"stopped\" the pool by releasing thread_pool_, so no new tasks can be added)",
+      "parentUuid": "76cbcb56_8f17d7e9",
+      "range": {
+        "startLine": 323,
+        "startChar": 6,
+        "endLine": 323,
+        "endChar": 33
+      },
+      "revId": "0897e1c405bf43e6e124a226789582de58904be0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
