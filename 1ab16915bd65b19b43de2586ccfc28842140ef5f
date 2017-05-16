@@ -22,6 +22,30 @@
       "revId": "1ab16915bd65b19b43de2586ccfc28842140ef5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cf8b2c3_9a1fa7dc",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-16T23:24:56Z",
+      "side": 1,
+      "message": "ASAN defaults. We work around issues in build tools by exporting ASAN_OPTIONS\u003ddetect_leaks\u003d0 when running envsetup.sh. b/37751350",
+      "parentUuid": "d5de263f_4c39b75f",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 24
+      },
+      "revId": "1ab16915bd65b19b43de2586ccfc28842140ef5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
