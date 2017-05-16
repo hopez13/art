@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "238d3410_b7089bee",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-16T21:38:49Z",
+      "side": 1,
+      "message": "I\u0027d make the NoPreLoadHolder check out of the app / boot image check. App image doesn\u0027t care about NoPreloadHoalder.\n\nSo I suggest:\n\nbool can_init_static_fields \u003d false;\n\nif (manager_-\u003eGetCompiler()-\u003eGetCompilerOptions().IsBootImage()) {\n   ...\n} else {\n  ...\n}",
+      "range": {
+        "startLine": 2281,
+        "startChar": 76,
+        "endLine": 2285,
+        "endChar": 85
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69cdc571_4d017497",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-16T21:38:49Z",
+      "side": 1,
+      "message": "High-level comment please.",
+      "range": {
+        "startLine": 2421,
+        "startChar": 2,
+        "endLine": 2423,
+        "endChar": 70
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f84cc5a8_0179bf1e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2425,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-16T21:38:49Z",
+      "side": 1,
+      "message": "* should be next to the type.",
+      "range": {
+        "startLine": 2425,
+        "startChar": 14,
+        "endLine": 2425,
+        "endChar": 15
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad01c275_bb16740a",
+        "filename": "test/906-iterate-heap/src/art/Test906.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-16T21:38:49Z",
+      "side": 1,
+      "message": "So the initialization status is visible to jvmti? Andreas, what does the spec say about any eager initialization we do in the runtime?",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 5
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b53e1c6_6e39037f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-16T21:38:49Z",
+      "side": 1,
+      "message": "Please move this change to another CL.",
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
