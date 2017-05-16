@@ -18,11 +18,9 @@ package com.android.ahat;
 
 import com.android.ahat.heapdump.AhatHeap;
 import com.android.ahat.heapdump.AhatSnapshot;
-import com.android.ahat.heapdump.Diffable;
+import com.android.ahat.heapdump.Size;
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
 
 class OverviewHandler implements AhatHandler {
 
@@ -53,39 +51,27 @@ class OverviewHandler implements AhatHandler {
     }
     doc.end();
 
-    doc.section("Heap Sizes");
-    printHeapSizes(doc, query);
+    doc.section("Bytes Retained by Heap");
+    printHeapSizes(doc);
 
     doc.big(Menu.getMenu());
   }
 
-  private static class TableElem implements Diffable<TableElem> {
-    @Override public TableElem getBaseline() {
-      return this;
+  private void printHeapSizes(Doc doc) {
+    SizeTable.table(doc, new Column("Heap"), mSnapshot.isDiffed());
+    Size totalSize = new Size();
+    Size totalBase = new Size();
+    for (AhatHeap heap : mSnapshot.getHeaps()) {
+      Size size = heap.getSize();
+      Size base = heap.getBaseline().getSize();
+      if (size.getSize() > 0 && base.getSize() > 0) {
+        SizeTable.row(doc, DocString.text(heap.getName()), size, base);
+        totalSize.add(size);
+        totalBase.add(base);
+      }
     }
-
-    @Override public boolean isPlaceHolder() {
-      return false;
-    }
-  }
-
-  private void printHeapSizes(Doc doc, Query query) {
-    List<TableElem> dummy = Collections.singletonList(new TableElem());
-
-    HeapTable.TableConfig<TableElem> table = new HeapTable.TableConfig<TableElem>() {
-      public String getHeapsDescription() {
-        return "Bytes Retained by Heap";
-      }
-
-      public long getSize(TableElem element, AhatHeap heap) {
-        return heap.getSize();
-      }
-
-      public List<HeapTable.ValueConfig<TableElem>> getValueConfigs() {
-        return Collections.emptyList();
-      }
-    };
-    HeapTable.render(doc, query, OVERVIEW_ID, table, mSnapshot, dummy);
+    SizeTable.row(doc, DocString.text("Total"), totalSize, totalBase);
+    SizeTable.end(doc);
   }
 }
 

@@ -41,7 +41,7 @@ public class Sort {
     = new Comparator<AhatInstance>() {
     @Override
     public int compare(AhatInstance a, AhatInstance b) {
-      return Long.compare(b.getTotalRetainedSize(), a.getTotalRetainedSize());
+      return Long.compare(b.getTotalRetainedSize().getSize(), a.getTotalRetainedSize().getSize());
     }
   };
 
@@ -60,7 +60,7 @@ public class Sort {
 
     @Override
     public int compare(AhatInstance a, AhatInstance b) {
-      return Long.compare(b.getRetainedSize(mHeap), a.getRetainedSize(mHeap));
+      return Long.compare(b.getRetainedSize(mHeap).getSize(), a.getRetainedSize(mHeap).getSize());
     }
   }
 
@@ -119,7 +119,7 @@ public class Sort {
 
     @Override
     public int compare(Site a, Site b) {
-      return Long.compare(b.getSize(mHeap), a.getSize(mHeap));
+      return Long.compare(b.getSize(mHeap).getSize(), a.getSize(mHeap).getSize());
     }
   }
 
@@ -130,7 +130,7 @@ public class Sort {
   public static final Comparator<Site> SITE_BY_TOTAL_SIZE = new Comparator<Site>() {
     @Override
     public int compare(Site a, Site b) {
-      return Long.compare(b.getTotalSize(), a.getTotalSize());
+      return Long.compare(b.getTotalSize().getSize(), a.getTotalSize().getSize());
     }
   };
 
@@ -158,7 +158,7 @@ public class Sort {
     = new Comparator<Site.ObjectsInfo>() {
     @Override
     public int compare(Site.ObjectsInfo a, Site.ObjectsInfo b) {
-      return Long.compare(b.numBytes, a.numBytes);
+      return Long.compare(b.numBytes.getSize(), a.numBytes.getSize());
     }
   };
 
