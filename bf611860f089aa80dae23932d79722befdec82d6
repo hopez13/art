@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e340210_2d3a260f",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-16T08:55:52Z",
+      "side": 1,
+      "message": "I don\u0027t understand.\n\nYou mean that tools should be responsible for detecting when instance fields of java.lang.Class have been faked up as static fields of the class, and adjust the size appropriately?\n\nI don\u0027t think it is so important that we have perfect accounting. I think it is most important to expose to developers the values of the instance fields of java.lang.Class.\n\nMaybe the problem is that we should also be showing the shadow$_klass_ and shadow$_monitor_ as class instance fields?\n\nHow about the following:\n* set the instance size of java.lang.Class to 0\n* Include instance fields of both java.lang.Class and the ones inherited from java.lang.Object as $ static fields.\n\nOptionally:\n* include $overhead of max(0, GetClassSize() - (sizeof(Class) + class_static_field_size)). If you include $overhead, you can do so opaquely either by making a pointer to an array of 0s like we do now (but subtract 4 bytes to account for the added size of the reference?), or add extra fields of null bytes (or ints or longs?) as $ static fields named $overhead\u003cN\u003e that have value 0.\n\nThis way you don\u0027t need to calculate IMT overhead explicitly?",
+      "range": {
+        "startLine": 1244,
+        "startChar": 0,
+        "endLine": 1247,
+        "endChar": 67
+      },
+      "revId": "bf611860f089aa80dae23932d79722befdec82d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
