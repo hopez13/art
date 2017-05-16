@@ -260,6 +260,30 @@
       "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82429022_b535f6a3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3976,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-16T17:28:55Z",
+      "side": 1,
+      "message": "Probably only in tests currently. I wouldn\u0027t worry about its performance.",
+      "parentUuid": "93d6b825_56225b8c",
+      "range": {
+        "startLine": 3976,
+        "startChar": 48,
+        "endLine": 3976,
+        "endChar": 70
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

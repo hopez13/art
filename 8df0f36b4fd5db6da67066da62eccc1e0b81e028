@@ -22,6 +22,30 @@
       "revId": "8df0f36b4fd5db6da67066da62eccc1e0b81e028",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1cdc7e9_1d7e1cd7",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-16T17:28:55Z",
+      "side": 1,
+      "message": "collect_from_space_only_\u003dtrue means that the GSS GC invocation collects the bump pointer space (the young generation) only rather than the whole heap. That probably means the objects in the old generation won\u0027t be collected and their finalizers won\u0027t be invoked. The Sticky/Partial distinction is only meaningful for CMS and is orthogonal to collect_from_space_only_.\n\nI suggest just adding kGcCauseForNativeAlloc here in addition to kGcCauseForNativeAllocBlocking (I suspect not previously having kGcCauseForNativeAllocBlocking here was a bug.) I think the other collectors (CMS, CC, SS) do collect the whole heap for a native alloc GC (kGcCauseForNativeAlloc or kGcCauseForNativeAllocBlocking) and GSS is meant to do the same.",
+      "parentUuid": "3c76333d_0d2bfe2e",
+      "range": {
+        "startLine": 195,
+        "startChar": 47,
+        "endLine": 195,
+        "endChar": 80
+      },
+      "revId": "8df0f36b4fd5db6da67066da62eccc1e0b81e028",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
