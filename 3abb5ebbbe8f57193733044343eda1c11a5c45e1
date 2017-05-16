@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3528ef_f386de5c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-16T04:32:27Z",
+      "side": 1,
+      "message": "Do that under a if (kIsDebugBuild) ?",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 3
+      },
+      "revId": "3abb5ebbbe8f57193733044343eda1c11a5c45e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
