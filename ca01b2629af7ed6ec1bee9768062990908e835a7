@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7fcf7151_2da960b2",
+        "filename": "runtime/gc/gc_cause.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-16T09:29:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80884ede_38b7c6fa",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a953836f_d2648ef5",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -203,6 +227,30 @@
       "side": 1,
       "message": "I think IsGcConcurrent() would return false if we run with a non-concurrent collector.",
       "parentUuid": "ffea436b_6904e078",
+      "range": {
+        "startLine": 3976,
+        "startChar": 48,
+        "endLine": 3976,
+        "endChar": 70
+      },
+      "revId": "ca01b2629af7ed6ec1bee9768062990908e835a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93d6b825_56225b8c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3976,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-16T09:29:15Z",
+      "side": 1,
+      "message": "Do we ever run with a non-concurrent collector? Because I suspect performance would be pretty terrible in that case. Especially when loading a bunch of bitmaps with native or gralloc-backed pixels.",
+      "parentUuid": "584881d2_1174903f",
       "range": {
         "startLine": 3976,
         "startChar": 48,
