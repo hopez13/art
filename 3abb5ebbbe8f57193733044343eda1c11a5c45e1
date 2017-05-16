@@ -22,6 +22,30 @@
       "revId": "3abb5ebbbe8f57193733044343eda1c11a5c45e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ddcd606_7842a3e6",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-05-16T18:28:24Z",
+      "side": 1,
+      "message": "To make it more obvious to the compiler to remove it for non-debug builds? Sure.",
+      "parentUuid": "fa3528ef_f386de5c",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 3
+      },
+      "revId": "3abb5ebbbe8f57193733044343eda1c11a5c45e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
