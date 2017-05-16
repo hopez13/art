@@ -36,6 +36,70 @@
     },
     {
       "key": {
+        "uuid": "0bf449ef_b7106976",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-16T08:41:04Z",
+      "side": 1,
+      "message": "Note, `offset` is taken by reference by AdjustBaseOffsetAndElementSizeShift() below.",
+      "parentUuid": "8710db0a_b4e4205a",
+      "revId": "54fdde4052edf84052ed81a257f8eb2dc04ddf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15bb7438_75f8305c",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-16T08:41:04Z",
+      "side": 1,
+      "message": "Use Dlsa()?",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 778,
+        "endChar": 29
+      },
+      "revId": "54fdde4052edf84052ed81a257f8eb2dc04ddf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ddc1748_d14f236b",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-16T08:41:04Z",
+      "side": 1,
+      "message": "I wonder if it would be better to do this one in a non-vector way, that is, using the regular AdjustBaseAndOffset() instead of AdjustBaseOffsetAndElementSizeShift(). May generate fewer instructions.",
+      "range": {
+        "startLine": 816,
+        "startChar": 0,
+        "endLine": 817,
+        "endChar": 77
+      },
+      "revId": "54fdde4052edf84052ed81a257f8eb2dc04ddf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69e98bf_bcbc2000",
         "filename": "test/623-checker-loop-regressions/src/Main.java",
         "patchSetId": 2
