@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2673fa21_f8b9c650",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3430,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-16T16:20:58Z",
+      "side": 1,
+      "message": "This test is now sufficiently complex that it is probably worthwhile adding a comment before this line showing what you are testing for and how it will be handled differently. Same in other file.",
+      "revId": "fea74740192fe74cf5384f533bfcb1a34d725764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
