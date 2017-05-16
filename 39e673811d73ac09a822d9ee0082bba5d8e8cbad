@@ -22,6 +22,30 @@
       "revId": "39e673811d73ac09a822d9ee0082bba5d8e8cbad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833bfe_3eff2836",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-16T05:10:28Z",
+      "side": 1,
+      "message": "SANITIZE_HOST with a couple of masks, but it could hit in practice.",
+      "parentUuid": "56eaf104_96e8c33a",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "39e673811d73ac09a822d9ee0082bba5d8e8cbad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
