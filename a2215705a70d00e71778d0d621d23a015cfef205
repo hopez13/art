@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "241b8a04_53a83b91",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6653,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-17T22:12:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da04cdbb_75a8184b",
+      "range": {
+        "startLine": 6653,
+        "startChar": 11,
+        "endLine": 6653,
+        "endChar": 13
+      },
+      "revId": "a2215705a70d00e71778d0d621d23a015cfef205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64e7b289_e9bc28fd",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b6da51de_41ce5b4a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6663,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-17T22:12:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e7b289_e9bc28fd",
+      "range": {
+        "startLine": 6662,
+        "startChar": 0,
+        "endLine": 6663,
+        "endChar": 49
+      },
+      "revId": "a2215705a70d00e71778d0d621d23a015cfef205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc9a2a41_9b5ac01f",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-05-16T13:29:30Z",
       "side": 1,
       "message": "Shouldn\u0027t that be true too? \n\nI suggest dropping the match_inputs for now, as the fence always has the previous as an input. In follow-up CLs when you will \"break\" this, you can refine it.",
+      "range": {
+        "startLine": 181,
+        "startChar": 62,
+        "endLine": 181,
+        "endChar": 87
+      },
+      "revId": "a2215705a70d00e71778d0d621d23a015cfef205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6992ee0c_676ff081",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-17T22:12:52Z",
+      "side": 1,
+      "message": "Done.\n\n(Explanation: Inputs don\u0027t matter because there is no more code motion after this phase)",
+      "parentUuid": "cc9a2a41_9b5ac01f",
       "range": {
         "startLine": 181,
         "startChar": 62,
