@@ -2086,12 +2086,17 @@ void ClassLinker::VisitClassesInternal(ClassVisitor* visitor) {
 
 void ClassLinker::VisitClasses(ClassVisitor* visitor) {
   Thread* const self = Thread::Current();
-  ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
-  // Not safe to have thread suspension when we are holding a lock.
   if (self != nullptr) {
-    ScopedAssertNoThreadSuspension nts(__FUNCTION__);
+    // Visit classes uses DecodeWeakGlobal and may deadlock if the GC is running since we are
+    // decoding weak globals while holding the classlinker classes lock.
+    // Also, its not safe to have thread suspension when we are holding a lock.
+    gc::ScopedGCCriticalSection sgcs(self,
+                                     gc::kGcCauseVisitClasses,
+                                     gc::kCollectorTypeCriticalSection);
+    ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
     VisitClassesInternal(visitor);
   } else {
+    ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
     VisitClassesInternal(visitor);
   }
 }
