@@ -22,6 +22,30 @@
       "revId": "a07394a0f356513a08266e2e198a0f4064f6e694",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17090a41_14423767",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-05-17T22:59:16Z",
+      "side": 1,
+      "message": "But then it might not be as obvious that it\u0027s done during debug builds? I dunno, I\u0027m fine either way.",
+      "parentUuid": "c4f806bc_6ac5ba75",
+      "range": {
+        "startLine": 1912,
+        "startChar": 32,
+        "endLine": 1912,
+        "endChar": 46
+      },
+      "revId": "a07394a0f356513a08266e2e198a0f4064f6e694",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
