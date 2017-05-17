@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3a41f85c_36868f86",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-17T14:11:37Z",
+      "side": 1,
+      "message": "Yes, the class needs to be in the image (whether boot or app), so I believe you want to call IsImageClass for both.",
+      "parentUuid": "3a827049_90ee18b7",
+      "range": {
+        "startLine": 2281,
+        "startChar": 76,
+        "endLine": 2285,
+        "endChar": 85
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69cdc571_4d017497",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -202,6 +226,30 @@
       "side": 1,
       "message": "The spec doesn\u0027t say anything about eager initialization. (We already may skip class-load events for the regular image when an agent gets loaded at start.)\n\nIf we want to be defensive, we can reject app images in debug mode. Right now it seems we will compile debuggable apps speed-profile, if they go through idle-maintenance. That might be something to special-case (and avoid images altogether).",
       "parentUuid": "48f0e4a4_2eafe72e",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 5
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "582ba8ce_4a91d7c5",
+        "filename": "test/906-iterate-heap/src/art/Test906.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-17T14:11:37Z",
+      "side": 1,
+      "message": "OK, then I guess no need to special-case jvmti IMO.",
+      "parentUuid": "7da8e9f6_67b9aa7b",
       "range": {
         "startLine": 160,
         "startChar": 0,
