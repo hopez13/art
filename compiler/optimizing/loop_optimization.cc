@@ -1055,11 +1055,11 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
                                       HInstruction* opb,
                                       Primitive::Type type) {
   if (vector_mode_ == kSequential) {
-    // Scalar code follows implicit integral promotion.
-    if (type == Primitive::kPrimBoolean ||
-        type == Primitive::kPrimByte ||
-        type == Primitive::kPrimChar ||
-        type == Primitive::kPrimShort) {
+    // Non-converting scalar code follows implicit integral promotion.
+    if (!org->IsTypeConversion() && (type == Primitive::kPrimBoolean ||
+                                     type == Primitive::kPrimByte ||
+                                     type == Primitive::kPrimChar ||
+                                     type == Primitive::kPrimShort)) {
       type = Primitive::kPrimInt;
     }
   }
