@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b4a4ca8_aec28d61",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2342,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-17T17:08:38Z",
+      "side": 1,
+      "message": "In case the app image is not loaded, can you make sure the non-initialized status is stored in the compiler if it was initialized for the encoded statics case?",
+      "range": {
+        "startLine": 2342,
+        "startChar": 6,
+        "endLine": 2342,
+        "endChar": 74
+      },
+      "revId": "7184cd789e13a7138c26cb8b16a68fc8d8a7758b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
