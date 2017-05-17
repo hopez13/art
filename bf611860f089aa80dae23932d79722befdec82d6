@@ -46,6 +46,30 @@
       "revId": "bf611860f089aa80dae23932d79722befdec82d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3701f985_6a0057f8",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-17T09:10:10Z",
+      "side": 1,
+      "message": "I tried setting java.lang.Class instance size to 0. It works fine in ahat, and I didn\u0027t notice any crashes or other error reports when I opened the heap dump in Android Studio, converted it using hprov-conv, or opened the converted heap dump in MAT.\n\nIf IMT is no longer embedded in the class object, don\u0027t include it in the heap dump.",
+      "parentUuid": "8cbd72c5_ae26f24e",
+      "range": {
+        "startLine": 1244,
+        "startChar": 0,
+        "endLine": 1247,
+        "endChar": 67
+      },
+      "revId": "bf611860f089aa80dae23932d79722befdec82d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
