@@ -28,9 +28,11 @@
 #include "base/systrace.h"
 #include "base/time_utils.h"
 #include "compiler_filter.h"
+#include "gc/collector_type.h"
+#include "gc/gc_cause.h"
+#include "gc/scoped_gc_critical_section.h"
 #include "oat_file_manager.h"
 #include "scoped_thread_state_change-inl.h"
-
 
 namespace art {
 
@@ -216,6 +218,12 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
   // Resolve any new registered locations.
   ResolveTrackedLocations();
 
+  Thread* const self = Thread::Current();
+  gc::ScopedGCCriticalSection sgcs(self,
+                                   gc::kGcCauseProfileSaver,
+                                   gc::kCollectorTypeCriticalSection);
+  ScopedObjectAccess soa(self);
+
   ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
   std::set<DexCacheResolvedClasses> resolved_classes =
       class_linker->GetResolvedClasses(/*ignore boot classes*/ true);
@@ -224,7 +232,6 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
   {
     ScopedTrace trace2("Get hot methods");
     GetMethodsVisitor visitor(&methods, options_.GetStartupMethodSamples());
-    ScopedObjectAccess soa(Thread::Current());
     class_linker->VisitClasses(&visitor);
     VLOG(profiler) << "Methods with samples greater than "
                    << options_.GetStartupMethodSamples() << " = " << methods.size();
