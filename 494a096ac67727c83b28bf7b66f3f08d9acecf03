@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "126f74ea_9bccdce9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3350,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-17T17:43:50Z",
+      "side": 1,
+      "message": "Constant case",
+      "range": {
+        "startLine": 3350,
+        "startChar": 7,
+        "endLine": 3350,
+        "endChar": 16
+      },
+      "revId": "494a096ac67727c83b28bf7b66f3f08d9acecf03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce258640_58b55144",
+        "filename": "test/409-materialized-condition/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-17T17:43:50Z",
+      "side": 1,
+      "message": "Add some comments about what\u0027s being tested here.",
+      "revId": "494a096ac67727c83b28bf7b66f3f08d9acecf03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77441ec6_9f578366",
+        "filename": "test/409-materialized-condition/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-17T17:43:50Z",
+      "side": 1,
+      "message": "Use a local method, for example\n\n  static Object $noinline$ignoreArg(String arg) { return null; }\n\nOr is the getSystemResource being inlined, creating the conditions that we want to test?",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 43
+      },
+      "revId": "494a096ac67727c83b28bf7b66f3f08d9acecf03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
