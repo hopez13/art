@@ -146,6 +146,9 @@ JitCompiler::JitCompiler() {
       }
     }
   }
+  // JIT is never PIC, not matter what the runtime options above say.
+  compiler_options_->SetNonPic();
+
   if (instruction_set_features_ == nullptr) {
     instruction_set_features_ = InstructionSetFeatures::FromCppDefines();
   }
