@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a827049_90ee18b7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2285,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-17T00:52:32Z",
+      "side": 1,
+      "message": "Then what about the check of IsImageClass? Is it necessary for both cases? The comment is pretty vague I don\u0027t know whether this check express the same meaning of IsAppImage().",
+      "parentUuid": "238d3410_b7089bee",
+      "range": {
+        "startLine": 2281,
+        "startChar": 76,
+        "endLine": 2285,
+        "endChar": 85
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69cdc571_4d017497",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-16T21:38:49Z",
       "side": 1,
       "message": "High-level comment please.",
+      "range": {
+        "startLine": 2421,
+        "startChar": 2,
+        "endLine": 2423,
+        "endChar": 70
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41425bb5_79e3f428",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2423,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-17T00:52:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69cdc571_4d017497",
       "range": {
         "startLine": 2421,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d2ec61ae_57ee5ed4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2425,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-17T00:52:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f84cc5a8_0179bf1e",
+      "range": {
+        "startLine": 2425,
+        "startChar": 14,
+        "endLine": 2425,
+        "endChar": 15
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad01c275_bb16740a",
         "filename": "test/906-iterate-heap/src/art/Test906.java",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "48f0e4a4_2eafe72e",
+        "filename": "test/906-iterate-heap/src/art/Test906.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-17T00:52:32Z",
+      "side": 1,
+      "message": "Yes it is visible to jvmti, the class status contains a flag for initialization. But I don\u0027t know about what about eager initialization. Here in the test I simply assumed all the initialization is done by compiler in Precompile phase.",
+      "parentUuid": "ad01c275_bb16740a",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 5
+      },
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b53e1c6_6e39037f",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 3
@@ -105,6 +201,24 @@
       "writtenOn": "2017-05-16T21:38:49Z",
       "side": 1,
       "message": "Please move this change to another CL.",
+      "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdfa7876_dded33e3",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-17T00:52:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b53e1c6_6e39037f",
       "revId": "123db462e5ec1d9b3c662de2e78abac4bb4f4e91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
