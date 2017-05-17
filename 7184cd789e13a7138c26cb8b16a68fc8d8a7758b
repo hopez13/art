@@ -70,6 +70,30 @@
       "revId": "7184cd789e13a7138c26cb8b16a68fc8d8a7758b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c94ed1_9e6fbd5c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2342,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-17T18:28:38Z",
+      "side": 1,
+      "message": "Done. I added back ups right after every tries of initialization so the basic semantic is not changed. the status will remain the same as GetStatus if initialization if success, or it falls into the static encoded cases, the old_status is not updated anymore -- remain before we try initialization again.",
+      "parentUuid": "fcc9f1c9_5c32a731",
+      "range": {
+        "startLine": 2342,
+        "startChar": 6,
+        "endLine": 2342,
+        "endChar": 74
+      },
+      "revId": "7184cd789e13a7138c26cb8b16a68fc8d8a7758b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
