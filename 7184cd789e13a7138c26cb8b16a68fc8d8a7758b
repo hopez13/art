@@ -94,6 +94,30 @@
       "revId": "7184cd789e13a7138c26cb8b16a68fc8d8a7758b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d4fc83d_c83d1e77",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2342,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-17T20:11:10Z",
+      "side": 1,
+      "message": "Mathieu, I thought this approach wasn\u0027t correct because of transitive initialization?",
+      "parentUuid": "71c94ed1_9e6fbd5c",
+      "range": {
+        "startLine": 2342,
+        "startChar": 6,
+        "endLine": 2342,
+        "endChar": 74
+      },
+      "revId": "7184cd789e13a7138c26cb8b16a68fc8d8a7758b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
