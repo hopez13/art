@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "869e210e_a452afbd",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-18T09:26:01Z",
+      "side": 1,
+      "message": "I have a hard time mapping the *_size variable names to their corresponding quantities. Can you use the same names in variables that you define in the comments?\n\nFor example, rename \"class_size\" to \"total_class_size\", rename \"class_size_without_overhead\" to \"base_class_size\".\n\nPerhaps define explicitly in a comment what you mean by \"base\" and what you consider \"overhead\"?",
+      "range": {
+        "startLine": 1226,
+        "startChar": 15,
+        "endLine": 1226,
+        "endChar": 76
+      },
+      "revId": "3b4ae1121c62524cd77057fd2dd0678a33123533",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d1dcadd_709d05a5",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-18T09:26:01Z",
+      "side": 1,
+      "message": "Is this comment obsolete? Remove it?",
+      "range": {
+        "startLine": 1228,
+        "startChar": 1,
+        "endLine": 1229,
+        "endChar": 28
+      },
+      "revId": "3b4ae1121c62524cd77057fd2dd0678a33123533",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f643b38_b22dbcf5",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-18T09:26:01Z",
+      "side": 1,
+      "message": "Expand the comment to say what you do in that case. Shared IMTs are not included in heap dump? Shared IMTs are emitted for the base class where they are defined?",
+      "range": {
+        "startLine": 1249,
+        "startChar": 0,
+        "endLine": 1249,
+        "endChar": 26
+      },
+      "revId": "3b4ae1121c62524cd77057fd2dd0678a33123533",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9556903_21397599",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-18T09:26:01Z",
+      "side": 1,
+      "message": "You mean found_dup?",
+      "range": {
+        "startLine": 1251,
+        "startChar": 9,
+        "endLine": 1251,
+        "endChar": 19
+      },
+      "revId": "3b4ae1121c62524cd77057fd2dd0678a33123533",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
