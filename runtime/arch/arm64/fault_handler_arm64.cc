@@ -38,6 +38,18 @@ extern "C" void art_quick_implicit_suspend();
 
 namespace art {
 
+uintptr_t FaultManager::GetPc(void* context) {
+  struct ucontext* uc = reinterpret_cast<struct ucontext*>(context);
+  struct sigcontext* sc = reinterpret_cast<struct sigcontext*>(&uc->uc_mcontext);
+  return sc->pc;
+}
+
+uintptr_t FaultManager::GetSp(void* context) {
+  struct ucontext* uc = reinterpret_cast<struct ucontext*>(context);
+  struct sigcontext* sc = reinterpret_cast<struct sigcontext*>(&uc->uc_mcontext);
+  return static_cast<uintptr_t>(sc->sp);
+}
+
 void FaultManager::GetMethodAndReturnPcAndSp(siginfo_t* siginfo ATTRIBUTE_UNUSED, void* context,
                                              ArtMethod** out_method,
                                              uintptr_t* out_return_pc, uintptr_t* out_sp) {

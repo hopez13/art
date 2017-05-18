@@ -1164,28 +1164,45 @@ bool JitCodeCache::CheckLiveCompiledCodeHasProfilingInfo() {
   return true;
 }
 
-OatQuickMethodHeader* JitCodeCache::LookupMethodHeader(uintptr_t pc, ArtMethod* method) {
+std::pair<const void*, ArtMethod*> JitCodeCache::LookupMethod(uintptr_t pc) {
   static_assert(kRuntimeISA != kThumb2, "kThumb2 cannot be a runtime ISA");
   if (kRuntimeISA == kArm) {
     // On Thumb-2, the pc is offset by one.
     --pc;
   }
-  if (!ContainsPc(reinterpret_cast<const void*>(pc))) {
-    return nullptr;
+  const void* pc_ptr = reinterpret_cast<const void*>(pc);
+  if (!ContainsPc(pc_ptr)) {
+    return std::make_pair(nullptr, nullptr);
   }
 
   MutexLock mu(Thread::Current(), lock_);
   if (method_code_map_.empty()) {
-    return nullptr;
+    return std::make_pair(nullptr, nullptr);
   }
-  auto it = method_code_map_.lower_bound(reinterpret_cast<const void*>(pc));
-  --it;
+  auto it = method_code_map_.lower_bound(pc_ptr);
+  // If pc points to the first instruction lower_bound returns
+  // iterator to the desired method.
+  if (it->first != pc_ptr) {
+    --it;
+  }
 
   const void* code_ptr = it->first;
   OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+  // Check that the found method m contains the specified pc
   if (!method_header->Contains(pc)) {
+    return std::make_pair(nullptr, nullptr);
+  }
+  return *it;
+}
+
+OatQuickMethodHeader* JitCodeCache::LookupMethodHeader(uintptr_t pc, ArtMethod* method) {
+  auto code_and_method = LookupMethod(pc);
+  const void* code_ptr = code_and_method.first;
+  if (code_ptr == nullptr) {
     return nullptr;
   }
+
+  OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
   if (kIsDebugBuild && method != nullptr) {
     // When we are walking the stack to redefine classes and creating obsolete methods it is
     // possible that we might have updated the method_code_map by making this method obsolete in a
@@ -1195,9 +1212,10 @@ OatQuickMethodHeader* JitCodeCache::LookupMethodHeader(uintptr_t pc, ArtMethod* 
     // occur when we are in the process of allocating and setting up obsolete methods. Otherwise
     // method and it->second should be identical. (See runtime/openjdkjvmti/ti_redefine.cc for more
     // information.)
-    DCHECK_EQ(it->second->GetNonObsoleteMethod(), method->GetNonObsoleteMethod())
+    ArtMethod* m = code_and_method.second;
+    DCHECK_EQ(m->GetNonObsoleteMethod(), method->GetNonObsoleteMethod())
         << ArtMethod::PrettyMethod(method->GetNonObsoleteMethod()) << " "
-        << ArtMethod::PrettyMethod(it->second->GetNonObsoleteMethod()) << " "
+        << ArtMethod::PrettyMethod(m->GetNonObsoleteMethod()) << " "
         << std::hex << pc;
   }
   return method_header;

@@ -36,6 +36,18 @@ extern "C" void art_quick_throw_null_pointer_exception_from_signal();
 
 namespace art {
 
+uintptr_t FaultManager::GetPc(void* context) {
+  struct ucontext* uc = reinterpret_cast<struct ucontext*>(context);
+  struct sigcontext* sc = reinterpret_cast<struct sigcontext*>(&uc->uc_mcontext);
+  return sc->sc_pc;
+}
+
+uintptr_t FaultManager::GetSp(void* context) {
+  struct ucontext* uc = reinterpret_cast<struct ucontext*>(context);
+  struct sigcontext* sc = reinterpret_cast<struct sigcontext*>(&uc->uc_mcontext);
+  return reinterpret_cast<uintptr_t>(sc->sc_regs[mips64::SP]);
+}
+
 void FaultManager::GetMethodAndReturnPcAndSp(siginfo_t* siginfo, void* context,
                                              ArtMethod** out_method,
                                              uintptr_t* out_return_pc, uintptr_t* out_sp) {

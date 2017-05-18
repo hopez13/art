@@ -25,11 +25,18 @@
 
 #include "android-base/stringprintf.h"
 
+#include "art_method.h"
 #include "base/logging.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "class_linker.h"
+#include "fault_handler.h"
+#include "jit/jit.h"
+#include "jit/jit_code_cache.h"
 #include "native_stack_dump.h"
+#include "oat_quick_method_header.h"
 #include "runtime.h"
+#include "stack.h"
 #include "thread-current-inl.h"
 #include "thread_list.h"
 
@@ -368,11 +375,194 @@ static bool IsTimeoutSignal(int signal_number) {
 #pragma GCC diagnostic ignored "-Wframe-larger-than="
 #endif
 
+// Returns whether the specified pc points to code from JIT code cache.
+static bool IsInJitCode(uintptr_t pc) {
+  Runtime* runtime = Runtime::Current();
+  const void* code_ptr = reinterpret_cast<const void*>(pc);
+  if (runtime->GetJITOptions()->UseJitCompilation() &&
+      runtime->GetJit()->GetCodeCache()->ContainsPc(code_ptr)) {
+    return true;
+  }
+  return false;
+}
+
+// Method checks that a valid stack frame is set up.
+static bool CheckValidStackFrame(ArtMethod* expected_method,
+                                 OatQuickMethodHeader* expected_method_hdr,
+                                 uintptr_t sp)
+    NO_THREAD_SAFETY_ANALYSIS {
+  ArtMethod** frame = reinterpret_cast<ArtMethod**>(sp);
+  ArtMethod* top_method = *frame;
+  // Check that the pointer on the top of the stack
+  // is equals to the expected_method.
+  if (top_method != expected_method) {
+    return false;
+  }
+  uintptr_t ret = *reinterpret_cast<uintptr_t*>(
+      sp + expected_method_hdr->GetFrameInfo().GetReturnPcOffset());
+  ArtMethod** prev_frame = reinterpret_cast<ArtMethod**>(
+      sp + expected_method_hdr->GetFrameSizeInBytes());
+  ArtMethod* caller = *prev_frame;
+  // Check a pointer from the top of the previous frame points to
+  // a valid art method.
+  if (caller == nullptr || !FaultManager::CheckArtMethod(caller)) {
+    return false;
+  }
+  // Check the previous art method contains the return address
+  // from the current frame.
+  const OatQuickMethodHeader* caller_hdr = caller->GetOatQuickMethodHeader(ret);
+  return caller_hdr != nullptr && caller_hdr->Contains(ret);
+}
+
+namespace {
+// The class prints runtime information about java methods in the stack.
+// The pc for the first frame is obtained from signal context and is passed to the ctor.
+// Other pc are obtained from quick frames.
+class StackDumpVisitor: public StackVisitor {
+ public:
+  StackDumpVisitor(uintptr_t pc, Thread* self, std::ostream& stream)
+      : StackVisitor(self, nullptr, StackVisitor::StackWalkKind::kSkipInlinedFrames, false),
+        frame_num_(0),
+        pc_(pc),
+        stream_(stream) {
+  }
+
+  bool VisitFrame() REQUIRES_SHARED(Locks::mutator_lock_) {
+    ArtMethod* method = GetMethod();
+    const OatQuickMethodHeader* hdr = nullptr;
+    stream_ << "\t#" << frame_num_ << ": " << method->PrettyMethod();
+    if (IsShadowFrame()) {
+      pc_ = 0;
+      // Print dex_pc for shadow frames.
+      stream_ << '+' << GetDexPc(false);
+    } else {
+      if (pc_ == 0) {
+        pc_ = GetCurrentQuickFramePc();
+      }
+      hdr = method->GetOatQuickMethodHeader(pc_);
+      if (hdr != nullptr) {
+        // Print the offset from the start of a method.
+        stream_ << '+' << pc_ - reinterpret_cast<uintptr_t>(hdr->GetCode());
+      } else {
+        // Cannot find method header. Print pc.
+        stream_ << pc_;
+      }
+    }
+    if (!IsShadowFrame() && hdr != nullptr) {
+      // Print additional information about compiled code.
+      stream_ << " (code: " << static_cast<const void*>(hdr->GetCode())
+          << ", code size: " << hdr->GetCodeSize()
+          << ", frame size: " << hdr->GetFrameSizeInBytes()
+          << ")";
+    }
+    stream_ << "\n";
+    ++frame_num_;
+    return true;
+  }
+
+ private:
+  size_t frame_num_;
+  uintptr_t pc_;
+  std::ostream& stream_;
+};
+}  // namespace
+
+static void DumpJavaBacktrace(uintptr_t pc, uintptr_t frame, std::ostream& stream)
+    NO_THREAD_SAFETY_ANALYSIS {
+  stream << "\nJava backtrace:\n";
+  Thread* self = Thread::Current();
+  // A signal is received at unexpcted moment and runtime may not set the stack frame
+  // in the top ManagedStack. Set the frame and call WalkStack.
+  self->SetTopOfStack(reinterpret_cast<ArtMethod**>(frame));
+  StackDumpVisitor dumper(pc, self, stream);
+  dumper.WalkStack();
+}
+
+// The method prints information about jit compiled ArtMethods from the stack.
+static void DumpArtMethodsFromStack(uintptr_t sp, std::ostream& stream)
+    NO_THREAD_SAFETY_ANALYSIS {
+  // Maximum number of methods to print.
+  static constexpr size_t MAX_METHODS = 20;
+  Thread* self = Thread::Current();
+  // Find the bound of Java stack. Runtime creates instances of ManagedStack
+  // on the stack, so the last one ManageStack should be the bound of
+  // Java stack. There are no ArtMethods should be located behind
+  // the bound.
+  const ManagedStack* stack = self->GetManagedStack();
+  while (stack->GetLink() != nullptr) {
+    stack = stack->GetLink();
+  }
+  uintptr_t bound = reinterpret_cast<uintptr_t>(stack);
+  Runtime* runtime = Runtime::Current();
+  jit::JitCodeCache* code_cache = runtime->GetJit()->GetCodeCache();
+  size_t num_printed_methods = 0;
+
+  stream << "\nJIT compiled methods on the stack:\n";
+  // Iterate throught the stack as array of pointers.
+  while (sp < bound && num_printed_methods < MAX_METHODS) {
+    const void* ptr = *reinterpret_cast<const void**>(sp);
+    // Check whether this pointer points to code cache and find
+    // corresponding ArtMethod.
+    auto code_and_method =
+        code_cache->LookupMethod(reinterpret_cast<uintptr_t>(ptr));
+    ArtMethod* method = code_and_method.second;
+    if (method != nullptr) {
+      const void* code_ptr = code_and_method.first;
+      OatQuickMethodHeader* hdr =
+          OatQuickMethodHeader::FromCodePointer(code_ptr);
+      stream << "\t" << reinterpret_cast<void*>(sp) << ": " << ptr
+             << " " << method->PrettyMethod()
+             << " (" << reinterpret_cast<void*>(method) << ")"
+             << " code: " << code_ptr << ", code size: " << hdr->GetCodeSize()
+             << " frame size: " << hdr->GetFrameSizeInBytes() << '\n';
+      ++num_printed_methods;
+    }
+    sp += static_cast<uintptr_t>(kRuntimePointerSize);
+  }
+}
+
+static void DumpJitInfo(uintptr_t pc, void* raw_context, std::ostream& stream)
+    NO_THREAD_SAFETY_ANALYSIS {
+  Runtime* runtime = Runtime::Current();
+  // Find a method which contains the pc.
+  auto code_and_method = runtime->GetJit()->GetCodeCache()->LookupMethod(pc);
+  ArtMethod* fault_method = code_and_method.second;
+  if (fault_method == nullptr) {
+    return;
+  }
+
+  const void* code_ptr = code_and_method.first;
+  OatQuickMethodHeader* hdr = OatQuickMethodHeader::FromEntryPoint(code_ptr);
+  stream << "*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***\n"
+         << "Fault method is from JIT code cache\n"
+         << "Fault method: " << fault_method->PrettyMethod()
+         << " (address: " << static_cast<void*>(fault_method)
+         << ", code: " << code_ptr
+         << ", code size: " << hdr->GetCodeSize()
+         << ", frame size: " << hdr->GetFrameInfo().FrameSizeInBytes()
+         << ")\n\n";
+  stream << "JIT code cache info:\n";
+  // Print JIT code cache statistics.
+  runtime->GetJit()->GetCodeCache()->Dump(stream);
+  uintptr_t sp = FaultManager::GetSp(raw_context);
+  if (CheckValidStackFrame(fault_method, hdr, sp)) {
+    // Stack frame is valid. Print java backtrace.
+    DumpJavaBacktrace(pc, sp, stream);
+  } else {
+    // In case we cannot recover the stack frame
+    // try to recognize art methods in the stack and print
+    // information about them.
+    DumpArtMethodsFromStack(sp, stream);
+  }
+  stream << std::flush;
+}
+
 void HandleUnexpectedSignalCommon(int signal_number,
                                   siginfo_t* info,
                                   void* raw_context,
                                   bool handle_timeout_signal,
-                                  bool dump_on_stderr) {
+                                  bool dump_on_stderr,
+                                  bool running_on_linux) {
   static bool handling_unexpected_signal = false;
   if (handling_unexpected_signal) {
     LogHelper::LogLineLowStack(__FILE__,
@@ -388,6 +578,23 @@ void HandleUnexpectedSignalCommon(int signal_number,
     _exit(1);
   }
   handling_unexpected_signal = true;
+
+  std::ostringstream jit_info;
+  uintptr_t pc = FaultManager::GetPc(raw_context);
+  if (IsInJitCode(pc)) {
+    // Something unexpected is happend in the jit code.
+    // Dump information about jit code cache and the stack
+    if (!running_on_linux) {
+      if (dump_on_stderr) {
+        DumpJitInfo(pc, raw_context, std::cerr);
+      } else {
+        DumpJitInfo(pc, raw_context, LOG_STREAM(FATAL_WITHOUT_ABORT));
+      }
+      return;
+    } else {
+      DumpJitInfo(pc, raw_context, jit_info);
+    }
+  }
 
   gAborting++;  // set before taking any locks
   MutexLock mu(Thread::Current(), *Locks::unexpected_signal_lock_);
@@ -416,7 +623,8 @@ void HandleUnexpectedSignalCommon(int signal_number,
            << "Cmdline: " << cmd_line << std::endl
            << "Thread: " << tid << " \"" << thread_name << "\"" << std::endl
            << "Registers:\n" << Dumpable<UContext>(thread_context) << std::endl
-           << "Backtrace:\n" << Dumpable<Backtrace>(thread_backtrace) << std::endl;
+           << "Backtrace:\n" << Dumpable<Backtrace>(thread_backtrace) << std::endl
+           << jit_info.str();
     stream << std::flush;
   };
 

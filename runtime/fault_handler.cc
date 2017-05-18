@@ -275,28 +275,8 @@ bool FaultManager::IsInGeneratedCode(siginfo_t* siginfo, void* context, bool che
   // TODO: Check linear alloc and image.
   DCHECK_ALIGNED(ArtMethod::Size(kRuntimePointerSize), sizeof(void*))
       << "ArtMethod is not pointer aligned";
-  if (method_obj == nullptr || !IsAligned<sizeof(void*)>(method_obj)) {
-    VLOG(signals) << "no method";
-    return false;
-  }
-
-  // Verify that the potential method is indeed a method.
-  // TODO: check the GC maps to make sure it's an object.
-  // Check that the class pointer inside the object is not null and is aligned.
-  // No read barrier because method_obj may not be a real object.
-  mirror::Class* cls = SafeGetDeclaringClass(method_obj);
-  if (cls == nullptr) {
-    VLOG(signals) << "not a class";
-    return false;
-  }
-
-  if (!IsAligned<kObjectAlignment>(cls)) {
-    VLOG(signals) << "not aligned";
-    return false;
-  }
-
-  if (!SafeVerifyClassClass(cls)) {
-    VLOG(signals) << "not a class class";
+  if (!CheckArtMethod(method_obj)) {
+    VLOG(signals) << "invalid method " << std::hex << method_obj;
     return false;
   }
 
@@ -313,6 +293,36 @@ bool FaultManager::IsInGeneratedCode(siginfo_t* siginfo, void* context, bool che
   uint32_t dexpc = method_header->ToDexPc(method_obj, return_pc, false);
   VLOG(signals) << "dexpc: " << dexpc;
   return !check_dex_pc || dexpc != DexFile::kDexNoIndex;
+}
+
+bool FaultManager::CheckArtMethod(ArtMethod* method_obj) {
+  if (method_obj == nullptr || !IsAligned<sizeof(void*)>(method_obj)) {
+    VLOG(signals) << "no method";
+    return false;
+  }
+
+  // Verify that the potential method is indeed a method.
+  // TODO: check the GC maps to make sure it's an object.
+  // Check that the class pointer inside the object is not null and is aligned.
+  // No read barrier because method_obj may not be a real object.
+  mirror::Class* cls = SafeGetDeclaringClass(method_obj);
+  if (cls == nullptr) {
+    return false;
+  }
+
+  if (!IsAligned<kObjectAlignment>(cls)) {
+    return false;
+  }
+
+  // Check that the pointer cls is points to the java heap.
+  if (!Runtime::Current()->GetHeap()->IsValidObjectAddress(cls)) {
+    return false;
+  }
+
+  if (!SafeVerifyClassClass(cls)) {
+    return false;
+  }
+  return true;
 }
 
 FaultHandler::FaultHandler(FaultManager* manager) : manager_(manager) {

@@ -59,6 +59,13 @@ class FaultManager {
                                  NO_THREAD_SAFETY_ANALYSIS;
   bool IsInGeneratedCode(siginfo_t* siginfo, void *context, bool check_dex_pc)
                          NO_THREAD_SAFETY_ANALYSIS;
+  // Returns current pc from the context
+  // not return pc as the method GetMethodAndReturnPcAndSp.
+  static uintptr_t GetPc(void* context);
+  // Returns current stack pointer from the context.
+  static uintptr_t GetSp(void* context);
+  // Checks that the method_obj is real ArtMethod instance.
+  static bool CheckArtMethod(ArtMethod* method_obj) NO_THREAD_SAFETY_ANALYSIS;
 
  private:
   // The HandleFaultByOtherHandlers function is only called by HandleFault function for generated code.

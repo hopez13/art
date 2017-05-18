@@ -31,21 +31,17 @@ void HandleUnexpectedSignalAndroid(int signal_number, siginfo_t* info, void* raw
                                info,
                                raw_context,
                                /* handle_timeout_signal */ false,
-                               /* dump_on_stderr */ false);
+                               /* dump_on_stderr */ false,
+                               /* running_on_linux */ false);
 
   // Run the old signal handler.
   old_action.sa_sigaction(signal_number, info, raw_context);
 }
 
 void Runtime::InitPlatformSignalHandlers() {
-  // Enable the signal handler dumping crash information to the logcat
-  // when the Android root is not "/system".
-  const char* android_root = getenv("ANDROID_ROOT");
-  if (android_root != nullptr && strcmp(android_root, "/system") != 0) {
-    InitPlatformSignalHandlersCommon(HandleUnexpectedSignalAndroid,
-                                     &old_action,
-                                     /* handle_timeout_signal */ false);
-  }
+  InitPlatformSignalHandlersCommon(HandleUnexpectedSignalAndroid,
+                                   &old_action,
+                                   /* handle_timeout_signal */ false);
 }
 
 }  // namespace art

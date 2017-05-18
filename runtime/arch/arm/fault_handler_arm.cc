@@ -45,6 +45,18 @@ static uint32_t GetInstructionSize(uint8_t* pc) {
   return instr_size;
 }
 
+uintptr_t FaultManager::GetPc(void* context) {
+  struct ucontext* uc = reinterpret_cast<struct ucontext*>(context);
+  struct sigcontext* sc = reinterpret_cast<struct sigcontext*>(&uc->uc_mcontext);
+  return sc->arm_pc;
+}
+
+uintptr_t FaultManager::GetSp(void* context) {
+  struct ucontext* uc = reinterpret_cast<struct ucontext*>(context);
+  struct sigcontext* sc = reinterpret_cast<struct sigcontext*>(&uc->uc_mcontext);
+  return static_cast<uintptr_t>(sc->arm_sp);
+}
+
 void FaultManager::GetMethodAndReturnPcAndSp(siginfo_t* siginfo ATTRIBUTE_UNUSED, void* context,
                                              ArtMethod** out_method,
                                              uintptr_t* out_return_pc, uintptr_t* out_sp) {

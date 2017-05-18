@@ -31,7 +31,8 @@ void HandleUnexpectedSignalLinux(int signal_number, siginfo_t* info, void* raw_c
                                info,
                                raw_context,
                                /* handle_timeout_signal */ true,
-                               /* dump_on_stderr */ true);
+                               /* dump_on_stderr */ true,
+                               /* running_on_linux */ true);
 
   if (getenv("debug_db_uid") != nullptr || getenv("art_wait_for_gdb_on_crash") != nullptr) {
     pid_t tid = GetTid();

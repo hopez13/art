@@ -160,6 +160,11 @@ class JitCodeCache {
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Search a method in the JIT code cache which contains the specified pc.
+  // Returns nullptr if the pc is not in the code cache.
+  std::pair<const void*, ArtMethod*> LookupMethod(uintptr_t pc)
+      REQUIRES(!lock_);
+
   // Given the 'pc', try to find the JIT compiled code associated with it.
   // Return null if 'pc' is not in the code cache. 'method' is passed for
   // sanity check.

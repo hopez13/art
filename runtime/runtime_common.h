@@ -69,7 +69,8 @@ void HandleUnexpectedSignalCommon(int signal_number,
                                   siginfo_t* info,
                                   void* raw_context,
                                   bool handle_timeout_signal,
-                                  bool dump_on_stderr);
+                                  bool dump_on_stderr,
+                                  bool running_on_linux);
 
 void InitPlatformSignalHandlersCommon(void (*newact)(int, siginfo_t*, void*),
                                       struct sigaction* oldact,

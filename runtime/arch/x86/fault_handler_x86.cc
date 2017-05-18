@@ -277,6 +277,18 @@ static uint32_t GetInstructionSize(const uint8_t* pc) {
   return pc - startpc;
 }
 
+uintptr_t FaultManager::GetPc(void* context) {
+  struct ucontext* uc = reinterpret_cast<struct ucontext*>(context);
+  uint8_t* pc = reinterpret_cast<uint8_t*>(uc->CTX_EIP);
+  return reinterpret_cast<uintptr_t>(pc);
+}
+
+uintptr_t FaultManager::GetSp(void* context) {
+  struct ucontext* uc = reinterpret_cast<struct ucontext*>(context);
+  uint8_t* sp = reinterpret_cast<uint8_t*>(uc->CTX_ESP);
+  return reinterpret_cast<uintptr_t>(sp);
+}
+
 void FaultManager::GetMethodAndReturnPcAndSp(siginfo_t* siginfo, void* context,
                                              ArtMethod** out_method,
                                              uintptr_t* out_return_pc, uintptr_t* out_sp) {
