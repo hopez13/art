@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2876d39a_94f4ad07",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-18T09:59:58Z",
+      "side": 1,
+      "message": "Not handling Sub? We should probably add Sub(x,const)-\u003eAdd(x,-const) to the simplifier.",
+      "range": {
+        "startLine": 185,
+        "startChar": 13,
+        "endLine": 185,
+        "endChar": 33
+      },
+      "revId": "59d36ff7c14313fdc8399332771684737023aa29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38a625be_85f13186",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-18T09:59:58Z",
+      "side": 1,
+      "message": "I\u0027m not extra keen on unlimited depth recursion in the compiler. It tends to overflow the stack for some inputs, despite the very generous 1MiB allocation.",
+      "revId": "59d36ff7c14313fdc8399332771684737023aa29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
