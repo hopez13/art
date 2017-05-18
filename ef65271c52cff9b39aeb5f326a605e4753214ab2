@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6d2d843_bb38ea0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-18T15:36:08Z",
+      "side": 1,
+      "message": "Should have had more explanation.\n\nI discussed this with Jeff. Missing an upgrade (interpreter-\u003eJITed) should be fine if you cache the entrypoint locally when preparing the shadowframe. For the other direction, deopt should not be applied when the thread has the mutator lock, was our argument.\n\nSo this should have had an explanation here...",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "ef65271c52cff9b39aeb5f326a605e4753214ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
