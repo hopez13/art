@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e18f8e48_81f5141f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-18T23:11:01Z",
+      "side": 1,
+      "message": "FYI, tried adding a DCHECK(!kUseReadBarrier) to RosAllocSpace constructor but it gets used by a few gtests which run even with ART_USE_READ_BARRIER\u003dtrue.\n\nLet me know if there\u0027s a better way or if these DCHECKs here are sufficient.",
+      "revId": "3663988f491b55d1ca2d273ccab9c778b7b354f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
