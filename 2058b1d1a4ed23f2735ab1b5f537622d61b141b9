@@ -22,6 +22,30 @@
       "revId": "2058b1d1a4ed23f2735ab1b5f537622d61b141b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbc42ca4_28e50b69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-18T16:09:19Z",
+      "side": 1,
+      "message": "Unfortunately, I don\u0027t think you can easily generate debug information with smali let alone ill formatted information (please correct me if I am wrong). I have the classes.dex from the bug that I would easily add to the dexdump test suite, but  since this is third party, I can\u0027t add that.",
+      "parentUuid": "791dead5_2768e7d1",
+      "range": {
+        "startLine": 15,
+        "startChar": 20,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "2058b1d1a4ed23f2735ab1b5f537622d61b141b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
