@@ -16,6 +16,24 @@
       "revId": "3663988f491b55d1ca2d273ccab9c778b7b354f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234c96d1_6c1c65cb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-18T23:19:24Z",
+      "side": 1,
+      "message": "How about checking that Heap::rosalloc_space_ is null for the read barrier case above? If that doesn\u0027t work, this looks fine as is.",
+      "parentUuid": "e18f8e48_81f5141f",
+      "revId": "3663988f491b55d1ca2d273ccab9c778b7b354f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
