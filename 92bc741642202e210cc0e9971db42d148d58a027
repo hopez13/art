@@ -22,6 +22,30 @@
       "revId": "92bc741642202e210cc0e9971db42d148d58a027",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d1c54b_7ccdcaf5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-18T14:13:06Z",
+      "side": 1,
+      "message": "Yes, forgot about this, thanks!\n\n(Actually in this case we should align to one-past the \"(\", which just happens to be 4 spaces... if it was an \"else\" it would be 6 spaces)",
+      "parentUuid": "e824c6ff_bfd72d40",
+      "range": {
+        "startLine": 1241,
+        "startChar": 2,
+        "endLine": 1242,
+        "endChar": 84
+      },
+      "revId": "92bc741642202e210cc0e9971db42d148d58a027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
