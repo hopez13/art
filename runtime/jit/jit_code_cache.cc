@@ -1275,6 +1275,15 @@ void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_loca
       continue;
     }
     std::vector<ProfileMethodInfo::ProfileInlineCache> inline_caches;
+
+    // If the method didn't reach the compilation threshold don't save the inline caches.
+    // They might be incomplete.
+    if (method->GetCounter() < Runtime::Current()->GetJITOptions()->GetCompileThreshold()) {
+      methods.emplace_back(/*ProfileMethodInfo*/
+          dex_file, method->GetDexMethodIndex(), inline_caches);
+      continue;
+    }
+
     for (size_t i = 0; i < info->number_of_inline_caches_; ++i) {
       std::vector<ProfileMethodInfo::ProfileClassReference> profile_classes;
       const InlineCache& cache = info->cache_[i];
