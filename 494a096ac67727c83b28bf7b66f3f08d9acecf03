@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1bd08eaf_c7fe73c7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3344,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-05-18T13:45:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5abf6ff_66f73a7a",
+      "range": {
+        "startLine": 3343,
+        "startChar": 6,
+        "endLine": 3344,
+        "endChar": 52
+      },
+      "revId": "494a096ac67727c83b28bf7b66f3f08d9acecf03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "126f74ea_9bccdce9",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -83,6 +107,30 @@
       "writtenOn": "2017-05-18T13:08:56Z",
       "side": 1,
       "message": "nit: one per line.",
+      "range": {
+        "startLine": 3429,
+        "startChar": 6,
+        "endLine": 3430,
+        "endChar": 52
+      },
+      "revId": "494a096ac67727c83b28bf7b66f3f08d9acecf03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6903137_4abf79ac",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3430,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-05-18T13:45:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d379c36_48705261",
       "range": {
         "startLine": 3429,
         "startChar": 6,
@@ -237,6 +285,30 @@
       "side": 1,
       "message": "I prefer a local $noinline$ method. The reader does not need to reason about getSystemResource() eventually calling a native method, preventing the inlining.",
       "parentUuid": "3d2bfbe6_f74fd8e7",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 43
+      },
+      "revId": "494a096ac67727c83b28bf7b66f3f08d9acecf03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a2424aa_a598af1c",
+        "filename": "test/409-materialized-condition/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-05-18T13:45:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19929f95_77d0524a",
       "range": {
         "startLine": 86,
         "startChar": 4,
