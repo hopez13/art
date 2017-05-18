@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6a6d09c8_1da3c82c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-18T09:27:42Z",
+      "side": 1,
+      "message": "Update commit message if this CL will add new imt, field, and static overheads to the heap dump.",
+      "revId": "3b4ae1121c62524cd77057fd2dd0678a33123533",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "869e210e_a452afbd",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 4
