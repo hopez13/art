@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e824399_e26ea8a5",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-18T18:00:33Z",
+      "side": 1,
+      "message": "this is technically not a vector register, but an FPU register; although they map to the same code now, perhaps still a good idea to use the Fpu format for this (or make another helper). That way, making the code generators more type correct will be easier later",
+      "revId": "e44d498a86ad2de7967479cba8e2e9adc026df93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a85d96e_549626f1",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-18T18:00:33Z",
+      "side": 1,
+      "message": "can you add one comment near this code explainin why this add does an abs?",
+      "revId": "e44d498a86ad2de7967479cba8e2e9adc026df93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7173223f_e3d2cfd1",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-18T18:00:33Z",
+      "side": 1,
+      "message": "lanes do not matter comment",
+      "revId": "e44d498a86ad2de7967479cba8e2e9adc026df93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7f0a6a5_d6821bda",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-18T18:00:33Z",
+      "side": 1,
+      "message": "lanes do not matter comment, also below",
+      "revId": "e44d498a86ad2de7967479cba8e2e9adc026df93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
