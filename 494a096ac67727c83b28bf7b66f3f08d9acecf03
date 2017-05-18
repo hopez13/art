@@ -222,6 +222,30 @@
       "revId": "494a096ac67727c83b28bf7b66f3f08d9acecf03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19929f95_77d0524a",
+        "filename": "test/409-materialized-condition/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-18T13:35:35Z",
+      "side": 1,
+      "message": "I prefer a local $noinline$ method. The reader does not need to reason about getSystemResource() eventually calling a native method, preventing the inlining.",
+      "parentUuid": "3d2bfbe6_f74fd8e7",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 43
+      },
+      "revId": "494a096ac67727c83b28bf7b66f3f08d9acecf03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
