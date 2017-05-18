@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f1b8d46e_3aab4771",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-18T16:12:38Z",
+      "side": 1,
+      "message": "Yes, that\u0027s my plan. Make the ADD/SUB on constants canonical, and then have less clutter in later phases.",
+      "parentUuid": "2876d39a_94f4ad07",
+      "range": {
+        "startLine": 185,
+        "startChar": 13,
+        "endLine": 185,
+        "endChar": 33
+      },
+      "revId": "59d36ff7c14313fdc8399332771684737023aa29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38a625be_85f13186",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-05-18T09:59:58Z",
       "side": 1,
       "message": "I\u0027m not extra keen on unlimited depth recursion in the compiler. It tends to overflow the stack for some inputs, despite the very generous 1MiB allocation.",
+      "revId": "59d36ff7c14313fdc8399332771684737023aa29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc68599b_47384385",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-18T16:12:38Z",
+      "side": 1,
+      "message": "Fair point, that is the kind of stuff subject to easy fuzzer attacks :-). Added a cap.",
+      "parentUuid": "38a625be_85f13186",
       "revId": "59d36ff7c14313fdc8399332771684737023aa29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
