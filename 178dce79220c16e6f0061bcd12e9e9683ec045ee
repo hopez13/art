@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34e2d9dc_2eda21e6",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-18T13:03:49Z",
+      "side": 1,
+      "message": "https://buganizer.corp.google.com/issues/38220855#comment3 made me realize that this doesn\u0027t work. The entrypoint of a method can change any time. So you might think at this point you are calling compiled code, but when you do the actual call the method has been deoptimized and you are going to call the interpreter.",
+      "range": {
+        "startLine": 934,
+        "startChar": 0,
+        "endLine": 934,
+        "endChar": 53
+      },
+      "revId": "178dce79220c16e6f0061bcd12e9e9683ec045ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
