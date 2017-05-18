@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfc6e250_00a640e8",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-18T04:43:46Z",
+      "side": 1,
+      "message": "Why does the critical section apply to more than this?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 3
+      },
+      "revId": "ba8ef1295cf995f7b9f534e4315fcf64438a7635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
