@@ -22,6 +22,7 @@
 #include "base/bit_utils.h"
 #include "base/casts.h"
 #include "base/enums.h"
+#include "base/logging.h"
 #include "dex_file.h"
 #include "gc_root.h"
 #include "modifiers.h"
@@ -56,8 +57,6 @@ class String;
 
 class ArtMethod FINAL {
  public:
-  static constexpr bool kCheckDeclaringClassState = kIsDebugBuild;
-
   // The runtime dex_method_index is kDexNoIndex. To lower dependencies, we use this
   // constexpr, and ensure that the value is correct in art_method.cc.
   static constexpr uint32_t kRuntimeMethodDexMethodIndex = 0xFFFFFFFF;
@@ -98,7 +97,7 @@ class ArtMethod FINAL {
   // a proxy method.
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   uint32_t GetAccessFlags() {
-    if (kCheckDeclaringClassState) {
+    if (IsCheckDeclaringClassState()) {
       GetAccessFlagsDCheck<kReadBarrierOption>();
     }
     return access_flags_.load(std::memory_order_relaxed);
@@ -715,6 +714,13 @@ class ArtMethod FINAL {
   } ptr_sized_fields_;
 
  private:
+  ALWAYS_INLINE
+  static bool IsCheckDeclaringClassState() {
+    // Checking declaring class state is an expensive check (as it may acquire locks, and happens
+    // very often).
+    return IsDebugCheckEnabled(DebugCheckLevel::kSlow);
+  }
+
   uint16_t FindObsoleteDexClassDefIndex() REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsAnnotatedWith(jclass klass, uint32_t visibility);

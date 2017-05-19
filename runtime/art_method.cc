@@ -823,7 +823,7 @@ ALWAYS_INLINE static inline void DoGetAccessFlagsHelper(ArtMethod* method)
 }
 
 template <ReadBarrierOption kReadBarrierOption> void ArtMethod::GetAccessFlagsDCheck() {
-  if (kCheckDeclaringClassState) {
+  if (IsCheckDeclaringClassState()) {
     Thread* self = Thread::Current();
     if (!Locks::mutator_lock_->IsSharedHeld(self)) {
       if (self->IsThreadSuspensionAllowable()) {

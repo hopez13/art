@@ -164,9 +164,18 @@ TEST_F(ParsedOptionsTest, ParsedOptionsInstructionSet) {
 TEST_F(ParsedOptionsTest, ParsedOptionsDebugCheckLevel) {
   using Opt = RuntimeArgumentMap;
 
-  const char* level_strings[] = { "none", "all" };
-  DebugCheckLevel levels[] = { DebugCheckLevel::kNone,
-                               DebugCheckLevel::kAll };
+  const char* level_strings[] = {
+      "none",
+      "all",
+      "fast",
+      "slow"
+  };
+  DebugCheckLevel levels[] = {
+      DebugCheckLevel::kNone,
+      DebugCheckLevel::kAll,
+      DebugCheckLevel::kFast,
+      DebugCheckLevel::kSlow,
+  };
   static_assert(arraysize(level_strings) == arraysize(levels), "Need same amount.");
 
   for (size_t i = 0; i < arraysize(level_strings); ++i) {

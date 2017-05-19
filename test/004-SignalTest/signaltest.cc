@@ -22,6 +22,7 @@
 #include <sys/ucontext.h>
 #include <unistd.h>
 
+#include "base/logging.h"
 #include "base/macros.h"
 
 static int signal_count;
@@ -100,6 +101,11 @@ static void signalhandler(int sig ATTRIBUTE_UNUSED, siginfo_t* info ATTRIBUTE_UN
 static struct sigaction oldaction;
 
 extern "C" JNIEXPORT void JNICALL Java_Main_initSignalTest(JNIEnv*, jclass) {
+  // Use the signal test to ensure debug checks are as expected.
+  if (art::kIsDebugBuild) {
+    CHECK(art::IsDebugCheckEnabled(art::DebugCheckLevel::kAll));
+  }
+
   struct sigaction action;
   action.sa_sigaction = signalhandler;
   sigfillset(&action.sa_mask);
