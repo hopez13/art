@@ -959,6 +959,7 @@ CodeGeneratorMIPS64::CodeGeneratorMIPS64(HGraph* graph,
                        graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       pc_relative_dex_cache_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       pc_relative_string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
+      pc_relative_method_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       pc_relative_type_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       type_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       jit_string_patches_(StringReferenceValueComparator(),
@@ -1441,19 +1442,23 @@ void CodeGeneratorMIPS64::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_pat
   size_t size =
       pc_relative_dex_cache_patches_.size() +
       pc_relative_string_patches_.size() +
+      pc_relative_method_patches_.size() +
       pc_relative_type_patches_.size() +
       type_bss_entry_patches_.size();
   linker_patches->reserve(size);
   EmitPcRelativeLinkerPatches<LinkerPatch::DexCacheArrayPatch>(pc_relative_dex_cache_patches_,
                                                                linker_patches);
-  if (!GetCompilerOptions().IsBootImage()) {
-    DCHECK(pc_relative_type_patches_.empty());
-    EmitPcRelativeLinkerPatches<LinkerPatch::StringBssEntryPatch>(pc_relative_string_patches_,
+  if (GetCompilerOptions().IsBootImage()) {
+    EmitPcRelativeLinkerPatches<LinkerPatch::RelativeMethodPatch>(pc_relative_method_patches_,
                                                                   linker_patches);
-  } else {
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeTypePatch>(pc_relative_type_patches_,
                                                                 linker_patches);
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeStringPatch>(pc_relative_string_patches_,
+                                                                  linker_patches);
+  } else {
+    DCHECK(pc_relative_method_patches_.empty());
+    DCHECK(pc_relative_type_patches_.empty());
+    EmitPcRelativeLinkerPatches<LinkerPatch::StringBssEntryPatch>(pc_relative_string_patches_,
                                                                   linker_patches);
   }
   EmitPcRelativeLinkerPatches<LinkerPatch::TypeBssEntryPatch>(type_bss_entry_patches_,
@@ -1464,6 +1469,13 @@ void CodeGeneratorMIPS64::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_pat
 CodeGeneratorMIPS64::PcRelativePatchInfo* CodeGeneratorMIPS64::NewPcRelativeStringPatch(
     const DexFile& dex_file, dex::StringIndex string_index) {
   return NewPcRelativePatch(dex_file, string_index.index_, &pc_relative_string_patches_);
+}
+
+CodeGeneratorMIPS64::PcRelativePatchInfo* CodeGeneratorMIPS64::NewPcRelativeMethodPatch(
+    MethodReference target_method) {
+  return NewPcRelativePatch(*target_method.dex_file,
+                            target_method.dex_method_index,
+                            &pc_relative_method_patches_);
 }
 
 CodeGeneratorMIPS64::PcRelativePatchInfo* CodeGeneratorMIPS64::NewPcRelativeTypePatch(
@@ -4923,6 +4935,14 @@ void CodeGeneratorMIPS64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invo
     case HInvokeStaticOrDirect::MethodLoadKind::kRecursive:
       callee_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
       break;
+    case HInvokeStaticOrDirect::MethodLoadKind::kBootImageLinkTimePcRelative: {
+      DCHECK(GetCompilerOptions().IsBootImage());
+      CodeGeneratorMIPS64::PcRelativePatchInfo* info =
+          NewPcRelativeMethodPatch(invoke->GetTargetMethod());
+      EmitPcRelativeAddressPlaceholderHigh(info, AT);
+      __ Daddiu(temp.AsRegister<GpuRegister>(), AT, /* placeholder */ 0x5678);
+      break;
+    }
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       __ LoadLiteral(temp.AsRegister<GpuRegister>(),
                      kLoadDoubleword,

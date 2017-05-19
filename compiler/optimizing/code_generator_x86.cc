@@ -1033,6 +1033,7 @@ CodeGeneratorX86::CodeGeneratorX86(HGraph* graph,
       isa_features_(isa_features),
       pc_relative_dex_cache_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
+      boot_image_method_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       boot_image_type_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       type_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       jit_string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
@@ -2167,7 +2168,7 @@ void LocationsBuilderX86::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invok
 
   IntrinsicLocationsBuilderX86 intrinsic(codegen_);
   if (intrinsic.TryDispatch(invoke)) {
-    if (invoke->GetLocations()->CanCall() && invoke->HasPcRelativeDexCache()) {
+    if (invoke->GetLocations()->CanCall() && invoke->HasPcRelativeMethodLoadKind()) {
       invoke->GetLocations()->SetInAt(invoke->GetSpecialInputIndex(), Location::Any());
     }
     return;
@@ -2176,7 +2177,7 @@ void LocationsBuilderX86::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invok
   HandleInvoke(invoke);
 
   // For PC-relative dex cache the invoke has an extra input, the PC-relative address base.
-  if (invoke->HasPcRelativeDexCache()) {
+  if (invoke->HasPcRelativeMethodLoadKind()) {
     invoke->GetLocations()->SetInAt(invoke->GetSpecialInputIndex(), Location::RequiresRegister());
   }
 }
@@ -4543,6 +4544,14 @@ Location CodeGeneratorX86::GenerateCalleeMethodStaticOrDirectCall(HInvokeStaticO
     case HInvokeStaticOrDirect::MethodLoadKind::kRecursive:
       callee_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
       break;
+    case HInvokeStaticOrDirect::MethodLoadKind::kBootImageLinkTimePcRelative: {
+      DCHECK(GetCompilerOptions().IsBootImage());
+      Register base_reg = GetInvokeStaticOrDirectExtraParameter(invoke,
+                                                                temp.AsRegister<Register>());
+      __ leal(temp.AsRegister<Register>(), Address(base_reg, CodeGeneratorX86::kDummy32BitOffset));
+      RecordBootMethodPatch(invoke);
+      break;
+    }
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       __ movl(temp.AsRegister<Register>(), Immediate(invoke->GetMethodAddress()));
       break;
@@ -4640,6 +4649,16 @@ void CodeGeneratorX86::RecordBootStringPatch(HLoadString* load_string) {
   __ Bind(&string_patches_.back().label);
 }
 
+void CodeGeneratorX86::RecordBootMethodPatch(HInvokeStaticOrDirect* invoke) {
+  DCHECK_EQ(invoke->InputCount(), invoke->GetNumberOfArguments() + 1u);
+  HX86ComputeBaseMethodAddress* address =
+      invoke->InputAt(invoke->GetSpecialInputIndex())->AsX86ComputeBaseMethodAddress();
+  boot_image_method_patches_.emplace_back(address,
+                                          *invoke->GetTargetMethod().dex_file,
+                                          invoke->GetTargetMethod().dex_method_index);
+  __ Bind(&boot_image_method_patches_.back().label);
+}
+
 void CodeGeneratorX86::RecordBootTypePatch(HLoadClass* load_class) {
   HX86ComputeBaseMethodAddress* address = load_class->InputAt(0)->AsX86ComputeBaseMethodAddress();
   boot_image_type_patches_.emplace_back(address,
@@ -4694,16 +4713,20 @@ void CodeGeneratorX86::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_patche
   size_t size =
       pc_relative_dex_cache_patches_.size() +
       string_patches_.size() +
+      boot_image_method_patches_.size() +
       boot_image_type_patches_.size() +
       type_bss_entry_patches_.size();
   linker_patches->reserve(size);
   EmitPcRelativeLinkerPatches<LinkerPatch::DexCacheArrayPatch>(pc_relative_dex_cache_patches_,
                                                                linker_patches);
   if (GetCompilerOptions().IsBootImage()) {
+    EmitPcRelativeLinkerPatches<LinkerPatch::RelativeMethodPatch>(boot_image_method_patches_,
+                                                                  linker_patches);
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeTypePatch>(boot_image_type_patches_,
                                                                 linker_patches);
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeStringPatch>(string_patches_, linker_patches);
   } else {
+    DCHECK(boot_image_method_patches_.empty());
     DCHECK(boot_image_type_patches_.empty());
     EmitPcRelativeLinkerPatches<LinkerPatch::StringBssEntryPatch>(string_patches_, linker_patches);
   }
