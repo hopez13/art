@@ -793,6 +793,10 @@ struct CmdlineType<DebugCheckLevel> : CmdlineTypeParser<DebugCheckLevel> {
   Result ParseAndAppend(const std::string& option, DebugCheckLevel& existing) {
     if (option == "all") {
       existing = DebugCheckLevel::kAll;
+    } else if (option == "slow") {
+      existing = DebugCheckLevel::kSlow;
+    } else if (option == "fast") {
+      existing = DebugCheckLevel::kFast;
     } else if (option == "none") {
       existing = DebugCheckLevel::kNone;
     } else {

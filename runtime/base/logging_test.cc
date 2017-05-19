@@ -40,7 +40,8 @@ class LoggingTest : public CommonRuntimeTest {
 
 constexpr DebugCheckLevel kLevels[] = {
     DebugCheckLevel::kNone,
-    DebugCheckLevel::kAll,
+    DebugCheckLevel::kFast,
+    DebugCheckLevel::kSlow,
 };
 
 TEST_F(LoggingTest, TestConsistency) {
@@ -57,7 +58,7 @@ TEST_F(LoggingTest, TestConsistency) {
   // To check, loop over a fragment of the underlying type, and use a switch. The switch enforces,
   // through missing-case warnings, that this code stays up-to-date.
   uint64_t seen_bitset = 0;
-  constexpr size_t kCount = 2;
+  constexpr size_t kCount = 3;
   static_assert(kCount == arraysize(kLevels), "Unexpected level count");
   static_assert(kCount < sizeof(seen_bitset) * 8, "Not enough bits in uint64_t");
 
@@ -70,12 +71,17 @@ TEST_F(LoggingTest, TestConsistency) {
         seen_bitset |= (1 << 0);
         break;
 
-      case DebugCheckLevel::kAll:
-        EXPECT_TRUE(find_in_levels(DebugCheckLevel::kAll));
+      case DebugCheckLevel::kFast:
+        EXPECT_TRUE(find_in_levels(DebugCheckLevel::kFast));
         seen_bitset |= (1 << 1);
         break;
 
-      static_assert(1 + 1 == kCount, "Unexpected case count");
+      case DebugCheckLevel::kSlow:
+        EXPECT_TRUE(find_in_levels(DebugCheckLevel::kSlow));
+        seen_bitset |= (1 << 2);
+        break;
+
+      static_assert(2 + 1 == kCount, "Unexpected case count");
     }
   }
   size_t actual_count = POPCOUNT(seen_bitset);

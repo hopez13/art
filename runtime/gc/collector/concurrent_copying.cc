@@ -1598,7 +1598,7 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
     size_t alloc_size = RoundUp(obj_size, space::RegionSpace::kAlignment);
     region_space_->AddLiveBytes(to_ref, alloc_size);
   }
-  if (ReadBarrier::kEnableToSpaceInvariantChecks) {
+  if (ReadBarrier::IsEnableToSpaceInvariantChecks()) {
     AssertToSpaceInvariantObjectVisitor visitor(this);
     visitor(to_ref);
   }

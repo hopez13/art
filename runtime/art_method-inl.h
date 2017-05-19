@@ -59,7 +59,7 @@ inline mirror::Class* ArtMethod::GetDeclaringClass() {
   if (kIsDebugBuild) {
     if (!IsRuntimeMethod()) {
       CHECK(result != nullptr) << this;
-      if (kCheckDeclaringClassState) {
+      if (IsCheckDeclaringClassState()) {
         if (!(result->IsIdxLoaded() || result->IsErroneous())) {
           LOG(FATAL_WITHOUT_ABORT) << "Class status: " << result->GetStatus();
           LOG(FATAL) << result->PrettyClass();
@@ -95,7 +95,7 @@ inline uint16_t ArtMethod::GetMethodIndexDuringLinking() {
 }
 
 inline uint32_t ArtMethod::GetDexMethodIndex() {
-  if (kCheckDeclaringClassState) {
+  if (IsCheckDeclaringClassState()) {
     CHECK(IsRuntimeMethod() || GetDeclaringClass()->IsIdxLoaded() ||
           GetDeclaringClass()->IsErroneous());
   }
