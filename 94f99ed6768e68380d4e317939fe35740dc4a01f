@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d369861_369f44c2",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1711,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-19T20:14:40Z",
+      "side": 1,
+      "message": "Would it make sense to move this down right before the ret because the VisitObjects issue is resolved (ie. reverting aog/248805)?\n\nI am not sure if\n\n- I call the initialized case \"Standard\". How about calling it just \"initialized\"?\n- I call \"dmb ish\" \"a full memory barrier\" How about calling it just \"dmb ish\"?",
+      "range": {
+        "startLine": 1700,
+        "startChar": 0,
+        "endLine": 1711,
+        "endChar": 6
+      },
+      "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cca4f184_84317f16",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-19T20:14:40Z",
+      "side": 1,
+      "message": "How about \"This class\" -\u003e \"An array class\"?\n\nLine too long?",
+      "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "166cd995_4dcac906",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1842,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-19T20:14:40Z",
+      "side": 1,
+      "message": "Is this a TODO?",
+      "range": {
+        "startLine": 1842,
+        "startChar": 3,
+        "endLine": 1842,
+        "endChar": 37
+      },
+      "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
