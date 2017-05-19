@@ -46,6 +46,30 @@
       "revId": "b93d5b1f39fb0651dfe2f165ad1431c962f5a78e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a349643_04631bef",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-19T23:35:34Z",
+      "side": 1,
+      "message": "Actually, TrimSpaces doesn\u0027t have the mutator lock, so I can\u0027t really use ScopedThreadSuspension here.",
+      "parentUuid": "53984e31_048577ed",
+      "range": {
+        "startLine": 1416,
+        "startChar": 0,
+        "endLine": 1418,
+        "endChar": 61
+      },
+      "revId": "b93d5b1f39fb0651dfe2f165ad1431c962f5a78e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
