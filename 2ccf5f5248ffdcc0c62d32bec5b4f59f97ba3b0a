@@ -22,6 +22,30 @@
       "revId": "2ccf5f5248ffdcc0c62d32bec5b4f59f97ba3b0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57a6c5db_47babcbe",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-19T15:17:46Z",
+      "side": 1,
+      "message": "Yes. Search-and-replace gone wrong. Thanks! Same in lines 1302 and 1308.",
+      "parentUuid": "8124fc9c_03fc9b4d",
+      "range": {
+        "startLine": 1304,
+        "startChar": 7,
+        "endLine": 1304,
+        "endChar": 42
+      },
+      "revId": "2ccf5f5248ffdcc0c62d32bec5b4f59f97ba3b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
