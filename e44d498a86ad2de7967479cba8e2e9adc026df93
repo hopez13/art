@@ -67,6 +67,29 @@
       "revId": "e44d498a86ad2de7967479cba8e2e9adc026df93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231ac8a6_add5ec6f",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-19T21:58:25Z",
+      "side": 1,
+      "message": "I just realized that this load may be unaligned and may cause a trip to the kernel if the CPU doesn\u0027t directly support unaligned loads and stores.\n\nOur options:\n1. don\u0027t vectorize StringCharAt\n2. keep this code\n3. load the 8 bytes byte-by-byte\n4. check the length and load 16 bytes using ld.b and throw away one half\n\n1st is safest.\n2nd may have kernel overhead.\n3rd is wasteful in terms of code size.\n4th is potentially wasteful in terms of memory accesses and cache utilization (if we don\u0027t repeat this load a few more times, part of the data pulled into the cache by ld.df will sit there unused).\n\nI\u0027d probably go with option 1 at this time. Aart, your opinion?",
+      "range": {
+        "startLine": 824,
+        "startChar": 0,
+        "endLine": 827,
+        "endChar": 37
+      },
+      "revId": "e44d498a86ad2de7967479cba8e2e9adc026df93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
