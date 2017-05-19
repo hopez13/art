@@ -50,7 +50,7 @@ inline MirrorType* ReadBarrier::Barrier(
       // the two.
       uintptr_t fake_address_dependency;
       bool is_gray = IsGray(obj, &fake_address_dependency);
-      if (kEnableReadBarrierInvariantChecks) {
+      if (IsEnableReadBarrierInvariantChecks()) {
         CHECK_EQ(fake_address_dependency, 0U) << obj << " rb_state=" << obj->GetReadBarrierState();
       }
       ref_addr = reinterpret_cast<mirror::HeapReference<MirrorType>*>(
@@ -223,7 +223,7 @@ inline bool ReadBarrier::IsDuringStartup() {
 
 inline void ReadBarrier::AssertToSpaceInvariant(mirror::Object* obj, MemberOffset offset,
                                                 mirror::Object* ref) {
-  if (kEnableToSpaceInvariantChecks) {
+  if (IsEnableToSpaceInvariantChecks()) {
     if (ref == nullptr || IsDuringStartup()) {
       return;
     }
@@ -234,7 +234,7 @@ inline void ReadBarrier::AssertToSpaceInvariant(mirror::Object* obj, MemberOffse
 
 inline void ReadBarrier::AssertToSpaceInvariant(GcRootSource* gc_root_source,
                                                 mirror::Object* ref) {
-  if (kEnableToSpaceInvariantChecks) {
+  if (IsEnableToSpaceInvariantChecks()) {
     if (ref == nullptr || IsDuringStartup()) {
       return;
     }

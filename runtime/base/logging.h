@@ -66,7 +66,9 @@ extern LogVerbosity gLogVerbosity;
 // Levels for debug checks. Debug checks are enabled if their level is at or below the global level.
 enum class DebugCheckLevel {
   kNone = -1,
-  kAll,
+  kFast,         // Only fast checks.
+  kSlow,         // Also slow checks.
+  kAll = kSlow,  // All checks.
 };
 extern DebugCheckLevel gDebugCheckLevel;
 
