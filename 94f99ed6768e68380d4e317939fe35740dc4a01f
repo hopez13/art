@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "35408bfb_4bba2b9d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1711,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-19T22:37:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d369861_369f44c2",
+      "range": {
+        "startLine": 1700,
+        "startChar": 0,
+        "endLine": 1711,
+        "endChar": 6
+      },
+      "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cca4f184_84317f16",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-05-19T20:14:40Z",
       "side": 1,
       "message": "How about \"This class\" -\u003e \"An array class\"?\n\nLine too long?",
+      "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13c9f43b_f4fad7f9",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-19T22:37:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cca4f184_84317f16",
       "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -101,6 +143,30 @@
       "side": 1,
       "message": "How about removing the line 1843 (commented-out dmb) and say in the comment, \"We don\u0027t need a dmb here because...\"?",
       "parentUuid": "423e866b_f8d017ec",
+      "range": {
+        "startLine": 1842,
+        "startChar": 3,
+        "endLine": 1842,
+        "endChar": 37
+      },
+      "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9afb8262_a4cb90b5",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1842,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-19T22:37:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b899dfa0_675906ea",
       "range": {
         "startLine": 1842,
         "startChar": 3,
