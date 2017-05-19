@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "877a3937_c949efab",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-19T19:56:33Z",
+      "side": 1,
+      "message": "Done\n\n(Removed default value for arguments)",
+      "parentUuid": "66ab731a_cb7c5114",
+      "range": {
+        "startLine": 1118,
+        "startChar": 70,
+        "endLine": 1118,
+        "endChar": 72
+      },
+      "revId": "c53fe4adc2f76d2002cf3637fa5ebd4ca995465a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13f5992f_aaa73de1",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -53,6 +77,30 @@
       "writtenOn": "2017-05-19T14:39:02Z",
       "side": 1,
       "message": "I find this terminology (\"doubles\") hard to grasp. How about something like \"This barrier is only necessary when the allocation also requires a class initialization check\" ?",
+      "range": {
+        "startLine": 1173,
+        "startChar": 43,
+        "endLine": 1173,
+        "endChar": 70
+      },
+      "revId": "c53fe4adc2f76d2002cf3637fa5ebd4ca995465a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77f0d1cb_d9cd62a1",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-19T19:56:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13f5992f_aaa73de1",
       "range": {
         "startLine": 1173,
         "startChar": 43,
