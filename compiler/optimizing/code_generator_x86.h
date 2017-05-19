@@ -414,6 +414,7 @@ class CodeGeneratorX86 : public CodeGenerator {
   void GenerateVirtualCall(HInvokeVirtual* invoke, Location temp) OVERRIDE;
 
   void RecordBootStringPatch(HLoadString* load_string);
+  void RecordBootMethodPatch(HInvokeStaticOrDirect* invoke);
   void RecordBootTypePatch(HLoadClass* load_class);
   Label* NewTypeBssEntryPatch(HLoadClass* load_class);
   Label* NewStringBssEntryPatch(HLoadString* load_string);
@@ -635,6 +636,8 @@ class CodeGeneratorX86 : public CodeGenerator {
   ArenaDeque<X86PcRelativePatchInfo> pc_relative_dex_cache_patches_;
   // String patch locations; type depends on configuration (app .bss or boot image).
   ArenaDeque<X86PcRelativePatchInfo> string_patches_;
+  // PC-relative method patch info for kBootImageLinkTimePcRelative.
+  ArenaDeque<X86PcRelativePatchInfo> boot_image_method_patches_;
   // PC-relative type patch info for kBootImageLinkTimePcRelative.
   ArenaDeque<X86PcRelativePatchInfo> boot_image_type_patches_;
   // Type patch locations for kBssEntry.

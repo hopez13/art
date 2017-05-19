@@ -545,6 +545,7 @@ class CodeGeneratorMIPS64 : public CodeGenerator {
     Mips64Label pc_rel_label;
   };
 
+  PcRelativePatchInfo* NewPcRelativeMethodPatch(MethodReference target_method);
   PcRelativePatchInfo* NewPcRelativeStringPatch(const DexFile& dex_file,
                                                 dex::StringIndex string_index);
   PcRelativePatchInfo* NewPcRelativeTypePatch(const DexFile& dex_file, dex::TypeIndex type_index);
@@ -607,6 +608,8 @@ class CodeGeneratorMIPS64 : public CodeGenerator {
   ArenaDeque<PcRelativePatchInfo> pc_relative_dex_cache_patches_;
   // PC-relative String patch info; type depends on configuration (app .bss or boot image PIC).
   ArenaDeque<PcRelativePatchInfo> pc_relative_string_patches_;
+  // PC-relative method patch info for kBootImageLinkTimePcRelative.
+  ArenaDeque<PcRelativePatchInfo> pc_relative_method_patches_;
   // PC-relative type patch info for kBootImageLinkTimePcRelative.
   ArenaDeque<PcRelativePatchInfo> pc_relative_type_patches_;
   // PC-relative type patch info for kBssEntry.

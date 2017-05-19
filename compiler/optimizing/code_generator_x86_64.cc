@@ -991,6 +991,12 @@ Location CodeGeneratorX86_64::GenerateCalleeMethodStaticOrDirectCall(HInvokeStat
     case HInvokeStaticOrDirect::MethodLoadKind::kRecursive:
       callee_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
       break;
+    case HInvokeStaticOrDirect::MethodLoadKind::kBootImageLinkTimePcRelative:
+      DCHECK(GetCompilerOptions().IsBootImage());
+      __ leal(temp.AsRegister<CpuRegister>(),
+              Address::Absolute(kDummy32BitOffset, /* no_rip */ false));
+      RecordBootMethodPatch(invoke);
+      break;
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       Load64BitValue(temp.AsRegister<CpuRegister>(), invoke->GetMethodAddress());
       break;
@@ -1085,6 +1091,12 @@ void CodeGeneratorX86_64::RecordBootStringPatch(HLoadString* load_string) {
   __ Bind(&string_patches_.back().label);
 }
 
+void CodeGeneratorX86_64::RecordBootMethodPatch(HInvokeStaticOrDirect* invoke) {
+  boot_image_method_patches_.emplace_back(*invoke->GetTargetMethod().dex_file,
+                                          invoke->GetTargetMethod().dex_method_index);
+  __ Bind(&boot_image_method_patches_.back().label);
+}
+
 void CodeGeneratorX86_64::RecordBootTypePatch(HLoadClass* load_class) {
   boot_image_type_patches_.emplace_back(load_class->GetDexFile(),
                                         load_class->GetTypeIndex().index_);
@@ -1129,16 +1141,20 @@ void CodeGeneratorX86_64::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_pat
   size_t size =
       pc_relative_dex_cache_patches_.size() +
       string_patches_.size() +
+      boot_image_method_patches_.size() +
       boot_image_type_patches_.size() +
       type_bss_entry_patches_.size();
   linker_patches->reserve(size);
   EmitPcRelativeLinkerPatches<LinkerPatch::DexCacheArrayPatch>(pc_relative_dex_cache_patches_,
                                                                linker_patches);
   if (GetCompilerOptions().IsBootImage()) {
+    EmitPcRelativeLinkerPatches<LinkerPatch::RelativeMethodPatch>(boot_image_method_patches_,
+                                                                  linker_patches);
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeTypePatch>(boot_image_type_patches_,
                                                                 linker_patches);
     EmitPcRelativeLinkerPatches<LinkerPatch::RelativeStringPatch>(string_patches_, linker_patches);
   } else {
+    DCHECK(boot_image_method_patches_.empty());
     DCHECK(boot_image_type_patches_.empty());
     EmitPcRelativeLinkerPatches<LinkerPatch::StringBssEntryPatch>(string_patches_, linker_patches);
   }
@@ -1232,6 +1248,7 @@ CodeGeneratorX86_64::CodeGeneratorX86_64(HGraph* graph,
         constant_area_start_(0),
         pc_relative_dex_cache_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
         string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
+        boot_image_method_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
         boot_image_type_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
         type_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
         fixups_to_jump_tables_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
