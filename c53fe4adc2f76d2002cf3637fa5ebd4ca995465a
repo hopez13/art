@@ -16,6 +16,29 @@
       "revId": "c53fe4adc2f76d2002cf3637fa5ebd4ca995465a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66ab731a_cb7c5114",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-19T14:33:22Z",
+      "side": 1,
+      "message": "Do we actually use the default argument?",
+      "range": {
+        "startLine": 1118,
+        "startChar": 70,
+        "endLine": 1118,
+        "endChar": 72
+      },
+      "revId": "c53fe4adc2f76d2002cf3637fa5ebd4ca995465a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
