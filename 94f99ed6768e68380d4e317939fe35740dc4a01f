@@ -62,6 +62,30 @@
       "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "423e866b_f8d017ec",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1842,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-19T20:19:09Z",
+      "side": 1,
+      "message": "No it\u0027s not a TODO. I wanted to leave an explanation why there is no dmb here, but new-instance allocation entrypoint does have a dmb.\n\nWhat should I do instead?",
+      "parentUuid": "166cd995_4dcac906",
+      "range": {
+        "startLine": 1842,
+        "startChar": 3,
+        "endLine": 1842,
+        "endChar": 37
+      },
+      "revId": "94f99ed6768e68380d4e317939fe35740dc4a01f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
