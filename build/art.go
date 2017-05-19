@@ -76,6 +76,12 @@ func globalFlags(ctx android.BaseContext) ([]string, []string) {
 		asflags = append(asflags, "-DART_USE_OLD_ARM_BACKEND=1")
 	}
 
+  if envTrue(ctx, "ART_FAST_DEBUG_BUILD") {
+    // Used to disable some expensive debug checks. b/35644369
+    cflags = append(cflags, "-DART_FAST_DEBUG_BUILD=1")
+    asflags = append(asflags, "-DART_FAST_DEBUG_BUILD=1")
+  }
+
 	return cflags, asflags
 }
 
