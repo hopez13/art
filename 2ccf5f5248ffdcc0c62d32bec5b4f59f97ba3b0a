@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8124fc9c_03fc9b4d",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-19T08:10:06Z",
+      "side": 1,
+      "message": "Do you mean java_heap_overhead_size? java_heap_overhead_field_count is never greater than 2?",
+      "range": {
+        "startLine": 1304,
+        "startChar": 7,
+        "endLine": 1304,
+        "endChar": 42
+      },
+      "revId": "2ccf5f5248ffdcc0c62d32bec5b4f59f97ba3b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
