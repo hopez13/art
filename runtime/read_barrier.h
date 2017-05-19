@@ -20,6 +20,7 @@
 #include "base/mutex.h"
 #include "base/macros.h"
 #include "gc_root.h"
+#include "globals.h"
 #include "jni.h"
 #include "mirror/object_reference.h"
 #include "offsets.h"
@@ -38,9 +39,9 @@ class ArtMethod;
 class ReadBarrier {
  public:
   // Enable the to-space invariant checks.
-  static constexpr bool kEnableToSpaceInvariantChecks = kIsDebugBuild;
+  static constexpr bool kEnableToSpaceInvariantChecks = kIsDebugBuild && !kIsFastDebugBuild;
   // Enable the read barrier checks.
-  static constexpr bool kEnableReadBarrierInvariantChecks = kIsDebugBuild;
+  static constexpr bool kEnableReadBarrierInvariantChecks = kIsDebugBuild && !kIsFastDebugBuild;
 
   // It's up to the implementation whether the given field gets updated whereas the return value
   // must be an updated reference unless kAlwaysUpdateField is true.

@@ -24,6 +24,7 @@
 #include "base/enums.h"
 #include "dex_file.h"
 #include "gc_root.h"
+#include "globals.h"
 #include "invoke_type.h"
 #include "method_reference.h"
 #include "modifiers.h"
@@ -53,7 +54,7 @@ class PointerArray;
 
 class ArtMethod FINAL {
  public:
-  static constexpr bool kCheckDeclaringClassState = kIsDebugBuild;
+  static constexpr bool kCheckDeclaringClassState = kIsDebugBuild && !kIsFastDebugBuild;
 
   // The runtime dex_method_index is kDexNoIndex. To lower dependencies, we use this
   // constexpr, and ensure that the value is correct in art_method.cc.

@@ -58,6 +58,14 @@ static constexpr bool kIsDebugBuild = false;
 static constexpr bool kIsDebugBuild = true;
 #endif
 
+// Whether to compile a "fast" debug build. This will turn off some costly debug checks, e.g.,
+// read barrier assertions.
+#if defined(ART_FAST_DEBUG_BUILD)
+static constexpr bool kIsFastDebugBuild = true;
+#else
+static constexpr bool kIsFastDebugBuild = false;
+#endif
+
 // ART_TARGET - Defined for target builds of ART.
 // ART_TARGET_LINUX - Defined for target Linux builds of ART.
 // ART_TARGET_ANDROID - Defined for target Android builds of ART.
