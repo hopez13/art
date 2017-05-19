@@ -39,6 +39,29 @@
       "revId": "c53fe4adc2f76d2002cf3637fa5ebd4ca995465a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13f5992f_aaa73de1",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-19T14:39:02Z",
+      "side": 1,
+      "message": "I find this terminology (\"doubles\") hard to grasp. How about something like \"This barrier is only necessary when the allocation also requires a class initialization check\" ?",
+      "range": {
+        "startLine": 1173,
+        "startChar": 43,
+        "endLine": 1173,
+        "endChar": 70
+      },
+      "revId": "c53fe4adc2f76d2002cf3637fa5ebd4ca995465a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
