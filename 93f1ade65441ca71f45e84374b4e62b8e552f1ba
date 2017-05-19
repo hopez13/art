@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b2cd7cb_a5c3664a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-19T00:59:08Z",
+      "side": 1,
+      "message": "Want to cache that line 1269?",
+      "range": {
+        "startLine": 1281,
+        "startChar": 31,
+        "endLine": 1281,
+        "endChar": 89
+      },
+      "revId": "93f1ade65441ca71f45e84374b4e62b8e552f1ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e7c5d51_6077ef79",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-19T00:59:08Z",
+      "side": 1,
+      "message": "Add a comment what the empty inline cache will mean for the AOT compilation.",
+      "range": {
+        "startLine": 1283,
+        "startChar": 0,
+        "endLine": 1283,
+        "endChar": 64
+      },
+      "revId": "93f1ade65441ca71f45e84374b4e62b8e552f1ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
