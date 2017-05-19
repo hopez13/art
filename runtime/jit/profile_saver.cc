@@ -64,6 +64,12 @@ ProfileSaver::ProfileSaver(const ProfileSaverOptions& options,
   AddTrackedLocations(output_filename, code_paths);
 }
 
+ProfileSaver::~ProfileSaver() {
+  for (auto& it : profile_cache_) {
+    delete it.second;
+  }
+}
+
 void ProfileSaver::Run() {
   Thread* self = Thread::Current();
 
@@ -253,9 +259,9 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
                        << " (" << classes.GetDexLocation() << ")";
       }
     }
-    auto info_it = profile_cache_.Put(filename, ProfileCompilationInfo());
+    auto info_it = profile_cache_.Put(filename, new ProfileCompilationInfo(Runtime::Current()->GetArenaPool()));
 
-    ProfileCompilationInfo* cached_info = &(info_it->second);
+    ProfileCompilationInfo* cached_info = info_it->second;
     cached_info->AddMethodsAndClasses(profile_methods_for_location,
                                       resolved_classes_for_location);
     total_number_of_profile_entries_cached += resolved_classes_for_location.size();
@@ -279,7 +285,6 @@ bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number
   }
 
   bool profile_file_saved = false;
-  uint64_t total_number_of_profile_entries_cached = 0;
   if (number_of_new_methods != nullptr) {
     *number_of_new_methods = 0;
   }
@@ -300,7 +305,7 @@ bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number
       jit_code_cache_->GetProfiledMethods(locations, profile_methods);
       total_number_of_code_cache_queries_++;
     }
-    ProfileCompilationInfo info;
+    ProfileCompilationInfo info(Runtime::Current()->GetArenaPool());
     if (!info.Load(filename, /*clear_if_invalid*/ true)) {
       LOG(WARNING) << "Could not forcefully load profile " << filename;
       continue;
@@ -311,7 +316,7 @@ bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number
     info.AddMethodsAndClasses(profile_methods, std::set<DexCacheResolvedClasses>());
     auto profile_cache_it = profile_cache_.find(filename);
     if (profile_cache_it != profile_cache_.end()) {
-      info.MergeWith(profile_cache_it->second);
+      info.MergeWith(*(profile_cache_it->second));
     }
 
     int64_t delta_number_of_methods = info.GetNumberOfMethods() - last_save_number_of_methods;
@@ -336,8 +341,9 @@ bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number
     if (info.Save(filename, &bytes_written)) {
       // We managed to save the profile. Clear the cache stored during startup.
       if (profile_cache_it != profile_cache_.end()) {
+        ProfileCompilationInfo* cached_info = profile_cache_it->second;
         profile_cache_.erase(profile_cache_it);
-        total_number_of_profile_entries_cached = 0;
+        delete cached_info;
       }
       if (bytes_written > 0) {
         total_number_of_writes_++;
@@ -579,7 +585,7 @@ bool ProfileSaver::HasSeenMethod(const std::string& profile,
                                  uint16_t method_idx) {
   MutexLock mu(Thread::Current(), *Locks::profiler_lock_);
   if (instance_ != nullptr) {
-    ProfileCompilationInfo info;
+    ProfileCompilationInfo info(Runtime::Current()->GetArenaPool());
     if (!info.Load(profile, /*clear_if_invalid*/false)) {
       return false;
     }
