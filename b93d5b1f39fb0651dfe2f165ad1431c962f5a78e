@@ -22,6 +22,30 @@
       "revId": "b93d5b1f39fb0651dfe2f165ad1431c962f5a78e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53984e31_048577ed",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-05-19T22:52:50Z",
+      "side": 1,
+      "message": "Good point, it should work as long as we acquire the SOA in the profile saver. I might be able to change it to ScopedThreadSuspension depending on the callers.",
+      "parentUuid": "b48705d5_ffdbbfb5",
+      "range": {
+        "startLine": 1416,
+        "startChar": 0,
+        "endLine": 1418,
+        "endChar": 61
+      },
+      "revId": "b93d5b1f39fb0651dfe2f165ad1431c962f5a78e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
