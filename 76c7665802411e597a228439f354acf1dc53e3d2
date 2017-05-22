@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfd4f7ab_8f85198d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T22:12:32Z",
+      "side": 1,
+      "message": "Hey I added all this code here for the non-rosalloc case, but does this loop even get taken for the concurrent collector?\n\nIt looks like allocation_stack_ is an ObjectStack (AtomicStack\u003cObject\u003e) and may have nothing to do with the thread_local_pos_offset that TLAB uses?\n\nThis is kind of a real question because it looks like current TLAB ASM will publish w/o ordering the class pointer store, I think the check for \"obj-\u003eGetClass !\u003d nullptr\" is absolutely necessary for TLAB.",
+      "revId": "76c7665802411e597a228439f354acf1dc53e3d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
