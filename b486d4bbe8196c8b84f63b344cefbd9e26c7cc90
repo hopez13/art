@@ -34,6 +34,24 @@
       "revId": "b486d4bbe8196c8b84f63b344cefbd9e26c7cc90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d3a4fbb_ab349e85",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T17:17:07Z",
+      "side": 1,
+      "message": "New suggestion:\n\n   kIsDebugBuildSlowOnly\n\nstill shows up in non-symbolic searches of \"kIsDebugBuild\" \n\nand we can define it as debug checks that are too slow for \"fast\" and exist exclusively with DEBUG\u003dtrue and FAST_DEBUG\u003dfalse",
+      "parentUuid": "6143a9f2_73dbba6e",
+      "revId": "b486d4bbe8196c8b84f63b344cefbd9e26c7cc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
