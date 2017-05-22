@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "288e7203_4810402f",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T15:03:16Z",
+      "side": 1,
+      "message": "I think this should be something like \"kIsFastOnlyDebugBuild\" instead of \"x \u0026\u0026 !y\"\n\nLater changes will find it easier to use a single variable for testing instead of a more complicated expression (and easier to grep)\n\nPresumably fast debug includes regular debug too, but a *fast only* debug would omit the these other things.",
+      "revId": "b486d4bbe8196c8b84f63b344cefbd9e26c7cc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
