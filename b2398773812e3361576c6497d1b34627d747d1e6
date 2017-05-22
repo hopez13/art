@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d390c3a_23ef1d25",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-05-22T22:04:53Z",
+      "side": 1,
+      "message": "maybe \"a runtime internal (eg. Heap::VisitObjects)\" noting that VisitObject may not be the only thing that may access the allocation stack?",
+      "range": {
+        "startLine": 1708,
+        "startChar": 38,
+        "endLine": 1708,
+        "endChar": 86
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
