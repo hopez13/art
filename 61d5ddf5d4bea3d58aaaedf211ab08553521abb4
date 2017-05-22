@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf3304f7_b8b191e4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "That\u0027s already done in the helper.",
+      "range": {
+        "startLine": 2259,
+        "startChar": 0,
+        "endLine": 2260,
+        "endChar": 35
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b262e7d5_81d2cde9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "Nit: give this a meaningful name, and call this eg TryInitializeClass",
+      "range": {
+        "startLine": 2265,
+        "startChar": 7,
+        "endLine": 2265,
+        "endChar": 20
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a64e430_ffe4d6dd",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "Can you move this to the condition line 2300?",
+      "range": {
+        "startLine": 2305,
+        "startChar": 37,
+        "endLine": 2305,
+        "endChar": 86
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77c39be4_924510f4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2371,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "Back",
+      "range": {
+        "startLine": 2371,
+        "startChar": 7,
+        "endLine": 2371,
+        "endChar": 11
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca8a1a1f_0eb27e00",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "wants",
+      "range": {
+        "startLine": 2372,
+        "startChar": 39,
+        "endLine": 2372,
+        "endChar": 43
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9350eeb1_57cd8c85",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "keep?",
+      "range": {
+        "startLine": 2372,
+        "startChar": 47,
+        "endLine": 2372,
+        "endChar": 53
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce6ea8eb_b4bf312c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "because",
+      "range": {
+        "startLine": 2372,
+        "startChar": 7,
+        "endLine": 2372,
+        "endChar": 12
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2cd4d36_b50e496c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "nit: put the type here",
+      "range": {
+        "startLine": 2443,
+        "startChar": 10,
+        "endLine": 2443,
+        "endChar": 14
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0893e3e3_4f154584",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2454,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "initializing?",
+      "range": {
+        "startLine": 2454,
+        "startChar": 48,
+        "endLine": 2454,
+        "endChar": 58
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9579d20_917c5f89",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2455,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "contain",
+      "range": {
+        "startLine": 2455,
+        "startChar": 68,
+        "endLine": 2455,
+        "endChar": 76
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee527c75_e55de31f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "This looks unrelated.",
+      "range": {
+        "startLine": 2472,
+        "startChar": 4,
+        "endLine": 2472,
+        "endChar": 44
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adb901e9_e64e08f4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2491,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-22T11:54:36Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 2491,
+        "startChar": 43,
+        "endLine": 2491,
+        "endChar": 48
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
