@@ -16,6 +16,24 @@
       "revId": "76c7665802411e597a228439f354acf1dc53e3d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd336c3f_dd964b19",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T22:31:11Z",
+      "side": 1,
+      "message": "Actually I guess that \"obj-\u003eGetClass() !\u003d nullptr\" check already happens in BumpPointerSpace::Walk.\n\nI think I was just confused because there isn\u0027t an AllocationStack::Walk that does a similar thing.",
+      "parentUuid": "dfd4f7ab_8f85198d",
+      "revId": "76c7665802411e597a228439f354acf1dc53e3d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
