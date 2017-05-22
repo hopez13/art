@@ -19,6 +19,93 @@
     },
     {
       "key": {
+        "uuid": "9f971f68_29f46be7",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-05-22T16:54:01Z",
+      "side": 1,
+      "message": "The code here is almost the same as before.\n\nThe only difference is that I clean up the heap_locator_collector_\u0027s internal data structure if it bails out due to some reason (e.g. too many locations to deal with). I\u0027ve marked the new code below.",
+      "parentUuid": "c9d2ad9b_bbecc35d",
+      "revId": "c239a2bb9474a1266c4882638fdb19056370e16d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41125c2b_6ba8e2b8",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-05-22T16:54:01Z",
+      "side": 1,
+      "message": "new code.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "c239a2bb9474a1266c4882638fdb19056370e16d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bf4d6a9_9f20047f",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-05-22T16:54:01Z",
+      "side": 1,
+      "message": "new code.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 39
+      },
+      "revId": "c239a2bb9474a1266c4882638fdb19056370e16d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78ef8fce_11141ed6",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-05-22T16:54:01Z",
+      "side": 1,
+      "message": "new code.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "c239a2bb9474a1266c4882638fdb19056370e16d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9d6d65b_0382bffc",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 2
@@ -30,6 +117,24 @@
       "writtenOn": "2017-05-22T14:38:54Z",
       "side": 1,
       "message": "I assume there is no functional change in this copied code?",
+      "revId": "c239a2bb9474a1266c4882638fdb19056370e16d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "756e1400_3b2549fd",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-05-22T16:54:01Z",
+      "side": 1,
+      "message": "There is no functional change.\nI kept using this command just to make sure:\n\n  vimdiff \u003cOLD\u003e/art/compiler/optimizing/load_store_elimination.cc \u003cNEW\u003e/art/compiler/optimizing/load_store_analysis.h",
+      "parentUuid": "d9d6d65b_0382bffc",
       "revId": "c239a2bb9474a1266c4882638fdb19056370e16d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
