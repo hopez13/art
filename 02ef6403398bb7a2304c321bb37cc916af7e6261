@@ -22,6 +22,30 @@
       "revId": "02ef6403398bb7a2304c321bb37cc916af7e6261",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a65ef08d_f1465171",
+        "filename": "dexlayout/dexlayout_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-05-22T15:55:40Z",
+      "side": 1,
+      "message": "The test uses diff to compare the files, which isn\u0027t on target.",
+      "parentUuid": "debdc172_fcbaa220",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 28
+      },
+      "revId": "02ef6403398bb7a2304c321bb37cc916af7e6261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
