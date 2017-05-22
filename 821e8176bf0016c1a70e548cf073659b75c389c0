@@ -91,6 +91,30 @@
       "revId": "821e8176bf0016c1a70e548cf073659b75c389c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5360554_02d8ecd4",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-22T18:49:46Z",
+      "side": 1,
+      "message": "No strong argument. Is trimming cheap? If the single pool behaviour is better, I can update it.",
+      "parentUuid": "76288af3_abba97de",
+      "range": {
+        "startLine": 74,
+        "startChar": 18,
+        "endLine": 74,
+        "endChar": 96
+      },
+      "revId": "821e8176bf0016c1a70e548cf073659b75c389c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
