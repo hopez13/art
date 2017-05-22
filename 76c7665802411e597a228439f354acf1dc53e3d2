@@ -22,6 +22,30 @@
       "revId": "76c7665802411e597a228439f354acf1dc53e3d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bea9fb4b_62881488",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T21:25:00Z",
+      "side": 0,
+      "message": "Thanks for spotting this.\n\nTLAB also appears to have a similar issue (left separate notes there as well), but Heap::VisitObjects already had the race detection for that case.\n\nIt looks like previously rosalloc was always safely published to the heap, but for TLAB case it was unsafely published (the dmb could\u0027ve just been placed earlier as well, but it wasn\u0027t).\n\nPlease take a look. I\u0027m not sure about the language use there, but I believe we should distinguish [terminology of] publishing to the ART internals vs publishing to user-visible java code.",
+      "parentUuid": "9525fa7e_c19464c1",
+      "range": {
+        "startLine": 1690,
+        "startChar": 2,
+        "endLine": 1700,
+        "endChar": 75
+      },
+      "revId": "76c7665802411e597a228439f354acf1dc53e3d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
