@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af1cdd59_37bc8cba",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 7099,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-22T17:37:41Z",
+      "side": 1,
+      "message": "Building the aosp_mips64-userdebug without this failed.",
+      "range": {
+        "startLine": 7099,
+        "startChar": 4,
+        "endLine": 7099,
+        "endChar": 77
+      },
+      "revId": "6597946d29be9108e2cc51223553d3db9290a3d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
