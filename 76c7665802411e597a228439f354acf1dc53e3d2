@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9525fa7e_c19464c1",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-05-22T19:35:16Z",
+      "side": 0,
+      "message": "Please leave a pointer to the other CL or bug number here that allows us to tolerate the race with a read from the allocation stack. The fact that there is no fence here, in spite of publishing the object on the allocation stack, is very counter-intuitive.",
+      "range": {
+        "startLine": 1690,
+        "startChar": 2,
+        "endLine": 1700,
+        "endChar": 75
+      },
+      "revId": "76c7665802411e597a228439f354acf1dc53e3d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
