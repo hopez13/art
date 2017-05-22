@@ -22,6 +22,30 @@
       "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57295279_fbf078b4",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T22:06:54Z",
+      "side": 1,
+      "message": "Sure, I will reword it to exactly this.\n\nQuestion: It\u0027s very tricky to access these objects from the runtime side, so I\u0027m not sure anything else (except Heap::VisitObjects) can do it safely? How do we discourage observing the objects from other functions?",
+      "parentUuid": "4d390c3a_23ef1d25",
+      "range": {
+        "startLine": 1708,
+        "startChar": 38,
+        "endLine": 1708,
+        "endChar": 86
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
