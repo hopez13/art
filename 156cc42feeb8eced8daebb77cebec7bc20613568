@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32175a08_da4f64e5",
+        "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-05-22T14:34:42Z",
+      "side": 1,
+      "message": "These could presumably be final.",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 21
+      },
+      "revId": "156cc42feeb8eced8daebb77cebec7bc20613568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
