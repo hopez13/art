@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "568abbbe_ec455463",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T17:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f5c33c1_a3fb325d",
+      "range": {
+        "startLine": 1134,
+        "startChar": 24,
+        "endLine": 1134,
+        "endChar": 31
+      },
+      "revId": "77da74c0bf338f400057be3010c9de6c2bc7beef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8525d97f_0c1e5102",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2017-05-22T10:57:56Z",
       "side": 1,
       "message": "Say where (compiler, runtime, which method?).",
+      "range": {
+        "startLine": 1191,
+        "startChar": 13,
+        "endLine": 1191,
+        "endChar": 55
+      },
+      "revId": "77da74c0bf338f400057be3010c9de6c2bc7beef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60bb318a_237abb32",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T17:47:18Z",
+      "side": 1,
+      "message": "Done.\n\nIt\u0027s only talking about the dmb right above the comment.",
+      "parentUuid": "8525d97f_0c1e5102",
       "range": {
         "startLine": 1191,
         "startChar": 13,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "c09ec878_85925453",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T17:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa391fae_78ccb929",
+      "range": {
+        "startLine": 1214,
+        "startChar": 51,
+        "endLine": 1214,
+        "endChar": 54
+      },
+      "revId": "77da74c0bf338f400057be3010c9de6c2bc7beef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a45b2b8_a86a3e02",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 3
@@ -105,6 +177,30 @@
       "writtenOn": "2017-05-22T10:57:56Z",
       "side": 1,
       "message": "terminology",
+      "range": {
+        "startLine": 1226,
+        "startChar": 24,
+        "endLine": 1226,
+        "endChar": 31
+      },
+      "revId": "77da74c0bf338f400057be3010c9de6c2bc7beef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3878d346_e628e93d",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T17:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a45b2b8_a86a3e02",
       "range": {
         "startLine": 1226,
         "startChar": 24,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "07a4736d_e59abf6f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T17:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c13a8fa_10d99a46",
+      "range": {
+        "startLine": 1255,
+        "startChar": 7,
+        "endLine": 1255,
+        "endChar": 68
+      },
+      "revId": "77da74c0bf338f400057be3010c9de6c2bc7beef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "996abc92_a70e3f46",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 3
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "d8dd2858_4e1dd455",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T17:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "996abc92_a70e3f46",
+      "range": {
+        "startLine": 1301,
+        "startChar": 30,
+        "endLine": 1301,
+        "endChar": 36
+      },
+      "revId": "77da74c0bf338f400057be3010c9de6c2bc7beef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1c73573_594d04ef",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 3
@@ -174,6 +318,24 @@
       "writtenOn": "2017-05-22T10:57:56Z",
       "side": 1,
       "message": "Same comment in this file as for the arm version.",
+      "revId": "77da74c0bf338f400057be3010c9de6c2bc7beef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95b7a7a9_26cd16f0",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1636,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-22T17:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1c73573_594d04ef",
       "revId": "77da74c0bf338f400057be3010c9de6c2bc7beef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
