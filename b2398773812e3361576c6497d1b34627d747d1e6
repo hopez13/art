@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "c242cb36_23bb5c95",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-23T08:24:10Z",
+      "side": 1,
+      "message": "I don\u0027t understand the relation between an object\u0027s state and \"No object\".",
+      "range": {
+        "startLine": 1183,
+        "startChar": 10,
+        "endLine": 1183,
+        "endChar": 19
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c934703_59704554",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-23T08:24:10Z",
+      "side": 1,
+      "message": "I don\u0027t understand this either: r0 is a class object. I guess the ambiguity is around the word \u0027valid\u0027?",
+      "range": {
+        "startLine": 1185,
+        "startChar": 7,
+        "endLine": 1185,
+        "endChar": 97
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d390c3a_23ef1d25",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
