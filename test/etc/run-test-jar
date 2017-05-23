@@ -569,7 +569,9 @@ if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
       --apk=$DEX_LOCATION/$TEST_NAME-ex.jar \
       --dex-location=$DEX_LOCATION/$TEST_NAME-ex.jar"
   fi
-  COMPILE_FLAGS="${COMPILE_FLAGS} --profile-file=$DEX_LOCATION/$TEST_NAME.prof"
+  if [ "$TEST_VDEX" = "n" ]; then
+    COMPILE_FLAGS="${COMPILE_FLAGS} --profile-file=$DEX_LOCATION/$TEST_NAME.prof"
+  fi
   FLAGS="${FLAGS} -Xcompiler-option --profile-file=$DEX_LOCATION/$TEST_NAME.prof"
   if [ "$PROFILE" = "y" ]; then
     profman_cmdline="${profman_cmdline} --create-profile-from=$DEX_LOCATION/profile \
@@ -614,6 +616,9 @@ if [ "$PREBUILD" = "y" ]; then
   fi
   if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
     vdex_cmdline="${dex2oat_cmdline} ${VDEX_FILTER} --input-vdex=$DEX_LOCATION/oat/$ISA/$TEST_NAME.vdex --output-vdex=$DEX_LOCATION/oat/$ISA/$TEST_NAME.vdex"
+    if [ "$TEST_VDEX" = "y" ]; then
+      vdex_cmdline="${vdex_cmdline} --profile-file=$DEX_LOCATION/$TEST_NAME.prof"
+    fi
   elif [ "$TEST_VDEX" = "y" ]; then
     vdex_cmdline="${dex2oat_cmdline} ${VDEX_FILTER} --input-vdex=$DEX_LOCATION/oat/$ISA/$TEST_NAME.vdex"
   fi
