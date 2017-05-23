@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "329f1819_b5c073a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-23T01:03:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0e43904_dec188c0",
+      "range": {
+        "startLine": 10,
+        "startChar": 43,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "821e8176bf0016c1a70e548cf073659b75c389c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06ba05d1_6c95a5b5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-22T18:46:29Z",
       "side": 1,
       "message": "grammar",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "821e8176bf0016c1a70e548cf073659b75c389c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29653c5f_f79ecd6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-23T01:03:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06ba05d1_6c95a5b5",
       "range": {
         "startLine": 13,
         "startChar": 12,
@@ -154,6 +202,30 @@
       "side": 1,
       "message": "No strong argument. Is trimming cheap? If the single pool behaviour is better, I can update it.",
       "parentUuid": "76288af3_abba97de",
+      "range": {
+        "startLine": 74,
+        "startChar": 18,
+        "endLine": 74,
+        "endChar": 96
+      },
+      "revId": "821e8176bf0016c1a70e548cf073659b75c389c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32badcf6_4d557343",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-23T01:03:19Z",
+      "side": 1,
+      "message": "We chatted a bit about this offline.\n\nI don\u0027t have a good way to reason if that actually helps or not. Maybe...\n\nThe main argument pro local arena pools is simplicity since the current usage and testing of the profiles is not arena friendly.\n\nI uploaded PS3 which uses the runtime pool only for \"runtime\" (no dex2oat or profman). The downside is a bit more mess in the desctructor.",
+      "parentUuid": "d5360554_02d8ecd4",
       "range": {
         "startLine": 74,
         "startChar": 18,
