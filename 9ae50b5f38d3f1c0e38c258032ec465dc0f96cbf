@@ -22,6 +22,30 @@
       "revId": "9ae50b5f38d3f1c0e38c258032ec465dc0f96cbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e614a5ce_be480f26",
+        "filename": "runtime/globals.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-23T14:15:31Z",
+      "side": 1,
+      "message": "FWIW I had initially suggested this so grepping for \"kIsDebugBuild\" would show either the normal or the slow versions.\n\nI am happy with \"kIsSlowDebugBuild\" as well",
+      "parentUuid": "b416a0f2_9fa30106",
+      "range": {
+        "startLine": 64,
+        "startChar": 22,
+        "endLine": 64,
+        "endChar": 39
+      },
+      "revId": "9ae50b5f38d3f1c0e38c258032ec465dc0f96cbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
