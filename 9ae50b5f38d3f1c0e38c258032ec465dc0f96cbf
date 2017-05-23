@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "77357403_a967fcf8",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-23T14:18:39Z",
+      "side": 1,
+      "message": "One very minor and possibly irrelevant thing, if we want to ever have a CHECK that only works on fast-debug, it might be awkward to call it FCHECK? that seems like a fatal check.\n\nPerhaps if it was QUICK_DEBUG it would be called QCHECK?\n\nAgain, this might be a completely moot point but I just thought I\u0027d share it since it popped into my head.",
+      "range": {
+        "startLine": 79,
+        "startChar": 18,
+        "endLine": 79,
+        "endChar": 38
+      },
+      "revId": "9ae50b5f38d3f1c0e38c258032ec465dc0f96cbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b416a0f2_9fa30106",
         "filename": "runtime/globals.h",
         "patchSetId": 3
