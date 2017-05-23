@@ -212,6 +212,30 @@
       "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4c4205_0ce6cc51",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-05-23T21:29:09Z",
+      "side": 1,
+      "message": "This is more of an explanation than I intended to request. But this looks fine to me.",
+      "parentUuid": "a986ceae_e93832e0",
+      "range": {
+        "startLine": 1708,
+        "startChar": 38,
+        "endLine": 1708,
+        "endChar": 86
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
