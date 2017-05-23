@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "706d6578_d08096c8",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-23T14:05:44Z",
+      "side": 1,
+      "message": "I\u0027ll have to look at the rosalloc implementation closer, I was under impression it was a stack of pointers (not a stack of objects) but probably it\u0027s the latter after looking at the typedef AtomicStack\u003cmirror::Object\u003e\n\n(and the reason I was under this impression is because all the visitors seem to check that \"object !\u003d null\" first which would have 0 usefulness unless it was a stack of pointers)",
+      "parentUuid": "c242cb36_23bb5c95",
+      "range": {
+        "startLine": 1183,
+        "startChar": 10,
+        "endLine": 1183,
+        "endChar": 19
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c934703_59704554",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-23T08:24:10Z",
       "side": 1,
       "message": "I don\u0027t understand this either: r0 is a class object. I guess the ambiguity is around the word \u0027valid\u0027?",
+      "range": {
+        "startLine": 1185,
+        "startChar": 7,
+        "endLine": 1185,
+        "endChar": 97
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a015e6_f044d41e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-23T14:05:44Z",
+      "side": 1,
+      "message": "Yes r0 is an object, but the other thread  could observe the write of the thread_local_alloc_stack_top_offset first and THEN the write of MIRROR_CLASS_OBJECT_OFFSET second.",
+      "parentUuid": "3c934703_59704554",
       "range": {
         "startLine": 1185,
         "startChar": 7,
