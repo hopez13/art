@@ -22,6 +22,30 @@
       "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63145e89_560cee18",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-23T19:11:07Z",
+      "side": 1,
+      "message": "The main reason to use direct pointers is to prevent capturing the values from the map.\n\nI.e. is there a good way \n\nfor (auto it : profile_cache_) {\n}\n\nor std::unique_ptr\u003c...\u003e p \u003d profile_cache_.find()-\u003esecond-\u003e\n\n?\n\nSo that objects are not destroyed unexpectedly?",
+      "parentUuid": "5121ddda_21d0bf9d",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 10
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
