@@ -1991,6 +1991,7 @@ bool OatWriter::WriteVerifierDeps(OutputStream* vdex_out, verifier::VerifierDeps
 
   size_t initial_offset = vdex_size_;
   size_t start_offset = RoundUp(initial_offset, 4u);
+  fprintf(stderr, "MY OFFSET IS %zu\n", start_offset);
 
   vdex_size_ = start_offset;
   vdex_verifier_deps_offset_ = vdex_size_;
