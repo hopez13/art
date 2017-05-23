@@ -1,0 +1,6 @@
+smali assemble smali/dexlayout.smali -o classes.dex
+zip dl_length_test.apk classes.dex
+profman --create-profile-from=profile --apk=dl_length_test.apk --dex-location=classes.dex --reference-profile-file=foo.prof
+dexlayout -p foo.prof -w . classes.dex
+stat -c "%s" classes.dex.new
+stat -c "%s" classes.dex
