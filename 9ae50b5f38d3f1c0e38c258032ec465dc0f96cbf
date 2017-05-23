@@ -93,6 +93,30 @@
       "revId": "9ae50b5f38d3f1c0e38c258032ec465dc0f96cbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05e91cef_ae8451f0",
+        "filename": "runtime/globals.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-23T15:13:57Z",
+      "side": 1,
+      "message": "I would have obviously preferred to do this in a more C++-stylish way, i.e., an enum level and comparison. But that would change too many lines. I also wanted the default to be the \"old\" \"everything-is-checked\" build (for tests, and in the hopes that we can get back to something that runs all checks yet is usable). So this was a compromise attempt.\n\nI could see where Igor is coming from: It would be nice to be able to find all debug checks quickly. That\u0027s why I adapted the naming. If you have a better suggestion, I\u0027m more than happy to incorporate that.",
+      "parentUuid": "887470a4_e370d39f",
+      "range": {
+        "startLine": 64,
+        "startChar": 22,
+        "endLine": 64,
+        "endChar": 39
+      },
+      "revId": "9ae50b5f38d3f1c0e38c258032ec465dc0f96cbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
