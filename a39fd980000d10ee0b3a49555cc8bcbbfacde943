@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0feb8a1b_b9cbbfe2",
+        "filename": "test/644-checker-deopt/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T09:56:03Z",
+      "side": 0,
+      "message": "How about keeping the test but making this a CHECK-NOT?",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "a39fd980000d10ee0b3a49555cc8bcbbfacde943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

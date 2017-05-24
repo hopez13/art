@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efc784a8_e17c11f7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T09:56:03Z",
+      "side": 1,
+      "message": "I\u0027d extend a bit the comment.\n\nI guess you\u0027re talking AOT code across runs for an app / system server, right? You might want to be explicit.\n\nThe other problem is for the same run, we do go back to interpreter when there is a deopt, so we won\u0027t forever optimize. So the problem for one run (given the current implementation) is that non-JITted things like system server will run slow on the deopted method.",
+      "range": {
+        "startLine": 479,
+        "startChar": 14,
+        "endLine": 480,
+        "endChar": 61
+      },
+      "revId": "5a11f83a0d1c55b5584bed2dd254cf10e770e45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f1b66e3_a57d151b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T09:56:03Z",
+      "side": 1,
+      "message": "a",
+      "range": {
+        "startLine": 481,
+        "startChar": 25,
+        "endLine": 481,
+        "endChar": 26
+      },
+      "revId": "5a11f83a0d1c55b5584bed2dd254cf10e770e45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fe67c58_2b645486",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T09:56:03Z",
+      "side": 1,
+      "message": "inline cache in the profile file?",
+      "range": {
+        "startLine": 481,
+        "startChar": 89,
+        "endLine": 481,
+        "endChar": 94
+      },
+      "revId": "5a11f83a0d1c55b5584bed2dd254cf10e770e45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad53be74_db436cfc",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T09:56:03Z",
+      "side": 1,
+      "message": "Maybe hide this into a static method in the cc file? (and avoid the declaration here).",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 47
+      },
+      "revId": "5a11f83a0d1c55b5584bed2dd254cf10e770e45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
