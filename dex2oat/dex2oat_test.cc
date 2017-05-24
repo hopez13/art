@@ -38,6 +38,8 @@
 
 namespace art {
 
+static constexpr size_t kMaxMethodIds = 65535;
+
 using android::base::StringPrintf;
 
 class Dex2oatTest : public Dex2oatEnvironmentTest {
@@ -612,7 +614,7 @@ class Dex2oatLayoutTest : public Dex2oatTest {
     ProfileCompilationInfo info;
     std::string profile_key = ProfileCompilationInfo::GetProfileDexFileKey(dex_location);
     for (size_t i = 0; i < num_classes; ++i) {
-      info.AddClassIndex(profile_key, checksum, dex::TypeIndex(1 + i));
+      info.AddClassIndex(profile_key, checksum, dex::TypeIndex(1 + i), kMaxMethodIds);
     }
     bool result = info.Save(profile_test_fd);
     close(profile_test_fd);
