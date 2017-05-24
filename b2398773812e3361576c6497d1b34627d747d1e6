@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "e670fd1b_74aefc0f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T14:02:34Z",
+      "side": 1,
+      "message": "I agree you should rename \"state of the object\" to \"state of the allocation stack\".",
+      "parentUuid": "c356f7b6_d393558e",
+      "range": {
+        "startLine": 1183,
+        "startChar": 10,
+        "endLine": 1183,
+        "endChar": 19
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c934703_59704554",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 5
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "This is described in https://android-review.googlesource.com/#/c/398868/ minus the diagrams\n\nInvariant 1\n\n     partially-valid-object\n     -------------------------------------------------------------------\n     | CLASS PTR | null/0s (initial field values)                      |\n     -------------------------------------------------------------------\n           |\n           |\n           \\/\n     rosalloc-next-free-slot\n     -------------------------------------------------------------------\n     | NEXT SLOT | (unallocated 0s)                                    |\n     -------------------------------------------------------------------\n           |\n           \\\n            \\\u003e  (rosalloc-next-free-slot | null)\n\n(Important: (next slot is at same offset as \u0027class ptr\u0027)\n\n--------------\n\nInvariant 2\n\n     valid-object\n     -------------------------------------------------------------------\n     | CLASS POINTER | null/0s (initial field values)                  |\n     -------------------------------------------------------------------\n           |\n           |\n           \\/\n         class\n     -------------------------------------------------------------------\n     | CLASS POINTER | (dont care)                                     |\n     -------------------------------------------------------------------\n           |\n           |\n           \\/\n     mirror::ClassClass\n     -------------------------------------------------------------------\n     | CLASS POINTER | (dont care)                                     |\n     -------------------------------------------------------------------\n        \\  / \\\n         \\  |\n          \\ /\n           -     (points back to itself)\n\n\n\nEffectively dereferencing the class pointer will lead to a ClassClass cycle if it\u0027s a real class; otherwise it\u0027s actually pointing to a rosalloc free slot.\n\n\n(note: above diagrams are simplified to exclude other parts of the object header)",
       "parentUuid": "10a015e6_f044d41e",
+      "range": {
+        "startLine": 1185,
+        "startChar": 7,
+        "endLine": 1185,
+        "endChar": 97
+      },
+      "revId": "b2398773812e3361576c6497d1b34627d747d1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782b02d1_66d51373",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T14:02:34Z",
+      "side": 1,
+      "message": "I\u0027d suggest explaining what \u0027valid\u0027 means in this context.",
+      "parentUuid": "753aad99_32e895d4",
       "range": {
         "startLine": 1185,
         "startChar": 7,
