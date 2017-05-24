@@ -117,6 +117,30 @@
       "revId": "fd522533bf8cea5a8334f233922c39536b1a3d29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f325f2b0_c91f022a",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-05-24T13:26:30Z",
+      "side": 1,
+      "message": "Sure, but a change in the veneer pool number will probably result in a change in the metrics I am tracking. Anyway, I may have a look later - I have a script that calculates the number of branches to branches (which covers veneer pools) from the oatdump output, so it should not be difficult.",
+      "parentUuid": "6b1f5451_af96e5f9",
+      "range": {
+        "startLine": 3168,
+        "startChar": 46,
+        "endLine": 3168,
+        "endChar": 68
+      },
+      "revId": "fd522533bf8cea5a8334f233922c39536b1a3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
