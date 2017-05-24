@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a808dd69_ec578bcb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-24T06:27:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f89079f7_333724a0",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "e51f81510199021524b650de4e76492bb2fb3680",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36a0b10c_d8d98fbe",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-24T06:07:20Z",
       "side": 1,
       "message": "Is this required?",
+      "range": {
+        "startLine": 90,
+        "startChar": 8,
+        "endLine": 90,
+        "endChar": 13
+      },
+      "revId": "e51f81510199021524b650de4e76492bb2fb3680",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "019ab8fd_3a5b41fb",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-24T06:27:08Z",
+      "side": 1,
+      "message": "not really",
+      "parentUuid": "36a0b10c_d8d98fbe",
       "range": {
         "startLine": 90,
         "startChar": 8,
