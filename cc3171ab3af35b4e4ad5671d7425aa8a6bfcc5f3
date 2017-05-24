@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "c60c971c_0dc0a3c1",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-24T13:29:21Z",
+      "side": 1,
+      "message": "Do we know that the ClassReference is not in the set yet? emplace() allocates the node before doing the lookup and if it then finds an identical element, it shall deallocate the node. For Arena allocations, that\u0027s essentially a leak.",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 17
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be4636a3_e4c7ba0f",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 5
