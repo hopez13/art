@@ -39,10 +39,12 @@
 #include "bytecode_utils.h"
 #include "dex_file.h"
 #include "jit/profile_compilation_info.h"
-#include "runtime.h"
-#include "utils.h"
-#include "zip_archive.h"
 #include "profile_assistant.h"
+#include "runtime.h"
+#include "type_reference.h"
+#include "utils.h"
+#include "type_reference.h"
+#include "zip_archive.h"
 
 namespace art {
 
@@ -563,7 +565,7 @@ class ProfMan FINAL {
   // Return true if the definition of the class was found in any of the dex_files.
   bool FindClass(const std::vector<std::unique_ptr<const DexFile>>& dex_files,
                  const std::string& klass_descriptor,
-                 /*out*/ProfileMethodInfo::ProfileClassReference* class_ref) {
+                 /*out*/TypeReference* class_ref) {
     for (const std::unique_ptr<const DexFile>& dex_file_ptr : dex_files) {
       const DexFile* dex_file = dex_file_ptr.get();
       const DexFile::TypeId* type_id = dex_file->FindTypeId(klass_descriptor.c_str());
@@ -583,8 +585,7 @@ class ProfMan FINAL {
   }
 
   // Find the method specified by method_spec in the class class_ref.
-  uint32_t FindMethodIndex(const ProfileMethodInfo::ProfileClassReference& class_ref,
-                           const std::string& method_spec) {
+  uint32_t FindMethodIndex(const TypeReference& class_ref, const std::string& method_spec) {
     std::vector<std::string> name_and_signature;
     Split(method_spec, kProfileParsingFirstCharInSignature, &name_and_signature);
     if (name_and_signature.size() != 2) {
@@ -626,7 +627,7 @@ class ProfMan FINAL {
   // The format of the method spec is "inlinePolymorphic(LSuper;)I+LSubA;,LSubB;,LSubC;".
   //
   // TODO(calin): support INVOKE_INTERFACE and the range variants.
-  bool HasSingleInvoke(const ProfileMethodInfo::ProfileClassReference& class_ref,
+  bool HasSingleInvoke(const TypeReference& class_ref,
                        uint16_t method_index,
                        /*out*/uint32_t* dex_pc) {
     const DexFile* dex_file = class_ref.dex_file;
@@ -675,7 +676,7 @@ class ProfMan FINAL {
       method_str = line.substr(method_sep_index + kMethodSep.size());
     }
 
-    ProfileMethodInfo::ProfileClassReference class_ref;
+    TypeReference class_ref;
     if (!FindClass(dex_files, klass, &class_ref)) {
       LOG(WARNING) << "Could not find class: " << klass;
       return false;
@@ -688,7 +689,8 @@ class ProfMan FINAL {
       const auto& dex_resolved_classes = resolved_class_set.emplace(
             dex_file->GetLocation(),
             dex_file->GetBaseLocation(),
-            dex_file->GetLocationChecksum());
+            dex_file->GetLocationChecksum(),
+            dex_file->NumMethodIds());
       dex_resolved_classes.first->AddClass(class_ref.type_index);
       std::vector<ProfileMethodInfo> methods;
       if (method_str == kClassAllMethods) {
@@ -746,7 +748,7 @@ class ProfMan FINAL {
       if (!HasSingleInvoke(class_ref, method_index, &dex_pc)) {
         return false;
       }
-      std::vector<ProfileMethodInfo::ProfileClassReference> classes(inline_cache_elems.size());
+      std::vector<TypeReference> classes(inline_cache_elems.size());
       size_t class_it = 0;
       for (const std::string& ic_class : inline_cache_elems) {
         if (!FindClass(dex_files, ic_class, &(classes[class_it++]))) {

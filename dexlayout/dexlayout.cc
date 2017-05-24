@@ -1699,7 +1699,7 @@ int32_t DexLayout::LayoutCodeItems(const DexFile* dex_file,
             (method->GetAccessFlags() & kAccConstructor) != 0 &&
             (method->GetAccessFlags() & kAccStatic) != 0;
         const bool is_method_executed = is_clinit ||
-            info_->ContainsMethod(MethodReference(dex_file, method_id->GetIndex()));
+            info_->IsStartupOrHotMethod(MethodReference(dex_file, method_id->GetIndex()));
         code_items[is_method_executed
                        ? CodeItemKind::kMethodExecuted
                        : CodeItemKind::kMethodNotExecuted]

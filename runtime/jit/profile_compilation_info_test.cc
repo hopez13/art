@@ -25,11 +25,14 @@
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
 #include "handle_scope-inl.h"
-#include "linear_alloc.h"
 #include "jit/profile_compilation_info.h"
+#include "linear_alloc.h"
 #include "scoped_thread_state_change-inl.h"
+#include "type_reference.h"
 
 namespace art {
+
+static constexpr size_t kMaxMethodIds = 65535;
 
 class ProfileCompilationInfoTest : public CommonRuntimeTest {
  public:
@@ -60,7 +63,7 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
                  uint32_t checksum,
                  uint16_t method_index,
                  ProfileCompilationInfo* info) {
-    return info->AddMethodIndex(dex_location, checksum, method_index);
+    return info->AddMethodIndex(dex_location, checksum, method_index, kMaxMethodIds);
   }
 
   bool AddMethod(const std::string& dex_location,
@@ -68,14 +71,14 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
                  uint16_t method_index,
                  const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi,
                  ProfileCompilationInfo* info) {
-    return info->AddMethod(dex_location, checksum, method_index, pmi);
+    return info->AddMethod(dex_location, checksum, method_index, kMaxMethodIds, pmi);
   }
 
   bool AddClass(const std::string& dex_location,
                 uint32_t checksum,
                 uint16_t class_index,
                 ProfileCompilationInfo* info) {
-    return info->AddMethodIndex(dex_location, checksum, class_index);
+    return info->AddMethodIndex(dex_location, checksum, class_index, kMaxMethodIds);
   }
 
   uint32_t GetFd(const ScratchFile& file) {
@@ -123,13 +126,13 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
       std::vector<ProfileMethodInfo::ProfileInlineCache> caches;
       // Monomorphic
       for (uint16_t dex_pc = 0; dex_pc < 11; dex_pc++) {
-        std::vector<ProfileMethodInfo::ProfileClassReference> classes;
+        std::vector<TypeReference> classes;
         classes.emplace_back(method->GetDexFile(), dex::TypeIndex(0));
         caches.emplace_back(dex_pc, /*is_missing_types*/false, classes);
       }
       // Polymorphic
       for (uint16_t dex_pc = 11; dex_pc < 22; dex_pc++) {
-        std::vector<ProfileMethodInfo::ProfileClassReference> classes;
+        std::vector<TypeReference> classes;
         for (uint16_t k = 0; k < InlineCache::kIndividualCacheSize / 2; k++) {
           classes.emplace_back(method->GetDexFile(), dex::TypeIndex(k));
         }
@@ -137,7 +140,7 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
       }
       // Megamorphic
       for (uint16_t dex_pc = 22; dex_pc < 33; dex_pc++) {
-        std::vector<ProfileMethodInfo::ProfileClassReference> classes;
+        std::vector<TypeReference> classes;
         for (uint16_t k = 0; k < 2 * InlineCache::kIndividualCacheSize; k++) {
           classes.emplace_back(method->GetDexFile(), dex::TypeIndex(k));
         }
@@ -145,10 +148,12 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
       }
       // Missing types
       for (uint16_t dex_pc = 33; dex_pc < 44; dex_pc++) {
-        std::vector<ProfileMethodInfo::ProfileClassReference> classes;
+        std::vector<TypeReference> classes;
         caches.emplace_back(dex_pc, /*is_missing_types*/true, classes);
       }
-      ProfileMethodInfo pmi(method->GetDexFile(), method->GetDexMethodIndex(), caches);
+      ProfileMethodInfo pmi(method->GetDexFile(),
+                            method->GetDexMethodIndex(),
+                            caches);
       profile_methods.push_back(pmi);
       profile_methods_map->Put(method, pmi);
     }
@@ -182,7 +187,8 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
           const std::string& dex_key = ProfileCompilationInfo::GetProfileDexFileKey(
               class_ref.dex_file->GetLocation());
           offline_pmi.dex_references.emplace_back(dex_key,
-                                                  class_ref.dex_file->GetLocationChecksum());
+                                                  class_ref.dex_file->GetLocationChecksum(),
+                                                  kMaxMethodIds);
         }
       }
     }
@@ -193,9 +199,9 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
   ProfileCompilationInfo::OfflineProfileMethodInfo GetOfflineProfileMethodInfo() {
     ProfileCompilationInfo::OfflineProfileMethodInfo pmi(arena_.get());
 
-    pmi.dex_references.emplace_back("dex_location1", /* checksum */1);
-    pmi.dex_references.emplace_back("dex_location2", /* checksum */2);
-    pmi.dex_references.emplace_back("dex_location3", /* checksum */3);
+    pmi.dex_references.emplace_back("dex_location1", /* checksum */1, kMaxMethodIds);
+    pmi.dex_references.emplace_back("dex_location2", /* checksum */2, kMaxMethodIds);
+    pmi.dex_references.emplace_back("dex_location3", /* checksum */3, kMaxMethodIds);
 
     // Monomorphic
     for (uint16_t dex_pc = 0; dex_pc < 11; dex_pc++) {
@@ -674,8 +680,8 @@ TEST_F(ProfileCompilationInfoTest, MergeInlineCacheTriggerReindex) {
   ProfileCompilationInfo info_reindexed;
 
   ProfileCompilationInfo::OfflineProfileMethodInfo pmi(arena_.get());
-  pmi.dex_references.emplace_back("dex_location1", /* checksum */ 1);
-  pmi.dex_references.emplace_back("dex_location2", /* checksum */ 2);
+  pmi.dex_references.emplace_back("dex_location1", /* checksum */ 1, kMaxMethodIds);
+  pmi.dex_references.emplace_back("dex_location2", /* checksum */ 2, kMaxMethodIds);
   for (uint16_t dex_pc = 1; dex_pc < 5; dex_pc++) {
     ProfileCompilationInfo::DexPcData dex_pc_data(arena_.get());
     dex_pc_data.AddClass(0, dex::TypeIndex(0));
@@ -684,8 +690,8 @@ TEST_F(ProfileCompilationInfoTest, MergeInlineCacheTriggerReindex) {
   }
 
   ProfileCompilationInfo::OfflineProfileMethodInfo pmi_reindexed(arena_.get());
-  pmi_reindexed.dex_references.emplace_back("dex_location2", /* checksum */ 2);
-  pmi_reindexed.dex_references.emplace_back("dex_location1", /* checksum */ 1);
+  pmi_reindexed.dex_references.emplace_back("dex_location2", /* checksum */ 2, kMaxMethodIds);
+  pmi_reindexed.dex_references.emplace_back("dex_location1", /* checksum */ 1, kMaxMethodIds);
   for (uint16_t dex_pc = 1; dex_pc < 5; dex_pc++) {
     ProfileCompilationInfo::DexPcData dex_pc_data(arena_.get());
     dex_pc_data.AddClass(1, dex::TypeIndex(0));
@@ -739,7 +745,7 @@ TEST_F(ProfileCompilationInfoTest, AddMoreDexFileThanLimit) {
 TEST_F(ProfileCompilationInfoTest, MegamorphicInlineCachesMerge) {
   // Create a megamorphic inline cache.
   ProfileCompilationInfo::OfflineProfileMethodInfo pmi(arena_.get());
-  pmi.dex_references.emplace_back("dex_location1", /* checksum */ 1);
+  pmi.dex_references.emplace_back("dex_location1", /* checksum */ 1, kMaxMethodIds);
   ProfileCompilationInfo::DexPcData dex_pc_data(arena_.get());
   dex_pc_data.SetIsMegamorphic();
   pmi.inline_caches.Put(/*dex_pc*/ 0, dex_pc_data);
@@ -768,7 +774,7 @@ TEST_F(ProfileCompilationInfoTest, MegamorphicInlineCachesMerge) {
 TEST_F(ProfileCompilationInfoTest, MissingTypesInlineCachesMerge) {
   // Create an inline cache with missing types
   ProfileCompilationInfo::OfflineProfileMethodInfo pmi(arena_.get());
-  pmi.dex_references.emplace_back("dex_location1", /* checksum */ 1);
+  pmi.dex_references.emplace_back("dex_location1", /* checksum */ 1, kMaxMethodIds);
   ProfileCompilationInfo::DexPcData dex_pc_data(arena_.get());
   dex_pc_data.SetIsMissingTypes();
   pmi.inline_caches.Put(/*dex_pc*/ 0, dex_pc_data);
@@ -816,4 +822,25 @@ TEST_F(ProfileCompilationInfoTest, LoadShouldClearExistingDataFromProfiles) {
   // This should fail since the test_info already contains data and the load would overwrite it.
   ASSERT_FALSE(test_info.Load(GetFd(profile)));
 }
+
+TEST_F(ProfileCompilationInfoTest, SampledMethodsTest) {
+  ProfileCompilationInfo test_info;
+  static constexpr size_t kNumMethods = 1000;
+  static constexpr size_t kChecksum1 = 1234;
+  static constexpr size_t kChecksum2 = 4321;
+  static const std::string kDex1 = "dex1";
+  static const std::string kDex2 = "dex2";
+  test_info.AddSampledMethod(true, kDex1, kChecksum1, 1, kNumMethods);
+  test_info.AddSampledMethod(true, kDex1, kChecksum1, 5, kNumMethods);
+  test_info.AddSampledMethod(false, kDex2, kChecksum2, 1, kNumMethods);
+  test_info.AddSampledMethod(false, kDex2, kChecksum2, 5, kNumMethods);
+  EXPECT_FALSE(test_info.IsStartupOrHotMethod(kDex1, kChecksum1, 0));
+  EXPECT_TRUE(test_info.IsStartupOrHotMethod(kDex1, kChecksum1, 1));
+  EXPECT_FALSE(test_info.IsStartupOrHotMethod(kDex1, kChecksum1, 3));
+  EXPECT_TRUE(test_info.IsStartupOrHotMethod(kDex1, kChecksum1, 5));
+  EXPECT_FALSE(test_info.IsStartupOrHotMethod(kDex1, kChecksum1, 6));
+  EXPECT_FALSE(test_info.IsStartupOrHotMethod(kDex2, kChecksum2, 5));
+  EXPECT_FALSE(test_info.IsStartupOrHotMethod(kDex2, kChecksum2, 5));
+}
+
 }  // namespace art
