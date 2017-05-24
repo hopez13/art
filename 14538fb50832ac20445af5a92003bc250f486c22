@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0ee3a94_379109cd",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-05-24T18:20:16Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "4af17895_7a195b3d",
+      "range": {
+        "startLine": 662,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 38
+      },
+      "revId": "14538fb50832ac20445af5a92003bc250f486c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb99da61_5c6bb8ac",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-24T08:12:35Z",
       "side": 0,
       "message": "How about moving this line 650, and change \u0027code\u0027 to \u0027pc\u0027?",
+      "range": {
+        "startLine": 664,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 3
+      },
+      "revId": "14538fb50832ac20445af5a92003bc250f486c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5f890e2_22d03718",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-05-24T18:20:16Z",
+      "side": 0,
+      "message": "My change on the right tests for both code and pc against jit code cache. Do you mean we only test pc at line 650?",
+      "parentUuid": "bb99da61_5c6bb8ac",
       "range": {
         "startLine": 664,
         "startChar": 0,

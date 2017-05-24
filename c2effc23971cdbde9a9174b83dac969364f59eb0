@@ -22,6 +22,30 @@
       "revId": "c2effc23971cdbde9a9174b83dac969364f59eb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d7b73d5_e5a7848d",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-05-24T18:20:16Z",
+      "side": 1,
+      "message": "pc is actually not stale. code is in oat code due to that testcase uses instrumentation\u0027s UndeoptimizeEverything().",
+      "parentUuid": "11bfd426_7d5197be",
+      "range": {
+        "startLine": 668,
+        "startChar": 8,
+        "endLine": 668,
+        "endChar": 65
+      },
+      "revId": "c2effc23971cdbde9a9174b83dac969364f59eb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
