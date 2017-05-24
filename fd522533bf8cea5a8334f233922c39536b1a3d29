@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d19f3264_339c09cc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2301,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-05-24T13:05:15Z",
+      "side": 1,
+      "message": "This does not apply to unconditional branches (which are speculatively encoded in 16 bits if they are forward). Refer to:\n\n void ArmVIXLMacroAssembler::B(vixl32::Label* label)",
+      "parentUuid": "4dd8b7e5_d2a10550",
+      "range": {
+        "startLine": 2301,
+        "startChar": 18,
+        "endLine": 2301,
+        "endChar": 19
+      },
+      "revId": "fd522533bf8cea5a8334f233922c39536b1a3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9455f8e9_e1ebcaed",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-24T12:37:07Z",
       "side": 1,
       "message": "Are you sure you want to keep this set to \"false\" rather than \"final_label \u003d\u003d \u0026done\"?",
+      "range": {
+        "startLine": 3168,
+        "startChar": 46,
+        "endLine": 3168,
+        "endChar": 68
+      },
+      "revId": "fd522533bf8cea5a8334f233922c39536b1a3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46800b0_4030b5d8",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-05-24T13:05:15Z",
+      "side": 1,
+      "message": "You mean \"final_label !\u003d \u0026done\", i.e. the target is far if the final label is not \"done\"? My assumption is that \"final_label \u003d\u003d \u0026done\" is the common case, and my preference has been to write simpler code (keep in mind that I have not observed any .text size increase). At some later point I may do some experiments with some apps and boot.oat - go through all calls to GetFinalLabel(), and try your suggestion.",
+      "parentUuid": "9455f8e9_e1ebcaed",
       "range": {
         "startLine": 3168,
         "startChar": 46,
