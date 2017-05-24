@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "d26c4a1b_e26f830b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T08:58:18Z",
+      "side": 1,
+      "message": "arena",
+      "range": {
+        "startLine": 2133,
+        "startChar": 94,
+        "endLine": 2133,
+        "endChar": 99
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1b273a0_67e190fc",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T08:58:18Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f428edb1_dd527efb",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T08:58:18Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "range": {
+        "startLine": 35,
+        "startChar": 34,
+        "endLine": 35,
+        "endChar": 35
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cdfa0c3_98e83f68",
+        "filename": "runtime/jit/profile_compilation_info_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T08:58:18Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4e93f74_d9502066",
+        "filename": "runtime/jit/profile_compilation_info_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T08:58:18Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "range": {
+        "startLine": 36,
+        "startChar": 35,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5121ddda_21d0bf9d",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 5
@@ -42,6 +157,52 @@
         "startChar": 4,
         "endLine": 69,
         "endChar": 10
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25b98ce5_f434e3ec",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T08:58:18Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 262,
+        "startChar": 52,
+        "endLine": 262,
+        "endChar": 74
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e6aeffc_4f2bc684",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T08:58:18Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 369,
+        "startChar": 4,
+        "endLine": 369,
+        "endChar": 51
       },
       "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
