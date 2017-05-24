@@ -581,7 +581,7 @@ bool ProfileCompilationInfo::AddMethod(const ProfileMethodInfo& pmi) {
       FindOrAddDexPc(inline_cache, cache.dex_pc)->SetIsMissingTypes();
       continue;
     }
-    for (const ProfileMethodInfo::ProfileClassReference& class_ref : cache.classes) {
+    for (const TypeReference& class_ref : cache.classes) {
       DexFileData* class_dex_data = GetOrAddDexFileData(
           GetProfileDexFileKey(class_ref.dex_file->GetLocation()),
           class_ref.dex_file->GetLocationChecksum());
