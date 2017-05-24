@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "076ff57e_f4371722",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-24T15:21:44Z",
+      "side": 1,
+      "message": "We don\u0027t know. It could be there or it could be a new element. So you\u0027re saying that find \u0026 put is better here?",
+      "parentUuid": "c60c971c_0dc0a3c1",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 17
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be4636a3_e4c7ba0f",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 5
@@ -105,6 +129,30 @@
       "writtenOn": "2017-05-24T10:28:26Z",
       "side": 1,
       "message": "Looks like an unnecessary deep copy. Maybe the output parameter should be \"const MethodMap** method_map\".",
+      "range": {
+        "startLine": 1302,
+        "startChar": 2,
+        "endLine": 1302,
+        "endChar": 37
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3bd14e3_3eacd296",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-24T15:21:44Z",
+      "side": 1,
+      "message": "This is used only during testing. Not sure if it needs the inline caches as well, but if it does it needs to be copy.\n\nThere\u0027s a similar TODO, to expose the direct pointer, which I think should be fine",
+      "parentUuid": "be4636a3_e4c7ba0f",
       "range": {
         "startLine": 1302,
         "startChar": 2,
@@ -255,6 +303,30 @@
     },
     {
       "key": {
+        "uuid": "21154b9f_a970d6c7",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-24T15:21:44Z",
+      "side": 1,
+      "message": "Currently yes.",
+      "parentUuid": "1a333615_5b830f7d",
+      "range": {
+        "startLine": 235,
+        "startChar": 50,
+        "endLine": 235,
+        "endChar": 78
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3127b31f_01279eca",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -370,6 +442,30 @@
     },
     {
       "key": {
+        "uuid": "39443248_1042d7e3",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-24T15:21:44Z",
+      "side": 1,
+      "message": "Because I\u0027m lazy to call delete. Does it matter?",
+      "parentUuid": "fa69e6ad_77357627",
+      "range": {
+        "startLine": 516,
+        "startChar": 2,
+        "endLine": 516,
+        "endChar": 41
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe8961e9_f035ee67",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -381,6 +477,30 @@
       "writtenOn": "2017-05-24T10:28:26Z",
       "side": 1,
       "message": "Why the extra indirection?",
+      "range": {
+        "startLine": 521,
+        "startChar": 14,
+        "endLine": 521,
+        "endChar": 26
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2f9fea7_a312ec3c",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-24T15:21:44Z",
+      "side": 1,
+      "message": "Historical reasons. Doesn\u0027t matter now but this is always use as a pointer anyway.",
+      "parentUuid": "fe8961e9_f035ee67",
       "range": {
         "startLine": 521,
         "startChar": 14,
