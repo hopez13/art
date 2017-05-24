@@ -43,6 +43,7 @@
 #include "runtime.h"
 #include "type_reference.h"
 #include "utils.h"
+#include "type_reference.h"
 #include "zip_archive.h"
 
 namespace art {
@@ -685,7 +686,8 @@ class ProfMan FINAL {
       const auto& dex_resolved_classes = resolved_class_set.emplace(
             dex_file->GetLocation(),
             dex_file->GetBaseLocation(),
-            dex_file->GetLocationChecksum());
+            dex_file->GetLocationChecksum(),
+            dex_file->NumMethodIds());
       dex_resolved_classes.first->AddClass(class_ref.type_index);
       std::vector<ProfileMethodInfo> methods;
       if (method_str == kClassAllMethods) {
