@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4dd8b7e5_d2a10550",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2301,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-24T12:37:07Z",
+      "side": 1,
+      "message": "Maybe add \"/* is_far_target */ final_label \u003d\u003d \u0026done_label\"?",
+      "range": {
+        "startLine": 2301,
+        "startChar": 18,
+        "endLine": 2301,
+        "endChar": 19
+      },
+      "revId": "fd522533bf8cea5a8334f233922c39536b1a3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9455f8e9_e1ebcaed",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-24T12:37:07Z",
+      "side": 1,
+      "message": "Are you sure you want to keep this set to \"false\" rather than \"final_label \u003d\u003d \u0026done\"?",
+      "range": {
+        "startLine": 3168,
+        "startChar": 46,
+        "endLine": 3168,
+        "endChar": 68
+      },
+      "revId": "fd522533bf8cea5a8334f233922c39536b1a3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
