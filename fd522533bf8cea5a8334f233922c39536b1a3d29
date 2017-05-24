@@ -93,6 +93,30 @@
       "revId": "fd522533bf8cea5a8334f233922c39536b1a3d29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b1f5451_af96e5f9",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-24T13:17:55Z",
+      "side": 1,
+      "message": "Yes, I meant \"final_label !\u003d \u0026done\". This is not purely about code size, it\u0027s about the number of veneer pools we\u0027re going to emit.",
+      "parentUuid": "a46800b0_4030b5d8",
+      "range": {
+        "startLine": 3168,
+        "startChar": 46,
+        "endLine": 3168,
+        "endChar": 68
+      },
+      "revId": "fd522533bf8cea5a8334f233922c39536b1a3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
