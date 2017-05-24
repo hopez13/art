@@ -1239,9 +1239,58 @@ void Hprof::DumpHeapClass(mirror::Class* klass) {
   //   * vtable
   const size_t base_no_statics_overhead_size = base_overhead_size - class_static_fields_size;
 
-  // We may decide to display native overhead (the actual IMT, ArtFields and ArtMethods) in the
-  // future.
-  const size_t java_heap_overhead_size = base_no_statics_overhead_size;
+  // Calculate native overhead.
+
+  // The IMT is a native array in the linear alloc, referenced by the imtable field.
+  size_t imt_overhead = 0;
+  if (klass->ShouldHaveImt()) {
+    const PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+    DCHECK(klass->GetImt(pointer_size) != nullptr);
+
+    // IMTs can be shared.
+    mirror::Class* super_klass = klass->GetSuperClass();
+    bool found_dupe = false;
+    while (super_klass != nullptr) {
+      if (super_klass->ShouldHaveImt()) {
+        found_dupe = klass->GetImt(pointer_size) == super_klass->GetImt(pointer_size);
+        break;
+      }
+      super_klass = super_klass->GetSuperClass();
+    }
+    if (!found_dupe) {
+      imt_overhead = ImTable::SizeInBytes(pointer_size);
+    }
+  }
+
+  // Calculate ArtMethod and ArtField overhead:
+  // The native objects are stored as LinearAlloc arrays.
+  size_t fields_overhead = 0;
+  {
+    auto ifields_ptr = klass->GetIFieldsPtr();
+    if (ifields_ptr != nullptr) {
+      fields_overhead += LengthPrefixedArray<ArtField>::ComputeSize(ifields_ptr->size());
+    }
+
+    auto sfields_ptr = klass->GetIFieldsPtr();
+    if (sfields_ptr != nullptr) {
+      fields_overhead += LengthPrefixedArray<ArtField>::ComputeSize(sfields_ptr->size());
+    }
+  }
+  size_t methods_overhead = 0;
+  {
+    auto methods_ptr = klass->GetMethodsPtr();
+    if (methods_ptr != nullptr) {
+      methods_overhead += LengthPrefixedArray<ArtMethod>::ComputeSize(methods_ptr->size());
+    }
+  }
+
+  const size_t native_overhead_size = imt_overhead + fields_overhead + methods_overhead;
+
+  // TODO: For now, report native overhead in the Java overhead. Figure out a reasonable way to
+  //       represent this differently. Probably the most general solution would be to make
+  //       the overhead array an array of objects, and add nested arrays for the different kinds
+  //       of overhead (potentially adding more heaps that stand for native regions).
+  const size_t java_heap_overhead_size = base_no_statics_overhead_size + native_overhead_size;
 
   // For overhead greater 4, we'll allocate a synthetic array.
   if (java_heap_overhead_size > 4) {
