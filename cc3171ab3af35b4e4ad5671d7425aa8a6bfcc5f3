@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "e36b96fe_103ba7a5",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-24T15:57:20Z",
+      "side": 1,
+      "message": "Yes; or lower_bound() and emplace_hint() as in the SafeMap\u003c\u003e::GetOrCreate().",
+      "parentUuid": "076ff57e_f4371722",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 17
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be4636a3_e4c7ba0f",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 5
@@ -153,6 +177,30 @@
       "side": 1,
       "message": "This is used only during testing. Not sure if it needs the inline caches as well, but if it does it needs to be copy.\n\nThere\u0027s a similar TODO, to expose the direct pointer, which I think should be fine",
       "parentUuid": "be4636a3_e4c7ba0f",
+      "range": {
+        "startLine": 1302,
+        "startChar": 2,
+        "endLine": 1302,
+        "endChar": 37
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a7ce980_5fed4de8",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-24T15:57:20Z",
+      "side": 1,
+      "message": "Is ProfMan::DumpClasses() used only for testing?\n\nI see a single use of this method from ProfMan::GetClassNamesAndMethods() and we definitely do not need a copy there.",
+      "parentUuid": "d3bd14e3_3eacd296",
       "range": {
         "startLine": 1302,
         "startChar": 2,
@@ -466,6 +514,30 @@
     },
     {
       "key": {
+        "uuid": "ae696cd4_417d4aea",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-24T15:57:20Z",
+      "side": 1,
+      "message": "I meant\n\n  ArenaAllocator arena_;  // No pointer whatsoever.\n\nNo delete to call anywhere.",
+      "parentUuid": "39443248_1042d7e3",
+      "range": {
+        "startLine": 516,
+        "startChar": 2,
+        "endLine": 516,
+        "endChar": 41
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe8961e9_f035ee67",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -501,6 +573,30 @@
       "side": 1,
       "message": "Historical reasons. Doesn\u0027t matter now but this is always use as a pointer anyway.",
       "parentUuid": "fe8961e9_f035ee67",
+      "range": {
+        "startLine": 521,
+        "startChar": 14,
+        "endLine": 521,
+        "endChar": 26
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "871d1acd_446522d8",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-24T15:57:20Z",
+      "side": 1,
+      "message": "Well, without this indirection you wouldn\u0027t need the delete loop in https://android-review.googlesource.com/#/c/402249/2/runtime/jit/profile_compilation_info.cc .",
+      "parentUuid": "a2f9fea7_a312ec3c",
       "range": {
         "startLine": 521,
         "startChar": 14,
