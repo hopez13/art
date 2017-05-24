@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ART_COMPILER_UTILS_TYPE_REFERENCE_H_
-#define ART_COMPILER_UTILS_TYPE_REFERENCE_H_
+#ifndef ART_RUNTIME_TYPE_REFERENCE_H_
+#define ART_RUNTIME_TYPE_REFERENCE_H_
 
 #include <stdint.h>
 
@@ -48,4 +48,4 @@ struct TypeReferenceValueComparator {
 
 }  // namespace art
 
-#endif  // ART_COMPILER_UTILS_TYPE_REFERENCE_H_
+#endif  // ART_RUNTIME_TYPE_REFERENCE_H_
