@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7fea1b46_be3391a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-24T15:45:32Z",
+      "side": 1,
+      "message": "Could you also say which revert of revert that is (that\u0027s easy to accomplish when you revert from the gerrit ui).",
+      "revId": "025bf21674e32de39e8872532ff991242e1b358e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98f44b05_e3274ed5",
         "filename": "test/651-checker-short-simd-minmax/src/Main.java",
         "patchSetId": 2
