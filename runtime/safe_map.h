@@ -151,6 +151,11 @@ class SafeMap {
     return map_ == rhs.map_;
   }
 
+  template <class... Args>
+  std::pair<iterator, bool> emplace(Args&&... args) {
+    return map_.emplace(std::forward<Args>(args)...);
+  }
+
  private:
   ::std::map<K, V, Comparator, Allocator> map_;
 };
