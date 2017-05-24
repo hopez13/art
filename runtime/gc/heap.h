@@ -828,6 +828,9 @@ class Heap {
 
   const Verification* GetVerification() const;
 
+  // Heap actions that are performed right after zygote fork.
+  void PostForkChildAction(Thread* self);
+
  private:
   class ConcurrentGCTask;
   class CollectorTransitionTask;

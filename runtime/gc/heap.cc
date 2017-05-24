@@ -4149,5 +4149,9 @@ const Verification* Heap::GetVerification() const {
   return verification_.get();
 }
 
+void Heap::PostForkChildAction(Thread* self) {
+  num_bytes_allocated_.StoreRelaxed(0);
+}
+
 }  // namespace gc
 }  // namespace art
