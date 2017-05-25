@@ -38,7 +38,7 @@ namespace art {
 struct ProfileMethodInfo {
   struct ProfileClassReference {
     ProfileClassReference() : dex_file(nullptr) {}
-    ProfileClassReference(const DexFile* dex, const dex::TypeIndex& index)
+    ProfileClassReference(const DexFile* dex, const dex::TypeIndex index)
         : dex_file(dex), type_index(index) {}
 
     const DexFile* dex_file;
@@ -49,7 +49,7 @@ struct ProfileMethodInfo {
     ProfileInlineCache(uint32_t pc,
                        bool missing_types,
                        const std::vector<ProfileClassReference>& profile_classes)
-        : dex_pc(pc), is_missing_types(missing_types), classes(profile_classes) {}
+        : dex_pc(pc), is_missing_types(missing_types), classes(std::move(profile_classes)) {}
 
     const uint32_t dex_pc;
     const bool is_missing_types;
@@ -62,7 +62,7 @@ struct ProfileMethodInfo {
   ProfileMethodInfo(const DexFile* dex,
                     uint32_t method_index,
                     const std::vector<ProfileInlineCache>& caches)
-      : dex_file(dex), dex_method_index(method_index), inline_caches(caches) {}
+      : dex_file(dex), dex_method_index(method_index), inline_caches(std::move(caches)) {}
 
   const DexFile* dex_file;
   const uint32_t dex_method_index;
@@ -86,7 +86,7 @@ class ProfileCompilationInfo {
   // (see compiler/optimizing/inliner.cc).
 
   // A dex location together with its checksum.
-  struct DexReference {
+  struct DexReference : public ValueObject {
     DexReference() : dex_checksum(0) {}
 
     DexReference(const std::string& location, uint32_t checksum)
@@ -117,7 +117,7 @@ class ProfileCompilationInfo {
   // data from multiple splits. This means that a profile may contain a classes2.dex from split-A
   // and one from split-B.
   struct ClassReference : public ValueObject {
-    ClassReference(uint8_t dex_profile_idx, const dex::TypeIndex& type_idx) :
+    ClassReference(uint8_t dex_profile_idx, const dex::TypeIndex type_idx) :
       dex_profile_index(dex_profile_idx), type_index(type_idx) {}
 
     bool operator==(const ClassReference& other) const {
@@ -180,13 +180,13 @@ class ProfileCompilationInfo {
   // i.e. the dex file of any ClassReference present in the inline caches can be found at
   // dex_references[ClassReference::dex_profile_index].
   struct OfflineProfileMethodInfo {
-    explicit OfflineProfileMethodInfo(ArenaAllocator* allocator)
-        : inline_caches(std::less<uint16_t>(), allocator->Adapter(kArenaAllocProfile)) {}
+    explicit OfflineProfileMethodInfo(const InlineCacheMap* const inline_cache_map)
+        : inline_caches(inline_cache_map) {}
 
     bool operator==(const OfflineProfileMethodInfo& other) const;
 
+    const InlineCacheMap* const inline_caches;
     std::vector<DexReference> dex_references;
-    InlineCacheMap inline_caches;
   };
 
   // Public methods to create, extend or query the profile.
@@ -246,12 +246,12 @@ class ProfileCompilationInfo {
   std::string DumpInfo(const std::vector<const DexFile*>* dex_files,
                        bool print_full_dex_location = true) const;
 
-  // Return the classes and methods for a given dex file through out args. The otu args are the set
+  // Return the classes and methods for a given dex file through out args. The out args are the set
   // of class as well as the methods and their associated inline caches. Returns true if the dex
   // file is register and has a matching checksum, false otherwise.
-  bool GetClassesAndMethods(const DexFile* dex_file,
-                            std::set<dex::TypeIndex>* class_set,
-                            MethodMap* method_map) const;
+  bool GetClassesAndMethods(const DexFile& dex_file,
+                            /*out*/std::set<dex::TypeIndex>* class_set,
+                            /*out*/MethodMap* method_map) const;
 
   // Perform an equality test with the `other` profile information.
   bool Equals(const ProfileCompilationInfo& other);
@@ -281,7 +281,7 @@ class ProfileCompilationInfo {
   static bool Equals(const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi1,
                      const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi2);
 
-  ArenaAllocator* GetArena() { return arena_.get(); }
+  ArenaAllocator* GetArena() { return &arena_; }
 
  private:
   enum ProfileLoadSatus {
@@ -512,8 +512,8 @@ class ProfileCompilationInfo {
   friend class ProfileAssistantTest;
   friend class Dex2oatLayoutTest;
 
-  std::unique_ptr<ArenaPool> default_arena_pool_;
-  std::unique_ptr<ArenaAllocator> arena_;
+  ArenaPool default_arena_pool_;
+  ArenaAllocator arena_;
 
   // Vector containing the actual profile info.
   // The vector index is the profile index of the dex data and
