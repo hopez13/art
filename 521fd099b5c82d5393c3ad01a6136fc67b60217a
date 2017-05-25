@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aeb3d571_c7eff513",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-25T13:12:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a600ec25_0f372d5e",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "521fd099b5c82d5393c3ad01a6136fc67b60217a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c8d191d_6c9cfc27",
         "filename": "tools/ahat/src/heapdump/Site.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-24T15:38:20Z",
       "side": 1,
       "message": "Extra space.",
+      "range": {
+        "startLine": 184,
+        "startChar": 77,
+        "endLine": 184,
+        "endChar": 89
+      },
+      "revId": "521fd099b5c82d5393c3ad01a6136fc67b60217a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a9e011f_fbb16380",
+        "filename": "tools/ahat/src/heapdump/Site.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-25T13:12:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c8d191d_6c9cfc27",
       "range": {
         "startLine": 184,
         "startChar": 77,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0da6c654_62db7f2d",
+        "filename": "tools/ahat/src/heapdump/Size.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-25T13:12:42Z",
+      "side": 1,
+      "message": "To be consistent with other compares in Ahat, I instead added a Comparator for sizes in Sort.java. Partly this is due to concerns that there is not an obvious natural order for Size that is consistent with equals in the case when the total sizes are equal but the distribution of the size across categories isn\u0027t.",
+      "parentUuid": "e265a57b_b45ed796",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "521fd099b5c82d5393c3ad01a6136fc67b60217a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2837ded7_788763bb",
         "filename": "tools/ahat/src/heapdump/Size.java",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d48255a2_8a066248",
+        "filename": "tools/ahat/src/heapdump/Size.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-25T13:12:42Z",
+      "side": 1,
+      "message": "add is called a lot and I am concerned about the performance cost of so many allocations, but when I try making Size immutable, I don\u0027t see a big difference in performance anecdotally. With Size as an immutable object, I feel more comfortable having a shared Size instance representing 0, which I expected to lead to significant savings.",
+      "parentUuid": "2837ded7_788763bb",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "521fd099b5c82d5393c3ad01a6136fc67b60217a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "941bfb3c_84930eae",
         "filename": "tools/ahat/test-dump/Main.java",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2017-05-24T15:38:20Z",
       "side": 1,
       "message": "Probably worth commenting on the seemingly-arbitrary values (0x12345, 50000, 0xABCDABCD), either to say that they\u0027re arbitrary or to say why they were chosen/what values they have to match.",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 62
+      },
+      "revId": "521fd099b5c82d5393c3ad01a6136fc67b60217a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dbb3f5d_2f661f27",
+        "filename": "tools/ahat/test-dump/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-25T13:12:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "941bfb3c_84930eae",
       "range": {
         "startLine": 104,
         "startChar": 6,
