@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e5f80f0_b65ad9ac",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d26c4a1b_e26f830b",
+      "range": {
+        "startLine": 2133,
+        "startChar": 94,
+        "endLine": 2133,
+        "endChar": 99
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1b273a0_67e190fc",
         "filename": "profman/profile_assistant_test.cc",
         "patchSetId": 5
@@ -59,6 +83,54 @@
       "writtenOn": "2017-05-24T08:58:18Z",
       "side": 1,
       "message": "OVERRIDE",
+      "range": {
+        "startLine": 35,
+        "startChar": 34,
+        "endLine": 35,
+        "endChar": 35
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62c0b5d1_7697a9cd",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1b273a0_67e190fc",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b11fb243_0fd3d27f",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f428edb1_dd527efb",
       "range": {
         "startLine": 35,
         "startChar": 34,
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "1c89213a_4294d3c5",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e36b96fe_103ba7a5",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 17
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be4636a3_e4c7ba0f",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 5
@@ -213,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "af5cea3b_f265d001",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a7ce980_5fed4de8",
+      "range": {
+        "startLine": 1302,
+        "startChar": 2,
+        "endLine": 1302,
+        "endChar": 37
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28d54cee_45456373",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 5
@@ -224,6 +344,30 @@
       "writtenOn": "2017-05-24T10:28:26Z",
       "side": 1,
       "message": "Looks like an unnecessary deep copy. OTOH, returning std::map\u003cstd::string, const ArenaSet\u003cdex::TypeIndex\u003e*\u003e would make the ClassLinker::GetClassDescriptorsForResolvedClasses() a bit uglier.",
+      "range": {
+        "startLine": 1336,
+        "startChar": 6,
+        "endLine": 1336,
+        "endChar": 81
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e72b2884_2d0508d9",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "28d54cee_45456373",
       "range": {
         "startLine": 1336,
         "startChar": 6,
@@ -259,6 +403,30 @@
     },
     {
       "key": {
+        "uuid": "ef049da8_82f23e0d",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81c08719_b19e16e3",
+      "range": {
+        "startLine": 41,
+        "startChar": 46,
+        "endLine": 41,
+        "endChar": 67
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b38ac892_75444c83",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -270,6 +438,30 @@
       "writtenOn": "2017-05-24T10:28:26Z",
       "side": 1,
       "message": "This looks like it should be an r-value reference to avoid an extra copy.",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 51,
+        "endChar": 64
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a3e5a1_55654b28",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "will address in future CL since it requires a bit more changes due to how we use emplace in various parts of the code.",
+      "parentUuid": "b38ac892_75444c83",
       "range": {
         "startLine": 51,
         "startChar": 23,
@@ -305,6 +497,30 @@
     },
     {
       "key": {
+        "uuid": "3e4221ae_3eacca08",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "712b88ab_8e129a80",
+      "range": {
+        "startLine": 64,
+        "startChar": 20,
+        "endLine": 64,
+        "endChar": 58
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5dc6bd_84ea65f3",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -316,6 +532,30 @@
       "writtenOn": "2017-05-24T10:28:26Z",
       "side": 1,
       "message": "dex::TypeIndex should be passed by value.",
+      "range": {
+        "startLine": 120,
+        "startChar": 44,
+        "endLine": 120,
+        "endChar": 65
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4773f28_2086aa2d",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c5dc6bd_84ea65f3",
       "range": {
         "startLine": 120,
         "startChar": 44,
@@ -375,6 +615,30 @@
     },
     {
       "key": {
+        "uuid": "06e19d49_03d305ad",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "FIxed this (no new allocations) by exposing a const view on the internal cache map.",
+      "parentUuid": "21154b9f_a970d6c7",
+      "range": {
+        "startLine": 235,
+        "startChar": 50,
+        "endLine": 235,
+        "endChar": 78
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3127b31f_01279eca",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -386,6 +650,30 @@
       "writtenOn": "2017-05-24T10:28:26Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 249,
+        "startChar": 79,
+        "endLine": 249,
+        "endChar": 82
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd7ca9a6_83d05030",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3127b31f_01279eca",
       "range": {
         "startLine": 249,
         "startChar": 79,
@@ -421,6 +709,30 @@
     },
     {
       "key": {
+        "uuid": "6aaaa0bd_e5c5ea2e",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e620be3f_ede53d12",
+      "range": {
+        "startLine": 252,
+        "startChar": 28,
+        "endLine": 252,
+        "endChar": 42
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a51ca6c_81466760",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -444,6 +756,30 @@
     },
     {
       "key": {
+        "uuid": "649175c2_f4b66c5b",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a51ca6c_81466760",
+      "range": {
+        "startLine": 253,
+        "startChar": 28,
+        "endLine": 253,
+        "endChar": 63
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9055d9c1_cdaba2fe",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -455,6 +791,30 @@
       "writtenOn": "2017-05-24T10:28:26Z",
       "side": 1,
       "message": "/*out*/",
+      "range": {
+        "startLine": 254,
+        "startChar": 28,
+        "endLine": 254,
+        "endChar": 49
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ae24ef3_16b15228",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9055d9c1_cdaba2fe",
       "range": {
         "startLine": 254,
         "startChar": 28,
@@ -538,6 +898,30 @@
     },
     {
       "key": {
+        "uuid": "e7cc4d50_f887bf02",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae696cd4_417d4aea",
+      "range": {
+        "startLine": 516,
+        "startChar": 2,
+        "endLine": 516,
+        "endChar": 41
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe8961e9_f035ee67",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -609,6 +993,30 @@
     },
     {
       "key": {
+        "uuid": "f019e84e_c8e13cf6",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "I\u0027ll fix in a future CL since it requires more changes and mathieu is already working to update the format.",
+      "parentUuid": "871d1acd_446522d8",
+      "range": {
+        "startLine": 521,
+        "startChar": 14,
+        "endLine": 521,
+        "endChar": 26
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cdfa0c3_98e83f68",
         "filename": "runtime/jit/profile_compilation_info_test.cc",
         "patchSetId": 5
@@ -648,6 +1056,54 @@
         "startChar": 35,
         "endLine": 36,
         "endChar": 36
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eb9a7c6_0c80392c",
+        "filename": "runtime/jit/profile_compilation_info_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4e93f74_d9502066",
+      "range": {
+        "startLine": 36,
+        "startChar": 35,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d64092e_96c9276a",
+        "filename": "runtime/jit/profile_compilation_info_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cdfa0c3_98e83f68",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 9
       },
       "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -725,6 +1181,30 @@
     },
     {
       "key": {
+        "uuid": "9b7f90db_7bc7ce9c",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25b98ce5_f434e3ec",
+      "range": {
+        "startLine": 262,
+        "startChar": 52,
+        "endLine": 262,
+        "endChar": 74
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e6aeffc_4f2bc684",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 5
@@ -736,6 +1216,30 @@
       "writtenOn": "2017-05-24T08:58:18Z",
       "side": 1,
       "message": "Add a comment.",
+      "range": {
+        "startLine": 369,
+        "startChar": 4,
+        "endLine": 369,
+        "endChar": 51
+      },
+      "revId": "cc3171ab3af35b4e4ad5671d7425aa8a6bfcc5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62ee3748_f26626c6",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T01:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e6aeffc_4f2bc684",
       "range": {
         "startLine": 369,
         "startChar": 4,
