@@ -163,6 +163,30 @@
       "revId": "5a11f83a0d1c55b5584bed2dd254cf10e770e45e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bdfb87f_c0034106",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-25T08:06:38Z",
+      "side": 1,
+      "message": "I feel the name is odd, and having it in the header file makes it feel like an API (even if that\u0027s private).\n\nI don\u0027t mind passing the graph to the internal method. But up to you.",
+      "parentUuid": "7127b19d_c0e1bcbd",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 47
+      },
+      "revId": "5a11f83a0d1c55b5584bed2dd254cf10e770e45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
