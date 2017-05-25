@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ebc5ec6_b443cf7a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-05-25T18:52:42Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand what visibility we\u0027re trying to ensure here. Are we trying to ensure that the updated roots_data is visible to any threads that see the updated code_ptr? Or more than that?\n\nThat would normally just require fences (DMBs) or acquire/release operations, not a cache flush. It\u0027s not immediately clear to me why a cache flush on non-code is helpful. Cache flushes are normally only needed to reestablish consistency between I and D caches (or in some other situations that don\u0027t apply to user-level code on current hardware).\n\nIs the problem that we can\u0027t put a fence (or acquire) on the reader side, and hence need to fake it in a one-sided manner? Are we really trying to emulate the linux membarrier() system call here, which we don\u0027t have on current systems?",
+      "range": {
+        "startLine": 630,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 43
+      },
+      "revId": "352b17af5263b27cad7a1dbf2351f9cb71d6af58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
