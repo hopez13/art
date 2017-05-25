@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1ec8956c_097fadd9",
+        "filename": "runtime/native/native_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-25T20:23:24Z",
+      "side": 1,
+      "message": "It felt safer to use internals in early startup. I don\u0027t think there\u0027s a real issue, though.",
+      "parentUuid": "e67166b2_13770449",
+      "revId": "d85fc9e0bd763386da6cd9242eef2da1f7bbd35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb0662a2_b6097601",
         "filename": "runtime/native/native_util.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-05-25T20:15:14Z",
       "side": 1,
       "message": "(env)\n(class_name)\n(gMethods)",
+      "range": {
+        "startLine": 41,
+        "startChar": 45,
+        "endLine": 41,
+        "endChar": 53
+      },
+      "revId": "d85fc9e0bd763386da6cd9242eef2da1f7bbd35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e1ea013_898b88ec",
+        "filename": "runtime/native/native_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-25T20:23:24Z",
+      "side": 1,
+      "message": "I don\u0027t think so. These are not macro parameters...",
+      "parentUuid": "eb0662a2_b6097601",
       "range": {
         "startLine": 41,
         "startChar": 45,
