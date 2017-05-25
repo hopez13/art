@@ -93,6 +93,25 @@ func debugFlags(ctx android.BaseContext) []string {
 	opt := envDefault(ctx, "ART_DEBUG_OPT_FLAG", "-O2")
 	cflags = append(cflags, opt)
 
+	// We need larger stack overflow guards for ASAN, as the compiled code will have
+	// larger frame sizes. For simplicity, just use global not-target-specific cflags.
+	if len(ctx.AConfig().SanitizeDevice()) > 0 || len(ctx.AConfig().SanitizeHost()) > 0 {
+		cflags = append(cflags,
+				"-UART_STACK_OVERFLOW_GAP_arm",
+				"-UART_STACK_OVERFLOW_GAP_arm64",
+				"-UART_STACK_OVERFLOW_GAP_mips",
+				"-UART_STACK_OVERFLOW_GAP_mips64",
+				"-UART_STACK_OVERFLOW_GAP_x86",
+				"-UART_STACK_OVERFLOW_GAP_x86_64")
+		cflags = append(cflags,
+				"-DART_STACK_OVERFLOW_GAP_arm=8192",
+				"-DART_STACK_OVERFLOW_GAP_arm64=8192",
+				"-DART_STACK_OVERFLOW_GAP_mips=16384",
+				"-DART_STACK_OVERFLOW_GAP_mips64=16384",
+				"-DART_STACK_OVERFLOW_GAP_x86=12288",
+				"-DART_STACK_OVERFLOW_GAP_x86_64=24576")
+	}
+
 	return cflags
 }
 
