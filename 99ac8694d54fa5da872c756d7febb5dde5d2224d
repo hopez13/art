@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7f2a706b_4f9501a7",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-25T15:06:18Z",
+      "side": 1,
+      "message": "Use ContainsElement() from stl_util.h .",
+      "range": {
+        "startLine": 63,
+        "startChar": 45,
+        "endLine": 66,
+        "endChar": 65
+      },
+      "revId": "99ac8694d54fa5da872c756d7febb5dde5d2224d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61156b7d_25039ab0",
         "filename": "runtime/cha.cc",
         "patchSetId": 1
