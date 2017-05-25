@@ -354,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "8d0173e9_ead8af1b",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-25T17:03:33Z",
+      "side": 1,
+      "message": "Why we have to put the type here? The type name is pretty long and is a simple enumerate type, seems not necessary?",
+      "parentUuid": "f2cd4d36_b50e496c",
+      "range": {
+        "startLine": 2443,
+        "startChar": 10,
+        "endLine": 2443,
+        "endChar": 14
+      },
+      "revId": "61d5ddf5d4bea3d58aaaedf211ab08553521abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0893e3e3_4f154584",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 13
