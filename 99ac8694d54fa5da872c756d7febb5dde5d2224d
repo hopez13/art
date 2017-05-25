@@ -110,6 +110,30 @@
     },
     {
       "key": {
+        "uuid": "c2c2d68f_fe52e0db",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-25T15:52:22Z",
+      "side": 1,
+      "message": "Actually, if method_headers is an unordered_set\u003c\u003e, it\u0027s way better to use\n\n  method_headers.find(dependent.second) !\u003d method_headers.end()\n\nor\n\n  method_headers.count(dependent.second) !\u003d 0u",
+      "parentUuid": "7f2a706b_4f9501a7",
+      "range": {
+        "startLine": 63,
+        "startChar": 45,
+        "endLine": 66,
+        "endChar": 65
+      },
+      "revId": "99ac8694d54fa5da872c756d7febb5dde5d2224d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61156b7d_25039ab0",
         "filename": "runtime/cha.cc",
         "patchSetId": 1
