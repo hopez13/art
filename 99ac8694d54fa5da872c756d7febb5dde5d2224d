@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61156b7d_25039ab0",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-25T12:01:32Z",
+      "side": 1,
+      "message": "Nit: I\u0027d move this to the new line with 4 space indent, so that std::find could fit on one line.",
+      "range": {
+        "startLine": 60,
+        "startChar": 36,
+        "endLine": 68,
+        "endChar": 39
+      },
+      "revId": "99ac8694d54fa5da872c756d7febb5dde5d2224d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
