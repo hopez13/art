@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f4bad59f_38f70bd5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-05-25T19:11:54Z",
+      "side": 1,
+      "message": "Done.\n\nThis was in ProfileCompilationInfo::GetMethod which was doing a deep copy of the internal ArenaSafeMap with\npmi.inline_caches_ \u003d inline_caches.\n\n\nThat sometimes failed when pmi.inline_caches_ re-balanced its internal tree with a segfault on its node. I suspect a memory corruption and initially thought that we cannot simply copy ArenaSafeMaps with the assignment operator. \n\nHowever I looked again in the code and on stl docs and I can\u0027t pin point the exact cause. Vladimir, as the arena expert, do you know why this could fail? Is it similar to the memory corruption happening if a non ArenaObject is inserted into an ArenaContainer?",
+      "parentUuid": "36f0f585_9b03d540",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "e7e55f978141b4b3ba6f5eefe8f10cfb24e14622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6cab956d_f410f904",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 3
