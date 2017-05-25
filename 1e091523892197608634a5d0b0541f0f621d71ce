@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e446de15_724c34b5",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3060,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-25T14:11:13Z",
+      "side": 1,
+      "message": "nit: This style is a bit weird, I would prefer CHECKs not have an important side effect because it\u0027s easy to gloss over them.\n\n   jint res \u003d env-\u003eRegisterNatives(...);\n   CHECK_EQ(JNI_OK, res);",
+      "revId": "1e091523892197608634a5d0b0541f0f621d71ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
