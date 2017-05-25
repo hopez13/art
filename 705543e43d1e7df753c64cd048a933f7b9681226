@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e98c4e1_cc1009d7",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-25T15:45:03Z",
+      "side": 1,
+      "message": "nit: empty line?\n\nIt\u0027s like this throughout the whole file so I just won\u0027t repeat myself. I don\u0027t recall this being in the style guide so I assume it\u0027s not supposed to be here.",
+      "revId": "705543e43d1e7df753c64cd048a933f7b9681226",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69469d5c_97c7d4c5",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-25T15:45:03Z",
+      "side": 1,
+      "message": "? I don\u0027t understand this\n\nand if it\u0027s truly an issue just make a CONSTEXPR_64 macro",
+      "revId": "705543e43d1e7df753c64cd048a933f7b9681226",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
