@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4395d2df_24a51968",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-25T15:49:04Z",
+      "side": 1,
+      "message": "We do separate cases when they have semantically different meaning. I only added kNone so that we get switch-case warnings, but it\u0027s an error to call the function with it, nonetheless. So it\u0027s separated...",
+      "parentUuid": "5e98c4e1_cc1009d7",
+      "revId": "705543e43d1e7df753c64cd048a933f7b9681226",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69469d5c_97c7d4c5",
         "filename": "runtime/arch/instruction_set.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-05-25T15:45:03Z",
       "side": 1,
       "message": "? I don\u0027t understand this\n\nand if it\u0027s truly an issue just make a CONSTEXPR_64 macro",
+      "revId": "705543e43d1e7df753c64cd048a933f7b9681226",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a525a6be_ccbc7de2",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-25T15:49:04Z",
+      "side": 1,
+      "message": "I don\u0027t understand your comment. This is meant to explain why the 32-bit functions are constexpr, but the 64-bit are not (and as best as I understand it, from the errors Clang gave me), so that others don\u0027t try to move it.\n\nA macro wouldn\u0027t help with constexpr-ness, so I didn\u0027t see the necessity.",
+      "parentUuid": "69469d5c_97c7d4c5",
       "revId": "705543e43d1e7df753c64cd048a933f7b9681226",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
