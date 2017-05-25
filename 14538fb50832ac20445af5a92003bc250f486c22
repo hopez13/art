@@ -93,6 +93,30 @@
       "revId": "14538fb50832ac20445af5a92003bc250f486c22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a14e3562_814308f2",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-25T11:57:27Z",
+      "side": 0,
+      "message": "The thing is, code and pc may have nothing in common.\n\nThe method AssertPcIsWithinQuickCode wants to check that the pc is from compiled code, which jit-\u003eContainsPc will tell you. So that should be the only thing you need to check.",
+      "parentUuid": "b5f890e2_22d03718",
+      "range": {
+        "startLine": 664,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 3
+      },
+      "revId": "14538fb50832ac20445af5a92003bc250f486c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
