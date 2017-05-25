@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3ae7733_1c839cda",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 2293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-25T10:21:47Z",
+      "side": 1,
+      "message": "is_superclass_initialized?",
+      "range": {
+        "startLine": 2293,
+        "startChar": 13,
+        "endLine": 2293,
+        "endChar": 27
+      },
+      "revId": "53b594d5c238018ff027ec59e18f8069ef1738f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18aa1ef5_8760fef6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 2299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-25T10:21:47Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 2299,
+        "startChar": 0,
+        "endLine": 2299,
+        "endChar": 109
+      },
+      "revId": "53b594d5c238018ff027ec59e18f8069ef1738f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f07b4a8c_69b45ba8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 2301,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-25T10:21:47Z",
+      "side": 1,
+      "message": "This applies to the \"if\" but nt the \"else\", so I suggest putting it in the \"if\", and also add a comment about the logic in the \"else\".",
+      "range": {
+        "startLine": 2300,
+        "startChar": 0,
+        "endLine": 2301,
+        "endChar": 98
+      },
+      "revId": "53b594d5c238018ff027ec59e18f8069ef1738f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
