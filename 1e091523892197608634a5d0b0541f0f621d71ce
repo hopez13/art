@@ -34,6 +34,24 @@
       "revId": "1e091523892197608634a5d0b0541f0f621d71ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c29c3bef_9fde5445",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3060,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-25T15:41:02Z",
+      "side": 1,
+      "message": "Readability over minimalistic changes :).",
+      "parentUuid": "a6ce8826_b8be197c",
+      "revId": "1e091523892197608634a5d0b0541f0f621d71ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
