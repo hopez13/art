@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f1e3e83_137175ec",
+        "filename": "tools/ahat/src/heapdump/Size.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-25T15:49:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce00761a_115fdd1d",
+      "range": {
+        "startLine": 62,
+        "startChar": 14,
+        "endLine": 62,
+        "endChar": 17
+      },
+      "revId": "2a599a37a39982cc949bd9483b0300449d8beb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40fae090_0ff591fb",
         "filename": "tools/ahat/test-dump/Main.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-25T13:19:25Z",
       "side": 1,
       "message": "0x12345",
+      "range": {
+        "startLine": 102,
+        "startChar": 9,
+        "endLine": 102,
+        "endChar": 14
+      },
+      "revId": "2a599a37a39982cc949bd9483b0300449d8beb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e9924a0_e3059a91",
+        "filename": "tools/ahat/test-dump/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-05-25T15:49:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40fae090_0ff591fb",
       "range": {
         "startLine": 102,
         "startChar": 9,
