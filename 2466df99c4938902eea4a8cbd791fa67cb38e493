@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb29a2d7_9b5a0258",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2299,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-25T20:10:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2240571f_dd0aa7a4",
+      "range": {
+        "startLine": 2299,
+        "startChar": 39,
+        "endLine": 2299,
+        "endChar": 67
+      },
+      "revId": "2466df99c4938902eea4a8cbd791fa67cb38e493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e764722_9c6b6735",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 18
@@ -36,6 +60,24 @@
       "writtenOn": "2017-05-25T17:08:49Z",
       "side": 1,
       "message": "Fix indentation?",
+      "revId": "2466df99c4938902eea4a8cbd791fa67cb38e493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "864af08f_3729cd1c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2451,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-25T20:10:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e764722_9c6b6735",
       "revId": "2466df99c4938902eea4a8cbd791fa67cb38e493",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "e4b91ccd_16512003",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2474,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-25T20:10:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b61f985_8ae28e11",
+      "revId": "2466df99c4938902eea4a8cbd791fa67cb38e493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c92a9c61_8014529b",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 18
@@ -70,6 +130,30 @@
       "writtenOn": "2017-05-25T17:08:49Z",
       "side": 1,
       "message": "Can you move this to size_t? auto is discouraged if the type is not clear.",
+      "range": {
+        "startLine": 2475,
+        "startChar": 6,
+        "endLine": 2475,
+        "endChar": 10
+      },
+      "revId": "2466df99c4938902eea4a8cbd791fa67cb38e493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "835705c6_dac3ee2a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2475,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-05-25T20:10:08Z",
+      "side": 1,
+      "message": "This actually uses PointerSize which is a enumerate class.",
+      "parentUuid": "c92a9c61_8014529b",
       "range": {
         "startLine": 2475,
         "startChar": 6,
