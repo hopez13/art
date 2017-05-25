@@ -19,6 +19,7 @@
 #include "arch/instruction_set.h"
 #include "atomic.h"
 #include "jni_internal.h"
+#include "native_util.h"
 
 namespace art {
 
