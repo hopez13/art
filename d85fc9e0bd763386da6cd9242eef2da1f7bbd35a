@@ -37,6 +37,29 @@
     },
     {
       "key": {
+        "uuid": "39cefb40_89b22837",
+        "filename": "runtime/native/native_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-25T23:36:54Z",
+      "side": 1,
+      "message": "Can you rename this to a unique name that doesn\u0027t clash with the rest of jni_internal files? RegisterNativeMethodsInternal etc?",
+      "range": {
+        "startLine": 28,
+        "startChar": 26,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "d85fc9e0bd763386da6cd9242eef2da1f7bbd35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb0662a2_b6097601",
         "filename": "runtime/native/native_util.h",
         "patchSetId": 1
