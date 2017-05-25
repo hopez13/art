@@ -52,6 +52,24 @@
       "revId": "1e091523892197608634a5d0b0541f0f621d71ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc903cc7_22749486",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3060,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-25T16:47:03Z",
+      "side": 1,
+      "message": "+1 to Igor\u0027s comment BTW (even though I also noticed the precedence).",
+      "parentUuid": "c29c3bef_9fde5445",
+      "revId": "1e091523892197608634a5d0b0541f0f621d71ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
