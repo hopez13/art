@@ -16,6 +16,24 @@
       "revId": "1e091523892197608634a5d0b0541f0f621d71ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6ce8826_b8be197c",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3060,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-25T15:37:42Z",
+      "side": 1,
+      "message": "There\u0027s precedent for having things in CHECK macros (guess for conciseness). Was done here to make this a one-line change. Done",
+      "parentUuid": "e446de15_724c34b5",
+      "revId": "1e091523892197608634a5d0b0541f0f621d71ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
