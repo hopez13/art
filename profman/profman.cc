@@ -425,7 +425,7 @@ class ProfMan FINAL {
       std::set<dex::TypeIndex> class_types;
       ProfileCompilationInfo::MethodMap methods(std::less<uint16_t>(),
                                                 profile_info.GetArena()->Adapter());
-      if (profile_info.GetClassesAndMethods(dex_file.get(), &class_types, &methods)) {
+      if (profile_info.GetClassesAndMethods(*dex_file.get(), &class_types, &methods)) {
         for (const dex::TypeIndex& type_index : class_types) {
           const DexFile::TypeId& type_id = dex_file->GetTypeId(type_index);
           out_lines->insert(std::string(dex_file->GetTypeDescriptor(type_id)));
