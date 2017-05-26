@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0f3b4e5_b728c285",
+        "filename": "runtime/compiler_filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-26T10:14:33Z",
+      "side": 1,
+      "message": "the same",
+      "range": {
+        "startLine": 88,
+        "startChar": 9,
+        "endLine": 88,
+        "endChar": 13
+      },
+      "revId": "a387d0ed1510d1814f13c864ab54cad5e443e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9c0fa7_111a54fd",
+        "filename": "runtime/compiler_filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-26T10:14:33Z",
+      "side": 1,
+      "message": "Consistency with other names: IsSameAs",
+      "range": {
+        "startLine": 89,
+        "startChar": 13,
+        "endLine": 89,
+        "endChar": 22
+      },
+      "revId": "a387d0ed1510d1814f13c864ab54cad5e443e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d5c9b4_105ea0f1",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-26T10:14:33Z",
+      "side": 1,
+      "message": "Use ternary?\n\nreturn strict ? ... : ...;",
+      "range": {
+        "startLine": 1067,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 49
+      },
+      "revId": "a387d0ed1510d1814f13c864ab54cad5e443e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2f903bf_5f0c1099",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-26T10:14:33Z",
+      "side": 1,
+      "message": "how about: \u0027strict\u0027 indicates whether the compiler filters should exactly match (here and below).",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 56
+      },
+      "revId": "a387d0ed1510d1814f13c864ab54cad5e443e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
