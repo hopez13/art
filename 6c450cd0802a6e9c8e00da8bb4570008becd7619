@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "b4bba3ec_fda88c06",
+        "filename": "runtime/interpreter/mterp/mips/op_double_to_int.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-26T11:36:48Z",
+      "side": 1,
+      "message": "Doesn\u0027t this penalize R2 by stealing a useful instruction from a branch delay slot?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 71
+      },
+      "revId": "6c450cd0802a6e9c8e00da8bb4570008becd7619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec006894_d4bfb4d8",
         "filename": "runtime/interpreter/mterp/mips/op_double_to_int.S",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 0,
         "endLine": 26,
         "endChar": 2
+      },
+      "revId": "6c450cd0802a6e9c8e00da8bb4570008becd7619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b17a1d35_e7c9c9a2",
+        "filename": "runtime/interpreter/mterp/mips/op_float_to_int.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-05-26T11:36:48Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 71
       },
       "revId": "6c450cd0802a6e9c8e00da8bb4570008becd7619",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
