@@ -141,6 +141,30 @@
       "revId": "14538fb50832ac20445af5a92003bc250f486c22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96abe091_ac6cf8f7",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-26T07:57:05Z",
+      "side": 0,
+      "message": "But as you\u0027ve discovered with this bug, pc and code may have nothing in common. So the CHECK below can only work for AOT where we know we only have one AOT code for a method.\n\nSo before fetching code, just checking if pc is in the JIT code cache *is* an assertion pc is in compiled code.",
+      "parentUuid": "389ad2bc_c08250b8",
+      "range": {
+        "startLine": 664,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 3
+      },
+      "revId": "14538fb50832ac20445af5a92003bc250f486c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
