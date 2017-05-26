@@ -186,6 +186,30 @@
       "revId": "e44d498a86ad2de7967479cba8e2e9adc026df93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d77f29a9_6333a84b",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-05-26T20:19:13Z",
+      "side": 1,
+      "message": "Let\u0027s not vectorize StringCharAt for now. Make a TODO on this, and comment on the concerns Alexey raised.",
+      "parentUuid": "f526f9db_d2cc9a85",
+      "range": {
+        "startLine": 824,
+        "startChar": 0,
+        "endLine": 827,
+        "endChar": 37
+      },
+      "revId": "e44d498a86ad2de7967479cba8e2e9adc026df93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
