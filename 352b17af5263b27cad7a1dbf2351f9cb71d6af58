@@ -22,6 +22,30 @@
       "revId": "352b17af5263b27cad7a1dbf2351f9cb71d6af58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c7fff5_dd27468d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-05-26T09:51:37Z",
+      "side": 1,
+      "message": "Indeed, there\u0027s no fence or acquire on the reader, and data in those root_table is directly accessed from the newly compiled code.\n\nThe TLB shootdown is for emulating membarrier, just like the one line 559.",
+      "parentUuid": "7ebc5ec6_b443cf7a",
+      "range": {
+        "startLine": 630,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 43
+      },
+      "revId": "352b17af5263b27cad7a1dbf2351f9cb71d6af58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
