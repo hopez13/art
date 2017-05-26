@@ -49,6 +49,10 @@ public class AhatClassInstance extends AhatInstance {
           value.asAhatInstance().setNextInstanceToGcRoot(this, "." + name);
         }
       }
+      
+      if (name.equals("mNativeSize") && value.isLong()) {
+        addRegisteredNativeSize(value.asLong());
+      }
     }
   }
 

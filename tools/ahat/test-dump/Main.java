@@ -60,6 +60,10 @@ public class Main {
     public StackSmasher child;
   }
 
+  public static class ObjectWithNativeSize {
+    public long mNativeSize = 777;
+  }
+
   // We will take a heap dump that includes a single instance of this
   // DumpedStuff class. Objects stored as fields in this class can be easily
   // found in the hprof dump by searching for the instance of the DumpedStuff
@@ -91,6 +95,7 @@ public class Main {
     public StackSmasher stackSmasherAdded;
     public static String modifiedStaticField;
     public int[] modifiedArray;
+    public ObjectWithNativeSize objectWithNativeSize = new ObjectWithNativeSize();
 
     DumpedStuff(boolean baseline) {
       int N = baseline ? 400000 : 1000000;
