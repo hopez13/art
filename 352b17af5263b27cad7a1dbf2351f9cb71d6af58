@@ -46,6 +46,30 @@
       "revId": "352b17af5263b27cad7a1dbf2351f9cb71d6af58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dfa54bc_fc82f236",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-05-26T12:03:40Z",
+      "side": 1,
+      "message": "This barrier seems safe and it\u0027ll be good to see if this addresses the issue.\n\nThe earlier barrier at 559 is updating the i-cache and forcing processors to re-fetch fresh data.\n\nAt this point in the code, it looks like we just need to ensure the store buffer is drained into the cache system before making the new code reachable from other threads. If so, a DMB (__sync_synchronize()) would suffice.",
+      "parentUuid": "50c7fff5_dd27468d",
+      "range": {
+        "startLine": 630,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 43
+      },
+      "revId": "352b17af5263b27cad7a1dbf2351f9cb71d6af58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
