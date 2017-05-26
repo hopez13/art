@@ -84,6 +84,10 @@ class CompilerFilter FINAL {
   // not as good as kSpeed.
   static bool IsAsGoodAs(Filter current, Filter target);
 
+  // Returns true if the 'current' compiler filter and 'target' compiler filter
+  // are same.
+  static bool AreSame(Filter current, Filter target);
+
   // Return the flag name of the given filter.
   // For example: given kVerifyAtRuntime, returns "verify-at-runtime".
   // The name returned corresponds to the name accepted by
