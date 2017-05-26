@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2d49b989_39ba8886",
+        "filename": "runtime/compiler_filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-26T16:18:40Z",
+      "side": 1,
+      "message": "For consistency with the IsAsGoodAs comparison.",
+      "parentUuid": "3f9408cc_38ff4b9b",
+      "range": {
+        "startLine": 89,
+        "startChar": 13,
+        "endLine": 89,
+        "endChar": 22
+      },
+      "revId": "a387d0ed1510d1814f13c864ab54cad5e443e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26d5c9b4_105ea0f1",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 1
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "The \u0027\u003d\u003d\u0027 test should be done before L1062.",
       "parentUuid": "26d5c9b4_105ea0f1",
+      "range": {
+        "startLine": 1067,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 49
+      },
+      "revId": "a387d0ed1510d1814f13c864ab54cad5e443e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996275f5_d7e27aa1",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-05-26T16:18:40Z",
+      "side": 1,
+      "message": "strict checks if the current compiler filter is the same as the target compiler filter. But along with that, it also checks if the current compilation state is good enough. If the profile has changed, we need to recompile the app even though the app is already speed-compiled.",
+      "parentUuid": "f880f978_8f6b6666",
       "range": {
         "startLine": 1067,
         "startChar": 0,
