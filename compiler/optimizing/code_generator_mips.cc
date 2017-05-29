@@ -399,10 +399,13 @@ class SuspendCheckSlowPathMIPS : public SlowPathCodeMIPS {
       : SlowPathCodeMIPS(instruction), successor_(successor) {}
 
   void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
+    LocationSummary* locations = instruction_->GetLocations();
     CodeGeneratorMIPS* mips_codegen = down_cast<CodeGeneratorMIPS*>(codegen);
     __ Bind(GetEntryLabel());
+    SaveLiveRegisters(codegen, locations);     // Only saves live vector registers for SIMD.
     mips_codegen->InvokeRuntime(kQuickTestSuspend, instruction_, instruction_->GetDexPc(), this);
     CheckEntrypointTypes<kQuickTestSuspend, void, void>();
+    RestoreLiveRegisters(codegen, locations);  // Only restores live vector registers for SIMD.
     if (successor_ == nullptr) {
       __ B(GetReturnLabel());
     } else {
@@ -1413,6 +1416,11 @@ void CodeGeneratorMIPS::Bind(HBasicBlock* block) {
   __ Bind(GetLabelOf(block));
 }
 
+VectorRegister VectorRegisterFrom(Location location) {
+  DCHECK(location.IsFpuRegister());
+  return static_cast<VectorRegister>(location.AsFpuRegister<FRegister>());
+}
+
 void CodeGeneratorMIPS::MoveLocation(Location destination,
                                      Location source,
                                      Primitive::Type dst_type) {
@@ -1460,12 +1468,19 @@ void CodeGeneratorMIPS::MoveLocation(Location destination,
         __ Mtc1(src_low, dst);
         __ MoveToFpuHigh(src_high, dst);
       } else if (source.IsFpuRegister()) {
-        if (Primitive::Is64BitType(dst_type)) {
-          __ MovD(destination.AsFpuRegister<FRegister>(), source.AsFpuRegister<FRegister>());
+        if (GetGraph()->HasSIMD()) {
+          __ MoveV(VectorRegisterFrom(destination),
+                   VectorRegisterFrom(source));
         } else {
-          DCHECK_EQ(dst_type, Primitive::kPrimFloat);
-          __ MovS(destination.AsFpuRegister<FRegister>(), source.AsFpuRegister<FRegister>());
+          if (Primitive::Is64BitType(dst_type)) {
+            __ MovD(destination.AsFpuRegister<FRegister>(), source.AsFpuRegister<FRegister>());
+          } else {
+            DCHECK_EQ(dst_type, Primitive::kPrimFloat);
+            __ MovS(destination.AsFpuRegister<FRegister>(), source.AsFpuRegister<FRegister>());
+          }
         }
+      } else if (source.IsSIMDStackSlot()) {
+        __ LoadQFromOffset(destination.AsFpuRegister<FRegister>(), SP, source.GetStackIndex());
       } else if (source.IsDoubleStackSlot()) {
         DCHECK(Primitive::Is64BitType(dst_type));
         __ LoadDFromOffset(destination.AsFpuRegister<FRegister>(), SP, source.GetStackIndex());
@@ -1473,6 +1488,14 @@ void CodeGeneratorMIPS::MoveLocation(Location destination,
         DCHECK(!Primitive::Is64BitType(dst_type));
         DCHECK(source.IsStackSlot()) << "Cannot move from " << source << " to " << destination;
         __ LoadSFromOffset(destination.AsFpuRegister<FRegister>(), SP, source.GetStackIndex());
+      }
+    } else if (destination.IsSIMDStackSlot()) {
+      if (source.IsFpuRegister()) {
+        __ StoreQToOffset(source.AsFpuRegister<FRegister>(), SP, destination.GetStackIndex());
+      } else {
+        DCHECK(source.IsSIMDStackSlot());
+        __ LoadQFromOffset(FTMP, SP, source.GetStackIndex());
+        __ StoreQToOffset(FTMP, SP, destination.GetStackIndex());
       }
     } else if (destination.IsDoubleStackSlot()) {
       int32_t dst_offset = destination.GetStackIndex();
@@ -1822,13 +1845,21 @@ size_t CodeGeneratorMIPS::RestoreCoreRegister(size_t stack_index, uint32_t reg_i
 }
 
 size_t CodeGeneratorMIPS::SaveFloatingPointRegister(size_t stack_index, uint32_t reg_id) {
-  __ StoreDToOffset(FRegister(reg_id), SP, stack_index);
-  return kMipsDoublewordSize;
+  if (GetGraph()->HasSIMD()) {
+    __ StoreQToOffset(FRegister(reg_id), SP, stack_index);
+  } else {
+    __ StoreDToOffset(FRegister(reg_id), SP, stack_index);
+  }
+  return GetFloatingPointSpillSlotSize();
 }
 
 size_t CodeGeneratorMIPS::RestoreFloatingPointRegister(size_t stack_index, uint32_t reg_id) {
-  __ LoadDFromOffset(FRegister(reg_id), SP, stack_index);
-  return kMipsDoublewordSize;
+  if (GetGraph()->HasSIMD()) {
+    __ LoadQFromOffset(FRegister(reg_id), SP, stack_index);
+  } else {
+    __ LoadDFromOffset(FRegister(reg_id), SP, stack_index);
+  }
+  return GetFloatingPointSpillSlotSize();
 }
 
 void CodeGeneratorMIPS::DumpCoreRegister(std::ostream& stream, int reg) const {
@@ -8164,7 +8195,11 @@ void InstructionCodeGeneratorMIPS::VisitUnresolvedStaticFieldSet(
 void LocationsBuilderMIPS::VisitSuspendCheck(HSuspendCheck* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
-  locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
+  // In suspend check slow path, usually there are no caller-save registers at all.
+  // If SIMD instructions are present, however, we force spilling all live SIMD
+  // registers in full width (since the runtime only saves/restores lower part).
+  locations->SetCustomSlowPathCallerSaves(
+      GetGraph()->HasSIMD() ? RegisterSet::AllFpu() : RegisterSet::Empty());
 }
 
 void InstructionCodeGeneratorMIPS::VisitSuspendCheck(HSuspendCheck* instruction) {
