@@ -1208,6 +1208,11 @@ void CodeGeneratorMIPS64::MoveLocation(Location destination,
                           SP,
                           source.GetStackIndex());
       }
+    } else if (source.IsSIMDStackSlot()) {
+      __ LoadFpuFromOffset(kLoadQuadword,
+                           destination.AsFpuRegister<FpuRegister>(),
+                           SP,
+                           source.GetStackIndex());
     } else if (source.IsConstant()) {
       // Move to GPR/FPR from constant
       GpuRegister gpr = AT;
@@ -1248,12 +1253,17 @@ void CodeGeneratorMIPS64::MoveLocation(Location destination,
       }
     } else if (source.IsFpuRegister()) {
       if (destination.IsFpuRegister()) {
-        // Move to FPR from FPR
-        if (dst_type == Primitive::kPrimFloat) {
-          __ MovS(destination.AsFpuRegister<FpuRegister>(), source.AsFpuRegister<FpuRegister>());
+        if (GetGraph()->HasSIMD()) {
+          __ MoveV(VectorRegisterFrom(destination),
+                   VectorRegisterFrom(source));
         } else {
-          DCHECK_EQ(dst_type, Primitive::kPrimDouble);
-          __ MovD(destination.AsFpuRegister<FpuRegister>(), source.AsFpuRegister<FpuRegister>());
+          // Move to FPR from FPR
+          if (dst_type == Primitive::kPrimFloat) {
+            __ MovS(destination.AsFpuRegister<FpuRegister>(), source.AsFpuRegister<FpuRegister>());
+          } else {
+            DCHECK_EQ(dst_type, Primitive::kPrimDouble);
+            __ MovD(destination.AsFpuRegister<FpuRegister>(), source.AsFpuRegister<FpuRegister>());
+          }
         }
       } else {
         DCHECK(destination.IsRegister());
@@ -1263,6 +1273,23 @@ void CodeGeneratorMIPS64::MoveLocation(Location destination,
           __ Mfc1(destination.AsRegister<GpuRegister>(), source.AsFpuRegister<FpuRegister>());
         }
       }
+    }
+  } else if (destination.IsSIMDStackSlot()) {
+    if (source.IsFpuRegister()) {
+      __ StoreFpuToOffset(kStoreQuadword,
+                          source.AsFpuRegister<FpuRegister>(),
+                          SP,
+                          destination.GetStackIndex());
+    } else {
+      DCHECK(source.IsSIMDStackSlot());
+      __ LoadFpuFromOffset(kLoadQuadword,
+                           FTMP,
+                           SP,
+                           source.GetStackIndex());
+      __ StoreFpuToOffset(kStoreQuadword,
+                          FTMP,
+                          SP,
+                          destination.GetStackIndex());
     }
   } else {  // The destination is not a register. It must be a stack slot.
     DCHECK(destination.IsStackSlot() || destination.IsDoubleStackSlot());
