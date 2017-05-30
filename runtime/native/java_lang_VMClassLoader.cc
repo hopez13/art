@@ -122,8 +122,12 @@ static jclass VMClassLoader_findLoadedClass(JNIEnv* env, jclass, jobject javaLoa
 static jobjectArray VMClassLoader_getBootClassPathEntries(JNIEnv* env, jclass) {
   const std::vector<const DexFile*>& path =
       Runtime::Current()->GetClassLinker()->GetBootClassPath();
-  jclass stringClass = env->FindClass("java/lang/String");
-  jobjectArray array = env->NewObjectArray(path.size(), stringClass, nullptr);
+  jobjectArray array =
+      env->NewObjectArray(path.size(), WellKnownClasses::java_lang_String, nullptr);
+  if (array == nullptr) {
+    DCHECK(env->ExceptionCheck());
+    return nullptr;
+  }
   for (size_t i = 0; i < path.size(); ++i) {
     const DexFile* dex_file = path[i];
 
@@ -131,6 +135,10 @@ static jobjectArray VMClassLoader_getBootClassPathEntries(JNIEnv* env, jclass) {
     const std::string& location(dex_file->GetBaseLocation());
 
     jstring javaPath = env->NewStringUTF(location.c_str());
+    if (javaPath == nullptr) {
+      DCHECK(env->ExceptionCheck());
+      return nullptr;
+    }
     env->SetObjectArrayElement(array, i, javaPath);
   }
   return array;
