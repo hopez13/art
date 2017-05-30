@@ -460,7 +460,7 @@ struct ParseStringList {
 
   ParseStringList() = default;
   ParseStringList(const ParseStringList&) = default;
-  ParseStringList(ParseStringList&&) = default;
+  ParseStringList(ParseStringList&&) noexcept = default;
 
  private:
   std::vector<std::string> list_;

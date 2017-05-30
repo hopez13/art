@@ -63,11 +63,11 @@ class HashSet {
   class BaseIterator : std::iterator<std::forward_iterator_tag, Elem> {
    public:
     BaseIterator(const BaseIterator&) = default;
-    BaseIterator(BaseIterator&&) = default;
+    BaseIterator(BaseIterator&&) noexcept = default;
     BaseIterator(HashSetType* hash_set, size_t index) : index_(index), hash_set_(hash_set) {
     }
     BaseIterator& operator=(const BaseIterator&) = default;
-    BaseIterator& operator=(BaseIterator&&) = default;
+    BaseIterator& operator=(BaseIterator&&) noexcept = default;
 
     bool operator==(const BaseIterator& other) const {
       return hash_set_ == other.hash_set_ && this->index_ == other.index_;

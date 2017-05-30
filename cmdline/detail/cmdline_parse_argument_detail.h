@@ -283,7 +283,7 @@ namespace art {
       CmdlineParserArgumentInfo() = default;
 
       // Ensure there's a default move constructor.
-      CmdlineParserArgumentInfo(CmdlineParserArgumentInfo&&) = default;
+      CmdlineParserArgumentInfo(CmdlineParserArgumentInfo&&) noexcept = default;
 
      private:
       // Perform type-specific checks at runtime.

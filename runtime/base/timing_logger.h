@@ -105,10 +105,10 @@ class TimingLogger {
   class TimingData {
    public:
     TimingData() = default;
-    TimingData(TimingData&& other) {
+    TimingData(TimingData&& other) noexcept {
       std::swap(data_, other.data_);
     }
-    TimingData& operator=(TimingData&& other) {
+    TimingData& operator=(TimingData&& other) noexcept {
       std::swap(data_, other.data_);
       return *this;
     }

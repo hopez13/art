@@ -27,9 +27,9 @@ template<typename T>
 class StrideIterator : public std::iterator<std::forward_iterator_tag, T> {
  public:
   StrideIterator(const StrideIterator&) = default;
-  StrideIterator(StrideIterator&&) = default;
+  StrideIterator(StrideIterator&&) noexcept = default;
   StrideIterator& operator=(const StrideIterator&) = default;
-  StrideIterator& operator=(StrideIterator&&) = default;
+  StrideIterator& operator=(StrideIterator&&) noexcept = default;
 
   StrideIterator(T* ptr, size_t stride)
       : ptr_(reinterpret_cast<uintptr_t>(ptr)),

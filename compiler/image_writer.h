@@ -261,7 +261,7 @@ class ImageWriter FINAL {
 
   struct ImageInfo {
     ImageInfo();
-    ImageInfo(ImageInfo&&) = default;
+    ImageInfo(ImageInfo&&) noexcept = default;
 
     // Create the image sections into the out sections variable, returns the size of the image
     // excluding the bitmap.

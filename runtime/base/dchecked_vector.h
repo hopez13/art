@@ -74,7 +74,7 @@ class dchecked_vector : private std::vector<T, Alloc> {
       : Base(src) { }
   dchecked_vector(const dchecked_vector& src, const allocator_type& alloc)
       : Base(src, alloc) { }
-  dchecked_vector(dchecked_vector&& src)
+  dchecked_vector(dchecked_vector&& src) noexcept
       : Base(std::move(src)) { }
   dchecked_vector(dchecked_vector&& src, const allocator_type& alloc)
       : Base(std::move(src), alloc) { }
@@ -86,7 +86,7 @@ class dchecked_vector : private std::vector<T, Alloc> {
     Base::operator=(src);
     return *this;
   }
-  dchecked_vector& operator=(dchecked_vector&& src) {
+  dchecked_vector& operator=(dchecked_vector&& src) noexcept {
     Base::operator=(std::move(src));
     return *this;
   }

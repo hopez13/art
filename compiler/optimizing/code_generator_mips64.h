@@ -536,7 +536,7 @@ class CodeGeneratorMIPS64 : public CodeGenerator {
   struct PcRelativePatchInfo {
     PcRelativePatchInfo(const DexFile& dex_file, uint32_t off_or_idx)
         : target_dex_file(dex_file), offset_or_index(off_or_idx) { }
-    PcRelativePatchInfo(PcRelativePatchInfo&& other) = default;
+    PcRelativePatchInfo(PcRelativePatchInfo&& other) noexcept = default;
 
     const DexFile& target_dex_file;
     // Either the dex cache array element offset or the string/type/method index.

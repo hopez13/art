@@ -51,7 +51,7 @@ class CodeOffset {
   ALWAYS_INLINE CodeOffset() = default;
   ALWAYS_INLINE CodeOffset(const CodeOffset&) = default;
   ALWAYS_INLINE CodeOffset& operator=(const CodeOffset&) = default;
-  ALWAYS_INLINE CodeOffset& operator=(CodeOffset&&) = default;
+  ALWAYS_INLINE CodeOffset& operator=(CodeOffset&&) noexcept = default;
 
  private:
   ALWAYS_INLINE explicit CodeOffset(uint32_t value) : value_(value) {}

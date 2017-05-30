@@ -124,7 +124,7 @@ namespace detail {
    protected:
     // Avoid the object slicing problem; use Clone() instead.
     VariantMapKeyRaw(const VariantMapKeyRaw&) = default;
-    VariantMapKeyRaw(VariantMapKeyRaw&&) = default;
+    VariantMapKeyRaw(VariantMapKeyRaw&&) noexcept = default;
 
    private:
     size_t key_counter_;  // Runtime type ID. Unique each time a new type is reified.
@@ -178,7 +178,7 @@ struct VariantMapKey : detail::VariantMapKeyRaw {
   }
 
   VariantMapKey(const VariantMapKey&) = default;
-  VariantMapKey(VariantMapKey&&) = default;
+  VariantMapKey(VariantMapKey&&) noexcept = default;
 
   template <typename Base, template <typename TV> class TKey> friend struct VariantMap;
 
@@ -354,12 +354,12 @@ struct VariantMap {
   }
 
   // Create a new map by moving an existing map into this one. The other map becomes empty.
-  VariantMap(VariantMap&& other) {
+  VariantMap(VariantMap&& other) noexcept {
     operator=(std::forward<VariantMap>(other));
   }
 
   // Move the existing map's key/value pairs into this one. The other map becomes empty.
-  VariantMap& operator=(VariantMap&& other) {
+  VariantMap& operator=(VariantMap&& other) noexcept {
     if (this != &other) {
       Clear();
       storage_map_.swap(other.storage_map_);

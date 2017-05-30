@@ -55,8 +55,8 @@ class ArtClassDefinition {
   jvmtiError Init(ArtJvmTiEnv* env, jclass klass);
   jvmtiError Init(ArtJvmTiEnv* env, const jvmtiClassDefinition& def);
 
-  ArtClassDefinition(ArtClassDefinition&& o) = default;
-  ArtClassDefinition& operator=(ArtClassDefinition&& o) = default;
+  ArtClassDefinition(ArtClassDefinition&& o) noexcept = default;
+  ArtClassDefinition& operator=(ArtClassDefinition&& o) noexcept = default;
 
   void SetNewDexData(ArtJvmTiEnv* env, jint new_dex_len, unsigned char* new_dex_data) {
     DCHECK(IsInitialized());

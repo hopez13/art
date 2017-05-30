@@ -144,7 +144,7 @@ class Transaction FINAL {
     }
 
     ObjectLog() = default;
-    ObjectLog(ObjectLog&& log) = default;
+    ObjectLog(ObjectLog&& log) noexcept = default;
 
    private:
     enum FieldValueKind {
@@ -163,7 +163,7 @@ class Transaction FINAL {
       bool is_volatile;
 
       FieldValue() : value(0), kind(FieldValueKind::kBoolean), is_volatile(false) {}
-      FieldValue(FieldValue&& log) = default;
+      FieldValue(FieldValue&& log) noexcept = default;
 
      private:
       DISALLOW_COPY_AND_ASSIGN(FieldValue);
@@ -191,7 +191,7 @@ class Transaction FINAL {
     }
 
     ArrayLog() = default;
-    ArrayLog(ArrayLog&& log) = default;
+    ArrayLog(ArrayLog&& log) noexcept = default;
 
    private:
     void UndoArrayWrite(mirror::Array* array,
@@ -224,7 +224,7 @@ class Transaction FINAL {
     void VisitRoots(RootVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_);
 
     InternStringLog() = default;
-    InternStringLog(InternStringLog&& log) = default;
+    InternStringLog(InternStringLog&& log) noexcept = default;
 
    private:
     mutable GcRoot<mirror::String> str_;

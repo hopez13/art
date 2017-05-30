@@ -138,7 +138,7 @@ class FakeJvmtiDeleter {
   FakeJvmtiDeleter() {}
 
   FakeJvmtiDeleter(FakeJvmtiDeleter&) = default;
-  FakeJvmtiDeleter(FakeJvmtiDeleter&&) = default;
+  FakeJvmtiDeleter(FakeJvmtiDeleter&&) noexcept = default;
   FakeJvmtiDeleter& operator=(const FakeJvmtiDeleter&) = default;
 
   template <typename U> void operator()(const U* ptr) const {

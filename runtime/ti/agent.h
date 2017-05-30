@@ -83,8 +83,8 @@ class Agent {
   Agent(const Agent& other);
   Agent& operator=(const Agent& other);
 
-  Agent(Agent&& other);
-  Agent& operator=(Agent&& other);
+  Agent(Agent&& other) noexcept;
+  Agent& operator=(Agent&& other) noexcept;
 
   ~Agent();
 

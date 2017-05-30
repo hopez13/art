@@ -308,7 +308,7 @@ class Mips64Label : public Label {
  public:
   Mips64Label() : prev_branch_id_plus_one_(0) {}
 
-  Mips64Label(Mips64Label&& src)
+  Mips64Label(Mips64Label&& src) noexcept
       : Label(std::move(src)), prev_branch_id_plus_one_(src.prev_branch_id_plus_one_) {}
 
  private:
@@ -397,7 +397,7 @@ class Mips64ExceptionSlowPath {
   explicit Mips64ExceptionSlowPath(Mips64ManagedRegister scratch, size_t stack_adjust)
       : scratch_(scratch), stack_adjust_(stack_adjust) {}
 
-  Mips64ExceptionSlowPath(Mips64ExceptionSlowPath&& src)
+  Mips64ExceptionSlowPath(Mips64ExceptionSlowPath&& src) noexcept
       : scratch_(src.scratch_),
         stack_adjust_(src.stack_adjust_),
         exception_entry_(std::move(src.exception_entry_)) {}

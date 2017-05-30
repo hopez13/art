@@ -73,7 +73,7 @@ class MipsLabel : public Label {
  public:
   MipsLabel() : prev_branch_id_plus_one_(0) {}
 
-  MipsLabel(MipsLabel&& src)
+  MipsLabel(MipsLabel&& src) noexcept
       : Label(std::move(src)), prev_branch_id_plus_one_(src.prev_branch_id_plus_one_) {}
 
  private:
@@ -162,7 +162,7 @@ class MipsExceptionSlowPath {
   explicit MipsExceptionSlowPath(MipsManagedRegister scratch, size_t stack_adjust)
       : scratch_(scratch), stack_adjust_(stack_adjust) {}
 
-  MipsExceptionSlowPath(MipsExceptionSlowPath&& src)
+  MipsExceptionSlowPath(MipsExceptionSlowPath&& src) noexcept
       : scratch_(src.scratch_),
         stack_adjust_(src.stack_adjust_),
         exception_entry_(std::move(src.exception_entry_)) {}
