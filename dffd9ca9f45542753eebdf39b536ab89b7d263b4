@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17da1062_3f3f0d4d",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-05-30T20:18:47Z",
+      "side": 1,
+      "message": "This is not true if overflow/underflow happens. e.g. if i is 0x80000000.",
+      "range": {
+        "startLine": 56,
+        "startChar": 69,
+        "endLine": 57,
+        "endChar": 53
+      },
+      "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43b5dd94_c232e1c6",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-05-30T20:18:47Z",
+      "side": 1,
+      "message": "Did GVN already make (i+j+k) a common value?",
+      "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
