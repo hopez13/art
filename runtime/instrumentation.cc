@@ -21,6 +21,7 @@
 #include "arch/context.h"
 #include "art_method-inl.h"
 #include "atomic.h"
+#include "base/callee_save_type.h"
 #include "class_linker.h"
 #include "debugger.h"
 #include "dex_file-inl.h"
@@ -357,7 +358,7 @@ static void InstrumentationRestoreStack(Thread* thread, void* arg)
             LOG(INFO) << "  Removing exit stub in " << DescribeLocation();
           }
           if (instrumentation_frame.interpreter_entry_) {
-            CHECK(m == Runtime::Current()->GetCalleeSaveMethod(Runtime::kSaveRefsAndArgs));
+            CHECK(m == Runtime::Current()->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs));
           } else {
             CHECK(m == instrumentation_frame.method_) << ArtMethod::PrettyMethod(m);
           }
