@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e3b31d2b_a58a9aed",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-30T17:46:19Z",
+      "side": 1,
+      "message": "Moving this around to make it public. The implementation of Update has been moved to the .cc file, so as to limit exposure of ClassTable::ClassSet. But the this needs to be public to be accessible.\n\n(Alternative would be a derived class or a friend class/function, I guess.)",
+      "parentUuid": "67a3f4e1_d98b7530",
+      "range": {
+        "startLine": 139,
+        "startChar": 9,
+        "endLine": 139,
+        "endChar": 21
+      },
+      "revId": "e76ee711861d699c161f9d57d2c72bbedaf82e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbd7a132_b8829a91",
         "filename": "runtime/class_linker.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-30T17:30:01Z",
       "side": 1,
       "message": "Why are you making this public?",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 427,
+        "endChar": 44
+      },
+      "revId": "e76ee711861d699c161f9d57d2c72bbedaf82e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "191e985c_b10eec18",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-30T17:46:19Z",
+      "side": 1,
+      "message": "So it can be called from the helper, see comment above.",
+      "parentUuid": "fbd7a132_b8829a91",
       "range": {
         "startLine": 420,
         "startChar": 0,
