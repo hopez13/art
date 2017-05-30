@@ -32,6 +32,16 @@ static constexpr PointerSize kRuntimePointerSize = sizeof(void*) == 8U
                                                        ? PointerSize::k64
                                                        : PointerSize::k32;
 
+// Returns a special method that describes all callee saves being spilled to the stack.
+enum class CalleeSaveType : uint32_t {
+  kSaveAllCalleeSaves,  // All callee-save registers.
+  kSaveRefsOnly,        // Only those callee-save registers that can hold references.
+  kSaveRefsAndArgs,     // References (see above) and arguments (usually caller-save registers).
+  kSaveEverything,      // All registers, including both callee-save and caller-save.
+  kLastCalleeSaveType   // Value used for iteration
+};
+std::ostream& operator<<(std::ostream& os, const CalleeSaveType& rhs);
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_BASE_ENUMS_H_

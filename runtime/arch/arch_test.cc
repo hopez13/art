@@ -40,7 +40,7 @@ class ArchTest : public CommonRuntimeTest {
     ASSERT_EQ(InstructionSet::kX86_64, Runtime::Current()->GetInstructionSet());
   }
 
-  static void CheckFrameSize(InstructionSet isa, Runtime::CalleeSaveType type, uint32_t save_size)
+  static void CheckFrameSize(InstructionSet isa, CalleeSaveType type, uint32_t save_size)
       NO_THREAD_SAFETY_ANALYSIS {
     Runtime* const runtime = Runtime::Current();
     Thread* const self = Thread::Current();
@@ -151,16 +151,16 @@ static constexpr size_t kFrameSizeSaveEverything = FRAME_SIZE_SAVE_EVERYTHING;
 #define TEST_ARCH(Arch, arch)                             \
   TEST_F(ArchTest, Arch) {                                \
     CheckFrameSize(InstructionSet::k##Arch,               \
-                   Runtime::kSaveAllCalleeSaves,          \
+                   CalleeSaveType::kSaveAllCalleeSaves,   \
                    arch::kFrameSizeSaveAllCalleeSaves);   \
     CheckFrameSize(InstructionSet::k##Arch,               \
-                   Runtime::kSaveRefsOnly,                \
+                   CalleeSaveType::kSaveRefsOnly,         \
                    arch::kFrameSizeSaveRefsOnly);         \
     CheckFrameSize(InstructionSet::k##Arch,               \
-                   Runtime::kSaveRefsAndArgs,             \
+                   CalleeSaveType::kSaveRefsAndArgs,      \
                    arch::kFrameSizeSaveRefsAndArgs);      \
     CheckFrameSize(InstructionSet::k##Arch,               \
-                   Runtime::kSaveEverything,              \
+                   CalleeSaveType::kSaveEverything,       \
                    arch::kFrameSizeSaveEverything);       \
   }
 TEST_ARCH(Arm, arm)
