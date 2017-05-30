@@ -43,8 +43,8 @@ class StubTest : public CommonRuntimeTest {
       // Create callee-save methods
       ScopedObjectAccess soa(Thread::Current());
       runtime_->SetInstructionSet(kRuntimeISA);
-      for (int i = 0; i < Runtime::kLastCalleeSaveType; i++) {
-        Runtime::CalleeSaveType type = Runtime::CalleeSaveType(i);
+      for (uint32_t i = 0; i < static_cast<uint32_t>(CalleeSaveType::kLastCalleeSaveType); ++i) {
+        CalleeSaveType type = CalleeSaveType(i);
         if (!runtime_->HasCalleeSaveMethod(type)) {
           runtime_->SetCalleeSaveMethod(runtime_->CreateCalleeSaveMethod(), type);
         }
