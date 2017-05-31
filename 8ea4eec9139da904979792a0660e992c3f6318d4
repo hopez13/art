@@ -46,6 +46,30 @@
       "revId": "8ea4eec9139da904979792a0660e992c3f6318d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1b804a8_46e9b836",
+        "filename": "runtime/openjdkjvmti/jvmti_weak_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-31T15:20:33Z",
+      "side": 1,
+      "message": "3.2/6: There can be more than one definition of [...] member function of a class template [...] in a program provided that each definition appears in a different translation unit, and provided the definitions satisfy the following requirements. [...]\n\nEither the clang-analyser is broken or we broke some of the requirements that follow. Is there an additional message why did clang-analyser conclude that it violates the ODR?\n\nAlso, if there is an ODR violation, this \"fix\" did not fix the debug build where we define ALWAYS_INLINE as blank rather than \"inline\".",
+      "parentUuid": "df5b9e7c_c7ffcb49",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 15
+      },
+      "revId": "8ea4eec9139da904979792a0660e992c3f6318d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
