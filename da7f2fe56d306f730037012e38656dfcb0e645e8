@@ -34,6 +34,29 @@
       "revId": "da7f2fe56d306f730037012e38656dfcb0e645e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bab254b5_9ef70d4f",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-31T09:03:44Z",
+      "side": 1,
+      "message": "Almost all out enumerations have kLast being the last rather than past-the-end value. I think we should try and stick to the same pattern everywhere. (Though I\u0027m usually in favor of a past-the-end approach.)",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 21
+      },
+      "revId": "da7f2fe56d306f730037012e38656dfcb0e645e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
