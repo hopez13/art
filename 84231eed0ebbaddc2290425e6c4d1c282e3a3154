@@ -16,6 +16,24 @@
       "revId": "84231eed0ebbaddc2290425e6c4d1c282e3a3154",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4808aba3_170b491d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-31T14:03:50Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/#/c/391832/3/compiler/optimizing/nodes.h@1493\n\nI don\u0027t see much difference. Except that adding the same object to multiple lists is easier with fields. (hook1, hook2, hook3, ...)",
+      "parentUuid": "51e6973f_369277ea",
+      "revId": "84231eed0ebbaddc2290425e6c4d1c282e3a3154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
