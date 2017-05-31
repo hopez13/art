@@ -94,6 +94,30 @@
       "revId": "8ea4eec9139da904979792a0660e992c3f6318d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84e40e56_9e059f21",
+        "filename": "runtime/openjdkjvmti/jvmti_weak_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-05-31T16:47:45Z",
+      "side": 1,
+      "message": "But why does it warn only here then? Is there something special here?\n\nNote that being \"inline\" does not actually remove any ODR requirements for member functions of template classes, so it should not silence the warning anyway.\n\nAnd non-template inline functions have very much the same rules as member functions of template classes when it comes to ODR, so why are we not getting warnings for them as well?\n\n(Maybe the #define ALWAYS_INLINE should include \"inline\" for both debug and release builds. The \"ALWAYS_INLINE inline\" is an odd pattern.)",
+      "parentUuid": "12656b60_53ad260f",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 15
+      },
+      "revId": "8ea4eec9139da904979792a0660e992c3f6318d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
