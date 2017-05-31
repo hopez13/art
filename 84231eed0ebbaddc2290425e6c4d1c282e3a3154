@@ -34,6 +34,24 @@
       "revId": "84231eed0ebbaddc2290425e6c4d1c282e3a3154",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d40954ac_7200338c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-31T14:16:27Z",
+      "side": 1,
+      "message": "Ok, thanks, must have not seen that last reply.\n\nWhy would this need to have multiple hooks? I haven\u0027t seen it yet and I\u0027m struggling to understand that. Wouldn\u0027t it be more of a graph instead of a forward-list then?\n\n(and even if it does need multiple hooks for some reason....\n\n   public ListNode : public IntrusiveForwardListNode\u003c0\u003e, \n        public IntrusiveForwardListNode\u003c1\u003e  {...}\n\netc would work just fine. or with enums\n\n   enum {\n      First,\n      Second\n   }\n\n   public ListNode : public IntrusiveForwardListNode\u003cFirst\u003e, \n         public IntrusiveForwardListNode\u003cSecond\u003e {...}",
+      "parentUuid": "4808aba3_170b491d",
+      "revId": "84231eed0ebbaddc2290425e6c4d1c282e3a3154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

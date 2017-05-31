@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "720a40ea_75fc2421",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-31T14:16:27Z",
+      "side": 1,
+      "message": "It wouldn\u0027t need the \"using ListType\u003d....\" either then.",
+      "parentUuid": "db400697_49f29629",
+      "range": {
+        "startLine": 1493,
+        "startChar": 23,
+        "endLine": 1493,
+        "endChar": 93
+      },
+      "revId": "ffe5d3b537d5bdde7ee0c6efc1da44c75ef13e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e2886a_f1a1b35b",
         "filename": "compiler/optimizing/register_allocation_resolver.cc",
         "patchSetId": 3
