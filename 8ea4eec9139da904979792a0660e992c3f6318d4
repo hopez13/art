@@ -22,6 +22,30 @@
       "revId": "8ea4eec9139da904979792a0660e992c3f6318d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df5b9e7c_c7ffcb49",
+        "filename": "runtime/openjdkjvmti/jvmti_weak_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-31T14:54:20Z",
+      "side": 1,
+      "message": "Not according to clang-analyzer...",
+      "parentUuid": "b5ebf779_13d4ad21",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 15
+      },
+      "revId": "8ea4eec9139da904979792a0660e992c3f6318d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
