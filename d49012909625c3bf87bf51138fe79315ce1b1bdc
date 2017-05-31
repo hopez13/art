@@ -34,6 +34,24 @@
       "revId": "d49012909625c3bf87bf51138fe79315ce1b1bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fe20234_f6bb20a5",
+        "filename": "runtime/gc/collector/iteration.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-31T16:55:06Z",
+      "side": 1,
+      "message": "Oh, yes, that had many classes there before.. I like how you split up each class into a separate header and I wish the rest of our code was more like this.",
+      "parentUuid": "ff23d344_0282bc08",
+      "revId": "d49012909625c3bf87bf51138fe79315ce1b1bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
