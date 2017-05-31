@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31fc5c56_3487d7b1",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-31T01:05:14Z",
+      "side": 1,
+      "message": "Why not move this to calle_save_type.h and rename enums.h to pointer_size.h?\n\nI say this because these two enums have nothing to do with each other.",
+      "revId": "da7f2fe56d306f730037012e38656dfcb0e645e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
