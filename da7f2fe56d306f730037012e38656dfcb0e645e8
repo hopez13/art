@@ -16,6 +16,24 @@
       "revId": "da7f2fe56d306f730037012e38656dfcb0e645e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7bf0f23_4809a0c8",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-31T02:48:27Z",
+      "side": 1,
+      "message": "I intentionally didn\u0027t introduce pointer_size.h before. Similar to globals.h, I think some things are just so pervasive that grouping makes sense.\n\nI have no problem with callee_save_type.h (I had considered it, but was lazy).",
+      "parentUuid": "31fc5c56_3487d7b1",
+      "revId": "da7f2fe56d306f730037012e38656dfcb0e645e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
