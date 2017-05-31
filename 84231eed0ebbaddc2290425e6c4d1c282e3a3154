@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51e6973f_369277ea",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-05-31T13:59:04Z",
+      "side": 1,
+      "message": "I think I may have asked this earlier, is there any reason why this can\u0027t use CRTP to hide the extra fields?",
+      "revId": "84231eed0ebbaddc2290425e6c4d1c282e3a3154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
