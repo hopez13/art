@@ -70,6 +70,30 @@
       "revId": "8ea4eec9139da904979792a0660e992c3f6318d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12656b60_53ad260f",
+        "filename": "runtime/openjdkjvmti/jvmti_weak_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-05-31T15:26:59Z",
+      "side": 1,
+      "message": "It doesn\u0027t state that it is an ODR violation, only that it can lead to one. It\u0027s a cleanliness warning (and of course has zero diagnostics)...\n\n(And yes, I probably should have marked them ALWAYS_INLINE inline?)",
+      "parentUuid": "a1b804a8_46e9b836",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 15
+      },
+      "revId": "8ea4eec9139da904979792a0660e992c3f6318d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
