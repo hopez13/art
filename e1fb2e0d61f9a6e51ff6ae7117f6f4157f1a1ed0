@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2f84ea2_305d5b02",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-01T14:24:10Z",
+      "side": 1,
+      "message": "It seems we\u0027ve got this in reverse order most of the time, though there are a few places with this ordering.",
+      "range": {
+        "startLine": 994,
+        "startChar": 6,
+        "endLine": 994,
+        "endChar": 52
+      },
+      "revId": "e1fb2e0d61f9a6e51ff6ae7117f6f4157f1a1ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
