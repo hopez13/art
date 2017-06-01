@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "664d1bc3_629b4247",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-01T18:22:09Z",
+      "side": 1,
+      "message": "\u003e mutable const IntrusiveForwardListHook* next_hook;\n\nWhy [mutable]? It\u0027s a pointer to a const hook, not a member that is const.\n\nIt doesn\u0027t actually need to change the hooks from const functions does it?",
+      "parentUuid": "0644704c_86913af1",
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb7914c6_043d03c3",
         "filename": "compiler/utils/intrusive_forward_list.h",
         "patchSetId": 9
