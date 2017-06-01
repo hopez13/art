@@ -52,6 +52,24 @@
       "revId": "84231eed0ebbaddc2290425e6c4d1c282e3a3154",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a4cc113_3590ff4b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-01T10:31:44Z",
+      "side": 1,
+      "message": "Done. I consider the IntrusiveForwadList\u003c\u003e as a building block for something like Boost.MultiIndex, so that a node can be in an arbitrary number of linked lists and other containers.",
+      "parentUuid": "d40954ac_7200338c",
+      "revId": "84231eed0ebbaddc2290425e6c4d1c282e3a3154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
