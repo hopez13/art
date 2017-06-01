@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aadbc3c3_69999d25",
+        "filename": "test/031-class-attributes/src/ClassAttrs.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-01T13:20:26Z",
+      "side": 1,
+      "message": "sed -es/System.err/System.out/ --in-place art/test/*/src/*.java",
+      "range": {
+        "startLine": 136,
+        "startChar": 19,
+        "endLine": 136,
+        "endChar": 22
+      },
+      "revId": "a1324fcd5171a59c470ce48d6d2a32e3d8306af2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
