@@ -379,6 +379,52 @@ public class Main {
       a[i] = (byte) (b[i] + 1);
     }
   }
+  /// CHECK-START-ARM64: void Main.encodableConstants(byte[], short[], char[], int[], long[], float[], double[]) disassembly (after)
+  /// CHECK-DAG: <<C1:i\d+>>   IntConstant 1
+  /// CHECK-DAG: <<C2:i\d+>>   IntConstant 2
+  /// CHECK-DAG: <<C3:i\d+>>   IntConstant 3
+  /// CHECK-DAG: <<C4:i\d+>>   IntConstant 4
+  /// CHECK-DAG: <<L5:j\d+>>   LongConstant 5
+  /// CHECK-DAG: <<F2:f\d+>>   FloatConstant 2
+  /// CHECK-DAG: <<D20:d\d+>>  DoubleConstant 20
+  //
+  /// CHECK-DAG:               VecReplicateScalar [<<C1>>]
+  /// CHECK:                   movi v{{[0-9]+}}.16b, #0x1
+  /// CHECK-DAG:               VecReplicateScalar [<<C2>>]
+  /// CHECK:                   movi v{{[0-9]+}}.8h, #0x2, lsl #0
+  /// CHECK-DAG:               VecReplicateScalar [<<C3>>]
+  /// CHECK:                   movi v{{[0-9]+}}.8h, #0x3, lsl #0
+  /// CHECK-DAG:               VecReplicateScalar [<<C4>>]
+  /// CHECK:                   movi v{{[0-9]+}}.4s, #0x4, lsl #0
+  /// CHECK-DAG:               VecReplicateScalar [<<L5>>]
+  /// CHECK:                   dup v{{[0-9]+}}.2d, x{{[0-9]+}}
+  /// CHECK-DAG:               VecReplicateScalar [<<F2>>]
+  /// CHECK:                   fmov v{{[0-9]+}}.4s, #0x0
+  /// CHECK-DAG:               VecReplicateScalar [<<D20>>]
+  /// CHECK:                   fmov v{{[0-9]+}}.2d, #0x34
+  private static void encodableConstants(byte[] b, short[] s, char[] c, int[] a, long[] l, float[] f, double[] d) {
+    for (int i = 0; i < 100; i++) {
+      b[i] += 1;
+    }
+    for (int i = 0; i < 100; i++) {
+      s[i] += 2;
+    }
+    for (int i = 0; i < 100; i++) {
+      c[i] += 3;
+    }
+    for (int i = 0; i < 100; i++) {
+      a[i] += 4;
+    }
+    for (int i = 0; i < 100; i++) {
+      l[i] += 5;
+    }
+    for (int i = 0; i < 100; i++) {
+      f[i] += 2.0f;
+    }
+    for (int i = 0; i < 100; i++) {
+      d[i] += 20.0;
+    }
+  }
 
   public static void main(String[] args) {
     expectEquals(10, earlyExitFirst(-1));
