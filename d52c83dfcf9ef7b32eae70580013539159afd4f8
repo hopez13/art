@@ -22,6 +22,30 @@
       "revId": "d52c83dfcf9ef7b32eae70580013539159afd4f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "343b2ef9_69579a14",
+        "filename": "test/087-gc-after-link/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-01T12:39:16Z",
+      "side": 1,
+      "message": "Good point. I\u0027ve changed it to print to System.out for the sake of consistency in PS2.",
+      "parentUuid": "f3df6c89_10538201",
+      "range": {
+        "startLine": 175,
+        "startChar": 16,
+        "endLine": 175,
+        "endChar": 37
+      },
+      "revId": "d52c83dfcf9ef7b32eae70580013539159afd4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
