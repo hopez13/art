@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3df6c89_10538201",
+        "filename": "test/087-gc-after-link/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-01T12:23:17Z",
+      "side": 1,
+      "message": "This is still printing to System.err but that\u0027s mostly OK as the test is already failing in this code path anyway.",
+      "range": {
+        "startLine": 175,
+        "startChar": 16,
+        "endLine": 175,
+        "endChar": 37
+      },
+      "revId": "d52c83dfcf9ef7b32eae70580013539159afd4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
