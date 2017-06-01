@@ -36,12 +36,15 @@
 #include "handle_scope-inl.h"
 #include "hprof/hprof.h"
 #include "java_vm_ext.h"
+#include "jit/jit.h"
+#include "jit/jit_code_cache.h"
 #include "jni_internal.h"
 #include "mirror/class.h"
 #include "mirror/object_array-inl.h"
 #include "ScopedLocalRef.h"
 #include "ScopedUtfChars.h"
 #include "scoped_fast_native_object_access-inl.h"
+#include "thread_list.h"
 #include "trace.h"
 #include "well_known_classes.h"
 
@@ -532,6 +535,31 @@ static void VMDebug_attachAgent(JNIEnv* env, jclass, jstring agent) {
   Runtime::Current()->AttachAgent(filename);
 }
 
+static jboolean VMDebug_isJitCompilationEnabled(JNIEnv*, jclass) {
+  return Runtime::Current()->UseJitCompilation() ? JNI_TRUE : JNI_FALSE;
+}
+
+static jboolean VMDebug_removeJitCompiledMethod(JNIEnv* env, jclass, jobject javaMethod) {
+  if (!Runtime::Current()->UseJitCompilation()) {
+    return 0;
+  }
+
+  jit::Jit* jit = Runtime::Current()->GetJit();
+  jit->WaitForCompilationToFinish(Thread::Current());
+
+  ScopedObjectAccess soa(env);
+  ArtMethod* method = ArtMethod::FromReflectedMethod(soa, javaMethod);
+
+  jit::JitCodeCache* code_cache = jit->GetCodeCache();
+
+  // Drop the shared mutator lock
+  ScopedThreadSuspension selfSuspension(Thread::Current(), art::ThreadState::kNative);
+  // Get exclusive mutator lock with suspend all.
+  ScopedSuspendAll suspend("Removing JIT compiled method", /*long_suspend*/true);
+  bool removed = code_cache->RemoveMethod(method);
+  return removed ? JNI_TRUE : JNI_FALSE;
+}
+
 static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMDebug, countInstancesOfClass, "(Ljava/lang/Class;Z)J"),
   NATIVE_METHOD(VMDebug, countInstancesOfClasses, "([Ljava/lang/Class;Z)[J"),
@@ -566,6 +594,8 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMDebug, getRuntimeStatInternal, "(I)Ljava/lang/String;"),
   NATIVE_METHOD(VMDebug, getRuntimeStatsInternal, "()[Ljava/lang/String;"),
   NATIVE_METHOD(VMDebug, attachAgent, "(Ljava/lang/String;)V"),
+  FAST_NATIVE_METHOD(VMDebug, isJitCompilationEnabled, "()Z"),
+  NATIVE_METHOD(VMDebug, removeJitCompiledMethod, "(Ljava/lang/reflect/Method;)Z"),
 };
 
 void register_dalvik_system_VMDebug(JNIEnv* env) {
