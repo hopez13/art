@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa1c27fc_9382e8c1",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-01T16:16:10Z",
+      "side": 1,
+      "message": "I wanted to preserve the possibility of having hooks as members, so yes, we need this many classes. (And this particular class was just renamed.)",
+      "parentUuid": "ca6f0b5f_ade267a9",
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f05bb662_05684aaf",
         "filename": "compiler/utils/intrusive_forward_list.h",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-01T14:36:22Z",
       "side": 1,
       "message": "These reinterpret_casts seem sketchy, why can\u0027t this just use \u0026T::hook ? IntrusiveForwardListMemberHookTraits seems to have it in the 2nd parameter.",
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66469447_bad66ae8",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-01T16:16:10Z",
+      "side": 1,
+      "message": "We can make the hook a base class of the node and then\n\n    return down_cast\u003cT*\u003e(down_cast\u003cIntrusiveForwardListNode\u003cT, Tag\u003e*\u003e(\n        const_cast\u003cIntrusiveForwardListHook*\u003e(hook)));\n\nIs that better?",
+      "parentUuid": "f05bb662_05684aaf",
       "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
