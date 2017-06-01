@@ -453,4 +453,30 @@ void IndirectReferenceTable::SetSegmentState(IRTSegmentState new_state) {
   segment_state_ = new_state;
 }
 
+bool IndirectReferenceTable::EnsureFreeCapacity(size_t free_capacity, std::string* error_msg) {
+  size_t top_index = segment_state_.top_index;
+  if (top_index < max_entries_ && top_index + free_capacity <= max_entries_) {
+    return true;
+  }
+
+  // We're only gonna do a simple best-effort here, ensuring the asked-for capacity at the end.
+  if (resizable_ == ResizableCapacity::kNo) {
+    return false;
+  }
+
+  // Try to increase the table size.
+  if (!Resize(top_index + free_capacity, error_msg)) {
+    LOG(WARNING) << "JNI ERROR: Unable to reserve space in EnsureFreeCapacity (" << free_capacity
+                 << "): " << std::endl
+                 << MutatorLockedDumpable<IndirectReferenceTable>(*this)
+                 << " Resizing failed: " << *error_msg;
+    return false;
+  }
+  return true;
+}
+
+size_t IndirectReferenceTable::FreeCapacity() {
+  return max_entries_ - segment_state_.top_index;
+}
+
 }  // namespace art
