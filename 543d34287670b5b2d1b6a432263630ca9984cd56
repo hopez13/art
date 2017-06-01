@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "03af66d8_4067f76c",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-01T17:23:40Z",
+      "side": 1,
+      "message": "Yes, better without the reinterpret cast :)\n\nIIUC, if you have an overload you can get rid of const cast as well right?\n\nIf we ever wanted this intrusive_forward_list to be constexpr the const_cast/reinterpret_cast would get in the way because it could be undefined behavior.",
+      "parentUuid": "66469447_bad66ae8",
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb7914c6_043d03c3",
         "filename": "compiler/utils/intrusive_forward_list.h",
         "patchSetId": 9
