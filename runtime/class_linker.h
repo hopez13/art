@@ -385,6 +385,10 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
+  void RegisterExistingDexCache(ObjPtr<mirror::DexCache> cache,
+                                ObjPtr<mirror::ClassLoader> class_loader)
+      REQUIRES(!Locks::dex_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
   ObjPtr<mirror::DexCache> RegisterDexFile(const DexFile& dex_file,
                                            ObjPtr<mirror::ClassLoader> class_loader)
       REQUIRES(!Locks::dex_lock_)
