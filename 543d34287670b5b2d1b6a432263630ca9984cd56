@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca6f0b5f_ade267a9",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-01T14:36:22Z",
+      "side": 1,
+      "message": "Hmmm, does it really need this many different classes or was it just the smallest change to make?",
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f05bb662_05684aaf",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-01T14:36:22Z",
+      "side": 1,
+      "message": "These reinterpret_casts seem sketchy, why can\u0027t this just use \u0026T::hook ? IntrusiveForwardListMemberHookTraits seems to have it in the 2nd parameter.",
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb7914c6_043d03c3",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-01T14:36:22Z",
+      "side": 1,
+      "message": "nit: Why not offsetof for new code?",
+      "range": {
+        "startLine": 470,
+        "startChar": 44,
+        "endLine": 470,
+        "endChar": 59
+      },
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
