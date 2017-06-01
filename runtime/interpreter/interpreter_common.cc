@@ -23,6 +23,7 @@
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "jit/jit.h"
 #include "jvalue.h"
+#include "instruction_counter.h"
 #include "method_handles.h"
 #include "method_handles-inl.h"
 #include "mirror/array-inl.h"
@@ -36,6 +37,9 @@
 #include "well_known_classes.h"
 
 namespace art {
+
+std::atomic<int> native_invoked;
+
 namespace interpreter {
 
 void ThrowNullPointerExceptionFromInterpreter() {
@@ -513,6 +517,11 @@ void ArtInterpreterToCompiledCodeBridge(Thread* self,
   if (jit != nullptr && caller != nullptr) {
     jit->NotifyInterpreterToCompiledCodeTransition(self, caller);
   }
+
+  if (method->IsNative()) {
+    native_invoked++;
+  }
+
   method->Invoke(self, shadow_frame->GetVRegArgs(arg_offset),
                  (shadow_frame->NumberOfVRegs() - arg_offset) * sizeof(uint32_t),
                  result, method->GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetShorty());

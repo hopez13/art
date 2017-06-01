@@ -17,6 +17,7 @@
 #include "dalvik_system_ZygoteHooks.h"
 
 #include <stdlib.h>
+#include <atomic>
 
 #include "android-base/stringprintf.h"
 #include "nativehelper/jni_macros.h"
@@ -29,6 +30,7 @@
 #include "jni_internal.h"
 #include "JNIHelp.h"
 #include "native_util.h"
+#include "interpreter/instruction_counter.h"
 #include "non_debuggable_classes.h"
 #include "scoped_thread_state_change-inl.h"
 #include "ScopedUtfChars.h"
@@ -50,6 +52,8 @@ namespace art {
 static constexpr bool kAlwaysCollectNonDebuggableClasses = kIsDebugBuild;
 
 using android::base::StringPrintf;
+
+instrumentation::CLInstrumentationListener clInstrumentationListener;
 
 static void EnableDebugger() {
 #if defined(__linux__)
@@ -323,6 +327,14 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   } else {
     Runtime::Current()->InitNonZygoteOrPostFork(
         env, is_system_server, Runtime::NativeBridgeAction::kUnload, nullptr);
+  }
+
+  // Register the clInstrumentationListener to count instructions executed.
+  if (Runtime::Current()->IsProfileInterpreter()) {
+    ScopedSuspendAll ssa("ZygoteHooks_nativePostForkChild");
+    Runtime::Current()->GetInstrumentation()->AddListener(
+        &clInstrumentationListener,
+        instrumentation::Instrumentation::InstrumentationEvent::kDexPcMoved);
   }
 }
 
