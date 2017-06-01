@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "0644704c_86913af1",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-01T17:36:46Z",
+      "side": 1,
+      "message": "Rewritten using more inheritance.\n\nUnfortunately, if we get rid of const_cast\u003c\u003e here, we shall need a const_cast\u003c\u003e somewhere else. Depending on whether we also try to remove the \"const\" from\n\n  mutable const IntrusiveForwardListHook* next_hook;\n\nwe end up with const_cast\u003c\u003es in different places.",
+      "parentUuid": "03af66d8_4067f76c",
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb7914c6_043d03c3",
         "filename": "compiler/utils/intrusive_forward_list.h",
         "patchSetId": 9
@@ -101,6 +119,30 @@
       "writtenOn": "2017-06-01T14:36:22Z",
       "side": 1,
       "message": "nit: Why not offsetof for new code?",
+      "range": {
+        "startLine": 470,
+        "startChar": 44,
+        "endLine": 470,
+        "endChar": 59
+      },
+      "revId": "543d34287670b5b2d1b6a432263630ca9984cd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8d4878c_69dc4abc",
+        "filename": "compiler/utils/intrusive_forward_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-01T17:36:46Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "eb7914c6_043d03c3",
       "range": {
         "startLine": 470,
         "startChar": 44,
