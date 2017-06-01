@@ -640,6 +640,10 @@ class Runtime {
     return zygote_no_threads_;
   }
 
+  bool IsProfileInterpreter() const {
+    return profile_interpreter_;
+  }
+
   // Returns if the code can be deoptimized asynchronously. Code may be compiled with some
   // optimization that makes it impossible to deoptimize.
   bool IsAsyncDeoptimizeable(uintptr_t code) const REQUIRES_SHARED(Locks::mutator_lock_);
@@ -930,6 +934,9 @@ class Runtime {
 
   // Whether zygote code is in a section that should not start threads.
   bool zygote_no_threads_;
+
+  // Whether or not to count the instructions executed by interpreter.
+  bool profile_interpreter_;
 
   // Saved environment.
   class EnvSnapshot {

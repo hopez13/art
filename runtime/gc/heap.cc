@@ -66,6 +66,7 @@
 #include "heap-inl.h"
 #include "image.h"
 #include "intern_table.h"
+#include "interpreter/instruction_counter.h"
 #include "java_vm_ext.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
@@ -75,6 +76,7 @@
 #include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/reference-inl.h"
+#include "native/dalvik_system_ZygoteHooks.h"
 #include "os.h"
 #include "reflection.h"
 #include "runtime.h"
@@ -3580,6 +3582,12 @@ void Heap::DumpForSigQuit(std::ostream& os) {
   os << "Heap: " << GetPercentFree() << "% free, " << PrettySize(GetBytesAllocated()) << "/"
      << PrettySize(GetTotalMemory()) << "; " << GetObjectsAllocated() << " objects\n";
   DumpGcPerformanceInfo(os);
+  if (Runtime::Current()->IsProfileInterpreter()) {
+    LOG(INFO) << "Counter for instruction executed by interpreter: "
+              << art::clInstrumentationListener.getCount() << '\n';
+  } else {
+    LOG(INFO) << "No interpreter profiling information" << '\n';
+  }
 }
 
 size_t Heap::GetPercentFree() {
