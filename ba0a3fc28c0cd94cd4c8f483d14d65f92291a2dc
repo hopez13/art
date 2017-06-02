@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37b9fddd_ad62e7cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-02T21:46:53Z",
+      "side": 1,
+      "message": "that is very nice for a scheduling improvement!",
+      "revId": "ba0a3fc28c0cd94cd4c8f483d14d65f92291a2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5a59231_26a19458",
+        "filename": "compiler/optimizing/scheduler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-02T21:46:53Z",
+      "side": 1,
+      "message": "just curious why you have the unreachable?\nwe generally only do that in switches, and methods that need to return something",
+      "revId": "ba0a3fc28c0cd94cd4c8f483d14d65f92291a2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d04e94_5082a1a3",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-02T21:46:53Z",
+      "side": 1,
+      "message": "just curious, is the latency really between FP and integral data, or would it make sense to further differentiate on the packed data types?",
+      "revId": "ba0a3fc28c0cd94cd4c8f483d14d65f92291a2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cb7cecf_d5c163a0",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-02T21:46:53Z",
+      "side": 1,
+      "message": "Arithmetic? it is not that much longer",
+      "revId": "ba0a3fc28c0cd94cd4c8f483d14d65f92291a2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
