@@ -22,6 +22,30 @@
       "revId": "2f216efc6996b098b5624f6438189bec5717056d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8574d03_aa3f549b",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-02T03:17:56Z",
+      "side": 1,
+      "message": "Not for the ones that are split out of the regular -inl files. See mirror/object-refvisitor-inl.h.",
+      "parentUuid": "1b454c17_076ea637",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 28
+      },
+      "revId": "2f216efc6996b098b5624f6438189bec5717056d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
