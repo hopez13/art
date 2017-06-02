@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e89b8bc_e8731e90",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-02T23:05:16Z",
+      "side": 1,
+      "message": "Here I thought bool is guaranteed to be 0 or 1 in the standard. I hate C++ :-).",
+      "parentUuid": "10e72596_5699ef18",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "6bf947bb8ac77e6bb48c53b48e8275b4c8389b3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0468e5d8_218c290e",
         "filename": "runtime/monitor_android.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-02T23:00:22Z",
       "side": 1,
       "message": "Is there a limit?",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "6bf947bb8ac77e6bb48c53b48e8275b4c8389b3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d955e88b_f41b4ca4",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-02T23:05:16Z",
+      "side": 1,
+      "message": "I was lazy and left the old comments in. Will remove.",
+      "parentUuid": "0468e5d8_218c290e",
       "range": {
         "startLine": 55,
         "startChar": 2,
