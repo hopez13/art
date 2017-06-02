@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "10e72596_5699ef18",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-06-02T23:00:22Z",
+      "side": 1,
+      "message": "Cast to uint32_t/int32_t to ensure no weird promotion.",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "6bf947bb8ac77e6bb48c53b48e8275b4c8389b3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0468e5d8_218c290e",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-06-02T23:00:22Z",
+      "side": 1,
+      "message": "Is there a limit?",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "6bf947bb8ac77e6bb48c53b48e8275b4c8389b3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32bfdf9a_d41381cf",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-06-02T23:00:22Z",
+      "side": 1,
+      "message": "Is there a limit?",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 51
+      },
+      "revId": "6bf947bb8ac77e6bb48c53b48e8275b4c8389b3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce50abcf_1a06284b",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1032276
+      },
+      "writtenOn": "2017-06-02T23:00:22Z",
+      "side": 1,
+      "message": "Is there a limit?",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 60
+      },
+      "revId": "6bf947bb8ac77e6bb48c53b48e8275b4c8389b3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23f7ab5c_d9b00630",
         "filename": "runtime/monitor_android.cc",
         "patchSetId": 1
