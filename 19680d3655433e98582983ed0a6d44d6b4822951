@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5425baa6_98737ddc",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-02T22:59:52Z",
+      "side": 1,
+      "message": "I still feel very uncomfortable with duplicating all vector checks for MIPS64 and ARM64. I actually tried\n\nCHECK-START-ARM64: ....\nCHECK-START-MIPS64: .....\n.... shared checker statements ....\n\nbut that does not work as I had hoped (it matches for MIPS64 in that case but not ARM64, and the other way around).\n\n*Others*? Is there any shorter way to express this for several, but not all, architectures?",
+      "revId": "19680d3655433e98582983ed0a6d44d6b4822951",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
