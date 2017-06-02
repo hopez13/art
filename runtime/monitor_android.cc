@@ -15,7 +15,6 @@
  */
 
 #include "monitor.h"
-#include "thread.h"
 
 #include <fcntl.h>
 #include <sys/stat.h>
@@ -23,6 +22,9 @@
 
 #include <log/log.h>
 #include <log/log_event_list.h>
+
+#include "art_method.h"
+#include "thread.h"
 
 #define EVENT_LOG_TAG_dvm_lock_sample 20003
 
@@ -74,6 +76,9 @@ void Monitor::LogContentionEvent(Thread* self,
 
     // Emit the source code line number, 5 bytes.
     ctx << line_number;
+
+    // Emit the method name.
+    ctx << ArtMethod::PrettyMethod(m);
   }
 
   // Emit the lock owner source code file name, <= 37 bytes.
@@ -87,6 +92,9 @@ void Monitor::LogContentionEvent(Thread* self,
 
   // Emit the source code line number, 5 bytes.
   ctx << owner_line_number;
+
+  // Emit the owner method name.
+  ctx << ArtMethod::PrettyMethod(owner_method);
 
   // Emit the sample percentage, 5 bytes.
   ctx << sample_percent;
