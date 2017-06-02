@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9210353_74d8bec9",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-02T21:22:16Z",
+      "side": 1,
+      "message": "Why not \"host | target\"?\nOr better, put no variant, it will not run for any variant.",
+      "range": {
+        "startLine": 687,
+        "startChar": 20,
+        "endLine": 687,
+        "endChar": 24
+      },
+      "revId": "53ffa72304828cee674ab877b0b786a26fdadca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
