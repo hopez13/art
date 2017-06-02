@@ -23,6 +23,7 @@ TEST_ART_RUN_TEST_DEPENDENCIES := \
   $(HOST_OUT_EXECUTABLES)/jasmin \
   $(HOST_OUT_EXECUTABLES)/smali \
   $(HOST_OUT_EXECUTABLES)/dexmerger \
+  $(ZIPALIGN) \
   $(JACK)
 
 # Convert's a rule name to the form used in variables, e.g. no-relocate to NO_RELOCATE
