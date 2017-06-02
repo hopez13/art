@@ -46,6 +46,30 @@
       "revId": "53ffa72304828cee674ab877b0b786a26fdadca3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "741e6664_9f41f685",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-02T21:24:18Z",
+      "side": 1,
+      "message": "Oh, I missed that.",
+      "parentUuid": "bc968ac3_b457cb42",
+      "range": {
+        "startLine": 687,
+        "startChar": 20,
+        "endLine": 687,
+        "endChar": 24
+      },
+      "revId": "53ffa72304828cee674ab877b0b786a26fdadca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
