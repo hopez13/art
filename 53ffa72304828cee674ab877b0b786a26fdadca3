@@ -22,6 +22,30 @@
       "revId": "53ffa72304828cee674ab877b0b786a26fdadca3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc968ac3_b457cb42",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-02T21:22:59Z",
+      "side": 1,
+      "message": "Because the environment variables are different? One can sanitize for the host while not sanitizing for the target...",
+      "parentUuid": "d9210353_74d8bec9",
+      "range": {
+        "startLine": 687,
+        "startChar": 20,
+        "endLine": 687,
+        "endChar": 24
+      },
+      "revId": "53ffa72304828cee674ab877b0b786a26fdadca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
