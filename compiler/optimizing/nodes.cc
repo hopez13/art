@@ -2690,7 +2690,7 @@ bool HLoadClass::InstructionDataEquals(const HInstruction* other) const {
 void HLoadClass::SetLoadKind(LoadKind load_kind) {
   SetPackedField<LoadKindField>(load_kind);
 
-  if (load_kind != LoadKind::kDexCacheViaMethod &&
+  if (load_kind != LoadKind::kRuntimeCall &&
       load_kind != LoadKind::kReferrersClass) {
     RemoveAsUserOfInput(0u);
     SetRawInputAt(0u, nullptr);
@@ -2714,7 +2714,7 @@ std::ostream& operator<<(std::ostream& os, HLoadClass::LoadKind rhs) {
       return os << "BssEntry";
     case HLoadClass::LoadKind::kJitTableAddress:
       return os << "JitTableAddress";
-    case HLoadClass::LoadKind::kDexCacheViaMethod:
+    case HLoadClass::LoadKind::kRuntimeCall:
       return os << "DexCacheViaMethod";
     default:
       LOG(FATAL) << "Unknown HLoadClass::LoadKind: " << static_cast<int>(rhs);
@@ -2743,10 +2743,10 @@ bool HLoadString::InstructionDataEquals(const HInstruction* other) const {
 
 void HLoadString::SetLoadKind(LoadKind load_kind) {
   // Once sharpened, the load kind should not be changed again.
-  DCHECK_EQ(GetLoadKind(), LoadKind::kDexCacheViaMethod);
+  DCHECK_EQ(GetLoadKind(), LoadKind::kRuntimeCall);
   SetPackedField<LoadKindField>(load_kind);
 
-  if (load_kind != LoadKind::kDexCacheViaMethod) {
+  if (load_kind != LoadKind::kRuntimeCall) {
     RemoveAsUserOfInput(0u);
     SetRawInputAt(0u, nullptr);
   }
@@ -2766,7 +2766,7 @@ std::ostream& operator<<(std::ostream& os, HLoadString::LoadKind rhs) {
       return os << "BssEntry";
     case HLoadString::LoadKind::kJitTableAddress:
       return os << "JitTableAddress";
-    case HLoadString::LoadKind::kDexCacheViaMethod:
+    case HLoadString::LoadKind::kRuntimeCall:
       return os << "DexCacheViaMethod";
     default:
       LOG(FATAL) << "Unknown HLoadString::LoadKind: " << static_cast<int>(rhs);
