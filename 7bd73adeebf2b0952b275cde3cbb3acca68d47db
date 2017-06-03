@@ -22,6 +22,30 @@
       "revId": "7bd73adeebf2b0952b275cde3cbb3acca68d47db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bb6a61a_28bdebb3",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-03T00:48:38Z",
+      "side": 0,
+      "message": "True, but might as well clean up.",
+      "parentUuid": "9be182d2_e1061b8c",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 3
+      },
+      "revId": "7bd73adeebf2b0952b275cde3cbb3acca68d47db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
