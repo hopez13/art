@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a06bb82_6dc6528b",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-03T00:46:38Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 257,
+        "startChar": 25,
+        "endLine": 257,
+        "endChar": 30
+      },
+      "revId": "a6ea4e2dbdfa63b43bd82c2e9da99cf793842343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acb0a97e_0799c895",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-03T00:46:38Z",
+      "side": 1,
+      "message": "I hate Clang annotalysis. This should have complained before. It\u0027s not annotated with REQUIRES(!...)",
+      "range": {
+        "startLine": 981,
+        "startChar": 17,
+        "endLine": 981,
+        "endChar": 40
+      },
+      "revId": "a6ea4e2dbdfa63b43bd82c2e9da99cf793842343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
