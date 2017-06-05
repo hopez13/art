@@ -70,6 +70,30 @@
       "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22c52197_39bf1bdc",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-06-05T22:26:23Z",
+      "side": 1,
+      "message": "Ok, I thought after ruling out all other possibilities(jit code cache, runtime stubs), there is only one possibility remaining, and pc should fall into that code range. So it\u0027s not a bogus one.\n\nIf we want to also assert it\u0027s in some oat file (I consider that an additional assert), is there an easy way to do that other than iterating through all oat files?",
+      "parentUuid": "dc7f197d_693f5ec8",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 678,
+        "endChar": 36
+      },
+      "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
