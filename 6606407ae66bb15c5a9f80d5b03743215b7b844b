@@ -22,6 +22,30 @@
       "revId": "6606407ae66bb15c5a9f80d5b03743215b7b844b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3976df50_bec7aab9",
+        "filename": "test/115-native-bridge/check",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2017-06-05T17:30:42Z",
+      "side": 1,
+      "message": "It\u0027s actually ASan, as in \"Address Sanitizer\".",
+      "parentUuid": "7e445ec8_462ddb6d",
+      "range": {
+        "startLine": 19,
+        "startChar": 18,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "6606407ae66bb15c5a9f80d5b03743215b7b844b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
