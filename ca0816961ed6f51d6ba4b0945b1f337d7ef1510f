@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af45c0f3_2df34fbb",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-05T20:04:07Z",
+      "side": 1,
+      "message": "Comment (to be consistent with the MIPS64 code)\n\n// Does it have MSA (MIPS SIMD Architecture) support.",
+      "revId": "ca0816961ed6f51d6ba4b0945b1f337d7ef1510f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
