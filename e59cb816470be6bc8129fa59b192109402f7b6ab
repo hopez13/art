@@ -22,6 +22,30 @@
       "revId": "e59cb816470be6bc8129fa59b192109402f7b6ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd753453_a93b1fb0",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-05T14:58:11Z",
+      "side": 1,
+      "message": "Though it would be a type-breaking change for us. :-)",
+      "parentUuid": "f9c6d7f0_c91f7239",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 10
+      },
+      "revId": "e59cb816470be6bc8129fa59b192109402f7b6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
