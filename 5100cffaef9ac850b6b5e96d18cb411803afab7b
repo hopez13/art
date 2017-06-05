@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f919a9ff_b6a1795c",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-05T15:50:30Z",
+      "side": 1,
+      "message": "Should we split the variant on \u0027+\u0027 and parse any subsequent tokens separately?",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "5100cffaef9ac850b6b5e96d18cb411803afab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfa905bb_79dcc061",
         "filename": "runtime/arch/arm64/instruction_set_features_arm64_test.cc",
         "patchSetId": 1
