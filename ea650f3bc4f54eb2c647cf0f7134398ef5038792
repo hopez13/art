@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "e975389c_90c2ea92",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "Is this the right bug?",
+      "range": {
+        "startLine": 1003,
+        "startChar": 49,
+        "endLine": 1003,
+        "endChar": 60
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d18ba79_485813e7",
         "filename": "profman/profman.cc",
         "patchSetId": 14
@@ -41,6 +64,282 @@
         "startChar": 22,
         "endLine": 156,
         "endChar": 50
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fdc7754_e310b46f",
+        "filename": "runtime/dex_cache_resolved_classes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "There are no methods stored in this class. What does this do?",
+      "range": {
+        "startLine": 82,
+        "startChar": 17,
+        "endLine": 82,
+        "endChar": 32
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acf67400_bc0e5d43",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "Update L50.",
+      "range": {
+        "startLine": 52,
+        "startChar": 71,
+        "endLine": 52,
+        "endChar": 72
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "718beae1_d74975b8",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "Update?",
+      "range": {
+        "startLine": 285,
+        "startChar": 1,
+        "endLine": 285,
+        "endChar": 24
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f6ec0a7_aadb98e2",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "what is this for?",
+      "range": {
+        "startLine": 204,
+        "startChar": 31,
+        "endLine": 204,
+        "endChar": 45
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6135d8fc_0d7ebe78",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "when is this ever false?",
+      "range": {
+        "startLine": 211,
+        "startChar": 30,
+        "endLine": 211,
+        "endChar": 37
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23da3828_11df18f7",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 216,
+        "startChar": 33,
+        "endLine": 216,
+        "endChar": 47
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45a8f66e_f71e9a70",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "Do we really need this granular separation? How much will these sets overlap?",
+      "range": {
+        "startLine": 277,
+        "startChar": 28,
+        "endLine": 279,
+        "endChar": 85
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76aab691_f4c20318",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "- Move this next to the other fields. I know FindOrAddMethod was misplaced.\n\n- document each field and especially num_method_ids.\n\n- also, these are method_indexes not ids, the dex file has another definition for method id so let\u0027s not override it.",
+      "range": {
+        "startLine": 378,
+        "startChar": 4,
+        "endLine": 381,
+        "endChar": 34
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb7f73ec_9c017273",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "private? why not in the constructor",
+      "range": {
+        "startLine": 383,
+        "startChar": 9,
+        "endLine": 383,
+        "endChar": 21
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea3c706c_602fc2bc",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "Unused? Did I miss anything?",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 6
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "672e04d2_9fc85a99",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "Not obvious why you\u0027re doing this. Please document.",
+      "range": {
+        "startLine": 401,
+        "startChar": 6,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c3477c4_87dc520a",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T14:21:27Z",
+      "side": 1,
+      "message": "So you\u0027ll end up with possibly a lot of duplicates between these two.  Why not having a wrapper describer the properties of the methods. An extra 2 bits or so. Is the overhead also serialized?",
+      "range": {
+        "startLine": 203,
+        "startChar": 9,
+        "endLine": 204,
+        "endChar": 43
       },
       "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
