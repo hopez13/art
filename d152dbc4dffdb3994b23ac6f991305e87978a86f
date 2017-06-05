@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3085616_e9697579",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-05T15:04:29Z",
+      "side": 1,
+      "message": "Is there a reason not to require an exclusive lock here, according to the comment?",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 44
+      },
+      "revId": "d152dbc4dffdb3994b23ac6f991305e87978a86f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
