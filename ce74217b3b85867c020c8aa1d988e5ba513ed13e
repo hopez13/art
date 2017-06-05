@@ -22,6 +22,30 @@
       "revId": "ce74217b3b85867c020c8aa1d988e5ba513ed13e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c992b3d1_7f41db67",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-05T21:04:01Z",
+      "side": 1,
+      "message": "other nit: \n\ns/one exceptions/one exception",
+      "parentUuid": "27bf9cc3_00c1c383",
+      "range": {
+        "startLine": 34,
+        "startChar": 72,
+        "endLine": 34,
+        "endChar": 79
+      },
+      "revId": "ce74217b3b85867c020c8aa1d988e5ba513ed13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
