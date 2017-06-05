@@ -46,6 +46,30 @@
       "revId": "6606407ae66bb15c5a9f80d5b03743215b7b844b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7418ec6_5ee419d0",
+        "filename": "test/115-native-bridge/check",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-05T17:31:35Z",
+      "side": 1,
+      "message": "Also: This is a message from AddressSanitizer. I can\u0027t change it, even if I wanted to... :-D",
+      "parentUuid": "3976df50_bec7aab9",
+      "range": {
+        "startLine": 19,
+        "startChar": 18,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "6606407ae66bb15c5a9f80d5b03743215b7b844b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
