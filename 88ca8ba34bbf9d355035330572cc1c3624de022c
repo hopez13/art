@@ -46,6 +46,30 @@
       "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc7f197d_693f5ec8",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-05T21:16:01Z",
+      "side": 1,
+      "message": "But then you\u0027re not asserting that \u0027pc\u0027 is in quick code (which is what this method is about).\n\nInstead, we should check that \u0027pc\u0027 is indeed in some oat file.",
+      "parentUuid": "2c452f15_7b3ac4b5",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 678,
+        "endChar": 36
+      },
+      "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
