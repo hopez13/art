@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f68f2e39_e9b04150",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-05T13:23:20Z",
+      "side": 1,
+      "message": "Why just startup? Why not use bitmaps for the hot methods?",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d18ba79_485813e7",
+        "filename": "profman/profman.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-05T13:23:20Z",
+      "side": 1,
+      "message": "What\u0027s \"Post\" startup? How does it compare with \"Hot\"?",
+      "range": {
+        "startLine": 156,
+        "startChar": 22,
+        "endLine": 156,
+        "endChar": 50
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
