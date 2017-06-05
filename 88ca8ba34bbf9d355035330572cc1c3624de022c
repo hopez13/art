@@ -22,6 +22,30 @@
       "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c452f15_7b3ac4b5",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-06-05T17:04:54Z",
+      "side": 1,
+      "message": "I think this assert is still valid here. If both pc and code are in oat file (after ruling out other cases), this assert should stand. Basically pc on stack is related to the method\u0027s entrypoint in some way.",
+      "parentUuid": "1f9670ef_1403809d",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 678,
+        "endChar": 36
+      },
+      "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
