@@ -94,6 +94,30 @@
       "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a056749_c5bcba68",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-05T22:43:32Z",
+      "side": 1,
+      "message": "Since we know the ArtMethod, we can find its associated oat file I believe?",
+      "parentUuid": "22c52197_39bf1bdc",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 678,
+        "endChar": 36
+      },
+      "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
