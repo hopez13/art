@@ -46,6 +46,29 @@
       "revId": "00286db781e56d676d6bfb1ab22dc22fbaa96a41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3e25e4a_3ea66023",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-05T09:28:47Z",
+      "side": 1,
+      "message": "This comment should be expanded. Mention the flow of the profile saver and how it captures the startup methods (in general a method with count 1 is not necessary a startup method).",
+      "range": {
+        "startLine": 1071,
+        "startChar": 47,
+        "endLine": 1072,
+        "endChar": 73
+      },
+      "revId": "00286db781e56d676d6bfb1ab22dc22fbaa96a41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
