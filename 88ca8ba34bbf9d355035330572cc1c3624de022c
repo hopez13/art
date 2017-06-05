@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f9670ef_1403809d",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-05T14:09:23Z",
+      "side": 1,
+      "message": "This is bogus still. We need to rewrite it, as \u0027code\u0027 could be unrelated to \u0027pc\u0027. Can you add a TODO?",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 678,
+        "endChar": 36
+      },
+      "revId": "88ca8ba34bbf9d355035330572cc1c3624de022c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
