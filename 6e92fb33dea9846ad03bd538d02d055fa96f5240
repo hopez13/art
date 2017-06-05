@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5315855_245c6e25",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-05T21:24:25Z",
+      "side": 1,
+      "message": "I believe this is what you requested previously. It is a bit hard to test the new part, but it obviously passes all current tests as before.\n\nLet me know if this is what you had in mind.",
+      "range": {
+        "startLine": 1305,
+        "startChar": 27,
+        "endLine": 1305,
+        "endChar": 28
+      },
+      "revId": "6e92fb33dea9846ad03bd538d02d055fa96f5240",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
