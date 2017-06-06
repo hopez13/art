@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efe26d7d_7e1f04c8",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-06T01:43:39Z",
+      "side": 1,
+      "message": "Maybe alternatively set kAccCompileDontBother for proxy methods?",
+      "range": {
+        "startLine": 216,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 5
+      },
+      "revId": "2b5064c97ab6d76c26feb54622dc1f8c8770ae77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
