@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "f8b853ae_6cb5f857",
+        "filename": "profman/profman.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-06T16:09:37Z",
+      "side": 1,
+      "message": "for the future, I think it makes more sense to add these things as you need them.\n\nSo post startup but not hot?",
+      "parentUuid": "f490a3b5_ed320035",
+      "range": {
+        "startLine": 156,
+        "startChar": 22,
+        "endLine": 156,
+        "endChar": 50
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4fdc7754_e310b46f",
         "filename": "runtime/dex_cache_resolved_classes.h",
         "patchSetId": 14
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "That\u0027s for allocating the bitmap in case someone calls AddMethodsAndClasses without any methods.",
       "parentUuid": "4fdc7754_e310b46f",
+      "range": {
+        "startLine": 82,
+        "startChar": 17,
+        "endLine": 82,
+        "endChar": 32
+      },
+      "revId": "ea650f3bc4f54eb2c647cf0f7134398ef5038792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5b284a5_b97545b6",
+        "filename": "runtime/dex_cache_resolved_classes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-06T16:09:37Z",
+      "side": 1,
+      "message": "can we re-design this part? It\u0027s pretty weird interface. I also don\u0027t like how we need to pass it down when adding samples.",
+      "parentUuid": "fda2f4c7_55096338",
       "range": {
         "startLine": 82,
         "startChar": 17,
