@@ -38,6 +38,11 @@ namespace arm64 {
 #define reg_d(D) Arm64Assembler::reg_d(D)
 #define reg_s(S) Arm64Assembler::reg_s(S)
 
+// Instrument generated code to generate run-time checks on the status
+// of the Marking Register (MR). This is only meaningful with the
+// Concurrent Collector with Baker read barriers.
+constexpr bool kEnableMarkingRegisterChecks = kIsDebugBuild;
+
 Arm64JNIMacroAssembler::~Arm64JNIMacroAssembler() {
 }
 
@@ -774,10 +779,30 @@ void Arm64JNIMacroAssembler::RemoveFrame(size_t frame_size,
   asm_.UnspillRegisters(fp_reg_list, frame_size - core_reg_size - fp_reg_size);
 
   if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
+    vixl::aarch64::Register mr = reg_w(MR);  // Marking Register.
+    vixl::aarch64::Register tr = reg_x(TR);  // Thread Register.
+
     if (may_suspend) {
       // The method may have been suspended; refresh the Marking Register.
-      ___ Ldr(reg_w(MR),
-              MemOperand(reg_x(TR), Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
+      ___ Ldr(mr, MemOperand(tr, Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
+    } else {
+      if (kEnableMarkingRegisterChecks) {
+        // Emit a run-time check verifying that the Marking Register is up-to-date.
+        UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
+        Register temp = temps.AcquireW();
+        // Ensure we are not cloberring a callee-save register that was restored before.
+        DCHECK(!core_reg_list.IncludesAliasOf(temp.X()))
+            << "core_reg_list should not contain scratch register X" << temp.GetCode();
+
+        vixl::aarch64::Label mr_is_ok;
+        // temp = self.tls32_.is.gc_marking
+        ___ Ldr(temp, MemOperand(tr, Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
+        // Check that mr == self.tls32_.is.gc_marking.
+        ___ Cmp(mr.W(), temp);
+        ___ B(eq, &mr_is_ok);
+        ___ Brk();
+        ___ Bind(&mr_is_ok);
+      }
     }
   }
 
