@@ -1728,7 +1728,10 @@ TEST_F(ArmVIXLAssemblerTest, VixlJniHelpers) {
 
   __ DecreaseFrameSize(4096);
   __ DecreaseFrameSize(32);
-  __ RemoveFrame(frame_size, callee_save_regs, /* may_suspend */ true);
+  __ RemoveFrame(frame_size,
+                 callee_save_regs,
+                 /* may_suspend */ true,
+                 /* emit_run_time_checks_in_debug_mode */ false);
 
   EmitAndCheck(&assembler, "VixlJniHelpers");
 }

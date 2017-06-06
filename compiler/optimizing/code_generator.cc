@@ -1473,4 +1473,18 @@ QuickEntrypointEnum CodeGenerator::GetArrayAllocationEntrypoint(Handle<mirror::C
   return kQuickAllocArrayResolved;
 }
 
+bool CodeGenerator::EmitRunTimeChecksInDebugMode() const {
+  // Run-time checks (e.g. Marking Register checks) are only emitted
+  // in debug mode, and
+  // - when running on device; or
+  // - when running on host, but only
+  //   - when compiling the core image (which is used only for testing); or
+  //   - when JIT compiling.
+  // This is to prevent these checks from being emitted into pre-opted
+  // boot image or apps, as these are compiled with dex2oatd.
+  return kIsDebugBuild && (kIsTargetBuild
+                           || GetCompilerOptions().IsCoreImage()
+                           || Runtime::Current()->UseJitCompilation());
+}
+
 }  // namespace art
