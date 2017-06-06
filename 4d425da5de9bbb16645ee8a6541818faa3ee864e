@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "12f872c3_81c4b8f8",
+        "filename": "compiler/linker/method_bss_mapping_encoder.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T15:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acac56be_b4bafdf5",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "4d425da5de9bbb16645ee8a6541818faa3ee864e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9790c7e2_613433bb",
         "filename": "compiler/linker/method_bss_mapping_encoder.h",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-06T14:23:34Z",
       "side": 1,
       "message": "High-level comment missing.",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 61
+      },
+      "revId": "4d425da5de9bbb16645ee8a6541818faa3ee864e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f25f5fbe_49c67f29",
+        "filename": "compiler/linker/method_bss_mapping_encoder.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T15:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9790c7e2_613433bb",
       "range": {
         "startLine": 37,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "03890f68_b9ac1493",
+        "filename": "compiler/linker/method_bss_mapping_encoder.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T15:16:59Z",
+      "side": 1,
+      "message": "How should I call it? It\u0027s just a bit I want to insert. Should I change it to (1u \u003c\u003c 16)?",
+      "parentUuid": "80ef16c3_e90498fa",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 60
+      },
+      "revId": "4d425da5de9bbb16645ee8a6541818faa3ee864e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b4e4909_7b4a5d82",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-06T14:23:34Z",
       "side": 1,
       "message": "indentation if off.",
+      "range": {
+        "startLine": 692,
+        "startChar": 0,
+        "endLine": 692,
+        "endChar": 8
+      },
+      "revId": "4d425da5de9bbb16645ee8a6541818faa3ee864e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa736839_d3a77abf",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T15:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b4e4909_7b4a5d82",
       "range": {
         "startLine": 692,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "da38cd86_dbe95cf4",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T15:16:59Z",
+      "side": 1,
+      "message": "Done (short enough)",
+      "parentUuid": "9a87a231_016449f2",
+      "range": {
+        "startLine": 1269,
+        "startChar": 4,
+        "endLine": 1269,
+        "endChar": 8
+      },
+      "revId": "4d425da5de9bbb16645ee8a6541818faa3ee864e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e78e4139_fed8b34f",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 13
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "c5239d8a_a19f41d6",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T15:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e78e4139_fed8b34f",
+      "range": {
+        "startLine": 1270,
+        "startChar": 4,
+        "endLine": 1270,
+        "endChar": 8
+      },
+      "revId": "4d425da5de9bbb16645ee8a6541818faa3ee864e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b61959ba_df151078",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 13
@@ -151,6 +295,30 @@
       "writtenOn": "2017-06-06T14:23:34Z",
       "side": 1,
       "message": "why this change?",
+      "range": {
+        "startLine": 237,
+        "startChar": 43,
+        "endLine": 237,
+        "endChar": 49
+      },
+      "revId": "4d425da5de9bbb16645ee8a6541818faa3ee864e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3d7501f_813a8bba",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T15:16:59Z",
+      "side": 1,
+      "message": "This CL changes the register allocations, suddenly allowing the use of low-register 16-bit instructions that set flags (optimizing for size).\n\nI don\u0027t remember exactly which of these broke but I don\u0027t want any of them to depend on the particular register allocation.",
+      "parentUuid": "b61959ba_df151078",
       "range": {
         "startLine": 237,
         "startChar": 43,
