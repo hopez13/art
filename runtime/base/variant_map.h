@@ -278,7 +278,9 @@ struct VariantMap {
     auto* new_value = new TValue(value);
 
     Remove(key);
-    storage_map_.insert({{key.Clone(), new_value}});
+    // The static analyzer complains about a potential memory leak if the insertion below fails.
+    // Since we Remove(key) right before this, it should never fail.
+    storage_map_.insert({{key.Clone(), new_value}}); // NOLINT
   }
 
   // Set a value for a given key, only if there was no previous value before.
