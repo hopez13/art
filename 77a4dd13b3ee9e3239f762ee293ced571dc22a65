@@ -16,6 +16,24 @@
       "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9af1fc4e_b89930fb",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-06T14:57:27Z",
+      "side": 1,
+      "message": "I think buildbot-build requires the small manifest, so it may need to be twicked to be generically called from here.",
+      "parentUuid": "48459661_78257c1d",
+      "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
