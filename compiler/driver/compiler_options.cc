@@ -30,6 +30,7 @@ CompilerOptions::CompilerOptions()
       inline_max_code_units_(kUnsetInlineMaxCodeUnits),
       no_inline_from_(nullptr),
       boot_image_(false),
+      core_image_(false),
       app_image_(false),
       top_k_profile_threshold_(kDefaultTopKProfileThreshold),
       debuggable_(false),
