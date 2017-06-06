@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1ee43e3_b1f8927c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4610,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-06T14:36:05Z",
+      "side": 1,
+      "message": "I do not like this name, docs imply \u0027we do not want compiler to compile\u0027 and says nothing about \u0027compiler must not compile\u0027\n\nWhy not rename to kAccNeverCompile ? Is there cases where it *could* compile?",
+      "revId": "201e297b81d66c27be5f84a7d5f326f926573225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
