@@ -46,6 +46,30 @@
       "revId": "5544e721c3e2a3e344c26b9e1c9ad9472fb8cd58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0dd9c04_d57f35c7",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-06T03:25:59Z",
+      "side": 1,
+      "message": "endl includes flush, and basically it\u0027s the flush I really want (so there\u0027s guaranteed output on std::cerr on the host).\n\nI don\u0027t know what the atomicity guarantees of \u003c\u003c to std::cerr are. Wondering whether this allows two concatenated thread dumps and then two newlines.",
+      "parentUuid": "7fbba517_6700665f",
+      "range": {
+        "startLine": 222,
+        "startChar": 31,
+        "endLine": 222,
+        "endChar": 42
+      },
+      "revId": "5544e721c3e2a3e344c26b9e1c9ad9472fb8cd58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
