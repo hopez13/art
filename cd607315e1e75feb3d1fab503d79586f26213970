@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee871b46_4a1c3bc0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-06T01:12:17Z",
+      "side": 1,
+      "message": "Maybe should restrict this to the host, where we usually have another timeout somewhere?",
+      "range": {
+        "startLine": 480,
+        "startChar": 4,
+        "endLine": 486,
+        "endChar": 5
+      },
+      "revId": "cd607315e1e75feb3d1fab503d79586f26213970",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
