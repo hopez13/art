@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cc45053_f65e47bc",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-06T13:38:02Z",
+      "side": 1,
+      "message": "Should we introduce a CodePtrLocation::kNone?",
+      "range": {
+        "startLine": 892,
+        "startChar": 48,
+        "endLine": 892,
+        "endChar": 62
+      },
+      "revId": "be97289342c0d5951657676c012e82af384af6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60c8701e_67b58dd9",
+        "filename": "test/564-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-06T13:38:02Z",
+      "side": 1,
+      "message": "What\u0027s that?",
+      "range": {
+        "startLine": 21,
+        "startChar": 68,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "be97289342c0d5951657676c012e82af384af6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
