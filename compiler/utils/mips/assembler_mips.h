@@ -1042,7 +1042,8 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
   // Emit code that will remove an activation from the stack.
   void RemoveFrame(size_t frame_size,
                    ArrayRef<const ManagedRegister> callee_save_regs,
-                   bool may_suspend) OVERRIDE;
+                   bool may_suspend,
+                   bool emit_run_time_checks_in_debug_mode) OVERRIDE;
 
   void IncreaseFrameSize(size_t adjust) OVERRIDE;
   void DecreaseFrameSize(size_t adjust) OVERRIDE;

@@ -578,6 +578,9 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
 
   static QuickEntrypointEnum GetArrayAllocationEntrypoint(Handle<mirror::Class> array_klass);
 
+  // Should run-time checks be emitted in debug mode?
+  bool EmitRunTimeChecksInDebugMode() const;
+
  protected:
   // Patch info used for recording locations of required linker patches and their targets,
   // i.e. target method, string, type or code identified by their dex file and index.

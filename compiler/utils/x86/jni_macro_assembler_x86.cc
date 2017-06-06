@@ -86,7 +86,8 @@ void X86JNIMacroAssembler::BuildFrame(size_t frame_size,
 
 void X86JNIMacroAssembler::RemoveFrame(size_t frame_size,
                                        ArrayRef<const ManagedRegister> spill_regs,
-                                       bool may_suspend ATTRIBUTE_UNUSED) {
+                                       bool may_suspend ATTRIBUTE_UNUSED,
+                                       bool emit_run_time_checks_in_debug_mode ATTRIBUTE_UNUSED) {
   CHECK_ALIGNED(frame_size, kStackAlignment);
   cfi().RememberState();
   // -kFramePointerSize for ArtMethod*.

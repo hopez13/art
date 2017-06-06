@@ -3193,7 +3193,8 @@ void Mips64Assembler::BuildFrame(size_t frame_size,
 
 void Mips64Assembler::RemoveFrame(size_t frame_size,
                                   ArrayRef<const ManagedRegister> callee_save_regs,
-                                  bool may_suspend ATTRIBUTE_UNUSED) {
+                                  bool may_suspend ATTRIBUTE_UNUSED,
+                                  bool emit_run_time_checks_in_debug_mode ATTRIBUTE_UNUSED) {
   CHECK_ALIGNED(frame_size, kStackAlignment);
   DCHECK(!overwriting_);
   cfi_.RememberState();
