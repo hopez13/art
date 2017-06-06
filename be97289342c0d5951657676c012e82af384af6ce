@@ -117,6 +117,30 @@
       "revId": "be97289342c0d5951657676c012e82af384af6ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2866e2f_b7d73402",
+        "filename": "test/564-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T14:51:54Z",
+      "side": 1,
+      "message": "This fixes the Test stanza from the commit message:\n\n  Test: Repeat the above tests with manually changing\n        kDexCachePcRelative to kRuntimeCall in sharpening.cc.\n        (Ignore failures in 552-checker-sharpening.)\n\nWithout this I would have to list more tests to ignore.\n\nAnd I guess mips would be broken too but I cannot be bothered to check.",
+      "parentUuid": "d290ee78_9edbc70c",
+      "range": {
+        "startLine": 21,
+        "startChar": 68,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "be97289342c0d5951657676c012e82af384af6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
