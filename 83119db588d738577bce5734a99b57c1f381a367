@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4bb0e2d5_7283c9ef",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4610,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T14:05:39Z",
+      "side": 1,
+      "message": "OTOH, all the other scopes do specify it, so I guess I can add it back for consistency.",
+      "parentUuid": "316a8af0_e00c1989",
+      "range": {
+        "startLine": 4610,
+        "startChar": 65,
+        "endLine": 4610,
+        "endChar": 97
+      },
+      "revId": "83119db588d738577bce5734a99b57c1f381a367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d91f37f_a4992549",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
