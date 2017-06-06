@@ -52,6 +52,24 @@
       "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d3f1ca_d42b96b6",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-06T15:19:38Z",
+      "side": 1,
+      "message": "Nicolas, this comment is somewhat misleading?\n\nThe rules here are for host. The script works just fine for host (I built it earlier today with big manifest).\n\nAs for target, I had a CL here to fix it for big manifest: https://android-review.googlesource.com/#/c/292776/\n\nFWIW I\u0027m changing buildbot-build.sh and run-libcore-tests.sh script anyway to add support for javac/dx builds.",
+      "parentUuid": "e1a77c13_e95d9009",
+      "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
