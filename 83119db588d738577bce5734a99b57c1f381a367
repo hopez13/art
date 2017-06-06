@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "303228af_1b2482e4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4610,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-06T13:22:04Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we keep this?  IIUC, the call to blr() on line 4612 below uses VIXL\u0027s ARM64 assembler (not the macro-assembler) and always emit a 32-bit instruction, right?",
+      "range": {
+        "startLine": 4610,
+        "startChar": 65,
+        "endLine": 4610,
+        "endChar": 97
+      },
+      "revId": "83119db588d738577bce5734a99b57c1f381a367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d91f37f_a4992549",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
