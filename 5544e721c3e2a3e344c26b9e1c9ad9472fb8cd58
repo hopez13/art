@@ -94,6 +94,30 @@
       "revId": "5544e721c3e2a3e344c26b9e1c9ad9472fb8cd58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c98136_4db44fac",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-06T14:40:44Z",
+      "side": 1,
+      "message": "That dump goes into the local_os, so there\u0027s no flush necessary.",
+      "parentUuid": "fec5397f_e615760e",
+      "range": {
+        "startLine": 222,
+        "startChar": 31,
+        "endLine": 222,
+        "endChar": 42
+      },
+      "revId": "5544e721c3e2a3e344c26b9e1c9ad9472fb8cd58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
