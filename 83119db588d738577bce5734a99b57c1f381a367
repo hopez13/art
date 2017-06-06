@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d627e5f_447b4134",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4610,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T13:50:30Z",
+      "side": 1,
+      "message": "The kExactSize is the default argument. I do not see any reason to specify it explicitly.",
+      "parentUuid": "303228af_1b2482e4",
+      "range": {
+        "startLine": 4610,
+        "startChar": 65,
+        "endLine": 4610,
+        "endChar": 97
+      },
+      "revId": "83119db588d738577bce5734a99b57c1f381a367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d91f37f_a4992549",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
