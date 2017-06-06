@@ -70,6 +70,30 @@
       "revId": "5544e721c3e2a3e344c26b9e1c9ad9472fb8cd58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fec5397f_e615760e",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-06T08:48:36Z",
+      "side": 1,
+      "message": "Maybe also use std::endl after dumping the thread on line 217?",
+      "parentUuid": "b0dd9c04_d57f35c7",
+      "range": {
+        "startLine": 222,
+        "startChar": 31,
+        "endLine": 222,
+        "endChar": 42
+      },
+      "revId": "5544e721c3e2a3e344c26b9e1c9ad9472fb8cd58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
