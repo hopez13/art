@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48459661_78257c1d",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-06T14:55:00Z",
+      "side": 1,
+      "message": "If you\u0027re going to do this, then please consider to instead call the buildbot-build.sh script do to the build. Or change that script to call this one.\n\nIt seems like it will be less unmaintainable to have two parallel build rules that run-libcore-tests.sh depends on.\n\nWhat do you think?",
+      "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
