@@ -83,7 +83,10 @@ class JNICFITest : public CFITest {
                         callee_save_regs, mr_conv->EntrySpills());
     jni_asm->IncreaseFrameSize(32);
     jni_asm->DecreaseFrameSize(32);
-    jni_asm->RemoveFrame(frame_size, callee_save_regs, /* may_suspend */ true);
+    jni_asm->RemoveFrame(frame_size,
+                         callee_save_regs,
+                         /* may_suspend */ true,
+                         /* emit_run_time_checks_in_debug_mode */ false);
     jni_asm->FinalizeCode();
     std::vector<uint8_t> actual_asm(jni_asm->CodeSize());
     MemoryRegion code(&actual_asm[0], actual_asm.size());
