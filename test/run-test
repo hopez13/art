@@ -78,6 +78,17 @@ if [ -z "$ANDROID_BUILD_TOP" ]; then
     export ANDROID_BUILD_TOP=$oldwd
 fi
 
+# Logic for setting out_dir from build/make/core/envsetup.mk:
+if [ -z "$OUT_DIR" ]; then
+  if [ -z "$OUT_DIR_COMMON_BASE" ]; then
+    out_dir=out
+  else
+    out_dir=${OUT_DIR_COMMON_BASE}/${PWD##*/}
+  fi
+else
+  out_dir=${OUT_DIR}
+fi
+
 # ANDROID_HOST_OUT is not set in a build environment.
 if [ -z "$ANDROID_HOST_OUT" ]; then
     export ANDROID_HOST_OUT=${OUT_DIR:-$ANDROID_BUILD_TOP/out}/host/linux-x86
@@ -397,6 +408,21 @@ while true; do
         break
     fi
 done
+
+if [ "$target_mode" == "yes" -a "$android_root" != "/system" ]; then
+  # For testing purposes it's often easiest to run tests with a custom
+  # installation path for ART.
+  #
+  # Custom installations paths are available with the master-art manifest
+  # with the armv8-eng lunch combo. The public libraries file has a
+  # valid make target in master-art for the lunch combo's that support
+  # custom installation.
+  PUBLIC_LIBRARIES="${out_dir}/target/product/${TARGET_PRODUCT}/system/etc/public.libraries.txt"
+  if [[ ! -f "${PUBLIC_LIBRARIES}" ]]; then
+    echo "Running a test on a device with a custom installation path requires the master-art manifest with a supported lunch combo." >&2
+    exit 1
+  fi
+fi
 
 run_args="${run_args} ${image_args}"
 # Allocate file descriptor real_stderr and redirect it to the shell's error

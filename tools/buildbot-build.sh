@@ -15,7 +15,7 @@
 # limitations under the License.
 
 if [ ! -d art ]; then
-  echo "Script needs to be run at the root of the android tree"
+  echo "Script needs to be run at the root of the android tree" >&2
   exit 1
 fi
 
@@ -36,6 +36,7 @@ mode="target"
 j_arg="-j$(nproc)"
 showcommands=
 make_command=
+public_libraries=
 
 while true; do
   if [[ "$1" == "--host" ]]; then
@@ -53,7 +54,7 @@ while true; do
   elif [[ "$1" == "" ]]; then
     break
   else
-    echo "Unknown options $@"
+    echo "Unknown options $@" >&2
     exit 1
   fi
 done
@@ -63,11 +64,25 @@ if [[ $mode == "host" ]]; then
   make_command+=" ${out_dir}/host/linux-x86/lib/libjavacoretests.so "
   make_command+=" ${out_dir}/host/linux-x86/lib64/libjavacoretests.so"
 elif [[ $mode == "target" ]]; then
-  make_command="make $j_arg $showcommands build-art-target-tests $common_targets"
+  if [[ "{$ART_TEST_ANDROID_ROOT:-/system}" != "/system" ]]; then
+    # If targetting custom installation location on device, add linker
+    # hints to the make targets.
+    public_libraries="${out_dir}/target/product/${TARGET_PRODUCT}/system/etc/public.libraries.txt"
+  fi
+  make_command="make $j_arg $showcommands $public_libraries build-art-target-tests $common_targets"
   make_command+=" libjavacrypto libjavacoretests libnetd_client linker toybox toolbox sh"
   make_command+=" ${out_dir}/host/linux-x86/bin/adb libstdc++ "
-  make_command+=" ${out_dir}/target/product/${TARGET_PRODUCT}/system/etc/public.libraries.txt"
 fi
 
 echo "Executing $make_command"
 $make_command
+make_status=$?
+
+if [[ $make_status -ne 0 && ! -z "$public_libraries" && ! -f "$public_libraries" ]]; then
+  # Non /system target builds will typically use the master-art
+  # manifest with the armv8-eng lunch combo. The public libraries file
+  # has a valid make target in master-art for lunch combo's that
+  # support running target tests.
+  echo "Building for a device target with a custom installation location requires the master-art manifest with a supported lunch combo." >&2
+fi
+exit $make_status
