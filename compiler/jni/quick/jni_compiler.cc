@@ -110,6 +110,17 @@ static ThreadOffset<kPointerSize> GetJniEntrypointThreadOffset(JniEntrypoint whi
   }
 }
 
+// Should run-time checks be emitted in debug mode?
+static bool EmitRunTimeChecksInDebugMode(CompilerDriver* driver) {
+  // Run-time checks (e.g. Marking Register checks) are only emitted
+  // in debug mode, and
+  // - when running on device; or
+  // - when running on host, but only when compiling the core image
+  //   (which is used only for testing).
+  // This is to prevent these checks from being emitted into pre-opted
+  // boot image or apps, as these are compiled with dex2oatd.
+  return kIsDebugBuild && (kIsTargetBuild || driver->GetCompilerOptions().IsCoreImage());
+}
 
 // Generate the JNI bridge for the given method, general contract:
 // - Arguments are in the managed runtime format, either on stack or in
@@ -647,7 +658,7 @@ static CompiledMethod* ArtJniCompileMethodInternal(CompilerDriver* driver,
   // We expect the compiled method to possibly be suspended during its
   // execution, except in the case of a CriticalNative method.
   bool may_suspend = !is_critical_native;
-  __ RemoveFrame(frame_size, callee_save_regs, may_suspend);
+  __ RemoveFrame(frame_size, callee_save_regs, may_suspend, EmitRunTimeChecksInDebugMode(driver));
   DCHECK_EQ(jni_asm->cfi().GetCurrentCFAOffset(), static_cast<int>(frame_size));
 
   // 17. Finalize code generation
