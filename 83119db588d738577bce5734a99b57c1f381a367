@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d91f37f_a4992549",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9235,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-06T10:16:35Z",
+      "side": 1,
+      "message": "Surround this code with braces to make the scope even more explicit (and similar to the ARM64 implementation)?",
+      "range": {
+        "startLine": 9228,
+        "startChar": 0,
+        "endLine": 9235,
+        "endChar": 54
+      },
+      "revId": "83119db588d738577bce5734a99b57c1f381a367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "259c0628_1da0678c",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-06T10:16:35Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "revId": "83119db588d738577bce5734a99b57c1f381a367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
