@@ -115,9 +115,11 @@ void ArmVIXLJNIMacroAssembler::BuildFrame(size_t frame_size,
   }
 }
 
-void ArmVIXLJNIMacroAssembler::RemoveFrame(size_t frame_size,
-                                           ArrayRef<const ManagedRegister> callee_save_regs,
-                                           bool may_suspend ATTRIBUTE_UNUSED) {
+void ArmVIXLJNIMacroAssembler::RemoveFrame(
+    size_t frame_size,
+    ArrayRef<const ManagedRegister> callee_save_regs,
+    bool may_suspend ATTRIBUTE_UNUSED,
+    bool emit_run_time_checks_in_debug_mode ATTRIBUTE_UNUSED) {
   CHECK_ALIGNED(frame_size, kStackAlignment);
   cfi().RememberState();
 
