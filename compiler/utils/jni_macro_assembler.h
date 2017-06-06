@@ -72,7 +72,8 @@ class JNIMacroAssembler : public DeletableArenaObject<kArenaAllocAssembler> {
   // to suspend during its execution).
   virtual void RemoveFrame(size_t frame_size,
                            ArrayRef<const ManagedRegister> callee_save_regs,
-                           bool may_suspend) = 0;
+                           bool may_suspend,
+                           bool emit_run_time_checks_in_debug_mode) = 0;
 
   virtual void IncreaseFrameSize(size_t adjust) = 0;
   virtual void DecreaseFrameSize(size_t adjust) = 0;
