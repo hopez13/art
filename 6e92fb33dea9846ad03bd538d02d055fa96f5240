@@ -22,6 +22,30 @@
       "revId": "6e92fb33dea9846ad03bd538d02d055fa96f5240",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0076201e_4ac5c8df",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-06T09:26:36Z",
+      "side": 1,
+      "message": "Yes. You can manually test this by modifying sharpening.cc to use the fall-back load kind, kDexCacheViaMethod at the moment (3 tests should fail), kRuntimeCall after https://android-review.googlesource.com/409241 (only 552-checker-sharpening should fail).",
+      "parentUuid": "f5315855_245c6e25",
+      "range": {
+        "startLine": 1305,
+        "startChar": 27,
+        "endLine": 1305,
+        "endChar": 28
+      },
+      "revId": "6e92fb33dea9846ad03bd538d02d055fa96f5240",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
