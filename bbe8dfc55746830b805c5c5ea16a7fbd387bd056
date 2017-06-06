@@ -46,6 +46,30 @@
       "revId": "bbe8dfc55746830b805c5c5ea16a7fbd387bd056",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae21ab0a_a9d4ffa7",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-06T16:42:21Z",
+      "side": 1,
+      "message": "ah, I didn\u0027t see that. I find it obscure. I read the enum as a \"label\" but then it\u0027s being used as an \"offset\".",
+      "parentUuid": "2d08f0bf_ebbf2e87",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 6
+      },
+      "revId": "bbe8dfc55746830b805c5c5ea16a7fbd387bd056",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
