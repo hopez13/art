@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f042196_1e520c50",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-06T13:30:07Z",
+      "side": 1,
+      "message": "TARGET_PRODUCT doesn\u0027t go to the right thing for non-master-art builds\n\nfor example with lunch aosp_angler-userdebug, TARGET_PRODUCT\u003daosp_angler but the directory path is angler\n\nIt would be nice if this script worked for regular master repository (I at least tried the host build from master earlier and it worked fine for me).",
+      "revId": "6e9d2c14c729279dc7d87e17e55276a5c41c4197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "634093ad_549b969a",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-06T13:30:07Z",
+      "side": 1,
+      "message": "nit: just use bash syntax\n\n   if [[ $make_status ... \u0026\u0026 ... \u0026\u0026 ... ]]; then",
+      "revId": "6e9d2c14c729279dc7d87e17e55276a5c41c4197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ca647e_86a62398",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-06T13:30:07Z",
+      "side": 1,
+      "message": "This should probably check for a different android root as well, as it might be useful to do the build on a non-master-art repository.",
+      "revId": "6e9d2c14c729279dc7d87e17e55276a5c41c4197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
