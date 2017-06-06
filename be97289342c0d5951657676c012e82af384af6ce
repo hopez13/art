@@ -93,6 +93,30 @@
       "revId": "be97289342c0d5951657676c012e82af384af6ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d290ee78_9edbc70c",
+        "filename": "test/564-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-06T14:44:43Z",
+      "side": 1,
+      "message": "But this change doesn\u0027t seem to affect this?",
+      "parentUuid": "d83f696d_0dd204ad",
+      "range": {
+        "startLine": 21,
+        "startChar": 68,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "be97289342c0d5951657676c012e82af384af6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
