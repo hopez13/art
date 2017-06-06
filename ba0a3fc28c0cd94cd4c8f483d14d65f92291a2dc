@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "547f342b_840265a5",
+        "filename": "compiler/optimizing/scheduler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-06T13:15:28Z",
+      "side": 1,
+      "message": "Yes, looks a little odd; I guess UNIMPLEMENTED(FATAL) fits better?",
+      "parentUuid": "c5a59231_26a19458",
+      "revId": "ba0a3fc28c0cd94cd4c8f483d14d65f92291a2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d04e94_5082a1a3",
         "filename": "compiler/optimizing/scheduler_arm64.cc",
         "patchSetId": 1
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "0c43378e_496b3e77",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-06T13:15:28Z",
+      "side": 1,
+      "message": "To get idea for instruction categories I used Cortex-A57 Software Optimization Guide - a public document you can find here (http://infocenter.arm.com/help/topic/com.arm.doc.uan0015b/Cortex_A57_Software_Optimization_Guide_external.pdf). So it distinguishes only FP and integral data instructions (except some specific instruction like add-reduce, etc).\n\nFor the latencies I used modified a version differential evolution framework (developed by Xueliang Zhong) to maximize performance geomean by varying latency values.",
+      "parentUuid": "18d04e94_5082a1a3",
+      "revId": "ba0a3fc28c0cd94cd4c8f483d14d65f92291a2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cb7cecf_d5c163a0",
         "filename": "compiler/optimizing/scheduler_arm64.h",
         "patchSetId": 1
@@ -64,6 +100,24 @@
       "writtenOn": "2017-06-02T21:46:53Z",
       "side": 1,
       "message": "Arithmetic? it is not that much longer",
+      "revId": "ba0a3fc28c0cd94cd4c8f483d14d65f92291a2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6762f393_eb3c8bd2",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-06T13:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cb7cecf_d5c163a0",
       "revId": "ba0a3fc28c0cd94cd4c8f483d14d65f92291a2dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
