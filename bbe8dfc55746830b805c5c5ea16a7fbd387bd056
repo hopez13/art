@@ -22,6 +22,30 @@
       "revId": "bbe8dfc55746830b805c5c5ea16a7fbd387bd056",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d08f0bf_ebbf2e87",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-06T16:34:54Z",
+      "side": 1,
+      "message": "I changed the MethodBitIndex function to use the enum values, is that OK?",
+      "parentUuid": "24b80267_9c46afa5",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 6
+      },
+      "revId": "bbe8dfc55746830b805c5c5ea16a7fbd387bd056",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
