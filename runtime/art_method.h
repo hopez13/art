@@ -209,9 +209,12 @@ class ArtMethod FINAL {
     return !IsAbstract() && !IsDefaultConflicting();
   }
 
-  bool IsCompilable() {
+  bool IsCompilable() REQUIRES_SHARED(Locks::mutator_lock_) {
     if (IsIntrinsic()) {
       return true;
+    }
+    if (IsProxyMethod()) {
+      return false;
     }
     return (GetAccessFlags() & kAccCompileDontBother) == 0;
   }
