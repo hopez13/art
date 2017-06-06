@@ -662,7 +662,7 @@ void Arm64JNIMacroAssembler::Bind(JNIMacroLabel* label) {
   ___ Bind(Arm64JNIMacroLabel::Cast(label)->AsArm64());
 }
 
-void Arm64JNIMacroAssembler::EmitExceptionPoll(Arm64Exception *exception) {
+void Arm64JNIMacroAssembler::EmitExceptionPoll(Arm64Exception* exception) {
   UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
   temps.Exclude(reg_x(exception->scratch_.AsXRegister()));
   Register temp = temps.AcquireX();
@@ -788,6 +788,30 @@ void Arm64JNIMacroAssembler::RemoveFrame(size_t frame_size,
       // AAPCS64 calling convention.
       DCHECK(core_reg_list.IncludesAliasOf(mr))
           << "core_reg_list should contain Marking Register X" << mr.GetCode();
+
+      // The following condition is a compile-time one, so it does not have a run-time cost.
+      if (kIsDebugBuild) {
+        // The following condition is a run-time one; it is executed after the
+        // previous compile-time test, to avoid penalizing non-debug builds.
+        if (emit_run_time_checks_in_debug_mode_) {
+          // Emit a run-time check verifying that the Marking Register is up-to-date.
+          UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
+          Register temp = temps.AcquireW();
+          // Ensure we are not cloberring a callee-save register that was restored before.
+          DCHECK(!core_reg_list.IncludesAliasOf(temp.X()))
+              << "core_reg_list should not contain scratch register X" << temp.GetCode();
+
+          vixl::aarch64::Label mr_is_ok;
+          // temp = self.tls32_.is.gc_marking
+          ___ Ldr(temp,
+                  MemOperand(tr, Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
+          // Check that mr == self.tls32_.is.gc_marking.
+          ___ Cmp(mr.W(), temp);
+          ___ B(eq, &mr_is_ok);
+          ___ Brk();
+          ___ Bind(&mr_is_ok);
+        }
+      }
     }
   }
 
