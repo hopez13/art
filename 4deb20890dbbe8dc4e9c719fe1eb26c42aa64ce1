@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53f615b7_d0c9306f",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-06T16:57:40Z",
+      "side": 1,
+      "message": "minor personal nit: 623 was really intended for checker tests on \"regressions\" (so stuff that broke in the field [or a bit earlier] and were fixed with a fail-before/pass-after test).\n\nso if you don\u0027t mind, I would like to have this checker test somewhere else, maybe 527-checker-array-access-simd (although this may not qualify as array access opt) or perhaps a new one like simd-arm-opts or so?",
+      "revId": "4deb20890dbbe8dc4e9c719fe1eb26c42aa64ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
