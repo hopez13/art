@@ -34,6 +34,24 @@
       "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1a77c13_e95d9009",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-06T15:00:36Z",
+      "side": 1,
+      "message": "Note: I\u0027m fine abandoning that after Nicolas previous comment. It only got uploaded again because I had some local required changes.\n\nWhat I would like: some documentation somewhere for the preferred way to build and run tests. A README.md in art/?\n\nWhy does buildbot-build only work in the small manifest? That seems surprising.",
+      "parentUuid": "9af1fc4e_b89930fb",
+      "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
