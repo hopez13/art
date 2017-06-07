@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c0241801_b84564f5",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-07T18:15:29Z",
+      "side": 1,
+      "message": "Look for kEnableJavaStackTraceHandler. It is in general *not* safe to do anything with our stack a signal handler, period. I rather get debuggerd output then the runtime double-crashing with nothing.",
+      "parentUuid": "fb3032f6_205ede00",
+      "range": {
+        "startLine": 584,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 3
+      },
+      "revId": "c1e00441378d30db36265d6fc888a5e9a68e56b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6fc71fe_2ca65e9d",
         "filename": "runtime/runtime_common.h",
         "patchSetId": 1
