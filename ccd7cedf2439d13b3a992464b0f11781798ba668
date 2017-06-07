@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfce7c86_2bc0c004",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86858ea2_1a3ab65e",
+      "range": {
+        "startLine": 1133,
+        "startChar": 25,
+        "endLine": 1133,
+        "endChar": 29
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55c9e854_50bce504",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-07T16:26:56Z",
       "side": 1,
       "message": "No documentation about why this moved up. Please document the flow in this method.",
+      "range": {
+        "startLine": 1135,
+        "startChar": 3,
+        "endLine": 1135,
+        "endChar": 50
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdaac1d3_c7917293",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55c9e854_50bce504",
       "range": {
         "startLine": 1135,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e5fdc618_10807168",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c3c4a5b_933d2d3a",
+      "range": {
+        "startLine": 437,
+        "startChar": 53,
+        "endLine": 437,
+        "endChar": 54
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6178647e_09965bdd",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 12
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "d14596f6_f468eb92",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6178647e_09965bdd",
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "225b6bbe_4017db1d",
         "filename": "runtime/mirror/string.cc",
         "patchSetId": 12
@@ -99,6 +189,30 @@
       "writtenOn": "2017-06-07T16:27:36Z",
       "side": 1,
       "message": "Why was this changed?",
+      "range": {
+        "startLine": 399,
+        "startChar": 15,
+        "endLine": 399,
+        "endChar": 27
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9dddfcb_01197774",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "I changed it when investigating failures with this CL. removed.",
+      "parentUuid": "225b6bbe_4017db1d",
       "range": {
         "startLine": 399,
         "startChar": 15,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "96020fa7_4fb18feb",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "yes removed.",
+      "parentUuid": "6228b41f_2fd4df5e",
+      "range": {
+        "startLine": 399,
+        "startChar": 4,
+        "endLine": 406,
+        "endChar": 5
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80f6cb61_0f965ffe",
         "filename": "runtime/openjdkjvmti/events-inl.h",
         "patchSetId": 12
@@ -145,6 +283,30 @@
       "writtenOn": "2017-06-07T16:27:36Z",
       "side": 1,
       "message": "Why no ScopedLocalRef?",
+      "range": {
+        "startLine": 138,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 16
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45d67734_feea6e7b",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80f6cb61_0f965ffe",
       "range": {
         "startLine": 138,
         "startChar": 6,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "b8021ba8_4481df1b",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59b17c45_2cd497ba",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 16
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "467e1db6_da16dc79",
         "filename": "runtime/openjdkjvmti/events.cc",
         "patchSetId": 12
@@ -191,6 +377,30 @@
       "writtenOn": "2017-06-07T16:27:36Z",
       "side": 1,
       "message": "Use conditional?",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 309,
+        "endChar": 3
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "471a0161_5824238b",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "467e1db6_da16dc79",
       "range": {
         "startLine": 305,
         "startChar": 2,
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "1754159a_ecb95896",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47acc9f_04e989af",
+      "range": {
+        "startLine": 320,
+        "startChar": 22,
+        "endLine": 320,
+        "endChar": 25
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d3bd1e7_ebace923",
         "filename": "runtime/openjdkjvmti/events.cc",
         "patchSetId": 12
@@ -237,6 +471,30 @@
       "writtenOn": "2017-06-07T16:27:36Z",
       "side": 1,
       "message": "EventHandler* const event_handler_;",
+      "range": {
+        "startLine": 486,
+        "startChar": 2,
+        "endLine": 486,
+        "endChar": 30
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d87e62f_e6dccce1",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d3bd1e7_ebace923",
       "range": {
         "startLine": 486,
         "startChar": 2,
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "c84e0ff1_7b26c848",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b474772_f4f6815a",
+      "range": {
+        "startLine": 507,
+        "startChar": 1,
+        "endLine": 508,
+        "endChar": 97
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "670a2400_748ab07f",
         "filename": "runtime/openjdkjvmti/events.cc",
         "patchSetId": 12
@@ -295,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "6223cf74_f2871af6",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "670a2400_748ab07f",
+      "range": {
+        "startLine": 657,
+        "startChar": 0,
+        "endLine": 658,
+        "endChar": 79
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1be66dbb_e6823c93",
         "filename": "runtime/openjdkjvmti/events.h",
         "patchSetId": 12
@@ -306,6 +612,30 @@
       "writtenOn": "2017-06-07T16:27:36Z",
       "side": 1,
       "message": "inline is only necessary for the implementation (for linking purposes).",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 8
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c474d9b_df998df1",
+        "filename": "runtime/openjdkjvmti/events.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-07T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1be66dbb_e6823c93",
       "range": {
         "startLine": 172,
         "startChar": 2,
