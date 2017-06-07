@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c200ad7b_bd995974",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-07T09:10:19Z",
+      "side": 1,
+      "message": "This seems hacky. Why don\u0027t you include a separate header file for this?\n\nBecause of the #ifndef on line 17 it might be possible to inadvertently use this the wrong way.",
+      "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
