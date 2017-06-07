@@ -17,7 +17,7 @@
 #ifndef ART_RUNTIME_ASM_SUPPORT_H_
 #define ART_RUNTIME_ASM_SUPPORT_H_
 
-#if defined(__cplusplus)
+#if defined(ASM_SUPPORT_CREATE_CHECK_ASM)
 #include "art_method.h"
 #include "base/bit_utils.h"
 #include "base/callee_save_type.h"
@@ -51,7 +51,7 @@
 #define SUSPEND_CHECK_INTERVAL 96
 #endif
 
-#if defined(__cplusplus)
+#if defined(ASM_SUPPORT_CREATE_CHECK_ASM)
 
 #ifndef ADD_TEST_EQ  // Allow #include-r to replace with their own.
 #define ADD_TEST_EQ(x, y) CHECK_EQ(x, y);
@@ -252,7 +252,7 @@ ADD_TEST_EQ(MIRROR_STRING_VALUE_OFFSET, art::mirror::String::ValueOffset().Int32
 #define STRING_COMPRESSION_FEATURE 1
 ADD_TEST_EQ(STRING_COMPRESSION_FEATURE, art::mirror::kUseStringCompression);
 
-#if defined(__cplusplus)
+#if defined(ASM_SUPPORT_CREATE_CHECK_ASM)
 }  // End of CheckAsmSupportOffsets.
 #endif
 
