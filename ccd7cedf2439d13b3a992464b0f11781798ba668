@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86858ea2_1a3ab65e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-07T16:26:56Z",
+      "side": 1,
+      "message": "Common naming scheme is h_...",
+      "range": {
+        "startLine": 1133,
+        "startChar": 25,
+        "endLine": 1133,
+        "endChar": 29
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55c9e854_50bce504",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-07T16:26:56Z",
+      "side": 1,
+      "message": "No documentation about why this moved up. Please document the flow in this method.",
+      "range": {
+        "startLine": 1135,
+        "startChar": 3,
+        "endLine": 1135,
+        "endChar": 50
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c3c4a5b_933d2d3a",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-07T16:26:56Z",
+      "side": 1,
+      "message": "Document.",
+      "range": {
+        "startLine": 437,
+        "startChar": 53,
+        "endLine": 437,
+        "endChar": 54
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6228b41f_2fd4df5e",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-07T16:26:56Z",
+      "side": 1,
+      "message": "Unrelated change?",
+      "range": {
+        "startLine": 399,
+        "startChar": 4,
+        "endLine": 406,
+        "endChar": 5
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
