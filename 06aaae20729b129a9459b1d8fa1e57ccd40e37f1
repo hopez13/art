@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75e9dd8c_e200f0ba",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-07T09:00:11Z",
+      "side": 1,
+      "message": "nit: I think if you move std::multimap to the next line it will be more readable. line wraps should be around the most outer expression whenever possible",
+      "revId": "06aaae20729b129a9459b1d8fa1e57ccd40e37f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
