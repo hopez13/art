@@ -231,6 +231,7 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
   std::vector<MethodReference> hot_methods;
   std::vector<MethodReference> startup_methods;
   std::set<DexCacheResolvedClasses> resolved_classes;
+  const bool is_low_ram = Runtime::Current()->GetHeap()->IsLowMemoryMode();
   {
     ScopedObjectAccess soa(self);
     gc::ScopedGCCriticalSection sgcs(self,
@@ -244,11 +245,11 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
       ScopedTrace trace2("Get hot methods");
       GetMethodsVisitor visitor(&hot_methods,
                                 &startup_methods,
-                                options_.GetHotStartupMethodSamples());
+                                options_.GetHotStartupMethodSamples(is_low_ram));
       class_linker->VisitClasses(&visitor);
       VLOG(profiler) << "Profile saver recorded " << hot_methods.size() << " hot methods and "
                      << startup_methods.size() << " startup methods with threshold "
-                     << options_.GetHotStartupMethodSamples();
+                     << options_.GetHotStartupMethodSamples(is_low_ram);
     }
   }
   MutexLock mu(self, *Locks::profiler_lock_);
