@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4bb983fa_e29d3afd",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-07T09:51:21Z",
+      "side": 1,
+      "message": "+1. I think I would go even one step further and just fail dex2oat if compiler-filter is not passed.",
+      "parentUuid": "e42c7f1e_093eb29c",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 3
+      },
+      "revId": "ead542aaa48d53c04209624115c2487e13a9b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0f1bcab_c090af1b",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 1
