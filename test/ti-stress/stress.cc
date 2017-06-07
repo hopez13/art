@@ -31,6 +31,10 @@ namespace art {
 // Should we do a 'full_rewrite' with this test?
 static constexpr bool kDoFullRewrite = true;
 
+struct TLSStressData {
+  bool in_field_watch;
+};
+
 struct StressData {
   std::string dexter_cmd;
   std::string out_temp_dex;
@@ -38,6 +42,8 @@ struct StressData {
   bool vm_class_loader_initialized;
   bool trace_stress;
   bool redefine_stress;
+  bool field_stress;
+  bool has_watch_all_extension;
 };
 
 static void WriteToFile(const std::string& fname, jint data_len, const unsigned char* data) {
@@ -191,6 +197,285 @@ static std::string GetValOf(jvmtiEnv* env, JNIEnv* jnienv, std::string type, jva
   }
 }
 
+void JNICALL ClassPrepareHook(jvmtiEnv* jvmtienv,
+                              JNIEnv* env ATTRIBUTE_UNUSED,
+                              jthread thread ATTRIBUTE_UNUSED,
+                              jclass klass) {
+  StressData* data = nullptr;
+  CHECK_EQ(jvmtienv->GetEnvironmentLocalStorage(reinterpret_cast<void**>(&data)),
+           JVMTI_ERROR_NONE);
+  if (data->field_stress && !data->has_watch_all_extension) {
+    jint nfields;
+    jfieldID* fields;
+    if (jvmtienv->GetClassFields(klass, &nfields, &fields) != JVMTI_ERROR_NONE) {
+      LOG(ERROR) << "Unable to get a classes fields!";
+      return;
+    }
+    for (jint i = 0; i < nfields; i++) {
+      jfieldID f = fields[i];
+      // Ignore errors
+      jvmtienv->SetFieldAccessWatch(klass, f);
+      jvmtienv->SetFieldModificationWatch(klass, f);
+    }
+    jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fields));
+  }
+}
+
+class ScopedFieldAccess {
+ public:
+  explicit ScopedFieldAccess(jvmtiEnv* jvmtienv) : env_(jvmtienv), data_(nullptr) {}
+
+  bool Init() {
+    env_->GetThreadLocalStorage(nullptr, reinterpret_cast<void**>(&data_));
+    if (data_ == nullptr) {
+      env_->Allocate(sizeof(TLSStressData), reinterpret_cast<unsigned char**>(&data_));
+      memset(data_, 0, sizeof(TLSStressData));
+      env_->SetThreadLocalStorage(nullptr, data_);
+    }
+    if (data_->in_field_watch) {
+      data_ = nullptr;
+      return false;
+    } else {
+      data_->in_field_watch = true;
+      return true;
+    }
+  }
+
+  ~ScopedFieldAccess() {
+    if (data_ != nullptr) {
+      data_->in_field_watch = false;
+    }
+  }
+
+ private:
+  jvmtiEnv* const env_;
+  TLSStressData* data_;
+};
+
+void JNICALL FieldAccessHook(jvmtiEnv* jvmtienv,
+                             JNIEnv* env,
+                             jthread thread,
+                             jmethodID m,
+                             jlocation location,
+                             jclass field_klass,
+                             jobject object,
+                             jfieldID field) {
+  ScopedFieldAccess sfa(jvmtienv);
+  if (!sfa.Init()) {
+    // In a recursive field access. Just ignore it. It works but is much slower.
+    return;
+  }
+  jvmtiThreadInfo info;
+  if (thread == nullptr) {
+    info.name = const_cast<char*>("<NULLPTR>");
+  } else if (jvmtienv->GetThreadInfo(thread, &info) != JVMTI_ERROR_NONE) {
+    info.name = const_cast<char*>("<UNKNOWN THREAD>");
+  }
+  // Method info
+  char *mfname, *mfsig, *mfgen;
+  char *mcname, *mcgen;
+  jclass mklass = nullptr;
+  if (jvmtienv->GetMethodDeclaringClass(m, &mklass) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get method declaring class!";
+    return;
+  }
+  if (jvmtienv->GetMethodName(m, &mfname, &mfsig, &mfgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get method name!";
+    env->DeleteLocalRef(mklass);
+    return;
+  }
+  if (jvmtienv->GetClassSignature(mklass, &mcname, &mcgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get class name!";
+    env->DeleteLocalRef(mklass);
+    return;
+  }
+  // Field info
+  char *ffname, *ffsig, *ffgen;
+  char *fcname, *fcgen;
+  char *ocname;
+  char *ocgen = nullptr;
+  if (jvmtienv->GetFieldName(field_klass, field, &ffname, &ffsig, &ffgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get field name!";
+    env->DeleteLocalRef(mklass);
+    return;
+  }
+  if (jvmtienv->GetClassSignature(field_klass, &fcname, &fcgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get field class name!";
+    env->DeleteLocalRef(mklass);
+    return;
+  }
+  jclass oklass = (object != nullptr) ? env->GetObjectClass(object) : nullptr;
+  if (env->ExceptionCheck()) {
+    LOG(ERROR) << "Exception getting class of object";
+    env->DeleteLocalRef(mklass);
+    return;
+  } else if (oklass != nullptr) {
+    if (jvmtienv->GetClassSignature(oklass, &ocname, &ocgen) != JVMTI_ERROR_NONE) {
+      LOG(ERROR) << "Failed to get class of object!";
+      env->DeleteLocalRef(mklass);
+      env->DeleteLocalRef(oklass);
+      return;
+    }
+  } else {
+    ocname = const_cast<char*>("<NONE>");
+  }
+  LOG(INFO) << "ACCESS field \"" << fcname << "->" << ffname << ":" << ffsig << "\" on object of "
+            << "type \"" << ocname << "\" in method \"" << mcname << "->" << mfname << mfsig
+            << "\" at location 0x" << std::hex << location << ". Thread is \""
+            << info.name << "\".";
+  if (oklass != nullptr) {
+    jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ocname));
+    jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ocgen));
+    env->DeleteLocalRef(oklass);
+  }
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fcname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fcgen));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ffname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ffsig));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ffgen));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mcname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mcgen));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mfname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mfsig));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mfgen));
+  env->DeleteLocalRef(mklass);
+}
+
+void JNICALL FieldModificationHook(jvmtiEnv* jvmtienv,
+                                   JNIEnv* env,
+                                   jthread thread,
+                                   jmethodID m,
+                                   jlocation location,
+                                   jclass field_klass,
+                                   jobject object,
+                                   jfieldID field,
+                                   char type,
+                                   jvalue new_value) {
+  ScopedFieldAccess sfa(jvmtienv);
+  if (!sfa.Init()) {
+    // In a recursive field access. Just ignore it. It works but is super slow. This mainly happens
+    // since on ART things like GetClassName do field accesses in some situations.
+    return;
+  }
+  jvmtiThreadInfo info;
+  if (thread == nullptr) {
+    info.name = const_cast<char*>("<NULLPTR>");
+  } else if (jvmtienv->GetThreadInfo(thread, &info) != JVMTI_ERROR_NONE) {
+    info.name = const_cast<char*>("<UNKNOWN THREAD>");
+  }
+  // Method info
+  char *mfname, *mfsig, *mfgen;
+  char *mcname, *mcgen;
+  jclass mklass = nullptr;
+  if (jvmtienv->GetMethodDeclaringClass(m, &mklass) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get method declaring class!";
+    return;
+  }
+  if (jvmtienv->GetMethodName(m, &mfname, &mfsig, &mfgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get method name!";
+    env->DeleteLocalRef(mklass);
+    return;
+  }
+  if (jvmtienv->GetClassSignature(mklass, &mcname, &mcgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get class name!";
+    env->DeleteLocalRef(mklass);
+    return;
+  }
+  // Field info
+  char *ffname, *ffsig, *ffgen;
+  char *fcname, *fcgen;
+  char *ocname;
+  char *ocgen = nullptr;
+  if (jvmtienv->GetFieldName(field_klass, field, &ffname, &ffsig, &ffgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get field name!";
+    env->DeleteLocalRef(mklass);
+    return;
+  }
+  if (jvmtienv->GetClassSignature(field_klass, &fcname, &fcgen) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Unable to get field class name!";
+    env->DeleteLocalRef(mklass);
+    return;
+  }
+  jclass oklass = (object != nullptr) ? env->GetObjectClass(object) : nullptr;
+  if (env->ExceptionCheck()) {
+    LOG(ERROR) << "Exception getting class of object";
+    env->DeleteLocalRef(mklass);
+    return;
+  } else if (oklass != nullptr) {
+    if (jvmtienv->GetClassSignature(oklass, &ocname, &ocgen) != JVMTI_ERROR_NONE) {
+      LOG(ERROR) << "Failed to get class of object!";
+      env->DeleteLocalRef(mklass);
+      env->DeleteLocalRef(oklass);
+      return;
+    }
+  } else {
+    ocname = const_cast<char*>("<NONE>");
+  }
+  std::ostringstream oss;
+  switch (type) {
+    case 'L': {
+      jobject nv = new_value.l;
+      if (nv == nullptr) {
+        oss << "\"null\"";
+      } else {
+        jclass nv_klass = env->GetObjectClass(nv);
+        char *nvkname, *nvkgen;
+        if (jvmtienv->GetClassSignature(nv_klass, &nvkname, &nvkgen) != JVMTI_ERROR_NONE) {
+          oss << "ERROR: Unable to get class of new field value!";
+          env->DeleteLocalRef(nv_klass);
+          break;
+        } else {
+          oss << "of type \"" << nvkname << "\"";
+        }
+        jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(nvkname));
+        jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(nvkgen));
+        env->DeleteLocalRef(nv_klass);
+      }
+      break;
+    }
+    case 'Z': {
+      if (new_value.z) {
+        oss << "true";
+      } else {
+        oss << "false";
+      }
+      break;
+    }
+#define SEND_VALUE(chr, sym, type) \
+    case chr: { \
+      oss << static_cast<type>(new_value.sym); \
+      break; \
+    }
+    SEND_VALUE('B', b, int8_t);
+    SEND_VALUE('C', c, uint16_t);
+    SEND_VALUE('S', s, int16_t);
+    SEND_VALUE('I', i, int32_t);
+    SEND_VALUE('J', j, int64_t);
+    SEND_VALUE('F', f, float);
+    SEND_VALUE('D', d, double);
+#undef SEND_VALUE
+  }
+  LOG(INFO) << "MODIFY field \"" << fcname << "->" << ffname << ":" << ffsig << "\" on object of "
+            << "type \"" << ocname << "\" in method \"" << mcname << "->" << mfname << mfsig
+            << "\" at location 0x" << std::hex << location << std::dec << ". New value is "
+            << oss.str() << ". Thread is \"" << info.name << "\".";
+  if (oklass != nullptr) {
+    jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ocname));
+    jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ocgen));
+    env->DeleteLocalRef(oklass);
+  }
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fcname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(fcgen));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ffname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ffsig));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(ffgen));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mcname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mcgen));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mfname));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mfsig));
+  jvmtienv->Deallocate(reinterpret_cast<unsigned char*>(mfgen));
+  env->DeleteLocalRef(mklass);
+}
 void JNICALL MethodExitHook(jvmtiEnv* jvmtienv,
                             JNIEnv* env,
                             jthread thread,
@@ -323,7 +608,7 @@ static std::string GetOption(const std::string& in) {
 }
 
 // Options are
-// jvmti-stress,[redefine,${DEXTER_BINARY},${TEMP_FILE_1},${TEMP_FILE_2},][trace]
+// jvmti-stress,[redefine,${DEXTER_BINARY},${TEMP_FILE_1},${TEMP_FILE_2},][trace,][field]
 static void ReadOptions(StressData* data, char* options) {
   std::string ops(options);
   CHECK_EQ(GetOption(ops), "jvmti-stress") << "Options should start with jvmti-stress";
@@ -332,6 +617,8 @@ static void ReadOptions(StressData* data, char* options) {
     std::string cur = GetOption(ops);
     if (cur == "trace") {
       data->trace_stress = true;
+    } else if (cur == "field") {
+      data->field_stress = true;
     } else if (cur == "redefine") {
       data->redefine_stress = true;
       ops = AdvanceOption(ops);
@@ -372,18 +659,37 @@ static void JNICALL PerformFinalSetupVMInit(jvmtiEnv *jvmti_env,
     jni_env->DeleteLocalRef(klass);
     data->vm_class_loader_initialized = true;
   }
-  if (data->trace_stress) {
-    if (jvmti_env->SetEventNotificationMode(JVMTI_ENABLE,
-                                            JVMTI_EVENT_METHOD_ENTRY,
-                                            nullptr) != JVMTI_ERROR_NONE) {
-      LOG(ERROR) << "Unable to enable JVMTI_EVENT_METHOD_ENTRY event!";
-    }
-    if (jvmti_env->SetEventNotificationMode(JVMTI_ENABLE,
-                                        JVMTI_EVENT_METHOD_EXIT,
-                                        nullptr) != JVMTI_ERROR_NONE) {
-      LOG(ERROR) << "Unable to enable JVMTI_EVENT_METHOD_EXIT event!";
+}
+
+static bool WatchAllFields(jvmtiEnv* jvmti, StressData* data) {
+  jint ext_cnt;
+  jvmtiExtensionFunctionInfo* ext_funcs;
+  jvmti->GetExtensionFunctions(&ext_cnt, &ext_funcs);
+  for (jint i = 0; i < ext_cnt; i++) {
+    jvmtiExtensionFunctionInfo* ext = &ext_funcs[i];
+    if (strcmp(ext->id, "com.android.art.field.set_global_field_access_watch") == 0 ||
+        strcmp(ext->id, "com.android.art.field.set_global_field_modification_watch") == 0) {
+      LOG(INFO) << "Calling extension function " << ext->id;
+      data->has_watch_all_extension = true;
+      if (ext->func(jvmti) != JVMTI_ERROR_NONE) {
+        LOG(ERROR) << "Unable to successfully call " << ext->id;
+        return false;
+      }
     }
   }
+  // TODO Actually free all the ext funcs memory.
+  // TODO Make art work fully using the standard jvmti approach.
+  if (data->has_watch_all_extension) {
+    return true;
+  }
+  // Set up everything the old fashioned way using class prepare.
+  if (jvmti->SetEventNotificationMode(JVMTI_ENABLE,
+                                      JVMTI_EVENT_CLASS_PREPARE,
+                                      nullptr) != JVMTI_ERROR_NONE) {
+    LOG(ERROR) << "Couldn't set prepare event!";
+    return false;
+  }
+  return true;
 }
 
 extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* vm,
@@ -422,14 +728,11 @@ extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* vm,
   cb.VMInit = PerformFinalSetupVMInit;
   cb.MethodEntry = MethodEntryHook;
   cb.MethodExit = MethodExitHook;
+  cb.FieldAccess = FieldAccessHook;
+  cb.FieldModification = FieldModificationHook;
+  cb.ClassPrepare = ClassPrepareHook;
   if (jvmti->SetEventCallbacks(&cb, sizeof(cb)) != JVMTI_ERROR_NONE) {
     LOG(ERROR) << "Unable to set class file load hook cb!";
-    return 1;
-  }
-  if (jvmti->SetEventNotificationMode(JVMTI_ENABLE,
-                                      JVMTI_EVENT_NATIVE_METHOD_BIND,
-                                      nullptr) != JVMTI_ERROR_NONE) {
-    LOG(ERROR) << "Unable to enable JVMTI_EVENT_NATIVE_METHOD_BIND event!";
     return 1;
   }
   if (jvmti->SetEventNotificationMode(JVMTI_ENABLE,
@@ -443,6 +746,43 @@ extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* vm,
                                         JVMTI_EVENT_CLASS_FILE_LOAD_HOOK,
                                         nullptr) != JVMTI_ERROR_NONE) {
       LOG(ERROR) << "Unable to enable CLASS_FILE_LOAD_HOOK event!";
+      return 1;
+    }
+  }
+  if (data->trace_stress) {
+    if (jvmti->SetEventNotificationMode(JVMTI_ENABLE,
+                                        JVMTI_EVENT_NATIVE_METHOD_BIND,
+                                        nullptr) != JVMTI_ERROR_NONE) {
+      LOG(ERROR) << "Unable to enable JVMTI_EVENT_NATIVE_METHOD_BIND event!";
+      return 1;
+    }
+    if (jvmti->SetEventNotificationMode(JVMTI_ENABLE,
+                                        JVMTI_EVENT_METHOD_ENTRY,
+                                        nullptr) != JVMTI_ERROR_NONE) {
+      LOG(ERROR) << "Unable to enable JVMTI_EVENT_METHOD_ENTRY event!";
+      return 1;
+    }
+    if (jvmti->SetEventNotificationMode(JVMTI_ENABLE,
+                                        JVMTI_EVENT_METHOD_EXIT,
+                                        nullptr) != JVMTI_ERROR_NONE) {
+      LOG(ERROR) << "Unable to enable JVMTI_EVENT_METHOD_EXIT event!";
+      return 1;
+    }
+  }
+  if (data->field_stress) {
+    if (jvmti->SetEventNotificationMode(JVMTI_ENABLE,
+                                        JVMTI_EVENT_FIELD_MODIFICATION,
+                                        nullptr) != JVMTI_ERROR_NONE) {
+      LOG(ERROR) << "Unable to enable FIELD_MODIFICATION event!";
+      return 1;
+    }
+    if (jvmti->SetEventNotificationMode(JVMTI_ENABLE,
+                                        JVMTI_EVENT_FIELD_ACCESS,
+                                        nullptr) != JVMTI_ERROR_NONE) {
+      LOG(ERROR) << "Unable to enable FIELD_ACCESS event!";
+      return 1;
+    }
+    if (!WatchAllFields(jvmti, data)) {
       return 1;
     }
   }

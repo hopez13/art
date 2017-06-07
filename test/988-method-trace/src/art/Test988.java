@@ -190,7 +190,9 @@ public class Test988 {
     }
 
     private static List<Printable> results = new ArrayList<>();
-    private static int cnt = 1;
+    // Starts with => enableMethodTracing
+    //             .=> enableTracing
+    private static int cnt = 2;
 
     // Iterative version
     static final class IterOp implements IntUnaryOperator {
@@ -249,7 +251,7 @@ public class Test988 {
     public static void run() throws Exception {
         // call this here so it is linked. It doesn't actually do anything here.
         loadAllClasses();
-        Trace.disableMethodTracing(Thread.currentThread());
+        Trace.disableTracing(Thread.currentThread());
         Trace.enableMethodTracing(
             Test988.class,
             Test988.class.getDeclaredMethod("notifyMethodEntry", Object.class),
@@ -261,7 +263,7 @@ public class Test988 {
         doFibTest(-19, new IterOp());
         doFibTest(-19, new RecurOp());
         // Turn off method tracing so we don't have to deal with print internals.
-        Trace.disableMethodTracing(Thread.currentThread());
+        Trace.disableTracing(Thread.currentThread());
         printResults();
     }
 

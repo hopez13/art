@@ -60,7 +60,21 @@ class FieldUtil {
                                      jclass klass,
                                      jfieldID field,
                                      jboolean* is_synthetic_ptr);
+
+  static jvmtiError SetFieldModificationWatch(jvmtiEnv* env, jclass klass, jfieldID field);
+  static jvmtiError ClearFieldModificationWatch(jvmtiEnv* env, jclass klass, jfieldID field);
+  static jvmtiError SetGlobalFieldModificationWatch(jvmtiEnv* env);
+  static jvmtiError ClearGlobalFieldModificationWatch(jvmtiEnv* env);
+  static jvmtiError SetFieldAccessWatch(jvmtiEnv* env, jclass klass, jfieldID field);
+  static jvmtiError ClearFieldAccessWatch(jvmtiEnv* env, jclass klass, jfieldID field);
+  static jvmtiError SetGlobalFieldAccessWatch(jvmtiEnv* env);
+  static jvmtiError ClearGlobalFieldAccessWatch(jvmtiEnv* env);
 };
+
+// TODO
+// class FieldExtensions {
+//  public:
+// };
 
 }  // namespace openjdkjvmti
 

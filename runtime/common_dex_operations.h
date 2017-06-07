@@ -120,7 +120,7 @@ ALWAYS_INLINE bool DoFieldPutCommon(Thread* self,
                                     const ShadowFrame& shadow_frame,
                                     ObjPtr<mirror::Object> obj,
                                     ArtField* field,
-                                    const JValue& value)
+                                    JValue& value)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   field->GetDeclaringClass()->AssertInitializedOrInitializingInThread(self);
 
@@ -128,15 +128,23 @@ ALWAYS_INLINE bool DoFieldPutCommon(Thread* self,
   // the field from the base of the object, we need to look for it first.
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (UNLIKELY(instrumentation->HasFieldWriteListeners())) {
-    StackHandleScope<1> hs(self);
-    // Wrap in handle wrapper in case the listener does thread suspension.
-    HandleWrapperObjPtr<mirror::Object> h(hs.NewHandleWrapper(&obj));
-    ObjPtr<mirror::Object> this_object = field->IsStatic() ? nullptr : obj;
-    instrumentation->FieldWriteEvent(self, this_object.Ptr(),
+    StackHandleScope<2> hs(self);
+    // Save this and return value (if needed) in case the instrumentation causes a suspend.
+    Handle<mirror::Object> this_object(hs.NewHandle(obj));
+    Handle<mirror::Object> ret(
+        hs.NewHandle<mirror::Object>(field_type == Primitive::kPrimNot ? value.GetL() : nullptr));
+    instrumentation->FieldWriteEvent(self, this_object.Get(),
                                      shadow_frame.GetMethod(),
                                      shadow_frame.GetDexPC(),
                                      field,
                                      value);
+    if (self->IsExceptionPending()) {
+      return false;
+    }
+    obj = this_object.Get();
+    if (field_type == Primitive::kPrimNot) {
+      value.SetL(ret.Get());
+    }
   }
 
   switch (field_type) {

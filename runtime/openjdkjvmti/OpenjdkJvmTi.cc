@@ -635,36 +635,52 @@ class JvmtiFunctions {
     return ERR(NOT_IMPLEMENTED);
   }
 
-  static jvmtiError SetFieldAccessWatch(jvmtiEnv* env,
-                                        jclass klass ATTRIBUTE_UNUSED,
-                                        jfieldID field ATTRIBUTE_UNUSED) {
+  static jvmtiError SetFieldAccessWatch(jvmtiEnv* env, jclass klass, jfieldID field) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_generate_field_access_events);
-    return ERR(NOT_IMPLEMENTED);
+    return FieldUtil::SetFieldAccessWatch(env, klass, field);
   }
 
-  static jvmtiError ClearFieldAccessWatch(jvmtiEnv* env,
-                                          jclass klass ATTRIBUTE_UNUSED,
-                                          jfieldID field ATTRIBUTE_UNUSED) {
+  static jvmtiError ClearFieldAccessWatch(jvmtiEnv* env, jclass klass, jfieldID field) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_generate_field_access_events);
-    return ERR(NOT_IMPLEMENTED);
+    return FieldUtil::ClearFieldAccessWatch(env, klass, field);
   }
 
-  static jvmtiError SetFieldModificationWatch(jvmtiEnv* env,
-                                              jclass klass ATTRIBUTE_UNUSED,
-                                              jfieldID field ATTRIBUTE_UNUSED) {
+  static jvmtiError SetGlobalFieldModificationWatch(jvmtiEnv* env) {
     ENSURE_VALID_ENV(env);
-    ENSURE_HAS_CAP(env, can_generate_field_modification_events);
-    return ERR(NOT_IMPLEMENTED);
+    ENSURE_HAS_CAP(env, can_generate_field_access_events);
+    return FieldUtil::SetGlobalFieldModificationWatch(env);
   }
 
-  static jvmtiError ClearFieldModificationWatch(jvmtiEnv* env,
-                                                jclass klass ATTRIBUTE_UNUSED,
-                                                jfieldID field ATTRIBUTE_UNUSED) {
+  static jvmtiError ClearGlobalFieldModificationWatch(jvmtiEnv* env) {
+    ENSURE_VALID_ENV(env);
+    ENSURE_HAS_CAP(env, can_generate_field_access_events);
+    return FieldUtil::ClearGlobalFieldModificationWatch(env);
+  }
+
+  static jvmtiError SetGlobalFieldAccessWatch(jvmtiEnv* env) {
+    ENSURE_VALID_ENV(env);
+    ENSURE_HAS_CAP(env, can_generate_field_access_events);
+    return FieldUtil::SetGlobalFieldAccessWatch(env);
+  }
+
+  static jvmtiError ClearGlobalFieldAccessWatch(jvmtiEnv* env) {
+    ENSURE_VALID_ENV(env);
+    ENSURE_HAS_CAP(env, can_generate_field_access_events);
+    return FieldUtil::ClearGlobalFieldAccessWatch(env);
+  }
+
+  static jvmtiError SetFieldModificationWatch(jvmtiEnv* env, jclass klass, jfieldID field) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_generate_field_modification_events);
-    return ERR(NOT_IMPLEMENTED);
+    return FieldUtil::SetFieldModificationWatch(env, klass, field);
+  }
+
+  static jvmtiError ClearFieldModificationWatch(jvmtiEnv* env, jclass klass, jfieldID field) {
+    ENSURE_VALID_ENV(env);
+    ENSURE_HAS_CAP(env, can_generate_field_modification_events);
+    return FieldUtil::ClearFieldModificationWatch(env, klass, field);
   }
 
   static jvmtiError GetLoadedClasses(jvmtiEnv* env, jint* class_count_ptr, jclass** classes_ptr) {
@@ -1225,6 +1241,59 @@ class JvmtiFunctions {
             JVMTI_ERROR_INVALID_CLASS,
             JVMTI_ERROR_NULL_POINTER
         });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(SetGlobalFieldModificationWatch),
+        "com.android.art.field.set_global_field_modification_watch",
+        "Act as though you call SetFieldModificationWatch on every field of every class. Will"
+        " return JVMTI_ERROR_DUPLICATE if it has already been set on this jvmtiEnv.",
+        0,
+        {},
+        2,
+        { ERR(MUST_POSSESS_CAPABILITY), ERR(DUPLICATE) });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(ClearGlobalFieldModificationWatch),
+        "com.android.art.field.clear_global_field_Modification_watch",
+        "Disables the global field modification watch set up by"
+        " com.android.art.field.set_global_field_modification_watch. Returns JVMTI_ERROR_NOT_FOUND"
+        " if set_global_field_modification_watch was never called.",
+        0,
+        {},
+        2,
+        { ERR(MUST_POSSESS_CAPABILITY), ERR(NOT_FOUND) });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(SetGlobalFieldAccessWatch),
+        "com.android.art.field.set_global_field_access_watch",
+        "Act as though you call SetFieldAccessWatch on every field of every class. Will return"
+        " JVMTI_ERROR_DUPLICATE if it has already been set on this jvmtiEnv.",
+        0,
+        {},
+        2,
+        { ERR(MUST_POSSESS_CAPABILITY), ERR(DUPLICATE) });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(ClearGlobalFieldAccessWatch),
+        "com.android.art.field.clear_global_field_access_watch",
+        "Disables the global field access watch set up by"
+        " com.android.art.field.set_global_field_access_watch. Returns JVMTI_ERROR_NOT_FOUND if"
+        " set_global_field_access_watch was never called.",
+        0,
+        {},
+        2,
+        { ERR(MUST_POSSESS_CAPABILITY), ERR(NOT_FOUND) });
     if (error != ERR(NONE)) {
       return error;
     }

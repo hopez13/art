@@ -341,7 +341,10 @@ struct ClassCallback : public art::ClassLoadCallback {
       ScopedLocalRef<jclass> jklass(thread->GetJniEnv(),
                                     thread->GetJniEnv()->AddLocalReference<jclass>(klass.Get()));
       ScopedLocalRef<jthread> thread_jni(
-          thread->GetJniEnv(), thread->GetJniEnv()->AddLocalReference<jthread>(thread->GetPeer()));
+          thread->GetJniEnv(),
+          thread->GetPeer() != nullptr
+            ? thread->GetJniEnv()->AddLocalReference<jthread>(thread->GetPeer())
+            : nullptr);
       art::ScopedThreadSuspension sts(thread, art::ThreadState::kNative);
       event_handler->DispatchEvent<ArtJvmtiEvent::kClassPrepare>(
           thread,
