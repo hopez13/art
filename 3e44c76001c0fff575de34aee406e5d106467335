@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f7f755e_3bf7caae",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T16:40:22Z",
+      "side": 1,
+      "message": "Break the line after \"\u0026\u0026\", not before.",
+      "range": {
+        "startLine": 53,
+        "startChar": 10,
+        "endLine": 53,
+        "endChar": 13
+      },
+      "revId": "3e44c76001c0fff575de34aee406e5d106467335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3e953d4_e6d6b90d",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T16:40:22Z",
+      "side": 1,
+      "message": "We could also encode constants that can be composed from smaller components. For example, kPrimInt/-1 can be loaded using\n\n    __ Movi(dst.V16B(), 0xff);\n\nand kPrimInt/0x00010001 can be loaded using\n\n    __ Movi(dst.V8H(), 1);\n\nOr does the type mismatch (loading as V16B and using as V32S) break some CPU-level optimizations?",
+      "range": {
+        "startLine": 249,
+        "startChar": 11,
+        "endLine": 249,
+        "endChar": 27
+      },
+      "revId": "3e44c76001c0fff575de34aee406e5d106467335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e3583f7_a1f9e8be",
         "filename": "test/655-checker-simd-arm-opt/src/Main.java",
         "patchSetId": 2
@@ -13,6 +59,29 @@
       "writtenOn": "2017-06-07T16:36:24Z",
       "side": 1,
       "message": "copy and paste remainder? :-)",
+      "revId": "3e44c76001c0fff575de34aee406e5d106467335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91fdb1c9_dfc8e3b9",
+        "filename": "test/655-checker-simd-arm-opt/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T16:40:22Z",
+      "side": 1,
+      "message": "The interleaving of CHECK and CHECK-DAG makes the \"-DAG\" useless. I think this can all be CHECK-DAG. Alternatively, replace the CHECKs with CHECK-NEXT and the CHECK-DAG with CHECK.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 57
+      },
       "revId": "3e44c76001c0fff575de34aee406e5d106467335",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
