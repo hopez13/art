@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c2308893_4c67c497",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-07T09:15:21Z",
+      "side": 1,
+      "message": "Yes, target is only an issue if ART_TEST_ANDROID_ROOT is defined. The magic/hackery only works in master-art.",
+      "parentUuid": "9f042196_1e520c50",
+      "revId": "6e9d2c14c729279dc7d87e17e55276a5c41c4197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "634093ad_549b969a",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "08182352_40a547dc",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-07T09:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "634093ad_549b969a",
+      "revId": "6e9d2c14c729279dc7d87e17e55276a5c41c4197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7ca647e_86a62398",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2017-06-06T13:30:07Z",
       "side": 1,
       "message": "This should probably check for a different android root as well, as it might be useful to do the build on a non-master-art repository.",
+      "revId": "6e9d2c14c729279dc7d87e17e55276a5c41c4197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30610098_dc305f62",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-07T09:15:21Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "b7ca647e_86a62398",
       "revId": "6e9d2c14c729279dc7d87e17e55276a5c41c4197",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
