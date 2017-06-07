@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "879e44dc_1f6bbe11",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-07T17:18:47Z",
+      "side": 1,
+      "message": "I didn\u0027t want to change in the refactor, but here you go... :-)",
+      "parentUuid": "e98334f6_2140b670",
+      "revId": "c46af715cf82282a7ac36e827765749144c0cb29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fc2c2c5_03a9ce54",
         "filename": "runtime/base/callee_save_type.h",
         "patchSetId": 4
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "eeb4df91_5d6c341b",
+        "filename": "runtime/base/callee_save_type.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-07T17:18:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fc2c2c5_03a9ce54",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "c46af715cf82282a7ac36e827765749144c0cb29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c815e805_dfba5979",
         "filename": "tools/cpp-define-generator/offset_runtime.def",
         "patchSetId": 4
@@ -53,6 +95,24 @@
       "writtenOn": "2017-06-07T09:21:28Z",
       "side": 1,
       "message": "Since you\u0027re touching this, please split the long line.",
+      "revId": "c46af715cf82282a7ac36e827765749144c0cb29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25ed43a3_1b55abde",
+        "filename": "tools/cpp-define-generator/offset_runtime.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-07T17:18:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c815e805_dfba5979",
       "revId": "c46af715cf82282a7ac36e827765749144c0cb29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
