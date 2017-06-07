@@ -576,7 +576,7 @@ bool ProcessAnnotationValue(const ClassData& klass,
             self, array_class.Get(), size, array_class->GetComponentSizeShift(),
             Runtime::Current()->GetHeap()->GetCurrentAllocator())));
         if (new_array == nullptr) {
-          LOG(ERROR) << "Annotation element array allocation failed with size " << size;
+          LOG(WARNING) << "Annotation element array allocation failed with size " << size;
           return false;
         }
         DexFile::AnnotationValue new_annotation_value;
