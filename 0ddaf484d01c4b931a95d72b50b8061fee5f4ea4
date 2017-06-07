@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d1818d39_c710eace",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-07T12:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e3daa0b_561a3fd2",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 689,
+        "endChar": 3
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f8bda00_67fbcb1d",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-07T09:08:44Z",
       "side": 1,
       "message": "Move this to line 705?",
+      "range": {
+        "startLine": 698,
+        "startChar": 6,
+        "endLine": 698,
+        "endChar": 17
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76035d7f_7f903655",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-07T12:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f8bda00_67fbcb1d",
       "range": {
         "startLine": 698,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7c1bf565_8d69d314",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-07T12:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6dbd6cf_e43467df",
+      "range": {
+        "startLine": 692,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 3
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3529931_034bc354",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c396f0df_e8639fe6",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-07T12:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3529931_034bc354",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 20
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fb3e9da_e6b498fb",
         "filename": "test/708-jit-cache-churn/src/JitCacheChurnTest.java",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2017-06-07T09:08:44Z",
       "side": 1,
       "message": "Would you be more likely to hit a SIGILL if that was cached?",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 3
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d40cff53_c4083318",
+        "filename": "test/708-jit-cache-churn/src/JitCacheChurnTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-07T12:57:22Z",
+      "side": 1,
+      "message": "Assuming a bug in the cache operations, the code is more likely to hit a SIGILL after one core has JIT compiled the method and other cores immediately execute it.\n\nThe test would be more compelling if we had control of thread affinity and ran indefinitely.",
+      "parentUuid": "0fb3e9da_e6b498fb",
       "range": {
         "startLine": 196,
         "startChar": 0,
