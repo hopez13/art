@@ -67,6 +67,10 @@ bool DoFieldGet(Thread* self, ShadowFrame& shadow_frame, const Instruction* inst
 
   JValue result;
   DoFieldGetCommon<field_type>(self, shadow_frame, obj, f, &result);
+  if (UNLIKELY(self->IsExceptionPending())) {
+    // Instrumentation threw an error!
+    return false;
+  }
   uint32_t vregA = is_static ? inst->VRegA_21c(inst_data) : inst->VRegA_22c(inst_data);
   switch (field_type) {
     case Primitive::kPrimBoolean:
