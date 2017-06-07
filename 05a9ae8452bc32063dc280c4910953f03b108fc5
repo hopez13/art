@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ffd15f5_f5a5f071",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5964,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Drop; mr is bool32_t.",
+      "range": {
+        "startLine": 5964,
+        "startChar": 21,
+        "endLine": 5964,
+        "endChar": 32
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93b3fdb6_5b21e886",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5995,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 5995,
+        "startChar": 19,
+        "endLine": 5995,
+        "endChar": 30
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4f1f97_11192bc6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6074,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 6074,
+        "startChar": 17,
+        "endLine": 6074,
+        "endChar": 28
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b234773_48760458",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 6163,
+        "startChar": 17,
+        "endLine": 6163,
+        "endChar": 28
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70899f6d_dad58dcc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 6240,
+        "startChar": 13,
+        "endLine": 6240,
+        "endChar": 24
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fd005da_0a01477f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "(stored in the Marking Register)",
+      "range": {
+        "startLine": 6290,
+        "startChar": 53,
+        "endLine": 6290,
+        "endChar": 54
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c74f8a25_d00be917",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6296,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Drop; mr is bool32_t.",
+      "range": {
+        "startLine": 6296,
+        "startChar": 13,
+        "endLine": 6296,
+        "endChar": 24
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffdc81b7_aeb38726",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Why would be a caller-save register better?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 35
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75a36fa7_23a0db77",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "reorder?",
+      "range": {
+        "startLine": 85,
+        "startChar": 64,
+        "endLine": 85,
+        "endChar": 70
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a04c7e0_c3863471",
+        "filename": "runtime/arch/arm64/asm_support_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Is this the appropriate indentation?",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2b8d993_89a9eb97",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "This is unnecessary. The suspend check at the method entry shall update the wMR if needed.",
+      "range": {
+        "startLine": 685,
+        "startChar": 4,
+        "endLine": 685,
+        "endChar": 28
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5918aabe_ec1c707a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Why do we need to refresh the register for instanceof?",
+      "range": {
+        "startLine": 1343,
+        "startChar": 4,
+        "endLine": 1343,
+        "endChar": 28
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed779a24_ff551684",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1368,
+        "startChar": 4,
+        "endLine": 1368,
+        "endChar": 28
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "200841e3_a797d69a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1510,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1510,
+        "startChar": 4,
+        "endLine": 1510,
+        "endChar": 28
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7315871f_4c198174",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1577,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1574,
+        "startChar": 0,
+        "endLine": 1577,
+        "endChar": 29
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94cf1858_6bef900e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T15:50:01Z",
+      "side": 1,
+      "message": "Yes.",
+      "range": {
+        "startLine": 1988,
+        "startChar": 4,
+        "endLine": 1988,
+        "endChar": 65
+      },
+      "revId": "05a9ae8452bc32063dc280c4910953f03b108fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
