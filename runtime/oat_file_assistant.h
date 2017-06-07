@@ -373,7 +373,9 @@ class OatFileAssistant {
   // If the result is not kUpdateSucceeded, the value of error_msg will be set
   // to a string describing why there was a failure or the update was not
   // attempted. error_msg must not be null.
-  ResultOfAttemptToUpdate GenerateOatFileNoChecks(OatFileInfo& info, std::string* error_msg);
+  ResultOfAttemptToUpdate GenerateOatFileNoChecks(OatFileInfo& info,
+                                                  CompilerFilter::Filter target,
+                                                  std::string* error_msg);
 
   // Return info for the best oat file.
   OatFileInfo& GetBestInfo();
