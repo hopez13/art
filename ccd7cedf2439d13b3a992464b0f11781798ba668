@@ -71,6 +71,46 @@
     },
     {
       "key": {
+        "uuid": "6178647e_09965bdd",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "newline in between args",
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "225b6bbe_4017db1d",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "Why was this changed?",
+      "range": {
+        "startLine": 399,
+        "startChar": 15,
+        "endLine": 399,
+        "endChar": 27
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6228b41f_2fd4df5e",
         "filename": "runtime/mirror/string.cc",
         "patchSetId": 12
@@ -87,6 +127,190 @@
         "startChar": 4,
         "endLine": 406,
         "endChar": 5
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80f6cb61_0f965ffe",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "Why no ScopedLocalRef?",
+      "range": {
+        "startLine": 138,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 16
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b17c45_2cd497ba",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "ScopedLocalRef?",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 16
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "467e1db6_da16dc79",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "Use conditional?",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 309,
+        "endChar": 3
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e47acc9f_04e989af",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "Explain magic number",
+      "range": {
+        "startLine": 320,
+        "startChar": 22,
+        "endLine": 320,
+        "endChar": 25
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3bd1e7_ebace923",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "EventHandler* const event_handler_;",
+      "range": {
+        "startLine": 486,
+        "startChar": 2,
+        "endLine": 486,
+        "endChar": 30
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b474772_f4f6815a",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "Delete",
+      "range": {
+        "startLine": 507,
+        "startChar": 1,
+        "endLine": 508,
+        "endChar": 97
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "670a2400_748ab07f",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "Delete",
+      "range": {
+        "startLine": 657,
+        "startChar": 0,
+        "endLine": 658,
+        "endChar": 79
+      },
+      "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1be66dbb_e6823c93",
+        "filename": "runtime/openjdkjvmti/events.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-07T16:27:36Z",
+      "side": 1,
+      "message": "inline is only necessary for the implementation (for linking purposes).",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 8
       },
       "revId": "ccd7cedf2439d13b3a992464b0f11781798ba668",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
