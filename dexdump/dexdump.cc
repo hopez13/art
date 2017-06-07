@@ -1747,7 +1747,7 @@ static void dumpCallSite(const DexFile* pDexFile, u4 idx) {
       case EncodedArrayValueIterator::ValueType::kArray:
       case EncodedArrayValueIterator::ValueType::kAnnotation:
         // Unreachable based on current EncodedArrayValueIterator::Next().
-        UNIMPLEMENTED(FATAL) << " type " << type;
+        UNIMPLEMENTED(FATAL) << " type " << it.GetValueType();
         UNREACHABLE();
         break;
       case EncodedArrayValueIterator::ValueType::kNull:
