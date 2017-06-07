@@ -73,6 +73,54 @@
     },
     {
       "key": {
+        "uuid": "92ef2d9a_c0c9f477",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-07T10:12:24Z",
+      "side": 1,
+      "message": "if no filter is passed, dex2oat will choose speed.\n\nOatFileAssistant passes only the one configured as runtime options.",
+      "parentUuid": "3adc0ba8_948d946c",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 3
+      },
+      "revId": "ead542aaa48d53c04209624115c2487e13a9b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfa81154_1b79201d",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-07T10:12:24Z",
+      "side": 1,
+      "message": "Richard, you\u0027re right, and the bottom issue is that we only passed the filter if it was configured as a runtime option. This only happens in our test environments and afaik never on devices. So even if you would test IsUpToDate for a given filter we always defaulted. \n\nI considered changing the default but I thought people would complain :).\n\nI also prefer to make it an error if the compiler filter is not passed. I will do it in a follow up",
+      "parentUuid": "4bb983fa_e29d3afd",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 3
+      },
+      "revId": "ead542aaa48d53c04209624115c2487e13a9b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0f1bcab_c090af1b",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 1
@@ -96,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "16f01ac3_8d6e5bd5",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-07T10:12:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0f1bcab_c090af1b",
+      "range": {
+        "startLine": 368,
+        "startChar": 64,
+        "endLine": 369,
+        "endChar": 38
+      },
+      "revId": "ead542aaa48d53c04209624115c2487e13a9b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a39d10_88a7d7d9",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 1
@@ -107,6 +179,30 @@
       "writtenOn": "2017-06-07T08:27:17Z",
       "side": 1,
       "message": "... oat file assistant one ...",
+      "range": {
+        "startLine": 1235,
+        "startChar": 61,
+        "endLine": 1235,
+        "endChar": 64
+      },
+      "revId": "ead542aaa48d53c04209624115c2487e13a9b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "902dc4d3_25283e00",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-07T10:12:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92a39d10_88a7d7d9",
       "range": {
         "startLine": 1235,
         "startChar": 61,
