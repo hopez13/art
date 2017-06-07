@@ -251,7 +251,8 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
   MethodReferenceCollection hot_methods(allocator.Adapter(), allocator.Adapter());
   MethodReferenceCollection startup_methods(allocator.Adapter(), allocator.Adapter());
   TypeReferenceCollection resolved_classes(allocator.Adapter(), allocator.Adapter());
-  const size_t hot_threshold = options_.GetHotStartupMethodSamples();
+  const bool is_low_ram = Runtime::Current()->GetHeap()->IsLowMemoryMode();
+  const size_t hot_threshold = options_.GetHotStartupMethodSamples(is_low_ram);
   {
     ScopedObjectAccess soa(self);
     gc::ScopedGCCriticalSection sgcs(self,
@@ -259,11 +260,13 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
                                      gc::kCollectorTypeCriticalSection);
     {
       ScopedTrace trace2("Get hot methods");
-      GetClassesAndMethodsVisitor visitor(&hot_methods,
-                                          &startup_methods,
-                                          &resolved_classes,
-                                          hot_threshold);
-      runtime->GetClassLinker()->VisitClasses(&visitor);
+      GetMethodsVisitor visitor(&hot_methods,
+                                &startup_methods,
+                                options_.GetHotStartupMethodSamples(is_low_ram));
+      class_linker->VisitClasses(&visitor);
+      VLOG(profiler) << "Profile saver recorded " << hot_methods.size() << " hot methods and "
+                     << startup_methods.size() << " startup methods with threshold "
+                     << options_.GetHotStartupMethodSamples(is_low_ram);
     }
   }
 
