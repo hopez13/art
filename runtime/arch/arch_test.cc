@@ -21,8 +21,11 @@
 #include "common_runtime_test.h"
 #include "quick/quick_method_frame_info.h"
 // Common tests are declared next to the constants.
-#define ADD_TEST_EQ(x, y) EXPECT_EQ(x, y);
-#include "asm_support.h"
+
+#define ASM_SUPPORT_CHECK_HEADER size_t count = 0;
+#define ADD_TEST_EQ(x, y) EXPECT_EQ(x, y); count++;
+#define ASM_SUPPORT_CHECK_FOOTER EXPECT_GT(count, 0u);
+#include "asm_support_check.h"
 
 namespace art {
 
