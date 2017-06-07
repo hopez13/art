@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "bf881c77_e354e22b",
+        "filename": "compiler/linker/method_bss_mapping_encoder.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-07T12:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87dc2112_20fff4df",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 60
+      },
+      "revId": "4d425da5de9bbb16645ee8a6541818faa3ee864e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b4e4909_7b4a5d82",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 13
