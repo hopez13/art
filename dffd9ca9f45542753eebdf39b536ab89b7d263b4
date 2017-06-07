@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da1b3714_7ee95cf5",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-07T15:11:59Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ve simplified the comment here in the new PS. For Add \u0026 Sub cases, only following cases are handled currently:\n\n  array[i + CONST1]\n  array[i - CONST2]",
+      "parentUuid": "17da1062_3f3f0d4d",
+      "range": {
+        "startLine": 56,
+        "startChar": 69,
+        "endLine": 57,
+        "endChar": 53
+      },
+      "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43b5dd94_c232e1c6",
         "filename": "compiler/optimizing/load_store_analysis.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-05-30T20:18:47Z",
       "side": 1,
       "message": "Did GVN already make (i+j+k) a common value?",
+      "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebcac905_2d715f11",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-07T15:11:59Z",
+      "side": 1,
+      "message": "IMO, LSA can be a general and flexible pass in the compiler,\nand may be used in other places without GVN or simpilfier.\nE.g. my scheduling improvement CL (https://android-review.googlesource.com/#/c/408052/) use LSA to help analyze side effect dependencies between ArrayGet and ArrySet.\n\nThe following code allows LSA to be able to handle some more complex array index expressions, \nwithout the help of GVN.",
+      "parentUuid": "43b5dd94_c232e1c6",
       "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
