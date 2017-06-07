@@ -25,6 +25,53 @@
     },
     {
       "key": {
+        "uuid": "e42c7f1e_093eb29c",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-07T09:47:18Z",
+      "side": 1,
+      "message": "Originally GetRuntimeCompilerFilterOption returned the current runtime compiler filter option, but that was changed by calin@ in aog/388813 to use a different default compiler filter. This made it inconsistent with the call to runtime-\u003eAddCurrentRuntimeFeaturesAsDex2OatArguments in the Dex2Oat function.\n\nWhy not change the default dex2oat filter to kQuicken rather than having two different default filters?",
+      "parentUuid": "3adc0ba8_948d946c",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 3
+      },
+      "revId": "ead542aaa48d53c04209624115c2487e13a9b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0f1bcab_c090af1b",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-07T09:47:18Z",
+      "side": 1,
+      "message": "Comment out of date now?",
+      "range": {
+        "startLine": 368,
+        "startChar": 64,
+        "endLine": 369,
+        "endChar": 38
+      },
+      "revId": "ead542aaa48d53c04209624115c2487e13a9b66f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a39d10_88a7d7d9",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 1
