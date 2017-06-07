@@ -16,6 +16,24 @@
       "revId": "de3a5e9294bd29cbcf824b8433fd0048e2037119",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16cb9930_c4a0358b",
+        "filename": "test/655-jit-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-07T20:36:33Z",
+      "side": 1,
+      "message": "Like the JIT thread notifying the app something gets compiled? Likely not :)",
+      "parentUuid": "fb208a8c_55cce9aa",
+      "revId": "de3a5e9294bd29cbcf824b8433fd0048e2037119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
