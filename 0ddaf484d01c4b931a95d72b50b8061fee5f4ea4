@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "8e3daa0b_561a3fd2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-07T09:08:44Z",
+      "side": 1,
+      "message": "Oddly ordered, maybe just return false and declare in_cache just after?",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 689,
+        "endChar": 3
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f8bda00_67fbcb1d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-07T09:08:44Z",
+      "side": 1,
+      "message": "Move this to line 705?",
+      "range": {
+        "startLine": 698,
+        "startChar": 6,
+        "endLine": 698,
+        "endChar": 17
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6dbd6cf_e43467df",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-07T09:08:44Z",
+      "side": 1,
+      "message": "Move this to its own block?",
+      "range": {
+        "startLine": 692,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 3
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3529931_034bc354",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-07T09:08:44Z",
+      "side": 1,
+      "message": "Please also mention it\u0027s only used for testing.",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 20
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fb3e9da_e6b498fb",
+        "filename": "test/708-jit-cache-churn/src/JitCacheChurnTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-07T09:08:44Z",
+      "side": 1,
+      "message": "Would you be more likely to hit a SIGILL if that was cached?",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 3
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "264947bc_25a248b5",
         "filename": "test/708-jit-cache-churn/src/Main.java",
         "patchSetId": 4
@@ -13,6 +128,30 @@
       "writtenOn": "2017-06-06T09:06:45Z",
       "side": 1,
       "message": "Any preference for checking whether jit is enabled here or forcing it via a run script for the test?",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "0ddaf484d01c4b931a95d72b50b8061fee5f4ea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4ce55e3_ddb6d047",
+        "filename": "test/708-jit-cache-churn/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-07T09:08:44Z",
+      "side": 1,
+      "message": "I\u0027m fine with this.",
+      "parentUuid": "264947bc_25a248b5",
       "range": {
         "startLine": 22,
         "startChar": 4,
