@@ -16,6 +16,8 @@
 
 #include "runtime.h"
 
+#define ASM_SUPPORT_CREATE_CHECK_ASM 1  // We want CheckAsmSupportOffsetsAndSizes.
+
 // sys/mount.h has to come before linux/fs.h due to redefinition of MS_RDONLY, MS_BIND, etc
 #include <sys/mount.h>
 #ifdef __linux__

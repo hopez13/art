@@ -16,6 +16,8 @@
 
 #include <stdint.h>
 
+#define ASM_SUPPORT_CREATE_CHECK_ASM 1  // We want CheckAsmSupportOffsetsAndSizes.
+
 #include "art_method-inl.h"
 #include "base/callee_save_type.h"
 #include "common_runtime_test.h"
