@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fb3032f6_205ede00",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-06-07T17:32:54Z",
+      "side": 1,
+      "message": "\u003e We had a similar thing in the fault handler before, and it was to unstable to turn on. \n\nCould you share a link to a CL in which remove such functional. What kind of problems have you observed?",
+      "parentUuid": "bb5cc9ae_89ef47b0",
+      "range": {
+        "startLine": 584,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 3
+      },
+      "revId": "c1e00441378d30db36265d6fc888a5e9a68e56b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6fc71fe_2ca65e9d",
         "filename": "runtime/runtime_common.h",
         "patchSetId": 1
