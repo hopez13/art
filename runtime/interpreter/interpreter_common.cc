@@ -66,7 +66,10 @@ bool DoFieldGet(Thread* self, ShadowFrame& shadow_frame, const Instruction* inst
   }
 
   JValue result;
-  DoFieldGetCommon<field_type>(self, shadow_frame, obj, f, &result);
+  if (UNLIKELY(!DoFieldGetCommon<field_type>(self, shadow_frame, obj, f, &result))) {
+    // Instrumentation threw an error!
+    return false;
+  }
   uint32_t vregA = is_static ? inst->VRegA_21c(inst_data) : inst->VRegA_22c(inst_data);
   switch (field_type) {
     case Primitive::kPrimBoolean:
@@ -149,14 +152,19 @@ bool DoIGetQuick(ShadowFrame& shadow_frame, const Instruction* inst, uint16_t in
                                                         field_offset.Uint32Value());
     DCHECK(f != nullptr);
     DCHECK(!f->IsStatic());
-    StackHandleScope<1> hs(Thread::Current());
+    Thread* self = Thread::Current();
+    StackHandleScope<1> hs(self);
     // Save obj in case the instrumentation event has thread suspension.
-    HandleWrapperObjPtr<mirror::Object> h = hs.NewHandleWrapper(&obj);
-    instrumentation->FieldReadEvent(Thread::Current(),
-                                    obj.Ptr(),
+    Handle<mirror::Object> h(hs.NewHandle(obj));
+    instrumentation->FieldReadEvent(self,
+                                    h.Get(),
                                     shadow_frame.GetMethod(),
                                     shadow_frame.GetDexPC(),
                                     f);
+    if (UNLIKELY(self->IsExceptionPending())) {
+      return false;
+    }
+    obj = h.Get();
   }
   // Note: iget-x-quick instructions are only for non-volatile fields.
   const uint32_t vregA = inst->VRegA_22c(inst_data);
@@ -322,15 +330,25 @@ bool DoIPutQuick(const ShadowFrame& shadow_frame, const Instruction* inst, uint1
     DCHECK(f != nullptr);
     DCHECK(!f->IsStatic());
     JValue field_value = GetFieldValue<field_type>(shadow_frame, vregA);
-    StackHandleScope<1> hs(Thread::Current());
+    Thread* self = Thread::Current();
+    StackHandleScope<2> hs(self);
     // Save obj in case the instrumentation event has thread suspension.
-    HandleWrapperObjPtr<mirror::Object> h = hs.NewHandleWrapper(&obj);
-    instrumentation->FieldWriteEvent(Thread::Current(),
+    Handle<mirror::Object> h(hs.NewHandle(obj));
+    Handle<mirror::Object> ret(hs.NewHandle<mirror::Object>(
+        field_type == Primitive::kPrimNot ? field_value.GetL() : nullptr));
+    instrumentation->FieldWriteEvent(self,
                                      obj.Ptr(),
                                      shadow_frame.GetMethod(),
                                      shadow_frame.GetDexPC(),
                                      f,
                                      field_value);
+    if (UNLIKELY(self->IsExceptionPending())) {
+      return false;
+    }
+    obj = h.Get();
+    if (field_type == Primitive::kPrimNot) {
+      field_value.SetL(ret.Get());
+    }
   }
   // Note: iput-x-quick instructions are only for non-volatile fields.
   switch (field_type) {
