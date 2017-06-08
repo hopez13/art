@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffc2f1dd_25d127c8",
+        "filename": "runtime/base/callee_save_type.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-08T06:29:53Z",
+      "side": 1,
+      "message": "nit: Missing period",
+      "range": {
+        "startLine": 31,
+        "startChar": 42,
+        "endLine": 31,
+        "endChar": 51
+      },
+      "revId": "e9345165190062db71c6d2374a1681a58cbccc7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27eb8a4e_438f5144",
+        "filename": "tools/cpp-define-generator/offset_runtime.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-08T06:29:53Z",
+      "side": 1,
+      "message": "Wonder why this didn\u0027t need art::Runtime:: previously..",
+      "range": {
+        "startLine": 36,
+        "startChar": 57,
+        "endLine": 36,
+        "endChar": 78
+      },
+      "revId": "e9345165190062db71c6d2374a1681a58cbccc7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
