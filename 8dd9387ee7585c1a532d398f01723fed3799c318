@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fcc1d0d_8559043f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 1658,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 1656,
+        "startChar": 0,
+        "endLine": 1658,
+        "endChar": 28
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c43e734_a16f9b59",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "If the contents of r0, r1, d0 are not important when throwing the exception, I would move this after the MOV+MOV+VPOP+POP, so that we can remove the \"ADD sp, #24\". CBZ on r2 instead of r0, off course.\n\nAnd if we actually need to restore registers (see line 1675) then it can be moved even after that.",
+      "range": {
+        "startLine": 1662,
+        "startChar": 0,
+        "endLine": 1663,
+        "endChar": 75
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e83ae603_ab5a9c47",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 1665,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "Remove (see above)",
+      "range": {
+        "startLine": 1664,
+        "startChar": 0,
+        "endLine": 1665,
+        "endChar": 29
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6935d371_841d97bb",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "I think this should actually restore registers. The values on the stack may have been marked by GC now that the instrumentation can throw and by definition allocate objects and trigger the GC.",
+      "range": {
+        "startLine": 1675,
+        "startChar": 4,
+        "endLine": 1675,
+        "endChar": 51
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adccbdc2_498c48dc",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "I think we should.",
+      "range": {
+        "startLine": 1681,
+        "startChar": 6,
+        "endLine": 1681,
+        "endChar": 84
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a16401d_31457107",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 2197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "Why not \"[sp, #8]\" as before?",
+      "range": {
+        "startLine": 2196,
+        "startChar": 0,
+        "endLine": 2197,
+        "endChar": 29
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62d044e4_161a02f8",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "Why do you need this here? Can you move it further down, just before the RememberForGcArgumentVisitor?",
+      "range": {
+        "startLine": 990,
+        "startChar": 2,
+        "endLine": 990,
+        "endChar": 40
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1802fb1_df9778a6",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "This comment belongs above the ScopedQuickEntrypointChecks.",
+      "range": {
+        "startLine": 991,
+        "startChar": 0,
+        "endLine": 992,
+        "endChar": 15
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51eac7dc_1ae9ed0f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T17:14:57Z",
+      "side": 1,
+      "message": "Since you\u0027re touching this... break the line here.",
+      "range": {
+        "startLine": 1024,
+        "startChar": 75,
+        "endLine": 1024,
+        "endChar": 76
+      },
+      "revId": "8dd9387ee7585c1a532d398f01723fed3799c318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
