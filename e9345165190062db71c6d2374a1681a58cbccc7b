@@ -69,6 +69,30 @@
       "revId": "e9345165190062db71c6d2374a1681a58cbccc7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fdad6fb_f5eebfb4",
+        "filename": "tools/cpp-define-generator/offset_runtime.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-08T09:21:15Z",
+      "side": 1,
+      "message": "Yes, I see that now.. why not just change it to \n\n   art::Runtime::GetCalleeSaveMethodOffset(art::CalleeSaveType:: constant_name))\n\non line 32?",
+      "parentUuid": "58b5724d_1d7d4c8a",
+      "range": {
+        "startLine": 36,
+        "startChar": 57,
+        "endLine": 36,
+        "endChar": 78
+      },
+      "revId": "e9345165190062db71c6d2374a1681a58cbccc7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
