@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d7fee151_3a1f977f",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-06-08T08:40:32Z",
+      "side": 1,
+      "message": "I\u0027ve had a look at JavaStackTraceHandler. I agree with you. This class must not be used in a signal handler because a process can receive a signal at unexpected time. When a process receive a signal when executing compiled code (jit or aot) we can consider the following cases: \n1. Beginning of a method when stack frame is not set or set partially.\n2. Middle of a method when stack frame is correct.\n3. End of a method when stack pointer points to the frame of the caller.\nAll these cases are considered in my CL. I\u0027ve checked it by modifying jit code manually. I\u0027ve changed the method CommitCdeInternal from jit_code_cache.cc in a such way it modify different pieces of code of my method.\n\nIn my CL I\u0027m checking that stack frame is valid. If so I use StackVisitor.WalkStack. Else I iterate over the stack as array ow words and trying to find pointers to ArtMethods.\nPlease have a look at the function CheckValidStackFrame",
+      "parentUuid": "c0241801_b84564f5",
+      "range": {
+        "startLine": 584,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 3
+      },
+      "revId": "c1e00441378d30db36265d6fc888a5e9a68e56b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6fc71fe_2ca65e9d",
         "filename": "runtime/runtime_common.h",
         "patchSetId": 1
