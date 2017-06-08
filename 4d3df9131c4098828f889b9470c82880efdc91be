@@ -46,6 +46,30 @@
       "revId": "4d3df9131c4098828f889b9470c82880efdc91be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e51717fb_5cf03b96",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-08T12:32:10Z",
+      "side": 0,
+      "message": "The new code essentially says:\n- always attempt to allocate the profiling info if we\u0027re above the warm_threshold\nThe previous code was saying:\n- attempt to allocate only when we explicitly passed the threshold (thus assuming that we can never be in the situation were we already start from a counter \u003e\u003d warm without a profile).\n\nThe logic looks good to me and in a way makes it clearer that we\u0027re never jit without a profiling info.",
+      "parentUuid": "0871a5c4_fd864c6b",
+      "range": {
+        "startLine": 640,
+        "startChar": 2,
+        "endLine": 640,
+        "endChar": 48
+      },
+      "revId": "4d3df9131c4098828f889b9470c82880efdc91be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
