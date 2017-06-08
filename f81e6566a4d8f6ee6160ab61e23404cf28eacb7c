@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18d67e4d_76ac7989",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-08T06:25:30Z",
+      "side": 1,
+      "message": "What\u0027s the guarantee that this single thread will see the results of the other threads? Does it always go through an acquire operation first before doing regular non-atomic operations?",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "f81e6566a4d8f6ee6160ab61e23404cf28eacb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
