@@ -70,6 +70,24 @@
       "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3102c709_f5e51a95",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-08T06:20:14Z",
+      "side": 1,
+      "message": "\u003e What I would like: some documentation somewhere for the preferred way to build and run tests. A README.md in art/?\n\nFile a bug on me? I am happy to add this, I should know how to run (and modify) most of the tests by now. Can take a look at it at some point after I get back depending on urgency.\n\n\u003e Why does buildbot-build only work in the small manifest? That seems surprising.\n\nIt\u0027s just written to work so it only really supports building with armv8-eng and arm_krait-eng which I don\u0027t think exist in other manifests. The target build also depends on public.libraries.txt (incorrectly for other product types, see the previous CL). OTOH, public.libraries.txt is kind of irrelevant without a CUSTOM_TARGET_LINKER.\n\n....\n\nThat being said it\u0027s probably ok for now if you want to check this in, just change the build rules to call buildbot-build.sh. Target won\u0027t work for now because it needs extra changes in the script to work on a typical lunch target.",
+      "parentUuid": "10d3f1ca_d42b96b6",
+      "revId": "77a4dd13b3ee9e3239f762ee293ced571dc22a65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
