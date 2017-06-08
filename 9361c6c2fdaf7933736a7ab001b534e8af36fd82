@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f9d57da7_643b1608",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-08T20:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f683f21_6ddcf387",
+      "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb18b5f0_c7e3e404",
         "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-08T18:03:45Z",
       "side": 1,
       "message": "L44/45 don\u0027t add much, I would omit them (serialization is pretty well-understood, so just saying you serialize to string is okay).",
+      "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5069b136_3bea4895",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-08T20:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb18b5f0_c7e3e404",
       "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "112d519c_7871af24",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-08T20:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d387dd1_f38b880f",
+      "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b65c7520_9a5affc4",
         "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
         "patchSetId": 2
@@ -81,6 +135,24 @@
       "writtenOn": "2017-06-08T18:03:45Z",
       "side": 1,
       "message": "this seems copy and paste from comment?",
+      "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9feb0fff_34b12ad5",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-08T20:04:33Z",
+      "side": 1,
+      "message": "yes.. lol",
+      "parentUuid": "b65c7520_9a5affc4",
       "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "3440c548_e5e7bc3e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-08T20:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a26bd393_0b39578a",
+      "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62e91bc3_db75eed9",
         "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
         "patchSetId": 2
@@ -121,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "e45036d8_412724e3",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-08T20:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62e91bc3_db75eed9",
+      "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b57cffaa_405cd154",
         "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
         "patchSetId": 2
@@ -132,6 +240,24 @@
       "writtenOn": "2017-06-08T18:03:45Z",
       "side": 1,
       "message": "\"manual values\" I would say serialized representation\n\nAlso don\u0027t say Users can store, this is a bit confusing. Users stored the value in getString, but have to deserialize it back here (so they load, not store, but I would not even say that)",
+      "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1028c322_24168743",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-08T20:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b57cffaa_405cd154",
       "revId": "9361c6c2fdaf7933736a7ab001b534e8af36fd82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
