@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c69d29e_03f3b77b",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T08:58:08Z",
+      "side": 1,
+      "message": "Maybe move this all to a helper function? (With or without the enclosing for loop.)",
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ab7982d_34d95297",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T08:58:08Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1004,
+        "startChar": 91,
+        "endLine": 1004,
+        "endChar": 93
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e04362_7249d6da",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T08:58:08Z",
+      "side": 1,
+      "message": "Is there any reason not to apply this optimization for long on 32-bit architectures?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 12,
+        "endLine": 1011,
+        "endChar": 63
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82c21c3b_93508212",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T08:58:08Z",
+      "side": 1,
+      "message": "Line break after operator, not before.",
+      "range": {
+        "startLine": 1012,
+        "startChar": 12,
+        "endLine": 1012,
+        "endChar": 14
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db836e30_6c81969d",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T08:58:08Z",
+      "side": 1,
+      "message": "after_last_pos \u003e\u003d current-\u003eGetStart()",
+      "range": {
+        "startLine": 1012,
+        "startChar": 15,
+        "endLine": 1013,
+        "endChar": 56
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b003835f_23521a0a",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T08:58:08Z",
+      "side": 1,
+      "message": "Line too long. If `split-\u003eFirstRegisterUse() \u003d\u003d kNoLifetime` this DCHECK should still hold, right? So we could pull it out of the `if` block.",
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f42b558_b954be3e",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T08:58:08Z",
+      "side": 1,
+      "message": "Why `-1`?\n\nAnd use a helper variable above for `split-\u003eFirstRegisterUse()`, do not rely on clang++ to GVN or CSE that after inlining.",
+      "range": {
+        "startLine": 1027,
+        "startChar": 33,
+        "endLine": 1027,
+        "endChar": 62
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6488e79_e34ae0be",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-08T08:58:08Z",
+      "side": 1,
+      "message": "Does this filter out Phi uses?\n\nPlease add a comment.",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 599,
+        "endChar": 37
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
