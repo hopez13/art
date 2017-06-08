@@ -34,6 +34,24 @@
       "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb0b3b0c_622983b5",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-08T09:25:47Z",
+      "side": 1,
+      "message": "This is the pattern:\n\n #include \"asm_support.h\"\n .... many includes later\n #define ASM_SUPPORT_CREATE_CHECK_ASM\n #include \"asm_support.h\"\n // second time around it *doesnt* have the checks\n\nexcept imagine if asm_support.h was included transitively through another header.\n\nMaybe it\u0027s not a real problem? the #define would have to go first always before any other include, but it would also infect the other headers which maybe didn\u0027t want to include the create_check_asm.\n\n #define ASM_SUPPORT_CREATE_CHECK_ASM\n #include \"asm_support.h\"\n .... many includes later\n // did not #define ASM_SUPPORT_CREATE_CHECK_ASM\n #include \"asm_support.h\"\n // now it has the check_asm stuff which is unexpected\n\nThe asm generator should have some support for splitting out the test generation by doing an extra include pass (it already includes things twice, once for dependencies, once again for the actual definitions. including things a 3rd time to generate the tests seems ok), though that wouldn\u0027t help with the parts of this file that aren\u0027t generated automatically.",
+      "parentUuid": "4c122ddb_5e59033b",
+      "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
