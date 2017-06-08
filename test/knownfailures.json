@@ -706,5 +706,11 @@
         "variant": "host",
         "env_vars": {"SANITIZE_HOST": "address"},
         "bug": "b/62350406"
+    },
+    {
+        "tests": ["137-cfi", "629-vdex-speed"],
+        "description": [ "Tests require speed compilation which is no longer the default for",
+                          "no-prebuild configs."],
+        "variant": "no-prebuild"
     }
 ]
