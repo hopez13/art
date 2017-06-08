@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b3fe645_72bcae4d",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-06-08T04:42:52Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem right, ctx.Path() should get you the actual install path used by the module.  android.PathForModuleInstall is recreating the path from scratch, which may not match whatever the module did.",
+      "revId": "5ff7ec4cfb81068877110d5719d8349257338615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
