@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fb9f72d_a9adda8a",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-08T01:30:26Z",
+      "side": 1,
+      "message": "Remove the comment, include ` || HasMsa()` in the CHECK().",
+      "range": {
+        "startLine": 761,
+        "startChar": 0,
+        "endLine": 763,
+        "endChar": 16
+      },
+      "revId": "51768fe3f1bca959452083269bbcc7a532301695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51b0d99a_37659403",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-08T01:30:26Z",
+      "side": 1,
+      "message": "|| HasMsa()",
+      "range": {
+        "startLine": 779,
+        "startChar": 19,
+        "endLine": 779,
+        "endChar": 20
+      },
+      "revId": "51768fe3f1bca959452083269bbcc7a532301695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
