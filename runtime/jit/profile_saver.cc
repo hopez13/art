@@ -28,9 +28,11 @@
 #include "base/systrace.h"
 #include "base/time_utils.h"
 #include "compiler_filter.h"
+#include "dex_reference_collection.h"
 #include "gc/collector_type.h"
 #include "gc/gc_cause.h"
 #include "gc/scoped_gc_critical_section.h"
+#include "jit/profile_compilation_info-inl.h"
 #include "oat_file_manager.h"
 #include "scoped_thread_state_change-inl.h"
 
@@ -179,12 +181,14 @@ void ProfileSaver::NotifyJitActivityInternal() {
   }
 }
 
+using MethodReferenceCollection = DexReferenceCollection<uint16_t, std::allocator>;
+
 // Get resolved methods that have a profile info or more than kStartupMethodSamples samples.
 // Excludes native methods and classes in the boot image.
 class GetMethodsVisitor : public ClassVisitor {
  public:
-  GetMethodsVisitor(std::vector<MethodReference>* hot_methods,
-                    std::vector<MethodReference>* sampled_methods,
+  GetMethodsVisitor(MethodReferenceCollection* hot_methods,
+                    MethodReferenceCollection* sampled_methods,
                     uint32_t hot_method_sample_threshold)
     : hot_methods_(hot_methods),
       sampled_methods_(sampled_methods),
@@ -197,15 +201,14 @@ class GetMethodsVisitor : public ClassVisitor {
     for (ArtMethod& method : klass->GetMethods(kRuntimePointerSize)) {
       if (!method.IsNative() && !method.IsProxyMethod()) {
         const uint16_t counter = method.GetCounter();
-        MethodReference ref(method.GetDexFile(), method.GetDexMethodIndex());
         // Mark startup methods as hot if they have more than hot_method_sample_threshold_ samples.
         // This means they will get compiled by the compiler driver.
         if (method.GetProfilingInfo(kRuntimePointerSize) != nullptr ||
             (method.GetAccessFlags() & kAccPreviouslyWarm) != 0 ||
             counter >= hot_method_sample_threshold_) {
-          hot_methods_->push_back(ref);
+          hot_methods_->AddReference(method.GetDexFile(), method.GetDexMethodIndex());
         } else if (counter != 0) {
-          sampled_methods_->push_back(ref);
+          sampled_methods_->AddReference(method.GetDexFile(), method.GetDexMethodIndex());
         }
       } else {
         CHECK_EQ(method.GetCounter(), 0u);
@@ -215,21 +218,23 @@ class GetMethodsVisitor : public ClassVisitor {
   }
 
  private:
-  std::vector<MethodReference>* const hot_methods_;
-  std::vector<MethodReference>* const sampled_methods_;
+  MethodReferenceCollection* const hot_methods_;
+  MethodReferenceCollection* const sampled_methods_;
   uint32_t hot_method_sample_threshold_;
 };
 
 void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
   ScopedTrace trace(__PRETTY_FUNCTION__);
+  const uint64_t start_time = NanoTime();
 
   // Resolve any new registered locations.
   ResolveTrackedLocations();
 
   Thread* const self = Thread::Current();
-  std::vector<MethodReference> hot_methods;
-  std::vector<MethodReference> startup_methods;
+  MethodReferenceCollection hot_methods;
+  MethodReferenceCollection startup_methods;
   std::set<DexCacheResolvedClasses> resolved_classes;
+  const size_t hot_threshold = options_.GetHotStartupMethodSamples();
   {
     ScopedObjectAccess soa(self);
     gc::ScopedGCCriticalSection sgcs(self,
@@ -243,32 +248,49 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
       ScopedTrace trace2("Get hot methods");
       GetMethodsVisitor visitor(&hot_methods,
                                 &startup_methods,
-                                options_.GetHotStartupMethodSamples());
+                                hot_threshold);
       class_linker->VisitClasses(&visitor);
-      VLOG(profiler) << "Profile saver recorded " << hot_methods.size() << " hot methods and "
-                     << startup_methods.size() << " startup methods with threshold "
-                     << options_.GetHotStartupMethodSamples();
     }
   }
+
+  size_t hot_method_count = 0;
+  for (auto&& pair : hot_methods.GetMap()) {
+    hot_method_count += pair.second.size();
+  }
+  size_t startup_method_count = 0;
+  for (auto&& pair : startup_methods.GetMap()) {
+    startup_method_count += pair.second.size();
+  }
+
   MutexLock mu(self, *Locks::profiler_lock_);
   uint64_t total_number_of_profile_entries_cached = 0;
 
   for (const auto& it : tracked_dex_base_locations_) {
     std::set<DexCacheResolvedClasses> resolved_classes_for_location;
     const std::string& filename = it.first;
+    auto info_it = profile_cache_.Put(
+        filename,
+        new ProfileCompilationInfo(Runtime::Current()->GetArenaPool()));
+    ProfileCompilationInfo* cached_info = info_it->second;
+
     const std::set<std::string>& locations = it.second;
-    std::vector<ProfileMethodInfo> profile_methods_for_location;
-    std::vector<MethodReference> startup_methods_for_locations;
-    for (const MethodReference& ref : hot_methods) {
-      if (locations.find(ref.dex_file->GetBaseLocation()) != locations.end()) {
-        profile_methods_for_location.emplace_back(ref.dex_file, ref.dex_method_index);
-        // Hot methods are also startup methods since this function is only invoked during startup.
-        startup_methods_for_locations.push_back(ref);
+    for (const auto& pair : hot_methods.GetMap()) {
+      if (locations.find(pair.first->GetBaseLocation()) != locations.end()) {
+        cached_info->AddSampledMethodsForDex(/*startup*/ true,
+                                             pair.first,
+                                             pair.second.begin(),
+                                             pair.second.end());
+        cached_info->AddHotMethodsForDex(pair.first,
+                                         pair.second.begin(),
+                                         pair.second.end());
       }
     }
-    for (const MethodReference& ref : startup_methods) {
-      if (locations.find(ref.dex_file->GetBaseLocation()) != locations.end()) {
-        startup_methods_for_locations.push_back(ref);
+    for (const auto& pair : startup_methods.GetMap()) {
+      if (locations.find(pair.first->GetBaseLocation()) != locations.end()) {
+        cached_info->AddSampledMethodsForDex(/*startup*/ true,
+                                             pair.first,
+                                             pair.second.begin(),
+                                             pair.second.end());
       }
     }
 
@@ -282,18 +304,17 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
                        << " (" << classes.GetDexLocation() << ")";
       }
     }
-    auto info_it = profile_cache_.Put(
-        filename,
-        new ProfileCompilationInfo(Runtime::Current()->GetArenaPool()));
 
-    ProfileCompilationInfo* cached_info = info_it->second;
-    cached_info->AddMethodsAndClasses(profile_methods_for_location, resolved_classes_for_location);
-    cached_info->AddSampledMethods(/*startup*/ true, startup_methods_for_locations);
+    cached_info->AddMethodsAndClasses(std::vector<ProfileMethodInfo>(),
+                                      resolved_classes_for_location);
     total_number_of_profile_entries_cached += resolved_classes_for_location.size();
   }
   max_number_of_profile_entries_cached_ = std::max(
       max_number_of_profile_entries_cached_,
       total_number_of_profile_entries_cached);
+  VLOG(profiler) << "Profile saver recorded " << hot_method_count<< " hot methods and "
+                 << startup_method_count << " startup methods with threshold "
+                 << hot_threshold << " in " << PrettyDuration(NanoTime() - start_time);
 }
 
 bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number_of_new_methods) {
