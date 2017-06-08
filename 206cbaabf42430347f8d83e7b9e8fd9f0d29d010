@@ -22,6 +22,30 @@
       "revId": "206cbaabf42430347f8d83e7b9e8fd9f0d29d010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13e2a6a4_2a93f1a0",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-08T03:50:24Z",
+      "side": 1,
+      "message": "Seems reasonable to do this now.\n\nYou can also split clinit out of post-startup and not-executed.",
+      "parentUuid": "2544fe6b_663ec9af",
+      "range": {
+        "startLine": 1702,
+        "startChar": 19,
+        "endLine": 1702,
+        "endChar": 39
+      },
+      "revId": "206cbaabf42430347f8d83e7b9e8fd9f0d29d010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
