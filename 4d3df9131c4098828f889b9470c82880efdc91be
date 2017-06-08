@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45a8bcd7_0dd1e53a",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-06-08T09:00:16Z",
+      "side": 0,
+      "message": "why did this check exist earlier (given that we already check that GetProfilingInfo() \u003d\u003d nullptr) ?",
+      "range": {
+        "startLine": 640,
+        "startChar": 2,
+        "endLine": 640,
+        "endChar": 48
+      },
+      "revId": "4d3df9131c4098828f889b9470c82880efdc91be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
