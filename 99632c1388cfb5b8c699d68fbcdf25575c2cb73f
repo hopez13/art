@@ -52,6 +52,24 @@
       "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcdc59e9_b0acfb8d",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-08T15:41:13Z",
+      "side": 1,
+      "message": "I am not sure how to do this, correctly, and keep the spirit of the file (definitions and their tests are next to each other). For the multipass, I would have to avoid the header guard. But then the client has to be really careful to remember to undef afterwards, and none of the included headers in this file must circle back around, and...\n\nNote that I am not super worried about having to have the #define be early in the files that want the function. There are only two of those, and the compiler will be mad if it\u0027s gone wrong, letting us know that it\u0027s missing the definition.\n\nBut I do understand your cleanliness and usability concern. Just have no good idea. Was your mentioning of a second header something like:\n\n  SECOND_HEADER_GUARD\n  #includes\n  #undef ASM_SUPPORT_HEADER_GUARD\n  #define ADD_TEST_EQ CHECK\n  CheckAsmSupport() {\n  #include asm_support\n  }\n  #undef ADD_TEST_EQ\n\nand then rely on redefinition of #defines being OK if they have the same value?",
+      "parentUuid": "fb0b3b0c_622983b5",
+      "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
