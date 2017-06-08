@@ -3080,6 +3080,10 @@ void Thread::QuickDeliverException() {
     UNREACHABLE();
   }
 
+  if (kUseReadBarrier) {
+    ReadBarrier::AssertToSpaceInvariant(exception.Ptr());
+  }
+
   // This is a real exception: let the instrumentation know about it.
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (instrumentation->HasExceptionThrownListeners() &&
