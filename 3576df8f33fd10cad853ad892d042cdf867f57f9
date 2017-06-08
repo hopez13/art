@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec4c7913_9c4a0b3b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T20:15:58Z",
+      "side": 1,
+      "message": "remove white space (literally a space, so keep the white line, but just not a SPACE at l48 (see red in gerrit))",
+      "revId": "3576df8f33fd10cad853ad892d042cdf867f57f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
