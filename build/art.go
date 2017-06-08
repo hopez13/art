@@ -250,7 +250,8 @@ func testInstall(ctx android.InstallHookContext) {
 	defer artTestMutex.Unlock()
 
 	tests := testMap[name]
-	tests = append(tests, ctx.Path().RelPathString())
+	installPath := android.PathForModuleInstall(ctx, "")
+	tests = append(tests, installPath.RelPathString())
 	testMap[name] = tests
 }
 
