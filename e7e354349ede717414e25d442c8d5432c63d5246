@@ -16,6 +16,24 @@
       "revId": "e7e354349ede717414e25d442c8d5432c63d5246",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d934ab4c_bb7164d0",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-08T07:01:41Z",
+      "side": 1,
+      "message": "I\u0027m open to any naming suggestions. My goals had been:\n\n* simple sharding: gtests vs run-tests\n* do not duplicate the myriad run-test configurations, just pick something standard (and in this case, just emulate the default of testrunner.py)\n\nOn my workstation, with -j40, it took ~40min to build and run the art-run-test-asan config. That seems reasonable to replace the valgrind runs.",
+      "parentUuid": "510b0e10_03d8ffb4",
+      "revId": "e7e354349ede717414e25d442c8d5432c63d5246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
