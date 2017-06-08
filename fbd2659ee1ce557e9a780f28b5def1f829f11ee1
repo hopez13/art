@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25ab04f0_25a0bc9c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T16:43:51Z",
+      "side": 1,
+      "message": "I would not say \"overriding ... does ...\", but document what the method does, as in \"Serializes ...\". Since it is an abstract method, any subclass need to define it, so the documentation serves as a guideline what clients should implement.\n\nAlso, start every comment with Upper case and end with period (sentence format).\n\nserializes the field(s) (plural is possible)\n\ndocument that multiple fields should be space-separated",
+      "revId": "fbd2659ee1ce557e9a780f28b5def1f829f11ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65fba1e7_ed6bab89",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T16:43:51Z",
+      "side": 1,
+      "message": "remove white space that end of line (shown in red in Gerrit to warn you about it)",
+      "revId": "fbd2659ee1ce557e9a780f28b5def1f829f11ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea1a90c_4740e7fb",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T16:43:51Z",
+      "side": 1,
+      "message": "@return",
+      "revId": "fbd2659ee1ce557e9a780f28b5def1f829f11ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1137326e_f8165607",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T16:43:51Z",
+      "side": 1,
+      "message": "remove white space that end of line (shown in red in Gerrit to warn you about it)",
+      "revId": "fbd2659ee1ce557e9a780f28b5def1f829f11ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d408f501_7f89f40e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T16:43:51Z",
+      "side": 1,
+      "message": "empty line between L47 and L48",
+      "revId": "fbd2659ee1ce557e9a780f28b5def1f829f11ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11adf8d3_5dff25d0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T16:43:51Z",
+      "side": 1,
+      "message": "this does not return a string array, but it gets a string array as argument; document that the string really contains the individual elements returned by getString, but already separated by space; also document that elements[0] and elements[1] have special meaning (look at the implementation) so that really clients need to start deserializing fields from elements[2] forward\n\nsame style comments on using sentence format, and omit overriding part",
+      "revId": "fbd2659ee1ce557e9a780f28b5def1f829f11ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bac6c36_e0a3f312",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T16:43:51Z",
+      "side": 1,
+      "message": "complete this with description",
+      "revId": "fbd2659ee1ce557e9a780f28b5def1f829f11ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
