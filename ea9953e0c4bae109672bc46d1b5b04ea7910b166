@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "503d965d_78c8f7b0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:36:47Z",
+      "side": 1,
+      "message": "seperated -\u003e separated\n\n(note, was mentioned in previous comment)",
+      "revId": "ea9953e0c4bae109672bc46d1b5b04ea7910b166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15ff7a11_63ae9db7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:36:47Z",
+      "side": 1,
+      "message": "I would omit \"given\" (that does not make much sense in this context)",
+      "revId": "ea9953e0c4bae109672bc46d1b5b04ea7910b166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ce1074_b6ce9d70",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:36:47Z",
+      "side": 1,
+      "message": "the strings (given as array elements)\n\nnote that here given make sense, since it is an incoming paraemter",
+      "revId": "ea9953e0c4bae109672bc46d1b5b04ea7910b166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8560f950_f737b1c4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:36:47Z",
+      "side": 1,
+      "message": "remove \"and gets...\"",
+      "revId": "ea9953e0c4bae109672bc46d1b5b04ea7910b166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "914c05fc_0a693915",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:36:47Z",
+      "side": 1,
+      "message": "which were previously constructed by getString()",
+      "revId": "ea9953e0c4bae109672bc46d1b5b04ea7910b166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68ed9df2_7d656449",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:36:47Z",
+      "side": 1,
+      "message": "you still have not addressed my previous comment on this",
+      "revId": "ea9953e0c4bae109672bc46d1b5b04ea7910b166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
