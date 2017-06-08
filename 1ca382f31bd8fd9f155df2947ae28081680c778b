@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "455ffb39_5222d8ab",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:53:30Z",
+      "side": 1,
+      "message": "I would say \"of the field(s)_of the mutation\"\n(reads a bit easier with articles)",
+      "revId": "1ca382f31bd8fd9f155df2947ae28081680c778b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43bd5b85_96fc0e5a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:53:30Z",
+      "side": 1,
+      "message": "empty line between L47 and L48",
+      "revId": "1ca382f31bd8fd9f155df2947ae28081680c778b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c91014_3bf65d08",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:53:30Z",
+      "side": 1,
+      "message": "... given a string array as ...",
+      "revId": "1ca382f31bd8fd9f155df2947ae28081680c778b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41fbca08_3abfffa0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:53:30Z",
+      "side": 1,
+      "message": "returned -\u003e constructed  (just to avoid confusion since getString does not return an array)",
+      "revId": "1ca382f31bd8fd9f155df2947ae28081680c778b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2028ffd_2ceb939c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Mutation.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-08T18:53:30Z",
+      "side": 1,
+      "message": "try to keep L55 on one line, perhaps replace \"which contains\" by \"with\"",
+      "revId": "1ca382f31bd8fd9f155df2947ae28081680c778b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
