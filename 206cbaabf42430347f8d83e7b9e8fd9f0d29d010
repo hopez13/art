@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2544fe6b_663ec9af",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-08T03:23:07Z",
+      "side": 1,
+      "message": "Maybe worth splitting this up into:\n\n1: (Startup \u0026\u0026 not hot) + clinit\n\n2: Hot\n\n3: Post startup\n\n4. Not executed?\n\nOr we can do that in another CL, it should not make a difference until we change the startup hot threshold.",
+      "range": {
+        "startLine": 1702,
+        "startChar": 19,
+        "endLine": 1702,
+        "endChar": 39
+      },
+      "revId": "206cbaabf42430347f8d83e7b9e8fd9f0d29d010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
