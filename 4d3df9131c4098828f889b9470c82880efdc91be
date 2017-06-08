@@ -22,6 +22,30 @@
       "revId": "4d3df9131c4098828f889b9470c82880efdc91be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0871a5c4_fd864c6b",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-08T09:07:27Z",
+      "side": 0,
+      "message": "See line 664, without the pofiling info logic it\u0027s kind of a state machine:\n\n1) If you cross the warmup threshold, do this.\n2) Otherwise if you cross the hot treshold, do that.",
+      "parentUuid": "45a8bcd7_0dd1e53a",
+      "range": {
+        "startLine": 640,
+        "startChar": 2,
+        "endLine": 640,
+        "endChar": 48
+      },
+      "revId": "4d3df9131c4098828f889b9470c82880efdc91be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
