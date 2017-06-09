@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "7604274e_1fefab7e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T15:52:03Z",
+      "side": 1,
+      "message": "Well, it felt like it was an actual invariant, so that\u0027s why I put the CHECK there. If that\u0027s not the case, I\u0027ll change to the return.",
+      "parentUuid": "cc7c2ef5_95187df0",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 25
+      },
+      "revId": "f45d61c0866461c9476f17644b27dc0664d507c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baf3f02c_6ce51558",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 3
