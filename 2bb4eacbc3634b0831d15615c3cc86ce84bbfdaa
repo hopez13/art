@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7df344ad_04ebdfad",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-09T17:46:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9b496d5d_045f9a75",
+      "range": {
+        "startLine": 1675,
+        "startChar": 4,
+        "endLine": 1675,
+        "endChar": 36
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "521642da_4bc670f2",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 15
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-09T09:11:08Z",
       "side": 1,
       "message": "This can be dropped if you reorder the CBZ after the RESTORE_* above.",
+      "range": {
+        "startLine": 2184,
+        "startChar": 4,
+        "endLine": 2184,
+        "endChar": 65
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bda57879_45b6ab89",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-09T17:46:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "521642da_4bc670f2",
       "range": {
         "startLine": 2184,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0a1df2b_ddb0fbf0",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2211,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-09T17:46:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e079044d_55e223c8",
+      "range": {
+        "startLine": 2211,
+        "startChar": 81,
+        "endLine": 2211,
+        "endChar": 90
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d9c52dd_111312c1",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 15
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-09T09:11:08Z",
       "side": 1,
       "message": "RESTORE_*; and reorder with the CBZ.",
+      "range": {
+        "startLine": 2214,
+        "startChar": 4,
+        "endLine": 2214,
+        "endChar": 28
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd1120fe_71567594",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2214,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-09T17:46:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d9c52dd_111312c1",
       "range": {
         "startLine": 2214,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "435397c8_d4c74bc9",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-09T17:46:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7c182d0_b2d0016a",
+      "range": {
+        "startLine": 1953,
+        "startChar": 4,
+        "endLine": 1953,
+        "endChar": 21
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3a43ce4_79b9775a",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 15
@@ -128,6 +248,30 @@
       "writtenOn": "2017-06-09T09:11:08Z",
       "side": 1,
       "message": "Old bug: CFI is incorrect in the entire function. We should use DEFINE_FUNCTION_CUSTOM_CFA(., 0).\n\nI\u0027d hope that a zero-size frame stops backtrace tools from trying to go to the next frame as there is no location for the return pc. Once we push the 0, they shall stop at that.",
+      "range": {
+        "startLine": 1999,
+        "startChar": 0,
+        "endLine": 1999,
+        "endChar": 15
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b340540a_2aad7d58",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1999,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-09T17:46:13Z",
+      "side": 1,
+      "message": "Again not sure what you want me to do. Since it\u0027s \u0027old\u0027 I\u0027m going to just leave it be for now.",
+      "parentUuid": "a3a43ce4_79b9775a",
       "range": {
         "startLine": 1999,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "80baeb8a_66b7e156",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1945,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-09T17:46:13Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you want me to do here.",
+      "parentUuid": "baaa2602_1e725d6d",
+      "range": {
+        "startLine": 1945,
+        "startChar": 0,
+        "endLine": 1945,
+        "endChar": 90
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2be3f23_3c32cfe5",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 15
@@ -174,6 +342,30 @@
       "writtenOn": "2017-06-09T09:11:08Z",
       "side": 1,
       "message": "You can get rid of this if you reorder the TESTQ+JZ after the RESTORE_* above.",
+      "range": {
+        "startLine": 1985,
+        "startChar": 0,
+        "endLine": 1987,
+        "endChar": 32
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0012bad_90f0ebce",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1987,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-09T17:46:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2be3f23_3c32cfe5",
       "range": {
         "startLine": 1985,
         "startChar": 0,
