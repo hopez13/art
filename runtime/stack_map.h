@@ -1259,7 +1259,7 @@ class InvokeInfo {
 
 // Most of the fields are encoded as ULEB128 to save space.
 struct CodeInfoEncoding {
-  static constexpr uint32_t kInvalidSize = static_cast<size_t>(-1);
+  static constexpr uint32_t kInvalidSize = static_cast<uint32_t>(-1);
   // Byte sized tables go first to avoid unnecessary alignment bits.
   ByteSizedTable dex_register_map;
   ByteSizedTable location_catalog;

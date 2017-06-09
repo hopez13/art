@@ -1144,7 +1144,7 @@ dex::TypeIndex Class::FindTypeIndexInOtherDexFile(const DexFile& dex_file) {
   std::string temp;
   const DexFile::TypeId* type_id = dex_file.FindTypeId(GetDescriptor(&temp));
   return (type_id == nullptr)
-      ? dex::TypeIndex(DexFile::kDexNoIndex)
+      ? dex::TypeIndex()
       : dex_file.GetIndexForTypeId(*type_id);
 }
 

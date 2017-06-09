@@ -2522,7 +2522,7 @@ void CodeGeneratorARM::GenerateFrameEntry() {
   if (GetGraph()->HasShouldDeoptimizeFlag()) {
     // Initialize should_deoptimize flag to 0.
     __ mov(IP, ShifterOperand(0));
-    __ StoreToOffset(kStoreWord, IP, SP, -kShouldDeoptimizeFlagSize);
+    __ StoreToOffset(kStoreWord, IP, SP, -static_cast<int32_t>(kShouldDeoptimizeFlagSize));
   }
 
   int adjust = GetFrameSize() - FrameEntrySpillSize();
