@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d093651_719565bd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3037,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T17:00:34Z",
+      "side": 1,
+      "message": "Mind re-checking (GetException()) here?",
+      "range": {
+        "startLine": 3037,
+        "startChar": 2,
+        "endLine": 3037,
+        "endChar": 33
+      },
+      "revId": "f44253ee5261a582d1b017636cad3bce99c6642c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
