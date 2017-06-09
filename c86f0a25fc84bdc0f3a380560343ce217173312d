@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42842b87_8d580100",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-09T16:03:46Z",
+      "side": 1,
+      "message": "don\u0027t we need save/restore around here? see the other codegens?",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ee6ba93_b1d40dce",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-09T16:03:46Z",
+      "side": 1,
+      "message": "any changes needed here (for SIMD stack slot, see IsSIMDStackSlot())? I am wondering if this was done for MIPS64 actually.",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c00f07df_40371d00",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1834,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-09T16:03:46Z",
+      "side": 1,
+      "message": "please use { } in these if then elses\n\nalso, why not just test for SIMD directly, going through the type does not add anything and only makes it harder to read",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee461907_b95bd575",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-09T16:03:46Z",
+      "side": 1,
+      "message": "} not lined up properly",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49f0f124_17a92eb8",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-09T16:03:46Z",
+      "side": 1,
+      "message": "same",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
