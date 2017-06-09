@@ -46,6 +46,30 @@
       "revId": "f81e6566a4d8f6ee6160ab61e23404cf28eacb7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea905fd3_b4d84379",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-09T15:55:46Z",
+      "side": 1,
+      "message": "So if one thread calls \"AtomicBumpPack\", another thread calls \"SomethingElseNotAtomic\" , what will happen?\n\nIs it only safe if the \"single thread\" first calls an atomic operation and then calls \"SomethingElseNotAtomic\" ?",
+      "parentUuid": "dc3f5cf4_dde391d7",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "f81e6566a4d8f6ee6160ab61e23404cf28eacb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
