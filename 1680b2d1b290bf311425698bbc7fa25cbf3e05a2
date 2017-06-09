@@ -22,6 +22,30 @@
       "revId": "1680b2d1b290bf311425698bbc7fa25cbf3e05a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5a48f64_c99f34a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-09T17:17:30Z",
+      "side": 1,
+      "message": "Hi,\nDo you means this bug?\nhttps://b.corp.google.com/issues/62296843\nIt\u0027s acutally caused by something else and was fixed in another cl. This patch mainly want to solve the test case 056 time out issue which causes a lot of build fail.\nThanks.",
+      "parentUuid": "b204e368_a555fc75",
+      "range": {
+        "startLine": 12,
+        "startChar": 28,
+        "endLine": 12,
+        "endChar": 31
+      },
+      "revId": "1680b2d1b290bf311425698bbc7fa25cbf3e05a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
