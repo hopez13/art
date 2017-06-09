@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d1288e0b_c00485ee",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-06-09T03:28:28Z",
+      "side": 1,
+      "message": "Fine with me. As evidenced by our in-person discussion (with others), this constant name is somewhat misleading, so perhaps a future renaming/refactoring would help.",
+      "parentUuid": "2a177577_6b45101b",
+      "range": {
+        "startLine": 2525,
+        "startChar": 41,
+        "endLine": 2525,
+        "endChar": 89
+      },
+      "revId": "36a2cf6ed1e82b0bd49a16e3a7b587f06cc73126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "598c1d0d_0e84f5ab",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
