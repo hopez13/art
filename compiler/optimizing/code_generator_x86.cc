@@ -1088,7 +1088,7 @@ void CodeGeneratorX86::GenerateFrameEntry() {
 
   if (GetGraph()->HasShouldDeoptimizeFlag()) {
     // Initialize should_deoptimize flag to 0.
-    __ movl(Address(ESP, -kShouldDeoptimizeFlagSize), Immediate(0));
+    __ movl(Address(ESP, -static_cast<int32_t>(kShouldDeoptimizeFlagSize)), Immediate(0));
   }
 
   int adjust = GetFrameSize() - FrameEntrySpillSize();
