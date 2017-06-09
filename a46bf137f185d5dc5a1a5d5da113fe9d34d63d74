@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "98693616_55a9a9a7",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T16:05:22Z",
+      "side": 1,
+      "message": "What I added was HEADER and FOOTER. I wanted to make sure it\u0027s actually doing something, so I\u0027m trying to see whether the test count is \u003e 0.\n\nNow that is still not guaranteeing anything, because all of it is generated into the CheckXYZ thingy, and so that itself could be empty. To really be sure, I\u0027d have to generate the sequence of checks directly into the test code, and have the count be defined there, instead of the FOOTER. But I think it\u0027s better than nothing.\n\nOtherwise, this is all old code: overwrite the default ADD_TEST_EQ \u003d\u003d CHECK_EQ with EXPECT_EQ to get nice printout of all mismatches by gtest.",
+      "parentUuid": "e7c1aa4b_b5a32623",
+      "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba62b4c0_1426ecb1",
         "filename": "runtime/asm_support_check.h",
         "patchSetId": 5
