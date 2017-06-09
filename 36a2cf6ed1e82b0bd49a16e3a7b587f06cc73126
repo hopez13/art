@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35857823_6b36bb61",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-06-09T01:45:44Z",
+      "side": 1,
+      "message": "You have used this multiple times in this CL. Perhaps another static constexpr initialized to this might be better?",
+      "range": {
+        "startLine": 2525,
+        "startChar": 41,
+        "endLine": 2525,
+        "endChar": 89
+      },
+      "revId": "36a2cf6ed1e82b0bd49a16e3a7b587f06cc73126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "598c1d0d_0e84f5ab",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-06-09T01:45:44Z",
+      "side": 1,
+      "message": "Why not just UINT_MAX?",
+      "range": {
+        "startLine": 1262,
+        "startChar": 43,
+        "endLine": 1262,
+        "endChar": 68
+      },
+      "revId": "36a2cf6ed1e82b0bd49a16e3a7b587f06cc73126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
