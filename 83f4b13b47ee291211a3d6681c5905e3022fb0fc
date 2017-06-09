@@ -213,6 +213,30 @@
       "revId": "83f4b13b47ee291211a3d6681c5905e3022fb0fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52e672c3_7b12b3af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-09T15:41:20Z",
+      "side": 1,
+      "message": "Splitting the value would now mean tracking two different configurations, which I don\u0027t object but we already have a hard time tracking one configuration....\n\nWhich dashboard could we look at that would validate the regressions / improvements Mathieu is seeing on his devices?",
+      "parentUuid": "a5c87be0_c4f3685c",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "83f4b13b47ee291211a3d6681c5905e3022fb0fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
