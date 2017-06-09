@@ -91,6 +91,30 @@
       "revId": "6cdc9447bde46c53474fc9d7675d09c28899cb5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae727cf7_af81a172",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T15:43:12Z",
+      "side": 1,
+      "message": "I had left it because it still reads well.",
+      "parentUuid": "496c78a2_efb5f7f1",
+      "range": {
+        "startLine": 1146,
+        "startChar": 0,
+        "endLine": 1148,
+        "endChar": 45
+      },
+      "revId": "6cdc9447bde46c53474fc9d7675d09c28899cb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
