@@ -87,6 +87,9 @@ static constexpr bool kTimeCompileMethod = !kIsDebugBuild;
 // Print additional info during profile guided compilation.
 static constexpr bool kDebugProfileGuidedCompilation = false;
 
+// Max encoded fields allowed for initializing app image. 5000 is large enough so hardcoded.
+static constexpr uint32_t kMaxEncodedFields = 5000;
+
 static double Percentage(size_t x, size_t y) {
   return 100.0 * (static_cast<double>(x)) / (static_cast<double>(x + y));
 }
@@ -2273,11 +2276,18 @@ class InitializeClassVisitor : public CompilationVisitor {
         }
         // Otherwise it's in app image but superclasses can't be initialized, no need to proceed.
         old_status = klass->GetStatus();
+
+        bool not_too_many_encoded_fields = true;
+        const size_t num_static_fields = klass->NumStaticFields();
+        if (num_static_fields > kMaxEncodedFields && !is_boot_image) {
+          not_too_many_encoded_fields = false;
+        }
         // If the class was not initialized, we can proceed to see if we can initialize static
-        // fields.
+        // fields. Limit the max number of encoded fields.
         if (!klass->IsInitialized() &&
             (is_app_image || is_boot_image) &&
             is_superclass_initialized &&
+            not_too_many_encoded_fields &&
             manager_->GetCompiler()->IsImageClass(descriptor)) {
           bool can_init_static_fields = false;
           if (is_boot_image) {
