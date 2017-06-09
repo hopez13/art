@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7b0fe930_728dd375",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c69d29e_03f3b77b",
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46ccbe69_f7999005",
         "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2017-06-08T13:57:42Z",
       "side": 1,
       "message": "Confused about this. The algorithm goes in linear order, and current-\u003eGetStart() is the current position. This comment is suggesting that we are going backward in the order?",
+      "range": {
+        "startLine": 997,
+        "startChar": 0,
+        "endLine": 999,
+        "endChar": 57
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ad7112c_efd12dff",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "I\u0027ve extended the comment, hope now it should be clearer.",
+      "parentUuid": "46ccbe69_f7999005",
       "range": {
         "startLine": 997,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "672b3936_b17f658e",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ab7982d_34d95297",
+      "range": {
+        "startLine": 1004,
+        "startChar": 91,
+        "endLine": 1004,
+        "endChar": 93
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e04362_7249d6da",
         "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2017-06-08T08:58:08Z",
       "side": 1,
       "message": "Is there any reason not to apply this optimization for long on 32-bit architectures?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 12,
+        "endLine": 1011,
+        "endChar": 63
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b418724b_f04d36f9",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "Good point, thanks! In general there is a requirement that high and low intervals go together. In PS1 due to absence of \"(split-\u003eGetStart() \u003d\u003d current-\u003eGetStart())\" check this assumption was broken.\nNow fixed.",
+      "parentUuid": "90e04362_7249d6da",
       "range": {
         "startLine": 1011,
         "startChar": 12,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "0e67c1c3_f9f2a1ef",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82c21c3b_93508212",
+      "range": {
+        "startLine": 1012,
+        "startChar": 12,
+        "endLine": 1012,
+        "endChar": 14
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db836e30_6c81969d",
         "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2017-06-08T08:58:08Z",
       "side": 1,
       "message": "after_last_pos \u003e\u003d current-\u003eGetStart()",
+      "range": {
+        "startLine": 1012,
+        "startChar": 15,
+        "endLine": 1013,
+        "endChar": 56
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67565a7e_c49913c6",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db836e30_6c81969d",
       "range": {
         "startLine": 1012,
         "startChar": 15,
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "9b34b6ed_0c230cf0",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b003835f_23521a0a",
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f42b558_b954be3e",
         "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
         "patchSetId": 3
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "63933b77_ff02f9fe",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "1. -1 is here to split interval BEFORE it first reg use; otherwise the first split part will have a reg use inside and we can\u0027t spill it. Added a comment\n\n2. Done",
+      "parentUuid": "2f42b558_b954be3e",
+      "range": {
+        "startLine": 1027,
+        "startChar": 33,
+        "endLine": 1027,
+        "endChar": 62
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6488e79_e34ae0be",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 3
@@ -185,6 +365,30 @@
       "writtenOn": "2017-06-08T08:58:08Z",
       "side": 1,
       "message": "Does this filter out Phi uses?\n\nPlease add a comment.",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 599,
+        "endChar": 37
+      },
+      "revId": "8d1fb2fbec9618c357311eef8d2725b2243acb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a2e9773_75dd4e43",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-09T16:48:36Z",
+      "side": 1,
+      "message": "After interval is split by some reason it still holds all uses of its parent. An example:\n\nranges: { [182,434) }, uses: { 71 197 204 215 269 284 290 434 }, { 29 33 37 47 79 91 99 103 105 113 115 117 139 149 159 169 185 207 213 241 247 251 261 303 349 371 375 385 405 411 } is_fixed: 0, is_split: 1 is_low: 0 is_high: 0: r4\n\nHave added a comment.",
+      "parentUuid": "b6488e79_e34ae0be",
       "range": {
         "startLine": 599,
         "startChar": 6,
