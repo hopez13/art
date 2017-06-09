@@ -105,6 +105,24 @@
       "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6fcb67c_8ab623a1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T15:46:36Z",
+      "side": 1,
+      "message": "See the last PS, which has changed this setup. Including asm_support will not break including asm_support_check.h",
+      "parentUuid": "008520e0_e0649f3a",
+      "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
