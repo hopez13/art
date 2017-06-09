@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48358e71_31db9d92",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:41:51Z",
+      "side": 1,
+      "message": "This looks bogus, we should never write _under_ the SP as a signal could clobber the value.",
+      "range": {
+        "startLine": 2522,
+        "startChar": 0,
+        "endLine": 2526,
+        "endChar": 3
+      },
+      "revId": "6cdc9447bde46c53474fc9d7675d09c28899cb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6526d1c_f2677ddd",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2669,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:41:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2660,
+        "startChar": 0,
+        "endLine": 2669,
+        "endChar": 3
+      },
+      "revId": "6cdc9447bde46c53474fc9d7675d09c28899cb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e5883d4_4c9fda16",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:41:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1089,
+        "startChar": 0,
+        "endLine": 1092,
+        "endChar": 3
+      },
+      "revId": "6cdc9447bde46c53474fc9d7675d09c28899cb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "496c78a2_efb5f7f1",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:41:51Z",
+      "side": 1,
+      "message": "Does this fit on a single line now?",
+      "range": {
+        "startLine": 1146,
+        "startChar": 0,
+        "endLine": 1148,
+        "endChar": 45
+      },
+      "revId": "6cdc9447bde46c53474fc9d7675d09c28899cb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
