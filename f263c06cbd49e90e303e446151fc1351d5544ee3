@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af0c2cdb_5c353998",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-09T20:25:41Z",
+      "side": 1,
+      "message": "Yeah, this made me sad, too. The analyzer gave 0 notes about why it thinks the insert may be a leak, so it\u0027s hard to immediately tell what\u0027s making this fire.\n\nI\u0027ll try to find a better way to solve this. :)",
+      "parentUuid": "de6b41ce_eda6dd1e",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 68
+      },
+      "revId": "f263c06cbd49e90e303e446151fc1351d5544ee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbe2e6d2_87bc693b",
         "filename": "runtime/base/variant_map.h",
         "patchSetId": 1
