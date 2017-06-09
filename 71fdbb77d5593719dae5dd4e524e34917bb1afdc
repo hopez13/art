@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "99d8252c_14d37ee7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2318,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-09T01:26:38Z",
+      "side": 1,
+      "message": "For data collected locally, boot image will have at most 517 static fileds for now. Should I still bypass boot images?",
+      "parentUuid": "ca3e3441_1e41cc03",
+      "range": {
+        "startLine": 2318,
+        "startChar": 12,
+        "endLine": 2318,
+        "endChar": 39
+      },
+      "revId": "71fdbb77d5593719dae5dd4e524e34917bb1afdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61a28c72_9840c8f5",
         "filename": "runtime/base/enums.h",
         "patchSetId": 1
