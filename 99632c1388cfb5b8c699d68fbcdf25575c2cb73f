@@ -70,6 +70,41 @@
       "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42c927b2_4f97e103",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-09T15:43:17Z",
+      "side": 1,
+      "message": "I meant having asm_support.h and asm_support_test.h \n\nDoesn\u0027t seem worth the bother now, if I get around to moving rest of this file into the generator it would be much easier to split it up then.",
+      "parentUuid": "bcdc59e9_b0acfb8d",
+      "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "008520e0_e0649f3a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-09T15:43:17Z",
+      "side": 1,
+      "message": "Ok so hopefully this will never end up including #asm_support.h otherwise the below will break.",
+      "revId": "99632c1388cfb5b8c699d68fbcdf25575c2cb73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
