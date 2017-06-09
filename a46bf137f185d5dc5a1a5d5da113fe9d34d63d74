@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "a5749099_40fbf823",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T16:06:19Z",
+      "side": 1,
+      "message": "(I could make the return of CheckXYZ variable, then I could return count here...)",
+      "parentUuid": "98693616_55a9a9a7",
+      "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba62b4c0_1426ecb1",
         "filename": "runtime/asm_support_check.h",
         "patchSetId": 5
