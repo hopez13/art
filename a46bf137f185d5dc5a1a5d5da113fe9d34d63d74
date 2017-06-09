@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "998877dd_36fb14e5",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-09T15:47:08Z",
+      "side": 1,
+      "message": "Not sure what this new stuff is for. You don\u0027t think #ifndef ADD_TEST_EQ error is enough?",
+      "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba62b4c0_1426ecb1",
+        "filename": "runtime/asm_support_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-09T15:47:08Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaf23355_68bd6143",
+        "filename": "runtime/asm_support_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-09T15:47:08Z",
+      "side": 1,
+      "message": "Yes, this seems good. Any issues with the #defines being redefined?",
+      "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
