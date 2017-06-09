@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ac42af83_052340c0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T15:48:35Z",
+      "side": 1,
+      "message": "The analyzer can\u0027t reasonably know that the loop above must find a body block. So it\u0027s warning for a potential null access.\n\n(Would prefer a DCHECK, but I think clang-analyzer doesn\u0027t understand that correctly...)",
+      "parentUuid": "1f993d3f_cf098849",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 25
+      },
+      "revId": "f45d61c0866461c9476f17644b27dc0664d507c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baf3f02c_6ce51558",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 3
