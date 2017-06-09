@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d8c37427_464eb80c",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T20:49:44Z",
+      "side": 1,
+      "message": "I think it\u0027s fine for now, but I\u0027m in general pushing back against having to put NOLINT everywhere just because analyzers aren\u0027t powerful enough. NOLINT isn\u0027t beautiful. :-)",
+      "parentUuid": "af0c2cdb_5c353998",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 68
+      },
+      "revId": "f263c06cbd49e90e303e446151fc1351d5544ee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbe2e6d2_87bc693b",
         "filename": "runtime/base/variant_map.h",
         "patchSetId": 1
