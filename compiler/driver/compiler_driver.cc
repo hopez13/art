@@ -2306,9 +2306,16 @@ class InitializeClassVisitor : public CompilationVisitor {
           }
         }
         old_status = klass->GetStatus();
+
+        bool not_too_many_encoded_fields = true;
+        const size_t num_static_fields = klass->NumStaticFields();
+        if (num_static_fields > kMaxEncodedFields) {
+          not_too_many_encoded_fields = false;
+        }
         // If superclass cannot be initialized, no need to proceed.
         if (!klass->IsInitialized() &&
             is_superclass_initialized &&
+            not_too_many_encoded_fields &&
             manager_->GetCompiler()->IsImageClass(descriptor)) {
           bool can_init_static_fields = false;
           if (manager_->GetCompiler()->GetCompilerOptions().IsBootImage()) {

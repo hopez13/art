@@ -32,6 +32,8 @@ static constexpr PointerSize kRuntimePointerSize = sizeof(void*) == 8U
                                                        ? PointerSize::k64
                                                        : PointerSize::k32;
 
+static constexpr uint32_t kMaxEncodedFields = 5000;
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_BASE_ENUMS_H_
