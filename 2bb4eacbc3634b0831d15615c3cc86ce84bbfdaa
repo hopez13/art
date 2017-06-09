@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b496d5d_045f9a75",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:11:08Z",
+      "side": 1,
+      "message": "This could be dropped if you reorder the code in art_quick_instrumentation_entry but CBZ needs a low register, so we would need CMP+BEQ (or change the MOV to MOVS to avoid the CMP). Therefore I\u0027m OK with keeping it as is (just pointing out another option).",
+      "range": {
+        "startLine": 1675,
+        "startChar": 4,
+        "endLine": 1675,
+        "endChar": 36
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "521642da_4bc670f2",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:11:08Z",
+      "side": 1,
+      "message": "This can be dropped if you reorder the CBZ after the RESTORE_* above.",
+      "range": {
+        "startLine": 2184,
+        "startChar": 4,
+        "endLine": 2184,
+        "endChar": 65
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e079044d_55e223c8",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:11:08Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 2211,
+        "startChar": 81,
+        "endLine": 2211,
+        "endChar": 90
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d9c52dd_111312c1",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:11:08Z",
+      "side": 1,
+      "message": "RESTORE_*; and reorder with the CBZ.",
+      "range": {
+        "startLine": 2214,
+        "startChar": 4,
+        "endLine": 2214,
+        "endChar": 28
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7c182d0_b2d0016a",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:11:08Z",
+      "side": 1,
+      "message": "This can be \"subl LITERAL(4), %esp\" and merged with the SUBL above. Just provide appropriate comments that you\u0027re doing two things with one instruction.",
+      "range": {
+        "startLine": 1953,
+        "startChar": 4,
+        "endLine": 1953,
+        "endChar": 21
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3a43ce4_79b9775a",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1999,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:11:08Z",
+      "side": 1,
+      "message": "Old bug: CFI is incorrect in the entire function. We should use DEFINE_FUNCTION_CUSTOM_CFA(., 0).\n\nI\u0027d hope that a zero-size frame stops backtrace tools from trying to go to the next frame as there is no location for the return pc. Once we push the 0, they shall stop at that.",
+      "range": {
+        "startLine": 1999,
+        "startChar": 0,
+        "endLine": 1999,
+        "endChar": 15
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baaa2602_1e725d6d",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1945,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:11:08Z",
+      "side": 1,
+      "message": "Old bug: CFI is incorrect at this instruction. We should use DEFINE_FUNCTION_CUSTOM_CFA(., 0) and then CFI_ADJUST_CFA_OFFSET(8) after this push.",
+      "range": {
+        "startLine": 1945,
+        "startChar": 0,
+        "endLine": 1945,
+        "endChar": 90
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2be3f23_3c32cfe5",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1987,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-09T09:11:08Z",
+      "side": 1,
+      "message": "You can get rid of this if you reorder the TESTQ+JZ after the RESTORE_* above.",
+      "range": {
+        "startLine": 1985,
+        "startChar": 0,
+        "endLine": 1987,
+        "endChar": 32
+      },
+      "revId": "2bb4eacbc3634b0831d15615c3cc86ce84bbfdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
