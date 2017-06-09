@@ -70,6 +70,30 @@
       "revId": "f81e6566a4d8f6ee6160ab61e23404cf28eacb7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "583bc373_e67d6b4a",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-06-09T18:45:51Z",
+      "side": 1,
+      "message": "If one thread calls AtomicBumpPack, while another calls PopBack() or the like, things are likely to go wrong. The popped data may be getting written at the same time that it\u0027s being read. I think the same is true for the front operations if the \"stack\" was initially empty.\n\nThe normal usage pattern is that threads call the AtomicPush, etc. operations for a while, then everybody synchronizes using one of the GC mechanisms that establishes a happens-before ordering, and then the GC takes over and uses the non-atomic operations",
+      "parentUuid": "ea905fd3_b4d84379",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "f81e6566a4d8f6ee6160ab61e23404cf28eacb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
