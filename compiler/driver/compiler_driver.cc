@@ -2290,10 +2290,12 @@ class InitializeClassVisitor : public CompilationVisitor {
         // than use a special Object for the purpose we use the Class of java.lang.Class.
         Handle<mirror::Class> h_klass(hs.NewHandle(klass->GetClass()));
         ObjectLock<mirror::Class> lock(soa.Self(), h_klass);
+        const bool is_boot_image = manager_->GetCompiler()->GetCompilerOptions().IsBootImage();
+        const bool is_app_image = manager_->GetCompiler()->GetCompilerOptions().IsAppImage();
         // Attempt to initialize allowing initialization of parent classes but still not static
         // fields.
         bool is_superclass_initialized = true;
-        if (!manager_->GetCompiler()->GetCompilerOptions().IsAppImage()) {
+        if (!is_app_image) {
           // If not an app image case, the compiler won't initialize too much things and do a fast
           // fail, don't check dependencies.
           manager_->GetClassLinker()->EnsureInitialized(soa.Self(), klass, false, true);
@@ -2306,17 +2308,24 @@ class InitializeClassVisitor : public CompilationVisitor {
           }
         }
         old_status = klass->GetStatus();
+
+        bool not_too_many_encoded_fields = true;
+        const size_t num_static_fields = klass->NumStaticFields();
+        if (num_static_fields > kMaxEncodedFields && !is_boot_image) {
+          not_too_many_encoded_fields = false;
+        }
         // If superclass cannot be initialized, no need to proceed.
         if (!klass->IsInitialized() &&
             is_superclass_initialized &&
+            not_too_many_encoded_fields &&
             manager_->GetCompiler()->IsImageClass(descriptor)) {
           bool can_init_static_fields = false;
-          if (manager_->GetCompiler()->GetCompilerOptions().IsBootImage()) {
+          if (is_boot_image) {
             // We need to initialize static fields, we only do this for image classes that aren't
             // marked with the $NoPreloadHolder (which implies this should not be initialized early).
             can_init_static_fields = !StringPiece(descriptor).ends_with("$NoPreloadHolder;");
           } else {
-            can_init_static_fields = manager_->GetCompiler()->GetCompilerOptions().IsAppImage() &&
+            can_init_static_fields = is_app_image &&
                 !soa.Self()->IsExceptionPending() &&
                 NoClinitInDependency(klass, soa.Self(), &class_loader);
             // TODO The checking for clinit can be removed since it's already
