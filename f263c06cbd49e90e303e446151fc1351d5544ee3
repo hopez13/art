@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de6b41ce_eda6dd1e",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T20:12:53Z",
+      "side": 1,
+      "message": "I\u0027m in general not happy with this. Why is the analyzer just doing the horribly trivial thing here? (I mentioned that on the bug...)",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 68
+      },
+      "revId": "f263c06cbd49e90e303e446151fc1351d5544ee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbe2e6d2_87bc693b",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T20:12:53Z",
+      "side": 1,
+      "message": "We require two spaces here (even if your NOLINT turns of that part of lint :-) ).",
+      "range": {
+        "startLine": 283,
+        "startChar": 52,
+        "endLine": 283,
+        "endChar": 53
+      },
+      "revId": "f263c06cbd49e90e303e446151fc1351d5544ee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
