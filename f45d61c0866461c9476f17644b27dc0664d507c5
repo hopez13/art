@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "82a53bb8_f157741c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-09T16:06:08Z",
+      "side": 1,
+      "message": "Yes, you are right, it is an invariant. But if you, like me, are kept awake at night, ;-), with the fear that somewhere a CHECK fails because of an oversight, making this a bail simply omits the optimization silently....",
+      "parentUuid": "7604274e_1fefab7e",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 25
+      },
+      "revId": "f45d61c0866461c9476f17644b27dc0664d507c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baf3f02c_6ce51558",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 3
