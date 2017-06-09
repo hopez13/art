@@ -2662,7 +2662,10 @@ void CodeGeneratorARMVIXL::GenerateFrameEntry() {
     vixl32::Register temp = temps.Acquire();
     // Initialize should_deoptimize flag to 0.
     __ Mov(temp, 0);
-    GetAssembler()->StoreToOffset(kStoreWord, temp, sp, -kShouldDeoptimizeFlagSize);
+    GetAssembler()->StoreToOffset(kStoreWord,
+                                  temp,
+                                  sp,
+                                  -static_cast<int32_t>(kShouldDeoptimizeFlagSize));
   }
 
   int adjust = GetFrameSize() - FrameEntrySpillSize();
