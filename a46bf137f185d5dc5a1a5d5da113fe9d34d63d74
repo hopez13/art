@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f2afae20_f8f7208a",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T15:54:58Z",
+      "side": 1,
+      "message": "Can you explain what you mean?\n\nI was trying to encapsulate the includes and CheckXYZ() generation into asm_support_check (it\u0027s used both here and in runtime.cc). Here\u0027 we want gtest behavior. In runtime.cc, you need CHECK.",
+      "parentUuid": "998877dd_36fb14e5",
+      "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba62b4c0_1426ecb1",
         "filename": "runtime/asm_support_check.h",
         "patchSetId": 5
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "97fbe42c_8e2535ee",
+        "filename": "runtime/asm_support_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T15:54:58Z",
+      "side": 1,
+      "message": "It\u0027s derived from asm_support.h, so I kept that file\u0027s date.",
+      "parentUuid": "ba62b4c0_1426ecb1",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aaf23355_68bd6143",
         "filename": "runtime/asm_support_check.h",
         "patchSetId": 5
@@ -53,6 +95,24 @@
       "writtenOn": "2017-06-09T15:47:08Z",
       "side": 1,
       "message": "Yes, this seems good. Any issues with the #defines being redefined?",
+      "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af643e6a_6428cb6e",
+        "filename": "runtime/asm_support_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-09T15:54:58Z",
+      "side": 1,
+      "message": "They should all have the same value, so you won\u0027t get a warning.",
+      "parentUuid": "aaf23355_68bd6143",
       "revId": "a46bf137f185d5dc5a1a5d5da113fe9d34d63d74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
