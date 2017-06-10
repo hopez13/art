@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bd7d0f3d_7bc1e7ab",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-10T01:12:12Z",
+      "side": 1,
+      "message": "Only what\u0027s written here.",
+      "parentUuid": "16e0c408_9d08a3b3",
+      "range": {
+        "startLine": 95,
+        "startChar": 11,
+        "endLine": 95,
+        "endChar": 23
+      },
+      "revId": "f55257337d2d797af8a74dee258dde11bebaeb14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c19359f7_67f4111b",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-10T01:08:40Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 107,
+        "startChar": 40,
+        "endLine": 107,
+        "endChar": 47
+      },
+      "revId": "f55257337d2d797af8a74dee258dde11bebaeb14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa72937_d180f486",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-10T01:12:12Z",
+      "side": 1,
+      "message": "Well, I mean, the goal is still to get the rwx cache. That\u0027s why I left it. :-)",
+      "parentUuid": "c19359f7_67f4111b",
       "range": {
         "startLine": 107,
         "startChar": 40,
