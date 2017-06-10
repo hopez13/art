@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4faa2584_1b723c39",
+        "filename": "runtime/dex_reference_collection.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-10T00:43:41Z",
+      "side": 1,
+      "message": "ArenaSafeMap?",
+      "range": {
+        "startLine": 37,
+        "startChar": 21,
+        "endLine": 37,
+        "endChar": 29
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc9a136c_02c00773",
+        "filename": "runtime/dex_reference_collection.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-10T00:43:41Z",
+      "side": 1,
+      "message": "This comment seems missplaced. What is being optimized here?",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 54
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0b3f910_b952d424",
+        "filename": "runtime/jit/profile_compilation_info-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-10T00:43:41Z",
+      "side": 1,
+      "message": "I really dislike the -inl.h style and our guides agree with me \"Do not move these definitions to separately included header files (-inl.h); this practice was common in the past, but is no longer allowed.\"",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cbb4189_69fd0f83",
+        "filename": "runtime/jit/profile_compilation_info-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-10T00:43:41Z",
+      "side": 1,
+      "message": "Almost identical to the method above. Refactor to eliminate the duplication.",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 14
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edee1a3d_a645f32c",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-10T00:43:41Z",
+      "side": 1,
+      "message": "Where are the tests for these new methods? Please add.",
+      "range": {
+        "startLine": 202,
+        "startChar": 7,
+        "endLine": 202,
+        "endChar": 23
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d83345c_842327e8",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-10T00:43:41Z",
+      "side": 1,
+      "message": "This introduces confusion: we have\nAddMethodsAndClasses\nAddMethod\nAddMethodIndex\n\nand them the Sampled and the Hot versions. \n\nWhat sort  of methods  do the first 3 refer to?\n\nSo I think we need to add more docs explaining what a hot method is and what a sampled method is and rename the methods to make things clearer.",
+      "range": {
+        "startLine": 229,
+        "startChar": 10,
+        "endLine": 229,
+        "endChar": 13
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612931ec_578b7fa2",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-10T00:43:41Z",
+      "side": 1,
+      "message": "create a local var. It\u0027s hard to read what the pair is or what the second of the pair is.",
+      "range": {
+        "startLine": 287,
+        "startChar": 45,
+        "endLine": 287,
+        "endChar": 57
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1fe0fd_357d0ac9",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-10T00:43:41Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 298,
+        "startChar": 45,
+        "endLine": 298,
+        "endChar": 56
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
