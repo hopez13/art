@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "056782a2_9aeb607c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-10T14:03:06Z",
+      "side": 1,
+      "message": "kProtData (the use of kProtAll was also suspicious before as we use this map as the basis for data cache).",
+      "range": {
+        "startLine": 100,
+        "startChar": 6,
+        "endLine": 100,
+        "endChar": 27
+      },
+      "revId": "2c1a0539ee82f7ed85ca2d73c816e3a11e38017f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
