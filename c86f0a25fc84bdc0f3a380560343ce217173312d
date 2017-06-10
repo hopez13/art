@@ -53,6 +53,144 @@
     },
     {
       "key": {
+        "uuid": "9d33b986_efcabbe9",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3260,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-10T08:43:11Z",
+      "side": 1,
+      "message": "Remove this empty line.",
+      "range": {
+        "startLine": 3260,
+        "startChar": 0,
+        "endLine": 3260,
+        "endChar": 0
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "443905e8_000b7a79",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3284,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-10T08:43:11Z",
+      "side": 1,
+      "message": "two or three",
+      "range": {
+        "startLine": 3284,
+        "startChar": 59,
+        "endLine": 3284,
+        "endChar": 62
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85295a1f_8d26f144",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3285,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-10T08:43:11Z",
+      "side": 1,
+      "message": "instruction or two",
+      "range": {
+        "startLine": 3285,
+        "startChar": 22,
+        "endLine": 3285,
+        "endChar": 33
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f65e2a72_07c881d6",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3302,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-10T08:43:11Z",
+      "side": 1,
+      "message": "We may save one instruction on R5 when the offset is between (approximate values) -64KB and -32KB or between +32KB and +64KB, if we do addiu+addiu+ld.df instead of lui+addu+addiu+ld.df.\n\nIntroduce immediately below kMaxOffsetForSimpleAdjustment:\n\n    const int32_t kMinOffsetForMediumAdjustment \u003d 2 * kMaxDeltaForSimpleAdjustment;\n    const int32_t kMaxOffsetForMediumAdjustment \u003d kMinOffsetForMediumAdjustment + kMaxLoadStoreOffset;\n\nIntroduce here:\n\n    } else if (!IsR6() \u0026\u0026 0 \u003c\u003d offset \u0026\u0026 offset \u003c\u003d kMaxOffsetForMediumAdjustment) {\n      Addiu(AT, base, kMaxDeltaForSimpleAdjustment);\n      if (offset \u003c\u003d kMinOffsetForMediumAdjustment) {\n        Addiu(AT, AT, offset - kMaxDeltaForSimpleAdjustment);\n        offset \u003d 0;\n      } else {\n        Addiu(AT, AT, kMaxDeltaForSimpleAdjustment);\n        offset -\u003d kMinOffsetForMediumAdjustment;\n      }\n    } else if (!IsR6() \u0026\u0026 -kMaxOffsetForMediumAdjustment \u003c\u003d offset \u0026\u0026 offset \u003c 0) {\n      Addiu(AT, base, -kMaxDeltaForSimpleAdjustment);\n      if (-kMinOffsetForMediumAdjustment \u003c\u003d offset) {\n        Addiu(AT, AT, offset + kMaxDeltaForSimpleAdjustment);\n        offset \u003d 0;\n      } else {\n        Addiu(AT, AT, -kMaxDeltaForSimpleAdjustment);\n        offset +\u003d kMinOffsetForMediumAdjustment;\n      }\n    } else {\n\nWe should probably add assembler_mips32r5_test.cc with tests covering the non-R6 paths through this method (no need to duplicate MSA tests or any others in the new file).",
+      "range": {
+        "startLine": 3302,
+        "startChar": 0,
+        "endLine": 3302,
+        "endChar": 10
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dfb704a_44a8344d",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3305,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-10T08:43:11Z",
+      "side": 1,
+      "message": "Redundant (offset is already int32_t), remove.",
+      "range": {
+        "startLine": 3303,
+        "startChar": 0,
+        "endLine": 3305,
+        "endChar": 6
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "958dd4df_0f08862f",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3313,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-10T08:43:11Z",
+      "side": 1,
+      "message": "addiu",
+      "range": {
+        "startLine": 3313,
+        "startChar": 79,
+        "endLine": 3313,
+        "endChar": 85
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee461907_b95bd575",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
