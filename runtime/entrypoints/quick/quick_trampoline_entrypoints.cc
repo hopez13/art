@@ -1182,7 +1182,7 @@ extern "C" const void* artQuickResolutionTrampoline(
     HandleWrapper<mirror::Object> h_receiver(
         hs.NewHandleWrapper(virtual_or_interface ? &receiver : &dummy));
     DCHECK_EQ(caller->GetDexFile(), called_method.dex_file);
-    called = linker->ResolveMethod<ClassLinker::kForceICCECheck>(
+    called = linker->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
         self, called_method.dex_method_index, caller, invoke_type);
 
     // Update .bss entry in oat file if any.
@@ -2622,10 +2622,8 @@ extern "C" uintptr_t artInvokePolymorphic(
 
   // Resolve method - it's either MethodHandle.invoke() or MethodHandle.invokeExact().
   ClassLinker* linker = Runtime::Current()->GetClassLinker();
-  ArtMethod* resolved_method = linker->ResolveMethod<ClassLinker::kForceICCECheck>(self,
-                                                                                   inst->VRegB(),
-                                                                                   caller_method,
-                                                                                   kVirtual);
+  ArtMethod* resolved_method = linker->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
+      self, inst->VRegB(), caller_method, kVirtual);
   DCHECK((resolved_method ==
           jni::DecodeArtMethod(WellKnownClasses::java_lang_invoke_MethodHandle_invokeExact)) ||
          (resolved_method ==
