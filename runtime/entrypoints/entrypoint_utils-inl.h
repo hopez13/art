@@ -78,7 +78,8 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
   }
 
   // Lookup the declaring class of the inlined method.
-  const DexFile* dex_file = caller->GetDexFile();
+  ObjPtr<mirror::DexCache> dex_cache = caller->GetDexCache();
+  const DexFile* dex_file = dex_cache->GetDexFile();
   const DexFile::MethodId& method_id = dex_file->GetMethodId(method_index);
   ArtMethod* inlined_method = caller->GetDexCacheResolvedMethod(method_index, kRuntimePointerSize);
   if (inlined_method != nullptr && !inlined_method->IsRuntimeMethod()) {
@@ -90,25 +91,18 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
   mirror::ClassLoader* class_loader = caller->GetDeclaringClass()->GetClassLoader();
   mirror::Class* klass = class_linker->LookupClass(self, descriptor, class_loader);
   if (klass == nullptr) {
-      LOG(FATAL) << "Could not find an inlined method from an .oat file: "
-                 << "the class " << descriptor << " was not found in the class loader of "
-                 << caller->PrettyMethod() << ". "
+      LOG(FATAL) << "Could not find an inlined method from an .oat file: the class " << descriptor
+                 << " was not found in the class loader of " << caller->PrettyMethod() << ". "
                  << "This must be due to playing wrongly with class loaders";
   }
 
-  // Lookup the method.
-  const char* method_name = dex_file->GetMethodName(method_id);
-  const Signature signature = dex_file->GetMethodSignature(method_id);
-
-  inlined_method = klass->FindDeclaredDirectMethod(method_name, signature, kRuntimePointerSize);
+  inlined_method = klass->FindDirectOrVirtualMethod(dex_cache, method_index, kRuntimePointerSize);
+  // TODO: check that the method has been defined in `klass` or it is a copied method.
   if (inlined_method == nullptr) {
-    inlined_method = klass->FindDeclaredVirtualMethod(method_name, signature, kRuntimePointerSize);
-    if (inlined_method == nullptr) {
-      LOG(FATAL) << "Could not find an inlined method from an .oat file: "
-                 << "the class " << descriptor << " does not have "
-                 << method_name << signature << " declared. "
-                 << "This must be due to duplicate classes or playing wrongly with class loaders";
-    }
+    LOG(FATAL) << "Could not find an inlined method from an .oat file: the class " << descriptor
+               << " does not have " << dex_file->GetMethodName(method_id)
+               << dex_file->GetMethodSignature(method_id) << " declared. "
+               << "This must be due to duplicate classes or playing wrongly with class loaders";
   }
   caller->SetDexCacheResolvedMethod(method_index, inlined_method, kRuntimePointerSize);
 
