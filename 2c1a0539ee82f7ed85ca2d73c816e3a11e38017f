@@ -94,6 +94,30 @@
       "revId": "2c1a0539ee82f7ed85ca2d73c816e3a11e38017f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc484db3_3968a1ff",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-12T22:59:17Z",
+      "side": 1,
+      "message": "Personally, I think it is more intention-revealing here to remove X from All, instead of knowing implicitly that Data + X \u003d All...",
+      "parentUuid": "1c548e3f_59fb36ac",
+      "range": {
+        "startLine": 100,
+        "startChar": 6,
+        "endLine": 100,
+        "endChar": 27
+      },
+      "revId": "2c1a0539ee82f7ed85ca2d73c816e3a11e38017f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
