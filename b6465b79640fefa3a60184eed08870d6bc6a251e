@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "1b2af5bd_3546abc7",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-12T19:32:45Z",
+      "side": 1,
+      "message": "\"art\" gets trimmed out (I don\u0027t know where, but it does).\nFor all the run-test configs, we are using just the variant names for say optimizing, or interpreter. We should not change that.",
+      "parentUuid": "4456d9f5_c2592fa0",
+      "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6282e2c8_8ea8be59",
         "filename": "test/testrunner/target_config.py",
         "patchSetId": 1
@@ -138,6 +156,24 @@
       "writtenOn": "2017-06-12T18:55:46Z",
       "side": 1,
       "message": "This is art-run-test-*\n\nI pointed this out earlier Shubham and you didn\u0027t say anything.\n\nSo let\u0027s just be consistent please.",
+      "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d35c9e7_b0928f9d",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-12T19:32:45Z",
+      "side": 1,
+      "message": "I didn\u0027t realize this issue then. But lets not take it any forward. It will become too difficult to parse the dashboard by just looking at it and one has to hover through the column name to find the exact config name.\n\nAndreas, rather than two configs for gtest and run-test, can we just have one art-asan, running both for both? This will save build bot resources by re-using the same build for the run-test and gtest.",
+      "parentUuid": "6282e2c8_8ea8be59",
       "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
