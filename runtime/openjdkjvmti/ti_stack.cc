@@ -59,11 +59,14 @@
 
 namespace openjdkjvmti {
 
+template <typename FrameFn>
 struct GetStackTraceVisitor : public art::StackVisitor {
   GetStackTraceVisitor(art::Thread* thread_in,
+                       FrameFn fn_,
                        size_t start_,
                        size_t stop_)
       : StackVisitor(thread_in, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
+        fn(fn_),
         start(start_),
         stop(stop_) {}
 
@@ -81,7 +84,7 @@ struct GetStackTraceVisitor : public art::StackVisitor {
       jlong dex_location = (dex_pc == art::DexFile::kDexNoIndex) ? -1 : static_cast<jlong>(dex_pc);
 
       jvmtiFrameInfo info = { id, dex_location };
-      frames.push_back(info);
+      fn(info);
 
       if (stop == 1) {
         return false;  // We're done.
@@ -95,24 +98,26 @@ struct GetStackTraceVisitor : public art::StackVisitor {
     return true;
   }
 
-  std::vector<jvmtiFrameInfo> frames;
+  FrameFn fn;
   size_t start;
   size_t stop;
 };
 
-struct GetStackTraceClosure : public art::Closure {
+struct GetStackTraceVectorClosure : public art::Closure {
  public:
-  GetStackTraceClosure(size_t start, size_t stop)
+  GetStackTraceVectorClosure(size_t start, size_t stop)
       : start_input(start),
         stop_input(stop),
         start_result(0),
         stop_result(0) {}
 
   void Run(art::Thread* self) OVERRIDE REQUIRES_SHARED(art::Locks::mutator_lock_) {
-    GetStackTraceVisitor visitor(self, start_input, stop_input);
+    auto frames_fn = [&](jvmtiFrameInfo info) {
+      frames.push_back(info);
+    };
+    GetStackTraceVisitor<decltype(frames_fn)> visitor(self, frames_fn, start_input, stop_input);
     visitor.WalkStack(false);
 
-    frames.swap(visitor.frames);
     start_result = visitor.start;
     stop_result = visitor.stop;
   }
@@ -220,8 +225,8 @@ jvmtiError StackUtil::GetStackTrace(jvmtiEnv* jvmti_env ATTRIBUTE_UNUSED,
     return ERR(NONE);
   }
 
-  GetStackTraceClosure closure(start_depth >= 0 ? static_cast<size_t>(start_depth) : 0,
-                               start_depth >= 0 ? static_cast<size_t>(max_frame_count) : 0);
+  GetStackTraceVectorClosure closure(start_depth >= 0 ? static_cast<size_t>(start_depth) : 0,
+                                     start_depth >= 0 ? static_cast<size_t>(max_frame_count) : 0);
   thread->RequestSynchronousCheckpoint(&closure);
 
   return TranslateFrameVector(closure.frames,
@@ -231,42 +236,6 @@ jvmtiError StackUtil::GetStackTrace(jvmtiEnv* jvmti_env ATTRIBUTE_UNUSED,
                               frame_buffer,
                               count_ptr);
 }
-
-struct GetAllStackTraceClosure : public art::Closure {
- public:
-  explicit GetAllStackTraceClosure(size_t stop)
-      : start_input(0),
-        stop_input(stop),
-        frames_lock("GetAllStackTraceGuard", art::LockLevel::kAbortLock),
-        start_result(0),
-        stop_result(0) {}
-
-  void Run(art::Thread* self)
-      OVERRIDE REQUIRES_SHARED(art::Locks::mutator_lock_) REQUIRES(!frames_lock) {
-    // self should be live here (so it could be suspended). No need to filter.
-
-    art::Thread* current = art::Thread::Current();
-    std::vector<jvmtiFrameInfo> self_frames;
-
-    GetStackTraceVisitor visitor(self, start_input, stop_input);
-    visitor.WalkStack(false);
-
-    self_frames.swap(visitor.frames);
-
-    art::MutexLock mu(current, frames_lock);
-    frames.emplace(self, self_frames);
-  }
-
-  const size_t start_input;
-  const size_t stop_input;
-
-  art::Mutex frames_lock;
-  std::unordered_map<art::Thread*, std::vector<jvmtiFrameInfo>> frames GUARDED_BY(frames_lock);
-  size_t start_result;
-  size_t stop_result;
-};
-
-
 
 jvmtiError StackUtil::GetAllStackTraces(jvmtiEnv* env,
                                         jint max_frame_count,
@@ -300,7 +269,7 @@ jvmtiError StackUtil::GetAllStackTraces(jvmtiEnv* env,
         continue;
       }
 
-      GetStackTraceClosure closure(0u, static_cast<size_t>(max_frame_count));
+      GetStackTraceVectorClosure closure(0u, static_cast<size_t>(max_frame_count));
       thread->RequestSynchronousCheckpoint(&closure);
 
       threads.push_back(thread);
@@ -460,7 +429,7 @@ jvmtiError StackUtil::GetThreadListStackTraces(jvmtiEnv* env,
         for (size_t index = 0; index != handles.size(); ++index) {
           if (peer == handles[index].Get()) {
             // Found the thread.
-            GetStackTraceClosure closure(0u, static_cast<size_t>(max_frame_count));
+            GetStackTraceVectorClosure closure(0u, static_cast<size_t>(max_frame_count));
             thread->RequestSynchronousCheckpoint(&closure);
 
             threads.push_back(thread);
