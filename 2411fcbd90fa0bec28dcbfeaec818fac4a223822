@@ -69,6 +69,24 @@
       "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd3aad92_17a03f9c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-12T14:52:09Z",
+      "side": 1,
+      "message": "The other way around, ON_SUSPENDING_ENTRYPOINT_EXIT.",
+      "parentUuid": "0dd7a312_abea175c",
+      "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
