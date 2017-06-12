@@ -397,95 +397,41 @@ void Class::SetClassLoader(ObjPtr<ClassLoader> new_class_loader) {
   }
 }
 
-ArtMethod* Class::FindInterfaceMethod(const StringPiece& name,
-                                      const StringPiece& signature,
-                                      PointerSize pointer_size) {
-  // Check the current class before checking the interfaces.
-  ArtMethod* method = FindDeclaredVirtualMethod(name, signature, pointer_size);
-  if (method != nullptr) {
-    return method;
-  }
-
-  int32_t iftable_count = GetIfTableCount();
-  ObjPtr<IfTable> iftable = GetIfTable();
-  for (int32_t i = 0; i < iftable_count; ++i) {
-    method = iftable->GetInterface(i)->FindDeclaredVirtualMethod(name, signature, pointer_size);
-    if (method != nullptr) {
-      return method;
+template <typename SignatureType>
+static inline ArtMethod* FindInterfaceMethodWithSignature(ObjPtr<Class> klass,
+                                                          const StringPiece& name,
+                                                          const SignatureType& signature,
+                                                          PointerSize pointer_size)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // If the current class is not an interface, skip the search of its declared methods;
+  // such lookup is used only to distinguish between IncompatibleClassChangeError and
+  // NoSuchMethodError and the caller has already tried to search methods in the class.
+  if (LIKELY(klass->IsInterface())) {
+    // Search declared methods, both direct and virtual.
+    // (This lookup is used also for invoke-static on interface classes.)
+    for (ArtMethod& method : klass->GetDeclaredMethodsSlice(pointer_size)) {
+      if (method.GetName() == name && method.GetSignature() == signature) {
+        return &method;
+      }
+    }
+    // Then search for public non-static methods in the java.lang.Object.
+    ObjPtr<Class> object_class = klass->GetSuperClass();
+    DCHECK(object_class->IsObjectClass());
+    for (ArtMethod& method : object_class->GetDeclaredMethodsSlice(pointer_size)) {
+      if (method.IsPublic() && !method.IsStatic() &&
+          method.GetName() == name && method.GetSignature() == signature) {
+        return &method;
+      }
     }
   }
-  return nullptr;
-}
 
-ArtMethod* Class::FindInterfaceMethod(const StringPiece& name,
-                                      const Signature& signature,
-                                      PointerSize pointer_size) {
-  // Check the current class before checking the interfaces.
-  ArtMethod* method = FindDeclaredVirtualMethod(name, signature, pointer_size);
-  if (method != nullptr) {
-    return method;
-  }
-
-  int32_t iftable_count = GetIfTableCount();
-  ObjPtr<IfTable> iftable = GetIfTable();
-  for (int32_t i = 0; i < iftable_count; ++i) {
-    method = iftable->GetInterface(i)->FindDeclaredVirtualMethod(name, signature, pointer_size);
-    if (method != nullptr) {
-      return method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindInterfaceMethod(ObjPtr<DexCache> dex_cache,
-                                      uint32_t dex_method_idx,
-                                      PointerSize pointer_size) {
-  // Check the current class before checking the interfaces.
-  ArtMethod* method = FindDeclaredVirtualMethod(dex_cache, dex_method_idx, pointer_size);
-  if (method != nullptr) {
-    return method;
-  }
-
-  int32_t iftable_count = GetIfTableCount();
-  ObjPtr<IfTable> iftable = GetIfTable();
-  for (int32_t i = 0; i < iftable_count; ++i) {
-    method = iftable->GetInterface(i)->FindDeclaredVirtualMethod(
-        dex_cache, dex_method_idx, pointer_size);
-    if (method != nullptr) {
-      return method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindDeclaredDirectMethod(const StringPiece& name,
-                                           const StringPiece& signature,
-                                           PointerSize pointer_size) {
-  for (auto& method : GetDirectMethods(pointer_size)) {
-    if (name == method.GetName() && method.GetSignature() == signature) {
-      return &method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindDeclaredDirectMethod(const StringPiece& name,
-                                           const Signature& signature,
-                                           PointerSize pointer_size) {
-  for (auto& method : GetDirectMethods(pointer_size)) {
-    if (name == method.GetName() && signature == method.GetSignature()) {
-      return &method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindDeclaredDirectMethod(ObjPtr<DexCache> dex_cache,
-                                           uint32_t dex_method_idx,
-                                           PointerSize pointer_size) {
-  if (GetDexCache() == dex_cache) {
-    for (auto& method : GetDirectMethods(pointer_size)) {
-      if (method.GetDexMethodIndex() == dex_method_idx) {
+  // TODO: If there is a unique maximally-specific non-abstract superinterface method,
+  // we should return it, otherwise an arbitrary one can be returned.
+  ObjPtr<IfTable> iftable = klass->GetIfTable();
+  for (int32_t i = 0, iftable_count = iftable->Count(); i < iftable_count; ++i) {
+    ObjPtr<Class> iface = iftable->GetInterface(i);
+    for (ArtMethod& method : iface->GetVirtualMethodsSlice(pointer_size)) {
+      if (method.GetName() == name && method.GetSignature() == signature) {
         return &method;
       }
     }
@@ -493,37 +439,179 @@ ArtMethod* Class::FindDeclaredDirectMethod(ObjPtr<DexCache> dex_cache,
   return nullptr;
 }
 
-ArtMethod* Class::FindDirectMethod(const StringPiece& name,
-                                   const StringPiece& signature,
-                                   PointerSize pointer_size) {
-  for (ObjPtr<Class> klass = this; klass != nullptr; klass = klass->GetSuperClass()) {
-    ArtMethod* method = klass->FindDeclaredDirectMethod(name, signature, pointer_size);
-    if (method != nullptr) {
-      return method;
+ArtMethod* Class::FindInterfaceMethod(const StringPiece& name,
+                                      const StringPiece& signature,
+                                      PointerSize pointer_size) {
+  return FindInterfaceMethodWithSignature(this, name, signature, pointer_size);
+}
+
+ArtMethod* Class::FindInterfaceMethod(const StringPiece& name,
+                                      const Signature& signature,
+                                      PointerSize pointer_size) {
+  return FindInterfaceMethodWithSignature(this, name, signature, pointer_size);
+}
+
+ArtMethod* Class::FindInterfaceMethod(ObjPtr<DexCache> dex_cache,
+                                      uint32_t dex_method_idx,
+                                      PointerSize pointer_size) {
+  // We always search by name and signature, ignoring the type index in the MethodId.
+  const DexFile& dex_file = *dex_cache->GetDexFile();
+  const DexFile::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
+  StringPiece name = dex_file.StringDataByIdx(method_id.name_idx_);
+  const Signature signature = dex_file.GetMethodSignature(method_id);
+  return FindInterfaceMethod(name, signature, pointer_size);
+}
+
+static inline bool IsInheritedDeclaredMethod(ObjPtr<mirror::Class> klass, ArtMethod& method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ObjPtr<Class> declaring_class = method.GetDeclaringClass();
+  DCHECK_NE(klass, declaring_class);
+  DCHECK(klass->IsArrayClass() || klass->IsSubClass(declaring_class));
+  uint32_t access_flags = method.GetAccessFlags();
+  if ((access_flags & (kAccPublic | kAccProtected)) != 0) {
+    return true;
+  }
+  if ((access_flags & kAccPrivate) != 0) {
+    return false;
+  }
+  return klass->IsInSamePackage(declaring_class);
+}
+
+template <typename SignatureType>
+static inline ArtMethod* FindClassMethodWithSignature(ObjPtr<Class> this_klass,
+                                                      const StringPiece& name,
+                                                      const SignatureType& signature,
+                                                      PointerSize pointer_size)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // Search declared methods first.
+  ObjPtr<Class> klass = this_klass;
+  if (UNLIKELY(klass->IsProxyClass())) {
+    for (ArtMethod& method : klass->GetDeclaredMethodsSlice(pointer_size)) {
+      ArtMethod* np_method = method.GetInterfaceMethodIfProxy(pointer_size);
+      if (np_method->GetName() == name && np_method->GetSignature() == signature) {
+        return &method;
+      }
+    }
+    klass = klass->GetSuperClass();
+    DCHECK_EQ(klass, WellKnownClasses::ToClass(WellKnownClasses::java_lang_reflect_Proxy));
+  }
+  for (; klass != nullptr; klass = klass->GetSuperClass()) {
+    DCHECK(!klass->IsProxyClass());
+    for (ArtMethod& method : klass->GetDeclaredMethodsSlice(pointer_size)) {
+      if (method.GetName() == name &&
+          method.GetSignature() == signature &&
+          (klass == this_klass || IsInheritedDeclaredMethod(this_klass, method))) {
+        return &method;
+      }
+    }
+  }
+  // Then search copied methods.
+  klass = this_klass;
+  if (UNLIKELY(klass->IsProxyClass())) {
+    for (ArtMethod& method : klass->GetCopiedMethodsSlice(pointer_size)) {
+      ArtMethod* np_method = method.GetInterfaceMethodIfProxy(pointer_size);
+      if (np_method->GetName() == name && np_method->GetSignature() == signature) {
+        return &method;
+      }
+    }
+    klass = klass->GetSuperClass();
+  }
+  for (; klass != nullptr; klass = klass->GetSuperClass()) {
+    DCHECK(!klass->IsProxyClass());
+    for (ArtMethod& method : klass->GetCopiedMethodsSlice(pointer_size)) {
+      if (method.GetName() == name && method.GetSignature() == signature) {
+        return &method;
+      }
     }
   }
   return nullptr;
 }
 
-ArtMethod* Class::FindDirectMethod(const StringPiece& name,
-                                   const Signature& signature,
-                                   PointerSize pointer_size) {
-  for (ObjPtr<Class> klass = this; klass != nullptr; klass = klass->GetSuperClass()) {
-    ArtMethod* method = klass->FindDeclaredDirectMethod(name, signature, pointer_size);
-    if (method != nullptr) {
-      return method;
+
+ArtMethod* Class::FindClassMethod(const StringPiece& name,
+                                  const StringPiece& signature,
+                                  PointerSize pointer_size) {
+  return FindClassMethodWithSignature(this, name, signature, pointer_size);
+}
+
+ArtMethod* Class::FindClassMethod(const StringPiece& name,
+                                  const Signature& signature,
+                                  PointerSize pointer_size) {
+  return FindClassMethodWithSignature(this, name, signature, pointer_size);
+}
+
+ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
+                                  uint32_t dex_method_idx,
+                                  PointerSize pointer_size) {
+  // FIXME: Hijacking a proxy class by a custom class loader can break this assumption.
+  DCHECK(!IsProxyClass());
+
+  ObjPtr<Class> klass = this;
+  // First try to find a declared method by dex_method_idx if we have a dex_cache match.
+  if (GetDexCache() == dex_cache) {
+    // Lookup is always performed in the class referenced by the MethodId.
+    DCHECK_EQ(dex_type_idx_, GetDexFile().GetMethodId(dex_method_idx).class_idx_.index_);
+    for (ArtMethod& method : GetDeclaredMethodsSlice(pointer_size)) {
+      if (method.GetDexMethodIndex() == dex_method_idx) {
+        return &method;
+      }
+    }
+    klass = GetSuperClass();
+  }
+  // If not found, we need to search by name and signature.
+  const DexFile& dex_file = *dex_cache->GetDexFile();
+  const DexFile::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
+  const Signature signature = dex_file.GetMethodSignature(method_id);
+  StringPiece name;  // Delay strlen() until actually needed.
+  // Search for declared methods in the remainder of the super-class chain.
+  for (; klass != nullptr; klass = klass->GetSuperClass()) {
+    ArraySlice<ArtMethod> declared_methods = klass->GetDeclaredMethodsSlice(pointer_size);
+    if (klass->GetDexCache() == dex_cache) {
+      // Matching dex_cache. We cannot compare the `dex_method_idx` anymore because
+      // the type index differs, so compare the name index and proto index.
+      for (ArtMethod& method : declared_methods) {
+        const DexFile::MethodId& cmp_method_id = dex_file.GetMethodId(method.GetDexMethodIndex());
+        if (cmp_method_id.name_idx_ == method_id.name_idx_ &&
+            cmp_method_id.proto_idx_ == method_id.proto_idx_ &&
+            (klass == this || IsInheritedDeclaredMethod(this, method))) {
+          return &method;
+        }
+      }
+    } else {
+      if (!declared_methods.empty() && name.empty()) {
+        name = dex_file.StringDataByIdx(method_id.name_idx_);
+      }
+      for (ArtMethod& method : declared_methods) {
+        if (method.GetName() == name &&
+            method.GetSignature() == signature &&
+            (klass == this || IsInheritedDeclaredMethod(this, method))) {
+          return &method;
+        }
+      }
+    }
+  }
+  // After we have searched the declared methods of the super-class chain,
+  // search copied methods which can contain methods from interfaces.
+  for (klass = this; klass != nullptr; klass = klass->GetSuperClass()) {
+    ArraySlice<ArtMethod> copied_methods = klass->GetCopiedMethodsSlice(pointer_size);
+    if (!copied_methods.empty() && name.empty()) {
+      name = dex_file.StringDataByIdx(method_id.name_idx_);
+    }
+    for (ArtMethod& method : copied_methods) {
+      if (method.GetName() == name && method.GetSignature() == signature) {
+        return &method;
+      }
     }
   }
   return nullptr;
 }
 
-ArtMethod* Class::FindDirectMethod(ObjPtr<DexCache> dex_cache,
-                                   uint32_t dex_method_idx,
-                                   PointerSize pointer_size) {
-  for (ObjPtr<Class> klass = this; klass != nullptr; klass = klass->GetSuperClass()) {
-    ArtMethod* method = klass->FindDeclaredDirectMethod(dex_cache, dex_method_idx, pointer_size);
-    if (method != nullptr) {
-      return method;
+ArtMethod* Class::FindConstructor(const StringPiece& signature, PointerSize pointer_size) {
+  DCHECK(!IsProxyClass());
+  StringPiece name("<init>");
+  for (ArtMethod& method : GetDirectMethodsSliceUnchecked(pointer_size)) {
+    if (method.GetName() == name && method.GetSignature() == signature) {
+      return &method;
     }
   }
   return nullptr;
@@ -540,89 +628,12 @@ ArtMethod* Class::FindDeclaredDirectMethodByName(const StringPiece& name,
   return nullptr;
 }
 
-// TODO These should maybe be changed to be named FindOwnedVirtualMethod or something similar
-// because they do not only find 'declared' methods and will return copied methods. This behavior is
-// desired and correct but the naming can lead to confusion because in the java language declared
-// excludes interface methods which might be found by this.
-ArtMethod* Class::FindDeclaredVirtualMethod(const StringPiece& name,
-                                            const StringPiece& signature,
-                                            PointerSize pointer_size) {
-  for (auto& method : GetVirtualMethods(pointer_size)) {
-    ArtMethod* const np_method = method.GetInterfaceMethodIfProxy(pointer_size);
-    if (name == np_method->GetName() && np_method->GetSignature() == signature) {
-      return &method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindDeclaredVirtualMethod(const StringPiece& name,
-                                            const Signature& signature,
-                                            PointerSize pointer_size) {
-  for (auto& method : GetVirtualMethods(pointer_size)) {
-    ArtMethod* const np_method = method.GetInterfaceMethodIfProxy(pointer_size);
-    if (name == np_method->GetName() && signature == np_method->GetSignature()) {
-      return &method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindDeclaredVirtualMethod(ObjPtr<DexCache> dex_cache,
-                                            uint32_t dex_method_idx,
-                                            PointerSize pointer_size) {
-  if (GetDexCache() == dex_cache) {
-    for (auto& method : GetDeclaredVirtualMethods(pointer_size)) {
-      if (method.GetDexMethodIndex() == dex_method_idx) {
-        return &method;
-      }
-    }
-  }
-  return nullptr;
-}
-
 ArtMethod* Class::FindDeclaredVirtualMethodByName(const StringPiece& name,
                                                   PointerSize pointer_size) {
   for (auto& method : GetVirtualMethods(pointer_size)) {
     ArtMethod* const np_method = method.GetInterfaceMethodIfProxy(pointer_size);
     if (name == np_method->GetName()) {
       return &method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindVirtualMethod(const StringPiece& name,
-                                    const StringPiece& signature,
-                                    PointerSize pointer_size) {
-  for (ObjPtr<Class> klass = this; klass != nullptr; klass = klass->GetSuperClass()) {
-    ArtMethod* method = klass->FindDeclaredVirtualMethod(name, signature, pointer_size);
-    if (method != nullptr) {
-      return method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindVirtualMethod(const StringPiece& name,
-                                    const Signature& signature,
-                                    PointerSize pointer_size) {
-  for (ObjPtr<Class> klass = this; klass != nullptr; klass = klass->GetSuperClass()) {
-    ArtMethod* method = klass->FindDeclaredVirtualMethod(name, signature, pointer_size);
-    if (method != nullptr) {
-      return method;
-    }
-  }
-  return nullptr;
-}
-
-ArtMethod* Class::FindVirtualMethod(ObjPtr<DexCache> dex_cache,
-                                    uint32_t dex_method_idx,
-                                    PointerSize pointer_size) {
-  for (ObjPtr<Class> klass = this; klass != nullptr; klass = klass->GetSuperClass()) {
-    ArtMethod* method = klass->FindDeclaredVirtualMethod(dex_cache, dex_method_idx, pointer_size);
-    if (method != nullptr) {
-      return method;
     }
   }
   return nullptr;
