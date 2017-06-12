@@ -33,6 +33,24 @@
       "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1bce374_e1b4adfe",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-12T14:11:37Z",
+      "side": 1,
+      "message": "Not needed by entrypoints that do not perform suspend check (directly or indirectly).",
+      "parentUuid": "2c538b4a_877e501a",
+      "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
