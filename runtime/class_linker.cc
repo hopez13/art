@@ -7452,10 +7452,8 @@ bool ClassLinker::LinkInterfaceMethods(
   // defaults. This means we don't need to do any trickery when creating the Miranda methods, since
   // they will already be null. This has the additional benefit that the declarer of a miranda
   // method will actually declare an abstract method.
-  for (size_t i = ifcount; i != 0; ) {
+  for (size_t i = ifcount; i != 0u; ) {
     --i;
-
-    DCHECK_GE(i, 0u);
     DCHECK_LT(i, ifcount);
 
     size_t num_methods = iftable->GetInterface(i)->NumDeclaredVirtualMethods();
@@ -8037,7 +8035,8 @@ ArtMethod* ClassLinker::ResolveMethod(const DexFile& dex_file,
                                       InvokeType type) {
   DCHECK(dex_cache != nullptr);
   // Check for hit in the dex cache.
-  ArtMethod* resolved = dex_cache->GetResolvedMethod(method_idx, image_pointer_size_);
+  PointerSize pointer_size = image_pointer_size_;
+  ArtMethod* resolved = dex_cache->GetResolvedMethod(method_idx, pointer_size);
   Thread::PoisonObjectPointersIfDebug();
   if (resolved != nullptr && !resolved->IsRuntimeMethod()) {
     DCHECK(resolved->GetDeclaringClassUnchecked() != nullptr) << resolved->GetDexMethodIndex();
@@ -8051,22 +8050,21 @@ ArtMethod* ClassLinker::ResolveMethod(const DexFile& dex_file,
   }
   // Fail, get the declaring class.
   const DexFile::MethodId& method_id = dex_file.GetMethodId(method_idx);
-  ObjPtr<mirror::Class> klass = ResolveType(dex_file, method_id.class_idx_, dex_cache, class_loader);
+  ObjPtr<mirror::Class> klass =
+      ResolveType(dex_file, method_id.class_idx_, dex_cache, class_loader);
   if (klass == nullptr) {
     DCHECK(Thread::Current()->IsExceptionPending());
     return nullptr;
   }
-  // Scan using method_idx, this saves string compares but will only hit for matching dex
-  // caches/files.
+
+  // Check if the invoke type matches the class type.
   switch (type) {
-    case kDirect:  // Fall-through.
     case kStatic:
-      resolved = klass->FindDirectMethod(dex_cache.Get(), method_idx, image_pointer_size_);
-      DCHECK(resolved == nullptr || resolved->GetDeclaringClassUnchecked() != nullptr);
+    case kSuper:
       break;
     case kInterface:
       // We have to check whether the method id really belongs to an interface (dex static bytecode
-      // constraint A15). Otherwise you must not invoke-interface on it.
+      // constraints A15, A16). Otherwise you must not invoke-interface on it.
       //
       // This is not symmetric to A12-A14 (direct, static, virtual), as using FindInterfaceMethod
       // assumes that the given type is an interface, and will check the interface table if the
@@ -8091,146 +8089,62 @@ ArtMethod* ClassLinker::ResolveMethod(const DexFile& dex_file,
                                           "Found class %s, but interface was expected",
                                           klass->PrettyDescriptor().c_str());
         return nullptr;
-      } else {
-        resolved = klass->FindInterfaceMethod(dex_cache.Get(), method_idx, image_pointer_size_);
-        DCHECK(resolved == nullptr || resolved->GetDeclaringClass()->IsInterface());
       }
       break;
-    case kSuper:
-      if (klass->IsInterface()) {
-        resolved = klass->FindInterfaceMethod(dex_cache.Get(), method_idx, image_pointer_size_);
-      } else {
-        resolved = klass->FindVirtualMethod(dex_cache.Get(), method_idx, image_pointer_size_);
+    case kDirect:
+      if (dex_cache->GetDexFile()->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+        break;
       }
-      break;
+      FALLTHROUGH_INTENDED;
     case kVirtual:
-      resolved = klass->FindVirtualMethod(dex_cache.Get(), method_idx, image_pointer_size_);
+      // Similarly, invoke-virtual (and invoke-direct without default methods) must reference
+      // a non-interface class (dex static bytecode constraint A24, A25).
+      if (UNLIKELY(klass->IsInterface())) {
+        ThrowIncompatibleClassChangeError(klass,
+                                          "Found interface %s, but class was expected",
+                                          klass->PrettyDescriptor().c_str());
+        return nullptr;
+      }
       break;
     default:
       LOG(FATAL) << "Unreachable - invocation type: " << type;
       UNREACHABLE();
   }
-  if (resolved == nullptr) {
-    // Search by name, which works across dex files.
-    const char* name = dex_file.StringDataByIdx(method_id.name_idx_);
-    const Signature signature = dex_file.GetMethodSignature(method_id);
-    switch (type) {
-      case kDirect:  // Fall-through.
-      case kStatic:
-        resolved = klass->FindDirectMethod(name, signature, image_pointer_size_);
-        DCHECK(resolved == nullptr || resolved->GetDeclaringClassUnchecked() != nullptr);
-        break;
-      case kInterface:
-        resolved = klass->FindInterfaceMethod(name, signature, image_pointer_size_);
-        DCHECK(resolved == nullptr || resolved->GetDeclaringClass()->IsInterface());
-        break;
-      case kSuper:
-        if (klass->IsInterface()) {
-          resolved = klass->FindInterfaceMethod(name, signature, image_pointer_size_);
-        } else {
-          resolved = klass->FindVirtualMethod(name, signature, image_pointer_size_);
-        }
-        break;
-      case kVirtual:
-        resolved = klass->FindVirtualMethod(name, signature, image_pointer_size_);
-        break;
-    }
+
+  // Search for the method using dex_cache and method_idx. The Class::Find*Method()
+  // functions can optimize the search if the dex_cache is the same as the DexCache
+  // of the class, with fall-back to name and signature search otherwise.
+  if (klass->IsInterface()) {
+    resolved = klass->FindInterfaceMethod(dex_cache.Get(), method_idx, pointer_size);
+  } else {
+    resolved = klass->FindInstanceMethod(dex_cache.Get(), method_idx, pointer_size);
   }
+  DCHECK(resolved == nullptr || resolved->GetDeclaringClassUnchecked() != nullptr);
+  if (resolved != nullptr) {
+    // Be a good citizen and update the dex cache to speed subsequent calls.
+    dex_cache->SetResolvedMethod(method_idx, resolved, pointer_size);
+  }
+
   // If we found a method, check for incompatible class changes.
   if (LIKELY(resolved != nullptr && !resolved->CheckIncompatibleClassChange(type))) {
-    // Be a good citizen and update the dex cache to speed subsequent calls.
-    dex_cache->SetResolvedMethod(method_idx, resolved, image_pointer_size_);
     return resolved;
   } else {
-    // If we had a method, it's an incompatible-class-change error.
+    // If we had a method, or if we can find one with another lookup type,
+    // it's an incompatible-class-change error.
+    if (resolved == nullptr) {
+      if (klass->IsInterface()) {
+        resolved = klass->FindInstanceMethod(dex_cache.Get(), method_idx, pointer_size);
+      } else {
+        resolved = klass->FindInterfaceMethod(dex_cache.Get(), method_idx, pointer_size);
+      }
+    }
     if (resolved != nullptr) {
       ThrowIncompatibleClassChangeError(type, resolved->GetInvokeType(), resolved, referrer);
     } else {
-      // We failed to find the method which means either an access error, an incompatible class
-      // change, or no such method. First try to find the method among direct and virtual methods.
+      // We failed to find the method (using all lookup types), so throw a NoSuchMethodError.
       const char* name = dex_file.StringDataByIdx(method_id.name_idx_);
       const Signature signature = dex_file.GetMethodSignature(method_id);
-      switch (type) {
-        case kDirect:
-        case kStatic:
-          resolved = klass->FindVirtualMethod(name, signature, image_pointer_size_);
-          // Note: kDirect and kStatic are also mutually exclusive, but in that case we would
-          //       have had a resolved method before, which triggers the "true" branch above.
-          break;
-        case kInterface:
-        case kVirtual:
-        case kSuper:
-          resolved = klass->FindDirectMethod(name, signature, image_pointer_size_);
-          break;
-      }
-
-      // If we found something, check that it can be accessed by the referrer.
-      bool exception_generated = false;
-      if (resolved != nullptr && referrer != nullptr) {
-        ObjPtr<mirror::Class> methods_class = resolved->GetDeclaringClass();
-        ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-        if (!referring_class->CanAccess(methods_class)) {
-          ThrowIllegalAccessErrorClassForMethodDispatch(referring_class,
-                                                        methods_class,
-                                                        resolved,
-                                                        type);
-          exception_generated = true;
-        } else if (!referring_class->CanAccessMember(methods_class, resolved->GetAccessFlags())) {
-          ThrowIllegalAccessErrorMethod(referring_class, resolved);
-          exception_generated = true;
-        }
-      }
-      if (!exception_generated) {
-        // Otherwise, throw an IncompatibleClassChangeError if we found something, and check
-        // interface methods and throw if we find the method there. If we find nothing, throw a
-        // NoSuchMethodError.
-        switch (type) {
-          case kDirect:
-          case kStatic:
-            if (resolved != nullptr) {
-              ThrowIncompatibleClassChangeError(type, kVirtual, resolved, referrer);
-            } else {
-              resolved = klass->FindInterfaceMethod(name, signature, image_pointer_size_);
-              if (resolved != nullptr) {
-                ThrowIncompatibleClassChangeError(type, kInterface, resolved, referrer);
-              } else {
-                ThrowNoSuchMethodError(type, klass, name, signature);
-              }
-            }
-            break;
-          case kInterface:
-            if (resolved != nullptr) {
-              ThrowIncompatibleClassChangeError(type, kDirect, resolved, referrer);
-            } else {
-              resolved = klass->FindVirtualMethod(name, signature, image_pointer_size_);
-              if (resolved != nullptr) {
-                ThrowIncompatibleClassChangeError(type, kVirtual, resolved, referrer);
-              } else {
-                ThrowNoSuchMethodError(type, klass, name, signature);
-              }
-            }
-            break;
-          case kSuper:
-            if (resolved != nullptr) {
-              ThrowIncompatibleClassChangeError(type, kDirect, resolved, referrer);
-            } else {
-              ThrowNoSuchMethodError(type, klass, name, signature);
-            }
-            break;
-          case kVirtual:
-            if (resolved != nullptr) {
-              ThrowIncompatibleClassChangeError(type, kDirect, resolved, referrer);
-            } else {
-              resolved = klass->FindInterfaceMethod(name, signature, image_pointer_size_);
-              if (resolved != nullptr) {
-                ThrowIncompatibleClassChangeError(type, kInterface, resolved, referrer);
-              } else {
-                ThrowNoSuchMethodError(type, klass, name, signature);
-              }
-            }
-            break;
-        }
-      }
+      ThrowNoSuchMethodError(type, klass, name, signature);
     }
     Thread::Current()->AssertPendingException();
     return nullptr;
@@ -8249,7 +8163,8 @@ ArtMethod* ClassLinker::ResolveMethodWithoutInvokeType(const DexFile& dex_file,
   }
   // Fail, get the declaring class.
   const DexFile::MethodId& method_id = dex_file.GetMethodId(method_idx);
-  ObjPtr<mirror::Class> klass = ResolveType(dex_file, method_id.class_idx_, dex_cache, class_loader);
+  ObjPtr<mirror::Class> klass =
+      ResolveType(dex_file, method_id.class_idx_, dex_cache, class_loader);
   if (klass == nullptr) {
     Thread::Current()->AssertPendingException();
     return nullptr;
@@ -8261,10 +8176,7 @@ ArtMethod* ClassLinker::ResolveMethodWithoutInvokeType(const DexFile& dex_file,
   }
 
   // Search both direct and virtual methods
-  resolved = klass->FindDirectMethod(dex_cache.Get(), method_idx, image_pointer_size_);
-  if (resolved == nullptr) {
-    resolved = klass->FindVirtualMethod(dex_cache.Get(), method_idx, image_pointer_size_);
-  }
+  resolved = klass->FindInstanceMethod(dex_cache.Get(), method_idx, image_pointer_size_);
 
   return resolved;
 }
