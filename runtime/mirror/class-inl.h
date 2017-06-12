@@ -99,7 +99,7 @@ inline DexCache* Class::GetDexCache() {
 inline uint32_t Class::GetCopiedMethodsStartOffset() {
   // Object::GetFieldShort returns an int16_t value, but
   // Class::copied_methods_offset_ is an uint16_t value; cast the
-  // latter to int16_t before returning it as an uint32_t value, so
+  // latter to uint16_t before returning it as an uint32_t value, so
   // that uint16_t values between 2^15 and 2^16-1 are correctly
   // handled.
   return static_cast<uint16_t>(
@@ -113,7 +113,7 @@ inline uint32_t Class::GetDirectMethodsStartOffset() {
 inline uint32_t Class::GetVirtualMethodsStartOffset() {
   // Object::GetFieldShort returns an int16_t value, but
   // Class::virtual_method_offset_ is an uint16_t value; cast the
-  // latter to int16_t before returning it as an uint32_t value, so
+  // latter to uint16_t before returning it as an uint32_t value, so
   // that uint16_t values between 2^15 and 2^16-1 are correctly
   // handled.
   return static_cast<uint16_t>(
@@ -534,7 +534,11 @@ inline ArtMethod* Class::FindVirtualMethodForInterface(ArtMethod* method,
                                                        PointerSize pointer_size) {
   ObjPtr<Class> declaring_class = method->GetDeclaringClass();
   DCHECK(declaring_class != nullptr) << PrettyClass();
-  DCHECK(declaring_class->IsInterface()) << method->PrettyMethod();
+  if (UNLIKELY(!declaring_class->IsInterface())) {
+    DCHECK(declaring_class->IsObjectClass()) << method->PrettyMethod();
+    DCHECK(method->IsPublic() && !method->IsStatic());
+    return FindVirtualMethodForVirtual(method, pointer_size);
+  }
   DCHECK(!method->IsCopied());
   // TODO cache to improve lookup speed
   const int32_t iftable_count = GetIfTableCount();
