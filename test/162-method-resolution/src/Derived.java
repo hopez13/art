@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,14 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_VERIFIER_METHOD_RESOLUTION_KIND_H_
-#define ART_RUNTIME_VERIFIER_METHOD_RESOLUTION_KIND_H_
+// Note: This is src/Derived.java which shall not be used in the test,
+// src2/Derived.java shall be used.
+public class Derived /* extends Base */ {
+    public static void test() {
+        new Derived().foo();
+    }
 
-namespace art {
-namespace verifier {
-
-// Values corresponding to the method resolution algorithms defined in mirror::Class.
-enum MethodResolutionKind {
-  kDirectOrVirtualMethodResolution,
-  kInterfaceMethodResolution,
-};
-
-}  // namespace verifier
-}  // namespace art
-
-#endif  // ART_RUNTIME_VERIFIER_METHOD_RESOLUTION_KIND_H_
+    public /* private */ void foo() {
+        System.out.println("Derived.foo()");
+    }
+}
