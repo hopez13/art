@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cb214f8_193403f8",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-12T13:57:47Z",
+      "side": 1,
+      "message": "nit: you can use  (predicate ? mr : NoCPUReg) to avoid duplicating everything here twice",
+      "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c538b4a_877e501a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-12T13:57:47Z",
+      "side": 1,
+      "message": "Small thought:\n\nIs it being called at the end of every entrypoint? maybe we should call it e.g. \"ON_ENTRYPOINT_EXIT\" and require that every entrypoint must call this at the end before the return?\n\n(and ON_ENTRYPOINT_EXIT can call REFRESH_MARKING_REGISTER, etc)\n\nJust thinking it if it would be helpful later on so people don\u0027t forget to add this to new entrypoints?",
+      "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
