@@ -1,0 +1,15 @@
+Calling Test1Derived.test():
+Test1Derived.foo()
+Calling Test1User.test():
+Caught java.lang.reflect.InvocationTargetException
+  caused by java.lang.IllegalAccessError
+Calling Test1User2.test():
+Caught java.lang.reflect.InvocationTargetException
+  caused by java.lang.IllegalAccessError
+Calling UserOfDerivedWithStaticFooInBaseAndImplementedFooInInterface.test():
+Caught java.lang.reflect.InvocationTargetException
+  caused by java.lang.IncompatibleClassChangeError
+Calling UserOfDerivedWithStaticFooInBaseAndImplementedFooInInterface2.test():
+BaseWithStaticFoo.foo()
+Calling UserOfInterfaceToString.test():
+SomeClass@...

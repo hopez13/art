@@ -381,21 +381,28 @@ static void PreloadDexCachesResolveMethod(Handle<mirror::DexCache> dex_cache, ui
   }
   const DexFile* dex_file = dex_cache->GetDexFile();
   const DexFile::MethodId& method_id = dex_file->GetMethodId(method_idx);
-  ObjPtr<mirror::Class> klass = dex_cache->GetResolvedType(method_id.class_idx_);
+  ObjPtr<mirror::Class> klass =
+      ClassLinker::LookupResolvedType(method_id.class_idx_, dex_cache.Get(), nullptr);
   if (klass == nullptr) {
     return;
   }
   switch (invoke_type) {
     case kDirect:
     case kStatic:
-      method = klass->FindDirectMethod(dex_cache.Get(), method_idx, kRuntimePointerSize);
+    case kVirtual:
+      method = klass->FindInstanceMethod(dex_cache.Get(), method_idx, kRuntimePointerSize);
       break;
     case kInterface:
-      method = klass->FindInterfaceMethod(dex_cache.Get(), method_idx, kRuntimePointerSize);
+      if (klass->IsInterface()) {
+        method = klass->FindInterfaceMethod(dex_cache.Get(), method_idx, kRuntimePointerSize);
+      }  // else ignore for preloading; invoke-interface with such MethodId throws ICCE.
       break;
     case kSuper:
-    case kVirtual:
-      method = klass->FindVirtualMethod(dex_cache.Get(), method_idx, kRuntimePointerSize);
+      if (klass->IsInterface()) {
+        method = klass->FindInterfaceMethod(dex_cache.Get(), method_idx, kRuntimePointerSize);
+      } else {
+        method = klass->FindInstanceMethod(dex_cache.Get(), method_idx, kRuntimePointerSize);
+      }
       break;
     default:
       LOG(FATAL) << "Unreachable - invocation type: " << invoke_type;
