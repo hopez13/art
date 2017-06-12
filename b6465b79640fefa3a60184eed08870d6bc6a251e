@@ -88,6 +88,24 @@
       "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "735f5517_890f2f03",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-12T18:21:31Z",
+      "side": 1,
+      "message": "\u003e Why not just art-ndebug? Having run test in the name will make ndebug disappear from the column description on the go/master-art-host dashboard and instead it will just show sometime like \"run-test...\".\n\nThat\u0027s a really good point also none of the others are art-run-test-... so I\u0027m going to go back to just art-ndebug.",
+      "parentUuid": "b9ba35b2_a2d78fdf",
+      "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
