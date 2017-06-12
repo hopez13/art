@@ -51,6 +51,24 @@
       "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd7a312_abea175c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-12T14:19:08Z",
+      "side": 1,
+      "message": "Doesn\u0027t it seem like could do a better job of documenting the invariant requirement (regardless of what it is)?\n\nIf it\u0027s \"call on exit of every function that doesn\u0027t suspend\", perhaps we should state that and name it appropriately (e.g. ON_NONSUSPENDING_ENTRYPOINT_EXIT)\n\nOtherwise I\u0027m worried it might seem to work in tests and then subtly break once a GC starts running and the MR is stale.",
+      "parentUuid": "a1bce374_e1b4adfe",
+      "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
