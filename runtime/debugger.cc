@@ -86,9 +86,12 @@ static ArtMethod* GetCanonicalMethod(ArtMethod* m)
     return m;
   } else {
     mirror::Class* declaring_class = m->GetDeclaringClass();
-    return declaring_class->FindDeclaredVirtualMethod(declaring_class->GetDexCache(),
-                                                      m->GetDexMethodIndex(),
-                                                      kRuntimePointerSize);
+    ArtMethod* canonical = declaring_class->FindClassMethod(declaring_class->GetDexCache(),
+                                                            m->GetDexMethodIndex(),
+                                                            kRuntimePointerSize);
+    DCHECK(canonical != nullptr);
+    DCHECK(canonical->GetDeclaringClass() == declaring_class);
+    return canonical;
   }
 }
 
