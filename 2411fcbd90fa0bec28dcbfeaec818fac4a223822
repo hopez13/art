@@ -159,6 +159,29 @@
       "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32777ab2_babb9d89",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2836,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-12T15:53:00Z",
+      "side": 1,
+      "message": "Any test besides golem that would have caught this? Should you add a new test?",
+      "range": {
+        "startLine": 2836,
+        "startChar": 4,
+        "endLine": 2836,
+        "endChar": 28
+      },
+      "revId": "2411fcbd90fa0bec28dcbfeaec818fac4a223822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
