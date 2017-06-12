@@ -193,8 +193,7 @@ class VerifierDeps {
     // Sets of recorded class/field/method resolutions.
     std::set<ClassResolution> classes_;
     std::set<FieldResolution> fields_;
-    std::set<MethodResolution> direct_methods_;
-    std::set<MethodResolution> virtual_methods_;
+    std::set<MethodResolution> direct_or_virtual_methods_;
     std::set<MethodResolution> interface_methods_;
 
     // List of classes that were not fully verified in that dex file.

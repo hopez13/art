@@ -370,14 +370,12 @@ static void SetupIntrinsic(Thread* self,
       REQUIRES_SHARED(Locks::mutator_lock_) {
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   PointerSize image_size = class_linker->GetImagePointerSize();
-  mirror::Class* cls = class_linker->FindSystemClass(self, class_name);
+  ObjPtr<mirror::Class> cls = class_linker->FindSystemClass(self, class_name);
   if (cls == nullptr) {
     LOG(FATAL) << "Could not find class of intrinsic " << class_name;
   }
-  ArtMethod* method = (invoke_type == kStatic || invoke_type == kDirect)
-      ? cls->FindDeclaredDirectMethod(method_name, signature, image_size)
-      : cls->FindDeclaredVirtualMethod(method_name, signature, image_size);
-  if (method == nullptr) {
+  ArtMethod* method = cls->FindDirectOrVirtualMethod(method_name, signature, image_size);
+  if (method == nullptr || method->GetDeclaringClass() != cls) {
     LOG(FATAL) << "Could not find method of intrinsic "
                << class_name << " " << method_name << " " << signature;
   }
