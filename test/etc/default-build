@@ -43,6 +43,12 @@ else
   HAS_SRC2=false
 fi
 
+if [ -d src3 ]; then
+  HAS_SRC3=true
+else
+  HAS_SRC3=false
+fi
+
 if [ -d src-multidex ]; then
   HAS_SRC_MULTIDEX=true
 else
@@ -131,6 +137,9 @@ while true; do
     shift
   elif [ "x$1" = "x--no-src2" ]; then
     HAS_SRC2=false
+    shift
+  elif [ "x$1" = "x--no-src3" ]; then
+    HAS_SRC3=false
     shift
   elif [ "x$1" = "x--no-src-multidex" ]; then
     HAS_SRC_MULTIDEX=false
@@ -281,7 +290,7 @@ if [ -e classes.dex ]; then
   exit 0
 fi
 
-if ! [ "${HAS_SRC}" = "true" ] && ! [ "${HAS_SRC2}" = "true" ] && ! [ "${HAS_SRC_ART}" = "true" ]; then
+if ! [ "${HAS_SRC}" = "true" ] && ! [ "${HAS_SRC2}" = "true" ] && ! [ "${HAS_SRC3}" = "true" ] && ! [ "${HAS_SRC_ART}" = "true" ]; then
   # No src directory? Then forget about trying to run dx.
   SKIP_DX_MERGER="true"
 fi
@@ -323,16 +332,25 @@ else
       jack_extra_args="${jack_extra_args} --import src.jack"
     fi
 
+    if [ "${HAS_SRC2}" = "true" ] || [ "${HAS_SRC3}" = "true" ]; then
+      # In case of duplicate classes, we want to take into account the classes from src3 first,
+      # then src2 and only then classes from src. Therefore we apply the 'keep-first' policy and
+      # import the src2.jack *before* the src.jack file and the src3.jack file *before* src2.jack.
+      jack_extra_args="${jack_extra_args} -D jack.import.type.policy=keep-first"
+    fi
+
     if [ "${HAS_SRC2}" = "true" ]; then
       ${JACK} ${JACK_ARGS} --output-jack src2.jack src2
-      # In case of duplicate classes, we want to take into account the classes from src2. Therefore
-      # we apply the 'keep-first' policy and import src2.jack file *before* the src.jack file.
-      jack_extra_args="${jack_extra_args} -D jack.import.type.policy=keep-first"
       jack_extra_args="--import src2.jack ${jack_extra_args}"
     fi
 
+    if [ "${HAS_SRC3}" = "true" ]; then
+      ${JACK} ${JACK_ARGS} --output-jack src3.jack src3
+      jack_extra_args="--import src3.jack ${jack_extra_args}"
+    fi
+
     # Compile jack files into a DEX file.
-    if [ "${HAS_SRC}" = "true" ] || [ "${HAS_SRC2}" = "true" ] || [ "${HAS_SRC_ART}" ]; then
+    if [ "${HAS_SRC}" = "true" ] || [ "${HAS_SRC2}" = "true" ] || [ "${HAS_SRC3}" = "true" ] || [ "${HAS_SRC_ART}" ]; then
       ${JACK} ${JACK_ARGS} ${jack_extra_args} --output-dex .
     fi
   else
@@ -360,7 +378,12 @@ else
       ${JAVAC} ${JAVAC_ARGS} -d classes `find src2 -name '*.java'`
     fi
 
-    if [[ "${HAS_SRC}" == "true" || "${HAS_SRC2}" == "true" || "${HAS_SRC_ART}" == "true" ]]; then
+    if [ "${HAS_SRC3}" = "true" ]; then
+      mkdir -p classes
+      ${JAVAC} ${JAVAC_ARGS} -d classes `find src3 -name '*.java'`
+    fi
+
+    if [[ "${HAS_SRC}" == "true" || "${HAS_SRC2}" == "true" || "${HAS_SRC3}" = "true" || "${HAS_SRC_ART}" == "true" ]]; then
       if [ ${NEED_DEX} = "true" -a ${SKIP_DX_MERGER} = "false" ]; then
         make_dex classes
       fi
