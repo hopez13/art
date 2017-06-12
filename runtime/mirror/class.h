@@ -929,49 +929,22 @@ class MANAGED Class FINAL : public Object {
                                  PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ArtMethod* FindDeclaredDirectMethod(const StringPiece& name,
-                                      const StringPiece& signature,
-                                      PointerSize pointer_size)
+  ArtMethod* FindClassMethod(const StringPiece& name,
+                             const StringPiece& signature,
+                             PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ArtMethod* FindDeclaredDirectMethod(const StringPiece& name,
-                                      const Signature& signature,
-                                      PointerSize pointer_size)
+  ArtMethod* FindClassMethod(const StringPiece& name,
+                             const Signature& signature,
+                             PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ArtMethod* FindDeclaredDirectMethod(ObjPtr<DexCache> dex_cache,
-                                      uint32_t dex_method_idx,
-                                      PointerSize pointer_size)
+  ArtMethod* FindClassMethod(ObjPtr<DexCache> dex_cache,
+                             uint32_t dex_method_idx,
+                             PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ArtMethod* FindDirectMethod(const StringPiece& name,
-                              const StringPiece& signature,
-                              PointerSize pointer_size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ArtMethod* FindDirectMethod(const StringPiece& name,
-                              const Signature& signature,
-                              PointerSize pointer_size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ArtMethod* FindDirectMethod(ObjPtr<DexCache> dex_cache,
-                              uint32_t dex_method_idx,
-                              PointerSize pointer_size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ArtMethod* FindDeclaredVirtualMethod(const StringPiece& name,
-                                       const StringPiece& signature,
-                                       PointerSize pointer_size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ArtMethod* FindDeclaredVirtualMethod(const StringPiece& name,
-                                       const Signature& signature,
-                                       PointerSize pointer_size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ArtMethod* FindDeclaredVirtualMethod(ObjPtr<DexCache> dex_cache,
-                                       uint32_t dex_method_idx,
-                                       PointerSize pointer_size)
+  ArtMethod* FindConstructor(const StringPiece& signature, PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   ArtMethod* FindDeclaredVirtualMethodByName(const StringPiece& name,
@@ -980,21 +953,6 @@ class MANAGED Class FINAL : public Object {
 
   ArtMethod* FindDeclaredDirectMethodByName(const StringPiece& name,
                                             PointerSize pointer_size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ArtMethod* FindVirtualMethod(const StringPiece& name,
-                               const StringPiece& signature,
-                               PointerSize pointer_size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ArtMethod* FindVirtualMethod(const StringPiece& name,
-                               const Signature& signature,
-                               PointerSize pointer_size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ArtMethod* FindVirtualMethod(ObjPtr<DexCache> dex_cache,
-                               uint32_t dex_method_idx,
-                               PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   ArtMethod* FindClassInitializer(PointerSize pointer_size) REQUIRES_SHARED(Locks::mutator_lock_);
