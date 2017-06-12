@@ -1,0 +1,18 @@
+Base:
+  @@com.android.jack.annotations.ForceInMainDex
+  class Base
+BaseWithStaticFoo:
+  @@com.android.jack.annotations.ForceInMainDex
+  class BaseWithStaticFoo
+Derived:
+  @@com.android.jack.annotations.ForceInMainDex
+  class Derived
+InterfaceWithImplementedFoo:
+  @@com.android.jack.annotations.ForceInMainDex
+  class InterfaceWithImplementedFoo
+Main:
+  @@com.android.jack.annotations.ForceInMainDex
+  class Main
+User2:
+  @@com.android.jack.annotations.ForceInMainDex
+  class User2
