@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package other;
-
-// Class that cannot be accessed outside of this package.
-class ProtectedClass {
- /* package */ int otherProtectedClassPackageIntInstanceMethod() {
-   return 28;
- }
+public class Test5User2 {
+    public static void test() {
+        Test5Base b = new Test5Derived();
+        b.foo();
+    }
 }
