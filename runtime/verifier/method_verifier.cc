@@ -3828,16 +3828,17 @@ const RegType& MethodVerifier::GetCaughtExceptionType() {
 
 inline static MethodResolutionKind GetMethodResolutionKind(
     MethodType method_type, bool is_interface) {
-  if (method_type == METHOD_DIRECT || method_type == METHOD_STATIC) {
-    return kDirectMethodResolution;
-  } else if (method_type == METHOD_INTERFACE) {
+  if (method_type == METHOD_INTERFACE) {
     return kInterfaceMethodResolution;
   } else if (method_type == METHOD_SUPER && is_interface) {
     return kInterfaceMethodResolution;
   } else {
-    DCHECK(method_type == METHOD_VIRTUAL || method_type == METHOD_SUPER
-           || method_type == METHOD_POLYMORPHIC);
-    return kVirtualMethodResolution;
+    DCHECK(method_type == METHOD_DIRECT ||
+           method_type == METHOD_STATIC ||
+           method_type == METHOD_VIRTUAL ||
+           method_type == METHOD_SUPER ||
+           method_type == METHOD_POLYMORPHIC);
+    return kDirectOrVirtualMethodResolution;
   }
 }
 
@@ -3863,32 +3864,35 @@ ArtMethod* MethodVerifier::ResolveMethodAndCheckAccess(
   ArtMethod* res_method = dex_cache_->GetResolvedMethod(dex_method_idx, pointer_size);
   bool stash_method = false;
   if (res_method == nullptr) {
-    const char* name = dex_file_->GetMethodName(method_id);
-    const Signature signature = dex_file_->GetMethodSignature(method_id);
-
-    if (res_kind == kDirectMethodResolution) {
-      res_method = klass->FindDirectMethod(name, signature, pointer_size);
-    } else if (res_kind == kVirtualMethodResolution) {
-      res_method = klass->FindVirtualMethod(name, signature, pointer_size);
+    if (res_kind == kDirectOrVirtualMethodResolution) {
+      res_method = klass->FindInstanceMethod(dex_cache_.Get(), dex_method_idx, pointer_size);
     } else {
       DCHECK_EQ(res_kind, kInterfaceMethodResolution);
-      res_method = klass->FindInterfaceMethod(name, signature, pointer_size);
+      res_method = klass->FindInterfaceMethod(dex_cache_.Get(), dex_method_idx, pointer_size);
     }
 
     if (res_method != nullptr) {
       stash_method = true;
     } else {
-      // If a virtual or interface method wasn't found with the expected type, look in
-      // the direct methods. This can happen when the wrong invoke type is used or when
+      // If a method wasn't found with the expected type, try using the other type.
+      // This can happen when the wrong invoke type is used or when
       // a class has changed, and will be flagged as an error in later checks.
       // Note that in this case, we do not put the resolved method in the Dex cache
       // because it was not discovered using the expected type of method resolution.
-      if (res_kind != kDirectMethodResolution) {
-        // Record result of the initial resolution attempt.
-        VerifierDeps::MaybeRecordMethodResolution(*dex_file_, dex_method_idx, res_kind, nullptr);
-        // Change resolution type to 'direct' and try to resolve again.
-        res_kind = kDirectMethodResolution;
-        res_method = klass->FindDirectMethod(name, signature, pointer_size);
+
+      // Record result of the initial resolution attempt.
+      VerifierDeps::MaybeRecordMethodResolution(*dex_file_, dex_method_idx, res_kind, nullptr);
+      if (res_kind == kDirectOrVirtualMethodResolution) {
+        // Change resolution type to 'interface' and try to resolve again.
+        res_kind = kInterfaceMethodResolution;
+        res_method =
+            klass->FindInterfaceMethod(dex_cache_.Get(), dex_method_idx, pointer_size);
+      } else {
+        DCHECK_EQ(res_kind, kInterfaceMethodResolution);
+        // Change resolution type to 'direct or virtual' and try to resolve again.
+        res_kind = kDirectOrVirtualMethodResolution;
+        res_method =
+            klass->FindInstanceMethod(dex_cache_.Get(), dex_method_idx, pointer_size);
       }
     }
   }

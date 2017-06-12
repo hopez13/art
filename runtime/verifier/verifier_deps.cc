@@ -54,8 +54,7 @@ void VerifierDeps::MergeWith(const VerifierDeps& other,
     MergeSets(my_deps->unassignable_types_, other_deps.unassignable_types_);
     MergeSets(my_deps->classes_, other_deps.classes_);
     MergeSets(my_deps->fields_, other_deps.fields_);
-    MergeSets(my_deps->direct_methods_, other_deps.direct_methods_);
-    MergeSets(my_deps->virtual_methods_, other_deps.virtual_methods_);
+    MergeSets(my_deps->direct_or_virtual_methods_, other_deps.direct_or_virtual_methods_);
     MergeSets(my_deps->interface_methods_, other_deps.interface_methods_);
     for (dex::TypeIndex entry : other_deps.unverified_classes_) {
       my_deps->unverified_classes_.push_back(entry);
@@ -334,10 +333,8 @@ void VerifierDeps::AddMethodResolution(const DexFile& dex_file,
   MethodResolution method_tuple(method_idx,
                                 GetAccessFlags(method),
                                 GetMethodDeclaringClassStringId(dex_file, method_idx, method));
-  if (resolution_kind == kDirectMethodResolution) {
-    dex_deps->direct_methods_.emplace(method_tuple);
-  } else if (resolution_kind == kVirtualMethodResolution) {
-    dex_deps->virtual_methods_.emplace(method_tuple);
+  if (resolution_kind == kDirectOrVirtualMethodResolution) {
+    dex_deps->direct_or_virtual_methods_.emplace(method_tuple);
   } else {
     DCHECK_EQ(resolution_kind, kInterfaceMethodResolution);
     dex_deps->interface_methods_.emplace(method_tuple);
@@ -698,8 +695,7 @@ void VerifierDeps::Encode(const std::vector<const DexFile*>& dex_files,
     EncodeSet(buffer, deps.unassignable_types_);
     EncodeSet(buffer, deps.classes_);
     EncodeSet(buffer, deps.fields_);
-    EncodeSet(buffer, deps.direct_methods_);
-    EncodeSet(buffer, deps.virtual_methods_);
+    EncodeSet(buffer, deps.direct_or_virtual_methods_);
     EncodeSet(buffer, deps.interface_methods_);
     EncodeUint16Vector(buffer, deps.unverified_classes_);
   }
@@ -723,8 +719,7 @@ VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
     DecodeSet(&data_start, data_end, &deps->unassignable_types_);
     DecodeSet(&data_start, data_end, &deps->classes_);
     DecodeSet(&data_start, data_end, &deps->fields_);
-    DecodeSet(&data_start, data_end, &deps->direct_methods_);
-    DecodeSet(&data_start, data_end, &deps->virtual_methods_);
+    DecodeSet(&data_start, data_end, &deps->direct_or_virtual_methods_);
     DecodeSet(&data_start, data_end, &deps->interface_methods_);
     DecodeUint16Vector(&data_start, data_end, &deps->unverified_classes_);
   }
@@ -763,8 +758,7 @@ bool VerifierDeps::DexFileDeps::Equals(const VerifierDeps::DexFileDeps& rhs) con
          (unassignable_types_ == rhs.unassignable_types_) &&
          (classes_ == rhs.classes_) &&
          (fields_ == rhs.fields_) &&
-         (direct_methods_ == rhs.direct_methods_) &&
-         (virtual_methods_ == rhs.virtual_methods_) &&
+         (direct_or_virtual_methods_ == rhs.direct_or_virtual_methods_) &&
          (interface_methods_ == rhs.interface_methods_) &&
          (unverified_classes_ == rhs.unverified_classes_);
 }
@@ -826,8 +820,8 @@ void VerifierDeps::Dump(VariableIndentationOutputStream* vios) const {
     }
 
     for (const auto& entry :
-            { std::make_pair(kDirectMethodResolution, dep.second->direct_methods_),
-              std::make_pair(kVirtualMethodResolution, dep.second->virtual_methods_),
+            { std::make_pair(kDirectOrVirtualMethodResolution,
+                             dep.second->direct_or_virtual_methods_),
               std::make_pair(kInterfaceMethodResolution, dep.second->interface_methods_) }) {
       for (const MethodResolution& method : entry.second) {
         const DexFile::MethodId& method_id = dex_file.GetMethodId(method.GetDexMethodIndex());
@@ -1054,10 +1048,8 @@ bool VerifierDeps::VerifyMethods(Handle<mirror::ClassLoader> class_loader,
     }
     DCHECK(cls->IsResolved());
     ArtMethod* method = nullptr;
-    if (kind == kDirectMethodResolution) {
-      method = cls->FindDirectMethod(name, signature, pointer_size);
-    } else if (kind == kVirtualMethodResolution) {
-      method = cls->FindVirtualMethod(name, signature, pointer_size);
+    if (kind == kDirectOrVirtualMethodResolution) {
+      method = cls->FindInstanceMethod(name, signature, pointer_size);
     } else {
       DCHECK_EQ(kind, kInterfaceMethodResolution);
       method = cls->FindInterfaceMethod(name, signature, pointer_size);
@@ -1118,10 +1110,11 @@ bool VerifierDeps::VerifyDexFile(Handle<mirror::ClassLoader> class_loader,
   result = result && VerifyClasses(class_loader, dex_file, deps.classes_, self);
   result = result && VerifyFields(class_loader, dex_file, deps.fields_, self);
 
-  result = result && VerifyMethods(
-      class_loader, dex_file, deps.direct_methods_, kDirectMethodResolution, self);
-  result = result && VerifyMethods(
-      class_loader, dex_file, deps.virtual_methods_, kVirtualMethodResolution, self);
+  result = result && VerifyMethods(class_loader,
+                                   dex_file,
+                                   deps.direct_or_virtual_methods_,
+                                   kDirectOrVirtualMethodResolution,
+                                   self);
   result = result && VerifyMethods(
       class_loader, dex_file, deps.interface_methods_, kInterfaceMethodResolution, self);
 
