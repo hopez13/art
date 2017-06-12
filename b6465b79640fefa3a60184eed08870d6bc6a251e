@@ -177,6 +177,24 @@
       "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa4929f1_acef3655",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-12T20:12:16Z",
+      "side": 1,
+      "message": "Ok, I don\u0027t see asan yet on go/ab so lets just fix this by renaming it here as well? go/ab should have same names as this file.\n\nAndreas?",
+      "parentUuid": "1d35c9e7_b0928f9d",
+      "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
