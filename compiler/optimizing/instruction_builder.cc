@@ -654,10 +654,7 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
     // TODO: remove redundant constructor fences (b/36656456).
     if (RequiresConstructorBarrier(dex_compilation_unit_, compiler_driver_)) {
       // Compiling instance constructor.
-      if (kIsDebugBuild) {
-        std::string method_name = graph_->GetMethodName();
-        CHECK_EQ(std::string("<init>"), method_name);
-      }
+      DCHECK_STREQ("<init>", graph_->GetMethodName());
 
       HInstruction* fence_target = current_this_parameter_;
       DCHECK(fence_target != nullptr);
