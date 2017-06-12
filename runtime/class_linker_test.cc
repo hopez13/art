@@ -1121,7 +1121,7 @@ TEST_F(ClassLinkerTest, StaticFields) {
   // Static final primitives that are initialized by a compile-time constant
   // expression resolve to a copy of a constant value from the constant pool.
   // So <clinit> should be null.
-  ArtMethod* clinit = statics->FindDirectMethod("<clinit>", "()V", kRuntimePointerSize);
+  ArtMethod* clinit = statics->FindDirectOrVirtualMethod("<clinit>", "()V", kRuntimePointerSize);
   EXPECT_TRUE(clinit == nullptr);
 
   EXPECT_EQ(9U, statics->NumStaticFields());
@@ -1207,25 +1207,30 @@ TEST_F(ClassLinkerTest, Interfaces) {
   EXPECT_TRUE(K->IsAssignableFrom(B.Get()));
   EXPECT_TRUE(J->IsAssignableFrom(B.Get()));
 
-  const Signature void_sig = I->GetDexCache()->GetDexFile()->CreateSignature("()V");
-  ArtMethod* Ii = I->FindVirtualMethod("i", void_sig, kRuntimePointerSize);
-  ArtMethod* Jj1 = J->FindVirtualMethod("j1", void_sig, kRuntimePointerSize);
-  ArtMethod* Jj2 = J->FindVirtualMethod("j2", void_sig, kRuntimePointerSize);
-  ArtMethod* Kj1 = K->FindInterfaceMethod("j1", void_sig, kRuntimePointerSize);
-  ArtMethod* Kj2 = K->FindInterfaceMethod("j2", void_sig, kRuntimePointerSize);
-  ArtMethod* Kk = K->FindInterfaceMethod("k", void_sig, kRuntimePointerSize);
-  ArtMethod* Ai = A->FindVirtualMethod("i", void_sig, kRuntimePointerSize);
-  ArtMethod* Aj1 = A->FindVirtualMethod("j1", void_sig, kRuntimePointerSize);
-  ArtMethod* Aj2 = A->FindVirtualMethod("j2", void_sig, kRuntimePointerSize);
+  ArtMethod* Ii = I->FindDirectOrVirtualMethod("i", "()V", kRuntimePointerSize);
+  ArtMethod* Jj1 = J->FindDirectOrVirtualMethod("j1", "()V", kRuntimePointerSize);
+  ArtMethod* Jj2 = J->FindDirectOrVirtualMethod("j2", "()V", kRuntimePointerSize);
+  ArtMethod* Kj1 = K->FindInterfaceMethod("j1", "()V", kRuntimePointerSize);
+  ArtMethod* Kj2 = K->FindInterfaceMethod("j2", "()V", kRuntimePointerSize);
+  ArtMethod* Kk = K->FindInterfaceMethod("k", "()V", kRuntimePointerSize);
+  ArtMethod* Ai = A->FindDirectOrVirtualMethod("i", "()V", kRuntimePointerSize);
+  ArtMethod* Aj1 = A->FindDirectOrVirtualMethod("j1", "()V", kRuntimePointerSize);
+  ArtMethod* Aj2 = A->FindDirectOrVirtualMethod("j2", "()V", kRuntimePointerSize);
   ASSERT_TRUE(Ii != nullptr);
+  ASSERT_FALSE(Ii->IsDirect());
   ASSERT_TRUE(Jj1 != nullptr);
+  ASSERT_FALSE(Jj1->IsDirect());
   ASSERT_TRUE(Jj2 != nullptr);
+  ASSERT_FALSE(Jj2->IsDirect());
   ASSERT_TRUE(Kj1 != nullptr);
   ASSERT_TRUE(Kj2 != nullptr);
   ASSERT_TRUE(Kk != nullptr);
   ASSERT_TRUE(Ai != nullptr);
+  ASSERT_FALSE(Ai->IsDirect());
   ASSERT_TRUE(Aj1 != nullptr);
+  ASSERT_FALSE(Aj1->IsDirect());
   ASSERT_TRUE(Aj2 != nullptr);
+  ASSERT_FALSE(Aj2->IsDirect());
   EXPECT_NE(Ii, Ai);
   EXPECT_NE(Jj1, Aj1);
   EXPECT_NE(Jj2, Aj2);
@@ -1266,7 +1271,8 @@ TEST_F(ClassLinkerTest, ResolveVerifyAndClinit) {
       hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
   mirror::Class* klass = class_linker_->FindClass(soa.Self(), "LStaticsFromCode;", class_loader);
   ArtMethod* clinit = klass->FindClassInitializer(kRuntimePointerSize);
-  ArtMethod* getS0 = klass->FindDirectMethod("getS0", "()Ljava/lang/Object;", kRuntimePointerSize);
+  ArtMethod* getS0 =
+      klass->FindDirectOrVirtualMethod("getS0", "()Ljava/lang/Object;", kRuntimePointerSize);
   const DexFile::TypeId* type_id = dex_file->FindTypeId("LStaticsFromCode;");
   ASSERT_TRUE(type_id != nullptr);
   dex::TypeIndex type_idx = dex_file->GetIndexForTypeId(*type_id);
@@ -1489,9 +1495,12 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
       hs.NewHandle(class_linker_->FindClass(soa.Self(), "LMethodTypes;", class_loader)));
   class_linker_->EnsureInitialized(soa.Self(), method_types, true, true);
 
-  ArtMethod* method1 = method_types->FindVirtualMethod("method1",
-                                                       "(Ljava/lang/String;)Ljava/lang/String;",
-                                                       kRuntimePointerSize);
+  ArtMethod* method1 = method_types->FindDirectOrVirtualMethod(
+      "method1",
+      "(Ljava/lang/String;)Ljava/lang/String;",
+      kRuntimePointerSize);
+  ASSERT_TRUE(method1 != nullptr);
+  ASSERT_FALSE(method1->IsDirect());
 
   const DexFile& dex_file = *(method1->GetDexFile());
   Handle<mirror::DexCache> dex_cache = hs.NewHandle(
@@ -1522,10 +1531,12 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
 
   // Resolve the MethodType associated with a different method signature
   // and assert it's different.
-  ArtMethod* method2 = method_types->FindVirtualMethod(
+  ArtMethod* method2 = method_types->FindDirectOrVirtualMethod(
       "method2",
       "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
       kRuntimePointerSize);
+  ASSERT_TRUE(method2 != nullptr);
+  ASSERT_FALSE(method2->IsDirect());
   const DexFile::MethodId& method2_id = dex_file.GetMethodId(method2->GetDexMethodIndex());
   Handle<mirror::MethodType> method2_type = hs.NewHandle(
       class_linker_->ResolveMethodType(dex_file, method2_id.proto_idx_, dex_cache, class_loader));

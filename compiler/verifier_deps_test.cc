@@ -378,10 +378,11 @@ class VerifierDepsTest : public CommonCompilerTest {
                  bool expected_resolved,
                  const std::string& expected_access_flags = "",
                  const std::string& expected_decl_klass = "") {
+    CHECK(expected_kind == "direct_or_virtual" || expected_kind == "interface");
     for (auto& dex_dep : verifier_deps_->dex_deps_) {
-      auto& storage = (expected_kind == "direct") ? dex_dep.second->direct_methods_
-                          : (expected_kind == "virtual") ? dex_dep.second->virtual_methods_
-                              : dex_dep.second->interface_methods_;
+      auto& storage = (expected_kind == "direct_or_virtual")
+          ? dex_dep.second->direct_or_virtual_methods_
+          : dex_dep.second->interface_methods_;
       for (auto& entry : storage) {
         if (expected_resolved != entry.IsResolved()) {
           continue;
@@ -443,8 +444,7 @@ class VerifierDepsTest : public CommonCompilerTest {
       has_assignability |= !entry.second->unassignable_types_.empty();
       has_classes |= !entry.second->classes_.empty();
       has_fields |= !entry.second->fields_.empty();
-      has_methods |= !entry.second->direct_methods_.empty();
-      has_methods |= !entry.second->virtual_methods_.empty();
+      has_methods |= !entry.second->direct_or_virtual_methods_.empty();
       has_methods |= !entry.second->interface_methods_.empty();
       has_unverified_classes |= !entry.second->unverified_classes_.empty();
     }
@@ -459,10 +459,8 @@ class VerifierDepsTest : public CommonCompilerTest {
 
   static std::set<VerifierDeps::MethodResolution>* GetMethods(
       VerifierDeps::DexFileDeps* deps, MethodResolutionKind resolution_kind) {
-    if (resolution_kind == kDirectMethodResolution) {
-      return &deps->direct_methods_;
-    } else if (resolution_kind == kVirtualMethodResolution) {
-      return &deps->virtual_methods_;
+    if (resolution_kind == kDirectOrVirtualMethodResolution) {
+      return &deps->direct_or_virtual_methods_;
     } else {
       DCHECK_EQ(resolution_kind, kInterfaceMethodResolution);
       return &deps->interface_methods_;
@@ -606,11 +604,11 @@ TEST_F(VerifierDepsTest, InvokeArgumentType) {
   ASSERT_TRUE(VerifyMethod("InvokeArgumentType"));
   ASSERT_TRUE(HasClass("Ljava/text/SimpleDateFormat;", true, "public"));
   ASSERT_TRUE(HasClass("Ljava/util/SimpleTimeZone;", true, "public"));
-  ASSERT_TRUE(HasMethod("virtual",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "Ljava/text/SimpleDateFormat;",
                         "setTimeZone",
                         "(Ljava/util/TimeZone;)V",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/text/DateFormat;"));
   ASSERT_TRUE(HasAssignable("Ljava/util/TimeZone;", "Ljava/util/SimpleTimeZone;", true));
@@ -842,11 +840,11 @@ TEST_F(VerifierDepsTest, InstanceField_Unresolved_ReferrerInDex) {
 TEST_F(VerifierDepsTest, InvokeStatic_Resolved_DeclaredInReferenced) {
   ASSERT_TRUE(VerifyMethod("InvokeStatic_Resolved_DeclaredInReferenced"));
   ASSERT_TRUE(HasClass("Ljava/net/Socket;", true, "public"));
-  ASSERT_TRUE(HasMethod("direct",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "Ljava/net/Socket;",
                         "setSocketImplFactory",
                         "(Ljava/net/SocketImplFactory;)V",
-                        true,
+                        /* expect_resolved */ true,
                         "public static",
                         "Ljava/net/Socket;"));
 }
@@ -854,22 +852,22 @@ TEST_F(VerifierDepsTest, InvokeStatic_Resolved_DeclaredInReferenced) {
 TEST_F(VerifierDepsTest, InvokeStatic_Resolved_DeclaredInSuperclass1) {
   ASSERT_TRUE(VerifyMethod("InvokeStatic_Resolved_DeclaredInSuperclass1"));
   ASSERT_TRUE(HasClass("Ljavax/net/ssl/SSLSocket;", true, "public"));
-  ASSERT_TRUE(HasMethod("direct",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "Ljavax/net/ssl/SSLSocket;",
                         "setSocketImplFactory",
                         "(Ljava/net/SocketImplFactory;)V",
-                        true,
+                        /* expect_resolved */ true,
                         "public static",
                         "Ljava/net/Socket;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeStatic_Resolved_DeclaredInSuperclass2) {
   ASSERT_TRUE(VerifyMethod("InvokeStatic_Resolved_DeclaredInSuperclass2"));
-  ASSERT_TRUE(HasMethod("direct",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "LMySSLSocket;",
                         "setSocketImplFactory",
                         "(Ljava/net/SocketImplFactory;)V",
-                        true,
+                        /* expect_resolved */ true,
                         "public static",
                         "Ljava/net/Socket;"));
 }
@@ -877,11 +875,11 @@ TEST_F(VerifierDepsTest, InvokeStatic_Resolved_DeclaredInSuperclass2) {
 TEST_F(VerifierDepsTest, InvokeStatic_DeclaredInInterface1) {
   ASSERT_TRUE(VerifyMethod("InvokeStatic_DeclaredInInterface1"));
   ASSERT_TRUE(HasClass("Ljava/util/Map$Entry;", true, "public interface"));
-  ASSERT_TRUE(HasMethod("direct",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "Ljava/util/Map$Entry;",
                         "comparingByKey",
                         "()Ljava/util/Comparator;",
-                        true,
+                        /* expect_resolved */ true,
                         "public static",
                         "Ljava/util/Map$Entry;"));
 }
@@ -889,68 +887,94 @@ TEST_F(VerifierDepsTest, InvokeStatic_DeclaredInInterface1) {
 TEST_F(VerifierDepsTest, InvokeStatic_DeclaredInInterface2) {
   ASSERT_FALSE(VerifyMethod("InvokeStatic_DeclaredInInterface2"));
   ASSERT_TRUE(HasClass("Ljava/util/AbstractMap$SimpleEntry;", true, "public"));
-  ASSERT_TRUE(HasMethod("direct",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "Ljava/util/AbstractMap$SimpleEntry;",
                         "comparingByKey",
                         "()Ljava/util/Comparator;",
-                        false));
+                        /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeStatic_Unresolved1) {
   ASSERT_FALSE(VerifyMethod("InvokeStatic_Unresolved1"));
   ASSERT_TRUE(HasClass("Ljavax/net/ssl/SSLSocket;", true, "public"));
-  ASSERT_TRUE(HasMethod("direct", "Ljavax/net/ssl/SSLSocket;", "x", "()V", false));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "Ljavax/net/ssl/SSLSocket;",
+                        "x",
+                        "()V",
+                        /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeStatic_Unresolved2) {
   ASSERT_FALSE(VerifyMethod("InvokeStatic_Unresolved2"));
-  ASSERT_TRUE(HasMethod("direct", "LMySSLSocket;", "x", "()V", false));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "LMySSLSocket;",
+                        "x",
+                        "()V",
+                        /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeDirect_Resolved_DeclaredInReferenced) {
   ASSERT_TRUE(VerifyMethod("InvokeDirect_Resolved_DeclaredInReferenced"));
   ASSERT_TRUE(HasClass("Ljava/net/Socket;", true, "public"));
-  ASSERT_TRUE(HasMethod(
-      "direct", "Ljava/net/Socket;", "<init>", "()V", true, "public", "Ljava/net/Socket;"));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "Ljava/net/Socket;",
+                        "<init>",
+                        "()V",
+                        /* expect_resolved */ true,
+                        "public",
+                        "Ljava/net/Socket;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeDirect_Resolved_DeclaredInSuperclass1) {
   ASSERT_FALSE(VerifyMethod("InvokeDirect_Resolved_DeclaredInSuperclass1"));
   ASSERT_TRUE(HasClass("Ljavax/net/ssl/SSLSocket;", true, "public"));
-  ASSERT_TRUE(HasMethod("direct",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "Ljavax/net/ssl/SSLSocket;",
                         "checkOldImpl",
                         "()V",
-                        true,
+                        /* expect_resolved */ true,
                         "private",
                         "Ljava/net/Socket;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeDirect_Resolved_DeclaredInSuperclass2) {
   ASSERT_FALSE(VerifyMethod("InvokeDirect_Resolved_DeclaredInSuperclass2"));
-  ASSERT_TRUE(HasMethod(
-      "direct", "LMySSLSocket;", "checkOldImpl", "()V", true, "private", "Ljava/net/Socket;"));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "LMySSLSocket;",
+                        "checkOldImpl",
+                        "()V",
+                        /* expect_resolved */ true,
+                        "private",
+                        "Ljava/net/Socket;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeDirect_Unresolved1) {
   ASSERT_FALSE(VerifyMethod("InvokeDirect_Unresolved1"));
   ASSERT_TRUE(HasClass("Ljavax/net/ssl/SSLSocket;", true, "public"));
-  ASSERT_TRUE(HasMethod("direct", "Ljavax/net/ssl/SSLSocket;", "x", "()V", false));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "Ljavax/net/ssl/SSLSocket;",
+                        "x",
+                        "()V",
+                        /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeDirect_Unresolved2) {
   ASSERT_FALSE(VerifyMethod("InvokeDirect_Unresolved2"));
-  ASSERT_TRUE(HasMethod("direct", "LMySSLSocket;", "x", "()V", false));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "LMySSLSocket;",
+                        "x",
+                        "()V",
+                        /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInReferenced) {
   ASSERT_TRUE(VerifyMethod("InvokeVirtual_Resolved_DeclaredInReferenced"));
   ASSERT_TRUE(HasClass("Ljava/lang/Throwable;", true, "public"));
-  ASSERT_TRUE(HasMethod("virtual",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "Ljava/lang/Throwable;",
                         "getMessage",
                         "()Ljava/lang/String;",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/lang/Throwable;"));
   // Type dependency on `this` argument.
@@ -960,11 +984,11 @@ TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInReferenced) {
 TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInSuperclass1) {
   ASSERT_TRUE(VerifyMethod("InvokeVirtual_Resolved_DeclaredInSuperclass1"));
   ASSERT_TRUE(HasClass("Ljava/io/InterruptedIOException;", true, "public"));
-  ASSERT_TRUE(HasMethod("virtual",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "Ljava/io/InterruptedIOException;",
                         "getMessage",
                         "()Ljava/lang/String;",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/lang/Throwable;"));
   // Type dependency on `this` argument.
@@ -973,22 +997,22 @@ TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInSuperclass1) {
 
 TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInSuperclass2) {
   ASSERT_TRUE(VerifyMethod("InvokeVirtual_Resolved_DeclaredInSuperclass2"));
-  ASSERT_TRUE(HasMethod("virtual",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "LMySocketTimeoutException;",
                         "getMessage",
                         "()Ljava/lang/String;",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/lang/Throwable;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInSuperinterface) {
   ASSERT_TRUE(VerifyMethod("InvokeVirtual_Resolved_DeclaredInSuperinterface"));
-  ASSERT_TRUE(HasMethod("virtual",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "LMyThreadSet;",
                         "size",
                         "()I",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/util/Set;"));
 }
@@ -996,22 +1020,29 @@ TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInSuperinterface) {
 TEST_F(VerifierDepsTest, InvokeVirtual_Unresolved1) {
   ASSERT_FALSE(VerifyMethod("InvokeVirtual_Unresolved1"));
   ASSERT_TRUE(HasClass("Ljava/io/InterruptedIOException;", true, "public"));
-  ASSERT_TRUE(HasMethod("virtual", "Ljava/io/InterruptedIOException;", "x", "()V", false));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "Ljava/io/InterruptedIOException;",
+                        "x",
+                        "()V",
+                        /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeVirtual_Unresolved2) {
   ASSERT_FALSE(VerifyMethod("InvokeVirtual_Unresolved2"));
-  ASSERT_TRUE(HasMethod("virtual", "LMySocketTimeoutException;", "x", "()V", false));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "LMySocketTimeoutException;",
+                        "x",
+                        "()V",
+                        /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeVirtual_ActuallyDirect) {
   ASSERT_FALSE(VerifyMethod("InvokeVirtual_ActuallyDirect"));
-  ASSERT_TRUE(HasMethod("virtual", "LMyThread;", "activeCount", "()I", false));
-  ASSERT_TRUE(HasMethod("direct",
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
                         "LMyThread;",
                         "activeCount",
                         "()I",
-                        true,
+                        /* expect_resolved */ true,
                         "public static",
                         "Ljava/lang/Thread;"));
 }
@@ -1023,14 +1054,14 @@ TEST_F(VerifierDepsTest, InvokeInterface_Resolved_DeclaredInReferenced) {
                         "Ljava/lang/Runnable;",
                         "run",
                         "()V",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/lang/Runnable;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeInterface_Resolved_DeclaredInSuperclass) {
   ASSERT_FALSE(VerifyMethod("InvokeInterface_Resolved_DeclaredInSuperclass"));
-  ASSERT_TRUE(HasMethod("interface", "LMyThread;", "join", "()V", false));
+  ASSERT_TRUE(HasMethod("interface", "LMyThread;", "join", "()V", /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeInterface_Resolved_DeclaredInSuperinterface1) {
@@ -1039,7 +1070,7 @@ TEST_F(VerifierDepsTest, InvokeInterface_Resolved_DeclaredInSuperinterface1) {
                         "LMyThreadSet;",
                         "run",
                         "()V",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/lang/Runnable;"));
 }
@@ -1050,7 +1081,7 @@ TEST_F(VerifierDepsTest, InvokeInterface_Resolved_DeclaredInSuperinterface2) {
                         "LMyThreadSet;",
                         "isEmpty",
                         "()Z",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/util/Set;"));
 }
@@ -1058,12 +1089,16 @@ TEST_F(VerifierDepsTest, InvokeInterface_Resolved_DeclaredInSuperinterface2) {
 TEST_F(VerifierDepsTest, InvokeInterface_Unresolved1) {
   ASSERT_FALSE(VerifyMethod("InvokeInterface_Unresolved1"));
   ASSERT_TRUE(HasClass("Ljava/lang/Runnable;", true, "public interface"));
-  ASSERT_TRUE(HasMethod("interface", "Ljava/lang/Runnable;", "x", "()V", false));
+  ASSERT_TRUE(HasMethod("interface",
+                        "Ljava/lang/Runnable;",
+                        "x",
+                        "()V",
+                        /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeInterface_Unresolved2) {
   ASSERT_FALSE(VerifyMethod("InvokeInterface_Unresolved2"));
-  ASSERT_TRUE(HasMethod("interface", "LMyThreadSet;", "x", "()V", false));
+  ASSERT_TRUE(HasMethod("interface", "LMyThreadSet;", "x", "()V", /* expect_resolved */ false));
 }
 
 TEST_F(VerifierDepsTest, InvokeSuper_ThisAssignable) {
@@ -1074,7 +1109,7 @@ TEST_F(VerifierDepsTest, InvokeSuper_ThisAssignable) {
                         "Ljava/lang/Runnable;",
                         "run",
                         "()V",
-                        true,
+                        /* expect_resolved */ true,
                         "public",
                         "Ljava/lang/Runnable;"));
 }
@@ -1083,8 +1118,11 @@ TEST_F(VerifierDepsTest, InvokeSuper_ThisNotAssignable) {
   ASSERT_FALSE(VerifyMethod("InvokeSuper_ThisNotAssignable"));
   ASSERT_TRUE(HasClass("Ljava/lang/Integer;", true, "public"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Integer;", "Ljava/lang/Thread;", false));
-  ASSERT_TRUE(HasMethod(
-      "virtual", "Ljava/lang/Integer;", "intValue", "()I", true, "public", "Ljava/lang/Integer;"));
+  ASSERT_TRUE(HasMethod("direct_or_virtual",
+                        "Ljava/lang/Integer;",
+                        "intValue", "()I",
+                        /* expect_resolved */ true,
+                        "public", "Ljava/lang/Integer;"));
 }
 
 TEST_F(VerifierDepsTest, ArgumentType_ResolvedReferenceArray) {
@@ -1154,13 +1192,11 @@ TEST_F(VerifierDepsTest, UnverifiedClasses) {
 
 // Returns the next resolution kind in the enum.
 static MethodResolutionKind GetNextResolutionKind(MethodResolutionKind resolution_kind) {
-  if (resolution_kind == kDirectMethodResolution) {
-    return kVirtualMethodResolution;
-  } else if (resolution_kind == kVirtualMethodResolution) {
+  if (resolution_kind == kDirectOrVirtualMethodResolution) {
     return kInterfaceMethodResolution;
   } else {
     DCHECK_EQ(resolution_kind, kInterfaceMethodResolution);
-    return kDirectMethodResolution;
+    return kDirectOrVirtualMethodResolution;
   }
 }
 
@@ -1341,7 +1377,7 @@ TEST_F(VerifierDepsTest, VerifyDeps) {
 
   // Mess up with methods.
   for (MethodResolutionKind resolution_kind :
-            { kDirectMethodResolution, kVirtualMethodResolution, kInterfaceMethodResolution }) {
+            { kDirectOrVirtualMethodResolution, kInterfaceMethodResolution }) {
     {
       VerifierDeps decoded_deps(dex_files_, ArrayRef<const uint8_t>(buffer));
       VerifierDeps::DexFileDeps* deps = decoded_deps.GetDexFileDeps(*primary_dex_file_);
@@ -1421,32 +1457,12 @@ TEST_F(VerifierDepsTest, VerifyDeps) {
     }
 
     // The two tests below make sure that fiddling with the method kind
-    // (static, virtual, interface) is detected by `ValidateDependencies`.
+    // (direct/virtual, interface) is detected by `ValidateDependencies`.
 
-    // An interface method lookup can succeed with a virtual method lookup on the same class.
-    // That's OK, as we only want to make sure there is a method being defined with the right
-    // flags. Therefore, polluting the interface methods with virtual methods does not have
-    // to fail verification.
-    if (resolution_kind != kVirtualMethodResolution) {
-      VerifierDeps decoded_deps(dex_files_, ArrayRef<const uint8_t>(buffer));
-      VerifierDeps::DexFileDeps* deps = decoded_deps.GetDexFileDeps(*primary_dex_file_);
-      bool found = false;
-      std::set<VerifierDeps::MethodResolution>* methods = GetMethods(deps, resolution_kind);
-      for (const auto& entry : *methods) {
-        if (entry.IsResolved()) {
-          GetMethods(deps, GetNextResolutionKind(resolution_kind))->insert(
-              VerifierDeps::MethodResolution(entry.GetDexMethodIndex(),
-                                             entry.GetAccessFlags(),
-                                             entry.GetDeclaringClassIndex()));
-          found = true;
-        }
-      }
-      ASSERT_TRUE(found);
-      new_class_loader.Assign(soa.Decode<mirror::ClassLoader>(LoadDex("VerifierDeps")));
-      ASSERT_FALSE(decoded_deps.ValidateDependencies(new_class_loader, soa.Self()));
-    }
-
-    // See comment above that applies the same way.
+    // An interface method lookup can succeed with a "direct or virtual" method lookup on
+    // the same class. That's OK, as we only want to make sure there is a method being
+    // defined with the right flags. Therefore, polluting the interface methods with
+    // virtual methods does not have to fail verification.
     if (resolution_kind != kInterfaceMethodResolution) {
       VerifierDeps decoded_deps(dex_files_, ArrayRef<const uint8_t>(buffer));
       VerifierDeps::DexFileDeps* deps = decoded_deps.GetDexFileDeps(*primary_dex_file_);
@@ -1454,7 +1470,7 @@ TEST_F(VerifierDepsTest, VerifyDeps) {
       std::set<VerifierDeps::MethodResolution>* methods = GetMethods(deps, resolution_kind);
       for (const auto& entry : *methods) {
         if (entry.IsResolved()) {
-          GetMethods(deps, GetNextResolutionKind(GetNextResolutionKind(resolution_kind)))->insert(
+          GetMethods(deps, GetNextResolutionKind(resolution_kind))->insert(
               VerifierDeps::MethodResolution(entry.GetDexMethodIndex(),
                                              entry.GetAccessFlags(),
                                              entry.GetDeclaringClassIndex()));

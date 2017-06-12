@@ -22,8 +22,8 @@ namespace verifier {
 
 // Values corresponding to the method resolution algorithms defined in mirror::Class.
 enum MethodResolutionKind {
-  kDirectMethodResolution,
-  kVirtualMethodResolution,
+  // TODO: The direct and virtual resolution is the same, so the two should be merged.
+  kDirectOrVirtualMethodResolution,
   kInterfaceMethodResolution,
 };
 
