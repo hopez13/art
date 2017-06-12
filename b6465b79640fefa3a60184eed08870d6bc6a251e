@@ -16,6 +16,24 @@
       "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6761ee81_697c9062",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-12T17:55:53Z",
+      "side": 1,
+      "message": "gtests don\u0027t have an ndebug configuration:\n\nsee build/Android.gtest.mk\n  # $(4): LD_LIBRARY_PATH or undefined - used in case libartd.so is not in /system/lib/\n  define define-art-gtest-rule-target\n\n    gtest_deps :\u003d $$(HOST_CORE_DEX_LOCATIONS) \\\n      $$($(3)ART_HOST_OUT_SHARED_LIBRARIES)/libjavacore$$(ART_HOST_SHLIB_EXTENSION) \\\n      $$($(3)ART_HOST_OUT_SHARED_LIBRARIES)/libopenjdkd$$(ART_HOST_SHLIB_EXTENSION) \\\n\nI can change the name if you want.",
+      "parentUuid": "1cb348e3_a5ab410e",
+      "revId": "b6465b79640fefa3a60184eed08870d6bc6a251e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
