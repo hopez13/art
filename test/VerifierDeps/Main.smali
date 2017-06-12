@@ -405,12 +405,6 @@
   return-void
 .end method
 
-.method public static InvokeVirtual_ActuallyDirect(LMyThread;)V
-  .registers 1
-  invoke-virtual {p0}, LMyThread;->activeCount()I
-  return-void
-.end method
-
 .method public static InvokeInterface_Resolved_DeclaredInReferenced(LMyThread;)V
   .registers 1
   invoke-interface {p0}, Ljava/lang/Runnable;->run()V

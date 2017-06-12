@@ -1010,12 +1010,13 @@ static ObjPtr<mirror::Object> CreateInstanceOf(Thread* self, const char* class_d
   Handle<mirror::Class> h_class(hs.NewHandle(klass));
   Handle<mirror::Object> h_obj(hs.NewHandle(h_class->AllocObject(self)));
   if (h_obj != nullptr) {
-    ArtMethod* init_method = h_class->FindDirectMethod(
+    ArtMethod* init_method = h_class->FindDirectOrVirtualMethod(
         "<init>", "()V", class_linker->GetImagePointerSize());
     if (init_method == nullptr) {
       AbortTransactionOrFail(self, "Could not find <init> for %s", class_descriptor);
       return nullptr;
     } else {
+      DCHECK(init_method->IsDirect());
       JValue invoke_result;
       EnterInterpreterFromInvoke(self, init_method, h_obj.Get(), nullptr, nullptr);
       if (!self->IsExceptionPending()) {
