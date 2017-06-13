@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "821855b9_b82c780d",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "imo argparse is a lot easier to use/read (not a blocker by any means, but maybe a nice easy cleanup)",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 13
+      },
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0194740_483d8cfd",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "Run pylint. Globals should be `CHECK_EXACT`.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f31f68fd_e4401c81",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "Long line",
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccc4a2ff_3d56724a",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "Two blank lines between top level definitions",
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c34f9611_8b8dcd60",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "print_usage",
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cc361ce_16aeaed9",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "So, Android doesn\u0027t actually have an official Python style. We\u0027re about half internal google style guide and half pep8. The public google style guide says 4 spaces, as does pep8. The only one that says 2 spaces is the one that is only visible to googlers...\n\nUnless anyone else has strong opinions, stick to pep8 (4 spaces)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65c22e06_72f3026d",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "Not needed (appears elsewhere)",
+      "range": {
+        "startLine": 60,
+        "startChar": 60,
+        "endLine": 60,
+        "endChar": 62
+      },
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "effbf14c_197212a3",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "remove (run pylint)",
+      "range": {
+        "startLine": 67,
+        "startChar": 16,
+        "endLine": 67,
+        "endChar": 17
+      },
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67639c71_d6adac2f",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-13T23:37:01Z",
+      "side": 1,
+      "message": "Make it a docstring",
+      "revId": "019dafc109293f4b2b10507573b0235c2a43673a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
