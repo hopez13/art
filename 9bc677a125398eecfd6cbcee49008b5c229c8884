@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7172657_f3f86cad",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T14:59:28Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 384,
+        "startChar": 36,
+        "endLine": 384,
+        "endChar": 46
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8752ef1_8cdc9ca7",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T14:59:28Z",
+      "side": 1,
+      "message": "Address this before submitting? What\u0027s the advantages of one over the other?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 35
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6ccaf2c_fe3f14a9",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T14:59:28Z",
+      "side": 1,
+      "message": "How about marking_register to make this greppable?",
+      "range": {
+        "startLine": 78,
+        "startChar": 30,
+        "endLine": 78,
+        "endChar": 32
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35a68296_3c6fc7e1",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T14:59:28Z",
+      "side": 1,
+      "message": "Did you check whether the generic JNI version eventually updates the mark register?",
+      "range": {
+        "startLine": 745,
+        "startChar": 5,
+        "endLine": 745,
+        "endChar": 27
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "323f022d_b27a50fa",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T14:59:28Z",
+      "side": 1,
+      "message": "Why do you not need to update the marking register? Please add a comment.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 75
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "011a458a_fca5ceb0",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T14:59:28Z",
+      "side": 1,
+      "message": "Why not addressing now?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 13
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f17504fa_fb9d163f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T14:59:28Z",
+      "side": 1,
+      "message": "This is a general comment right? It only applies to RESTORE_SAVE_REFS_AND_ARGS_FRAME, where you\u0027d fix the TODO.",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 13
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e3162a2_1428b8d8",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T14:59:28Z",
+      "side": 1,
+      "message": "Would it make sense to have that in RETURN_IF_RESULT_IS_NON_ZERO_OR_DELIVER?",
+      "range": {
+        "startLine": 1888,
+        "startChar": 4,
+        "endLine": 1888,
+        "endChar": 28
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
