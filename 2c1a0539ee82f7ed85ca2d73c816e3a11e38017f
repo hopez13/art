@@ -118,6 +118,30 @@
       "revId": "2c1a0539ee82f7ed85ca2d73c816e3a11e38017f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbe6a74d_50fd4060",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-13T09:53:20Z",
+      "side": 1,
+      "message": "How about you reprhase the comment saying \"you should not request executable because.....\" From the JIT pov, this variable is called data_map, which should have kProtData protections.",
+      "parentUuid": "cc484db3_3968a1ff",
+      "range": {
+        "startLine": 100,
+        "startChar": 6,
+        "endLine": 100,
+        "endChar": 27
+      },
+      "revId": "2c1a0539ee82f7ed85ca2d73c816e3a11e38017f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
