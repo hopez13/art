@@ -22,6 +22,30 @@
       "revId": "79f86512bc74d65bec80c2330ec7e2a7ff470e82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efb7af77_8b3871da",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-13T17:24:33Z",
+      "side": 1,
+      "message": "I believe we think this is readable (as the right side gives quite a bit of context in the name).\n\nI agree with bdc that comments are just wrong. They mean that if I want to block-comment for debugging I\u0027m screwed. If you feel auto isn\u0027t expressive here, I should remove auto, not add comment on it.",
+      "parentUuid": "bd103fcb_9564f9a8",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 195,
+        "endChar": 8
+      },
+      "revId": "79f86512bc74d65bec80c2330ec7e2a7ff470e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
