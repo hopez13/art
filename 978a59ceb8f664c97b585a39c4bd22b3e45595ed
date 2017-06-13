@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d0494443_47a82cc1",
+        "filename": "test/run-test",
+        "patchSetId": 6
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-13T09:58:18Z",
+      "side": 1,
+      "message": "The top of the script changes the working directory the script directory.",
+      "parentUuid": "f1f12f4e_fb0c66a9",
+      "revId": "978a59ceb8f664c97b585a39c4bd22b3e45595ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e9c3c181_7eec2481",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2017-06-09T17:27:19Z",
       "side": 1,
       "message": "Is this a bug?\n\n    ${ART_TEST_ANDROID_ROOT:-system}\n\nlooks like the $ is in the wrong spot",
+      "range": {
+        "startLine": 67,
+        "startChar": 9,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "978a59ceb8f664c97b585a39c4bd22b3e45595ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dbbf530_b32ce0d0",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-13T09:58:18Z",
+      "side": 1,
+      "message": "Yep, lousy typo.",
+      "parentUuid": "e9c3c181_7eec2481",
       "range": {
         "startLine": 67,
         "startChar": 9,
