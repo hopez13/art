@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd103fcb_9564f9a8",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-13T17:15:37Z",
+      "side": 1,
+      "message": "nit: Do we think its readable? Or should we add a comment for the type?\n\n   auto /*StackTraceVisitor\u003cauto\u003e*/ visitor \u003d MakeStackTraceVisitor(...);\n\n   auto /*StackTraceVisitor\u003c?\u003e*/ visitor \u003d MakeStackTraceVisitor(...);\n\n   /*StackTraceVisitor*/auto visitor \u003d ...;\n\njust brainstorming?",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 195,
+        "endChar": 8
+      },
+      "revId": "79f86512bc74d65bec80c2330ec7e2a7ff470e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
