@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <java_frame_root_info.h>
 #include "ti_heap.h"
 
 #include "art_field-inl.h"

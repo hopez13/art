@@ -58,6 +58,7 @@
 #include "gc_root.h"
 #include "handle_scope-inl.h"
 #include "indirect_reference_table-inl.h"
+#include <java_frame_root_info.h>
 #include "java_vm_ext.h"
 #include "jni_internal.h"
 #include "mirror/class_loader.h"
@@ -79,6 +80,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "ScopedLocalRef.h"
 #include "ScopedUtfChars.h"
+#include "shadow_frame.h"
 #include "stack.h"
 #include "stack_map.h"
 #include "thread_list.h"
