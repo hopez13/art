@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29b33d27_e20e5de1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2312,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-13T18:42:46Z",
+      "side": 1,
+      "message": "Not necessary with your change in line 2303 (will probably be optimized away, though).",
+      "range": {
+        "startLine": 2312,
+        "startChar": 12,
+        "endLine": 2312,
+        "endChar": 32
+      },
+      "revId": "17498e59a35b3802f77a6a3338468e6d18c5046b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
