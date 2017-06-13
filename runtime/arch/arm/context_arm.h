@@ -25,7 +25,7 @@
 namespace art {
 namespace arm {
 
-class ArmContext : public Context {
+class ArmContext final : public Context {
  public:
   ArmContext() {
     Reset();
