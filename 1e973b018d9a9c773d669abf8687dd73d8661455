@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6173ddb_081eae46",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-13T16:28:35Z",
+      "side": 1,
+      "message": "This is an extra load in the fast-path. Are we sure we want to do this?",
+      "range": {
+        "startLine": 483,
+        "startChar": 6,
+        "endLine": 483,
+        "endChar": 65
+      },
+      "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
