@@ -70,6 +70,30 @@
       "revId": "79f86512bc74d65bec80c2330ec7e2a7ff470e82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23aec4c7_16a287bd",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-13T17:26:31Z",
+      "side": 1,
+      "message": "Why not use actual block comments, not horrible preprocessor magic? :-)",
+      "parentUuid": "d40564d1_b5474e45",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 195,
+        "endChar": 8
+      },
+      "revId": "79f86512bc74d65bec80c2330ec7e2a7ff470e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
