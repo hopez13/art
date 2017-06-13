@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5cb0f29_517d033d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2313,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-13T16:39:55Z",
+      "side": 1,
+      "message": "It would be nice to have a DCHECK here for IsAppImage.",
+      "range": {
+        "startLine": 2312,
+        "startChar": 12,
+        "endLine": 2313,
+        "endChar": 72
+      },
+      "revId": "dabeb3adf974d32ff1553af356d20e0a4abfd1f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
