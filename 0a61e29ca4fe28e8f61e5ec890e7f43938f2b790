@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21b35d77_8559665f",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-13T14:39:04Z",
+      "side": 1,
+      "message": "start \u003c\u003d stop?",
+      "revId": "0a61e29ca4fe28e8f61e5ec890e7f43938f2b790",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c5becdb_15de0e9c",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-13T14:39:04Z",
+      "side": 1,
+      "message": "nit: /*name_of_argument*/",
+      "range": {
+        "startLine": 187,
+        "startChar": 22,
+        "endLine": 187,
+        "endChar": 27
+      },
+      "revId": "0a61e29ca4fe28e8f61e5ec890e7f43938f2b790",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
