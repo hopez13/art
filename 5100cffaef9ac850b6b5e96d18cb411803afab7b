@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30844b7c_7618357b",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-06-13T08:33:51Z",
+      "side": 1,
+      "message": "Agree! I parse the crc feature in term of ISA extension subsequently",
+      "parentUuid": "f919a9ff_b6a1795c",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "5100cffaef9ac850b6b5e96d18cb411803afab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfa905bb_79dcc061",
         "filename": "runtime/arch/arm64/instruction_set_features_arm64_test.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-05T13:26:21Z",
       "side": 1,
       "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "5100cffaef9ac850b6b5e96d18cb411803afab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cd50059_1a761b2b",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-06-13T08:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfa905bb_79dcc061",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f7f6bdd1_75352f9d",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-06-13T08:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba18d714_70c2ec50",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "5100cffaef9ac850b6b5e96d18cb411803afab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf01e_83a2ed9d",
         "filename": "runtime/arch/arm64/instruction_set_features_arm64_test.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-05T13:26:21Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 31
+      },
+      "revId": "5100cffaef9ac850b6b5e96d18cb411803afab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f73fad7_4b85c586",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-06-13T08:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf01e_83a2ed9d",
       "range": {
         "startLine": 51,
         "startChar": 0,
