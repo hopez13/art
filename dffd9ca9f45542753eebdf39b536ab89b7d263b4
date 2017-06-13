@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "684364f1_df3d326e",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-13T16:58:05Z",
+      "side": 1,
+      "message": "The following check at line 83 should cover all cases, including overflow cases:\n  add_cst-\u003eAsIntConstant()-\u003eGetValue() \u003d\u003d -(sub_cst-\u003eAsIntConstant()-\u003eGetValue());\n\t\nFor example:\n- when i\u003d\u003d0x80000000, [i+1] and [i-1] MAY alias;\n- [i+0x10] and [i-0xFFFFFFF0] MAY alias, because 0x10 \u003d\u003d -0xFFFFFFF0;\n- [i+0x7FFFFFFF] and [i-0x80000001] MAY alias, because 0x7FFFFFFF \u003d\u003d -0x80000001\n \nI have added new gtests in the new PS, to make sure these overflow cases are tested.",
+      "parentUuid": "683d1664_04ebb2f1",
+      "range": {
+        "startLine": 56,
+        "startChar": 69,
+        "endLine": 57,
+        "endChar": 53
+      },
+      "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43b5dd94_c232e1c6",
         "filename": "compiler/optimizing/load_store_analysis.cc",
         "patchSetId": 1
