@@ -135,6 +135,24 @@
     },
     {
       "key": {
+        "uuid": "410a9e89_13b53321",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-13T15:20:01Z",
+      "side": 1,
+      "message": "Thinking about it some more, why is this necessary if it\u0027s callee-save? The native code should retain the value and restore it. \n\nIf we take a suspend check then it should be up to the suspend slow path to restore MR here. It seems unnecessary to always load MR again on the fast path.",
+      "parentUuid": "de12f88f_ef3be1a3",
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "323f022d_b27a50fa",
         "filename": "runtime/arch/arm64/context_arm64.cc",
         "patchSetId": 8
