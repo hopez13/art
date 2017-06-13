@@ -34,6 +34,24 @@
       "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00219870_0f027918",
+        "filename": "tools/bootjars.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-06-13T23:10:35Z",
+      "side": 1,
+      "message": "No, and the functions are not exported so if they were sourced in the parent shell they won\u0027t be visible to this script anyways.",
+      "parentUuid": "32fdc3be_e3a1a15a",
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
