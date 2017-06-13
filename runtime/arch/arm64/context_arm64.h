@@ -25,7 +25,7 @@
 namespace art {
 namespace arm64 {
 
-class Arm64Context : public Context {
+class Arm64Context final : public Context {
  public:
   Arm64Context() {
     Reset();

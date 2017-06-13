@@ -25,7 +25,7 @@
 namespace art {
 namespace x86_64 {
 
-class X86_64Context : public Context {
+class X86_64Context final : public Context {
  public:
   X86_64Context() {
     Reset();
