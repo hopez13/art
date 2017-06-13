@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e684299_4a34565f",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-13T14:45:42Z",
+      "side": 1,
+      "message": "If you add a standalone function you can avoid passing FrameFn explicitly\n\n   template \u003ctypename FrameFn\u003e\n   GetStackTraceVisitor\u003cFrameFn\u003e MakeStackTraceVisitor(args, FrameFn fn)\n   {\n     return GetStackTraceVisitor\u003cFrameFn\u003e(args, fn); \n   }\n\n   .....\n   auto lambda \u003d []{...};\n   auto visitor \u003d MakeStackTraceVisitor(lambda, ...);\n\n\nalthough C++17 solves this as well by allowing one to use\n\n   auto fn \u003d []{...};\n   GetStackTraceVisitor\u003c\u003e visitor{args, fn};\n\nsyntax",
+      "revId": "b03a81a89daa27f333d9c17e4ac9e7df9b6dd8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
