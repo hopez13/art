@@ -94,6 +94,47 @@
     },
     {
       "key": {
+        "uuid": "ada99d99_18580ef8",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-13T15:16:28Z",
+      "side": 1,
+      "message": "I think jni_compiler_test needs to be updated to check that mark register is correct [which will cover generic jni as well].",
+      "parentUuid": "35a68296_3c6fc7e1",
+      "range": {
+        "startLine": 745,
+        "startChar": 5,
+        "endLine": 745,
+        "endChar": 27
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de12f88f_ef3be1a3",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-13T15:16:28Z",
+      "side": 1,
+      "message": "Hmm, I didn\u0027t notice this earlier.\n\nWhat\u0027s the performance difference by doing this, especially @FastNative and @CriticalNative ? Golem has the micronative benchmark or you can run it manually.",
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "323f022d_b27a50fa",
         "filename": "runtime/arch/arm64/context_arm64.cc",
         "patchSetId": 8
