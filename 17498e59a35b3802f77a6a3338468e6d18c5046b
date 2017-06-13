@@ -22,6 +22,30 @@
       "revId": "17498e59a35b3802f77a6a3338468e6d18c5046b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c3d00ff_d33c8b60",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2312,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-13T19:56:48Z",
+      "side": 1,
+      "message": "True, might as well leave the assert there to prevent copying errors in the future.",
+      "parentUuid": "29b33d27_e20e5de1",
+      "range": {
+        "startLine": 2312,
+        "startChar": 12,
+        "endLine": 2312,
+        "endChar": 32
+      },
+      "revId": "17498e59a35b3802f77a6a3338468e6d18c5046b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
