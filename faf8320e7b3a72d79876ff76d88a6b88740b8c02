@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "63ef8eae_bacbc92b",
+        "filename": "runtime/jit/profile_compilation_info-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-13T00:21:56Z",
+      "side": 1,
+      "message": "why is it better here than in the header?",
+      "parentUuid": "2d1d2561_e2acd917",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "faf8320e7b3a72d79876ff76d88a6b88740b8c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cbb4189_69fd0f83",
         "filename": "runtime/jit/profile_compilation_info-inl.h",
         "patchSetId": 4
