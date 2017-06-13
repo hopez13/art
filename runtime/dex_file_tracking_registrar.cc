@@ -95,6 +95,8 @@ void DexFileTrackingRegistrar::SetDexSections() {
 }
 
 void RegisterDexFile(const DexFile* dex_file) {
+  LOG(ERROR) << "RegisterDexFile: " << dex_file->GetLocation() + " @ " << std::hex
+             << reinterpret_cast<uintptr_t>(dex_file->Begin());
   DexFileTrackingRegistrar dex_tracking_registrar(dex_file);
   dex_tracking_registrar.SetDexSections();
   dex_tracking_registrar.SetCurrentRanges();
