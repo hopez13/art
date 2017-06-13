@@ -16,6 +16,24 @@
       "revId": "4b413aa2319c818a9fcd09ac9fed14fbd7e1cd0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d644ddc3_9ff19c30",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-13T17:27:22Z",
+      "side": 1,
+      "message": "Should already do copy elision, anyways?",
+      "parentUuid": "33330b21_33636612",
+      "revId": "4b413aa2319c818a9fcd09ac9fed14fbd7e1cd0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
