@@ -52,7 +52,8 @@ static constexpr size_t kObjectAlignment = 1u << kObjectAlignmentShift;
 static constexpr size_t kLargeObjectAlignment = kPageSize;
 
 // Whether or not this is a debug build. Useful in conditionals where NDEBUG isn't.
-#if defined(NDEBUG)
+// Always enabled for the static analyzer, since it always treats things like DCHECKs as enabled.
+#if defined(NDEBUG) && !defined(__clang_analyzer__)
 static constexpr bool kIsDebugBuild = false;
 #else
 static constexpr bool kIsDebugBuild = true;
