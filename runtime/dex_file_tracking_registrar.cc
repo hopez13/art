@@ -70,6 +70,9 @@ static constexpr DexTrackingType kCurrentTrackingSystem = kWholeDexTracking;
 // Intended for local changes only.
 void DexFileTrackingRegistrar::SetDexSections() {
   if (kDexFileAccessTracking || dex_file_ != nullptr) {
+    // Logs the Dex File's location and starting address if tracking is enabled
+    LOG(ERROR) << "RegisterDexFile: " << dex_file->GetLocation() + " @ " << std::hex
+               << reinterpret_cast<uintptr_t>(dex_file->Begin());
     switch (kCurrentTrackingSystem) {
       case kWholeDexTracking:
         SetDexFileRegistration(true);
