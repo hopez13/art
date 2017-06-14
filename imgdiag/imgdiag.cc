@@ -658,7 +658,7 @@ class ImgDiagDumper {
         class_data, [](const ClassData& d) { return d.clean_object_count; });
 
     if (!zygote_dirty_objects.empty()) {
-      os << "\n" << "  Dirty objects compared to zygote (probably private dirty): "
+      os << "\n" << "  Zygote dirty objects (probably shared dirty): "
          << zygote_dirty_objects.size() << "\n";
       for (mirror::Object* obj : zygote_dirty_objects) {
         const uint8_t* obj_bytes = reinterpret_cast<const uint8_t*>(obj);
@@ -667,7 +667,7 @@ class ImgDiagDumper {
         DiffObjectContents(obj, remote_bytes, os);
       }
     }
-    os << "\n" << "  Dirty objects compared to image (private or shared dirty): "
+    os << "\n" << "  Image dirty objects (private or shared dirty): "
        << image_dirty_objects.size() << "\n";
     for (mirror::Object* obj : image_dirty_objects) {
       const uint8_t* obj_bytes = reinterpret_cast<const uint8_t*>(obj);
