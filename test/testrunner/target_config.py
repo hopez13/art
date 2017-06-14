@@ -24,7 +24,7 @@ target_config = {
 
     'art-test' : {
         'make' : 'test-art-host-gtest',
-        'run-test' : [],
+        'run-test' : [ '--ndebug', '--debug' ],
         'env' : {
             'ART_USE_READ_BARRIER' : 'true'
         }
