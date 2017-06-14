@@ -101,6 +101,7 @@ ART_GTEST_dex2oat_environment_tests_DEX_DEPS := Main MainStripped MultiDex Multi
 ART_GTEST_atomic_method_ref_map_test_DEX_DEPS := Interfaces
 ART_GTEST_class_linker_test_DEX_DEPS := AllFields ErroneousA ErroneousB ErroneousInit Interfaces MethodTypes MultiDex MyClass Nested Statics StaticsFromCode
 ART_GTEST_class_table_test_DEX_DEPS := XandY
+ART_GTEST_class_loader_compilation_context_test_DEX_DEPS := Main MultiDex MyClass
 ART_GTEST_compiler_driver_test_DEX_DEPS := AbstractMethod StaticLeafMethods ProfileTestMultiDex
 ART_GTEST_dex_cache_test_DEX_DEPS := Main Packages MethodTypes
 ART_GTEST_dex_file_test_DEX_DEPS := GetMethodSignature Main Nested MultiDex

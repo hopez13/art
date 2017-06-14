@@ -42,7 +42,7 @@ namespace art {
 
 using android::base::StringPrintf;
 
-std::ostream& operator << (std::ostream& stream, const OatFileAssistant::OatStatus status) {
+std::ostream &operator<<(std::ostream &stream, const OatFileAssistant::OatStatus status) {
   switch (status) {
     case OatFileAssistant::kOatCannotOpen:
       stream << "kOatCannotOpen";
@@ -66,7 +66,7 @@ std::ostream& operator << (std::ostream& stream, const OatFileAssistant::OatStat
   return stream;
 }
 
-OatFileAssistant::OatFileAssistant(const char* dex_location,
+OatFileAssistant::OatFileAssistant(const char *dex_location,
                                    const InstructionSet isa,
                                    bool load_executable)
     : isa_(isa),
@@ -100,7 +100,7 @@ OatFileAssistant::OatFileAssistant(const char* dex_location,
 
   if (load_executable_ && isa != kRuntimeISA) {
     LOG(WARNING) << "OatFileAssistant: Load executable specified, "
-      << "but isa is not kRuntimeISA. Will not attempt to load executable.";
+                 << "but isa is not kRuntimeISA. Will not attempt to load executable.";
     load_executable_ = false;
   }
 
@@ -119,7 +119,7 @@ OatFileAssistant::OatFileAssistant(const char* dex_location,
     oat_.Reset(oat_file_name);
   } else {
     LOG(WARNING) << "Failed to determine oat file name for dex location "
-        << dex_location_ << ": " << error_msg;
+                 << dex_location_ << ": " << error_msg;
   }
 
   // Check if the dex directory is writable.
@@ -151,9 +151,9 @@ bool OatFileAssistant::IsInBootClassPath() {
   // specified by the user. This is okay, because the boot class path should
   // be the same for all ISAs.
   // TODO: Can we verify the boot class path is the same for all ISAs?
-  Runtime* runtime = Runtime::Current();
-  ClassLinker* class_linker = runtime->GetClassLinker();
-  const auto& boot_class_path = class_linker->GetBootClassPath();
+  Runtime *runtime = Runtime::Current();
+  ClassLinker *class_linker = runtime->GetClassLinker();
+  const auto &boot_class_path = class_linker->GetBootClassPath();
   for (size_t i = 0; i < boot_class_path.size(); i++) {
     if (boot_class_path[i]->GetLocation() == dex_location_) {
       VLOG(oat) << "Dex location " << dex_location_ << " is in boot class path";
@@ -163,7 +163,7 @@ bool OatFileAssistant::IsInBootClassPath() {
   return false;
 }
 
-bool OatFileAssistant::Lock(std::string* error_msg) {
+bool OatFileAssistant::Lock(std::string *error_msg) {
   CHECK(error_msg != nullptr);
   CHECK(!flock_.HasFile()) << "OatFileAssistant::Lock already acquired";
 
@@ -187,7 +187,7 @@ bool OatFileAssistant::Lock(std::string* error_msg) {
 }
 
 int OatFileAssistant::GetDexOptNeeded(CompilerFilter::Filter target, bool profile_changed) {
-  OatFileInfo& info = GetBestInfo();
+  OatFileInfo &info = GetBestInfo();
   DexOptNeeded dexopt_needed = info.GetDexOptNeeded(target, profile_changed);
   if (info.IsOatLocation() || dexopt_needed == kDex2OatFromScratch) {
     return dexopt_needed;
@@ -198,18 +198,18 @@ int OatFileAssistant::GetDexOptNeeded(CompilerFilter::Filter target, bool profil
 // Figure out the currently specified compile filter option in the runtime.
 // Returns true on success, false if the compiler filter is invalid, in which
 // case error_msg describes the problem.
-static bool GetRuntimeCompilerFilterOption(CompilerFilter::Filter* filter,
-                                           std::string* error_msg) {
+static bool GetRuntimeCompilerFilterOption(CompilerFilter::Filter *filter,
+                                           std::string *error_msg) {
   CHECK(filter != nullptr);
   CHECK(error_msg != nullptr);
 
   *filter = OatFileAssistant::kDefaultCompilerFilterForDexLoading;
   for (StringPiece option : Runtime::Current()->GetCompilerOptions()) {
     if (option.starts_with("--compiler-filter=")) {
-      const char* compiler_filter_string = option.substr(strlen("--compiler-filter=")).data();
+      const char *compiler_filter_string = option.substr(strlen("--compiler-filter=")).data();
       if (!CompilerFilter::ParseCompilerFilter(compiler_filter_string, filter)) {
         *error_msg = std::string("Unknown --compiler-filter value: ")
-                   + std::string(compiler_filter_string);
+            + std::string(compiler_filter_string);
         return false;
       }
     }
@@ -222,20 +222,20 @@ bool OatFileAssistant::IsUpToDate() {
 }
 
 OatFileAssistant::ResultOfAttemptToUpdate
-OatFileAssistant::MakeUpToDate(bool profile_changed, std::string* error_msg) {
+OatFileAssistant::MakeUpToDate(bool profile_changed, std::string *error_msg) {
   CompilerFilter::Filter target;
   if (!GetRuntimeCompilerFilterOption(&target, error_msg)) {
     return kUpdateNotAttempted;
   }
 
-  OatFileInfo& info = GetBestInfo();
+  OatFileInfo &info = GetBestInfo();
   switch (info.GetDexOptNeeded(target, profile_changed)) {
     case kNoDexOptNeeded:
       return kUpdateSucceeded;
 
-    // TODO: For now, don't bother with all the different ways we can call
-    // dex2oat to generate the oat file. Always generate the oat file as if it
-    // were kDex2OatFromScratch.
+      // TODO: For now, don't bother with all the different ways we can call
+      // dex2oat to generate the oat file. Always generate the oat file as if it
+      // were kDex2OatFromScratch.
     case kDex2OatFromScratch:
     case kDex2OatForBootImage:
     case kDex2OatForRelocation:
@@ -259,7 +259,7 @@ std::string OatFileAssistant::GetStatusDump() {
 
     oat_file_exists = true;
     status << *oat_.Filename() << "[status=" << oat_.Status() << ", ";
-    const OatFile* file = oat_.GetFile();
+    const OatFile *file = oat_.GetFile();
     if (file == nullptr) {
       // If the file is null even though the status is not kOatCannotOpen, it
       // means we must have a vdex file with no corresponding oat file. In
@@ -280,7 +280,7 @@ std::string OatFileAssistant::GetStatusDump() {
       status << "] ";
     }
     status << *odex_.Filename() << "[status=" << odex_.Status() << ", ";
-    const OatFile* file = odex_.GetFile();
+    const OatFile *file = odex_.GetFile();
     if (file == nullptr) {
       status << "vdex-only";
     } else {
@@ -297,28 +297,38 @@ std::string OatFileAssistant::GetStatusDump() {
 }
 
 std::vector<std::unique_ptr<const DexFile>> OatFileAssistant::LoadDexFiles(
-    const OatFile& oat_file, const char* dex_location) {
+    const OatFile &oat_file, const char *dex_location) {
   std::vector<std::unique_ptr<const DexFile>> dex_files;
+  if (LoadDexFiles(oat_file, dex_location, &dex_files)) {
+    return dex_files;
+  } else {
+    return std::vector<std::unique_ptr<const DexFile>>();
+  }
+}
 
+bool OatFileAssistant::LoadDexFiles(
+    const OatFile &oat_file,
+    const std::string& dex_location,
+    std::vector<std::unique_ptr<const DexFile>>* out_dex_files) {
   // Load the main dex file.
   std::string error_msg;
-  const OatFile::OatDexFile* oat_dex_file = oat_file.GetOatDexFile(
-      dex_location, nullptr, &error_msg);
+  const OatFile::OatDexFile *oat_dex_file = oat_file.GetOatDexFile(
+      dex_location.c_str(), nullptr, &error_msg);
   if (oat_dex_file == nullptr) {
     LOG(WARNING) << error_msg;
-    return std::vector<std::unique_ptr<const DexFile>>();
+    return false;
   }
 
   std::unique_ptr<const DexFile> dex_file = oat_dex_file->OpenDexFile(&error_msg);
   if (dex_file.get() == nullptr) {
     LOG(WARNING) << "Failed to open dex file from oat dex file: " << error_msg;
-    return std::vector<std::unique_ptr<const DexFile>>();
+    return false;
   }
-  dex_files.push_back(std::move(dex_file));
+  out_dex_files->push_back(std::move(dex_file));
 
   // Load the rest of the multidex entries
-  for (size_t i = 1; ; i++) {
-    std::string multidex_dex_location = DexFile::GetMultiDexLocation(i, dex_location);
+  for (size_t i = 1;; i++) {
+    std::string multidex_dex_location = DexFile::GetMultiDexLocation(i, dex_location.c_str());
     oat_dex_file = oat_file.GetOatDexFile(multidex_dex_location.c_str(), nullptr);
     if (oat_dex_file == nullptr) {
       // There are no more multidex entries to load.
@@ -328,11 +338,11 @@ std::vector<std::unique_ptr<const DexFile>> OatFileAssistant::LoadDexFiles(
     dex_file = oat_dex_file->OpenDexFile(&error_msg);
     if (dex_file.get() == nullptr) {
       LOG(WARNING) << "Failed to open dex file from oat dex file: " << error_msg;
-      return std::vector<std::unique_ptr<const DexFile>>();
+      return false;
     }
-    dex_files.push_back(std::move(dex_file));
+    out_dex_files->push_back(std::move(dex_file));
   }
-  return dex_files;
+  return true;
 }
 
 bool OatFileAssistant::HasOriginalDexFiles() {
