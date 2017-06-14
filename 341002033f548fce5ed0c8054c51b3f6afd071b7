@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "8efa4439_751a1bb1",
+        "filename": "runtime/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T22:49:16Z",
+      "side": 1,
+      "message": "Why is a lot of stuff there? LinearAlloc could be in base/, dex stuff should be in dex/, leb should be in base/, mem_map should be in base/, options should be in utils (or hidden/internal), utf in base/, zip_archive in base/, ...\n\nSo it warrants a discussion whether we want to clean up our mess (and then do one fell swoop).",
+      "parentUuid": "ee5a14b5_065e4d88",
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "227035cd_9445f6f1",
         "filename": "runtime/shadow_frame.h",
         "patchSetId": 2
@@ -184,6 +202,30 @@
       "side": 1,
       "message": "When I look in shadow_frame.h and the first struct I see is not ShadowFrame, something is wrong. I have to scroll down 2 pages to see the ShadowFrame struct.\n\nIf it doesn\u0027t need to be a standalone class then also consider making it a nested class of ShadowFrame.\n\nYet another (least preferred) option is change LockCountData to be the vector itself, then have a pointer to LockCountData within ShadowFrame. Then you can forward declare only here and have the definition of LockCountData below the file.",
       "parentUuid": "855755aa_fa5efeaa",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a76abfc_47c61dd5",
+        "filename": "runtime/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T22:49:16Z",
+      "side": 1,
+      "message": "Future cleanup (this is just 1-to-1 move). I\u0027ll try to figure out why I had this standalone (possibly to be able to forward-declare somewhere in the interpreter, which might no longer be necessary).",
+      "parentUuid": "b7c3182f_4fd30939",
       "range": {
         "startLine": 52,
         "startChar": 6,
