@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "8d9677b3_ed730680",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-14T09:51:37Z",
+      "side": 1,
+      "message": "Consistency: run-test uses --target and --host.",
+      "range": {
+        "startLine": 143,
+        "startChar": 1,
+        "endLine": 148,
+        "endChar": 9
+      },
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c233449b_12f1d13c",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-14T09:51:37Z",
+      "side": 1,
+      "message": "Didn\u0027t jack and dx not require knowing target/host (given this file did not have this switch)? Why did they not need it, and could we make desugar also not need it?",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 4
+      },
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edfd6dde_368e49ec",
         "filename": "tools/bootjars.sh",
         "patchSetId": 1
