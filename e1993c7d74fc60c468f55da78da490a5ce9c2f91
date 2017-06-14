@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f4a9a30_d1665eb8",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T20:35:12Z",
+      "side": 0,
+      "message": "I think this had the wrong behavior earlier. vector::at would throw if index is OOB (\u003dabort for -fno-except), thus this should\u0027ve been CHECK and not DCHECK.\n\nBut this existing DCHECK behavior is probably the more desirable one anyway (can\u0027t really recover from a CHECK failure...) because I think C++ library has a tendency to abuse exceptions when they are really unrecoverable programming errors.",
+      "revId": "e1993c7d74fc60c468f55da78da490a5ce9c2f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4abd0221_c77b8959",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T20:35:12Z",
+      "side": 0,
+      "message": "Thanks. ArraySlice is way more readable than this.",
+      "range": {
+        "startLine": 729,
+        "startChar": 15,
+        "endLine": 729,
+        "endChar": 58
+      },
+      "revId": "e1993c7d74fc60c468f55da78da490a5ce9c2f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
