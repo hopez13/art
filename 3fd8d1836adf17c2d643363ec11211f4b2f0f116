@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "52753eeb_6a996f99",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-14T13:35:05Z",
+      "side": 1,
+      "message": "Why does desugar need boot classpath?",
+      "parentUuid": "dc82adf6_3411600e",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 4
+      },
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edfd6dde_368e49ec",
         "filename": "tools/bootjars.sh",
         "patchSetId": 1
