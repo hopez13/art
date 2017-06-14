@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "e981b58e_6237207b",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-14T09:41:09Z",
+      "side": 1,
+      "message": "if (kUseReadBarrier || kUseBakerReadBarrier) { ... }\n\nWe should add a test where a method with a lot of local variables calls a native method and then prints all those local variables.",
+      "range": {
+        "startLine": 775,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 94
+      },
+      "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eef64956_dc9f0fa5",
         "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
         "patchSetId": 9
@@ -36,6 +59,24 @@
       "writtenOn": "2017-06-13T18:14:38Z",
       "side": 1,
       "message": "Discussed with Mathieu. It seems like MR can be updated by the stack frame visitor if it actually needs to change. \n\nAlternatively if the suspend testing code was in assembly, it could only refresh if the suspend is actually taken.\n\nFine with me if you just leave a \"TODO: only update MR if suspend is taken\" here.\n\nI would like to see the android performance difference for CriticalNative though as it will slow that down the most.",
+      "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5982ef4c_d02ed81d",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-14T09:41:09Z",
+      "side": 1,
+      "message": "Alternatively, remove the MR from the core_reg_list. It doesn\u0027t need to be spilled or restored. Neither does TR, eliminating the whole LDP/STP. (Though this may need more invasive changes in entrypoints.)",
+      "parentUuid": "eef64956_dc9f0fa5",
       "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
