@@ -98,6 +98,24 @@
       "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab85156_08791ee3",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-14T15:14:38Z",
+      "side": 1,
+      "message": "Well, if the user-defined native code does not adhere to the ABI, what\u0027s to stop them from overwriting the spilled registers on the stack?",
+      "parentUuid": "0c5b9394_cc9e6bd6",
+      "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
