@@ -46,6 +46,30 @@
       "revId": "0d4defdf954019876912cea32a236264bcfb673d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7da9e09f_8b813233",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-14T08:59:29Z",
+      "side": 1,
+      "message": "What Andreas said. It shouldn\u0027t have been kProtAll.",
+      "parentUuid": "462ab3aa_49aa5dd1",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 96,
+        "endChar": 15
+      },
+      "revId": "0d4defdf954019876912cea32a236264bcfb673d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
