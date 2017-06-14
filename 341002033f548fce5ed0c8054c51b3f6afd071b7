@@ -235,6 +235,30 @@
       "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "075598aa_8162a172",
+        "filename": "runtime/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T22:56:30Z",
+      "side": 1,
+      "message": "If it\u0027s a 1-1 move then why not move it to a new file? I can tell you as a plain vim user putting things into multiple files doesn\u0027t make it harder (one can just open a split). And plus most of you other guys are using IDEs so the file location is completely irrelevant there.",
+      "parentUuid": "9a76abfc_47c61dd5",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
