@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "ee5a14b5_065e4d88",
+        "filename": "runtime/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T22:43:09Z",
+      "side": 1,
+      "message": "Yes, interpreter directory sounds good. Just doesn\u0027t seem like it should be in the main runtime directory.",
+      "parentUuid": "23a3e467_2d7ec465",
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "227035cd_9445f6f1",
         "filename": "runtime/shadow_frame.h",
         "patchSetId": 2
@@ -142,6 +160,30 @@
       "side": 1,
       "message": "No benefit to this right now, as it\u0027s a member of ShadowFrame. It also doesn\u0027t add dependencies, at least.",
       "parentUuid": "227035cd_9445f6f1",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7c3182f_4fd30939",
+        "filename": "runtime/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T22:43:09Z",
+      "side": 1,
+      "message": "When I look in shadow_frame.h and the first struct I see is not ShadowFrame, something is wrong. I have to scroll down 2 pages to see the ShadowFrame struct.\n\nIf it doesn\u0027t need to be a standalone class then also consider making it a nested class of ShadowFrame.\n\nYet another (least preferred) option is change LockCountData to be the vector itself, then have a pointer to LockCountData within ShadowFrame. Then you can forward declare only here and have the definition of LockCountData below the file.",
+      "parentUuid": "855755aa_fa5efeaa",
       "range": {
         "startLine": 52,
         "startChar": 6,
