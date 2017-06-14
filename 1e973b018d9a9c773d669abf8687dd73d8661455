@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a319c76f_51fad04d",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "Right, I\u0027ve moved it back to the slow path.",
+      "parentUuid": "a6173ddb_081eae46",
+      "range": {
+        "startLine": 483,
+        "startChar": 6,
+        "endLine": 483,
+        "endChar": 65
+      },
+      "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e981b58e_6237207b",
         "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-14T09:41:09Z",
       "side": 1,
       "message": "if (kUseReadBarrier || kUseBakerReadBarrier) { ... }\n\nWe should add a test where a method with a lot of local variables calls a native method and then prints all those local variables.",
+      "range": {
+        "startLine": 775,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 94
+      },
+      "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aad8ddbd_d792df03",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "Good catch; done in PS10.",
+      "parentUuid": "e981b58e_6237207b",
       "range": {
         "startLine": 775,
         "startChar": 0,
@@ -131,6 +179,24 @@
       "side": 1,
       "message": "The aapcs64 ABI defines x19 and x20 as callee-save.",
       "parentUuid": "9ab85156_08791ee3",
+      "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bfe1616_8e756f9c",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "I\u0027ve removed MR from the list of saved and restored registers in PS10.\n\nWe can address the case of TR in a another CL.",
+      "parentUuid": "5982ef4c_d02ed81d",
       "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

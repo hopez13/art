@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d07e4a3c_b9834842",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7172657_f3f86cad",
+      "range": {
+        "startLine": 384,
+        "startChar": 36,
+        "endLine": 384,
+        "endChar": 46
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8752ef1_8cdc9ca7",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9995d932_c805fb46",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "The current choice (MR as a callee-save) is perfectly fine: this TODO is just a reminder for me to try with a caller-save register and run benchmarks. My intuition is that we should not observe a real difference (improvement or regression) because ARM64 has a lot of registers, and we probably rarely run out of callee-saves (resp. caller-saves) when doing register allocation for that target.\n\nI\u0027ve removed the TODO and I\u0027ll do the experiment with a caller-save later.",
+      "parentUuid": "a8752ef1_8cdc9ca7",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 35
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6ccaf2c_fe3f14a9",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2017-06-13T14:59:28Z",
       "side": 1,
       "message": "How about marking_register to make this greppable?",
+      "range": {
+        "startLine": 78,
+        "startChar": 30,
+        "endLine": 78,
+        "endChar": 32
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7963c4_4003e72d",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "It\u0027s already quite grep-able in the ART code base:\n\n  $ git grep \u0027\\bmr\\b\u0027\n  compiler/optimizing/code_generator_arm64.cc:  //      mr        : Runtime reserved.\n  compiler/optimizing/code_generator_arm64.cc:        //     if (mr) {  // Thread::Current()-\u003eGetIsGcMarking()\n  compiler/optimizing/code_generator_arm64.cc:        __ cbnz(mr, static_cast\u003cint64_t\u003e(0));  // Placeholder, patched at link-time.\n  compiler/optimizing/code_generator_arm64.cc:        //   if (mr) {  // Thread::Current()-\u003eGetIsGcMarking()\n  compiler/optimizing/code_generator_arm64.cc:        __ Cbnz(mr, slow_path-\u003eGetEntryLabel());\n  compiler/optimizing/code_generator_arm64.cc:    //     if (mr) {  // Thread::Current()-\u003eGetIsGcMarking()\n  compiler/optimizing/code_generator_arm64.cc:      __ cbnz(mr, static_cast\u003cint64_t\u003e(0));  // Placeholder, patched at link-time.\n  compiler/optimizing/code_generator_arm64.cc:    //     if (mr) {  // Thread::Current()-\u003eGetIsGcMarking()\n  compiler/optimizing/code_generator_arm64.cc:      __ cbnz(mr, static_cast\u003cint64_t\u003e(0));  // Placeholder, patched at link-time.\n  compiler/optimizing/code_generator_arm64.cc:  //   if (mr) {  // Thread::Current()-\u003eGetIsGcMarking()\n  compiler/optimizing/code_generator_arm64.cc:  __ Cbnz(mr, slow_path-\u003eGetEntryLabel());\n  compiler/optimizing/code_generator_arm64.cc:  //   if (mr) {  // Thread::Current()-\u003eGetIsGcMarking()\n  compiler/optimizing/code_generator_arm64.cc:  __ Cbnz(mr, slow_path-\u003eGetEntryLabel());\n  compiler/optimizing/code_generator_arm64.cc:    // Check that mr \u003d\u003d self.tls32_.is.gc_marking.\n  compiler/optimizing/code_generator_arm64.cc:    __ Cmp(mr.W(), temp);\n  compiler/optimizing/code_generator_arm64.h:const vixl::aarch64::Register mr \u003d vixl::aarch64::x20;\n  compiler/optimizing/code_generator_arm64.h:        ((kEmitCompilerReadBarrier \u0026\u0026 kUseBakerReadBarrier) ? mr : vixl::aarch64::NoCPUReg),\n\nBut I see what you mean.  I like `mr` because it looks like `tr`. I find `marking_register` a tad long; what about `mark_reg`?\n\n(BTW, should we rename `tr` too?)",
+      "parentUuid": "f6ccaf2c_fe3f14a9",
       "range": {
         "startLine": 78,
         "startChar": 30,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "442251d8_3f6589a1",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "Note: `art_quick_generic_jni_trampoline` in runtime/arch/arm64/quick_entrypoints_arm64.S does refresh the marking register.\n\nI\u0027ll look at the jni_compiler_test.",
+      "parentUuid": "ada99d99_18580ef8",
+      "range": {
+        "startLine": 745,
+        "startChar": 5,
+        "endLine": 745,
+        "endChar": 27
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de12f88f_ef3be1a3",
         "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
         "patchSetId": 8
@@ -153,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "6cba1bf6_cd41c794",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "According to Golem, there\u0027s indeed some regression on the micronative benchmarks:\n\n  ART-MicroNative                                 -0.709%\n    NativeDowncallStaticCritical (Odroid-C2)      -1.786%\n    NativeDowncallStaticCritical6 (Odroid-C2)     -1.401%\n    NativeDowncallStaticFast (Odroid-C2)          -0.882%\n    NativeDowncallVirtualFast (Odroid-C2)         -0.873%\n    NativeDowncallStaticFast6 (Odroid-C2)         -0.835%\n    NativeDowncallVirtualFast6 (Odroid-C2)        -0.774%\n    NativeDowncallStaticFastRefs6 (Odroid-C2)     -0.689%\n    NativeDowncallVirtualFastRefs6 (Odroid-C2)    -0.624%\n    NativeDowncallVirtualNormal (Odroid-C2)       -0.392%\n    NativeDowncallStaticNormal (Odroid-C2)        -0.349%\n    NativeDowncallStaticNormal6 (Odroid-C2)       -0.330%\n    NativeDowncallVirtualNormal6 (Odroid-C2)      -0.328%\n    NativeDowncallStaticNormalRefs6 (Odroid-C2)   -0.328%\n    NativeDowncallVirtualNormalRefs6 (Odroid-C2)  -0.324%\n\nIt seems this refresh is needed here, at least in some cases. If I remove it, many ART run-tests fail. Do you think I could remove it safely in the case of @FastNative and @CriticalNative methods?",
+      "parentUuid": "410a9e89_13b53321",
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "323f022d_b27a50fa",
         "filename": "runtime/arch/arm64/context_arm64.cc",
         "patchSetId": 8
@@ -164,6 +278,30 @@
       "writtenOn": "2017-06-13T14:59:28Z",
       "side": 1,
       "message": "Why do you not need to update the marking register? Please add a comment.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 75
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b44ca084_e66db316",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "323f022d_b27a50fa",
       "range": {
         "startLine": 140,
         "startChar": 0,
@@ -199,6 +337,30 @@
     },
     {
       "key": {
+        "uuid": "5af5dac8_3592f14a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "Done in PS10 – I was not entirely committed to the decision of using a callee-save register for MR when I wrote that TODO.",
+      "parentUuid": "011a458a_fca5ceb0",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 13
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f17504fa_fb9d163f",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 8
@@ -222,6 +384,30 @@
     },
     {
       "key": {
+        "uuid": "24dc39e1_d70b9f05",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "Yes; the required change (see PS10) is indeed in RESTORE_SAVE_REFS_AND_ARGS_FRAME (and SETUP_SAVE_REFS_AND_ARGS_FRAME_INTERNAL), but it felt more natural to have this TODO close to the call to REFRESH_MARKING_REGISTER.",
+      "parentUuid": "f17504fa_fb9d163f",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 13
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e3162a2_1428b8d8",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 8
@@ -233,6 +419,30 @@
       "writtenOn": "2017-06-13T14:59:28Z",
       "side": 1,
       "message": "Would it make sense to have that in RETURN_IF_RESULT_IS_NON_ZERO_OR_DELIVER?",
+      "range": {
+        "startLine": 1888,
+        "startChar": 4,
+        "endLine": 1888,
+        "endChar": 28
+      },
+      "revId": "9bc677a125398eecfd6cbcee49008b5c229c8884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf77bec8_0754f3f5",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-14T15:18:26Z",
+      "side": 1,
+      "message": "Maybe — but then we lose the pattern where REFRESH_MARKING_REGISTER follows RESTORE_SAVE_REFS_ONLY_FRAME; I\u0027ll look into it.",
+      "parentUuid": "9e3162a2_1428b8d8",
       "range": {
         "startLine": 1888,
         "startChar": 4,
