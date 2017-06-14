@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6672bdd8_08edb2f5",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T22:37:50Z",
+      "side": 1,
+      "message": "Moved out of stack.h. It\u0027s the single user I allude to in the commit message.",
+      "parentUuid": "612aa500_f0ad1fef",
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e25c22a_de9fefb5",
         "filename": "runtime/java_root_info.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-14T22:28:42Z",
       "side": 1,
       "message": "nit: File name should match class name, java_frame_root_info.h",
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "811fe8ae_e0b86b63",
+        "filename": "runtime/java_root_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T22:37:50Z",
+      "side": 1,
+      "message": "Makes sense, will do.",
+      "parentUuid": "5e25c22a_de9fefb5",
       "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "23a3e467_2d7ec465",
+        "filename": "runtime/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T22:37:50Z",
+      "side": 1,
+      "message": "I\u0027m hesitant to add another directory. I think we should discuss that, first. (Not against it, just a major deviation, and this is a simple cleanup.)\n\n(And it could be runtime/interpreter/shadow_frame.h, just as well)",
+      "parentUuid": "1bd3178f_729a6e8d",
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "227035cd_9445f6f1",
         "filename": "runtime/shadow_frame.h",
         "patchSetId": 2
@@ -64,6 +118,30 @@
       "writtenOn": "2017-06-14T22:28:42Z",
       "side": 1,
       "message": "consider lock_count_data.h",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "855755aa_fa5efeaa",
+        "filename": "runtime/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T22:37:50Z",
+      "side": 1,
+      "message": "No benefit to this right now, as it\u0027s a member of ShadowFrame. It also doesn\u0027t add dependencies, at least.",
+      "parentUuid": "227035cd_9445f6f1",
       "range": {
         "startLine": 52,
         "startChar": 6,
