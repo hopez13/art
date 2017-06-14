@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "003e7301_6f52cef8",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-14T23:59:49Z",
+      "side": 1,
+      "message": "Per discussion I changed this to shared dirty.  TO match the below.",
+      "parentUuid": "8ce784d1_3fbc59c8",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 74
+      },
+      "revId": "815ed7d74f8939aca9c212ee201337da5406e7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d4da7d7_2a437998",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 1
@@ -59,6 +83,54 @@
       "writtenOn": "2017-06-14T20:39:11Z",
       "side": 1,
       "message": "I think this label might depend on what the arguments are being used.\n\n   zygote pid ONLY used, then this is true \"shared dirty\"\n   app + zygote PID used , then this is is false as it is \"private dirty\"\n   app PID only used, it shouldnt even display this string\n\nThe confusion likely stems from using the zygote PID in place of the argument that expects the app PID.",
+      "parentUuid": "4d4da7d7_2a437998",
+      "range": {
+        "startLine": 661,
+        "startChar": 54,
+        "endLine": 661,
+        "endChar": 60
+      },
+      "revId": "815ed7d74f8939aca9c212ee201337da5406e7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "452ef681_f48c28d1",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-14T23:59:49Z",
+      "side": 1,
+      "message": "1) the code will never reach this point if the user only passed zygote pid or only passed app pid.  CHECK added.\n2) And for app+zygote it\u0027s hard to say if it\u0027s private or shared dirty.  We don\u0027t diff image/zygote.",
+      "parentUuid": "0c13df56_243fca2e",
+      "range": {
+        "startLine": 661,
+        "startChar": 54,
+        "endLine": 661,
+        "endChar": 60
+      },
+      "revId": "815ed7d74f8939aca9c212ee201337da5406e7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa28fc40_ee4fb1af",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-14T23:59:49Z",
+      "side": 1,
+      "message": "Again, per our discussion and with Igor, this is believed true, other than the word \"probably\"...",
       "parentUuid": "4d4da7d7_2a437998",
       "range": {
         "startLine": 661,
@@ -107,6 +179,54 @@
       "side": 1,
       "message": "This should probably say something about the app, e.g. \"App objects dirty relative to the image\", since it\u0027s either going into this app category or into the zygote L661 category.",
       "parentUuid": "b23ca5ca_7596e20c",
+      "range": {
+        "startLine": 670,
+        "startChar": 27,
+        "endLine": 670,
+        "endChar": 32
+      },
+      "revId": "815ed7d74f8939aca9c212ee201337da5406e7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cc28594_bc40b2c9",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-14T23:59:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b23ca5ca_7596e20c",
+      "range": {
+        "startLine": 670,
+        "startChar": 27,
+        "endLine": 670,
+        "endChar": 32
+      },
+      "revId": "815ed7d74f8939aca9c212ee201337da5406e7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c706d97_52581dd3",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-14T23:59:49Z",
+      "side": 1,
+      "message": "Changed to Application dirty objects.",
+      "parentUuid": "dac96287_3d56cb11",
       "range": {
         "startLine": 670,
         "startChar": 27,
