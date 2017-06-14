@@ -48,6 +48,7 @@ cc_defaults {
         "cha.cc",
         "check_jni.cc",
         "class_linker.cc",
+        "class_loader_compilation_context.cc",
         "class_table.cc",
         "code_simulator_container.cc",
         "common_throws.cc",
