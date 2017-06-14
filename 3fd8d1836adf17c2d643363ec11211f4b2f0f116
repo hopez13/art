@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b9766d12_028195fc",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T17:49:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbc050cb_d5647a04",
+      "range": {
+        "startLine": 143,
+        "startChar": 1,
+        "endLine": 148,
+        "endChar": 9
+      },
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c233449b_12f1d13c",
         "filename": "test/etc/default-build",
         "patchSetId": 1
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "83eefa68_8c03d93d",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T17:49:17Z",
+      "side": 1,
+      "message": "Discussed offline. Recommendation was it\u0027s fine to leave it as-is.",
+      "parentUuid": "34be5297_e02df057",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 4
+      },
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edfd6dde_368e49ec",
         "filename": "tools/bootjars.sh",
         "patchSetId": 1
@@ -191,6 +239,24 @@
       "side": 1,
       "message": "No, and the functions are not exported so if they were sourced in the parent shell they won\u0027t be visible to this script anyways.",
       "parentUuid": "32fdc3be_e3a1a15a",
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f58afaa_b2c35100",
+        "filename": "tools/bootjars.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T17:49:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00219870_0f027918",
       "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
