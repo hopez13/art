@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "161d1c23_83c3641b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-14T16:46:48Z",
+      "side": 1,
+      "message": "As you have already added art-ndebug target, why are we adding this here?",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 45
+      },
+      "revId": "574ac1c670519d20f53027c55de45782c9d3a8be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e5a926e_a1a40553",
         "filename": "test/testrunner/target_config.py",
         "patchSetId": 1
