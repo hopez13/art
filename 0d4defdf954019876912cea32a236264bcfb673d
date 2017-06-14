@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de46c92a_2443ecbf",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-14T00:49:20Z",
+      "side": 1,
+      "message": "I liked more the first version :)\n\nIf anyone reads this code without going back to the CL commit its not obvious why we map it with kProcData here and kProcAll later.\n\nCould you add comments? (copy paste from the CL description maybe).",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 96,
+        "endChar": 15
+      },
+      "revId": "0d4defdf954019876912cea32a236264bcfb673d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
