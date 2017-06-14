@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cbc050cb_d5647a04",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T13:45:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d9677b3_ed730680",
+      "range": {
+        "startLine": 143,
+        "startChar": 1,
+        "endLine": 148,
+        "endChar": 9
+      },
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c233449b_12f1d13c",
         "filename": "test/etc/default-build",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "34be5297_e02df057",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T13:45:47Z",
+      "side": 1,
+      "message": "dx is the weird one here. dx is the only tool that doesn\u0027t require any classpath. All other tools generally do.\n\n---\nTo answer your question, desugar runs the RI JVM in order to generate the lambdas, it calls into LambdaMetaFactory and then dumps them.\n\nNow in order to do that it has to load the real classes. So lets say your code is referencing something in libcore, well it won\u0027t resolve at desugar\u0027s runtime (\u003d our build time) and it will give us a ClassNotFoundException.\n\nBut by having it on the classpath desugar finds everything and is able to correctly resolve all the classes.",
+      "parentUuid": "52753eeb_6a996f99",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 4
+      },
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edfd6dde_368e49ec",
         "filename": "tools/bootjars.sh",
         "patchSetId": 1
@@ -146,6 +194,23 @@
       "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486ca29e_8a9561b0",
+        "filename": "tools/desugar.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T13:45:47Z",
+      "side": 1,
+      "message": "I wouldn\u0027t even need this script if it wasn\u0027t for these 3 lines that set the bootclasspath.",
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
