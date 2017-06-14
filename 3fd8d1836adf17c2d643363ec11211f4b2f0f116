@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "dc82adf6_3411600e",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-14T13:28:15Z",
+      "side": 1,
+      "message": "This is almost the same thing that I did for Vogar, and everyone seemed to agree it was fine to do there.\n\n------\n\ndx did not need the bootclasspath or any classpath at all for that matter.\n\nI don\u0027t know what jack did, maybe they just hard coded boot class path or they had their own stubs.\n\nWhen you are doing a build, you might end up with a host-only build or a target-only build and then the other bootclasspath won\u0027t even be there.",
+      "parentUuid": "c233449b_12f1d13c",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 4
+      },
+      "revId": "3fd8d1836adf17c2d643363ec11211f4b2f0f116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edfd6dde_368e49ec",
         "filename": "tools/bootjars.sh",
         "patchSetId": 1
