@@ -116,6 +116,24 @@
       "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506388f7_5e9eaa5e",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-14T15:16:38Z",
+      "side": 1,
+      "message": "The aapcs64 ABI defines x19 and x20 as callee-save.",
+      "parentUuid": "9ab85156_08791ee3",
+      "revId": "1e973b018d9a9c773d669abf8687dd73d8661455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
