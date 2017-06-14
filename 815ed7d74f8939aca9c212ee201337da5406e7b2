@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b23ca5ca_7596e20c",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-14T20:31:58Z",
+      "side": 1,
+      "message": "Maybe worth putting the image dirty objects first since they are more important than shared dirty.",
+      "range": {
+        "startLine": 670,
+        "startChar": 27,
+        "endLine": 670,
+        "endChar": 32
+      },
+      "revId": "815ed7d74f8939aca9c212ee201337da5406e7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
