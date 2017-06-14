@@ -22,6 +22,30 @@
       "revId": "0d4defdf954019876912cea32a236264bcfb673d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "462ab3aa_49aa5dd1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T01:53:08Z",
+      "side": 1,
+      "message": "Well, considering Nicolas\u0027 comments, and what this does, kProtData is the right thing - this is allocating the data cache, which should have never been executable to start with.",
+      "parentUuid": "de46c92a_2443ecbf",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 96,
+        "endChar": 15
+      },
+      "revId": "0d4defdf954019876912cea32a236264bcfb673d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
