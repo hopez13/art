@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "8ce784d1_3fbc59c8",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T20:33:21Z",
+      "side": 1,
+      "message": "This needs an update, in case your log string is actually ground truth?",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 74
+      },
+      "revId": "815ed7d74f8939aca9c212ee201337da5406e7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d4da7d7_2a437998",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-14T20:33:21Z",
+      "side": 1,
+      "message": "Is this really true?",
+      "range": {
+        "startLine": 661,
+        "startChar": 54,
+        "endLine": 661,
+        "endChar": 60
+      },
+      "revId": "815ed7d74f8939aca9c212ee201337da5406e7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b23ca5ca_7596e20c",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 1
