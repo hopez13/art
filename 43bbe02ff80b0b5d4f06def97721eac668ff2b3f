@@ -97,6 +97,40 @@
     },
     {
       "key": {
+        "uuid": "788c9869_a5c09d4b",
+        "filename": "runtime/arch/arm64/context_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T16:54:06Z",
+      "side": 1,
+      "message": "What\u0027s the point of adding this? None of the methods are virtual?",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e2a0de3_7195ca7f",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T16:54:06Z",
+      "side": 1,
+      "message": "This seems utterly redundant, of course inserted will be true since it\u0027s first removed on 281. Why is this necessary?",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78130d4c_b7040659",
         "filename": "runtime/globals.h",
         "patchSetId": 1
@@ -117,6 +151,47 @@
       "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02b744cc_63cee811",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T16:54:06Z",
+      "side": 1,
+      "message": "Or perhaps clang analyzer builds should always unset NDEBUG when building ART?",
+      "parentUuid": "78130d4c_b7040659",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 51
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd661e2d_488fc0a0",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T16:54:06Z",
+      "side": 1,
+      "message": "I really like this abstraction. However it does change the logic of va_end to come after the return. Is that necessary for correctness or just a coincidence?",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
