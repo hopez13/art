@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c7b780cc_9467f4b2",
+        "filename": "tools/libcore_gcstress_debug_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T09:01:37Z",
+      "side": 1,
+      "message": "Done (on the original file, I\u0027ve updated the comment here which doesn\u0027t apply to gcstress/debug.)",
+      "parentUuid": "12c16ef5_60010973",
+      "range": {
+        "startLine": 3,
+        "startChar": 6,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "revId": "d3fdaf244899df67c337da75d653ccc4baf26037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7130ffea_5bd77992",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-06-15T08:54:55Z",
       "side": 1,
       "message": "The bashistas would write:\n\nif [[ $gcstress \u0026\u0026 $debug ]]; then\n\nThey are a dangerous group.",
+      "revId": "d3fdaf244899df67c337da75d653ccc4baf26037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d28b129_8d736b34",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T09:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7130ffea_5bd77992",
       "revId": "d3fdaf244899df67c337da75d653ccc4baf26037",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
