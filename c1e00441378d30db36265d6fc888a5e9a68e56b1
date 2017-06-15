@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8f167471_c8613aa8",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-06-15T16:54:52Z",
+      "side": 1,
+      "message": "I agree with you.\nNow code is the following:\nif (it \u003d\u003d method_code_map_.end() ||\n    (it !\u003d method_code_map_.begin() \u0026\u0026 it-\u003efirst !\u003d pc_ptr)) {\n  --it;\n}\nThank you",
+      "parentUuid": "5bf72154_933cd431",
+      "range": {
+        "startLine": 1186,
+        "startChar": 4,
+        "endLine": 1186,
+        "endChar": 9
+      },
+      "revId": "c1e00441378d30db36265d6fc888a5e9a68e56b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63c3c31e_a06d41ac",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
