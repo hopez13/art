@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05e6a414_ffea25cb",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-15T23:44:33Z",
+      "side": 1,
+      "message": "Unreachable",
+      "revId": "9e1c45d0bfc2f75df24697d537b03dc1b3519e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2577c241_37960f5f",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-15T23:44:33Z",
+      "side": 1,
+      "message": "pick \u0027 or \" and stick with it",
+      "range": {
+        "startLine": 56,
+        "startChar": 33,
+        "endLine": 56,
+        "endChar": 34
+      },
+      "revId": "9e1c45d0bfc2f75df24697d537b03dc1b3519e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db778c3c_c09785d5",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-15T23:44:33Z",
+      "side": 1,
+      "message": "Provide an example of what the input looks like? Better yet, add tests.",
+      "revId": "9e1c45d0bfc2f75df24697d537b03dc1b3519e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b37354c9_96843ef8",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-15T23:44:33Z",
+      "side": 1,
+      "message": "Where would ValueError come from?",
+      "revId": "9e1c45d0bfc2f75df24697d537b03dc1b3519e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "483b76d4_6b8dab63",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-15T23:44:33Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "9e1c45d0bfc2f75df24697d537b03dc1b3519e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ddfa9b4_b36aff32",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-15T23:44:33Z",
+      "side": 1,
+      "message": "extant_directory? is_* implies that it returns a bool.",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 16
+      },
+      "revId": "9e1c45d0bfc2f75df24697d537b03dc1b3519e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2008e8e9_71dfd36d",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-06-15T23:44:33Z",
+      "side": 1,
+      "message": "Unnecessary. argparse will do this for you if the argv passed to ArgumentParser.parse_args() is None.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 23
+      },
+      "revId": "9e1c45d0bfc2f75df24697d537b03dc1b3519e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
