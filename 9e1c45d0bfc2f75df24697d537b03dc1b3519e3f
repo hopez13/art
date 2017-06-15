@@ -93,6 +93,24 @@
     },
     {
       "key": {
+        "uuid": "7c003839_ff2ca53a",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1170749
+      },
+      "writtenOn": "2017-06-15T23:56:25Z",
+      "side": 1,
+      "message": "list.index is raises a ValueError if the index is not found. I could use list.find if you feel that is better",
+      "parentUuid": "483b76d4_6b8dab63",
+      "revId": "9e1c45d0bfc2f75df24697d537b03dc1b3519e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2ddfa9b4_b36aff32",
         "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
         "patchSetId": 8
