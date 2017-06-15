@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2048cb9f_8309444f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-06-15T15:25:47Z",
+      "side": 1,
+      "message": "If it \u003d\u003d method_code_map_.begin() it means that pc_ptr and it-\u003efirst are equals. In this case --it doesn\u0027 happen.",
+      "parentUuid": "9b71b476_c78c263d",
+      "range": {
+        "startLine": 1186,
+        "startChar": 4,
+        "endLine": 1186,
+        "endChar": 9
+      },
+      "revId": "c1e00441378d30db36265d6fc888a5e9a68e56b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63c3c31e_a06d41ac",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -82,6 +106,30 @@
       "writtenOn": "2017-06-15T09:30:52Z",
       "side": 1,
       "message": "What if the method has been called through JNI?",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 60
+      },
+      "revId": "c1e00441378d30db36265d6fc888a5e9a68e56b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5780db4_03694989",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-06-15T15:25:47Z",
+      "side": 1,
+      "message": "I\u0027ve checked it. In such cases caller is nullptr and the method CheckValidStackFrame returns false at line 409. I know that such situation is correct but here I\u0027m not 100% that *prev_frame contains valid caller or garbage. So I suppose that prev_frame is invalid.",
+      "parentUuid": "c0c9e106_6dbcacc5",
       "range": {
         "startLine": 405,
         "startChar": 0,
