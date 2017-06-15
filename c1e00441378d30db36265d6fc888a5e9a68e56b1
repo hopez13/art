@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5bf72154_933cd431",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-15T15:34:05Z",
+      "side": 1,
+      "message": "What if the pc_ptr is before the first entry or after the last? Note that this can reasonably happen after code GC. And even without the GC it could happen if the code managed to jump to the preheader of the first method or somewhere near the end of the allocated space.\n\nAlso guard against `it \u003d\u003d method_code_map_.end()`.",
+      "parentUuid": "2048cb9f_8309444f",
+      "range": {
+        "startLine": 1186,
+        "startChar": 4,
+        "endLine": 1186,
+        "endChar": 9
+      },
+      "revId": "c1e00441378d30db36265d6fc888a5e9a68e56b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63c3c31e_a06d41ac",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
