@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0904398a_3ab021dc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T08:51:24Z",
+      "side": 1,
+      "message": "Why would the static analyzer warn about this? Did it look at all places last_instruction_ is set and shown that when calling AddInstruction it can be null?",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 43
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
