@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2662477f_46e087d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-15T09:29:58Z",
+      "side": 1,
+      "message": "Please add a test case that covers the bug this change is purporting to fix.\nPlease add an oat_file_assistant test for the new oat_file_assistant classpath functionality.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 22
+      },
+      "revId": "d63870699fafcc54c03106f39c18ad21d18d6707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c911676_b057e53a",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-15T09:29:58Z",
+      "side": 1,
+      "message": "I would ask why nullptr is the right value here, but if you pass the classpath via the OatFileAssistant constructor rather than GetDexOptNeeded as I suggest elsewhere, that question is no longer relevant.",
+      "range": {
+        "startLine": 236,
+        "startChar": 39,
+        "endLine": 236,
+        "endChar": 60
+      },
+      "revId": "d63870699fafcc54c03106f39c18ad21d18d6707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f43b5c82_ac7ea7ef",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-15T09:29:58Z",
+      "side": 1,
+      "message": "It is not a regular use case to reuse the same compiled oat file with different class paths, correct? In that case, the question of whether the classpath is okay is a property of the oat file. The classpath check should be moved to OatFileAssistant::GivenOatFileStatus, returning the kDex2OatFromScratch if the class path is out of date.\n\nThis would imply you pass classpath through the constructor of OatFileAssistant.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 24,
+        "endLine": 1003,
+        "endChar": 51
+      },
+      "revId": "d63870699fafcc54c03106f39c18ad21d18d6707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c536089a_68518797",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-15T09:29:58Z",
+      "side": 1,
+      "message": "How does this interact with multidex? if some of the dex files in the classpath are multidex, don\u0027t all the multidex entries need to be opened and checked?",
+      "range": {
+        "startLine": 1106,
+        "startChar": 5,
+        "endLine": 1106,
+        "endChar": 45
+      },
+      "revId": "d63870699fafcc54c03106f39c18ad21d18d6707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e62276cc_318e285c",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-15T09:29:58Z",
+      "side": 1,
+      "message": "Why check against the dex files instead of the oat files compiled for those dex files? Is it not the case that the oat files for some dex files could be recompiled with different settings, so that even if the dex files haven\u0027t changed, the current oat file needs to be recompiled because the other oat files it depends on have changed?",
+      "range": {
+        "startLine": 1106,
+        "startChar": 5,
+        "endLine": 1106,
+        "endChar": 45
+      },
+      "revId": "d63870699fafcc54c03106f39c18ad21d18d6707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "477fba1f_81501668",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-15T09:29:58Z",
+      "side": 1,
+      "message": "I would expect this to be prohibitively expensive for app startup. Can you collect some sys traces or otherwise to measure the impact of this?",
+      "range": {
+        "startLine": 1113,
+        "startChar": 4,
+        "endLine": 1113,
+        "endChar": 81
+      },
+      "revId": "d63870699fafcc54c03106f39c18ad21d18d6707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "393e726e_cd223fd6",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-15T09:29:58Z",
+      "side": 1,
+      "message": "I usually think of the OatFileManager depending on the OatFileAssistant, not the other way around. Is there any reason the AreSharedLibrariesOk function shouldn\u0027t be defined in the OatFileAssistant instead of the OatFileManager?",
+      "range": {
+        "startLine": 1120,
+        "startChar": 2,
+        "endLine": 1120,
+        "endChar": 87
+      },
+      "revId": "d63870699fafcc54c03106f39c18ad21d18d6707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc664671_ef234e48",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-06-15T09:29:58Z",
+      "side": 1,
+      "message": "Is null classpath treated differently from an empty class path? If not, why not use \"\" for the empty class path and require classpath be non-null?",
+      "range": {
+        "startLine": 157,
+        "startChar": 21,
+        "endLine": 157,
+        "endChar": 53
+      },
+      "revId": "d63870699fafcc54c03106f39c18ad21d18d6707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
