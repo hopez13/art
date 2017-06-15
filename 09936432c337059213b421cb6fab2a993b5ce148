@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5374853_d353c846",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T10:45:38Z",
+      "side": 1,
+      "message": "Can you improve the comment? I\u0027m having a hard time reading it.",
+      "range": {
+        "startLine": 861,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 28
+      },
+      "revId": "09936432c337059213b421cb6fab2a993b5ce148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2d79416_a2cfec9e",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T10:45:38Z",
+      "side": 1,
+      "message": "Nit: on the new line.",
+      "range": {
+        "startLine": 863,
+        "startChar": 58,
+        "endLine": 863,
+        "endChar": 98
+      },
+      "revId": "09936432c337059213b421cb6fab2a993b5ce148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69ba0d10_c4fae904",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T10:45:38Z",
+      "side": 1,
+      "message": "I\u0027d prefer being explicit and pass \u0027active\u0027 to the method. You can then add a DCHECK that it\u0027s \u003d\u003d\u003d *it if you want.",
+      "range": {
+        "startLine": 865,
+        "startChar": 2,
+        "endLine": 865,
+        "endChar": 29
+      },
+      "revId": "09936432c337059213b421cb6fab2a993b5ce148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "019cac22_b61bfecb",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T10:45:38Z",
+      "side": 1,
+      "message": "Aren\u0027t you missing a \u0027\u003d\u003d\u0027 ?",
+      "range": {
+        "startLine": 870,
+        "startChar": 30,
+        "endLine": 870,
+        "endChar": 48
+      },
+      "revId": "09936432c337059213b421cb6fab2a993b5ce148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f9f18e_d90c9b07",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T10:45:38Z",
+      "side": 1,
+      "message": "Please comment why it\u0027s beneficial to do it this way.",
+      "range": {
+        "startLine": 877,
+        "startChar": 0,
+        "endLine": 895,
+        "endChar": 68
+      },
+      "revId": "09936432c337059213b421cb6fab2a993b5ce148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "146471bb_2df6c3e6",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T10:45:38Z",
+      "side": 1,
+      "message": "grammar.",
+      "range": {
+        "startLine": 898,
+        "startChar": 81,
+        "endLine": 899,
+        "endChar": 89
+      },
+      "revId": "09936432c337059213b421cb6fab2a993b5ce148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e21bef6_7363107a",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-15T10:45:38Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 908,
+        "startChar": 0,
+        "endLine": 909,
+        "endChar": 35
+      },
+      "revId": "09936432c337059213b421cb6fab2a993b5ce148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
