@@ -59,6 +59,10 @@ target = target_config[options.build_target]
 n_threads = options.n_threads
 custom_env = target.get('env', {})
 custom_env['SOONG_ALLOW_MISSING_DEPENDENCIES'] = 'true'
+
+# This is necessary for as long as ninja itself is leaking. b/37751350
+custom_env['ASAN_OPTIONS'] = 'detect_leaks=0'
+
 print custom_env
 os.environ.update(custom_env)
 
