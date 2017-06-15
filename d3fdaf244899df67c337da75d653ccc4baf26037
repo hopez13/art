@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12c16ef5_60010973",
+        "filename": "tools/libcore_gcstress_debug_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-15T08:54:55Z",
+      "side": 1,
+      "message": "s/temporary/temporarily/\ns/ and quickly//",
+      "range": {
+        "startLine": 3,
+        "startChar": 6,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "revId": "d3fdaf244899df67c337da75d653ccc4baf26037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7130ffea_5bd77992",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-15T08:54:55Z",
+      "side": 1,
+      "message": "The bashistas would write:\n\nif [[ $gcstress \u0026\u0026 $debug ]]; then\n\nThey are a dangerous group.",
+      "revId": "d3fdaf244899df67c337da75d653ccc4baf26037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
