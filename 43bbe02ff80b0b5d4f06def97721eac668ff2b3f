@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8b53da7c_2b495715",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-15T15:40:13Z",
+      "side": 1,
+      "message": "Don\u0027t know. You\u0027ll have to ask the analysis writers, then.\n\nThe other two syntactically similar points actually do a similar thing. The branch condition there is !IsEmpty (which, btw, probably should have been used in line 966 :-) ).",
+      "parentUuid": "930c4b6d_d2ccd6af",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 43
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78130d4c_b7040659",
         "filename": "runtime/globals.h",
         "patchSetId": 1
