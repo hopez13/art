@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "6648a516_5063f717",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T18:10:49Z",
+      "side": 1,
+      "message": "If the problem is that it\u0027s warning that the return value is ignored, perhaps we should explicitly ignore the return value.\n\nAnyway I\u0027d just like to understand this a little better to we can write code in the future that doesn\u0027t warn.",
+      "parentUuid": "e9493569_bc65fd41",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78130d4c_b7040659",
         "filename": "runtime/globals.h",
         "patchSetId": 1
