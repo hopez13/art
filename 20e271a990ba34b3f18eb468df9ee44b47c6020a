@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e751910_05196c9f",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T16:44:55Z",
+      "side": 1,
+      "message": "nit: shared dirty",
+      "range": {
+        "startLine": 519,
+        "startChar": 46,
+        "endLine": 519,
+        "endChar": 51
+      },
+      "revId": "20e271a990ba34b3f18eb468df9ee44b47c6020a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7512076c_462aaf3a",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T16:44:55Z",
+      "side": 1,
+      "message": "nit: shared dirty",
+      "range": {
+        "startLine": 692,
+        "startChar": 22,
+        "endLine": 692,
+        "endChar": 27
+      },
+      "revId": "20e271a990ba34b3f18eb468df9ee44b47c6020a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3af19ff_fe97ee06",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T16:44:55Z",
+      "side": 1,
+      "message": "If both image pid and zygote pid are specified, application dirty objects will be private dirty.\n\nIf only image pid is specified (and its not zygote_only) then its unknown if its shared or private dirty.",
+      "revId": "20e271a990ba34b3f18eb468df9ee44b47c6020a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
