@@ -2521,12 +2521,6 @@ void CodeGeneratorARM::GenerateFrameEntry() {
     __ cfi().RelOffsetForMany(DWARFReg(S0), 0, fpu_spill_mask_, kArmWordSize);
   }
 
-  if (GetGraph()->HasShouldDeoptimizeFlag()) {
-    // Initialize should_deoptimize flag to 0.
-    __ mov(IP, ShifterOperand(0));
-    __ StoreToOffset(kStoreWord, IP, SP, -kShouldDeoptimizeFlagSize);
-  }
-
   int adjust = GetFrameSize() - FrameEntrySpillSize();
   __ AddConstant(SP, -adjust);
   __ cfi().AdjustCFAOffset(adjust);
@@ -2537,6 +2531,13 @@ void CodeGeneratorARM::GenerateFrameEntry() {
   if (RequiresCurrentMethod()) {
     __ StoreToOffset(kStoreWord, kMethodRegisterArgument, SP, 0);
   }
+
+  if (GetGraph()->HasShouldDeoptimizeFlag()) {
+    // Initialize should_deoptimize flag to 0.
+    __ mov(IP, ShifterOperand(0));
+    __ StoreToOffset(kStoreWord, IP, SP, GetStackOffsetOfShouldDeoptimizeFlag());
+  }
+
 }
 
 void CodeGeneratorARM::GenerateFrameExit() {
