@@ -259,6 +259,30 @@
       "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ecf8400_4c25102f",
+        "filename": "runtime/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-15T03:42:18Z",
+      "side": 1,
+      "message": "I currently am just trying to split out things so that clients do not need to include all transitives, in an effort to clean up and reduce compile-time. This wasn\u0027t meant as a style-related cleanup.\n\n(Personally I am torn. I understand the cleanliness of separate headers, but it\u0027s sometimes convenient to have things together that will always be used together.)",
+      "parentUuid": "075598aa_8162a172",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "341002033f548fce5ed0c8054c51b3f6afd071b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
