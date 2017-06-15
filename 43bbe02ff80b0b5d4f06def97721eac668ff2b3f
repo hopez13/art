@@ -156,6 +156,24 @@
     },
     {
       "key": {
+        "uuid": "900fe5d7_0a179136",
+        "filename": "runtime/arch/arm64/context_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T22:08:38Z",
+      "side": 1,
+      "message": "Thanks, this is good to know. I was under the wrong impression that removing \u0027virtual\u0027 from a member function effectively made it final (or more accurately, the equivalent of the C# new keyword which lets one continue to extend but starting a new virtual chain).\n\nIt\u0027s true these classes are effectively final, but I don\u0027t know if we can trust the virtual analysis in the C++ compiler optimizer to be that great (it\u0027s not java after all), so it seems good to add these specifiers in here.",
+      "parentUuid": "0afa1c54_bbce5411",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e2a0de3_7195ca7f",
         "filename": "runtime/base/variant_map.h",
         "patchSetId": 1
@@ -221,6 +239,24 @@
       "side": 1,
       "message": "\u003e Why is this necessary?\n\nI can\u0027t say for sure; normally the analyzer gives me notes about why it thinks something happens, but I receive none here. That we\u0027re using virtual functions to compare and clone keys probably plays into it, but again, that\u0027s just a guess.\n\nSince this is a \"potential memory leak\" warning, the only other reasonable approach I\u0027ve been able to find is NOLINT\u0027ing the insert line, which I think is worse. \n\nHappy to add a comment explaining that this is the analyzer\u0027s fault when I come back with NDEBUG results.\n\n\u003e I don\u0027t think it\u0027s interprocedural\n\nIt\u0027s a little interprocedural, but I don\u0027t know what the limits are. I\u0027ve seen a number of complaints in foo() because bar(baz) ends up returning a certain value. (e.g. in my comment on the nodes.cc DCHECK :) )",
       "parentUuid": "6648a516_5063f717",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85afaa21_d6ed734b",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T22:08:38Z",
+      "side": 1,
+      "message": "Ok, I suppose if it\u0027s tracking lifetimes then key.Clone() could leak if the insert failed.\n\nClever analyzer, but not clever enough to see the remove.\n\nCan you add a \"DCHECK(inserted);  // ensure key.Clone() does not leak memory\" comment here so we don\u0027t have to wonder why this DCHECK is there?",
+      "parentUuid": "b60aa598_d14eac4a",
       "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -298,6 +334,23 @@
     },
     {
       "key": {
+        "uuid": "9ef6b063_10a59dcb",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T22:08:38Z",
+      "side": 1,
+      "message": "Can you please add a comment here so we don\u0027t forget why it\u0027s necessary?\n\n   // Also guards the returns from inside of the CHECK_NON_NULL_ARGUMENTs.",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd661e2d_488fc0a0",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 1
@@ -330,6 +383,24 @@
       "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f87a0b7c_08e2207f",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-15T22:08:38Z",
+      "side": 1,
+      "message": "Ah, yeah, we don\u0027t have that \"return if error\" pattern elsewhere so I forgot about it. Thanks.",
+      "parentUuid": "89a6aa20_7af94e12",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
