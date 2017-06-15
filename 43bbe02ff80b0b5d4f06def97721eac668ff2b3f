@@ -22,6 +22,53 @@
       "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e83d1825_707e0f65",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-15T15:32:26Z",
+      "side": 1,
+      "message": "Pretty sure that the analyzer isn\u0027t doing full interprocedural analysis to understand that first_instruction_ !\u003d nullptr means last_instruction_ !\u003d nullptr.",
+      "parentUuid": "0904398a_3ab021dc",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 43
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78130d4c_b7040659",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-15T15:32:26Z",
+      "side": 1,
+      "message": "Please make this standalone with a very descriptive commit comment.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 51
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
