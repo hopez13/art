@@ -31,7 +31,9 @@
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
 #include "image.h"
+#include "libgen.h"
 #include "oat.h"
+#include "oat_file_manager.h"
 #include "os.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
@@ -186,9 +188,11 @@ bool OatFileAssistant::Lock(std::string* error_msg) {
   return true;
 }
 
-int OatFileAssistant::GetDexOptNeeded(CompilerFilter::Filter target, bool profile_changed) {
+int OatFileAssistant::GetDexOptNeeded(CompilerFilter::Filter target,
+                                      const char* classpath,
+                                      bool profile_changed) {
   OatFileInfo& info = GetBestInfo();
-  DexOptNeeded dexopt_needed = info.GetDexOptNeeded(target, profile_changed);
+  DexOptNeeded dexopt_needed = info.GetDexOptNeeded(target, classpath, profile_changed);
   if (info.IsOatLocation() || dexopt_needed == kDex2OatFromScratch) {
     return dexopt_needed;
   }
@@ -229,7 +233,7 @@ OatFileAssistant::MakeUpToDate(bool profile_changed, std::string* error_msg) {
   }
 
   OatFileInfo& info = GetBestInfo();
-  switch (info.GetDexOptNeeded(target, profile_changed)) {
+  switch (info.GetDexOptNeeded(target, /*classpath*/ nullptr, profile_changed)) {
     case kNoDexOptNeeded:
       return kUpdateSucceeded;
 
@@ -994,22 +998,24 @@ OatFileAssistant::OatStatus OatFileAssistant::OatFileInfo::Status() {
 }
 
 OatFileAssistant::DexOptNeeded OatFileAssistant::OatFileInfo::GetDexOptNeeded(
-    CompilerFilter::Filter target, bool profile_changed) {
+    CompilerFilter::Filter target, const char* classpath, bool profile_changed) {
   bool compilation_desired = CompilerFilter::IsAotCompilationEnabled(target);
+  bool classpath_okay = ClasspathIsOkay(classpath);
   bool filter_okay = CompilerFilterIsOkay(target, profile_changed);
 
-  if (filter_okay && Status() == kOatUpToDate) {
+  if (classpath_okay && filter_okay && Status() == kOatUpToDate) {
     // The oat file is in good shape as is.
     return kNoDexOptNeeded;
   }
 
-  if (filter_okay && !compilation_desired && Status() == kOatRelocationOutOfDate) {
+  if (classpath_okay && filter_okay && !compilation_desired &&
+      Status() == kOatRelocationOutOfDate) {
     // If no compilation is desired, then it doesn't matter if the oat
     // file needs relocation. It's in good shape as is.
     return kNoDexOptNeeded;
   }
 
-  if (filter_okay && Status() == kOatRelocationOutOfDate) {
+  if (classpath_okay && filter_okay && Status() == kOatRelocationOutOfDate) {
     return kDex2OatForRelocation;
   }
 
@@ -1065,6 +1071,53 @@ bool OatFileAssistant::OatFileInfo::CompilerFilterIsOkay(
     return false;
   }
   return CompilerFilter::IsAsGoodAs(current, target);
+}
+
+bool OatFileAssistant::OatFileInfo::ClasspathIsOkay(const char* classpath) {
+  // If there's no oat file, return false.
+  const OatFile* oat_file = GetFile();
+  if (oat_file == nullptr) {
+    return false;
+  }
+
+  // Classpath in oat header is a series of dex file paths and checksums, each separated by '*'.
+  const std::string
+      oat_classpath(oat_file->GetOatHeader().GetStoreValueByKey(OatHeader::kClassPathKey));
+
+  // If either classpath is empty, check that they both are.
+  if (classpath == nullptr || oat_classpath.empty()) {
+    return classpath == nullptr && oat_classpath.empty();
+  }
+
+  // If the shared libraries check should be skipped, verify that it matches.
+  if (strcmp(classpath, OatFile::kSpecialSharedLibrary) == 0 ||
+      oat_classpath.compare(OatFile::kSpecialSharedLibrary) == 0) {
+    return strcmp(classpath, oat_classpath.c_str()) == 0;
+  }
+
+  // Classpath is a series of dex file paths separated by ':'.
+  std::vector<std::string> classpath_split;
+  Split(classpath, ':', &classpath_split);
+
+  // Get the directory of the dex file to use for relative paths.
+  std::string dex_directory =
+      dirname(const_cast<char*>(oat_file_assistant_->dex_location_.c_str()));
+
+  // Open all the dex files in the classpath.
+  std::vector<std::unique_ptr<const DexFile>> dex_files;
+  std::string error_msg;
+  for (std::string& path : classpath_split) {
+    if (path[0] != '/') {
+      path = dex_directory + "/" +  path;
+    }
+    if (!DexFile::Open(path.c_str(), path, /*verify_checksum*/ false, &error_msg, &dex_files)) {
+      LOG(WARNING) << "Failed to open dex file " << path << " with error: " << error_msg;
+    }
+  }
+
+  // Check that the opened dex file names and checksums match the oat header's classpath.
+  std::vector<const DexFile*> non_owning_ptr_dex_files = MakeNonOwningPointerVector(dex_files);
+  return OatFileManager::AreSharedLibrariesOk(oat_classpath, non_owning_ptr_dex_files);
 }
 
 bool OatFileAssistant::OatFileInfo::IsExecutable() {

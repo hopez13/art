@@ -225,7 +225,7 @@ class DexoptAnalyzer FINAL {
       return kNoDexOptNeeded;
     }
     int dexoptNeeded = oat_file_assistant.GetDexOptNeeded(
-        compiler_filter_, assume_profile_changed_);
+        compiler_filter_, /*classpath*/ nullptr, assume_profile_changed_);
 
     // Convert OatFileAssitant codes to dexoptanalyzer codes.
     switch (dexoptNeeded) {

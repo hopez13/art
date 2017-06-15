@@ -148,12 +148,14 @@ class OatFileAssistant {
 
   // Return what action needs to be taken to produce up-to-date code for this
   // dex location that is at least as good as an oat file generated with the
-  // given compiler filter. profile_changed should be true to indicate the
-  // profile has recently changed for this dex location.
+  // given compiler filter and classpath. profile_changed should be true to
+  // indicate the profile has recently changed for this dex location.
   // Returns a positive status code if the status refers to the oat file in
   // the oat location. Returns a negative status code if the status refers to
   // the oat file in the odex location.
-  int GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter, bool profile_changed = false);
+  int GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter,
+                      const char* classpath = nullptr,
+                      bool profile_changed = false);
 
   // Returns true if there is up-to-date code for this dex location,
   // irrespective of the compiler filter of the up-to-date code.
@@ -300,10 +302,11 @@ class OatFileAssistant {
     OatStatus Status();
 
     // Return the DexOptNeeded value for this oat file with respect to the
-    // given target_compilation_filter.
+    // given target_compilation_filter and classpath.
     // profile_changed should be true to indicate the profile has recently
     // changed for this dex location.
     DexOptNeeded GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter,
+                                 const char* classpath,
                                  bool profile_changed);
 
     // Returns the loaded file.
@@ -338,6 +341,10 @@ class OatFileAssistant {
     // true to indicate the profile has recently changed for this dex
     // location.
     bool CompilerFilterIsOkay(CompilerFilter::Filter target, bool profile_changed);
+
+    // Returns true if the provided classpath matches what was stored in the oat file's header.
+    // Checks that dex file names and checksums match, and that they are in the same order.
+    bool ClasspathIsOkay(const char* classpath);
 
     // Release the loaded oat file.
     // Returns null if the oat file hasn't been loaded.

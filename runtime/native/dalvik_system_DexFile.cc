@@ -458,6 +458,7 @@ static jint GetDexOptNeeded(JNIEnv* env,
                             const char* filename,
                             const char* instruction_set,
                             const char* compiler_filter_name,
+                            const char* classpath,
                             bool profile_changed) {
   if ((filename == nullptr) || !OS::FileExists(filename)) {
     LOG(ERROR) << "DexFile_getDexOptNeeded file '" << filename << "' does not exist";
@@ -492,7 +493,7 @@ static jint GetDexOptNeeded(JNIEnv* env,
   if (oat_file_assistant.IsInBootClassPath()) {
     return OatFileAssistant::kNoDexOptNeeded;
   }
-  return oat_file_assistant.GetDexOptNeeded(filter, profile_changed);
+  return oat_file_assistant.GetDexOptNeeded(filter, classpath, profile_changed);
 }
 
 static jstring DexFile_getDexFileStatus(JNIEnv* env,
@@ -528,6 +529,7 @@ static jint DexFile_getDexOptNeeded(JNIEnv* env,
                                     jstring javaFilename,
                                     jstring javaInstructionSet,
                                     jstring javaTargetCompilerFilter,
+                                    jstring javaClasspath,
                                     jboolean newProfile) {
   ScopedUtfChars filename(env, javaFilename);
   if (env->ExceptionCheck()) {
@@ -544,10 +546,14 @@ static jint DexFile_getDexOptNeeded(JNIEnv* env,
     return -1;
   }
 
+  // The classpath string can be null.
+  ScopedUtfChars classpath(env, javaClasspath, false);
+
   return GetDexOptNeeded(env,
                          filename.c_str(),
                          instruction_set.c_str(),
                          target_compiler_filter.c_str(),
+                         classpath.c_str(),
                          newProfile == JNI_TRUE);
 }
 
@@ -725,7 +731,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(DexFile, getClassNameList, "(Ljava/lang/Object;)[Ljava/lang/String;"),
   NATIVE_METHOD(DexFile, isDexOptNeeded, "(Ljava/lang/String;)Z"),
   NATIVE_METHOD(DexFile, getDexOptNeeded,
-                "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I"),
+                "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I"),
   NATIVE_METHOD(DexFile, openDexFileNative,
                 "(Ljava/lang/String;"
                 "Ljava/lang/String;"

@@ -104,6 +104,11 @@ class OatFileManager {
 
   void DumpForSigQuit(std::ostream& os);
 
+  // Checks that the given shared libraries match the vector of opened dex files.
+  // Compares filename and checksum, as well as the correct ordering.
+  static bool AreSharedLibrariesOk(const std::string& shared_libraries,
+                                   std::vector<const DexFile*>& dex_files);
+
  private:
   // Check that the shared libraries in the given oat file match those in the given class loader and
   // dex elements. If the class loader is null or we do not support one of the class loaders in the
