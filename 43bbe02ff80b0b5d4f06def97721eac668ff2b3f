@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "880953e6_50ddc3a8",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-15T18:52:05Z",
+      "side": 1,
+      "message": "The complaint that I\u0027m looking at is caused by a call from HGraph::InsertConstant from nodes.cc.\n\nIn particular, we call entry_block_-\u003eGetLastInstruction(), which just returns last_instruction_. The analyzer assumes this is null, since we have a null check for it directly after the call.\n\nWe then flow into entry_block_-\u003eAddInstruction(...), and the analyzer assumes that first_instruction_ in AddInstruction can either be null or non-null.",
+      "parentUuid": "8b53da7c_2b495715",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 43
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "788c9869_a5c09d4b",
         "filename": "runtime/arch/arm64/context_arm64.h",
         "patchSetId": 1
@@ -108,6 +132,24 @@
       "writtenOn": "2017-06-15T16:54:06Z",
       "side": 1,
       "message": "What\u0027s the point of adding this? None of the methods are virtual?",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0afa1c54_bbce5411",
+        "filename": "runtime/arch/arm64/context_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-15T18:52:05Z",
+      "side": 1,
+      "message": "Every virtual method in a base class is virtual in its derived class, whether it\u0027s marked virtual or not in the derived class: http://eel.is/c++draft/class.virtual#2 . Looks like the convention here is to mark them with OVERRIDE (e.g. Reset(), FillCalleeSaves()...).\n\nIn particular, the analyzer complained about the Reset call in the constructor \"not going to the most derived class\".\n\nPersonally, I\u0027m ambivalent about the usefulness of that warning, so if you all would rather have me filter it, I\u0027m happy to do so.\n\n(FWIW, even without the static analyzer, the virtual methods on `final` classes are more optimizer-friendly than non-`final` classes. Dunno how much it matters in this case, but if these classes are effectively-final anyway...)",
+      "parentUuid": "788c9869_a5c09d4b",
       "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -167,6 +209,24 @@
     },
     {
       "key": {
+        "uuid": "b60aa598_d14eac4a",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-15T18:52:05Z",
+      "side": 1,
+      "message": "\u003e Why is this necessary?\n\nI can\u0027t say for sure; normally the analyzer gives me notes about why it thinks something happens, but I receive none here. That we\u0027re using virtual functions to compare and clone keys probably plays into it, but again, that\u0027s just a guess.\n\nSince this is a \"potential memory leak\" warning, the only other reasonable approach I\u0027ve been able to find is NOLINT\u0027ing the insert line, which I think is worse. \n\nHappy to add a comment explaining that this is the analyzer\u0027s fault when I come back with NDEBUG results.\n\n\u003e I don\u0027t think it\u0027s interprocedural\n\nIt\u0027s a little interprocedural, but I don\u0027t know what the limits are. I\u0027ve seen a number of complaints in foo() because bar(baz) ends up returning a certain value. (e.g. in my comment on the nodes.cc DCHECK :) )",
+      "parentUuid": "6648a516_5063f717",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78130d4c_b7040659",
         "filename": "runtime/globals.h",
         "patchSetId": 1
@@ -214,6 +274,30 @@
     },
     {
       "key": {
+        "uuid": "d13fae13_715419af",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-15T18:52:05Z",
+      "side": 1,
+      "message": "Will give Igor\u0027s suggestion a shot and get back to you on this one. :)",
+      "parentUuid": "02b744cc_63cee811",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 51
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd661e2d_488fc0a0",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 1
@@ -225,6 +309,24 @@
       "writtenOn": "2017-06-15T16:54:06Z",
       "side": 1,
       "message": "I really like this abstraction. However it does change the logic of va_end to come after the return. Is that necessary for correctness or just a coincidence?",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89a6aa20_7af94e12",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-15T18:52:05Z",
+      "side": 1,
+      "message": "va_end coming after return isn\u0027t necessary for correctness. va_end being called when CHECK_NON_NULL_ARGUMENT `return`s is. :)",
+      "parentUuid": "bd661e2d_488fc0a0",
       "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
