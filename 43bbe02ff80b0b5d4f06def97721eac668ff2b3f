@@ -263,6 +263,24 @@
     },
     {
       "key": {
+        "uuid": "9df157a0_d0628c74",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-16T00:52:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85afaa21_d6ed734b",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78130d4c_b7040659",
         "filename": "runtime/globals.h",
         "patchSetId": 1
@@ -334,6 +352,30 @@
     },
     {
       "key": {
+        "uuid": "dcd2a6b7_b6d6cc48",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-16T00:52:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d13fae13_715419af",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 51
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ef6b063_10a59dcb",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 1
@@ -345,6 +387,24 @@
       "writtenOn": "2017-06-15T22:08:38Z",
       "side": 1,
       "message": "Can you please add a comment here so we don\u0027t forget why it\u0027s necessary?\n\n   // Also guards the returns from inside of the CHECK_NON_NULL_ARGUMENTs.",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a72cc11_fe629f22",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-16T00:52:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ef6b063_10a59dcb",
       "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -398,6 +458,24 @@
       "side": 1,
       "message": "Ah, yeah, we don\u0027t have that \"return if error\" pattern elsewhere so I forgot about it. Thanks.",
       "parentUuid": "89a6aa20_7af94e12",
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5912aeb_b296d8a2",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-16T00:52:48Z",
+      "side": 1,
+      "message": "Yup, that tripped me up at first, too. :)",
+      "parentUuid": "f87a0b7c_08e2207f",
       "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
