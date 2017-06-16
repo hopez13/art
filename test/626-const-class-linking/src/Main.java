@@ -20,6 +20,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import java.lang.reflect.InvocationHandler;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         try {
@@ -39,6 +41,19 @@ public class Main {
         testMisbehavingLoader();
         testRacyMisbehavingLoader();
         testRacyMisbehavingLoader2();
+        testProxyLoader();
+    }
+
+    private static void testProxyLoader() throws Exception {
+        ClassLoader system_loader = ClassLoader.getSystemClassLoader();
+        ProxyLoader proxy_loader = new ProxyLoader(system_loader);
+        Class<?> pt = Class.forName("ProxyTest", true, proxy_loader);
+        Method test = pt.getDeclaredMethod("test", InvocationHandler.class);
+        test.invoke(null, new InvocationHandler() {
+            public Object invoke(Object proxy, Method method, Object[] args) {
+                throw new Error("Unsupported");
+            }
+        });
     }
 
     private static void testClearDexCache() throws Exception {
