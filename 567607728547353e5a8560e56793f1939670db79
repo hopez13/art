@@ -16,6 +16,24 @@
       "revId": "567607728547353e5a8560e56793f1939670db79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cbe44f0_ae33411f",
+        "filename": "build/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T20:46:24Z",
+      "side": 1,
+      "message": "I\u0027d prefer it. It should get its own commit message, saying that we use debug-only checks to \"enforce\" invariants that need to be made visible to the analyzer, or something like that.",
+      "parentUuid": "bb5c5886_f8a6010e",
+      "revId": "567607728547353e5a8560e56793f1939670db79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
