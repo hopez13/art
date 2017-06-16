@@ -160,4 +160,24 @@ TEST_F(ParsedOptionsTest, ParsedOptionsInstructionSet) {
   }
 }
 
+TEST_F(ParsedOptionsTest, ParsedOptionsDebugCheckLevel) {
+  using Opt = RuntimeArgumentMap;
+
+  const char* level_strings[] = { "none", "all" };
+  DebugCheckLevel levels[] = { DebugCheckLevel::kNone,
+                               DebugCheckLevel::kAll };
+  static_assert(arraysize(level_strings) == arraysize(levels), "Need same amount.");
+
+  for (size_t i = 0; i < arraysize(level_strings); ++i) {
+    RuntimeOptions options;
+    options.push_back(std::make_pair("-XX:DebugCheckLevel", level_strings[i]));
+    RuntimeArgumentMap map;
+    bool parsed = ParsedOptions::Parse(options, false, &map);
+    ASSERT_TRUE(parsed);
+    DebugCheckLevel* level = map.Get(Opt::DebugCheckLevel);
+    ASSERT_TRUE(level != nullptr);
+    EXPECT_EQ(levels[i], *level);
+  }
+}
+
 }  // namespace art

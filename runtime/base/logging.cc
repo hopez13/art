@@ -35,6 +35,7 @@
 namespace art {
 
 LogVerbosity gLogVerbosity;
+DebugCheckLevel gDebugCheckLevel = DebugCheckLevel::kAll;
 
 unsigned int gAborting = 0;
 
