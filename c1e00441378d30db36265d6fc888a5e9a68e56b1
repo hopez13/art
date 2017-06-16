@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "8b1462c4_68a58fbc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-06-16T11:28:10Z",
+      "side": 1,
+      "message": "Thank you, Vladimir. Artem back-ported the patch to n-mr2 and fixed the mentioned issue there. We\u0027ll come up with the update on master in a couple of months (unless, of course, there will be a debuggerd-based solution from your side by that time).",
+      "parentUuid": "5bf72154_933cd431",
+      "range": {
+        "startLine": 1186,
+        "startChar": 4,
+        "endLine": 1186,
+        "endChar": 9
+      },
+      "revId": "c1e00441378d30db36265d6fc888a5e9a68e56b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63c3c31e_a06d41ac",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
