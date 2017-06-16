@@ -34,6 +34,33 @@
 
 namespace art {
 
+// We test here that the runtime-debug-checks are actually a no-op constexpr false in release
+// builds, as we can't check that in gtests (which are always debug).
+
+#ifdef NDEBUG
+namespace {
+DECLARE_RUNTIME_DEBUG_FLAG(kTestForConstexpr);
+static_assert(!kTestForConstexpr, "Issue with DECLARE_RUNTIME_DEBUG_FLAG in NDEBUG.");
+}
+#endif
+
+bool gSlowEnabled = false;
+std::vector<bool*> gFlagPtrs;
+
+// TODO: Ensure correct initialization order of gFlagPtrs.
+
+bool RegisterRuntimeDebugFlag(bool* flag_ptr) {
+  gFlagPtrs.push_back(flag_ptr);
+  return gSlowEnabled;
+}
+
+void SetRuntimeDebugFlagsEnabled(bool enabled) {
+  gSlowEnabled = enabled;
+  for (bool* flag_ptr : gFlagPtrs) {
+    *flag_ptr = enabled;
+  }
+}
+
 LogVerbosity gLogVerbosity;
 
 unsigned int gAborting = 0;
