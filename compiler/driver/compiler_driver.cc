@@ -2258,6 +2258,10 @@ class InitializeClassVisitor : public CompilationVisitor {
     mirror::Class::Status old_status = klass->GetStatus();;
     // Only try to initialize classes that were successfully verified.
     if (klass->IsVerified()) {
+      // Don't initialize classes in boot space when compiling app image
+      if (is_app_image && Runtime::Current()->GetHeap()->ObjectIsInBootImageSpace(klass.Get())) {
+        return;
+      }
       // Attempt to initialize the class but bail if we either need to initialize the super-class
       // or static fields.
       manager_->GetClassLinker()->EnsureInitialized(soa.Self(), klass, false, false);
