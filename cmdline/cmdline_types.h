@@ -787,5 +787,22 @@ struct CmdlineType<ExperimentalFlags> : CmdlineTypeParser<ExperimentalFlags> {
 
   static const char* Name() { return "ExperimentalFlags"; }
 };
+
+template<>
+struct CmdlineType<DebugCheckLevel> : CmdlineTypeParser<DebugCheckLevel> {
+  Result ParseAndAppend(const std::string& option, DebugCheckLevel& existing) {
+    if (option == "all") {
+      existing = DebugCheckLevel::kAll;
+    } else if (option == "none") {
+      existing = DebugCheckLevel::kNone;
+    } else {
+      return Result::Failure(std::string("Unknown option '") + option + "'");
+    }
+    return Result::SuccessNoValue();
+  }
+
+  static const char* Name() { return "DebugCheckLevel"; }
+};
+
 }  // namespace art
 #endif  // ART_CMDLINE_CMDLINE_TYPES_H_

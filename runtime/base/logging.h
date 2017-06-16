@@ -22,6 +22,7 @@
 
 #include "android-base/logging.h"
 #include "base/macros.h"
+#include "globals.h"
 
 namespace art {
 
@@ -61,6 +62,24 @@ struct LogVerbosity {
 
 // Global log verbosity setting, initialized by InitLogging.
 extern LogVerbosity gLogVerbosity;
+
+// Levels for debug checks. Debug checks are enabled if their level is at or below the global level.
+enum class DebugCheckLevel {
+  kNone = -1,
+  kAll,
+};
+extern DebugCheckLevel gDebugCheckLevel;
+
+static inline bool IsDebugCheckEnabled(DebugCheckLevel level) {
+  return kIsDebugBuild && level <= gDebugCheckLevel;
+}
+
+#define DCHECK_LEVEL(expr, level) if (IsDebugCheckEnabled(level)) DCHECK(expr)
+#define DCHECK_EQ_LEVEL(lhs, rhs, level) if (IsDebugCheckEnabled(level)) DCHECK_EQ((lhs), (rhs))
+#define DCHECK_LT_LEVEL(lhs, rhs, level) if (IsDebugCheckEnabled(level)) DCHECK_LT((lhs), (rhs))
+#define DCHECK_LE_LEVEL(lhs, rhs, level) if (IsDebugCheckEnabled(level)) DCHECK_LE((lhs), (rhs))
+#define DCHECK_GT_LEVEL(lhs, rhs, level) if (IsDebugCheckEnabled(level)) DCHECK_GT((lhs), (rhs))
+#define DCHECK_GE_LEVEL(lhs, rhs, level) if (IsDebugCheckEnabled(level)) DCHECK_GE((lhs), (rhs))
 
 // 0 if not abort, non-zero if an abort is in progress. Used on fatal exit to prevents recursive
 // aborts. Global declaration allows us to disable some error checking to ensure fatal shutdown
