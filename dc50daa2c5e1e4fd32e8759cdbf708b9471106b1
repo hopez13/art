@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "cdd22724_dca782b7",
+        "filename": "runtime/base/logging_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:06:35Z",
+      "side": 1,
+      "message": "This isn\u0027t about parser coverage, at all. This is about test coverage here. (Now should I also *add* it there - maybe)\n\nIf I move the check to the parser, then this test won\u0027t break if people don\u0027t extend kLevels...",
+      "parentUuid": "f05ef66a_7c60668e",
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1270a853_9c3ab4cb",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 6
@@ -113,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "730c8e0a_595a610f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:06:35Z",
+      "side": 1,
+      "message": "-1 with group discussion.\n\nThat means there needs to be a global database of flags, and except for very few we have tried to strongly avoid that. I seriously prefer to have definitions close to their uses. Otherwise a simple flag change will likely recompile the world.",
+      "parentUuid": "1696da43_784ddf4b",
+      "range": {
+        "startLine": 1601,
+        "startChar": 20,
+        "endLine": 1601,
+        "endChar": 48
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73ba6476_26d156d9",
         "filename": "runtime/read_barrier.h",
         "patchSetId": 6
@@ -124,6 +166,30 @@
       "writtenOn": "2017-06-16T08:13:26Z",
       "side": 1,
       "message": "nit: I\u0027d suggest moving such methods to one place (eg DebugCheckLevel)",
+      "range": {
+        "startLine": 43,
+        "startChar": 28,
+        "endLine": 43,
+        "endChar": 58
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a904f22_70eea9b3",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:06:35Z",
+      "side": 1,
+      "message": "See my comment on Igor\u0027s post. Against, because I don\u0027t want to recompile the world when I change one of those hard-codings.",
+      "parentUuid": "73ba6476_26d156d9",
       "range": {
         "startLine": 43,
         "startChar": 28,
