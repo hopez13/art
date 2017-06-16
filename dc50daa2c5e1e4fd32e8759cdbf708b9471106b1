@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "20d9f3d5_cd0de6d2",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-16T14:33:00Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "5e56fcc0_e417159c",
+      "range": {
+        "startLine": 718,
+        "startChar": 14,
+        "endLine": 718,
+        "endChar": 40
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f05ef66a_7c60668e",
+        "filename": "runtime/base/logging_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-16T14:33:00Z",
+      "side": 1,
+      "message": "What does it really say? I think you\u0027d want to move this static assert to the parser to ensure every level has parsing coverage.",
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1270a853_9c3ab4cb",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 6
@@ -36,6 +77,30 @@
       "writtenOn": "2017-06-16T08:13:26Z",
       "side": 1,
       "message": "Probably want a uniform way of naming these tests that a check needs to be enabled.",
+      "range": {
+        "startLine": 1601,
+        "startChar": 20,
+        "endLine": 1601,
+        "endChar": 48
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1696da43_784ddf4b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-16T14:33:00Z",
+      "side": 1,
+      "message": "+1\n\nhow about \"IsCheckEnabled(ENUM/VARIABLE NAME)\" or similar?\n\n\n    IsCheckEnabled(kToSpaceInvariantChecks) etc.",
+      "parentUuid": "1270a853_9c3ab4cb",
       "range": {
         "startLine": 1601,
         "startChar": 20,

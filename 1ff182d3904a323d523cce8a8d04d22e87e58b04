@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27d0bb38_c8cea504",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-16T14:33:00Z",
+      "side": 0,
+      "message": "I think you can change this constexpr to be a level and then just call\n\n    IsDebugCheckEnabled(kEnableToSpaceInvariantChecks)\n\ndirectly. Adding these extra methods seems unnecessary churn and it actually harms greppability if every single method name is different.",
+      "revId": "1ff182d3904a323d523cce8a8d04d22e87e58b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
