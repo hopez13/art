@@ -63,7 +63,11 @@ define create-core-oat-host-rules
     core_compile_options += --compiler-filter=extract --runtime-arg -Xverify:softfail
     core_infix := -interp-ac
   endif
-  ifneq ($(filter-out interpreter interp-ac optimizing,$(1)),)
+  ifeq ($(1),verify)
+    core_compile_options += --compiler-filter=verify
+    core_infix := -verify
+  endif
+  ifneq ($(filter-out interpreter interp-ac optimizing verify,$(1)),)
     #Technically this test is not precise, but hopefully good enough.
     $$(error found $(1) expected interpreter, interpreter-access-checks, or optimizing)
   endif
@@ -138,9 +142,11 @@ endef
 $(eval $(call create-core-oat-host-rule-combination,optimizing,,,false))
 $(eval $(call create-core-oat-host-rule-combination,interpreter,,,false))
 $(eval $(call create-core-oat-host-rule-combination,interp-ac,,,false))
+$(eval $(call create-core-oat-host-rule-combination,verify,,,false))
 $(eval $(call create-core-oat-host-rule-combination,optimizing,,,true))
 $(eval $(call create-core-oat-host-rule-combination,interpreter,,,true))
 $(eval $(call create-core-oat-host-rule-combination,interp-ac,,,true))
+$(eval $(call create-core-oat-host-rule-combination,verify,,,true))
 
 valgrindHOST_CORE_IMG_OUTS :=
 valgrindHOST_CORE_OAT_OUTS :=
