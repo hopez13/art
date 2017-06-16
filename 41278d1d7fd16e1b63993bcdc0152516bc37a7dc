@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "debcac59_87ba9e8f",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:54:44Z",
+      "side": 1,
+      "message": "HandleWrapperObjPtr avoids this",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 28
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d841cc24_b3e3df38",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:54:44Z",
+      "side": 1,
+      "message": "HandleWrapper avoids this.",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 5
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c5a7066_af6163a9",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:54:44Z",
+      "side": 1,
+      "message": "Should there be a CHECK here like line 54?",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 38
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7297f047_3f478ccd",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:54:44Z",
+      "side": 1,
+      "message": "Make a comment here that an exception may be pending afterwards?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 66
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "582ee30d_137bb190",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:54:44Z",
+      "side": 1,
+      "message": "\u0027",
+      "range": {
+        "startLine": 74,
+        "startChar": 51,
+        "endLine": 74,
+        "endChar": 53
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64375ff_7aae9fe7",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T15:54:44Z",
+      "side": 1,
+      "message": "Seems like a somewhat unrelated fix?",
+      "range": {
+        "startLine": 345,
+        "startChar": 10,
+        "endLine": 346,
+        "endChar": 80
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
