@@ -164,7 +164,7 @@ define core-image-dependencies
 endef
 
 TARGET_TYPES := host target
-COMPILER_TYPES := jit interpreter optimizing regalloc_gc jit interp-ac speed-profile
+COMPILER_TYPES := jit interpreter optimizing regalloc_gc jit interp-ac speed-profile verify
 IMAGE_TYPES := picimage no-image multipicimage
 ALL_ADDRESS_SIZES := 64 32
 
