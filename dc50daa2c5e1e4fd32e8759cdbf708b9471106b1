@@ -179,6 +179,30 @@
     },
     {
       "key": {
+        "uuid": "725741c3_d34db2af",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-16T16:00:46Z",
+      "side": 1,
+      "message": "Nicolas combined the uniform naming way w/ a uniform place to collect them. I misunderstood that you didn\u0027t include that part.\n\nNot sure about using the level. I like to have a more clearly named function rather than argument, but that\u0027s just me...",
+      "parentUuid": "72944cde_a85d39be",
+      "range": {
+        "startLine": 1601,
+        "startChar": 20,
+        "endLine": 1601,
+        "endChar": 48
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73ba6476_26d156d9",
         "filename": "runtime/read_barrier.h",
         "patchSetId": 6
