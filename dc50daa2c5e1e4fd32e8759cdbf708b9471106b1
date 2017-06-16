@@ -203,6 +203,30 @@
     },
     {
       "key": {
+        "uuid": "6b074fdd_ad39ae71",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-16T16:16:18Z",
+      "side": 1,
+      "message": "It might be less dissonance to just re-use the old variable names. People are already used to them, it will be a smaller mental switch to go to \"if (func(flag))\" from the old \"if (flag)\" and more greppable.\n\nSince the function names are already quite long it\u0027s not really any different (typing-wise) to wrapping it in another function call.\n\n---\nI\u0027d like to hear the reasons for why you might prefer to use a function name?",
+      "parentUuid": "725741c3_d34db2af",
+      "range": {
+        "startLine": 1601,
+        "startChar": 20,
+        "endLine": 1601,
+        "endChar": 48
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73ba6476_26d156d9",
         "filename": "runtime/read_barrier.h",
         "patchSetId": 6
