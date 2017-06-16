@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "239ede2e_f36e3fe8",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-16T21:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "debcac59_87ba9e8f",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 28
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d841cc24_b3e3df38",
         "filename": "runtime/common_dex_operations.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-16T15:54:44Z",
       "side": 1,
       "message": "HandleWrapper avoids this.",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 5
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "772c3c1f_6542c9dd",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-16T21:38:06Z",
+      "side": 1,
+      "message": "The call to FieldWriteEvent needs a Handle.",
+      "parentUuid": "d841cc24_b3e3df38",
       "range": {
         "startLine": 149,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "37e68ba2_ba3002b7",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-16T21:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c5a7066_af6163a9",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 38
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7297f047_3f478ccd",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-16T15:54:44Z",
       "side": 1,
       "message": "Make a comment here that an exception may be pending afterwards?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 66
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2796bcf8_5da4f40f",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-16T21:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7297f047_3f478ccd",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "663debee_27544e5f",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-16T21:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "582ee30d_137bb190",
+      "range": {
+        "startLine": 74,
+        "startChar": 51,
+        "endLine": 74,
+        "endChar": 53
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b64375ff_7aae9fe7",
         "filename": "runtime/openjdkjvmti/ti_class.cc",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2017-06-16T15:54:44Z",
       "side": 1,
       "message": "Seems like a somewhat unrelated fix?",
+      "range": {
+        "startLine": 345,
+        "startChar": 10,
+        "endLine": 346,
+        "endChar": 80
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c32561b_bd682f1f",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-16T21:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64375ff_7aae9fe7",
       "range": {
         "startLine": 345,
         "startChar": 10,
