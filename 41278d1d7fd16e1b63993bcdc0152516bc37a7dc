@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "bc7509dd_7f17fe12",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-17T01:12:48Z",
+      "side": 1,
+      "message": "D\u0027oh Sorry I was thinking about the other side of this api (which gets given a Handle). Anyway since JValue doesn\u0027t actually contain an ObjPtr I think we need to do this anyway (or create a new ObjPtr for it.",
+      "parentUuid": "9e21ceeb_8d649f4f",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 5
+      },
+      "revId": "41278d1d7fd16e1b63993bcdc0152516bc37a7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c5a7066_af6163a9",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 6
