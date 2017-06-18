@@ -283,7 +283,8 @@ class InstructionCodeGeneratorMIPS : public InstructionCodeGenerator {
                                Location root,
                                Register obj,
                                uint32_t offset,
-                               ReadBarrierOption read_barrier_option);
+                               ReadBarrierOption read_barrier_option,
+                               MipsLabel* label_low = nullptr);
 
   void GenerateIntCompare(IfCondition cond, LocationSummary* locations);
   // When the function returns `false` it means that the condition holds if `dst` is non-zero
@@ -627,7 +628,7 @@ class CodeGeneratorMIPS : public CodeGenerator {
   void EmitPcRelativeAddressPlaceholderHigh(PcRelativePatchInfo* info_high,
                                             Register out,
                                             Register base,
-                                            PcRelativePatchInfo* info_low);
+                                            PcRelativePatchInfo* info_low = nullptr);
 
   // The JitPatchInfo is used for JIT string and class loads.
   struct JitPatchInfo {
@@ -639,8 +640,9 @@ class CodeGeneratorMIPS : public CodeGenerator {
     // String/type index.
     uint64_t index;
     // Label for the instruction loading the most significant half of the address.
-    // The least significant half is loaded with the instruction that follows immediately.
     MipsLabel high_label;
+    // Label for the instruction supplying the least significant half of the address.
+    MipsLabel low_label;
   };
 
   void PatchJitRootUse(uint8_t* code,
