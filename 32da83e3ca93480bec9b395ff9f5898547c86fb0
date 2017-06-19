@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "254e135c_b78dc5fe",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-19T22:30:06Z",
+      "side": 1,
+      "message": "Isn\u0027t this aggressive? This path is also taken when !boot_image \u0026\u0026 !app_image? Deserves at least a comment.",
+      "range": {
+        "startLine": 2283,
+        "startChar": 12,
+        "endLine": 2283,
+        "endChar": 67
+      },
+      "revId": "32da83e3ca93480bec9b395ff9f5898547c86fb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
