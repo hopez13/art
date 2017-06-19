@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "65c92779_c1ce7a69",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2262,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-19T20:28:19Z",
+      "side": 1,
+      "message": "You can also check that the class is not already initialized? If its initialized it should be OK.",
+      "range": {
+        "startLine": 2262,
+        "startChar": 82,
+        "endLine": 2262,
+        "endChar": 87
+      },
+      "revId": "58237f8a1740f6afae780ea2a20b2c2f22985f16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5d00bdc_a24edb96",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
