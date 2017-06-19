@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "aedf6226_ec935fc3",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-19T18:08:38Z",
+      "side": 1,
+      "message": "So All\u003dSlow right now.\n\nDo you want to keep it because it was already here or because you think in the future you see this enum being refined?",
+      "parentUuid": "9943e58f_44803b63",
+      "range": {
+        "startLine": 71,
+        "startChar": 19,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f05ef66a_7c60668e",
         "filename": "runtime/base/logging_test.cc",
         "patchSetId": 6
