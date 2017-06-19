@@ -227,6 +227,30 @@
     },
     {
       "key": {
+        "uuid": "3241150e_c5a33c4e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-19T15:24:56Z",
+      "side": 1,
+      "message": "The function name encapsulates any underlying implementation. But I\u0027m fine switching it to a field storing the level.",
+      "parentUuid": "6b074fdd_ad39ae71",
+      "range": {
+        "startLine": 1601,
+        "startChar": 20,
+        "endLine": 1601,
+        "endChar": 48
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73ba6476_26d156d9",
         "filename": "runtime/read_barrier.h",
         "patchSetId": 6
