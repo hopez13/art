@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9943e58f_44803b63",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-19T18:03:46Z",
+      "side": 1,
+      "message": "All has been retained as an unambiguous upper bound. That makes it simple to say \"--check\u003dall\"...",
+      "parentUuid": "a59585d9_ae1e540c",
+      "range": {
+        "startLine": 71,
+        "startChar": 19,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f05ef66a_7c60668e",
         "filename": "runtime/base/logging_test.cc",
         "patchSetId": 6
