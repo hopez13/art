@@ -22,6 +22,30 @@
       "revId": "58237f8a1740f6afae780ea2a20b2c2f22985f16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2685203d_5c548303",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2282,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-19T20:25:28Z",
+      "side": 1,
+      "message": "Oh yeah that\u0027s a problem, I forgot the check for dependencies is postponed. I\u0027ll figure out a way to do that.",
+      "parentUuid": "f5d00bdc_a24edb96",
+      "range": {
+        "startLine": 2282,
+        "startChar": 8,
+        "endLine": 2282,
+        "endChar": 86
+      },
+      "revId": "58237f8a1740f6afae780ea2a20b2c2f22985f16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
