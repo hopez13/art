@@ -482,6 +482,18 @@ static JDWP::JdwpTag TagFromClass(const ScopedObjectAccessUnchecked& soa, mirror
   return JDWP::JT_OBJECT;
 }
 
+static std::string JoinStrings(ObjPtr<mirror::ObjectArray<mirror::String>> strings)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (strings.IsNull()) {
+    return "";
+  }
+  std::string sig;
+  for (int32_t i = 0; i < strings.Ptr()->GetLength(); ++i) {
+    sig.append(strings.Ptr()->Get(i)->ToModifiedUtf8());
+  }
+  return sig;
+}
+
 /*
  * Objects declared to hold Object might actually hold a more specific
  * type.  The debugger may take a special interest in these (e.g. it
@@ -1108,6 +1120,23 @@ JDWP::JdwpError Dbg::GetSignature(JDWP::RefTypeId class_id, std::string* signatu
   return JDWP::ERR_NONE;
 }
 
+JDWP::JdwpError Dbg::GetGenericSignature(JDWP::RefTypeId class_id, std::string* signature) {
+  JDWP::JdwpError error;
+  StackHandleScope<1> hs(Thread::Current());
+  Handle<mirror::Class> klass(hs.NewHandle(DecodeClass(class_id, &error)));
+  if (klass.IsNull()) {
+    return error;
+  }
+  if (klass->IsProxyClass() || klass->GetDexCache() == nullptr) {
+    *signature = "";
+  } else {
+    ObjPtr<mirror::ObjectArray<mirror::String>> strings =
+        annotations::GetSignatureAnnotationForClass(klass);
+    *signature = JoinStrings(strings);
+  }
+  return JDWP::ERR_NONE;
+}
+
 JDWP::JdwpError Dbg::GetSourceDebugExtension(JDWP::RefTypeId class_id,
                                              std::string* extension_data) {
   JDWP::JdwpError error;
@@ -1557,8 +1586,9 @@ JDWP::JdwpError Dbg::OutputDeclaredFields(JDWP::RefTypeId class_id, bool with_ge
     expandBufAddUtf8String(pReply, f->GetName());
     expandBufAddUtf8String(pReply, f->GetTypeDescriptor());
     if (with_generic) {
-      static const char genericSignature[1] = "";
-      expandBufAddUtf8String(pReply, genericSignature);
+      ObjPtr<mirror::ObjectArray<mirror::String>> strings = annotations::GetSignatureAnnotationForField(f);
+      std::string generic_signature = JoinStrings(strings);
+      expandBufAddUtf8String(pReply, generic_signature);
     }
     expandBufAdd4BE(pReply, MangleAccessFlags(f->GetAccessFlags()));
   }
@@ -1583,7 +1613,8 @@ JDWP::JdwpError Dbg::OutputDeclaredMethods(JDWP::RefTypeId class_id, bool with_g
     expandBufAddUtf8String(
         pReply, m.GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetSignature().ToString());
     if (with_generic) {
-      const char* generic_signature = "";
+      ObjPtr<mirror::ObjectArray<mirror::String>> strings = annotations::GetSignatureAnnotationForMethod(&m);
+      std::string generic_signature = JoinStrings(strings);
       expandBufAddUtf8String(pReply, generic_signature);
     }
     expandBufAdd4BE(pReply, MangleAccessFlags(m.GetAccessFlags()));

@@ -288,6 +288,8 @@ class Dbg {
       REQUIRES_SHARED(Locks::mutator_lock_);
   static JDWP::JdwpError GetSignature(JDWP::RefTypeId ref_type_id, std::string* signature)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  static JDWP::JdwpError GetGenericSignature(JDWP::RefTypeId ref_type_id, std::string* signature)
+      REQUIRES_SHARED(Locks::mutator_lock_);
   static JDWP::JdwpError GetSourceDebugExtension(JDWP::RefTypeId ref_type_id,
                                                  std::string* extension_data)
       REQUIRES_SHARED(Locks::mutator_lock_);

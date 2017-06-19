@@ -360,7 +360,6 @@ static JdwpError VM_AllClassesImpl(ExpandBuf* pReply, bool descriptor_and_status
   expandBufAdd4BE(pReply, classes.size());
 
   for (size_t i = 0; i < classes.size(); ++i) {
-    static const char genericSignature[1] = "";
     JDWP::JdwpTypeTag type_tag;
     std::string descriptor;
     uint32_t class_status;
@@ -374,7 +373,12 @@ static JdwpError VM_AllClassesImpl(ExpandBuf* pReply, bool descriptor_and_status
     if (descriptor_and_status) {
       expandBufAddUtf8String(pReply, descriptor);
       if (generic) {
-        expandBufAddUtf8String(pReply, genericSignature);
+        std::string generic_sig;
+        status = Dbg::GetGenericSignature(classes[i], &generic_sig);
+        if (status != ERR_NONE) {
+          return status;
+        }
+        expandBufAddUtf8String(pReply, generic_sig);
       }
       expandBufAdd4BE(pReply, class_status);
     }
@@ -524,7 +528,12 @@ static JdwpError RT_Signature(JdwpState*, Request* request, ExpandBuf* pReply, b
   }
   expandBufAddUtf8String(pReply, signature);
   if (with_generic) {
-    expandBufAddUtf8String(pReply, "");
+    std::string generic_signature;
+    status = Dbg::GetGenericSignature(refTypeId, &generic_signature);
+    if (status != ERR_NONE) {
+      return status;
+    }
+    expandBufAddUtf8String(pReply, generic_signature);
   }
   return ERR_NONE;
 }
