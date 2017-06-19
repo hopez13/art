@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "2aea8f37_a6d3255c",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-19T18:28:57Z",
+      "side": 1,
+      "message": "I was thinking it could be refined, and while they\u0027re aliased, it\u0027s more descriptive to have \"slow\" at the flag point, but \"all\" on the command line.\n\nHowever, levels have been scrapped because Nicolas doesn\u0027t like them. Going back to a single boolean representing fast vs non-fast.",
+      "parentUuid": "aedf6226_ec935fc3",
+      "range": {
+        "startLine": 71,
+        "startChar": 19,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "dc50daa2c5e1e4fd32e8759cdbf708b9471106b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f05ef66a_7c60668e",
         "filename": "runtime/base/logging_test.cc",
         "patchSetId": 6
