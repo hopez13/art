@@ -22,6 +22,54 @@
       "revId": "32da83e3ca93480bec9b395ff9f5898547c86fb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad6e2f05_8554f441",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-19T23:35:02Z",
+      "side": 1,
+      "message": "Oh that\u0027s right, I thought app_image and boot_image are complementary. Updated now, this path should be taken only for app image.",
+      "parentUuid": "254e135c_b78dc5fe",
+      "range": {
+        "startLine": 2283,
+        "startChar": 12,
+        "endLine": 2283,
+        "endChar": 67
+      },
+      "revId": "32da83e3ca93480bec9b395ff9f5898547c86fb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905a1ad0_65513164",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-19T23:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "254e135c_b78dc5fe",
+      "range": {
+        "startLine": 2283,
+        "startChar": 12,
+        "endLine": 2283,
+        "endChar": 67
+      },
+      "revId": "32da83e3ca93480bec9b395ff9f5898547c86fb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
