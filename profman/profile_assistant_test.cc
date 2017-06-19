@@ -620,6 +620,68 @@ TEST_F(ProfileAssistantTest, TestProfileCreationGenerateMethods) {
   EXPECT_GT(method_count, 0u);
 }
 
+TEST_F(ProfileAssistantTest, TestBootImageProfile) {
+  const std::string core_dex = GetLibCoreDexFileNames()[0];
+
+  std::vector<ScratchFile> profiles;
+
+  // In image with enough clean occurrences.
+  const std::string kCleanClass = "Ljava/lang/Long;";
+  // In image with enough dirty occurrences.
+  const std::string kDirtyClass = "Ljava/lang/Object;";
+  // Not in image.
+  const std::string kUncommonCleanClass = "Ljava/lang/Process;";
+  const std::string kUncommonDirtyClass = "Ljava/lang/Package;";
+
+  // Thresholds for this test.
+  static const size_t kDirtyThreshold = 3;
+  static const size_t kCleanThreshold = 2;
+
+  // Create a bunch of boot profiles.
+  std::string dex1 =
+      kCleanClass + "\n" +
+      kDirtyClass + "\n" +
+      kUncommonCleanClass + "\n" +
+      kUncommonDirtyClass;
+  profiles.emplace_back(ScratchFile());
+  EXPECT_TRUE(CreateProfile(dex1, profiles.back().GetFilename(), core_dex));
+
+  // Create a bunch of boot profiles.
+  std::string dex2 =
+      kCleanClass + "\n" +
+      kDirtyClass + "\n" +
+      kUncommonDirtyClass;
+  profiles.emplace_back(ScratchFile());
+  EXPECT_TRUE(CreateProfile(dex2, profiles.back().GetFilename(), core_dex));
+
+  // Create a bunch of boot profiles.
+  std::string dex3 = kDirtyClass + "\n";
+  profiles.emplace_back(ScratchFile());
+  EXPECT_TRUE(CreateProfile(dex3, profiles.back().GetFilename(), core_dex));
+
+  // Generate the boot profile.
+  ScratchFile out_profile;
+  std::vector<std::string> args;
+  args.push_back(GetProfmanCmd());
+  args.push_back("--boot-image-class-threshold=" + std::to_string(kDirtyThreshold));
+  args.push_back("--boot-image-clean-class-threshold=" + std::to_string(kCleanThreshold));
+  args.push_back("--reference-profile-file=" + out_profile.GetFilename());
+  args.push_back("--apk=" + core_dex);
+  args.push_back("--dex-location=" + core_dex);
+  for (const ScratchFile& profile : profiles) {
+    args.push_back("--profile-file=" + profile.GetFilename());
+  }
+  std::string error;
+  EXPECT_EQ(ExecAndReturnCode(args, &error), 0) << error;
+  ASSERT_EQ(0, out_profile.GetFile()->Flush());
+  ASSERT_TRUE(out_profile.GetFile()->ResetOffset());
+
+  // Re-open the profile and look at the contents.
+  std::string output_file_contents;
+  EXPECT_TRUE(DumpClassesAndMethods(out_profile.GetFilename(), &output_file_contents));
+  LOG(ERROR) << output_file_contents;
+}
+
 TEST_F(ProfileAssistantTest, TestProfileCreationOneNotMatched) {
   // Class names put here need to be in sorted order.
   std::vector<std::string> class_names = {

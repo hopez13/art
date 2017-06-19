@@ -1,0 +1,121 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include <memory>
+
+#include "boot_image_profile.h"
+#include "dex_file-inl.h"
+#include "method_reference.h"
+#include "type_reference.h"
+
+namespace art {
+
+using Hotness = ProfileCompilationInfo::MethodHotness;
+
+void GenerateBootImageProfile(
+    ProfileCompilationInfo* out_profile,
+    const std::vector<std::unique_ptr<const DexFile>>& dex_files,
+    const std::vector<std::unique_ptr<const ProfileCompilationInfo>>& profiles,
+    const BootImageOptions& options) {
+  for (const std::unique_ptr<const ProfileCompilationInfo>& profile : profiles) {
+    // Avoid merging classes since we may want to only add classes that fit a certain criteria.
+    out_profile->MergeWith(*profile, /*merge_classes*/ false);
+  }
+
+  // Classes that were added because they are commonly used.
+  size_t class_count = 0;
+
+  // Classes that were only added because they were clean.
+  size_t clean_class_count = 0;
+
+  LOG(ERROR) << options.image_class_theshold << " " << options.image_class_clean_theshold;
+
+  for (const std::unique_ptr<const DexFile>& dex_file : dex_files) {
+    for (size_t i = 0; i < dex_file->NumMethodIds(); ++i) {
+      MethodReference ref(dex_file.get(), i);
+      size_t counter = 0;
+      for (const std::unique_ptr<const ProfileCompilationInfo>& profile : profiles) {
+        Hotness hotness = profile->GetMethodHotness(ref);
+        if (hotness.HasAnyFlags()) {
+          ++counter;
+          out_profile->AddMethodHotness(ref, hotness);
+        }
+      }
+      // If the counter is great or equal to the compile, mark the method as hot.
+      if (counter >= options.compiled_method_threshold) {
+        Hotness hotness;
+        hotness.AddFlag(Hotness::kFlagHot);
+        out_profile->AddMethodHotness(ref, hotness);
+      }
+    }
+    // Walk all of the classes and try to find classes that wont be dirty.
+    for (size_t i = 0; i < dex_file->NumClassDefs(); ++i) {
+      // DexFile* dex_file;
+      const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
+      TypeReference ref(dex_file.get(), class_def.class_idx_);
+      bool is_clean = true;
+      const uint8_t* class_data = dex_file->GetClassData(class_def);
+      if (class_data != nullptr) {
+        ClassDataItemIterator it(*dex_file, class_data);
+        while (it.HasNextStaticField()) {
+          const uint32_t flags = it.GetFieldAccessFlags();
+          if ((flags & kAccFinal) == 0) {
+            // Not final static field will probably dirty the class.
+            is_clean = false;
+            break;
+          }
+          it.Next();
+        }
+        it.SkipInstanceFields();
+        while (it.HasNextDirectMethod() || it.HasNextVirtualMethod()) {
+          const uint32_t flags = it.GetMethodAccessFlags();
+          if ((flags & kAccNative) != 0 || (flags & kAccFastNative) != 0) {
+            // Native method will get dirtied.
+            is_clean = false;
+            break;
+          }
+          if ((flags & kAccConstructor) != 0 && (flags & kAccStatic) != 0) {
+            // Class initializer, may get dirtied (not sure).
+            is_clean = false;
+            break;
+          }
+          it.Next();
+        }
+      }
+      size_t counter = 0;
+      for (const std::unique_ptr<const ProfileCompilationInfo>& profile : profiles) {
+        if (profile->ContainsClass(*ref.dex_file, ref.type_index)) {
+          ++counter;
+        }
+      }
+      if (counter == 0) {
+        continue;
+      }
+      LOG(ERROR) << counter << " " << is_clean << " " << ref.dex_file->PrettyType(ref.type_index);
+      if (counter >= options.image_class_theshold) {
+        ++class_count;
+        out_profile->AddClassesForDex(ref.dex_file, &ref.type_index, &ref.type_index + 1);
+      } else if (is_clean && counter >= options.image_class_clean_theshold) {
+        ++clean_class_count;
+        out_profile->AddClassesForDex(ref.dex_file, &ref.type_index, &ref.type_index + 1);
+      }
+    }
+  }
+  VLOG(profiler) << "Image classes " << class_count + clean_class_count
+                 << " added because clean " << clean_class_count;
+}
+
+}  // namespace art
