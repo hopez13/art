@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5d00bdc_a24edb96",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2282,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-19T20:21:59Z",
+      "side": 1,
+      "message": "Isn\u0027t this a problem? (I mean, yes, there won\u0027t be real damage, as the superclass seems to be trivially initializable, but you\u0027ll still miss moving the status forward at runtime?)",
+      "range": {
+        "startLine": 2282,
+        "startChar": 8,
+        "endLine": 2282,
+        "endChar": 86
+      },
+      "revId": "58237f8a1740f6afae780ea2a20b2c2f22985f16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
