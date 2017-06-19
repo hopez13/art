@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "b1c8cbd6_bb431ca7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-19T17:16:03Z",
+      "side": 1,
+      "message": "Note that I still think this could be tested in instrumentation_test. We do have gtest support for installing Generic JNI or compiling a JNI bridge and executing code...",
+      "parentUuid": "714358d8_0463cc1e",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "e00ec30588a36eed90aa24eaca9dbc7520f17bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "664fa6a9_ac610eb0",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 3
