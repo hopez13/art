@@ -147,6 +147,24 @@
       "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89a73a23_6d4f7ac7",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-19T17:01:04Z",
+      "side": 1,
+      "message": "OK. In PS5, I\u0027ve changed this function into a simple algorithm which only handle simple cases:\n// [i] and [i]\n// [CONST1] and [CONST2]\n// [i] and [i+/-CONST]\n// [i+/-CONST] and [i]\n// [i+/-CONST1] and [i+/-CONST2]\nFor other more complicated cases, we assume other passes like GVN and simpilfier have already optimized them.",
+      "parentUuid": "d0d04f30_9b86cdaf",
+      "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
