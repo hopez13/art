@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "72ac8f61_505de309",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-19T16:50:54Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be (and aren\u0027t AFAICT) any changes to JDWP behavior by this change (we filter the new events out). This test was mostly for completeness and sanity checking.",
+      "parentUuid": "db19f831_d05e1e04",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "e00ec30588a36eed90aa24eaca9dbc7520f17bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "664fa6a9_ac610eb0",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 3
