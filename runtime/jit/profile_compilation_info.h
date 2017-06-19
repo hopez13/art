@@ -285,6 +285,9 @@ class ProfileCompilationInfo {
     return true;
   }
 
+  // Add hotness flags for a simple method.
+  bool AddMethodHotness(const MethodReference& method_ref, const MethodHotness& hotness);
+
   // Load profile information from the given file descriptor.
   // If the current profile is non-empty the load will fail.
   bool Load(int fd);
@@ -295,8 +298,9 @@ class ProfileCompilationInfo {
   // the file and returns true.
   bool Load(const std::string& filename, bool clear_if_invalid);
 
-  // Merge the data from another ProfileCompilationInfo into the current object.
-  bool MergeWith(const ProfileCompilationInfo& info);
+  // Merge the data from another ProfileCompilationInfo into the current object. Only merges classes
+  // if merge_classes is true.
+  bool MergeWith(const ProfileCompilationInfo& info, bool merge_classes = true);
 
   // Save the profile data to the given file descriptor.
   bool Save(int fd);
