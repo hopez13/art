@@ -236,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "3229b921_4ccc40ed",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-20T12:45:18Z",
+      "side": 1,
+      "message": "I meant, for all cases: not having code in the branches look odd.",
+      "parentUuid": "57ab2d3b_7c52d4f0",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 70
+      },
+      "revId": "45ee32228b5dc8157ec81d24221d911a43644683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8976014f_8d76afc6",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 2
