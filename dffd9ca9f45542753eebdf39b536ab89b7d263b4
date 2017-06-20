@@ -165,6 +165,24 @@
       "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "297081d5_7676f9a8",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-20T12:40:36Z",
+      "side": 1,
+      "message": "I\u0027d prefer not recognizing at all. Chances are, it will all be dead code as GVN always runs. Or have you seen cases it;s needed?",
+      "parentUuid": "89a73a23_6d4f7ac7",
+      "revId": "dffd9ca9f45542753eebdf39b536ab89b7d263b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
