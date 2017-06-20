@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1231611b_c08189b0",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "As discussed, this unwound into more of a refactor than I\u0027m ready for given the schedule pressure.  I will return to this.",
+      "parentUuid": "6338d764_7f02dd67",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0590ed69_fbdcb45f",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "76ad9383_24a86af5",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0590ed69_fbdcb45f",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5b48295_24789f28",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2017-06-19T18:29:11Z",
       "side": 1,
       "message": "?\n\nDoes it ever return false?",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "642e0263_f7f318a7",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "On errors, in line 300.",
+      "parentUuid": "a5b48295_24789f28",
       "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "f54a2b79_57382912",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "d7e73116_928498a8",
+      "range": {
+        "startLine": 321,
+        "startChar": 40,
+        "endLine": 321,
+        "endChar": 44
+      },
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0efec705_9a0058ef",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -87,6 +165,24 @@
       "writtenOn": "2017-06-19T18:29:11Z",
       "side": 1,
       "message": "nit: const std::set\u003csize_t\u003e\u0026 is fine here\n\n\u0026 is generally fine with const\u0026 because it ends up being a performance detail of whether it gets copied/moved or not. people are only surprised when a non-const\u0026 ends up mutating.",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d8e02d7_3a8b0eb3",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "I knew that, but typed otherwise.  Fixed.",
+      "parentUuid": "0efec705_9a0058ef",
       "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -110,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "d6fc25fb_095706ab",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "I don\u0027t understand how that applies here...",
+      "parentUuid": "4e814636_f82855da",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fdbc8a5_c3130d31",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -121,6 +235,30 @@
       "writtenOn": "2017-06-19T18:29:11Z",
       "side": 1,
       "message": "nit: add \"this\", which was there previously to the refactor",
+      "range": {
+        "startLine": 327,
+        "startChar": 25,
+        "endLine": 327,
+        "endChar": 26
+      },
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "070581d7_118d53f4",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fdbc8a5_c3130d31",
       "range": {
         "startLine": 327,
         "startChar": 25,
@@ -156,6 +294,30 @@
     },
     {
       "key": {
+        "uuid": "9027eb13_b93f5246",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69e196e6_4d41d173",
+      "range": {
+        "startLine": 332,
+        "startChar": 16,
+        "endLine": 332,
+        "endChar": 22
+      },
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18dc800d_b642b514",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -167,6 +329,24 @@
       "writtenOn": "2017-06-19T18:29:11Z",
       "side": 1,
       "message": "nit: Please add /*out*/ or /*inout*/ for params",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c35d1675_6682ab76",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18dc800d_b642b514",
       "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -190,6 +370,24 @@
     },
     {
       "key": {
+        "uuid": "7d8233ab_fbae331e",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c6823a4_e425a883",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "843c88b9_4fb76bc1",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -207,6 +405,24 @@
     },
     {
       "key": {
+        "uuid": "5783fb09_cfea84fe",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "Should have removed that.  I actually copied that above :-).",
+      "parentUuid": "843c88b9_4fb76bc1",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "72f00d38_32c009e0",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -218,6 +434,24 @@
       "writtenOn": "2017-06-19T18:29:11Z",
       "side": 1,
       "message": "So it doesn\u0027t distinguish between Object and ArtMethod apriori?\n\nSeems like it\u0027s just being extremely lucky and the class offset for artmethod \u003d\u003d class offset for object. \n\nI think this needs a static_assert to abuse that the layout aliases.\n\nAlso I\u0027m surprised the read barrier stuff on L672 just works for artmethods. Is the debug imgdiag ever used?\n\nThe underlying type is GcRoot and HeapReference in the other case, I just can\u0027t imagine this is very safe.\n\n------\n\nCan we get the artmethod range from the imageheader somehow instead and iterate it that way? It would be much safer than casting an ArtMethod to a mirror::Object and hoping for the best.",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdd25a94_ef781cba",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "This is only traversing a region that contains Objects. The region containing ArtMethods is completely ignored.  That\u0027s what I\u0027m working toward.",
+      "parentUuid": "72f00d38_32c009e0",
       "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -247,6 +481,30 @@
     },
     {
       "key": {
+        "uuid": "3e2d5b71_a6b4c6cd",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "As I said, this pre-existed, but I\u0027ve fixed it and elsewhere.",
+      "parentUuid": "f886ee00_b775ce15",
+      "range": {
+        "startLine": 685,
+        "startChar": 41,
+        "endLine": 685,
+        "endChar": 44
+      },
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1ddf40a_fdf82baa",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -258,6 +516,24 @@
       "writtenOn": "2017-06-19T18:29:11Z",
       "side": 1,
       "message": "nit: I think I\u0027d rather see it templatized for ArtMethod+Object. Erasing down to the uint8_t* makes it more confusing.",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efaf8a09_66d8f489",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "That\u0027s been my plan all along.  Added TODOs to fix this in the next revision.",
+      "parentUuid": "c1ddf40a_fdf82baa",
       "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -281,6 +557,24 @@
     },
     {
       "key": {
+        "uuid": "4dfaa5b6_4245389d",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39f0c273_ae9eefa8",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "147e1184_95e40661",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -292,6 +586,24 @@
       "writtenOn": "2017-06-19T18:29:11Z",
       "side": 1,
       "message": "None of these 1153-1163 need to be unique_ptrs.\n\nI think most of this code was written before File had a move-constructor but that should probably be used now instead of unique_ptr\u003cFile\u003e\n\nThere is no need to have a unique_ptr\u003cvector\u003e either, it has its own internal pointer that gets swapped during a move so it\u0027s basically free.",
+      "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12698a5f_970da09c",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-06-20T18:18:06Z",
+      "side": 1,
+      "message": "I punted the larger fix for File, but have removed the unique_ptrs as you suggest.",
+      "parentUuid": "147e1184_95e40661",
       "revId": "41b6addd58a3f3c783aa195597a21fa862f77b88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
