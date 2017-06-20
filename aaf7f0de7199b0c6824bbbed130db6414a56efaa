@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee39d5f6_ef6b3a3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-20T04:59:43Z",
+      "side": 1,
+      "message": "Seems a bit confusing. I would have written something along these lines:\n\nART enforces some invariants only in debug builds, denoted by DCHECKs, \"if (kIsDebugBuild)\" and the like. To always expose these invariants to the static analyzer and not trigger warnings for the release build, always compile in debug mode, that is, ensure that NDEBUG is undefined.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "aaf7f0de7199b0c6824bbbed130db6414a56efaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87a1e14f_7a2ee4e7",
+        "filename": "build/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-20T04:59:43Z",
+      "side": 1,
+      "message": "I hope this doesn\u0027t trigger any warnings itself (e.g., NDEBUG isn\u0027t defined...)",
+      "range": {
+        "startLine": 160,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 30
+      },
+      "revId": "aaf7f0de7199b0c6824bbbed130db6414a56efaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
