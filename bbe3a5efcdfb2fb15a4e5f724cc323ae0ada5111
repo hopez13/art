@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da508888_ddf8e496",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T02:56:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1965d96_15d94bb0",
+      "range": {
+        "startLine": 1154,
+        "startChar": 34,
+        "endLine": 1154,
+        "endChar": 45
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8173d5cb_64583c1a",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-20T01:21:57Z",
       "side": 1,
       "message": "The checksum is already verified at L1157.",
+      "range": {
+        "startLine": 1187,
+        "startChar": 53,
+        "endLine": 1187,
+        "endChar": 64
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0fd27ff_e108cd1e",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T02:56:13Z",
+      "side": 1,
+      "message": "True, but the API requires a value.",
+      "parentUuid": "8173d5cb_64583c1a",
       "range": {
         "startLine": 1187,
         "startChar": 53,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5e9b27c9_2de42be4",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T02:56:13Z",
+      "side": 1,
+      "message": "It\u0027s called from DexFileData, do you think I should use friend keyword?",
+      "parentUuid": "e264e23f_09462bb6",
+      "range": {
+        "startLine": 205,
+        "startChar": 9,
+        "endLine": 205,
+        "endChar": 26
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2876311c_abf88235",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-20T01:21:57Z",
       "side": 1,
       "message": "I don\u0027t like ths API because now I can\u0027t easily tell based on the returned object if the method is in the profile or not.\n\nAdd an explicit method in the MethodHotness to say IsInvalid or something similar to make it clear that the result is not in the profile.",
+      "range": {
+        "startLine": 308,
+        "startChar": 16,
+        "endLine": 308,
+        "endChar": 32
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee20b83e_5dfbac8d",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T02:56:13Z",
+      "side": 1,
+      "message": "Right now you just need to call IsHot(), is that too hard? Or HasAnyFlags()",
+      "parentUuid": "2876311c_abf88235",
       "range": {
         "startLine": 308,
         "startChar": 16,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b376ea81_1032635b",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T02:56:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db129149_5b845148",
+      "range": {
+        "startLine": 420,
+        "startChar": 9,
+        "endLine": 420,
+        "endChar": 18
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0ce6bc2_53ece366",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2017-06-20T01:21:57Z",
       "side": 1,
       "message": "Complex enough to move to .cc",
+      "range": {
+        "startLine": 441,
+        "startChar": 18,
+        "endLine": 441,
+        "endChar": 32
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82efcfc6_b9233812",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T02:56:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0ce6bc2_53ece366",
       "range": {
         "startLine": 441,
         "startChar": 18,
