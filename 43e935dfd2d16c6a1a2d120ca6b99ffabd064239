@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec34ce31_56c4e1af",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-20T14:35:18Z",
+      "side": 1,
+      "message": "\u003e Any reason why those two aren\u0027t merged?\n\nJVMTI_STRESS is the OR of all the jvmti stress test configurations (terrace, redefine, \u0026 field). It\u0027s easier to have another variables then deal with bash.",
+      "parentUuid": "cbd8bdab_68d81ad0",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 22
+      },
+      "revId": "43e935dfd2d16c6a1a2d120ca6b99ffabd064239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93d69151_f45200c1",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-20T11:54:12Z",
       "side": 1,
       "message": "Do you plan on requesting a go/ab build with jvmti-field-stress?",
+      "range": {
+        "startLine": 163,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 50
+      },
+      "revId": "43e935dfd2d16c6a1a2d120ca6b99ffabd064239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7222b3e9_bc3dd4bc",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-20T14:35:18Z",
+      "side": 1,
+      "message": "\u003e Do you plan on requesting a go/ab build with jvmti-field-stress?\n\nMaybe eventually. It might be good to do so but the main idea of these is to let us do more focused tests for our own use.",
+      "parentUuid": "93d69151_f45200c1",
       "range": {
         "startLine": 163,
         "startChar": 4,
