@@ -22,6 +22,30 @@
       "revId": "552f73634bbd80c031e2228b14cdd960abd7bf1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d3e149e_e7f90bf5",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T23:26:47Z",
+      "side": 1,
+      "message": "I\u0027ll check IsHot.",
+      "parentUuid": "c193f11f_13dfe0c4",
+      "range": {
+        "startLine": 1257,
+        "startChar": 6,
+        "endLine": 1257,
+        "endChar": 30
+      },
+      "revId": "552f73634bbd80c031e2228b14cdd960abd7bf1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
