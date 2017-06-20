@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "9d0ded3b_3c5e42f8",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T16:49:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ae7bd97_6b9d64c8",
+      "range": {
+        "startLine": 205,
+        "startChar": 9,
+        "endLine": 205,
+        "endChar": 26
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7771d8ea_962018b9",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 5
@@ -178,6 +202,30 @@
       "writtenOn": "2017-06-20T16:38:15Z",
       "side": 1,
       "message": "where is this one  used?\n\nAslo, I just realized that this is not enough even if you would have a user. The map is not that useful without the order or dex files. See GetMethod().",
+      "range": {
+        "startLine": 210,
+        "startChar": 26,
+        "endLine": 210,
+        "endChar": 43
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91497f1e_d6fadf98",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T16:49:21Z",
+      "side": 1,
+      "message": "I think its only used by GetMethod.",
+      "parentUuid": "7771d8ea_962018b9",
       "range": {
         "startLine": 210,
         "startChar": 26,
@@ -249,6 +297,30 @@
       "side": 1,
       "message": "None of the \"Is...\" methods tell if the method is or is now in the profile and HasAnyFlags tells nothing really. From the api perspective is weird. So just changing the name of HasAnyFlags to NotInProfile/IsCold etc.. would add clarity.\n\nFor example in the inliner we (may) care if a method has never been invoked. But now I realize that you don\u0027t call this in the inliner.",
       "parentUuid": "ee20b83e_5dfbac8d",
+      "range": {
+        "startLine": 308,
+        "startChar": 16,
+        "endLine": 308,
+        "endChar": 32
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa747844_1e58e52d",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-20T16:49:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b40fc26_3941b83b",
       "range": {
         "startLine": 308,
         "startChar": 16,
