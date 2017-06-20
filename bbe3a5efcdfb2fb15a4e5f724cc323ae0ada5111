@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1965d96_15d94bb0",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-20T01:21:57Z",
+      "side": 1,
+      "message": "this is a bit counter intuitive because this call is made with verify_checksum\u003dfalse yet right below we verify it.\n\nAdd a comment or consider adapting the interface.",
+      "range": {
+        "startLine": 1154,
+        "startChar": 34,
+        "endLine": 1154,
+        "endChar": 45
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8173d5cb_64583c1a",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-20T01:21:57Z",
+      "side": 1,
+      "message": "The checksum is already verified at L1157.",
+      "range": {
+        "startLine": 1187,
+        "startChar": 53,
+        "endLine": 1187,
+        "endChar": 64
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e264e23f_09462bb6",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-20T01:21:57Z",
+      "side": 1,
+      "message": "private?",
+      "range": {
+        "startLine": 205,
+        "startChar": 9,
+        "endLine": 205,
+        "endChar": 26
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2876311c_abf88235",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-20T01:21:57Z",
+      "side": 1,
+      "message": "I don\u0027t like ths API because now I can\u0027t easily tell based on the returned object if the method is in the profile or not.\n\nAdd an explicit method in the MethodHotness to say IsInvalid or something similar to make it clear that the result is not in the profile.",
+      "range": {
+        "startLine": 308,
+        "startChar": 16,
+        "endLine": 308,
+        "endChar": 32
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db129149_5b845148",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-20T01:21:57Z",
+      "side": 1,
+      "message": "Complex enough to move to .cc",
+      "range": {
+        "startLine": 420,
+        "startChar": 9,
+        "endLine": 420,
+        "endChar": 18
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0ce6bc2_53ece366",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-20T01:21:57Z",
+      "side": 1,
+      "message": "Complex enough to move to .cc",
+      "range": {
+        "startLine": 441,
+        "startChar": 18,
+        "endLine": 441,
+        "endChar": 32
+      },
+      "revId": "bbe3a5efcdfb2fb15a4e5f724cc323ae0ada5111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
