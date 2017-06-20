@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5e737b9_f39013ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-20T18:17:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee39d5f6_ef6b3a3e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "aaf7f0de7199b0c6824bbbed130db6414a56efaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87a1e14f_7a2ee4e7",
         "filename": "build/Android.bp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-20T04:59:43Z",
       "side": 1,
       "message": "I hope this doesn\u0027t trigger any warnings itself (e.g., NDEBUG isn\u0027t defined...)",
+      "range": {
+        "startLine": 160,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 30
+      },
+      "revId": "aaf7f0de7199b0c6824bbbed130db6414a56efaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7846abd5_3ae72dc2",
+        "filename": "build/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-20T18:17:03Z",
+      "side": 1,
+      "message": "I ran a full analyzer build that includes this versus one that doesn\u0027t overnight; no new warnings appeared.\n\nIn general, compilers tend to be less picky (WRT warnings) about what shows up in their argv than what shows up in code. This way, users can tack stuff like this on in a global CFLAGS and it\u0027ll do the right thing with minimal fuss.",
+      "parentUuid": "87a1e14f_7a2ee4e7",
       "range": {
         "startLine": 160,
         "startChar": 8,
