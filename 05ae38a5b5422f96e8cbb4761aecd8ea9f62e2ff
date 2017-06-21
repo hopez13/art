@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "9ea8b866_cdc477cf",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T20:34:20Z",
+      "side": 1,
+      "message": "I think the intention is to allow shadowing?\n\nhttp://www.artima.com/underthehood/invocationP.html \"invokespecial and private methods\"\n\n class Superclass {\n\n    private void interestingMethod() {\n        System.out.println(\"Superclass\u0027s interesting method.\");\n    }\n\n    void exampleMethod() {\n        interestingMethod(); //invokespecial here\n    }\n }\n\n  class Subclass extends Superclass {\n\n    void interestingMethod() {\n        System.out.println(\"Subclass\u0027s interesting method.\");\n    }\n\n    public static void main(String args[]) {\n        Subclass me \u003d new Subclass();\n        me.exampleMethod();\n    }\n  }\n\nIt will print \"Superclass\u0027s interesting method\" with invokespecial and \"Subclass\u0027s interesting method\" with invokevirtual [which javac I suppose would never emit].\n\nShall we add this test case if we don\u0027t have it already?",
+      "parentUuid": "e760ef0c_813a97d0",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1724e717_d6f5dcee",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 9
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Yes, that\u0027s fully intentional and exactly the same as RI behavior.",
       "parentUuid": "1724e717_d6f5dcee",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "459a34d2_598e06a5",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T20:34:20Z",
+      "side": 1,
+      "message": "I\u0027m not convinced this is right, maybe I\u0027m missing the bigger picture?\n\ninvokespecial should map to invoke-super and invoke-direct.\n\n\u003cinit\u003e, private invokes should be invoke-direct\ninvokes of ACC_SUPER classes (+ the other super contraints) should be invoke-super\n\nAs we demonstrated in above example, invokevirtual/invokedirect will change behavior even if same exact symbolic method reference is used, just by changing opcode.",
+      "parentUuid": "6162246a_92d6d8a4",
       "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -171,6 +207,24 @@
       "side": 1,
       "message": "What do you mean by \"partial compilation\"? I\u0027d be happy to have java files if I find out how. (Maybe I should investigate some other tests that have 2 different versions of the same class.)",
       "parentUuid": "132e71e6_a732393c",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51800256_a018b2c5",
+        "filename": "test/162-method-idx-clash/smali/UserOfDerivedWithStaticFooInBaseAndImplementedFooInInterface.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T20:34:20Z",
+      "side": 1,
+      "message": "If you have src,src2 directory then you can compile classes in src directory but then later recompile those classes again with src2 classes.\n\nFor example\n\n   src\\A.java\n   src\\Main.java\n   src2\\A.java\n\nsrc\\Main.java will compile with src\\A.java but use src2\\A.java at runtime",
+      "parentUuid": "8e473c3b_2b94ed89",
       "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
