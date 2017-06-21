@@ -189,6 +189,9 @@ class PassObserver : public ValueObject {
     return cached_method_name_.c_str();
   }
 
+  // Debug.
+  void DumpCfg() REQUIRES(!visualizer_dump_mutex_);
+
  private:
   void StartPass(const char* pass_name) REQUIRES(!visualizer_dump_mutex_) {
     VLOG(compiler) << "Starting pass: " << pass_name;
@@ -272,6 +275,14 @@ class PassObserver : public ValueObject {
 
   DISALLOW_COPY_AND_ASSIGN(PassObserver);
 };
+
+// Debug.
+void PassObserver::DumpCfg() REQUIRES(!visualizer_dump_mutex_) {
+  if (visualizer_enabled_) {
+    visualizer_.DumpGraph("debug print", /* is_after_pass */ true, graph_in_bad_state_);
+    FlushVisualizer();
+  }
+}
 
 class PassScope : public ValueObject {
  public:

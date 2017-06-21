@@ -488,6 +488,14 @@ void HGraph::SimplifyCFG() {
   }
 }
 
+void HGraph::OrderLoopsHeadersPredecessors() {
+  for (HBasicBlock* block : GetPostOrder()) {
+    if (block->IsLoopHeader()) {
+      OrderLoopHeaderPredecessors(block);
+    }
+  }
+}
+
 GraphAnalysisResult HGraph::AnalyzeLoops() const {
   // We iterate post order to ensure we visit inner loops before outer loops.
   // `PopulateRecursive` needs this guarantee to know whether a natural loop
@@ -748,6 +756,15 @@ void HLoopInformation::Populate() {
     graph->SetHasIrreducibleLoops(true);
   }
   graph->SetHasLoops(true);
+}
+
+void HLoopInformation::PopulateInnerLoopUpwards(HLoopInformation* inner_loop) {
+  DCHECK(inner_loop->GetPreHeader()->GetLoopInformation() == this);
+  blocks_.Union(&inner_loop->blocks_);
+  HLoopInformation* outer_loop = GetPreHeader()->GetLoopInformation();
+  if (outer_loop != nullptr) {
+    outer_loop->PopulateInnerLoopUpwards(this);
+  }
 }
 
 HBasicBlock* HLoopInformation::GetPreHeader() const {
