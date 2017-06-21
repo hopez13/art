@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77be2d84_d9ec3c5a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T15:52:24Z",
+      "side": 1,
+      "message": "\"copied\" methods? Do you mean default methods?",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31e0c73e_f23c0626",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T15:52:24Z",
+      "side": 1,
+      "message": "Can a private method in a subclass shadow a virtual method in a base class?",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1724e717_d6f5dcee",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T15:52:24Z",
+      "side": 1,
+      "message": "I take it now we can\u0027t distinguish between direct/virtual when we do the method lookup, and its intentional?",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c616033_9d01c047",
+        "filename": "runtime/verifier/method_resolution_kind.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T15:52:24Z",
+      "side": 1,
+      "message": "How does the RI equivalent of invoke-special get handled now?",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "132e71e6_a732393c",
+        "filename": "test/162-method-idx-clash/smali/UserOfDerivedWithStaticFooInBaseAndImplementedFooInInterface.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T15:52:24Z",
+      "side": 1,
+      "message": "Can you do this with partial compilation somehow without the smali?\n\nI\u0027m just thinking that this test should probably work with run-test --jvm since it\u0027s supposed to make it more conforming to RI.",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
