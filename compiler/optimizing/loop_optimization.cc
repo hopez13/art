@@ -1021,6 +1021,25 @@ bool HLoopOptimization::TrySetVectorType(Primitive::Type type, uint64_t* restric
   switch (compiler_driver_->GetInstructionSet()) {
     case kArm:
     case kThumb2:
+      // ARM 32-bit platforms are not guaranteed to have a Advanced SIMD and VFP extensions
+      // however there is an implicit assumption in ART compiler that these features are
+      // present.
+      // TODO: Extend ArmInstructionSetFeatures to check for Advanced SIMD.
+      switch (type) {
+        case Primitive::kPrimBoolean:
+        case Primitive::kPrimByte:
+          *restrictions |= kNoDiv;
+          return TrySetVectorLength(8);
+        case Primitive::kPrimChar:
+        case Primitive::kPrimShort:
+          *restrictions |= kNoDiv | kNoStringCharAt;
+          return TrySetVectorLength(4);
+        case Primitive::kPrimInt:
+          *restrictions |= kNoDiv;
+          return TrySetVectorLength(2);
+        default:
+          break;
+      }
       return false;
     case kArm64:
       // Allow vectorization for all ARM devices, because Android assumes that
