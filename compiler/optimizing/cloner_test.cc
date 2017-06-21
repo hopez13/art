@@ -17,7 +17,7 @@
 #include "graph_checker.h"
 #include "nodes.h"
 #include "optimizing_unit_test.h"
-
+#include "superblock_cloner.h"
 
 #include "gtest/gtest.h"
 
@@ -188,6 +188,118 @@ TEST_F(ClonerTest, IndividualInstrCloner) {
 
   ASSERT_EQ(instr_replaced_by_clones_count, 12);
   ASSERT_TRUE(CheckGraph());
+}
+
+// Test SuperblockCloner for loop peeling case.
+//
+// Control Flow of the example (ignoring critical edges splitting).
+//
+//       Before                    After
+//
+//          B                        B
+//          |                        |
+//          v                        v
+//          1                        1
+//          |                        |
+//          v __                     v
+//          2<  \                (6) 2A
+//         / \  /                   / \
+//        v   v/                   /   v
+//        4   3                   /(7) 3A
+//        |                      /    /
+//        v                     |     v __
+//        E                      \    2<  \
+//                                \ / \  /
+//                                 v   v/
+//                                 4   3
+//                                 |
+//                                 v
+//                                 E
+TEST_F(ClonerTest, LoopPeeling) {
+  HBasicBlock* header = nullptr;
+  HBasicBlock* loop_body = nullptr;
+
+  CreateBasicLoopControlFlow(&header, &loop_body);
+  CreateBasicLoopDataFlow(header, loop_body);
+  graph_->BuildDominatorTree();
+  ASSERT_TRUE(CheckGraph());
+
+  HBasicBlockMap bb_map(
+      std::less<HBasicBlock*>(), graph_->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+  HInstructionMap hir_map(
+      std::less<HInstruction*>(), graph_->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+
+  HLoopInformation* loop_info = header->GetLoopInformation();
+  HBasicBlock* new_header = DoPeelUnrollImpl(loop_info, /* unrolling */ false, &bb_map, &hir_map);
+  HLoopInformation* new_loop_info = new_header->GetLoopInformation();
+
+  ASSERT_TRUE(CheckGraph());
+
+  // Check loop body successors.
+  ASSERT_EQ(loop_body->GetSingleSuccessor(), header);
+  ASSERT_EQ(bb_map.Get(loop_body)->GetSingleSuccessor(), header);
+
+  // Check loop structure.
+  ASSERT_EQ(header, new_header);
+  ASSERT_EQ(new_loop_info->GetHeader(), header);
+  ASSERT_EQ(new_loop_info->GetBackEdges().size(), 1u);
+  ASSERT_EQ(new_loop_info->GetBackEdges()[0], loop_body);
+}
+
+// Test SuperblockCloner for loop unrolling case.
+//
+// Control Flow of the example (ignoring critical edges splitting).
+//
+//       Before                    After
+//
+//          B                        B
+//          |                        |
+//          v                        v
+//          1                        1
+//          |                        |
+//          v __                     v  _
+//          2<  \                (6) 2A< \
+//         / \  /                   / \   \
+//        v   v/                   /   v   \
+//        4   3                   /(7) 3A   \
+//        |                      /    /     /
+//        v                     |     v    /
+//        E                      \    2   /
+//                                \ / \  /
+//                                 v   v/
+//                                 4   3
+//                                 |
+//                                 v
+//                                 E
+TEST_F(ClonerTest, LoopUnrolling) {
+  HBasicBlock* header = nullptr;
+  HBasicBlock* loop_body = nullptr;
+
+  CreateBasicLoopControlFlow(&header, &loop_body);
+  CreateBasicLoopDataFlow(header, loop_body);
+  graph_->BuildDominatorTree();
+  ASSERT_TRUE(CheckGraph());
+
+  HBasicBlockMap bb_map(
+      std::less<HBasicBlock*>(), graph_->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+  HInstructionMap hir_map(
+      std::less<HInstruction*>(), graph_->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+
+  HLoopInformation* loop_info = header->GetLoopInformation();
+  HBasicBlock* new_header = DoPeelUnrollImpl(loop_info, /* unrolling */ true, &bb_map, &hir_map);
+  HLoopInformation* new_loop_info = new_header->GetLoopInformation();
+
+  ASSERT_TRUE(CheckGraph());
+
+  // Check loop body successors.
+  ASSERT_EQ(loop_body->GetSingleSuccessor(), bb_map.Get(header));
+  ASSERT_EQ(bb_map.Get(loop_body)->GetSingleSuccessor(), header);
+
+  // Check loop structure.
+  ASSERT_EQ(bb_map.Get(header), new_header);
+  ASSERT_EQ(new_loop_info->GetHeader(), new_header);
+  ASSERT_EQ(new_loop_info->GetBackEdges().size(), 1u);
+  ASSERT_EQ(new_loop_info->GetBackEdges()[0], loop_body);
 }
 
 }  // namespace art

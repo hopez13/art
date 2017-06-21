@@ -26,10 +26,13 @@
 #include "driver/compiler_driver.h"
 #include "linear_order.h"
 
+#include "superblock_cloner.h"
+
 namespace art {
 
 // Enables vectorization (SIMDization) in the loop optimizer.
 static constexpr bool kEnableVectorization = true;
+static constexpr bool kEnablePeelUnroll = true;
 
 // All current SIMD targets want 16-byte alignment.
 static constexpr size_t kAlignedBase = 16;
@@ -414,6 +417,69 @@ void HLoopOptimization::RemoveLoop(LoopNode* node) {
   }
 }
 
+void HLoopOptimization::RemoveLoopRecursivelyImpl(LoopNode* loop_node) {
+  if (loop_node->inner != nullptr) {
+    RemoveLoopRecursively(loop_node->inner);
+  }
+
+  LoopNode* loop_node_next = loop_node->next;
+  while (loop_node != nullptr) {
+    RemoveLoop(loop_node);
+    loop_node = loop_node_next;
+  }
+}
+
+void HLoopOptimization::RemoveLoopRecursively(LoopNode* loop_node) {
+  if (loop_node->inner != nullptr) {
+    RemoveLoopRecursivelyImpl(loop_node->inner);
+  }
+  RemoveLoop(loop_node);
+}
+
+void HLoopOptimization::UpdateLoopNodeLoopInfo(LoopNode* loop_node) {
+  loop_node->loop_info = loop_node->loop_info->GetHeader()->GetLoopInformation();
+}
+
+// Whether to do unrolling (otherwise peeling); temporary.
+static constexpr bool kDoUnrolling = false;
+
+// An example to show how loop peeling can be implemented.
+bool HLoopOptimization::DoPeeling(LoopNode* loop_node) {
+  HLoopInformation* loop_info = loop_node->loop_info;
+  DCHECK(loop_node->inner == nullptr);
+  // For now do peeling only for natural loops.
+  if (loop_info->IsIrreducible()) {
+    return false;
+  }
+
+  HBasicBlock* new_loop_header = PeelUnrollLoop(loop_info, kDoUnrolling);
+  if (new_loop_header == nullptr) {
+    return false;
+  }
+  loop_node->loop_info = new_loop_header->GetLoopInformation();
+
+  // traverse backward.
+  LoopNode* cur_loop_node = loop_node->previous;
+  while (cur_loop_node != nullptr) {
+    UpdateLoopNodeLoopInfo(cur_loop_node);
+    cur_loop_node = cur_loop_node->previous;
+  }
+
+  // traverse forward.
+  cur_loop_node = loop_node->next;
+  while (cur_loop_node != nullptr) {
+    UpdateLoopNodeLoopInfo(cur_loop_node);
+    cur_loop_node = cur_loop_node->next;
+  }
+
+  LoopNode *outer_loop_node = loop_node->outer;
+  if (outer_loop_node != nullptr) {
+    UpdateLoopNodeLoopInfo(outer_loop_node);
+  }
+
+  return true;
+}
+
 void HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
   for ( ; node != nullptr; node = node->next) {
     // Visit inner loops first.
@@ -436,7 +502,10 @@ void HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
     } while (simplified_);
     // Optimize inner loop.
     if (node->inner == nullptr) {
-      OptimizeInnerLoop(node);
+      bool inner_loop_optimized = OptimizeInnerLoop(node);
+      if (kEnablePeelUnroll && !inner_loop_optimized && node->inner == nullptr) {
+        DoPeeling(node);
+      }
     }
   }
 }
@@ -510,14 +579,13 @@ void HLoopOptimization::SimplifyBlocks(LoopNode* node) {
     }
   }
 }
-
-void HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
+bool HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
   // Ensure loop header logic is finite.
   int64_t trip_count = 0;
   if (!induction_range_.IsFinite(node->loop_info, &trip_count)) {
-    return;
+    return false;
   }
 
   // Ensure there is only a single loop-body (besides the header).
@@ -525,7 +593,7 @@ void HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
   for (HBlocksInLoopIterator it(*node->loop_info); !it.Done(); it.Advance()) {
     if (it.Current() != header) {
       if (body != nullptr) {
-        return;
+        return false;
       }
       body = it.Current();
     }
@@ -533,14 +601,14 @@ void HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
   CHECK(body != nullptr);
   // Ensure there is only a single exit point.
   if (header->GetSuccessors().size() != 2) {
-    return;
+    return false;
   }
   HBasicBlock* exit = (header->GetSuccessors()[0] == body)
       ? header->GetSuccessors()[1]
       : header->GetSuccessors()[0];
   // Ensure exit can only be reached by exiting loop.
   if (exit->GetPredecessors().size() != 1) {
-    return;
+    return false;
   }
   // Detect either an empty loop (no side effects other than plain iteration) or
   // a trivial loop (just iterating once). Replace subsequent index uses, if any,
@@ -566,7 +634,7 @@ void HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
       preheader->AddDominatedBlock(exit);
       exit->SetDominator(preheader);
       RemoveLoop(node);  // update hierarchy
-      return;
+      return true;
     }
   }
 
@@ -578,9 +646,10 @@ void HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
         TryAssignLastValue(node->loop_info, phi, preheader, /*collect_loop_uses*/ true)) {
       Vectorize(node, body, exit, trip_count);
       graph_->SetHasSIMD(true);  // flag SIMD usage
-      return;
+      return true;
     }
   }
+  return false;
 }
 
 //

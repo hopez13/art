@@ -108,12 +108,17 @@ class HLoopOptimization : public HOptimization {
   void LocalRun();
   void AddLoop(HLoopInformation* loop_info);
   void RemoveLoop(LoopNode* node);
+  void RemoveLoopRecursively(LoopNode* loop_node);
+  void RemoveLoopRecursivelyImpl(LoopNode* loop_node);
   void TraverseLoopsInnerToOuter(LoopNode* node);
 
   // Optimization.
   void SimplifyInduction(LoopNode* node);
   void SimplifyBlocks(LoopNode* node);
-  void OptimizeInnerLoop(LoopNode* node);
+  bool OptimizeInnerLoop(LoopNode* node);
+
+  void UpdateLoopNodeLoopInfo(LoopNode* loop_node);
+  bool DoPeeling(LoopNode* loop_node);
 
   // Vectorization analysis and synthesis.
   bool ShouldVectorize(LoopNode* node, HBasicBlock* block, int64_t trip_count);
