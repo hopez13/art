@@ -26,6 +26,8 @@
 #include "driver/compiler_driver.h"
 #include "linear_order.h"
 
+#include "superblock_cloner.h"
+
 namespace art {
 
 // TODO: Clean up the packed type detection so that we have the right type straight away
@@ -70,6 +72,7 @@ static inline void NormalizePackedType(/* inout */ DataType::Type* type,
 
 // Enables vectorization (SIMDization) in the loop optimizer.
 static constexpr bool kEnableVectorization = true;
+static constexpr bool kEnablePeelUnroll = true;
 
 // All current SIMD targets want 16-byte alignment.
 static constexpr size_t kAlignedBase = 16;
@@ -588,6 +591,62 @@ void HLoopOptimization::RemoveLoop(LoopNode* node) {
   }
 }
 
+void HLoopOptimization::UpdateLoopNestLoopInfoRecursively(LoopNode* loop_node) {
+  while (loop_node != nullptr) {
+    loop_node->loop_info = loop_node->loop_info->GetHeader()->GetLoopInformation();
+    if (loop_node->inner != nullptr) {
+      UpdateLoopNestLoopInfoRecursively(loop_node->inner);
+    }
+    loop_node = loop_node->next;
+  }
+}
+
+void HLoopOptimization::UpdateLoopNestLoopInfo(LoopNode* loop_node) {
+  loop_node->loop_info = loop_node->loop_info->GetHeader()->GetLoopInformation();
+  if (loop_node->inner != nullptr) {
+    UpdateLoopNestLoopInfoRecursively(loop_node->inner);
+  }
+}
+
+// An example to show how loop peeling/unrolling can be implemented.
+bool HLoopOptimization::DoPeelingOrUnrolling(LoopNode* loop_node,
+                                             bool do_unrolling,
+                                             SuperblockCloner::HBasicBlockMap* bb_map,
+                                             SuperblockCloner::HInstructionMap* hir_map) {
+  HLoopInformation* loop_info = loop_node->loop_info;
+  DCHECK(loop_node->inner == nullptr);
+  // For now do peeling only for natural loops.
+  if (loop_info->IsIrreducible()) {
+    return false;
+  }
+
+  // Check that loop info is up-to-date.
+  DCHECK(loop_info == loop_info->GetHeader()->GetLoopInformation());
+  HBasicBlock* new_loop_header = DoPeelUnrollImpl(loop_info, do_unrolling, bb_map, hir_map);
+  if (new_loop_header == nullptr) {
+    return false;
+  }
+
+  // TODO: update loop structure locally.
+  LoopNode* cur_loop_node = top_loop_;
+  while (cur_loop_node != nullptr) {
+    UpdateLoopNestLoopInfo(cur_loop_node);
+    cur_loop_node = cur_loop_node->next;
+  }
+
+  return true;
+}
+
+bool HLoopOptimization::DoPeelingOrUnrolling(LoopNode* loop_node, bool do_unrolling) {
+  ArenaAllocator* arena = loop_node->loop_info->GetHeader()->GetGraph()->GetAllocator();
+  SuperblockCloner::HBasicBlockMap bb_map(
+      std::less<HBasicBlock*>(), arena->Adapter(kArenaAllocSuperblockCloner));
+  SuperblockCloner::HInstructionMap hir_map(
+      std::less<HInstruction*>(), arena->Adapter(kArenaAllocSuperblockCloner));
+
+  return DoPeelingOrUnrolling(loop_node, do_unrolling, &bb_map, &hir_map);
+}
+
 bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
   bool changed = false;
   for ( ; node != nullptr; node = node->next) {
@@ -607,7 +666,11 @@ bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
     } while (simplified_);
     // Optimize inner loop.
     if (node->inner == nullptr) {
-      changed = OptimizeInnerLoop(node) || changed;
+      bool inner_loop_optimized = OptimizeInnerLoop(node);
+      if (kEnablePeelUnroll && !inner_loop_optimized && node->inner == nullptr) {
+        inner_loop_optimized |= DoPeelingOrUnrolling(node, /* do unrolling */ false);
+      }
+      changed = inner_loop_optimized || changed;
     }
   }
   return changed;

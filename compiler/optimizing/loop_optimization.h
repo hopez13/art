@@ -22,6 +22,7 @@
 #include "induction_var_range.h"
 #include "nodes.h"
 #include "optimization.h"
+#include "superblock_cloner.h"
 
 namespace art {
 
@@ -133,6 +134,13 @@ class HLoopOptimization : public HOptimization {
   // unrolling, vectorization). Returns true if anything changed.
   bool OptimizeInnerLoop(LoopNode* node);
 
+  void UpdateLoopNestLoopInfoRecursively(LoopNode* loop_node);
+  void UpdateLoopNestLoopInfo(LoopNode* loop_node);
+  bool DoPeelingOrUnrolling(LoopNode* loop_node, bool do_unrolling);
+  bool DoPeelingOrUnrolling(LoopNode* loop_node,
+                            bool do_unrolling,
+                            SuperblockCloner::HBasicBlockMap* bb_map,
+                            SuperblockCloner::HInstructionMap* hir_map);
   //
   // Vectorization analysis and synthesis.
   //
