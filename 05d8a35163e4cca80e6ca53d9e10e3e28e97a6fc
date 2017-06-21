@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53ba188c_3e668ba4",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T17:17:19Z",
+      "side": 1,
+      "message": "nit: It\u0027s not a hint. @CriticalNative changes the calling convention.\n\nSo please consider e.g. \"IsAnnotatedWithOptimization\" ?",
+      "range": {
+        "startLine": 732,
+        "startChar": 7,
+        "endLine": 732,
+        "endChar": 38
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
