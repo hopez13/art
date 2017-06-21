@@ -397,6 +397,79 @@ void HGraph::OrderLoopHeaderPredecessors(HBasicBlock* header) {
   }
 }
 
+void HGraph::MakeALoopWithSinglePreheader(HBasicBlock* header) {
+  HLoopInformation* loop_info = header->GetLoopInformation();
+
+  HBasicBlock* preheader = new (allocator_) HBasicBlock(this, header->GetDexPc());
+  AddBlock(preheader);
+  preheader->AddInstruction(new (allocator_) HGoto(header->GetDexPc()));
+
+  if (HInstructionIterator(header->GetPhis()).Done()) {
+    for (size_t pred = 0; pred < header->GetPredecessors().size(); ++pred) {
+      HBasicBlock* predecessor = header->GetPredecessors()[pred];
+      if (!loop_info->IsBackEdge(*predecessor)) {
+        predecessor->ReplaceSuccessor(header, preheader);
+        pred--;
+      }
+    }
+    preheader->AddSuccessor(header);
+    return;
+  }
+
+  // Find the first non-back edge block in the header's predecessors list.
+  size_t first_nonbackedge_pred_pos = 0;
+  for (size_t pred = 0; pred < header->GetPredecessors().size(); ++pred) {
+    HBasicBlock* predecessor = header->GetPredecessors()[pred];
+    if (!loop_info->IsBackEdge(*predecessor)) {
+      first_nonbackedge_pred_pos = pred;
+      break;
+    }
+  }
+
+  // Fix the data-flow.
+  for (HInstructionIterator it(header->GetPhis()); !it.Done(); it.Advance()) {
+    HPhi* header_phi = it.Current()->AsPhi();
+
+    HPhi* preheader_phi =
+        new (GetAllocator()) HPhi(GetAllocator(), kNoRegNumber, 0, header_phi->GetType());
+    if (header_phi->GetType() == DataType::Type::kReference) {
+      preheader_phi->SetReferenceTypeInfo(header_phi->GetReferenceTypeInfo());
+    }
+    preheader->AddPhi(preheader_phi);
+
+    HInstruction* orig_input = header_phi->InputAt(first_nonbackedge_pred_pos);
+    header_phi->ReplaceInput(preheader_phi, first_nonbackedge_pred_pos);
+    preheader_phi->AddInput(orig_input);
+
+    for (size_t input_pos = first_nonbackedge_pred_pos + 1;
+         input_pos < header_phi->InputCount();
+         input_pos++) {
+      HInstruction* input = header_phi->InputAt(input_pos);
+      HBasicBlock* input_block = input->GetBlock();
+
+      if (loop_info->Contains(*input_block)) {
+        DCHECK(loop_info->IsBackEdge(*input_block));
+      } else {
+        preheader_phi->AddInput(input);
+        header_phi->RemoveInputAt(input_pos);
+        input_pos--;
+      }
+    }
+  }
+
+  // Fix the control-flow.
+  HBasicBlock* first_pred = header->GetPredecessors()[first_nonbackedge_pred_pos];
+  preheader->InsertBetween(first_pred, header);
+
+  for (size_t pred = 0; pred < header->GetPredecessors().size(); ++pred) {
+    HBasicBlock* predecessor = header->GetPredecessors()[pred];
+    if (!loop_info->IsBackEdge(*predecessor) && predecessor != preheader) {
+      predecessor->ReplaceSuccessor(header, preheader);
+      pred--;
+    }
+  }
+}
+
 void HGraph::SimplifyLoop(HBasicBlock* header) {
   HLoopInformation* info = header->GetLoopInformation();
 
@@ -406,18 +479,7 @@ void HGraph::SimplifyLoop(HBasicBlock* header) {
   // this graph.
   size_t number_of_incomings = header->GetPredecessors().size() - info->NumberOfBackEdges();
   if (number_of_incomings != 1 || (GetEntryBlock()->GetSingleSuccessor() == header)) {
-    HBasicBlock* pre_header = new (allocator_) HBasicBlock(this, header->GetDexPc());
-    AddBlock(pre_header);
-    pre_header->AddInstruction(new (allocator_) HGoto(header->GetDexPc()));
-
-    for (size_t pred = 0; pred < header->GetPredecessors().size(); ++pred) {
-      HBasicBlock* predecessor = header->GetPredecessors()[pred];
-      if (!info->IsBackEdge(*predecessor)) {
-        predecessor->ReplaceSuccessor(header, pre_header);
-        pred--;
-      }
-    }
-    pre_header->AddSuccessor(header);
+    MakeALoopWithSinglePreheader(header);
   }
 
   OrderLoopHeaderPredecessors(header);
@@ -494,6 +556,14 @@ void HGraph::SimplifyCFG() {
       // We are being called by the dead code elimiation pass, and what used to be
       // a loop got dismantled. Just remove the suspend check.
       block->RemoveInstruction(block->GetFirstInstruction());
+    }
+  }
+}
+
+void HGraph::OrderLoopsHeadersPredecessors() {
+  for (HBasicBlock* block : GetPostOrder()) {
+    if (block->IsLoopHeader()) {
+      OrderLoopHeaderPredecessors(block);
     }
   }
 }
@@ -762,6 +832,15 @@ void HLoopInformation::Populate() {
     graph->SetHasIrreducibleLoops(true);
   }
   graph->SetHasLoops(true);
+}
+
+void HLoopInformation::PopulateInnerLoopUpwards(HLoopInformation* inner_loop) {
+  DCHECK(inner_loop->GetPreHeader()->GetLoopInformation() == this);
+  blocks_.Union(&inner_loop->blocks_);
+  HLoopInformation* outer_loop = GetPreHeader()->GetLoopInformation();
+  if (outer_loop != nullptr) {
+    outer_loop->PopulateInnerLoopUpwards(this);
+  }
 }
 
 HBasicBlock* HLoopInformation::GetPreHeader() const {
