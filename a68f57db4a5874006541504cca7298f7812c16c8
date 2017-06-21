@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2fc1d42_0ec04406",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-21T01:58:14Z",
+      "side": 1,
+      "message": "Class that is likely to be clean (no static fields or native methods)",
+      "parentUuid": "a04ebe76_412b1bd4",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "a68f57db4a5874006541504cca7298f7812c16c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39a8a874_7876ff81",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-21T00:02:00Z",
       "side": 1,
       "message": "ditto.",
+      "range": {
+        "startLine": 15,
+        "startChar": 43,
+        "endLine": 15,
+        "endChar": 54
+      },
+      "revId": "a68f57db4a5874006541504cca7298f7812c16c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdf6e741_de7dbe6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-21T01:58:14Z",
+      "side": 1,
+      "message": "This is just !clean.",
+      "parentUuid": "39a8a874_7876ff81",
       "range": {
         "startLine": 15,
         "startChar": 43,
