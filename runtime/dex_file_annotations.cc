@@ -751,7 +751,8 @@ const DexFile::AnnotationItem* GetAnnotationItemFromAnnotationSet(
     const ClassData& klass,
     const DexFile::AnnotationSetItem* annotation_set,
     uint32_t visibility,
-    Handle<mirror::Class> annotation_class)
+    Handle<mirror::Class> annotation_class,
+    bool allow_class_resolution = true)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const DexFile& dex_file = klass.GetDexFile();
   for (uint32_t i = 0; i < annotation_set->size_; ++i) {
@@ -761,19 +762,36 @@ const DexFile::AnnotationItem* GetAnnotationItemFromAnnotationSet(
     }
     const uint8_t* annotation = annotation_item->annotation_;
     uint32_t type_index = DecodeUnsignedLeb128(&annotation);
-    StackHandleScope<2> hs(Thread::Current());
-    mirror::Class* resolved_class = Runtime::Current()->GetClassLinker()->ResolveType(
-        klass.GetDexFile(),
-        dex::TypeIndex(type_index),
-        hs.NewHandle(klass.GetDexCache()),
-        hs.NewHandle(klass.GetClassLoader()));
-    if (resolved_class == nullptr) {
-      std::string temp;
-      LOG(WARNING) << StringPrintf("Unable to resolve %s annotation class %d",
-                                   klass.GetRealClass()->GetDescriptor(&temp), type_index);
-      CHECK(Thread::Current()->IsExceptionPending());
-      Thread::Current()->ClearException();
-      continue;
+    mirror::Class* resolved_class;
+    if (allow_class_resolution) {
+      StackHandleScope<2> hs(Thread::Current());
+      resolved_class = Runtime::Current()->GetClassLinker()->ResolveType(
+          klass.GetDexFile(),
+          dex::TypeIndex(type_index),
+          hs.NewHandle(klass.GetDexCache()),
+          hs.NewHandle(klass.GetClassLoader()));
+      if (resolved_class == nullptr) {
+        std::string temp;
+        LOG(WARNING) << StringPrintf("Unable to resolve %s annotation class %d",
+                                     klass.GetRealClass()->GetDescriptor(&temp), type_index);
+        CHECK(Thread::Current()->IsExceptionPending());
+        Thread::Current()->ClearException();
+        continue;
+      }
+    } else {
+      ObjPtr<mirror::Class> looked_up_class =
+          Runtime::Current()->GetClassLinker()->LookupResolvedType(
+              klass.GetDexFile(),
+              dex::TypeIndex(type_index),
+              klass.GetDexCache(),
+              static_cast<mirror::ClassLoader*>(nullptr));
+      resolved_class = looked_up_class.Ptr();
+      if (resolved_class == nullptr) {
+        // If `resolved_class` is null, this is fine: just ignore that
+        // annotation item. We expect this to happen, as we do not
+        // attempt to resolve the annotation's class in this code path.
+        continue;
+      }
     }
     if (resolved_class == annotation_class.Get()) {
       return annotation_item;
@@ -1200,15 +1218,17 @@ mirror::ObjectArray<mirror::String>* GetSignatureAnnotationForMethod(ArtMethod* 
   return GetSignatureValue(ClassData(method), annotation_set);
 }
 
-bool IsMethodAnnotationPresent(ArtMethod* method, Handle<mirror::Class> annotation_class,
-                               uint32_t visibility /* = DexFile::kDexVisibilityRuntime */) {
+bool IsMethodAnnotationPresent(ArtMethod* method,
+                               Handle<mirror::Class> annotation_class,
+                               uint32_t visibility /* = DexFile::kDexVisibilityRuntime */,
+                               bool allow_class_resolution /* = true */) {
   const DexFile::AnnotationSetItem* annotation_set = FindAnnotationSetForMethod(method);
   if (annotation_set == nullptr) {
     return false;
   }
   const DexFile::AnnotationItem* annotation_item =
-      GetAnnotationItemFromAnnotationSet(ClassData(method),
-                                         annotation_set, visibility, annotation_class);
+      GetAnnotationItemFromAnnotationSet(
+          ClassData(method), annotation_set, visibility, annotation_class, allow_class_resolution);
   return annotation_item != nullptr;
 }
 

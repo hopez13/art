@@ -1791,7 +1791,7 @@ bool ClassLinker::AddImageSpace(
   }
 
   if (app_image) {
-    ScopedObjectAccessUnchecked soa(Thread::Current());
+    ScopedObjectAccessUnchecked soa(self);
     // Check that the class loader resolves the same way as the ones in the image.
     // Image class loader [A][B][C][image dex files]
     // Class loader = [???][dex_elements][image dex files]
@@ -1947,13 +1947,21 @@ bool ClassLinker::AddImageSpace(
     VerifyDirectInterfacesInTableClassVisitor visitor(class_loader.Get());
     class_table->Visit(visitor);
     visitor.Check();
-    // Check that all non-primitive classes in dex caches are also in the class table.
+    // Check that all non-primitive classes and non method optimization annotation classes
+    // in dex caches are also in the class table.
+    ObjPtr<mirror::Class> critical_native_class = self->DecodeJObject(
+        WellKnownClasses::dalvik_annotation_optimization_CriticalNative)->AsClass();
+    ObjPtr<mirror::Class> fast_native_class = self->DecodeJObject(
+        WellKnownClasses::dalvik_annotation_optimization_FastNative)->AsClass();
     for (int32_t i = 0; i < dex_caches->GetLength(); i++) {
       ObjPtr<mirror::DexCache> dex_cache = dex_caches->Get(i);
       mirror::TypeDexCacheType* const types = dex_cache->GetResolvedTypes();
       for (int32_t j = 0, num_types = dex_cache->NumResolvedTypes(); j < num_types; j++) {
         ObjPtr<mirror::Class> klass = types[j].load(std::memory_order_relaxed).object.Read();
-        if (klass != nullptr && !klass->IsPrimitive()) {
+        if (klass != nullptr
+            && !klass->IsPrimitive()
+            && (klass != critical_native_class)
+            && (klass != fast_native_class)) {
           CHECK(class_table->Contains(klass)) << klass->PrettyDescriptor()
               << " " << dex_cache->GetDexFile()->GetLocation();
         }
