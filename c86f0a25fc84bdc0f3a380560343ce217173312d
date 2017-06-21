@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "40b6c170_fb69fc6e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42842b87_8d580100",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ee6ba93_b1d40dce",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-09T16:03:46Z",
       "side": 1,
       "message": "any changes needed here (for SIMD stack slot, see IsSIMDStackSlot())? I am wondering if this was done for MIPS64 actually.",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e41282f2_5b6ffc1a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Added moves for 128-bit (SIMDStackSlot, VectorRegister) for both mips32 and mips64. For mips32 I removed Move32 and Move64 so MoveLocation now handles all cases, I can make this seperate CL if you prefer?",
+      "parentUuid": "1ee6ba93_b1d40dce",
       "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b742b5b9_e6f515b4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1834,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c00f07df_40371d00",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d33b986_efcabbe9",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -64,6 +118,30 @@
       "writtenOn": "2017-06-10T08:43:11Z",
       "side": 1,
       "message": "Remove this empty line.",
+      "range": {
+        "startLine": 3260,
+        "startChar": 0,
+        "endLine": 3260,
+        "endChar": 0
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1996b516_a01ed43a",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3260,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d33b986_efcabbe9",
       "range": {
         "startLine": 3260,
         "startChar": 0,
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "1ec23f32_63e1f3ef",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3284,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "443905e8_000b7a79",
+      "range": {
+        "startLine": 3284,
+        "startChar": 59,
+        "endLine": 3284,
+        "endChar": 62
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85295a1f_8d26f144",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -110,6 +212,30 @@
       "writtenOn": "2017-06-10T08:43:11Z",
       "side": 1,
       "message": "instruction or two",
+      "range": {
+        "startLine": 3285,
+        "startChar": 22,
+        "endLine": 3285,
+        "endChar": 33
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e94a8e6_7b98cdd3",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3285,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85295a1f_8d26f144",
       "range": {
         "startLine": 3285,
         "startChar": 22,
@@ -145,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "d5f63b4b_b4549bfe",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3302,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Added assembler_mips32r5_test.cc",
+      "parentUuid": "f65e2a72_07c881d6",
+      "range": {
+        "startLine": 3302,
+        "startChar": 0,
+        "endLine": 3302,
+        "endChar": 10
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dfb704a_44a8344d",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -156,6 +306,30 @@
       "writtenOn": "2017-06-10T08:43:11Z",
       "side": 1,
       "message": "Redundant (offset is already int32_t), remove.",
+      "range": {
+        "startLine": 3303,
+        "startChar": 0,
+        "endLine": 3305,
+        "endChar": 6
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04033a60_dade0a2b",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3305,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dfb704a_44a8344d",
       "range": {
         "startLine": 3303,
         "startChar": 0,
@@ -191,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "8e446c2d_460ca0d9",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3313,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "958dd4df_0f08862f",
+      "range": {
+        "startLine": 3313,
+        "startChar": 79,
+        "endLine": 3313,
+        "endChar": 85
+      },
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee461907_b95bd575",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -208,6 +406,24 @@
     },
     {
       "key": {
+        "uuid": "570a362b_512158d0",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee461907_b95bd575",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49f0f124_17a92eb8",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -219,6 +435,24 @@
       "writtenOn": "2017-06-09T16:03:46Z",
       "side": 1,
       "message": "same",
+      "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d84bdf77_b5e2a5a1",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-21T13:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49f0f124_17a92eb8",
       "revId": "c86f0a25fc84bdc0f3a380560343ce217173312d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
