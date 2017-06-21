@@ -2181,11 +2181,28 @@ extern "C" TwoWordReturn artQuickGenericJniTrampoline(Thread* self, ArtMethod** 
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ArtMethod* called = *sp;
   DCHECK(called->IsNative()) << called->PrettyMethod(true);
+  // Fix up a callee-save frame at the bottom of the stack (at `*sp`,
+  // above the alloca region) while we check for optimization
+  // annotations, thus allowing stack walking until the completion of
+  // the JNI frame creation.
+  //
+  // Note however that the Generic JNI trampoline does not expect
+  // exception being thrown at that stage.
+  *sp = Runtime::Current()->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs);
+  self->SetTopOfStack(sp);
   uint32_t shorty_len = 0;
   const char* shorty = called->GetShorty(&shorty_len);
+  CHECK(!self->IsExceptionPending())
+      << "Exception pending before optimization annotation lookup in Generic JNI trampoline";
   bool critical_native = called->IsAnnotatedWithCriticalNative();
+  CHECK(!self->IsExceptionPending())
+      << "Exception thrown during CriticalNative annotation lookup in Generic JNI trampoline";
   bool fast_native = called->IsAnnotatedWithFastNative();
+  CHECK(!self->IsExceptionPending())
+      << "Exception thrown during FastNative annotation lookup in Generic JNI trampoline";
   bool normal_native = !critical_native && !fast_native;
+  // Restore the initial ArtMethod pointer at `*sp`.
+  *sp = called;
 
   // Run the visitor and update sp.
   BuildGenericJniFrameVisitor visitor(self,
