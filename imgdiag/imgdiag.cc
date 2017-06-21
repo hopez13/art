@@ -50,6 +50,643 @@ namespace art {
 
 using android::base::StringPrintf;
 
+namespace {
+
+static std::string GetClassDescriptor(mirror::Class* klass)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  CHECK(klass != nullptr);
+
+  std::string descriptor;
+  const char* descriptor_str = klass->GetDescriptor(&descriptor);
+
+  return std::string(descriptor_str);
+}
+
+static std::string PrettyFieldValue(ArtField* field, mirror::Object* obj)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::ostringstream oss;
+  switch (field->GetTypeAsPrimitiveType()) {
+    case Primitive::kPrimNot: {
+      oss << obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(
+          field->GetOffset());
+      break;
+    }
+    case Primitive::kPrimBoolean: {
+      oss << static_cast<bool>(obj->GetFieldBoolean<kVerifyNone>(field->GetOffset()));
+      break;
+    }
+    case Primitive::kPrimByte: {
+      oss << static_cast<int32_t>(obj->GetFieldByte<kVerifyNone>(field->GetOffset()));
+      break;
+    }
+    case Primitive::kPrimChar: {
+      oss << obj->GetFieldChar<kVerifyNone>(field->GetOffset());
+      break;
+    }
+    case Primitive::kPrimShort: {
+      oss << obj->GetFieldShort<kVerifyNone>(field->GetOffset());
+      break;
+    }
+    case Primitive::kPrimInt: {
+      oss << obj->GetField32<kVerifyNone>(field->GetOffset());
+      break;
+    }
+    case Primitive::kPrimLong: {
+      oss << obj->GetField64<kVerifyNone>(field->GetOffset());
+      break;
+    }
+    case Primitive::kPrimFloat: {
+      oss << obj->GetField32<kVerifyNone>(field->GetOffset());
+      break;
+    }
+    case Primitive::kPrimDouble: {
+      oss << obj->GetField64<kVerifyNone>(field->GetOffset());
+      break;
+    }
+    case Primitive::kPrimVoid: {
+      oss << "void";
+      break;
+    }
+  }
+  return oss.str();
+}
+
+// Fixup a remote pointer that we read from a foreign boot.art to point to our own memory.
+// Returned pointer will point to inside of remote_contents.
+template <typename T>
+static T* FixUpRemotePointer(T* remote_ptr,
+                             std::vector<uint8_t>& remote_contents,
+                             const backtrace_map_t& boot_map) {
+  if (remote_ptr == nullptr) {
+    return nullptr;
+  }
+
+  uintptr_t remote = reinterpret_cast<uintptr_t>(remote_ptr);
+
+  CHECK_LE(boot_map.start, remote);
+  CHECK_GT(boot_map.end, remote);
+
+  off_t boot_offset = remote - boot_map.start;
+
+  return reinterpret_cast<T*>(&remote_contents[boot_offset]);
+}
+
+template <typename T>
+static T* RemoteContentsPointerToLocal(T* remote_ptr,
+                                       std::vector<uint8_t>& remote_contents,
+                                       const ImageHeader& image_header) {
+  if (remote_ptr == nullptr) {
+    return nullptr;
+  }
+
+  uint8_t* remote = reinterpret_cast<uint8_t*>(remote_ptr);
+  ptrdiff_t boot_offset = remote - &remote_contents[0];
+
+  const uint8_t* local_ptr = reinterpret_cast<const uint8_t*>(&image_header) + boot_offset;
+
+  return reinterpret_cast<T*>(const_cast<uint8_t*>(local_ptr));
+}
+
+constexpr size_t kMaxAddressPrint = 5;
+
+struct MappingData {
+  // The count of pages that are
+  size_t dirty_pages = 0;
+  // The count of pages that differ by at least one byte.
+  size_t different_pages = 0;
+  // The count of differing bytes.
+  size_t different_bytes = 0;
+  // The count of differing four-byte units.
+  size_t different_int32s = 0;
+  // The count of pages that have mapping count == 1.
+  size_t private_pages = 0;
+  // The count of private pages that are also dirty.
+  size_t private_dirty_pages = 0;
+  // The count of pages that are marked dirty but do not differ.
+  size_t false_dirty_pages = 0;
+
+  // Set of the local virtual page indices that are dirty
+  std::set<size_t> dirty_page_set;
+};
+
+template <typename T> size_t ObjectSize(T* obj);
+template<> size_t ObjectSize(mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
+  return obj->SizeOf();
+}
+template<> size_t ObjectSize(ArtMethod* art_method) REQUIRES_SHARED(Locks::mutator_lock_) {
+  return sizeof(*art_method);
+}
+
+template <typename T>
+static bool ObjectsDiffer(T* obj1, T* obj2) REQUIRES_SHARED(Locks::mutator_lock_) {
+  size_t obj_size = ObjectSize(obj1);
+  const uint8_t* p1 = reinterpret_cast<const uint8_t*>(obj1);
+  const uint8_t* p2 = reinterpret_cast<const uint8_t*>(obj2);
+  return memcmp(p1, p2, obj_size) != 0;
+}
+
+template <typename T>
+struct ObjectRegionData {
+ public:
+  // Count of objects that are different.
+  size_t different_objects = 0;
+
+  // Local objects that are dirty (differ in at least one byte).
+  size_t dirty_object_bytes = 0;
+  std::vector<T*> dirty_objects;
+
+  // Local objects that are clean, but located on dirty pages.
+  size_t false_dirty_object_bytes = 0;
+  std::vector<T*> false_dirty_objects;
+
+  // Image dirty objects
+  // If zygote_pid_only_ == true, these are shared dirty objects in the zygote.
+  // If zygote_pid_only_ == false, these are private dirty objects in the application.
+  std::set<T*> image_dirty_objects;
+
+  // Zygote dirty objects (probably private dirty).
+  // We only add objects here if they differed in both the image and the zygote, so
+  // they are probably private dirty.
+  std::set<T*> zygote_dirty_objects;
+
+  std::map<off_t /* field offset */, size_t /* count */> field_dirty_count;
+
+  void AddZygoteDirtyObject(T* object, T* object_remote) REQUIRES_SHARED(Locks::mutator_lock_) {
+    zygote_dirty_objects.insert(object);
+    AddDirtyObject(object, object_remote);
+  }
+
+  void AddImageDirtyObject(T* object, T* object_remote) REQUIRES_SHARED(Locks::mutator_lock_) {
+    image_dirty_objects.insert(object);
+    AddDirtyObject(object, object_remote);
+  }
+
+  void AddFalseDirtyObject(T* object) REQUIRES_SHARED(Locks::mutator_lock_) {
+    false_dirty_objects.push_back(object);
+    false_dirty_object_bytes += ObjectSize(object);
+  }
+
+ private:
+  void AddDirtyObject(T* object, T* object_remote);
+};
+
+template<>
+void ObjectRegionData<mirror::Object>::AddDirtyObject(mirror::Object* object,
+                                                      mirror::Object* object_remote)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  size_t obj_size = ObjectSize(object);
+  ++different_objects;
+  dirty_object_bytes += obj_size;
+
+  // Log dirty count and objects for class objects only.
+  mirror::Class* klass = object->GetClass();
+  if (klass->IsClassClass()) {
+    // Increment counts for the fields that are dirty
+    const uint8_t* current = reinterpret_cast<const uint8_t*>(object);
+    const uint8_t* current_remote = reinterpret_cast<const uint8_t*>(object_remote);
+    for (size_t i = 0; i < obj_size; ++i) {
+      if (current[i] != current_remote[i]) {
+        size_t dirty_count = 0;
+        if (field_dirty_count.find(i) != field_dirty_count.end()) {
+          dirty_count = field_dirty_count[i];
+        }
+        field_dirty_count[i] = dirty_count + 1;
+      }
+    }
+    dirty_objects.push_back(object);
+  }
+}
+
+template<>
+void ObjectRegionData<ArtMethod>::AddDirtyObject(ArtMethod* object, ArtMethod* object_remote)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  size_t obj_size = ObjectSize(object);
+  ++different_objects;
+  dirty_object_bytes += obj_size;
+
+  // Increment counts for the fields that are dirty
+  const uint8_t* current = reinterpret_cast<const uint8_t*>(object);
+  const uint8_t* current_remote = reinterpret_cast<const uint8_t*>(object_remote);
+  // ArtMethods always log their dirty count and objects.
+  for (size_t i = 0; i < obj_size; ++i) {
+    if (current[i] != current_remote[i]) {
+      size_t dirty_count = 0;
+      if (field_dirty_count.find(i) != field_dirty_count.end()) {
+        dirty_count = field_dirty_count[i];
+      }
+      field_dirty_count[i] = dirty_count + 1;
+    }
+  }
+  dirty_objects.push_back(object);
+}
+
+// Aggregate and detail class data from an image diff.
+template <typename T>
+struct ClassData {
+ public:
+  size_t dirty_object_count = 0;
+
+  // Track only the byte-per-byte dirtiness (in bytes)
+  size_t dirty_object_byte_count = 0;
+
+  // Track the object-by-object dirtiness (in bytes)
+  size_t dirty_object_size_in_bytes = 0;
+
+  size_t clean_object_count = 0;
+
+  std::string descriptor;
+
+  size_t false_dirty_byte_count = 0;
+  size_t false_dirty_object_count = 0;
+  std::vector<T*> false_dirty_objects;
+
+  // Remote pointers to dirty objects
+  std::vector<T*> dirty_objects;
+
+  void AddCleanObject() REQUIRES_SHARED(Locks::mutator_lock_) {
+    ++clean_object_count;
+  }
+
+  void AddDirtyObject(T* object, T* object_remote) REQUIRES_SHARED(Locks::mutator_lock_) {
+    ++dirty_object_count;
+    dirty_object_byte_count += CountDirtyBytes(object, object_remote);
+    dirty_object_size_in_bytes += ObjectSize(object);
+    dirty_objects.push_back(object_remote);
+  }
+
+  void AddFalseDirtyObject(T* object) REQUIRES_SHARED(Locks::mutator_lock_) {
+    ++false_dirty_object_count;
+    false_dirty_objects.push_back(object);
+    false_dirty_byte_count += ObjectSize(object);
+  }
+
+ private:
+  // Go byte-by-byte and figure out what exactly got dirtied
+  static size_t CountDirtyBytes(T* obj1, T* obj2) REQUIRES_SHARED(Locks::mutator_lock_) {
+    const uint8_t* cur1 = reinterpret_cast<const uint8_t*>(obj1);
+    const uint8_t* cur2 = reinterpret_cast<const uint8_t*>(obj2);
+    size_t dirty_bytes = 0;
+    size_t obj_size = ObjectSize(obj1);
+    for (size_t i = 0; i < obj_size; ++i) {
+      if (cur1[i] != cur2[i]) {
+        dirty_bytes++;
+      }
+    }
+    return dirty_bytes;
+  }
+};
+
+template <typename T>
+bool ObjectIsOnDirtyPage(T* object, const std::set<size_t>& dirty_pages)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  size_t size = ObjectSize(object);
+  size_t page_off = 0;
+  size_t current_page_idx;
+  uintptr_t object_address = reinterpret_cast<uintptr_t>(object);
+  // Iterate every page this object belongs to
+  do {
+    current_page_idx = object_address / kPageSize + page_off;
+
+    if (dirty_pages.find(current_page_idx) != dirty_pages.end()) {
+      // This object is on a dirty page
+      return true;
+    }
+
+    page_off++;
+  } while ((current_page_idx * kPageSize) < RoundUp(object_address + size, kObjectAlignment));
+
+  return false;
+}
+
+template <typename T>
+void ComputeObjectDirty(T* object,
+                        T* object_remote,
+                        T* object_zygote,
+                        ClassData<T>* class_data,
+                        const std::set<size_t>& dirty_pages,
+                        ObjectRegionData<T>* region_data /*out*/)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  bool different_image_object = ObjectsDiffer(object, object_remote);
+  if (different_image_object) {
+    bool different_zygote_object = false;
+    if (object_zygote != nullptr) {
+      different_zygote_object = ObjectsDiffer(object, object_zygote);
+    }
+    if (different_zygote_object) {
+      // Different from zygote.
+      region_data->AddZygoteDirtyObject(object, object_remote);
+    } else {
+      // Just different from image.
+      region_data->AddImageDirtyObject(object, object_remote);
+    }
+    class_data->AddDirtyObject(object, object_remote);
+  } else {
+    class_data->AddCleanObject();
+  }
+
+  if (!different_image_object && ObjectIsOnDirtyPage(object, dirty_pages)) {
+    // This object was either never mutated or got mutated back to the same value.
+    // TODO: Do I want to distinguish a "different" vs a "dirty" page here?
+    region_data->AddFalseDirtyObject(object);
+    class_data->AddFalseDirtyObject(object);
+  }
+}
+
+template <typename K, typename V, typename D>
+static std::vector<std::pair<V, K>> SortByValueDesc(
+    const std::map<K, D> map,
+    std::function<V(const D&)> value_mapper = [](const D& d) { return static_cast<V>(d); }) {
+  // Store value->key so that we can use the default sort from pair which
+  // sorts by value first and then key
+  std::vector<std::pair<V, K>> value_key_vector;
+
+  for (const auto& kv_pair : map) {
+    value_key_vector.push_back(std::make_pair(value_mapper(kv_pair.second), kv_pair.first));
+  }
+
+  // Sort in reverse (descending order)
+  std::sort(value_key_vector.rbegin(), value_key_vector.rend());
+  return value_key_vector;
+}
+
+template <typename T>
+void DumpSamplesAndOffsetCount(std::ostream* oss, ObjectRegionData<T>* region_data) {
+  std::ostream& os = *oss;
+  os << "      sample object addresses: ";
+  for (size_t i = 0; i < region_data->dirty_objects.size() && i < kMaxAddressPrint; ++i) {
+    auto art_method = region_data->dirty_objects[i];
+
+    os << reinterpret_cast<void*>(art_method) << ", ";
+  }
+  os << "\n";
+  os << "      dirty byte +offset:count list = ";
+  auto field_dirty_count_sorted =
+      SortByValueDesc<off_t, int, size_t>(region_data->field_dirty_count);
+  for (auto pair : field_dirty_count_sorted) {
+    off_t offset = pair.second;
+    int count = pair.first;
+
+    os << "+" << offset << ":" << count << ", ";
+  }
+  os << "\n";
+}
+
+void DumpOneArtMethod(std::ostream* oss,
+                      ArtMethod* art_method,
+                      mirror::Class* declaring_class,
+                      mirror::Class* remote_declaring_class,
+                      PointerSize pointer_size)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::ostream& os = *oss;
+  os << "        " << reinterpret_cast<const void*>(art_method) << " ";
+  os << "  entryPointFromJni: "
+     << reinterpret_cast<const void*>(art_method->GetDataPtrSize(pointer_size)) << ", ";
+  os << "  entryPointFromQuickCompiledCode: "
+     << reinterpret_cast<const void*>(
+            art_method->GetEntryPointFromQuickCompiledCodePtrSize(pointer_size))
+     << ", ";
+  os << "  isNative? " << (art_method->IsNative() ? "yes" : "no") << ", ";
+  os << "  class_status (local): " << declaring_class->GetStatus();
+  if (remote_declaring_class != nullptr) {
+    os << ",  class_status (remote): " << remote_declaring_class->GetStatus();
+  }
+  os << "\n";
+}
+
+template <typename T>
+void DumpArtMethod(std::ostream* oss,
+                   ObjectRegionData<T>* region_data,
+                   std::vector<uint8_t>* remote_contents,
+                   const backtrace_map_t& boot_map,
+                   PointerSize pointer_size,
+                   const ImageHeader& image_header)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::ostream& os = *oss;
+  os << "      field contents:\n";
+  const auto& dirty_objects_list = region_data->dirty_objects;
+  for (mirror::Object* object : dirty_objects_list) {
+    // remote method
+    auto art_method = reinterpret_cast<ArtMethod*>(object);
+
+    // remote class
+    mirror::Class* remote_declaring_class =
+      FixUpRemotePointer(art_method->GetDeclaringClass(), *remote_contents, boot_map);
+
+    // local class
+    mirror::Class* declaring_class =
+      RemoteContentsPointerToLocal(remote_declaring_class, *remote_contents, image_header);
+
+    DumpOneArtMethod(oss, art_method, declaring_class, remote_declaring_class, pointer_size);
+  }
+}
+
+template<typename T>
+void DumpClass(std::ostream* oss,
+               const ClassData<T>& class_data,
+               std::vector<uint8_t>* remote_contents,
+               const ImageHeader& image_header)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::ostream& os = *oss;
+  os << "      field contents:\n";
+  const auto& dirty_objects_list = class_data.dirty_objects;
+  for (mirror::Object* obj : dirty_objects_list) {
+    // remote class object
+    auto remote_klass = reinterpret_cast<mirror::Class*>(obj);
+
+    // local class object
+    auto local_klass = RemoteContentsPointerToLocal(remote_klass, *remote_contents, image_header);
+
+    os << "        " << reinterpret_cast<const void*>(obj) << " ";
+    os << "  class_status (remote): " << remote_klass->GetStatus() << ", ";
+    os << "  class_status (local): " << local_klass->GetStatus();
+    os << "\n";
+  }
+}
+
+template<typename T>
+void DiffObjectContents(T* obj, uint8_t* remote_bytes, std::ostream& os)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  const char* tabs = "    ";
+  // Attempt to find fields for all dirty bytes.
+  mirror::Class* klass = obj->GetClass();
+  if (obj->IsClass()) {
+    os << tabs << "Class " << mirror::Class::PrettyClass(obj->AsClass()) << " " << obj << "\n";
+  } else {
+    os << tabs << "Instance of " << mirror::Class::PrettyClass(klass) << " " << obj << "\n";
+  }
+
+  std::unordered_set<ArtField*> dirty_instance_fields;
+  std::unordered_set<ArtField*> dirty_static_fields;
+  const uint8_t* obj_bytes = reinterpret_cast<const uint8_t*>(obj);
+  mirror::Object* remote_obj = reinterpret_cast<mirror::Object*>(remote_bytes);
+  for (size_t i = 0, count = obj->SizeOf(); i < count; ++i) {
+    if (obj_bytes[i] != remote_bytes[i]) {
+      ArtField* field = ArtField::FindInstanceFieldWithOffset</*exact*/false>(klass, i);
+      if (field != nullptr) {
+        dirty_instance_fields.insert(field);
+      } else if (obj->IsClass()) {
+        field = ArtField::FindStaticFieldWithOffset</*exact*/false>(obj->AsClass(), i);
+        if (field != nullptr) {
+          dirty_static_fields.insert(field);
+        }
+      }
+      if (field == nullptr) {
+        if (klass->IsArrayClass()) {
+          mirror::Class* component_type = klass->GetComponentType();
+          Primitive::Type primitive_type = component_type->GetPrimitiveType();
+          size_t component_size = Primitive::ComponentSize(primitive_type);
+          size_t data_offset = mirror::Array::DataOffset(component_size).Uint32Value();
+          if (i >= data_offset) {
+            os << tabs << "Dirty array element " << (i - data_offset) / component_size << "\n";
+            // Skip to next element to prevent spam.
+            i += component_size - 1;
+            continue;
+          }
+        }
+        os << tabs << "No field for byte offset " << i << "\n";
+      }
+    }
+  }
+  // Dump different fields. TODO: Dump field contents.
+  if (!dirty_instance_fields.empty()) {
+    os << tabs << "Dirty instance fields " << dirty_instance_fields.size() << "\n";
+    for (ArtField* field : dirty_instance_fields) {
+      os << tabs << ArtField::PrettyField(field)
+         << " original=" << PrettyFieldValue(field, obj)
+         << " remote=" << PrettyFieldValue(field, remote_obj) << "\n";
+    }
+  }
+  if (!dirty_static_fields.empty()) {
+    os << tabs << "Dirty static fields " << dirty_static_fields.size() << "\n";
+    for (ArtField* field : dirty_static_fields) {
+      os << tabs << ArtField::PrettyField(field)
+         << " original=" << PrettyFieldValue(field, obj)
+         << " remote=" << PrettyFieldValue(field, remote_obj) << "\n";
+    }
+  }
+  os << "\n";
+}
+
+template<typename T>
+void DiffDirtyObjects(std::ostream* oss,
+                      const std::set<T*>& dirty_objects,
+                      uint8_t* begin_image_ptr,
+                      std::vector<uint8_t>* contents) {
+  for (mirror::Object* obj : dirty_objects) {
+    uint8_t* obj_bytes = reinterpret_cast<uint8_t*>(obj);
+    ptrdiff_t offset = obj_bytes - begin_image_ptr;
+    uint8_t* remote_bytes = &(*contents)[offset];
+    DiffObjectContents(obj, remote_bytes, *oss);
+  }
+}
+
+template<typename T>
+void DumpDirtyObjects(std::ostream* oss,
+                      ObjectRegionData<T>* object_region_data,
+                      std::map<mirror::Class*, ClassData<mirror::Object>>* class_data,
+                      std::vector<uint8_t>* remote_contents,
+                      const backtrace_map_t& boot_map,
+                      PointerSize pointer_size,
+                      const ImageHeader& image_header)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::ostream& os = *oss;
+  // vector of pairs (int count, Class*)
+  auto dirty_object_class_values =
+      SortByValueDesc<mirror::Class*, int, ClassData<mirror::Object>>(
+          *class_data,
+          [](const ClassData<mirror::Object>& d) { return d.dirty_object_count; });
+  os << "\n" << "  Dirty object count by class:\n";
+  for (const auto& vk_pair : dirty_object_class_values) {
+    int dirty_object_count = vk_pair.first;
+    mirror::Class* klass = vk_pair.second;
+    ClassData<mirror::Object>& obj_class_data = (*class_data)[klass];
+    int object_sizes = obj_class_data.dirty_object_size_in_bytes;
+    float avg_dirty_bytes_per_class =
+        obj_class_data.dirty_object_byte_count * 1.0f / object_sizes;
+    float avg_object_size = object_sizes * 1.0f / dirty_object_count;
+    const std::string& descriptor = obj_class_data.descriptor;
+    os << "    " << mirror::Class::PrettyClass(klass) << " ("
+       << "objects: " << dirty_object_count << ", "
+       << "avg dirty bytes: " << avg_dirty_bytes_per_class << ", "
+       << "avg object size: " << avg_object_size << ", "
+       << "class descriptor: '" << descriptor << "'"
+       << ")\n";
+
+    if (strcmp(descriptor.c_str(), "Ljava/lang/reflect/ArtMethod;") == 0) {
+      DumpSamplesAndOffsetCount(oss, object_region_data);
+      DumpArtMethod(oss,
+                    object_region_data,
+                    remote_contents,
+                    boot_map,
+                    pointer_size,
+                    image_header);
+    }
+    if (strcmp(descriptor.c_str(), "Ljava/lang/Class;") == 0) {
+      DumpSamplesAndOffsetCount(oss, object_region_data);
+      DumpClass(oss, obj_class_data, remote_contents, image_header);
+    }
+  }
+}
+
+template<typename T>
+void DumpFalseDirtyObjects(std::ostream* oss,
+                           std::map<mirror::Class*, ClassData<T>>* class_data,
+                           PointerSize pointer_size)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::ostream& os = *oss;
+  auto false_dirty_object_class_values =
+      SortByValueDesc<mirror::Class*, int, ClassData<T>>(
+          *class_data,
+          [](const ClassData<T>& d) { return d.false_dirty_object_count; });
+  os << "\n" << "  False-dirty object count by class:\n";
+  for (const auto& vk_pair : false_dirty_object_class_values) {
+    int object_count = vk_pair.first;
+    mirror::Class* klass = vk_pair.second;
+    ClassData<T>& obj_class_data = (*class_data)[klass];
+    int object_sizes = obj_class_data.false_dirty_byte_count;
+    float avg_object_size = object_sizes * 1.0f / object_count;
+    const std::string& descriptor = obj_class_data.descriptor;
+    os << "    " << mirror::Class::PrettyClass(klass) << " ("
+       << "objects: " << object_count << ", "
+       << "avg object size: " << avg_object_size << ", "
+       << "total bytes: " << object_sizes << ", "
+       << "class descriptor: '" << descriptor << "'"
+       << ")\n";
+
+    if (strcmp(descriptor.c_str(), "Ljava/lang/reflect/ArtMethod;") == 0) {
+      auto& art_method_false_dirty_objects = obj_class_data.false_dirty_objects;
+
+      os << "      field contents:\n";
+      for (T* obj : art_method_false_dirty_objects) {
+        // local method
+        auto art_method = reinterpret_cast<ArtMethod*>(obj);
+        // local class
+        mirror::Class* declaring_class = art_method->GetDeclaringClass();
+        DumpOneArtMethod(oss, art_method, declaring_class, nullptr, pointer_size);
+      }
+    }
+  }
+}
+
+template<typename T>
+void DumpCleanObjects(std::ostream* oss,
+                      std::map<mirror::Class*, ClassData<T>>* class_data)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::ostream& os = *oss;
+  // vector of pairs (int count, Class*)
+  auto clean_object_class_values =
+      SortByValueDesc<mirror::Class*, int, ClassData<T>>(
+          *class_data,
+          [](const ClassData<T>& d) { return d.clean_object_count; });
+  os << "\n" << "  Clean object count by class:\n";
+  for (const auto& vk_pair : clean_object_class_values) {
+    os << "    " << mirror::Class::PrettyClass(vk_pair.second) << " (" << vk_pair.first << ")\n";
+  }
+}
+
+}  // namespace
+
+
 class ImgDiagDumper {
  public:
   explicit ImgDiagDumper(std::ostream* os,
@@ -228,14 +865,7 @@ class ImgDiagDumper {
     return DumpImageDiffMap();
   }
 
-  bool ComputeDirtyBytes(const uint8_t* image_begin,
-                         size_t* dirty_pages /*out*/,
-                         size_t* different_pages /*out*/,
-                         size_t* different_bytes /*out*/,
-                         size_t* different_int32s /*out*/,
-                         size_t* private_pages /*out*/,
-                         size_t* private_dirty_pages /*out*/,
-                         std::set<size_t>* dirty_page_set_local) {
+  bool ComputeDirtyBytes(const uint8_t* image_begin, MappingData* mapping_data /*out*/) {
     std::ostream& os = *os_;
 
     size_t virtual_page_idx = 0;   // Virtual page number (for an absolute memory address)
@@ -254,7 +884,7 @@ class ImgDiagDumper {
       uint8_t* remote_ptr = &remote_contents_[offset];
 
       if (memcmp(local_ptr, remote_ptr, kPageSize) != 0) {
-        ++*different_pages;
+        mapping_data->different_pages++;
 
         // Count the number of 32-bit integers that are different.
         for (size_t i = 0; i < kPageSize / sizeof(uint32_t); ++i) {
@@ -262,7 +892,7 @@ class ImgDiagDumper {
           const uint32_t* local_ptr_int32 = reinterpret_cast<const uint32_t*>(local_ptr);
 
           if (remote_ptr_int32[i] != local_ptr_int32[i]) {
-            ++*different_int32s;
+            mapping_data->different_int32s++;
           }
         }
       }
@@ -286,7 +916,7 @@ class ImgDiagDumper {
       page_idx = (offset + page_off_begin) / kPageSize;
       if (*local_ptr != *remote_ptr) {
         // Track number of bytes that are different
-        ++*different_bytes;
+        mapping_data->different_bytes++;
       }
 
       // Independently count the # of dirty pages on the remote side
@@ -307,294 +937,38 @@ class ImgDiagDumper {
           os << error_msg;
           return false;
         } else if (dirtiness > 0) {
-          ++*dirty_pages;
-          dirty_page_set_local->insert(dirty_page_set_local->end(), virtual_page_idx);
+          mapping_data->dirty_pages++;
+          mapping_data->dirty_page_set.insert(mapping_data->dirty_page_set.end(), virtual_page_idx);
         }
 
         bool is_dirty = dirtiness > 0;
         bool is_private = page_count == 1;
 
         if (page_count == 1) {
-          ++*private_pages;
+          mapping_data->private_pages++;
         }
 
         if (is_dirty && is_private) {
-          ++*private_dirty_pages;
+          mapping_data->private_dirty_pages++;
         }
       }
     }
+    mapping_data->false_dirty_pages = mapping_data->dirty_pages - mapping_data->different_pages;
+    // Print low-level (bytes, int32s, pages) statistics.
+    os << mapping_data->different_bytes << " differing bytes,\n  "
+       << mapping_data->different_int32s << " differing int32s,\n  "
+       << mapping_data->different_pages << " differing pages,\n  "
+       << mapping_data->dirty_pages << " pages are dirty;\n  "
+       << mapping_data->false_dirty_pages << " pages are false dirty;\n  "
+       << mapping_data->private_pages << " pages are private;\n  "
+       << mapping_data->private_dirty_pages << " pages are Private_Dirty\n  ";
+
     return true;
-  }
-
-  bool ObjectIsOnDirtyPage(const uint8_t* item,
-                           size_t size,
-                           const std::set<size_t>& dirty_page_set_local) {
-    size_t page_off = 0;
-    size_t current_page_idx;
-    uintptr_t object_address = reinterpret_cast<uintptr_t>(item);
-    // Iterate every page this object belongs to
-    do {
-      current_page_idx = object_address / kPageSize + page_off;
-
-      if (dirty_page_set_local.find(current_page_idx) != dirty_page_set_local.end()) {
-        // This object is on a dirty page
-        return true;
-      }
-
-      page_off++;
-    } while ((current_page_idx * kPageSize) < RoundUp(object_address + size, kObjectAlignment));
-
-    return false;
-  }
-
-  static std::string PrettyFieldValue(ArtField* field, mirror::Object* obj)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    std::ostringstream oss;
-    switch (field->GetTypeAsPrimitiveType()) {
-      case Primitive::kPrimNot: {
-        oss << obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(
-            field->GetOffset());
-        break;
-      }
-      case Primitive::kPrimBoolean: {
-        oss << static_cast<bool>(obj->GetFieldBoolean<kVerifyNone>(field->GetOffset()));
-        break;
-      }
-      case Primitive::kPrimByte: {
-        oss << static_cast<int32_t>(obj->GetFieldByte<kVerifyNone>(field->GetOffset()));
-        break;
-      }
-      case Primitive::kPrimChar: {
-        oss << obj->GetFieldChar<kVerifyNone>(field->GetOffset());
-        break;
-      }
-      case Primitive::kPrimShort: {
-        oss << obj->GetFieldShort<kVerifyNone>(field->GetOffset());
-        break;
-      }
-      case Primitive::kPrimInt: {
-        oss << obj->GetField32<kVerifyNone>(field->GetOffset());
-        break;
-      }
-      case Primitive::kPrimLong: {
-        oss << obj->GetField64<kVerifyNone>(field->GetOffset());
-        break;
-      }
-      case Primitive::kPrimFloat: {
-        oss << obj->GetField32<kVerifyNone>(field->GetOffset());
-        break;
-      }
-      case Primitive::kPrimDouble: {
-        oss << obj->GetField64<kVerifyNone>(field->GetOffset());
-        break;
-      }
-      case Primitive::kPrimVoid: {
-        oss << "void";
-        break;
-      }
-    }
-    return oss.str();
-  }
-
-  // Aggregate and detail class data from an image diff.
-  struct ClassData {
-    size_t dirty_object_count = 0;
-
-    // Track only the byte-per-byte dirtiness (in bytes)
-    size_t dirty_object_byte_count = 0;
-
-    // Track the object-by-object dirtiness (in bytes)
-    size_t dirty_object_size_in_bytes = 0;
-
-    size_t clean_object_count = 0;
-
-    std::string descriptor;
-
-    size_t false_dirty_byte_count = 0;
-    size_t false_dirty_object_count = 0;
-    std::vector<const uint8_t*> false_dirty_objects;
-
-    // Remote pointers to dirty objects
-    std::vector<const uint8_t*> dirty_objects;
-  };
-
-  void DiffObjectContents(mirror::Object* obj,
-                          uint8_t* remote_bytes,
-                          std::ostream& os) REQUIRES_SHARED(Locks::mutator_lock_) {
-    const char* tabs = "    ";
-    // Attempt to find fields for all dirty bytes.
-    mirror::Class* klass = obj->GetClass();
-    if (obj->IsClass()) {
-      os << tabs << "Class " << mirror::Class::PrettyClass(obj->AsClass()) << " " << obj << "\n";
-    } else {
-      os << tabs << "Instance of " << mirror::Class::PrettyClass(klass) << " " << obj << "\n";
-    }
-
-    std::unordered_set<ArtField*> dirty_instance_fields;
-    std::unordered_set<ArtField*> dirty_static_fields;
-    const uint8_t* obj_bytes = reinterpret_cast<const uint8_t*>(obj);
-    mirror::Object* remote_obj = reinterpret_cast<mirror::Object*>(remote_bytes);
-    for (size_t i = 0, count = obj->SizeOf(); i < count; ++i) {
-      if (obj_bytes[i] != remote_bytes[i]) {
-        ArtField* field = ArtField::FindInstanceFieldWithOffset</*exact*/false>(klass, i);
-        if (field != nullptr) {
-          dirty_instance_fields.insert(field);
-        } else if (obj->IsClass()) {
-          field = ArtField::FindStaticFieldWithOffset</*exact*/false>(obj->AsClass(), i);
-          if (field != nullptr) {
-            dirty_static_fields.insert(field);
-          }
-        }
-        if (field == nullptr) {
-          if (klass->IsArrayClass()) {
-            mirror::Class* component_type = klass->GetComponentType();
-            Primitive::Type primitive_type = component_type->GetPrimitiveType();
-            size_t component_size = Primitive::ComponentSize(primitive_type);
-            size_t data_offset = mirror::Array::DataOffset(component_size).Uint32Value();
-            if (i >= data_offset) {
-              os << tabs << "Dirty array element " << (i - data_offset) / component_size << "\n";
-              // Skip to next element to prevent spam.
-              i += component_size - 1;
-              continue;
-            }
-          }
-          os << tabs << "No field for byte offset " << i << "\n";
-        }
-      }
-    }
-    // Dump different fields. TODO: Dump field contents.
-    if (!dirty_instance_fields.empty()) {
-      os << tabs << "Dirty instance fields " << dirty_instance_fields.size() << "\n";
-      for (ArtField* field : dirty_instance_fields) {
-        os << tabs << ArtField::PrettyField(field)
-           << " original=" << PrettyFieldValue(field, obj)
-           << " remote=" << PrettyFieldValue(field, remote_obj) << "\n";
-      }
-    }
-    if (!dirty_static_fields.empty()) {
-      os << tabs << "Dirty static fields " << dirty_static_fields.size() << "\n";
-      for (ArtField* field : dirty_static_fields) {
-        os << tabs << ArtField::PrettyField(field)
-           << " original=" << PrettyFieldValue(field, obj)
-           << " remote=" << PrettyFieldValue(field, remote_obj) << "\n";
-      }
-    }
-    os << "\n";
-  }
-
-  struct ObjectRegionData {
-    // Count of objects that are different.
-    size_t different_objects = 0;
-
-    // Local objects that are dirty (differ in at least one byte).
-    size_t dirty_object_bytes = 0;
-    std::vector<const uint8_t*>* dirty_objects;
-
-    // Local objects that are clean, but located on dirty pages.
-    size_t false_dirty_object_bytes = 0;
-    std::vector<const uint8_t*> false_dirty_objects;
-
-    // Image dirty objects
-    // If zygote_pid_only_ == true, these are shared dirty objects in the zygote.
-    // If zygote_pid_only_ == false, these are private dirty objects in the application.
-    std::set<const uint8_t*> image_dirty_objects;
-
-    // Zygote dirty objects (probably private dirty).
-    // We only add objects here if they differed in both the image and the zygote, so
-    // they are probably private dirty.
-    std::set<const uint8_t*> zygote_dirty_objects;
-
-    std::map<off_t /* field offset */, size_t /* count */>* field_dirty_count;
-  };
-
-  void ComputeObjectDirty(const uint8_t* current,
-                          const uint8_t* current_remote,
-                          const uint8_t* current_zygote,
-                          ClassData* obj_class_data,
-                          size_t obj_size,
-                          const std::set<size_t>& dirty_page_set_local,
-                          ObjectRegionData* region_data /*out*/) {
-    bool different_image_object = memcmp(current, current_remote, obj_size) != 0;
-    if (different_image_object) {
-      bool different_zygote_object = false;
-      if (!zygote_contents_.empty()) {
-        different_zygote_object = memcmp(current, current_zygote, obj_size) != 0;
-      }
-      if (different_zygote_object) {
-        // Different from zygote.
-        region_data->zygote_dirty_objects.insert(current);
-      } else {
-        // Just different from image.
-        region_data->image_dirty_objects.insert(current);
-      }
-
-      ++region_data->different_objects;
-      region_data->dirty_object_bytes += obj_size;
-
-      ++obj_class_data->dirty_object_count;
-
-      // Go byte-by-byte and figure out what exactly got dirtied
-      size_t dirty_byte_count_per_object = 0;
-      for (size_t i = 0; i < obj_size; ++i) {
-        if (current[i] != current_remote[i]) {
-          dirty_byte_count_per_object++;
-        }
-      }
-      obj_class_data->dirty_object_byte_count += dirty_byte_count_per_object;
-      obj_class_data->dirty_object_size_in_bytes += obj_size;
-      obj_class_data->dirty_objects.push_back(current_remote);
-    } else {
-      ++obj_class_data->clean_object_count;
-    }
-
-    if (different_image_object) {
-      if (region_data->dirty_objects != nullptr) {
-        // print the fields that are dirty
-        for (size_t i = 0; i < obj_size; ++i) {
-          if (current[i] != current_remote[i]) {
-            size_t dirty_count = 0;
-            if (region_data->field_dirty_count->find(i) != region_data->field_dirty_count->end()) {
-              dirty_count = (*region_data->field_dirty_count)[i];
-            }
-            (*region_data->field_dirty_count)[i] = dirty_count + 1;
-          }
-        }
-
-        region_data->dirty_objects->push_back(current);
-      }
-      /*
-       * TODO: Resurrect this stuff in the client when we add ArtMethod iterator.
-      } else {
-        std::string descriptor = GetClassDescriptor(klass);
-        if (strcmp(descriptor.c_str(), "Ljava/lang/reflect/ArtMethod;") == 0) {
-          // this is an ArtMethod
-          ArtMethod* art_method = reinterpret_cast<ArtMethod*>(remote_obj);
-
-          // print the fields that are dirty
-          for (size_t i = 0; i < obj_size; ++i) {
-            if (current[i] != current_remote[i]) {
-              art_method_field_dirty_count[i]++;
-            }
-          }
-
-          art_method_dirty_objects.push_back(art_method);
-        }
-      }
-      */
-    } else if (ObjectIsOnDirtyPage(current, obj_size, dirty_page_set_local)) {
-      // This object was either never mutated or got mutated back to the same value.
-      // TODO: Do I want to distinguish a "different" vs a "dirty" page here?
-      region_data->false_dirty_objects.push_back(current);
-      obj_class_data->false_dirty_objects.push_back(current);
-      region_data->false_dirty_object_bytes += obj_size;
-      obj_class_data->false_dirty_byte_count += obj_size;
-      obj_class_data->false_dirty_object_count += 1;
-    }
   }
 
   // Look at /proc/$pid/mem and only diff the things from there
   bool DumpImageDiffMap()
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     std::ostream& os = *os_;
     std::string error_msg;
 
@@ -624,36 +998,15 @@ class ImgDiagDumper {
       // If we wanted even more validation we could map the ImageHeader from the file
     }
 
-    size_t dirty_pages = 0;
-    size_t different_pages = 0;
-    size_t different_bytes = 0;
-    size_t different_int32s = 0;
-    size_t private_pages = 0;
-    size_t private_dirty_pages = 0;
+    MappingData mapping_data;
 
-    // Set of the local virtual page indices that are dirty
-    std::set<size_t> dirty_page_set_local;
-
-    if (!ComputeDirtyBytes(image_begin,
-                           &dirty_pages,
-                           &different_pages,
-                           &different_bytes,
-                           &different_int32s,
-                           &private_pages,
-                           &private_dirty_pages,
-                           &dirty_page_set_local)) {
+    os << "Mapping at [" << reinterpret_cast<void*>(boot_map_.start) << ", "
+       << reinterpret_cast<void*>(boot_map_.end) << ") had:\n  ";
+    if (!ComputeDirtyBytes(image_begin, &mapping_data)) {
       return false;
     }
 
-    std::map<mirror::Class*, ClassData> class_data;
-
-    // Walk each object in the remote image space and compare it against ours
-    std::map<off_t /* field offset */, int /* count */> art_method_field_dirty_count;
-    std::vector<ArtMethod*> art_method_dirty_objects;
-
-    std::map<off_t /* field offset */, size_t /* count */> class_field_dirty_count;
-    std::vector<const uint8_t*> class_dirty_objects;
-
+    std::map<mirror::Class*, ClassData<mirror::Object>> class_data;
 
     // Look up remote classes by their descriptor
     std::map<std::string, mirror::Class*> remote_class_map;
@@ -663,53 +1016,47 @@ class ImgDiagDumper {
     const uint8_t* begin_image_ptr = image_begin_unaligned;
     const uint8_t* end_image_ptr = image_mirror_end_unaligned;
 
-    ObjectRegionData region_data;
+    ObjectRegionData<mirror::Object> object_region_data;
 
     const uint8_t* current = begin_image_ptr + RoundUp(sizeof(ImageHeader), kObjectAlignment);
     while (reinterpret_cast<uintptr_t>(current) < reinterpret_cast<uintptr_t>(end_image_ptr)) {
       CHECK_ALIGNED(current, kObjectAlignment);
-      mirror::Object* obj = reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current));
+      mirror::Object* object = reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current));
 
       // Sanity check that we are reading a real object
-      CHECK(obj->GetClass() != nullptr) << "Image object at address " << obj << " has null class";
+      CHECK(object->GetClass() != nullptr) << "Image object at address "
+                                           << object
+                                           << " has null class";
       if (kUseBakerReadBarrier) {
-        obj->AssertReadBarrierState();
+        object->AssertReadBarrierState();
       }
-
-      mirror::Class* klass = obj->GetClass();
-      size_t obj_size = obj->SizeOf();
-      ClassData& obj_class_data = class_data[klass];
 
       // Check against the other object and see if they are different
       ptrdiff_t offset = current - begin_image_ptr;
       const uint8_t* current_remote = &remote_contents_[offset];
+      mirror::Object* object_remote =
+          reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current_remote));
       const uint8_t* current_zygote =
           zygote_contents_.empty() ? nullptr : &zygote_contents_[offset];
+      mirror::Object* object_zygote =
+          reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current_zygote));
 
-      if (klass->IsClassClass()) {
-        region_data.field_dirty_count = &class_field_dirty_count;
-        region_data.dirty_objects = &class_dirty_objects;
-      } else {
-        region_data.field_dirty_count = nullptr;
-        region_data.dirty_objects = nullptr;
-      }
+      mirror::Class* klass = object->GetClass();
+      size_t obj_size = object->SizeOf();
+      ClassData<mirror::Object>& obj_class_data = class_data[klass];
 
-
-      ComputeObjectDirty(current,
-                         current_remote,
-                         current_zygote,
+      ComputeObjectDirty(object,
+                         object_remote,
+                         object_zygote,
                          &obj_class_data,
-                         obj_size,
-                         dirty_page_set_local,
-                         &region_data);
+                         mapping_data.dirty_page_set,
+                         &object_region_data);
 
       // Object specific stuff.
       std::string descriptor = GetClassDescriptor(klass);
       if (strcmp(descriptor.c_str(), "Ljava/lang/Class;") == 0) {
-        local_class_map[descriptor] = reinterpret_cast<mirror::Class*>(obj);
-        mirror::Object* remote_obj = reinterpret_cast<mirror::Object*>(
-            const_cast<uint8_t*>(current_remote));
-        remote_class_map[descriptor] = reinterpret_cast<mirror::Class*>(remote_obj);
+        local_class_map[descriptor] = reinterpret_cast<mirror::Class*>(object);
+        remote_class_map[descriptor] = reinterpret_cast<mirror::Class*>(object_remote);
       }
 
       // Unconditionally store the class descriptor in case we need it later
@@ -719,40 +1066,27 @@ class ImgDiagDumper {
     }
 
     // Looking at only dirty pages, figure out how many of those bytes belong to dirty objects.
-    float true_dirtied_percent = region_data.dirty_object_bytes * 1.0f / (dirty_pages * kPageSize);
-    size_t false_dirty_pages = dirty_pages - different_pages;
+    // TODO: fix this now that there are multiple regions in a mapping.
+    float true_dirtied_percent =
+        object_region_data.dirty_object_bytes * 1.0f / (mapping_data.dirty_pages * kPageSize);
 
-    os << "Mapping at [" << reinterpret_cast<void*>(boot_map_.start) << ", "
-       << reinterpret_cast<void*>(boot_map_.end) << ") had: \n  "
-       << different_bytes << " differing bytes, \n  "
-       << different_int32s << " differing int32s, \n  "
-       << region_data.different_objects << " different objects, \n  "
-       << region_data.dirty_object_bytes << " different object [bytes], \n  "
-       << region_data.false_dirty_objects.size() << " false dirty objects,\n  "
-       << region_data.false_dirty_object_bytes << " false dirty object [bytes], \n  "
+    // Object specific statistics.
+    os << object_region_data.different_objects << " different objects, \n  "
+       << object_region_data.dirty_object_bytes << " different object [bytes], \n  "
+       << object_region_data.false_dirty_objects.size() << " false dirty objects,\n  "
+       << object_region_data.false_dirty_object_bytes << " false dirty object [bytes], \n  "
        << true_dirtied_percent << " different objects-vs-total in a dirty page;\n  "
-       << different_pages << " different pages; \n  "
-       << dirty_pages << " pages are dirty; \n  "
-       << false_dirty_pages << " pages are false dirty; \n  "
-       << private_pages << " pages are private; \n  "
-       << private_dirty_pages << " pages are Private_Dirty\n  "
        << "";
 
-    // vector of pairs (int count, Class*)
-    auto dirty_object_class_values = SortByValueDesc<mirror::Class*, int, ClassData>(
-        class_data, [](const ClassData& d) { return d.dirty_object_count; });
-    auto clean_object_class_values = SortByValueDesc<mirror::Class*, int, ClassData>(
-        class_data, [](const ClassData& d) { return d.clean_object_count; });
-
-    if (!region_data.zygote_dirty_objects.empty()) {
+    if (!object_region_data.zygote_dirty_objects.empty()) {
       // We only reach this point if both pids were specified.  Furthermore,
       // objects are only displayed here if they differed in both the image
       // and the zygote, so they are probably private dirty.
       CHECK(image_diff_pid_ > 0 && zygote_diff_pid_ > 0);
       os << "\n" << "  Zygote dirty objects (probably shared dirty): "
-         << region_data.zygote_dirty_objects.size() << "\n";
-      for (const uint8_t* obj_bytes : region_data.zygote_dirty_objects) {
-        auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(obj_bytes));
+         << object_region_data.zygote_dirty_objects.size() << "\n";
+      for (mirror::Object* obj : object_region_data.zygote_dirty_objects) {
+        uint8_t* obj_bytes = reinterpret_cast<uint8_t*>(obj);
         ptrdiff_t offset = obj_bytes - begin_image_ptr;
         uint8_t* remote_bytes = &zygote_contents_[offset];
         DiffObjectContents(obj, remote_bytes, os);
@@ -770,236 +1104,25 @@ class ImgDiagDumper {
         os << "  Application dirty objects (unknown whether private or shared dirty): ";
       }
     }
-    os << region_data.image_dirty_objects.size() << "\n";
-    for (const uint8_t* obj_bytes : region_data.image_dirty_objects) {
-      auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(obj_bytes));
+    os << object_region_data.image_dirty_objects.size() << "\n";
+    for (mirror::Object* obj : object_region_data.image_dirty_objects) {
+      uint8_t* obj_bytes = reinterpret_cast<uint8_t*>(obj);
       ptrdiff_t offset = obj_bytes - begin_image_ptr;
       uint8_t* remote_bytes = &remote_contents_[offset];
       DiffObjectContents(obj, remote_bytes, os);
     }
 
-    os << "\n" << "  Dirty object count by class:\n";
-    for (const auto& vk_pair : dirty_object_class_values) {
-      int dirty_object_count = vk_pair.first;
-      mirror::Class* klass = vk_pair.second;
-      int object_sizes = class_data[klass].dirty_object_size_in_bytes;
-      float avg_dirty_bytes_per_class =
-          class_data[klass].dirty_object_byte_count * 1.0f / object_sizes;
-      float avg_object_size = object_sizes * 1.0f / dirty_object_count;
-      const std::string& descriptor = class_data[klass].descriptor;
-      os << "    " << mirror::Class::PrettyClass(klass) << " ("
-         << "objects: " << dirty_object_count << ", "
-         << "avg dirty bytes: " << avg_dirty_bytes_per_class << ", "
-         << "avg object size: " << avg_object_size << ", "
-         << "class descriptor: '" << descriptor << "'"
-         << ")\n";
-
-      constexpr size_t kMaxAddressPrint = 5;
-      if (strcmp(descriptor.c_str(), "Ljava/lang/reflect/ArtMethod;") == 0) {
-        os << "      sample object addresses: ";
-        for (size_t i = 0; i < art_method_dirty_objects.size() && i < kMaxAddressPrint; ++i) {
-          auto art_method = art_method_dirty_objects[i];
-
-          os << reinterpret_cast<void*>(art_method) << ", ";
-        }
-        os << "\n";
-
-        os << "      dirty byte +offset:count list = ";
-        auto art_method_field_dirty_count_sorted =
-            SortByValueDesc<off_t, int, int>(art_method_field_dirty_count);
-        for (auto pair : art_method_field_dirty_count_sorted) {
-          off_t offset = pair.second;
-          int count = pair.first;
-
-          os << "+" << offset << ":" << count << ", ";
-        }
-
-        os << "\n";
-
-        os << "      field contents:\n";
-        const auto& dirty_objects_list = class_data[klass].dirty_objects;
-        for (const uint8_t* uobj : dirty_objects_list) {
-          auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(uobj));
-          // remote method
-          auto art_method = reinterpret_cast<ArtMethod*>(obj);
-
-          // remote class
-          mirror::Class* remote_declaring_class =
-            FixUpRemotePointer(art_method->GetDeclaringClass(), remote_contents_, boot_map_);
-
-          // local class
-          mirror::Class* declaring_class =
-            RemoteContentsPointerToLocal(remote_declaring_class, remote_contents_, image_header_);
-
-          os << "        " << reinterpret_cast<void*>(obj) << " ";
-          os << "  entryPointFromJni: "
-             << reinterpret_cast<const void*>(
-                    art_method->GetDataPtrSize(pointer_size_)) << ", ";
-          os << "  entryPointFromQuickCompiledCode: "
-             << reinterpret_cast<const void*>(
-                    art_method->GetEntryPointFromQuickCompiledCodePtrSize(pointer_size_))
-             << ", ";
-          os << "  isNative? " << (art_method->IsNative() ? "yes" : "no") << ", ";
-          os << "  class_status (local): " << declaring_class->GetStatus();
-          os << "  class_status (remote): " << remote_declaring_class->GetStatus();
-          os << "\n";
-        }
-      }
-      if (strcmp(descriptor.c_str(), "Ljava/lang/Class;") == 0) {
-        os << "       sample object addresses: ";
-        for (size_t i = 0; i < class_dirty_objects.size() && i < kMaxAddressPrint; ++i) {
-          auto class_ptr = class_dirty_objects[i];
-
-          os << reinterpret_cast<const void*>(class_ptr) << ", ";
-        }
-        os << "\n";
-
-        os << "       dirty byte +offset:count list = ";
-        auto class_field_dirty_count_sorted =
-            SortByValueDesc<off_t, int, size_t>(class_field_dirty_count);
-        for (auto pair : class_field_dirty_count_sorted) {
-          off_t offset = pair.second;
-          int count = pair.first;
-
-          os << "+" << offset << ":" << count << ", ";
-        }
-        os << "\n";
-
-        os << "      field contents:\n";
-        // TODO: templatize this to avoid the awful casts down to uint8_t* and back.
-        const auto& dirty_objects_list = class_data[klass].dirty_objects;
-        for (const uint8_t* uobj : dirty_objects_list) {
-          auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(uobj));
-          // remote class object
-          auto remote_klass = reinterpret_cast<mirror::Class*>(obj);
-
-          // local class object
-          auto local_klass = RemoteContentsPointerToLocal(remote_klass,
-                                                          remote_contents_,
-                                                          image_header_);
-
-          os << "        " << reinterpret_cast<const void*>(obj) << " ";
-          os << "  class_status (remote): " << remote_klass->GetStatus() << ", ";
-          os << "  class_status (local): " << local_klass->GetStatus();
-          os << "\n";
-        }
-      }
-    }
-
-    auto false_dirty_object_class_values = SortByValueDesc<mirror::Class*, int, ClassData>(
-        class_data, [](const ClassData& d) { return d.false_dirty_object_count; });
-
-    os << "\n" << "  False-dirty object count by class:\n";
-    for (const auto& vk_pair : false_dirty_object_class_values) {
-      int object_count = vk_pair.first;
-      mirror::Class* klass = vk_pair.second;
-      int object_sizes = class_data[klass].false_dirty_byte_count;
-      float avg_object_size = object_sizes * 1.0f / object_count;
-      const std::string& descriptor = class_data[klass].descriptor;
-      os << "    " << mirror::Class::PrettyClass(klass) << " ("
-         << "objects: " << object_count << ", "
-         << "avg object size: " << avg_object_size << ", "
-         << "total bytes: " << object_sizes << ", "
-         << "class descriptor: '" << descriptor << "'"
-         << ")\n";
-
-      if (strcmp(descriptor.c_str(), "Ljava/lang/reflect/ArtMethod;") == 0) {
-        // TODO: templatize this to avoid the awful casts down to uint8_t* and back.
-        auto& art_method_false_dirty_objects = class_data[klass].false_dirty_objects;
-
-        os << "      field contents:\n";
-        for (const uint8_t* uobj : art_method_false_dirty_objects) {
-          auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(uobj));
-          // local method
-          auto art_method = reinterpret_cast<ArtMethod*>(obj);
-
-          // local class
-          mirror::Class* declaring_class = art_method->GetDeclaringClass();
-
-          os << "        " << reinterpret_cast<const void*>(obj) << " ";
-          os << "  entryPointFromJni: "
-             << reinterpret_cast<const void*>(
-                    art_method->GetDataPtrSize(pointer_size_)) << ", ";
-          os << "  entryPointFromQuickCompiledCode: "
-             << reinterpret_cast<const void*>(
-                    art_method->GetEntryPointFromQuickCompiledCodePtrSize(pointer_size_))
-             << ", ";
-          os << "  isNative? " << (art_method->IsNative() ? "yes" : "no") << ", ";
-          os << "  class_status (local): " << declaring_class->GetStatus();
-          os << "\n";
-        }
-      }
-    }
-
-    os << "\n" << "  Clean object count by class:\n";
-    for (const auto& vk_pair : clean_object_class_values) {
-      os << "    " << mirror::Class::PrettyClass(vk_pair.second) << " (" << vk_pair.first << ")\n";
-    }
+    DumpDirtyObjects(os_,
+                     &object_region_data,
+                     &class_data,
+                     &remote_contents_,
+                     boot_map_,
+                     pointer_size_,
+                     image_header_);
+    DumpFalseDirtyObjects(os_, &class_data, pointer_size_);
+    DumpCleanObjects(os_, &class_data);
 
     return true;
-  }
-
-  // Fixup a remote pointer that we read from a foreign boot.art to point to our own memory.
-  // Returned pointer will point to inside of remote_contents.
-  template <typename T>
-  static T* FixUpRemotePointer(T* remote_ptr,
-                               std::vector<uint8_t>& remote_contents,
-                               const backtrace_map_t& boot_map) {
-    if (remote_ptr == nullptr) {
-      return nullptr;
-    }
-
-    uintptr_t remote = reinterpret_cast<uintptr_t>(remote_ptr);
-
-    CHECK_LE(boot_map.start, remote);
-    CHECK_GT(boot_map.end, remote);
-
-    off_t boot_offset = remote - boot_map.start;
-
-    return reinterpret_cast<T*>(&remote_contents[boot_offset]);
-  }
-
-  template <typename T>
-  static T* RemoteContentsPointerToLocal(T* remote_ptr,
-                                         std::vector<uint8_t>& remote_contents,
-                                         const ImageHeader& image_header) {
-    if (remote_ptr == nullptr) {
-      return nullptr;
-    }
-
-    uint8_t* remote = reinterpret_cast<uint8_t*>(remote_ptr);
-    ptrdiff_t boot_offset = remote - &remote_contents[0];
-
-    const uint8_t* local_ptr = reinterpret_cast<const uint8_t*>(&image_header) + boot_offset;
-
-    return reinterpret_cast<T*>(const_cast<uint8_t*>(local_ptr));
-  }
-
-  static std::string GetClassDescriptor(mirror::Class* klass)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-    CHECK(klass != nullptr);
-
-    std::string descriptor;
-    const char* descriptor_str = klass->GetDescriptor(&descriptor);
-
-    return std::string(descriptor_str);
-  }
-
-  template <typename K, typename V, typename D>
-  static std::vector<std::pair<V, K>> SortByValueDesc(
-      const std::map<K, D> map,
-      std::function<V(const D&)> value_mapper = [](const D& d) { return static_cast<V>(d); }) {
-    // Store value->key so that we can use the default sort from pair which
-    // sorts by value first and then key
-    std::vector<std::pair<V, K>> value_key_vector;
-
-    for (const auto& kv_pair : map) {
-      value_key_vector.push_back(std::make_pair(value_mapper(kv_pair.second), kv_pair.first));
-    }
-
-    // Sort in reverse (descending order)
-    std::sort(value_key_vector.rbegin(), value_key_vector.rend());
-    return value_key_vector;
   }
 
   static bool GetPageFrameNumber(File* page_map_file,
