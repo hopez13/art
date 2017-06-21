@@ -26,10 +26,15 @@
 #include "driver/compiler_driver.h"
 #include "linear_order.h"
 
+#include "superblock_cloner.h"
+
 namespace art {
 
 // Enables vectorization (SIMDization) in the loop optimizer.
 static constexpr bool kEnableVectorization = true;
+static constexpr bool kEnablePeelUnroll = true;
+// If true do unrolling, otherwise peeling.
+static constexpr bool kDoUnrolling = false;
 
 // All current SIMD targets want 16-byte alignment.
 static constexpr size_t kAlignedBase = 16;
@@ -469,6 +474,62 @@ void HLoopOptimization::RemoveLoop(LoopNode* node) {
   }
 }
 
+void HLoopOptimization::UpdateLoopNestLoopInfoRecursively(LoopNode* loop_node) {
+  while (loop_node != nullptr) {
+    loop_node->loop_info = loop_node->loop_info->GetHeader()->GetLoopInformation();
+    if (loop_node->inner != nullptr) {
+      UpdateLoopNestLoopInfoRecursively(loop_node->inner);
+    }
+    loop_node = loop_node->next;
+  }
+}
+
+void HLoopOptimization::UpdateLoopNestLoopInfo(LoopNode* loop_node) {
+  loop_node->loop_info = loop_node->loop_info->GetHeader()->GetLoopInformation();
+  if (loop_node->inner != nullptr) {
+    UpdateLoopNestLoopInfoRecursively(loop_node->inner);
+  }
+}
+
+// An example to show how loop peeling/unrolling can be implemented.
+bool HLoopOptimization::DoPeelingOrUnrolling(LoopNode* loop_node) {
+  HLoopInformation* loop_info = loop_node->loop_info;
+  DCHECK(loop_node->inner == nullptr);
+  // For now do peeling only for natural loops.
+  if (loop_info->IsIrreducible()) {
+    return false;
+  }
+
+  // Check that loop info is up-to-date.
+  DCHECK(loop_info == loop_info->GetHeader()->GetLoopInformation());
+  HBasicBlock* new_loop_header = PeelUnrollLoop(loop_info, kDoUnrolling);
+  if (new_loop_header == nullptr) {
+    return false;
+  }
+  loop_node->loop_info = new_loop_header->GetLoopInformation();
+
+  // traverse backward.
+  LoopNode* cur_loop_node = loop_node->previous;
+  while (cur_loop_node != nullptr) {
+    UpdateLoopNestLoopInfo(cur_loop_node);
+    cur_loop_node = cur_loop_node->previous;
+  }
+
+  // traverse forward.
+  cur_loop_node = loop_node->next;
+  while (cur_loop_node != nullptr) {
+    UpdateLoopNestLoopInfo(cur_loop_node);
+    cur_loop_node = cur_loop_node->next;
+  }
+
+  LoopNode *outer_loop_node = loop_node->outer;
+  if (outer_loop_node != nullptr) {
+    UpdateLoopNestLoopInfo(outer_loop_node);
+  }
+
+  return true;
+}
+
 bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
   bool changed = false;
   for ( ; node != nullptr; node = node->next) {
@@ -488,7 +549,11 @@ bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
     } while (simplified_);
     // Optimize inner loop.
     if (node->inner == nullptr) {
-      changed = OptimizeInnerLoop(node) || changed;
+      bool inner_loop_optimized = OptimizeInnerLoop(node);
+      if (kEnablePeelUnroll && !inner_loop_optimized && node->inner == nullptr) {
+        inner_loop_optimized |= DoPeelingOrUnrolling(node);
+      }
+      changed = inner_loop_optimized || changed;
     }
   }
   return changed;

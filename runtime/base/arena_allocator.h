@@ -99,6 +99,7 @@ enum ArenaAllocKind {
   kArenaAllocCHA,
   kArenaAllocScheduler,
   kArenaAllocProfile,
+  kArenaAllocSuperblockCloner,
   kNumArenaAllocKinds
 };
 

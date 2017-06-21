@@ -129,6 +129,9 @@ class HLoopOptimization : public HOptimization {
   // unrolling, vectorization). Returns true if anything changed.
   bool OptimizeInnerLoop(LoopNode* node);
 
+  void UpdateLoopNestLoopInfoRecursively(LoopNode* loop_node);
+  void UpdateLoopNestLoopInfo(LoopNode* loop_node);
+  bool DoPeelingOrUnrolling(LoopNode* loop_node);
   //
   // Vectorization analysis and synthesis.
   //

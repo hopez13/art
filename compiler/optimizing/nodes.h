@@ -421,6 +421,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
 
   void SplitCriticalEdge(HBasicBlock* block, HBasicBlock* successor);
   void OrderLoopHeaderPredecessors(HBasicBlock* header);
+  void OrderLoopsHeadersPredecessors();
   void SimplifyLoop(HBasicBlock* header);
 
   int32_t GetNextInstructionId() {
@@ -808,6 +809,8 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
 
   // Finds blocks that are part of this loop.
   void Populate();
+
+  void PopulateInnerLoopUpwards(HLoopInformation* inner_loop);
 
   // Returns whether this loop information contains `block`.
   // Note that this loop information *must* be populated before entering this function.

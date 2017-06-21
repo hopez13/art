@@ -129,7 +129,7 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
 };
 
 void InstructionSimplifier::Run() {
-#if 1
+#if 0
   // TODO: This is an exhaustive test of individual HInstructions cloning. Remove it.
   for (HBasicBlock* block : graph_->GetReversePostOrder()) {
     for (HInstructionIterator it(block->GetInstructions()); !it.Done(); ) {
