@@ -50,6 +50,94 @@ namespace art {
 
 using android::base::StringPrintf;
 
+namespace {
+
+template <typename T> size_t ObjectSize(T* obj);
+template<> size_t ObjectSize(mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
+  return obj->SizeOf();
+}
+/*
+template<> size_t ObjectSize(ArtMethod* art_method) REQUIRES_SHARED(Locks::mutator_lock_) {
+  return sizeof(*art_method);
+}
+*/
+
+template <typename T>
+static bool ObjectsDiffer(T* obj1, T* obj2) REQUIRES_SHARED(Locks::mutator_lock_) {
+  size_t obj_size = ObjectSize(obj1);
+  const uint8_t* p1 = reinterpret_cast<const uint8_t*>(obj1);
+  const uint8_t* p2 = reinterpret_cast<const uint8_t*>(obj2);
+  return memcmp(p1, p2, obj_size) != 0;
+}
+
+template <typename T>
+struct ObjectRegionData {
+ public:
+  // Count of objects that are different.
+  size_t different_objects = 0;
+
+  // Local objects that are dirty (differ in at least one byte).
+  size_t dirty_object_bytes = 0;
+  std::vector<T*>* dirty_objects = nullptr;
+
+  // Local objects that are clean, but located on dirty pages.
+  size_t false_dirty_object_bytes = 0;
+  std::vector<T*> false_dirty_objects;
+
+  // Image dirty objects
+  // If zygote_pid_only_ == true, these are shared dirty objects in the zygote.
+  // If zygote_pid_only_ == false, these are private dirty objects in the application.
+  std::set<T*> image_dirty_objects;
+
+  // Zygote dirty objects (probably private dirty).
+  // We only add objects here if they differed in both the image and the zygote, so
+  // they are probably private dirty.
+  std::set<T*> zygote_dirty_objects;
+
+  std::map<off_t /* field offset */, size_t /* count */>* field_dirty_count = nullptr;
+
+  void AddZygoteDirtyObject(T* object, T* object_remote) REQUIRES_SHARED(Locks::mutator_lock_) {
+    zygote_dirty_objects.insert(object);
+    AddDirtyObject(object, object_remote);
+  }
+
+  void AddImageDirtyObject(T* object, T* object_remote) REQUIRES_SHARED(Locks::mutator_lock_) {
+    image_dirty_objects.insert(object);
+    AddDirtyObject(object, object_remote);
+  }
+
+  void AddFalseDirtyObject(T* object) REQUIRES_SHARED(Locks::mutator_lock_) {
+    false_dirty_objects.push_back(object);
+    false_dirty_object_bytes += ObjectSize(object);
+  }
+
+ private:
+  void AddDirtyObject(T* object, T* object_remote) REQUIRES_SHARED(Locks::mutator_lock_) {
+    size_t obj_size = ObjectSize(object);
+    ++different_objects;
+    dirty_object_bytes += obj_size;
+
+    if (dirty_objects != nullptr) {
+      // Increment counts for the fields that are dirty
+      const uint8_t* current = reinterpret_cast<const uint8_t*>(object);
+      const uint8_t* current_remote = reinterpret_cast<const uint8_t*>(object_remote);
+      for (size_t i = 0; i < obj_size; ++i) {
+        if (current[i] != current_remote[i]) {
+          size_t dirty_count = 0;
+          if (field_dirty_count->find(i) != field_dirty_count->end()) {
+            dirty_count = (*field_dirty_count)[i];
+          }
+          (*field_dirty_count)[i] = dirty_count + 1;
+        }
+      }
+      dirty_objects->push_back(object);
+    }
+  }
+};
+
+}  // namespace
+
+
 class ImgDiagDumper {
  public:
   explicit ImgDiagDumper(std::ostream* os,
@@ -197,6 +285,7 @@ class ImgDiagDumper {
     os << "\n\n";
     PrintPidLine("ZYGOTE", zygote_diff_pid_);
     bool ret = true;
+    fprintf(stderr, "BEFORE DID\n");
     if (image_diff_pid_ >= 0 || zygote_diff_pid_ >= 0) {
       if (image_diff_pid_ < 0) {
         image_diff_pid_ = zygote_diff_pid_;
@@ -316,12 +405,13 @@ class ImgDiagDumper {
     return true;
   }
 
-  bool ObjectIsOnDirtyPage(const uint8_t* item,
-                           size_t size,
-                           const std::set<size_t>& dirty_page_set_local) {
+  template <typename T>
+  bool ObjectIsOnDirtyPage(T* object, const std::set<size_t>& dirty_page_set_local)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    size_t size = ObjectSize(object);
     size_t page_off = 0;
     size_t current_page_idx;
-    uintptr_t object_address = reinterpret_cast<uintptr_t>(item);
+    uintptr_t object_address = reinterpret_cast<uintptr_t>(object);
     // Iterate every page this object belongs to
     do {
       current_page_idx = object_address / kPageSize + page_off;
@@ -387,7 +477,9 @@ class ImgDiagDumper {
   }
 
   // Aggregate and detail class data from an image diff.
+  template <typename T>
   struct ClassData {
+   public:
     size_t dirty_object_count = 0;
 
     // Track only the byte-per-byte dirtiness (in bytes)
@@ -402,10 +494,42 @@ class ImgDiagDumper {
 
     size_t false_dirty_byte_count = 0;
     size_t false_dirty_object_count = 0;
-    std::vector<const uint8_t*> false_dirty_objects;
+    std::vector<T*> false_dirty_objects;
 
     // Remote pointers to dirty objects
-    std::vector<const uint8_t*> dirty_objects;
+    std::vector<T*> dirty_objects;
+
+    void AddCleanObject() REQUIRES_SHARED(Locks::mutator_lock_) {
+      ++clean_object_count;
+    }
+
+    void AddDirtyObject(T* object, T* object_remote) REQUIRES_SHARED(Locks::mutator_lock_) {
+      ++dirty_object_count;
+      dirty_object_byte_count += CountDirtyBytes(object, object_remote);
+      dirty_object_size_in_bytes += ObjectSize(object);
+      dirty_objects.push_back(object_remote);
+    }
+
+    void AddFalseDirtyObject(T* object) REQUIRES_SHARED(Locks::mutator_lock_) {
+      ++false_dirty_object_count;
+      false_dirty_objects.push_back(object);
+      false_dirty_byte_count += ObjectSize(object);
+    }
+
+   private:
+    // Go byte-by-byte and figure out what exactly got dirtied
+    static size_t CountDirtyBytes(T* obj1, T* obj2) REQUIRES_SHARED(Locks::mutator_lock_) {
+      const uint8_t* cur1 = reinterpret_cast<const uint8_t*>(obj1);
+      const uint8_t* cur2 = reinterpret_cast<const uint8_t*>(obj2);
+      size_t dirty_bytes = 0;
+      size_t obj_size = ObjectSize(obj1);
+      for (size_t i = 0; i < obj_size; ++i) {
+        if (cur1[i] != cur2[i]) {
+          dirty_bytes++;
+        }
+      }
+      return dirty_bytes;
+    }
   };
 
   void DiffObjectContents(mirror::Object* obj,
@@ -472,82 +596,33 @@ class ImgDiagDumper {
     os << "\n";
   }
 
-  struct ObjectRegionData {
-    // Count of objects that are different.
-    size_t different_objects = 0;
-
-    // Local objects that are dirty (differ in at least one byte).
-    size_t dirty_object_bytes = 0;
-    std::vector<const uint8_t*>* dirty_objects;
-
-    // Local objects that are clean, but located on dirty pages.
-    size_t false_dirty_object_bytes = 0;
-    std::vector<const uint8_t*> false_dirty_objects;
-
-    // Image dirty objects
-    // If zygote_pid_only_ == true, these are shared dirty objects in the zygote.
-    // If zygote_pid_only_ == false, these are private dirty objects in the application.
-    std::set<const uint8_t*> image_dirty_objects;
-
-    // Zygote dirty objects (probably private dirty).
-    // We only add objects here if they differed in both the image and the zygote, so
-    // they are probably private dirty.
-    std::set<const uint8_t*> zygote_dirty_objects;
-
-    std::map<off_t /* field offset */, size_t /* count */> field_dirty_count;
-  };
-
-  void ComputeObjectDirty(const uint8_t* current,
-                          const uint8_t* current_remote,
-                          const uint8_t* current_zygote,
-                          ClassData* obj_class_data,
-                          size_t obj_size,
+  template <typename T>
+  void ComputeObjectDirty(T* object,
+                          T* object_remote,
+                          T* object_zygote,
+                          ClassData<T>* class_data,
                           const std::set<size_t>& dirty_page_set_local,
-                          ObjectRegionData* region_data /*out*/) {
-    bool different_image_object = memcmp(current, current_remote, obj_size) != 0;
+                          ObjectRegionData<T>* region_data /*out*/)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+    bool different_image_object = ObjectsDiffer(object, object_remote);
     if (different_image_object) {
       bool different_zygote_object = false;
       if (!zygote_contents_.empty()) {
-        different_zygote_object = memcmp(current, current_zygote, obj_size) != 0;
+        different_zygote_object = ObjectsDiffer(object, object_zygote);
       }
       if (different_zygote_object) {
         // Different from zygote.
-        region_data->zygote_dirty_objects.insert(current);
+        region_data->AddZygoteDirtyObject(object, object_remote);
       } else {
         // Just different from image.
-        region_data->image_dirty_objects.insert(current);
+        region_data->AddImageDirtyObject(object, object_remote);
       }
 
-      ++region_data->different_objects;
-      region_data->dirty_object_bytes += obj_size;
-
-      ++obj_class_data->dirty_object_count;
-
-      // Go byte-by-byte and figure out what exactly got dirtied
-      size_t dirty_byte_count_per_object = 0;
-      for (size_t i = 0; i < obj_size; ++i) {
-        if (current[i] != current_remote[i]) {
-          dirty_byte_count_per_object++;
-        }
-      }
-      obj_class_data->dirty_object_byte_count += dirty_byte_count_per_object;
-      obj_class_data->dirty_object_size_in_bytes += obj_size;
-      obj_class_data->dirty_objects.push_back(current_remote);
+      class_data->AddDirtyObject(object, object_remote);
     } else {
-      ++obj_class_data->clean_object_count;
+      class_data->AddCleanObject();
     }
 
-    if (different_image_object) {
-      if (region_data->dirty_objects != nullptr) {
-        // print the fields that are dirty
-        for (size_t i = 0; i < obj_size; ++i) {
-          if (current[i] != current_remote[i]) {
-            region_data->field_dirty_count[i]++;
-          }
-        }
-
-        region_data->dirty_objects->push_back(current);
-      }
       /*
        * TODO: Resurrect this stuff in the client when we add ArtMethod iterator.
       } else {
@@ -567,14 +642,11 @@ class ImgDiagDumper {
         }
       }
       */
-    } else if (ObjectIsOnDirtyPage(current, obj_size, dirty_page_set_local)) {
+    if (!different_image_object && ObjectIsOnDirtyPage(object, dirty_page_set_local)) {
       // This object was either never mutated or got mutated back to the same value.
       // TODO: Do I want to distinguish a "different" vs a "dirty" page here?
-      region_data->false_dirty_objects.push_back(current);
-      obj_class_data->false_dirty_objects.push_back(current);
-      region_data->false_dirty_object_bytes += obj_size;
-      obj_class_data->false_dirty_byte_count += obj_size;
-      obj_class_data->false_dirty_object_count += 1;
+      region_data->AddFalseDirtyObject(object);
+      class_data->AddFalseDirtyObject(object);
     }
   }
 
@@ -631,14 +703,14 @@ class ImgDiagDumper {
       return false;
     }
 
-    std::map<mirror::Class*, ClassData> class_data;
+    std::map<mirror::Class*, ClassData<mirror::Object>> class_data;
 
     // Walk each object in the remote image space and compare it against ours
     std::map<off_t /* field offset */, int /* count */> art_method_field_dirty_count;
     std::vector<ArtMethod*> art_method_dirty_objects;
 
     std::map<off_t /* field offset */, size_t /* count */> class_field_dirty_count;
-    std::vector<const uint8_t*> class_dirty_objects;
+    std::vector<mirror::Object*> class_dirty_objects;
 
 
     // Look up remote classes by their descriptor
@@ -649,48 +721,55 @@ class ImgDiagDumper {
     const uint8_t* begin_image_ptr = image_begin_unaligned;
     const uint8_t* end_image_ptr = image_mirror_end_unaligned;
 
-    ObjectRegionData region_data;
+    ObjectRegionData<mirror::Object> object_region_data;
 
     const uint8_t* current = begin_image_ptr + RoundUp(sizeof(ImageHeader), kObjectAlignment);
     while (reinterpret_cast<uintptr_t>(current) < reinterpret_cast<uintptr_t>(end_image_ptr)) {
       CHECK_ALIGNED(current, kObjectAlignment);
-      mirror::Object* obj = reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current));
+      mirror::Object* object = reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current));
 
       // Sanity check that we are reading a real object
-      CHECK(obj->GetClass() != nullptr) << "Image object at address " << obj << " has null class";
+      CHECK(object->GetClass() != nullptr) << "Image object at address "
+                                           << object
+                                           << " has null class";
       if (kUseBakerReadBarrier) {
-        obj->AssertReadBarrierState();
+        object->AssertReadBarrierState();
       }
 
-      mirror::Class* klass = obj->GetClass();
-      size_t obj_size = obj->SizeOf();
-      ClassData& obj_class_data = class_data[klass];
+      mirror::Class* klass = object->GetClass();
+      size_t obj_size = object->SizeOf();
+      ClassData<mirror::Object>& obj_class_data = class_data[klass];
 
       // Check against the other object and see if they are different
       ptrdiff_t offset = current - begin_image_ptr;
       const uint8_t* current_remote = &remote_contents_[offset];
+      mirror::Object* object_remote =
+          reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current_remote));
       const uint8_t* current_zygote =
           zygote_contents_.empty() ? nullptr : &zygote_contents_[offset];
+      mirror::Object* object_zygote =
+          reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current_zygote));
 
-      std::map<off_t /* field offset */, size_t /* count */>* field_dirty_count = nullptr;
       if (klass->IsClassClass()) {
-        field_dirty_count = &class_field_dirty_count;
+        object_region_data.field_dirty_count = &class_field_dirty_count;
+        object_region_data.dirty_objects = &class_dirty_objects;
+      } else {
+        object_region_data.field_dirty_count = nullptr;
+        object_region_data.dirty_objects = nullptr;
       }
 
-      ComputeObjectDirty(current,
-                         current_remote,
-                         current_zygote,
+      ComputeObjectDirty(object,
+                         object_remote,
+                         object_zygote,
                          &obj_class_data,
-                         obj_size,
                          dirty_page_set_local,
-                         &region_data);
+                         &object_region_data);
 
       // Object specific stuff.
       std::string descriptor = GetClassDescriptor(klass);
       if (strcmp(descriptor.c_str(), "Ljava/lang/Class;") == 0) {
-        local_class_map[descriptor] = reinterpret_cast<mirror::Class*>(obj);
-        mirror::Object* remote_obj = reinterpret_cast<mirror::Object*>(
-            const_cast<uint8_t*>(current_remote));
+        local_class_map[descriptor] = reinterpret_cast<mirror::Class*>(object);
+        auto remote_obj = reinterpret_cast<mirror::Object*>(const_cast<uint8_t*>(current_remote));
         remote_class_map[descriptor] = reinterpret_cast<mirror::Class*>(remote_obj);
       }
 
@@ -701,17 +780,18 @@ class ImgDiagDumper {
     }
 
     // Looking at only dirty pages, figure out how many of those bytes belong to dirty objects.
-    float true_dirtied_percent = region_data.dirty_object_bytes * 1.0f / (dirty_pages * kPageSize);
+    float true_dirtied_percent =
+        object_region_data.dirty_object_bytes * 1.0f / (dirty_pages * kPageSize);
     size_t false_dirty_pages = dirty_pages - different_pages;
 
     os << "Mapping at [" << reinterpret_cast<void*>(boot_map_.start) << ", "
        << reinterpret_cast<void*>(boot_map_.end) << ") had: \n  "
        << different_bytes << " differing bytes, \n  "
        << different_int32s << " differing int32s, \n  "
-       << region_data.different_objects << " different objects, \n  "
-       << region_data.dirty_object_bytes << " different object [bytes], \n  "
-       << region_data.false_dirty_objects.size() << " false dirty objects,\n  "
-       << region_data.false_dirty_object_bytes << " false dirty object [bytes], \n  "
+       << object_region_data.different_objects << " different objects, \n  "
+       << object_region_data.dirty_object_bytes << " different object [bytes], \n  "
+       << object_region_data.false_dirty_objects.size() << " false dirty objects,\n  "
+       << object_region_data.false_dirty_object_bytes << " false dirty object [bytes], \n  "
        << true_dirtied_percent << " different objects-vs-total in a dirty page;\n  "
        << different_pages << " different pages; \n  "
        << dirty_pages << " pages are dirty; \n  "
@@ -721,20 +801,24 @@ class ImgDiagDumper {
        << "";
 
     // vector of pairs (int count, Class*)
-    auto dirty_object_class_values = SortByValueDesc<mirror::Class*, int, ClassData>(
-        class_data, [](const ClassData& d) { return d.dirty_object_count; });
-    auto clean_object_class_values = SortByValueDesc<mirror::Class*, int, ClassData>(
-        class_data, [](const ClassData& d) { return d.clean_object_count; });
+    auto dirty_object_class_values =
+        SortByValueDesc<mirror::Class*, int, ClassData<mirror::Object>>(
+            class_data,
+            [](const ClassData<mirror::Object>& d) { return d.dirty_object_count; });
+    auto clean_object_class_values =
+        SortByValueDesc<mirror::Class*, int, ClassData<mirror::Object>>(
+            class_data,
+            [](const ClassData<mirror::Object>& d) { return d.clean_object_count; });
 
-    if (!region_data.zygote_dirty_objects.empty()) {
+    if (!object_region_data.zygote_dirty_objects.empty()) {
       // We only reach this point if both pids were specified.  Furthermore,
       // objects are only displayed here if they differed in both the image
       // and the zygote, so they are probably private dirty.
       CHECK(image_diff_pid_ > 0 && zygote_diff_pid_ > 0);
       os << "\n" << "  Zygote dirty objects (probably shared dirty): "
-         << region_data.zygote_dirty_objects.size() << "\n";
-      for (const uint8_t* obj_bytes : region_data.zygote_dirty_objects) {
-        auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(obj_bytes));
+         << object_region_data.zygote_dirty_objects.size() << "\n";
+      for (mirror::Object* obj : object_region_data.zygote_dirty_objects) {
+        uint8_t* obj_bytes = reinterpret_cast<uint8_t*>(obj);
         ptrdiff_t offset = obj_bytes - begin_image_ptr;
         uint8_t* remote_bytes = &zygote_contents_[offset];
         DiffObjectContents(obj, remote_bytes, os);
@@ -752,9 +836,9 @@ class ImgDiagDumper {
         os << "  Application dirty objects (unknown whether private or shared dirty): ";
       }
     }
-    os << region_data.image_dirty_objects.size() << "\n";
-    for (const uint8_t* obj_bytes : region_data.image_dirty_objects) {
-      auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(obj_bytes));
+    os << object_region_data.image_dirty_objects.size() << "\n";
+    for (mirror::Object* obj : object_region_data.image_dirty_objects) {
+      uint8_t* obj_bytes = reinterpret_cast<uint8_t*>(obj);
       ptrdiff_t offset = obj_bytes - begin_image_ptr;
       uint8_t* remote_bytes = &remote_contents_[offset];
       DiffObjectContents(obj, remote_bytes, os);
@@ -800,8 +884,7 @@ class ImgDiagDumper {
 
         os << "      field contents:\n";
         const auto& dirty_objects_list = class_data[klass].dirty_objects;
-        for (const uint8_t* uobj : dirty_objects_list) {
-          auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(uobj));
+        for (mirror::Object* obj : dirty_objects_list) {
           // remote method
           auto art_method = reinterpret_cast<ArtMethod*>(obj);
 
@@ -850,8 +933,7 @@ class ImgDiagDumper {
         os << "      field contents:\n";
         // TODO: templatize this to avoid the awful casts down to uint8_t* and back.
         const auto& dirty_objects_list = class_data[klass].dirty_objects;
-        for (const uint8_t* uobj : dirty_objects_list) {
-          auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(uobj));
+        for (mirror::Object* obj : dirty_objects_list) {
           // remote class object
           auto remote_klass = reinterpret_cast<mirror::Class*>(obj);
 
@@ -868,8 +950,10 @@ class ImgDiagDumper {
       }
     }
 
-    auto false_dirty_object_class_values = SortByValueDesc<mirror::Class*, int, ClassData>(
-        class_data, [](const ClassData& d) { return d.false_dirty_object_count; });
+    auto false_dirty_object_class_values =
+        SortByValueDesc<mirror::Class*, int, ClassData<mirror::Object>>(
+            class_data,
+            [](const ClassData<mirror::Object>& d) { return d.false_dirty_object_count; });
 
     os << "\n" << "  False-dirty object count by class:\n";
     for (const auto& vk_pair : false_dirty_object_class_values) {
@@ -890,8 +974,7 @@ class ImgDiagDumper {
         auto& art_method_false_dirty_objects = class_data[klass].false_dirty_objects;
 
         os << "      field contents:\n";
-        for (const uint8_t* uobj : art_method_false_dirty_objects) {
-          auto obj = const_cast<mirror::Object*>(reinterpret_cast<const mirror::Object*>(uobj));
+        for (mirror::Object* obj : art_method_false_dirty_objects) {
           // local method
           auto art_method = reinterpret_cast<ArtMethod*>(obj);
 
