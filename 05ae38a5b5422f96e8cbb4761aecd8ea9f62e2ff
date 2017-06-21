@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bbc23170_7a148d23",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-21T16:36:51Z",
+      "side": 1,
+      "message": "According to the documentation in class.h: \"methods that are copied from interfaces such as miranda or default methods\".",
+      "parentUuid": "77be2d84_d9ec3c5a",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31e0c73e_f23c0626",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-21T15:52:24Z",
       "side": 1,
       "message": "Can a private method in a subclass shadow a virtual method in a base class?",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e760ef0c_813a97d0",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-21T16:36:51Z",
+      "side": 1,
+      "message": "Depends on the interpretation of \"shadowing\".\n\n  class B { public void foo() { } };\n  class D extends B { private void foo(); }\n  class U { void bar() {\n    ((B) new D()).foo();  // OK\n    new D().foo();  // IllegalAccessError, exactly as in RI.\n  }}\n\nOld ART behavior was inconsistent, User and User2 had different behavior just because they were in different dex files, see the new test.",
+      "parentUuid": "31e0c73e_f23c0626",
       "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6162246a_92d6d8a4",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-21T16:36:51Z",
+      "side": 1,
+      "message": "Yes, that\u0027s fully intentional and exactly the same as RI behavior.",
+      "parentUuid": "1724e717_d6f5dcee",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c616033_9d01c047",
         "filename": "runtime/verifier/method_resolution_kind.h",
         "patchSetId": 9
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "162d8651_d247c202",
+        "filename": "runtime/verifier/method_resolution_kind.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-21T16:36:51Z",
+      "side": 1,
+      "message": "invoke-super performs lookup based on whether the resolved class is interface or not. That\u0027s actually what I\u0027m going to do for other invokes as well, stay tuned. (And this enum shall be eliminated.)",
+      "parentUuid": "0c616033_9d01c047",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "132e71e6_a732393c",
         "filename": "test/162-method-idx-clash/smali/UserOfDerivedWithStaticFooInBaseAndImplementedFooInInterface.smali",
         "patchSetId": 9
@@ -81,6 +153,24 @@
       "writtenOn": "2017-06-21T15:52:24Z",
       "side": 1,
       "message": "Can you do this with partial compilation somehow without the smali?\n\nI\u0027m just thinking that this test should probably work with run-test --jvm since it\u0027s supposed to make it more conforming to RI.",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e473c3b_2b94ed89",
+        "filename": "test/162-method-idx-clash/smali/UserOfDerivedWithStaticFooInBaseAndImplementedFooInInterface.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-21T16:36:51Z",
+      "side": 1,
+      "message": "What do you mean by \"partial compilation\"? I\u0027d be happy to have java files if I find out how. (Maybe I should investigate some other tests that have 2 different versions of the same class.)",
+      "parentUuid": "132e71e6_a732393c",
       "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
