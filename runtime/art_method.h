@@ -514,10 +514,10 @@ class ArtMethod FINAL {
     SetNativePointer(DataOffset(pointer_size), data, pointer_size);
   }
 
-  // Is this a CalleSaveMethod or ResolutionMethod and therefore doesn't adhere to normal
+  // Is this a CalleeSaveMethod or ResolutionMethod and therefore doesn't adhere to normal
   // conventions for a method of managed code. Returns false for Proxy methods.
   ALWAYS_INLINE bool IsRuntimeMethod() {
-    return dex_method_index_ == kRuntimeMethodDexMethodIndex;;
+    return dex_method_index_ == kRuntimeMethodDexMethodIndex;
   }
 
   // Is this a hand crafted method used for something like describing callee saves?
@@ -717,7 +717,18 @@ class ArtMethod FINAL {
  private:
   uint16_t FindObsoleteDexClassDefIndex() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool IsAnnotatedWith(jclass klass, uint32_t visibility);
+  // Check whether this method is annotated with `klass`.
+  // If `allow_class_resolution` is true, resolve any of the method's
+  // annotations' classes as a side effect; otherwise, look them up in
+  // the bootstrap class loader's resolved types.
+  bool IsAnnotatedWith(jclass klass, uint32_t visibility, bool allow_class_resolution);
+
+  // Check whether this method is annotated with optimization `klass`.
+  // Do not resolve the method's annotations' classes as a side effect
+  // -- instead, look them up in the bootstrap class loader's resolved
+  // types. (This is to prevent exceptions from being thrown (during
+  // class resolution) in JNI transitions.)
+  bool IsAnnotatedWithOptimization(jclass klass);
 
   static constexpr size_t PtrSizedFieldsOffset(PointerSize pointer_size) {
     // Round up to pointer size for padding field. Tested in art_method.cc.
