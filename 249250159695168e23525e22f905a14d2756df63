@@ -88,6 +88,24 @@
       "revId": "249250159695168e23525e22f905a14d2756df63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9389166c_35b3ad43",
+        "filename": "test/636-wrong-static-access/src/Foo.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-21T21:56:18Z",
+      "side": 1,
+      "message": "Ok I split this out into a separate CL and fix it for jack and javac both.\n\nhttps://android-review.googlesource.com/420458",
+      "parentUuid": "46230775_c3ce2e9f",
+      "revId": "249250159695168e23525e22f905a14d2756df63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
