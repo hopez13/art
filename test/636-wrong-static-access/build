@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# Copyright 2017 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# Compile src-ex with src/Holder.java but then delete Holder.java from the src-ex jar.
+# (At runtime src2/Holder.java ends up being used instead).
+#
+
+if [[ "$USE_JACK" != true ]]; then
+  cp src/Holder.java src-ex/Holder.java
+
+  export ORIGINAL_JAVAC="$JAVAC"
+
+  # Delete Holder.class after compiling it in src-ex jar so that it instead uses the src jar.
+  function javac_wrapper {
+    $ORIGINAL_JAVAC "$@"
+    local stat=$?
+
+    [[ -d classes-ex ]] && [[ -f classes-ex/Holder.class ]] && rm classes-ex/Holder.class
+
+    return $stat
+  }
+
+  export -f javac_wrapper
+  export JAVAC=javac_wrapper
+fi
+
+./default-build "$@"
