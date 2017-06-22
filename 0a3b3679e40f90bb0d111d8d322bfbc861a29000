@@ -94,6 +94,30 @@
       "revId": "0a3b3679e40f90bb0d111d8d322bfbc861a29000",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c28f49f_542b731f",
+        "filename": "test/636-wrong-static-access/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T19:53:34Z",
+      "side": 1,
+      "message": "Jack *was* the special case in default-build, it is only test that is taking advantage of how jack compiles things.\n\nI added support in default-build to do same thing as for jack for src-ex builds.",
+      "parentUuid": "e7347cd6_1523e342",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "0a3b3679e40f90bb0d111d8d322bfbc861a29000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
