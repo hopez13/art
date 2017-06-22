@@ -45,6 +45,30 @@
       "revId": "9dcbb74e765fa5779781555b13cc0daed535e25c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7979dd05_464d5902",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-22T22:04:32Z",
+      "side": 1,
+      "message": "Seems this will generate target fore core-verify then generates all art files needed, is that enough?",
+      "parentUuid": "2a395ba4_0dc87ba8",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 91
+      },
+      "revId": "9dcbb74e765fa5779781555b13cc0daed535e25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
