@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "711fe5ad_80e3a73e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-22T04:10:05Z",
+      "side": 1,
+      "message": "Alternatively I could move this into Abort(), and use Abort() directly as the android-base/logging Aborter.\n\nI didn\u0027t do this originally, as we never set the abort message in Abort.",
+      "range": {
+        "startLine": 547,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 6
+      },
+      "revId": "08ac7b129fb1c525a7626523260ecb5cb4bd07e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
