@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe9388b9_cfbb3849",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-22T16:42:00Z",
+      "side": 1,
+      "message": "\"I\u0027d prefer not recognizing at all. Chances are, it will all be dead code as GVN always runs. Or have you seen cases it;s needed?\"\n\nHi Nicolas, did you mean that we shouldn\u0027t perform such recognizing at all?",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "revId": "60fb8c0e90d5203ae5ddc5299d95f175754fa4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
