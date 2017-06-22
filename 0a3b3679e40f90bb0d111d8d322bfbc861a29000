@@ -22,6 +22,30 @@
       "revId": "0a3b3679e40f90bb0d111d8d322bfbc861a29000",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5449a963_0562dc1f",
+        "filename": "test/636-wrong-static-access/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T14:24:53Z",
+      "side": 1,
+      "message": ".jack has .jayce files inside of them, no idea if deleting them would work the same way as deleting a .class file from inside a .jar.\n\nRegardless, jack default-build logic is different from javac [for src-ex]. I don\u0027t know exactly why/how, I\u0027m not a jack expert.\n\nSuffice it to say that with this change the dex files end up being the same.\n\nIf you have a cleaner idea I\u0027m all ears. This seems to be the only test suffering from this jack/javac duality in this manner, so trying to write something \"general\" in default-build didn\u0027t seem like a good investment?",
+      "parentUuid": "926e0063_479d772c",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "0a3b3679e40f90bb0d111d8d322bfbc861a29000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
