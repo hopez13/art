@@ -30,16 +30,31 @@ public class Test907 {
     A a = new A();
     B b = new B();
     A[] aArray = new A[5];
+    int[] iArray = new int[4];
+    Object c;
+    try {
+      // Cerr throws in it's clinit.
+      c = new Cerr();
+    } catch (Error e) { }
 
     String[] classes = getLoadedClasses();
     HashSet<String> classesSet = new HashSet<>(Arrays.asList(classes));
 
     String[] shouldBeLoaded = new String[] {
         "java.lang.Object", "java.lang.Class", "java.lang.String", "art.Test907$A",
-        "art.Test907$B", "[Lart.Test907$A;"
+        "art.Test907$B", "[Lart.Test907$A;", "[I", "art.Cerr",
+    };
+    String[] shouldNotBeLoaded = new String[] {
+      "I", "J", "B", "Z", "V", "J", "F", "D", "C", "S",
     };
 
     boolean error = false;
+    for (String s : shouldNotBeLoaded) {
+      if (classesSet.contains(s)) {
+        System.out.println("Found" + s);
+        error = true;
+      }
+    }
     for (String s : shouldBeLoaded) {
       if (!classesSet.contains(s)) {
         System.out.println("Did not find " + s);
