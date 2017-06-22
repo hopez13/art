@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7531971d_0c2e03cc",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T22:52:06Z",
+      "side": 1,
+      "message": "Just use atomic relaxed compare-and-swap here.",
+      "revId": "ebf33ca3e081ed83629ee587f6da7c3441f4964b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
