@@ -27,6 +27,7 @@ import dexfuzz.program.mutators.CodeMutator;
 import dexfuzz.program.mutators.ConstantValueChanger;
 import dexfuzz.program.mutators.ConversionRepeater;
 import dexfuzz.program.mutators.FieldFlagChanger;
+import dexfuzz.program.mutators.IfBranchChanger;
 import dexfuzz.program.mutators.InstructionDeleter;
 import dexfuzz.program.mutators.InstructionDuplicator;
 import dexfuzz.program.mutators.InstructionSwapper;
@@ -194,6 +195,7 @@ public class Program {
     registerMutator(new ConstantValueChanger(rng, mutationStats, mutations));
     registerMutator(new ConversionRepeater(rng, mutationStats, mutations));
     registerMutator(new FieldFlagChanger(rng, mutationStats, mutations));
+    registerMutator(new IfBranchChanger(rng, mutationStats, mutations));
     registerMutator(new InstructionDeleter(rng, mutationStats, mutations));
     registerMutator(new InstructionDuplicator(rng, mutationStats, mutations));
     registerMutator(new InstructionSwapper(rng, mutationStats, mutations));
