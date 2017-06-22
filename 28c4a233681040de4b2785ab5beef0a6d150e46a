@@ -22,6 +22,30 @@
       "revId": "28c4a233681040de4b2785ab5beef0a6d150e46a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d31560_41085b7b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-22T15:02:24Z",
+      "side": 1,
+      "message": "Yes. This is fixing up the function that I want to use to implement this bug. It needs to be fixed because that is a core request, so it really needs to be race-free now...",
+      "parentUuid": "a858b1af_e2113c3d",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "28c4a233681040de4b2785ab5beef0a6d150e46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
