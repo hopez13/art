@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa509b46_3646f599",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T22:28:57Z",
+      "side": 1,
+      "message": "nit: Probably better to rename it to \"FindInstanceMethod\" as the JVMS uses this term \"instance method\" when it comes to resolving things.",
+      "range": {
+        "startLine": 943,
+        "startChar": 13,
+        "endLine": 943,
+        "endChar": 38
+      },
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0bf8bd1_0b80e101",
+        "filename": "runtime/verifier/method_resolution_kind.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T22:28:57Z",
+      "side": 1,
+      "message": "Seems fine to combine these.\n\nWhat about static, super, etc? Maybe it should just be called kClassMethodResolution, kInterfaceMethodResolution\n\nAlso why is it missing invoke-custom which has a completely different resolution rule?",
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4bb7830_4eb68832",
+        "filename": "test/162-method-idx-clash/src2/Derived.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T22:28:57Z",
+      "side": 1,
+      "message": "Can you add comments here to explain each test, it\u0027s very confusing from source code to understand what \"Derived\" actually gets picked up and what the test is actually testing?",
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "665a103f_8402f3dc",
+        "filename": "test/etc/default-build",
+        "patchSetId": 11
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T22:28:57Z",
+      "side": 1,
+      "message": "Why is src2 not enough?",
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

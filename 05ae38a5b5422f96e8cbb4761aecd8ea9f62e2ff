@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "c2c9bba4_157a6e89",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T22:28:57Z",
+      "side": 1,
+      "message": "I fact-checked the article, and yeah, it\u0027s partially mistaken. Nicely spotted :).\n\nIt always prints \"Superclass\u0027s interesting method\". I tried it on RI, then changed invokespecial to invokevirtual (with jasmin) and tried again (with or without -Xverify:all). It always prints the same thing.\n\n---------------------------\n\nUnder JVMS 5.4.5:\n\n\u003e An instance method m1 declared in class C overrides another instance method m2 declared in class A iff all of the following are true:\n\u003e\n\u003e C is a subclass of A.\n\u003e m2 has the same name and descriptor as m1.\n\u003e Either:\n\u003e\n\u003e m2 is marked ACC_PUBLIC; or is marked ACC_PROTECTED; or is marked neither ACC_PUBLIC nor ACC_PROTECTED nor ACC_PRIVATE and belongs to the same run-time package as C, or\n\u003e m1 overrides a method m3, m3 distinct from m1, m3 distinct from m2, such that m3 overrides m2.\n\nConsider this even simpler example:\n\n   class A { private void x(){ print(\"A\"); } public static void Main() { invoke-virtual A#x; }}\n\nOn RI, this calls \"A#x\" successfully , checked with jasmin. However in JVMS it is unspecified behavior. Does a method M override itself? It doesn\u0027t say it anywhere, but that\u0027s the assumption.\n\n-----------------\n\nand we should probably add a test for this if we don\u0027t have one already.",
+      "parentUuid": "61fa5778_02f76252",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1724e717_d6f5dcee",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 9
@@ -173,6 +191,24 @@
       "side": 1,
       "message": "Changing the opcode changes the behavior, that\u0027s to be expected. The lookup shall now be the same but we do different things with the method we found.",
       "parentUuid": "459a34d2_598e06a5",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "401cab9e_097cd369",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T22:28:57Z",
+      "side": 1,
+      "message": "Ok, so if this is \"resolution\" then it\u0027s fine.\n\nHowever, invokestatic also shares same resolution rules. Why is there a separate FindStaticMethod? Only invokeinterface (and invokecustom) have different resolution rules.\n\nI suppose the only real difference is that exception it throws? Which could be handled at the call site?",
+      "parentUuid": "95780fd8_a5642945",
       "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
