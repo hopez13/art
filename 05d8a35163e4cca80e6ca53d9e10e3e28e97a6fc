@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ef0a2f5c_76d9b111",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T14:28:07Z",
+      "side": 1,
+      "message": "Why wouldn\u0027t regular JNI be hit by this as well? I am not sure I see how it\u0027s generic JNI specific?\n\nRegular JNI could also hit it from the DCHECK no?",
+      "parentUuid": "7d05d5cd_5a52f283",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4895c4e7_f4a980b6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
