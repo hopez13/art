@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a90beb03_91122eb3",
+        "filename": "profman/boot_image_profile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "Add a top level comment explain what you actually generate and why. How does clean/dirty fit in the picture and why you need to make a distinction. Also, explain what the counters mean (it looks to be the number of profiles a method appears in and not the \"hotness count\")",
+      "range": {
+        "startLine": 29,
+        "startChar": 5,
+        "endLine": 29,
+        "endChar": 29
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33e65892_75398ed3",
+        "filename": "profman/boot_image_profile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "out params at the end.",
+      "range": {
+        "startLine": 30,
+        "startChar": 28,
+        "endLine": 30,
+        "endChar": 39
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba5e6db7_23926a81",
+        "filename": "profman/boot_image_profile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "I don\u0027t really understand this. Need more context.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 95
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25f846ca_af3dae70",
+        "filename": "profman/boot_image_profile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "so this counts the number of profiles this method is in?",
+      "range": {
+        "startLine": 64,
+        "startChar": 16,
+        "endLine": 64,
+        "endChar": 23
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d2a6087_b26efe69",
+        "filename": "profman/boot_image_profile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "document here what constitute as dirty.",
+      "range": {
+        "startLine": 71,
+        "startChar": 60,
+        "endLine": 71,
+        "endChar": 74
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e753a4d_6398cbb8",
+        "filename": "profman/boot_image_profile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "you already have VLOG here. You shouldn\u0027t need the verbose argument.",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 8
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e5e453b_d8ee4347",
+        "filename": "profman/boot_image_profile.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "Document more: threshold of what? what is being counted and compared against.",
+      "range": {
+        "startLine": 34,
+        "startChar": 5,
+        "endLine": 34,
+        "endChar": 14
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c4dae6_168e005f",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "it is referred from one dex only?",
+      "range": {
+        "startLine": 638,
+        "startChar": 45,
+        "endLine": 638,
+        "endChar": 64
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6c91444_0cb03cdf",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "Add a separate flag for --generate-boot-image-profile and use defaults for these 2 so that I don\u0027t have to specify them all the time.\n\nAlso, document that you do need to pass the dex files for that (for which I don\u0027t see a check).",
+      "range": {
+        "startLine": 137,
+        "startChar": 17,
+        "endLine": 137,
+        "endChar": 44
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e048628a_d7bef200",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "return nullptr for errors.",
+      "range": {
+        "startLine": 352,
+        "startChar": 15,
+        "endLine": 352,
+        "endChar": 62
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e97097_7a76d9c2",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 358,
+        "startChar": 6,
+        "endLine": 358,
+        "endChar": 61
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02bb8c8f_a2dbe1ac",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "document why?",
+      "range": {
+        "startLine": 956,
+        "startChar": 4,
+        "endLine": 956,
+        "endChar": 19
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dbcf986_55f20a15",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-22T20:30:13Z",
+      "side": 1,
+      "message": "Document when and why we want this to be false.",
+      "range": {
+        "startLine": 303,
+        "startChar": 58,
+        "endLine": 303,
+        "endChar": 71
+      },
+      "revId": "e8142c37fc418bb3d906b0f6849edb54b2d84958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
