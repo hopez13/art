@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "61fa5778_02f76252",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-22T09:28:34Z",
+      "side": 1,
+      "message": "That article is mistaken.\n\nWith invokevirtual (use jasmin if needed) it should either complain about access (with -Xverify) or print \"Superclass\u0027s interesting method.\" (without -Xverify) because the lookup finds a _private_ method and a private method cannot be overridden. (But the private method is considered as overriding itself for the purposes of processing the invokevirtual.)",
+      "parentUuid": "9ea8b866_cdc477cf",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1724e717_d6f5dcee",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 9
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "I\u0027m not convinced this is right, maybe I\u0027m missing the bigger picture?\n\ninvokespecial should map to invoke-super and invoke-direct.\n\n\u003cinit\u003e, private invokes should be invoke-direct\ninvokes of ACC_SUPER classes (+ the other super contraints) should be invoke-super\n\nAs we demonstrated in above example, invokevirtual/invokedirect will change behavior even if same exact symbolic method reference is used, just by changing opcode.",
       "parentUuid": "6162246a_92d6d8a4",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95780fd8_a5642945",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-22T09:28:34Z",
+      "side": 1,
+      "message": "Changing the opcode changes the behavior, that\u0027s to be expected. The lookup shall now be the same but we do different things with the method we found.",
+      "parentUuid": "459a34d2_598e06a5",
       "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
