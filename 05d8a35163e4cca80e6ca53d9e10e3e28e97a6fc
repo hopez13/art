@@ -241,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "a6b734eb_db602b01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T17:28:28Z",
+      "side": 1,
+      "message": "That\u0027s an excellent point, Nicolas.\n\nI think I would tend to agree the complexity seems like it would be worth it in this case.\n\nIt would probably need to be implemented for both regular JNI as well as generic JNI, and we need to have a test to exercise this \"ignore exception\" functionality is working correctly.",
+      "parentUuid": "5c7d8eb0_024da091",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4895c4e7_f4a980b6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
