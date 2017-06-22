@@ -217,6 +217,30 @@
     },
     {
       "key": {
+        "uuid": "5c7d8eb0_024da091",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-22T17:16:01Z",
+      "side": 1,
+      "message": "The way it\u0027s done in this CL doesn\u0027t scale - I don\u0027t trust all the code we\u0027re running during that annotation lookup is interruption free, or exception free. And given the code it\u0027s going into, I could easily see someone change the behavior to again potentially throw an exception.\n\nAndreas: are you saying the generic JNI *could not* handle exceptions? Or that we haven\u0027t tested it?",
+      "parentUuid": "836e09c4_13f9ba68",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4895c4e7_f4a980b6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
