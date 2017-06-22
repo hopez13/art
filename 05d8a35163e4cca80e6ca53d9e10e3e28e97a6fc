@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "10449aac_aa6bbf72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-22T13:28:51Z",
+      "side": 1,
+      "message": "Yeah, if that\u0027s possible, it would probably be better.\n\nNote: Vladimir mentioned in b/34659969 that there\u0027s an issue with non-generic JNI too.",
+      "parentUuid": "12552618_8cbcc4dc",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4895c4e7_f4a980b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-22T13:28:51Z",
+      "side": 1,
+      "message": "This CL is lacking a non-regression test; I\u0027ll carve one out from the scenario seen in b/38454151.",
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53ba188c_3e668ba4",
         "filename": "runtime/art_method.h",
         "patchSetId": 1
@@ -48,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "5c153565_51b32b25",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-22T13:28:51Z",
+      "side": 1,
+      "message": "Sure; done in PS2.",
+      "parentUuid": "53ba188c_3e668ba4",
+      "range": {
+        "startLine": 732,
+        "startChar": 7,
+        "endLine": 732,
+        "endChar": 38
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "532fa080_fdb43386",
         "filename": "runtime/dex_file_annotations.cc",
         "patchSetId": 1
@@ -59,6 +124,24 @@
       "writtenOn": "2017-06-21T17:23:53Z",
       "side": 1,
       "message": "Why isn\u0027t this using the klass\u0027s classloader? It\u0027ll still be null for criticalnative/fastnative won\u0027t it?\n\nAnd if something else uses this function later it might be surprising that allow_class_resolution\u003dfalse also restricts it to only the bootclasspath classloader.",
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c70af2b8_8e915192",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-22T13:28:51Z",
+      "side": 1,
+      "message": "IIUC, in that context, `klass` is the declaring class of the method holding the annotations, so the associated class loader might not be the bootstrap class loader.\n\nI agree the name `allow_class_resolution` is probably not the best; maybe we should switch to something like `lookup_in_resolved_boot_classes`?",
+      "parentUuid": "532fa080_fdb43386",
       "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
