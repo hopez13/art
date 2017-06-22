@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "6afb25a7_0b8aa651",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-22T15:16:29Z",
+      "side": 1,
+      "message": "You need to fix up a callee-save frame at the top of the stack.\n\n *sp \u003d Runtime::Current()-\u003eGetCalleeSaveMethod(CalleeSaveType::kSaveRefAndArgs);\n self-\u003eSetTopOfStack(sp);\n\nat the start of artQuickGenericJniTrampoline. That should show the callee-save frame during the resolution stages, instead of an incomplete method frame.\n\nNote: the generic-jni code is really not written with expectations of exceptions in that early code.",
+      "parentUuid": "863be574_9126fa47",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4895c4e7_f4a980b6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
