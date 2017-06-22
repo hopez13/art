@@ -22,6 +22,30 @@
       "revId": "d005fc2a521f87540ebefc0e51f3238395b88ca9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6aed28d_d6d44b8d",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-22T15:21:49Z",
+      "side": 1,
+      "message": "The flag will be set during Runtime::Init when parameters are parsed, so it has to be after line 421. Seemed easier to just have the check at the end...",
+      "parentUuid": "09a5ebc3_b0e448ee",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 442,
+        "endChar": 28
+      },
+      "revId": "d005fc2a521f87540ebefc0e51f3238395b88ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
