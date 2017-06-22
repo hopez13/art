@@ -289,6 +289,30 @@
     },
     {
       "key": {
+        "uuid": "5dfe7b06_581ad454",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T17:42:18Z",
+      "side": 1,
+      "message": "\u003e Re Igor: This doesn\u0027t need a fix in regular JNI. Again, if I understand correctly, the issue here is that we throw an exception (which wants to walk the stack) when the stack is invalid. I *believe* that the stack frame is correct for compiled JNI at the point we go into the runtime for DCHECKs. The compiler *knows* the frame layout, so it can emit the final layout on entry. Generic JNI does *not* know the layout until it can inspect the method. So the assembly stub plops don\u0027t a callee-save frame for the registers and expands with a scratch area.\n\nWhat if JniMethodEnd throws an exception? Then the transition will see that there\u0027s an exception and throw it, when in reality there was no exception generated from the user code.",
+      "parentUuid": "b62a811e_839ad585",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4895c4e7_f4a980b6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
