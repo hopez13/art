@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "6357fd55_144542e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-22T15:17:54Z",
+      "side": 1,
+      "message": "(Alternatively, change the signature of artQuickGenericJniTrampoline to also pass the ArtMethod, and emit the callee-save like normal, i.e., write and install the runtime method)",
+      "parentUuid": "6afb25a7_0b8aa651",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4895c4e7_f4a980b6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
