@@ -265,6 +265,30 @@
     },
     {
       "key": {
+        "uuid": "b62a811e_839ad585",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-22T17:37:26Z",
+      "side": 1,
+      "message": "Re Nicolas: Generic JNI was written under the assumption that there are no throws will creating the final JNI frame - which was true until the annotation code was added. So it was OK to leave a \"wrong\" stack frame on the stack (and not even complete the ManagedStack fragment). There were no suspend points, so nobody could ask to walk the stack. I should have asserted that in the code (as-is, it will not work), but again, it wasn\u0027t necessary because it was obvious. :-)\n\nRe Igor: This doesn\u0027t need a fix in regular JNI. Again, if I understand correctly, the issue here is that we throw an exception (which wants to walk the stack) when the stack is invalid. I *believe* that the stack frame is correct for compiled JNI at the point we go into the runtime for DCHECKs. The compiler *knows* the frame layout, so it can emit the final layout on entry. Generic JNI does *not* know the layout until it can inspect the method. So the assembly stub plops don\u0027t a callee-save frame for the registers and expands with a scratch area.\n\nI could have been more careful before, and correctly install that callee-save frame. That requires to not write the actual method being called into it, but the runtime method, and to finish the ManagedStack fragment. Both will be fixed up when creating the real JNI frame layout, so I skipped it as superfluous.",
+      "parentUuid": "a6b734eb_db602b01",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4895c4e7_f4a980b6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
