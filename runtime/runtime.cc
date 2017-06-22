@@ -482,7 +482,11 @@ struct AbortState {
   }
 };
 
-void Runtime::Abort(const char* msg) {
+// Helper abort function. Currently, Aborter calling Abort does not get tail-call optimized, so
+// we get an extra unnecessary abort frame. b/62810360
+NO_RETURN
+__attribute__((always_inline))
+static inline void DoAbort(const char* msg, void (*abort_fn)()) {
   gAborting++;  // set before taking any locks
 
   // Ensure that we don't have multiple threads trying to abort at once,
@@ -512,9 +516,9 @@ void Runtime::Abort(const char* msg) {
   }
 
   // Call the abort hook if we have one.
-  if (Runtime::Current() != nullptr && Runtime::Current()->abort_ != nullptr) {
+  if (abort_fn != nullptr) {
     LOG(FATAL_WITHOUT_ABORT) << "Calling abort hook...";
-    Runtime::Current()->abort_();
+    abort_fn();
     // notreached
     LOG(FATAL_WITHOUT_ABORT) << "Unexpectedly returned from abort hook!";
   }
@@ -533,6 +537,17 @@ void Runtime::Abort(const char* msg) {
   abort();
 #endif
   // notreached
+}
+
+void Runtime::Abort(const char* msg) {
+  DoAbort(msg, Runtime::Current() != nullptr ? Runtime::Current()->abort_ : nullptr);
+}
+
+void Runtime::Aborter(const char* abort_message) {
+#ifdef ART_TARGET_ANDROID
+  android_set_abort_message(abort_message);
+#endif
+  DoAbort(abort_message, Runtime::Current() != nullptr ? Runtime::Current()->abort_ : nullptr);
 }
 
 void Runtime::PreZygoteFork() {
@@ -2356,14 +2371,6 @@ void Runtime::RemoveSystemWeakHolder(gc::AbstractSystemWeakHolder* holder) {
   if (it != system_weak_holders_.end()) {
     system_weak_holders_.erase(it);
   }
-}
-
-NO_RETURN
-void Runtime::Aborter(const char* abort_message) {
-#ifdef ART_TARGET_ANDROID
-  android_set_abort_message(abort_message);
-#endif
-  Runtime::Abort(abort_message);
 }
 
 RuntimeCallbacks* Runtime::GetRuntimeCallbacks() {
