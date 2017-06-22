@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "283cdae6_e9d67138",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-22T18:40:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "383da600_ff427cf1",
+      "range": {
+        "startLine": 1068,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 3
+      },
+      "revId": "2a64841e890667a069a08b55b10e6f5b7bf7e7a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8d3e3c4_676611e1",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 2
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1307a3e8_4c89eb22",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-22T18:40:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8d3e3c4_676611e1",
+      "range": {
+        "startLine": 150,
+        "startChar": 34,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "2a64841e890667a069a08b55b10e6f5b7bf7e7a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a68080f8_607a129f",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 2
@@ -106,6 +154,30 @@
       "writtenOn": "2017-06-20T01:28:02Z",
       "side": 1,
       "message": "Add a more detailed comment\n\nThe oat file can be upgraded/downgraded to optimize performance/space etc... An example where we might want to do this is ... etc.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 23
+      },
+      "revId": "2a64841e890667a069a08b55b10e6f5b7bf7e7a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd6bf11e_cff34714",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-22T18:40:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a68080f8_607a129f",
       "range": {
         "startLine": 153,
         "startChar": 0,
