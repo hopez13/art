@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "12552618_8cbcc4dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-22T08:31:24Z",
+      "side": 1,
+      "message": "I think we should be robust here in the presence of exceptions. Can we instead make generic JNI handle that case?",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "05d8a35163e4cca80e6ca53d9e10e3e28e97a6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53ba188c_3e668ba4",
         "filename": "runtime/art_method.h",
         "patchSetId": 1
