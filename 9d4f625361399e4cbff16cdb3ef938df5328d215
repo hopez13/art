@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bca9bb17_82f222bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-22T09:04:34Z",
+      "side": 1,
+      "message": "JVMS 8 (2015-02-13) section 2.9 seems pretty clear on this, but probably the RI doesn\u0027t expose any implementations of the abstract MethodHandle class so this declaration wouldn\u0027t come up.",
+      "range": {
+        "startLine": 12,
+        "startChar": 22,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "9d4f625361399e4cbff16cdb3ef938df5328d215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
