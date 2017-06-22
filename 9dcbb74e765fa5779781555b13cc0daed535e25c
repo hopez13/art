@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "98967272_976f159e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T01:15:09Z",
+      "side": 1,
+      "message": "Don\u0027t understand?\n\n\" should not be initialized even if they\nare not initialized\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "9dcbb74e765fa5779781555b13cc0daed535e25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a395ba4_0dc87ba8",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 5
