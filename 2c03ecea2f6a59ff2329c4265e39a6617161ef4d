@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "6e113872_9d88634b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-22T22:56:00Z",
+      "side": 1,
+      "message": "This is somewhat surprising to me and I think it might be an artifact of the exact way they implement default methods.\n\nI wonder what would happen when you have both a private in a super-super class and a default in the super-class. Which wins?\n\nI wouldn\u0027t be surprised if in this case the super-classes default method wins.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 55
+      },
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c85f3ef4_ddd289c4",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-22T22:56:00Z",
+      "side": 1,
+      "message": "Nit: DCHECK_EQ(klass, WellKnownClasses::ToClass(WellKnownClasses::java_lang_reflect_Proxy);",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 35
+      },
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa509b46_3646f599",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 11
@@ -36,6 +82,23 @@
       "writtenOn": "2017-06-22T22:28:57Z",
       "side": 1,
       "message": "Seems fine to combine these.\n\nWhat about static, super, etc? Maybe it should just be called kClassMethodResolution, kInterfaceMethodResolution\n\nAlso why is it missing invoke-custom which has a completely different resolution rule?",
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "428eb5da_dd23da2b",
+        "filename": "test/162-method-idx-clash/info.txt",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-22T22:56:00Z",
+      "side": 1,
+      "message": "This seriously needs something.",
       "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
