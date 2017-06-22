@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "512edc6a_0df28884",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T20:13:51Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think this should be a struct if it\u0027s going to do a bunch of dynamic memory allocation under the hood AND have a mutex.",
+      "revId": "f1221a1f39987b94a54dc57b824fcf360c890ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8d1dc1a_3eacf498",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-22T20:13:51Z",
+      "side": 1,
+      "message": "nit: reconsider struct",
+      "revId": "f1221a1f39987b94a54dc57b824fcf360c890ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
