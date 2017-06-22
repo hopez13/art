@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "945c7615_d67994aa",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-22T10:52:50Z",
+      "side": 1,
+      "message": "I\u0027d add \"if we don\u0027t have this helper\" (or something to make clear this helper is actually fixing this, IIUC).",
+      "range": {
+        "startLine": 486,
+        "startChar": 42,
+        "endLine": 486,
+        "endChar": 43
+      },
+      "revId": "08ac7b129fb1c525a7626523260ecb5cb4bd07e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "711fe5ad_80e3a73e",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
