@@ -925,13 +925,6 @@ class Dex2Oat FINAL {
       Usage("--multi-image cannot be used with multiple image names");
     }
 
-    // For now, if we're on the host and compile the boot image, *always* use multiple image files.
-    if (!kIsTargetBuild && IsBootImage()) {
-      if (image_filenames_.size() == 1) {
-        multi_image_ = true;
-      }
-    }
-
     // Done with usage checks, enable watchdog if requested
     if (parser_options->watch_dog_enabled) {
       int64_t timeout = parser_options->watch_dog_timeout_in_ms > 0
