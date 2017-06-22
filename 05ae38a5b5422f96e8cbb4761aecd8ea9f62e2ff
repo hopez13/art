@@ -264,6 +264,24 @@
       "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59c98526_fe9118bb",
+        "filename": "test/162-method-idx-clash/smali/UserOfDerivedWithStaticFooInBaseAndImplementedFooInInterface.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-22T12:52:46Z",
+      "side": 1,
+      "message": "Done in PS10. I had to extend the default-build with \"src3\".",
+      "parentUuid": "51800256_a018b2c5",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
