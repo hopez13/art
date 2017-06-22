@@ -775,5 +775,14 @@ static jint Java_Main_intCriticalNativeMethod(jint a, jint b, jint c) {
   return a + b + c;
 }
 
+extern "C" JNIEXPORT jboolean JNICALL Java_Main_testDebugFlags(JNIEnv*, jclass) {
+  if (kIsDebugBuild) {
+    static bool dummy_flag = false;
+    dummy_flag = RegisterRuntimeDebugFlag(&dummy_flag);
+    return dummy_flag ? JNI_TRUE : JNI_FALSE;
+  }
+  return JNI_TRUE;
+}
+
 }  // namespace art
 
