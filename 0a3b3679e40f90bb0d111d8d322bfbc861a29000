@@ -46,6 +46,30 @@
       "revId": "0a3b3679e40f90bb0d111d8d322bfbc861a29000",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "408c2248_fdac3da4",
+        "filename": "test/636-wrong-static-access/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-22T14:29:23Z",
+      "side": 1,
+      "message": "I\u0027m confused because the whole point of having src2 is to avoid doing this build magic you\u0027re doing here.",
+      "parentUuid": "5449a963_0562dc1f",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "0a3b3679e40f90bb0d111d8d322bfbc861a29000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
