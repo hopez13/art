@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a79acfa_0252453a",
+        "filename": "tools/bootjars.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-23T17:16:17Z",
+      "side": 1,
+      "message": "You should be able to change this to\n\n  $(pushd \"$TOP\" \u003e/dev/null; readlink -m \"$intermediates_dir\"; popd \u003e /dev/null)",
+      "revId": "71bc9ac74e373de66fd4f8e80b1c432c698e30a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
