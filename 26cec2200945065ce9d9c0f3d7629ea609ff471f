@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6161405f_5c0c96ef",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-23T08:52:24Z",
+      "side": 1,
+      "message": "Use ternary operator?",
+      "range": {
+        "startLine": 1070,
+        "startChar": 0,
+        "endLine": 1073,
+        "endChar": 53
+      },
+      "revId": "26cec2200945065ce9d9c0f3d7629ea609ff471f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2609a473_1551ad66",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-23T08:52:24Z",
+      "side": 1,
+      "message": "filter. Otherwise...",
+      "range": {
+        "startLine": 152,
+        "startChar": 20,
+        "endLine": 152,
+        "endChar": 26
+      },
+      "revId": "26cec2200945065ce9d9c0f3d7629ea609ff471f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
