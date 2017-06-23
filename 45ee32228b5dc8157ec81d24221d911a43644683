@@ -260,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "1516114a_0ab19687",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-23T14:43:29Z",
+      "side": 1,
+      "message": "OK. In PS4, I have rewritten this part to avoid not having code in these checks. Please a look.",
+      "parentUuid": "3229b921_4ccc40ed",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 70
+      },
+      "revId": "45ee32228b5dc8157ec81d24221d911a43644683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8976014f_8d76afc6",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 2
