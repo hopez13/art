@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "ece84c2b_99e89bf9",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T09:00:21Z",
+      "side": 1,
+      "message": "note: just for the future, since this is a modified copy of CmpBiasChanger, it helps reviewing if you first upload a copy of CmpBiasChanger (repo upload), then make the changes, and then repo upload again. That way, reviewers can more easily focus on diffs between PS1 and PS2.",
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12356945_336b38cb",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
         "patchSetId": 2
@@ -42,6 +59,81 @@
         "endLine": 31,
         "endChar": 22
       },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f27c3975_7702c7e2",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T09:00:21Z",
+      "side": 1,
+      "message": "+1 on better name, also probably use the form CmpXXXChanger to be consistent with existing one",
+      "parentUuid": "12356945_336b38cb",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466323f9_b40ad7ed",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T09:00:21Z",
+      "side": 1,
+      "message": "make sure you also include the README in this CL, with the mutation name and default likelihood",
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bb7e828_06bab334",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T09:00:21Z",
+      "side": 1,
+      "message": "No comparison operation....\n\n(see also comment below)",
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32436097_6b807ba1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T09:00:21Z",
+      "side": 1,
+      "message": "switch",
       "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +203,23 @@
         "endLine": 150,
         "endChar": 23
       },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aec37d7_a7d42661",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T09:00:21Z",
+      "side": 1,
+      "message": "bit of a misnomer, isComparisonOperation? or something that does not just imply EQ?",
       "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
