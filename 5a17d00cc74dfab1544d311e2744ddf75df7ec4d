@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7dfcfd53_9ea318b3",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-23T17:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e10fa806_8d2c53c1",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ece84c2b_99e89bf9",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-06-23T09:00:21Z",
       "side": 1,
       "message": "note: just for the future, since this is a modified copy of CmpBiasChanger, it helps reviewing if you first upload a copy of CmpBiasChanger (repo upload), then make the changes, and then repo upload again. That way, reviewers can more easily focus on diffs between PS1 and PS2.",
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9e32f80_41c656cd",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-23T17:05:55Z",
+      "side": 1,
+      "message": "will keep that on my mind, thank you :)",
+      "parentUuid": "ece84c2b_99e89bf9",
       "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -89,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "7bc2864a_31f2dc58",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-23T17:05:55Z",
+      "side": 1,
+      "message": "changed :0",
+      "parentUuid": "12356945_336b38cb",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "466323f9_b40ad7ed",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
         "patchSetId": 2
@@ -123,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "b80b32d0_a43206f4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-23T17:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bb7e828_06bab334",
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32436097_6b807ba1",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
         "patchSetId": 2
@@ -134,6 +218,24 @@
       "writtenOn": "2017-06-23T09:00:21Z",
       "side": 1,
       "message": "switch",
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2858bc7_8404ff59",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-23T17:05:55Z",
+      "side": 1,
+      "message": "yeah i have already started on it :) thanks",
+      "parentUuid": "32436097_6b807ba1",
       "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -186,6 +288,30 @@
     },
     {
       "key": {
+        "uuid": "cc031778_15edbf0f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-23T17:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67d980a1_a461f08a",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 5
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff91866a_697b3ba0",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
         "patchSetId": 2
@@ -209,6 +335,30 @@
     },
     {
       "key": {
+        "uuid": "d8d72326_5b27b54c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-23T17:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff91866a_697b3ba0",
+      "range": {
+        "startLine": 150,
+        "startChar": 11,
+        "endLine": 150,
+        "endChar": 23
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aec37d7_a7d42661",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
         "patchSetId": 2
@@ -220,6 +370,24 @@
       "writtenOn": "2017-06-23T09:00:21Z",
       "side": 1,
       "message": "bit of a misnomer, isComparisonOperation? or something that does not just imply EQ?",
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2d11089_408af56e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-23T17:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aec37d7_a7d42661",
       "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
