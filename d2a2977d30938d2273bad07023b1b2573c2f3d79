@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "bbd81167_82a09b07",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-23T23:06:03Z",
+      "side": 1,
+      "message": "I think \u0027cmp\u0027 is misleading because this changes IF-branches not \u0027cmp\u0027 instructions.\n\nHow about IfBranchChanger?",
+      "parentUuid": "e70498a4_e406f49e",
+      "revId": "d2a2977d30938d2273bad07023b1b2573c2f3d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b71bef5_61264f5b",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
         "patchSetId": 2
