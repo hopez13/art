@@ -16,6 +16,57 @@
       "revId": "d2a2977d30938d2273bad07023b1b2573c2f3d79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e70498a4_e406f49e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T20:18:52Z",
+      "side": 1,
+      "message": "it is still more than an IfEqBranch changer. Why not  CmpCondChanger or something slightly more generic? (and starting with Cmp follows the earlier convention that is already there better)",
+      "revId": "d2a2977d30938d2273bad07023b1b2573c2f3d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b71bef5_61264f5b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T20:18:52Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "d2a2977d30938d2273bad07023b1b2573c2f3d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3992a1b2_0e144915",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-23T20:18:52Z",
+      "side": 1,
+      "message": "w",
+      "revId": "d2a2977d30938d2273bad07023b1b2573c2f3d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
