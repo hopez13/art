@@ -52,4 +52,5 @@ art_cc_library {
         "libartd",
         "libvixld-arm64",
     ],
+    device_supported: true,
 }
