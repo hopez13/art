@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cab18f69_9e7feaa7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-23T22:42:12Z",
+      "side": 1,
+      "message": "trailing white spaces.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 2
+      },
+      "revId": "d7c3c472afbcbf4861e2858611c2783901aa3fa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34ce4bae_6c70f1f3",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-23T22:42:12Z",
+      "side": 1,
+      "message": "trailing empty spaces",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 6
+      },
+      "revId": "d7c3c472afbcbf4861e2858611c2783901aa3fa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
