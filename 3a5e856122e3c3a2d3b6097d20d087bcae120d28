@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b5f638e_4e926c1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2017-06-23T22:42:03Z",
+      "side": 1,
+      "message": "Based on the history, this was expected to be a host-only module. But now it\u0027s included in art_compiler_tests which is both host and device -- should it only be loaded on the host version of that test?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 15
+      },
+      "revId": "3a5e856122e3c3a2d3b6097d20d087bcae120d28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
