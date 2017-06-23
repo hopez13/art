@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f693a6a4_6c4ae98e",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-23T03:33:44Z",
+      "side": 1,
+      "message": "We could decide to actually log also when the owner died, just with a different message, maybe.",
+      "range": {
+        "startLine": 421,
+        "startChar": 12,
+        "endLine": 421,
+        "endChar": 44
+      },
+      "revId": "111b10957aee2c0f79310fcec4cff32eb90bf1c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
