@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "78d498a0_1e87f920",
+        "filename": "test/656-annotation-lookup-generic-jni/src-ex/Test.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-23T18:11:42Z",
+      "side": 1,
+      "message": "Should this also not test @FastNative and @CriticalNative ?\n\nThere should probably be 3 test cases (normal, fast, critical).",
+      "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "89c061b0_a639e823",
         "filename": "test/656-annotation-lookup-generic-jni/src/Main.java",
         "patchSetId": 3
@@ -13,6 +30,24 @@
       "writtenOn": "2017-06-23T17:58:09Z",
       "side": 1,
       "message": "This seems overly complicated. I thought one of the go/ab columns test generic JNI?",
+      "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0db2b9b5_adaf25a5",
+        "filename": "test/656-annotation-lookup-generic-jni/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-23T18:11:42Z",
+      "side": 1,
+      "message": "Ok, if memory serves maybe we aren\u0027t testing it directly after all (there is a jni compiler test.cc though).\n\nart/test/run-test --dev --host --interpreter --verify-soft-fail --no-image --no-prebuild --no-dex2oat 004-JniTest\n\nThis combination should force the run-test be executed under generic JNI. If you figure out what it passes to run and build scripts then you can make a custom run/build script instead. I think it just needs to skip dex2oat and run dalvikvm with some extra flags.",
+      "parentUuid": "89c061b0_a639e823",
       "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
