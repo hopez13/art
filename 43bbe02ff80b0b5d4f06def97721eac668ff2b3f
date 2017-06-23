@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "c62cafbf_dbb6f30e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-23T09:36:28Z",
+      "side": 1,
+      "message": "Looks like the analyzer has an issue? Code in question is:\n\nHInstruction* gota \u003d entry_block_-\u003eGetLastInstruction();\nif (gota !\u003d nullptr \u0026\u0026 gota-\u003eIsGoto()) {\n   ...\n}\n\nWhy does the analyzer think gota is null? goto may not be null and not be a Goto.",
+      "parentUuid": "880953e6_50ddc3a8",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 43
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "788c9869_a5c09d4b",
         "filename": "runtime/arch/arm64/context_arm64.h",
         "patchSetId": 1
