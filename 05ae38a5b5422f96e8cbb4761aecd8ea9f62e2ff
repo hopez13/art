@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "1c336338_33dd11d1",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-23T15:35:26Z",
+      "side": 1,
+      "message": "(Oh, my mistake. The exampleMethod() calls interestingMethod() in the same class, so there\u0027s no access error even with -Xverify.)\n\nI\u0027m not sure where you copied the JVMS text from but it\u0027s missing the \"mC is the same as mA\" part, see the first line in\n\n  https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html#jvms-5.4.5 .\n\nThe method is considered to override itself but it\u0027s easy to miss and for some time yesterday I thought it doesn\u0027t; I was actually investigating the RI behavior and I was puzzled by it.",
+      "parentUuid": "c2c9bba4_157a6e89",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1724e717_d6f5dcee",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 9
@@ -209,6 +227,24 @@
       "side": 1,
       "message": "Ok, so if this is \"resolution\" then it\u0027s fine.\n\nHowever, invokestatic also shares same resolution rules. Why is there a separate FindStaticMethod? Only invokeinterface (and invokecustom) have different resolution rules.\n\nI suppose the only real difference is that exception it throws? Which could be handled at the call site?",
       "parentUuid": "95780fd8_a5642945",
+      "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b80064_6db5d00b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-23T15:35:26Z",
+      "side": 1,
+      "message": "FindStaticMethod() is one of the functions I still need to remove. I\u0027m not done with the cleanup.",
+      "parentUuid": "401cab9e_097cd369",
       "revId": "05ae38a5b5422f96e8cbb4761aecd8ea9f62e2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

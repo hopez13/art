@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b9bf43a1_852a336b",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-23T15:35:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c85f3ef4_ddd289c4",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 35
+      },
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa509b46_3646f599",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 11
@@ -59,6 +83,30 @@
       "writtenOn": "2017-06-22T22:28:57Z",
       "side": 1,
       "message": "nit: Probably better to rename it to \"FindInstanceMethod\" as the JVMS uses this term \"instance method\" when it comes to resolving things.",
+      "range": {
+        "startLine": 943,
+        "startChar": 13,
+        "endLine": 943,
+        "endChar": 38
+      },
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d548493_5732b609",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-23T15:35:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa509b46_3646f599",
       "range": {
         "startLine": 943,
         "startChar": 13,
@@ -88,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "29438381_49c29839",
+        "filename": "runtime/verifier/method_resolution_kind.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-23T15:35:26Z",
+      "side": 1,
+      "message": "As I said on PS9, this enum shall be eliminated.",
+      "parentUuid": "a0bf8bd1_0b80e101",
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "428eb5da_dd23da2b",
         "filename": "test/162-method-idx-clash/info.txt",
         "patchSetId": 11
@@ -99,6 +165,24 @@
       "writtenOn": "2017-06-22T22:56:00Z",
       "side": 1,
       "message": "This seriously needs something.",
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e59005cc_eb975ed0",
+        "filename": "test/162-method-idx-clash/info.txt",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-23T15:35:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "428eb5da_dd23da2b",
       "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -122,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "28a54409_a38d4561",
+        "filename": "test/162-method-idx-clash/src2/Derived.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-23T15:35:26Z",
+      "side": 1,
+      "message": "I\u0027ll add comments to Main.java.",
+      "parentUuid": "e4bb7830_4eb68832",
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "665a103f_8402f3dc",
         "filename": "test/etc/default-build",
         "patchSetId": 11
@@ -133,6 +235,24 @@
       "writtenOn": "2017-06-22T22:28:57Z",
       "side": 1,
       "message": "Why is src2 not enough?",
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9c1bc3f_40b066b5",
+        "filename": "test/etc/default-build",
+        "patchSetId": 11
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-23T15:35:26Z",
+      "side": 1,
+      "message": "Because User and User2 need different versions of Derived and Base to compile,\n\n  User needs Derived[v1] Base[v1]\n  User2 needs Derived[v2] Base[v2]\n\nbut the test actually needs Derived[v1] and Base[v2] to run and there is no cherry-picking which files from src2/ override src/, everything is taken. So\u0027 I\u0027ve got [v2] in src/, [v1] in src2/ and another Base[v2] in src3/.\n\nAlternatively, Derived[v2] doesn\u0027t need to extend Base, so we can omit src/Base.java entirely but we still need the src3 anyway.",
+      "parentUuid": "665a103f_8402f3dc",
       "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
