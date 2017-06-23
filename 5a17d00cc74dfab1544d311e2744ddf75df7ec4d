@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e10fa806_8d2c53c1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-23T01:21:44Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12356945_336b38cb",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-23T01:21:44Z",
+      "side": 1,
+      "message": "This is a IfEqBranchChanger technically :) So I think it\u0027s better to reneme it.\n\nThe difference is that we don\u0027t really have a pure stand alone equality operator. The IF_EQ operator for examples actually simulates \n\nif (a \u003d\u003d b) then goto;",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b01722d_a6fdeaad",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-23T01:21:44Z",
+      "side": 1,
+      "message": "I think a swith statement will look much better here.",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 146,
+        "endChar": 5
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67d980a1_a461f08a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-23T01:21:44Z",
+      "side": 1,
+      "message": "this duplicates lines 141-143",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 5
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff91866a_697b3ba0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/EqualityChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-23T01:21:44Z",
+      "side": 1,
+      "message": "you should return the original opcode here if none of the if statements above are true.",
+      "range": {
+        "startLine": 150,
+        "startChar": 11,
+        "endLine": 150,
+        "endChar": 23
+      },
+      "revId": "5a17d00cc74dfab1544d311e2744ddf75df7ec4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
