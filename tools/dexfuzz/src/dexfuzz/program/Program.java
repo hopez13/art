@@ -23,9 +23,11 @@ import dexfuzz.listeners.BaseListener;
 import dexfuzz.program.mutators.ArithOpChanger;
 import dexfuzz.program.mutators.BranchShifter;
 import dexfuzz.program.mutators.CmpBiasChanger;
+import dexfuzz.program.mutators.CmpCondChanger;
 import dexfuzz.program.mutators.CodeMutator;
 import dexfuzz.program.mutators.ConstantValueChanger;
 import dexfuzz.program.mutators.ConversionRepeater;
+import dexfuzz.program.mutators.EqualityChanger;
 import dexfuzz.program.mutators.FieldFlagChanger;
 import dexfuzz.program.mutators.InstructionDeleter;
 import dexfuzz.program.mutators.InstructionDuplicator;
@@ -111,6 +113,7 @@ public class Program {
   /**
    * A list of all registered CodeMutators that this Program can use to mutate methods.
    */
+  
   private List<CodeMutator> mutators;
 
   /**
@@ -193,6 +196,7 @@ public class Program {
     registerMutator(new CmpBiasChanger(rng, mutationStats, mutations));
     registerMutator(new ConstantValueChanger(rng, mutationStats, mutations));
     registerMutator(new ConversionRepeater(rng, mutationStats, mutations));
+    registerMutator(new CmpCondChanger(rng, mutationStats, mutations));
     registerMutator(new FieldFlagChanger(rng, mutationStats, mutations));
     registerMutator(new InstructionDeleter(rng, mutationStats, mutations));
     registerMutator(new InstructionDuplicator(rng, mutationStats, mutations));
