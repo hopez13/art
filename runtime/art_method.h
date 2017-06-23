@@ -451,7 +451,12 @@ class ArtMethod FINAL {
   }
 
   ProfilingInfo* GetProfilingInfo(PointerSize pointer_size) {
-    DCHECK(!IsNative());
+    // Don't do a read barrier in the DCHECK, as GetProfilingInfo can be
+    // called on methods whose declaring class is going to be unloaded (for example
+    // JitCodeCache::CheckLiveCompiledCodeHasProfilingInfo does a sanity check
+    // on methods with their profiling info, but the declaring class of those
+    // methods are weak references for the JIT code cache).
+    DCHECK(!IsNative<kWithoutReadBarrier>());
     return reinterpret_cast<ProfilingInfo*>(GetDataPtrSize(pointer_size));
   }
 
