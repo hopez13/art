@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "921b5b04_090c371e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1096946
+      },
+      "writtenOn": "2017-06-23T18:13:17Z",
+      "side": 1,
+      "message": "\u003e Code in question is:\n\nI should\u0027ve been more clear; the code the analyzer gets upset with is below the block you mentioned:\n\n  if (insert_before \u003d\u003d nullptr) {\n    entry_block_-\u003eAddInstruction(constant);\n  }\n\n\u003e Why does the analyzer think gota is null?\n\nBecause there\u0027s a null check in the code you referenced, so the analyzer assumes `gota` may be null until it\u0027s next assigned. If `gota` happens to be null, `insert_before \u003d\u003d nullptr` is always true, so we always end up calling `entry_block_-\u003eAddInstruction(constant);`.\n\n...And AddInstruction is where the analyzer gets tripped up and assumes that `first_instruction_ !\u003d nullptr` is independent of whether `last_instruction_ !\u003d nullptr`. :)",
+      "parentUuid": "c62cafbf_dbb6f30e",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 43
+      },
+      "revId": "43bbe02ff80b0b5d4f06def97721eac668ff2b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "788c9869_a5c09d4b",
         "filename": "runtime/arch/arm64/context_arm64.h",
         "patchSetId": 1
