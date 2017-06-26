@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67767f95_31a6c182",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T12:07:46Z",
+      "side": 1,
+      "message": "What is that for? Shouldn\u0027t it have been handled by MayAlias?",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 3
+      },
+      "revId": "c4bcd3bcc2d154ca4ed66b12a50b1928cb50c9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f26b1c_93361ebe",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T12:07:46Z",
+      "side": 1,
+      "message": "memory",
+      "range": {
+        "startLine": 213,
+        "startChar": 55,
+        "endLine": 213,
+        "endChar": 67
+      },
+      "revId": "c4bcd3bcc2d154ca4ed66b12a50b1928cb50c9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7d27fa3_97278896",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T12:07:46Z",
+      "side": 1,
+      "message": "have",
+      "range": {
+        "startLine": 213,
+        "startChar": 51,
+        "endLine": 213,
+        "endChar": 54
+      },
+      "revId": "c4bcd3bcc2d154ca4ed66b12a50b1928cb50c9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d08198c6_dfef63e7",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T12:07:46Z",
+      "side": 1,
+      "message": "Why do you need this? There is already a data dependency between the arrayget and the boundscheck.",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 3
+      },
+      "revId": "c4bcd3bcc2d154ca4ed66b12a50b1928cb50c9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
