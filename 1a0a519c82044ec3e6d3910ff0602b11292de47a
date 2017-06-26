@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63176688_2a564a1a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T17:43:13Z",
+      "side": 1,
+      "message": "Thanks for fixing this in my absence. I have to study what changed a bit more, but this change should probably be done before the Try method above (which already makes a change). We can now make partial changes and then still bail on the simplification.\n\nI may send a follow up CL in a bit.",
+      "revId": "1a0a519c82044ec3e6d3910ff0602b11292de47a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
