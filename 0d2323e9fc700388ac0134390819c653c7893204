@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df20e1a8_71b33862",
+        "filename": "test/656-annotation-lookup-generic-jni/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-26T23:04:16Z",
+      "side": 1,
+      "message": "This needs to move directories to src-art at some point, otherwise buildbot will fail for CMS configuration because it uses javac/dx.\n\nFine if you do it in a follow-up CL.",
+      "revId": "0d2323e9fc700388ac0134390819c653c7893204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
