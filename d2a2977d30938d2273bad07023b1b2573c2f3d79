@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e08b265a_a92949f8",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T17:39:55Z",
+      "side": 1,
+      "message": "Ah yes, I agree the if part is better than cmp (but no Eq). So IfBranchChanger is fine.",
+      "parentUuid": "bbd81167_82a09b07",
+      "revId": "d2a2977d30938d2273bad07023b1b2573c2f3d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b71bef5_61264f5b",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
         "patchSetId": 2
