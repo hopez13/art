@@ -16,6 +16,23 @@
       "revId": "5a223a1c25f9ea89f71c50e7584e33182fdaff6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4177d41_1c257665",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T23:05:37Z",
+      "side": 1,
+      "message": "\"not\" checking on Not seems to make less sense now\n\nshouldn\u0027t this be \"not\" checking on Xor? Same for all below",
+      "revId": "5a223a1c25f9ea89f71c50e7584e33182fdaff6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
