@@ -33,6 +33,24 @@
       "revId": "5a223a1c25f9ea89f71c50e7584e33182fdaff6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fc20a42_0b3121d9",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-26T23:11:57Z",
+      "side": 1,
+      "message": "Should it say\n\n       CHECK-NOT Xor\n       CHECK-NOT Not\n\n?",
+      "parentUuid": "f4177d41_1c257665",
+      "revId": "5a223a1c25f9ea89f71c50e7584e33182fdaff6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
