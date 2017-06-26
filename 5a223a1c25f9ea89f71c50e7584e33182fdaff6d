@@ -51,6 +51,24 @@
       "revId": "5a223a1c25f9ea89f71c50e7584e33182fdaff6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33d52087_6029e90c",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T23:49:21Z",
+      "side": 1,
+      "message": "In this new context, CHECK-NOT Xor makes the most sense. You can also add CHECK-NOT Not, but then perhaps already before instruction simplifier runs",
+      "parentUuid": "4fc20a42_0b3121d9",
+      "revId": "5a223a1c25f9ea89f71c50e7584e33182fdaff6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
