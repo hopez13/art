@@ -22,6 +22,30 @@
       "revId": "d0210e58100e029e865e783beb7906090781f602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f498c23c_efa39781",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-26T17:27:20Z",
+      "side": 1,
+      "message": "This is a lot more expensive than just logging the info that we already have. So it seemed more reasonable to have a different, higher threshold for it.",
+      "parentUuid": "84d05441_bb6b48a6",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "d0210e58100e029e865e783beb7906090781f602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
