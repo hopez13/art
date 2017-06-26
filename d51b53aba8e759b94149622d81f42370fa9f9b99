@@ -22,6 +22,30 @@
       "revId": "d51b53aba8e759b94149622d81f42370fa9f9b99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "820fd7bd_7799e9ca",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-26T21:07:02Z",
+      "side": 1,
+      "message": "this is an info, i think, because this is only displaying the change that the program makes,\ndebug has however, been used in line 93",
+      "parentUuid": "b25dc5ea_657b6e9c",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "d51b53aba8e759b94149622d81f42370fa9f9b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
