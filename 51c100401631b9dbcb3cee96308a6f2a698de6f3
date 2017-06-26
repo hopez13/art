@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "a5de9903_41255e05",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:06:17Z",
+      "side": 1,
+      "message": "I\u0027d prefer dropping this helper, and calling IsAnnotatedWith with comments why we disallow class resolution. Also, please add in these methods CHECK(!self-\u003eIsExceptionPending()).",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 1
+      },
+      "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b3cb68f_f0f9559b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:06:17Z",
+      "side": 1,
+      "message": "This looks off. Can you add a comment why you need to check those too?",
+      "range": {
+        "startLine": 1950,
+        "startChar": 44,
+        "endLine": 1950,
+        "endChar": 90
+      },
+      "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78d498a0_1e87f920",
         "filename": "test/656-annotation-lookup-generic-jni/src-ex/Test.java",
         "patchSetId": 3
@@ -48,6 +94,24 @@
       "side": 1,
       "message": "Ok, if memory serves maybe we aren\u0027t testing it directly after all (there is a jni compiler test.cc though).\n\nart/test/run-test --dev --host --interpreter --verify-soft-fail --no-image --no-prebuild --no-dex2oat 004-JniTest\n\nThis combination should force the run-test be executed under generic JNI. If you figure out what it passes to run and build scripts then you can make a custom run/build script instead. I think it just needs to skip dex2oat and run dalvikvm with some extra flags.",
       "parentUuid": "89c061b0_a639e823",
+      "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9211464_101c1d0d",
+        "filename": "test/656-annotation-lookup-generic-jni/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:06:17Z",
+      "side": 1,
+      "message": "I disagree, I\u0027d rather we keep this InMemoryDexClassLoader test. It\u0027s the best guarantee we will not have an oat file with compiled JNI stubs.",
+      "parentUuid": "0db2b9b5_adaf25a5",
       "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
