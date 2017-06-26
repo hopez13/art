@@ -22,6 +22,23 @@
       "revId": "e0297d51692138660492e94a3e504d34488436e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaaaacde_1f554996",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-26T17:52:59Z",
+      "side": 1,
+      "message": "Don\u0027t change it here, change it in the specific test that\u0027s failing?",
+      "revId": "e0297d51692138660492e94a3e504d34488436e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
