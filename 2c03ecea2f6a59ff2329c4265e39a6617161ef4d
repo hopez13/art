@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "c9290703_6b0bb782",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-26T17:59:20Z",
+      "side": 1,
+      "message": "Yes, FindClassMethod seems good.\n\nI don\u0027t really understand how this gets used by call site (e.g. how does it correspond to JVMS?)? Normally if the method changes instance\u003c-\u003estatic it would throw an exception from program point of view.\n\nMaybe we can document the contract here because it\u0027s completely unclear? Lets start by trying to understand how it it\u0027s supposed to work?",
+      "parentUuid": "bed05307_7b1be89e",
+      "range": {
+        "startLine": 943,
+        "startChar": 13,
+        "endLine": 943,
+        "endChar": 38
+      },
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0bf8bd1_0b80e101",
         "filename": "runtime/verifier/method_resolution_kind.h",
         "patchSetId": 11
