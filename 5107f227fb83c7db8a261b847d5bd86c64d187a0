@@ -22,6 +22,30 @@
       "revId": "5107f227fb83c7db8a261b847d5bd86c64d187a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "471996f0_46d54214",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-26T21:15:38Z",
+      "side": 1,
+      "message": "As discussed earlier today, we won\u0027t need this CL anymore.\n\nDid the \"global\" fix by allowing checker to run with javac/dx:\n\nhttps://android-review.googlesource.com/c/423480/",
+      "parentUuid": "31c1d6ce_fcdcc8df",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "5107f227fb83c7db8a261b847d5bd86c64d187a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
