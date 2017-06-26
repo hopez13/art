@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7374b787_5e775c84",
+        "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-26T23:00:50Z",
+      "side": 1,
+      "message": "Note: I took the old contents of Main.java, decompiled with baksmali, and moved it here. The checker tests are 1:1 the same as the old version of Main.java",
+      "revId": "5a223a1c25f9ea89f71c50e7584e33182fdaff6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
