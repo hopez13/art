@@ -150,6 +150,8 @@ class ProfileSaver {
   uint64_t total_number_of_hot_spikes_;
   uint64_t total_number_of_wake_ups_;
 
+  int original_priority_;
+
   const ProfileSaverOptions options_;
   DISALLOW_COPY_AND_ASSIGN(ProfileSaver);
 };
