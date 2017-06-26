@@ -1,0 +1,435 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b12d244c_e42d1cbb",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "Nit: I\u0027d personally prefer the full name, ie PathClassLoader.",
+      "range": {
+        "startLine": 423,
+        "startChar": 48,
+        "endLine": 423,
+        "endChar": 51
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08421c25_8032218a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "you mean RemoveLocationsFromClasspaths?",
+      "range": {
+        "startLine": 1588,
+        "startChar": 15,
+        "endLine": 1588,
+        "endChar": 19
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb3d88b0_a6578b60",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "Comment is confusing: will things change later?",
+      "range": {
+        "startLine": 1605,
+        "startChar": 48,
+        "endLine": 1605,
+        "endChar": 58
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d10b0c0_8641068e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "Add a comment?",
+      "range": {
+        "startLine": 1759,
+        "startChar": 0,
+        "endLine": 1761,
+        "endChar": 7
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07a3fcae_c2cf012f",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "This reads odd when you know there is only two class loaders available.",
+      "range": {
+        "startLine": 74,
+        "startChar": 84,
+        "endLine": 75,
+        "endChar": 17
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "548c72ef_2c18485c",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "That\u0027s an odd way to check the class loader name. Why don\u0027t you parse it instead of looking at kValidTypes array?",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a0c9e7a_194b4d11",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "Do this line 117?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 3
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4ba78a8_d2775141",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "fail",
+      "range": {
+        "startLine": 127,
+        "startChar": 57,
+        "endLine": 127,
+        "endChar": 62
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2e86c87_138ac7dd",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 138,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 50
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70463901_b60ed196",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "You should load from the vdex file instead. They will give you much more guarantees of not failing (as their version is less likely to change than oat)",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 43
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7a5be1e_7eda7e1b",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "stripped",
+      "range": {
+        "startLine": 147,
+        "startChar": 90,
+        "endLine": 147,
+        "endChar": 97
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d9b2b33_1d2853cc",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "holds",
+      "range": {
+        "startLine": 30,
+        "startChar": 23,
+        "endLine": 30,
+        "endChar": 27
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37ec9a25_db43dc3a",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "grammar",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 72
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4f31db2_9358c359",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "..ClassPaths (for consistency).",
+      "range": {
+        "startLine": 52,
+        "startChar": 7,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b86237da_fe1922c7",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 57,
+        "startChar": 31,
+        "endLine": 57,
+        "endChar": 33
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5100f0a_b1240629",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "is",
+      "range": {
+        "startLine": 117,
+        "startChar": 36,
+        "endLine": 117,
+        "endChar": 38
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c6b06ed_6357e49b",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "What\u0027s that?",
+      "range": {
+        "startLine": 123,
+        "startChar": 81,
+        "endLine": 123,
+        "endChar": 84
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4db36b32_1d1070f8",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "DISALLOW_COPY_AND_ASSIGN",
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c60d185_542b6a90",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-26T09:57:39Z",
+      "side": 1,
+      "message": "You need to update your tool. Please update this file to not contain such changes.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 90
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
