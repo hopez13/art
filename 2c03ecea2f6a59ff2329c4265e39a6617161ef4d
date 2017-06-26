@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bed05307_7b1be89e",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-26T17:07:47Z",
+      "side": 1,
+      "message": "Now that I think of it, FindInstanceMethod() is really misleading as it finds static methods as well. Maybe FindClassMethod()? Or simply FindMethod()? (Compare with \"5.4.3.3. Method Resolution\" and \"5.4.3.4. Interface Method Resolution\".)",
+      "parentUuid": "8d548493_5732b609",
+      "range": {
+        "startLine": 943,
+        "startChar": 13,
+        "endLine": 943,
+        "endChar": 38
+      },
+      "revId": "2c03ecea2f6a59ff2329c4265e39a6617161ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0bf8bd1_0b80e101",
         "filename": "runtime/verifier/method_resolution_kind.h",
         "patchSetId": 11
