@@ -57,6 +57,24 @@
       "revId": "e0297d51692138660492e94a3e504d34488436e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff588efc_2c06ad7b",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-26T18:20:12Z",
+      "side": 1,
+      "message": "This doesn\u0027t even fix the problem -- it was already running dx with 512m in the original failure, by overriding with a test-specific build file.\n\nConsistency is the secondary reason why I\u0027m calling this out.",
+      "parentUuid": "119191dd_9d77d918",
+      "revId": "e0297d51692138660492e94a3e504d34488436e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
