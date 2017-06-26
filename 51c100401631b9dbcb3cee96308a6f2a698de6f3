@@ -115,6 +115,24 @@
       "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eb8ff93_bb6031be",
+        "filename": "test/656-annotation-lookup-generic-jni/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-26T17:50:46Z",
+      "side": 1,
+      "message": "SGTM, and can we add an assert here to ensure it\u0027s using generic JNI?",
+      "parentUuid": "e9211464_101c1d0d",
+      "revId": "51c100401631b9dbcb3cee96308a6f2a698de6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
