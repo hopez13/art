@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df429911_9f66018d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "If branch changer (get rid of equality here)",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a378fd0a_5cee7906",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "empty line between these two import sections (see original file)",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26cf5c9_42821a13",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "misnomer, no longer just equal instruction",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb755b99_43ad18ee",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "misnomer, not just for equal",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d62de34_de5ab1fc",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "misnomer: not just EqualityInsns",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec641573_531e918b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "No if branch",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ec5953_42f67a08",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "Changed If Branch",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d6e1f3_0c538d22",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "not that it matters much, but did you pick these on purpose? the \"opposite\" of LT would be GE, not GE (and I realize this does not say you pick the opposite, but some rationale here in a comment would help)",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35beb08_1c163b73",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T18:35:19Z",
+      "side": 1,
+      "message": "isIfBranchOperation",
+      "revId": "4abdb4d528600098721b1e5e4180a01d4d49eb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
