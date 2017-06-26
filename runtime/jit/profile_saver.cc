@@ -43,6 +43,32 @@ namespace art {
 ProfileSaver* ProfileSaver::instance_ = nullptr;
 pthread_t ProfileSaver::profiler_pthread_ = 0U;
 
+// At what priority to schedule the saver threads. 9 is the lowest foreground priority on device.
+static constexpr int kProfileSaverPthreadPriority = 9;
+static constexpr int kInvalidPriority = 99999;
+
+static void SetProfileSaverThreadPriority(pthread_t thread, int priority) {
+#if defined(ART_TARGET_ANDROID)
+  int result = setpriority(PRIO_PROCESS, pthread_gettid_np(thread), priority);
+  if (result != 0) {
+    LOG(ERROR) << "Failed to setpriority to :" << priority;
+  }
+#else
+  UNUSED(thread);
+  UNUSED(priority);
+#endif
+}
+
+static int GetProfileSaverThreadPriority(pthread_t thread) {
+#if defined(ART_TARGET_ANDROID)
+  return getpriority(PRIO_PROCESS, pthread_gettid_np(thread));
+#else
+  UNUSED(thread);
+  return 0;
+#endif
+}
+
+
 ProfileSaver::ProfileSaver(const ProfileSaverOptions& options,
                            const std::string& output_filename,
                            jit::JitCodeCache* jit_code_cache,
@@ -63,6 +89,7 @@ ProfileSaver::ProfileSaver(const ProfileSaverOptions& options,
       max_number_of_profile_entries_cached_(0),
       total_number_of_hot_spikes_(0),
       total_number_of_wake_ups_(0),
+      default_thread_priority_(kInvalidPriority),
       options_(options) {
   DCHECK(options_.IsEnabled());
   AddTrackedLocations(output_filename, code_paths);
@@ -258,6 +285,11 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
   const bool is_low_ram = Runtime::Current()->GetHeap()->IsLowMemoryMode();
   const size_t hot_threshold = options_.GetHotStartupMethodSamples(is_low_ram);
   {
+    MutexLock mu(self, *Locks::profiler_lock_);
+    CHECK_NE(kInvalidPriority, default_thread_priority_);
+    SetProfileSaverThreadPriority(profiler_pthread_, default_thread_priority_);
+  }
+  {
     ScopedObjectAccess soa(self);
     gc::ScopedGCCriticalSection sgcs(self,
                                      gc::kGcCauseProfileSaver,
@@ -274,6 +306,7 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods() {
   }
 
   MutexLock mu(self, *Locks::profiler_lock_);
+  SetProfileSaverThreadPriority(profiler_pthread_, kProfileSaverPthreadPriority);
   uint64_t total_number_of_profile_entries_cached = 0;
   using Hotness = ProfileCompilationInfo::MethodHotness;
 
@@ -543,15 +576,8 @@ void ProfileSaver::Start(const ProfileSaverOptions& options,
       (&profiler_pthread_, nullptr, &RunProfileSaverThread, reinterpret_cast<void*>(instance_)),
       "Profile saver thread");
 
-#if defined(ART_TARGET_ANDROID)
-  // At what priority to schedule the saver threads. 9 is the lowest foreground priority on device.
-  static constexpr int kProfileSaverPthreadPriority = 9;
-  int result = setpriority(
-      PRIO_PROCESS, pthread_gettid_np(profiler_pthread_), kProfileSaverPthreadPriority);
-  if (result != 0) {
-    PLOG(ERROR) << "Failed to setpriority to :" << kProfileSaverPthreadPriority;
-  }
-#endif
+  instance_->original_priority_ = GetProfileSaverThreadPriority(profiler_pthread_);
+  SetProfileSaverThreadPriority(profiler_pthread_, kProfileSaverPthreadPriority);
 }
 
 void ProfileSaver::Stop(bool dump_info) {
