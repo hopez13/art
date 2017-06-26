@@ -70,6 +70,23 @@
       "revId": "d51b53aba8e759b94149622d81f42370fa9f9b99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af1af243_dba1a09d",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-26T22:49:23Z",
+      "side": 1,
+      "message": "one very minor nit: I find getOppositeOperatorOpcode a bit long, although it is perhaps the best name. How does just  getOppositeOpcode or  getOppositeOperator or  getOppositeCondition sound to you?",
+      "revId": "d51b53aba8e759b94149622d81f42370fa9f9b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
