@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc4a76d1_92f9c301",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-26T19:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cab18f69_9e7feaa7",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 2
+      },
+      "revId": "d7c3c472afbcbf4861e2858611c2783901aa3fa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34ce4bae_6c70f1f3",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfEqBranchChanger.java",
         "patchSetId": 5
