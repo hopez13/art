@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcee24ee_741949f6",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-26T21:27:48Z",
+      "side": 1,
+      "message": "add docs about this new flag at L99.",
+      "range": {
+        "startLine": 165,
+        "startChar": 39,
+        "endLine": 165,
+        "endChar": 48
+      },
+      "revId": "2e9100c3b507abcdc80dd8959f0718ef97cc8b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d303c069_1e84296a",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-26T21:27:48Z",
+      "side": 1,
+      "message": "Add new tests to capture the downgrade functionality.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 6
+      },
+      "revId": "2e9100c3b507abcdc80dd8959f0718ef97cc8b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5db8dc60_df3c18bb",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-26T21:27:48Z",
+      "side": 1,
+      "message": "why did you need a new one?\n\nis !CompilerFilter::IaAsGoodAs(...) not enough?",
+      "range": {
+        "startLine": 1071,
+        "startChar": 28,
+        "endLine": 1071,
+        "endChar": 36
+      },
+      "revId": "2e9100c3b507abcdc80dd8959f0718ef97cc8b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "665d1508_dc3eadfb",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-26T21:27:48Z",
+      "side": 1,
+      "message": "example",
+      "range": {
+        "startLine": 154,
+        "startChar": 40,
+        "endLine": 154,
+        "endChar": 42
+      },
+      "revId": "2e9100c3b507abcdc80dd8959f0718ef97cc8b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa519e89_6c3f314d",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-26T21:27:48Z",
+      "side": 1,
+      "message": "add a line break here, otherwise the phrase associates with profile_changed which is not the case.",
+      "range": {
+        "startLine": 159,
+        "startChar": 27,
+        "endLine": 159,
+        "endChar": 28
+      },
+      "revId": "2e9100c3b507abcdc80dd8959f0718ef97cc8b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
