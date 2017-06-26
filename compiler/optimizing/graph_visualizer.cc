@@ -451,8 +451,15 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
 
   void VisitInvoke(HInvoke* invoke) OVERRIDE {
     StartAttributeStream("dex_file_index") << invoke->GetDexMethodIndex();
-    StartAttributeStream("method_name") << GetGraph()->GetDexFile().PrettyMethod(
-        invoke->GetDexMethodIndex(), /* with_signature */ false);
+    ArtMethod* method = invoke->GetResolvedMethod();
+    // We don't print signatures, which conflict with c1visualizer format.
+    static constexpr bool kWithSignature = false;
+    // Note that we can onlu use the graph's dex file for the unresoved case. The
+    // other invokes might be coming from inlined methods.
+    std::string method_name = (method == nullptr)
+        ? GetGraph()->GetDexFile().PrettyMethod(invoke->GetDexMethodIndex(), kWithSignature)
+        : method->PrettyMethod(kWithSignature)
+    StartAttributeStream("method_name") << method_name;
   }
 
   void VisitInvokeUnresolved(HInvokeUnresolved* invoke) OVERRIDE {
