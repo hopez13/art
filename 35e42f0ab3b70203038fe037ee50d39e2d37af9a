@@ -87,6 +87,24 @@
       "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c085cf9_cdf0d4bc",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-27T15:55:07Z",
+      "side": 1,
+      "message": "We realized this morning (from failing tests, e.g. the ones that use tracing) that the change implementing the stack fix-up in the Generic JNI trampoline was not enough to address the bug.",
+      "parentUuid": "eb1dd0b7_4105dff5",
+      "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
