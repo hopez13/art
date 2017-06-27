@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "02267a79_04858f8f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad4fcc68_71d826b8",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9264ed1b_fbd7ee53",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-27T23:16:54Z",
       "side": 1,
       "message": "use javac doc for this, so that IDEs show this when hovering over the method",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92f226a1_97c70189",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9264ed1b_fbd7ee53",
       "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "835d6f92_11f65893",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5848a8e_e74bcb95",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b970081c_a1eff276",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
         "patchSetId": 15
@@ -64,6 +118,24 @@
       "writtenOn": "2017-06-27T23:16:54Z",
       "side": 1,
       "message": "More in line with all others, just say\n\n\"Could not ... branch.\"\n\n(omit the quitting part)",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a700e34_72281d0f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b970081c_a1eff276",
       "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "2876bff6_4d8ffbab",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c79617ec_ef0d8659",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c75171_0603e13a",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 15
@@ -98,6 +188,24 @@
       "writtenOn": "2017-06-27T23:16:54Z",
       "side": 1,
       "message": "how about breaking after { and lining up the contents to make this more readable",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb0ef07_2ac5f93f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65c75171_0603e13a",
       "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "bbc3f7ee_9fd9498b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1692ca70_76b01dbd",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f19688b_6389963e",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 15
@@ -132,6 +258,24 @@
       "writtenOn": "2017-06-27T23:16:54Z",
       "side": 1,
       "message": "I don\u0027t like the logic here\n\nyou assume that anything outside non-zero comparison is a zero comparator; that makes the assumption you never get the wrong opcodes\n\nit would more more consistent to have a isZeroComparator and a isNonZeroComparator here and use those in the if / else if above, and then fall through for every invalid opcode",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d835f39d_99262ca7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f19688b_6389963e",
       "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "08471f75_2aa8c256",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "sorry, i edited in the wrong place!! my bad",
+      "parentUuid": "dc7acd88_58d0b3a3",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e6543a6_364d7edf",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 15
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "91fee747_fce18bf9",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e6543a6_364d7edf",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d07cd59_302e38d5",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 15
@@ -183,6 +363,24 @@
       "writtenOn": "2017-06-27T23:16:54Z",
       "side": 1,
       "message": "indent -2 this time",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4d1753d_558d5939",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d07cd59_302e38d5",
       "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

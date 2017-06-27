@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "11b9a198_d3ee74f7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58dbdea9_2966d1e8",
+      "revId": "7a3295b62493d38c1d9cb4b1413cd17fb8b0a429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63353f6e_63e1b904",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
         "patchSetId": 14
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-27T21:42:02Z",
       "side": 1,
       "message": "no brackets",
+      "revId": "7a3295b62493d38c1d9cb4b1413cd17fb8b0a429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6d0125_eb0a7831",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63353f6e_63e1b904",
       "revId": "7a3295b62493d38c1d9cb4b1413cd17fb8b0a429",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f7a27d51_48dac1fa",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "904d26ed_0ba3ac0d",
+      "revId": "7a3295b62493d38c1d9cb4b1413cd17fb8b0a429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41278219_72e24afb",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 14
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "057031a3_566d1a79",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41278219_72e24afb",
+      "revId": "7a3295b62493d38c1d9cb4b1413cd17fb8b0a429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfd3201b_7c4632cb",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 14
@@ -81,6 +153,24 @@
       "writtenOn": "2017-06-27T21:42:02Z",
       "side": 1,
       "message": "no brackets",
+      "revId": "7a3295b62493d38c1d9cb4b1413cd17fb8b0a429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d3688a_26218797",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T23:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfd3201b_7c4632cb",
       "revId": "7a3295b62493d38c1d9cb4b1413cd17fb8b0a429",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
