@@ -47,7 +47,8 @@ CompilerOptions::CompilerOptions()
       dump_cfg_append_(false),
       force_determinism_(false),
       register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorDefault),
-      passes_to_run_(nullptr) {
+      passes_to_run_(nullptr),
+      clinit_threshold_(100000) {
 }
 
 CompilerOptions::~CompilerOptions() {

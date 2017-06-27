@@ -44,6 +44,7 @@ public class Main {
     expectPreInit(ClinitAlloc.class);
     expectNotPreInit(ClinitBulkAlloc.class);
     expectPreInit(Class.forName("FilledNewArray"));
+    expectNotPreInit(Forever.class);
 
     expectNotPreInit(Add.class);
     expectNotPreInit(Mul.class);
@@ -261,6 +262,15 @@ class ClinitDenseAlloc {
   static {
     for (int i = 0; i < 10000; i++) {
       Pair pair = new Pair();
+    }
+  }
+}
+
+class Forever {
+  static int loop = 1000;
+  static {
+    while (loop != 101) {
+      loop += 100;
     }
   }
 }
