@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9851b056_6fbee48d",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-27T15:34:52Z",
+      "side": 0,
+      "message": "Alex, this would previously match \"copied\" methods but I guess that was not the intent.",
+      "range": {
+        "startLine": 576,
+        "startChar": 29,
+        "endLine": 576,
+        "endChar": 54
+      },
+      "revId": "2dcfe269a6c863a91e614dd6134c995d6347fdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
