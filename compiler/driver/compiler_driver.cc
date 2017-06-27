@@ -48,6 +48,7 @@
 #include "dex_file-inl.h"
 #include "dex_instruction-inl.h"
 #include "driver/compiler_options.h"
+#include "interpreter/instruction_counter.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc/accounting/heap_bitmap.h"
 #include "gc/space/image_space.h"
@@ -2220,7 +2221,25 @@ void CompilerDriver::SetVerifiedDexFile(jobject class_loader,
 
 class InitializeClassVisitor : public CompilationVisitor {
  public:
-  explicit InitializeClassVisitor(const ParallelCompilationManager* manager) : manager_(manager) {}
+  explicit InitializeClassVisitor(const ParallelCompilationManager* manager)
+      : manager_(manager),
+        counter_(true, manager->GetCompiler()->GetCompilerOptions().GetClinitThreshold()) {
+    if (manager_->GetCompiler()->GetCompilerOptions().IsAppImage()) {
+      ScopedSuspendAll ssa("Initialize Instruction Counter");
+      Runtime::Current()->GetInstrumentation()->AddListener(
+          &counter_,
+          instrumentation::Instrumentation::InstrumentationEvent::kDexPcMoved);
+    }
+  }
+
+  ~InitializeClassVisitor() {
+    if (manager_->GetCompiler()->GetCompilerOptions().IsAppImage()) {
+      ScopedSuspendAll ssa("Initialize Instruction Counter");
+      Runtime::Current()->GetInstrumentation()->RemoveListener(
+          &counter_,
+          instrumentation::Instrumentation::InstrumentationEvent::kDexPcMoved);
+    }
+  }
 
   void Visit(size_t class_def_index) OVERRIDE {
     ATRACE_CALL();
@@ -2332,6 +2351,7 @@ class InitializeClassVisitor : public CompilationVisitor {
             // a ReaderWriterMutex but we're holding the mutator lock so we fail mutex sanity
             // checks in Thread::AssertThreadSuspensionIsAllowable.
             Runtime* const runtime = Runtime::Current();
+            counter_.resetCount();
             // Resolve and initialize the exception type before enabling the transaction in case
             // the transaction aborts and cannot resolve the type.
             // TransactionAbortError is not initialized ant not in boot image, needed only by
@@ -2382,6 +2402,11 @@ class InitializeClassVisitor : public CompilationVisitor {
               }
             }
 
+            // Count total steps for profiling purpose.
+            if (success) {
+              total_step_ += counter_.getCount();
+            }
+
             if (!success && is_boot_image) {
               // On failure, still intern strings of static fields and seen in <clinit>, as these
               // will be created in the zygote. This is separated from the transaction code just
@@ -2412,6 +2437,10 @@ class InitializeClassVisitor : public CompilationVisitor {
     // Back up the status before doing initialization for static encoded fields,
     // because the static encoded branch wants to keep the status to uninitialized.
     manager_->GetCompiler()->RecordClassStatus(ref, old_status);
+  }
+
+  uint32_t getTotalStep() {
+    return total_step_;
   }
 
  private:
@@ -2600,6 +2629,8 @@ class InitializeClassVisitor : public CompilationVisitor {
   }
 
   const ParallelCompilationManager* const manager_;
+  instrumentation::CIInstrumentationListener counter_;
+  uint32_t total_step_ = 0;
 };
 
 void CompilerDriver::InitializeClasses(jobject jni_class_loader,
@@ -2627,6 +2658,7 @@ void CompilerDriver::InitializeClasses(jobject jni_class_loader,
   }
   InitializeClassVisitor visitor(&context);
   context.ForAll(0, dex_file.NumClassDefs(), &visitor, init_thread_count);
+  // LOG(ERROR) << "Total Steps: " << visitor.getTotalStep();
 }
 
 class InitializeArrayClassesAndCreateConflictTablesVisitor : public ClassVisitor {
