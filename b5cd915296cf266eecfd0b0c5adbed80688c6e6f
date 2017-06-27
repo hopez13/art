@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54d7a435_737534f2",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-27T22:07:16Z",
+      "side": 1,
+      "message": "When will this T be !\u003d mirror::object?",
+      "revId": "b5cd915296cf266eecfd0b0c5adbed80688c6e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fefbcf0_7ff40250",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-27T22:07:16Z",
+      "side": 1,
+      "message": "Maybe this should be a specialization of ObjectRegionData for mirror::Class ?\n\nOr is it not parallel in the composition hierarchy?",
+      "revId": "b5cd915296cf266eecfd0b0c5adbed80688c6e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2890f22a_9437313c",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-27T22:07:16Z",
+      "side": 1,
+      "message": "It\u0027ll probably be cleaner to group all the specializations in one class\n\n   struct ObjectRegionData\u003cT\u003e : public ObjectRegionDataImpl\u003cT\u003e {\n   };\n\n\n   template \u003c\u003e\n   struct ObjectRegionDataImpl\u003cmirror::Object\u003e {\n      void CheckObjectSanity(const uint8_t* current) {\n      .......\n      }\n      void VisitObject(mirror::Object* object) {\n        ........\n      }\n      void AddCleanObject(mirror::Object* object) {\n        .........\n      }\n   };\n\nand by doing this the definitions become \"inline\" as well.",
+      "revId": "b5cd915296cf266eecfd0b0c5adbed80688c6e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
