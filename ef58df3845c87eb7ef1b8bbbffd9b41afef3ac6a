@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "310c4a03_6602841c",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-27T22:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c259934b_16bd1de7",
+      "range": {
+        "startLine": 290,
+        "startChar": 53,
+        "endLine": 290,
+        "endChar": 77
+      },
+      "revId": "ef58df3845c87eb7ef1b8bbbffd9b41afef3ac6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f27d059_b1e6ae77",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-27T21:50:16Z",
       "side": 1,
       "message": "can we extract this in its own method to add clarity for the path we\u0027ere bumping the priority? (alternatively use Andreas suggestion for scoped approach.",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 81
+      },
+      "revId": "ef58df3845c87eb7ef1b8bbbffd9b41afef3ac6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c8dca91_0ff7fa3f",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-27T22:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f27d059_b1e6ae77",
       "range": {
         "startLine": 287,
         "startChar": 0,
