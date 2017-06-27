@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdadac8f_2e939a61",
+        "filename": "test/593-checker-boolean-2-integral-conv/smali/SmaliTests.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T21:11:22Z",
+      "side": 1,
+      "message": "there seems to be little reason not to use -DAG here too\n(same below)",
+      "revId": "d5f8276dffbb277260445f99cbdc66d356334671",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d25d054_5b648cf7",
+        "filename": "test/593-checker-boolean-2-integral-conv/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T21:11:22Z",
+      "side": 1,
+      "message": "bit confusing to use LZero/LOne above and just Zero/One here",
+      "revId": "d5f8276dffbb277260445f99cbdc66d356334671",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
