@@ -118,6 +118,30 @@
       "revId": "d0210e58100e029e865e783beb7906090781f602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "879e7363_4fd36049",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-27T21:03:23Z",
+      "side": 1,
+      "message": "The threshold for the first is already given in a system property and parsed by AndroidRuntime. I intend to do the same for the larger one.\n\nOn a userdebug build, one may then lower the values to track more contention.",
+      "parentUuid": "0dc8c524_d573e0e2",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "d0210e58100e029e865e783beb7906090781f602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
