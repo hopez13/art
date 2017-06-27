@@ -94,6 +94,30 @@
       "revId": "d0210e58100e029e865e783beb7906090781f602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dc8c524_d573e0e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-27T20:04:31Z",
+      "side": 1,
+      "message": "Sorry I\u0027m a bit confused, but as a system property you will toggle on request?\n\nThe way I understood the *default* (and only) behavior we want is:\n- log like today when within a certain threshold\n- log with stack traces when within a big threshold.",
+      "parentUuid": "ef3607b2_b3ca4c91",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "d0210e58100e029e865e783beb7906090781f602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
