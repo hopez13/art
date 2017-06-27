@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8c9aed8_5d2fefab",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1752,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-27T14:08:03Z",
+      "side": 1,
+      "message": "This looks somewhat misplaced now that we allow the instructions to be emitted independently. I would leave that to the caller. But if you want it this way for convenience, I\u0027ll take it as is.",
+      "range": {
+        "startLine": 1749,
+        "startChar": 0,
+        "endLine": 1752,
+        "endChar": 28
+      },
+      "revId": "5fa5c04ca39fb9c46bfef0e0807a18d0cd9a4ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed39b174_ee050806",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-27T14:08:03Z",
+      "side": 1,
+      "message": "Same as mips, I would leave that to the caller.",
+      "range": {
+        "startLine": 1623,
+        "startChar": 0,
+        "endLine": 1626,
+        "endChar": 28
+      },
+      "revId": "5fa5c04ca39fb9c46bfef0e0807a18d0cd9a4ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
