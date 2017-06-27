@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f6ba5fe_084c56d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-27T15:20:36Z",
+      "side": 1,
+      "message": "Can you also amend the existing 656 test to include @CriticalNative, @FastNative test?",
+      "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3de41497_7caa1a51",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-27T15:20:36Z",
+      "side": 1,
+      "message": "Fine to turn these into CHECKs here I think.\n\nAlso can you add them to normal JNI path, into JniMethodStart, JniMethodEnd, etc?",
+      "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
