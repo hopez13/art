@@ -16,6 +16,125 @@
       "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f8077e_e4dabb43",
+        "filename": "tools/dexfuzz/README",
+        "patchSetId": 12
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:08:55Z",
+      "side": 1,
+      "message": "you need to update this with the others",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f4e9ad0_cf0fd824",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:08:55Z",
+      "side": 1,
+      "message": "same, two others now",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "334ca5e5_cbce58cd",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:08:55Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59cec645_979e04d2",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:08:55Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1b93666_3c293462",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:08:55Z",
+      "side": 1,
+      "message": "pay attention to the style of the comments",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f034f15_b192767a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:08:55Z",
+      "side": 1,
+      "message": "lists like this should be private static fields that are only constructed once",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8ae8153_bc7fd754",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:08:55Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
