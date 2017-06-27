@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0736632d_5bbeb9c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-27T15:35:35Z",
+      "side": 1,
+      "message": "Sure; I\u0027ll do that in https://android-review.googlesource.com/#/c/423799/.",
+      "parentUuid": "7f6ba5fe_084c56d6",
+      "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3de41497_7caa1a51",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-27T15:20:36Z",
       "side": 1,
       "message": "Fine to turn these into CHECKs here I think.\n\nAlso can you add them to normal JNI path, into JniMethodStart, JniMethodEnd, etc?",
+      "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e617b31a_7ef80a2a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-27T15:35:35Z",
+      "side": 1,
+      "message": "Yes. I\u0027d prefer to do that in another CL, as this CL is planned for cherry-picking to oc-dev (so we probably want to keep it as short as possible).",
+      "parentUuid": "3de41497_7caa1a51",
       "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
