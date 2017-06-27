@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f61dfb4_a866a6c1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "this line is no longer required, since all your subclasses set their own",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c880447_0fa51cff",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "any reason you picked 40 here?",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2455d7d6_de86177a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "note, the default return is of course safe, since it leaves the instruction intact.\n\nHowever, you could also consider Log.errorAndQuit(\"....\"); here as is done in some other mutators, since the code should never be reached given all the logic in the super class.",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d433afd_65e0ca8f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "move above the constructor (fields first)\nalso private static final for such arrays\nlastly, all caps for the names of such constant arrays",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eb819d5_e58908a3",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "new line",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d11389_cbd736aa",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "if (...) \nspace after if",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e91b9ac7_4ad5cfba",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "this is of course the shortest way of searching in the array but the asList each time seems a bit unfortunate. Perhaps you can make your own indexof method here?",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cebf1462_946016c4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "else if",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c816634_edb510de",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:02:59Z",
+      "side": 1,
+      "message": "space after //, no ws at end",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
