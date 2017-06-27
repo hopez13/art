@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "be9783f2_b2dc1140",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1752,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T21:21:56Z",
+      "side": 1,
+      "message": "There are 8 places in the code generator, where the low part is supplied by the immediately following instruction. This number will go down to 6 when GenerateGcRootFieldLoad() starts generating one or more instructions before that instruction. So, yeah, avoiding 6-8 lines with Bind() is a bit of convenience, which I\u0027d keep.",
+      "parentUuid": "d8c9aed8_5d2fefab",
+      "range": {
+        "startLine": 1749,
+        "startChar": 0,
+        "endLine": 1752,
+        "endChar": 28
+      },
+      "revId": "5fa5c04ca39fb9c46bfef0e0807a18d0cd9a4ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed39b174_ee050806",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-27T14:08:03Z",
       "side": 1,
       "message": "Same as mips, I would leave that to the caller.",
+      "range": {
+        "startLine": 1623,
+        "startChar": 0,
+        "endLine": 1626,
+        "endChar": 28
+      },
+      "revId": "5fa5c04ca39fb9c46bfef0e0807a18d0cd9a4ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83c6e3ae_571864e1",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T21:21:56Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "ed39b174_ee050806",
       "range": {
         "startLine": 1623,
         "startChar": 0,
