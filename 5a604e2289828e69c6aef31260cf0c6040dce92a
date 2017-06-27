@@ -46,6 +46,30 @@
       "revId": "5a604e2289828e69c6aef31260cf0c6040dce92a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17cb7fe5_c6ebd06b",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-27T18:08:44Z",
+      "side": 1,
+      "message": "Initial one should always be zero, no? But anyways, you\u0027d avoid the global field and make it local, which is a lot easier to reason about...",
+      "parentUuid": "582f6ddc_039cbb83",
+      "range": {
+        "startLine": 286,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 3
+      },
+      "revId": "5a604e2289828e69c6aef31260cf0c6040dce92a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
