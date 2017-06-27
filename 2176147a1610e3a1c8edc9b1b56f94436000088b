@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "307d4525_3ce4b754",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-27T11:01:34Z",
+      "side": 1,
+      "message": "Drop this argument, I think we should always assume it\u0027s resolved and in boot.",
+      "range": {
+        "startLine": 296,
+        "startChar": 33,
+        "endLine": 296,
+        "endChar": 77
+      },
+      "revId": "2176147a1610e3a1c8edc9b1b56f94436000088b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f14d2_5ee72d05",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-27T11:01:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 300,
+        "startChar": 37,
+        "endLine": 300,
+        "endChar": 81
+      },
+      "revId": "2176147a1610e3a1c8edc9b1b56f94436000088b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93a67db4_00e0fc95",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-27T11:01:34Z",
+      "side": 1,
+      "message": "Add a comment why you\u0027re doing this check here.",
+      "range": {
+        "startLine": 1950,
+        "startChar": 44,
+        "endLine": 1950,
+        "endChar": 90
+      },
+      "revId": "2176147a1610e3a1c8edc9b1b56f94436000088b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
