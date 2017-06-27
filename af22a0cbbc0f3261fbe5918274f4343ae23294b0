@@ -93,6 +93,23 @@
     },
     {
       "key": {
+        "uuid": "7639fe82_106b46a0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:14:15Z",
+      "side": 1,
+      "message": "both subclasses will need their constructors of the specific form in the superclass, otherwise you can\u0027t add them",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59cec645_979e04d2",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
         "patchSetId": 12
