@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "24b68928_5e744fd2",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-27T12:14:49Z",
+      "side": 1,
+      "message": "match their contents?",
+      "range": {
+        "startLine": 156,
+        "startChar": 78,
+        "endLine": 156,
+        "endChar": 87
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d37bb95_f8375e92",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-27T12:14:49Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 190,
+        "startChar": 38,
+        "endLine": 190,
+        "endChar": 39
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "173da7d2_9113e0c8",
         "filename": "runtime/class_loader_compilation_context.h",
         "patchSetId": 7
@@ -64,6 +110,29 @@
         "startChar": 59,
         "endLine": 48,
         "endChar": 72
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c43433f0_216ae310",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-27T12:14:49Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 52,
+        "startChar": 72,
+        "endLine": 52,
+        "endChar": 73
       },
       "revId": "557faeee877be2730c795a5488f7df054287e907",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",

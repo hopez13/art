@@ -425,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "c5e2b097_3b62b8e8",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-27T12:14:49Z",
+      "side": 1,
+      "message": "Would be good to have the reason you want to check the checksums, which is the comment you added :) Thanks.",
+      "parentUuid": "952258bd_4e866804",
+      "range": {
+        "startLine": 138,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 50
+      },
+      "revId": "ef1291691c549ed70b560107dbc6e7fd995bf56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70463901_b60ed196",
         "filename": "runtime/class_loader_compilation_context.cc",
         "patchSetId": 6
