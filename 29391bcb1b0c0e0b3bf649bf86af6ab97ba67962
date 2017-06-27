@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acbbe2bf_0c2efcef",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4478,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T02:30:38Z",
+      "side": 1,
+      "message": "or",
+      "range": {
+        "startLine": 4478,
+        "startChar": 63,
+        "endLine": 4478,
+        "endChar": 65
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09c1b0ae_6897a8dc",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4532,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T02:30:38Z",
+      "side": 1,
+      "message": "Either this code should move to where I previously asked it to be introduced or it should lose the two redundant `!IsR6() \u0026\u0026 `.",
+      "range": {
+        "startLine": 4515,
+        "startChar": 0,
+        "endLine": 4532,
+        "endChar": 7
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d5006e0_eb2ff803",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T02:30:38Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00ce095a_b2f63fc6",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T02:30:38Z",
+      "side": 1,
+      "message": "Remove. See below.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cda6921_f4ca8153",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T02:30:38Z",
+      "side": 1,
+      "message": "I can successfully assemble the following for R5 with MSA:\n\n  # file: r5.S\n  # assemble: aosp/prebuilts/gcc/linux-x86/mips/mips64el-linux-android-4.9/mips64el-linux-android/bin/as --no-warn -32 -march\u003dmips32r5 -mmsa r5.S -o r5.o\n  # disassemble: aosp/prebuilts/gcc/linux-x86/mips/mips64el-linux-android-4.9/mips64el-linux-android/bin/objdump -d -mmips:isa32r5 r5.o\n  .set noreorder\n  beq $a0, $a1, 1f\n  ld.d $w0, 16($a2)\n  ld.d $w1, -16($a2)\n  1:\n  lsa $v0, $a3, $a0, 4\n\nAnd the disassembly shows the correct branch offset:\n\n  00000000 \u003c.text\u003e:\n     0:\t10850002 \tbeq\ta0,a1,0xc\n     4:\t78023023 \tld.d\t$w0,16(a2)\n     8:\t7bfe3063 \tld.d\t$w1,-16(a2)\n     c:\t00e410c5 \tlsa\tv0,a3,a0,0x4\n\nIOW, we can avoid using \"gcc+as+ld\" and just use \"as\" like on R2.\n\nSo, remove the comment as well.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 97
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c65f8aa_e4bf9ae2",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T02:30:38Z",
+      "side": 1,
+      "message": "return \" --no-warn -32 -march\u003dmips32r5 -mmsa\";",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 58
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d9ec513_169067a1",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T02:30:38Z",
+      "side": 1,
+      "message": "It\u0027ll never be used. Remove.",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 0
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f333ca7f_6b172386",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-27T02:30:38Z",
+      "side": 1,
+      "message": "Add a few more test cases with the following values here and in StoreQToOffset to better exercise R5-specific paths:\n\n-36856,36856,\n-69608,69608.",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 48
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
