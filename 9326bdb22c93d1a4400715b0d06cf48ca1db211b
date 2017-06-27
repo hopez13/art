@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8615e92d_c5699abb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8309,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-06-27T10:02:20Z",
+      "side": 1,
+      "message": "Do we also need to check if the method/field is accessible?",
+      "revId": "9326bdb22c93d1a4400715b0d06cf48ca1db211b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
