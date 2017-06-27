@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1003ee6a_18e513de",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T14:11:26Z",
+      "side": 1,
+      "message": "Yes, good idea. That reads better. Done.",
+      "parentUuid": "0a4ba7b3_77c18aee",
+      "range": {
+        "startLine": 590,
+        "startChar": 24,
+        "endLine": 590,
+        "endChar": 36
+      },
+      "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0498b76a_0a21a63d",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-27T13:50:10Z",
       "side": 1,
       "message": "I may be wrong but shouldn\u0027t the unroll factor be evaluated after calculating ptc? It could happen that after peeling there is not enough original iterations left for the given VL and unroll factor.",
+      "range": {
+        "startLine": 670,
+        "startChar": 20,
+        "endLine": 670,
+        "endChar": 38
+      },
+      "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "314b2e0e_2a5aec4b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T14:11:26Z",
+      "side": 1,
+      "message": "Well, the actual value of ptc is only known at run-time, so too late to change unrolling then. The fact that peeling may occur is known to GetUnrolllingFactor though, so it must assume a worst-case value of VL-1",
+      "parentUuid": "0498b76a_0a21a63d",
       "range": {
         "startLine": 670,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bebdff6a_85838493",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T14:11:26Z",
+      "side": 1,
+      "message": "Renamed.",
+      "parentUuid": "0d4a52b4_c5b94704",
+      "range": {
+        "startLine": 671,
+        "startChar": 11,
+        "endLine": 671,
+        "endChar": 13
+      },
+      "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f03fd961_cccb8707",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ba15a7f7_ce976310",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T14:11:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f03fd961_cccb8707",
+      "range": {
+        "startLine": 787,
+        "startChar": 49,
+        "endLine": 787,
+        "endChar": 55
+      },
+      "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "272bf6c5_428c47fc",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 4
@@ -105,6 +201,24 @@
       "writtenOn": "2017-06-27T13:50:10Z",
       "side": 1,
       "message": "Maybe a DCHECK here that instruction is not in the loop body?",
+      "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90014691_58f2915d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T14:11:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "272bf6c5_428c47fc",
       "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
