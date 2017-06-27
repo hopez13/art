@@ -44,6 +44,7 @@ public class Main {
     expectPreInit(ClinitAlloc.class);
     expectNotPreInit(ClinitBulkAlloc.class);
     expectPreInit(Class.forName("FilledNewArray"));
+    expectNotPreInit(Forever.class);
 
     expectNotPreInit(Add.class);
     expectNotPreInit(Mul.class);
@@ -257,4 +258,12 @@ class ClinitBulkAlloc {
   static int[] iArr = new int[10000];
 }
 
+class Forever {
+  static int loop = 1000;
+  static {
+    while (loop != 101) {
+      loop += 100;
+    }
+  }
+}
 

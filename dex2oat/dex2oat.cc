@@ -434,6 +434,10 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("  --dirty-image-objects=<directory-path>: list of known dirty objects in the image.");
   UsageError("      The image writer will group them together.");
   UsageError("");
+  UsageError("  --clinit-threshold=<size>: specifies the maximum instruction can be executed");
+  UsageError("      for clinit when initializing classes. Default 100000.");
+  UsageError("      Example: --clinit-threshold=100000");
+  UsageError("");
   std::cerr << "See log for usage error information\n";
   exit(EXIT_FAILURE);
 }
@@ -1312,6 +1316,11 @@ class Dex2Oat FINAL {
         }
       } else if (option.starts_with("--dirty-image-objects=")) {
         dirty_image_objects_filename_ = option.substr(strlen("--dirty-image-objects=")).data();
+      } else if (option.starts_with("--clinit-threshold=")) {
+        ParseUintOption(option,
+                        "--clinit-threshold",
+                        &compiler_options_->clinit_threshold_,
+                        Usage);
       } else if (!compiler_options_->ParseCompilerOption(option, Usage)) {
         Usage("Unknown argument %s", option.data());
       }
