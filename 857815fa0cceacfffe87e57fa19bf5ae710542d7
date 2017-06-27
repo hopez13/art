@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad4fcc68_71d826b8",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "javadoc class level comment?",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9264ed1b_fbd7ee53",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "use javac doc for this, so that IDEs show this when hovering over the method",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5848a8e_e74bcb95",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "document (javadoc), and keep empty line between the two methods",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b970081c_a1eff276",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "More in line with all others, just say\n\n\"Could not ... branch.\"\n\n(omit the quitting part)",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c79617ec_ef0d8659",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "indent +2",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65c75171_0603e13a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "how about breaking after { and lining up the contents to make this more readable",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1692ca70_76b01dbd",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "since you used !C in the first if, this can now simply become an else (since !!C is C), and you don\u0027t need the return opcode. If you are worried about out of range opcodes, you should not have used !isZeroComparator",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f19688b_6389963e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "I don\u0027t like the logic here\n\nyou assume that anything outside non-zero comparison is a zero comparator; that makes the assumption you never get the wrong opcodes\n\nit would more more consistent to have a isZeroComparator and a isNonZeroComparator here and use those in the if / else if above, and then fall through for every invalid opcode",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc7acd88_58d0b3a3",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "uh, return i?",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e6543a6_364d7edf",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "return -1 here",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d07cd59_302e38d5",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T23:16:54Z",
+      "side": 1,
+      "message": "indent -2 this time",
+      "revId": "857815fa0cceacfffe87e57fa19bf5ae710542d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
