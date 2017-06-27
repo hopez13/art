@@ -70,6 +70,30 @@
       "revId": "d0210e58100e029e865e783beb7906090781f602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef3607b2_b3ca4c91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-27T16:15:30Z",
+      "side": 1,
+      "message": "No, I plan to enable it on-device, just with a higher threshold than the regular logging - it\u0027s meant to better help investigate long contention (and to be able to use small thresholds to hunt all the smaller things).",
+      "parentUuid": "4443cfe3_747c58e0",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "d0210e58100e029e865e783beb7906090781f602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
