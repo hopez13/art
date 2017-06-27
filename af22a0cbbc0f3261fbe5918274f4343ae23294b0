@@ -70,6 +70,29 @@
     },
     {
       "key": {
+        "uuid": "81f0f0af_c326283f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T00:10:53Z",
+      "side": 1,
+      "message": "we probably want to keep this an abstract method after all, and only provide the two subclasses as real mutators. Returning EQ always is really just a special case of the random one, so it does not add much.",
+      "range": {
+        "startLine": 133,
+        "startChar": 21,
+        "endLine": 133,
+        "endChar": 22
+      },
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59cec645_979e04d2",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
         "patchSetId": 12
