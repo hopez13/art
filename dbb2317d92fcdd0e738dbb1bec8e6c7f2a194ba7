@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "4c4c9a89_66f22fc3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-27T15:20:45Z",
+      "side": 1,
+      "message": "Oh yes, I see. VL-1 is a good point.",
+      "parentUuid": "314b2e0e_2a5aec4b",
+      "range": {
+        "startLine": 670,
+        "startChar": 20,
+        "endLine": 670,
+        "endChar": 38
+      },
+      "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d4a52b4_c5b94704",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 4
@@ -136,6 +160,29 @@
         "startChar": 11,
         "endLine": 671,
         "endChar": 13
+      },
+      "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f411551_33c13f03",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-27T15:20:45Z",
+      "side": 1,
+      "message": "i \u003d 0?",
+      "range": {
+        "startLine": 728,
+        "startChar": 10,
+        "endLine": 728,
+        "endChar": 11
       },
       "revId": "dbb2317d92fcdd0e738dbb1bec8e6c7f2a194ba7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
