@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "173da7d2_9113e0c8",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-27T04:09:09Z",
+      "side": 1,
+      "message": "Can forward-declare.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9c1b583_8229ea65",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-27T04:09:09Z",
+      "side": 1,
+      "message": "Can you call this ChainSpec or something? Considering we\u0027d want to use this in OatFileManager/OatFileAssistant when loading, and DexFile for verification, CompilationContext is a little bit too tight, IMHO.",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 35
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43b02672_c23d0df8",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-27T04:09:09Z",
+      "side": 1,
+      "message": "Undocumented.",
+      "range": {
+        "startLine": 48,
+        "startChar": 59,
+        "endLine": 48,
+        "endChar": 72
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
