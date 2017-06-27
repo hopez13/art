@@ -161,6 +161,23 @@
     },
     {
       "key": {
+        "uuid": "12821de0_8d77a777",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T14:06:54Z",
+      "side": 1,
+      "message": "don\u0027t use a loop to find a random condition that is not the same as the original; this is really a simple problem to solve, given n conditions, finding one that is not the same requires picking one out of n-1 remaining conditions. how would you do that with an array of n conditions (hint: modulo operator is your friend)",
+      "revId": "af22a0cbbc0f3261fbe5918274f4343ae23294b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8ae8153_bc7fd754",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 12
