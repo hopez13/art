@@ -54,6 +54,23 @@
     },
     {
       "key": {
+        "uuid": "37ee6dc8_354e5376",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:19:06Z",
+      "side": 1,
+      "message": "in the stats output, we don\u0027t see the difference between the two subclass mutations. Perhaps make another abstract method, like getMutationName, and make both subclasses implement that, or use the getMutationString of the serializer somehow?",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a055e87_0d1e5617",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
         "patchSetId": 13
