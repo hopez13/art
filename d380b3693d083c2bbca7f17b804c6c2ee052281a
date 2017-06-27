@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1e3f886d_a33ffc4f",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-27T18:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adadef3c_80d39f39",
+      "revId": "d380b3693d083c2bbca7f17b804c6c2ee052281a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80c0d9ea_16ea7101",
         "filename": "test/458-checker-instruct-simplification/src/Main.java",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-27T18:20:15Z",
       "side": 1,
       "message": "Return [\u003c\u003cResult\u003e\u003e] perhaps to check that you return the right value\n(or otherwise remove the label)",
+      "revId": "d380b3693d083c2bbca7f17b804c6c2ee052281a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97962411_7e54dd25",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-27T18:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80c0d9ea_16ea7101",
       "revId": "d380b3693d083c2bbca7f17b804c6c2ee052281a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
