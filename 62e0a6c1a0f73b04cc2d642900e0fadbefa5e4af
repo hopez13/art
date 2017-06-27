@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "36fde29f_2991e74a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:15:50Z",
+      "side": 1,
+      "message": "Perhaps add a bit of class level documentation here.",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f61dfb4_a866a6c1",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
         "patchSetId": 13
@@ -31,6 +48,29 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "9f61dfb4_a866a6c1",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a055e87_0d1e5617",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:15:50Z",
+      "side": 1,
+      "message": "Following the tradition of good documentation of our interfaces, perhaps document what is expected of this method (it is obvious perhaps, but it will make the function more clear to future developers that want to implement this class).",
+      "range": {
+        "startLine": 133,
+        "startChar": 28,
+        "endLine": 133,
+        "endChar": 29
+      },
       "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
