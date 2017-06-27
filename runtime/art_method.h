@@ -483,6 +483,9 @@ class ArtMethod FINAL {
     }
   }
 
+  ALWAYS_INLINE ArtMethod* GetCanonicalMethod(PointerSize pointer_size = kRuntimePointerSize)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   ArtMethod* GetSingleImplementation(PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

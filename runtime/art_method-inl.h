@@ -47,6 +47,22 @@
 
 namespace art {
 
+// Takes a method and returns a 'canonical' one if the method is default (and therefore potentially
+// copied from some other class). This ensures that the debugger does not get confused as to which
+// method we are in.
+inline ArtMethod* ArtMethod::GetCanonicalMethod(PointerSize pointer_size) {
+  if (LIKELY(!IsDefault())) {
+    return this;
+  } else {
+    mirror::Class* declaring_class = GetDeclaringClass();
+    ArtMethod* ret = declaring_class->FindDeclaredVirtualMethod(declaring_class->GetDexCache(),
+                                                                GetDexMethodIndex(),
+                                                                pointer_size);
+    DCHECK(ret != nullptr);
+    return ret;
+  }
+}
+
 template <ReadBarrierOption kReadBarrierOption>
 inline mirror::Class* ArtMethod::GetDeclaringClassUnchecked() {
   GcRootSource gc_root_source(this);

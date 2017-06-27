@@ -77,19 +77,9 @@ static uint16_t CappedAllocRecordCount(size_t alloc_record_count) {
   return alloc_record_count;
 }
 
-// Takes a method and returns a 'canonical' one if the method is default (and therefore potentially
-// copied from some other class). This ensures that the debugger does not get confused as to which
-// method we are in.
 static ArtMethod* GetCanonicalMethod(ArtMethod* m)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (LIKELY(!m->IsDefault())) {
-    return m;
-  } else {
-    mirror::Class* declaring_class = m->GetDeclaringClass();
-    return declaring_class->FindDeclaredVirtualMethod(declaring_class->GetDexCache(),
-                                                      m->GetDexMethodIndex(),
-                                                      kRuntimePointerSize);
-  }
+  return m->GetCanonicalMethod(kRuntimePointerSize);
 }
 
 class Breakpoint : public ValueObject {
