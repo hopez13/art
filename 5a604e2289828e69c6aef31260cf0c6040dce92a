@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "75999fd0_f7d5f170",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-27T22:01:45Z",
+      "side": 1,
+      "message": "enh@ tells me you could create a pthread_attr and query it for the default priority.",
+      "parentUuid": "29231005_5f6ac204",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 61,
+        "endChar": 40
+      },
+      "revId": "5a604e2289828e69c6aef31260cf0c6040dce92a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b3648d9_95e5d38d",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 4
