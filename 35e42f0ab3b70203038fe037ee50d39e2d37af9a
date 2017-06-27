@@ -69,6 +69,24 @@
       "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb1dd0b7_4105dff5",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-27T15:51:08Z",
+      "side": 1,
+      "message": "I don\u0027t understand. This CL is changing the annotation lookup code, I thought yesterday the plan was to only change quick_trampoline_entrypoints.cc ?",
+      "parentUuid": "e617b31a_7ef80a2a",
+      "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
