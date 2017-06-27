@@ -431,6 +431,10 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("      ");
   UsageError("      Example: --class-loader-context=PCL[lib1.dex:lib2.dex];DLC[lib3.dex]");
   UsageError("");
+  UsageError("  --clinit-threshold=<size>: specifies the maximum instruction can be executed");
+  UsageError("      for clinit when initializing classes. Default 100000.");
+  UsageError("      Example: --clinit-threshold=100000");
+  UsageError("");
   std::cerr << "See log for usage error information\n";
   exit(EXIT_FAILURE);
 }
@@ -1307,6 +1311,11 @@ class Dex2Oat FINAL {
         if (class_loader_context_== nullptr) {
           Usage("Option --class-loader-context has an incorrect format: %s", option.data());
         }
+      } else if (option.starts_with("--clinit-threshold=")) {
+        ParseUintOption(option,
+                        "--clinit-threshold",
+                        &compiler_options_->clinit_threshold_,
+                        Usage);
       } else if (!compiler_options_->ParseCompilerOption(option, Usage)) {
         Usage("Unknown argument %s", option.data());
       }

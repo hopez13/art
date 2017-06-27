@@ -241,6 +241,10 @@ class CompilerOptions FINAL {
     return passes_to_run_;
   }
 
+  uint32_t GetClinitThreshold() const {
+    return clinit_threshold_;
+  };
+
  private:
   void ParseDumpInitFailures(const StringPiece& option, UsageFn Usage);
   void ParseDumpCfgPasses(const StringPiece& option, UsageFn Usage);
@@ -304,6 +308,8 @@ class CompilerOptions FINAL {
   // Passing pass names which are not recognized by the compiler will result in
   // compiler-dependant behavior.
   const std::vector<std::string>* passes_to_run_;
+
+  uint32_t clinit_threshold_ = 100000;
 
   friend class Dex2Oat;
   friend class DexToDexDecompilerTest;
