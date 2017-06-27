@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "2e40ba4a_cd3f71a4",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T21:18:55Z",
+      "side": 1,
+      "message": "remove commented out code completely",
+      "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b49f03da_4bbc7fa5",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T21:18:55Z",
+      "side": 1,
+      "message": "short comment on static helper?",
+      "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6682d468_3f022d8b",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
