@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a56bad34_c8910b1c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T20:15:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f61dfb4_a866a6c1",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c880447_0fa51cff",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
         "patchSetId": 13
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "7182d85e_c71c50db",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T20:15:32Z",
+      "side": 1,
+      "message": "just wanted to make it a little more probable, no specific reason.",
+      "parentUuid": "2c880447_0fa51cff",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2455d7d6_de86177a",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
         "patchSetId": 13
@@ -47,6 +83,24 @@
       "writtenOn": "2017-06-27T20:02:59Z",
       "side": 1,
       "message": "note, the default return is of course safe, since it leaves the instruction intact.\n\nHowever, you could also consider Log.errorAndQuit(\"....\"); here as is done in some other mutators, since the code should never be reached given all the logic in the super class.",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ae7b8d2_3c7b1b1c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-27T20:15:32Z",
+      "side": 1,
+      "message": "what is the default return then?",
+      "parentUuid": "2455d7d6_de86177a",
       "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
