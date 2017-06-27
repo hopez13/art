@@ -164,6 +164,24 @@
     },
     {
       "key": {
+        "uuid": "3452f433_eb595e42",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/OppositeBranchChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-27T20:31:44Z",
+      "side": 1,
+      "message": "same default return code, just the exiting error\n(technically you don\u0027t need any return then, but the compiler cannot figure that out here)",
+      "parentUuid": "9ae7b8d2_3c7b1b1c",
+      "revId": "62e0a6c1a0f73b04cc2d642900e0fadbefa5e4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d433afd_65e0ca8f",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 13
