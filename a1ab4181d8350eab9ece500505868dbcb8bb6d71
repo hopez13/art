@@ -160,6 +160,30 @@
     },
     {
       "key": {
+        "uuid": "c6a89a62_d8732e1e",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T19:44:47Z",
+      "side": 1,
+      "message": "Maybe consider a DCHECK(!method-\u003eIsRuntimeMethod())?",
+      "parentUuid": "1833dfbb_932af02f",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 5
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7cf850d_af96bd26",
         "filename": "runtime/openjdkjvmti/events.cc",
         "patchSetId": 2
