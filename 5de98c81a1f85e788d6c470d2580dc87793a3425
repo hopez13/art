@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd700eaf_48284144",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8750,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-28T18:40:32Z",
+      "side": 1,
+      "message": "Should be self-\u003eGetJniEnv()-\u003eIsSameObject",
+      "range": {
+        "startLine": 8749,
+        "startChar": 8,
+        "endLine": 8750,
+        "endChar": 79
+      },
+      "revId": "5de98c81a1f85e788d6c470d2580dc87793a3425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
