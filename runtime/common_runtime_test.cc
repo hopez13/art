@@ -687,6 +687,17 @@ jobject CommonRuntimeTestImpl::LoadDex(const char* dex_name) {
   return class_loader;
 }
 
+jobject CommonRuntimeTestImpl::LoadDexInPathClassLoader(const char* dex_name,
+                                                        jobject parent_loader) {
+  return nullptr;
+}
+
+jobject CommonRuntimeTestImpl::LoadDexInDelegateLasClassLoader(const char* dex_name,
+                                                               jobject parent_loader) {
+  return nullptr;
+}
+
+
 std::string CommonRuntimeTestImpl::GetCoreFileLocation(const char* suffix) {
   CHECK(suffix != nullptr);
 
