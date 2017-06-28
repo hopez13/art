@@ -440,6 +440,12 @@ bool HLoopOptimization::CanRemoveCycle() {
 }
 
 void HLoopOptimization::SimplifyInduction(LoopNode* node) {
+  // Don't run this optimization for debuggable. Our graph checker isn't
+  // smart enough to follow strongly connected components (and it's probably not worth
+  // it to make it so). See b/33775412.
+  if (graph_->IsDebuggable()) {
+    return false;
+  }
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
   // Scan the phis in the header to find opportunities to simplify an induction
