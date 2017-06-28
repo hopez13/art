@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d90d3918_46799de7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "I would say \"of if statements\" rather than \"of the if statement\"",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc451f9_5c8ff7e0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "should implement the way the comparison operator changes?",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "224a230f_cd7fbc68",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "ws at end",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f334ef6d_a271e916",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "no capital in Mutation?",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "546ee55d_c711b89f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be? You seem to cut of too soon.\n\nOpcode.IF_EQ, Opcode.IF_LEZ",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ba41f0c_18af50be",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "indent -1 on the {",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0af3b94f_96974d52",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "same",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c04adae_94b5ee20",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "EQ .. GE",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb620e1a_6d12f654",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:24:04Z",
+      "side": 1,
+      "message": "EQZ .. GEZ",
+      "revId": "b622423c461006119d582b05a351bff839904624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
