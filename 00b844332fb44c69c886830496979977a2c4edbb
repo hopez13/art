@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d5368231_795ee2f7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bf9c61c_31544ca1",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6556dce1_41b02eff",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
         "patchSetId": 16
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-28T00:03:40Z",
       "side": 1,
       "message": "note that you should really describe the abstract class at this point; referring to the two concrete implementation here should have less emphasis (although you could mention them as examples)",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33fd3b76_cbc0a982",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6556dce1_41b02eff",
       "revId": "00b844332fb44c69c886830496979977a2c4edbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "eb938fa5_6c9242c0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc00af53_e8cae8d4",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "492b1fae_ae0ef76f",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
         "patchSetId": 16
@@ -64,6 +118,24 @@
       "writtenOn": "2017-06-28T00:03:40Z",
       "side": 1,
       "message": "@return string tag of the ...",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b3ca27f_19b8d202",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "492b1fae_ae0ef76f",
       "revId": "00b844332fb44c69c886830496979977a2c4edbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "5052e979_0a29525a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de074474_ae25a016",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79f5d3ef_3e61ef1f",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 16
@@ -98,6 +188,24 @@
       "writtenOn": "2017-06-28T00:03:40Z",
       "side": 1,
       "message": "no space before ;",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75bdd03f_79b5c0eb",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79f5d3ef_3e61ef1f",
       "revId": "00b844332fb44c69c886830496979977a2c4edbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "ca3546a8_cee33e29",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cb3d45d_e71802d4",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c53f04f4_a8ab7662",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 16
@@ -132,6 +258,24 @@
       "writtenOn": "2017-06-28T00:03:40Z",
       "side": 1,
       "message": "I would not guard against this",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9bb462_0191f9cd",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c53f04f4_a8ab7662",
       "revId": "00b844332fb44c69c886830496979977a2c4edbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "69ef0076_d518e9df",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "217f5123_c532b0e7",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1a18b33_03c43a9f",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 16
@@ -166,6 +328,24 @@
       "writtenOn": "2017-06-28T00:03:40Z",
       "side": 1,
       "message": "no ()",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f6fbb67_8d1b21e1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-28T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1a18b33_03c43a9f",
       "revId": "00b844332fb44c69c886830496979977a2c4edbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
