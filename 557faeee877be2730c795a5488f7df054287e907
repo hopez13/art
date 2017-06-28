@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1086c1a7_607577fe",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T00:29:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24b68928_5e744fd2",
+      "range": {
+        "startLine": 156,
+        "startChar": 78,
+        "endLine": 156,
+        "endChar": 87
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d37bb95_f8375e92",
         "filename": "runtime/class_loader_compilation_context.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-27T12:14:49Z",
       "side": 1,
       "message": "misplaced",
+      "range": {
+        "startLine": 190,
+        "startChar": 38,
+        "endLine": 190,
+        "endChar": 39
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cfd63df_e9bbe13d",
+        "filename": "runtime/class_loader_compilation_context.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T00:29:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d37bb95_f8375e92",
       "range": {
         "startLine": 190,
         "startChar": 38,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2c1f407e_6472822f",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T00:29:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "173da7d2_9113e0c8",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9c1b583_8229ea65",
         "filename": "runtime/class_loader_compilation_context.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-27T04:09:09Z",
       "side": 1,
       "message": "Can you call this ChainSpec or something? Considering we\u0027d want to use this in OatFileManager/OatFileAssistant when loading, and DexFile for verification, CompilationContext is a little bit too tight, IMHO.",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 35
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94145e0d_7b2e939d",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T00:29:35Z",
+      "side": 1,
+      "message": "Either is good IMO.\n\nWe\u0027re gonna need this only for compilation/verification so my intention was to be clear about it. At runtime we want to make sure that whatever compiled/verified code we load matches the expectation so it\u0027s like \"checking the compilation context\".\n\nI could also drop \"Compilation\" from the name all together to make it shorter.\n\nAnyway if you strongly prefer the other name I\u0027ll rename before submitting to allow for easier diffs. Lemme know.",
+      "parentUuid": "a9c1b583_8229ea65",
       "range": {
         "startLine": 31,
         "startChar": 17,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "20beccf5_694358e8",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T00:29:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b02672_c23d0df8",
+      "range": {
+        "startLine": 48,
+        "startChar": 59,
+        "endLine": 48,
+        "endChar": 72
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c43433f0_216ae310",
         "filename": "runtime/class_loader_compilation_context.h",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2017-06-27T12:14:49Z",
       "side": 1,
       "message": "misplaced",
+      "range": {
+        "startLine": 52,
+        "startChar": 72,
+        "endLine": 52,
+        "endChar": 73
+      },
+      "revId": "557faeee877be2730c795a5488f7df054287e907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71418961_4b84d85a",
+        "filename": "runtime/class_loader_compilation_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T00:29:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c43433f0_216ae310",
       "range": {
         "startLine": 52,
         "startChar": 72,
