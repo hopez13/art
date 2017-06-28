@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bf9c61c_31544ca1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "It -\u003e This mutator class \n\nws at end",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6556dce1_41b02eff",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "note that you should really describe the abstract class at this point; referring to the two concrete implementation here should have less emphasis (although you could mention them as examples)",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc00af53_e8cae8d4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "add a @return here annotation too, since you did this below",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "492b1fae_ae0ef76f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "@return string tag of the ...",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de074474_ae25a016",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "no space before ;",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79f5d3ef_3e61ef1f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "no space before ;",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cb3d45d_e71802d4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "why called twice?",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c53f04f4_a8ab7662",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "I would not guard against this",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217f5123_c532b0e7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "I would still calls this isZeroComparator\nbut return true if the isBetween is true\nand false otherwise\n\n(that way, you don\u0027t return true for nonsensical opcodes)",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1a18b33_03c43a9f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T00:03:40Z",
+      "side": 1,
+      "message": "no ()",
+      "revId": "00b844332fb44c69c886830496979977a2c4edbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
