@@ -553,8 +553,24 @@ class ClassLinker {
       REQUIRES(!Locks::classlinker_classes_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Creates a GlobalRef PathClassLoader that can be used to load classes from the given dex files.
+  // Creates a GlobalRef PathClassLoader or DelegateLastClassLoader (specified by class_loader_id)
+  // that can be used to load classes from the given dex files. The parent of the class loader
+  // will be set to `parent_class_loader`. If `parent_class_loader` is null the parent will be
+  // the boot class loader.
+  // If class_loader_id points to a different class than PathClassLoader or DelegateLastClassLoader
+  // this method will abort.
   // Note: the objects are not completely set up. Do not use this outside of tests and the compiler.
+  jobject CreateWellKnownClassLoader(Thread* self,
+                                     const std::vector<const DexFile*>& dex_files,
+                                     jclass class_loader_id,
+                                     jobject parent_class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_);
+
+  // Calls CreateWellKnownClassLoader(self,
+  //                                  dex_files,
+  //                                  WellKnownClasses::dalvik_system_PathClassLoader,
+  //                                  nullptr)
   jobject CreatePathClassLoader(Thread* self, const std::vector<const DexFile*>& dex_files)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
