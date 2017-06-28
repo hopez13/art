@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d8b1642_159736a3",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T09:30:36Z",
+      "side": 1,
+      "message": "Should that be line 229?",
+      "range": {
+        "startLine": 234,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 72
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2139e022_654a520b",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T09:30:36Z",
+      "side": 1,
+      "message": "Please add comments around the exception handling. Right now it looks pretty obscure.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 7
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40d63516_0cea7798",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T09:30:36Z",
+      "side": 1,
+      "message": "How can they have their pcs moved?",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 5
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7cf850d_af96bd26",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T09:30:36Z",
+      "side": 1,
+      "message": "Re-enable? Or drop if it\u0027s a broken check?",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 444,
+        "endChar": 87
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9af66e_d7775c0b",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T09:30:36Z",
+      "side": 1,
+      "message": "In?",
+      "range": {
+        "startLine": 64,
+        "startChar": 38,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "687cee73_b452a6aa",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T09:30:36Z",
+      "side": 1,
+      "message": "Use remove_if?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1e2a7bd_b5009234",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T09:30:36Z",
+      "side": 1,
+      "message": "nit: /* Breakpoint */ so that one can find places where a BreakPoint is created.",
+      "range": {
+        "startLine": 90,
+        "startChar": 42,
+        "endLine": 90,
+        "endChar": 64
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
