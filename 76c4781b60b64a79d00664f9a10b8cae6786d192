@@ -22,6 +22,30 @@
       "revId": "76c4781b60b64a79d00664f9a10b8cae6786d192",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b16f9e7_840db6f1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T18:58:19Z",
+      "side": 1,
+      "message": "I was considering it at some point since it will probably make things a tiny more straightforward when I\u0027ll add dalvikvm support.\n\nDecided to go with a separate options because:\n1) it adds clarity that it\u0027s not a regular \"-cp\" that one might expect\n2) it simplifies the parsing and error reporting. Assuming that we fallback to parse a \"regular\" classpath we would still need a way to tell that\u0027s a malformed one. e.g. maybe we failed because the class loader type is wrong, or the wrong separator were used. It adds quite a bit of corner cases.\n\nI can be convinced otherwise.",
+      "parentUuid": "25c1ab70_b0534995",
+      "range": {
+        "startLine": 404,
+        "startChar": 16,
+        "endLine": 404,
+        "endChar": 89
+      },
+      "revId": "76c4781b60b64a79d00664f9a10b8cae6786d192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
