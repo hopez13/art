@@ -63,6 +63,11 @@ inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes, size_t* by
                                                              bytes_tl_bulk_allocated);
     Region* r = AllocateRegion(kForEvac);
     if (LIKELY(r != nullptr)) {
+      if (kForEvac) {
+        evac_region_ = r;
+      } else {
+        current_region_ = r;
+      }
       obj = r->Alloc(num_bytes, bytes_allocated, usable_size, bytes_tl_bulk_allocated);
       CHECK(obj != nullptr);
       return obj;

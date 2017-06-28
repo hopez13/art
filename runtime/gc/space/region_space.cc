@@ -560,11 +560,8 @@ RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
     if (r->IsFree()) {
       r->Unfree(this, time_);
       ++num_non_free_regions_;
-      if (for_evac) {
+      if (!for_evac) {
         // Evac doesn't count as newly allocated.
-        evac_region_ = r;
-      } else {
-        current_region_ = r;
         r->SetNewlyAllocated();
       }
       return r;
