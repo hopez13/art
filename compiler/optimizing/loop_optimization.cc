@@ -1595,6 +1595,12 @@ bool HLoopOptimization::TryAssignLastValue(HLoopInformation* loop_info,
                                            HInstruction* instruction,
                                            HBasicBlock* block,
                                            bool collect_loop_uses) {
+  // Special case Phis that have equivalent in a debuggable setup. Our graph checker isn't
+  // smart enough to follow strongly connected components (and it's probably not worth
+  // it to make it so).
+  if (graph_->IsDebuggable() && instruction->IsPhi() && instruction->AsPhi()->HasEquivalentPhi()) {
+    return false;
+  }
   // Assigning the last value is always successful if there are no uses.
   // Otherwise, it succeeds in a no early-exit loop by generating the
   // proper last value assignment.
