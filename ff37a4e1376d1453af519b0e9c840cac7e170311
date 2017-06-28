@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1586c4e_dcbe4a3d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T20:00:39Z",
+      "side": 1,
+      "message": "I am a bit confused by this change. I suggested to move what you had originally to TrySetPhiInduction() and use your new helper method directly on the phi (my preference). If you do what you have now, which is much more a sledgehammar (less preferred), you won\u0027t even need the nodes.h change.",
+      "revId": "ff37a4e1376d1453af519b0e9c840cac7e170311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
