@@ -16,6 +16,24 @@
       "revId": "6cc6ae6fa48b9df0d9a76a411033ebc3cc25d3ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebd32d82_bfaa8f86",
+        "filename": "test/988-method-trace/src/art/Test988.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-28T15:28:33Z",
+      "side": 1,
+      "message": "More than one, please, is my point, but I\u0027m not saying that you should do all the intrinsics that we have (compiler/intrinsics_list.h). Right now this is a *very* targeted CL to get a single point over, and I\u0027m unhappy with such a heavyhanded approach.",
+      "parentUuid": "3987109b_3b9a5c00",
+      "revId": "6cc6ae6fa48b9df0d9a76a411033ebc3cc25d3ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
