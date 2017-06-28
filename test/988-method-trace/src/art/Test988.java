@@ -266,6 +266,7 @@ public class Test988 {
         doFibTest(5, new RecurOp());
         doFibTest(-19, new IterOp());
         doFibTest(-19, new RecurOp());
+        Long.compare(123L, 456L);
         // Turn off method tracing so we don't have to deal with print internals.
         Trace.disableTracing(Thread.currentThread());
         printResults();
