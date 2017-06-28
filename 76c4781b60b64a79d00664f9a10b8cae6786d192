@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25c1ab70_b0534995",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-28T18:33:42Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether we should roll this into -cp. Do something like \"attempt parsing as a context, fall back to simple classpath,\" or maybe just have the Context support this case?",
+      "range": {
+        "startLine": 404,
+        "startChar": 16,
+        "endLine": 404,
+        "endChar": 89
+      },
+      "revId": "76c4781b60b64a79d00664f9a10b8cae6786d192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
