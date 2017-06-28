@@ -70,6 +70,30 @@
       "revId": "012a15382f09dc4b0bb92807a9b992cfc8532fa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d24fa93_b5fd2338",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T20:46:53Z",
+      "side": 1,
+      "message": "\u003e Please state it in the comment. \n\nDone.\n\n\u003e Which exceptions? Any of them?\n\nPretty much. JVMTI lets listeners execute arbitrary C code with a JNIEnv*, allowing them to throw anything they please.\n\n\u003e How about our debugger (ie Dbg::)? Does it also throw?\n\nour debugger never throws anything (or if it does it never reaches this far up the stack).",
+      "parentUuid": "8d42d7eb_63f03df3",
+      "range": {
+        "startLine": 110,
+        "startChar": 44,
+        "endLine": 111,
+        "endChar": 43
+      },
+      "revId": "012a15382f09dc4b0bb92807a9b992cfc8532fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
