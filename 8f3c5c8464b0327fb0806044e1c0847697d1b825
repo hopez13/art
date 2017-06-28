@@ -104,6 +104,24 @@
       "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be39c34f_543809b7",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T22:49:05Z",
+      "side": 1,
+      "message": "Then we should probably make this a feature like SSE4 below\n(note that we can still decide to enable that feature for our default target, as we are considering for x86, but at least that will allow clients to set a flag that disables the neon assumption on arm32",
+      "parentUuid": "726939f3_b2adeae9",
+      "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
