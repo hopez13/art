@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "953df81c_0554f87e",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-28T15:48:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e40ba4a_cd3f71a4",
+      "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b49f03da_4bbc7fa5",
         "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "fa1a8b03_47c4aa9a",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-28T15:48:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b49f03da_4bbc7fa5",
+      "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6682d468_3f022d8b",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2017-06-26T19:01:46Z",
       "side": 1,
       "message": "Can you make this comment a bit more similar to what we ahve at L1043/1044 please?",
+      "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "726939f3_b2adeae9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-28T15:48:05Z",
+      "side": 1,
+      "message": "It\u0027s a little bit different on ARM. ARM 32-bit platforms are not guaranteed to have a NEON and VFP extensions however their presence has been assumed in the ART compiler for a while.",
+      "parentUuid": "6682d468_3f022d8b",
       "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
