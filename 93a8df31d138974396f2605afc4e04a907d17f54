@@ -22,6 +22,29 @@
       "revId": "93a8df31d138974396f2605afc4e04a907d17f54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f18492b_612901ba",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-06-28T09:18:58Z",
+      "side": 1,
+      "message": "Not sure we should keep this method name nwo it\u0027s moved to ArtMethod. WDYT of \u0027Canonicalize\u0027 ?",
+      "range": {
+        "startLine": 486,
+        "startChar": 13,
+        "endLine": 486,
+        "endChar": 31
+      },
+      "revId": "93a8df31d138974396f2605afc4e04a907d17f54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
