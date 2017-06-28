@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "683b81bc_62756507",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T16:50:59Z",
+      "side": 1,
+      "message": "if-brach instructions.",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10f27b74_76f7ce97",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T16:50:59Z",
+      "side": 1,
+      "message": "You can reave this comment. Doesn\u0027t add too much value :).",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 80
+      },
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbd986f7_abec9727",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T16:50:59Z",
+      "side": 1,
+      "message": "I would replace this with \"instruction\". The if-branch is an instruction and does\u0027t have a separate standalone comparison operator as this suggests.\n\n(The same comment applies to the other places where you used the same phrasing).",
+      "range": {
+        "startLine": 141,
+        "startChar": 31,
+        "endLine": 141,
+        "endChar": 51
+      },
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d0187f5_19a0f867",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T16:50:59Z",
+      "side": 1,
+      "message": "the alignment is not right here. should be -1.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "214fe339_1be1f735",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-28T16:50:59Z",
+      "side": 1,
+      "message": "the alignment is not right here. should be -1.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
