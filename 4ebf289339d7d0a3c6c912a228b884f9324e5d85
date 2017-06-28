@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63c9c4ae_25a484b6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:59:10Z",
+      "side": 1,
+      "message": "I am okay with the sledge hammer for now. Shall we do it in TrySetPhiInduction() already to avoid doing work that will fail anyway? This may block even a few more cases, but I would be worried about those too actually.",
+      "revId": "4ebf289339d7d0a3c6c912a228b884f9324e5d85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
