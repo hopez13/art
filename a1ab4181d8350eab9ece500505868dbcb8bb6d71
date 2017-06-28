@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "4dc14690_f693c734",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T18:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8b1642_159736a3",
+      "range": {
+        "startLine": 234,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 72
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2139e022_654a520b",
         "filename": "runtime/openjdkjvmti/events-inl.h",
         "patchSetId": 2
@@ -53,6 +77,30 @@
       "writtenOn": "2017-06-28T09:30:36Z",
       "side": 1,
       "message": "Please add comments around the exception handling. Right now it looks pretty obscure.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 7
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35217d66_9dd4c1e2",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T18:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2139e022_654a520b",
       "range": {
         "startLine": 235,
         "startChar": 0,
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "1833dfbb_932af02f",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T18:19:57Z",
+      "side": 1,
+      "message": "good point.",
+      "parentUuid": "40d63516_0cea7798",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 5
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7cf850d_af96bd26",
         "filename": "runtime/openjdkjvmti/events.cc",
         "patchSetId": 2
@@ -99,6 +171,30 @@
       "writtenOn": "2017-06-28T09:30:36Z",
       "side": 1,
       "message": "Re-enable? Or drop if it\u0027s a broken check?",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 444,
+        "endChar": 87
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f88d34c3_5e54939d",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T18:19:57Z",
+      "side": 1,
+      "message": "broken (slightly racy.)\n\nI\u0027ll remove.",
+      "parentUuid": "e7cf850d_af96bd26",
       "range": {
         "startLine": 442,
         "startChar": 0,
@@ -134,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "2cbb1b68_897f9685",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T18:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad9af66e_d7775c0b",
+      "range": {
+        "startLine": 64,
+        "startChar": 38,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "687cee73_b452a6aa",
         "filename": "runtime/openjdkjvmti/ti_breakpoint.cc",
         "patchSetId": 2
@@ -157,6 +277,30 @@
     },
     {
       "key": {
+        "uuid": "792eb133_1640ee75",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T18:19:57Z",
+      "side": 1,
+      "message": "you cannot use that with std::unordered_set.",
+      "parentUuid": "687cee73_b452a6aa",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1e2a7bd_b5009234",
         "filename": "runtime/openjdkjvmti/ti_breakpoint.cc",
         "patchSetId": 2
@@ -168,6 +312,30 @@
       "writtenOn": "2017-06-28T09:30:36Z",
       "side": 1,
       "message": "nit: /* Breakpoint */ so that one can find places where a BreakPoint is created.",
+      "range": {
+        "startLine": 90,
+        "startChar": 42,
+        "endLine": 90,
+        "endChar": 64
+      },
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13f6582f_39375a28",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T18:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1e2a7bd_b5009234",
       "range": {
         "startLine": 90,
         "startChar": 42,
