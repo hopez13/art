@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "34a775a4_2ec77cfd",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-06-28T09:33:59Z",
+      "side": 1,
+      "message": "nit: Remove extra line",
+      "revId": "a1ab4181d8350eab9ece500505868dbcb8bb6d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d8b1642_159736a3",
         "filename": "runtime/openjdkjvmti/events-inl.h",
         "patchSetId": 2
