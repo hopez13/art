@@ -621,11 +621,13 @@ bool HLoopOptimization::ShouldVectorize(LoopNode* node, HBasicBlock* block, int6
           // generating an explicit a != b disambiguation runtime test on the two references.
           if (x != y) {
             // For now, we reject after one test to avoid excessive overhead.
-            if (vector_runtime_test_a_ != nullptr) {
+            if (vector_runtime_test_a_ == nullptr) {
+              vector_runtime_test_a_ = a;
+              vector_runtime_test_b_ = b;
+            } else if ((vector_runtime_test_a_ != a || vector_runtime_test_b_ != b) &&
+                       (vector_runtime_test_a_ != b || vector_runtime_test_b_ != a)) {
               return false;
             }
-            vector_runtime_test_a_ = a;
-            vector_runtime_test_b_ = b;
           }
         }
       }
@@ -842,7 +844,7 @@ bool HLoopOptimization::VectorizeDef(LoopNode* node,
     HInstruction* offset = nullptr;
     if (TrySetVectorType(type, &restrictions) &&
         node->loop_info->IsDefinedOutOfTheLoop(base) &&
-        induction_range_.IsUnitStride(instruction, index, &offset) &&
+        induction_range_.IsUnitStride(instruction, index, graph_, &offset) &&
         VectorizeUse(node, value, generate_code, type, restrictions)) {
       if (generate_code) {
         GenerateVecSub(index, offset);
@@ -900,7 +902,7 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
     HInstruction* offset = nullptr;
     if (type == instruction->GetType() &&
         node->loop_info->IsDefinedOutOfTheLoop(base) &&
-        induction_range_.IsUnitStride(instruction, index, &offset)) {
+        induction_range_.IsUnitStride(instruction, index, graph_, &offset)) {
       if (generate_code) {
         GenerateVecSub(index, offset);
         GenerateVecMem(instruction, vector_map_->Get(index), nullptr, offset, type);
@@ -1216,7 +1218,8 @@ void HLoopOptimization::GenerateVecInv(HInstruction* org, Primitive::Type type) 
 void HLoopOptimization::GenerateVecSub(HInstruction* org, HInstruction* offset) {
   if (vector_map_->find(org) == vector_map_->end()) {
     HInstruction* subscript = vector_index_;
-    if (offset != nullptr) {
+    int64_t value = 0;
+    if (!IsInt64AndGet(offset, &value) || value != 0) {
       subscript = new (global_allocator_) HAdd(Primitive::kPrimInt, subscript, offset);
       if (org->IsPhi()) {
         Insert(vector_body_, subscript);  // lacks layout placeholder
