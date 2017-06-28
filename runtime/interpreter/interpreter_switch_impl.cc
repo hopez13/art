@@ -65,12 +65,14 @@ namespace interpreter {
 
 // Code to run before each dex instruction.
 #define PREAMBLE()                                                                              \
-  do {                                                                                          \
-    if (UNLIKELY(instrumentation->HasDexPcListeners())) {                                       \
-      instrumentation->DexPcMovedEvent(self, shadow_frame.GetThisObject(code_item->ins_size_),  \
-                                       shadow_frame.GetMethod(), dex_pc);                       \
+  {                                                                                             \
+    if (UNLIKELY(instrumentation->HasDexPcListeners()) &&                                       \
+        UNLIKELY(!DoDexPcMoveEvent(self, code_item, shadow_frame, dex_pc, instrumentation))) {  \
+      HANDLE_PENDING_EXCEPTION();                                                               \
+      break;                                                                                    \
     }                                                                                           \
-  } while (false)
+  }                                                                                             \
+  do {} while (false)
 
 #define BRANCH_INSTRUMENTATION(offset)                                                         \
   do {                                                                                         \
@@ -103,6 +105,34 @@ namespace interpreter {
       self->AllowThreadSuspension();                                                           \
     }                                                                                          \
   } while (false)
+
+// Unlike most other events the DexPcMovedEvent can be sent when there is a pending exception (if
+// the next instruction is MOVE_EXCEPTION). This means it needs to be handled carefully to be able
+// to detect exceptions thrown by the event. We had to move this into it's own function because it
+// was making ExecuteSwitchImpl have too large a stack.
+static bool DoDexPcMoveEvent(Thread* self,
+                             const DexFile::CodeItem* code_item,
+                             const ShadowFrame& shadow_frame,
+                             uint32_t dex_pc,
+                             const instrumentation::Instrumentation* instrumentation)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK(instrumentation->HasDexPcListeners());
+  StackHandleScope<1> hs(self);
+  Handle<mirror::Throwable> thr(hs.NewHandle(self->GetException()));
+  self->ClearException();
+  instrumentation->DexPcMovedEvent(self,
+                                   shadow_frame.GetThisObject(code_item->ins_size_),
+                                   shadow_frame.GetMethod(),
+                                   dex_pc);
+  if (UNLIKELY(self->IsExceptionPending())) {
+    return false;
+  } else {
+    if (UNLIKELY(!thr.IsNull())) {
+      self->SetException(thr.Get());
+    }
+    return true;
+  }
+}
 
 template<bool do_access_check, bool transaction_active>
 JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
