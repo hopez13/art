@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d6d22721_110ab36c",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T01:13:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80bd8ded_33e443ab",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 1
+      },
+      "revId": "ffab9eb0ce28aee7714fedc2456628b168b06e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a39b723_fb07fa3f",
         "filename": "runtime/openjdkjvmti/ti_breakpoint.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-28T00:17:23Z",
       "side": 1,
       "message": "Is this old, don\u0027t see a use?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "ffab9eb0ce28aee7714fedc2456628b168b06e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac051b0e_2d708d06",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T01:13:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a39b723_fb07fa3f",
       "range": {
         "startLine": 40,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "378d348e_7847b2d5",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T01:13:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "364b59d1_b4e58e16",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "ffab9eb0ce28aee7714fedc2456628b168b06e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb37b69_98ec73fd",
         "filename": "runtime/openjdkjvmti/ti_breakpoint.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-28T00:17:23Z",
       "side": 1,
       "message": "I don\u0027t think these are performance-sensitive. Move to .cc file, forward-declare ArtMethod (you\u0027re pulling in art_method.h and make it pretty much universal through art_jvmti.h).",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 40
+      },
+      "revId": "ffab9eb0ce28aee7714fedc2456628b168b06e2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfc3a3fa_4ce30d0d",
+        "filename": "runtime/openjdkjvmti/ti_breakpoint.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T01:13:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cb37b69_98ec73fd",
       "range": {
         "startLine": 50,
         "startChar": 0,
