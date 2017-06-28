@@ -46,6 +46,30 @@
       "revId": "012a15382f09dc4b0bb92807a9b992cfc8532fa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d42d7eb_63f03df3",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-28T19:39:04Z",
+      "side": 1,
+      "message": "Please state it in the comment. Which exceptions? Any of them?\n\nHow about our debugger (ie Dbg::)? Does it also throw?",
+      "parentUuid": "e56dbb33_96b1838e",
+      "range": {
+        "startLine": 110,
+        "startChar": 44,
+        "endLine": 111,
+        "endChar": 43
+      },
+      "revId": "012a15382f09dc4b0bb92807a9b992cfc8532fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
