@@ -22,6 +22,30 @@
       "revId": "012a15382f09dc4b0bb92807a9b992cfc8532fa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e56dbb33_96b1838e",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-28T17:19:24Z",
+      "side": 1,
+      "message": "Pretty much only JVMTI breakpoints can actually throw.",
+      "parentUuid": "ae6cac98_f59824a8",
+      "range": {
+        "startLine": 110,
+        "startChar": 44,
+        "endLine": 111,
+        "endChar": 43
+      },
+      "revId": "012a15382f09dc4b0bb92807a9b992cfc8532fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
