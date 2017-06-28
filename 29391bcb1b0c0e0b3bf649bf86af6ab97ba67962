@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa1135e3_786f7220",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4478,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-28T15:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acbbe2bf_0c2efcef",
+      "range": {
+        "startLine": 4478,
+        "startChar": 63,
+        "endLine": 4478,
+        "endChar": 65
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09c1b0ae_6897a8dc",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-27T02:30:38Z",
       "side": 1,
       "message": "Either this code should move to where I previously asked it to be introduced or it should lose the two redundant `!IsR6() \u0026\u0026 `.",
+      "range": {
+        "startLine": 4515,
+        "startChar": 0,
+        "endLine": 4532,
+        "endChar": 7
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabd41ad_a6180b35",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4532,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-28T15:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09c1b0ae_6897a8dc",
       "range": {
         "startLine": 4515,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d52a33e4_928fb429",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-28T15:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5006e0_eb2ff803",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00ce095a_b2f63fc6",
         "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-27T02:30:38Z",
       "side": 1,
       "message": "Remove. See below.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a800956_e409f089",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-28T15:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00ce095a_b2f63fc6",
       "range": {
         "startLine": 56,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c8292189_186b6672",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-28T15:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cda6921_f4ca8153",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 97
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c65f8aa_e4bf9ae2",
         "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-06-27T02:30:38Z",
       "side": 1,
       "message": "return \" --no-warn -32 -march\u003dmips32r5 -mmsa\";",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 58
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d94220_ba418a74",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-28T15:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c65f8aa_e4bf9ae2",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "a033d908_d6763aff",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-28T15:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d9ec513_169067a1",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 0
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f333ca7f_6b172386",
         "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2017-06-27T02:30:38Z",
       "side": 1,
       "message": "Add a few more test cases with the following values here and in StoreQToOffset to better exercise R5-specific paths:\n\n-36856,36856,\n-69608,69608.",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 48
+      },
+      "revId": "29391bcb1b0c0e0b3bf649bf86af6ab97ba67962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9725608e_06cf6df7",
+        "filename": "compiler/utils/mips/assembler_mips32r5_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-06-28T15:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f333ca7f_6b172386",
       "range": {
         "startLine": 304,
         "startChar": 0,
