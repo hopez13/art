@@ -610,6 +610,15 @@
     },
     {
         "tests": [
+            "593-checker-shift-and-simplifier"
+        ],
+        "variant": "target",
+        "description": "Checker test fails on ARM with --build-with-javac-dx.",
+        "env_vars": {"ANDROID_COMPILE_WITH_JACK": "false"},
+        "bug": "b/62950048"
+    },
+    {
+        "tests": [
             "536-checker-needs-access-check",
             "537-checker-inline-and-unverified",
             "569-checker-pattern-replacement",
