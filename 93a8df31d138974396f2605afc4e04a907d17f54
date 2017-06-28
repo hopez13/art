@@ -92,6 +92,30 @@
       "revId": "93a8df31d138974396f2605afc4e04a907d17f54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c9d0da1_45956c94",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-06-28T09:54:26Z",
+      "side": 1,
+      "message": "Actually I agree with you. After looking at its use in another CL, I has the same feeling. So I\u0027m OK with keeping GetCanonicalMethod",
+      "parentUuid": "139ef7f5_36b668a5",
+      "range": {
+        "startLine": 486,
+        "startChar": 13,
+        "endLine": 486,
+        "endChar": 31
+      },
+      "revId": "93a8df31d138974396f2605afc4e04a907d17f54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
