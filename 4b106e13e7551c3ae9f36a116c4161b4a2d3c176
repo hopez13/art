@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5889e6ed_3d6ea111",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-28T10:47:01Z",
+      "side": 1,
+      "message": "I\u0027d probably make it a member of DisassemblerMips and eliminate the bool parameter.",
+      "range": {
+        "startLine": 487,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 1
+      },
+      "revId": "4b106e13e7551c3ae9f36a116c4161b4a2d3c176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5bf7ac4_74d4267b",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-06-28T10:47:01Z",
+      "side": 1,
+      "message": "Missed this r.",
+      "range": {
+        "startLine": 624,
+        "startChar": 0,
+        "endLine": 624,
+        "endChar": 59
+      },
+      "revId": "4b106e13e7551c3ae9f36a116c4161b4a2d3c176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
