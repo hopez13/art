@@ -71,6 +71,23 @@
     },
     {
       "key": {
+        "uuid": "b1a342a6_e3476233",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:51:08Z",
+      "side": 1,
+      "message": "this should not be +3, but +2\n(we always indent in even numbers)",
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d0187f5_19a0f867",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 18
@@ -88,6 +105,40 @@
         "endLine": 20,
         "endChar": 6
       },
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeb18d05_635ed375",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:51:08Z",
+      "side": 1,
+      "message": "and this should match private indentation again",
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "718fa03f_0e30ee05",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-28T16:51:08Z",
+      "side": 1,
+      "message": "same",
       "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
