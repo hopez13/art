@@ -160,5 +160,6 @@
   V(IntegerValueOf, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "valueOf", "(I)Ljava/lang/Integer;") \
   V(ThreadInterrupted, kStatic, kNeedsEnvironmentOrCache, kAllSideEffects, kNoThrow, "Ljava/lang/Thread;", "interrupted", "()Z")
 
+
 #endif  // ART_COMPILER_INTRINSICS_LIST_H_
 #undef ART_COMPILER_INTRINSICS_LIST_H_   // #define is only for lint.
