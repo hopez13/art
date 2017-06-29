@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e6305a0e_59a4a459",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-29T21:32:52Z",
+      "side": 1,
+      "message": "If it\u0027s just 2 lines of code, probably ok to leave it like this.",
+      "parentUuid": "e81b5d6c_3d543cb5",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7f029cf_c15999f6",
         "filename": "runtime/thread.h",
         "patchSetId": 1
@@ -65,6 +89,23 @@
         "endLine": 120,
         "endChar": 65
       },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70a98bba_707ef134",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-29T21:32:52Z",
+      "side": 1,
+      "message": "I would like this to be split out into more cases. kGC, kStackTrace, etc.",
       "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
