@@ -150,6 +150,10 @@ static bool DoDexPcMoveEvent(Thread* self,
   }
 }
 
+// With asan this function is much larger than the max size. b/63118894
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wframe-larger-than="
+
 template<bool do_access_check, bool transaction_active>
 JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
                          ShadowFrame& shadow_frame, JValue result_register,
@@ -2411,6 +2415,8 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
   shadow_frame.SetDexPC(inst->GetDexPc(insns));
   return result_register;
 }  // NOLINT(readability/fn_size)
+
+#pragma clang diagnostic pop
 
 // Explicit definitions of ExecuteSwitchImpl.
 template HOT_ATTR
