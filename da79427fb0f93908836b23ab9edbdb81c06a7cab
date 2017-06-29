@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7823ca_f2cfb567",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T03:39:57Z",
+      "side": 1,
+      "message": "We could consider just generally removing this. This is a slow path anyways. But consider for follow-up, let\u0027s get the build green first.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 24
+      },
+      "revId": "da79427fb0f93908836b23ab9edbdb81c06a7cab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
