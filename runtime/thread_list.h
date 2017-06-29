@@ -40,6 +40,7 @@ class RootVisitor;
 class Thread;
 class TimingLogger;
 enum VisitRootFlags : uint8_t;
+enum class SuspendReason;
 
 class ThreadList {
  public:
@@ -64,7 +65,8 @@ class ThreadList {
   void ResumeAll()
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_)
       UNLOCK_FUNCTION(Locks::mutator_lock_);
-  void Resume(Thread* thread, bool for_debugger = false)
+  void Resume(Thread* thread) REQUIRES(!Locks::thread_suspend_count_lock_);
+  void Resume(Thread* thread, SuspendReason reason)
       REQUIRES(!Locks::thread_suspend_count_lock_);
 
   // Suspends all threads and gets exclusive access to the mutator_lock_.
@@ -81,7 +83,9 @@ class ThreadList {
   // If the thread should be suspended then value of request_suspension should be true otherwise
   // the routine will wait for a previous suspend request. If the suspension times out then *timeout
   // is set to true.
-  Thread* SuspendThreadByPeer(jobject peer, bool request_suspension, bool debug_suspension,
+  Thread* SuspendThreadByPeer(jobject peer,
+                              bool request_suspension,
+                              SuspendReason reason,
                               bool* timed_out)
       REQUIRES(!Locks::mutator_lock_,
                !Locks::thread_list_lock_,
@@ -91,7 +95,7 @@ class ThreadList {
   // thread on success else null. The thread id is used to identify the thread to avoid races with
   // the thread terminating. Note that as thread ids are recycled this may not suspend the expected
   // thread, that may be terminating. If the suspension times out then *timeout is set to true.
-  Thread* SuspendThreadByThreadId(uint32_t thread_id, bool debug_suspension, bool* timed_out)
+  Thread* SuspendThreadByThreadId(uint32_t thread_id, SuspendReason reason, bool* timed_out)
       REQUIRES(!Locks::mutator_lock_,
                !Locks::thread_list_lock_,
                !Locks::thread_suspend_count_lock_);
@@ -197,8 +201,14 @@ class ThreadList {
 
   void SuspendAllInternal(Thread* self,
                           Thread* ignore1,
-                          Thread* ignore2 = nullptr,
-                          bool debug_suspend = false)
+                          Thread* ignore2,
+                          SuspendReason reason)
+      REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_);
+
+  // Calls SuspendAllInternal with the reason SuspendReason::kInternal.
+  void SuspendAllInternal(Thread* self,
+                          Thread* ignore1,
+                          Thread* ignore2 = nullptr)
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_);
 
   void AssertThreadsAreSuspended(Thread* self, Thread* ignore1, Thread* ignore2 = nullptr)

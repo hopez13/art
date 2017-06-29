@@ -115,6 +115,14 @@ enum class StackedShadowFrameType {
   kDeoptimizationShadowFrame,
 };
 
+// The various reasons that we might be suspending a thread.
+enum class SuspendReason {
+  // Suspending for internal reasons (e.g. GC, stack trace, etc.)
+  kInternal,
+  // Suspending for debugger (code in Dbg::*, runtime/jdwp/, etc.)
+  kForDebugger,
+};
+
 // This should match RosAlloc::kNumThreadLocalSizeBrackets.
 static constexpr size_t kNumRosAllocThreadLocalSizeBracketsInThread = 16;
 
@@ -244,7 +252,7 @@ class Thread {
   bool ModifySuspendCount(Thread* self,
                           int delta,
                           AtomicInteger* suspend_barrier,
-                          bool for_debugger)
+                          SuspendReason reason)
       WARN_UNUSED
       REQUIRES(Locks::thread_suspend_count_lock_);
 
@@ -1300,7 +1308,7 @@ class Thread {
   bool ModifySuspendCountInternal(Thread* self,
                                   int delta,
                                   AtomicInteger* suspend_barrier,
-                                  bool for_debugger)
+                                  SuspendReason reason)
       WARN_UNUSED
       REQUIRES(Locks::thread_suspend_count_lock_);
 
@@ -1375,10 +1383,9 @@ class Thread {
     typedef uint32_t bool32_t;
 
     explicit tls_32bit_sized_values(bool is_daemon) :
-      suspend_count(0), debug_suspend_count(0), thin_lock_thread_id(0), tid(0),
-      daemon(is_daemon), throwing_OutOfMemoryError(false), no_thread_suspension(0),
-      thread_exit_check_count(0), handling_signal_(false),
-      is_transitioning_to_runnable(false), ready_for_debug_invoke(false),
+      suspend_count(0), debug_suspend_count(0), thin_lock_thread_id(0), tid(0), daemon(is_daemon),
+      throwing_OutOfMemoryError(false), no_thread_suspension(0), thread_exit_check_count(0),
+      handling_signal_(false), is_transitioning_to_runnable(false), ready_for_debug_invoke(false),
       debug_method_entry_(false), is_gc_marking(false), weak_ref_access_enabled(true),
       disable_thread_flip_count(0) {
     }
@@ -1764,6 +1771,7 @@ class ThreadLifecycleCallback {
 
 std::ostream& operator<<(std::ostream& os, const Thread& thread);
 std::ostream& operator<<(std::ostream& os, const StackedShadowFrameType& thread);
+std::ostream& operator<<(std::ostream& os, const SuspendReason& thread);
 
 }  // namespace art
 
