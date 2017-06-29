@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2cda405b_ad5fce87",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-29T11:07:32Z",
+      "side": 1,
+      "message": "Yes. You\u0027re right. I\u0027ve removed this code in the new PS.",
+      "parentUuid": "67767f95_31a6c182",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 3
+      },
+      "revId": "c4bcd3bcc2d154ca4ed66b12a50b1928cb50c9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51f26b1c_93361ebe",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 5
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "829edb14_a5bbcf8a",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-29T11:07:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51f26b1c_93361ebe",
+      "range": {
+        "startLine": 213,
+        "startChar": 55,
+        "endLine": 213,
+        "endChar": 67
+      },
+      "revId": "c4bcd3bcc2d154ca4ed66b12a50b1928cb50c9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08e8845b_1de56d7f",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-29T11:07:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7d27fa3_97278896",
+      "range": {
+        "startLine": 213,
+        "startChar": 51,
+        "endLine": 213,
+        "endChar": 54
+      },
+      "revId": "c4bcd3bcc2d154ca4ed66b12a50b1928cb50c9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d08198c6_dfef63e7",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2017-06-26T12:07:46Z",
       "side": 1,
       "message": "Why do you need this? There is already a data dependency between the arrayget and the boundscheck.",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 3
+      },
+      "revId": "c4bcd3bcc2d154ca4ed66b12a50b1928cb50c9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "832f37e5_e89d7fc3",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-06-29T11:07:32Z",
+      "side": 1,
+      "message": "I\u0027ve removed this check in PS. Done.\n\nI agree, there is already a data dependency between bounds check and array get.",
+      "parentUuid": "d08198c6_dfef63e7",
       "range": {
         "startLine": 265,
         "startChar": 0,
