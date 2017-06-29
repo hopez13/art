@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4e6f977_5b0dde74",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-29T10:48:11Z",
+      "side": 1,
+      "message": "and?",
+      "range": {
+        "startLine": 90,
+        "startChar": 64,
+        "endLine": 90,
+        "endChar": 66
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2cd5cc_30858bea",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-29T10:48:11Z",
+      "side": 1,
+      "message": "Why? If you return to Java, you want that register updated.",
+      "range": {
+        "startLine": 777,
+        "startChar": 4,
+        "endLine": 777,
+        "endChar": 49
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "683a628a_80886223",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-29T10:48:11Z",
+      "side": 1,
+      "message": "Are we winning anything by special casing here (and below)?",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81aa648b_cc35d4f8",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-29T10:48:11Z",
+      "side": 1,
+      "message": "Why do you need this one?",
+      "range": {
+        "startLine": 751,
+        "startChar": 4,
+        "endLine": 751,
+        "endChar": 28
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
