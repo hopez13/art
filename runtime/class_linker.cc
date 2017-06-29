@@ -2418,7 +2418,17 @@ static bool IsSupportedBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa
       (class_loader_class ==
           soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_PathClassLoader)) ||
       (class_loader_class ==
-          soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_DexClassLoader));
+          soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_DexClassLoader)) ||
+      (class_loader_class ==
+          soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_DelegateLastClassLoader));
+}
+
+static bool IsDelegateLastClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                                      Handle<mirror::ClassLoader> class_loader)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  mirror::Class* class_loader_class = class_loader->GetClass();
+  return class_loader_class ==
+      soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_DelegateLastClassLoader);
 }
 
 bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
@@ -2434,7 +2444,7 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
     // If we found the class or the class_loader is the boot class loader we are done.
     return true;
   } else {
-    // Otherwise, we seach the chain but without considering the boot class loader.
+    // Otherwise, we search the chain but without considering the boot class loader.
     return FindClassInBaseDexClassLoaderWithoutBoot(soa,
                                                     self,
                                                     descriptor,
@@ -2460,6 +2470,15 @@ bool ClassLinker::FindClassInBaseDexClassLoaderWithoutBoot(ScopedObjectAccessAlr
   if (!IsSupportedBaseDexClassLoader(soa, class_loader)) {
     *result = nullptr;
     return false;
+  }
+
+  // If this is a delegate last class loader we first search the classpath and then the parents.
+  // Note that the boot classpath is already searched.
+  if (IsDelegateLastClassLoader(soa, class_loader)) {
+    *result = FindClassInClassLoaderClassPath(soa, self, descriptor, hash, class_loader);
+    if (*result != nullptr) {
+      return true;
+    }
   }
 
   // Handles as RegisterDexFile may allocate dex caches (and cause thread suspension).
@@ -8785,8 +8804,15 @@ const char* ClassLinker::GetClassRootDescriptor(ClassRoot class_root) {
   return descriptor;
 }
 
-jobject ClassLinker::CreatePathClassLoader(Thread* self,
-                                           const std::vector<const DexFile*>& dex_files) {
+jobject ClassLinker::CreateWellKnownClassLoader(Thread* self,
+                                               const std::vector<const DexFile*>& dex_files,
+                                               jclass loader_class,
+                                               jobject parent_loader) {
+  CHECK(self->GetJniEnv()->IsSameObject(loader_class,
+                                        WellKnownClasses::dalvik_system_PathClassLoader) ||
+        self->GetJniEnv()->IsSameObject(loader_class,
+                                        WellKnownClasses::dalvik_system_DelegateLastClassLoader));
+
   // SOAAlreadyRunnable is protected, and we need something to add a global reference.
   // We could move the jobject to the callers, but all call-sites do this...
   ScopedObjectAccessUnchecked soa(self);
@@ -8822,8 +8848,8 @@ jobject ClassLinker::CreatePathClassLoader(Thread* self,
   for (const DexFile* dex_file : dex_files) {
     StackHandleScope<4> hs2(self);
 
-    // CreatePathClassLoader is only used by gtests. Index 0 of h_long_array is supposed to be the
-    // oat file but we can leave it null.
+    // CreateWellKnownClassLoader is only used by gtests. Index 0 of h_long_array is supposed to be
+    // the oat file but we can leave it null.
     Handle<mirror::LongArray> h_long_array = hs2.NewHandle(mirror::LongArray::Alloc(
         self,
         kDexFileIndexStart + 1));
@@ -8858,34 +8884,42 @@ jobject ClassLinker::CreatePathClassLoader(Thread* self,
   // Set elements.
   dex_elements_field->SetObject<false>(h_dex_path_list.Get(), h_dex_elements.Get());
 
-  // Create PathClassLoader.
-  Handle<mirror::Class> h_path_class_class = hs.NewHandle(
-      soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_PathClassLoader));
-  Handle<mirror::Object> h_path_class_loader = hs.NewHandle(
-      h_path_class_class->AllocObject(self));
-  DCHECK(h_path_class_loader != nullptr);
+  // Create the class loader..
+  Handle<mirror::Class> h_loader_class = hs.NewHandle(soa.Decode<mirror::Class>(loader_class));
+  Handle<mirror::Object> h_class_loader = hs.NewHandle(h_loader_class->AllocObject(self));
+  DCHECK(h_class_loader != nullptr);
   // Set DexPathList.
   ArtField* path_list_field =
       jni::DecodeArtField(WellKnownClasses::dalvik_system_BaseDexClassLoader_pathList);
   DCHECK(path_list_field != nullptr);
-  path_list_field->SetObject<false>(h_path_class_loader.Get(), h_dex_path_list.Get());
+  path_list_field->SetObject<false>(h_class_loader.Get(), h_dex_path_list.Get());
 
   // Make a pretend boot-classpath.
   // TODO: Should we scan the image?
   ArtField* const parent_field =
       mirror::Class::FindField(self,
-                               h_path_class_loader->GetClass(),
+                               h_class_loader->GetClass(),
                                "parent",
                                "Ljava/lang/ClassLoader;");
   DCHECK(parent_field != nullptr);
-  ObjPtr<mirror::Object> boot_cl =
-      soa.Decode<mirror::Class>(WellKnownClasses::java_lang_BootClassLoader)->AllocObject(self);
-  parent_field->SetObject<false>(h_path_class_loader.Get(), boot_cl);
+
+  ObjPtr<mirror::Object> parent = (parent_loader != nullptr)
+      ? soa.Decode<mirror::ClassLoader>(parent_loader)
+      : soa.Decode<mirror::Class>(WellKnownClasses::java_lang_BootClassLoader)->AllocObject(self);
+  parent_field->SetObject<false>(h_class_loader.Get(), parent);
 
   // Make it a global ref and return.
   ScopedLocalRef<jobject> local_ref(
-      soa.Env(), soa.Env()->AddLocalReference<jobject>(h_path_class_loader.Get()));
+      soa.Env(), soa.Env()->AddLocalReference<jobject>(h_class_loader.Get()));
   return soa.Env()->NewGlobalRef(local_ref.get());
+}
+
+jobject ClassLinker::CreatePathClassLoader(Thread* self,
+                                           const std::vector<const DexFile*>& dex_files) {
+  return CreateWellKnownClassLoader(self,
+                                    dex_files,
+                                    WellKnownClasses::dalvik_system_PathClassLoader,
+                                    nullptr);
 }
 
 void ClassLinker::DropFindArrayClassCache() {
