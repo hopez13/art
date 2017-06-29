@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fca62a8_5ab4a28c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T17:37:17Z",
+      "side": 1,
+      "message": "Not sure what our style guide says, whether this should be a named struct and a static function instead.",
+      "range": {
+        "startLine": 580,
+        "startChar": 2,
+        "endLine": 581,
+        "endChar": 24
+      },
+      "revId": "ea7e63c883c04f7cdd38f9ebbfaa68dc6438aa5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
