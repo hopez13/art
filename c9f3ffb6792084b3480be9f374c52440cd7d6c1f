@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f1db4a2_cf3c6eb8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T21:00:59Z",
+      "side": 1,
+      "message": "I asked around, and Andreas kindly provided the reassurance we can make the assumption NEON is present on all Android devices.\n\nSo you can make this comment the same as what we have in L1045/1046, and no need for the TODO\n\n// Allow vectorization for all ARM devices, because Android assumes that AArch32 always supports advanced SIMD.",
+      "revId": "c9f3ffb6792084b3480be9f374c52440cd7d6c1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
