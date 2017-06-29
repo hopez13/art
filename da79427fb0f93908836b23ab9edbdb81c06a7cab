@@ -46,6 +46,30 @@
       "revId": "da79427fb0f93908836b23ab9edbdb81c06a7cab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a220990_6acc7a24",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T15:43:52Z",
+      "side": 1,
+      "message": "I pointed out the comment, too. :-)\n\nAlex mentioned that was from juggling around code. I would be surprised if the optimizer handles things differently, though, whether it\u0027s macro-copied or function inlined. I really hope inlining decisions are different between non-ASAN and ASAN.\n\n(The large frame can probably be explained by ASAN not reusing stack slots to allow tracking out-of-scope usage.)",
+      "parentUuid": "e21af2fa_11c6855c",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 24
+      },
+      "revId": "da79427fb0f93908836b23ab9edbdb81c06a7cab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
