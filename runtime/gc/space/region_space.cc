@@ -30,7 +30,7 @@ namespace space {
 static constexpr uint kEvaculateLivePercentThreshold = 75U;
 
 // If we protect the cleared regions.
-static constexpr bool kProtectClearedRegions = true;
+static constexpr bool kProtectClearedRegions = kIsTargetBuild;
 
 MemMap* RegionSpace::CreateMemMap(const std::string& name, size_t capacity,
                                   uint8_t* requested_begin) {
