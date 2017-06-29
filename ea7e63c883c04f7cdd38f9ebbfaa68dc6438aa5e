@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a97daa1_4cdaed8e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T18:02:34Z",
+      "side": 1,
+      "message": "Igor pointed out a lack of reasonable up-to-date documentation. So I updated and enlarged this comment.",
+      "range": {
+        "startLine": 552,
+        "startChar": 38,
+        "endLine": 553,
+        "endChar": 24
+      },
+      "revId": "ea7e63c883c04f7cdd38f9ebbfaa68dc6438aa5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fca62a8_5ab4a28c",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "I think you can just make it be part of the constructor , or even use a lambda right?",
       "parentUuid": "8fca62a8_5ab4a28c",
+      "range": {
+        "startLine": 580,
+        "startChar": 2,
+        "endLine": 581,
+        "endChar": 24
+      },
+      "revId": "ea7e63c883c04f7cdd38f9ebbfaa68dc6438aa5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd3e0be6_44298dbb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T18:02:34Z",
+      "side": 1,
+      "message": "A lambda is ugly, because we do need recursion. I could add it to the constructor, but for the same reason we still need the function. So it would just be more lines.",
+      "parentUuid": "b2b51f3f_2a7978ae",
       "range": {
         "startLine": 580,
         "startChar": 2,
