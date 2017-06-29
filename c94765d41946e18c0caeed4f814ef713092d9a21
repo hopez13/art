@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f1679169_855e64d2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23636625_6578db53",
+      "range": {
+        "startLine": 1186,
+        "startChar": 4,
+        "endLine": 1186,
+        "endChar": 10
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e81b5d6c_3d543cb5",
         "filename": "runtime/thread.h",
         "patchSetId": 1
@@ -72,6 +96,54 @@
     },
     {
       "key": {
+        "uuid": "47cb0967_9893d591",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e81b5d6c_3d543cb5",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28be0951_1f8b7cc7",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "I moved it anyway so I can get default values without including all of thread.h.",
+      "parentUuid": "e6305a0e_59a4a459",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7f029cf_c15999f6",
         "filename": "runtime/thread.h",
         "patchSetId": 1
@@ -95,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "b715d70d_d3ad82fc",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7f029cf_c15999f6",
+      "range": {
+        "startLine": 120,
+        "startChar": 64,
+        "endLine": 120,
+        "endChar": 65
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70a98bba_707ef134",
         "filename": "runtime/thread.h",
         "patchSetId": 1
@@ -106,6 +202,24 @@
       "writtenOn": "2017-06-29T21:32:52Z",
       "side": 1,
       "message": "I would like this to be split out into more cases. kGC, kStackTrace, etc.",
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "849df8f8_bdbaaba4",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "I would too but honestly I don\u0027t want to spend all the time to figure out what everything is.\n\nThat would be something we might do in the future.",
+      "parentUuid": "70a98bba_707ef134",
       "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -135,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "10d34512_043969b5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ba213c4_ba802d5a",
+      "range": {
+        "startLine": 1386,
+        "startChar": 0,
+        "endLine": 1388,
+        "endChar": 98
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b5d4af5_27f1ad0c",
         "filename": "runtime/thread_list.h",
         "patchSetId": 1
@@ -146,6 +284,30 @@
       "writtenOn": "2017-06-29T21:18:31Z",
       "side": 1,
       "message": "It doesn\u0027t look like it because of the V, but we don\u0027t separate the forwards by type.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f202b6ec_c9e4187a",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "removed by putting the enum into it\u0027s own file.",
+      "parentUuid": "1b5d4af5_27f1ad0c",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -181,6 +343,30 @@
     },
     {
       "key": {
+        "uuid": "8c21e81f_973a28ed",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0183e8df_036daf3b",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 75
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c4fa176_697f7895",
         "filename": "runtime/thread_list.h",
         "patchSetId": 1
@@ -201,6 +387,30 @@
       "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ddccfbf_4058d3b7",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-06-29T21:36:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6c4fa176_697f7895",
+      "range": {
+        "startLine": 69,
+        "startChar": 30,
+        "endLine": 69,
+        "endChar": 50
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
