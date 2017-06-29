@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "4097d02f_870fcf22",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-29T21:18:45Z",
+      "side": 1,
+      "message": "i just saw this, i need to fix this",
+      "parentUuid": "10f27b74_76f7ce97",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 80
+      },
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbd986f7_abec9727",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
         "patchSetId": 18
@@ -59,6 +83,30 @@
       "writtenOn": "2017-06-28T16:50:59Z",
       "side": 1,
       "message": "I would replace this with \"instruction\". The if-branch is an instruction and does\u0027t have a separate standalone comparison operator as this suggests.\n\n(The same comment applies to the other places where you used the same phrasing).",
+      "range": {
+        "startLine": 141,
+        "startChar": 31,
+        "endLine": 141,
+        "endChar": 51
+      },
+      "revId": "0e7f6d06f2bdf1fdb79707f29e5e614394ffb3fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5e47df8_2214f81e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-29T21:18:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbd986f7_abec9727",
       "range": {
         "startLine": 141,
         "startChar": 31,
