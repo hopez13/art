@@ -140,6 +140,24 @@
       "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11651f42_2aa5d914",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T18:05:54Z",
+      "side": 1,
+      "message": "Ah, if we already have a precedent to do this, then it is okay with me. Let\u0027s add a TODO to make this a feature flag test though.\n\nNicolas, Andreas, any strong feelings on this?",
+      "parentUuid": "68498fd8_41fc88dd",
+      "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
