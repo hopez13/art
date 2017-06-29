@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0b89521_227545d8",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-29T12:09:47Z",
+      "side": 1,
+      "message": "If you want to add this for experimenting on more test machines, that\u0027s okay, but please a bug pointer here to remove it.\n\nIf this helps with the issues under investigation, it doesn\u0027t seem likely that this is the right fix, but possibly introduces a side effect that\u0027ll help, ie flushing the data cache should not be necessary in userland unless an agent on the memory bus is non-coherent, ie the agent can generate memory traffic bypassing the CPU memory controller. This doesn\u0027t look like a spot to drain the write pipeline either.\n\nFlushDataCache() is a wrapper for __builtin__clear_cache() which is intended to flush the instruction cache which may not be coherent:\n\nhttps://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html#index-_005f_005fbuiltin_005f_005f_005fclear_005fcache",
+      "revId": "5c01b95134ceb103afcf2bef3c603141aa6f60b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
