@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bbd9b2b4_81a1fea4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/IfBranchChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-29T18:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f12d9ac9_a9924ccf",
+      "revId": "7823103837c7a14acbf1e7366049d1b3a575cc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1316d185_e89836ac",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 19
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "b23235d6_2c488fc4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-29T18:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1316d185_e89836ac",
+      "revId": "7823103837c7a14acbf1e7366049d1b3a575cc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a102950_9d8f46d1",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 19
@@ -65,6 +101,24 @@
       "writtenOn": "2017-06-29T16:06:48Z",
       "side": 1,
       "message": "and here\n\n\nindex \u003d opcode.ordinal() - Opcode.IF_EQZ.ordinal()",
+      "revId": "7823103837c7a14acbf1e7366049d1b3a575cc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69149c34_2006a6b1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-06-29T18:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a102950_9d8f46d1",
       "revId": "7823103837c7a14acbf1e7366049d1b3a575cc4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
