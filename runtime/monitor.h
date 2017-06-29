@@ -261,6 +261,20 @@ class Monitor {
 
   uint32_t GetOwnerThreadId() REQUIRES(!monitor_lock_);
 
+  // Test whether there's an indication this is long contention, and take a stack dump (storing it
+  // into owner_contention_stack_) if so.
+  ALWAYS_INLINE void HandleLongContentionUnlockOrWait(Thread* self)
+      REQUIRES(monitor_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (stack_dump_lock_profiling_threshold_ > 0) {
+      HandleLongContentionUnlockOrWaitImpl(self);
+    }
+  }
+
+  void HandleLongContentionUnlockOrWaitImpl(Thread* self)
+      REQUIRES(monitor_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Support for systrace output of monitor operations.
   ALWAYS_INLINE static void AtraceMonitorLock(Thread* self,
                                               mirror::Object* obj,
@@ -304,6 +318,9 @@ class Monitor {
   // unlocked, or if the lock is acquired by the system when the stack is empty.
   ArtMethod* locking_method_ GUARDED_BY(monitor_lock_);
   uint32_t locking_dex_pc_ GUARDED_BY(monitor_lock_);
+
+  uint64_t wait_start_ms_ GUARDED_BY(monitor_lock_);
+  std::unique_ptr<std::string> owner_contention_stack_ GUARDED_BY(monitor_lock_);
 
   // The denser encoded version of this monitor as stored in the lock word.
   MonitorId monitor_id_;

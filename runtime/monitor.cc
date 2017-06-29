@@ -16,6 +16,7 @@
 
 #include "monitor.h"
 
+#include <limits>
 #include <vector>
 
 #include "android-base/stringprintf.h"
@@ -75,6 +76,9 @@ static constexpr uint64_t kLongWaitMs = 100;
 uint32_t Monitor::lock_profiling_threshold_ = 0;
 uint32_t Monitor::stack_dump_lock_profiling_threshold_ = 0;
 
+// Fill wait_start_ms_ with max() by default, so we can use "< max" for all comparisons.
+static constexpr uint64_t kWaitStartMsDefault = std::numeric_limits<uint64_t>::max();
+
 void Monitor::Init(uint32_t lock_profiling_threshold,
                    uint32_t stack_dump_lock_profiling_threshold) {
   lock_profiling_threshold_ = lock_profiling_threshold;
@@ -92,6 +96,7 @@ Monitor::Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_
       hash_code_(hash_code),
       locking_method_(nullptr),
       locking_dex_pc_(0),
+      wait_start_ms_(kWaitStartMsDefault),
       monitor_id_(MonitorPool::ComputeMonitorId(this, self)) {
 #ifdef __LP64__
   DCHECK(false) << "Should not be reached in 64b";
@@ -115,6 +120,7 @@ Monitor::Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_
       hash_code_(hash_code),
       locking_method_(nullptr),
       locking_dex_pc_(0),
+      wait_start_ms_(kWaitStartMsDefault),
       monitor_id_(id) {
 #ifdef __LP64__
   next_free_ = nullptr;
@@ -348,18 +354,27 @@ bool Monitor::TryLock(Thread* self) {
 
 void Monitor::Lock(Thread* self) {
   MutexLock mu(self, monitor_lock_);
+  uint64_t wait_start_ms = 0;
+  const bool log_contention = (lock_profiling_threshold_ != 0);
   while (true) {
     if (TryLockLocked(self)) {
+      if (log_contention && wait_start_ms_ == wait_start_ms) {
+        // Reset start time. This may help to collect newer stack traces for overlapping contention.
+        // This isn't precise, as we don't install the next-lowest wait time.
+        wait_start_ms_ = kWaitStartMsDefault;
+      }
       return;
     }
     // Contended.
-    const bool log_contention = (lock_profiling_threshold_ != 0);
-    uint64_t wait_start_ms = log_contention ? MilliTime() : 0;
+    wait_start_ms = log_contention ? MilliTime() : 0;
     ArtMethod* owners_method = locking_method_;
     uint32_t owners_dex_pc = locking_dex_pc_;
     // Do this before releasing the lock so that we don't get deflated.
     size_t num_waiters = num_waiters_;
     ++num_waiters_;
+    if (log_contention && wait_start_ms < wait_start_ms_) {
+      wait_start_ms_ = wait_start_ms;
+    }
 
     // If systrace logging is enabled, first look at the lock owner. Acquiring the monitor's
     // lock and then re-acquiring the mutator lock can deadlock.
@@ -426,7 +441,7 @@ void Monitor::Lock(Thread* self) {
             // Acquire thread-list lock to find thread and keep it from dying until we've got all
             // the info we need.
             {
-              MutexLock mu2(Thread::Current(), *Locks::thread_list_lock_);
+              MutexLock mu_thread_list(Thread::Current(), *Locks::thread_list_lock_);
 
               // Re-find the owner in case the thread got killed.
               Thread* original_owner = Runtime::Current()->GetThreadList()->FindThreadByThreadId(
@@ -438,18 +453,12 @@ void Monitor::Lock(Thread* self) {
                 original_owner->GetThreadName(original_owner_name);
 
                 if (should_dump_stacks) {
-                  // Very long contention. Dump stacks.
-                  struct CollectStackTrace : public Closure {
-                    void Run(art::Thread* thread) OVERRIDE
-                        REQUIRES_SHARED(art::Locks::mutator_lock_) {
-                      thread->DumpJavaStack(oss);
-                    }
-
-                    std::ostringstream oss;
-                  };
-                  CollectStackTrace owner_trace;
-                  original_owner->RequestSynchronousCheckpoint(&owner_trace);
-                  owner_stack_dump = owner_trace.oss.str();
+                  MutexLock mu_monitor(self, monitor_lock_);
+                  if (owner_contention_stack_ != nullptr) {
+                    owner_stack_dump = *owner_contention_stack_;
+                  } else {
+                    owner_stack_dump = "(Missing owner stack)";
+                  }
                 }
               }
               // This is all the data we need. Now drop the thread-list lock, it's OK for the
@@ -622,6 +631,7 @@ bool Monitor::Unlock(Thread* self) {
         owner_ = nullptr;
         locking_method_ = nullptr;
         locking_dex_pc_ = 0;
+        HandleLongContentionUnlockOrWait(self);
         // Wake a contender.
         monitor_contenders_.Signal(self);
       } else {
@@ -634,6 +644,18 @@ bool Monitor::Unlock(Thread* self) {
   // The JNI spec says that we should throw IllegalMonitorStateException in this case.
   FailedUnlock(GetObject(), self->GetThreadId(), owner_thread_id, this);
   return false;
+}
+
+void Monitor::HandleLongContentionUnlockOrWaitImpl(Thread* self) {
+  if (num_waiters_ > 0 && wait_start_ms_ < kWaitStartMsDefault) {
+    // See whether this was heavily contended and we should collect a stack.
+    uint64_t wait_ms = MilliTime() - wait_start_ms_;
+    if (wait_ms > stack_dump_lock_profiling_threshold_) {
+      std::ostringstream self_trace_oss;
+      self->DumpJavaStack(self_trace_oss);
+      owner_contention_stack_.reset(new std::string(self_trace_oss.str()));
+    }
+  }
 }
 
 void Monitor::Wait(Thread* self, int64_t ms, int32_t ns,
@@ -683,6 +705,8 @@ void Monitor::Wait(Thread* self, int64_t ms, int32_t ns,
   locking_method_ = nullptr;
   uintptr_t saved_dex_pc = locking_dex_pc_;
   locking_dex_pc_ = 0;
+
+  HandleLongContentionUnlockOrWait(self);
 
   AtraceMonitorUnlock();  // For the implict Unlock() just above. This will only end the deepest
                           // nesting, but that is enough for the visualization, and corresponds to
