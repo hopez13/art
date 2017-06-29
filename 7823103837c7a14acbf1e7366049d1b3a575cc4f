@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "229c9523_73bf5eef",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T16:28:59Z",
+      "side": 1,
+      "message": "typo in my comment: \"not that\" -\u003e \"now that\"",
+      "parentUuid": "1316d185_e89836ac",
+      "revId": "7823103837c7a14acbf1e7366049d1b3a575cc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a102950_9d8f46d1",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
         "patchSetId": 19
