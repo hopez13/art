@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1609a94_ed1e6e9c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4064,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-29T21:14:52Z",
+      "side": 0,
+      "message": "Curious what the \"while\" was for if we checked the status did change.  Looking at the possible transitions, I don\u0027t see how we could go from Verifying to VerifyingAtRuntime.",
+      "range": {
+        "startLine": 4064,
+        "startChar": 4,
+        "endLine": 4064,
+        "endChar": 9
+      },
+      "revId": "fe9a4f061841a3c597aac6817a47c799c54fcad7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
