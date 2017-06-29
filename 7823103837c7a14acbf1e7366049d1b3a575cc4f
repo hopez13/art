@@ -16,6 +16,40 @@
       "revId": "7823103837c7a14acbf1e7366049d1b3a575cc4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1316d185_e89836ac",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T16:06:48Z",
+      "side": 1,
+      "message": "actually, not that your array is in the same order, you don\u0027t need findIndex anymore\n\nyou can simply do\n\nindex \u003d opcode.ordinal() - Opcode.IF_EQ.ordinal()",
+      "revId": "7823103837c7a14acbf1e7366049d1b3a575cc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a102950_9d8f46d1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RandomBranchChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T16:06:48Z",
+      "side": 1,
+      "message": "and here\n\n\nindex \u003d opcode.ordinal() - Opcode.IF_EQZ.ordinal()",
+      "revId": "7823103837c7a14acbf1e7366049d1b3a575cc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
