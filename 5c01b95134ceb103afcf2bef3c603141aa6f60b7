@@ -16,6 +16,24 @@
       "revId": "5c01b95134ceb103afcf2bef3c603141aa6f60b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e838aa6_a4997fe8",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-06-29T16:45:52Z",
+      "side": 1,
+      "message": "I think the cache flushing wouldn\u0027t help, I might just disable the protection on non-target builds.",
+      "parentUuid": "c0b89521_227545d8",
+      "revId": "5c01b95134ceb103afcf2bef3c603141aa6f60b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
