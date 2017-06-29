@@ -122,6 +122,24 @@
       "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68498fd8_41fc88dd",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-06-29T16:57:53Z",
+      "side": 1,
+      "message": "NEON instructions are already used in regular codegen (see BitCount intrinsic) without checking for NEON feature. So I think it\u0027s a good idea to have this check as a separate CL. Do you suggest to prepare that feature-checking CL first and only then merge the arm32 vectorization?",
+      "parentUuid": "be39c34f_543809b7",
+      "revId": "8f3c5c8464b0327fb0806044e1c0847697d1b825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
