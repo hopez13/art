@@ -583,6 +583,8 @@ void RegionSpace::Region::MarkAsAllocated(RegionSpace* region_space, uint32_t al
   type_ = RegionType::kRegionTypeToSpace;
   if (kProtectClearedRegions) {
     mprotect(Begin(), kRegionSize, PROT_READ | PROT_WRITE);
+    FlushDataCache(reinterpret_cast<char*>(Begin()),
+                   reinterpret_cast<char*>(Begin() + kRegionSize));
   }
 }
 
