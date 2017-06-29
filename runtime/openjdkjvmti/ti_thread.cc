@@ -160,9 +160,8 @@ jvmtiError ThreadUtil::GetCurrentThread(jvmtiEnv* env ATTRIBUTE_UNUSED, jthread*
 }
 
 // Get the native thread. The spec says a null object denotes the current thread.
-static art::Thread* GetNativeThread(jthread thread,
-                                    const art::ScopedObjectAccessAlreadyRunnable& soa)
-    REQUIRES_SHARED(art::Locks::mutator_lock_) {
+art::Thread* ThreadUtil::GetNativeThread(jthread thread,
+                                         const art::ScopedObjectAccessAlreadyRunnable& soa) {
   if (thread == nullptr) {
     return art::Thread::Current();
   }
