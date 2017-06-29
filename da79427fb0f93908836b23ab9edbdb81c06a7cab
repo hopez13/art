@@ -22,6 +22,30 @@
       "revId": "da79427fb0f93908836b23ab9edbdb81c06a7cab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e21af2fa_11c6855c",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-29T09:48:06Z",
+      "side": 1,
+      "message": "I\u0027m in favor of remvoving this and just have the method always be NO_INLINE. And there\u0027s already a comment about too large a stack.",
+      "parentUuid": "9f7823ca_f2cfb567",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 24
+      },
+      "revId": "da79427fb0f93908836b23ab9edbdb81c06a7cab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
