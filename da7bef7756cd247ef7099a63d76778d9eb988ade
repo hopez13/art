@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "49c29ad2_f587dc1e",
+        "filename": "test/988-method-trace/gen_srcs.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T23:20:15Z",
+      "side": 1,
+      "message": "don\u0027t comment out code, looks like this should be controlled by a switch",
+      "revId": "da7bef7756cd247ef7099a63d76778d9eb988ade",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9106bda_bb8eecaf",
+        "filename": "test/988-method-trace/gen_srcs.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T23:20:15Z",
+      "side": 1,
+      "message": "don\u0027t comment out code",
+      "revId": "da7bef7756cd247ef7099a63d76778d9eb988ade",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70efe44e_0d89e812",
+        "filename": "test/988-method-trace/gen_srcs.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T23:20:15Z",
+      "side": 1,
+      "message": "don\u0027t comment out code",
+      "revId": "da7bef7756cd247ef7099a63d76778d9eb988ade",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1ed29e3_771eaa32",
         "filename": "test/988-method-trace/gen_srcs.py",
         "patchSetId": 4
@@ -22,6 +73,23 @@
       "revId": "da7bef7756cd247ef7099a63d76778d9eb988ade",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84cb9450_4d170645",
+        "filename": "test/988-method-trace/src/art/Test988Intrinsics.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T23:20:15Z",
+      "side": 1,
+      "message": "make your script add a space after , so that generated program is style compliant :-)",
+      "revId": "da7bef7756cd247ef7099a63d76778d9eb988ade",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
