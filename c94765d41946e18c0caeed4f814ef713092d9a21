@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23636625_6578db53",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T21:18:31Z",
+      "side": 1,
+      "message": "Wrong indent. Should be 4-space.",
+      "range": {
+        "startLine": 1186,
+        "startChar": 4,
+        "endLine": 1186,
+        "endChar": 10
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e81b5d6c_3d543cb5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T21:18:31Z",
+      "side": 1,
+      "message": "Pretty sure Igor would like this to go into its own header... :-)\n\n(I don\u0027t have a strong opinion)",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7f029cf_c15999f6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T21:18:31Z",
+      "side": 1,
+      "message": "Missing \".\" Same below",
+      "range": {
+        "startLine": 120,
+        "startChar": 64,
+        "endLine": 120,
+        "endChar": 65
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ba213c4_ba802d5a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T21:18:31Z",
+      "side": 1,
+      "message": "Please avoid unnecessary style changes.",
+      "range": {
+        "startLine": 1386,
+        "startChar": 0,
+        "endLine": 1388,
+        "endChar": 98
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b5d4af5_27f1ad0c",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T21:18:31Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like it because of the V, but we don\u0027t separate the forwards by type.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0183e8df_036daf3b",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T21:18:31Z",
+      "side": 1,
+      "message": "Please stack a CL to remove this, or remove this immediately.",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 75
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c4fa176_697f7895",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-29T21:18:31Z",
+      "side": 1,
+      "message": "It\u0027s a bit strange. :-)",
+      "range": {
+        "startLine": 69,
+        "startChar": 30,
+        "endLine": 69,
+        "endChar": 50
+      },
+      "revId": "c94765d41946e18c0caeed4f814ef713092d9a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
