@@ -305,6 +305,9 @@ class Monitor {
   ArtMethod* locking_method_ GUARDED_BY(monitor_lock_);
   uint32_t locking_dex_pc_ GUARDED_BY(monitor_lock_);
 
+  uint64_t wait_start_ms_ GUARDED_BY(monitor_lock_);
+  std::unique_ptr<std::string> owner_contention_stack_ GUARDED_BY(monitor_lock_);
+
   // The denser encoded version of this monitor as stored in the lock word.
   MonitorId monitor_id_;
 
