@@ -551,25 +551,34 @@ void Thread::InstallImplicitProtection() {
   // to the stack top. (We then madvise this away.) This must be done by reading from the
   // current stack pointer downwards. Any access more than a page below the current SP
   // might cause a segv.
-  // TODO: This comment may be out of date. It seems possible to speed this up. As
-  //       this is normally done once in the zygote on startup, ignore for now.
-  //
-  // AddressSanitizer does not like the part of this functions that reads every stack page.
-  // Looks a lot like an out-of-bounds access.
 
-  // (Defensively) first remove the protection on the protected region as will want to read
+  // (Defensively) first remove the protection on the protected region as we'll want to read
   // and write it. Ignore errors.
   UnprotectStack();
 
   VLOG(threads) << "Need to map in stack for thread at " << std::hex <<
       static_cast<void*>(pregion);
 
-  // Read every page from the high address to the low.
-  volatile uint8_t dont_optimize_this;
-  UNUSED(dont_optimize_this);
-  for (uint8_t* p = stack_top; p >= pregion; p -= kPageSize) {
-    dont_optimize_this = *p;
-  }
+  struct {
+    // This function has an intentionally large stack size.
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wframe-larger-than="
+    NO_INLINE
+    void Touch(uintptr_t target) {
+      volatile size_t zero = 0;
+      // Use a large local volatile array to ensure a large frame size. Do not use anything close
+      // to a full page for ASAN. It would be nice to ensure the frame size is at most a page, but
+      // there is no pragma support for this.
+      volatile char space[kPageSize - 256];
+      char sink ATTRIBUTE_UNUSED = space[zero];
+      if (reinterpret_cast<uintptr_t>(space) >= target + kPageSize) {
+        Touch(target);
+      }
+      zero *= 2;  // Try to avoid tail recursion.
+    }
+#pragma GCC diagnostic push
+  } RecurseDownStack;
+  RecurseDownStack.Touch(reinterpret_cast<uintptr_t>(pregion));
 
   VLOG(threads) << "(again) installing stack protected region at " << std::hex <<
       static_cast<void*>(pregion) << " to " <<
