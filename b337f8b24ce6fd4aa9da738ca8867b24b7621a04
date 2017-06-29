@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6865b34e_b5344673",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-06-29T18:29:04Z",
+      "side": 1,
+      "message": "Does it work to make this a static member function inside a typedef? That seems cleaner.",
+      "range": {
+        "startLine": 570,
+        "startChar": 4,
+        "endLine": 570,
+        "endChar": 9
+      },
+      "revId": "b337f8b24ce6fd4aa9da738ca8867b24b7621a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
