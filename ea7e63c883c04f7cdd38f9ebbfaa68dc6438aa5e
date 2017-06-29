@@ -22,6 +22,30 @@
       "revId": "ea7e63c883c04f7cdd38f9ebbfaa68dc6438aa5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2b51f3f_2a7978ae",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-29T17:51:00Z",
+      "side": 1,
+      "message": "I think you can just make it be part of the constructor , or even use a lambda right?",
+      "parentUuid": "8fca62a8_5ab4a28c",
+      "range": {
+        "startLine": 580,
+        "startChar": 2,
+        "endLine": 581,
+        "endChar": 24
+      },
+      "revId": "ea7e63c883c04f7cdd38f9ebbfaa68dc6438aa5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
