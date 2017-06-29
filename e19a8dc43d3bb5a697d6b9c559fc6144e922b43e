@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad22af52_ec211f86",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-29T19:03:43Z",
+      "side": 1,
+      "message": "nit: machine register corresponding to the stack pointer (e.g. $ESP on x86, $PC on ARM, etc)",
+      "range": {
+        "startLine": 554,
+        "startChar": 40,
+        "endLine": 554,
+        "endChar": 42
+      },
+      "revId": "e19a8dc43d3bb5a697d6b9c559fc6144e922b43e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
