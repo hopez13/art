@@ -22,6 +22,30 @@
       "revId": "ed511edf82e88ffef18dcf9334312535255c7deb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2ac0126_2303f7bd",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-06-29T16:31:17Z",
+      "side": 1,
+      "message": "Well, the comment is still correct, but we are smarting in detecting equivalent tests. But since that was not clear, I have elaborated in the comments on that.",
+      "parentUuid": "bf75b984_d7f0c701",
+      "range": {
+        "startLine": 623,
+        "startChar": 0,
+        "endLine": 623,
+        "endChar": 77
+      },
+      "revId": "ed511edf82e88ffef18dcf9334312535255c7deb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
