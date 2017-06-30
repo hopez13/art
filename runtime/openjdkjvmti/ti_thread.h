@@ -35,8 +35,11 @@
 #include "jni.h"
 #include "jvmti.h"
 
+#include <mutex>
+
 namespace art {
 class ArtField;
+class Thread;
 }  // namespace art
 
 namespace openjdkjvmti {
@@ -68,7 +71,33 @@ class ThreadUtil {
                                    const void* arg,
                                    jint priority);
 
+  static jvmtiError SuspendThread(jvmtiEnv* env, jthread thread);
+  static jvmtiError ResumeThread(jvmtiEnv* env, jthread thread);
+
+  static jvmtiError SuspendThreadList(jvmtiEnv* env,
+                                      jint request_count,
+                                      const jthread* threads,
+                                      jvmtiError* results);
+  static jvmtiError ResumeThreadList(jvmtiEnv* env,
+                                     jint request_count,
+                                     const jthread* threads,
+                                     jvmtiError* results);
+
  private:
+  static jvmtiError SuspendSelf(art::Thread* self);
+  static jvmtiError SuspendOther(art::Thread* self, jthread target_jthread, art::Thread* target);
+
+  // We need to make sure only one thread tries to suspend threads at a time so we can get the
+  // 'suspend-only-once' behavior the spec requires. Internally, ART considers suspension to be a
+  // counted state, allowing a single thread to be suspended multiple times by different users. This
+  // makes mapping into the JVMTI idea of thread suspension difficult. We have decided to split the
+  // difference and ensure that JVMTI tries to treat suspension as the boolean flag as much as
+  // possible with the suspend/resume methods but only do best effort. On the other hand
+  // GetThreadState will be totally accurate as much as possible. This means that calling
+  // ResumeThread on a thread that has state JVMTI_THREAD_STATE_SUSPENDED will not necessarily
+  // cause the thread to wake up.
+  static std::mutex suspend_lock;
+
   static art::ArtField* context_class_loader_;
 };
 
