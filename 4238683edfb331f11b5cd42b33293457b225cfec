@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0cf00156_fca62332",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-30T16:30:31Z",
+      "side": 1,
+      "message": "How about:\n\nART_TARGET_INCLUDE_DEBUG_BUILD \u0026\u0026 (userdebug || eng)\n\n?",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 5
+      },
+      "revId": "4238683edfb331f11b5cd42b33293457b225cfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
