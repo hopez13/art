@@ -22,6 +22,30 @@
       "revId": "afccbce0411c8e0f5b38594dbd2bb92611580407",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b333c78_b4442a29",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-30T23:15:36Z",
+      "side": 1,
+      "message": "Probably because this indicates that we are setting compiler-filter flag to verify and the generated images are called core-verify*.art and we want to name the column into verify?\n\nActually I think either is fine, the no-preinit option for test indicates run the tests without preinit and the verify shows how we want to compile the boot image.",
+      "parentUuid": "2c9eed06_9abe26f8",
+      "range": {
+        "startLine": 243,
+        "startChar": 9,
+        "endLine": 243,
+        "endChar": 15
+      },
+      "revId": "afccbce0411c8e0f5b38594dbd2bb92611580407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
