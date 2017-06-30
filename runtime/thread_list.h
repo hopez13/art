@@ -65,7 +65,7 @@ class ThreadList {
   void ResumeAll()
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_)
       UNLOCK_FUNCTION(Locks::mutator_lock_);
-  void Resume(Thread* thread, SuspendReason reason = SuspendReason::kInternal)
+  bool Resume(Thread* thread, SuspendReason reason = SuspendReason::kInternal)
       REQUIRES(!Locks::thread_suspend_count_lock_);
 
   // Suspends all threads and gets exclusive access to the mutator_lock_.
