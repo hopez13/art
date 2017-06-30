@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "ad42a975_b7fde8fd",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-30T10:22:38Z",
+      "side": 1,
+      "message": "OK, let\u0027s measure that in a follow-up CL.",
+      "parentUuid": "f048eaa0_b3968136",
+      "range": {
+        "startLine": 777,
+        "startChar": 4,
+        "endLine": 777,
+        "endChar": 49
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "683a628a_80886223",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 11
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "I haven\u0027t measured it. I can split the CL and move that change (and other similar changes below) to another patch to check whether it\u0027s relevant, performance-wise.",
       "parentUuid": "683a628a_80886223",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11173acb_18a0ed47",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-30T10:22:38Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer one common thing for now with a comment on each place you found could be updated. Sounds good for another change that measures the difference.",
+      "parentUuid": "11cca2c5_301b178a",
       "range": {
         "startLine": 155,
         "startChar": 0,
