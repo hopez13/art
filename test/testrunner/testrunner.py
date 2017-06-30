@@ -74,6 +74,7 @@ DEBUGGABLE_TYPES = set()
 ADDRESS_SIZES = set()
 OPTIMIZING_COMPILER_TYPES = set()
 JVMTI_TYPES = set()
+PREINIT_TYPES = set()
 ADDRESS_SIZES_TARGET = {'host': set(), 'target': set()}
 # timeout for individual tests.
 # TODO: make it adjustable per tests and for buildbots
@@ -151,6 +152,7 @@ def gather_test_info():
                                 'field-stress', 'step-stress'}
   VARIANT_TYPE_DICT['compiler'] = {'interp-ac', 'interpreter', 'jit', 'optimizing',
                               'regalloc_gc', 'speed-profile'}
+  VARIANT_TYPE_DICT['preinit'] = {'preinit', 'no-preinit'}
 
   for v_type in VARIANT_TYPE_DICT:
     TOTAL_VARIANTS_SET = TOTAL_VARIANTS_SET.union(VARIANT_TYPE_DICT.get(v_type))
@@ -318,6 +320,7 @@ def run_tests(tests):
   total_test_count *= len(DEBUGGABLE_TYPES)
   total_test_count *= len(COMPILER_TYPES)
   total_test_count *= len(JVMTI_TYPES)
+  total_test_count *= len(PREINIT_TYPES)
   target_address_combinations = 0
   for target in TARGET_TYPES:
     for address_size in ADDRESS_SIZES_TARGET[target]:
@@ -344,10 +347,10 @@ def run_tests(tests):
   config = itertools.product(tests, TARGET_TYPES, RUN_TYPES, PREBUILD_TYPES,
                              COMPILER_TYPES, RELOCATE_TYPES, TRACE_TYPES,
                              GC_TYPES, JNI_TYPES, IMAGE_TYPES, PICTEST_TYPES,
-                             DEBUGGABLE_TYPES, JVMTI_TYPES)
+                             DEBUGGABLE_TYPES, JVMTI_TYPES, PREINIT_TYPES)
 
   for test, target, run, prebuild, compiler, relocate, trace, gc, \
-      jni, image, pictest, debuggable, jvmti in config:
+      jni, image, pictest, debuggable, jvmti, preinit in config:
     for address_size in ADDRESS_SIZES_TARGET[target]:
       if stop_testrunner:
         # When ART_TEST_KEEP_GOING is set to false, then as soon as a test
@@ -370,11 +373,12 @@ def run_tests(tests):
       test_name += pictest + '-'
       test_name += debuggable + '-'
       test_name += jvmti + '-'
+      test_name += preinit + '-'
       test_name += test
       test_name += address_size
 
       variant_set = {target, run, prebuild, compiler, relocate, trace, gc, jni,
-                     image, pictest, debuggable, jvmti, address_size}
+                     image, pictest, debuggable, jvmti, address_size, preinit}
 
       options_test = options_all
 
@@ -403,7 +407,8 @@ def run_tests(tests):
         options_test += ' --jit'
       elif compiler == 'speed-profile':
         options_test += ' --random-profile'
-
+      if preinit == 'no-preinit':
+        options_test += ' --no-preinit'
       if relocate == 'relocate':
         options_test += ' --relocate'
       elif relocate == 'no-relocate':
@@ -796,6 +801,7 @@ def parse_test_name(test_name):
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['pictest']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['debuggable']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['jvmti']) + ')-'
+  regex += '(' + '|'.join(VARIANT_TYPE_DICT['preinit']) + ')-'
   regex += '(' + '|'.join(RUN_TEST_SET) + ')'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['address_sizes']) + ')$'
   match = re.match(regex, test_name)
@@ -812,8 +818,9 @@ def parse_test_name(test_name):
     PICTEST_TYPES.add(match.group(10))
     DEBUGGABLE_TYPES.add(match.group(11))
     JVMTI_TYPES.add(match.group(12))
-    ADDRESS_SIZES.add(match.group(14))
-    return {match.group(13)}
+    JVMTI_TYPES.add(match.group(13))
+    ADDRESS_SIZES.add(match.group(15))
+    return {match.group(14)}
   raise ValueError(test_name + " is not a valid test")
 
 
@@ -973,6 +980,10 @@ def parse_option():
     JVMTI_TYPES.add('trace-stress')
   if options['no_jvmti']:
     JVMTI_TYPES.add('no-jvmti')
+  if options['no_preinit']:
+    PREINIT_TYPES.add('no-preinit')
+  else:
+    PREINIT_TYPES.add('preinit')
   if options['verbose']:
     verbose = True
   if options['n_thread']:
@@ -986,6 +997,7 @@ def parse_option():
     gdb = True
     if options['gdb_arg']:
       gdb_arg = options['gdb_arg']
+
   timeout = options['timeout']
 
   return test

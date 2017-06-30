@@ -672,5 +672,11 @@
                          "lookup changes" ],
         "bug": "b/63089991",
         "env_vars": {"ANDROID_COMPILE_WITH_JACK": "false"}
+    },
+    {
+        "tests": ["137-cfi"],
+        "description": [ "Tests failing with --no-preinit." ],
+        "bug": "b/63089991",
+        "variant": "no-preinit"
     }
 ]

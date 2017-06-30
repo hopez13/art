@@ -160,6 +160,7 @@ suspend_timeout="500000"
 # By default we will use optimizing.
 image_args=""
 image_suffix=""
+use_no_preinit=""
 
 while true; do
     if [ "x$1" = "x--host" ]; then
@@ -316,6 +317,9 @@ while true; do
         image_args="--verify-soft-fail"
         image_suffix="-interp-ac"
         shift
+    elif [ "x$1" = "x--no-preinit" ]; then
+        use_no_preinit="yes"
+        shift
     elif [ "x$1" = "x--no-optimize" ]; then
         run_args="${run_args} --no-optimize"
         shift
@@ -415,6 +419,11 @@ while true; do
         break
     fi
 done
+
+# --no-preinit needs to use core-verify*.art, overwrite compiler specification
+if [ "$use_no_preinit" = "yes" ]; then
+    image_suffix="-verify"
+fi
 
 run_args="${run_args} ${image_args}"
 # Allocate file descriptor real_stderr and redirect it to the shell's error
@@ -702,6 +711,7 @@ if [ "$usage" = "yes" ]; then
         echo "    --bisection-search    Perform bisection bug search."
         echo "    --vdex                Test using vdex as in input to dex2oat. Only works with --prebuild."
         echo "    --suspend-timeout     Change thread suspend timeout ms (default 500000)."
+        echo "    --no-preinit          Use boot image with all classes verified(but not initialized)."
     ) 1>&2  # Direct to stderr so usage is not printed if --quiet is set.
     exit 1
 fi
