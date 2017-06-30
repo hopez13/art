@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "090fa27e_d70235da",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-30T16:49:17Z",
+      "side": 1,
+      "message": "Hmm, actually I think we don\u0027t need to do this at all if it\u0027s @CriticalNative because it can\u0027t possibly suspend and as long as MR is a native-callee-save-register.\n\nCan you make it conditional Roland (and have an assert that it\u0027s native-callee-save)?\n\n\n    RemoveFrame(size_t frame_size,\n                ArrayRef\u003c...\u003e callee_save_regs,\n                bool may_suspend) {\n\n          CHECK(is_native_callee_save(MR));\n          .....\n          if (may_suspend) { __Ldr(MR); } // refresh GC marking register\n    }\n\n\n    jni_compiler:\n     \n    RemoveFrame(frame_size, regs, !is_critical_native /* may_suspend */ );\n\n----------\n\nFor other cases not worth doing anything right now, maybe if we inline JniMethodStart/End in the future or to return if it suspended.",
+      "parentUuid": "ad42a975_b7fde8fd",
+      "range": {
+        "startLine": 777,
+        "startChar": 4,
+        "endLine": 777,
+        "endChar": 49
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "683a628a_80886223",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 11
