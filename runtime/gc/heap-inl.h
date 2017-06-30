@@ -154,8 +154,11 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
     }
     pre_fence_visitor(obj, usable_size);
     QuasiAtomic::ThreadFenceForConstructor();
-    new_num_bytes_allocated = static_cast<size_t>(
-        num_bytes_allocated_.FetchAndAddRelaxed(bytes_tl_bulk_allocated)) + bytes_tl_bulk_allocated;
+    new_num_bytes_allocated = num_bytes_allocated_.FetchAndAddRelaxed(bytes_tl_bulk_allocated) +
+        bytes_tl_bulk_allocated;
+    // Only trace when we get an increase in the number of bulk allocated. This happens when
+    // obtaining a new TLAB, so it shouldn't be often enough to hurt performance.
+    TraceHeapSize(new_num_bytes_allocated);
   }
   if (kIsDebugBuild && Runtime::Current()->IsStarted()) {
     CHECK_LE(obj->SizeOf(), usable_size);
