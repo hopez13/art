@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7265c6ae_182fd2b8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-30T19:41:59Z",
+      "side": 1,
+      "message": "You will hit the boot class path in the order of the number of DelegateLast loaders + 1.   That\u0027s a waste to me. \n\nIt will also makes things more complex because your snippet is not correct. For delegate last you need to first search the boot classpath. Which means that you still need to traverse to the top of the chain to verify that nothing is unsupported (as you noticed in your first reply). Implementing this recursively is doable but it adds much more complexity to make sure that after recursing for the boot classpath you return to the original DelegateLast.",
+      "parentUuid": "19e7c4d0_b910dca1",
+      "range": {
+        "startLine": 2432,
+        "startChar": 2,
+        "endLine": 2432,
+        "endChar": 72
+      },
+      "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "050a004a_2fcd81bc",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2017-06-30T14:21:16Z",
       "side": 1,
       "message": "From an API standpoint, I do not like this method which walks the parent chain but arbitrarily stops at the boot classpath.",
+      "range": {
+        "startLine": 2465,
+        "startChar": 0,
+        "endLine": 2473,
+        "endChar": 75
+      },
+      "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33abc7bd_d6536bab",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2473,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-30T19:41:59Z",
+      "side": 1,
+      "message": "What alternatives do you suggest?\n\n- Andreas suggestions for a pure recursive method (which hits the boot class multiple times and adds complexity imo)? \n- linearizing the chain in a natural search order?\n- others?",
+      "parentUuid": "050a004a_2fcd81bc",
       "range": {
         "startLine": 2465,
         "startChar": 0,
