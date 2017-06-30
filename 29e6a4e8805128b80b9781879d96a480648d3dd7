@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b583a15_833cdd9a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-30T23:04:21Z",
+      "side": 1,
+      "message": "What are you doing option --preint? Replace \"else:\" with \"if options[\u0027preinit\u0027]::",
+      "range": {
+        "startLine": 986,
+        "startChar": 4,
+        "endLine": 986,
+        "endChar": 32
+      },
+      "revId": "29e6a4e8805128b80b9781879d96a480648d3dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
