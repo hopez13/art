@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91078320_621a84cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-30T10:48:46Z",
+      "side": 1,
+      "message": "This is hard to read; could you rephrase? Especially, it took me some time to understand that \"they are not initialized and can be done while compiling app image\" was to be read as a non-breakable term of the sentence.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 61
+      },
+      "revId": "a491b1af5b1a1cd734a5ae1adede09eaa32601f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f1457e9_fbdc5d01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-30T10:48:46Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 74
+      },
+      "revId": "a491b1af5b1a1cd734a5ae1adede09eaa32601f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88e0d8fe_83543370",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2270,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-06-30T10:48:46Z",
+      "side": 1,
+      "message": "The line break is odd here; would you mind breaking the line after `\u003d` instead?",
+      "range": {
+        "startLine": 2269,
+        "startChar": 0,
+        "endLine": 2270,
+        "endChar": 68
+      },
+      "revId": "a491b1af5b1a1cd734a5ae1adede09eaa32601f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
