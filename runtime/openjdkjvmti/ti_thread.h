@@ -35,6 +35,8 @@
 #include "jni.h"
 #include "jvmti.h"
 
+#include <mutex>
+
 namespace art {
 class ArtField;
 }  // namespace art
@@ -45,6 +47,10 @@ class EventHandler;
 
 class ThreadUtil {
  public:
+  // We need to make sure only one thread tries to suspend threads at a time so we can get the
+  // 'suspend-only-once' behavior the spec requires.
+  static std::mutex suspend_lock;
+
   static void Register(EventHandler* event_handler);
   static void Unregister();
 
@@ -67,6 +73,18 @@ class ThreadUtil {
                                    jvmtiStartFunction proc,
                                    const void* arg,
                                    jint priority);
+
+  static jvmtiError SuspendThread(jvmtiEnv* env, jthread thread);
+  static jvmtiError ResumeThread(jvmtiEnv* env, jthread thread);
+
+  static jvmtiError SuspendThreadList(jvmtiEnv* env,
+                                      jint request_count,
+                                      const jthread* threads,
+                                      jvmtiError* results);
+  static jvmtiError ResumeThreadList(jvmtiEnv* env,
+                                     jint request_count,
+                                     const jthread* threads,
+                                     jvmtiError* results);
 
  private:
   static art::ArtField* context_class_loader_;
