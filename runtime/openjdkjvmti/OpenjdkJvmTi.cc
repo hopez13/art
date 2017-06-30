@@ -133,10 +133,10 @@ class JvmtiFunctions {
     return ThreadUtil::GetAllThreads(env, threads_count_ptr, threads_ptr);
   }
 
-  static jvmtiError SuspendThread(jvmtiEnv* env, jthread thread ATTRIBUTE_UNUSED) {
+  static jvmtiError SuspendThread(jvmtiEnv* env, jthread thread) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_suspend);
-    return ERR(NOT_IMPLEMENTED);
+    return ThreadUtil::SuspendThread(env, thread);
   }
 
   static jvmtiError SuspendThreadList(jvmtiEnv* env,
@@ -148,10 +148,10 @@ class JvmtiFunctions {
     return ERR(NOT_IMPLEMENTED);
   }
 
-  static jvmtiError ResumeThread(jvmtiEnv* env, jthread thread ATTRIBUTE_UNUSED) {
+  static jvmtiError ResumeThread(jvmtiEnv* env, jthread thread) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_suspend);
-    return ERR(NOT_IMPLEMENTED);
+    return ThreadUtil::ResumeThread(env, thread);
   }
 
   static jvmtiError ResumeThreadList(jvmtiEnv* env,
