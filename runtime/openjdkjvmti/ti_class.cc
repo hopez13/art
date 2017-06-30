@@ -598,6 +598,10 @@ jvmtiError ClassUtil::GetClassFields(jvmtiEnv* env,
     return ERR(INVALID_CLASS);
   }
 
+  if (klass->IsTemp() || klass->IsRetired()) {
+    return ERR(CLASS_NOT_PREPARED);
+  }
+
   if (field_count_ptr == nullptr || fields_ptr == nullptr) {
     return ERR(NULL_POINTER);
   }
