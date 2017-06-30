@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "a3fc992f_94fa5417",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-30T21:10:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70f79943_7e2fcd44",
+      "range": {
+        "startLine": 708,
+        "startChar": 81,
+        "endLine": 708,
+        "endChar": 100
+      },
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c31b4d51_d3e32540",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-30T21:10:35Z",
+      "side": 1,
+      "message": "The app images could contains initialized classes, which will actually reproduce the bug another CL fixed. So the compiler options for app image will be determined by other arguments (or default to optimizing?)\n\nhttps://android-review.googlesource.com/#/c/418225/",
+      "parentUuid": "b5c59b6a_9635aecd",
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69df380a_9a73ebdf",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -76,6 +118,24 @@
     },
     {
       "key": {
+        "uuid": "d715920b_a78836a4",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-30T21:10:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e15ad34_fa7bd44d",
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7295bead_8d62ca72",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -99,6 +159,30 @@
     },
     {
       "key": {
+        "uuid": "a6cec47c_afc42446",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-30T21:10:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7295bead_8d62ca72",
+      "range": {
+        "startLine": 899,
+        "startChar": 46,
+        "endLine": 899,
+        "endChar": 47
+      },
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b263b31_6de3b0cf",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -110,6 +194,24 @@
       "writtenOn": "2017-06-30T20:56:57Z",
       "side": 1,
       "message": "nit: Please use same help message as in run-test script",
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "265aa560_962468da",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-30T21:10:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b263b31_6de3b0cf",
       "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
