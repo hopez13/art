@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "19e7c4d0_b910dca1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-30T15:53:14Z",
+      "side": 1,
+      "message": "Please don\u0027t. Please keep it simple. Keep the original setup of this being the recursive function.\n\n bool Find(cl) {\n   if (IsBootClass(cl)) {\n     return LoadFromBoot()\n   } else if (IsPath(cl) || IsDex(cl)) {\n     if (Find(cl.getParent()) {\n       return true;\n     }\n     return LoadDexPathList(cl);\n   } else if (IsDelegateLast(cl)) {\n     if (LoadDexPathList(cl)) {\n       return true;\n     }\n     if (LoadFromBoot()) {\n       return true;\n     }\n     return Find(cl.getParent());\n   }\n }\n\nYes, that will hit the boot classloader twice for DelegateLast when the class is missing. But at least the loading code is *clean*-ish that way.",
+      "parentUuid": "2459261b_8fd9e4aa",
+      "range": {
+        "startLine": 2432,
+        "startChar": 2,
+        "endLine": 2432,
+        "endChar": 72
+      },
+      "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "050a004a_2fcd81bc",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
