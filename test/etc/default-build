@@ -78,7 +78,7 @@ ZIP_COMPRESSION_METHOD="deflate"
 WITH_ZIP_ALIGN=false
 ZIP_ALIGN_BYTES="-1"
 
-DX_FLAGS="--min-sdk-version=24"
+DX_FLAGS=""
 DX_VM_FLAGS=""
 SKIP_DX_MERGER="false"
 EXPERIMENTAL=""
@@ -111,6 +111,7 @@ JAVAC_EXPERIMENTAL_ARGS[${DEFAULT_EXPERIMENT}]="-source 1.8 -target 1.8"
 JAVAC_EXPERIMENTAL_ARGS["agents"]="-source 1.8 -target 1.8"
 
 declare -A DX_EXPERIMENTAL_ARGS
+DX_EXPERIMENTAL_ARGS[${DEFAULT_EXPERIMENT}]="--min-sdk-version=24"
 DX_EXPERIMENTAL_ARGS["method-handles"]="--min-sdk-version=26"
 
 while true; do
