@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4053e3a_f48262ee",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-06-30T10:04:55Z",
+      "side": 1,
+      "message": "The choice of names seems a bit awkward here, ie kDefaultInlineMaxCodeUnits not being the default?\n\nAre there places where the \"default\" is used? Would it be better use kUnsetInlineMaxCodeUnits there?",
+      "revId": "cf96bedc850e99f7dfeb4fc134603701c146f738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
