@@ -121,9 +121,15 @@ inline bool Thread::IsThreadSuspensionAllowable() const {
     return false;
   }
   for (int i = kLockLevelCount - 1; i >= 0; --i) {
-    if (i != kMutatorLock && GetHeldMutex(static_cast<LockLevel>(i)) != nullptr) {
+    if (i != kMutatorLock &&
+        i != kUserCodeSuspensionLock &&
+        GetHeldMutex(static_cast<LockLevel>(i)) != nullptr) {
       return false;
     }
+  }
+  if (GetHeldMutex(kUserCodeSuspensionLock) != nullptr &&
+      ([this]() NO_THREAD_SAFETY_ANALYSIS { return tls32_.user_code_suspend_count != 0; })()) {
+    return false;
   }
   return true;
 }
@@ -136,8 +142,9 @@ inline void Thread::AssertThreadSuspensionIsAllowable(bool check_locks) const {
     if (check_locks) {
       bool bad_mutexes_held = false;
       for (int i = kLockLevelCount - 1; i >= 0; --i) {
-        // We expect no locks except the mutator_lock_ or thread list suspend thread lock.
-        if (i != kMutatorLock) {
+        // We expect no locks except the mutator_lock_. User code suspension lock is OK as long as
+        // we aren't going to be held suspended due to SuspendReason::kForUserCode.
+        if (i != kMutatorLock && i != kUserCodeSuspensionLock) {
           BaseMutex* held_mutex = GetHeldMutex(static_cast<LockLevel>(i));
           if (held_mutex != nullptr) {
             LOG(ERROR) << "holding \"" << held_mutex->GetName()
@@ -145,6 +152,15 @@ inline void Thread::AssertThreadSuspensionIsAllowable(bool check_locks) const {
             bad_mutexes_held = true;
           }
         }
+      }
+      // Make sure that if we hold the user_code_suspension_lock_ we aren't suspending due to
+      // user_code_suspend_count which would prevent the thread from ever waking up.
+      if (GetHeldMutex(kUserCodeSuspensionLock) != nullptr &&
+          ([this]() NO_THREAD_SAFETY_ANALYSIS { return tls32_.user_code_suspend_count != 0; })()) {
+        LOG(ERROR) << "suspending due to user-code while holding \""
+                   << Locks::user_code_suspension_lock_->GetName() << "\"! Thread would never "
+                   << "wake up.";
+        bad_mutexes_held = true;
       }
       if (gAborting == 0) {
         CHECK(!bad_mutexes_held);
