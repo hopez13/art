@@ -16,6 +16,29 @@
       "revId": "0159764167da8476521ae9d23e02c0229737c315",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5df8652_4ca645c3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-30T10:32:43Z",
+      "side": 1,
+      "message": "Please do this in a different change.",
+      "range": {
+        "startLine": 1185,
+        "startChar": 11,
+        "endLine": 1185,
+        "endChar": 49
+      },
+      "revId": "0159764167da8476521ae9d23e02c0229737c315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
