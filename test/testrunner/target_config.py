@@ -240,6 +240,12 @@ target_config = {
             'ART_USE_READ_BARRIER' : 'true'
         }
     },
+    'art-verify' : {
+        'run-test' : ['--no-preinit'],
+        'env' : {
+            'ART_USE_READ_BARRIER' : 'true'
+        }
+    },
 
     # ART gtest configurations
     # (calls make 'target' which builds and then runs the gtests).
