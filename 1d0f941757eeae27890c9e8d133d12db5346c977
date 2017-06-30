@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "cd1c64c3_c7eef07f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-30T21:45:26Z",
+      "side": 1,
+      "message": "test: Add \u0027verify\u0027 run_build_test_target to run tests with uninitialized classes image",
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "281f23e4_048ae00c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-30T21:45:26Z",
+      "side": 1,
+      "message": "So is it just boot or does it apply to app images too?",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5c59b6a_9635aecd",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -84,6 +124,23 @@
     },
     {
       "key": {
+        "uuid": "8175ff54_0e99499c",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-30T21:45:26Z",
+      "side": 1,
+      "message": "You need to add \u0027verify\u0027 here.",
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69df380a_9a73ebdf",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -130,6 +187,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "1e15ad34_fa7bd44d",
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6123cd3_9932dcd0",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-06-30T21:45:26Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this comment was all about.",
+      "parentUuid": "d715920b_a78836a4",
       "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
