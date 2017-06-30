@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "1bf49c01_b425c6b9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-30T20:22:02Z",
+      "side": 1,
+      "message": "Your reasoning is incorrect. The chain only needs to be verified for Path and Dex classloader. DelegateLast can fully ignore w/e the parent is if it finds the class with either boot or itself.\n\nYou can see the C++ code as a straightforward translation of the Java code and some partial evaluation. The bail case is that, in evaluation order, you reach an unsupported classloader. At that point you bail. If you never reach it (e.g., because it\u0027s the parent of a DelegateLast, but DelegateLast defines the class), then the Java code would not reach the parent, either. That\u0027s the underlying soundness argument of implementing the C++ fast-path...\n\n(And yeah, sorry, the two ifs for that branch should be reversed)\n\nIf you feel strongly, pass down an \"ignore boot at the end.\" However, I think you\u0027re over-optimizing for something we do not have any strong evidence for, and this all becomes really brittle.\n\n\nI\u0027ll repeat my point: if we were telling developers that they can shoot themselves, this discussion were moot. :-)",
+      "parentUuid": "7265c6ae_182fd2b8",
+      "range": {
+        "startLine": 2432,
+        "startChar": 2,
+        "endLine": 2432,
+        "endChar": 72
+      },
+      "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "050a004a_2fcd81bc",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
