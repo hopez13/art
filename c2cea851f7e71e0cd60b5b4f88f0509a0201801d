@@ -16,6 +16,75 @@
       "revId": "c2cea851f7e71e0cd60b5b4f88f0509a0201801d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc1fb779_bb06e7ef",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-30T22:41:50Z",
+      "side": 1,
+      "message": "instead of boolean, please use string to be consistent with others.",
+      "range": {
+        "startLine": 413,
+        "startChar": 9,
+        "endLine": 413,
+        "endChar": 19
+      },
+      "revId": "c2cea851f7e71e0cd60b5b4f88f0509a0201801d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52100d01_e4d4de47",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-30T22:41:50Z",
+      "side": 1,
+      "message": "Please don\u0027t do it like this. Please see line 868 \"for variant in TOTAL_VARIANTS_SET:\" to initialize this.",
+      "range": {
+        "startLine": 900,
+        "startChar": 2,
+        "endLine": 901,
+        "endChar": 92
+      },
+      "revId": "c2cea851f7e71e0cd60b5b4f88f0509a0201801d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218e3a6f_be7d2462",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-06-30T22:41:50Z",
+      "side": 1,
+      "message": "introduce a PREINIT_TYPES list as for other types.\n\nAlso, by the current design, it doesn\u0027t look like I\u0027ll be able to run both the configuration simultaneously.",
+      "range": {
+        "startLine": 997,
+        "startChar": 4,
+        "endLine": 997,
+        "endChar": 14
+      },
+      "revId": "c2cea851f7e71e0cd60b5b4f88f0509a0201801d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
