@@ -31,6 +31,7 @@
 
 #include "ti_thread.h"
 
+#include <mutex>
 #include "android-base/strings.h"
 #include "art_field-inl.h"
 #include "art_jvmti.h"
@@ -56,6 +57,7 @@
 namespace openjdkjvmti {
 
 art::ArtField* ThreadUtil::context_class_loader_ = nullptr;
+std::mutex ThreadUtil::suspend_lock;
 
 struct ThreadCallback : public art::ThreadLifecycleCallback, public art::RuntimePhaseCallback {
   jthread GetThreadObject(art::Thread* self) REQUIRES_SHARED(art::Locks::mutator_lock_) {
@@ -433,6 +435,9 @@ jvmtiError ThreadUtil::GetThreadState(jvmtiEnv* env ATTRIBUTE_UNUSED,
   if (native_thread->IsInterrupted()) {
     jvmti_state |= JVMTI_THREAD_STATE_INTERRUPTED;
   }
+  if (native_thread->IsSuspended()) {
+    jvmti_state |= JVMTI_THREAD_STATE_SUSPENDED;
+  }
 
   // Java state is derived from nativeGetState.
   // Note: Our implementation assigns "runnable" to suspended. As such, we will have slightly
@@ -603,6 +608,96 @@ jvmtiError ThreadUtil::RunAgentThread(jvmtiEnv* jvmti_env,
   data.release();
 
   return ERR(NONE);
+}
+
+jvmtiError SuspendOther(art::Thread* self, jthread target_jthread, art::Thread* target) {
+  std::unique_lock<std::mutex> mu(ThreadUtil::suspend_lock);
+  {
+    art::MutexLock thread_list_mu(self, *art::Locks::thread_suspend_count_lock_);
+    if (target->GetUserCodeSuspendCount() != 0) {
+      return ERR(THREAD_SUSPENDED);
+    }
+  }
+  bool timeout = true;
+  // TODO It might be good enough to just increment the suspend count...
+  while (timeout) {
+    art::ThreadState state = target->GetState();
+    if (state == art::ThreadState::kTerminated || state == art::ThreadState::kStarting) {
+      return ERR(THREAD_NOT_ALIVE);
+    }
+    target = art::Runtime::Current()->GetThreadList()->SuspendThreadByPeer(
+        target_jthread, /* request_suspension */ true, art::SuspendReason::kForUserCode, &timeout);
+    if (target == nullptr && !timeout) {
+      // TODO It would be good to get more information about why exactly the thread failed to
+      // suspend.
+      return ERR(INTERNAL);
+    }
+  }
+  return OK;
+}
+
+jvmtiError SuspendSelf(art::Thread* self) {
+  CHECK(self == art::Thread::Current());
+  art::ScopedObjectAccess soa(self);
+  {
+    std::unique_lock<std::mutex> mu(ThreadUtil::suspend_lock);
+    art::MutexLock thread_list_mu(self, *art::Locks::thread_suspend_count_lock_);
+    if (self->GetUserCodeSuspendCount() != 0) {
+      return ERR(THREAD_SUSPENDED);
+    }
+    if (!self->ModifySuspendCount(self, +1, nullptr, art::SuspendReason::kForUserCode)) {
+      // TODO More specific error would be nice.
+      return ERR(INTERNAL);
+    }
+  }
+  self->FullSuspendCheck();
+  return OK;
+}
+
+jvmtiError ThreadUtil::SuspendThread(jvmtiEnv* env ATTRIBUTE_UNUSED, jthread thread) {
+  art::Thread* self = art::Thread::Current();
+  art::Thread* target;
+  {
+    art::ScopedObjectAccess soa(art::Thread::Current());
+    target = GetNativeThread(thread, soa);
+  }
+  if (target == nullptr) {
+    return ERR(INVALID_THREAD);
+  }
+  if (target == self) {
+    return SuspendSelf(self);
+  } else {
+    return SuspendOther(self, thread, target);
+  }
+}
+
+jvmtiError ThreadUtil::ResumeThread(jvmtiEnv* env ATTRIBUTE_UNUSED,
+                                    jthread thread) {
+  if (thread == nullptr) {
+    return ERR(NULL_POINTER);
+  }
+  std::unique_lock<std::mutex> mu(suspend_lock);
+  art::Thread* self = art::Thread::Current();
+  art::Thread* target;
+  {
+    art::ScopedObjectAccess soa(art::Thread::Current());
+    target = GetNativeThread(thread, soa);
+  }
+  if (target == nullptr) {
+    return ERR(INVALID_THREAD);
+  }
+  CHECK(target != self) << "We are trying to resume ourself!?";
+  {
+    art::MutexLock thread_list_mu(self, *art::Locks::thread_suspend_count_lock_);
+    if (target->GetUserCodeSuspendCount() == 0) {
+      return ERR(THREAD_NOT_SUSPENDED);
+    }
+  }
+  if (target->GetState() == art::ThreadState::kTerminated) {
+    return ERR(THREAD_NOT_ALIVE);
+  }
+  art::Runtime::Current()->GetThreadList()->Resume(target, art::SuspendReason::kForUserCode);
+  return OK;
 }
 
 }  // namespace openjdkjvmti
