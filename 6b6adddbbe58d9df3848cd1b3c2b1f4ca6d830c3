@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "788fe26d_4a783c5e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-06-30T02:32:41Z",
+      "side": 1,
+      "message": "This is wrong, I think.\n\nYou cannot do this immediately. You can only do this if either of the following is true:\n* This is a DelegateLast classloader.\n* The *complete* chain is Path or Dex classloaders.\n\nThe recursive nature of FindClassInBaseDexClassLoader took care of that before...",
+      "range": {
+        "startLine": 2432,
+        "startChar": 2,
+        "endLine": 2432,
+        "endChar": 72
+      },
+      "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
