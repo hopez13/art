@@ -16,6 +16,24 @@
       "revId": "cf96bedc850e99f7dfeb4fc134603701c146f738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f2883b3_ab9aca5f",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-06-30T10:07:27Z",
+      "side": 1,
+      "message": "I agree it\u0027s convoluted. There\u0027s logic in dex2oat to handle the case it has not been set through command line arguments. We should clean up that logic there.",
+      "parentUuid": "e4053e3a_f48262ee",
+      "revId": "cf96bedc850e99f7dfeb4fc134603701c146f738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
