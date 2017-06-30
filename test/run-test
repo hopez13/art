@@ -316,6 +316,9 @@ while true; do
         image_args="--verify-soft-fail"
         image_suffix="-interp-ac"
         shift
+    elif [ "x$1" = "x--no-preinit" ]; then
+        image_suffix="-verify"
+        shift
     elif [ "x$1" = "x--no-optimize" ]; then
         run_args="${run_args} --no-optimize"
         shift
@@ -702,6 +705,7 @@ if [ "$usage" = "yes" ]; then
         echo "    --bisection-search    Perform bisection bug search."
         echo "    --vdex                Test using vdex as in input to dex2oat. Only works with --prebuild."
         echo "    --suspend-timeout     Change thread suspend timeout ms (default 500000)."
+        echo "    --no-preinit          Use boot image with all classes verified but not initialized."
     ) 1>&2  # Direct to stderr so usage is not printed if --quiet is set.
     exit 1
 fi

@@ -127,6 +127,7 @@ build = False
 gdb = False
 gdb_arg = ''
 stop_testrunner = False
+no_preinit = False
 
 def gather_test_info():
   """The method gathers test information about the test to be run which includes
@@ -370,6 +371,8 @@ def run_tests(tests):
       test_name += pictest + '-'
       test_name += debuggable + '-'
       test_name += jvmti + '-'
+      if (no_preinit):
+        test_name += 'no-preinit-'
       test_name += test
       test_name += address_size
 
@@ -403,6 +406,11 @@ def run_tests(tests):
         options_test += ' --jit'
       elif compiler == 'speed-profile':
         options_test += ' --random-profile'
+
+      # --no-preinit needs to overwrite image suffix, have to appeared after
+      # compiler specification
+      if no_preinit:
+        options_test += ' --no-preinit'
 
       if relocate == 'relocate':
         options_test += ' --relocate'
@@ -860,6 +868,7 @@ def parse_option():
   global gdb
   global gdb_arg
   global timeout
+  global no_preinit
 
   parser = argparse.ArgumentParser(description="Runs all or a subset of the ART test suite.")
   parser.add_argument('-t', '--test', dest='test', help='name of the test')
@@ -887,6 +896,9 @@ def parse_option():
   parser.set_defaults(build = env.ART_TEST_RUN_TEST_BUILD)
   parser.add_argument('--gdb', action='store_true', dest='gdb')
   parser.add_argument('--gdb-arg', dest='gdb_arg')
+  parser.add_argument('--no-preinit', dest='no-preinit', action='store_true',
+                      help='Use boot image with all classes verified but not ' +
+                           'initialized(core-verify.art).')
 
   options = vars(parser.parse_args())
   if options['build_target']:
@@ -981,11 +993,14 @@ def parse_option():
     dry_run = True
     verbose = True
   build = options['build']
+  if options['no-preinit']:
+    no_preinit = True
   if options['gdb']:
     n_thread = 1
     gdb = True
     if options['gdb_arg']:
       gdb_arg = options['gdb_arg']
+
   timeout = options['timeout']
 
   return test
