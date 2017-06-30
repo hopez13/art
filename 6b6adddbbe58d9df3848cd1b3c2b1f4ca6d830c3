@@ -22,6 +22,30 @@
       "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2459261b_8fd9e4aa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-06-30T08:53:21Z",
+      "side": 1,
+      "message": "Hmm, I think you\u0027re right. Good catch! and it looks like we don\u0027t have a regression test to capture it. I\u0027ll add one.\n\nI\u0027ll just add a  full check of the chain before calling this. It will simplify the interface as well.",
+      "parentUuid": "788fe26d_4a783c5e",
+      "range": {
+        "startLine": 2432,
+        "startChar": 2,
+        "endLine": 2432,
+        "endChar": 72
+      },
+      "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
