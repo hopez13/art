@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "55cae5d6_b109213f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-06-30T22:50:53Z",
+      "side": 1,
+      "message": "Just for boot, app image will be directed by compiler type options.",
+      "parentUuid": "281f23e4_048ae00c",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "1d0f941757eeae27890c9e8d133d12db5346c977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5c59b6a_9635aecd",
         "filename": "test/run-test",
         "patchSetId": 1
