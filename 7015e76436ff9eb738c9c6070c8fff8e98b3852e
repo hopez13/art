@@ -22,6 +22,30 @@
       "revId": "7015e76436ff9eb738c9c6070c8fff8e98b3852e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3894f10_37d22fb7",
+        "filename": "test/658-fp-read-barrier/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-02T22:52:45Z",
+      "side": 1,
+      "message": "Thanks, will fix in a follow-up.",
+      "parentUuid": "9aa50a83_99f6312c",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 196
+      },
+      "revId": "7015e76436ff9eb738c9c6070c8fff8e98b3852e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
