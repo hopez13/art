@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "6e8bc218_5a868b8e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-03T02:42:05Z",
+      "side": 1,
+      "message": "Oh right, for DelgateLast the chain doesn\u0027t need to be verified, so that can be simplified (your snippet is fine if the search order is reversed).\n\nSearching the boot class path multiple times is a waste. Of course we don\u0027t have data, because no one uses this at the moment. But we also know that in one of the major use cases we\u0027ll have a chain of 2 DelegateLast loaders in a row. Which means that we\u0027re gonna penalize it for no good reason. I don\u0027t think that the difference in readability is that big here that it justify leaving this optimization out.\n\n\n(and since we decided to support this case in libcore I also don\u0027t think we should go with the \"shoot\" option :-) )",
+      "parentUuid": "1bf49c01_b425c6b9",
+      "range": {
+        "startLine": 2432,
+        "startChar": 2,
+        "endLine": 2432,
+        "endChar": 72
+      },
+      "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "050a004a_2fcd81bc",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Adds complexity? I *really* disagree with that assessment. It\u0027s the *way* simpler, better readable and to-reason-about code. *You* are partially evaluating/CSE-ing Java *way more* than the old code. At that point you introduce brittleness.",
       "parentUuid": "33abc7bd_d6536bab",
+      "range": {
+        "startLine": 2465,
+        "startChar": 0,
+        "endLine": 2473,
+        "endChar": 75
+      },
+      "revId": "6b6adddbbe58d9df3848cd1b3c2b1f4ca6d830c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cb0824f_63d6cdde",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2473,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-03T02:42:05Z",
+      "side": 1,
+      "message": "I get that you don\u0027t care if you search the boot multiple times, but I don\u0027t think your readability argument is strong enough to let pretty straightforward optimizations out.\n\nTo me it reads better to:\n\n- check that everything is supported\n- search boot\n- search the rest\n\ninstead of threading an extra arguments around. However I don\u0027t really mind either way. It\u0027s not a very big difference after all.",
+      "parentUuid": "4a86c7e7_6094d872",
       "range": {
         "startLine": 2465,
         "startChar": 0,
