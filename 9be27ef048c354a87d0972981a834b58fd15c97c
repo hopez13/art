@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d80eb8d_4c30247b",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-07-04T12:30:31Z",
+      "side": 1,
+      "message": "maybe we can go with PathClassloader / DelegateLastClassLoader like nicolas wants. We can abbreviate if there ends up being an issue with command line lengths etc.",
+      "range": {
+        "startLine": 30,
+        "startChar": 51,
+        "endLine": 30,
+        "endChar": 54
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bea33b7_9a4edd3c",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-07-04T12:30:31Z",
+      "side": 1,
+      "message": "you can move this to line 55 and use it after - it will make some of the following statements more readable..",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 56
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fcab98f_2c3f8cae",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-07-04T12:30:31Z",
+      "side": 1,
+      "message": "i.... don\u0027t understand this comment at all. what are you trying to say ?",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 62
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9645fa_73cb0ad3",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-07-04T12:30:31Z",
+      "side": 1,
+      "message": "been",
+      "range": {
+        "startLine": 162,
+        "startChar": 86,
+        "endLine": 162,
+        "endChar": 89
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2a0a7d7_4febef19",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-07-04T12:30:31Z",
+      "side": 1,
+      "message": "why is this public ?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "916bf74e_655b902d",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-07-04T12:30:31Z",
+      "side": 1,
+      "message": "once per ClassLoaderContext",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1da712cd_95647431",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-07-04T12:30:31Z",
+      "side": 1,
+      "message": "what is a genuine error ?",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8fffb50_a778b4d8",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-07-04T12:30:31Z",
+      "side": 1,
+      "message": "not sure what \"last class loader\" means in this context...",
+      "range": {
+        "startLine": 58,
+        "startChar": 57,
+        "endLine": 58,
+        "endChar": 84
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
