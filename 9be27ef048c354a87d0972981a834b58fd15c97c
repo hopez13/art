@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cc3c56e2_22b19100",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-04T19:02:23Z",
+      "side": 1,
+      "message": "Counterpoint is that we usually find that out too late, when we\u0027ve already shipped it and people finally use long classpaths. Maybe the right thing is to add an option to read from a file, as we do for preloaded-classes etc.",
+      "parentUuid": "1d80eb8d_4c30247b",
+      "range": {
+        "startLine": 30,
+        "startChar": 51,
+        "endLine": 30,
+        "endChar": 54
+      },
+      "revId": "9be27ef048c354a87d0972981a834b58fd15c97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bea33b7_9a4edd3c",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 10
