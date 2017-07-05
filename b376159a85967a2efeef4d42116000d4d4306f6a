@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "a223f68d_bb9d01ca",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T22:18:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b8cbb1d_c7f2e32b",
+      "revId": "b376159a85967a2efeef4d42116000d4d4306f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa2eef88_03df2438",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 7
@@ -65,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "ee856107_4a1b3fd2",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T22:18:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa2eef88_03df2438",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 80
+      },
+      "revId": "b376159a85967a2efeef4d42116000d4d4306f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bcf7bb3_f809fa38",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 7
@@ -76,6 +118,30 @@
       "writtenOn": "2017-07-05T21:48:27Z",
       "side": 1,
       "message": "line too lone",
+      "range": {
+        "startLine": 156,
+        "startChar": 100,
+        "endLine": 156,
+        "endChar": 102
+      },
+      "revId": "b376159a85967a2efeef4d42116000d4d4306f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebd4866f_1519f42e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T22:18:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bcf7bb3_f809fa38",
       "range": {
         "startLine": 156,
         "startChar": 100,
