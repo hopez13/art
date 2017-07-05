@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "cc74f35c_3af90e6e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-05T20:06:40Z",
+      "side": 1,
+      "message": "I played around with the CL a bit, and most of the time it indeed fails to verify, as expected (we had some nasty bugs on this a while back with something that was \"proguarded\" the wrong way, so it is good to stress test this part)\n\nfailed to verify: void Test.main(java.lang.String[]): [0x4] rejecting non-direct call to constructor void java.lang.StringBuilder.\u003cinit\u003e()",
+      "parentUuid": "2af3770b_311443f4",
+      "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a87f44cf_ecf34e3f",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 1
