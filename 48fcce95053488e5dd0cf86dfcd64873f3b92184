@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "5dd76a62_d79deccc",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-05T20:21:55Z",
+      "side": 1,
+      "message": "Oh, no, this is a good thing. One would expect this to fail most of the time (and thus stress test our verifier code). It will perhaps also be interesting to mess with the this parameter when doing this changes, but I was just thinking out loud, that may be in the next CL something to explore.",
+      "parentUuid": "74428671_7843dcbf",
+      "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a87f44cf_ecf34e3f",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 1
