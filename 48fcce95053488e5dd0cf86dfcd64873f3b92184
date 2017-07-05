@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a7e5254d_00a2eb97",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T18:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5ec67e3_924fabf5",
+      "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58edb78f_2dc79b92",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-05T17:13:59Z",
       "side": 1,
       "message": "it is of course ok to generate such mutation programs, since this is a fuzzer, but did you give some thought about stripping/adding the \"this\" parameter when going between an instance and a static method? that may expose some interesting corner cases?",
+      "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2af3770b_311443f4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T18:07:14Z",
+      "side": 1,
+      "message": "will have a look at it! thanks",
+      "parentUuid": "58edb78f_2dc79b92",
       "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "73e88fc2_6be7d352",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T18:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a87f44cf_ecf34e3f",
+      "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3c049be_d2b20ac8",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2017-07-05T17:13:59Z",
       "side": 1,
       "message": "private static final fields, at class level, like we did in RandomBranchChanger?",
+      "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f77c56cb_85457737",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T18:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3c049be_d2b20ac8",
       "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "ce00eaae_dab506f6",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T18:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d669b26c_9f18596a",
+      "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0448894_0a94ee01",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2017-07-05T17:13:59Z",
       "side": 1,
       "message": "L166-169 can be simply\n\nreturn opcode !\u003d Opcode.RETURN_VOID_NO_BARRIER;",
+      "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fe0ed28_b244c21e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-05T18:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0448894_0a94ee01",
       "revId": "48fcce95053488e5dd0cf86dfcd64873f3b92184",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
