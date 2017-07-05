@@ -743,7 +743,8 @@ void Arm64JNIMacroAssembler::BuildFrame(size_t frame_size,
 }
 
 void Arm64JNIMacroAssembler::RemoveFrame(size_t frame_size,
-                                         ArrayRef<const ManagedRegister> callee_save_regs) {
+                                         ArrayRef<const ManagedRegister> callee_save_regs,
+                                         bool may_suspend) {
   // Setup VIXL CPURegList for callee-saves.
   CPURegList core_reg_list(CPURegister::kRegister, kXRegSize, 0);
   CPURegList fp_reg_list(CPURegister::kFPRegister, kDRegSize, 0);
@@ -773,10 +774,11 @@ void Arm64JNIMacroAssembler::RemoveFrame(size_t frame_size,
   asm_.UnspillRegisters(fp_reg_list, frame_size - core_reg_size - fp_reg_size);
 
   if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-    // Refresh Mark Register.
-    // TODO: Refresh MR only if suspend is taken.
-    ___ Ldr(reg_w(MR),
-            MemOperand(reg_x(TR), Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
+    if (may_suspend) {
+      // The method may have been suspended; refresh the Marking Register.
+      ___ Ldr(reg_w(MR),
+              MemOperand(reg_x(TR), Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
+    }
   }
 
   // Decrease frame size to start of callee saved regs.
