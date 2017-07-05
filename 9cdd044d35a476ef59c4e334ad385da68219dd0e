@@ -94,6 +94,30 @@
       "revId": "9cdd044d35a476ef59c4e334ad385da68219dd0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb7c14d1_25a0f72e",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-05T15:37:57Z",
+      "side": 1,
+      "message": "I think it depends on what the goal is. E.g., the commit message says to de-flakify, for which synchronization is all you need, and it\u0027s more expressive to use a CountdownLatch or CyclicBarrier (and avoids the loop and rather long sleeps).\n\nHowever, looking at PS2, having exact counts does stronger checks, so I guess that\u0027s fine, too.",
+      "parentUuid": "317216c4_277e686e",
+      "range": {
+        "startLine": 92,
+        "startChar": 28,
+        "endLine": 92,
+        "endChar": 52
+      },
+      "revId": "9cdd044d35a476ef59c4e334ad385da68219dd0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
