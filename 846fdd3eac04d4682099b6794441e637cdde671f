@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56253c66_69a816a6",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-05T20:20:34Z",
+      "side": 1,
+      "message": "(1) move before constructor\n(2) follow style: INVOKE_LIST, INVOKE_RANGE_LIST",
+      "revId": "846fdd3eac04d4682099b6794441e637cdde671f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
