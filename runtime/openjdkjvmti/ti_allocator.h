@@ -41,6 +41,10 @@ class AllocUtil {
  public:
   static jvmtiError Allocate(jvmtiEnv* env, jlong size, unsigned char** mem_ptr);
   static jvmtiError Deallocate(jvmtiEnv* env, unsigned char* mem);
+  static jvmtiError GetGlobalJvmtiAllocationStats(jvmtiEnv* env,
+                                                  jlong* known_allocated,
+                                                  jlong* known_deallocated);
+  static jvmtiError TrackGlobalJvmtiAllocations(jvmtiEnv* env);
 };
 
 }  // namespace openjdkjvmti

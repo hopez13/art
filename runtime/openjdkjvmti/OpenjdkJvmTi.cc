@@ -1208,6 +1208,47 @@ class JvmtiFunctions {
       return error;
     }
 
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(AllocUtil::GetGlobalJvmtiAllocationStats),
+        "com.android.art.alloc.get_global_jvmti_allocation_stats",
+        "Returns basic statistics about global jvmti allocation. If the extension function"
+        " 'com.android.art.alloc.track_global_jvmti_allocations' has not been called on some"
+        " jvmtiEnv this function will return JVMTI_ERROR_ABSENT_INFORMATION. It will return two"
+        " numbers. The out argument 'known_deallocated' is the total memory that has been both"
+        " allocated and deallocated since calling 'track_global_jvmti_allocations'. The out"
+        " argument 'known_allocated' is the total memory that has been allocated since calling"
+        " 'track_global_jvmti_allocations', including memory that has been deallocated. The amount"
+        " of memory currently live is 'known_deallocated - known_allocated'. All memory is counted"
+        " in bytes. Memory allocated prior to calling 'track_global_jvmti_allocations' is not"
+        " accounted for in either return value. All values include memory allocated and"
+        " deallocated from any and all jvmtiEnvs.",
+        2,
+        {                                                          // NOLINT [whitespace/braces] [4]
+            { "known_allocated", JVMTI_KIND_OUT, JVMTI_TYPE_JLONG, false},
+            { "known_deallocated", JVMTI_KIND_OUT, JVMTI_TYPE_JLONG, false},
+        },
+        2,
+        { ERR(ABSENT_INFORMATION), ERR(NULL_POINTER) });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(AllocUtil::TrackGlobalJvmtiAllocations),
+        "com.android.art.alloc.track_global_jvmti_allocations",
+        "Makes jvmti start tracking the global allocation statistics of the Allocate and Deallocate"
+        " methods. Once this method has been called the"
+        " 'com.android.art.alloc.get_global_jvmti_allocation_stats' extension function  will return"
+        " data. Tracking cannot be disabled once it has been started. This function affects global"
+        " state. Calling this function multiple times on either one or more jvmtiEnv's has effect"
+        " after the initial call.",
+        0,
+        { },
+        0,
+        { });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+
     // Copy into output buffer.
 
     *extension_count_ptr = ext_vector.size();

@@ -31,22 +31,96 @@
 
 #include "ti_allocator.h"
 
+#include <atomic>
+#include <mutex>
+#include <unordered_map>
+
 #include "art_jvmti.h"
-#include "art_method-inl.h"
 #include "base/enums.h"
-#include "dex_file_annotations.h"
-#include "events-inl.h"
-#include "jni_internal.h"
-#include "mirror/object_array-inl.h"
-#include "modifiers.h"
-#include "runtime_callbacks.h"
-#include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
-#include "thread-current-inl.h"
-#include "thread_list.h"
-#include "ti_phase.h"
 
 namespace openjdkjvmti {
+
+class JvmtiTrackingAllocator {
+ public:
+  JvmtiTrackingAllocator() : enabled_(false), allocated_count_(0), freed_count_(0), size_map_(0) { }
+
+  unsigned char* Allocate(jlong size) {
+    unsigned char* ret = reinterpret_cast<unsigned char*>(malloc(size));
+    if (UNLIKELY(TrackingEnabled())) {
+      TrackAllocation(ret, size);
+    }
+    return ret;
+  }
+
+  void Deallocate(unsigned char* p) {
+    if (UNLIKELY(TrackingEnabled())) {
+      TrackDeallocation(p);
+    }
+    free(p);
+  }
+
+  void StartTracking() {
+    enabled_.store(true);
+  }
+
+  bool TrackingEnabled() const {
+    return enabled_.load();
+  }
+
+  void GetStats(jlong* allocated, jlong* freed) {
+    DCHECK(TrackingEnabled());
+    std::lock_guard<std::mutex> lock(stats_lock_);
+    *allocated = allocated_count_;
+    *freed = freed_count_;
+  }
+
+ private:
+  void TrackAllocation(unsigned char* p, size_t size) {
+    DCHECK(TrackingEnabled());
+    std::lock_guard<std::mutex> lock(stats_lock_);
+    allocated_count_ += size;
+    auto res = size_map_.insert({p, size});
+    CHECK(res.second) << "allocator returned already allocated value!";
+  }
+
+  void TrackDeallocation(unsigned char* p) {
+    DCHECK(TrackingEnabled());
+    std::lock_guard<std::mutex> lock(stats_lock_);
+    auto it = size_map_.find(p);
+    if (it == size_map_.end()) {
+      return;
+    }
+    freed_count_ += it->second;
+    size_map_.erase(it);
+  }
+
+  std::atomic<bool> enabled_;
+
+  std::mutex stats_lock_;
+  jlong allocated_count_ GUARDED_BY(stats_lock_);
+  jlong freed_count_ GUARDED_BY(stats_lock_);
+
+  std::unordered_map<unsigned char*, size_t> size_map_ GUARDED_BY(stats_lock_);
+};
+
+JvmtiTrackingAllocator Allocator;
+
+jvmtiError AllocUtil::TrackGlobalJvmtiAllocations(jvmtiEnv* env ATTRIBUTE_UNUSED) {
+  Allocator.StartTracking();
+  return OK;
+}
+
+jvmtiError AllocUtil::GetGlobalJvmtiAllocationStats(jvmtiEnv* env ATTRIBUTE_UNUSED,
+                                                    jlong* known_allocated,
+                                                    jlong* known_deallocated) {
+  if (!Allocator.TrackingEnabled()) {
+    return ERR(ABSENT_INFORMATION);
+  } else if (known_allocated == nullptr || known_deallocated == nullptr) {
+    return ERR(NULL_POINTER);
+  }
+  Allocator.GetStats(known_allocated, known_deallocated);
+  return OK;
+}
 
 jvmtiError AllocUtil::Allocate(jvmtiEnv* env ATTRIBUTE_UNUSED,
                                jlong size,
@@ -57,13 +131,13 @@ jvmtiError AllocUtil::Allocate(jvmtiEnv* env ATTRIBUTE_UNUSED,
     *mem_ptr = nullptr;
     return OK;
   }
-  *mem_ptr = static_cast<unsigned char*>(malloc(size));
+  *mem_ptr = Allocator.Allocate(size);
   return (*mem_ptr != nullptr) ? OK : ERR(OUT_OF_MEMORY);
 }
 
 jvmtiError AllocUtil::Deallocate(jvmtiEnv* env ATTRIBUTE_UNUSED, unsigned char* mem) {
   if (mem != nullptr) {
-    free(mem);
+    Allocator.Deallocate(mem);
   }
   return OK;
 }
