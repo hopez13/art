@@ -16,6 +16,24 @@
       "revId": "631827d9b200c93f24816c6869d72426f9fed8e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afe26422_447fb051",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1652,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-07-05T10:32:42Z",
+      "side": 1,
+      "message": "Superb, thanks Aart, too many t\u0027s and i\u0027s relating to invoke-custom :-)\n\nUploaded a CL that covers this case and the additional method handles kinds this CL:\n\nhttps://android-review.googlesource.com/#/c/428742/",
+      "parentUuid": "3c7075aa_1586b6a7",
+      "revId": "631827d9b200c93f24816c6869d72426f9fed8e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
