@@ -8297,10 +8297,25 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
       break;
     }
     case DexFile::MethodHandleType::kInvokeDirect: {
+      StackHandleScope<2> hs(self);
+      // A method handle of kind kInvokeDirect can refer to a method
+      // that is private or belonging to a super class. We do a
+      // two-step resolution here: first resolve with the method type
+      // to determine if the method is private. Then resolve again
+      // specifying the intended invocation type to force the
+      // appropriate checks.
+      target_method = ResolveMethodWithoutInvokeType(*dex_file,
+                                                     mh.field_or_method_idx_,
+                                                     hs.NewHandle(referrer->GetDexCache()),
+                                                     hs.NewHandle(referrer->GetClassLoader()));
+      if (target_method == nullptr) {
+        break;
+      }
+      InvokeType invokeType = target_method->IsPrivate() ? InvokeType::kDirect : InvokeType::kSuper;
       target_method = ResolveMethod<kNoICCECheckForCache>(self,
                                                           mh.field_or_method_idx_,
                                                           referrer,
-                                                          InvokeType::kDirect);
+                                                          invokeType);
       break;
     }
     case DexFile::MethodHandleType::kInvokeInterface: {
