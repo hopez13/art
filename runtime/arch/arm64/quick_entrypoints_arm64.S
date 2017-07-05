@@ -152,11 +152,14 @@
     SAVE_TWO_REGS x29, xLR, 80
 
     // Store ArtMethod* Runtime::callee_save_methods_[kSaveRefsOnly].
-    // Note: We could avoid saving X20 in the case of Baker read
-    // barriers, as it is overwritten by REFRESH_MARKING_REGISTER
-    // later; but it's not worth handling this special case.
+#if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
+    // We don't need to save X20 in the case of Baker read barriers,
+    // as it will be overwritten by REFRESH_MARKING_REGISTER later.
+    str xIP0,      [sp]
+#else
     stp xIP0, x20, [sp]
     .cfi_rel_offset x20, 8
+#endif
 
     // Place sp in Thread::Current()->top_quick_frame.
     mov xIP0, sp
@@ -166,10 +169,12 @@
 // TODO: Probably no need to restore registers preserved by aapcs64.
 .macro RESTORE_SAVE_REFS_ONLY_FRAME
     // Callee-saves.
-    // Note: Likewise, we could avoid restoring X20 in the case of Baker
-    // read barriers, as it is overwritten by REFRESH_MARKING_REGISTER
-    // later; but it's not worth handling this special case.
-    RESTORE_REG x20, 8
+#if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
+    // We don't need to restore X20 in the case of Baker read barriers,
+    // as it will be overwritten by REFRESH_MARKING_REGISTER later.
+#else
+    RESTORE_REG      x20,      8
+#endif
     RESTORE_TWO_REGS x21, x22, 16
     RESTORE_TWO_REGS x23, x24, 32
     RESTORE_TWO_REGS x25, x26, 48
@@ -205,10 +210,13 @@
     SAVE_TWO_REGS x5, x6, 112
 
     // x7, Callee-saves.
-    // Note: We could avoid saving X20 in the case of Baker read
-    // barriers, as it is overwritten by REFRESH_MARKING_REGISTER
-    // later; but it's not worth handling this special case.
-    SAVE_TWO_REGS x7, x20, 128
+#if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
+    // We don't need to save X20 in the case of Baker read barriers,
+    // as it will be overwritten by REFRESH_MARKING_REGISTER later.
+    SAVE_REG      x7,       128
+#else
+    SAVE_TWO_REGS x7,  x20, 128
+#endif
     SAVE_TWO_REGS x21, x22, 144
     SAVE_TWO_REGS x23, x24, 160
     SAVE_TWO_REGS x25, x26, 176
@@ -266,10 +274,13 @@
     RESTORE_TWO_REGS x5, x6, 112
 
     // x7, Callee-saves.
-    // Note: Likewise, we could avoid restoring X20 in the case of Baker
-    // read barriers, as it is overwritten by REFRESH_MARKING_REGISTER
-    // later; but it's not worth handling this special case.
-    RESTORE_TWO_REGS x7, x20, 128
+#if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
+    // We don't need to restore X20 in the case of Baker read barriers,
+    // as it will be overwritten by REFRESH_MARKING_REGISTER later.
+    RESTORE_REG      x7,       128
+#else
+    RESTORE_TWO_REGS x7,  x20, 128
+#endif
     RESTORE_TWO_REGS x21, x22, 144
     RESTORE_TWO_REGS x23, x24, 160
     RESTORE_TWO_REGS x25, x26, 176
