@@ -118,6 +118,30 @@
       "revId": "9cdd044d35a476ef59c4e334ad385da68219dd0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08605904_776fc64b",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-05T16:40:37Z",
+      "side": 1,
+      "message": "It seems that Andreas has a good point, it is very confusing to use an AtomicInteger right now. Using the volatiles/atomics/etc just makes reasoning about it much more difficult, why bother for non-performance-sensitive code?\n\nPhantomWrapper could expose a CountDownLatch and the main code would then await on it.\n\n      import java.util.concurrent.CountDownLatch;\n\n      class PhantomWrapper {\n         public CountDownLatch freeSignal \u003d new CountDownLatch(1);\n      }\n      freeNativeStorage(PhantomWrapper wrapper) {\n          wrapper.freeSignal.countDown();\n      }\n\n      void main() {\n          mBitmap1 \u003d null;\n          nativeWrapper1.await();\n\n\n          mBitmap4 \u003d null;\n          nativeWrapper2.await();\n      }\n\nIt\u0027s quite simple and expresses a direct relation on the object that is being synchronized around.",
+      "parentUuid": "eb7c14d1_25a0f72e",
+      "range": {
+        "startLine": 92,
+        "startChar": 28,
+        "endLine": 92,
+        "endChar": 52
+      },
+      "revId": "9cdd044d35a476ef59c4e334ad385da68219dd0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

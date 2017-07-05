@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05c72908_97ef8e59",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-05T16:40:37Z",
+      "side": 1,
+      "message": "This is confusing: there\u0027s 3 bitmap references but 2 NativeWrappers, I initially thought this count should\u0027ve been 3.",
+      "revId": "33d3ffdb7e524182038f3be490965d1f802378a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
