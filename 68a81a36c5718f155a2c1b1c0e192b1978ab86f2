@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c5c6a02_6cd2ffa3",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-05T10:39:56Z",
+      "side": 1,
+      "message": "This sounds like there should be a conditional below. Maybe rephrase to make it explicit that this is the only place where we increase the number of bulk allocated?",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 73
+      },
+      "revId": "68a81a36c5718f155a2c1b1c0e192b1978ab86f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
