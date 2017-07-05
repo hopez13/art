@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "39273ba7_ed0e403e",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-05T16:12:52Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/#/c/429009/.",
+      "parentUuid": "090fa27e_d70235da",
+      "range": {
+        "startLine": 777,
+        "startChar": 4,
+        "endLine": 777,
+        "endChar": 49
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "683a628a_80886223",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 11
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "I think I\u0027d prefer one common thing for now with a comment on each place you found could be updated. Sounds good for another change that measures the difference.",
       "parentUuid": "11cca2c5_301b178a",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7372d673_021bd74e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-05T16:12:52Z",
+      "side": 1,
+      "message": "Okay, I\u0027ll move this hunk (and other similar ones) to another CL.",
+      "parentUuid": "11173acb_18a0ed47",
       "range": {
         "startLine": 155,
         "startChar": 0,
