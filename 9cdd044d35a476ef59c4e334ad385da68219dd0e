@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8395c7c9_79dcb8a1",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-07-05T13:11:14Z",
+      "side": 1,
+      "message": "This might be slightly better as an atomic counter with the loops spinning on having the expected count and with assertions of expected value between the nulling X printlns.",
+      "range": {
+        "startLine": 92,
+        "startChar": 28,
+        "endLine": 92,
+        "endChar": 52
+      },
+      "revId": "9cdd044d35a476ef59c4e334ad385da68219dd0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
