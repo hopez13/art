@@ -8297,10 +8297,19 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
       break;
     }
     case DexFile::MethodHandleType::kInvokeDirect: {
+      StackHandleScope<2> hs(self);
+      target_method = ResolveMethodWithoutInvokeType(*dex_file,
+                                                     mh.field_or_method_idx_,
+                                                     hs.NewHandle(referrer->GetDexCache()),
+                                                     hs.NewHandle(referrer->GetClassLoader()));
+      if (target_method == nullptr) {
+        break;
+      }
+      InvokeType invokeType = target_method->IsPrivate() ? InvokeType::kDirect : InvokeType::kSuper;
       target_method = ResolveMethod<kNoICCECheckForCache>(self,
                                                           mh.field_or_method_idx_,
                                                           referrer,
-                                                          InvokeType::kDirect);
+                                                          invokeType);
       break;
     }
     case DexFile::MethodHandleType::kInvokeInterface: {
