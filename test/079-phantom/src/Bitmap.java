@@ -81,6 +81,7 @@ public class Bitmap {
 
     static void freeNativeStorage(int nativeDataPtr) {
         System.out.println("freeNativeStorage: " + nativeDataPtr);
+        Main.freeNativeStorageCount.getAndIncrement();
     }
 
     /*

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Main {
     Bitmap mBitmap1, mBitmap2, mBitmap3, mBitmap4;
 
@@ -46,7 +48,9 @@ public class Main {
         System.out.println("nulling 1");
         mBitmap1 = null;
         Runtime.getRuntime().gc();
-        sleep(500);
+        while (freeNativeStorageCount.get() != 1) {
+          sleep(500);
+        }
 
         System.out.println("nulling 2");
         mBitmap2 = null;
@@ -61,7 +65,9 @@ public class Main {
         System.out.println("nulling 4");
         mBitmap4 = null;
         Runtime.getRuntime().gc();
-        sleep(500);
+        while (freeNativeStorageCount.get() != 2) {
+          sleep(500);
+        }
 
         Bitmap.shutDown();
     }
@@ -82,4 +88,7 @@ public class Main {
         mBitmap2 = new Bitmap("two", 20, 20, dataB);
         mBitmap3 = mBitmap4 = new Bitmap("three/four", 20, 20, dataB);
     }
+
+    // Counter used as a synchronization between the BitmapWatcher and Main.
+    static AtomicInteger freeNativeStorageCount = new AtomicInteger();
 }
