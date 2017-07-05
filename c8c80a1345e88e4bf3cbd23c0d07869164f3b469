@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcbee74c_020c9c86",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-05T16:20:48Z",
+      "side": 1,
+      "message": "nit: need CHECK here that MR will not be modified by native code (check the calling convention MR)",
+      "revId": "c8c80a1345e88e4bf3cbd23c0d07869164f3b469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f506b34_78542112",
+        "filename": "compiler/utils/jni_macro_assembler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-05T16:20:48Z",
+      "side": 1,
+      "message": "nit: add: \n\n    // (otherwise false, if it is impossible to suspend during its execution)",
+      "revId": "c8c80a1345e88e4bf3cbd23c0d07869164f3b469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
