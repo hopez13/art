@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0501d827_3d253a3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-05T22:28:27Z",
+      "side": 1,
+      "message": "did you see this comment from Calin?",
+      "parentUuid": "43ad5522_c2352157",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "b376159a85967a2efeef4d42116000d4d4306f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b8cbb1d_c7f2e32b",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 7
