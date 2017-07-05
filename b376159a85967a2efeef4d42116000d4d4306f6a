@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "43ad5522_c2352157",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-05T21:48:27Z",
+      "side": 1,
+      "message": "be a bit more specific: you ran what with dexdump2?",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "b376159a85967a2efeef4d42116000d4d4306f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b8cbb1d_c7f2e32b",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
         "patchSetId": 7
@@ -13,6 +36,52 @@
       "writtenOn": "2017-07-05T21:33:42Z",
       "side": 1,
       "message": "empty line",
+      "revId": "b376159a85967a2efeef4d42116000d4d4306f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa2eef88_03df2438",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-05T21:48:27Z",
+      "side": 1,
+      "message": "to be consistent with isInvokeCalIInst and more readable you could introduce to methods:\n\nIsSimpleInvokeInstr - to test for virtual-interface range\nIsRangeInvokeInstr - to test for the range variant\n\nthen you could define the one at L164 as:\n\nisInvokeClallInst (MInsn mInsn) { return isSimpleInvokeInstr(mInsn) || isRangeInvokeInstr(mInsn); }",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 80
+      },
+      "revId": "b376159a85967a2efeef4d42116000d4d4306f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bcf7bb3_f809fa38",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-05T21:48:27Z",
+      "side": 1,
+      "message": "line too lone",
+      "range": {
+        "startLine": 156,
+        "startChar": 100,
+        "endLine": 156,
+        "endChar": 102
+      },
       "revId": "b376159a85967a2efeef4d42116000d4d4306f6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
