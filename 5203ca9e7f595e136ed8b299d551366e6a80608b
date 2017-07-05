@@ -16,6 +16,24 @@
       "revId": "5203ca9e7f595e136ed8b299d551366e6a80608b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2419935_0118c1c7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8302,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-07-05T18:35:53Z",
+      "side": 1,
+      "message": "Text revised along with fixing the appropriate assignment of the method handle kind for the super case.\n\nWhilst I don\u0027t doubt this code comment have been better expressed, I think the existing grammar was okay (IANAE :-)\n\n(1) Remove the first clause and it\u0027s a proper sentence:\n\"A method handle of kind kInvokeDirect can refer to a method belonging to a super class\"\n\n(2) To insert belongs, it probably wants to be \"that is private or that belongs to a super class\".\n\nPTAL at the revised wording. Thanks.",
+      "parentUuid": "94549cb3_c2a524f3",
+      "revId": "5203ca9e7f595e136ed8b299d551366e6a80608b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
