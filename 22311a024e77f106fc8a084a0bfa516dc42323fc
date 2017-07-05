@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e90c721_b0c90edd",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-05T21:25:24Z",
+      "side": 1,
+      "message": "move this comment block down (it belongs to L54 class definition)",
+      "range": {
+        "startLine": 33,
+        "startChar": 20,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "22311a024e77f106fc8a084a0bfa516dc42323fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
