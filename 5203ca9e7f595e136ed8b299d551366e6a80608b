@@ -34,6 +34,24 @@
       "revId": "5203ca9e7f595e136ed8b299d551366e6a80608b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d64c2ec_3e533bee",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8302,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-05T18:42:47Z",
+      "side": 1,
+      "message": "Never take grammar feedback from a non-native speaker too seriously :-). But thanks for rephrasing, looks good.",
+      "parentUuid": "b2419935_0118c1c7",
+      "revId": "5203ca9e7f595e136ed8b299d551366e6a80608b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
