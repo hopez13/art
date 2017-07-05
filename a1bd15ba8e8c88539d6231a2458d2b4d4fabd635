@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98c3e1f8_9e55b2b4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/InvokeChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-05T21:17:10Z",
+      "side": 1,
+      "message": "this is the wrong place, should go in InvokeChanger, not in this inner class\n\nAlso, make this private static final (add private)",
+      "revId": "a1bd15ba8e8c88539d6231a2458d2b4d4fabd635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
