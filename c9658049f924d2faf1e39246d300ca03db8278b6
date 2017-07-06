@@ -22,6 +22,30 @@
       "revId": "c9658049f924d2faf1e39246d300ca03db8278b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cd33c02_12c7a01d",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-07-06T20:22:56Z",
+      "side": 1,
+      "message": "As bionic works today this change wouldn\u0027t cause any false negatives.\n\nTesting for a single string without the \".odex\", or \".vdex\" suffixes *might* be better for future proofing but I\u0027ve lived long enough and seen enough of my \"safe\" code fail under future revisions that I can\u0027t say with any certainty. :-)\n\nI don\u0027t have strong feelings that the suffixes ought to be kept. If no one speaks up in favor of keeping the suffixes I can submit a new patch at the end of the day without the suffixes so that the test can go back to looking for a single string.",
+      "parentUuid": "11696355_01a0deb5",
+      "range": {
+        "startLine": 68,
+        "startChar": 31,
+        "endLine": 68,
+        "endChar": 50
+      },
+      "revId": "c9658049f924d2faf1e39246d300ca03db8278b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
