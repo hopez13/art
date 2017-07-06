@@ -1706,7 +1706,8 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
                                              size_t* bytes_allocated,
                                              size_t* usable_size,
                                              size_t* bytes_tl_bulk_allocated,
-                                             ObjPtr<mirror::Class>* klass) {
+                                             ObjPtr<mirror::Class>* klass,
+                                             bool allocate_usable_size) {
   bool was_default_allocator = allocator == GetCurrentAllocator();
   // Make sure there is no pending exception since we may need to throw an OOME.
   self->AssertNoPendingException();
@@ -1725,7 +1726,8 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
   if (last_gc != collector::kGcTypeNone) {
     // A GC was in progress and we blocked, retry allocation now that memory has been freed.
     mirror::Object* ptr = TryToAllocate<true, false>(self, allocator, alloc_size, bytes_allocated,
-                                                     usable_size, bytes_tl_bulk_allocated);
+                                                     usable_size, bytes_tl_bulk_allocated,
+                                                     allocate_usable_size);
     if (ptr != nullptr) {
       return ptr;
     }
@@ -1740,7 +1742,8 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
   }
   if (gc_ran) {
     mirror::Object* ptr = TryToAllocate<true, false>(self, allocator, alloc_size, bytes_allocated,
-                                                     usable_size, bytes_tl_bulk_allocated);
+                                                     usable_size, bytes_tl_bulk_allocated,
+                                                     allocate_usable_size);
     if (ptr != nullptr) {
       return ptr;
     }
@@ -1761,7 +1764,8 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
     if (plan_gc_ran) {
       // Did we free sufficient memory for the allocation to succeed?
       mirror::Object* ptr = TryToAllocate<true, false>(self, allocator, alloc_size, bytes_allocated,
-                                                       usable_size, bytes_tl_bulk_allocated);
+                                                       usable_size, bytes_tl_bulk_allocated,
+                                                       allocate_usable_size);
       if (ptr != nullptr) {
         return ptr;
       }
@@ -1770,7 +1774,8 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
   // Allocations have failed after GCs;  this is an exceptional state.
   // Try harder, growing the heap if necessary.
   mirror::Object* ptr = TryToAllocate<true, true>(self, allocator, alloc_size, bytes_allocated,
-                                                  usable_size, bytes_tl_bulk_allocated);
+                                                  usable_size, bytes_tl_bulk_allocated,
+                                                  allocate_usable_size);
   if (ptr != nullptr) {
     return ptr;
   }
@@ -1789,7 +1794,7 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
     return nullptr;
   }
   ptr = TryToAllocate<true, true>(self, allocator, alloc_size, bytes_allocated, usable_size,
-                                  bytes_tl_bulk_allocated);
+                                  bytes_tl_bulk_allocated, allocate_usable_size);
   if (ptr == nullptr) {
     const uint64_t current_time = NanoTime();
     switch (allocator) {
@@ -1810,7 +1815,7 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
             case HomogeneousSpaceCompactResult::kSuccess:
               // If the allocation succeeded, we delayed an oom.
               ptr = TryToAllocate<true, true>(self, allocator, alloc_size, bytes_allocated,
-                                              usable_size, bytes_tl_bulk_allocated);
+                                              usable_size, bytes_tl_bulk_allocated, allocate_usable_size);
               if (ptr != nullptr) {
                 count_delayed_oom_++;
               }
@@ -1864,7 +1869,8 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
           } else {
             LOG(WARNING) << "Disabled moving GC due to the non moving space being full";
             ptr = TryToAllocate<true, true>(self, allocator, alloc_size, bytes_allocated,
-                                            usable_size, bytes_tl_bulk_allocated);
+                                            usable_size, bytes_tl_bulk_allocated,
+                                            allocate_usable_size);
           }
         }
         break;
@@ -4252,7 +4258,8 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
                                        bool grow,
                                        size_t* bytes_allocated,
                                        size_t* usable_size,
-                                       size_t* bytes_tl_bulk_allocated) {
+                                       size_t* bytes_tl_bulk_allocated,
+                                       bool allocate_usable_size) {
   const AllocatorType allocator_type = GetCurrentAllocator();
   if (kUsePartialTlabs && alloc_size <= self->TlabRemainingCapacity()) {
     DCHECK_GT(alloc_size, self->TlabSize());
@@ -4297,7 +4304,8 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
           return region_space_->AllocNonvirtual<false>(alloc_size,
                                                        bytes_allocated,
                                                        usable_size,
-                                                       bytes_tl_bulk_allocated);
+                                                       bytes_tl_bulk_allocated,
+                                                       allocate_usable_size);
         }
         *bytes_tl_bulk_allocated = new_tlab_size;
         // Fall-through to using the TLAB below.
@@ -4307,7 +4315,8 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
           return region_space_->AllocNonvirtual<false>(alloc_size,
                                                        bytes_allocated,
                                                        usable_size,
-                                                       bytes_tl_bulk_allocated);
+                                                       bytes_tl_bulk_allocated,
+                                                       allocate_usable_size);
         }
         // Neither tlab or non-tlab works. Give up.
         return nullptr;
@@ -4318,7 +4327,8 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
         return region_space_->AllocNonvirtual<false>(alloc_size,
                                                      bytes_allocated,
                                                      usable_size,
-                                                     bytes_tl_bulk_allocated);
+                                                     bytes_tl_bulk_allocated,
+                                                     allocate_usable_size);
       }
       return nullptr;
     }

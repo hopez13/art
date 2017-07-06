@@ -187,8 +187,12 @@ inline Array* Array::Alloc(Thread* self,
                                          DataOffset(1U << component_size_shift).SizeValue(),
                                          component_size_shift);
     result = down_cast<Array*>(
-        heap->AllocObjectWithAllocator<kIsInstrumented, true>(self, array_class, size,
-                                                              allocator_type, visitor));
+        heap->AllocObjectWithAllocator<kIsInstrumented, true>(self,
+                                                              array_class,
+                                                              size,
+                                                              allocator_type,
+                                                              visitor,
+                                                              /* allocate_usable_size */ true));
   }
   if (kIsDebugBuild && result != nullptr && Runtime::Current()->IsStarted()) {
     array_class = result->GetClass();  // In case the array class moved.

@@ -29,7 +29,7 @@ inline mirror::Object* RegionSpace::Alloc(Thread*, size_t num_bytes, size_t* byt
                                           size_t* bytes_tl_bulk_allocated) {
   num_bytes = RoundUp(num_bytes, kAlignment);
   return AllocNonvirtual<false>(num_bytes, bytes_allocated, usable_size,
-                                bytes_tl_bulk_allocated);
+                                bytes_tl_bulk_allocated, /* allocate_usable_size */ false);
 }
 
 inline mirror::Object* RegionSpace::AllocThreadUnsafe(Thread* self, size_t num_bytes,
@@ -41,9 +41,11 @@ inline mirror::Object* RegionSpace::AllocThreadUnsafe(Thread* self, size_t num_b
 }
 
 template<bool kForEvac>
-inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes, size_t* bytes_allocated,
+inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes,
+                                                    size_t* bytes_allocated,
                                                     size_t* usable_size,
-                                                    size_t* bytes_tl_bulk_allocated) {
+                                                    size_t* bytes_tl_bulk_allocated,
+                                                    bool allocate_usable_size) {
   DCHECK_ALIGNED(num_bytes, kAlignment);
   mirror::Object* obj;
   if (LIKELY(num_bytes <= kRegionSize)) {
@@ -79,8 +81,11 @@ inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes, size_t* by
     }
   } else {
     // Large object.
-    obj = AllocLarge<kForEvac>(num_bytes, bytes_allocated, usable_size,
-                               bytes_tl_bulk_allocated);
+    obj = AllocLarge<kForEvac>(num_bytes,
+                               bytes_allocated,
+                               usable_size,
+                               bytes_tl_bulk_allocated,
+                               allocate_usable_size);
     if (LIKELY(obj != nullptr)) {
       return obj;
     }
@@ -239,9 +244,11 @@ inline mirror::Object* RegionSpace::GetNextObject(mirror::Object* obj) {
 }
 
 template<bool kForEvac>
-mirror::Object* RegionSpace::AllocLarge(size_t num_bytes, size_t* bytes_allocated,
+mirror::Object* RegionSpace::AllocLarge(size_t num_bytes,
+                                        size_t* bytes_allocated,
                                         size_t* usable_size,
-                                        size_t* bytes_tl_bulk_allocated) {
+                                        size_t* bytes_tl_bulk_allocated,
+                                        bool allocate_usable_size) {
   DCHECK_ALIGNED(num_bytes, kAlignment);
   DCHECK_GT(num_bytes, kRegionSize);
   size_t num_regs = RoundUp(num_bytes, kRegionSize) / kRegionSize;
@@ -277,18 +284,18 @@ mirror::Object* RegionSpace::AllocLarge(size_t num_bytes, size_t* bytes_allocate
       DCHECK(first_reg->IsFree());
       first_reg->UnfreeLarge(this, time_);
       ++num_non_free_regions_;
-      first_reg->SetTop(first_reg->Begin() + num_bytes);
+      *bytes_allocated = allocate_usable_size ? num_regs * kRegionSize : num_bytes;
+      first_reg->SetTop(first_reg->Begin() + *bytes_allocated);
       for (size_t p = left + 1; p < right; ++p) {
         DCHECK_LT(p, num_regions_);
         DCHECK(regions_[p].IsFree());
         regions_[p].UnfreeLargeTail(this, time_);
         ++num_non_free_regions_;
       }
-      *bytes_allocated = num_bytes;
       if (usable_size != nullptr) {
         *usable_size = num_regs * kRegionSize;
       }
-      *bytes_tl_bulk_allocated = num_bytes;
+      *bytes_tl_bulk_allocated = *bytes_allocated;
       return reinterpret_cast<mirror::Object*>(first_reg->Begin());
     } else {
       // right points to the non-free region. Start with the one after it.

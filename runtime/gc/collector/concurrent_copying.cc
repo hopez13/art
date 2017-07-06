@@ -2293,7 +2293,7 @@ mirror::Object* ConcurrentCopying::Copy(mirror::Object* from_ref,
   size_t bytes_allocated = 0U;
   size_t dummy;
   mirror::Object* to_ref = region_space_->AllocNonvirtual<true>(
-      region_space_alloc_size, &region_space_bytes_allocated, nullptr, &dummy);
+      region_space_alloc_size, &region_space_bytes_allocated, nullptr, &dummy, /* allocate_usable_size */ false);
   bytes_allocated = region_space_bytes_allocated;
   if (to_ref != nullptr) {
     DCHECK_EQ(region_space_alloc_size, region_space_bytes_allocated);
