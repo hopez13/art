@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67c6c5ab_4b330e88",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-06T15:05:43Z",
+      "side": 1,
+      "message": "Could we validate through golem first, that not doing this as a performance impact?\n\nAlso, can you add the instrumentation in an else branch to check in compiled code MR is the same as offset(TR) ?",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 781,
+        "endChar": 5
+      },
+      "revId": "a705c4fbc5c66dedabc5c56f2e0c7352eb911191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
