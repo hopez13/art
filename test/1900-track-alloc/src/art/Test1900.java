@@ -23,6 +23,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
 public class Test1900 {
+  public static void checkGE(long exp, long o) {
+    if (exp < o) {
+      throw new Error("Expected: " + exp + " Got: " + o);
+    }
+  }
   public static void checkLE(long exp, long o) {
     if (exp > o) {
       throw new Error("Expected: " + exp + " Got: " + o);
@@ -124,6 +129,15 @@ public class Test1900 {
 
     // Back to normal after getting rid of the envs.
     checkEq(base_state + 0, getAmountAllocated());
+
+    // Try adding some tags
+    Object a = new Object();
+    Object b = new Object();
+    Main.setTag(a, 100);
+    Main.setTag(b, 200);
+
+    // tags should be counted.
+    CheckLE(base_state, getAmountAllocated());
   }
 
   private static native long doAllocate(long jvmtienv, long size);
