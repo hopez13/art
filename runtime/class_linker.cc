@@ -2437,9 +2437,24 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
                                                 size_t hash,
                                                 Handle<mirror::ClassLoader> class_loader,
                                                 ObjPtr<mirror::Class>* result) {
+  bool boot_class_path_searched = false;
+  return FindClassInBaseDexClassLoader(
+      soa, self, descriptor, hash, class_loader, result, &boot_class_path_searched);
+}
+
+bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                                                Thread* self,
+                                                const char* descriptor,
+                                                size_t hash,
+                                                Handle<mirror::ClassLoader> class_loader,
+                                                ObjPtr<mirror::Class>* result,
+                                                bool* boot_class_path_searched) {
   // Termination case: boot class loader.
   if (IsBootClassLoader(soa, class_loader.Get())) {
-    *result = FindClassInBootClassLoaderClassPath(self, descriptor, hash);
+    if (!(*boot_class_path_searched)) {
+      *boot_class_path_searched = true;
+      *result = FindClassInBootClassLoaderClassPath(self, descriptor, hash);
+    }
     return true;
   }
 
@@ -2451,7 +2466,8 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
     // Handles as RegisterDexFile may allocate dex caches (and cause thread suspension).
     StackHandleScope<1> hs(self);
     Handle<mirror::ClassLoader> h_parent(hs.NewHandle(class_loader->GetParent()));
-    if (!FindClassInBaseDexClassLoader(soa, self, descriptor, hash, h_parent, result)) {
+    if (!FindClassInBaseDexClassLoader(
+            soa, self, descriptor, hash, h_parent, result, boot_class_path_searched)) {
       return false;  // One of the parents is not supported.
     }
     if (*result != nullptr) {
@@ -2468,7 +2484,10 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
     //    - boot class path
     //    - class loader dex files
     //    - parent
-    *result = FindClassInBootClassLoaderClassPath(self, descriptor, hash);
+    if (!(*boot_class_path_searched)) {
+      *boot_class_path_searched = true;
+      *result = FindClassInBootClassLoaderClassPath(self, descriptor, hash);
+    }
     if (*result != nullptr) {
       return true;  // The class is part of the boot class path.
     }
@@ -2481,7 +2500,8 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
     // Handles as RegisterDexFile may allocate dex caches (and cause thread suspension).
     StackHandleScope<1> hs(self);
     Handle<mirror::ClassLoader> h_parent(hs.NewHandle(class_loader->GetParent()));
-    return FindClassInBaseDexClassLoader(soa, self, descriptor, hash, h_parent, result);
+    return FindClassInBaseDexClassLoader(
+        soa, self, descriptor, hash, h_parent, result, boot_class_path_searched);
   }
 
   // Unsupported class loader.
