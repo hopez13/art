@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "578c24cf_3c5c7f76",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-06T14:18:46Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 37
+      },
+      "revId": "b7c1736c0ec2905239c263aeb540c15ddd86a94e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79abbf93_ab47d5de",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-06T14:18:46Z",
+      "side": 1,
+      "message": "I\u0027d mark this as a Note: and then explain that it\u0027s not worth the special casing (here and below)",
+      "range": {
+        "startLine": 155,
+        "startChar": 7,
+        "endLine": 155,
+        "endChar": 11
+      },
+      "revId": "b7c1736c0ec2905239c263aeb540c15ddd86a94e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
