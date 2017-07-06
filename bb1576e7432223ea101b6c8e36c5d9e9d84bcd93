@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "55d6b0e5_76c1f27b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-07-06T18:40:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cabfdbe1_0d3570f8",
+      "range": {
+        "startLine": 619,
+        "startChar": 30,
+        "endLine": 619,
+        "endChar": 36
+      },
+      "revId": "bb1576e7432223ea101b6c8e36c5d9e9d84bcd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa6a9aa8_59367809",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 8
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "de230f28_f7bc9796",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-07-06T18:40:00Z",
+      "side": 1,
+      "message": "I just enabled the code, since it will never be invoked now.",
+      "parentUuid": "fa6a9aa8_59367809",
+      "revId": "bb1576e7432223ea101b6c8e36c5d9e9d84bcd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ea95f07_b86dcd71",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 8
@@ -53,6 +95,24 @@
       "writtenOn": "2017-06-30T21:54:24Z",
       "side": 1,
       "message": "?",
+      "revId": "bb1576e7432223ea101b6c8e36c5d9e9d84bcd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec93ae06_dafb5439",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-07-06T18:40:00Z",
+      "side": 1,
+      "message": "Enabled this also.  Much work to be done in the ArtMethod part.",
+      "parentUuid": "5ea95f07_b86dcd71",
       "revId": "bb1576e7432223ea101b6c8e36c5d9e9d84bcd93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
