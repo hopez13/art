@@ -142,6 +142,30 @@
       "revId": "9cdd044d35a476ef59c4e334ad385da68219dd0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4739011_56c4547f",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-06T14:54:48Z",
+      "side": 1,
+      "message": "I only focused on synchronizing the prints.\n\nDo you mind uploading a change with what you\u0027re suggesting? I think whatever is simplest and fixes the flakiness will do.",
+      "parentUuid": "08605904_776fc64b",
+      "range": {
+        "startLine": 92,
+        "startChar": 28,
+        "endLine": 92,
+        "endChar": 52
+      },
+      "revId": "9cdd044d35a476ef59c4e334ad385da68219dd0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
