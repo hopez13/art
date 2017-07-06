@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eab1a18f_58797d6b",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-06T10:50:08Z",
+      "side": 1,
+      "message": "If, instead of DumpReg(), you provide\n\n  const char* RegName(uint32_t reg) { ... }\n\nyou can write this as\n\n  args \u003c\u003c StringPrintf(\"%+d(%s)\", offset, RegName(rs));",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 588,
+        "endChar": 26
+      },
+      "revId": "7401829a0a4d9fd4a50c52a7f224a340cfc45a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
