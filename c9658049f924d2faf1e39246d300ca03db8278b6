@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11696355_01a0deb5",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-06T20:13:32Z",
+      "side": 1,
+      "message": "If we just do \"141-class-unload-ex\" would that cause false positives? That might be more future proof.",
+      "range": {
+        "startLine": 68,
+        "startChar": 31,
+        "endLine": 68,
+        "endChar": 50
+      },
+      "revId": "c9658049f924d2faf1e39246d300ca03db8278b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
