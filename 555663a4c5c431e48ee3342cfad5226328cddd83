@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7541c75c_d81c9a87",
+        "filename": "test/988-method-trace/src/art/Test988.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T18:24:44Z",
+      "side": 1,
+      "message": "These are failing on CTS (with jack), in the same manner PS8 did:\n\ndexdump\n\n0904a6: 7153 f240 2021                         |0009: invoke-static {v0, v2, v1, v2, v3}, Ljava/lang/System;.arraycopy:([II[III)V // method@40f2\n\nEven with \u0027LOCAL_SDK_VERSION :\u003d current\u0027 added to the makefile, it stubbornly compiles to use @hide API which seems like a jack bug or a build bug.",
+      "revId": "555663a4c5c431e48ee3342cfad5226328cddd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
