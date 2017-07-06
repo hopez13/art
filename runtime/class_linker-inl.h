@@ -175,6 +175,29 @@ inline bool ClassLinker::CheckInvokeClassMismatch(ObjPtr<mirror::DexCache> dex_c
       });
 }
 
+inline ArtMethod* ClassLinker::LookupResolvedMethod(uint32_t method_idx,
+                                                    ObjPtr<mirror::DexCache> dex_cache,
+                                                    ObjPtr<mirror::ClassLoader> class_loader) {
+  PointerSize pointer_size = image_pointer_size_;
+  ArtMethod* resolved = dex_cache->GetResolvedMethod(method_idx, pointer_size);
+  if (resolved == nullptr) {
+    const DexFile& dex_file = *dex_cache->GetDexFile();
+    const DexFile::MethodId& method_id = dex_file.GetMethodId(method_idx);
+    ObjPtr<mirror::Class> klass = LookupResolvedType(method_id.class_idx_, dex_cache, class_loader);
+    if (klass != nullptr) {
+      if (klass->IsInterface()) {
+        resolved = klass->FindInterfaceMethod(dex_cache, method_idx, pointer_size);
+      } else {
+        resolved = klass->FindClassMethod(dex_cache, method_idx, pointer_size);
+      }
+      if (resolved != nullptr) {
+        dex_cache->SetResolvedMethod(method_idx, resolved, pointer_size);
+      }
+    }
+  }
+  return resolved;
+}
+
 template <InvokeType type, ClassLinker::ResolveMode kResolveMode>
 inline ArtMethod* ClassLinker::GetResolvedMethod(uint32_t method_idx, ArtMethod* referrer) {
   DCHECK(referrer != nullptr);
@@ -304,35 +327,6 @@ inline mirror::Class* ClassLinker::GetClassRoot(ClassRoot class_root) {
   ObjPtr<mirror::Class> klass = class_roots->Get(class_root);
   DCHECK(klass != nullptr);
   return klass.Ptr();
-}
-
-template<ReadBarrierOption kReadBarrierOption>
-ArtMethod* ClassLinker::FindMethodForProxy(ObjPtr<mirror::Class> proxy_class,
-                                           ArtMethod* proxy_method) {
-  DCHECK(proxy_class->IsProxyClass());
-  DCHECK(proxy_method->IsProxyMethod());
-  {
-    Thread* const self = Thread::Current();
-    ReaderMutexLock mu(self, *Locks::dex_lock_);
-    // Locate the dex cache of the original interface/Object
-    for (const DexCacheData& data : dex_caches_) {
-      if (!self->IsJWeakCleared(data.weak_root) &&
-          proxy_method->HasSameDexCacheResolvedMethods(data.resolved_methods,
-                                                       image_pointer_size_)) {
-        ObjPtr<mirror::DexCache> dex_cache =
-            ObjPtr<mirror::DexCache>::DownCast(self->DecodeJObject(data.weak_root));
-        if (dex_cache != nullptr) {
-          ArtMethod* resolved_method = dex_cache->GetResolvedMethod(
-              proxy_method->GetDexMethodIndex(), image_pointer_size_);
-          CHECK(resolved_method != nullptr);
-          return resolved_method;
-        }
-      }
-    }
-  }
-  LOG(FATAL) << "Didn't find dex cache for " << proxy_class->PrettyClass() << " "
-      << proxy_method->PrettyMethod();
-  UNREACHABLE();
 }
 
 }  // namespace art
