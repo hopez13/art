@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "35b76319_221885b3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-06T13:09:22Z",
+      "side": 1,
+      "message": "Done in PS15; these hunks have been moved into this new CL: https://android-review.googlesource.com/#/c/430319/.",
+      "parentUuid": "7372d673_021bd74e",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "9c46c07877444e2e58fa4edc96fc24a73482a76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81aa648b_cc35d4f8",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 11
