@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c0e23226_00196490",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-06T16:35:02Z",
+      "side": 1,
+      "message": "It means 5000 is a reasonably large number, a normal class would not exceed it and it\u0027s also not too slow, so probably there is no need to add support for specifying from environment and runtime options.",
+      "parentUuid": "296238f3_77111e0b",
+      "range": {
+        "startLine": 90,
+        "startChar": 58,
+        "endLine": 90,
+        "endChar": 92
+      },
+      "revId": "f0f1776fdf5a211e91fa3b0b2bf9a0083fd13350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf8b35e4_be04c8ff",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-06T15:08:28Z",
       "side": 1,
       "message": "Please avoid. You can name the variable as positive and then use \u0027!\u0027.",
+      "range": {
+        "startLine": 2280,
+        "startChar": 13,
+        "endLine": 2280,
+        "endChar": 16
+      },
+      "revId": "f0f1776fdf5a211e91fa3b0b2bf9a0083fd13350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc9bd637_00ce333c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-06T16:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf8b35e4_be04c8ff",
       "range": {
         "startLine": 2280,
         "startChar": 13,
