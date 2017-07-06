@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2a21bea8_8018d3ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-06T17:26:35Z",
+      "side": 1,
+      "message": "Can you clarify how this was causing crashes before?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "0ac2ce4f4740b99f03bf1a6ba8240b42db820b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67a4bcda_77b8dcfe",
         "filename": "runtime/gc/space/region_space.h",
         "patchSetId": 2
@@ -13,6 +36,30 @@
       "writtenOn": "2017-07-06T14:44:39Z",
       "side": 1,
       "message": "Mathieu: I don\u0027t know how widespread the issue is among all allocators. For a cleaner interface, we should probably have this new argument as an argument to Space::Alloc(). I made the CL short for now, but can do changes on all allocators if you think that\u0027s needed.\n\nAlternatively, I believe we can replace the usable_size argument with that bool - I haven\u0027t found another place than SetLengthToUsableSizeVisitor where we care about the usable_size.",
+      "range": {
+        "startLine": 62,
+        "startChar": 48,
+        "endLine": 62,
+        "endChar": 73
+      },
+      "revId": "0ac2ce4f4740b99f03bf1a6ba8240b42db820b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be035245_cb5fb414",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-06T17:26:35Z",
+      "side": 1,
+      "message": "This is probably only an issue for region space, the other allocators always count the usable space as bytes allocated. Maybe we should change region_space to also have this behavior and not have a allocate_usable_size boolean.",
+      "parentUuid": "67a4bcda_77b8dcfe",
       "range": {
         "startLine": 62,
         "startChar": 48,
