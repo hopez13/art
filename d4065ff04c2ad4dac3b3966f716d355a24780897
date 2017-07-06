@@ -22,6 +22,30 @@
       "revId": "d4065ff04c2ad4dac3b3966f716d355a24780897",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8b7e46d_f5cd06ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-06T02:38:47Z",
+      "side": 1,
+      "message": "That was on host, so z840. I expect that the device will produce bigger numbers.\n\nI used a gtest stub to perform the benchmark and got quite stable number from run to run.\n\n\nTEST_F(ClassLinkerClassLoaderTest, CreateClassLoaderChainBench) {\n  jobject class_loader_a \u003d LoadDexInDelegateLastClassLoader(\"ForClassLoaderA\", nullptr);\n  jobject class_loader_b \u003d LoadDexInDelegateLastClassLoader(\"ForClassLoaderB\", class_loader_a);\n  jobject class_loader_c \u003d LoadDexInDelegateLastClassLoader(\"ForClassLoaderC\", class_loader_b);\n  jobject class_loader_d \u003d LoadDexInDelegateLastClassLoader(\"ForClassLoaderD\", class_loader_c);\n\n  uint64_t t \u003d NanoTime();\n  for (size_t i \u003d 0; i \u003c 100; i++) {\n    VerifyClassResolution(\"LDefinedInA;\", class_loader_d, class_loader_a);\n    VerifyClassResolution(\"LNotDefined;\", class_loader_d, nullptr, /*should_find*/ false);\n  }\n\n  LOG(ERROR) \u003c\u003c \"TIME: \" \u003c\u003c (NanoTime() - t);\n}",
+      "parentUuid": "43669460_5dd55216",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "d4065ff04c2ad4dac3b3966f716d355a24780897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
