@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "6686d6b3_53320cb9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2415,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-06T03:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfd165a9_b3815e30",
+      "range": {
+        "startLine": 2415,
+        "startChar": 12,
+        "endLine": 2415,
+        "endChar": 29
+      },
+      "revId": "9e40343df4c0dc0f765b92443406e6c09738fc4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82eabf6c_01bbb985",
         "filename": "runtime/class_linker.h",
         "patchSetId": 2
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "e850aed9_19f7a5c4",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-06T03:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82eabf6c_01bbb985",
+      "range": {
+        "startLine": 827,
+        "startChar": 24,
+        "endLine": 827,
+        "endChar": 55
+      },
+      "revId": "9e40343df4c0dc0f765b92443406e6c09738fc4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2c98fa1_bb62cdb4",
         "filename": "runtime/class_linker.h",
         "patchSetId": 2
@@ -131,6 +179,30 @@
       "writtenOn": "2017-07-06T03:07:05Z",
       "side": 1,
       "message": "Don\u0027t need to pass self, you can use soa.Self().",
+      "range": {
+        "startLine": 828,
+        "startChar": 56,
+        "endLine": 828,
+        "endChar": 68
+      },
+      "revId": "9e40343df4c0dc0f765b92443406e6c09738fc4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd06bb71_13e19f56",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-06T03:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2c98fa1_bb62cdb4",
       "range": {
         "startLine": 828,
         "startChar": 56,
