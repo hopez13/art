@@ -94,6 +94,30 @@
       "revId": "a705c4fbc5c66dedabc5c56f2e0c7352eb911191",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6f2016c_78e4aef9",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T15:51:41Z",
+      "side": 1,
+      "message": "\u003e  MoveFunctionColumn (Odroid-C2)           -2.804% (-0.2 noise)\n\u003e  H2 (Odroid-C2)                           -1.370% (-0.1 noise)\n\u003e  ArrayListStress (Odroid-C2)              -1.872% (-0.1 noise)\n\u003e  CaffeineString (Odroid-C2)                1.009%  (0.1 noise)\n\nThese 4 are guaranteed noise despite what it says, nothing is using @CriticalNative in golem except for NativeDownCallStaticCritical* \n\n(Libcore doesn\u0027t use any @CriticalNative, framework does but only in O+, and we aren\u0027t using framework on golem anyway).",
+      "parentUuid": "fa9a395a_000fdf9c",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 781,
+        "endChar": 5
+      },
+      "revId": "a705c4fbc5c66dedabc5c56f2e0c7352eb911191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
