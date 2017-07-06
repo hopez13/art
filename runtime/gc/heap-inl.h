@@ -45,7 +45,8 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
                                                       ObjPtr<mirror::Class> klass,
                                                       size_t byte_count,
                                                       AllocatorType allocator,
-                                                      const PreFenceVisitor& pre_fence_visitor) {
+                                                      const PreFenceVisitor& pre_fence_visitor,
+                                                      bool allocate_usable_size) {
   if (kIsDebugBuild) {
     CheckPreconditionsForAllocObject(klass, byte_count);
     // Since allocation can cause a GC which will need to SuspendAll, make sure all allocations are
@@ -108,8 +109,13 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
   } else {
     // bytes allocated that takes bulk thread-local buffer allocations into account.
     size_t bytes_tl_bulk_allocated = 0;
-    obj = TryToAllocate<kInstrumented, false>(self, allocator, byte_count, &bytes_allocated,
-                                              &usable_size, &bytes_tl_bulk_allocated);
+    obj = TryToAllocate<kInstrumented, false>(self,
+                                              allocator,
+                                              byte_count,
+                                              &bytes_allocated,
+                                              &usable_size,
+                                              &bytes_tl_bulk_allocated,
+                                              allocate_usable_size);
     if (UNLIKELY(obj == nullptr)) {
       // AllocateInternalWithGc can cause thread suspension, if someone instruments the entrypoints
       // or changes the allocator in a suspend point here, we need to retry the allocation.
@@ -119,7 +125,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
                                    byte_count,
                                    &bytes_allocated,
                                    &usable_size,
-                                   &bytes_tl_bulk_allocated, &klass);
+                                   &bytes_tl_bulk_allocated, &klass, allocate_usable_size);
       if (obj == nullptr) {
         // The only way that we can get a null return if there is no pending exception is if the
         // allocator or instrumentation changed.
@@ -243,7 +249,8 @@ inline mirror::Object* Heap::TryToAllocate(Thread* self,
                                            size_t alloc_size,
                                            size_t* bytes_allocated,
                                            size_t* usable_size,
-                                           size_t* bytes_tl_bulk_allocated) {
+                                           size_t* bytes_tl_bulk_allocated,
+                                           bool allocate_usable_size) {
   if (allocator_type != kAllocatorTypeTLAB &&
       allocator_type != kAllocatorTypeRegionTLAB &&
       allocator_type != kAllocatorTypeRosAlloc &&
@@ -338,7 +345,8 @@ inline mirror::Object* Heap::TryToAllocate(Thread* self,
       ret = region_space_->AllocNonvirtual<false>(alloc_size,
                                                   bytes_allocated,
                                                   usable_size,
-                                                  bytes_tl_bulk_allocated);
+                                                  bytes_tl_bulk_allocated,
+                                                  allocate_usable_size);
       break;
     }
     case kAllocatorTypeTLAB:
@@ -357,7 +365,8 @@ inline mirror::Object* Heap::TryToAllocate(Thread* self,
                                 kGrow,
                                 bytes_allocated,
                                 usable_size,
-                                bytes_tl_bulk_allocated);
+                                bytes_tl_bulk_allocated,
+                                allocate_usable_size);
       }
       // The allocation can't fail.
       ret = self->AllocTlab(alloc_size);

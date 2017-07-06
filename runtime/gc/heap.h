@@ -234,7 +234,8 @@ class Heap {
                                                          ObjPtr<mirror::Class> klass,
                                                          size_t byte_count,
                                                          AllocatorType allocator,
-                                                         const PreFenceVisitor& pre_fence_visitor)
+                                                         const PreFenceVisitor& pre_fence_visitor,
+                                                         bool allocate_usable_size = false)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!*gc_complete_lock_,
                !*pending_task_lock_,
@@ -903,7 +904,8 @@ class Heap {
                                          size_t* bytes_allocated,
                                          size_t* usable_size,
                                          size_t* bytes_tl_bulk_allocated,
-                                         ObjPtr<mirror::Class>* klass)
+                                         ObjPtr<mirror::Class>* klass,
+                                         bool allocate_usable_size)
       REQUIRES(!Locks::thread_suspend_count_lock_, !*gc_complete_lock_, !*pending_task_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -926,7 +928,8 @@ class Heap {
                                               size_t alloc_size,
                                               size_t* bytes_allocated,
                                               size_t* usable_size,
-                                              size_t* bytes_tl_bulk_allocated)
+                                              size_t* bytes_tl_bulk_allocated,
+                                              bool allocate_usable_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   mirror::Object* AllocWithNewTLAB(Thread* self,
@@ -934,7 +937,8 @@ class Heap {
                                    bool grow,
                                    size_t* bytes_allocated,
                                    size_t* usable_size,
-                                   size_t* bytes_tl_bulk_allocated)
+                                   size_t* bytes_tl_bulk_allocated,
+                                   bool allocate_usable_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void ThrowOutOfMemoryError(Thread* self, size_t byte_count, AllocatorType allocator_type)
