@@ -2231,16 +2231,15 @@ class ImageDumper {
         if (num_methods != 0u) {
           os << "Methods (size=" << num_methods << "):\n";
           ScopedIndentation indent2(&state->vios_);
-          auto* resolved_methods = dex_cache->GetResolvedMethods();
+          mirror::MethodDexCacheType* resolved_methods = dex_cache->GetResolvedMethods();
           for (size_t i = 0, length = dex_cache->NumResolvedMethods(); i < length; ++i) {
-            auto* elem = mirror::DexCache::GetElementPtrSize(resolved_methods,
-                                                             i,
-                                                             image_pointer_size);
+            ArtMethod* elem = mirror::DexCache::GetNativePairPtrSize(
+                resolved_methods, i, image_pointer_size).object;
             size_t run = 0;
             for (size_t j = i + 1;
-                 j != length && elem == mirror::DexCache::GetElementPtrSize(resolved_methods,
-                                                                            j,
-                                                                            image_pointer_size);
+                 j != length &&
+                 elem == mirror::DexCache::GetNativePairPtrSize(
+                     resolved_methods, j, image_pointer_size).object;
                  ++j) {
               ++run;
             }
@@ -2268,7 +2267,7 @@ class ImageDumper {
           ScopedIndentation indent2(&state->vios_);
           auto* resolved_fields = dex_cache->GetResolvedFields();
           for (size_t i = 0, length = dex_cache->NumResolvedFields(); i < length; ++i) {
-            auto* elem = mirror::DexCache::GetNativePairPtrSize(
+            ArtField* elem = mirror::DexCache::GetNativePairPtrSize(
                 resolved_fields, i, image_pointer_size).object;
             size_t run = 0;
             for (size_t j = i + 1;
