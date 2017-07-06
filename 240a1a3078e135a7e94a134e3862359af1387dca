@@ -1,0 +1,621 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d18a84d0_082b9ca5",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: enum classes for new enums are preferred",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a756e27b_026ae198",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "that are what?",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "294f8d1f_138d752f",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: Period at end",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ef3d696_9e95d4e4",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: /*out*/",
+      "range": {
+        "startLine": 93,
+        "startChar": 51,
+        "endLine": 93,
+        "endChar": 52
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b4efdbf_6e3f05b1",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "I will only mention this once. It\u0027s a bit confusing to call these \"Objects\" because ArtMethod is not an object.\n\nMaybe it\u0027s ok to leave like this, a more general name (e.g. \"Entry\" or otherwise) would be more weakly preferred.\n\nNote that if we\u0027re gonna stick to \"Object\" there should be a big disclaimer somewhere saying that the object naming terminology in img_diag is overloaded to mean either a C++ *or* a java object saved in the image.",
+      "range": {
+        "startLine": 201,
+        "startChar": 18,
+        "endLine": 201,
+        "endChar": 28
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36431970_45de1fab",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "delete?",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd5ff7e3_1ffdef26",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: check args are not null",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4070222_a3f24028",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit:  Avoid using auto if the type is well-known",
+      "range": {
+        "startLine": 236,
+        "startChar": 6,
+        "endLine": 236,
+        "endChar": 10
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6aad064_e8549af4",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit:  Avoid using auto if the type is well-known",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 241,
+        "endChar": 8
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "270db819_74677fbe",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: nit:  Avoid using auto if the type is well-known",
+      "range": {
+        "startLine": 243,
+        "startChar": 9,
+        "endLine": 243,
+        "endChar": 13
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc4b4bd5_91cffd85",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "size_t ?",
+      "range": {
+        "startLine": 245,
+        "startChar": 6,
+        "endLine": 245,
+        "endChar": 9
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11ea1096_40603ed4",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: add const for all these getters",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "416fe5ff_a87b18f1",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: predicate names should be IsX(), e.g. IsObjectOnDirtyPage , by moving \"Is\" to front its more obvious that its a predicate.",
+      "range": {
+        "startLine": 258,
+        "startChar": 7,
+        "endLine": 258,
+        "endChar": 26
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "684ff38e_af7fe9d9",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: add const",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf03b485_a7b05922",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: add const",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e18377c_3d6582e1",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: Advance usually implies side effects, this should be more like \"GetNextObject\" and should be marked const.",
+      "range": {
+        "startLine": 354,
+        "startChar": 17,
+        "endLine": 354,
+        "endChar": 36
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7328eeb2_5258a888",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: This should probably both take and return a mirror::Object*",
+      "range": {
+        "startLine": 354,
+        "startChar": 37,
+        "endLine": 354,
+        "endChar": 59
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ac1233e_f5a85c56",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: Some comments here to explain what\u0027s going on would be good?",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8098c0d_7eea5680",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "Isn\u0027t it already doing this?",
+      "range": {
+        "startLine": 442,
+        "startChar": 30,
+        "endLine": 442,
+        "endChar": 55
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b097ac9_100615bd",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: size_t",
+      "range": {
+        "startLine": 463,
+        "startChar": 24,
+        "endLine": 463,
+        "endChar": 27
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e1e5ab4_b986b576",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "I wonder why this is passed in explicitly, doesn\u0027t it infer it?",
+      "range": {
+        "startLine": 465,
+        "startChar": 24,
+        "endLine": 465,
+        "endChar": 54
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f30148cb_55c942e2",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: size_t",
+      "range": {
+        "startLine": 470,
+        "startChar": 6,
+        "endLine": 470,
+        "endChar": 9
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d1d2b4d_f34629fe",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: size_t",
+      "range": {
+        "startLine": 473,
+        "startChar": 6,
+        "endLine": 473,
+        "endChar": 9
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "052f3483_9a31f5b6",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: missing comment \"vector of pairs (int count, Class*)\"",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d889d73d_3c8a7f09",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "Is the explicit typing required?",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00da0e50_64cf6bce",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: size_t",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ab0c8ed_8b45b0cb",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: size_t",
+      "range": {
+        "startLine": 527,
+        "startChar": 24,
+        "endLine": 527,
+        "endChar": 27
+      },
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "644b2a9f_fd5f97d2",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: redundant. struct default visibility is public.",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe017f4d_d948ad8e",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "This looks exactly the same as the mirror::Object case, does it need to be copy-and-pasted?",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85461d3a_86654cc9",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: check parameters are not-null",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53000cda_f84c1d27",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-06T20:58:42Z",
+      "side": 1,
+      "message": "nit: Comments for non-obvious public methods?",
+      "revId": "240a1a3078e135a7e94a134e3862359af1387dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
