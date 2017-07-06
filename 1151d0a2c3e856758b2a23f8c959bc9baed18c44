@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "21b2552c_8fb9608a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8851,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-06T02:00:36Z",
+      "side": 1,
+      "message": "the comment was obsolete. Done.",
+      "parentUuid": "0fd396b4_b53b9430",
+      "range": {
+        "startLine": 8851,
+        "startChar": 37,
+        "endLine": 8851,
+        "endChar": 56
+      },
+      "revId": "1151d0a2c3e856758b2a23f8c959bc9baed18c44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63d2e882_f80e41cc",
         "filename": "runtime/class_linker.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-05T11:58:36Z",
       "side": 1,
       "message": "What\u0027s that?",
+      "range": {
+        "startLine": 560,
+        "startChar": 8,
+        "endLine": 560,
+        "endChar": 23
+      },
+      "revId": "1151d0a2c3e856758b2a23f8c959bc9baed18c44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c552dd53_708ef64c",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-06T02:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63d2e882_f80e41cc",
       "range": {
         "startLine": 560,
         "startChar": 8,
