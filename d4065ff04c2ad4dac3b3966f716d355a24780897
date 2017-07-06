@@ -70,6 +70,30 @@
       "revId": "d4065ff04c2ad4dac3b3966f716d355a24780897",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceecc4ab_c780d2bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-06T03:10:50Z",
+      "side": 1,
+      "message": "yea, I introduced an extra successful lookup to make sure I get \"a bit of diversity\" in the branches taken to avoid hitting CPU caches. Not sure how effective it is though :-) but shouldn\u0027t matter for the end result since both tests have them.\n\nI\u0027ll post some perf analysis tomorrow.",
+      "parentUuid": "33e3fab8_7b81a952",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "d4065ff04c2ad4dac3b3966f716d355a24780897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
