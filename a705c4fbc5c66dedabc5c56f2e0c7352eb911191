@@ -46,6 +46,30 @@
       "revId": "a705c4fbc5c66dedabc5c56f2e0c7352eb911191",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa9a395a_000fdf9c",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-06T15:48:26Z",
+      "side": 1,
+      "message": "Yes, I submitted patches to Golem with and without the change earlier.\n\nHere are the interesting variations (positive is better):\n\n  MoveFunctionColumn (Odroid-C2)           -2.804% (-0.2 noise)\n  H2 (Odroid-C2)                           -1.370% (-0.1 noise)\n  ArrayListStress (Odroid-C2)              -1.872% (-0.1 noise)\n  \n  NativeDowncallStaticCritical6             1.380%  (0.0 noise)\n  NativeDowncallStaticCritical (Odroid-C2)  1.869%  (0.0 noise)\n  CaffeineString (Odroid-C2)                1.009%  (0.1 noise)\n\nIt feels globally better (the negative variations look a bit noisy).\n\n(I\u0027ll add the run-time check in my next patch set.)",
+      "parentUuid": "67c6c5ab_4b330e88",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 781,
+        "endChar": 5
+      },
+      "revId": "a705c4fbc5c66dedabc5c56f2e0c7352eb911191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
