@@ -22,6 +22,30 @@
       "revId": "965546104684618fdbbfe80844b43429093dcae9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93ccf95d_c45bdcce",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-06T18:52:49Z",
+      "side": 1,
+      "message": "Good catch. Do we want to have these checks for the core images, which are pre-opted? Or should we introduce a new flavor of core images, which include run-time checks?",
+      "parentUuid": "5a418dc9_31102c99",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 60
+      },
+      "revId": "965546104684618fdbbfe80844b43429093dcae9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

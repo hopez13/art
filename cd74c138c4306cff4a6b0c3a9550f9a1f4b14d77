@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e965155a_80f81541",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-06T18:52:49Z",
+      "side": 1,
+      "message": "I was thinking about that too when I wrote this code, and thought that numbers might be easier to track (without an up-to-date source code).\n\nNow, I think I prefer __LINE__ too; will change in a new patch set.",
+      "parentUuid": "5fd02c31_506d18ed",
+      "range": {
+        "startLine": 1605,
+        "startChar": 42,
+        "endLine": 1605,
+        "endChar": 43
+      },
+      "revId": "cd74c138c4306cff4a6b0c3a9550f9a1f4b14d77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "598bf4b2_1cf4505f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-06-13T13:44:45Z",
       "side": 1,
       "message": "Could this do with a contract?\n\n\"Must be invoked anytime there is any call or branch to outside of the current method\" or similar?\n\nSo that it\u0027s clear if we add new calls later (to e.g. entrypoints, or new kinds of invokes) they should also call this function?\n\nAlso naming wise it might be something like  \"GeneratePostSuspendChecks\" , which then calls GenerateMarkingRegisterCheck, to make it more clear it should be used any time after a suspend?",
+      "revId": "cd74c138c4306cff4a6b0c3a9550f9a1f4b14d77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4204ceb9_aad96dcb",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6431,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-06T18:52:49Z",
+      "side": 1,
+      "message": "This method is actually called in locations following a potential suspend check, but also in other places (e.g., after marking a reference or GC root), as I wanted to track potential future mistakes/regressions in non-suspending entrypoints too. WDYT?",
+      "parentUuid": "598bf4b2_1cf4505f",
       "revId": "cd74c138c4306cff4a6b0c3a9550f9a1f4b14d77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
