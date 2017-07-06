@@ -835,6 +835,20 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
 
+  // Helper function for FindClassInBaseDexClassLoader used to ensure that the boot
+  // class path is searched only once. boot_class_path_searched will be set to true is the
+  // boot classpath is called either because we reached the top of the chain or because we
+  // hit a delegate last class loader.
+  bool FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                                     Thread* self,
+                                     const char* descriptor,
+                                     size_t hash,
+                                     Handle<mirror::ClassLoader> class_loader,
+                                     ObjPtr<mirror::Class>* result,
+                                     bool* boot_class_path_searched)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_);
+
   // Finds the class in the classpath of the given class loader. It only searches the class loader
   // dex files and does not recurse into its parent.
   // The method checks that the provided class loader is either a PathClassLoader or a
