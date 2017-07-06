@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "80311636_fa33a367",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-06T01:00:21Z",
+      "side": 1,
+      "message": "replaced",
+      "parentUuid": "9bce451b_416eaf7d",
+      "range": {
+        "startLine": 1242,
+        "startChar": 87,
+        "endLine": 1242,
+        "endChar": 97
+      },
+      "revId": "146e731ef0a8996724e0c6ad1dc6df7f1133c2e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "283dc292_76d8d9db",
         "filename": "runtime/openjdkjvmti/ti_allocator.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-06T00:03:28Z",
       "side": 1,
       "message": "Static member of AllocUtil, to ensure initialization order.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 33
+      },
+      "revId": "146e731ef0a8996724e0c6ad1dc6df7f1133c2e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "221497ea_32dc2e1d",
+        "filename": "runtime/openjdkjvmti/ti_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-06T01:00:21Z",
+      "side": 1,
+      "message": "done.",
+      "parentUuid": "283dc292_76d8d9db",
       "range": {
         "startLine": 106,
         "startChar": 0,
