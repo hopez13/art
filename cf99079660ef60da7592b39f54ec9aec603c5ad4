@@ -22,6 +22,30 @@
       "revId": "cf99079660ef60da7592b39f54ec9aec603c5ad4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cc3d222_e05d8b79",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-06T18:53:57Z",
+      "side": 1,
+      "message": "I need to investigate further: it seems that initial suspend check is not always emitted.",
+      "parentUuid": "6445b079_5aa7288f",
+      "range": {
+        "startLine": 1605,
+        "startChar": 2,
+        "endLine": 1605,
+        "endChar": 45
+      },
+      "revId": "cf99079660ef60da7592b39f54ec9aec603c5ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
