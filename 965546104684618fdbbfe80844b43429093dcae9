@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a418dc9_31102c99",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-06T15:03:39Z",
+      "side": 1,
+      "message": "Just realized that this is problematic for pre-opting, as it uses dex2oatd.\n\nSo you may have to add kIsTargetBuild.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 60
+      },
+      "revId": "965546104684618fdbbfe80844b43429093dcae9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
