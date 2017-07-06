@@ -64,7 +64,7 @@ inline constexpr size_t DexCacheArraysLayout::Alignment(PointerSize pointer_size
                 "Expecting alignof(StringDexCacheType) == 8");
   static_assert(alignof(mirror::MethodTypeDexCacheType) == 8,
                 "Expecting alignof(MethodTypeDexCacheType) == 8");
-  // This is the same as alignof(FieldDexCacheType) for the given pointer size.
+  // This is the same as alignof({Field,Method}DexCacheType) for the given pointer size.
   return 2u * static_cast<size_t>(pointer_size);
 }
 
@@ -96,11 +96,15 @@ inline size_t DexCacheArraysLayout::MethodOffset(uint32_t method_idx) const {
 }
 
 inline size_t DexCacheArraysLayout::MethodsSize(size_t num_elements) const {
-  return ArraySize(pointer_size_, num_elements);
+  size_t cache_size = mirror::DexCache::kDexCacheMethodCacheSize;
+  if (num_elements < cache_size) {
+    cache_size = num_elements;
+  }
+  return 2u * static_cast<size_t>(pointer_size_) * num_elements;
 }
 
 inline size_t DexCacheArraysLayout::MethodsAlignment() const {
-  return static_cast<size_t>(pointer_size_);
+  return 2u * static_cast<size_t>(pointer_size_);
 }
 
 inline size_t DexCacheArraysLayout::StringOffset(uint32_t string_idx) const {
