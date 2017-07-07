@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84d22a77_efa2d041",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-07T08:48:09Z",
+      "side": 1,
+      "message": "Please add a comment why it\u0027s ok not to limit the boot image.",
+      "range": {
+        "startLine": 2282,
+        "startChar": 14,
+        "endLine": 2282,
+        "endChar": 26
+      },
+      "revId": "70f689dce49f2d1466dc98df9aee5a880956b45c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c66360ce_c1c9b6e9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-07T08:48:09Z",
+      "side": 1,
+      "message": "This should be line 2281",
+      "range": {
+        "startLine": 2286,
+        "startChar": 19,
+        "endLine": 2286,
+        "endChar": 58
+      },
+      "revId": "70f689dce49f2d1466dc98df9aee5a880956b45c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
