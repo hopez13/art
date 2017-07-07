@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d24ab080_866a0252",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-07T10:17:25Z",
+      "side": 1,
+      "message": "I added more comments. Hopefully that\u0027s clearer.",
+      "parentUuid": "2a21bea8_8018d3ab",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "0ac2ce4f4740b99f03bf1a6ba8240b42db820b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67a4bcda_77b8dcfe",
         "filename": "runtime/gc/space/region_space.h",
         "patchSetId": 2
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "085bac45_18c6b7b2",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-07T10:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be035245_cb5fb414",
+      "range": {
+        "startLine": 62,
+        "startChar": 48,
+        "endLine": 62,
+        "endChar": 73
+      },
+      "revId": "0ac2ce4f4740b99f03bf1a6ba8240b42db820b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9ad48c4_1548ff99",
         "filename": "runtime/gc/space/region_space.h",
         "patchSetId": 2
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "c11a79f9_d46939d6",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-07T10:17:25Z",
+      "side": 1,
+      "message": "New argument dropped in PS4.",
+      "parentUuid": "d9ad48c4_1548ff99",
+      "range": {
+        "startLine": 70,
+        "startChar": 29,
+        "endLine": 70,
+        "endChar": 54
+      },
+      "revId": "0ac2ce4f4740b99f03bf1a6ba8240b42db820b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68709709_f60b10ad",
         "filename": "test/659-unpadded-array/src/Main.java",
         "patchSetId": 2
@@ -106,6 +178,30 @@
       "writtenOn": "2017-07-06T15:06:01Z",
       "side": 1,
       "message": "Note: This is using libcore: You may have to do something special (like moving this file from the `src` directory to an `src-art` directory) to have this test pass with the javac+dx toolchain.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "0ac2ce4f4740b99f03bf1a6ba8240b42db820b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfe7e5e1_37cd1b2a",
+        "filename": "test/659-unpadded-array/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-07T10:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68709709_f60b10ad",
       "range": {
         "startLine": 17,
         "startChar": 0,
