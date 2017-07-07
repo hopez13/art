@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dc1b880_1f902e61",
+        "filename": "runtime/openjdkjvmti/ti_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-07T20:57:44Z",
+      "side": 1,
+      "message": "Could make this a comma operator \u0027LOG(FATAL) \u003c\u003c \"Not supported\", 0\u0027 ?",
+      "range": {
+        "startLine": 36,
+        "startChar": 30,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "46f25038298feefc6723eec725018238023fc55a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
