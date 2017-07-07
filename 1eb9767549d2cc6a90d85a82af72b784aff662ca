@@ -22,6 +22,30 @@
       "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d068fd54_3dcb9585",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-07T14:13:34Z",
+      "side": 1,
+      "message": "I\u0027m not sure why it has so many sleeps? There seems to be a sleep after every single GC. I think they were going for \"let the GC at least collect a little bit\" maybe?\n\nI don\u0027t think there\u0027s any way to get an event for \"GC has finished\" is there?",
+      "parentUuid": "f38d0d48_55ca7af6",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
