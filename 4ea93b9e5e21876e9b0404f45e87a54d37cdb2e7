@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a52fb0b_462fdc21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-07T07:00:58Z",
+      "side": 1,
+      "message": "Most of the rest, around 370K, are allocations in AllocationRecord. So I didn\u0027t see too big a reason, yet, to go for an unordered_set or HashSet. Maybe a follow-up...",
+      "range": {
+        "startLine": 21,
+        "startChar": 32,
+        "endLine": 21,
+        "endChar": 38
+      },
+      "revId": "4ea93b9e5e21876e9b0404f45e87a54d37cdb2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
