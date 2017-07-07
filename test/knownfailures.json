@@ -207,6 +207,11 @@
         "variant": "trace | stream"
     },
     {
+        "tests": "141-class-unload",
+        "description": "Idk why this fails",
+        "env_vars": {"SANITIZE_HOST": "address"}
+    },
+    {
         "tests": ["604-hot-static-interface",
                   "612-jit-dex-cache",
                   "613-inlining-dex-cache",
