@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0503e26_ed818eca",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-07T03:18:21Z",
+      "side": 1,
+      "message": "sw. (4 bytes are stored here on all other architectures and the following instruction increments $t3 by COMPRESSED_REFERENCE_SIZE\u003d4)",
+      "range": {
+        "startLine": 1699,
+        "startChar": 4,
+        "endLine": 1699,
+        "endChar": 6
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e58b47a_59a6e2d9",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-07T03:18:21Z",
+      "side": 1,
+      "message": "I think jalr+.cpreturn should be replaced with jic $ra, 0 since there\u0027s no .cpsetup at the beginning anymore (you changed ENTRY to ENTRY_NO_GP).",
+      "range": {
+        "startLine": 1715,
+        "startChar": 0,
+        "endLine": 1716,
+        "endChar": 91
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12602251_bd5ab8e5",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-07T03:18:21Z",
+      "side": 1,
+      "message": "ld, daddiu, sd (the count is 64-bit on other 64-bit architectures).",
+      "range": {
+        "startLine": 1753,
+        "startChar": 0,
+        "endLine": 1755,
+        "endChar": 49
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d24b168_cf589a38",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1806,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-07T03:18:21Z",
+      "side": 1,
+      "message": "daddu (if not for correctness then for consistency).",
+      "range": {
+        "startLine": 1806,
+        "startChar": 4,
+        "endLine": 1806,
+        "endChar": 8
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac1a85ef_e412d63d",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-07T03:18:21Z",
+      "side": 1,
+      "message": "ld, daddiu, sd (the count is 64-bit on other 64-bit architectures).",
+      "range": {
+        "startLine": 1808,
+        "startChar": 0,
+        "endLine": 1810,
+        "endChar": 49
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1010536a_df6eba8b",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1839,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-07T03:18:21Z",
+      "side": 1,
+      "message": "This is actually reachable on other 64-bit architectures. And the 64-bit versions of the macro differ from the 32-bit ones. Please adjust the macro accordingly.",
+      "range": {
+        "startLine": 1838,
+        "startChar": 0,
+        "endLine": 1839,
+        "endChar": 84
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "720148f8_09ad7eb3",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-07T03:18:21Z",
+      "side": 1,
+      "message": "These macros shouldn\u0027t be exact copies of their 32-bit counterparts either. Please adjust accordingly.",
+      "range": {
+        "startLine": 1863,
+        "startChar": 0,
+        "endLine": 1900,
+        "endChar": 5
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
