@@ -46,6 +46,30 @@
       "revId": "965546104684618fdbbfe80844b43429093dcae9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d05b7ab_203563c1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-07T08:36:46Z",
+      "side": 1,
+      "message": "Right, maybe do something like KIsDebugBuild \u0026\u0026 (kIsTargetBuild || IsCoreImage()) (which can\u0027t be a constexpr unfortunately).",
+      "parentUuid": "93ccf95d_c45bdcce",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 60
+      },
+      "revId": "965546104684618fdbbfe80844b43429093dcae9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
