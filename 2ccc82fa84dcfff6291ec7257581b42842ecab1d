@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0071ec58_0bb7f808",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-07T14:48:09Z",
+      "side": 1,
+      "message": "Can you add a CHECK here that MR is a native callee save?",
+      "revId": "2ccc82fa84dcfff6291ec7257581b42842ecab1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
