@@ -166,6 +166,10 @@ void GarbageCollector::ResetMeasurements() {
 
 GarbageCollector::ScopedPause::ScopedPause(GarbageCollector* collector, bool with_reporting)
     : start_time_(NanoTime()), collector_(collector), with_reporting_(with_reporting) {
+  {
+    // We just need to know there is no thread holding jni_globals_lock_ exclusively, which could make a deadlock.
+    ReaderMutexLock mu(Thread::Current(), *Locks::jni_globals_lock_);
+  }
   Runtime* runtime = Runtime::Current();
   runtime->GetThreadList()->SuspendAll(__FUNCTION__);
   if (with_reporting) {
