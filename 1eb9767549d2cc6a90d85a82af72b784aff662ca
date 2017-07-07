@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0538904f_bd7451a2",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-07-07T20:50:32Z",
+      "side": 1,
+      "message": "Since we already joined the watcher thread, I have no idea what we\u0027re waiting for here.",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f38d0d48_55ca7af6",
         "filename": "test/079-phantom/src/Main.java",
         "patchSetId": 3
@@ -41,6 +64,76 @@
         "startLine": 52,
         "startChar": 0,
         "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad4eb707_d319b793",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-07-07T20:50:32Z",
+      "side": 1,
+      "message": "I don\u0027t think the sleep() is necessary to get the GC to run. Especially since we\u0027re waiting to observe the effects of it here. Since countDown() follows the printing of freeNativeStorage, I think we should be fine without this sleep.",
+      "parentUuid": "d068fd54_3dcb9585",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7266ecb_89036f46",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-07-07T20:50:32Z",
+      "side": 1,
+      "message": "Maybe just reduce the time for this one, and the next one? E.g. to 200? I don\u0027t understand the GC logic enough to know whether the GCs might possibly get merged without the sleep. And we should probably ensure that the test doesn\u0027t get weakened that way. But 500msec seems very long, for something that will only weaken the test if it\u0027s too short. I don\u0027t feel very strongly about this.",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a230f9d_0e4869f9",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-07-07T20:50:32Z",
+      "side": 1,
+      "message": "Since we\u0027re explicitly waiting, I would kill this one completely.",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
         "endChar": 19
       },
       "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
