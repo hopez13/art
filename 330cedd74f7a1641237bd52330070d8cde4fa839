@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05dce32a_f7420110",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-08T00:36:14Z",
+      "side": 1,
+      "message": "Put before and after?",
+      "range": {
+        "startLine": 11,
+        "startChar": 33,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "330cedd74f7a1641237bd52330070d8cde4fa839",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50a427c8_2cb3bcbb",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4947,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-08T00:36:14Z",
+      "side": 1,
+      "message": "Does unordered_set compare the hash before comparing contents? Might be faster if you check the hash here?",
+      "revId": "330cedd74f7a1641237bd52330070d8cde4fa839",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
