@@ -256,9 +256,9 @@ TEST_F(ClassLoaderContextTest, EncodeInOatFile) {
   std::vector<std::unique_ptr<const DexFile>> dex1 = OpenTestDexFiles("Main");
   std::vector<std::unique_ptr<const DexFile>> dex2 = OpenTestDexFiles("MyClass");
   std::string encoding = context->EncodeContextForOatFile("");
-  std::string expected_encoding =
-      dex1[0]->GetLocation() + "*" + std::to_string(dex1[0]->GetLocationChecksum()) + "*" +
-      dex2[0]->GetLocation() + "*" + std::to_string(dex2[0]->GetLocationChecksum()) + "*";
+  std::string expected_encoding = "PCL[" +
+      dex1[0]->GetLocation() + "*" + std::to_string(dex1[0]->GetLocationChecksum()) + ":" +
+      dex2[0]->GetLocation() + "*" + std::to_string(dex2[0]->GetLocationChecksum()) + "]";
   ASSERT_EQ(expected_encoding, context->EncodeContextForOatFile(""));
 }
 

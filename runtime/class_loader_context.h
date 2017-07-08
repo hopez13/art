@@ -78,6 +78,17 @@ class ClassLoaderContext {
   // class loader for the source dex files.
   static std::unique_ptr<ClassLoaderContext> Create(const std::string& spec);
 
+  // Decode the class loader context stored in the oat file with EncodeContextForOatFile.
+  // Return true if the format matches, or false otherwise. Upon successful return the out
+  // arguments will contain the classpath dex files, their checksums and whether or not the
+  // context is a special shared library.
+  // This asserts that the context is made of only one PathClassLoader.
+  static bool DecodePathClassLoaderContextFromOatFileKey(
+      std::string context_spec,
+      std::vector<std::string>* out_classpath,
+      std::vector<uint32_t>* out_checksums,
+      bool* out_is_special_shared_library);
+
  private:
   enum ClassLoaderType {
     kInvalidClassLoader = 0,
@@ -91,6 +102,9 @@ class ClassLoaderContext {
     // The list of class path elements that this loader loads.
     // Note that this list may contain relative paths.
     std::vector<std::string> classpath;
+    // The list of class path elements checksums.
+    // Maybe be empty if the checksums are not given when the context is created.
+    std::vector<uint32_t> checksums;
     // After OpenDexFiles is called this holds the opened dex files.
     std::vector<std::unique_ptr<const DexFile>> opened_dex_files;
     // After OpenDexFiles, in case some of the dex files were opened from their oat files
@@ -102,13 +116,14 @@ class ClassLoaderContext {
 
   // Reads the class loader spec in place and returns true if the spec is valid and the
   // compilation context was constructed.
-  bool Parse(const std::string& spec);
+  bool Parse(const std::string& spec, bool parse_checksums = false);
 
   // Attempts to parse a single class loader spec for the given class_loader_type.
   // If successful the class loader spec will be added to the chain.
   // Returns whether or not the operation was successful.
   bool ParseClassLoaderSpec(const std::string& class_loader_spec,
-                            ClassLoaderType class_loader_type);
+                            ClassLoaderType class_loader_type,
+                            bool parse_checksums = false);
 
   // Extracts the class loader type from the given spec.
   // Return ClassLoaderContext::kInvalidClassLoader if the class loader type is not
