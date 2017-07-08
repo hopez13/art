@@ -290,6 +290,7 @@ void RegionSpace::ClearFromSpace(uint64_t* cleared_bytes, uint64_t* cleared_obje
       clear_region(r);
     } else if (r->IsInUnevacFromSpace()) {
       if (r->LiveBytes() == 0) {
+        DCHECK(!r->IsLargeTail());
         // Special case for 0 live bytes, this means all of the objects in the region are dead and
         // we can clear it. This is important for large objects since we must not visit dead ones in
         // RegionSpace::Walk because they may contain dangling references to invalid objects.
@@ -312,28 +313,28 @@ void RegionSpace::ClearFromSpace(uint64_t* cleared_bytes, uint64_t* cleared_obje
             reinterpret_cast<mirror::Object*>(r->Begin() + free_regions * kRegionSize));
         continue;
       }
-      size_t full_count = 0;
-      while (r->IsInUnevacFromSpace()) {
-        Region* const cur = &regions_[i + full_count];
-        if (i + full_count >= num_regions_ ||
-            cur->LiveBytes() != static_cast<size_t>(cur->Top() - cur->Begin())) {
-          break;
-        }
-        DCHECK(cur->IsInUnevacFromSpace());
-        if (full_count != 0) {
-          cur->SetUnevacFromSpaceAsToSpace();
-        }
-        ++full_count;
-      }
-      // Note that r is the full_count == 0 iteration since it is not handled by the loop.
       r->SetUnevacFromSpaceAsToSpace();
-      if (full_count >= 1) {
+      if (r->AllAllocatedBytesAreLive()) {
+        // Try to optimize the number of ClearRange calls by checking whether the next regions
+        // can also be cleared.
+        size_t clear_regions = 1;
+        while (i + clear_regions < num_regions_) {
+          Region* const cur = &regions_[i + clear_regions];
+          if (!cur->AllAllocatedBytesAreLive()) {
+            DCHECK(!cur->IsLargeTail());
+            break;
+          }
+          CHECK(cur->IsInUnevacFromSpace());
+          cur->SetUnevacFromSpaceAsToSpace();
+          ++clear_regions;
+        }
+
         GetLiveBitmap()->ClearRange(
             reinterpret_cast<mirror::Object*>(r->Begin()),
-            reinterpret_cast<mirror::Object*>(r->Begin() + full_count * kRegionSize));
+            reinterpret_cast<mirror::Object*>(r->Begin() + clear_regions * kRegionSize));
         // Skip over extra regions we cleared.
         // Subtract one for the for loop.
-        i += full_count - 1;
+        i += clear_regions - 1;
       }
     }
     // Note r != last_checked_region if r->IsInUnevacFromSpace() was true above.
