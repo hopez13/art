@@ -737,16 +737,78 @@ bool ImageWriter::IsBootClassLoaderNonImageClass(mirror::Class* klass) {
   return IsBootClassLoaderClass(klass) && !IsInBootImage(klass);
 }
 
+class ImageWriter::ClassReferenceVisitor {
+ public:
+  ClassReferenceVisitor(ImageWriter* image_writer_,
+                        bool* early_exit_,
+                        std::unordered_set<mirror::Object*>* visited_,
+                        bool* result_)
+      : image_writer(image_writer_), early_exit(early_exit_), visited(visited_), result(result_) {}
+
+  ALWAYS_INLINE void VisitRootIfNonNull(
+      mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED) const
+      REQUIRES_SHARED(Locks::mutator_lock_) { }
+
+  ALWAYS_INLINE void VisitRoot(
+      mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED) const
+      REQUIRES_SHARED(Locks::mutator_lock_) { }
+
+  ALWAYS_INLINE void operator() (ObjPtr<mirror::Object> obj,
+                                 MemberOffset offset,
+                                 bool is_static ATTRIBUTE_UNUSED) const
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    mirror::Object* ref =
+        obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset);
+    if (ref == nullptr || visited->find(ref) != visited->end()) {
+      return;
+    }
+
+    ObjPtr<mirror::Class> klass = ref->IsClass() ? ref->AsClass() : ref->GetClass();
+    if (klass == mirror::Method::StaticClass() || klass == mirror::Constructor::StaticClass()) {
+      // Prune all classes using reflection because the content they held will not be fixup.
+      *result = true;
+    }
+
+    visited->emplace(ref);
+    if (ref->IsClass()) {
+      *result = *result ||
+          image_writer->PruneAppImageClassInternal(ref->AsClass(), early_exit, visited);
+    } else {
+      *result = *result ||
+          image_writer->PruneAppImageClassInternal(klass, early_exit, visited);
+      ref->VisitReferences(*this, *this);
+    }
+    visited->erase(ref);
+  }
+
+  ALWAYS_INLINE void operator() (ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED,
+                                 ObjPtr<mirror::Reference> ref) const
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    operator()(ref, mirror::Reference::ReferentOffset(), /* is_static */ false);
+  }
+
+  ALWAYS_INLINE bool GetResult() const {
+    return result;
+  }
+
+ private:
+  ImageWriter* image_writer;
+  bool* early_exit;
+  std::unordered_set<mirror::Object*>* visited;
+  bool* const result;
+};
+
+
 bool ImageWriter::PruneAppImageClass(ObjPtr<mirror::Class> klass) {
   bool early_exit = false;
-  std::unordered_set<mirror::Class*> visited;
+  std::unordered_set<mirror::Object*> visited;
   return PruneAppImageClassInternal(klass, &early_exit, &visited);
 }
 
 bool ImageWriter::PruneAppImageClassInternal(
     ObjPtr<mirror::Class> klass,
     bool* early_exit,
-    std::unordered_set<mirror::Class*>* visited) {
+    std::unordered_set<mirror::Object*>* visited) {
   DCHECK(early_exit != nullptr);
   DCHECK(visited != nullptr);
   DCHECK(compile_app_image_);
@@ -807,9 +869,16 @@ bool ImageWriter::PruneAppImageClassInternal(
                                                         &my_early_exit,
                                                         visited);
         } else {
-          result = result || PruneAppImageClassInternal(ref->GetClass(),
+          mirror::Class* type = ref->GetClass();
+          result = result || PruneAppImageClassInternal(type,
                                                         &my_early_exit,
                                                         visited);
+          if (!result) {
+            bool tmp = false;
+            ClassReferenceVisitor visitor(this, &my_early_exit, visited, &tmp);
+            ref->VisitReferences(visitor, visitor);
+            result = result || tmp;
+          }
         }
       }
       field_offset = MemberOffset(field_offset.Uint32Value() +
