@@ -28,6 +28,7 @@
 #include "base/stl_util.h"
 #include "base/systrace.h"
 #include "class_linker.h"
+#include "class_loader_context.h"
 #include "dex_file-inl.h"
 #include "dex_file_tracking_registrar.h"
 #include "gc/scoped_gc_critical_section.h"
@@ -421,38 +422,35 @@ static void GetDexFilesFromDexElementsArray(
   }
 }
 
-static bool AreSharedLibrariesOk(const std::string& shared_libraries,
+static bool AreSharedLibrariesOk(const std::string& context_spec,
                                  std::vector<const DexFile*>& dex_files) {
-  // If no shared libraries, we expect no dex files.
-  if (shared_libraries.empty()) {
-    return dex_files.empty();
-  }
-  // If we find the special shared library, skip the shared libraries check.
-  if (shared_libraries.compare(OatFile::kSpecialSharedLibrary) == 0) {
-    return true;
-  }
-  // Shared libraries is a series of dex file paths and their checksums, each separated by '*'.
-  std::vector<std::string> shared_libraries_split;
-  Split(shared_libraries, '*', &shared_libraries_split);
-
-  // Sanity check size of dex files and split shared libraries. Should be 2x as many entries in
-  // the split shared libraries since it contains pairs of filename/checksum.
-  if (dex_files.size() * 2 != shared_libraries_split.size()) {
+  std::vector<std::string> classpath;
+  std::vector<uint32_t> checksums;
+  bool is_special_shared_library;
+  if (!ClassLoaderContext::DecodePathClassLoaderContextFromOatFileKey(
+          context_spec, &classpath, &checksums, &is_special_shared_library)) {
     return false;
+  }
+
+  DCHECK_EQ(classpath.size(), checksums.size());
+
+  // The classpath size should match the number of dex files.
+  if (classpath.size() != dex_files.size()) {
+    return false;
+  }
+
+  // If we find the special shared library, skip the shared libraries check.
+  if (is_special_shared_library) {
+    return true;
   }
 
   // Check that the loaded dex files have the same order and checksums as the shared libraries.
   for (size_t i = 0; i < dex_files.size(); ++i) {
     std::string absolute_library_path =
         OatFile::ResolveRelativeEncodedDexLocation(dex_files[i]->GetLocation().c_str(),
-                                                   shared_libraries_split[i * 2]);
-    if (dex_files[i]->GetLocation() != absolute_library_path) {
-      return false;
-    }
-    char* end;
-    size_t shared_lib_checksum = strtoul(shared_libraries_split[i * 2 + 1].c_str(), &end, 10);
-    uint32_t dex_checksum = dex_files[i]->GetLocationChecksum();
-    if (*end != '\0' || dex_checksum != shared_lib_checksum) {
+                                                   classpath[i]);
+    if (dex_files[i]->GetLocation() != absolute_library_path ||
+        dex_files[i]->GetLocationChecksum() != checksums[i]) {
       return false;
     }
   }
