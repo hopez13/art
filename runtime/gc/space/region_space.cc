@@ -311,29 +311,30 @@ void RegionSpace::ClearFromSpace(uint64_t* cleared_bytes, uint64_t* cleared_obje
         GetLiveBitmap()->ClearRange(
             reinterpret_cast<mirror::Object*>(r->Begin()),
             reinterpret_cast<mirror::Object*>(r->Begin() + free_regions * kRegionSize));
-      } else {
+        continue;
+      }
+      r->SetUnevacFromSpaceAsToSpace();
+      if (r->AllAllocatedBytesAreLive()) {
         // Try to optimize the number of ClearRange calls by checking whether the next regions
         // can also be cleared.
-        size_t clear_regions = 0;
-        do {
+        size_t clear_regions = 1;
+        while (i + clear_regions < num_regions_) {
           Region* const cur = &regions_[i + clear_regions];
-          CHECK(cur->IsInUnevacFromSpace());
-          cur->SetUnevacFromSpaceAsToSpace();
-          if (cur->LiveBytes() != static_cast<size_t>(cur->Top() - cur->Begin())) {
+          if (!cur->AllAllocatedBytesAreLive()) {
             DCHECK(!cur->IsLargeTail());
             break;
           }
-          clear_regions++;
-        } while (i + clear_regions < num_regions);
-
-        if (clear_regions >= 1) {
-          GetLiveBitmap()->ClearRange(
-              reinterpret_cast<mirror::Object*>(r->Begin()),
-              reinterpret_cast<mirror::Object*>(r->Begin() + clear_regions * kRegionSize));
-          // Skip over extra regions we cleared.
-          // Subtract one for the for loop.
-          i += clear_regions - 1;
+          CHECK(cur->IsInUnevacFromSpace());
+          cur->SetUnevacFromSpaceAsToSpace();
+          ++clear_regions;
         }
+
+        GetLiveBitmap()->ClearRange(
+            reinterpret_cast<mirror::Object*>(r->Begin()),
+            reinterpret_cast<mirror::Object*>(r->Begin() + clear_regions * kRegionSize));
+        // Skip over extra regions we cleared.
+        // Subtract one for the for loop.
+        i += clear_regions - 1;
       }
     }
     // Note r != last_checked_region if r->IsInUnevacFromSpace() was true above.
