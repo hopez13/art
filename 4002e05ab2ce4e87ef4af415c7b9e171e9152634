@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15380f68_1a123195",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-10T19:22:37Z",
+      "side": 1,
+      "message": "I realized I needed to change the condition for emitting run-time checks similarly to what is done in the Optimizing compiler; will do in my next patch set.",
+      "range": {
+        "startLine": 797,
+        "startChar": 10,
+        "endLine": 797,
+        "endChar": 38
+      },
+      "revId": "4002e05ab2ce4e87ef4af415c7b9e171e9152634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
