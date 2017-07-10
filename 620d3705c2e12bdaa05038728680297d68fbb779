@@ -46,6 +46,30 @@
       "revId": "620d3705c2e12bdaa05038728680297d68fbb779",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29f18de7_5cab256c",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:30:36Z",
+      "side": 1,
+      "message": "No, just have the aborting thread prevent any GC or wait for last GC. This will avoid having the main path (ScopedPause) care about an exceptional case.",
+      "parentUuid": "859d7b61_cc467023",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 22
+      },
+      "revId": "620d3705c2e12bdaa05038728680297d68fbb779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
