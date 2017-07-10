@@ -94,6 +94,30 @@
       "revId": "620d3705c2e12bdaa05038728680297d68fbb779",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87106f12_c1ace91f",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-10T15:03:47Z",
+      "side": 1,
+      "message": "Because your patch changes a part of the GC, which is happening more often and is more critical than the Abort code path.",
+      "parentUuid": "b3612228_b1ad4e22",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 22
+      },
+      "revId": "620d3705c2e12bdaa05038728680297d68fbb779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
