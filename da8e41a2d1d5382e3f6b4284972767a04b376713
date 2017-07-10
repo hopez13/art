@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cf44e47_a9dc475a",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:28:43Z",
+      "side": 1,
+      "message": "return what?",
+      "range": {
+        "startLine": 82,
+        "startChar": 75,
+        "endLine": 82,
+        "endChar": 83
+      },
+      "revId": "da8e41a2d1d5382e3f6b4284972767a04b376713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dcceedf_5f0310c2",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:28:43Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 106,
+        "startChar": 13,
+        "endLine": 106,
+        "endChar": 15
+      },
+      "revId": "da8e41a2d1d5382e3f6b4284972767a04b376713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
