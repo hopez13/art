@@ -25,6 +25,7 @@
 #include "arch/x86_64/instruction_set_features_x86_64.h"
 #include "driver/compiler_driver.h"
 #include "linear_order.h"
+#include "superblock_cloner.h"
 
 namespace art {
 
@@ -489,6 +490,43 @@ void HLoopOptimization::SimplifyBlocks(LoopNode* node) {
       }
     }
   }
+}
+
+// An example to show how loop peeling can be implemented.
+static void DoPeeling(HLoopInformation* loop_info) {
+  // For now do peeling only for natural loops.
+  DCHECK(!loop_info->IsIrreducible());
+
+  HBasicBlock* loop_header = loop_info->GetHeader();
+  HGraph* graph = loop_header->GetGraph();
+  ArenaAllocator allocator(graph->GetArena()->GetArenaPool());
+
+  HEdgeSet remap_orig_internal(graph->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+  HEdgeSet remap_copy_internal(graph->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+  HEdgeSet remap_incoming(graph->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+
+  // Set up remap_orig_internal edges set - set is empty.
+  // Set up remap_copy_internal edges set.
+  for (HBasicBlock* back_edge_block : loop_info->GetBackEdges()) {
+    HEdge e = HEdge(back_edge_block, loop_header);
+    remap_copy_internal.Insert(e);
+  }
+
+  // Set up remap_incoming edges set.
+  remap_incoming.Insert(HEdge(loop_info->GetPreHeader(), loop_header));
+
+  HBasicBlockMap bb_map_(
+      std::less<HBasicBlock*>(), graph->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+  HInstructionMap hir_map_(
+      std::less<HInstruction*>(), graph->GetArena()->Adapter(kArenaAllocSuperblockCloner));
+
+  SuperblockCloner cloner(graph,
+                          &loop_info->GetBlocks(),
+                          &bb_map_,
+                          &hir_map_);
+
+  cloner.SetSuccessorRemappingInfo(&remap_orig_internal, &remap_copy_internal, &remap_incoming);
+  cloner.Run();
 }
 
 void HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
