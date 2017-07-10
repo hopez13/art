@@ -22,6 +22,30 @@
       "revId": "620d3705c2e12bdaa05038728680297d68fbb779",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "859d7b61_cc467023",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1096239
+      },
+      "writtenOn": "2017-07-10T09:05:26Z",
+      "side": 1,
+      "message": "Do you mean do \u0027jvm-\u003eVisitRoots\u0027 in the aborting thread ?\n\nI think there is no need to do that. In my point of view, if the Runtime is Aborting, the GC happened in the time slot is no longer necessary. So in the situation, we can just let GC thread wait for the aborting thread do abort operation, and then the Runtime will shutdown.",
+      "parentUuid": "ae5750cd_0df4b1e5",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 22
+      },
+      "revId": "620d3705c2e12bdaa05038728680297d68fbb779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
