@@ -16,6 +16,24 @@
       "revId": "2ccc82fa84dcfff6291ec7257581b42842ecab1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bdc64ef_a04b9747",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-10T15:57:49Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you mean; MR (X20) is explicitly excluded from the set of callee-save registers in https://android-review.googlesource.com/#/c/395176/17/compiler/jni/quick/arm64/calling_convention_arm64.cc@61",
+      "parentUuid": "0071ec58_0bb7f808",
+      "revId": "2ccc82fa84dcfff6291ec7257581b42842ecab1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
