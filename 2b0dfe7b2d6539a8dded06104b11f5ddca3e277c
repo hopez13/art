@@ -22,6 +22,30 @@
       "revId": "2b0dfe7b2d6539a8dded06104b11f5ddca3e277c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4111c8a2_b714aa24",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-10T16:10:39Z",
+      "side": 1,
+      "message": "Agreed; but could be done in another CL, I think.",
+      "parentUuid": "6f8a0d05_b83a4478",
+      "range": {
+        "startLine": 135,
+        "startChar": 9,
+        "endLine": 135,
+        "endChar": 11
+      },
+      "revId": "2b0dfe7b2d6539a8dded06104b11f5ddca3e277c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
