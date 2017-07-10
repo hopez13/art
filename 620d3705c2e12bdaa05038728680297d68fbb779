@@ -70,6 +70,30 @@
       "revId": "620d3705c2e12bdaa05038728680297d68fbb779",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3612228_b1ad4e22",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1096239
+      },
+      "writtenOn": "2017-07-10T10:42:05Z",
+      "side": 1,
+      "message": "Oh, I see what you mean.\nYou want every aborting thread prevent GC or wait GC complete. \n\nBut there are many kinds of reason could cause abort, and not every reason could make deadlock.\n\nAt present, just \u0027gloabl reference table overflow\u0027 could make deadlock. Beacuse aborting thread holding jni_globals_lock_ and GC thread need to acqire it too. \n\nOther kind of abort could not make deadlock, and the aborting thread could do abort successfully, so why do we care about the other threads(like GC thread) ?",
+      "parentUuid": "29f18de7_5cab256c",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 22
+      },
+      "revId": "620d3705c2e12bdaa05038728680297d68fbb779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
