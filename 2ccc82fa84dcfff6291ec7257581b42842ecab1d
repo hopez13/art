@@ -34,6 +34,24 @@
       "revId": "2ccc82fa84dcfff6291ec7257581b42842ecab1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fe55a9f_9b7056d2",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-10T17:02:20Z",
+      "side": 1,
+      "message": "Oh, I see what you mean. I\u0027ll change the code to keep X20 (MR) a callee-save, but make sure its value is not overwritten after the MR refresh. This will make the implementation closer to what we have in runtime/arch/arm64/quick_entrypoints_arm64.S now.",
+      "parentUuid": "8bdc64ef_a04b9747",
+      "revId": "2ccc82fa84dcfff6291ec7257581b42842ecab1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
