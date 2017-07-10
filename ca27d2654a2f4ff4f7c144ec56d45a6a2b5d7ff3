@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc03b216_73b62261",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "constexpr char*?",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1b644d9_ccffe3ca",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "constexpr char*?",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 24
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e3d8c27_6e73cc00",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "Use ternary operator?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b9488b4_59bf5952",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "const char* (all class loader type string operation can be done with char*. Right now you\u0027re doing a lot of std::string copies).",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 13
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e17b4f22_f8f61d2d",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "Add a LOG(INFO) ?",
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d65dfdf_86b52ef1",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "ClassLoaderInfo::opened_dex_files",
+      "range": {
+        "startLine": 38,
+        "startChar": 58,
+        "endLine": 38,
+        "endChar": 74
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "712d0cab_5b8a927f",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "ClassLoaderInfo::",
+      "range": {
+        "startLine": 39,
+        "startChar": 77,
+        "endLine": 39,
+        "endChar": 93
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d740ccac_d8073895",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "this method",
+      "range": {
+        "startLine": 39,
+        "startChar": 20,
+        "endLine": 39,
+        "endChar": 24
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "439a1450_9ef379b9",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "Could you put examples of what string this produces?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 59
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bbe124c_7031f633",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-10T09:26:06Z",
+      "side": 1,
+      "message": "const char*",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
