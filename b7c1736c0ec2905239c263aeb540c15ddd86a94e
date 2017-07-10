@@ -93,6 +93,30 @@
       "revId": "b7c1736c0ec2905239c263aeb540c15ddd86a94e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb9fec59_9c388cae",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-10T15:47:14Z",
+      "side": 1,
+      "message": "The experiment in https://android-review.googlesource.com/#/c/430319/ was not conclusive; I abandoned that change.",
+      "parentUuid": "6b4c1e54_95903c6a",
+      "range": {
+        "startLine": 155,
+        "startChar": 7,
+        "endLine": 155,
+        "endChar": 11
+      },
+      "revId": "b7c1736c0ec2905239c263aeb540c15ddd86a94e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
