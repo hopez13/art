@@ -1,0 +1,250 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15ea46a0_10599a88",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Indentation",
+      "range": {
+        "startLine": 743,
+        "startChar": 32,
+        "endLine": 745,
+        "endChar": 32
+      },
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4f8926c_102b56f0",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Make line \u003c\u003d 100 columns please.",
+      "range": {
+        "startLine": 749,
+        "startChar": 90,
+        "endLine": 749,
+        "endChar": 106
+      },
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6386f3d5_9198034f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Make line \u003c\u003d 100 columns please.",
+      "range": {
+        "startLine": 752,
+        "startChar": 99,
+        "endLine": 752,
+        "endChar": 104
+      },
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "014d13e0_0de623e8",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Indentation",
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "010e2ae3_e251e373",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Fix indentation",
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62ad0e57_c0529d30",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Use same early exit logic as the other place?",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 765,
+        "endChar": 13
+      },
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5512debc_6d9917d9",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Missing corresponding erase.",
+      "range": {
+        "startLine": 767,
+        "startChar": 0,
+        "endLine": 767,
+        "endChar": 26
+      },
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afe63e22_997610fa",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "I think this doesn\u0027t handle the case where there is an app image class that has a pointer to a to a non app image non class object? I assume that case will be handled by the transaction stuff?",
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2d5ba8_8491d34a",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Indentation",
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c14191a9_99f1c410",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "const",
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a45c1e9d_49a89964",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "Add a comment why we always prune for this case.",
+      "range": {
+        "startLine": 869,
+        "startChar": 12,
+        "endLine": 869,
+        "endChar": 26
+      },
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7d93b89_f3299362",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-10T20:13:36Z",
+      "side": 1,
+      "message": "This could be a separate CL?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1021,
+        "endChar": 7
+      },
+      "revId": "3301f5336d8d2cb8e96631abf82899b9cf009783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
