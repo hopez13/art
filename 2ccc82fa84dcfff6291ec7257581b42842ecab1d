@@ -52,6 +52,24 @@
       "revId": "2ccc82fa84dcfff6291ec7257581b42842ecab1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67f1f751_fc159c76",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-10T17:14:19Z",
+      "side": 1,
+      "message": "Checking that kCalleeSaveRegisters contains MR would also be good.\n\nThis is basically to make sure that we don\u0027t accidentally remove it from that list in the other file.",
+      "parentUuid": "2fe55a9f_9b7056d2",
+      "revId": "2ccc82fa84dcfff6291ec7257581b42842ecab1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
