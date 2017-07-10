@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cda41828_4151bff3",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-10T22:37:58Z",
+      "side": 1,
+      "message": "Add error_msg, it\u0027s missing in the HasCollisions code. Consider splitting up the || in line 452 to give different error messages.",
+      "range": {
+        "startLine": 426,
+        "startChar": 33,
+        "endLine": 426,
+        "endChar": 71
+      },
+      "revId": "12c38bce2f4a3173828b738e18c97057ed5fa3f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
