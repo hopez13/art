@@ -70,7 +70,7 @@ def clean_trace_if_valid(trace, stack_min_size, prune_exact):
                                                    "|use-after-poison"
                                                    "|READ", trace)
                           ]
-    # Finds the first index where the line number ordering isn't in sequence or
+    # Finds the first index where the line number ordering isn"t in sequence or
     # returns the number of matches if it everything is in order.
     bad_line_no = next((i - 2 for i, match in enumerate(trace_line_matches)
                         if i - 2 != match[0]), len(trace_line_matches) - 2)
