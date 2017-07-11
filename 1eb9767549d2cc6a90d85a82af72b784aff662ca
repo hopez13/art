@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eac8dd4a_476d94ba",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-11T17:30:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0538904f_bd7451a2",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f38d0d48_55ca7af6",
         "filename": "test/079-phantom/src/Main.java",
         "patchSetId": 3
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "173d08ff_d49f0aae",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-11T17:30:52Z",
+      "side": 1,
+      "message": "Agreed, I was just trying to guess here why they wanted the sleeps. Probably because they wanted the GC to at least run somewhat.\n\nI feel like they really intended to have a negative test here [ensure that after GC finishes it DOESN\u0027T enqueue the PhantomReference].",
+      "parentUuid": "ad4eb707_d319b793",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7266ecb_89036f46",
         "filename": "test/079-phantom/src/Main.java",
         "patchSetId": 3
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "5976e083_498fd630",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-11T17:30:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7266ecb_89036f46",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a230f9d_0e4869f9",
         "filename": "test/079-phantom/src/Main.java",
         "patchSetId": 3
@@ -130,6 +202,30 @@
       "writtenOn": "2017-07-07T20:50:32Z",
       "side": 1,
       "message": "Since we\u0027re explicitly waiting, I would kill this one completely.",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 19
+      },
+      "revId": "1eb9767549d2cc6a90d85a82af72b784aff662ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db39b44d_431ccccd",
+        "filename": "test/079-phantom/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-11T17:30:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a230f9d_0e4869f9",
       "range": {
         "startLine": 72,
         "startChar": 8,
