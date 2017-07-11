@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a6da042_a45c0310",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-11T13:47:42Z",
+      "side": 1,
+      "message": "I think we should avoid this, the place where we want to do the check should find somehwere else if it needs to.",
+      "range": {
+        "startLine": 60,
+        "startChar": 19,
+        "endLine": 60,
+        "endChar": 58
+      },
+      "revId": "1699bd1dc4749e6c81e40243cd89d51b863e6be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "137559a4_466a0b62",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-11T13:47:42Z",
+      "side": 1,
+      "message": "Drop? Use the helper?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 62
+      },
+      "revId": "1699bd1dc4749e6c81e40243cd89d51b863e6be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
