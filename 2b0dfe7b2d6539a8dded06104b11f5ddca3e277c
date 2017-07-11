@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "70f56b90_856b4894",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-11T10:10:02Z",
+      "side": 1,
+      "message": "This is ARM64.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 36
+      },
+      "revId": "2b0dfe7b2d6539a8dded06104b11f5ddca3e277c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b2d737a_58855a01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-11T10:10:02Z",
+      "side": 1,
+      "message": "This is ARM.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "2b0dfe7b2d6539a8dded06104b11f5ddca3e277c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f8a0d05_b83a4478",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 2
