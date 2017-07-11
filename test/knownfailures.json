@@ -721,5 +721,12 @@
                          "lookup changes" ],
         "bug": "b/63089991",
         "env_vars": {"ANDROID_COMPILE_WITH_JACK": "false"}
+    },
+    {
+	    "tests": "660-clinit",
+	    "description": [
+		    "It tests the initialization, assume all valid classes will be initialized."
+      ],
+      "variant": "speed-profile | interp-ac"
     }
 ]
