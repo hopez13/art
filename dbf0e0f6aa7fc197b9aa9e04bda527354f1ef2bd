@@ -22,6 +22,30 @@
       "revId": "dbf0e0f6aa7fc197b9aa9e04bda527354f1ef2bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb9fe8dc_421ae8b1",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-11T17:35:29Z",
+      "side": 1,
+      "message": "Because otherwise you can\u0027t enable this, and it\u0027s required for user poisoning. (And you assigned the RegionSpace bug to me, so I\u0027m doing the initial work before assigning it to Mathieu :-) )",
+      "parentUuid": "acc2f79f_ffc27100",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "dbf0e0f6aa7fc197b9aa9e04bda527354f1ef2bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
