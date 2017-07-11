@@ -16,12 +16,20 @@
 
 # Stop if something fails.
 set -e
+set -x
 
 # Set default values for directories.
 if [ -d smali ]; then
   HAS_SMALI=true
 else
   HAS_SMALI=false
+fi
+
+# .j files in jasmin get compiled into classes.jar
+if [ -d jasmin ]; then
+  HAS_JASMIN=true
+else
+  HAS_JASMIN=false
 fi
 
 if [ -d src ]; then
@@ -219,6 +227,21 @@ function zip() {
   fi
 }
 
+function make_jasmin() {
+  local out_directory="$1"
+  shift
+  local jasmin_sources=("$@")
+
+  mkdir -p "$out_directory"
+
+  if [[ $DEV_MODE == yes ]]; then
+    echo ${JASMIN} -d "$out_directory" "${jasmin_sources[@]}"
+    ${JASMIN} -d "$out_directory" "${jasmin_sources[@]}"
+  else
+    ${JASMIN} -d "$out_directory" "${jasmin_sources[@]}" >/dev/null
+  fi
+}
+
 function desugar() {
   local desugar_args=--mode=host
   if [[ $BUILD_MODE == target ]]; then
@@ -335,6 +358,13 @@ else
     if [ "${HAS_SRC}" = "true" ] || [ "${HAS_SRC2}" = "true" ] || [ "${HAS_SRC_ART}" ]; then
       ${JACK} ${JACK_ARGS} ${jack_extra_args} --output-dex .
     fi
+
+    if [[ "${HAS_JASMIN}" == true ]]; then
+      # Compile Jasmin classes as if they were part of the classes.dex file.
+      make_jasmin jasmin_classes $(find 'jasmin' -name '*.j')
+      USE_DESUGAR=false make_dex jasmin_classes
+      ${DXMERGER} classes.dex classes.dex jasmin_classes.dex
+    fi
   else
     # Legacy toolchain with javac+dx
     if [ "${HAS_SRC}" = "true" ]; then
@@ -360,6 +390,11 @@ else
       ${JAVAC} ${JAVAC_ARGS} -d classes `find src2 -name '*.java'`
     fi
 
+    if [[ "${HAS_JASMIN}" == true ]]; then
+      # Compile Jasmin classes as if they were part of the main jar.
+      make_jasmin classes $(find 'jasmin' -name '*.j')
+    fi
+
     if [[ "${HAS_SRC}" == "true" || "${HAS_SRC2}" == "true" || "${HAS_SRC_ART}" == "true" ]]; then
       if [ ${NEED_DEX} = "true" -a ${SKIP_DX_MERGER} = "false" ]; then
         make_dex classes
@@ -371,6 +406,8 @@ fi
 if [ "${HAS_SMALI}" = "true" -a ${NEED_DEX} = "true" ]; then
   # Compile Smali classes
   ${SMALI} -JXmx512m assemble ${SMALI_ARGS} --output smali_classes.dex `find smali -name '*.smali'`
+
+  # Merge smali files into classes.dex, this takes priority over any jasmin files.
 
   # Don't bother with dexmerger if we provide our own main function in a smali file.
   if [ ${SKIP_DX_MERGER} = "false" ]; then
