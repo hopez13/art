@@ -457,6 +457,30 @@
       "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ee96b2_9138373b",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-11T09:06:42Z",
+      "side": 1,
+      "message": "\u003e Are you concerned with creating a new string every time?\n\nThat and the fact I don\u0027t think you need to play with std::strings here, and it\u0027s an easy mistake to copy over strings.",
+      "parentUuid": "e326253e_f06f98da",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "ca27d2654a2f4ff4f7c144ec56d45a6a2b5d7ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
