@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bcfc6f0b_8641ca1e",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-11T10:28:20Z",
+      "side": 1,
+      "message": "D\u0027oh! I\u0027ve rewritten this comment so many times yesterday that I managed to ask a typo to it… :) Thanks, fixed in PS20.",
+      "parentUuid": "05ae6fbb_9f0074da",
+      "range": {
+        "startLine": 113,
+        "startChar": 34,
+        "endLine": 113,
+        "endChar": 39
+      },
+      "revId": "6797379c9d45e6b1db7090efdc864e9a2fdc1fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4dbe272_b76f0b38",
         "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
         "patchSetId": 19
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-11T08:38:23Z",
       "side": 1,
       "message": "need",
+      "range": {
+        "startLine": 124,
+        "startChar": 34,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "6797379c9d45e6b1db7090efdc864e9a2fdc1fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18c3e975_84785897",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-11T10:28:20Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "f4dbe272_b76f0b38",
       "range": {
         "startLine": 124,
         "startChar": 34,
