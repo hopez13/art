@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27723f8f_0bea6646",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2517,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-11T10:14:29Z",
+      "side": 1,
+      "message": "Btw, is this right w.r.t. the stack map generated for the lw instruction? The ARM implementation makes the lr register point past the load instruction, while here on MIPS the ra register points to it (and the stack map is generated for the address after the load instruction). I didn\u0027t notice any new test failure, though.",
+      "range": {
+        "startLine": 2517,
+        "startChar": 0,
+        "endLine": 2517,
+        "endChar": 56
+      },
+      "revId": "21f1fd903b5a1d7fff0de8fd0c2dae64e96179a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
