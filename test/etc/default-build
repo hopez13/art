@@ -24,6 +24,13 @@ else
   HAS_SMALI=false
 fi
 
+# .j files in jasmin get compiled into classes.jar
+if [ -d jasmin ]; then
+  HAS_JASMIN=true
+else
+  HAS_JASMIN=false
+fi
+
 if [ -d src ]; then
   HAS_SRC=true
 else
@@ -53,6 +60,13 @@ if [ -d smali-multidex ]; then
   HAS_SMALI_MULTIDEX=true
 else
   HAS_SMALI_MULTIDEX=false
+fi
+
+# .j files in jasmin-multidex get compiled into classes2.jar
+if [ -d jasmin-multidex ]; then
+  HAS_JASMIN_MULTIDEX=true
+else
+  HAS_JASMIN_MULTIDEX=false
 fi
 
 if [ -d src-ex ]; then
@@ -219,6 +233,21 @@ function zip() {
   fi
 }
 
+function make_jasmin() {
+  local out_directory="$1"
+  shift
+  local jasmin_sources=("$@")
+
+  mkdir -p "$out_directory"
+
+  if [[ $DEV_MODE == yes ]]; then
+    echo ${JASMIN} -d "$out_directory" "${jasmin_sources[@]}"
+    ${JASMIN} -d "$out_directory" "${jasmin_sources[@]}"
+  else
+    ${JASMIN} -d "$out_directory" "${jasmin_sources[@]}" >/dev/null
+  fi
+}
+
 function desugar() {
   local desugar_args=--mode=host
   if [[ $BUILD_MODE == target ]]; then
@@ -335,6 +364,8 @@ else
     if [ "${HAS_SRC}" = "true" ] || [ "${HAS_SRC2}" = "true" ] || [ "${HAS_SRC_ART}" ]; then
       ${JACK} ${JACK_ARGS} ${jack_extra_args} --output-dex .
     fi
+
+
   else
     # Legacy toolchain with javac+dx
     if [ "${HAS_SRC}" = "true" ]; then
@@ -368,9 +399,19 @@ else
   fi
 fi
 
+if [[ "${HAS_JASMIN}" == true ]]; then
+  # Compile Jasmin classes as if they were part of the classes.dex file.
+  make_jasmin jasmin_classes $(find 'jasmin' -name '*.j')
+  # Disable desugar because it won't handle intentional linkage errors.
+  USE_DESUGAR=false make_dex jasmin_classes
+  ${DXMERGER} classes.dex classes.dex jasmin_classes.dex
+fi
+
 if [ "${HAS_SMALI}" = "true" -a ${NEED_DEX} = "true" ]; then
   # Compile Smali classes
   ${SMALI} -JXmx512m assemble ${SMALI_ARGS} --output smali_classes.dex `find smali -name '*.smali'`
+
+  # Merge smali files into classes.dex, this takes priority over any jasmin files.
 
   # Don't bother with dexmerger if we provide our own main function in a smali file.
   if [ ${SKIP_DX_MERGER} = "false" ]; then
@@ -380,12 +421,33 @@ if [ "${HAS_SMALI}" = "true" -a ${NEED_DEX} = "true" ]; then
   fi
 fi
 
+# Compile Jasmin classes in jasmin-multidex as if they were part of the classes2.jar
+if [[ "$HAS_JASMIN_MULTIDEX" == true ]]; then
+  mkdir -p jasmin_classes2
+  make_jasmin jasmin_classes2 $(find 'jasmin-multidex' -name '*.j')
+
+  # Disable desugar because it won't handle intentional linkage errors.
+  USE_DESUGAR=false make_dex jasmin_classes2
+
+  # Build them into jasmin_classes2.dex
+  if [[ -f classes2.dex ]]; then
+    # Merge jasmin_classes2.dex into classes2.dex
+    ${DXMERGER} classes2.dex classes2.dex jasmin_classes2.dex
+  else
+    mv jasmin_classes2.dex classes2.dex
+  fi
+
+  # Move jasmin classes into classes2 directory so that they are picked up with -cp classes2.
+  mkdir -p classes2
+  mv jasmin_classes2/* classes2
+fi
+
 if [ "${HAS_SMALI_MULTIDEX}" = "true" -a ${NEED_DEX} = "true" ]; then
   # Compile Smali classes
   ${SMALI} -JXmx512m assemble ${SMALI_ARGS} --output smali_classes2.dex `find smali-multidex -name '*.smali'`
 
-  # Don't bother with dexmerger if we provide our own main function in a smali file.
-  if [ ${HAS_SRC_MULTIDEX} = "true" ]; then
+  # Skip dexmerger if there was no pre-existing classes2.dex to merge it with.
+  if [ ${HAS_SRC_MULTIDEX} = "true" -o ${HAS_JASMIN_MULTIDEX} = "true" ]; then
     ${DXMERGER} classes2.dex classes2.dex smali_classes2.dex
   else
     mv smali_classes2.dex classes2.dex
