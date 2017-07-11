@@ -24,17 +24,17 @@ namespace art {
 class X86InstructionSetFeatures;
 using X86FeaturesUniquePtr = std::unique_ptr<const X86InstructionSetFeatures>;
 
-// Instruction set features relevant to the X86 architecture.
+// Instruction set features relevant to the X86 architecture. Note that Android
+// assumes the bare minimum support always includes SSE4.2 and popcount.
 class X86InstructionSetFeatures : public InstructionSetFeatures {
  public:
-  // Process a CPU variant string like "atom" or "nehalem" and create InstructionSetFeatures.
+  // Process a CPU variant string like "haswell" and create InstructionSetFeatures.
   static X86FeaturesUniquePtr FromVariant(const std::string& variant,
-                                                                      std::string* error_msg,
-                                                                      bool x86_64 = false);
+                                          std::string* error_msg,
+                                          bool x86_64 = false);
 
   // Parse a bitmap and create an InstructionSetFeatures.
-  static X86FeaturesUniquePtr FromBitmap(uint32_t bitmap,
-                                                                     bool x86_64 = false);
+  static X86FeaturesUniquePtr FromBitmap(uint32_t bitmap, bool x86_64 = false);
 
   // Turn C pre-processor #defines into the equivalent instruction set features.
   static X86FeaturesUniquePtr FromCppDefines(bool x86_64 = false);
@@ -62,63 +62,40 @@ class X86InstructionSetFeatures : public InstructionSetFeatures {
 
   virtual ~X86InstructionSetFeatures() {}
 
-  bool HasSSE4_1() const { return has_SSE4_1_; }
-
-  bool HasPopCnt() const { return has_POPCNT_; }
+  bool HasAVX() const { return has_AVX_; }
+  bool HasAVX2() const { return has_AVX2_; }
 
  protected:
-  // Parse a string of the form "ssse3" adding these to a new InstructionSetFeatures.
-  virtual std::unique_ptr<const InstructionSetFeatures>
-      AddFeaturesFromSplitString(const std::vector<std::string>& features,
-                                 std::string* error_msg) const OVERRIDE {
+  // Parse a string of the form "avx" adding these to a new InstructionSetFeatures.
+  virtual std::unique_ptr<const InstructionSetFeatures> AddFeaturesFromSplitString(
+      const std::vector<std::string>& features,
+      std::string* error_msg) const OVERRIDE {
     return AddFeaturesFromSplitString(features, false, error_msg);
   }
 
-  std::unique_ptr<const InstructionSetFeatures>
-      AddFeaturesFromSplitString(const std::vector<std::string>& features,
-                                 bool x86_64,
-                                 std::string* error_msg) const;
+  std::unique_ptr<const InstructionSetFeatures> AddFeaturesFromSplitString(
+      const std::vector<std::string>& features,
+      bool x86_64,
+      std::string* error_msg) const;
 
-  X86InstructionSetFeatures(bool has_SSSE3,
-                            bool has_SSE4_1,
-                            bool has_SSE4_2,
-                            bool has_AVX,
-                            bool has_AVX2,
-                            bool has_POPCNT)
+  X86InstructionSetFeatures(bool has_AVX,
+                            bool has_AVX2)
       : InstructionSetFeatures(),
-        has_SSSE3_(has_SSSE3),
-        has_SSE4_1_(has_SSE4_1),
-        has_SSE4_2_(has_SSE4_2),
         has_AVX_(has_AVX),
-        has_AVX2_(has_AVX2),
-        has_POPCNT_(has_POPCNT) {
+        has_AVX2_(has_AVX2) {
   }
 
-  static X86FeaturesUniquePtr Create(bool x86_64,
-                                     bool has_SSSE3,
-                                     bool has_SSE4_1,
-                                     bool has_SSE4_2,
-                                     bool has_AVX,
-                                     bool has_AVX2,
-                                     bool has_POPCNT);
+  static X86FeaturesUniquePtr Create(bool x86_64, bool has_AVX, bool has_AVX2);
 
  private:
   // Bitmap positions for encoding features as a bitmap.
   enum {
-    kSsse3Bitfield = 1 << 0,
-    kSse4_1Bitfield = 1 << 1,
-    kSse4_2Bitfield = 1 << 2,
-    kAvxBitfield = 1 << 3,
-    kAvx2Bitfield = 1 << 4,
-    kPopCntBitfield = 1 << 5,
+    kAvxBitfield = 1 << 0,
+    kAvx2Bitfield = 1 << 1,
   };
 
-  const bool has_SSSE3_;   // x86 128bit SIMD - Supplemental SSE.
-  const bool has_SSE4_1_;  // x86 128bit SIMD SSE4.1.
-  const bool has_SSE4_2_;  // x86 128bit SIMD SSE4.2.
   const bool has_AVX_;     // x86 256bit SIMD AVX.
   const bool has_AVX2_;    // x86 256bit SIMD AVX 2.0.
-  const bool has_POPCNT_;  // x86 population count
 
   DISALLOW_COPY_AND_ASSIGN(X86InstructionSetFeatures);
 };

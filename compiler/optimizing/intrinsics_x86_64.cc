@@ -60,11 +60,6 @@ bool IntrinsicLocationsBuilderX86_64::TryDispatch(HInvoke* invoke) {
   return res->Intrinsified();
 }
 
-static void MoveArguments(HInvoke* invoke, CodeGeneratorX86_64* codegen) {
-  InvokeDexCallingConventionVisitorX86_64 calling_convention_visitor;
-  IntrinsicVisitor::MoveArguments(invoke, codegen, &calling_convention_visitor);
-}
-
 using IntrinsicSlowPathX86_64 = IntrinsicSlowPath<InvokeDexCallingConventionVisitorX86_64>;
 
 // NOLINT on __ macro to suppress wrong warning/fix (misc-macro-parentheses) from clang-tidy.
@@ -561,113 +556,57 @@ void IntrinsicCodeGeneratorX86_64::VisitMathSqrt(HInvoke* invoke) {
   GetAssembler()->sqrtsd(out, in);
 }
 
-static void InvokeOutOfLineIntrinsic(CodeGeneratorX86_64* codegen, HInvoke* invoke) {
-  MoveArguments(invoke, codegen);
-
-  DCHECK(invoke->IsInvokeStaticOrDirect());
-  codegen->GenerateStaticOrDirectCall(
-      invoke->AsInvokeStaticOrDirect(), Location::RegisterLocation(RDI));
-
-  // Copy the result back to the expected output.
-  Location out = invoke->GetLocations()->Out();
-  if (out.IsValid()) {
-    DCHECK(out.IsRegister());
-    codegen->MoveFromReturnRegister(out, invoke->GetType());
-  }
-}
-
-static void CreateSSE41FPToFPLocations(ArenaAllocator* arena,
-                                      HInvoke* invoke,
-                                      CodeGeneratorX86_64* codegen) {
-  // Do we have instruction support?
-  if (codegen->GetInstructionSetFeatures().HasSSE4_1()) {
-    CreateFPToFPLocations(arena, invoke);
-    return;
-  }
-
-  // We have to fall back to a call to the intrinsic.
-  LocationSummary* locations = new (arena) LocationSummary(invoke,
-                                                           LocationSummary::kCallOnMainOnly);
-  InvokeRuntimeCallingConvention calling_convention;
-  locations->SetInAt(0, Location::RegisterLocation(calling_convention.GetFpuRegisterAt(0)));
-  locations->SetOut(Location::FpuRegisterLocation(XMM0));
-  // Needs to be RDI for the invoke.
-  locations->AddTemp(Location::RegisterLocation(RDI));
-}
-
-static void GenSSE41FPToFPIntrinsic(CodeGeneratorX86_64* codegen,
-                                   HInvoke* invoke,
-                                   X86_64Assembler* assembler,
-                                   int round_mode) {
+static void GenSSE41FPToFPIntrinsic(HInvoke* invoke,
+                                    X86_64Assembler* assembler,
+                                    int round_mode) {
   LocationSummary* locations = invoke->GetLocations();
-  if (locations->WillCall()) {
-    InvokeOutOfLineIntrinsic(codegen, invoke);
-  } else {
-    XmmRegister in = locations->InAt(0).AsFpuRegister<XmmRegister>();
-    XmmRegister out = locations->Out().AsFpuRegister<XmmRegister>();
-    __ roundsd(out, in, Immediate(round_mode));
-  }
+  DCHECK(!locations->WillCall());
+  XmmRegister in = locations->InAt(0).AsFpuRegister<XmmRegister>();
+  XmmRegister out = locations->Out().AsFpuRegister<XmmRegister>();
+  __ roundsd(out, in, Immediate(round_mode));
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitMathCeil(HInvoke* invoke) {
-  CreateSSE41FPToFPLocations(arena_, invoke, codegen_);
+  CreateFPToFPLocations(arena_, invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitMathCeil(HInvoke* invoke) {
-  GenSSE41FPToFPIntrinsic(codegen_, invoke, GetAssembler(), 2);
+  GenSSE41FPToFPIntrinsic(invoke, GetAssembler(), 2);
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitMathFloor(HInvoke* invoke) {
-  CreateSSE41FPToFPLocations(arena_, invoke, codegen_);
+  CreateFPToFPLocations(arena_, invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitMathFloor(HInvoke* invoke) {
-  GenSSE41FPToFPIntrinsic(codegen_, invoke, GetAssembler(), 1);
+  GenSSE41FPToFPIntrinsic(invoke, GetAssembler(), 1);
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitMathRint(HInvoke* invoke) {
-  CreateSSE41FPToFPLocations(arena_, invoke, codegen_);
+  CreateFPToFPLocations(arena_, invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitMathRint(HInvoke* invoke) {
-  GenSSE41FPToFPIntrinsic(codegen_, invoke, GetAssembler(), 0);
+  GenSSE41FPToFPIntrinsic(invoke, GetAssembler(), 0);
 }
 
-static void CreateSSE41FPToIntLocations(ArenaAllocator* arena,
-                                       HInvoke* invoke,
-                                       CodeGeneratorX86_64* codegen) {
-  // Do we have instruction support?
-  if (codegen->GetInstructionSetFeatures().HasSSE4_1()) {
-    LocationSummary* locations = new (arena) LocationSummary(invoke,
-                                                              LocationSummary::kNoCall,
-                                                              kIntrinsified);
-    locations->SetInAt(0, Location::RequiresFpuRegister());
-    locations->SetOut(Location::RequiresRegister());
-    locations->AddTemp(Location::RequiresFpuRegister());
-    locations->AddTemp(Location::RequiresFpuRegister());
-    return;
-  }
-
-  // We have to fall back to a call to the intrinsic.
+static void CreateSSE41FPToIntLocations(ArenaAllocator* arena, HInvoke* invoke) {
   LocationSummary* locations = new (arena) LocationSummary(invoke,
-                                                           LocationSummary::kCallOnMainOnly);
-  InvokeRuntimeCallingConvention calling_convention;
-  locations->SetInAt(0, Location::RegisterLocation(calling_convention.GetFpuRegisterAt(0)));
-  locations->SetOut(Location::RegisterLocation(RAX));
-  // Needs to be RDI for the invoke.
-  locations->AddTemp(Location::RegisterLocation(RDI));
+                                                           LocationSummary::kNoCall,
+                                                           kIntrinsified);
+  locations->SetInAt(0, Location::RequiresFpuRegister());
+  locations->SetOut(Location::RequiresRegister());
+  locations->AddTemp(Location::RequiresFpuRegister());
+  locations->AddTemp(Location::RequiresFpuRegister());
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitMathRoundFloat(HInvoke* invoke) {
-  CreateSSE41FPToIntLocations(arena_, invoke, codegen_);
+  CreateSSE41FPToIntLocations(arena_, invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitMathRoundFloat(HInvoke* invoke) {
   LocationSummary* locations = invoke->GetLocations();
-  if (locations->WillCall()) {
-    InvokeOutOfLineIntrinsic(codegen_, invoke);
-    return;
-  }
+  DCHECK(!locations->WillCall());
 
   XmmRegister in = locations->InAt(0).AsFpuRegister<XmmRegister>();
   CpuRegister out = locations->Out().AsRegister<CpuRegister>();
@@ -703,15 +642,12 @@ void IntrinsicCodeGeneratorX86_64::VisitMathRoundFloat(HInvoke* invoke) {
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitMathRoundDouble(HInvoke* invoke) {
-  CreateSSE41FPToIntLocations(arena_, invoke, codegen_);
+  CreateSSE41FPToIntLocations(arena_, invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitMathRoundDouble(HInvoke* invoke) {
   LocationSummary* locations = invoke->GetLocations();
-  if (locations->WillCall()) {
-    InvokeOutOfLineIntrinsic(codegen_, invoke);
-    return;
-  }
+  DCHECK(!locations->WillCall());
 
   XmmRegister in = locations->InAt(0).AsFpuRegister<XmmRegister>();
   CpuRegister out = locations->Out().AsRegister<CpuRegister>();
@@ -2621,13 +2557,7 @@ void IntrinsicCodeGeneratorX86_64::VisitLongReverse(HInvoke* invoke) {
   SwapBits64(reg, temp1, temp2, 4, INT64_C(0x0f0f0f0f0f0f0f0f), assembler);
 }
 
-static void CreateBitCountLocations(
-    ArenaAllocator* arena, CodeGeneratorX86_64* codegen, HInvoke* invoke) {
-  if (!codegen->GetInstructionSetFeatures().HasPopCnt()) {
-    // Do nothing if there is no popcnt support. This results in generating
-    // a call for the intrinsic rather than direct code.
-    return;
-  }
+static void CreateBitCountLocations(ArenaAllocator* arena, HInvoke* invoke) {
   LocationSummary* locations = new (arena) LocationSummary(invoke,
                                                            LocationSummary::kNoCall,
                                                            kIntrinsified);
@@ -2669,7 +2599,7 @@ static void GenBitCount(X86_64Assembler* assembler,
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitIntegerBitCount(HInvoke* invoke) {
-  CreateBitCountLocations(arena_, codegen_, invoke);
+  CreateBitCountLocations(arena_, invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitIntegerBitCount(HInvoke* invoke) {
@@ -2677,7 +2607,7 @@ void IntrinsicCodeGeneratorX86_64::VisitIntegerBitCount(HInvoke* invoke) {
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitLongBitCount(HInvoke* invoke) {
-  CreateBitCountLocations(arena_, codegen_, invoke);
+  CreateBitCountLocations(arena_, invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitLongBitCount(HInvoke* invoke) {

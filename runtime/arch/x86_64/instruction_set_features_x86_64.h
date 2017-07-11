@@ -27,7 +27,7 @@ using X86_64FeaturesUniquePtr = std::unique_ptr<const X86_64InstructionSetFeatur
 // Instruction set features relevant to the X86_64 architecture.
 class X86_64InstructionSetFeatures FINAL : public X86InstructionSetFeatures {
  public:
-  // Process a CPU variant string like "atom" or "nehalem" and create InstructionSetFeatures.
+  // Process a CPU variant string like "haswell" and create InstructionSetFeatures.
   static X86_64FeaturesUniquePtr FromVariant(const std::string& variant, std::string* error_msg) {
     return Convert(X86InstructionSetFeatures::FromVariant(variant, error_msg, true));
   }
@@ -66,7 +66,7 @@ class X86_64InstructionSetFeatures FINAL : public X86InstructionSetFeatures {
   virtual ~X86_64InstructionSetFeatures() {}
 
  protected:
-  // Parse a string of the form "ssse3" adding these to a new InstructionSetFeatures.
+  // Parse a string of the form "avx" adding these to a new InstructionSetFeatures.
   std::unique_ptr<const InstructionSetFeatures>
       AddFeaturesFromSplitString(const std::vector<std::string>& features,
                                  std::string* error_msg) const OVERRIDE {
@@ -74,14 +74,8 @@ class X86_64InstructionSetFeatures FINAL : public X86InstructionSetFeatures {
   }
 
  private:
-  X86_64InstructionSetFeatures(bool has_SSSE3,
-                               bool has_SSE4_1,
-                               bool has_SSE4_2,
-                               bool has_AVX,
-                               bool has_AVX2,
-                               bool has_POPCNT)
-      : X86InstructionSetFeatures(has_SSSE3, has_SSE4_1, has_SSE4_2, has_AVX,
-                                  has_AVX2, has_POPCNT) {
+  X86_64InstructionSetFeatures(bool has_AVX, bool has_AVX2)
+      : X86InstructionSetFeatures(has_AVX, has_AVX2) {
   }
 
   static X86_64FeaturesUniquePtr Convert(X86FeaturesUniquePtr&& in) {

@@ -1098,7 +1098,7 @@ bool HLoopOptimization::TrySetVectorType(Primitive::Type type, uint64_t* restric
     case kArm:
     case kThumb2:
       // Allow vectorization for all ARM devices, because Android assumes that
-      // ARM 32-bit always supports advanced SIMD.
+      // ARM 32-bit always supports advanced SIMD (64-bit SIMD).
       switch (type) {
         case Primitive::kPrimBoolean:
         case Primitive::kPrimByte:
@@ -1117,7 +1117,7 @@ bool HLoopOptimization::TrySetVectorType(Primitive::Type type, uint64_t* restric
       return false;
     case kArm64:
       // Allow vectorization for all ARM devices, because Android assumes that
-      // ARMv8 AArch64 always supports advanced SIMD.
+      // ARMv8 AArch64 always supports advanced SIMD (128-bit SIMD).
       switch (type) {
         case Primitive::kPrimBoolean:
         case Primitive::kPrimByte:
@@ -1142,34 +1142,32 @@ bool HLoopOptimization::TrySetVectorType(Primitive::Type type, uint64_t* restric
       }
     case kX86:
     case kX86_64:
-      // Allow vectorization for SSE4-enabled X86 devices only (128-bit vectors).
-      if (features->AsX86InstructionSetFeatures()->HasSSE4_1()) {
-        switch (type) {
-          case Primitive::kPrimBoolean:
-          case Primitive::kPrimByte:
-            *restrictions |= kNoMul | kNoDiv | kNoShift | kNoAbs | kNoSignedHAdd | kNoUnroundedHAdd;
-            return TrySetVectorLength(16);
-          case Primitive::kPrimChar:
-          case Primitive::kPrimShort:
-            *restrictions |= kNoDiv | kNoAbs | kNoSignedHAdd | kNoUnroundedHAdd;
-            return TrySetVectorLength(8);
-          case Primitive::kPrimInt:
-            *restrictions |= kNoDiv;
-            return TrySetVectorLength(4);
-          case Primitive::kPrimLong:
-            *restrictions |= kNoMul | kNoDiv | kNoShr | kNoAbs | kNoMinMax;
-            return TrySetVectorLength(2);
-          case Primitive::kPrimFloat:
-            *restrictions |= kNoMinMax;  // -0.0 vs +0.0
-            return TrySetVectorLength(4);
-          case Primitive::kPrimDouble:
-            *restrictions |= kNoMinMax;  // -0.0 vs +0.0
-            return TrySetVectorLength(2);
-          default:
-            break;
-        }  // switch type
-      }
-      return false;
+      // Allow vectorization for all x86 and x86_64 devices, because Android assumes that
+      // such processors always support at least SSE4.2 (128-bit SIMD).
+      switch (type) {
+        case Primitive::kPrimBoolean:
+        case Primitive::kPrimByte:
+          *restrictions |= kNoMul | kNoDiv | kNoShift | kNoAbs | kNoSignedHAdd | kNoUnroundedHAdd;
+          return TrySetVectorLength(16);
+        case Primitive::kPrimChar:
+        case Primitive::kPrimShort:
+          *restrictions |= kNoDiv | kNoAbs | kNoSignedHAdd | kNoUnroundedHAdd;
+          return TrySetVectorLength(8);
+        case Primitive::kPrimInt:
+          *restrictions |= kNoDiv;
+          return TrySetVectorLength(4);
+        case Primitive::kPrimLong:
+          *restrictions |= kNoMul | kNoDiv | kNoShr | kNoAbs | kNoMinMax;
+          return TrySetVectorLength(2);
+        case Primitive::kPrimFloat:
+          *restrictions |= kNoMinMax;  // -0.0 vs +0.0
+          return TrySetVectorLength(4);
+        case Primitive::kPrimDouble:
+          *restrictions |= kNoMinMax;  // -0.0 vs +0.0
+          return TrySetVectorLength(2);
+        default:
+          return false;
+      }  // switch type
     case kMips:
       // TODO: implement MIPS SIMD.
       return false;
