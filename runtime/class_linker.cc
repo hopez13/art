@@ -2867,6 +2867,12 @@ mirror::Class* ClassLinker::DefineClass(Thread* self,
     // Interface object should get the right size here. Regular class will
     // figure out the right size later and be replaced with one of the right
     // size when the class becomes resolved.
+    // But AllocClass can't work under transaction, abort if not found.
+    if (Runtime::Current()->IsActiveTransaction()) {
+      Runtime::Current()->AbortTransactionAndThrowAbortError(self, "Can't resolve this type "
+          "within a transaction.");
+      return nullptr;
+    }
     klass.Assign(AllocClass(self, SizeOfClassWithoutEmbeddedTables(dex_file, dex_class_def)));
   }
   if (UNLIKELY(klass == nullptr)) {
