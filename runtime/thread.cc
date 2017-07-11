@@ -78,6 +78,7 @@
 #include "reflection.h"
 #include "runtime.h"
 #include "runtime_callbacks.h"
+#include "transaction.h"
 #include "scoped_thread_state_change-inl.h"
 #include "ScopedLocalRef.h"
 #include "ScopedUtfChars.h"
@@ -2741,8 +2742,8 @@ void Thread::ThrowNewWrappedException(const char* exception_class_descriptor,
     return;
   }
 
-  if (UNLIKELY(!runtime->GetClassLinker()->EnsureInitialized(soa.Self(), exception_class, true,
-                                                             true))) {
+  if (UNLIKELY(!runtime->GetClassLinker()->EnsureInitializedWithTransaction(
+      soa.Self(), exception_class, true, true))) {
     DCHECK(IsExceptionPending());
     return;
   }
