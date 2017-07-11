@@ -109,6 +109,7 @@
 #include "thread-inl.h"
 #include "thread_list.h"
 #include "trace.h"
+#include "transaction.h"
 #include "utf.h"
 #include "utils.h"
 #include "utils/dex_cache_arrays_layout-inl.h"
@@ -5342,6 +5343,29 @@ bool ClassLinker::ValidateSuperClassDescriptors(Handle<mirror::Class> klass) {
     }
   }
   return true;
+}
+
+bool ClassLinker::EnsureInitializedWithTransaction(Thread* self,
+                                                   Handle<mirror::Class> c,
+                                                   bool can_init_fields,
+                                                   bool can_init_parents) {
+  Runtime* const runtime = Runtime::Current();
+
+  DCHECK(c != nullptr);
+  if (c->IsInitialized() || c->IsInitializing()) {
+    return EnsureInitialized(self, c, can_init_fields, can_init_parents);
+  }
+
+  if (runtime->IsStrictMode()) {
+    runtime->EnterTransactionMode(true, c.Get());
+  }
+  bool success = EnsureInitialized(self, c, can_init_fields, can_init_parents);
+
+  if (runtime->IsStrictMode() && success) {
+    runtime->ExitTransactionMode();
+  }
+
+  return success;
 }
 
 bool ClassLinker::EnsureInitialized(Thread* self,
