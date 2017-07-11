@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f8c23e0d_3d9e4b8d",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-11T15:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "131504bf_6109d683",
+      "range": {
+        "startLine": 1148,
+        "startChar": 0,
+        "endLine": 1148,
+        "endChar": 48
+      },
+      "revId": "95f5a20911b3be163b13cd54296a65a64d54849a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bdbb6fb0_bb887252",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 32
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-11T15:09:58Z",
       "side": 1,
       "message": "Should this DCHECK(!m-\u003eIsDirect())?",
+      "range": {
+        "startLine": 581,
+        "startChar": 6,
+        "endLine": 581,
+        "endChar": 16
+      },
+      "revId": "95f5a20911b3be163b13cd54296a65a64d54849a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5d17cb3_f6a480ba",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-11T15:19:37Z",
+      "side": 1,
+      "message": "No, the old code was also looking for direct methods when it didn\u0027t find any virtuals.",
+      "parentUuid": "bdbb6fb0_bb887252",
       "range": {
         "startLine": 581,
         "startChar": 6,
