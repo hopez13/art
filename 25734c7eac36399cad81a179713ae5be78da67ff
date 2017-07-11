@@ -22,6 +22,30 @@
       "revId": "25734c7eac36399cad81a179713ae5be78da67ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de62f7e8_0d14d68d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-11T13:26:43Z",
+      "side": 0,
+      "message": "This routine checks whether we are compiling (some code) *against* a core image. I needed a predicate to check whether we were compiling *a* core image. The change in this file is a mere refactoring.",
+      "parentUuid": "f99312ed_749d98a4",
+      "range": {
+        "startLine": 1108,
+        "startChar": 2,
+        "endLine": 1114,
+        "endChar": 15
+      },
+      "revId": "25734c7eac36399cad81a179713ae5be78da67ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
