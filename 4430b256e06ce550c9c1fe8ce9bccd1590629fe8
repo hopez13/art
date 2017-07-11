@@ -22,6 +22,30 @@
       "revId": "4430b256e06ce550c9c1fe8ce9bccd1590629fe8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22a2c3a9_416f277e",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-11T20:54:30Z",
+      "side": 1,
+      "message": "Just like the one above (202) this is not a bug. This is simply the test making assumptions that aren\u0027t true under ASAN (e.g., 074 asserts you can call the dive functions recursively a hardcoded 61 times). So there\u0027s no bug number. I hope that the description tag gives enough details?",
+      "parentUuid": "4cca36d1_7fa382ee",
+      "range": {
+        "startLine": 669,
+        "startChar": 9,
+        "endLine": 669,
+        "endChar": 17
+      },
+      "revId": "4430b256e06ce550c9c1fe8ce9bccd1590629fe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
