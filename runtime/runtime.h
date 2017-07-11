@@ -455,11 +455,17 @@ class Runtime {
 
   // Transaction support.
   bool IsActiveTransaction() const {
-    return preinitialization_transaction_ != nullptr;
+    return !transaction_rolling_back && !preinitialization_transactions_.empty();
   }
-  void EnterTransactionMode(Transaction* transaction);
+  void EnterTransactionMode();
+  void EnterTransactionMode(bool app_image, mirror::Object* root);
   void ExitTransactionMode();
   bool IsTransactionAborted() const;
+  void StartRollbackTransaction();
+  void DoneRollbackTransaction();
+  Transaction* GetTransaction() const;
+
+  bool IsStrictMode() const;
 
   void AbortTransactionAndThrowAbortError(Thread* self, const std::string& abort_message)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -842,7 +848,10 @@ class Runtime {
   bool dump_gc_performance_on_shutdown_;
 
   // Transaction used for pre-initializing classes at compilation time.
-  Transaction* preinitialization_transaction_;
+  std::list<Transaction> preinitialization_transactions_;
+
+  // Flag indicates whether transactions are rolling back
+  bool transaction_rolling_back;
 
   // If kNone, verification is disabled. kEnable by default.
   verifier::VerifyMode verify_;
