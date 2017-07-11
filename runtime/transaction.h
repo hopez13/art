@@ -22,6 +22,7 @@
 #include "base/value_object.h"
 #include "dex_file_types.h"
 #include "gc_root.h"
+#include "object_callbacks.h"
 #include "offsets.h"
 #include "primitive.h"
 #include "safe_map.h"
@@ -44,6 +45,7 @@ class Transaction FINAL {
   static constexpr const char* kAbortExceptionSignature = "Ldalvik/system/TransactionAbortError;";
 
   Transaction();
+  explicit Transaction(bool, mirror::Object*);
   ~Transaction();
 
   void Abort(const std::string& abort_message)
@@ -53,6 +55,12 @@ class Transaction FINAL {
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsAborted() REQUIRES(!log_lock_);
+  // If the transaction is in strict mode, the all access of static fields will be constrained,
+  // one object's clinit will not allowed to read or modify another class's static fields, unless
+  // the transaction is aborted.
+  bool IsStrict() REQUIRES(!log_lock_);
+
+  const std::string& GetAbortMessage() REQUIRES(!log_lock_);
 
   // Record object field changes.
   void RecordWriteFieldBoolean(mirror::Object* obj,
@@ -279,15 +287,15 @@ class Transaction FINAL {
       REQUIRES(log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  const std::string& GetAbortMessage() REQUIRES(!log_lock_);
-
   Mutex log_lock_ ACQUIRED_AFTER(Locks::intern_table_lock_);
   std::map<mirror::Object*, ObjectLog> object_logs_ GUARDED_BY(log_lock_);
   std::map<mirror::Array*, ArrayLog> array_logs_  GUARDED_BY(log_lock_);
   std::list<InternStringLog> intern_string_logs_ GUARDED_BY(log_lock_);
   std::list<ResolveStringLog> resolve_string_logs_ GUARDED_BY(log_lock_);
   bool aborted_ GUARDED_BY(log_lock_);
+  bool strict_ GUARDED_BY(log_lock_);
   std::string abort_message_ GUARDED_BY(log_lock_);
+  mirror::Object* root_ GUARDED_BY(log_lock_);
 
   DISALLOW_COPY_AND_ASSIGN(Transaction);
 };
