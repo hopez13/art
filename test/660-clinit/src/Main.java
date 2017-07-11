@@ -24,18 +24,27 @@ public class Main {
     if (!checkAppImageLoaded()) {
       System.out.println("AppImage not loaded.");
     }
+    if (!checkAppImageContains(ClInit.class)) {
+      System.out.println("ClInit class is not in app image!");
+    }
 
-    ShouldNotInit(Day.class);
-    ShouldNotInit(ClInit.class); // should pass
-    ShouldNotInit(A.class); // should pass
-    ShouldNotInit(B.class); // should fail
-    ShouldNotInit(C.class); // should fail
-    ShouldNotInit(G.class); // should fail
-    ShouldNotInit(Gs.class); // should fail
+    ShouldInit(ClInit.class);
+    ShouldInit(A.class);
+    ShouldInit(E.class);
+    ShouldNotInit(B.class);
+    ShouldNotInit(C.class);
+    ShouldNotInit(G.class);
+    ShouldNotInit(Gs.class);
+    ShouldInit(InvokeStatic.class);
+    ShouldNotInit(ClinitE.class);
 
     ShouldNotInit(Add.class);
     ShouldNotInit(Mul.class);
     ShouldNotInit(ObjectRef.class);
+    ShouldNotInit(Print.class);
+
+    Print p = new Print();
+    Gs gs = new Gs();
 
     A x = new A();
     System.out.println("A.a: " + A.a);
@@ -60,6 +69,10 @@ public class Main {
     if (c.a != 101) {
       System.out.println("a != 101");
     }
+
+    try {
+      ClinitE e = new ClinitE();
+    } catch (Error err) { }
 
     return;
   }
@@ -163,6 +176,13 @@ class C {
   }
 }
 
+class E {
+  public static final int e;
+  static {
+    e = 100;
+  }
+}
+
 class G {
   static G g;
   static int i;
@@ -187,9 +207,36 @@ class Add {
   }
 }
 
+// test of INVOKE_STATIC instruction
+class InvokeStatic {
+  static int a;
+  static int b;
+  static {
+    a = Add.exec(10, 20);
+    b = Mul.exec(10, 20);
+  }
+}
+
 // non-image
 class Mul {
   static int exec(int a, int b) {
     return a * b;
   }
 }
+
+class ClinitE {
+  static {
+    if (Math.sin(3) < 0.5) {
+      // throw anyway, can't initialized
+      throw new ExceptionInInitializerError("Can't initialize this class!");
+    }
+  }
+}
+
+// fail because JNI
+class Print {
+  static {
+    System.out.println("hello world");
+  }
+}
+
