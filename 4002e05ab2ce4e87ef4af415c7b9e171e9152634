@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dd3ef8be_88e11dc6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-11T15:35:29Z",
+      "side": 1,
+      "message": "Agreed, this is not really useful anymore. Removed in PS22.",
+      "parentUuid": "2dc02bff_9b8d2d08",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 58
+      },
+      "revId": "4002e05ab2ce4e87ef4af415c7b9e171e9152634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89b7575b_1e38e3de",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 19
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-11T13:47:42Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 703,
+        "startChar": 2,
+        "endLine": 703,
+        "endChar": 9
+      },
+      "revId": "4002e05ab2ce4e87ef4af415c7b9e171e9152634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49ea0bf7_11abd740",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-11T15:35:29Z",
+      "side": 1,
+      "message": "We need this, as GenerateMarkingRegisterCheck is overridden in TestCodeGeneratorARM64 (see https://android-review.googlesource.com/#/c/414240/19/compiler/optimizing/codegen_test_utils.h@148).",
+      "parentUuid": "89b7575b_1e38e3de",
       "range": {
         "startLine": 703,
         "startChar": 2,

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5cb4bd9f_2bf689c3",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-11T15:35:29Z",
+      "side": 1,
+      "message": "This information is needed in Arm64JNIMacroAssembler::RemoveFrame. Would you prefer a flag in the JNIMacroAssembler class instead?",
+      "parentUuid": "5a6da042_a45c0310",
+      "range": {
+        "startLine": 60,
+        "startChar": 19,
+        "endLine": 60,
+        "endChar": 58
+      },
+      "revId": "1699bd1dc4749e6c81e40243cd89d51b863e6be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "137559a4_466a0b62",
         "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
         "patchSetId": 21
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-11T13:47:42Z",
       "side": 1,
       "message": "Drop? Use the helper?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 62
+      },
+      "revId": "1699bd1dc4749e6c81e40243cd89d51b863e6be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e483ab0_d54836a3",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-11T15:35:29Z",
+      "side": 1,
+      "message": "Removed in PS22.",
+      "parentUuid": "137559a4_466a0b62",
       "range": {
         "startLine": 41,
         "startChar": 0,
