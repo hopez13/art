@@ -16,6 +16,24 @@
       "revId": "b9d9daa376086af5022b4d3cecbbbb9bbf8159ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f714915c_54e39d7e",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-07-11T15:47:26Z",
+      "side": 1,
+      "message": "The code for CPURegList::IncludesAliasOf is\n\n  bool IncludesAliasOf(const CPURegister\u0026 other) const {\n    VIXL_ASSERT(IsValid());\n    return (type_ \u003d\u003d other.GetType()) \u0026\u0026 ((other.GetBit() \u0026 list_) !\u003d 0);\n  }\n\nand in the our case, `type_` would be `CPURegister::kRegister`, which encompasses W and X registers, so we can safely replace `mr.X()` with `mr` here.\n\nI\u0027ve changed the code to make `mr` an X register by default, so that the code here looks like the code in compiler/optimizing/code_generator_arm64.{h,cc}).",
+      "parentUuid": "231c0d83_ef4e1174",
+      "revId": "b9d9daa376086af5022b4d3cecbbbb9bbf8159ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
