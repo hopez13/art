@@ -779,44 +779,40 @@ TEST_F(UnstartedRuntimeTest, ToLowerUpper) {
     {
       JValue result;
       tmp->SetVReg(0, static_cast<int32_t>(i));
-      Transaction transaction;
-      Runtime::Current()->EnterTransactionMode(&transaction);
+      Runtime::Current()->EnterTransactionMode();
       UnstartedCharacterToLowerCase(self, tmp, &result, 0);
+      ASSERT_TRUE(Runtime::Current()->GetTransaction()->IsAborted());
       Runtime::Current()->ExitTransactionMode();
       ASSERT_TRUE(self->IsExceptionPending());
-      ASSERT_TRUE(transaction.IsAborted());
     }
     {
       JValue result;
       tmp->SetVReg(0, static_cast<int32_t>(i));
-      Transaction transaction;
-      Runtime::Current()->EnterTransactionMode(&transaction);
+      Runtime::Current()->EnterTransactionMode();
       UnstartedCharacterToUpperCase(self, tmp, &result, 0);
+      ASSERT_TRUE(Runtime::Current()->GetTransaction()->IsAborted());
       Runtime::Current()->ExitTransactionMode();
       ASSERT_TRUE(self->IsExceptionPending());
-      ASSERT_TRUE(transaction.IsAborted());
     }
   }
   for (uint64_t i = 256; i <= std::numeric_limits<uint32_t>::max(); i <<= 1) {
     {
       JValue result;
       tmp->SetVReg(0, static_cast<int32_t>(i));
-      Transaction transaction;
-      Runtime::Current()->EnterTransactionMode(&transaction);
+      Runtime::Current()->EnterTransactionMode();
       UnstartedCharacterToLowerCase(self, tmp, &result, 0);
+      ASSERT_TRUE(Runtime::Current()->GetTransaction()->IsAborted());
       Runtime::Current()->ExitTransactionMode();
       ASSERT_TRUE(self->IsExceptionPending());
-      ASSERT_TRUE(transaction.IsAborted());
     }
     {
       JValue result;
       tmp->SetVReg(0, static_cast<int32_t>(i));
-      Transaction transaction;
-      Runtime::Current()->EnterTransactionMode(&transaction);
+      Runtime::Current()->EnterTransactionMode();
       UnstartedCharacterToUpperCase(self, tmp, &result, 0);
+      ASSERT_TRUE(Runtime::Current()->GetTransaction()->IsAborted());
       Runtime::Current()->ExitTransactionMode();
       ASSERT_TRUE(self->IsExceptionPending());
-      ASSERT_TRUE(transaction.IsAborted());
     }
   }
 
@@ -993,12 +989,11 @@ TEST_F(UnstartedRuntimeTest, ThreadLocalGet) {
     ShadowFrame* caller_frame = ShadowFrame::CreateDeoptimizedFrame(10, nullptr, caller_method, 0);
     shadow_frame->SetLink(caller_frame);
 
-    Transaction transaction;
-    Runtime::Current()->EnterTransactionMode(&transaction);
+    Runtime::Current()->EnterTransactionMode();
     UnstartedThreadLocalGet(self, shadow_frame, &result, 0);
+    ASSERT_TRUE(Runtime::Current()->GetTransaction()->IsAborted());
     Runtime::Current()->ExitTransactionMode();
     ASSERT_TRUE(self->IsExceptionPending());
-    ASSERT_TRUE(transaction.IsAborted());
     self->ClearException();
 
     ShadowFrame::DeleteDeoptimizedFrame(caller_frame);
@@ -1061,12 +1056,11 @@ TEST_F(UnstartedRuntimeTest, ThreadCurrentThread) {
   PrepareForAborts();
 
   {
-    Transaction transaction;
-    Runtime::Current()->EnterTransactionMode(&transaction);
+    Runtime::Current()->EnterTransactionMode();
     UnstartedThreadCurrentThread(self, shadow_frame, &result, 0);
+    ASSERT_TRUE(Runtime::Current()->GetTransaction()->IsAborted());
     Runtime::Current()->ExitTransactionMode();
     ASSERT_TRUE(self->IsExceptionPending());
-    ASSERT_TRUE(transaction.IsAborted());
     self->ClearException();
   }
 
@@ -1133,17 +1127,12 @@ class UnstartedClassForNameTest : public UnstartedRuntimeTest {
       mirror::String* name_string = mirror::String::AllocFromModifiedUtf8(self, name);
       CHECK(name_string != nullptr);
 
-      Transaction transaction;
       if (in_transaction) {
-        Runtime::Current()->EnterTransactionMode(&transaction);
+        Runtime::Current()->EnterTransactionMode();
       }
       CHECK(!self->IsExceptionPending());
 
       runner(self, shadow_frame, name_string, &result);
-
-      if (in_transaction) {
-        Runtime::Current()->ExitTransactionMode();
-      }
 
       if (should_succeed) {
         CHECK(!self->IsExceptionPending()) << name << " " << self->GetException()->Dump();
@@ -1151,9 +1140,13 @@ class UnstartedClassForNameTest : public UnstartedRuntimeTest {
       } else {
         CHECK(self->IsExceptionPending()) << name;
         if (in_transaction) {
-          ASSERT_TRUE(transaction.IsAborted());
+          ASSERT_TRUE(Runtime::Current()->GetTransaction()->IsAborted());
         }
         self->ClearException();
+      }
+
+      if (in_transaction) {
+        Runtime::Current()->ExitTransactionMode();
       }
     }
 
