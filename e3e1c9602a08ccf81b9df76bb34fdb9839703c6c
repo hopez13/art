@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "97546e00_31637c5d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-12T00:04:10Z",
+      "side": 1,
+      "message": "Bad name. This should say what it\u0027s actually doing.",
+      "range": {
+        "startLine": 740,
+        "startChar": 19,
+        "endLine": 740,
+        "endChar": 40
+      },
+      "revId": "e3e1c9602a08ccf81b9df76bb34fdb9839703c6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "209d3a96_4842cb87",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -22,6 +45,52 @@
       "revId": "e3e1c9602a08ccf81b9df76bb34fdb9839703c6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d063f9_2212aa31",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-12T00:04:10Z",
+      "side": 1,
+      "message": "Comment, please.",
+      "range": {
+        "startLine": 773,
+        "startChar": 4,
+        "endLine": 773,
+        "endChar": 26
+      },
+      "revId": "e3e1c9602a08ccf81b9df76bb34fdb9839703c6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3292251f_3dc3232a",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-12T00:04:10Z",
+      "side": 1,
+      "message": "Underscores for class members.",
+      "range": {
+        "startLine": 796,
+        "startChar": 26,
+        "endLine": 796,
+        "endChar": 28
+      },
+      "revId": "e3e1c9602a08ccf81b9df76bb34fdb9839703c6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
