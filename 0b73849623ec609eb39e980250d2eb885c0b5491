@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "899b4675_6e6b96d4",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T08:33:12Z",
+      "side": 1,
+      "message": "I guess this cannot be called in subclasses because \u0027driver\u0027 is unavailable?\n\nIf that\u0027s the case then yeah, it might be simpler to just have a flag in the class.",
+      "range": {
+        "startLine": 114,
+        "startChar": 12,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "0b73849623ec609eb39e980250d2eb885c0b5491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d1bec2a_a3b8d8a8",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T08:33:12Z",
+      "side": 1,
+      "message": "Share the helper with the optimizing compiler?",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 89
+      },
+      "revId": "0b73849623ec609eb39e980250d2eb885c0b5491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
