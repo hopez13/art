@@ -22,6 +22,30 @@
       "revId": "0f2788a023e5e30c79afc4cb02c601874acedb9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7219688b_785e2f9e",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-12T23:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f6274b1_5f70210b",
+      "range": {
+        "startLine": 703,
+        "startChar": 24,
+        "endLine": 703,
+        "endChar": 29
+      },
+      "revId": "0f2788a023e5e30c79afc4cb02c601874acedb9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
