@@ -207,6 +207,18 @@ if [ "$sequental" == "yes" ]; then
     fi
   done
 else
+  # test_pids are spawned child process ids
+  test_pids=()
+
+  # prepare to reap child processes if a stop request is received
+  function reap_children() {
+    if [ ${#test_pids[@]} -ne 0 ]; then
+      kill -TERM ${test_pids[@]}
+    fi
+    exit 1
+  }
+  trap "reap_children" TERM INT
+
   # start all the tests
   i=0
   for test_name in *; do
