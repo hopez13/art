@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7e776621_e3108502",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-12T23:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff4d8267_2f0711f5",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "bdf6c3a2df91e9019c36590c2eb6f7fb7073dbca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ddf598a_efe788c4",
         "filename": "profman/profile_assistant_test.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-12T23:23:45Z",
       "side": 1,
       "message": "No comment?",
+      "range": {
+        "startLine": 642,
+        "startChar": 2,
+        "endLine": 642,
+        "endChar": 69
+      },
+      "revId": "bdf6c3a2df91e9019c36590c2eb6f7fb7073dbca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42bb88ac_7afdd2cb",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-12T23:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ddf598a_efe788c4",
       "range": {
         "startLine": 642,
         "startChar": 2,
