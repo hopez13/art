@@ -45,7 +45,7 @@ class Transaction FINAL {
   static constexpr const char* kAbortExceptionSignature = "Ldalvik/system/TransactionAbortError;";
 
   Transaction();
-  explicit Transaction(bool, mirror::Object*);
+  explicit Transaction(bool strict, mirror::Object* root);
   ~Transaction();
 
   void Abort(const std::string& abort_message)
@@ -129,6 +129,14 @@ class Transaction FINAL {
       REQUIRES(!log_lock_);
 
   void VisitRoots(RootVisitor* visitor)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool ReadConstraint(mirror::Object* obj, ArtField* field)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool WriteConstraint(mirror::Object* obj, ArtField* field)
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

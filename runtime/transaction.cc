@@ -40,8 +40,8 @@ Transaction::Transaction()
   CHECK(Runtime::Current()->IsAotCompiler());
 }
 
-Transaction::Transaction(bool app_image, mirror::Object* root) : Transaction() {
-  strict_ = app_image;
+Transaction::Transaction(bool strict, mirror::Object* root) : Transaction() {
+  strict_ = strict;
   root_ = root;
 }
 
@@ -112,6 +112,27 @@ bool Transaction::IsStrict() {
 const std::string& Transaction::GetAbortMessage() {
   MutexLock mu(Thread::Current(), log_lock_);
   return abort_message_;
+}
+
+bool Transaction::WriteConstraint(mirror::Object* obj, ArtField* field) {
+  MutexLock mu(Thread::Current(), log_lock_);
+  if (!aborted_ && strict_ && field->IsStatic() && obj != root_) {
+    // allow exceptions been created
+    // only apply to app image
+    return true;
+  }
+  return false;
+}
+
+bool Transaction::ReadConstraint(mirror::Object* obj, ArtField* field) {
+  DCHECK(field->IsStatic());
+  DCHECK(obj->IsClass());
+  MutexLock mu(Thread::Current(), log_lock_);
+  if (!strict_ ||   // no constraint for boot image
+      obj == root_) {  // self-updating, pass
+    return false;
+  }
+  return true;
 }
 
 void Transaction::RecordWriteFieldBoolean(mirror::Object* obj,
@@ -283,6 +304,7 @@ void Transaction::UndoResolveStringModifications() {
 
 void Transaction::VisitRoots(RootVisitor* visitor) {
   MutexLock mu(Thread::Current(), log_lock_);
+  visitor->VisitRoot(&root_, RootInfo(kRootUnknown));
   VisitObjectLogs(visitor);
   VisitArrayLogs(visitor);
   VisitInternStringLogs(visitor);
