@@ -31,6 +31,8 @@
 
 #include "ti_thread.h"
 
+#include <mutex>
+
 #include "android-base/strings.h"
 #include "art_field-inl.h"
 #include "art_jvmti.h"
@@ -492,7 +494,14 @@ jvmtiError ThreadUtil::GetAllThreads(jvmtiEnv* env,
   return ERR(NONE);
 }
 
-jvmtiError ThreadUtil::SetThreadLocalStorage(jvmtiEnv* env ATTRIBUTE_UNUSED,
+// The struct that we store in the art::Thread::custom_tls_ that maps the jvmtiEnv id's to the data
+// stored with that thread.
+struct JvmtiGlobalTLSData {
+  std::mutex data_lock;
+  std::unordered_map<uint64_t, const void*> data;
+};
+
+jvmtiError ThreadUtil::SetThreadLocalStorage(jvmtiEnv* env,
                                              jthread thread,
                                              const void* data) {
   art::ScopedObjectAccess soa(art::Thread::Current());
@@ -504,12 +513,30 @@ jvmtiError ThreadUtil::SetThreadLocalStorage(jvmtiEnv* env ATTRIBUTE_UNUSED,
     return ERR(THREAD_NOT_ALIVE);
   }
 
-  self->SetCustomTLS(data);
+  JvmtiGlobalTLSData* global_tls = nullptr;
+  void* cur_tls;
+  do {
+    cur_tls = const_cast<void*>(self->GetCustomTLS());
+    if (cur_tls != nullptr) {
+      break;
+    }
+    cur_tls = reinterpret_cast<void*>(new JvmtiGlobalTLSData);
+    if (!self->CASCustomTLS(nullptr, cur_tls)) {
+      delete reinterpret_cast<JvmtiGlobalTLSData*>(cur_tls);
+    }
+  } while (true);
+  global_tls = reinterpret_cast<JvmtiGlobalTLSData*>(cur_tls);
+
+  std::lock_guard<std::mutex> mu(global_tls->data_lock);
+  // Use the globally unique id to keep track of this data so we don't need to deal with
+  // environments being deallocated and memory being reused.
+  DCHECK(global_tls->data.find(ArtJvmTiEnv::AsArtJvmTiEnv(env)->id) == global_tls->data.end());
+  global_tls->data[ArtJvmTiEnv::AsArtJvmTiEnv(env)->id] = data;
 
   return ERR(NONE);
 }
 
-jvmtiError ThreadUtil::GetThreadLocalStorage(jvmtiEnv* env ATTRIBUTE_UNUSED,
+jvmtiError ThreadUtil::GetThreadLocalStorage(jvmtiEnv* env,
                                              jthread thread,
                                              void** data_ptr) {
   if (data_ptr == nullptr) {
@@ -525,7 +552,20 @@ jvmtiError ThreadUtil::GetThreadLocalStorage(jvmtiEnv* env ATTRIBUTE_UNUSED,
     return ERR(THREAD_NOT_ALIVE);
   }
 
-  *data_ptr = const_cast<void*>(self->GetCustomTLS());
+  void* data = const_cast<void*>(self->GetCustomTLS());
+  if (data == nullptr) {
+    *data_ptr = nullptr;
+    return OK;
+  }
+  JvmtiGlobalTLSData* global_data = static_cast<JvmtiGlobalTLSData*>(data);
+  std::lock_guard<std::mutex> mu(global_data->data_lock);
+  auto it = global_data->data.find(ArtJvmTiEnv::AsArtJvmTiEnv(env)->id);
+  if (it != global_data->data.end()) {
+    *data_ptr = const_cast<void*>(it->second);
+  } else {
+    *data_ptr = nullptr;
+  }
+
   return ERR(NONE);
 }
 

@@ -32,6 +32,7 @@
 #ifndef ART_RUNTIME_OPENJDKJVMTI_ART_JVMTI_H_
 #define ART_RUNTIME_OPENJDKJVMTI_ART_JVMTI_H_
 
+#include <atomic>
 #include <memory>
 #include <type_traits>
 #include <unordered_map>
@@ -60,6 +61,7 @@ class ObjectTagTable;
 
 // A structure that is a jvmtiEnv with additional information for the runtime.
 struct ArtJvmTiEnv : public jvmtiEnv {
+  static std::atomic<uint64_t> id_source;
   art::JavaVMExt* art_vm;
   void* local_data;
   jvmtiCapabilities capabilities;
@@ -81,6 +83,9 @@ struct ArtJvmTiEnv : public jvmtiEnv {
 
   // Set of breakpoints is unique to each jvmtiEnv.
   std::unordered_set<Breakpoint> breakpoints;
+
+  // a unique id given to each jvmti_env used for keeping track of TLS data.
+  uint64_t id;
 
   ArtJvmTiEnv(art::JavaVMExt* runtime, EventHandler* event_handler);
 

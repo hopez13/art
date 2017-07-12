@@ -1671,10 +1671,14 @@ static bool IsJvmtiVersion(jint version) {
 }
 
 extern const jvmtiInterface_1 gJvmtiInterface;
+
+std::atomic<uint64_t> ArtJvmTiEnv::id_source(0);
+
 ArtJvmTiEnv::ArtJvmTiEnv(art::JavaVMExt* runtime, EventHandler* event_handler)
     : art_vm(runtime),
       local_data(nullptr),
-      capabilities() {
+      capabilities(),
+      id(id_source++) {
   object_tag_table = std::unique_ptr<ObjectTagTable>(new ObjectTagTable(event_handler, this));
   functions = &gJvmtiInterface;
 }

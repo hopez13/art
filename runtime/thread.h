@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_THREAD_H_
 #define ART_RUNTIME_THREAD_H_
 
+#include <atomic>
 #include <bitset>
 #include <deque>
 #include <iosfwd>
@@ -1178,11 +1179,11 @@ class Thread {
   }
 
   const void* GetCustomTLS() const {
-    return custom_tls_;
+    return custom_tls_.load();
   }
 
-  void SetCustomTLS(const void* data) {
-    custom_tls_ = data;
+  bool CASCustomTLS(const void* expected, const void* data) {
+    return custom_tls_.compare_exchange_strong(expected, data);
   }
 
   // Returns true if the current thread is the jit sensitive thread.
@@ -1672,7 +1673,7 @@ class Thread {
 
   // Custom TLS field that can be used by plugins.
   // TODO: Generalize once we have more plugins.
-  const void* custom_tls_;
+  std::atomic<const void*> custom_tls_;
 
   // True if the thread is allowed to call back into java (for e.g. during class resolution).
   // By default this is true.
