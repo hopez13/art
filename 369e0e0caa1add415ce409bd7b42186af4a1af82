@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a6a30d7e_5186c53e",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-07-12T07:32:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0503e26_ed818eca",
+      "range": {
+        "startLine": 1699,
+        "startChar": 4,
+        "endLine": 1699,
+        "endChar": 6
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e58b47a_59a6e2d9",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-07T03:18:21Z",
       "side": 1,
       "message": "I think jalr+.cpreturn should be replaced with jic $ra, 0 since there\u0027s no .cpsetup at the beginning anymore (you changed ENTRY to ENTRY_NO_GP).",
+      "range": {
+        "startLine": 1715,
+        "startChar": 0,
+        "endLine": 1716,
+        "endChar": 91
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56695821_e4b6b6a5",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-07-12T07:32:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e58b47a_59a6e2d9",
       "range": {
         "startLine": 1715,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a5c28f50_7bec76e4",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-07-12T07:32:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12602251_bd5ab8e5",
+      "range": {
+        "startLine": 1753,
+        "startChar": 0,
+        "endLine": 1755,
+        "endChar": 49
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d24b168_cf589a38",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-07-07T03:18:21Z",
       "side": 1,
       "message": "daddu (if not for correctness then for consistency).",
+      "range": {
+        "startLine": 1806,
+        "startChar": 4,
+        "endLine": 1806,
+        "endChar": 8
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7611f99_02607892",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1806,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-07-12T07:32:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d24b168_cf589a38",
       "range": {
         "startLine": 1806,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "59254d99_3f391df1",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-07-12T07:32:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac1a85ef_e412d63d",
+      "range": {
+        "startLine": 1808,
+        "startChar": 0,
+        "endLine": 1810,
+        "endChar": 49
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1010536a_df6eba8b",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "c1c318d7_760c3f78",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1839,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-07-12T07:32:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1010536a_df6eba8b",
+      "range": {
+        "startLine": 1838,
+        "startChar": 0,
+        "endLine": 1839,
+        "endChar": 84
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "720148f8_09ad7eb3",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -151,6 +295,30 @@
       "writtenOn": "2017-07-07T03:18:21Z",
       "side": 1,
       "message": "These macros shouldn\u0027t be exact copies of their 32-bit counterparts either. Please adjust accordingly.",
+      "range": {
+        "startLine": 1863,
+        "startChar": 0,
+        "endLine": 1900,
+        "endChar": 5
+      },
+      "revId": "369e0e0caa1add415ce409bd7b42186af4a1af82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67a6370_c9c9197d",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-07-12T07:32:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "720148f8_09ad7eb3",
       "range": {
         "startLine": 1863,
         "startChar": 0,
