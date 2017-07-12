@@ -26,7 +26,19 @@ public class Main {
     }
 
     ShouldNotInit(Day.class);
-    ShouldNotInit(ClInit.class);
+    ShouldNotInit(ClInit.class); // should pass
+    ShouldNotInit(A.class); // should pass
+    ShouldNotInit(B.class); // should fail
+    ShouldNotInit(C.class); // should fail
+
+    A x = new A();
+    System.out.println("A.a: " + A.a);
+
+    B y = new B();
+    C z = new C();
+    System.out.println("A.a: " + A.a);
+    System.out.println("B.b: " + B.b);
+    System.out.println("C.c: " + C.c);
 
     ClInit c = new ClInit();
     int aa = c.a;
@@ -123,3 +135,24 @@ class ClInit {
   }
 }
 
+class A {
+  public static int a = 2;
+  static {
+    a = 5;  // self-updating, pass
+  }
+}
+
+class B {
+  public static int b;
+  static {
+    A.a = 10;  // write other's static field, fail
+    b = A.a;   // read other's static field, fail
+  }
+}
+
+class C {
+  public static int c;
+  static {
+    c = A.a; // read other's static field, fail
+  }
+}

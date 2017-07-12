@@ -1791,6 +1791,8 @@ void UnstartedRuntime::UnstartedJNIThrowableNativeFillInStackTrace(
     uint32_t* args ATTRIBUTE_UNUSED, JValue* result) {
   ScopedObjectAccessUnchecked soa(self);
   if (Runtime::Current()->IsActiveTransaction()) {
+    // abort transaction to relax write constrain for creating stack trace.
+    Runtime::Current()->GetTransaction()->Abort("Exception thrown.");
     result->SetL(soa.Decode<mirror::Object>(self->CreateInternalStackTrace<true>(soa)));
   } else {
     result->SetL(soa.Decode<mirror::Object>(self->CreateInternalStackTrace<false>(soa)));
