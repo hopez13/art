@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6db446cc_944e3b0e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:14:48Z",
+      "side": 1,
+      "message": "Please add a comment why doing this here to avoid mistakes in future refactorings.",
+      "range": {
+        "startLine": 2137,
+        "startChar": 0,
+        "endLine": 2140,
+        "endChar": 5
+      },
+      "revId": "8c5e2dad9f585562f6a5b3ed2242a5d4a11fce3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
