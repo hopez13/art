@@ -86,6 +86,7 @@
 #include "stack_map.h"
 #include "thread-inl.h"
 #include "thread_list.h"
+#include "transaction.h"
 #include "utils.h"
 #include "verifier/method_verifier.h"
 #include "verify_object.h"
@@ -2754,6 +2755,11 @@ void Thread::ThrowNewWrappedException(const char* exception_class_descriptor,
   if (exception == nullptr) {
     SetException(Runtime::Current()->GetPreAllocatedOutOfMemoryError());
     return;
+  }
+
+  if (runtime->IsActiveTransaction()) {
+    // abort the transaction anyway cause exception is thrown.
+    runtime->GetTransaction()->Abort("Exception thrown.");
   }
 
   // Choose an appropriate constructor and set up the arguments.
