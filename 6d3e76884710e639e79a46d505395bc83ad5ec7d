@@ -22,6 +22,30 @@
       "revId": "6d3e76884710e639e79a46d505395bc83ad5ec7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fbc7f49_30cf985d",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-12T16:45:07Z",
+      "side": 1,
+      "message": "Because those functions will be called within a transaction or outside of a transaction, which lead to different logic since transaction make records. Whether transaction is enabled can only be known from a runtime check. \n\nThe similar checks were scattered somewhere beforehand and I just unified them all.\n\nPossibly, we can avoid the runtime check by cascading the template argument from class linker, but I think that involved too much modification and I prefer not to do so.",
+      "parentUuid": "1462a58d_632c31fa",
+      "range": {
+        "startLine": 565,
+        "startChar": 3,
+        "endLine": 566,
+        "endChar": 39
+      },
+      "revId": "6d3e76884710e639e79a46d505395bc83ad5ec7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
