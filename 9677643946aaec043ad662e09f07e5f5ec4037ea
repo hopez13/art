@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83cdf12b_066a596f",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "We need the lock to be longer in the second case.\n\nWe really only do this here to give a best-effort attempt to match RI behavior which is that trying to suspend a suspended thread returns that error. Unfortunately in ART suspension works differently with it being a count.",
+      "parentUuid": "62c1d2b8_03874d5a",
+      "range": {
+        "startLine": 618,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 5
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bef9666b_d967f72d",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "I don\u0027t see any use of thread-safety attributes (like REQUIRES ...) here. I found them useful, especially in jdwp code.\n\nIs it intended to not use them in this module?",
+      "range": {
+        "startLine": 640,
+        "startChar": 23,
+        "endLine": 640,
+        "endChar": 34
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fead634_28c8b1e1",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bef9666b_d967f72d",
       "range": {
         "startLine": 640,
         "startChar": 23,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9242ce71_72a8447c",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "That seems too magical for something that\u0027s used in exactly 2 places TBH",
+      "parentUuid": "b8da4959_c63c6189",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 5
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86267409_8b8b7cc2",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "self",
+      "range": {
+        "startLine": 666,
+        "startChar": 32,
+        "endLine": 666,
+        "endChar": 54
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af57f0_9580fd79",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86267409_8b8b7cc2",
       "range": {
         "startLine": 666,
         "startChar": 32,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9f87a0e4_6710d210",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa438bf1_55e1bf2a",
+      "range": {
+        "startLine": 721,
+        "startChar": 0,
+        "endLine": 724,
+        "endChar": 63
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "998069e4_972fd3b7",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2017-07-12T09:13:09Z",
       "side": 1,
       "message": "thread_indices?\n\n(the \u0027current\u0027 in the name is confusing me, isn\u0027t it just a list of threads, unrelated to the \u0027current\u0027 thread?)",
+      "range": {
+        "startLine": 730,
+        "startChar": 20,
+        "endLine": 730,
+        "endChar": 42
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1eae8a6e_044ec9cf",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "No this is a list of the indexes where the current thread is in the \u0027threads\u0027 list.\n\nAlso it\u0027s indexes in american english (https://www.google.com/search?q\u003dindexes)",
+      "parentUuid": "998069e4_972fd3b7",
       "range": {
         "startLine": 730,
         "startChar": 20,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "70aa3ed9_3d25d58c",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5993b086_8356aad3",
+      "range": {
+        "startLine": 734,
+        "startChar": 34,
+        "endLine": 734,
+        "endChar": 56
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87749b2d_ea053c08",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2017-07-12T09:13:09Z",
       "side": 1,
       "message": "thread?",
+      "range": {
+        "startLine": 743,
+        "startChar": 15,
+        "endLine": 743,
+        "endChar": 17
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1e804c2_81216f33",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "changed to first_current_thread_index",
+      "parentUuid": "87749b2d_ea053c08",
       "range": {
         "startLine": 743,
         "startChar": 15,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "5dea7a09_5c6bdfc2",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "That\u0027s fine. SuspendThread handle\u0027s nullptr.",
+      "parentUuid": "0ca6f836_f35e8cb6",
+      "range": {
+        "startLine": 745,
+        "startChar": 41,
+        "endLine": 745,
+        "endChar": 57
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "577b70e2_044f762e",
         "filename": "runtime/openjdkjvmti/ti_thread.h",
         "patchSetId": 7
@@ -220,6 +436,30 @@
       "writtenOn": "2017-07-12T09:13:09Z",
       "side": 1,
       "message": "Why not a ART mutex? It looks to me the threads that will take this lock are regular Java mutator threads, so having one kind of mutex will be simpler?",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 33
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f3aec0b_fdfa3352",
+        "filename": "runtime/openjdkjvmti/ti_thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done. I\u0027m not sure it was simpler though. It was rather annoying to do this though and is a somewhat large change so PTAL.\n\nThis did also make me notice a small potential deadlock in my code.",
+      "parentUuid": "577b70e2_044f762e",
       "range": {
         "startLine": 99,
         "startChar": 2,
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "2a5fbe11_51c06256",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "No debug_suspend_count is used to know how many times we need to resume each thread when the debugger detaches. We need to keep that separate from the user-code suspend count.",
+      "parentUuid": "9c68a1c0_99164ef7",
+      "range": {
+        "startLine": 1247,
+        "startChar": 0,
+        "endLine": 1252,
+        "endChar": 12
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0362ca75_ee1d6a91",
         "filename": "test/1902-suspend/run",
         "patchSetId": 7
@@ -289,6 +553,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b7dcb6d_583eb225",
+        "filename": "test/1902-suspend/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0362ca75_ee1d6a91",
       "range": {
         "startLine": 3,
         "startChar": 12,
@@ -324,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "e6088b49_cde4aa32",
+        "filename": "test/1902-suspend/src/art/Test1902.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38437325_8750a57a",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96bf465c_fc9ec3d1",
         "filename": "test/1903-suspend-self/run",
         "patchSetId": 7
@@ -335,6 +647,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "558ebdec_1d7d27a9",
+        "filename": "test/1903-suspend-self/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96bf465c_fc9ec3d1",
       "range": {
         "startLine": 3,
         "startChar": 12,
@@ -370,6 +706,30 @@
     },
     {
       "key": {
+        "uuid": "cc121521_66442b11",
+        "filename": "test/1903-suspend-self/src/art/Test1903.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "099f272b_8cc7f844",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9215f2ce_870636ad",
         "filename": "test/1904-double-suspend/run",
         "patchSetId": 7
@@ -381,6 +741,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd594551_d83dca83",
+        "filename": "test/1904-double-suspend/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9215f2ce_870636ad",
       "range": {
         "startLine": 3,
         "startChar": 12,
@@ -416,6 +800,30 @@
     },
     {
       "key": {
+        "uuid": "e05ea9d8_b6c8fa9d",
+        "filename": "test/1904-double-suspend/src/art/Test1904.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d34e042_37675c43",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfa20f80_8496ee7c",
         "filename": "test/1905-suspend-native/native_suspend.cc",
         "patchSetId": 7
@@ -427,6 +835,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "159af79f_39b2a1a2",
+        "filename": "test/1905-suspend-native/native_suspend.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfa20f80_8496ee7c",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -462,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "62678b0f_b32211cf",
+        "filename": "test/1905-suspend-native/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8e9de74_b8ee20a5",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33a4783e_e0ca2de1",
         "filename": "test/1905-suspend-native/src/art/Test1905.java",
         "patchSetId": 7
@@ -473,6 +929,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e90ead4_177403cb",
+        "filename": "test/1905-suspend-native/src/art/Test1905.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33a4783e_e0ca2de1",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -508,6 +988,30 @@
     },
     {
       "key": {
+        "uuid": "cb6548ab_7544b28e",
+        "filename": "test/1906-suspend-list-me-first/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "402db61e_5975331c",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5b26d94_212041af",
         "filename": "test/1906-suspend-list-me-first/src/art/Test1906.java",
         "patchSetId": 7
@@ -519,6 +1023,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46137056_f2b2d191",
+        "filename": "test/1906-suspend-list-me-first/src/art/Test1906.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5b26d94_212041af",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -554,6 +1082,30 @@
     },
     {
       "key": {
+        "uuid": "0382caf7_4a163078",
+        "filename": "test/1907-suspend-list-self-twice/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8207add_596c4420",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef423a69_2df75cc3",
         "filename": "test/1907-suspend-list-self-twice/src/art/Test1907.java",
         "patchSetId": 7
@@ -565,6 +1117,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db24be65_a870eb7e",
+        "filename": "test/1907-suspend-list-self-twice/src/art/Test1907.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef423a69_2df75cc3",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -600,6 +1176,30 @@
     },
     {
       "key": {
+        "uuid": "034856d1_a162a3ee",
+        "filename": "test/1908-suspend-native-resume-self/native_suspend_resume.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dae1e7b_61fcad34",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "470ab470_9aef67b5",
         "filename": "test/1908-suspend-native-resume-self/run",
         "patchSetId": 7
@@ -623,6 +1223,30 @@
     },
     {
       "key": {
+        "uuid": "584d9304_ffc4c6a9",
+        "filename": "test/1908-suspend-native-resume-self/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470ab470_9aef67b5",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3dc26f2d_c0511ad9",
         "filename": "test/1908-suspend-native-resume-self/src/art/Test1908.java",
         "patchSetId": 7
@@ -634,6 +1258,30 @@
       "writtenOn": "2017-07-12T14:54:31Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c624b1f_d5b9808c",
+        "filename": "test/1908-suspend-native-resume-self/src/art/Test1908.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dc26f2d_c0511ad9",
       "range": {
         "startLine": 2,
         "startChar": 17,
