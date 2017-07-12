@@ -288,6 +288,7 @@ art_cc_defaults {
         "996-breakpoint-obsolete/obsolete_breakpoints.cc",
         "1900-track-alloc/alloc.cc",
         "1901-get-bytecodes/bytecodes.cc",
+        "1909-per-agent-tls/agent_tls.cc",
     ],
     shared_libs: [
         "libbase",
