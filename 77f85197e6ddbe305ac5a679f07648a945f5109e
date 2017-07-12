@@ -16,6 +16,24 @@
       "revId": "77f85197e6ddbe305ac5a679f07648a945f5109e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52442bb8_bda02626",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2369,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-07-12T23:18:27Z",
+      "side": 1,
+      "message": "Yes, it\u0027s a check that has to be performed if the class and superclass have different class loaders. I can\u0027t find where exactly it is in the spec, but Andreas assures me it\u0027s necessary \u003d).",
+      "parentUuid": "6251d09e_68a7ef54",
+      "revId": "77f85197e6ddbe305ac5a679f07648a945f5109e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
