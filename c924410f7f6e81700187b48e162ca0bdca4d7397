@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "622d0f5c_bf68ed05",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-12T21:08:44Z",
+      "side": 1,
+      "message": "we may want to provide HEdgeSet::kEmpty for common cases like this",
+      "revId": "c924410f7f6e81700187b48e162ca0bdca4d7397",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e3c8ad0_e093e755",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-12T21:08:44Z",
+      "side": 1,
+      "message": "is there any reason for the split in constructor/setters? at one point is IsSubGraphCopyable ready for execution? would it make sense to have a trivial constructor and use setters for all?",
+      "revId": "c924410f7f6e81700187b48e162ca0bdca4d7397",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
