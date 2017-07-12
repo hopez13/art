@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ea80e5b_feeae3d3",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T18:22:43Z",
+      "side": 1,
+      "message": "Good catch. That is a mistake. I tried to put user_code_suspension_lock further down but it needs to be high.",
+      "parentUuid": "a6b2c074_e5de4f0d",
+      "range": {
+        "startLine": 721,
+        "startChar": 43,
+        "endLine": 721,
+        "endChar": 86
+      },
+      "revId": "22d24974669487039bbc99b03ef61f6f5f47e649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6aed93a4_43d7ccff",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "22d24974669487039bbc99b03ef61f6f5f47e649",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f921650_44e36e82",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T18:22:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6aed93a4_43d7ccff",
+      "range": {
+        "startLine": 614,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 36
+      },
+      "revId": "22d24974669487039bbc99b03ef61f6f5f47e649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d0d59eca_d97f292d",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T18:22:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce85f02d_ccb73a0c",
+      "range": {
+        "startLine": 621,
+        "startChar": 4,
+        "endLine": 624,
+        "endChar": 23
+      },
+      "revId": "22d24974669487039bbc99b03ef61f6f5f47e649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57edc84b_9af616cf",
         "filename": "runtime/thread.h",
         "patchSetId": 8
@@ -91,6 +163,30 @@
       "revId": "22d24974669487039bbc99b03ef61f6f5f47e649",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acd65af5_da9b485f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-12T18:22:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57edc84b_9af616cf",
+      "range": {
+        "startLine": 321,
+        "startChar": 72,
+        "endLine": 321,
+        "endChar": 97
+      },
+      "revId": "22d24974669487039bbc99b03ef61f6f5f47e649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
