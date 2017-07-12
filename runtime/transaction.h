@@ -132,7 +132,15 @@ class Transaction FINAL {
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
- private:
+  bool ReadConstraint(mirror::Object*, ArtField*)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool WriteConstraint(mirror::Object*, ArtField*)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  private:
   class ObjectLog : public ValueObject {
    public:
     void LogBooleanValue(MemberOffset offset, uint8_t value, bool is_volatile);

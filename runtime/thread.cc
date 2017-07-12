@@ -2757,6 +2757,11 @@ void Thread::ThrowNewWrappedException(const char* exception_class_descriptor,
     return;
   }
 
+  if (runtime->IsActiveTransaction()) {
+    // abort the transaction anyway cause exception is thrown.
+    runtime->GetTransaction()->Abort("Exception thrown.");
+  }
+
   // Choose an appropriate constructor and set up the arguments.
   const char* signature;
   ScopedLocalRef<jstring> msg_string(GetJniEnv(), nullptr);

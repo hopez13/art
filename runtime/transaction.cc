@@ -114,6 +114,27 @@ const std::string& Transaction::GetAbortMessage() {
   return abort_message_;
 }
 
+bool Transaction::WriteConstraint(mirror::Object* obj, ArtField* f) {
+  MutexLock mu(Thread::Current(), log_lock_);
+  if (!aborted_ && strict_ && f->IsStatic() && obj != root_) {
+    // allow exceptions been created
+    // only apply to app image
+    return true;
+  }
+  return false;
+}
+
+bool Transaction::ReadConstraint(mirror::Object* obj, ArtField* f) {
+  DCHECK(f->IsStatic());
+  DCHECK(obj->IsClass());
+  MutexLock mu(Thread::Current(), log_lock_);
+  if (!strict_ ||   // no constrain for boot image
+      obj == root_) {  // self-updating, pass
+    return false;
+  }
+  return true;
+}
+
 void Transaction::RecordWriteFieldBoolean(mirror::Object* obj,
                                           MemberOffset field_offset,
                                           uint8_t value,
@@ -283,6 +304,7 @@ void Transaction::UndoResolveStringModifications() {
 
 void Transaction::VisitRoots(RootVisitor* visitor) {
   MutexLock mu(Thread::Current(), log_lock_);
+  visitor->VisitRoot(&root_, RootInfo(kRootUnknown));
   VisitObjectLogs(visitor);
   VisitArrayLogs(visitor);
   VisitInternStringLogs(visitor);
