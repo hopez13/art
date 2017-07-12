@@ -129,7 +129,15 @@ class Transaction FINAL {
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
- private:
+  bool ReadConstraint(mirror::Object*, ArtField*)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool WriteConstraint(mirror::Object*, ArtField*)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  private:
   class ObjectLog : public ValueObject {
    public:
     void LogBooleanValue(MemberOffset offset, uint8_t value, bool is_volatile);
@@ -292,7 +300,7 @@ class Transaction FINAL {
   bool aborted_ GUARDED_BY(log_lock_);
   bool strict_ GUARDED_BY(log_lock_);
   std::string abort_message_ GUARDED_BY(log_lock_);
-  mirror::Object* root_;  // GUARDED_BY(log_lock_);
+  mirror::Object* root_ GUARDED_BY(log_lock_);
 
   DISALLOW_COPY_AND_ASSIGN(Transaction);
 };
