@@ -70,6 +70,30 @@
       "revId": "dbf0e0f6aa7fc197b9aa9e04bda527354f1ef2bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e421c16_9d3687a1",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-12T15:11:43Z",
+      "side": 1,
+      "message": "No. What is used in the ART source is a define. Environment variables are not automatically converted to defines, you have to add a -D to the invocation of Clang/GCC - and that has to be always done if you want something on the make line to affect this.\n\n(As Soong itself doesn\u0027t like env variables, you have to do this mapping in the go file with envTrue/False. For other instances, just scroll up or down in this file. Any other define gating code that isn\u0027t mentioned here cannot be influenced directly [without rewriting the code])",
+      "parentUuid": "7e646ec8_1426d461",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "dbf0e0f6aa7fc197b9aa9e04bda527354f1ef2bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
