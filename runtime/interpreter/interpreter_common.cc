@@ -58,6 +58,12 @@ bool DoFieldGet(Thread* self, ShadowFrame& shadow_frame, const Instruction* inst
   ObjPtr<mirror::Object> obj;
   if (is_static) {
     obj = f->GetDeclaringClass();
+    if (Runtime::Current()->IsActiveTransaction() &&
+        Runtime::Current()->GetTransaction()->ReadConstrain(obj.Ptr(), f)) {
+      Runtime::Current()->AbortTransactionAndThrowAbortError(self, "Can't read static fields of "
+          + obj->PrettyTypeOf() + " since it does not belong to clinit's class.");
+      return false;
+    }
   } else {
     obj = shadow_frame.GetVRegReference(inst->VRegB_22c(inst_data));
     if (UNLIKELY(obj == nullptr)) {
@@ -262,6 +268,13 @@ bool DoFieldPut(Thread* self, const ShadowFrame& shadow_frame, const Instruction
   ObjPtr<mirror::Object> obj;
   if (is_static) {
     obj = f->GetDeclaringClass();
+    if (Runtime::Current()->IsActiveTransaction() &&
+        Runtime::Current()->GetTransaction()->WriteConstrainCheck(obj.Ptr(), f)) {
+      Runtime::Current()->AbortTransactionAndThrowAbortError(
+          self, "Can't set fields of " + obj->PrettyTypeOf());
+      return false;
+    }
+
   } else {
     obj = shadow_frame.GetVRegReference(inst->VRegB_22c(inst_data));
     if (UNLIKELY(obj == nullptr)) {
@@ -1202,12 +1215,14 @@ bool DoFilledNewArray(const Instruction* inst,
     }
     return false;
   }
+  Runtime* runtime = Runtime::Current();
+
   ObjPtr<mirror::Object> new_array = mirror::Array::Alloc<true>(
       self,
       array_class,
       length,
       array_class->GetComponentSizeShift(),
-      Runtime::Current()->GetHeap()->GetCurrentAllocator());
+      runtime->GetHeap()->GetCurrentAllocator());
   if (UNLIKELY(new_array == nullptr)) {
     self->AssertPendingOOMException();
     return false;

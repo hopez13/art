@@ -200,6 +200,9 @@ ALWAYS_INLINE bool DoFieldPutCommon(Thread* self,
       break;
     }
   }
+  if (UNLIKELY(self->IsExceptionPending())) {
+    return false;
+  }
   return true;
 }
 
