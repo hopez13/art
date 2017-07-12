@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62c1d2b8_03874d5a",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "This pattern is repeated a lot. Please add a helper in art::Thread that does the locking and return the suspend count.",
+      "range": {
+        "startLine": 618,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 5
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8da4959_c63c6189",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "The helper mentioned below could take a boolean flag whether the suspend count needs to be modified.",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 5
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa438bf1_55e1bf2a",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "I think more comments are needed for this method. It\u0027s hard to follow what\u0027s happening.",
+      "range": {
+        "startLine": 721,
+        "startChar": 0,
+        "endLine": 724,
+        "endChar": 63
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "998069e4_972fd3b7",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "thread_indices?\n\n(the \u0027current\u0027 in the name is confusing me, isn\u0027t it just a list of threads, unrelated to the \u0027current\u0027 thread?)",
+      "range": {
+        "startLine": 730,
+        "startChar": 20,
+        "endLine": 730,
+        "endChar": 42
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87749b2d_ea053c08",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "thread?",
+      "range": {
+        "startLine": 743,
+        "startChar": 15,
+        "endLine": 743,
+        "endChar": 17
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ca6f836_f35e8cb6",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "I think this can be null given line 735?",
+      "range": {
+        "startLine": 745,
+        "startChar": 41,
+        "endLine": 745,
+        "endChar": 57
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "577b70e2_044f762e",
+        "filename": "runtime/openjdkjvmti/ti_thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "Why not a ART mutex? It looks to me the threads that will take this lock are regular Java mutator threads, so having one kind of mutex will be simpler?",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 33
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f0dc1a5_0626a5f6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "Explain why.",
+      "range": {
+        "startLine": 1211,
+        "startChar": 2,
+        "endLine": 1211,
+        "endChar": 48
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c68a1c0_99164ef7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:13:09Z",
+      "side": 1,
+      "message": "Can we merge debug_suspend_count and user_code_suspend_count? It\u0027d be nice if we can.",
+      "range": {
+        "startLine": 1247,
+        "startChar": 0,
+        "endLine": 1252,
+        "endChar": 12
+      },
+      "revId": "9677643946aaec043ad662e09f07e5f5ec4037ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
