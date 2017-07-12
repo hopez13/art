@@ -132,6 +132,14 @@ class Transaction FINAL {
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool ReadConstraint(mirror::Object*, ArtField*)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool WriteConstraint(mirror::Object*, ArtField*)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   class ObjectLog : public ValueObject {
    public:
