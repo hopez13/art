@@ -336,42 +336,6 @@ TEST_F(ClassLoaderContextTest, EncodeInOatFile) {
   ASSERT_EQ(expected_encoding, context->EncodeContextForOatFile(""));
 }
 
-TEST_F(ClassLoaderContextTest, DecodeOatFileKey) {
-  std::string oat_file_encoding = "PCL[a.dex*123:b.dex*456]";
-  std::vector<std::string> classpath;
-  std::vector<uint32_t> checksums;
-  bool is_special_shared_library;
-  bool result = ClassLoaderContext::DecodePathClassLoaderContextFromOatFileKey(
-      oat_file_encoding,
-      &classpath,
-      &checksums,
-      &is_special_shared_library);
-  ASSERT_TRUE(result);
-  ASSERT_FALSE(is_special_shared_library);
-  ASSERT_EQ(2u, classpath.size());
-  ASSERT_EQ(2u, checksums.size());
-  ASSERT_EQ("a.dex", classpath[0]);
-  ASSERT_EQ(123u, checksums[0]);
-  ASSERT_EQ("b.dex", classpath[1]);
-  ASSERT_EQ(456u, checksums[1]);
-}
-
-TEST_F(ClassLoaderContextTest, DecodeOatFileKeySpecialLibrary) {
-  std::string oat_file_encoding = "&";
-  std::vector<std::string> classpath;
-  std::vector<uint32_t> checksums;
-  bool is_special_shared_library;
-  bool result = ClassLoaderContext::DecodePathClassLoaderContextFromOatFileKey(
-      oat_file_encoding,
-      &classpath,
-      &checksums,
-      &is_special_shared_library);
-  ASSERT_TRUE(result);
-  ASSERT_TRUE(is_special_shared_library);
-  ASSERT_TRUE(classpath.empty());
-  ASSERT_TRUE(checksums.empty());
-}
-
 // TODO(calin) add a test which creates the context for a class loader together with dex_elements.
 TEST_F(ClassLoaderContextTest, CreateContextForClassLoader) {
   // The chain is
