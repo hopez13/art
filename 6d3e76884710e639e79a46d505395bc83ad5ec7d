@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1462a58d_632c31fa",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-12T09:33:35Z",
+      "side": 1,
+      "message": "This reads odd. Why a template bool with a runtime check?",
+      "range": {
+        "startLine": 565,
+        "startChar": 3,
+        "endLine": 566,
+        "endChar": 39
+      },
+      "revId": "6d3e76884710e639e79a46d505395bc83ad5ec7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
