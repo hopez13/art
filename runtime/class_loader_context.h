@@ -23,6 +23,9 @@
 #include "arch/instruction_set.h"
 #include "base/dchecked_vector.h"
 #include "jni.h"
+#include "handle_scope.h"
+#include "mirror/class_loader.h"
+#include "scoped_thread_state_change.h"
 
 namespace art {
 
@@ -34,6 +37,8 @@ class ClassLoaderContext {
  public:
   // Creates an empty context (with no class loaders).
   ClassLoaderContext();
+
+  ~ClassLoaderContext();
 
   // Opens requested class path files and appends them to ClassLoaderInfo::opened_dex_files.
   // If the dex files have been stripped, the method opens them from their oat files which are added
@@ -92,6 +97,15 @@ class ClassLoaderContext {
       std::vector<std::string>* out_classpath,
       std::vector<uint32_t>* out_checksums,
       bool* out_is_special_shared_library);
+  // Creates a context for the given class_loader and dex_elements.
+  // The method will walk the parent chain starting from `class_loader` and add their dex files
+  // to the current class loaders chain. The `dex_elements` will be added at the end of the
+  // classpath belonging to the `class_loader` argument.
+  // The ownership of the opened dex files will be retains by the given `class_loader`.
+  // If there are errors in processing the class loader chain (e.g. unsupported elements) the
+  // method returns null.
+  static std::unique_ptr<ClassLoaderContext> CreateContextForClassLoader(jobject class_loader,
+                                                                         jobjectArray dex_elements);
 
  private:
   enum ClassLoaderType {
@@ -118,6 +132,13 @@ class ClassLoaderContext {
     explicit ClassLoaderInfo(ClassLoaderType cl_type) : type(cl_type) {}
   };
 
+  // Constructs an empty context.
+  // `owns_the_dex_files` specifies whether or not the context will own the opened dex files
+  // present in the class loader chain. If `owns_the_dex_files`
+  // is true then OpenDexFiles cannot be called on this context (dex_files_open_attempted_ and
+  // dex_files_open_result_ will be set to true as well)
+  explicit ClassLoaderContext(bool owns_the_dex_files);
+
   // Reads the class loader spec in place and returns true if the spec is valid and the
   // compilation context was constructed.
   bool Parse(const std::string& spec, bool parse_checksums = false);
@@ -129,6 +150,9 @@ class ClassLoaderContext {
                             ClassLoaderType class_loader_type,
                             bool parse_checksums = false);
 
+  // CHECKs that the dex files were opened (OpenDexFiles was called). Aborts if not.
+  void CheckDexFilesOpened(const std::string& calling_method) const;
+
   // Extracts the class loader type from the given spec.
   // Return ClassLoaderContext::kInvalidClassLoader if the class loader type is not
   // recognized.
@@ -138,8 +162,13 @@ class ClassLoaderContext {
   // The returned format can be used when parsing a context spec.
   static const char* GetClassLoaderTypeName(ClassLoaderType type);
 
-  // CHECKs that the dex files were opened (OpenDexFiles was called). Aborts if not.
-  void CheckDexFilesOpened(const std::string& calling_method) const;
+  // Adds the `class_loader` info to the context.
+  // The dex file present in `dex_elements` array (if not null) will be added at the end of
+  // the classpath.
+  bool AddInfoToContextFromClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                                       Handle<mirror::ClassLoader> class_loader,
+                                       jobjectArray dex_elements)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // The class loader chain represented as a vector.
   // The parent of class_loader_chain_[i] is class_loader_chain_[i++].
@@ -157,6 +186,13 @@ class ClassLoaderContext {
   bool dex_files_open_attempted_;
   // The result of the last OpenDexFiles() operation.
   bool dex_files_open_result_;
+
+  // Whether or not the context owns the opened dex and oat files.
+  // If true, they will be de-allocated when the context is destructed.
+  // If false, the objects will continue to be alive.
+  // Note that for convenience the the opened dex/oat files are stored as unique pointers
+  // which will release their ownership in the destructor based on this flag.
+  const bool owns_the_dex_files_;
 
   friend class ClassLoaderContextTest;
 
