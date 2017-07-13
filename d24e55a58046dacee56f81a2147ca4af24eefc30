@@ -16,6 +16,24 @@
       "revId": "d24e55a58046dacee56f81a2147ca4af24eefc30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf21f70_e60ea1d1",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-13T23:00:00Z",
+      "side": 1,
+      "message": "I am not sure I understand all implications on how we build the Studio image + emulator well enough to comment. I was hoping Andreas or you had some insights for me :-)",
+      "parentUuid": "93c281cf_d73e9ab2",
+      "revId": "d24e55a58046dacee56f81a2147ca4af24eefc30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
