@@ -1217,6 +1217,13 @@ bool DoFilledNewArray(const Instruction* inst,
   }
   Runtime* runtime = Runtime::Current();
 
+  // Check space usage before allocation.
+  if (runtime->IsActiveTransaction() && runtime->GetTransaction()->IsAppImage()) {
+    if (!runtime->GetTransaction()->AddSpaceUsed(array_class->GetComponentSize() * length)) {
+      return false;
+    }
+  }
+
   ObjPtr<mirror::Object> new_array = mirror::Array::Alloc<true>(
       self,
       array_class,
@@ -1227,6 +1234,7 @@ bool DoFilledNewArray(const Instruction* inst,
     self->AssertPendingOOMException();
     return false;
   }
+
   uint32_t arg[Instruction::kMaxVarArgRegs];  // only used in filled-new-array.
   uint32_t vregC = 0;   // only used in filled-new-array-range.
   if (is_range) {

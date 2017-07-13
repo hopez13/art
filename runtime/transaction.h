@@ -137,7 +137,11 @@ class Transaction FINAL {
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  private:
+  bool AddSpaceUsed(uint32_t mem)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+ private:
   class ObjectLog : public ValueObject {
    public:
     void LogBooleanValue(MemberOffset offset, uint8_t value, bool is_volatile);
@@ -301,6 +305,9 @@ class Transaction FINAL {
   bool app_image_ GUARDED_BY(log_lock_);
   std::string abort_message_ GUARDED_BY(log_lock_);
   mirror::Object* root_ GUARDED_BY(log_lock_);
+  uint32_t space_used_ GUARDED_BY(log_lock_);
+
+  static uint32_t space_limit_;
 
   DISALLOW_COPY_AND_ASSIGN(Transaction);
 };
