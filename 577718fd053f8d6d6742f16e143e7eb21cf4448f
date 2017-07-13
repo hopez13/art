@@ -237,6 +237,29 @@
       "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "178d6f5f_c72537b8",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T14:33:45Z",
+      "side": 1,
+      "message": "|| [ ${HAS_JASMIN_MULTIDEX} \u003d \"true\" ]",
+      "range": {
+        "startLine": 497,
+        "startChar": 37,
+        "endLine": 497,
+        "endChar": 38
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
