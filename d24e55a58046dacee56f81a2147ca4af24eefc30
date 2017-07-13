@@ -70,6 +70,24 @@
       "revId": "d24e55a58046dacee56f81a2147ca4af24eefc30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db230366_50b849b2",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-13T23:19:10Z",
+      "side": 1,
+      "message": "You have to add these to the right product file. Which file? I am not 100% sure. It depends on the lunch target and what gets inherited.\n\nPossibly device/generic/qemu/qemu_x86.mk and qemu_x86_64.mk\n\n   # dex2oat for preopt will get these flags\n   PRODUCT_DEX_PREOPT_DEFAULT_FLAGS +\u003d --instruction-set-features\u003d-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-popcnt\n\n   # when dex2oat runs it makes sure not to use SSE features\n   PRODUCT_PROPERTIY_OVERRIDES +\u003d \\\n   dalvik.vm.dex2oat-flags\u003d--instruction-set-features\u003d-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-popcnt \\\n   dalvik.vm.image-dex2oat-flags\u003d--instruction-set-features\u003d-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-popcnt\n\nI would then recommend booting emulator and making sure it still works :).",
+      "parentUuid": "214ba819_bc8fc609",
+      "revId": "d24e55a58046dacee56f81a2147ca4af24eefc30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
