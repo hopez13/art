@@ -46,6 +46,30 @@
       "revId": "3294608f42430cd905de25f22cc2f88f0adf388f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7487fee0_4b0fdc91",
+        "filename": "test/etc/default-build",
+        "patchSetId": 8
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T18:43:56Z",
+      "side": 1,
+      "message": "If there is a src2, dst must be a directory. See \"man mv\".",
+      "parentUuid": "2a64e6e4_f7fbb569",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 47
+      },
+      "revId": "3294608f42430cd905de25f22cc2f88f0adf388f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
