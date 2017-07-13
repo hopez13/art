@@ -411,7 +411,7 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("      ");
   UsageError("      The chain is interpreted in the natural 'parent order', meaning that class");
   UsageError("      loader 'i+1' will be the parent of class loader 'i'.");
-  UsageError("      The compilation sources will be added to the classpath of the last class");
+  UsageError("      The compilation sources will be appended to the classpath of the first class");
   UsageError("      loader. This allows the compiled dex files to be loaded at runtime in");
   UsageError("      a class loader that contains other dex files as well (e.g. shared libraries).");
   UsageError("      ");
