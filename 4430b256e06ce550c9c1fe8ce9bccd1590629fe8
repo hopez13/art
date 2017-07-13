@@ -69,6 +69,30 @@
       "revId": "4430b256e06ce550c9c1fe8ce9bccd1590629fe8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2bf987_c6553187",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-13T01:52:21Z",
+      "side": 1,
+      "message": "It didn\u0027t seem that way when I did it for test 202. Would love for that to be the case. :-)",
+      "parentUuid": "45e14321_4b4e204c",
+      "range": {
+        "startLine": 670,
+        "startChar": 9,
+        "endLine": 670,
+        "endChar": 17
+      },
+      "revId": "4430b256e06ce550c9c1fe8ce9bccd1590629fe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
