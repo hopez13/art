@@ -1,0 +1,1 @@
+Tests that JniMethodFastEnd crashes when calling String.charAt through CharSequence.charAt invoke-virtual (b/62224548).
