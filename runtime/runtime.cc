@@ -2077,9 +2077,18 @@ void Runtime::EnterTransactionMode() {
   preinitialization_transactions_.push_back(std::make_unique<Transaction>());
 }
 
-void Runtime::EnterTransactionMode(bool strict, mirror::Class* root) {
+void Runtime::EnterTransactionMode(bool strict, mirror::Class* root, int32_t space_limit) {
   DCHECK(IsAotCompiler());
-  preinitialization_transactions_.push_back(std::make_unique<Transaction>(strict, root));
+  if (space_limit <= 0) {
+    // Inherent space_limit from previous transaction
+    DCHECK(!preinitialization_transactions_.empty());
+    preinitialization_transactions_.push_back(
+        std::make_unique<Transaction>(strict, root, GetTransaction()->GetSpaceLimit()));
+  } else {
+    // use space_limit provided to initialize transactions.
+    preinitialization_transactions_.push_back(
+        std::make_unique<Transaction>(strict, root, space_limit));
+  }
 }
 
 void Runtime::ExitTransactionMode() {
