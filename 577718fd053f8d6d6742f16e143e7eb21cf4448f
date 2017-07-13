@@ -19,6 +19,41 @@
     },
     {
       "key": {
+        "uuid": "564f0af3_b54867ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-13T14:33:19Z",
+      "side": 1,
+      "message": "Did you see one that was easy to rewrite and will work with --jvm? I scanned smali directories but a lot of the times they\u0027d be testing something either very complicated or something dex-specific (e.g. use an uninitialized dex register).\n\nWhat I did for PS1 was manually verify that the build artifacts classes/classes2 have the right jars in them so with -cp classes:classes2 it would eventually pick it up.\n\nWith PS1 it will run quite far but still fail because we seem to diverge the RI behavior. Not sure if it\u0027s the test that\u0027s the problem.\n\n----\n\n606 obviously will not run since it has \u0027smali\u0027 code. It can\u0027t be rewritten in java/jasmin because it uses uninitialized dex register.\n\nI mean there *could* probably be something equivalent like uninitialized local but it doesn\u0027t 1:1 translate to uninitialized dex register AFAIK.",
+      "parentUuid": "b095e285_969867c2",
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a57a576_6446c50f",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-13T14:33:19Z",
+      "side": 1,
+      "message": "Will fix.",
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a651b5b_196a6863",
         "filename": "test/etc/default-build",
         "patchSetId": 6
@@ -77,6 +112,30 @@
       "side": 1,
       "message": "And we need an `else` branch with\n\n  mkdir -p classes\n  mv jasmin_classes/* classes/",
       "parentUuid": "bf8a8f11_e3dd4e77",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 56
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b2e5897_2059c5dc",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-13T14:33:19Z",
+      "side": 1,
+      "message": "Ok thanks, these were both oversights. It was actually doing the right thing w.r.t \"mv ... classes\" earlier when it was duplicated logic for javac/jack but I didn\u0027t like that the logic was duplicated.",
+      "parentUuid": "5ff6a000_b919aaa2",
       "range": {
         "startLine": 405,
         "startChar": 0,
