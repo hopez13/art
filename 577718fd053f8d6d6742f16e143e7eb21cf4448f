@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a651b5b_196a6863",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T09:38:52Z",
+      "side": 1,
+      "message": "Remove new blank lines.",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 0
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf8a8f11_e3dd4e77",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T09:38:52Z",
+      "side": 1,
+      "message": "if [ ${NEED_DEX} \u003d \"true\" ]",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 56
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "306883fa_063e6512",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T09:38:52Z",
+      "side": 1,
+      "message": "Unnecessary, make_jasmin() does that.",
+      "range": {
+        "startLine": 426,
+        "startChar": 2,
+        "endLine": 426,
+        "endChar": 26
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d2605fc_69e8fe8b",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T09:38:52Z",
+      "side": 1,
+      "message": "if [ ${NEED_DEX} \u003d \"true\" ]",
+      "range": {
+        "startLine": 429,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 4
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cbbfc01_286ba142",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T09:38:52Z",
+      "side": 1,
+      "message": "Maybe `-f classes2.dex` as above? (Seems less error prone.)",
+      "range": {
+        "startLine": 450,
+        "startChar": 7,
+        "endLine": 450,
+        "endChar": 70
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
