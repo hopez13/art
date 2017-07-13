@@ -40,6 +40,7 @@
 #include "runtime.h"
 #include "stack_map.h"
 #include "thread.h"
+#include "transaction.h"
 #include "well_known_classes.h"
 
 namespace art {
@@ -111,6 +112,7 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
   return inlined_method;
 }
 
+template<bool kInstrumented>
 ALWAYS_INLINE inline mirror::Class* CheckObjectAlloc(mirror::Class* klass,
                                                      Thread* self,
                                                      bool* slow_path)
@@ -145,7 +147,14 @@ ALWAYS_INLINE inline mirror::Class* CheckObjectAlloc(mirror::Class* klass,
     } else {
       DCHECK(!self->IsExceptionPending());
     }
-    return h_klass.Get();
+    klass = h_klass.Get();
+  }
+  if (kInstrumented) {
+    if (Runtime::Current()->IsActiveStrictTransactionMode()) {
+      if (!Runtime::Current()->GetTransaction()->AddSpaceUsed(klass->GetObjectSize())) {
+        return nullptr;
+      }
+    }
   }
   return klass;
 }
@@ -185,7 +194,7 @@ inline mirror::Object* AllocObjectFromCode(mirror::Class* klass,
                                            Thread* self,
                                            gc::AllocatorType allocator_type) {
   bool slow_path = false;
-  klass = CheckObjectAlloc(klass, self, &slow_path);
+  klass = CheckObjectAlloc<kInstrumented>(klass, self, &slow_path);
   if (UNLIKELY(slow_path)) {
     if (klass == nullptr) {
       return nullptr;
@@ -234,7 +243,7 @@ inline mirror::Object* AllocObjectFromCodeInitialized(mirror::Class* klass,
 }
 
 
-template <bool kAccessCheck>
+template <bool kAccessCheck, bool kInstrumented>
 ALWAYS_INLINE
 inline mirror::Class* CheckArrayAlloc(dex::TypeIndex type_idx,
                                       int32_t component_count,
@@ -246,8 +255,9 @@ inline mirror::Class* CheckArrayAlloc(dex::TypeIndex type_idx,
     return nullptr;  // Failure
   }
   mirror::Class* klass = method->GetDexCache()->GetResolvedType(type_idx);
+  Runtime* runtime = Runtime::Current();
   if (UNLIKELY(klass == nullptr)) {  // Not in dex cache so try to resolve
-    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+    ClassLinker* class_linker = runtime->GetClassLinker();
     klass = class_linker->ResolveType(type_idx, method);
     *slow_path = true;
     if (klass == nullptr) {  // Error
@@ -262,6 +272,14 @@ inline mirror::Class* CheckArrayAlloc(dex::TypeIndex type_idx,
       ThrowIllegalAccessErrorClass(referrer, klass);
       *slow_path = true;
       return nullptr;  // Failure
+    }
+  }
+  if (kInstrumented) {
+    if (runtime->IsActiveStrictTransactionMode()) {
+      if (!runtime->GetTransaction()->AddSpaceUsed(klass->GetComponentSize() * component_count)) {
+        *slow_path = true;
+        return nullptr;
+      }
     }
   }
   return klass;
@@ -279,8 +297,10 @@ inline mirror::Array* AllocArrayFromCode(dex::TypeIndex type_idx,
                                          Thread* self,
                                          gc::AllocatorType allocator_type) {
   bool slow_path = false;
-  mirror::Class* klass = CheckArrayAlloc<kAccessCheck>(type_idx, component_count, method,
-                                                       &slow_path);
+  mirror::Class* klass = CheckArrayAlloc<kAccessCheck, kInstrumented>(type_idx,
+                                                                      component_count,
+                                                                      method,
+                                                                      &slow_path);
   if (UNLIKELY(slow_path)) {
     if (klass == nullptr) {
       return nullptr;
