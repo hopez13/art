@@ -1218,12 +1218,23 @@ bool DoFilledNewArray(const Instruction* inst,
     }
     return false;
   }
+  Runtime* runtime = Runtime::Current();
+
+  // Check space usage before allocation.
+  if (transaction_active) {
+    if (runtime->IsActiveStrictTransactionMode()) {
+      if (!runtime->GetTransaction()->AddMemoryUsed(array_class->GetComponentSize() * length)) {
+        return false;
+      }
+    }
+  }
+
   ObjPtr<mirror::Object> new_array = mirror::Array::Alloc<true>(
       self,
       array_class,
       length,
       array_class->GetComponentSizeShift(),
-      Runtime::Current()->GetHeap()->GetCurrentAllocator());
+      runtime->GetHeap()->GetCurrentAllocator());
   if (UNLIKELY(new_array == nullptr)) {
     self->AssertPendingOOMException();
     return false;
