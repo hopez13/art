@@ -22,6 +22,30 @@
       "revId": "3294608f42430cd905de25f22cc2f88f0adf388f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a64e6e4_f7fbb569",
+        "filename": "test/etc/default-build",
+        "patchSetId": 8
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-13T18:14:20Z",
+      "side": 1,
+      "message": "Why doesn\u0027t it work? mv commands like this\n\n  mv src [src2 src3 src4 ... srcN] dst\n\nand I tested mv independently on my machine.",
+      "parentUuid": "e6874954_6c297e8f",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 47
+      },
+      "revId": "3294608f42430cd905de25f22cc2f88f0adf388f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
