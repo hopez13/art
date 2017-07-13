@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f1643bb_893260d4",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-13T15:02:28Z",
+      "side": 1,
+      "message": "Please add a comment why you loop.",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 6
+      },
+      "revId": "6d76906ee3f397b684be25d2fb5d71b7abd8ac08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "503ccc36_e7bbaaf6",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-13T15:02:28Z",
+      "side": 1,
+      "message": "If that needs to be in the loop, explain why.",
+      "range": {
+        "startLine": 623,
+        "startChar": 4,
+        "endLine": 627,
+        "endChar": 69
+      },
+      "revId": "6d76906ee3f397b684be25d2fb5d71b7abd8ac08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7595dd3_aef4d125",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-13T15:02:28Z",
+      "side": 1,
+      "message": "Explain why?",
+      "range": {
+        "startLine": 1211,
+        "startChar": 2,
+        "endLine": 1211,
+        "endChar": 48
+      },
+      "revId": "6d76906ee3f397b684be25d2fb5d71b7abd8ac08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
