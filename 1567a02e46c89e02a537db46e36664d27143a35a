@@ -22,6 +22,30 @@
       "revId": "1567a02e46c89e02a537db46e36664d27143a35a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78ff88de_1e99400e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-13T16:44:38Z",
+      "side": 1,
+      "message": "Because errors raise if we don\u0027t relax the constrain for boot image, one case I encountered is in ArrayList(https://cs.corp.google.com/android/libcore/ojluni/src/main/java/java/util/ArrayList.java?rcl\u003db9331ff10199f2ae6a1fd15c9a9d985ea0864246\u0026l\u003d132).\n\nThe instantiation of ArrayList need a read to a static final fields from ArrayList, which is not allowed to be changed.\n\nYes this is unsound, but that\u0027s probably we should risk? A well-behaved application should never try to modify a final static field from boot library, right?",
+      "parentUuid": "06c2a7fa_812b8804",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "1567a02e46c89e02a537db46e36664d27143a35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
