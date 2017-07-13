@@ -34,16 +34,19 @@ namespace art {
 static constexpr bool kEnableTransactionStats = false;
 
 Transaction::Transaction()
-  : log_lock_("transaction log lock", kTransactionLogLock),
-    aborted_(false),
-    rolling_back_(false),
-    strict_(false) {
+    : log_lock_("transaction log lock", kTransactionLogLock),
+      aborted_(false),
+      rolling_back_(false),
+      strict_(false),
+      space_used_(0),
+      space_limit_(1024 * 10) {  // default space limitation is 10kb
   CHECK(Runtime::Current()->IsAotCompiler());
 }
 
-Transaction::Transaction(bool strict, mirror::Class* root) : Transaction() {
+Transaction::Transaction(bool strict, mirror::Class* root, uint32_t space_limit) : Transaction() {
   strict_ = strict;
   root_ = root;
+  space_limit_ = space_limit;
 }
 
 Transaction::~Transaction() {
@@ -112,6 +115,11 @@ bool Transaction::IsRollingBack() {
 bool Transaction::IsStrict() {
   MutexLock mu(Thread::Current(), log_lock_);
   return strict_;
+}
+
+uint32_t Transaction::GetSpaceLimit() {
+  MutexLock mu(Thread::Current(), log_lock_);
+  return space_limit_;
 }
 
 const std::string& Transaction::GetAbortMessage() {
@@ -673,4 +681,20 @@ void Transaction::ArrayLog::UndoArrayWrite(mirror::Array* array,
   }
 }
 
+bool Transaction::AddSpaceUsed(uint32_t mem) {
+  bool violated;
+  std::string abort_msg;
+  {
+    MutexLock mu(Thread::Current(), log_lock_);
+    space_used_ += mem;
+    violated = !aborted_ && space_used_ > space_limit_;
+    abort_msg = "Initialization used more than " + std::to_string(space_limit_) + " bytes memory.";
+  }
+  if (violated) {
+    Abort(abort_msg);
+    ThrowAbortError(Thread::Current(), nullptr);
+    return false;
+  }
+  return true;
+}
 }  // namespace art

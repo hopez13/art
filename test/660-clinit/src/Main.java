@@ -27,6 +27,9 @@ public class Main {
     if (!checkAppImageContains(ClInit.class)) {
       System.out.println("ClInit class is not in app image!");
     }
+    if (!checkAppImageContains(ClinitAlloc.class)) {
+      System.out.println("ClInitAlloc class is not in app image!");
+    }
 
     expectPreInit(ClInit.class);
     expectPreInit(A.class);
@@ -38,6 +41,9 @@ public class Main {
     expectNotPreInit(Gss.class);
     expectPreInit(InvokeStatic.class);
     expectNotPreInit(ClinitE.class);
+    expectPreInit(ClinitAlloc.class);
+    expectNotPreInit(ClinitBulkAlloc.class);
+    expectPreInit(Class.forName("FilledNewArray"));
 
     expectNotPreInit(Add.class);
     expectNotPreInit(Mul.class);
@@ -234,4 +240,21 @@ class Print {
     System.out.println("hello world");
   }
 }
+
+class Pair {
+  public int a, b;
+}
+
+class ClinitAlloc {
+  static byte[] iArr1 = new byte[10];
+  static int[] iArr2 = new int[10];
+  static double[] iArr3 = new double[10];
+  static int[] iArr5 = {1, 2, 3, 4, 5};
+}
+
+// fail because try to allocate too much memory.
+class ClinitBulkAlloc {
+  static int[] iArr = new int[10000];
+}
+
 
