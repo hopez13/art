@@ -2343,7 +2343,8 @@ class InitializeClassVisitor : public CompilationVisitor {
             DCHECK(exception_initialized);
 
             // Run the class initializer in transaction mode.
-            runtime->EnterTransactionMode(is_app_image, klass.Get());
+            // Set the default space limitation to 10kb.
+            runtime->EnterTransactionMode(is_app_image, klass.Get(), KB * 10);
             bool success = manager_->GetClassLinker()->EnsureInitialized(soa.Self(), klass, true,
                                                                          true);
             // TODO we detach transaction from runtime to indicate we quit the transactional

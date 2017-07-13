@@ -45,7 +45,7 @@ class Transaction FINAL {
   static constexpr const char* kAbortExceptionSignature = "Ldalvik/system/TransactionAbortError;";
 
   Transaction();
-  explicit Transaction(bool strict, mirror::Class* root);
+  explicit Transaction(bool strict, mirror::Class* root, uint32_t memory_limit);
   ~Transaction();
 
   void Abort(const std::string& abort_message)
@@ -64,6 +64,7 @@ class Transaction FINAL {
   // one class's clinit will not be allowed to read or modify another class's static fields, unless
   // the transaction is aborted.
   bool IsStrict() REQUIRES(!log_lock_);
+  uint32_t GetMemoryLimit() REQUIRES(!log_lock_);
 
   // Record object field changes.
   void RecordWriteFieldBoolean(mirror::Object* obj,
@@ -140,6 +141,10 @@ class Transaction FINAL {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool WriteConstraint(mirror::Object* obj, ArtField* field)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool AddMemoryUsed(uint32_t mem)
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -310,6 +315,8 @@ class Transaction FINAL {
   bool strict_ GUARDED_BY(log_lock_);
   std::string abort_message_ GUARDED_BY(log_lock_);
   mirror::Class* root_ GUARDED_BY(log_lock_);
+  uint32_t memory_used_ GUARDED_BY(log_lock_);
+  uint32_t memory_limit_ GUARDED_BY(log_lock_);
 
   DISALLOW_COPY_AND_ASSIGN(Transaction);
 };
