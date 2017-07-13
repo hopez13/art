@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "b095e285_969867c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T13:09:40Z",
+      "side": 1,
+      "message": "Test: art/test/run-test --host --jvm 606-erroneous-class\nTest: art/test/run-test --host --jvm 064-field-access\n\nUnfortunately, the 064 still fails with --jvm, so it\u0027s not the best test for this rewrite. But it can still be used to see if the DexMerger throws\n\n+Exception in thread \"main\" java.io.FileNotFoundException: classes.dex (No such file or directory)\n\nwhich should be fixed with my suggested changes.",
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a651b5b_196a6863",
         "filename": "test/etc/default-build",
         "patchSetId": 6
@@ -36,6 +53,30 @@
       "writtenOn": "2017-07-13T09:38:52Z",
       "side": 1,
       "message": "if [ ${NEED_DEX} \u003d \"true\" ]",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 56
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ff6a000_b919aaa2",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T13:09:40Z",
+      "side": 1,
+      "message": "And we need an `else` branch with\n\n  mkdir -p classes\n  mv jasmin_classes/* classes/",
+      "parentUuid": "bf8a8f11_e3dd4e77",
       "range": {
         "startLine": 405,
         "startChar": 0,
@@ -87,6 +128,29 @@
         "startChar": 0,
         "endLine": 438,
         "endChar": 4
+      },
+      "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "216e0b9d_054d1652",
+        "filename": "test/etc/default-build",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T13:09:40Z",
+      "side": 1,
+      "message": "This should be in an `else` branch of the if `[ ${NEED_DEX} \u003d \"true\" ]`.\n\nMaybe add a trailing \u0027/\u0027:\n\n  mv jasmin_classes2/* classes2/",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 442,
+        "endChar": 31
       },
       "revId": "577718fd053f8d6d6742f16e143e7eb21cf4448f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
