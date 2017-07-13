@@ -140,6 +140,10 @@ class Transaction FINAL {
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool AddSpaceUsed(uint32_t mem)
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   class ObjectLog : public ValueObject {
    public:
@@ -304,6 +308,9 @@ class Transaction FINAL {
   bool strict_ GUARDED_BY(log_lock_);
   std::string abort_message_ GUARDED_BY(log_lock_);
   mirror::Object* root_ GUARDED_BY(log_lock_);
+  uint32_t space_used_ GUARDED_BY(log_lock_);
+
+  static uint32_t space_limit_;
 
   DISALLOW_COPY_AND_ASSIGN(Transaction);
 };

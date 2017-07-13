@@ -37,6 +37,9 @@ public class Main {
     ShouldNotInit(Gs.class);
     ShouldInit(InvokeStatic.class);
     ShouldNotInit(ClinitE.class);
+    ShouldInit(ClinitAlloc.class);
+    ShouldNotInit(ClinitBulkAlloc.class);
+    ShouldInit(Class.forName("FilledNewArray"));
 
     ShouldNotInit(Add.class);
     ShouldNotInit(Mul.class);
@@ -239,4 +242,23 @@ class Print {
     System.out.println("hello world");
   }
 }
+
+class Pair {
+  public int a, b;
+}
+
+class ClinitAlloc {
+  static byte[] iArr1 = new byte[10];
+  static int[] iArr2 = new int[10];
+  static double[] iArr3 = new double[10];
+  static Pair[] iArr4 = new Pair[10];
+  static int[] iArr5 = {1, 2, 3, 4, 5};
+  static Pair[] iArr6 = {new Pair(), new Pair(), new Pair()};
+}
+
+// fail because try to allocate too much memory.
+class ClinitBulkAlloc {
+  static Pair[] iArr = new Pair[10000];
+}
+
 

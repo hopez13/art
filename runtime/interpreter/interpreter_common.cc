@@ -1222,6 +1222,13 @@ bool DoFilledNewArray(const Instruction* inst,
   }
   Runtime* runtime = Runtime::Current();
 
+  // Check space usage before allocation.
+  if (runtime->IsActiveStrictTransactionMode()) {
+    if (!runtime->GetTransaction()->AddSpaceUsed(array_class->GetComponentSize() * length)) {
+      return false;
+    }
+  }
+
   ObjPtr<mirror::Object> new_array = mirror::Array::Alloc<true>(
       self,
       array_class,

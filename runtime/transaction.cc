@@ -36,7 +36,8 @@ static constexpr bool kEnableTransactionStats = false;
 Transaction::Transaction()
     : log_lock_("transaction log lock", kTransactionLogLock),
       aborted_(false),
-      strict_(false) {
+      strict_(false),
+      space_used_(0) {
   CHECK(Runtime::Current()->IsAotCompiler());
 }
 
@@ -666,5 +667,22 @@ void Transaction::ArrayLog::UndoArrayWrite(mirror::Array* array,
       LOG(FATAL) << "Unsupported type " << array_type;
   }
 }
+
+bool Transaction::AddSpaceUsed(uint32_t mem) {
+  bool violated;
+  {
+    MutexLock mu(Thread::Current(), log_lock_);
+    space_used_ += mem;
+    violated = !aborted_ && space_used_ > space_limit_;
+  }
+  if (violated) {
+    Abort("Initialization used more than " + std::to_string(space_limit_) + " bytes memory.");
+    ThrowAbortError(Thread::Current(), nullptr);
+    return false;
+  }
+  return true;
+}
+
+uint32_t Transaction::space_limit_ = 1024 * 10;  // default space limit is 10kb
 
 }  // namespace art
