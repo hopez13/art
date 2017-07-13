@@ -22,6 +22,30 @@
       "revId": "2dcb1e655d4a94ca88d88134a00d363677dd16f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31815105_2eb03a23",
+        "filename": "test/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-07-13T08:48:29Z",
+      "side": 1,
+      "message": "Removed these sections. I took a look this morning on the train, it might be too awkward to add, but opens questions like should the gtest path support gdb, etc. Prefer to leave this out for now if no one objects and only implement if needed.",
+      "parentUuid": "ace11f5d_4c796899",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 39
+      },
+      "revId": "2dcb1e655d4a94ca88d88134a00d363677dd16f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
