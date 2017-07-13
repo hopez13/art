@@ -29,6 +29,7 @@
 #include "base/logging.h"
 #include "base/macros.h"
 #include "base/mutex-inl.h"
+#include "bytecode_utils.h"
 #include "dex_file-inl.h"
 #include "dex2oat_environment_test.h"
 #include "dex2oat_return_codes.h"
@@ -751,7 +752,7 @@ class Dex2oatLayoutTest : public Dex2oatTest {
     CheckValidity();
     ASSERT_TRUE(success_);
   }
-
+  
   void CheckResult(const std::string& dex_location,
                    const std::string& odex_location,
                    const std::string& app_image_file_name) {
@@ -831,6 +832,83 @@ TEST_F(Dex2oatLayoutTest, TestLayoutAppImage) {
 
 TEST_F(Dex2oatLayoutTest, TestVdexLayout) {
   RunTestVDex();
+}
+
+class Dex2oatUnquickenTest : public Dex2oatTest {
+ protected:
+  void RunUnquickenMultiDex() {
+    std::string dex_location = GetScratchDir() + "/UnquickenMultiDex.jar";
+    std::string odex_location = GetOdexDir() + "/UnquickenMultiDex.odex";
+    std::string vdex_location = GetOdexDir() + "/UnquickenMultiDex.vdex";
+    Copy(GetTestDexFileName("MultiDex"), dex_location);
+
+    std::unique_ptr<File> vdex_file1(OS::CreateEmptyFile(vdex_location.c_str()));
+    CHECK(vdex_file1 != nullptr) << vdex_location;
+    {
+      std::string input_vdex = "--input-vdex-fd=-1";
+      std::string output_vdex = StringPrintf("--output-vdex-fd=%d", vdex_file1->Fd());
+      GenerateOdexForTest(dex_location,
+                          odex_location,
+                          CompilerFilter::kQuicken,
+                          { input_vdex, output_vdex },
+                          /* expect_success */ true,
+                          /* use_fd */ true);
+      EXPECT_GT(vdex_file1->GetLength(), 0u);
+    }
+    {
+      // Test that vdex and dexlayout fail gracefully.
+      std::string input_vdex = StringPrintf("--input-vdex-fd=%d", vdex_file1->Fd());
+      std::string output_vdex = StringPrintf("--output-vdex-fd=%d", vdex_file1->Fd());
+      GenerateOdexForTest(dex_location,
+                          odex_location,
+                          CompilerFilter::kVerify,
+                          { input_vdex, output_vdex },
+                          /* expect_success */ true,
+                          /* use_fd */ true);
+    }
+    ASSERT_EQ(vdex_file1->FlushCloseOrErase(), 0) << "Could not flush and close vdex file";
+    CheckResult(dex_location, odex_location);
+    ASSERT_TRUE(success_);
+  }
+  
+  void CheckResult(const std::string& dex_location, const std::string& odex_location) {
+    // Host/target independent checks.
+    std::string error_msg;
+    std::unique_ptr<OatFile> odex_file(OatFile::Open(odex_location.c_str(),
+                                                     odex_location.c_str(),
+                                                     nullptr,
+                                                     nullptr,
+                                                     false,
+                                                     /*low_4gb*/false,
+                                                     dex_location.c_str(),
+                                                     &error_msg));
+    ASSERT_TRUE(odex_file.get() != nullptr) << error_msg;
+    ASSERT_GE(odex_file->GetOatDexFiles().size(), 1u);
+
+    for (const OatDexFile* oat_dex_file : odex_file->GetOatDexFiles()) {
+      std::unique_ptr<const DexFile> dex_file = oat_dex_file->OpenDexFile(&error_msg);
+      for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
+        const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
+        const uint8_t* class_data = dex_file->GetClassData(class_def);
+        if (class_data != nullptr) {
+          for (ClassDataItemIterator class_it(*dex_file, class_data);
+               class_it.HasNext();
+               class_it.Next()) {
+            if (class_it.IsAtMethod() && class_it.GetMethodCodeItem() != nullptr) {
+              for (CodeItemIterator it(*class_it.GetMethodCodeItem()); !it.Done(); it.Advance()) {
+                Instruction* inst = const_cast<Instruction*>(&it.CurrentInstruction());
+                ASSERT_FALSE(inst->IsQuickened());
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+TEST_F(Dex2oatUnquickenTest, UnquickenMultiDex) {
+  RunUnquickenMultiDex();
 }
 
 class Dex2oatWatchdogTest : public Dex2oatTest {
