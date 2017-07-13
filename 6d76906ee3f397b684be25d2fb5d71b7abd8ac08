@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6fcfae76_0002319b",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-13T16:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f1643bb_893260d4",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 6
+      },
+      "revId": "6d76906ee3f397b684be25d2fb5d71b7abd8ac08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "503ccc36_e7bbaaf6",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 10
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "762e2b36_66722f08",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-13T16:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "503ccc36_e7bbaaf6",
+      "range": {
+        "startLine": 623,
+        "startChar": 4,
+        "endLine": 627,
+        "endChar": 69
+      },
+      "revId": "6d76906ee3f397b684be25d2fb5d71b7abd8ac08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7595dd3_aef4d125",
         "filename": "runtime/thread.cc",
         "patchSetId": 10
@@ -59,6 +107,30 @@
       "writtenOn": "2017-07-13T15:02:28Z",
       "side": 1,
       "message": "Explain why?",
+      "range": {
+        "startLine": 1211,
+        "startChar": 2,
+        "endLine": 1211,
+        "endChar": 48
+      },
+      "revId": "6d76906ee3f397b684be25d2fb5d71b7abd8ac08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7e0b721_c1b0205e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-13T16:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7595dd3_aef4d125",
       "range": {
         "startLine": 1211,
         "startChar": 2,
