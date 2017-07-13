@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6874954_6c297e8f",
+        "filename": "test/etc/default-build",
+        "patchSetId": 8
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-13T18:08:47Z",
+      "side": 1,
+      "message": "Does not work if there are multiple additional_files.\n(Implementation and use inconsistent with API/description.)",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 47
+      },
+      "revId": "3294608f42430cd905de25f22cc2f88f0adf388f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
