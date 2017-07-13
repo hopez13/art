@@ -336,7 +336,9 @@ bool ProfileCompilationInfo::Save(int fd) {
         methods_region_size +
         dex_data.bitmap_storage.size();
   }
-  if (required_capacity > kProfileSizeErrorThresholdInBytes) {
+  // Allow large profiles for non target builds for the case where we are merging many profiles
+  // to generate a boot image profile.
+  if (kIsTargetBuild && required_capacity > kProfileSizeErrorThresholdInBytes) {
     LOG(ERROR) << "Profile data size exceeds "
                << std::to_string(kProfileSizeErrorThresholdInBytes)
                << " bytes. Profile will not be written to disk.";
