@@ -164,60 +164,169 @@ bool VdexFile::OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_
   return true;
 }
 
+// Utility class to easily iterate over the quickening data.
+class QuickeningInfoIterator {
+ public:
+  QuickeningInfoIterator(uint32_t number_of_dex_files,
+                         const ArrayRef<const uint8_t>& quickening_info)
+      : number_of_dex_files_(number_of_dex_files),
+        quickening_info_(quickening_info),
+        dex_file_indices_(reinterpret_cast<const uint32_t*>(
+            quickening_info.data() +
+            quickening_info.size() -
+            number_of_dex_files * sizeof(uint32_t))) {
+    AdvanceTo(0);
+  }
+
+  void AdvanceTo(uint32_t dex_file_index) {
+    current_code_item_ptr_ = reinterpret_cast<const uint32_t*>(
+        quickening_info_.data() + dex_file_indices_[dex_file_index]);
+    current_dex_file_index_ = dex_file_index;
+    UpdateEnd();
+  }
+
+  bool HasNext() const {
+    return current_code_item_ptr_ != dex_file_indices_;
+  }
+
+  void Advance() {
+    if (current_code_item_ptr_ != current_code_item_end_) {
+      current_code_item_ptr_ += 2;
+    } else {
+      current_dex_file_index_++;
+      UpdateEnd();
+    }
+  }
+
+  uint32_t GetCurrentCodeItemOffset() const {
+    return current_code_item_ptr_[0];
+  }
+
+  const uint8_t* GetCurrentQuickeningData() const {
+    // Add sizeof(uint32_t) to remove the length from the data pointer.
+    return quickening_info_.data() + current_code_item_ptr_[1] + sizeof(uint32_t);
+  }
+
+  uint32_t GetCurrentQuickeningSize() const {
+    return *reinterpret_cast<const uint32_t*>(quickening_info_.data() + current_code_item_ptr_[1]);
+  }
+
+  uint32_t GetCurrentDexFileIndex() const {
+    return current_dex_file_index_;
+  }
+
+ private:
+  void UpdateEnd() {
+    current_code_item_end_ = (current_dex_file_index_ == number_of_dex_files_ - 1)
+        ? dex_file_indices_
+        : reinterpret_cast<const uint32_t*>(
+              quickening_info_.data() + dex_file_indices_[current_dex_file_index_ + 1]);
+  }
+
+  const uint32_t number_of_dex_files_;
+  const ArrayRef<const uint8_t>& quickening_info_;
+  const uint32_t* const dex_file_indices_;
+  const uint32_t* current_code_item_ptr_;
+  const uint32_t* current_code_item_end_;
+  uint32_t current_dex_file_index_;
+
+  DISALLOW_COPY_AND_ASSIGN(QuickeningInfoIterator);
+};
+
 void VdexFile::Unquicken(const std::vector<const DexFile*>& dex_files,
                          const ArrayRef<const uint8_t>& quickening_info) {
   if (quickening_info.size() == 0) {
-    // If there is no quickening info, we bail early, as the code below expects at
-    // least the size of quickening data for each method that has a code item.
+    // Bail early if there is no quickening info.
     return;
   }
   // We do not decompile a RETURN_VOID_NO_BARRIER into a RETURN_VOID, as the quickening
   // optimization does not depend on the boot image (the optimization relies on not
   // having final fields in a class, which does not change for an app).
   constexpr bool kDecompileReturnInstruction = false;
-  const uint8_t* quickening_info_ptr = quickening_info.data();
-  const uint8_t* const quickening_info_end = quickening_info.data() + quickening_info.size();
-  for (const DexFile* dex_file : dex_files) {
-    for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
-      const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
-      const uint8_t* class_data = dex_file->GetClassData(class_def);
-      if (class_data == nullptr) {
-        continue;
-      }
-      ClassDataItemIterator it(*dex_file, class_data);
-      it.SkipAllFields();
+  for (QuickeningInfoIterator it(dex_files.size(), quickening_info); it.HasNext(); it.Advance()) {
+    optimizer::ArtDecompileDEX(
+        *dex_files[it.GetCurrentDexFileIndex()]->GetCodeItem(it.GetCurrentCodeItemOffset()),
+        ArrayRef<const uint8_t>(it.GetCurrentQuickeningData(), it.GetCurrentQuickeningSize()),
+        kDecompileReturnInstruction);
+  }
+}
 
-      while (it.HasNextDirectMethod()) {
-        const DexFile::CodeItem* code_item = it.GetMethodCodeItem();
-        if (code_item != nullptr) {
-          uint32_t quickening_size = *reinterpret_cast<const uint32_t*>(quickening_info_ptr);
-          quickening_info_ptr += sizeof(uint32_t);
-          optimizer::ArtDecompileDEX(*code_item,
-                                     ArrayRef<const uint8_t>(quickening_info_ptr, quickening_size),
-                                     kDecompileReturnInstruction);
-          quickening_info_ptr += quickening_size;
-        }
-        it.Next();
-      }
+static constexpr uint32_t kNoDexFile = -1;
 
-      while (it.HasNextVirtualMethod()) {
-        const DexFile::CodeItem* code_item = it.GetMethodCodeItem();
-        if (code_item != nullptr) {
-          uint32_t quickening_size = *reinterpret_cast<const uint32_t*>(quickening_info_ptr);
-          quickening_info_ptr += sizeof(uint32_t);
-          optimizer::ArtDecompileDEX(*code_item,
-                                     ArrayRef<const uint8_t>(quickening_info_ptr, quickening_size),
-                                     kDecompileReturnInstruction);
-          quickening_info_ptr += quickening_size;
+uint32_t VdexFile::GetDexFileIndex(const DexFile& dex_file) const {
+  uint32_t dex_index = 0;
+  for (const uint8_t* dex_file_start = GetNextDexFileData(nullptr);
+       dex_file_start != dex_file.Begin();
+       dex_file_start = GetNextDexFileData(dex_file_start)) {
+    if (dex_file_start == nullptr) {
+      return kNoDexFile;
+    }
+    dex_index++;
+  }
+  return dex_index;
+}
+
+void VdexFile::FullyUnquickenDexFile(const DexFile& target_dex_file,
+                                     const DexFile& original_dex_file) const {
+  uint32_t dex_index = GetDexFileIndex(original_dex_file);
+  if (dex_index == kNoDexFile) {
+    return;
+  }
+
+  constexpr bool kDecompileReturnInstruction = true;
+  QuickeningInfoIterator it(GetHeader().GetNumberOfDexFiles(), GetQuickeningInfo());
+  it.AdvanceTo(dex_index);
+  // Iterate over the class definitions. Even if there is no quickening info,
+  // we want to unquicken RETURN_VOID_NO_BARRIER instruction.
+  for (uint32_t i = 0; i < target_dex_file.NumClassDefs(); ++i) {
+    const DexFile::ClassDef& class_def = target_dex_file.GetClassDef(i);
+    const uint8_t* class_data = target_dex_file.GetClassData(class_def);
+    if (class_data != nullptr) {
+      for (ClassDataItemIterator class_it(target_dex_file, class_data);
+           class_it.HasNext();
+           class_it.Next()) {
+        if (class_it.IsAtMethod() && class_it.GetMethodCodeItem() != nullptr) {
+          uint32_t offset = class_it.GetMethodCodeItemOffset();
+          if (it.HasNext() &&
+              offset == it.GetCurrentCodeItemOffset() &&
+              it.GetCurrentDexFileIndex() == dex_index) {
+            optimizer::ArtDecompileDEX(
+                *class_it.GetMethodCodeItem(),
+                ArrayRef<const uint8_t>(
+                    it.GetCurrentQuickeningData(), it.GetCurrentQuickeningSize()),
+                kDecompileReturnInstruction);
+            it.Advance();
+          } else {
+            optimizer::ArtDecompileDEX(*class_it.GetMethodCodeItem(),
+                                       ArrayRef<const uint8_t>(nullptr, 0),
+                                       kDecompileReturnInstruction);
+          }
         }
-        it.Next();
       }
-      DCHECK(!it.HasNext());
     }
   }
-  if (quickening_info_ptr != quickening_info_end) {
-    LOG(FATAL) << "Failed to use all quickening info";
+}
+
+const uint8_t* VdexFile::GetQuickenedInfoOf(const DexFile& dex_file,
+                                            uint32_t code_item_offset) const {
+  if (GetQuickeningInfo().size() == 0) {
+    // Bail early if there is no quickening info.
+    return nullptr;
   }
+
+  uint32_t dex_index = GetDexFileIndex(dex_file);
+  if (dex_index == kNoDexFile) {
+    return nullptr;
+  }
+
+  QuickeningInfoIterator it(GetHeader().GetNumberOfDexFiles(), GetQuickeningInfo());
+  it.AdvanceTo(dex_index);
+  for (; it.HasNext() && it.GetCurrentDexFileIndex() == dex_index; it.Advance()) {
+    if (code_item_offset == it.GetCurrentCodeItemOffset()) {
+      return it.GetCurrentQuickeningData();
+    }
+  }
+  return nullptr;
 }
 
 }  // namespace art
