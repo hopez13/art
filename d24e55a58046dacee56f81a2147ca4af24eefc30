@@ -52,6 +52,24 @@
       "revId": "d24e55a58046dacee56f81a2147ca4af24eefc30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "214ba819_bc8fc609",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-13T23:06:07Z",
+      "side": 1,
+      "message": "Yes, when building for the emulator, we need to set \n\n--instruction-set-features\u003d-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-popcnt\n\nagain. But what I meant is that I am not sure how Studio builds/runs, so I am not sure if they already set explicit flags.",
+      "parentUuid": "6dcbcf1c_ae079cb3",
+      "revId": "d24e55a58046dacee56f81a2147ca4af24eefc30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
