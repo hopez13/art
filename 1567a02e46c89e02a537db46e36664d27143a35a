@@ -46,6 +46,30 @@
       "revId": "1567a02e46c89e02a537db46e36664d27143a35a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46343def_cf5b2ad9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-13T18:35:40Z",
+      "side": 1,
+      "message": "Unless you encode that field as a dependency as Mathieu suggested (and check the values are still the same at runtime), then this change is not safe.",
+      "parentUuid": "78ff88de_1e99400e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "1567a02e46c89e02a537db46e36664d27143a35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
