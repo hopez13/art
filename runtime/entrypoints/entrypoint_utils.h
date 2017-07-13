@@ -72,7 +72,7 @@ ALWAYS_INLINE inline mirror::Object* AllocObjectFromCodeInitialized(
     REQUIRES(!Roles::uninterruptible_);
 
 
-template <bool kAccessCheck>
+template <bool kAccessCheck, bool kInstrumented>
 ALWAYS_INLINE inline mirror::Class* CheckArrayAlloc(dex::TypeIndex type_idx,
                                                     int32_t component_count,
                                                     ArtMethod* method,

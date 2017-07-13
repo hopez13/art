@@ -456,7 +456,10 @@ class Runtime {
   // Transaction support.
   bool IsActiveTransaction() const;
   void EnterTransactionMode();
-  void EnterTransactionMode(bool strict, mirror::Class* root);
+  // Argument space_limit has a default value -1 means use space_limit from previous transaction.
+  // Convenient for nested transactions sharing thee same limit.
+  // Must provided when creates the first one.
+  void EnterTransactionMode(bool strict, mirror::Class* root, int32_t byte_allocated_limit = -1);
   void ExitTransactionMode();
   void RollbackAllTransactions() REQUIRES_SHARED(Locks::mutator_lock_);
   // Transaction rollback and exit transaction are always done together, it's convenience to
