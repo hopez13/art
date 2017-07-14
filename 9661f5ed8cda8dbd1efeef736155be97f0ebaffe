@@ -70,6 +70,23 @@
     },
     {
       "key": {
+        "uuid": "5937c268_4384e6da",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T23:29:52Z",
+      "side": 1,
+      "message": "So would change this into (btw, also rename all the arrayLength into newArray!!!)\n\nMInsn newArray \u003d  arrayLength(arrayLengthInsns.get(arrayLengthIdx);\n\nthen use\n\n mutatableCode.getInstructionIndex(...)\n\nto find it\u0027s index in the mutableCode\n\nthe rest is left at exercise for the reader",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ac8cb1d_dce43251",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 2
