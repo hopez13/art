@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47919441_773ddfa6",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-14T16:11:14Z",
+      "side": 1,
+      "message": "Extend comment as to why this is necessary.",
+      "range": {
+        "startLine": 509,
+        "startChar": 0,
+        "endLine": 510,
+        "endChar": 27
+      },
+      "revId": "8c4080a50ba80c7efcc197e9d7ca70e8c6a7eaaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f90007a_b1ebbc02",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-14T16:11:14Z",
+      "side": 1,
+      "message": "Looks like it fits on a single line now.",
+      "range": {
+        "startLine": 531,
+        "startChar": 45,
+        "endLine": 533,
+        "endChar": 61
+      },
+      "revId": "8c4080a50ba80c7efcc197e9d7ca70e8c6a7eaaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "033dccfb_be9499e6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-14T16:11:14Z",
+      "side": 1,
+      "message": "Could consider adding lock annotation here.",
+      "range": {
+        "startLine": 1185,
+        "startChar": 0,
+        "endLine": 1191,
+        "endChar": 3
+      },
+      "revId": "8c4080a50ba80c7efcc197e9d7ca70e8c6a7eaaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
