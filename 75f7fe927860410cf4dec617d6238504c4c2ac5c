@@ -72,6 +72,23 @@
     },
     {
       "key": {
+        "uuid": "e342c9f6_f4e4f0f2",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T21:12:16Z",
+      "side": 1,
+      "message": "as discussed offline, NEW_ARRAY is the right one, also probably make this a isNewArray method so we can expand later (although that will require looking at different registers, even with some encoding within)\n\nalso, class name should probably be NewArrayLengthChanger",
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "193e6ac6_605e18f7",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
         "patchSetId": 1
