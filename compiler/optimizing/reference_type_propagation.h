@@ -54,7 +54,6 @@ class ReferenceTypePropagation : public HOptimization {
 
   static constexpr const char* kReferenceTypePropagationPassName = "reference_type_propagation";
 
- private:
   class HandleCache {
    public:
     explicit HandleCache(VariableSizedHandleScope* handles) : handles_(handles) { }
@@ -83,6 +82,12 @@ class ReferenceTypePropagation : public HOptimization {
     ReferenceTypeInfo::TypeHandle throwable_class_handle_;
   };
 
+  static ReferenceTypeInfo MergeTypes(const ReferenceTypeInfo& a,
+                                      const ReferenceTypeInfo& b,
+                                      HandleCache* handle_cache)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+ private:
   class RTPVisitor;
 
   void VisitPhi(HPhi* phi);
@@ -99,9 +104,6 @@ class ReferenceTypePropagation : public HOptimization {
   bool UpdateReferenceTypeInfo(HInstruction* instr);
 
   static void UpdateArrayGet(HArrayGet* instr, HandleCache* handle_cache)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  ReferenceTypeInfo MergeTypes(const ReferenceTypeInfo& a, const ReferenceTypeInfo& b)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void ValidateTypes();
