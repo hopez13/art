@@ -121,6 +121,40 @@
     },
     {
       "key": {
+        "uuid": "0d218191_ec6a9b7c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T23:05:28Z",
+      "side": 1,
+      "message": "ah, your logic here is flawed; arrayLengthInsn only contain array length candidates; not the code in the method\n\nyou need to (1) find the index of the array length in the method and then (2) scan backwards, using the code array, not the mutation array",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5ea5ab0_1ff969af",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T23:05:28Z",
+      "side": 1,
+      "message": "it is cleaner if you take MInsn here as input, same for isNewArray",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a51f810b_54fe9052",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 2
