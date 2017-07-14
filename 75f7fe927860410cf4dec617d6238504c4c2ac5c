@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "de887f1a_47d71054",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-14T20:14:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91a429e6_ff6e83ac",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 7
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "193e6ac6_605e18f7",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2017-07-14T20:03:40Z",
       "side": 1,
       "message": "alignment issues.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 4
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16ba8046_f199f8a4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-14T20:14:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "193e6ac6_605e18f7",
       "range": {
         "startLine": 109,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "c3cb0ce3_0bd0af06",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-14T20:14:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af0b851d_c8713d6f",
+      "range": {
+        "startLine": 122,
+        "startChar": 39,
+        "endLine": 122,
+        "endChar": 42
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5617377_719738df",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2017-07-14T20:03:40Z",
       "side": 1,
       "message": "empty space here/",
+      "range": {
+        "startLine": 130,
+        "startChar": 36,
+        "endLine": 130,
+        "endChar": 37
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f79bd0a1_b7c76f54",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-14T20:14:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5617377_719738df",
       "range": {
         "startLine": 130,
         "startChar": 36,
