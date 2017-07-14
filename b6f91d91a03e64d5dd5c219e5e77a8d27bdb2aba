@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48710480_58f2eabf",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-14T20:07:13Z",
+      "side": 1,
+      "message": "It would be better to pass --root\u003d$ANDROID_BUILD_TOP in cases where that is defined.\n\n--root\u003d$(if,$(ANDROID_BUILD_TOP),$(ANDROID_BUILD_TOP),.)",
+      "range": {
+        "startLine": 21,
+        "startChar": 21,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "b6f91d91a03e64d5dd5c219e5e77a8d27bdb2aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
