@@ -21,6 +21,7 @@ import dexfuzz.MutationStats;
 import dexfuzz.Options;
 import dexfuzz.listeners.BaseListener;
 import dexfuzz.program.mutators.ArithOpChanger;
+import dexfuzz.program.mutators.ArrayLengthChanger;
 import dexfuzz.program.mutators.BranchShifter;
 import dexfuzz.program.mutators.CmpBiasChanger;
 import dexfuzz.program.mutators.CodeMutator;
@@ -192,6 +193,7 @@ public class Program {
 
     // Register all the code mutators here.
     registerMutator(new ArithOpChanger(rng, mutationStats, mutations));
+    registerMutator(new ArrayLengthChanger(rng, mutationStats, mutations));
     registerMutator(new BranchShifter(rng, mutationStats, mutations));
     registerMutator(new CmpBiasChanger(rng, mutationStats, mutations));
     registerMutator(new ConstantValueChanger(rng, mutationStats, mutations));
