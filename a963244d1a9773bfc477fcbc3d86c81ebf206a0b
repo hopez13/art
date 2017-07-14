@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f007fe5_4a8a8f49",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-14T13:03:41Z",
+      "side": 1,
+      "message": "Why would the checksum check not be enough?",
+      "range": {
+        "startLine": 605,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 7
+      },
+      "revId": "a963244d1a9773bfc477fcbc3d86c81ebf206a0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
