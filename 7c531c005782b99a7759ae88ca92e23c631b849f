@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "3dc01fc0_1d53faf6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-14T16:04:45Z",
+      "side": 1,
+      "message": "Can you reformulate this to make it clearer?",
+      "range": {
+        "startLine": 414,
+        "startChar": 19,
+        "endLine": 415,
+        "endChar": 27
+      },
+      "revId": "7c531c005782b99a7759ae88ca92e23c631b849f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b7ac130_e6e287f8",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-14T16:04:45Z",
+      "side": 1,
+      "message": "Move outside of the switch, so as to get enum case warnings.",
+      "range": {
+        "startLine": 643,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 20
+      },
+      "revId": "7c531c005782b99a7759ae88ca92e23c631b849f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84b77465_d9c4c77e",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 2
@@ -22,6 +68,29 @@
       "revId": "7c531c005782b99a7759ae88ca92e23c631b849f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ab33692_fe776bf2",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-14T16:04:45Z",
+      "side": 1,
+      "message": "Please don\u0027t drop the comment that these objects aren\u0027t really properly initialized etc.",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "7c531c005782b99a7759ae88ca92e23c631b849f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
