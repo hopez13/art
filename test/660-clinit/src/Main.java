@@ -33,6 +33,10 @@ public class Main {
     ShouldNotInit(G.class); // should fail
     ShouldNotInit(Gs.class); // should fail
 
+    ShouldNotInit(Add.class);
+    ShouldNotInit(Mul.class);
+    ShouldNotInit(ObjectRef.class);
+
     A x = new A();
     System.out.println("A.a: " + A.a);
 
@@ -173,3 +177,22 @@ class G {
 // Instantiation of Gs will fail because we try to invoke G's <init>
 // but G's status will be StatusVerified. INVOKE_DIRECT will not initialize class.
 class Gs extends G { }  // fail because super class can't be initialized
+
+// pruned because holding reference to non-image class
+class ObjectRef {
+  static Class<?> klazz[] = new Class<?>[]{Add.class, Mul.class};
+}
+
+// non-image
+class Add {
+  static int exec(int a, int b) {
+    return a + b;
+  }
+}
+
+// non-image
+class Mul {
+  static int exec(int a, int b) {
+    return a * b;
+  }
+}
