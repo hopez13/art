@@ -421,7 +421,7 @@ if [[ "${HAS_JASMIN}" == true ]]; then
   else
     # Move jasmin classes into classes directory so that they are picked up with -cp classes.
     mkdir -p classes
-    mv jasmin_classes/* classes
+    cp -r jasmin_classes/* classes
   fi
 fi
 
@@ -446,7 +446,7 @@ if [[ "$HAS_JASMIN_MULTIDEX" == true ]]; then
   else
     # Move jasmin classes into classes2 directory so that they are picked up with -cp classes2.
     mkdir -p classes2
-    mv jasmin_classes2/* classes2
+    cp -r jasmin_classes2/* classes2
   fi
 fi
 

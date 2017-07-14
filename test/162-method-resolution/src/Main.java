@@ -37,6 +37,8 @@ public class Main {
             test8();
             test9();
 
+            invokeUserTest("pkg1.Test10User");
+
             // TODO: How to test that interface method resolution returns the unique
             // maximally-specific non-abstract superinterface method if there is one?
             // Maybe reflection? (This is not even implemented yet!)
@@ -367,6 +369,9 @@ public class Main {
             System.out.println("Caught " + t.getClass().getName());
             for (Throwable c = t.getCause(); c != null; c = c.getCause()) {
                 System.out.println("  caused by " + c.getClass().getName());
+            }
+            if (userName.equals("pkg1.Test10User")) {
+                t.getCause().printStackTrace(System.out);
             }
         }
     }
