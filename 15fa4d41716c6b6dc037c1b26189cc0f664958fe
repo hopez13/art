@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed64af22_4afdd8ec",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-14T12:15:45Z",
+      "side": 1,
+      "message": "Why would we need to record at runtime APK splits? Won;t the framework guarantee how they\u0027re loaded?",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 44
+      },
+      "revId": "15fa4d41716c6b6dc037c1b26189cc0f664958fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9afd18_86c9859b",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-14T12:15:45Z",
+      "side": 1,
+      "message": "Maybe a for loop will read better.",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 80
+      },
+      "revId": "15fa4d41716c6b6dc037c1b26189cc0f664958fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a57e814b_504b962a",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-14T12:15:45Z",
+      "side": 1,
+      "message": "retained",
+      "range": {
+        "startLine": 105,
+        "startChar": 51,
+        "endLine": 105,
+        "endChar": 58
+      },
+      "revId": "15fa4d41716c6b6dc037c1b26189cc0f664958fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c8bf12a_19a1ed05",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-14T12:15:45Z",
+      "side": 1,
+      "message": "document this?",
+      "range": {
+        "startLine": 155,
+        "startChar": 27,
+        "endLine": 155,
+        "endChar": 60
+      },
+      "revId": "15fa4d41716c6b6dc037c1b26189cc0f664958fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d635c00c_cf250be1",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-14T12:15:45Z",
+      "side": 1,
+      "message": "Maybe have a consistent API and take a Handle here?",
+      "range": {
+        "startLine": 162,
+        "startChar": 39,
+        "endLine": 162,
+        "endChar": 51
+      },
+      "revId": "15fa4d41716c6b6dc037c1b26189cc0f664958fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
