@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc88372f_6ae36ef0",
+        "filename": "test/165-string-char-at-null-handlescope/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-14T11:59:43Z",
+      "side": 1,
+      "message": "Missing copyright",
+      "revId": "f1c47ee5361b72cf04fe1f90a13ee4278cffbcd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4a0359_53d22d6a",
+        "filename": "test/165-string-char-at-null-handlescope/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-14T11:59:43Z",
+      "side": 1,
+      "message": "Maybe we should just test in a loop that makes sure threads get randomly suspended often?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 19
+      },
+      "revId": "f1c47ee5361b72cf04fe1f90a13ee4278cffbcd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
