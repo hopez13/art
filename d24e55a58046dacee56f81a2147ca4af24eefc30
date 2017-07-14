@@ -106,6 +106,24 @@
       "revId": "d24e55a58046dacee56f81a2147ca4af24eefc30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf249d3_71dff288",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T17:52:18Z",
+      "side": 1,
+      "message": "We should probably use\n\nPRODUCT_ART_USES_SSE \u003d false\n\nand then set this in the lunch target, and make setting cflags conditional, so that we don\u0027t build art itself using sse (so the clang build binary, not just the code Art itself generates)",
+      "parentUuid": "cc3b3c8a_c77c0bec",
+      "revId": "d24e55a58046dacee56f81a2147ca4af24eefc30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
