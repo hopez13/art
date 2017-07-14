@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "903ede6a_ce1ee7e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-14T15:39:16Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you mean by \"extend\" and \"entire.\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "a963244d1a9773bfc477fcbc3d86c81ebf206a0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f007fe5_4a8a8f49",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 4
@@ -13,6 +36,30 @@
       "writtenOn": "2017-07-14T13:03:41Z",
       "side": 1,
       "message": "Why would the checksum check not be enough?",
+      "range": {
+        "startLine": 605,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 7
+      },
+      "revId": "a963244d1a9773bfc477fcbc3d86c81ebf206a0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c79ae1e8_4c7469bf",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-14T15:39:16Z",
+      "side": 1,
+      "message": "Dex checksums (or zip checksums) are adler32, which isn\u0027t a really good checksum...",
+      "parentUuid": "8f007fe5_4a8a8f49",
       "range": {
         "startLine": 605,
         "startChar": 0,
