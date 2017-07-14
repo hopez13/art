@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52318e99_542d9c47",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-14T20:03:40Z",
+      "side": 1,
+      "message": "Let\u0027s add a comment with the reason for the last version increase.\n\ne.g. // Last version update: added array size mutator.",
+      "range": {
+        "startLine": 37,
+        "startChar": 36,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91a429e6_ff6e83ac",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-14T20:03:40Z",
+      "side": 1,
+      "message": "there are some alignment issues here.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 7
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "193e6ac6_605e18f7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-14T20:03:40Z",
+      "side": 1,
+      "message": "alignment issues.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 4
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af0b851d_c8713d6f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-14T20:03:40Z",
+      "side": 1,
+      "message": "document at the top of this Changer that you are considering a random value in the range 0-100.",
+      "range": {
+        "startLine": 122,
+        "startChar": 39,
+        "endLine": 122,
+        "endChar": 42
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5617377_719738df",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-14T20:03:40Z",
+      "side": 1,
+      "message": "empty space here/",
+      "range": {
+        "startLine": 130,
+        "startChar": 36,
+        "endLine": 130,
+        "endChar": 37
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
