@@ -46,6 +46,30 @@
       "revId": "b6f91d91a03e64d5dd5c219e5e77a8d27bdb2aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eca9fc81_978072cd",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-14T20:11:14Z",
+      "side": 1,
+      "message": "I don\u0027t follow this, why not just use $(LOCAL_PATH) to get a relative path to ANDROID_BUILD_TOP? Is it changing based on where mk file is included from?",
+      "parentUuid": "48710480_58f2eabf",
+      "range": {
+        "startLine": 21,
+        "startChar": 21,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "b6f91d91a03e64d5dd5c219e5e77a8d27bdb2aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
