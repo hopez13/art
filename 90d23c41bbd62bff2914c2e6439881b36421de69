@@ -22,6 +22,30 @@
       "revId": "90d23c41bbd62bff2914c2e6439881b36421de69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedb48e4_4fbaae1c",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1095168
+      },
+      "writtenOn": "2017-07-14T12:34:10Z",
+      "side": 1,
+      "message": "Ah, yes, I see what you mean. Thanks. I\u0027m running out of time for now. I just uploaded a new change that I think fixes this. However, I\u0027m not sure I\u0027m happy with the structure of the code now. I had to make some stuff in ReferenceTypePropagation public so that I can call the MergeTypes method from here passing in a handle cache.\n\nI\u0027m heading out on vacation for two weeks. If you have ideas on a better structure for this, let me know, and I\u0027ll get back to it in a couple of weeks. :)",
+      "parentUuid": "7d3d6d3f_7c7445ab",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 73
+      },
+      "revId": "90d23c41bbd62bff2914c2e6439881b36421de69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
