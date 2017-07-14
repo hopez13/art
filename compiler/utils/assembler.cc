@@ -19,9 +19,6 @@
 #include <algorithm>
 #include <vector>
 
-#ifdef ART_ENABLE_CODEGEN_arm
-#include "arm/assembler_thumb2.h"
-#endif
 #ifdef ART_ENABLE_CODEGEN_arm64
 #include "arm64/assembler_arm64.h"
 #endif
