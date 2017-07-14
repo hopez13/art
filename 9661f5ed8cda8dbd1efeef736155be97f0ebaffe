@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db1563a2_8c2d1802",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T22:41:29Z",
+      "side": 1,
+      "message": "space before The",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbba632c_da63e784",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T22:41:29Z",
+      "side": 1,
+      "message": "spaces after //, remove extra ws at end of next line",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bfe140d_e9f30639",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T22:41:29Z",
+      "side": 1,
+      "message": "move towards end, next to isConst(), also make private",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b74acd26_7f077dcf",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T22:41:29Z",
+      "side": 1,
+      "message": "return opcode \u003d\u003d Opcode.NEW_ARRAY;",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ac8cb1d_dce43251",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T22:41:29Z",
+      "side": 1,
+      "message": "if (!foundInsnIdx) {",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e146341_5c6f65a5",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T22:41:29Z",
+      "side": 1,
+      "message": "space after //",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9398e77_2e2604ee",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T22:41:29Z",
+      "side": 1,
+      "message": "I saw the mutation kick in, but it resorted to inserting a new value, not changing the existing one, and at the wrong place!\n\n\u003c 00011c: 1300 6400                              |0000: const/16 v0, #int 100 // #64\n\u003c 000120: 2300 0300                              |0002: new-array v0, v0, [I // type@0003\n\u003c 000124: 1100                                   |0004: return-object v0\n---\n\u003e 00011c: 1300 2700                              |0000: const/16 v0, #int 39 // #27\n\u003e 000120: 1300 6400                              |0002: const/16 v0, #int 100 // #64\n\u003e 000124: 2300 0300                              |0004: new-array v0, v0, [I // type@0003\n\u003e 000128: 1100                                   |0006: return-object v0",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a51f810b_54fe9052",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-14T22:41:29Z",
+      "side": 1,
+      "message": "return opcode \u003d\u003d ..... ;",
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
