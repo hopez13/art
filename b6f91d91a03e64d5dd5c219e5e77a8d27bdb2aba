@@ -22,6 +22,30 @@
       "revId": "b6f91d91a03e64d5dd5c219e5e77a8d27bdb2aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4b825c7_71857847",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-07-14T20:10:29Z",
+      "side": 1,
+      "message": "These makefiles are guaranteed to run from the top of the tree, even if you use m or mm.  ANDROID_BUILD_TOP is never necessary or correct in an Android.mk.  You can use $(TOP) if you want, but that is hardcoded to \".\"",
+      "parentUuid": "48710480_58f2eabf",
+      "range": {
+        "startLine": 21,
+        "startChar": 21,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "b6f91d91a03e64d5dd5c219e5e77a8d27bdb2aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
