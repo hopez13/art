@@ -692,7 +692,10 @@ void VerifierDeps::Encode(const std::vector<const DexFile*>& dex_files,
     EncodeSet(buffer, deps.classes_);
     EncodeSet(buffer, deps.fields_);
     EncodeSet(buffer, deps.methods_);
-    EncodeUint16Vector(buffer, deps.unverified_classes_);
+    // Sort the unverified classes to make sure it's deterministic.
+    std::vector<dex::TypeIndex> sorted_unverified_classes = deps.unverified_classes_;
+    std::sort(sorted_unverified_classes.begin(), sorted_unverified_classes.end());
+    EncodeUint16Vector(buffer, sorted_unverified_classes);
   }
 }
 
