@@ -27,6 +27,14 @@ class AotClassLinker : public ClassLinker {
   explicit AotClassLinker(InternTable *intern_table);
   ~AotClassLinker();
 
+ protected:
+  verifier::FailureKind PerformClassVerification(Thread* self,
+                                                 Handle<mirror::Class> klass,
+                                                 verifier::HardFailLogMode log_level,
+                                                 std::string* error_msg)
+      OVERRIDE
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   bool InitializeClass(Thread *self,
                        Handle<mirror::Class> klass,
                        bool can_run_clinit,
