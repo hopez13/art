@@ -239,10 +239,6 @@ class OatWriter {
     return ArrayRef<const debug::MethodDebugInfo>(method_info_);
   }
 
-  const CompilerDriver* GetCompilerDriver() const {
-    return compiler_driver_;
-  }
-
  private:
   class DexFileSource;
   class OatClassHeader;
@@ -329,7 +325,12 @@ class OatWriter {
   void SetMultiOatRelativePatcherAdjustment();
   void CloseSources();
 
+
   bool MayHaveCompiledMethods() const;
+
+  const CompilerDriver* GetCompilerDriver() const {
+    return compiler_driver_;
+  }
 
   enum class WriteState {
     kAddingDexFileSources,

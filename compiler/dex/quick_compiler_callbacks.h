@@ -22,6 +22,7 @@
 
 namespace art {
 
+class CompilerDriver;
 class VerificationResults;
 
 class QuickCompilerCallbacks FINAL : public CompilerCallbacks {

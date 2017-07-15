@@ -16,8 +16,9 @@
 
 #include "quick_compiler_callbacks.h"
 
-#include "verification_results.h"
+#include "driver/compiler_driver.h"
 #include "verifier/method_verifier-inl.h"
+#include "verification_results.h"
 
 namespace art {
 

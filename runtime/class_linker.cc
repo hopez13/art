@@ -3555,6 +3555,14 @@ void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
   data.resolved_methods = dex_cache->GetResolvedMethods();
   data.class_table = ClassTableForClassLoader(class_loader);
   DCHECK(data.class_table != nullptr);
+  // Make sure to hold the dex cache live in the class table. This case happens for the boot class
+  // path dex caches without an image.
+  data.class_table->InsertStrongRoot(dex_cache);
+  if (class_loader != nullptr) {
+    // Since we added a strong root to the class table, do the write barrier as required for
+    // remembered sets and generational GCs.
+    Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(class_loader);
+  }
   dex_caches_.push_back(data);
 }
 
@@ -3686,7 +3694,8 @@ bool ClassLinker::IsDexFileRegistered(Thread* self, const DexFile& dex_file) {
 
 ObjPtr<mirror::DexCache> ClassLinker::FindDexCache(Thread* self, const DexFile& dex_file) {
   ReaderMutexLock mu(self, *Locks::dex_lock_);
-  ObjPtr<mirror::DexCache> dex_cache = DecodeDexCache(self, FindDexCacheDataLocked(dex_file));
+  DexCacheData dex_cache_data = FindDexCacheDataLocked(dex_file);
+  ObjPtr<mirror::DexCache> dex_cache = DecodeDexCache(self, dex_cache_data);
   if (dex_cache != nullptr) {
     return dex_cache;
   }
@@ -3696,7 +3705,8 @@ ObjPtr<mirror::DexCache> ClassLinker::FindDexCache(Thread* self, const DexFile& 
       LOG(FATAL_WITHOUT_ABORT) << "Registered dex file " << data.dex_file->GetLocation();
     }
   }
-  LOG(FATAL) << "Failed to find DexCache for DexFile " << dex_file.GetLocation();
+  LOG(FATAL) << "Failed to find DexCache for DexFile " << dex_file.GetLocation()
+             << " " << &dex_file << " " << dex_cache_data.dex_file;
   UNREACHABLE();
 }
 
@@ -4272,13 +4282,7 @@ verifier::FailureKind ClassLinker::VerifyClass(
   std::string error_msg;
   verifier::FailureKind verifier_failure = verifier::FailureKind::kNoFailure;
   if (!preverified) {
-    Runtime* runtime = Runtime::Current();
-    verifier_failure = verifier::MethodVerifier::VerifyClass(self,
-                                                             klass.Get(),
-                                                             runtime->GetCompilerCallbacks(),
-                                                             runtime->IsAotCompiler(),
-                                                             log_level,
-                                                             &error_msg);
+    verifier_failure = PerformClassVerification(self, klass, log_level, &error_msg);
   }
 
   // Verification is done, grab the lock again.
@@ -4344,6 +4348,19 @@ verifier::FailureKind ClassLinker::VerifyClass(
     }
   }
   return verifier_failure;
+}
+
+verifier::FailureKind ClassLinker::PerformClassVerification(Thread* self,
+                                                            Handle<mirror::Class> klass,
+                                                            verifier::HardFailLogMode log_level,
+                                                            std::string* error_msg) {
+  Runtime* const runtime = Runtime::Current();
+  return verifier::MethodVerifier::VerifyClass(self,
+                                               klass.Get(),
+                                               runtime->GetCompilerCallbacks(),
+                                               runtime->IsAotCompiler(),
+                                               log_level,
+                                               error_msg);
 }
 
 bool ClassLinker::VerifyClassUsingOatFile(const DexFile& dex_file,
@@ -8837,16 +8854,6 @@ jobject ClassLinker::CreatePathClassLoader(Thread* self,
 void ClassLinker::DropFindArrayClassCache() {
   std::fill_n(find_array_class_cache_, kFindArrayCacheSize, GcRoot<mirror::Class>(nullptr));
   find_array_class_cache_next_victim_ = 0;
-}
-
-void ClassLinker::ClearClassTableStrongRoots() const {
-  Thread* const self = Thread::Current();
-  WriterMutexLock mu(self, *Locks::classlinker_classes_lock_);
-  for (const ClassLoaderData& data : class_loaders_) {
-    if (data.class_table != nullptr) {
-      data.class_table->ClearStrongRoots();
-    }
-  }
 }
 
 void ClassLinker::VisitClassLoaders(ClassLoaderVisitor* visitor) const {
