@@ -16,6 +16,7 @@
 
 #include "quick_compiler_callbacks.h"
 
+#include "driver/compiler_driver.h"
 #include "verification_results.h"
 #include "verifier/method_verifier-inl.h"
 
@@ -31,6 +32,12 @@ void QuickCompilerCallbacks::ClassRejected(ClassReference ref) {
   if (verification_results_ != nullptr) {
     verification_results_->AddRejectedClass(ref);
   }
+}
+
+bool QuickCompilerCallbacks::CanAssumeVerified(ClassReference ref) {
+  // compiler_driver_ is null if we don't need to re-check for previously verified classes. We
+  // do this check only when dex2oat unloading is enabled.
+  return compiler_driver_ != nullptr && compiler_driver_->CanAssumeVerified(ref);
 }
 
 }  // namespace art
