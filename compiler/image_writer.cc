@@ -1153,9 +1153,21 @@ void ImageWriter::PruneNonImageClasses() {
   Thread* self = Thread::Current();
   ScopedAssertNoThreadSuspension sa(__FUNCTION__);
 
-  // Clear class table strong roots so that dex caches can get pruned. We require pruning the class
-  // path dex caches.
-  class_linker->ClearClassTableStrongRoots();
+  // Prune uses library dex caches. Only prune the uses library dex caches since we want to make
+  // sure the other ones don't get unloaded before the OatWriter runs.
+  class_linker->VisitClassTables([&](ClassTable* table) REQUIRES_SHARED(Locks::mutator_lock_) {
+    table->RemoveStrongRoots([&](GcRoot<mirror::Object> root)
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      ObjPtr<mirror::Object> obj = root.Read();
+      if (obj->IsDexCache()) {
+        // Return true if the dex file is not one of the ones in the map.
+        return dex_file_oat_index_map_.find(obj->AsDexCache()->GetDexFile()) ==
+            dex_file_oat_index_map_.end();
+      }
+      // Return false to avoid removing.
+      return false;
+    });
+  });
 
   // Remove the undesired classes from the class roots.
   ObjPtr<mirror::ClassLoader> class_loader;

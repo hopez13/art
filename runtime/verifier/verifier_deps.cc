@@ -33,7 +33,7 @@
 namespace art {
 namespace verifier {
 
-VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files) {
+VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files) : output_only_(true) {
   for (const DexFile* dex_file : dex_files) {
     DCHECK(GetDexFileDeps(*dex_file) == nullptr);
     std::unique_ptr<DexFileDeps> deps(new DexFileDeps());
@@ -695,6 +695,7 @@ void VerifierDeps::Encode(const std::vector<const DexFile*>& dex_files,
 VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
                            ArrayRef<const uint8_t> data)
     : VerifierDeps(dex_files) {
+  output_only_ = false;
   if (data.empty()) {
     // Return eagerly, as the first thing we expect from VerifierDeps data is
     // the number of created strings, even if there is no dependency.
