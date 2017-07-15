@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4de4812e_62f158e1",
+        "filename": "runtime/gc/space/image_space_fs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-15T23:50:09Z",
+      "side": 1,
+      "message": "Do you really have to sync all directories? Is it not enough to sync the \"outermost\" (only remaining) directory?",
+      "revId": "dd6014997efe6662b2fb828b264c8ce30da42ebc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19711ed6_387fbb28",
+        "filename": "runtime/gc/space/image_space_fs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-15T23:50:09Z",
+      "side": 1,
+      "message": "unique_fd",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 12
+      },
+      "revId": "dd6014997efe6662b2fb828b264c8ce30da42ebc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
