@@ -716,6 +716,12 @@ class ClassLinker {
     return true;
   }
 
+  virtual verifier::FailureKind PerformClassVerification(Thread* self,
+                                                         Handle<mirror::Class> klass,
+                                                         verifier::HardFailLogMode log_level,
+                                                         std::string* error_msg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   class LinkInterfaceMethodsHelper;
 
