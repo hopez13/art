@@ -2433,7 +2433,8 @@ mirror::Object* ConcurrentCopying::IsMarked(mirror::Object* from_ref) {
           heap_mark_bitmap_->GetContinuousSpaceBitmap(from_ref);
       accounting::LargeObjectBitmap* los_bitmap =
           heap_mark_bitmap_->GetLargeObjectBitmap(from_ref);
-      CHECK(los_bitmap != nullptr) << "LOS bitmap covers the entire address range";
+      CHECK(los_bitmap != nullptr) << "LOS bitmap covers the entire address range " << from_ref
+                                   << " " << heap_->DumpSpaces();
       bool is_los = mark_bitmap == nullptr;
       if (!is_los && mark_bitmap->Test(from_ref)) {
         // Already marked.
