@@ -126,6 +126,10 @@ class FdFile : public RandomAccessFile {
   bool WriteFully(const void* buffer, size_t byte_count) WARN_UNUSED;
   bool PwriteFully(const void* buffer, size_t byte_count, size_t offset) WARN_UNUSED;
 
+  // Compare against another file. Returns 0 if the files are equivalent, otherwise returns the
+  // difference according to memcmp.
+  int Compare(FdFile* other);
+
   // Copy data from another file.
   bool Copy(FdFile* input_file, int64_t offset, int64_t size);
   // Clears the file content and resets the file offset to 0.

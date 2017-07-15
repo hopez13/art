@@ -34,6 +34,14 @@ class AotClassLinker : public ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Roles::uninterruptible_);
 
+ protected:
+  verifier::FailureKind PerformClassVerification(Thread* self,
+                                                 Handle<mirror::Class> klass,
+                                                 verifier::HardFailLogMode log_level,
+                                                 std::string* error_msg)
+      OVERRIDE
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   bool InitializeClass(Thread *self,
                        Handle<mirror::Class> klass,
                        bool can_run_clinit,
