@@ -46,6 +46,30 @@
       "revId": "90d23c41bbd62bff2914c2e6439881b36421de69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d74c456d_cecde595",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-15T01:48:44Z",
+      "side": 1,
+      "message": "The selector runs after inlining but that type still needs to be fixed for other optimizations.",
+      "parentUuid": "dedb48e4_4fbaae1c",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 73
+      },
+      "revId": "90d23c41bbd62bff2914c2e6439881b36421de69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
