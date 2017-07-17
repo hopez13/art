@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6e129a80_8cbc0fe1",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-17T20:26:59Z",
+      "side": 1,
+      "message": "Needs an update? And why not return the struct, actually? Copy elision should elide any superfluous stuff?",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 79
+      },
+      "revId": "c3efc496f9a2c0b5306af295980645723ac0f6dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4832ca41_96e06baa",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 1
