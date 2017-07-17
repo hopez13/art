@@ -1,0 +1,319 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "419c9e1d_3a220d10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Please, document the new format somewhere.",
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8ab6925_38a15faf",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "else DCHECK(compiled_method \u003d\u003d nullptr || compiled_method-\u003eGetPatches().empty());",
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75bed1c1_c9f6f757",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Rename?",
+      "range": {
+        "startLine": 760,
+        "startChar": 8,
+        "endLine": 760,
+        "endChar": 38
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45173043_f35a0e2a",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1985,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1985,
+        "startChar": 15,
+        "endLine": 1985,
+        "endChar": 52
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22a3660d_9a317b68",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Helper function HasQuickeningInfo()?",
+      "range": {
+        "startLine": 1990,
+        "startChar": 8,
+        "endLine": 1992,
+        "endChar": 48
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "520c90c3_728f25f7",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2007,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Why are you reordering `length` and `sizeof(length)` here? The first WriteFully() writes `sizeof(length)` bytes and the second writes `length` bytes, so the old ordering is logical.",
+      "range": {
+        "startLine": 2006,
+        "startChar": 0,
+        "endLine": 2007,
+        "endChar": 43
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf439a25_40153bfa",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2044,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "What if a dex file has no class_def? We shall miss a push_back() here.\n(As the dex file definition says, this is \"admittedly a strange edge case\".)",
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cb272a5_3113620c",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2056,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "HasQuickeningInfo()",
+      "range": {
+        "startLine": 2054,
+        "startChar": 8,
+        "endLine": 2056,
+        "endChar": 48
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40123778_6b642e70",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2067,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Use `sizeof(code_item_offset) + sizeof(offset)` because that\u0027s what you\u0027re passing to WriteFully().",
+      "range": {
+        "startLine": 2066,
+        "startChar": 0,
+        "endLine": 2067,
+        "endChar": 53
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6509f4b_f3e7dd8d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "dex_file_indices[0]",
+      "range": {
+        "startLine": 2127,
+        "startChar": 45,
+        "endLine": 2127,
+        "endChar": 53
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5df93d0e_d587f1d1",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "I\u0027d rather see a C++-style iterator instead of this Java-style HasNext()/Advance().",
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b588d0b6_40ccb1f4",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "It\u0027s quite odd that this iterator provides access to the quickening infos of _all_ dex files. The use cases below require only iteration over quickening infos of a single dex file.",
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0654543b_3db3452f",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Too late, this should have been done when we reached the \"end\" in a previous call to Advance(). You also fail to account for dex files that may have no quickening info at all, so we may need to increment the index multiple times.",
+      "range": {
+        "startLine": 196,
+        "startChar": 6,
+        "endLine": 196,
+        "endChar": 32
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63101967_d24aab1e",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Why not `ArrayRef\u003cconst uint8_t\u003e GetCurrentQuickeningInfo() const {...}\u0027?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 3
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03ca6e0c_2a541ac0",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-17T12:39:21Z",
+      "side": 1,
+      "message": "Are these guaranteed to be correctly aligned? Or should we use \"unaligned_uint32_t\"?",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 41
+      },
+      "revId": "54a7aeb3121a81df740ffc7071a718673cfe22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
