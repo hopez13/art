@@ -1732,7 +1732,11 @@ class Dex2Oat FINAL {
       }
       // Pre-register dex files so that we can access verification results without locks during
       // compilation and verification.
-      verification_results_->AddDexFile(dex_file);
+      if (CompilerFilter::IsAnyCompilationEnabled(compiler_options_->GetCompilerFilter())) {
+        // Verification results are only required for modes that have any compilation. Avoid
+        // adding the dex files if possible to prevent allocating large arrays.
+        verification_results_->AddDexFile(dex_file);
+      }
     }
 
     return dex2oat::ReturnCode::kNoFailure;
