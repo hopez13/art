@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b781138b_3bc3655e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-17T23:47:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd87c78b_eef36dae",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "344e361ea0e3ce9dfb35975605b7301b0bab2c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8563eb62_b62c4a57",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-17T23:00:51Z",
       "side": 1,
       "message": "Why no DCHECK here?",
+      "range": {
+        "startLine": 580,
+        "startChar": 4,
+        "endLine": 580,
+        "endChar": 68
+      },
+      "revId": "344e361ea0e3ce9dfb35975605b7301b0bab2c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24c5d6d9_3bd9cdb4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-17T23:47:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8563eb62_b62c4a57",
       "range": {
         "startLine": 580,
         "startChar": 4,
