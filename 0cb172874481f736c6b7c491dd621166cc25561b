@@ -16,6 +16,29 @@
       "revId": "0cb172874481f736c6b7c491dd621166cc25561b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "585f6800_5311357c",
+        "filename": "test/138-duplicate-classes-check2/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-17T22:21:32Z",
+      "side": 1,
+      "message": "This is weird. Classloaders should usually throw for this case...",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "0cb172874481f736c6b7c491dd621166cc25561b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
