@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f03bcf6_05d873ce",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T20:20:27Z",
+      "side": 1,
+      "message": "I would move it up one line and include the total version\n\n// Last version update 1.4: ....\n\nso it is easy to see if comment was kept up to date",
+      "revId": "f11af18aa3fcef6fad8ccc9fb6e74a632e6293d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da360a2d_2837f087",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T20:20:27Z",
+      "side": 1,
+      "message": "no longer needed",
+      "revId": "f11af18aa3fcef6fad8ccc9fb6e74a632e6293d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
