@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d8ebc13b_9e5050e5",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T23:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a308c153_dfafbb18",
+      "revId": "8c63b6882f3a93a46a2e91f986c3615db8b66bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f0bfadb_fc42cc29",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 9
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "b73f9461_951e3304",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T23:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f0bfadb_fc42cc29",
+      "revId": "8c63b6882f3a93a46a2e91f986c3615db8b66bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60c4489a_5c78fd3e",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 9
@@ -47,6 +83,24 @@
       "writtenOn": "2017-07-17T23:03:23Z",
       "side": 1,
       "message": "why set to null? it is a local, there is no more use",
+      "revId": "8c63b6882f3a93a46a2e91f986c3615db8b66bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb6a6d63_ee006b39",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T23:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60c4489a_5c78fd3e",
       "revId": "8c63b6882f3a93a46a2e91f986c3615db8b66bf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

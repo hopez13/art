@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "102c9d4a_5fa91909",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T23:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c40032a_fb119be1",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "84cbd4a41158ae9d5b2a202111595bd9775c2d18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db8341f1_8e760ffc",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 8
