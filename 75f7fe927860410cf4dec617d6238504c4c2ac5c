@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ca652515_8cc81609",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T17:40:09Z",
+      "side": 1,
+      "message": "note that you missed this feedback from Calin",
+      "parentUuid": "52318e99_542d9c47",
+      "range": {
+        "startLine": 37,
+        "startChar": 36,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "75f7fe927860410cf4dec617d6238504c4c2ac5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91a429e6_ff6e83ac",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/ArrayLengthChanger.java",
         "patchSetId": 1

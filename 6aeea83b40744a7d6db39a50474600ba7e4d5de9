@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96bf1542_98a437ab",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T17:40:09Z",
+      "side": 1,
+      "message": "note that you are using the name newArrayIdx for two purposes\n\n(1) index in newArrayLengthInsns, i.e. all the new arrays found, from which you pick one\n(2) index in the mutatableCode data structure, i.e. where in the program is it\n\nalthough both are of course an index belong to newArrayIdx, and although it is not wrong to call them the same, bugs are easier to spot with better naming conventions\n\nI would make the name reflect its function better",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16cba892_f0b7bdcc",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T17:40:09Z",
+      "side": 1,
+      "message": "at this point, you already found the newArrayIdx, yet in foundInstruction, the first thing you do is scan to find the index?",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9789bc8_80100117",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T17:40:09Z",
+      "side": 1,
+      "message": "you can avoid this scan",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c01fe96_f2d5f366",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T17:40:09Z",
+      "side": 1,
+      "message": "(1) you already found the array index at L116, so no need for this at all\n(2) even if you needed this, you scan all instructions, and then when you found it (which you always will) call this method, which scans again (is really does mutatableInsns.indexOf(mInsn);)! you should have kept an index in the L136 for loop and used that to break",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d319263_657993f8",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T17:40:09Z",
+      "side": 1,
+      "message": "it is misleading to call this constInsn already, it may not be one (candidate or something would be better)",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8b8b88a_2792dc73",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T17:40:09Z",
+      "side": 1,
+      "message": "this line changes the destination register, not the const value?!",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
