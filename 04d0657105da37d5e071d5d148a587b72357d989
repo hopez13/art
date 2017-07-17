@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1846d831_a79d0e01",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T17:02:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f42b7b6_1edcd691",
+      "revId": "04d0657105da37d5e071d5d148a587b72357d989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f65c2592_5b389a3c",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-15T05:02:42Z",
       "side": 1,
       "message": "use your isNewArray(mInsn)",
+      "revId": "04d0657105da37d5e071d5d148a587b72357d989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b5df472_a3d1a6ba",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T17:02:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f65c2592_5b389a3c",
       "revId": "04d0657105da37d5e071d5d148a587b72357d989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f47291a2_c15b4e31",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T17:02:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62d7a630_5727cc3b",
+      "revId": "04d0657105da37d5e071d5d148a587b72357d989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84ca8428_204ee991",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2017-07-15T05:02:42Z",
       "side": 1,
       "message": "this logic is not right yet, you are mixing indices\n\n(1) find instruction using \nMInsn newArrayInsn \u003d newArrayLengthInsns.get(mutation.newArrayToChangeIdx);\n[the index is in the list of new arrays found]\n(2) then find the index in the mutable code\nmutatableCode.getInstructionIndex(newArrayIns)",
+      "revId": "04d0657105da37d5e071d5d148a587b72357d989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "014d7e68_4b1c20ad",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T17:02:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84ca8428_204ee991",
       "revId": "04d0657105da37d5e071d5d148a587b72357d989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
