@@ -703,6 +703,10 @@ class Dex2Oat FINAL {
     }
   }
 
+  bool CheckProfile() {
+    return profile_compilation_info_->Verify(dex_files_);
+  }
+
   void ParseInstructionSetVariant(const StringPiece& option, ParserOptions* parser_options) {
     DCHECK(option.starts_with("--instruction-set-variant="));
     StringPiece str = option.substr(strlen("--instruction-set-variant=")).data();
@@ -3001,6 +3005,14 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
   if (setup_code != dex2oat::ReturnCode::kNoFailure) {
     dex2oat->EraseOutputFiles();
     return setup_code;
+  }
+
+  // TODO: Due to the cyclic dependencies, profile loading and verifying are
+  // being done separately. Refactor and place the two next to each other.
+  if (dex2oat->UseProfile()) {
+    if (!dex2oat->CheckProfile()) {
+      return dex2oat::ReturnCode::kOther;
+    }
   }
 
   // Helps debugging on device. Can be used to determine which dalvikvm instance invoked a dex2oat

@@ -78,10 +78,6 @@ DEFINE_CHECK_EQ(static_cast<int32_t>(STRING_DEX_CACHE_SIZE_MINUS_ONE), (static_c
 DEFINE_CHECK_EQ(static_cast<int32_t>(STRING_DEX_CACHE_HASH_BITS), (static_cast<int32_t>(art::LeastSignificantBit(art::mirror::DexCache::kDexCacheStringCacheSize))))
 #define STRING_DEX_CACHE_ELEMENT_SIZE 8
 DEFINE_CHECK_EQ(static_cast<int32_t>(STRING_DEX_CACHE_ELEMENT_SIZE), (static_cast<int32_t>(sizeof(art::mirror::StringDexCachePair))))
-#define METHOD_DEX_CACHE_SIZE_MINUS_ONE 1023
-DEFINE_CHECK_EQ(static_cast<int32_t>(METHOD_DEX_CACHE_SIZE_MINUS_ONE), (static_cast<int32_t>(art::mirror::DexCache::kDexCacheMethodCacheSize - 1)))
-#define METHOD_DEX_CACHE_HASH_BITS 10
-DEFINE_CHECK_EQ(static_cast<int32_t>(METHOD_DEX_CACHE_HASH_BITS), (static_cast<int32_t>(art::LeastSignificantBit(art::mirror::DexCache::kDexCacheMethodCacheSize))))
 #define CARD_TABLE_CARD_SHIFT 0xa
 DEFINE_CHECK_EQ(static_cast<size_t>(CARD_TABLE_CARD_SHIFT), (static_cast<size_t>(art::gc::accounting::CardTable::kCardShift)))
 #define MIN_LARGE_OBJECT_THRESHOLD 0x3000
@@ -114,8 +110,6 @@ DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_GC_STATE_SHIFT), (static_cast<int
 DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_MARK_BIT_SHIFT), (static_cast<int32_t>(art::LockWord::kMarkBitStateShift)))
 #define LOCK_WORD_MARK_BIT_MASK_SHIFTED 0x20000000
 DEFINE_CHECK_EQ(static_cast<uint32_t>(LOCK_WORD_MARK_BIT_MASK_SHIFTED), (static_cast<uint32_t>(art::LockWord::kMarkBitStateMaskShifted)))
-#define STD_MEMORY_ORDER_RELAXED 0
-DEFINE_CHECK_EQ(static_cast<int32_t>(STD_MEMORY_ORDER_RELAXED), (static_cast<int32_t>(std::memory_order_relaxed)))
 #define OBJECT_ALIGNMENT_MASK 0x7
 DEFINE_CHECK_EQ(static_cast<size_t>(OBJECT_ALIGNMENT_MASK), (static_cast<size_t>(art::kObjectAlignment - 1)))
 #define OBJECT_ALIGNMENT_MASK_TOGGLED 0xfffffff8
