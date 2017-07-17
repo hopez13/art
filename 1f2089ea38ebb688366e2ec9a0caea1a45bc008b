@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfffdb2f_f13a7ba7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2303,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-17T20:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "955a9a59_d826a7f0",
+      "range": {
+        "startLine": 2303,
+        "startChar": 16,
+        "endLine": 2303,
+        "endChar": 78
+      },
+      "revId": "1f2089ea38ebb688366e2ec9a0caea1a45bc008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f341ab30_ebbabbe6",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-14T13:23:08Z",
       "side": 1,
       "message": "enabling",
+      "range": {
+        "startLine": 2319,
+        "startChar": 49,
+        "endLine": 2319,
+        "endChar": 55
+      },
+      "revId": "1f2089ea38ebb688366e2ec9a0caea1a45bc008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccb2e29c_c68382ae",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-17T20:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f341ab30_ebbabbe6",
       "range": {
         "startLine": 2319,
         "startChar": 49,
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "0fe57a18_9f4b794c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2320,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-17T20:40:01Z",
+      "side": 1,
+      "message": "Previously it doesn\u0027t support nested transaction, will be tested later.",
+      "parentUuid": "b76f68d4_b83b8d67",
+      "range": {
+        "startLine": 2320,
+        "startChar": 21,
+        "endLine": 2320,
+        "endChar": 49
+      },
+      "revId": "1f2089ea38ebb688366e2ec9a0caea1a45bc008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f99f2ba_8fd974a1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2320,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-17T20:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "746b51c0_3fc0a56e",
+      "range": {
+        "startLine": 2320,
+        "startChar": 15,
+        "endLine": 2320,
+        "endChar": 20
+      },
+      "revId": "1f2089ea38ebb688366e2ec9a0caea1a45bc008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "effc15d7_49d171b3",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2017-07-14T13:23:08Z",
       "side": 1,
       "message": "classes that failed",
+      "range": {
+        "startLine": 2370,
+        "startChar": 71,
+        "endLine": 2370,
+        "endChar": 85
+      },
+      "revId": "1f2089ea38ebb688366e2ec9a0caea1a45bc008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bae9adf5_13936528",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-17T20:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "effc15d7_49d171b3",
       "range": {
         "startLine": 2370,
         "startChar": 71,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "f2c83b90_8c8c6431",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2371,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-17T20:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c60f0664_8a700218",
+      "range": {
+        "startLine": 2371,
+        "startChar": 38,
+        "endLine": 2371,
+        "endChar": 46
+      },
+      "revId": "1f2089ea38ebb688366e2ec9a0caea1a45bc008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94e91896_6642ff0d",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 8
@@ -151,6 +295,30 @@
       "writtenOn": "2017-07-14T13:23:08Z",
       "side": 1,
       "message": "AllocClass doesn\u0027t work under transaction, so we abort.",
+      "range": {
+        "startLine": 2870,
+        "startChar": 5,
+        "endLine": 2870,
+        "endChar": 71
+      },
+      "revId": "1f2089ea38ebb688366e2ec9a0caea1a45bc008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6af32c1b_5d6f1e62",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2870,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-17T20:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e91896_6642ff0d",
       "range": {
         "startLine": 2870,
         "startChar": 5,
