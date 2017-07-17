@@ -292,6 +292,8 @@ class ProfileCompilationInfo {
   // If the current profile is non-empty the load will fail.
   bool Load(int fd);
 
+  bool Verify(const std::vector<const DexFile*>& dex_files);
+
   // Load profile information from the given file
   // If the current profile is non-empty the load will fail.
   // If clear_if_invalid is true and the file is invalid the method clears the
