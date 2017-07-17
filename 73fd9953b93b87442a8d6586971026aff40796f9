@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "841c2568_5edc4bc0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-17T18:46:12Z",
+      "side": 1,
+      "message": "now this is correct :-), I am wondering we should really do this; scanning back in the code is not guaranteed to find the real defining const (since it does not take branching into account).\n\nAs written, the mutation is really very close to ConstantValueChanger.\n\nSo I am leaning towards (1) just keeping the L120-130 code so that it is very specific to new array or (2) if we keep this code that hunts for the actual constant, just change the original value we found to +1 or -1 (or some other small range) to introduce subtle programming errors (the const value changer will plug in very different numbers in general, so that case is covered already)\n\nwhat do you think? Calin, input on this too?",
+      "revId": "73fd9953b93b87442a8d6586971026aff40796f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
