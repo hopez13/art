@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "9388c45b_b6ee77c0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T19:37:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16cba892_f0b7bdcc",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9789bc8_80100117",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 5
@@ -47,6 +65,24 @@
       "writtenOn": "2017-07-17T17:40:09Z",
       "side": 1,
       "message": "you can avoid this scan",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e2b6733_7c21e854",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T19:37:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9789bc8_80100117",
       "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "61549b92_8d8577eb",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T19:37:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c01fe96_f2d5f366",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d319263_657993f8",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 5
@@ -81,6 +135,24 @@
       "writtenOn": "2017-07-17T17:40:09Z",
       "side": 1,
       "message": "it is misleading to call this constInsn already, it may not be one (candidate or something would be better)",
+      "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22ad9596_58c9cbec",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-17T19:37:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d319263_657993f8",
       "revId": "6aeea83b40744a7d6db39a50474600ba7e4d5de9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
