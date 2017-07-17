@@ -699,6 +699,10 @@ class Dex2Oat FINAL {
     }
   }
 
+  bool VerifyProfile() {
+    return profile_compilation_info_->Verify(dex_files_);
+  }
+
   void ParseInstructionSetVariant(const StringPiece& option, ParserOptions* parser_options) {
     DCHECK(option.starts_with("--instruction-set-variant="));
     StringPiece str = option.substr(strlen("--instruction-set-variant=")).data();
@@ -2960,15 +2964,6 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
   // Parse arguments. Argument mistakes will lead to exit(EXIT_FAILURE) in UsageError.
   dex2oat->ParseArgs(argc, argv);
 
-  // If needed, process profile information for profile guided compilation.
-  // This operation involves I/O.
-  if (dex2oat->UseProfile()) {
-    if (!dex2oat->LoadProfile()) {
-      LOG(ERROR) << "Failed to process profile file";
-      return dex2oat::ReturnCode::kOther;
-    }
-  }
-
   art::MemMap::Init();  // For ZipEntry::ExtractToMemMap, and vdex.
 
   // Check early that the result of compilation can be written
@@ -2992,6 +2987,19 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
   if (setup_code != dex2oat::ReturnCode::kNoFailure) {
     dex2oat->EraseOutputFiles();
     return setup_code;
+  }
+
+  // If needed, process profile information for profile guided compilation.
+  // This operation involves I/O.
+  if (dex2oat->UseProfile()) {
+    if (!dex2oat->LoadProfile()) {
+      LOG(ERROR) << "Failed to process profile file";
+      return dex2oat::ReturnCode::kOther;
+    } else {
+      if (!dex2oat->VerifyProfile()) {
+        return dex2oat::ReturnCode::kOther;
+      }
+    }
   }
 
   // Helps debugging on device. Can be used to determine which dalvikvm instance invoked a dex2oat

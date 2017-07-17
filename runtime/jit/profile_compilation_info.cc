@@ -999,6 +999,44 @@ bool ProfileCompilationInfo::Load(int fd) {
   }
 }
 
+bool ProfileCompilationInfo::Verify(const std::vector<const DexFile*>& dex_files) {
+  std::unordered_map<std::string, const DexFile* > key_to_dex_file;
+  for (const DexFile* dex_file : dex_files) {
+    key_to_dex_file.emplace(GetProfileDexFileKey(dex_file->GetLocation()), dex_file);
+  }
+  for (const DexFileData* dex_data : info_) {
+    const auto it = key_to_dex_file.find(dex_data->profile_key);
+    if (it != key_to_dex_file.end()) {
+      const DexFile* dex_file = it->second;
+      const std::string& dex_location = dex_file->GetLocation();
+      if (dex_data->checksum != it->second->GetLocationChecksum()) {
+        LOG(ERROR) << "Dex checksum mismatch while verifying profile "
+                   << "dex location " << dex_location << " (checksum=" << dex_file->GetLocationChecksum()
+                   << ", profile checksum=" << dex_data->checksum;
+        return false;
+      }
+      for (const auto& method_it : dex_data->method_map) {
+        size_t method_id = (size_t)(method_it.first);
+        if (method_id > dex_file->NumMethodIds()) {
+          LOG(ERROR) << "Invalid method id in profile file. dex location="
+                     << dex_location << " method_id=" << method_id << " NumMethodIds="
+                     << dex_file->NumMethodIds();
+          return false;
+        }
+      }
+      for (const auto& class_id : dex_data->class_set) {
+        if (class_id.index_ > dex_file->NumClassDefs()) {
+          LOG(ERROR) << "Invalid class id in profile file. dex_file location "
+                     << dex_location << " class_id=" << class_id.index_ << " NumClassIds="
+                     << dex_file->NumClassDefs();
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
+
 // TODO(calin): fail fast if the dex checksums don't match.
 ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::LoadInternal(
       int fd, std::string* error) {
