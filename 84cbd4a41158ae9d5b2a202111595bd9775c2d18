@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c40032a_fb119be1",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-17T22:05:25Z",
+      "side": 1,
+      "message": "alignment + space after //",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "84cbd4a41158ae9d5b2a202111595bd9775c2d18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db8341f1_8e760ffc",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-17T22:05:25Z",
+      "side": 1,
+      "message": "This mutator has a side effect (besides changing the length of the array).\n\nThe register that gives the array length may be used in multiple places and changing its value is essentially a broader scope than just changing the array length.\n\nThat\u0027s fine :), just add a comment to the top of the class describing that this might do more then just changing the length.",
+      "revId": "84cbd4a41158ae9d5b2a202111595bd9775c2d18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "65e98695_5dfcc4ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-17T22:05:25Z",
+      "side": 1,
+      "message": "lower case \u0027m\u0027.",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "9661f5ed8cda8dbd1efeef736155be97f0ebaffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db1563a2_8c2d1802",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 2
