@@ -22,11 +22,11 @@
 extern "C" void android_set_application_target_sdk_version(uint32_t version);
 #endif
 #include <limits.h>
-#include <ScopedUtfChars.h>
+#include "nativehelper/ScopedUtfChars.h"
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wshadow"
-#include "toStringArray.h"
+#include "nativehelper/toStringArray.h"
 #pragma GCC diagnostic pop
 
 #include "android-base/stringprintf.h"

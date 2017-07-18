@@ -23,10 +23,10 @@
 #include "mirror/object-inl.h"
 #include "mirror/string.h"
 #include "native_util.h"
+#include "nativehelper/ScopedLocalRef.h"
+#include "nativehelper/ScopedPrimitiveArray.h"
 #include "scoped_fast_native_object_access-inl.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
-#include "ScopedPrimitiveArray.h"
 
 namespace art {
 
