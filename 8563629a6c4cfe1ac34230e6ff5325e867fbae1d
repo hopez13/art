@@ -1,0 +1,663 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ef6a2ac_a2c59d0a",
+        "filename": "test/162-method-resolution/info.txt",
+        "patchSetId": 43
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "Are we handling the default method case that diverges between JLS and RI? Then this isn\u0027t strictly true.",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efa3402c_86502b85",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "So I mention JLS 15.12.4.4 a lot. It\u0027s not related to \"method lookup\" , so feel free to cite another chapter of JLS instead.\n\nIf we were to look at it wholistically there should be a section of JLS cited for lookup and another one for dispatch (the latter is where 15.12.4.4 comes in).",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf7b88f4_7cd93192",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: public [already seems to be the case in the actual implementation]",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 11
+      },
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc227433_8ac2c16a",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: public [otherwise it becomes a different runtime package in the second dex file]",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdc493c6_8c6bed0b",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "Thanks a lot for writing test summary here. It is very helpful and made it so its almost unnecessary to look at the test cases one file at a time.\n\n----------------\n\nnit: please add \"Expected: Dispatches to METHOD.NAME\" or \"Expected: Throws \u003cExceptionName\u003e\" here so that there\u0027s a terse summary of what\u0027s supposed to happen.\n\n       invoke-direct  Test1Derived.foo()V   from Test1Derived in first dex file\n                      Expected: Dispatches to Test1Derived.foo()V\n       .......\n\n------\n\nLets also add JLS here to make it simpler to look back at it later if we need do.\n\n                      JLS: 15.12.4.4 \"If the invocation mode is nonvirtual, overriding is not allowed. Method m of class T is the one to be invoked.\"",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fdb3c8e_f4dac916",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expected: Throws IllegalAccessError\n\nJLS: 15.12.4.3 \"If either T or m is not accessible, then an IllegalAccessError occur.\"",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e9872be_394af66a",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: same as above",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85dc631f_5c09e188",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "Previously, the result was nondeterministic between successfully dispatching and throwing ICCE.\n\nIn particular, .... \u003cthen the below paragraph\u003e",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b54fb1e4_1e84211a",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: add public to class if its meant to be public",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dfa61a4_358285f2",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: add public to class if its meant to be public",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d968d83_e906bec6",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: add new line between {}  or after {} so that it\u0027s harder to *miss* this line. I missed it the first time.",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b330e8af_b6096faa",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: add expects and JLS\n\n      Expects: Throws ICCE.",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "887ed35b_d16922ca",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: add expects and JLS\n\nJLS 15.12.4.4 \"If the invocation mode is static, no target reference is needed and overriding is not allowed. Method m of class T is the one to be invoked.\"",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1569380f_c59d6518",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: public",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49e0aeb2_3bc06810",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: public",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abacfa0e_1ef2653d",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Test3Derived",
+      "range": {
+        "startLine": 130,
+        "startChar": 73,
+        "endLine": 130,
+        "endChar": 85
+      },
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4550a65d_d4d00a49",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: public",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b2037ef_301a5b9f",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "Test3User ?",
+      "range": {
+        "startLine": 134,
+        "startChar": 53,
+        "endLine": 134,
+        "endChar": 62
+      },
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5847f2e_7c529c66",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expects: Throws IncompatibleClassChangeError\n\nDon\u0027t see anything obvious in JLS for this so lets leave it without JLS section.",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d40e8872_1ce34a3d",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "This is Test2 with a small change: Test2User is in a secondary dex file [in a separate classloader].\n\n\n(((and whatover other classes are in the 2nd dex file)))",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef3dd950_301e82e8",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expects: Dispatch Object.toString()...",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a25086bd_02e531fe",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: public",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d57aa54e_06543716",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: public",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29a01fcd_189c6725",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: public",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0c1fd2c_1318889e",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expected: Dispatch Test5Derived.foo()V",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d31623dc_5d80f673",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expected: Throws IncompatibleClassChangeError",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f661d77_d522b7f2",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expected: Dispatch Object.ToString()...",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3756d5c_90597094",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expected: Throws IncompatibleClassChangeError",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e618f2ec_f774af5c",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "This test appears to subsume test4 (i.e. Test6User \u003d\u003d test4), I recommend deleting the duplication.",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6d8f319_0cd680bd",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expected...",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84fe4d05_57f5a256",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expected...",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d1c141_834e3509",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "follows",
+      "range": {
+        "startLine": 271,
+        "startChar": 26,
+        "endLine": 271,
+        "endChar": 33
+      },
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac1b9d4e_66749fce",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "Test7Interface",
+      "range": {
+        "startLine": 278,
+        "startChar": 31,
+        "endLine": 278,
+        "endChar": 45
+      },
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b88a67c_f6edd9b2",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "public class Test8Derived extends Test8aBase",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4e8d43a_b8a51892",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "nit: Expected: Dispatch Test8Derived.foo()",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5249b858_c0529245",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "Nit: Expected: Throws IncompatibleClassChangeError",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4e1e4c4_2c97d243",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T21:12:13Z",
+      "side": 1,
+      "message": "extends Test9Base",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
