@@ -134,6 +134,29 @@
     },
     {
       "key": {
+        "uuid": "65a88cb2_de21cccd",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:18:37Z",
+      "side": 1,
+      "message": "unaligned",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 15
+      },
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6972a632_f767346c",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 4
@@ -150,6 +173,29 @@
         "startChar": 65,
         "endLine": 46,
         "endChar": 71
+      },
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcd2ef2e_4df212a7",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:18:37Z",
+      "side": 1,
+      "message": "unaligned",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 15
       },
       "revId": "9692797cbc4badf94248b565303bd00219a6d398",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
