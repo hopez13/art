@@ -22,6 +22,30 @@
       "revId": "7b12a58cd265b3cbcbf9d44472dd26556c2bb6bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "485e8f1f_ccbebe91",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-18T20:48:18Z",
+      "side": 1,
+      "message": "Yea dunno, might as well do the change though. Its cleaner this way.",
+      "parentUuid": "ec927d45_b47273b1",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 469,
+        "endChar": 60
+      },
+      "revId": "7b12a58cd265b3cbcbf9d44472dd26556c2bb6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
