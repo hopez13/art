@@ -1143,6 +1143,8 @@ bool OptimizingCompiler::JitCompile(Thread* self,
                                     ArtMethod* method,
                                     bool osr,
                                     jit::JitLogger* jit_logger) {
+  if (strstr(method->GetName(), "foo")) {
+  }
   StackHandleScope<3> hs(self);
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle(
       method->GetDeclaringClass()->GetClassLoader()));

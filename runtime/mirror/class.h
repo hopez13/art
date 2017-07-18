@@ -706,6 +706,8 @@ class MANAGED Class FINAL : public Object {
   void AssignSelfBitstring() REQUIRES_SHARED(Locks::mutator_lock_)
                              REQUIRES(Locks::bitstring_lock_);
 
+  void TryAssignBitstring() REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Initialize the bitstring and assign the bistring for its super class.
   void InitializeAndAssignSuperBitstring() REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -718,6 +720,15 @@ class MANAGED Class FINAL : public Object {
   // Set the bitstring to uninitialized.
   void MarkForTypeCheckUninitialized() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetBitstring(0);
+  }
+
+  // Set the bitstring to overflowed.
+  void MarkForTypeCheckOverflowed() REQUIRES_SHARED(Locks::mutator_lock_) {
+    InstanceOfAndStatus old_value, new_value;
+    do {
+      new_value = old_value = GetInstanceOfAndStatus();
+      new_value.MarkOverflowed();
+    } while (!TrySetInstanceOfAndStatus(old_value, new_value));
   }
 
   // Get only the bitstring part.

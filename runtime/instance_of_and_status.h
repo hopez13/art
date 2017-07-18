@@ -135,7 +135,7 @@ struct InstanceOfAndStatus {
   }
 
   inline uint64_t GetBitstringPrefix(size_t dep) {
-    return GetRangedBits(data, 0, BitstringLength[dep]);
+    return GetRangedBits(data, 0, BitstringLength[dep]) << (64 - BitstringLength[dep]);
   }
 
   void InitializeBitstring(uint64_t super, size_t dep) {

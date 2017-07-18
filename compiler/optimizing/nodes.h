@@ -6314,10 +6314,12 @@ enum class TypeCheckKind {
 
 std::ostream& operator<<(std::ostream& os, TypeCheckKind rhs);
 
-class HInstanceOf FINAL : public HExpression<2> {
+class HInstanceOf FINAL : public HExpression<4> {
  public:
   HInstanceOf(HInstruction* object,
               HLoadClass* constant,
+              HInstruction* bitstring,
+              HInstruction* mask,
               TypeCheckKind check_kind,
               uint32_t dex_pc)
       : HExpression(Primitive::kPrimBoolean,
@@ -6327,6 +6329,8 @@ class HInstanceOf FINAL : public HExpression<2> {
     SetPackedFlag<kFlagMustDoNullCheck>(true);
     SetRawInputAt(0, object);
     SetRawInputAt(1, constant);
+    SetRawInputAt(2, bitstring);
+    SetRawInputAt(3, mask);
   }
 
   bool CanBeMoved() const OVERRIDE { return true; }
@@ -6412,10 +6416,12 @@ class HBoundType FINAL : public HExpression<1> {
   DISALLOW_COPY_AND_ASSIGN(HBoundType);
 };
 
-class HCheckCast FINAL : public HTemplateInstruction<2> {
+class HCheckCast FINAL : public HTemplateInstruction<4> {
  public:
   HCheckCast(HInstruction* object,
              HLoadClass* constant,
+             HInstruction* bitstring,
+             HInstruction* mask,
              TypeCheckKind check_kind,
              uint32_t dex_pc)
       : HTemplateInstruction(SideEffects::CanTriggerGC(), dex_pc) {
@@ -6423,6 +6429,8 @@ class HCheckCast FINAL : public HTemplateInstruction<2> {
     SetPackedFlag<kFlagMustDoNullCheck>(true);
     SetRawInputAt(0, object);
     SetRawInputAt(1, constant);
+    SetRawInputAt(2, bitstring);
+    SetRawInputAt(3, mask);
   }
 
   bool CanBeMoved() const OVERRIDE { return true; }

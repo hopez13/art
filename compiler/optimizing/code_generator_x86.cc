@@ -6367,7 +6367,8 @@ static size_t NumberOfInstanceOfTemps(TypeCheckKind type_check_kind) {
        type_check_kind == TypeCheckKind::kArrayObjectCheck)) {
     return 1;
   }
-  return 0;
+//  return 0;
+  return 1;
 }
 
 // Interface case has 3 temps, one for holding the number of interfaces, one for the current
@@ -6406,6 +6407,8 @@ void LocationsBuilderX86::VisitInstanceOf(HInstanceOf* instruction) {
   }
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::Any());
+  locations->SetInAt(2, Location::ConstantLocation(instruction->InputAt(2)->AsLongConstant()));
+  locations->SetInAt(3, Location::ConstantLocation(instruction->InputAt(3)->AsLongConstant()));
   // Note that TypeCheckSlowPathX86 uses this "out" register too.
   locations->SetOut(Location::RequiresRegister());
   // When read barriers are enabled, we need a temporary register for some cases.
@@ -6419,12 +6422,15 @@ void InstructionCodeGeneratorX86::VisitInstanceOf(HInstanceOf* instruction) {
   Register obj = obj_loc.AsRegister<Register>();
   Location cls = locations->InAt(1);
   Location out_loc = locations->Out();
+  Location bitstring = locations->InAt(2);
+  Location mask = locations->InAt(3);
   Register out = out_loc.AsRegister<Register>();
   const size_t num_temps = NumberOfInstanceOfTemps(type_check_kind);
   DCHECK_LE(num_temps, 1u);
   Location maybe_temp_loc = (num_temps >= 1) ? locations->GetTemp(0) : Location::NoLocation();
   uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
   uint32_t super_offset = mirror::Class::SuperClassOffset().Int32Value();
+  uint32_t status_offset = mirror::Class::StatusOffset().Int32Value();
   uint32_t component_offset = mirror::Class::ComponentTypeOffset().Int32Value();
   uint32_t primitive_offset = mirror::Class::PrimitiveTypeOffset().Int32Value();
   SlowPathCode* slow_path = nullptr;
@@ -6437,186 +6443,216 @@ void InstructionCodeGeneratorX86::VisitInstanceOf(HInstanceOf* instruction) {
     __ j(kEqual, &zero);
   }
 
-  switch (type_check_kind) {
-    case TypeCheckKind::kExactCheck: {
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        kCompilerReadBarrierOption);
-      if (cls.IsRegister()) {
-        __ cmpl(out, cls.AsRegister<Register>());
-      } else {
-        DCHECK(cls.IsStackSlot()) << cls;
-        __ cmpl(out, Address(ESP, cls.GetStackIndex()));
-      }
+  if (mask.IsConstant() && mask.GetConstant()->AsLongConstant()->GetValue() != -1) {
+    // LOG(ERROR) << "Creating My Path";
+    // LOG(ERROR) << mask.GetConstant()->AsLongConstant()->GetValue();
+    // LOG(ERROR) << bitstring.GetConstant()->AsLongConstant()->GetValue();
+    Location temp_loc = locations->GetTemp(0);
+    Register temp = temp_loc.AsRegister<Register>();
+    // /* HeapReference<Class> */ temp = obj->klass_
+    GenerateReferenceLoadTwoRegisters(instruction,
+                                      temp_loc,
+                                      obj_loc,
+                                      class_offset,
+                                      kCompilerReadBarrierOption);
+    __ movl(out, Address(temp, status_offset + sizeof(int)));
+    uint64_t maskv = mask.GetConstant()->AsLongConstant()->GetValue();
+    uint64_t bitstringv = bitstring.GetConstant()->AsLongConstant()->GetValue();
+    NearLabel fail;
+    __ andl(out, Immediate((maskv >> 32) & 0xffffffff));
+    __ cmpl(out, Immediate((bitstringv >> 32) & 0xffffffff));
+    __ j(kNotEqual, &fail);
+    __ movl(out, Address(temp, status_offset));
+    __ andl(out, Immediate(maskv & 0xffffffff));
+    __ cmpl(out, Immediate(bitstringv & 0xffffffff));
+    __ j(kNotEqual, &fail);
+    __ movl(out, Immediate(1));
+    __ jmp(&done);
+    __ Bind(&fail);
+    __ movl(out, Immediate(0));
+    __ jmp(&done);
+  } else {
+    switch (type_check_kind) {
+      case TypeCheckKind::kExactCheck: {
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          kCompilerReadBarrierOption);
+        if (cls.IsRegister()) {
+          __ cmpl(out, cls.AsRegister<Register>());
+        } else {
+          DCHECK(cls.IsStackSlot()) << cls;
+          __ cmpl(out, Address(ESP, cls.GetStackIndex()));
+        }
 
-      // Classes must be equal for the instanceof to succeed.
-      __ j(kNotEqual, &zero);
-      __ movl(out, Immediate(1));
-      __ jmp(&done);
-      break;
-    }
-
-    case TypeCheckKind::kAbstractClassCheck: {
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        kCompilerReadBarrierOption);
-      // If the class is abstract, we eagerly fetch the super class of the
-      // object to avoid doing a comparison we know will fail.
-      NearLabel loop;
-      __ Bind(&loop);
-      // /* HeapReference<Class> */ out = out->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       super_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
-      __ testl(out, out);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ j(kEqual, &done);
-      if (cls.IsRegister()) {
-        __ cmpl(out, cls.AsRegister<Register>());
-      } else {
-        DCHECK(cls.IsStackSlot()) << cls;
-        __ cmpl(out, Address(ESP, cls.GetStackIndex()));
-      }
-      __ j(kNotEqual, &loop);
-      __ movl(out, Immediate(1));
-      if (zero.IsLinked()) {
+        // Classes must be equal for the instanceof to succeed.
+        __ j(kNotEqual, &zero);
+        __ movl(out, Immediate(1));
         __ jmp(&done);
+        break;
       }
-      break;
-    }
 
-    case TypeCheckKind::kClassHierarchyCheck: {
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        kCompilerReadBarrierOption);
-      // Walk over the class hierarchy to find a match.
-      NearLabel loop, success;
-      __ Bind(&loop);
-      if (cls.IsRegister()) {
-        __ cmpl(out, cls.AsRegister<Register>());
-      } else {
-        DCHECK(cls.IsStackSlot()) << cls;
-        __ cmpl(out, Address(ESP, cls.GetStackIndex()));
+      case TypeCheckKind::kAbstractClassCheck: {
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          kCompilerReadBarrierOption);
+        // If the class is abstract, we eagerly fetch the super class of the
+        // object to avoid doing a comparison we know will fail.
+        NearLabel loop;
+        __ Bind(&loop);
+        // /* HeapReference<Class> */ out = out->super_class_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         out_loc,
+                                         super_offset,
+                                         maybe_temp_loc,
+                                         kCompilerReadBarrierOption);
+        __ testl(out, out);
+        // If `out` is null, we use it for the result, and jump to `done`.
+        __ j(kEqual, &done);
+        if (cls.IsRegister()) {
+          __ cmpl(out, cls.AsRegister<Register>());
+        } else {
+          DCHECK(cls.IsStackSlot()) << cls;
+          __ cmpl(out, Address(ESP, cls.GetStackIndex()));
+        }
+        __ j(kNotEqual, &loop);
+        __ movl(out, Immediate(1));
+        if (zero.IsLinked()) {
+          __ jmp(&done);
+        }
+        break;
       }
-      __ j(kEqual, &success);
-      // /* HeapReference<Class> */ out = out->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       super_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
-      __ testl(out, out);
-      __ j(kNotEqual, &loop);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ jmp(&done);
-      __ Bind(&success);
-      __ movl(out, Immediate(1));
-      if (zero.IsLinked()) {
+
+      case TypeCheckKind::kClassHierarchyCheck: {
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          kCompilerReadBarrierOption);
+        // Walk over the class hierarchy to find a match.
+        NearLabel loop, success;
+        __ Bind(&loop);
+        if (cls.IsRegister()) {
+          __ cmpl(out, cls.AsRegister<Register>());
+        } else {
+          DCHECK(cls.IsStackSlot()) << cls;
+          __ cmpl(out, Address(ESP, cls.GetStackIndex()));
+        }
+        __ j(kEqual, &success);
+        // /* HeapReference<Class> */ out = out->super_class_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         out_loc,
+                                         super_offset,
+                                         maybe_temp_loc,
+                                         kCompilerReadBarrierOption);
+        __ testl(out, out);
+        __ j(kNotEqual, &loop);
+        // If `out` is null, we use it for the result, and jump to `done`.
         __ jmp(&done);
+        __ Bind(&success);
+        __ movl(out, Immediate(1));
+        if (zero.IsLinked()) {
+          __ jmp(&done);
+        }
+        break;
       }
-      break;
-    }
 
-    case TypeCheckKind::kArrayObjectCheck: {
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        kCompilerReadBarrierOption);
-      // Do an exact check.
-      NearLabel exact_check;
-      if (cls.IsRegister()) {
-        __ cmpl(out, cls.AsRegister<Register>());
-      } else {
-        DCHECK(cls.IsStackSlot()) << cls;
-        __ cmpl(out, Address(ESP, cls.GetStackIndex()));
-      }
-      __ j(kEqual, &exact_check);
-      // Otherwise, we need to check that the object's class is a non-primitive array.
-      // /* HeapReference<Class> */ out = out->component_type_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       component_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
-      __ testl(out, out);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ j(kEqual, &done);
-      __ cmpw(Address(out, primitive_offset), Immediate(Primitive::kPrimNot));
-      __ j(kNotEqual, &zero);
-      __ Bind(&exact_check);
-      __ movl(out, Immediate(1));
-      __ jmp(&done);
-      break;
-    }
-
-    case TypeCheckKind::kArrayCheck: {
-      // No read barrier since the slow path will retry upon failure.
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        kWithoutReadBarrier);
-      if (cls.IsRegister()) {
-        __ cmpl(out, cls.AsRegister<Register>());
-      } else {
-        DCHECK(cls.IsStackSlot()) << cls;
-        __ cmpl(out, Address(ESP, cls.GetStackIndex()));
-      }
-      DCHECK(locations->OnlyCallsOnSlowPath());
-      slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathX86(instruction,
-                                                                    /* is_fatal */ false);
-      codegen_->AddSlowPath(slow_path);
-      __ j(kNotEqual, slow_path->GetEntryLabel());
-      __ movl(out, Immediate(1));
-      if (zero.IsLinked()) {
+      case TypeCheckKind::kArrayObjectCheck: {
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          kCompilerReadBarrierOption);
+        // Do an exact check.
+        NearLabel exact_check;
+        if (cls.IsRegister()) {
+          __ cmpl(out, cls.AsRegister<Register>());
+        } else {
+          DCHECK(cls.IsStackSlot()) << cls;
+          __ cmpl(out, Address(ESP, cls.GetStackIndex()));
+        }
+        __ j(kEqual, &exact_check);
+        // Otherwise, we need to check that the object's class is a non-primitive array.
+        // /* HeapReference<Class> */ out = out->component_type_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         out_loc,
+                                         component_offset,
+                                         maybe_temp_loc,
+                                         kCompilerReadBarrierOption);
+        __ testl(out, out);
+        // If `out` is null, we use it for the result, and jump to `done`.
+        __ j(kEqual, &done);
+        __ cmpw(Address(out, primitive_offset), Immediate(Primitive::kPrimNot));
+        __ j(kNotEqual, &zero);
+        __ Bind(&exact_check);
+        __ movl(out, Immediate(1));
         __ jmp(&done);
+        break;
       }
-      break;
-    }
 
-    case TypeCheckKind::kUnresolvedCheck:
-    case TypeCheckKind::kInterfaceCheck: {
-      // Note that we indeed only call on slow path, but we always go
-      // into the slow path for the unresolved and interface check
-      // cases.
-      //
-      // We cannot directly call the InstanceofNonTrivial runtime
-      // entry point without resorting to a type checking slow path
-      // here (i.e. by calling InvokeRuntime directly), as it would
-      // require to assign fixed registers for the inputs of this
-      // HInstanceOf instruction (following the runtime calling
-      // convention), which might be cluttered by the potential first
-      // read barrier emission at the beginning of this method.
-      //
-      // TODO: Introduce a new runtime entry point taking the object
-      // to test (instead of its class) as argument, and let it deal
-      // with the read barrier issues. This will let us refactor this
-      // case of the `switch` code as it was previously (with a direct
-      // call to the runtime not using a type checking slow path).
-      // This should also be beneficial for the other cases above.
-      DCHECK(locations->OnlyCallsOnSlowPath());
-      slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathX86(instruction,
-                                                                    /* is_fatal */ false);
-      codegen_->AddSlowPath(slow_path);
-      __ jmp(slow_path->GetEntryLabel());
-      if (zero.IsLinked()) {
-        __ jmp(&done);
+      case TypeCheckKind::kArrayCheck: {
+        // No read barrier since the slow path will retry upon failure.
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          kWithoutReadBarrier);
+        if (cls.IsRegister()) {
+          __ cmpl(out, cls.AsRegister<Register>());
+        } else {
+          DCHECK(cls.IsStackSlot()) << cls;
+          __ cmpl(out, Address(ESP, cls.GetStackIndex()));
+        }
+        DCHECK(locations->OnlyCallsOnSlowPath());
+        slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathX86(instruction,
+                                                                      /* is_fatal */ false);
+        codegen_->AddSlowPath(slow_path);
+        __ j(kNotEqual, slow_path->GetEntryLabel());
+        __ movl(out, Immediate(1));
+        if (zero.IsLinked()) {
+          __ jmp(&done);
+        }
+        break;
       }
-      break;
+
+      case TypeCheckKind::kUnresolvedCheck:
+      case TypeCheckKind::kInterfaceCheck: {
+        // Note that we indeed only call on slow path, but we always go
+        // into the slow path for the unresolved and interface check
+        // cases.
+        //
+        // We cannot directly call the InstanceofNonTrivial runtime
+        // entry point without resorting to a type checking slow path
+        // here (i.e. by calling InvokeRuntime directly), as it would
+        // require to assign fixed registers for the inputs of this
+        // HInstanceOf instruction (following the runtime calling
+        // convention), which might be cluttered by the potential first
+        // read barrier emission at the beginning of this method.
+        //
+        // TODO: Introduce a new runtime entry point taking the object
+        // to test (instead of its class) as argument, and let it deal
+        // with the read barrier issues. This will let us refactor this
+        // case of the `switch` code as it was previously (with a direct
+        // call to the runtime not using a type checking slow path).
+        // This should also be beneficial for the other cases above.
+        DCHECK(locations->OnlyCallsOnSlowPath());
+        slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathX86(instruction,
+                                                                      /* is_fatal */ false);
+        codegen_->AddSlowPath(slow_path);
+        __ jmp(slow_path->GetEntryLabel());
+        if (zero.IsLinked()) {
+          __ jmp(&done);
+        }
+        break;
+      }
     }
   }
 

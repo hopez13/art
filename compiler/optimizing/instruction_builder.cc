@@ -1781,14 +1781,42 @@ void HInstructionBuilder::BuildTypeCheck(const Instruction& instruction,
   ScopedObjectAccess soa(Thread::Current());
   TypeCheckKind check_kind = ComputeTypeCheckKind(cls->GetClass());
   if (instruction.Opcode() == Instruction::INSTANCE_OF) {
-    AppendInstruction(new (arena_) HInstanceOf(object, cls, check_kind, dex_pc));
+    Handle<mirror::Class> kls = cls->GetClass();
+    if (kls.Get() != nullptr && !Runtime::Current()->IsAotCompiler()) kls->TryAssignBitstring();
+    if (kls.Get() != nullptr && kls->GetInstanceOfAndStatus().IsAssigned(kls->Depth()) &&
+        !Runtime::Current()->IsAotCompiler()) {
+      AppendInstruction(new (arena_)
+                        HInstanceOf(object, cls,
+                                    graph_->GetLongConstant(kls->GetInstanceOfAndStatus().
+                                                            GetBitstringPrefix(kls->Depth())),
+                                    graph_->GetLongConstant(art::GetBitstringMask(kls->Depth())),
+                                    check_kind, dex_pc));
+    } else {
+      AppendInstruction(new (arena_) HInstanceOf(object, cls, graph_->GetLongConstant(-1),
+                                                 graph_->GetLongConstant(-1),
+                                                 check_kind, dex_pc));
+    }
     UpdateLocal(destination, current_block_->GetLastInstruction());
   } else {
     DCHECK_EQ(instruction.Opcode(), Instruction::CHECK_CAST);
     // We emit a CheckCast followed by a BoundType. CheckCast is a statement
     // which may throw. If it succeeds BoundType sets the new type of `object`
     // for all subsequent uses.
-    AppendInstruction(new (arena_) HCheckCast(object, cls, check_kind, dex_pc));
+    Handle<mirror::Class> kls = cls->GetClass();
+    if (kls.Get() != nullptr && !Runtime::Current()->IsAotCompiler()) kls->TryAssignBitstring();
+    if (kls.Get() != nullptr && kls->GetInstanceOfAndStatus().IsAssigned(kls->Depth()) &&
+        !Runtime::Current()->IsAotCompiler()) {
+      AppendInstruction(new (arena_)
+                        HCheckCast(object, cls,
+                                   graph_->GetLongConstant(kls->GetInstanceOfAndStatus().
+                                                           GetBitstringPrefix(kls->Depth())),
+                                   graph_->GetLongConstant(art::GetBitstringMask(kls->Depth())),
+                                   check_kind, dex_pc));
+    } else {
+      AppendInstruction(new (arena_) HCheckCast(object, cls, graph_->GetLongConstant(-1),
+                                                graph_->GetLongConstant(-1),
+                                                check_kind, dex_pc));
+    }
     AppendInstruction(new (arena_) HBoundType(object, dex_pc));
     UpdateLocal(reference, current_block_->GetLastInstruction());
   }

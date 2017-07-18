@@ -272,7 +272,9 @@ inline bool Arm64CanEncodeConstantAsImmediate(HConstant* constant, HInstruction*
            instr->IsBoundsCheck() ||
            instr->IsCompare() ||
            instr->IsCondition() ||
-           instr->IsSub())
+           instr->IsSub() ||
+           instr->IsInstanceOf() ||
+           instr->IsCheckCast())
         << instr->DebugName();
     // Uses aliases of ADD/SUB instructions.
     // If `value` does not fit but `-value` does, VIXL will automatically use

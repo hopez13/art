@@ -27,6 +27,7 @@ constexpr int32_t kMaxBitstringDepth = 6;
 // Bug: https://buganizer.corp.google.com/issues/64692057
 constexpr uint32_t BitstringLength[kMaxBitstringDepth + 1] = {0, 12, 22, 32, 41, 49, 55};
 
+
 inline uint64_t GetFirst56Bits(uint64_t mask) {
   return (mask >> 8) << 8;
 }
@@ -64,6 +65,10 @@ inline uint64_t GetBitsByDepth(uint64_t cur, int dep) {
 // Update the bitstring for the specific depth offset.
 inline uint64_t UpdateBitsByDepth(uint64_t old, uint64_t cur, int dep) {
   return GetUpdatedRangedBits(old, BitstringLength[dep - 1], BitstringLength[dep], cur);
+}
+
+inline uint64_t GetBitstringMask(int dep) {
+  return (((uint64_t)1 << BitstringLength[dep]) - 1) << (64 - BitstringLength[dep]);
 }
 
 }  // namespace art

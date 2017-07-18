@@ -4616,6 +4616,7 @@ mirror::Class* ClassLinker::CreateProxyClass(ScopedObjectAccessAlreadyRunnable& 
   {
     // Lock on klass is released. Lock new class object.
     ObjectLock<mirror::Class> initialization_lock(self, klass);
+    klass->EnsureInitializedForTypeCheck();
     mirror::Class::SetStatus(klass, mirror::Class::kStatusInitialized, self);
   }
 
