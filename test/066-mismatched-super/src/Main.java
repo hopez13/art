@@ -25,5 +25,11 @@ public class Main {
         } catch (IncompatibleClassChangeError icce) {
             System.out.println("Got expected ICCE");
         }
+        try {
+            Indirect2.main();
+            System.out.println("Succeeded unexpectedly");
+        } catch (VerifyError ve) {
+            System.out.println("Got expected VerifyError");
+        }
     }
 }
