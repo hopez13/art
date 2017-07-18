@@ -343,6 +343,24 @@
     },
     {
       "key": {
+        "uuid": "331a4c37_3797ed3e",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T23:00:39Z",
+      "side": 1,
+      "message": "JLS 13.4.19 If Test3Base is nonstatic and later changed to static, then this is an IncompatibleClassChangeError.",
+      "parentUuid": "e5847f2e_7c529c66",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d40e8872_1ce34a3d",
         "filename": "test/162-method-resolution/src/Main.java",
         "patchSetId": 43
