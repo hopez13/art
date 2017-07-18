@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9e5e3de_9f4c4174",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T22:30:20Z",
+      "side": 1,
+      "message": "note: there is a nifty utility (mutatableCode.getTemporaryVReg()) that we can use to avoid \"leaking\" the new value into later uses of the same register.\n\nperhaps nice to follow-up later and avoid clobbering the value unnecessarily?\n\nalso, we have the TODO at L90/91 to take care of",
+      "revId": "916172127d84e08c7540dae0f7cd288de1577199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
