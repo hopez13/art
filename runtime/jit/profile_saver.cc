@@ -461,6 +461,10 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods(bool startup) {
 bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number_of_new_methods) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
 
+  // We only need to do this once, not once per dex location.
+  // TODO: Figure out a way to only do it when stuff has changed? It takes 30-50ms.
+  FetchAndCacheResolvedClassesAndMethods(/*startup*/ false);
+
   // Resolve any new registered locations.
   ResolveTrackedLocations();
 
@@ -475,10 +479,6 @@ bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number
   if (number_of_new_methods != nullptr) {
     *number_of_new_methods = 0;
   }
-
-  // We only need to do this once, not once per dex location.
-  // TODO: Figure out a way to only do it when stuff has changed? It takes 30-50ms.
-  FetchAndCacheResolvedClassesAndMethods(/*startup*/ false);
 
   for (const auto& it : tracked_locations) {
     if (!force_save && ShuttingDown(Thread::Current())) {
@@ -804,6 +804,7 @@ bool ProfileSaver::HasSeenMethod(const std::string& profile, bool hot, MethodRef
   if (instance_ != nullptr) {
     ProfileCompilationInfo info(Runtime::Current()->GetArenaPool());
     if (!info.Load(profile, /*clear_if_invalid*/false)) {
+      LOG(ERROR) << "Failed to load profile " << profile;
       return false;
     }
     ProfileCompilationInfo::MethodHotness hotness = info.GetMethodHotness(ref);
