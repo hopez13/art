@@ -16,6 +16,23 @@
       "revId": "6152dcb39c4b72c8e139f1ee63defad12a76afef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6891b9e4_99a64c6e",
+        "filename": "test/066-mismatched-super/src/Indirect2.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T17:43:06Z",
+      "side": 1,
+      "message": "Can you elaborate? \n\nMy spec intuition:\n\n* It must throw on the load of ExtendsFinal, not earlier.\n* It must not throw for loading Indirect2.\n\n-\u003e and so printing \"Indirect2 main\"  after L24 or similar should happen here to enforce this invariant",
+      "revId": "6152dcb39c4b72c8e139f1ee63defad12a76afef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
