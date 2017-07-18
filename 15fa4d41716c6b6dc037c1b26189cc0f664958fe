@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "949a3b45_cf3b1a9d",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-18T14:02:38Z",
+      "side": 1,
+      "message": "Then please mention this method is recursive, but we don\u0027t expect more than N levels? If we can\u0027t limit the level, it will be safer to do a for loop.",
+      "parentUuid": "13698e93_31175c2e",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 80
+      },
+      "revId": "15fa4d41716c6b6dc037c1b26189cc0f664958fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a57e814b_504b962a",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 4
