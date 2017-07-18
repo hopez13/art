@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "4dd95f8c_863dd228",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-18T18:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "949a3b45_cf3b1a9d",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 80
+      },
+      "revId": "15fa4d41716c6b6dc037c1b26189cc0f664958fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a57e814b_504b962a",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 4
