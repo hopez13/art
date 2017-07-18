@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "79d4d1ba_0050b618",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-18T01:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6148ea53_077ece7a",
+      "revId": "f2db74edb34a212d12f977e862588ef5db5bd74f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69cfc1c9_6ae8a195",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-13T23:29:17Z",
       "side": 1,
       "message": "Please add template boolean and check that to prevent runtime slowdowns. If the caller is ExecuteSwitchImpl, you can pass down transaction_active. Otherwise it might be prudent to pass in false.",
+      "revId": "f2db74edb34a212d12f977e862588ef5db5bd74f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99cbf0a0_cee39723",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-18T01:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69cfc1c9_6ae8a195",
       "revId": "f2db74edb34a212d12f977e862588ef5db5bd74f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "29bd1e4f_ee29a3fd",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-18T01:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fec717f7_d7808210",
+      "revId": "f2db74edb34a212d12f977e862588ef5db5bd74f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b1e1d5_bbcee0f1",
         "filename": "runtime/transaction.h",
         "patchSetId": 5
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "2e5eace7_d88fb347",
+        "filename": "runtime/transaction.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-18T01:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b1e1d5_bbcee0f1",
+      "revId": "f2db74edb34a212d12f977e862588ef5db5bd74f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2956ed05_3a0d3f21",
         "filename": "runtime/transaction.h",
         "patchSetId": 5
@@ -81,6 +153,30 @@
       "writtenOn": "2017-07-13T23:29:17Z",
       "side": 1,
       "message": "Visit the root_ so that we never get bugs from moving GC?",
+      "range": {
+        "startLine": 303,
+        "startChar": 18,
+        "endLine": 303,
+        "endChar": 23
+      },
+      "revId": "f2db74edb34a212d12f977e862588ef5db5bd74f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fabb3d19_340d370a",
+        "filename": "runtime/transaction.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-18T01:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2956ed05_3a0d3f21",
       "range": {
         "startLine": 303,
         "startChar": 18,
