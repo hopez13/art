@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec927d45_b47273b1",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-18T20:46:08Z",
+      "side": 1,
+      "message": "I can\u0027t say I understand the rationale. L471-481 should have no impact on this method.",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 469,
+        "endChar": 60
+      },
+      "revId": "7b12a58cd265b3cbcbf9d44472dd26556c2bb6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
