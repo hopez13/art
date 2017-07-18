@@ -27,7 +27,7 @@
 #include "native_util.h"
 #include "scoped_fast_native_object_access-inl.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "verify_object.h"
 
 namespace art {

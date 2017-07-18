@@ -80,7 +80,7 @@
 #include "os.h"
 #include "reflection.h"
 #include "runtime.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "scoped_thread_state_change-inl.h"
 #include "handle_scope-inl.h"
 #include "thread_list.h"

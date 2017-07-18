@@ -18,7 +18,7 @@
 
 #include <float.h>
 #include <limits.h>
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 
 #include "art_method-inl.h"
 #include "base/enums.h"

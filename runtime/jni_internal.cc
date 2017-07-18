@@ -54,7 +54,7 @@
 #include "runtime.h"
 #include "safe_map.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "thread.h"
 #include "utf.h"
 #include "well_known_classes.h"

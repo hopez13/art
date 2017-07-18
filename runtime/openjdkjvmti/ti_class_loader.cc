@@ -53,7 +53,7 @@
 #include "mirror/object.h"
 #include "object_lock.h"
 #include "runtime.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "transform.h"
 
 namespace openjdkjvmti {

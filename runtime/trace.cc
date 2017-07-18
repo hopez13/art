@@ -40,7 +40,7 @@
 #include "mirror/object-inl.h"
 #include "os.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "stack.h"
 #include "thread.h"
 #include "thread_list.h"

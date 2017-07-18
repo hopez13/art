@@ -25,8 +25,8 @@
 #include "native_util.h"
 #include "obj_ptr.h"
 #include "scoped_fast_native_object_access-inl.h"
-#include "ScopedLocalRef.h"
-#include "ScopedUtfChars.h"
+#include <nativehelper/ScopedLocalRef.h>
+#include <nativehelper/ScopedUtfChars.h>
 #include "well_known_classes.h"
 #include "zip_archive.h"
 

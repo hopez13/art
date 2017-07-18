@@ -28,7 +28,7 @@
 #include "oat_quick_method_header.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedUtfChars.h"
+#include <nativehelper/ScopedUtfChars.h>
 #include "thread-current-inl.h"
 
 namespace art {

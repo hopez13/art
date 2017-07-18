@@ -39,8 +39,8 @@
 
 #include "android-base/strings.h"
 
-#include "JniConstants.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/JniConstants.h>
+#include <nativehelper/ScopedLocalRef.h>
 #include "arch/arm/quick_method_frame_info_arm.h"
 #include "arch/arm/registers_arm.h"
 #include "arch/arm64/quick_method_frame_info_arm64.h"
@@ -143,7 +143,7 @@
 #include "reflection.h"
 #include "runtime_callbacks.h"
 #include "runtime_options.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "scoped_thread_state_change-inl.h"
 #include "sigchain.h"
 #include "signal_catcher.h"

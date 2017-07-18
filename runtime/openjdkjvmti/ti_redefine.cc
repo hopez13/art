@@ -63,7 +63,7 @@
 #include "non_debuggable_classes.h"
 #include "object_lock.h"
 #include "runtime.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "ti_breakpoint.h"
 #include "ti_class_loader.h"
 #include "transform.h"

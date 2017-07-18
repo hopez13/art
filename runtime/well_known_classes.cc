@@ -28,7 +28,7 @@
 #include "mirror/class.h"
 #include "mirror/throwable.h"
 #include "obj_ptr-inl.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 

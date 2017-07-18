@@ -45,7 +45,7 @@
 #include "mirror/class.h"
 #include "mirror/object.h"
 #include "runtime.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 
 namespace openjdkjvmti {
 

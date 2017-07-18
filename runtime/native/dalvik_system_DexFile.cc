@@ -38,8 +38,8 @@
 #include "os.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
-#include "ScopedUtfChars.h"
+#include <nativehelper/ScopedLocalRef.h>
+#include <nativehelper/ScopedUtfChars.h>
 #include "utils.h"
 #include "well_known_classes.h"
 #include "zip_archive.h"

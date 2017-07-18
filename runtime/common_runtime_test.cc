@@ -20,7 +20,7 @@
 #include <dirent.h>
 #include <dlfcn.h>
 #include <fcntl.h>
-#include <ScopedLocalRef.h>
+#include <nativehelper/ScopedLocalRef.h>
 #include <stdlib.h>
 
 #include "../../external/icu/icu4c/source/common/unicode/uvernum.h"

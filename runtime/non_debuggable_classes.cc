@@ -20,7 +20,7 @@
 #include "jni_internal.h"
 #include "mirror/class-inl.h"
 #include "obj_ptr-inl.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "thread-current-inl.h"
 
 namespace art {

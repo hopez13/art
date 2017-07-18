@@ -63,7 +63,7 @@
 #include "os.h"
 #include "safe_map.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 #include "stack.h"
 #include "stack_map.h"
 #include "string_reference.h"

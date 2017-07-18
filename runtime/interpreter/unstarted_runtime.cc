@@ -27,7 +27,7 @@
 #include <unordered_map>
 
 #include "android-base/stringprintf.h"
-#include "ScopedLocalRef.h"
+#include <nativehelper/ScopedLocalRef.h>
 
 #include "art_method-inl.h"
 #include "base/casts.h"
