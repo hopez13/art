@@ -1,0 +1,509 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e1581ca_2db40e76",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1774,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "info_load !\u003d nullptr",
+      "range": {
+        "startLine": 1774,
+        "startChar": 6,
+        "endLine": 1774,
+        "endChar": 14
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2894f3a_dc06d24e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "label_low !\u003d nullptr",
+      "range": {
+        "startLine": 6532,
+        "startChar": 6,
+        "endLine": 6532,
+        "endChar": 15
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be3ed99d_d989f86d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Use a label.",
+      "range": {
+        "startLine": 6576,
+        "startChar": 20,
+        "endLine": 6576,
+        "endChar": 34
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a645156e_a2dca909",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6577,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "label_low !\u003d nullptr",
+      "range": {
+        "startLine": 6577,
+        "startChar": 12,
+        "endLine": 6577,
+        "endChar": 21
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b65ee2f8_1f199b21",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "label_low !\u003d nullptr",
+      "range": {
+        "startLine": 6605,
+        "startChar": 12,
+        "endLine": 6605,
+        "endChar": 21
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a2b9bee_a6074bb0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6611,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "label_low !\u003d nullptr",
+      "range": {
+        "startLine": 6611,
+        "startChar": 12,
+        "endLine": 6611,
+        "endChar": 21
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a89ded9_3d0b60c8",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Why do you need to prevent reordering for non-Baker slow path?",
+      "range": {
+        "startLine": 6640,
+        "startChar": 0,
+        "endLine": 6643,
+        "endChar": 7
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba0d8e8d_87bf8a6b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6658,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 6655,
+        "startChar": 0,
+        "endLine": 6658,
+        "endChar": 5
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb91a933_ad8b7939",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6729,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Use a label (also for the other 3 paths).",
+      "range": {
+        "startLine": 6729,
+        "startChar": 21,
+        "endLine": 6729,
+        "endChar": 22
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cccc44c9_6f7489d6",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6745,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "This branches into the JALR\u0027s delay slot?",
+      "range": {
+        "startLine": 6745,
+        "startChar": 8,
+        "endLine": 6745,
+        "endChar": 38
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "192c6a53_6600c7ae",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6830,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Use a label (also in the non-R6 branch).",
+      "range": {
+        "startLine": 6830,
+        "startChar": 18,
+        "endLine": 6830,
+        "endChar": 19
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7149d664_e8a11317",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6835,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Branches into the JALR\u0027s delay slot?",
+      "range": {
+        "startLine": 6835,
+        "startChar": 6,
+        "endLine": 6835,
+        "endChar": 36
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fff492fc_2c9f57e0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Please use a label instead of the number of instructions to branch over.",
+      "range": {
+        "startLine": 4493,
+        "startChar": 20,
+        "endLine": 4493,
+        "endChar": 21
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f421082_30df6715",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2734,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "// Unpoison reference.",
+      "range": {
+        "startLine": 2734,
+        "startChar": 63,
+        "endLine": 2734,
+        "endChar": 64
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9bae46f_3a6a7c45",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Adjust return address by 4 (as mentioned on PS1).\nDo you also need to load T9 \u003d art_quick_throw_null_pointer_exception?",
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55bc6ad5_f0f58adc",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2741,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Change the prefix to \"introspection_\"?",
+      "range": {
+        "startLine": 2741,
+        "startChar": 19,
+        "endLine": 2741,
+        "endChar": 25
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17d3d0a0_dae5744f",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2748,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd5a90dd_4dd64e2c",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2751,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Why so early? I would expect this two lines later.",
+      "range": {
+        "startLine": 2751,
+        "startChar": 4,
+        "endLine": 2751,
+        "endChar": 12
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0e5d6f3_53c2cd52",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2766,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "// Unpoison reference.",
+      "range": {
+        "startLine": 2766,
+        "startChar": 63,
+        "endLine": 2766,
+        "endChar": 64
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c700ede_a9ed403d",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2776,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "// Unpoison reference.",
+      "range": {
+        "startLine": 2776,
+        "startChar": 63,
+        "endLine": 2776,
+        "endChar": 64
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaeee551_c7cb4851",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2795,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "# Padding to 8 instructions.",
+      "range": {
+        "startLine": 2795,
+        "startChar": 4,
+        "endLine": 2795,
+        "endChar": 9
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dae3ae2d_fd801750",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2808,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "# This instruction has no effect (actual NOP for the last entry; otherwise loads $gp with the value it already holds and $gp is unused after that anyway).",
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "899dee86_602e323c",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2909,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

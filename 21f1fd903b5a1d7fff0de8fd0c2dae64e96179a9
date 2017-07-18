@@ -22,6 +22,30 @@
       "revId": "21f1fd903b5a1d7fff0de8fd0c2dae64e96179a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7699ca8_da751064",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T13:06:30Z",
+      "side": 1,
+      "message": "Yes, you need to adjust the return address by 4.\n\nYou can test this manually if you have a working gdb on mips. Run the 160-read-barrier-stress under gdb, set breakpoint in the art_quick_read_barrier_mark_introspection() (or in the appropriate entry which depends on register allocation) and once you hit the breakpoint, set the holder register to 0 and resume. The NPE is thrown correctly and make it to the output without causing a crash.",
+      "parentUuid": "27723f8f_0bea6646",
+      "range": {
+        "startLine": 2517,
+        "startChar": 0,
+        "endLine": 2517,
+        "endChar": 56
+      },
+      "revId": "21f1fd903b5a1d7fff0de8fd0c2dae64e96179a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
