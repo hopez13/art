@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8e691f2_023cef23",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:17:50Z",
+      "side": 1,
+      "message": "I prefer nested helper classes, even if the helper class does not need anything from the enclosing class. This helps avoid ODR violations. (We previously had 2 helper classes with the same name in different .cc files.)",
+      "range": {
+        "startLine": 2029,
+        "startChar": 6,
+        "endLine": 2029,
+        "endChar": 41
+      },
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dfbd2a2_1aefce8a",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:17:50Z",
+      "side": 1,
+      "message": "tws",
+      "range": {
+        "startLine": 755,
+        "startChar": 0,
+        "endLine": 755,
+        "endChar": 2
+      },
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad274b96_bf43ecfd",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:17:50Z",
+      "side": 1,
+      "message": "tws",
+      "range": {
+        "startLine": 873,
+        "startChar": 0,
+        "endLine": 873,
+        "endChar": 2
+      },
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56632496_fdb66e59",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:17:50Z",
+      "side": 1,
+      "message": "2x unaligned_uint32_t",
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "160f0f43_cde02423",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:17:50Z",
+      "side": 1,
+      "message": "unaligned_uint32_t",
+      "range": {
+        "startLine": 180,
+        "startChar": 33,
+        "endLine": 180,
+        "endChar": 41
+      },
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "515d5115_a7414bb4",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:17:50Z",
+      "side": 1,
+      "message": "The reason why I\u0027m not fond of HasNext() is that it\u0027s very confusing. From the uses below it seems you should instead provide\n\n  bool Done() {\n    return current_code_item_ptr_ \u003d\u003d current_code_item_end_;\n  }\n\nand replace HasNext() -\u003e !Done(). Otherwise, you\u0027re actually missing the last element.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 3
+      },
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6972a632_f767346c",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-18T10:17:50Z",
+      "side": 1,
+      "message": "from the start of the QuickeningInfo.",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 46,
+        "endChar": 71
+      },
+      "revId": "9692797cbc4badf94248b565303bd00219a6d398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
