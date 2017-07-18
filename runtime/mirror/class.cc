@@ -240,6 +240,7 @@ bool Class::CanAssignBitstring() {
   }
 
   InstanceOfAndStatus now = GetInstanceOfAndStatus();
+  if (now.IsAssigned(depth)) return false;
   // Make sure we only assign once for the class java.lang.Object.
   if (depth == 0) {
     return !now.IsAssigned(depth);
@@ -250,11 +251,7 @@ bool Class::CanAssignBitstring() {
   // If the super_class is overflowed, then set this class to be overflowed.
   if (parent.IsOverflowed(depth)) {
     if (!now.IsAssigned(depth)) {
-        InstanceOfAndStatus old_value, new_value;
-        do {
-          new_value = old_value = GetInstanceOfAndStatus();
-          new_value.MarkOverflowed();
-        } while (!CasInstanceOfAndStatus(old_value, new_value));
+        MarkForTypeCheckOverflowed();
     }
     return false;
   }
@@ -353,6 +350,18 @@ void Class::EnsureInitializedForTypeCheck() {
   super_class->EnsureInitializedForTypeCheck();
 
   InitializeAndAssignSuperBitstring();
+}
+
+void Class::TryAssignBitstring() {
+  if (IsPrimitive() || IsObjectClass() || IsInterface() ||
+      IsArrayClass()) return;
+
+  EnsureInitializedForTypeCheck();
+
+  MutexLock mu(Thread::Current(), *Locks::bitstring_lock_);
+  if (CanAssignBitstring()) {
+    AssignSelfBitstring();
+  }
 }
 
 void Class::SetDexCache(ObjPtr<DexCache> new_dex_cache) {

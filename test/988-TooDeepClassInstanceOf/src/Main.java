@@ -29,6 +29,20 @@ class G1 extends F1 {}
 class G2 extends F2 {}
 
 public class Main {
+  static boolean sFlag;
+  public static boolean foo(A a) {
+    for (int i=0; i<100; i++) {
+      sFlag = !sFlag;
+    }
+     for (int i=0; i<100; i++) {
+      sFlag = !sFlag;
+    }
+       for (int i=0; i<100; i++) {
+      sFlag = !sFlag;
+    }
+    return a instanceof B1 || sFlag;
+  }
+
   public static void main(String[] args) {
     String yes = "Yes";
     String no = "No";
@@ -63,6 +77,12 @@ public class Main {
     expectFalse(g2 instanceof F1);
     expectTrue(g2 instanceof F2);
 
+    for (int i=0; i<100000; i++) {
+      expectTrue(foo(c1));
+    }
+    try {
+      Thread.sleep(40000);
+    } catch (Exception e) {}
     System.out.println("passed");
   }
 

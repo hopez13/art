@@ -3927,11 +3927,16 @@ void LocationsBuilderARM64::VisitInstanceOf(HInstanceOf* instruction) {
   }
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RequiresRegister());
+  if (instruction->InputAt(2)->IsLongConstant()
+      && instruction->InputAt(2)->AsLongConstant()->GetValue() != -1) {
+    locations->SetInAt(2, ARM64EncodableConstantOrRegister(instruction->InputAt(2), instruction));
+    locations->SetInAt(3, ARM64EncodableConstantOrRegister(instruction->InputAt(3), instruction));
+  }
   // The "out" register is used as a temporary, so it overlaps with the inputs.
   // Note that TypeCheckSlowPathARM64 uses this register too.
   locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
   // Add temps if necessary for read barriers.
-  locations->AddRegisterTemps(NumberOfInstanceOfTemps(type_check_kind));
+  locations->AddRegisterTemps(NumberOfInstanceOfTemps(type_check_kind) + 2);
 }
 
 void InstructionCodeGeneratorARM64::VisitInstanceOf(HInstanceOf* instruction) {
@@ -3944,9 +3949,10 @@ void InstructionCodeGeneratorARM64::VisitInstanceOf(HInstanceOf* instruction) {
   Register out = OutputRegister(instruction);
   const size_t num_temps = NumberOfInstanceOfTemps(type_check_kind);
   DCHECK_LE(num_temps, 1u);
-  Location maybe_temp_loc = (num_temps >= 1) ? locations->GetTemp(0) : Location::NoLocation();
+  Location maybe_temp_loc = (num_temps >= 1) ? locations->GetTemp(2) : Location::NoLocation();
   uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
   uint32_t super_offset = mirror::Class::SuperClassOffset().Int32Value();
+  uint32_t status_offset = mirror::Class::StatusOffset().Int32Value();
   uint32_t component_offset = mirror::Class::ComponentTypeOffset().Int32Value();
   uint32_t primitive_offset = mirror::Class::PrimitiveTypeOffset().Int32Value();
 
@@ -3959,163 +3965,192 @@ void InstructionCodeGeneratorARM64::VisitInstanceOf(HInstanceOf* instruction) {
     __ Cbz(obj, &zero);
   }
 
-  switch (type_check_kind) {
-    case TypeCheckKind::kExactCheck: {
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kCompilerReadBarrierOption);
-      __ Cmp(out, cls);
-      __ Cset(out, eq);
-      if (zero.IsLinked()) {
-        __ B(&done);
+  // if (instruction->InputAt(2)->IsLongConstant()) {
+  //   LOG(ERROR) << "My Try " << instruction->InputAt(2)->AsLongConstant()->GetValue();
+  // }
+  if (instruction->InputAt(2)->IsLongConstant()
+      && instruction->InputAt(2)->AsLongConstant()->GetValue() != -1) {
+    // LOG(ERROR) << "My Generator64 " << instruction->InputAt(2)->AsLongConstant()->GetValue();
+    Operand bitstringv = InputOperandAt(instruction, 2);
+    Operand maskv = InputOperandAt(instruction, 3);
+    Location temp_loc = locations->GetTemp(0), cmp_loc = locations->GetTemp(1);
+    Register temp = XRegisterFrom(temp_loc), cmpv = XRegisterFrom(cmp_loc);
+    vixl::aarch64::Label fail;
+    // /* HeapReference<Class> */ temp = obj->klass_
+    GenerateReferenceLoadTwoRegisters(instruction,
+                                      temp_loc,
+                                      obj_loc,
+                                      class_offset,
+                                      maybe_temp_loc,
+                                      kCompilerReadBarrierOption);
+    __ Ldr(cmpv, MemOperand(temp, status_offset));
+    __ And(cmpv, cmpv, maskv);
+    __ Cmp(cmpv, bitstringv);
+    __ B(ne, &fail);
+    __ Mov(out, 1);
+    __ B(&done);
+    __ Bind(&fail);
+    __ Mov(out, 0);
+    __ B(&done);
+  } else {
+    switch (type_check_kind) {
+      case TypeCheckKind::kExactCheck: {
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp_loc,
+                                          kCompilerReadBarrierOption);
+        __ Cmp(out, cls);
+        __ Cset(out, eq);
+        if (zero.IsLinked()) {
+          __ B(&done);
+        }
+        break;
       }
-      break;
-    }
 
-    case TypeCheckKind::kAbstractClassCheck: {
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kCompilerReadBarrierOption);
-      // If the class is abstract, we eagerly fetch the super class of the
-      // object to avoid doing a comparison we know will fail.
-      vixl::aarch64::Label loop, success;
-      __ Bind(&loop);
-      // /* HeapReference<Class> */ out = out->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       super_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ Cbz(out, &done);
-      __ Cmp(out, cls);
-      __ B(ne, &loop);
-      __ Mov(out, 1);
-      if (zero.IsLinked()) {
-        __ B(&done);
+      case TypeCheckKind::kAbstractClassCheck: {
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp_loc,
+                                          kCompilerReadBarrierOption);
+        // If the class is abstract, we eagerly fetch the super class of the
+        // object to avoid doing a comparison we know will fail.
+        vixl::aarch64::Label loop, success;
+        __ Bind(&loop);
+        // /* HeapReference<Class> */ out = out->super_class_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         out_loc,
+                                         super_offset,
+                                         maybe_temp_loc,
+                                         kCompilerReadBarrierOption);
+        // If `out` is null, we use it for the result, and jump to `done`.
+        __ Cbz(out, &done);
+        __ Cmp(out, cls);
+        __ B(ne, &loop);
+        __ Mov(out, 1);
+        if (zero.IsLinked()) {
+          __ B(&done);
+        }
+        break;
       }
-      break;
-    }
 
-    case TypeCheckKind::kClassHierarchyCheck: {
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kCompilerReadBarrierOption);
-      // Walk over the class hierarchy to find a match.
-      vixl::aarch64::Label loop, success;
-      __ Bind(&loop);
-      __ Cmp(out, cls);
-      __ B(eq, &success);
-      // /* HeapReference<Class> */ out = out->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       super_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
-      __ Cbnz(out, &loop);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ B(&done);
-      __ Bind(&success);
-      __ Mov(out, 1);
-      if (zero.IsLinked()) {
+      case TypeCheckKind::kClassHierarchyCheck: {
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp_loc,
+                                          kCompilerReadBarrierOption);
+        // Walk over the class hierarchy to find a match.
+        vixl::aarch64::Label loop, success;
+        __ Bind(&loop);
+        __ Cmp(out, cls);
+        __ B(eq, &success);
+        // /* HeapReference<Class> */ out = out->super_class_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         out_loc,
+                                         super_offset,
+                                         maybe_temp_loc,
+                                         kCompilerReadBarrierOption);
+        __ Cbnz(out, &loop);
+        // If `out` is null, we use it for the result, and jump to `done`.
         __ B(&done);
+        __ Bind(&success);
+        __ Mov(out, 1);
+        if (zero.IsLinked()) {
+          __ B(&done);
+        }
+        break;
       }
-      break;
-    }
 
-    case TypeCheckKind::kArrayObjectCheck: {
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kCompilerReadBarrierOption);
-      // Do an exact check.
-      vixl::aarch64::Label exact_check;
-      __ Cmp(out, cls);
-      __ B(eq, &exact_check);
-      // Otherwise, we need to check that the object's class is a non-primitive array.
-      // /* HeapReference<Class> */ out = out->component_type_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       component_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ Cbz(out, &done);
-      __ Ldrh(out, HeapOperand(out, primitive_offset));
-      static_assert(Primitive::kPrimNot == 0, "Expected 0 for kPrimNot");
-      __ Cbnz(out, &zero);
-      __ Bind(&exact_check);
-      __ Mov(out, 1);
-      __ B(&done);
-      break;
-    }
-
-    case TypeCheckKind::kArrayCheck: {
-      // No read barrier since the slow path will retry upon failure.
-      // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kWithoutReadBarrier);
-      __ Cmp(out, cls);
-      DCHECK(locations->OnlyCallsOnSlowPath());
-      slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathARM64(instruction,
-                                                                      /* is_fatal */ false);
-      codegen_->AddSlowPath(slow_path);
-      __ B(ne, slow_path->GetEntryLabel());
-      __ Mov(out, 1);
-      if (zero.IsLinked()) {
+      case TypeCheckKind::kArrayObjectCheck: {
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp_loc,
+                                          kCompilerReadBarrierOption);
+        // Do an exact check.
+        vixl::aarch64::Label exact_check;
+        __ Cmp(out, cls);
+        __ B(eq, &exact_check);
+        // Otherwise, we need to check that the object's class is a non-primitive array.
+        // /* HeapReference<Class> */ out = out->component_type_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         out_loc,
+                                         component_offset,
+                                         maybe_temp_loc,
+                                         kCompilerReadBarrierOption);
+        // If `out` is null, we use it for the result, and jump to `done`.
+        __ Cbz(out, &done);
+        __ Ldrh(out, HeapOperand(out, primitive_offset));
+        static_assert(Primitive::kPrimNot == 0, "Expected 0 for kPrimNot");
+        __ Cbnz(out, &zero);
+        __ Bind(&exact_check);
+        __ Mov(out, 1);
         __ B(&done);
+        break;
       }
-      break;
-    }
 
-    case TypeCheckKind::kUnresolvedCheck:
-    case TypeCheckKind::kInterfaceCheck: {
-      // Note that we indeed only call on slow path, but we always go
-      // into the slow path for the unresolved and interface check
-      // cases.
-      //
-      // We cannot directly call the InstanceofNonTrivial runtime
-      // entry point without resorting to a type checking slow path
-      // here (i.e. by calling InvokeRuntime directly), as it would
-      // require to assign fixed registers for the inputs of this
-      // HInstanceOf instruction (following the runtime calling
-      // convention), which might be cluttered by the potential first
-      // read barrier emission at the beginning of this method.
-      //
-      // TODO: Introduce a new runtime entry point taking the object
-      // to test (instead of its class) as argument, and let it deal
-      // with the read barrier issues. This will let us refactor this
-      // case of the `switch` code as it was previously (with a direct
-      // call to the runtime not using a type checking slow path).
-      // This should also be beneficial for the other cases above.
-      DCHECK(locations->OnlyCallsOnSlowPath());
-      slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathARM64(instruction,
-                                                                      /* is_fatal */ false);
-      codegen_->AddSlowPath(slow_path);
-      __ B(slow_path->GetEntryLabel());
-      if (zero.IsLinked()) {
-        __ B(&done);
+      case TypeCheckKind::kArrayCheck: {
+        // No read barrier since the slow path will retry upon failure.
+        // /* HeapReference<Class> */ out = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          out_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp_loc,
+                                          kWithoutReadBarrier);
+        __ Cmp(out, cls);
+        DCHECK(locations->OnlyCallsOnSlowPath());
+        slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathARM64(instruction,
+                                                                        /* is_fatal */ false);
+        codegen_->AddSlowPath(slow_path);
+        __ B(ne, slow_path->GetEntryLabel());
+        __ Mov(out, 1);
+        if (zero.IsLinked()) {
+          __ B(&done);
+        }
+        break;
       }
-      break;
+
+      case TypeCheckKind::kUnresolvedCheck:
+      case TypeCheckKind::kInterfaceCheck: {
+        // Note that we indeed only call on slow path, but we always go
+        // into the slow path for the unresolved and interface check
+        // cases.
+        //
+        // We cannot directly call the InstanceofNonTrivial runtime
+        // entry point without resorting to a type checking slow path
+        // here (i.e. by calling InvokeRuntime directly), as it would
+        // require to assign fixed registers for the inputs of this
+        // HInstanceOf instruction (following the runtime calling
+        // convention), which might be cluttered by the potential first
+        // read barrier emission at the beginning of this method.
+        //
+        // TODO: Introduce a new runtime entry point taking the object
+        // to test (instead of its class) as argument, and let it deal
+        // with the read barrier issues. This will let us refactor this
+        // case of the `switch` code as it was previously (with a direct
+        // call to the runtime not using a type checking slow path).
+        // This should also be beneficial for the other cases above.
+        DCHECK(locations->OnlyCallsOnSlowPath());
+        slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathARM64(instruction,
+                                                                        /* is_fatal */ false);
+        codegen_->AddSlowPath(slow_path);
+        __ B(slow_path->GetEntryLabel());
+        if (zero.IsLinked()) {
+          __ B(&done);
+        }
+        break;
+      }
     }
   }
 
@@ -4157,8 +4192,13 @@ void LocationsBuilderARM64::VisitCheckCast(HCheckCast* instruction) {
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RequiresRegister());
+  if (instruction->InputAt(2)->IsLongConstant()
+      && instruction->InputAt(2)->AsLongConstant()->GetValue() != -1) {
+    locations->SetInAt(2, ARM64EncodableConstantOrRegister(instruction->InputAt(2), instruction));
+    locations->SetInAt(3, ARM64EncodableConstantOrRegister(instruction->InputAt(3), instruction));
+  }
   // Add temps for read barriers and other uses. One is used by TypeCheckSlowPathARM64.
-  locations->AddRegisterTemps(NumberOfCheckCastTemps(type_check_kind));
+  locations->AddRegisterTemps(NumberOfCheckCastTemps(type_check_kind) + 1);
 }
 
 void InstructionCodeGeneratorARM64::VisitCheckCast(HCheckCast* instruction) {
@@ -4171,11 +4211,12 @@ void InstructionCodeGeneratorARM64::VisitCheckCast(HCheckCast* instruction) {
   DCHECK_GE(num_temps, 1u);
   DCHECK_LE(num_temps, 3u);
   Location temp_loc = locations->GetTemp(0);
-  Location maybe_temp2_loc = (num_temps >= 2) ? locations->GetTemp(1) : Location::NoLocation();
-  Location maybe_temp3_loc = (num_temps >= 3) ? locations->GetTemp(2) : Location::NoLocation();
+  Location maybe_temp2_loc = (num_temps >= 2) ? locations->GetTemp(2) : Location::NoLocation();
+  Location maybe_temp3_loc = (num_temps >= 3) ? locations->GetTemp(3) : Location::NoLocation();
   Register temp = WRegisterFrom(temp_loc);
   const uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
   const uint32_t super_offset = mirror::Class::SuperClassOffset().Int32Value();
+  const uint32_t status_offset = mirror::Class::StatusOffset().Int32Value();
   const uint32_t component_offset = mirror::Class::ComponentTypeOffset().Int32Value();
   const uint32_t primitive_offset = mirror::Class::PrimitiveTypeOffset().Int32Value();
   const uint32_t iftable_offset = mirror::Class::IfTableOffset().Uint32Value();
@@ -4206,157 +4247,178 @@ void InstructionCodeGeneratorARM64::VisitCheckCast(HCheckCast* instruction) {
     __ Cbz(obj, &done);
   }
 
-  switch (type_check_kind) {
-    case TypeCheckKind::kExactCheck:
-    case TypeCheckKind::kArrayCheck: {
-      // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+  if (instruction->InputAt(2)->IsLongConstant()
+      && instruction->InputAt(2)->AsLongConstant()->GetValue() != -1) {
+    // LOG(ERROR) << "My Generator64 " << instruction->InputAt(2)->AsLongConstant()->GetValue();
+    Operand bitstringv = InputOperandAt(instruction, 2);
+    Operand maskv = InputOperandAt(instruction, 3);
+    Location cmp_loc = locations->GetTemp(1);
+    Register temp1 = XRegisterFrom(temp_loc), cmpv = XRegisterFrom(cmp_loc);
+    // /* HeapReference<Class> */ temp = obj->klass_
+    GenerateReferenceLoadTwoRegisters(instruction,
+                                      temp_loc,
+                                      obj_loc,
+                                      class_offset,
+                                      maybe_temp2_loc,
+                                      kWithoutReadBarrier);
+    __ Ldr(cmpv, MemOperand(temp1, status_offset));
+    __ And(cmpv, cmpv, maskv);
+    __ Cmp(cmpv, bitstringv);
+    __ B(ne, type_check_slow_path->GetEntryLabel());
+    __ B(&done);
+  } else {
+    switch (type_check_kind) {
+      case TypeCheckKind::kExactCheck:
+      case TypeCheckKind::kArrayCheck: {
+        // /* HeapReference<Class> */ temp = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          temp_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp2_loc,
+                                          kWithoutReadBarrier);
 
-      __ Cmp(temp, cls);
-      // Jump to slow path for throwing the exception or doing a
-      // more involved array check.
-      __ B(ne, type_check_slow_path->GetEntryLabel());
-      break;
-    }
+        __ Cmp(temp, cls);
+        // Jump to slow path for throwing the exception or doing a
+        // more involved array check.
+        __ B(ne, type_check_slow_path->GetEntryLabel());
+        break;
+      }
 
-    case TypeCheckKind::kAbstractClassCheck: {
-      // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      case TypeCheckKind::kAbstractClassCheck: {
+        // /* HeapReference<Class> */ temp = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          temp_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp2_loc,
+                                          kWithoutReadBarrier);
 
-      // If the class is abstract, we eagerly fetch the super class of the
-      // object to avoid doing a comparison we know will fail.
-      vixl::aarch64::Label loop;
-      __ Bind(&loop);
-      // /* HeapReference<Class> */ temp = temp->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       temp_loc,
-                                       super_offset,
-                                       maybe_temp2_loc,
-                                       kWithoutReadBarrier);
+        // If the class is abstract, we eagerly fetch the super class of the
+        // object to avoid doing a comparison we know will fail.
+        vixl::aarch64::Label loop;
+        __ Bind(&loop);
+        // /* HeapReference<Class> */ temp = temp->super_class_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         temp_loc,
+                                         super_offset,
+                                         maybe_temp2_loc,
+                                         kWithoutReadBarrier);
 
-      // If the class reference currently in `temp` is null, jump to the slow path to throw the
-      // exception.
-      __ Cbz(temp, type_check_slow_path->GetEntryLabel());
-      // Otherwise, compare classes.
-      __ Cmp(temp, cls);
-      __ B(ne, &loop);
-      break;
-    }
+        // If the class reference currently in `temp` is null, jump to the slow path to throw the
+        // exception.
+        __ Cbz(temp, type_check_slow_path->GetEntryLabel());
+        // Otherwise, compare classes.
+        __ Cmp(temp, cls);
+        __ B(ne, &loop);
+        break;
+      }
 
-    case TypeCheckKind::kClassHierarchyCheck: {
-      // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      case TypeCheckKind::kClassHierarchyCheck: {
+        // /* HeapReference<Class> */ temp = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          temp_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp2_loc,
+                                          kWithoutReadBarrier);
 
-      // Walk over the class hierarchy to find a match.
-      vixl::aarch64::Label loop;
-      __ Bind(&loop);
-      __ Cmp(temp, cls);
-      __ B(eq, &done);
+        // Walk over the class hierarchy to find a match.
+        vixl::aarch64::Label loop;
+        __ Bind(&loop);
+        __ Cmp(temp, cls);
+        __ B(eq, &done);
 
-      // /* HeapReference<Class> */ temp = temp->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       temp_loc,
-                                       super_offset,
-                                       maybe_temp2_loc,
-                                       kWithoutReadBarrier);
+        // /* HeapReference<Class> */ temp = temp->super_class_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         temp_loc,
+                                         super_offset,
+                                         maybe_temp2_loc,
+                                         kWithoutReadBarrier);
 
-      // If the class reference currently in `temp` is not null, jump
-      // back at the beginning of the loop.
-      __ Cbnz(temp, &loop);
-      // Otherwise, jump to the slow path to throw the exception.
-      __ B(type_check_slow_path->GetEntryLabel());
-      break;
-    }
+        // If the class reference currently in `temp` is not null, jump
+        // back at the beginning of the loop.
+        __ Cbnz(temp, &loop);
+        // Otherwise, jump to the slow path to throw the exception.
+        __ B(type_check_slow_path->GetEntryLabel());
+        break;
+      }
 
-    case TypeCheckKind::kArrayObjectCheck: {
-      // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      case TypeCheckKind::kArrayObjectCheck: {
+        // /* HeapReference<Class> */ temp = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          temp_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp2_loc,
+                                          kWithoutReadBarrier);
 
-      // Do an exact check.
-      __ Cmp(temp, cls);
-      __ B(eq, &done);
+        // Do an exact check.
+        __ Cmp(temp, cls);
+        __ B(eq, &done);
 
-      // Otherwise, we need to check that the object's class is a non-primitive array.
-      // /* HeapReference<Class> */ temp = temp->component_type_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       temp_loc,
-                                       component_offset,
-                                       maybe_temp2_loc,
-                                       kWithoutReadBarrier);
+        // Otherwise, we need to check that the object's class is a non-primitive array.
+        // /* HeapReference<Class> */ temp = temp->component_type_
+        GenerateReferenceLoadOneRegister(instruction,
+                                         temp_loc,
+                                         component_offset,
+                                         maybe_temp2_loc,
+                                         kWithoutReadBarrier);
 
-      // If the component type is null, jump to the slow path to throw the exception.
-      __ Cbz(temp, type_check_slow_path->GetEntryLabel());
-      // Otherwise, the object is indeed an array. Further check that this component type is not a
-      // primitive type.
-      __ Ldrh(temp, HeapOperand(temp, primitive_offset));
-      static_assert(Primitive::kPrimNot == 0, "Expected 0 for kPrimNot");
-      __ Cbnz(temp, type_check_slow_path->GetEntryLabel());
-      break;
-    }
+        // If the component type is null, jump to the slow path to throw the exception.
+        __ Cbz(temp, type_check_slow_path->GetEntryLabel());
+        // Otherwise, the object is indeed an array. Further check that this component type is not a
+        // primitive type.
+        __ Ldrh(temp, HeapOperand(temp, primitive_offset));
+        static_assert(Primitive::kPrimNot == 0, "Expected 0 for kPrimNot");
+        __ Cbnz(temp, type_check_slow_path->GetEntryLabel());
+        break;
+      }
 
-    case TypeCheckKind::kUnresolvedCheck:
-      // We always go into the type check slow path for the unresolved check cases.
-      //
-      // We cannot directly call the CheckCast runtime entry point
-      // without resorting to a type checking slow path here (i.e. by
-      // calling InvokeRuntime directly), as it would require to
-      // assign fixed registers for the inputs of this HInstanceOf
-      // instruction (following the runtime calling convention), which
-      // might be cluttered by the potential first read barrier
-      // emission at the beginning of this method.
-      __ B(type_check_slow_path->GetEntryLabel());
-      break;
-    case TypeCheckKind::kInterfaceCheck: {
-      // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      case TypeCheckKind::kUnresolvedCheck:
+        // We always go into the type check slow path for the unresolved check cases.
+        //
+        // We cannot directly call the CheckCast runtime entry point
+        // without resorting to a type checking slow path here (i.e. by
+        // calling InvokeRuntime directly), as it would require to
+        // assign fixed registers for the inputs of this HInstanceOf
+        // instruction (following the runtime calling convention), which
+        // might be cluttered by the potential first read barrier
+        // emission at the beginning of this method.
+        __ B(type_check_slow_path->GetEntryLabel());
+        break;
+      case TypeCheckKind::kInterfaceCheck: {
+        // /* HeapReference<Class> */ temp = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          temp_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp2_loc,
+                                          kWithoutReadBarrier);
 
-      // /* HeapReference<Class> */ temp = temp->iftable_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        temp_loc,
-                                        iftable_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
-      // Iftable is never null.
-      __ Ldr(WRegisterFrom(maybe_temp2_loc), HeapOperand(temp.W(), array_length_offset));
-      // Loop through the iftable and check if any class matches.
-      vixl::aarch64::Label start_loop;
-      __ Bind(&start_loop);
-      __ Cbz(WRegisterFrom(maybe_temp2_loc), type_check_slow_path->GetEntryLabel());
-      __ Ldr(WRegisterFrom(maybe_temp3_loc), HeapOperand(temp.W(), object_array_data_offset));
-      GetAssembler()->MaybeUnpoisonHeapReference(WRegisterFrom(maybe_temp3_loc));
-      // Go to next interface.
-      __ Add(temp, temp, 2 * kHeapReferenceSize);
-      __ Sub(WRegisterFrom(maybe_temp2_loc), WRegisterFrom(maybe_temp2_loc), 2);
-      // Compare the classes and continue the loop if they do not match.
-      __ Cmp(cls, WRegisterFrom(maybe_temp3_loc));
-      __ B(ne, &start_loop);
-      break;
+        // /* HeapReference<Class> */ temp = temp->iftable_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          temp_loc,
+                                          temp_loc,
+                                          iftable_offset,
+                                          maybe_temp2_loc,
+                                          kWithoutReadBarrier);
+        // Iftable is never null.
+        __ Ldr(WRegisterFrom(maybe_temp2_loc), HeapOperand(temp.W(), array_length_offset));
+        // Loop through the iftable and check if any class matches.
+        vixl::aarch64::Label start_loop;
+        __ Bind(&start_loop);
+        __ Cbz(WRegisterFrom(maybe_temp2_loc), type_check_slow_path->GetEntryLabel());
+        __ Ldr(WRegisterFrom(maybe_temp3_loc), HeapOperand(temp.W(), object_array_data_offset));
+        GetAssembler()->MaybeUnpoisonHeapReference(WRegisterFrom(maybe_temp3_loc));
+        // Go to next interface.
+        __ Add(temp, temp, 2 * kHeapReferenceSize);
+        __ Sub(WRegisterFrom(maybe_temp2_loc), WRegisterFrom(maybe_temp2_loc), 2);
+        // Compare the classes and continue the loop if they do not match.
+        __ Cmp(cls, WRegisterFrom(maybe_temp3_loc));
+        __ B(ne, &start_loop);
+        break;
+      }
     }
   }
   __ Bind(&done);
