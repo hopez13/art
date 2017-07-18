@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e733614b_b5843828",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-07-18T18:51:09Z",
+      "side": 1,
+      "message": "Wish we know what caused the output of ASAN to think it\u0027s an unknown-crash instead of use-after-poison, but it\u0027s good enough that it\u0027s captured for now.",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "188ac6cb6d63f8225328600aa6965930e2624bbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
