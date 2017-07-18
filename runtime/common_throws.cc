@@ -19,7 +19,7 @@
 #include <sstream>
 
 #include "android-base/stringprintf.h"
-#include "ScopedLocalRef.h"
+#include "nativehelper/ScopedLocalRef.h"
 
 #include "art_field-inl.h"
 #include "art_method-inl.h"

@@ -25,7 +25,7 @@
 #include "mirror/string-inl.h"
 #include "native_util.h"
 #include "scoped_fast_native_object_access-inl.h"
-#include "ScopedPrimitiveArray.h"
+#include "nativehelper/ScopedPrimitiveArray.h"
 #include "unicode/utf16.h"
 
 

@@ -37,7 +37,7 @@
 #include "obj_ptr.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
+#include "nativehelper/ScopedLocalRef.h"
 #include "thread-inl.h"
 #include "thread_list.h"
 #include "well_known_classes.h"

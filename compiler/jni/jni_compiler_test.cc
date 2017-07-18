@@ -37,7 +37,7 @@
 #include "mirror/stack_trace_element.h"
 #include "nativeloader/native_loader.h"
 #include "runtime.h"
-#include "ScopedLocalRef.h"
+#include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 

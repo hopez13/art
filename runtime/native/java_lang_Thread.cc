@@ -25,7 +25,7 @@
 #include "native_util.h"
 #include "scoped_fast_native_object_access-inl.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedUtfChars.h"
+#include "nativehelper/ScopedUtfChars.h"
 #include "thread.h"
 #include "thread_list.h"
 #include "verify_object.h"

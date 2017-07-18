@@ -39,7 +39,7 @@
 #include "parsed_options.h"
 #include "runtime-inl.h"
 #include "runtime_options.h"
-#include "ScopedLocalRef.h"
+#include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "sigchain.h"
 #include "ti/agent.h"

@@ -28,7 +28,7 @@
 #include "mirror/string-inl.h"
 #include "mterp/mterp.h"
 #include "scoped_thread_state_change-inl.h"
-#include "ScopedLocalRef.h"
+#include "nativehelper/ScopedLocalRef.h"
 #include "stack.h"
 #include "thread-inl.h"
 #include "unstarted_runtime.h"

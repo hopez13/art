@@ -105,7 +105,7 @@
 #include "os.h"
 #include "runtime.h"
 #include "runtime_callbacks.h"
-#include "ScopedLocalRef.h"
+#include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
 #include "thread_list.h"

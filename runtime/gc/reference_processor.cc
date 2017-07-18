@@ -25,7 +25,7 @@
 #include "object_callbacks.h"
 #include "reference_processor-inl.h"
 #include "reflection.h"
-#include "ScopedLocalRef.h"
+#include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "task_processor.h"
 #include "utils.h"

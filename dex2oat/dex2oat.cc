@@ -82,7 +82,7 @@
 #include "os.h"
 #include "runtime.h"
 #include "runtime_options.h"
-#include "ScopedLocalRef.h"
+#include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "utils.h"
 #include "vdex_file.h"
