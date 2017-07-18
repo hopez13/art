@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "093bbbc5_65efe358",
+        "filename": "compiler/utils/atomic_dex_ref_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-18T00:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c61f487c_7847fb29",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "c75c7e24ec85d162824e68d2229c9bae82d7bc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f3310c55_f7b89075",
         "filename": "compiler/utils/atomic_dex_ref_map.h",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2017-07-18T00:35:16Z",
       "side": 1,
       "message": "Not happy. We have MethodReference for method references. How about double-templatizing, and then defining both with \"using AtomicDexRefMap \u003d AtomicIndexRefMap\u003cDexFileReference\u003e\" etc?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "c75c7e24ec85d162824e68d2229c9bae82d7bc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08ef589d_55a14fcd",
+        "filename": "compiler/utils/atomic_dex_ref_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-18T00:37:45Z",
+      "side": 1,
+      "message": "I want to eventually make MethodRefernce just be a subclass of DexFileReference I think.",
+      "parentUuid": "f3310c55_f7b89075",
       "range": {
         "startLine": 29,
         "startChar": 0,
