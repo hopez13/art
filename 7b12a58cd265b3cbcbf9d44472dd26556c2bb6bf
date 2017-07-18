@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7a2fa23a_a4870e7c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-18T22:42:17Z",
+      "side": 1,
+      "message": "Replace this with it looks cleaner.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "7b12a58cd265b3cbcbf9d44472dd26556c2bb6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec927d45_b47273b1",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 2
