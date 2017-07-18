@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4085e685_9203a390",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2303,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-18T18:30:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1975cd5_1ac1dc1c",
+      "range": {
+        "startLine": 2303,
+        "startChar": 24,
+        "endLine": 2303,
+        "endChar": 31
+      },
+      "revId": "b79bab3f38164891f8faaf4dbb885d2e659fe604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16dfd501_76090115",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-18T13:45:15Z",
       "side": 1,
       "message": "That\u0027s scary. Why do they fail?",
+      "range": {
+        "startLine": 2303,
+        "startChar": 80,
+        "endLine": 2304,
+        "endChar": 40
+      },
+      "revId": "b79bab3f38164891f8faaf4dbb885d2e659fe604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5ddbc2e_4d4b33cc",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2304,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-18T18:30:47Z",
+      "side": 1,
+      "message": "Because Alex have some test cases rely on the clinit\u0027s runtime behavior but this optimization eliminated those modifications on runtime， since he says those test cases are all run under debuggable build, it\u0027s probably better to stop it for debuggable build, since developers sometimes also want to observe the behaviour of clinit during runtime.",
+      "parentUuid": "16dfd501_76090115",
       "range": {
         "startLine": 2303,
         "startChar": 80,
