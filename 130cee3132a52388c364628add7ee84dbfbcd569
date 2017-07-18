@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "0b382742_1cd3489a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:49:25Z",
+      "side": 1,
+      "message": "copyright notice missing",
+      "revId": "130cee3132a52388c364628add7ee84dbfbcd569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed296873_dc5852ba",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:49:25Z",
+      "side": 1,
+      "message": "space missing",
+      "revId": "130cee3132a52388c364628add7ee84dbfbcd569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "677fa256_95621470",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
         "patchSetId": 2
@@ -136,6 +170,24 @@
       "side": 1,
       "message": "ohh i knew it, I can change it if you want, but i left it without doing  newInsn + 1 because it worked any way :)",
       "parentUuid": "e6e0f610_94e2590a",
+      "revId": "130cee3132a52388c364628add7ee84dbfbcd569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db57d936_6f9144a2",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:49:25Z",
+      "side": 1,
+      "message": "just add + i to the index",
+      "parentUuid": "87e3695e_b07ac2df",
       "revId": "130cee3132a52388c364628add7ee84dbfbcd569",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

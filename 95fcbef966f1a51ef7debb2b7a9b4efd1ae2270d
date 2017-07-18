@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f754344a_7a2809aa",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:49:25Z",
+      "side": 1,
+      "message": "indentation +2 only",
+      "revId": "95fcbef966f1a51ef7debb2b7a9b4efd1ae2270d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25f87d0c_0337aac7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:49:25Z",
+      "side": 1,
+      "message": "still \u003c\u003d ?",
+      "revId": "95fcbef966f1a51ef7debb2b7a9b4efd1ae2270d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f985baba_5e0dfe1e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:49:25Z",
+      "side": 1,
+      "message": "the index is not so interesting alone,\nwhy not say, clobbered registers 0..max at ....",
+      "revId": "95fcbef966f1a51ef7debb2b7a9b4efd1ae2270d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
