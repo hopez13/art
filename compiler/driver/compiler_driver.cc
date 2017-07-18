@@ -291,7 +291,6 @@ CompilerDriver::CompilerDriver(
       instruction_set_(instruction_set == kArm ? kThumb2 : instruction_set),
       instruction_set_features_(instruction_set_features),
       requires_constructor_barrier_lock_("constructor barrier lock"),
-      compiled_classes_lock_("compiled classes lock"),
       non_relative_linker_patch_count_(0u),
       image_classes_(image_classes),
       classes_to_compile_(compiled_classes),
@@ -1947,7 +1946,11 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
         if (compiler_only_verifies) {
           // Just update the compiled_classes_ map. The compiler doesn't need to resolve
           // the type.
-          compiled_classes_.Overwrite(ClassReference(dex_file, i), mirror::Class::kStatusVerified);
+          DexFileReference ref(dex_file, i);
+          mirror::Class::Status existing = mirror::Class::kStatusNotReady;
+          CHECK(compiled_classes_.Get(ref, &existing));
+          CHECK_EQ(compiled_classes_.Insert(ref, existing, mirror::Class::kStatusVerified),
+                   ClassStateTable::kInsertResultSuccess);
         } else {
           // Update the class status, so later compilation stages know they don't need to verify
           // the class.
@@ -1978,6 +1981,13 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
 void CompilerDriver::Verify(jobject jclass_loader,
                             const std::vector<const DexFile*>& dex_files,
                             TimingLogger* timings) {
+  // Always add the dex files to compiled_classes_. This happens for all compiler filters.
+  for (const DexFile* dex_file : dex_files) {
+    if (!compiled_classes_.HaveDexFile(dex_file)) {
+      compiled_classes_.AddDexFile(dex_file, dex_file->NumClassDefs());
+    }
+  }
+
   if (FastVerify(jclass_loader, dex_files, timings)) {
     return;
   }
@@ -2202,6 +2212,9 @@ void CompilerDriver::SetVerifiedDexFile(jobject class_loader,
                                         size_t thread_count,
                                         TimingLogger* timings) {
   TimingLogger::ScopedTiming t("Verify Dex File", timings);
+  if (!compiled_classes_.HaveDexFile(&dex_file)) {
+    compiled_classes_.AddDexFile(&dex_file, dex_file.NumClassDefs());
+  }
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   ParallelCompilationManager context(class_linker, class_loader, this, &dex_file, dex_files,
                                      thread_pool);
@@ -2860,12 +2873,10 @@ void CompilerDriver::AddCompiledMethod(const MethodReference& method_ref,
 
 bool CompilerDriver::GetCompiledClass(ClassReference ref, mirror::Class::Status* status) const {
   DCHECK(status != nullptr);
-  MutexLock mu(Thread::Current(), compiled_classes_lock_);
-  ClassStateTable::const_iterator it = compiled_classes_.find(ref);
-  if (it == compiled_classes_.end()) {
+  if (!compiled_classes_.Get(DexFileReference(ref.first, ref.second), status) ||
+      *status < mirror::Class::kStatusVerified) {
     return false;
   }
-  *status = it->second;
   return true;
 }
 
@@ -2886,15 +2897,20 @@ void CompilerDriver::RecordClassStatus(ClassReference ref, mirror::Class::Status
           << " of " << status;
   }
 
-  MutexLock mu(Thread::Current(), compiled_classes_lock_);
-  auto it = compiled_classes_.find(ref);
-  if (it == compiled_classes_.end()) {
-    compiled_classes_.Overwrite(ref, status);
-  } else if (status > it->second) {
+  ClassStateTable::InsertResult result;
+  do {
+    DexFileReference dex_ref(ref.first, ref.second);
+    mirror::Class::Status existing = mirror::Class::kStatusNotReady;
+    CHECK(compiled_classes_.Get(dex_ref, &existing));
+    if (existing >= status) {
+      // Existing status is already better than we expect, break.
+      break;
+    }
     // Update the status if we now have a greater one. This happens with vdex,
     // which records a class is verified, but does not resolve it.
-    it->second = status;
-  }
+    result = compiled_classes_.Insert(dex_ref, existing, status);
+    CHECK(result != ClassStateTable::kInsertResultInvalidDexFile);
+  } while (result != ClassStateTable::kInsertResultSuccess);
 }
 
 CompiledMethod* CompilerDriver::GetCompiledMethod(MethodReference ref) const {
