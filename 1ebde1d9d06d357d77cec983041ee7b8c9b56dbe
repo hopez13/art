@@ -532,6 +532,29 @@
     },
     {
       "key": {
+        "uuid": "323454a2_2ece2c5a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 3852,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-18T23:36:02Z",
+      "side": 1,
+      "message": "This seems OK, but really relies on us correctly annotating all points that check the cache. I hope we have enough test coverage...",
+      "range": {
+        "startLine": 3850,
+        "startChar": 0,
+        "endLine": 3852,
+        "endChar": 5
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a64ea15f_d519e492",
         "filename": "test/162-method-resolution/info.txt",
         "patchSetId": 44
