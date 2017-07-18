@@ -51,6 +51,24 @@
       "revId": "6152dcb39c4b72c8e139f1ee63defad12a76afef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "087f9bcd_35db9577",
+        "filename": "test/066-mismatched-super/src/Indirect2.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-18T17:57:42Z",
+      "side": 1,
+      "message": "That seems wrong, perhaps we should not propagate the wrong-ness?\n\nMaybe we don\u0027t need to fix it now, but having the comment makes it seem like we\u0027re aware it\u0027s doing the wrong thing and then not fixing it.\n\nMaybe we should file a bug for this?",
+      "parentUuid": "40e0b74d_91fcb788",
+      "revId": "6152dcb39c4b72c8e139f1ee63defad12a76afef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
