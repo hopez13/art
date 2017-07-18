@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "677fa256_95621470",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:33:14Z",
+      "side": 1,
+      "message": "you may want to use a\n\n @Override\n  protected boolean canMutate(MutatableCode mutatableCode) {\n       return mutatableCode.registersSize \u003e 0;\n  }\n\nhere. since the mutation does not change anything if there are no registers, we should not waste \"firing\" it then",
+      "revId": "130cee3132a52388c364628add7ee84dbfbcd569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6de097a6_6ad97d59",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:33:14Z",
+      "side": 1,
+      "message": "always 0, or otherwise wilder values?",
+      "revId": "130cee3132a52388c364628add7ee84dbfbcd569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "735b20d0_70e06771",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:33:14Z",
+      "side": 1,
+      "message": "this should be \u003c \n(if there are three registers, v2 is the last (v0,v1,v2)",
+      "revId": "130cee3132a52388c364628add7ee84dbfbcd569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6e0f610_94e2590a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-18T23:33:14Z",
+      "side": 1,
+      "message": "note that they will come out reversed this way (totally fine, just observing):\n\n|0000: const/16 v3, #int 75 // #4b\n|0002: const/16 v2, #int 75 // #4b\n|0004: const/16 v1, #int 75 // #4b\n|0006: const/16 v0, #int 75 // #4b",
+      "revId": "130cee3132a52388c364628add7ee84dbfbcd569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
