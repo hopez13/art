@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83513d13_00020d4a",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-19T20:31:54Z",
+      "side": 1,
+      "message": "Can you only do this for the kInstrumented \u003d\u003d true case to avoid regressing allocation performance.",
+      "range": {
+        "startLine": 156,
+        "startChar": 6,
+        "endLine": 156,
+        "endChar": 57
+      },
+      "revId": "e34fe5e673e07030af56ce3a36b1c35e502b2d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b3b165b_3b170122",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-19T20:31:54Z",
+      "side": 1,
+      "message": "Check transaction_active to avoid hurting performance?",
+      "revId": "e34fe5e673e07030af56ce3a36b1c35e502b2d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd17fb15_e5fcb397",
+        "filename": "runtime/transaction.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-19T20:31:54Z",
+      "side": 1,
+      "message": "Why is this static? Just make it a normal field and pass it in the constructor please.",
+      "range": {
+        "startLine": 313,
+        "startChar": 18,
+        "endLine": 313,
+        "endChar": 30
+      },
+      "revId": "e34fe5e673e07030af56ce3a36b1c35e502b2d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
