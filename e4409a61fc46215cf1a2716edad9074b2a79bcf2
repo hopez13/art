@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "382a84f6_3e54d0d3",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "No idea what is the \"Tooling Interface\".",
+      "parentUuid": "3ff549a3_9b75f702",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c78e87_c075ab9f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 45
@@ -48,6 +66,24 @@
       "writtenOn": "2017-07-19T15:36:57Z",
       "side": 1,
       "message": "In light of your clarification, I think this would be less confusing if it was reworded:\n\nThis method does not itself throw (e.g. IncompatibleClassChangeError, IllegalAccessError), nor does it return a method that (when invoked) would throw (e.g. an IncompatibleClassChangeError/IllegalAccessError). It is the caller\u0027s responsibility to check and handle those error cases.",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fda606a3_24a14cff",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "That would completely miss the purpose of my comment - to point out a strange case.",
+      "parentUuid": "01c78e87_c075ab9f",
       "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

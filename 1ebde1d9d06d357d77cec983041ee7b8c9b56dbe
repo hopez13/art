@@ -581,6 +581,24 @@
     },
     {
       "key": {
+        "uuid": "740bee2b_6b469e31",
+        "filename": "runtime/dex_file-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "Minor unrelated cleanup. Do you want to split that out?",
+      "parentUuid": "c6e937d5_c7e2cd59",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e060d896_1c9496f0",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 44
@@ -598,6 +616,24 @@
     },
     {
       "key": {
+        "uuid": "24ddc0b6_1837f619",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e060d896_1c9496f0",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07ed1ca7_6baa687c",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 44
@@ -609,6 +645,24 @@
       "writtenOn": "2017-07-19T15:39:16Z",
       "side": 1,
       "message": "Indentation is off.",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5983a09c_a49fa92c",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "No, it isn\u0027t. Check your gerrit settings.",
+      "parentUuid": "07ed1ca7_6baa687c",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -638,6 +692,30 @@
     },
     {
       "key": {
+        "uuid": "6f400e04_ccdaed92",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "Actually, I\u0027ll just drop it. It seems to me that we shouldn\u0027t have such a restriction here.",
+      "parentUuid": "4548d029_afd2a787",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 86
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e18b9f5_0e1038af",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 44
@@ -649,6 +727,30 @@
       "writtenOn": "2017-07-19T15:39:16Z",
       "side": 1,
       "message": "Why not keeping the old contract of only passing an interface method?",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 540,
+        "endChar": 3
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bbb519e_963c6626",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "That would spread the changes required for the lookup change (search Object for interfaces) across many places.",
+      "parentUuid": "3e18b9f5_0e1038af",
       "range": {
         "startLine": 536,
         "startChar": 0,
@@ -708,6 +810,24 @@
       "side": 1,
       "message": "Default methods were copied into class methods, has this changed?",
       "parentUuid": "5bc4aa03_2841bfb8",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56e9a02c_4e9568c2",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "Only for non-interface classes and this is FindInterfaceMethod().",
+      "parentUuid": "4cdf8592_37f43e11",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -802,6 +922,24 @@
     },
     {
       "key": {
+        "uuid": "0189c300_f8d2d4e1",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "Done; OK, let\u0027s have some extra instructions in the fast path in the loop (LDR+LDR+TBNZ on arm64, 4 dependent instructions on arm).",
+      "parentUuid": "4edb75ba_864d5c00",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9d900fc_504d1d2c",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -884,6 +1022,24 @@
       "side": 1,
       "message": "Maybe it just needs some DCHECKs then with some comments?",
       "parentUuid": "51e1f688_cbc9c5cc",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c04ba8c6_ba827cd9",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "Done, just comments.",
+      "parentUuid": "01c2901b_69ff85ee",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -978,6 +1134,24 @@
     },
     {
       "key": {
+        "uuid": "8ad5e762_3650e290",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "I do not see an obvious way to refactor any shared parts.",
+      "parentUuid": "9a3ae249_9157439a",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4e2bd0d_4a79b355",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -1025,6 +1199,24 @@
       "side": 1,
       "message": "Ok, but why is this DCHECK necessary? The code seems like it should work on a proxy class.\n\nDoes it break for L661 or something because it has a DexFile dependency?",
       "parentUuid": "ffef5374_1d7dce0b",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "253f87e2_dda39459",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "Added a comment. Line 662 would need GetInterfaceMethodIfProxy().",
+      "parentUuid": "635f792c_ae5a20ec",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -1207,6 +1399,24 @@
       "side": 1,
       "message": "L961-L963 are what I was referring to. What would you call that? Edge conditions? The point is it\u0027s not detailed enough (L961-L963).",
       "parentUuid": "a7ac49c4_76f34412",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4cf2064_b5251b43",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:09:31Z",
+      "side": 1,
+      "message": "Whatever you call it, the level of detail is exactly as intended. The next level would be a one-pager for the changes to be implemented by callers, i.e. *not here*.",
+      "parentUuid": "01ec0894_bfdf6022",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
