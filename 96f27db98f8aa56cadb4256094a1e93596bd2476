@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e5d9419f_38253672",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-19T01:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b00e2bda_b130fa3a",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 16
+      },
+      "revId": "96f27db98f8aa56cadb4256094a1e93596bd2476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f00747b5_c2af9250",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-19T00:33:27Z",
       "side": 1,
       "message": "grammar?",
+      "range": {
+        "startLine": 237,
+        "startChar": 96,
+        "endLine": 238,
+        "endChar": 40
+      },
+      "revId": "96f27db98f8aa56cadb4256094a1e93596bd2476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4031d71_6adf1b3a",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-19T01:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f00747b5_c2af9250",
       "range": {
         "startLine": 237,
         "startChar": 96,
@@ -82,6 +130,30 @@
       "writtenOn": "2017-07-19T00:55:49Z",
       "side": 1,
       "message": "The lambda is there to attach NO_THREAD_SAFETY_ANALYSIS. Otherwise we\u0027d have to grab the lock to read the value. (I asked for a lambda, instead of annotating the whole function with it)",
+      "parentUuid": "06268abf_5fbffd4e",
+      "range": {
+        "startLine": 244,
+        "startChar": 15,
+        "endLine": 244,
+        "endChar": 43
+      },
+      "revId": "96f27db98f8aa56cadb4256094a1e93596bd2476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84135fdd_db386600",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-19T01:01:08Z",
+      "side": 1,
+      "message": "We need locks to call the GetUserCodeSuspendCount() function. Here we do actually have them but we cannot prove to the analysis that we do so this lambda is a hack to avoid needing to mark this whole function as NO_THREAD_SAFETY_ANALYSIS.",
       "parentUuid": "06268abf_5fbffd4e",
       "range": {
         "startLine": 244,
