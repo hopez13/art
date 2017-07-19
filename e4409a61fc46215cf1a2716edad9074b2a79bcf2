@@ -123,6 +123,24 @@
       "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40945f76_7305ec79",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T17:46:27Z",
+      "side": 1,
+      "message": "If it\u0027s any consolation, I intend to rewrite this once I fix the \"copied\" methods, so that we do not need to do the weird search described above.",
+      "parentUuid": "5357c2fa_73fa4f85",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
