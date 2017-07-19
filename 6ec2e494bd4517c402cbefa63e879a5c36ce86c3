@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "be95575d_e8b1916f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:54:05Z",
+      "side": 1,
+      "message": "OK, let\u0027s keep it this way. Thanks for the explanation.",
+      "parentUuid": "544a16e2_abb12590",
+      "range": {
+        "startLine": 6576,
+        "startChar": 20,
+        "endLine": 6576,
+        "endChar": 34
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a645156e_a2dca909",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
