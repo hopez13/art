@@ -52,8 +52,12 @@ class QuickCompilerCallbacks FINAL : public CompilerCallbacks {
       verifier_deps_.reset(deps);
     }
 
+    void SetVerificationResults(VerificationResults* verification_results) {
+      verification_results_ = verification_results;
+    }
+
   private:
-    VerificationResults* const verification_results_;
+    VerificationResults* verification_results_;
     std::unique_ptr<verifier::VerifierDeps> verifier_deps_;
 };
 
