@@ -1602,6 +1602,19 @@ void HInstruction::MoveBeforeFirstUserAndOutOfLoops() {
   }
   MoveBefore(insert_pos);
 }
+/*
+HInstruction* HInstruction::Clone(ArenaAllocator* arena) const {
+  switch (this->GetKind()) {
+#define INSTRUCTION_SIZE_SWITCH(type, super)                                   \
+    case HInstruction::InstructionKind::k##type: return new (arena) H##type(*this->As##type());
+
+  FOR_EACH_CONCRETE_INSTRUCTION(INSTRUCTION_SIZE_SWITCH)
+#undef INSTRUCTION_SIZE_SWITCH
+    default:
+      LOG(FATAL) << "Should be called for non-concrete instructions.";
+      UNREACHABLE();
+  }
+}*/
 
 HBasicBlock* HBasicBlock::SplitBefore(HInstruction* cursor) {
   DCHECK(!graph_->IsInSsaForm()) << "Support for SSA form not implemented.";
@@ -2829,6 +2842,32 @@ void HInstruction::RemoveEnvironmentUsers() {
     user->SetRawEnvAt(use.GetIndex(), nullptr);
   }
   env_uses_.clear();
+}
+
+// Create a clone of the instruction, insert it into the graph; replace the old one with a new
+// and remove the old instruction.
+HInstruction* ReplaceInstrOrPhiByClone(HInstruction* instr) {
+  HInstruction* clone = instr->Clone(instr->GetBlock()->GetGraph()->GetArena());
+  HBasicBlock* block = instr->GetBlock();
+
+  if (instr->IsPhi()) {
+    HPhi* phi = instr->AsPhi();
+    DCHECK(!phi->HasEnvironment());
+    HPhi* phi_clone = clone->AsPhi();
+    block->InsertPhiAfter(phi_clone, phi);
+    phi->ReplaceWith(phi_clone);
+    block->RemovePhi(phi);
+  } else {
+    block->ReplaceAndRemoveInstructionWith(instr, clone);
+    if (instr->HasEnvironment()) {
+      clone->CopyEnvironmentFrom(instr->GetEnvironment());
+      HLoopInformation* loop_info = block->GetLoopInformation();
+      if (instr->IsSuspendCheck() && loop_info != nullptr) {
+        loop_info->SetSuspendCheck(clone->AsSuspendCheck());
+      }
+    }
+  }
+  return clone;
 }
 
 // Returns an instruction with the opposite Boolean value from 'cond'.
