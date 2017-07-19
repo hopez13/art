@@ -2841,6 +2841,32 @@ void HInstruction::RemoveEnvironmentUsers() {
   env_uses_.clear();
 }
 
+// Create a clone of the instruction, insert it into the graph; replace the old one with a new
+// and remove the old instruction.
+HInstruction* ReplaceInstrOrPhiByClone(HInstruction* instr) {
+  HInstruction* clone = instr->Clone(instr->GetBlock()->GetGraph()->GetArena());
+  HBasicBlock* block = instr->GetBlock();
+
+  if (instr->IsPhi()) {
+    HPhi* phi = instr->AsPhi();
+    DCHECK(!phi->HasEnvironment());
+    HPhi* phi_clone = clone->AsPhi();
+    block->InsertPhiAfter(phi_clone, phi);
+    phi->ReplaceWith(phi_clone);
+    block->RemovePhi(phi);
+  } else {
+    block->ReplaceAndRemoveInstructionWith(instr, clone);
+    if (instr->HasEnvironment()) {
+      clone->CopyEnvironmentFrom(instr->GetEnvironment());
+      HLoopInformation* loop_info = block->GetLoopInformation();
+      if (instr->IsSuspendCheck() && loop_info != nullptr) {
+        loop_info->SetSuspendCheck(clone->AsSuspendCheck());
+      }
+    }
+  }
+  return clone;
+}
+
 // Returns an instruction with the opposite Boolean value from 'cond'.
 HInstruction* HGraph::InsertOppositeCondition(HInstruction* cond, HInstruction* cursor) {
   ArenaAllocator* allocator = GetArena();

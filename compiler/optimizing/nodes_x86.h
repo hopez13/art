@@ -30,8 +30,9 @@ class HX86ComputeBaseMethodAddress FINAL : public HExpression<0> {
 
   DECLARE_INSTRUCTION(X86ComputeBaseMethodAddress);
 
- private:
-  DISALLOW_COPY_AND_ASSIGN(HX86ComputeBaseMethodAddress);
+
+ protected:
+  explicit HX86ComputeBaseMethodAddress(const HX86ComputeBaseMethodAddress& other) = default;
 };
 
 // Load a constant value from the constant table.
@@ -54,8 +55,8 @@ class HX86LoadFromConstantTable FINAL : public HExpression<2> {
 
   DECLARE_INSTRUCTION(X86LoadFromConstantTable);
 
- private:
-  DISALLOW_COPY_AND_ASSIGN(HX86LoadFromConstantTable);
+ protected:
+  explicit HX86LoadFromConstantTable(const HX86LoadFromConstantTable& other) = default;
 };
 
 // Version of HNeg with access to the constant table for FP types.
@@ -77,8 +78,8 @@ class HX86FPNeg FINAL : public HExpression<2> {
 
   DECLARE_INSTRUCTION(X86FPNeg);
 
- private:
-  DISALLOW_COPY_AND_ASSIGN(HX86FPNeg);
+ protected:
+  explicit HX86FPNeg(const HX86FPNeg& other) = default;
 };
 
 // X86 version of HPackedSwitch that holds a pointer to the base method address.
@@ -113,11 +114,12 @@ class HX86PackedSwitch FINAL : public HTemplateInstruction<2> {
 
   DECLARE_INSTRUCTION(X86PackedSwitch);
 
+ protected:
+  explicit HX86PackedSwitch(const HX86PackedSwitch& other) = default;
+
  private:
   const int32_t start_value_;
   const int32_t num_entries_;
-
-  DISALLOW_COPY_AND_ASSIGN(HX86PackedSwitch);
 };
 
 }  // namespace art

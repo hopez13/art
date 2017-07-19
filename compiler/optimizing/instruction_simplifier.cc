@@ -129,6 +129,19 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
 };
 
 void InstructionSimplifier::Run() {
+#if 1
+  // TODO: This is an exhaustive test of individual HInstructions cloning. Remove it.
+  for (HBasicBlock* block : graph_->GetReversePostOrder()) {
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); ) {
+      HInstruction* instr = it.Current();
+      it.Advance();
+      if (instr->IsClonable()) {
+        ReplaceInstrOrPhiByClone(instr);
+      }
+    }
+  }
+#endif
+
   InstructionSimplifierVisitor visitor(graph_, codegen_, compiler_driver_, stats_);
   visitor.Run();
 }
