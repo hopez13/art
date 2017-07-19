@@ -22,6 +22,30 @@
       "revId": "41acdc1df1bceaa462d134b8ce30419d301e76d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edccdfbd_da4b3b9d",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-19T01:23:30Z",
+      "side": 1,
+      "message": "I will probably do it in a follow up, since it involves more clean up in the tests.",
+      "parentUuid": "7bb1a274_63b50d58",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 34
+      },
+      "revId": "41acdc1df1bceaa462d134b8ce30419d301e76d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
