@@ -30,8 +30,8 @@ class HMipsComputeBaseMethodAddress : public HExpression<0> {
 
   DECLARE_INSTRUCTION(MipsComputeBaseMethodAddress);
 
- private:
-  DISALLOW_COPY_AND_ASSIGN(HMipsComputeBaseMethodAddress);
+ protected:
+  explicit HMipsComputeBaseMethodAddress(const HMipsComputeBaseMethodAddress& other) = default;
 };
 
 // Mips version of HPackedSwitch that holds a pointer to the base method address.
@@ -62,11 +62,12 @@ class HMipsPackedSwitch FINAL : public HTemplateInstruction<2> {
 
   DECLARE_INSTRUCTION(MipsPackedSwitch);
 
+ protected:
+  explicit HMipsPackedSwitch(const HMipsPackedSwitch& other) = default;
+
  private:
   const int32_t start_value_;
   const int32_t num_entries_;
-
-  DISALLOW_COPY_AND_ASSIGN(HMipsPackedSwitch);
 };
 
 }  // namespace art
