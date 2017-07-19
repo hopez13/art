@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "54658e74_5df93c4c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4889,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-19T10:27:24Z",
+      "side": 1,
+      "message": "Please add a comment on why you\u0027re doing this.\n\nWhy can\u0027t you just fetch the status of \u0027klass\u0027 when entering InitializeClass to know if it did AOT ValidateSuperClassDescriptors?",
+      "range": {
+        "startLine": 4887,
+        "startChar": 1,
+        "endLine": 4889,
+        "endChar": 81
+      },
+      "revId": "0cb172874481f736c6b7c491dd621166cc25561b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8acf8050_a33ea74a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4890,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-19T10:27:24Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 4890,
+        "startChar": 0,
+        "endLine": 4890,
+        "endChar": 102
+      },
+      "revId": "0cb172874481f736c6b7c491dd621166cc25561b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d68452d6_4c5715b0",
         "filename": "test/138-duplicate-classes-check2/src/Main.java",
         "patchSetId": 3
