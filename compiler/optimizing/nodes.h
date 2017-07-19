@@ -2155,6 +2155,24 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   FOR_EACH_ABSTRACT_INSTRUCTION(INSTRUCTION_TYPE_CHECK)
 #undef INSTRUCTION_TYPE_CHECK
 
+  // Returns a complete clone (copy) of the instruction.
+  HInstruction* Clone(ArenaAllocator* arena) const {
+    HInstruction* clone = ConstructClone(arena);
+    CloneInstructionData(clone);
+    return clone;
+  }
+
+  // Returns whether instruction can be cloned (copied).
+  virtual bool IsClonable() const { return false; }
+
+  // Returns a newly created instruction with an appropriate constructor.
+  //
+  // This function should be overridden by all FINAL instruction classes which require copying.
+  virtual HInstruction* ConstructClone(ArenaAllocator* arena ATTRIBUTE_UNUSED) const {
+    LOG(FATAL) << DebugName() << " Clonning is not implemented for the instruction.";
+    UNREACHABLE();
+  }
+
   // Returns whether the instruction can be moved within the graph.
   // TODO: this method is used by LICM and GVN with possibly different
   //       meanings? split and rename?
@@ -2269,6 +2287,24 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   void SetPackedField(typename BitFieldType::value_type value) {
     DCHECK(IsUint<BitFieldType::size>(static_cast<uintptr_t>(value)));
     packed_fields_ = BitFieldType::Update(value, packed_fields_);
+  }
+
+  // Clone properties declared in the instruction immediate class which were not set up by the
+  // constructor.
+  //
+  // This function should be overridden by all instructions classes which
+  //  - have properties declared in the instruction immediate class (not in the classes in the
+  //    inheritance chain) which were not set up by the constructor.
+  //  - AND are in the inheritance chain of instruction classes which require copying.
+  //
+  // For example, class HInvoke has to override this function to make sure all intrinsic
+  // information (not set by constructor) is correctly copied.
+  virtual void CloneInstructionData(HInstruction* new_clone) const {
+    new_clone->SetSideEffects(GetSideEffects());
+    if (GetType() == Primitive::kPrimNot) {
+      new_clone->SetReferenceTypeInfo(GetReferenceTypeInfo());
+    }
+    new_clone->packed_fields_ = packed_fields_;
   }
 
  private:
@@ -2457,6 +2493,14 @@ class HVariableInputSizeInstruction : public HInstruction {
       : HInstruction(side_effects, dex_pc),
         inputs_(number_of_inputs, arena->Adapter(kind)) {}
 
+  void CloneInstructionData(HInstruction* new_clone) const OVERRIDE {
+    DCHECK(InputCount() == new_clone->InputCount());
+    for (size_t i = 0, e = InputCount(); i < e; i++) {
+      new_clone->SetRawInputAt(i, InputAt(i));
+    }
+    HInstruction::CloneInstructionData(new_clone);
+  }
+
   ArenaVector<HUserRecord<HInstruction*>> inputs_;
 
  private:
@@ -2577,6 +2621,13 @@ class HPhi FINAL : public HVariableInputSizeInstruction {
     SetPackedFlag<kFlagCanBeNull>(true);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return
+        new (arena) HPhi(arena, GetRegNumber(), GetInputRecords().size(), GetType(), GetDexPc());
+  }
+
   // Returns a type equivalent to the given `type`, but that a `HPhi` can hold.
   static Primitive::Type ToPhiType(Primitive::Type type) {
     return Primitive::PrimitiveKind(type);
@@ -2673,6 +2724,12 @@ class HExit FINAL : public HTemplateInstruction<0> {
 class HGoto FINAL : public HTemplateInstruction<0> {
  public:
   explicit HGoto(uint32_t dex_pc = kNoDexPc) : HTemplateInstruction(SideEffects::None(), dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HGoto(GetDexPc());
+  }
 
   bool IsControlFlow() const OVERRIDE { return true; }
 
@@ -2916,6 +2973,12 @@ class HIf FINAL : public HTemplateInstruction<1> {
   explicit HIf(HInstruction* input, uint32_t dex_pc = kNoDexPc)
       : HTemplateInstruction(SideEffects::None(), dex_pc) {
     SetRawInputAt(0, input);
+  }
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HIf(InputAt(0), GetDexPc());
   }
 
   bool IsControlFlow() const OVERRIDE { return true; }
@@ -3466,6 +3529,12 @@ class HNotEqual FINAL : public HCondition {
   HNotEqual(HInstruction* first, HInstruction* second, uint32_t dex_pc = kNoDexPc)
       : HCondition(first, second, dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HNotEqual(GetLeft(), GetRight(), GetDexPc());
+  }
+
   bool IsCommutative() const OVERRIDE { return true; }
 
   HConstant* Evaluate(HNullConstant* x ATTRIBUTE_UNUSED,
@@ -3619,6 +3688,12 @@ class HGreaterThanOrEqual FINAL : public HCondition {
  public:
   HGreaterThanOrEqual(HInstruction* first, HInstruction* second, uint32_t dex_pc = kNoDexPc)
       : HCondition(first, second, dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HGreaterThanOrEqual(GetLeft(), GetRight(), GetDexPc());
+  }
 
   HConstant* Evaluate(HIntConstant* x, HIntConstant* y) const OVERRIDE {
     return MakeConstantCondition(Compute(x->GetValue(), y->GetValue()), GetDexPc());
@@ -3776,6 +3851,12 @@ class HAboveOrEqual FINAL : public HCondition {
  public:
   HAboveOrEqual(HInstruction* first, HInstruction* second, uint32_t dex_pc = kNoDexPc)
       : HCondition(first, second, dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HAboveOrEqual(GetLeft(), GetRight(), GetDexPc());
+  }
 
   HConstant* Evaluate(HIntConstant* x, HIntConstant* y) const OVERRIDE {
     return MakeConstantCondition(Compute(x->GetValue(), y->GetValue()), GetDexPc());
@@ -4083,6 +4164,13 @@ class HInvoke : public HVariableInputSizeInstruction {
     SetPackedFlag<kFlagCanThrow>(true);
   }
 
+  void CloneInstructionData(HInstruction* new_clone) const OVERRIDE {
+    HInvoke* invoke_clone = new_clone->AsInvoke();
+    invoke_clone->intrinsic_ = GetIntrinsic();
+    invoke_clone->intrinsic_optimizations_ = *GetIntrinsicOptimizations();
+    HVariableInputSizeInstruction::CloneInstructionData(new_clone);
+  }
+
   uint32_t number_of_arguments_;
   ArtMethod* resolved_method_;
   const uint32_t dex_method_index_;
@@ -4223,6 +4311,21 @@ class HInvokeStaticOrDirect FINAL : public HInvoke {
         target_method_(target_method),
         dispatch_info_(dispatch_info) {
     SetPackedField<ClinitCheckRequirementField>(clinit_check_requirement);
+  }
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HInvokeStaticOrDirect(GetArena(),
+                                             GetNumberOfArguments(),
+                                             GetType(),
+                                             GetDexPc(),
+                                             GetDexMethodIndex(),
+                                             GetResolvedMethod(),
+                                             GetDispatchInfo(),
+                                             GetInvokeType(),
+                                             GetTargetMethod(),
+                                             GetClinitCheckRequirement());
   }
 
   void SetDispatchInfo(const DispatchInfo& dispatch_info) {
@@ -4547,6 +4650,12 @@ class HAdd FINAL : public HBinaryOperation {
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HAdd(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
+
   bool IsCommutative() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x + y; }
@@ -4582,6 +4691,12 @@ class HSub FINAL : public HBinaryOperation {
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HSub(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
+
   template <typename T> static T Compute(T x, T y) { return x - y; }
 
   HConstant* Evaluate(HIntConstant* x, HIntConstant* y) const OVERRIDE {
@@ -4614,6 +4729,12 @@ class HMul FINAL : public HBinaryOperation {
        HInstruction* right,
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HMul(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
 
   bool IsCommutative() const OVERRIDE { return true; }
 
@@ -4649,6 +4770,12 @@ class HDiv FINAL : public HBinaryOperation {
        HInstruction* right,
        uint32_t dex_pc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HDiv(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
 
   template <typename T>
   T ComputeIntegral(T x, T y) const {
@@ -4696,6 +4823,12 @@ class HRem FINAL : public HBinaryOperation {
        HInstruction* right,
        uint32_t dex_pc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HRem(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
 
   template <typename T>
   T ComputeIntegral(T x, T y) const {
@@ -4745,6 +4878,12 @@ class HDivZeroCheck FINAL : public HExpression<1> {
     SetRawInputAt(0, value);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HDivZeroCheck(InputAt(0), GetDexPc());
+  }
+
   Primitive::Type GetType() const OVERRIDE { return InputAt(0)->GetType(); }
 
   bool CanBeMoved() const OVERRIDE { return true; }
@@ -4771,6 +4910,12 @@ class HShl FINAL : public HBinaryOperation {
       : HBinaryOperation(result_type, value, distance, SideEffects::None(), dex_pc) {
     DCHECK_EQ(result_type, Primitive::PrimitiveKind(value->GetType()));
     DCHECK_EQ(Primitive::kPrimInt, Primitive::PrimitiveKind(distance->GetType()));
+  }
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HShl(GetType(), GetLeft(), GetRight(), GetDexPc());
   }
 
   template <typename T>
@@ -4819,6 +4964,12 @@ class HShr FINAL : public HBinaryOperation {
     DCHECK_EQ(Primitive::kPrimInt, Primitive::PrimitiveKind(distance->GetType()));
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HShr(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
+
   template <typename T>
   static T Compute(T value, int32_t distance, int32_t max_shift_distance) {
     return value >> (distance & max_shift_distance);
@@ -4863,6 +5014,12 @@ class HUShr FINAL : public HBinaryOperation {
       : HBinaryOperation(result_type, value, distance, SideEffects::None(), dex_pc) {
     DCHECK_EQ(result_type, Primitive::PrimitiveKind(value->GetType()));
     DCHECK_EQ(Primitive::kPrimInt, Primitive::PrimitiveKind(distance->GetType()));
+  }
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HUShr(GetType(), GetLeft(), GetRight(), GetDexPc());
   }
 
   template <typename T>
@@ -4910,6 +5067,12 @@ class HAnd FINAL : public HBinaryOperation {
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HAnd(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
+
   bool IsCommutative() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x & y; }
@@ -4946,6 +5109,12 @@ class HOr FINAL : public HBinaryOperation {
       HInstruction* right,
       uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HOr(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
 
   bool IsCommutative() const OVERRIDE { return true; }
 
@@ -4984,6 +5153,12 @@ class HXor FINAL : public HBinaryOperation {
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HXor(GetType(), GetLeft(), GetRight(), GetDexPc());
+  }
+
   bool IsCommutative() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x ^ y; }
@@ -5019,6 +5194,12 @@ class HRor FINAL : public HBinaryOperation {
     : HBinaryOperation(result_type, value, distance) {
     DCHECK_EQ(result_type, Primitive::PrimitiveKind(value->GetType()));
     DCHECK_EQ(Primitive::kPrimInt, Primitive::PrimitiveKind(distance->GetType()));
+  }
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HRor(GetType(), GetLeft(), GetRight());
   }
 
   template <typename T>
@@ -5218,6 +5399,12 @@ class HNullCheck FINAL : public HExpression<1> {
     SetRawInputAt(0, value);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HNullCheck(InputAt(0), GetDexPc());
+  }
+
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -5386,6 +5573,12 @@ class HArrayGet FINAL : public HExpression<2> {
     SetRawInputAt(1, index);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HArrayGet(GetArray(), GetIndex(), GetType(), GetDexPc(), IsStringCharAt());
+  }
+
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -5459,6 +5652,13 @@ class HArraySet FINAL : public HTemplateInstruction<3> {
     SetRawInputAt(2, value);
     // Make a best guess now, may be refined during SSA building.
     ComputeSideEffects();
+  }
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return
+        new (arena) HArraySet(GetArray(), GetIndex(), GetValue(), GetComponentType(), GetDexPc());
   }
 
   bool NeedsEnvironment() const OVERRIDE {
@@ -5552,6 +5752,12 @@ class HArrayLength FINAL : public HExpression<1> {
     SetRawInputAt(0, array);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HArrayLength(InputAt(0), GetDexPc(), IsStringLength());
+  }
+
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -5593,6 +5799,12 @@ class HBoundsCheck FINAL : public HExpression<2> {
     SetRawInputAt(1, length);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HBoundsCheck(InputAt(0), InputAt(1), GetDexPc(), IsStringCharAt());
+  }
+
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -5618,6 +5830,12 @@ class HSuspendCheck FINAL : public HTemplateInstruction<0> {
  public:
   explicit HSuspendCheck(uint32_t dex_pc = kNoDexPc)
       : HTemplateInstruction(SideEffects::CanTriggerGC(), dex_pc), slow_path_(nullptr) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HSuspendCheck(GetDexPc());
+  }
 
   bool NeedsEnvironment() const OVERRIDE {
     return true;
@@ -7063,6 +7281,7 @@ inline HInstruction* HuntForDeclaration(HInstruction* instruction) {
 void RemoveEnvironmentUses(HInstruction* instruction);
 bool HasEnvironmentUsedByOthers(HInstruction* instruction);
 void ResetEnvironmentInputRecords(HInstruction* instruction);
+HInstruction* ReplaceInstrOrPhiByClone(HInstruction* instr);
 
 }  // namespace art
 
