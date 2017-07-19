@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "b057ee39_285ab529",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T18:30:30Z",
+      "side": 1,
+      "message": "In fact, you were really keen on separating \"lookup\" from \"dispatch\" behavior, by using above approach you can test it separately.\n\nOnly things its lacking is the error checking has to be done manually (so e.g. it would be hard to test that distinguishes a lookup exception vs a dispatch exception).",
+      "parentUuid": "44c8b27f_87e9ad20",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c78e87_c075ab9f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 45
