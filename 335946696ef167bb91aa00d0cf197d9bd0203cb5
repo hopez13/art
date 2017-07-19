@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f13cbd63_cc4968f7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-19T18:15:32Z",
+      "side": 1,
+      "message": "So the intention is to always clobber with \u00270\u0027?",
+      "range": {
+        "startLine": 95,
+        "startChar": 27,
+        "endLine": 95,
+        "endChar": 2
+      },
+      "revId": "335946696ef167bb91aa00d0cf197d9bd0203cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c85a384_94cec4dc",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-19T18:15:32Z",
+      "side": 1,
+      "message": "line to long and extra space  after regClobberIdx.",
+      "range": {
+        "startLine": 99,
+        "startChar": 100,
+        "endLine": 99,
+        "endChar": 120
+      },
+      "revId": "335946696ef167bb91aa00d0cf197d9bd0203cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
