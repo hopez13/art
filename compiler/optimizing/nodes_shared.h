@@ -55,7 +55,7 @@ class HMultiplyAccumulate FINAL : public HExpression<3> {
   // Indicates if this is a MADD or MSUB.
   const InstructionKind op_kind_;
 
-  DISALLOW_COPY_AND_ASSIGN(HMultiplyAccumulate);
+  DISALLOW_ASSIGN(HMultiplyAccumulate);
 };
 
 class HBitwiseNegatedRight FINAL : public HBinaryOperation {
@@ -115,7 +115,7 @@ class HBitwiseNegatedRight FINAL : public HBinaryOperation {
   // Specifies the bitwise operation, which will be then negated.
   const InstructionKind op_kind_;
 
-  DISALLOW_COPY_AND_ASSIGN(HBitwiseNegatedRight);
+  DISALLOW_ASSIGN(HBitwiseNegatedRight);
 };
 
 
@@ -135,6 +135,7 @@ class HIntermediateAddress FINAL : public HExpression<2> {
     SetRawInputAt(1, offset);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -147,7 +148,7 @@ class HIntermediateAddress FINAL : public HExpression<2> {
   DECLARE_INSTRUCTION(IntermediateAddress);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HIntermediateAddress);
+  DISALLOW_ASSIGN(HIntermediateAddress);
 };
 
 // This instruction computes part of the array access offset (data and index offset).
@@ -190,7 +191,7 @@ class HIntermediateAddressIndex FINAL : public HExpression<3> {
   DECLARE_INSTRUCTION(IntermediateAddressIndex);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HIntermediateAddressIndex);
+  DISALLOW_ASSIGN(HIntermediateAddressIndex);
 };
 
 class HDataProcWithShifterOp FINAL : public HExpression<2> {
@@ -264,7 +265,7 @@ class HDataProcWithShifterOp FINAL : public HExpression<2> {
 
   friend std::ostream& operator<<(std::ostream& os, OpKind op);
 
-  DISALLOW_COPY_AND_ASSIGN(HDataProcWithShifterOp);
+  DISALLOW_ASSIGN(HDataProcWithShifterOp);
 };
 
 std::ostream& operator<<(std::ostream& os, const HDataProcWithShifterOp::OpKind op);
