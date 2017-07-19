@@ -45,6 +45,8 @@
 
 namespace art {
 
+#define DISALLOW_ASSIGN(TypeName)
+
 class GraphChecker;
 class HBasicBlock;
 class HConstructorFence;
@@ -1473,6 +1475,9 @@ FOR_EACH_INSTRUCTION(FORWARD_DECLARATION)
   bool InstructionTypeEquals(const HInstruction* other) const OVERRIDE {  \
     return other->Is##type();                                             \
   }                                                                       \
+  HInstruction* Clone(ArenaAllocator* arena) const OVERRIDE {             \
+    return new (arena) H##type(*this->As##type());                        \
+  }                                                                       \
   void Accept(HGraphVisitor* visitor) OVERRIDE
 
 #define DECLARE_ABSTRACT_INSTRUCTION(type)                              \
@@ -2156,6 +2161,20 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   FOR_EACH_ABSTRACT_INSTRUCTION(INSTRUCTION_TYPE_CHECK)
 #undef INSTRUCTION_TYPE_CHECK
 
+  // Returns a clone of the instruction (shallow copy by default, custom copy if a
+  // copy-constructor is provided for a particular type).
+  //
+  // It is semantically valid to create a clone of the instruction only until
+  // prepare_for_register_allocator phase as lifetime, intervals and code_gen info are not
+  // copied.
+  virtual HInstruction* Clone(ArenaAllocator* arena ATTRIBUTE_UNUSED) const {
+    LOG(FATAL) << DebugName() << " Clonning is not implemented for the instruction.";
+    UNREACHABLE();
+  }
+
+  // Returns whether instruction can be cloned (copied).
+  virtual bool IsClonable() const { return false; }
+
   // Returns whether the instruction can be moved within the graph.
   // TODO: this method is used by LICM and GVN with possibly different
   //       meanings? split and rename?
@@ -2272,6 +2291,24 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
     packed_fields_ = BitFieldType::Update(value, packed_fields_);
   }
 
+  // TODO: comment me.
+  explicit HInstruction(const HInstruction& other)
+      : previous_(nullptr),
+        next_(nullptr),
+        block_(nullptr),
+        dex_pc_(other.dex_pc_),
+        id_(-1),
+        ssa_index_(-1),
+        packed_fields_(other.packed_fields_),
+        environment_(nullptr),
+        locations_(nullptr),
+        live_interval_(nullptr),
+        lifetime_position_(kNoLifetime),
+        side_effects_(other.side_effects_),
+    reference_type_handle_(other.reference_type_handle_) {
+    // std::cout << "HInstruction copy ctor\n";
+  }
+
  private:
   void FixUpUserRecordsAfterUseInsertion(HUseList<HInstruction*>::iterator fixup_end) {
     auto before_use_node = uses_.before_begin();
@@ -2362,7 +2399,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   friend class HGraph;
   friend class HInstructionList;
 
-  DISALLOW_COPY_AND_ASSIGN(HInstruction);
+  DISALLOW_ASSIGN(HInstruction);
 };
 std::ostream& operator<<(std::ostream& os, const HInstruction::InstructionKind& rhs);
 
@@ -2461,7 +2498,7 @@ class HVariableInputSizeInstruction : public HInstruction {
   ArenaVector<HUserRecord<HInstruction*>> inputs_;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVariableInputSizeInstruction);
+  DISALLOW_ASSIGN(HVariableInputSizeInstruction);
 };
 
 template<size_t N>
@@ -2475,6 +2512,9 @@ class HTemplateInstruction: public HInstruction {
   ArrayRef<HUserRecord<HInstruction*>> GetInputRecords() OVERRIDE FINAL {
     return ArrayRef<HUserRecord<HInstruction*>>(inputs_);
   }
+
+ protected:
+  HTemplateInstruction<N>(const HTemplateInstruction<N>& other) = default;
 
  private:
   std::array<HUserRecord<HInstruction*>, N> inputs_;
@@ -2495,6 +2535,9 @@ class HTemplateInstruction<0>: public HInstruction {
   ArrayRef<HUserRecord<HInstruction*>> GetInputRecords() OVERRIDE FINAL {
     return ArrayRef<HUserRecord<HInstruction*>>();
   }
+
+ protected:
+  HTemplateInstruction<0>(const HTemplateInstruction<0>& other) = default;
 
  private:
   friend class SsaBuilder;
@@ -2521,6 +2564,8 @@ class HExpression : public HTemplateInstruction<N> {
   static_assert(kNumberOfExpressionPackedBits <= HInstruction::kMaxNumberOfPackedBits,
                 "Too many packed fields.");
   using TypeField = BitField<Primitive::Type, kFieldType, kFieldTypeSize>;
+
+  HExpression<N>(const HExpression& other) = default;
 };
 
 // Represents dex's RETURN_VOID opcode. A HReturnVoid is a control flow
@@ -2535,7 +2580,7 @@ class HReturnVoid FINAL : public HTemplateInstruction<0> {
   DECLARE_INSTRUCTION(ReturnVoid);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HReturnVoid);
+  DISALLOW_ASSIGN(HReturnVoid);
 };
 
 // Represents dex's RETURN opcodes. A HReturn is a control flow
@@ -2552,7 +2597,7 @@ class HReturn FINAL : public HTemplateInstruction<1> {
   DECLARE_INSTRUCTION(Return);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HReturn);
+  DISALLOW_ASSIGN(HReturn);
 };
 
 class HPhi FINAL : public HVariableInputSizeInstruction {
@@ -2577,6 +2622,8 @@ class HPhi FINAL : public HVariableInputSizeInstruction {
     SetPackedFlag<kFlagIsLive>(true);
     SetPackedFlag<kFlagCanBeNull>(true);
   }
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   // Returns a type equivalent to the given `type`, but that a `HPhi` can hold.
   static Primitive::Type ToPhiType(Primitive::Type type) {
@@ -2652,7 +2699,7 @@ class HPhi FINAL : public HVariableInputSizeInstruction {
 
   const uint32_t reg_number_;
 
-  DISALLOW_COPY_AND_ASSIGN(HPhi);
+  DISALLOW_ASSIGN(HPhi);
 };
 
 // The exit instruction is the only instruction of the exit block.
@@ -2667,7 +2714,7 @@ class HExit FINAL : public HTemplateInstruction<0> {
   DECLARE_INSTRUCTION(Exit);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HExit);
+  DISALLOW_ASSIGN(HExit);
 };
 
 // Jumps from one block to another.
@@ -2675,6 +2722,7 @@ class HGoto FINAL : public HTemplateInstruction<0> {
  public:
   explicit HGoto(uint32_t dex_pc = kNoDexPc) : HTemplateInstruction(SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool IsControlFlow() const OVERRIDE { return true; }
 
   HBasicBlock* GetSuccessor() const {
@@ -2684,7 +2732,7 @@ class HGoto FINAL : public HTemplateInstruction<0> {
   DECLARE_INSTRUCTION(Goto);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HGoto);
+  DISALLOW_ASSIGN(HGoto);
 };
 
 class HConstant : public HExpression<0> {
@@ -2708,7 +2756,7 @@ class HConstant : public HExpression<0> {
   DECLARE_ABSTRACT_INSTRUCTION(Constant);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HConstant);
+  DISALLOW_ASSIGN(HConstant);
 };
 
 class HNullConstant FINAL : public HConstant {
@@ -2730,7 +2778,7 @@ class HNullConstant FINAL : public HConstant {
   explicit HNullConstant(uint32_t dex_pc = kNoDexPc) : HConstant(Primitive::kPrimNot, dex_pc) {}
 
   friend class HGraph;
-  DISALLOW_COPY_AND_ASSIGN(HNullConstant);
+  DISALLOW_ASSIGN(HNullConstant);
 };
 
 // Constants of the type int. Those can be from Dex instructions, or
@@ -2773,7 +2821,7 @@ class HIntConstant FINAL : public HConstant {
   friend class HGraph;
   ART_FRIEND_TEST(GraphTest, InsertInstructionBefore);
   ART_FRIEND_TYPED_TEST(ParallelMoveTest, ConstantLast);
-  DISALLOW_COPY_AND_ASSIGN(HIntConstant);
+  DISALLOW_ASSIGN(HIntConstant);
 };
 
 class HLongConstant FINAL : public HConstant {
@@ -2803,7 +2851,7 @@ class HLongConstant FINAL : public HConstant {
   const int64_t value_;
 
   friend class HGraph;
-  DISALLOW_COPY_AND_ASSIGN(HLongConstant);
+  DISALLOW_ASSIGN(HLongConstant);
 };
 
 class HFloatConstant FINAL : public HConstant {
@@ -2856,7 +2904,7 @@ class HFloatConstant FINAL : public HConstant {
   // Only the SsaBuilder and HGraph can create floating-point constants.
   friend class SsaBuilder;
   friend class HGraph;
-  DISALLOW_COPY_AND_ASSIGN(HFloatConstant);
+  DISALLOW_ASSIGN(HFloatConstant);
 };
 
 class HDoubleConstant FINAL : public HConstant {
@@ -2907,7 +2955,7 @@ class HDoubleConstant FINAL : public HConstant {
   // Only the SsaBuilder and HGraph can create floating-point constants.
   friend class SsaBuilder;
   friend class HGraph;
-  DISALLOW_COPY_AND_ASSIGN(HDoubleConstant);
+  DISALLOW_ASSIGN(HDoubleConstant);
 };
 
 // Conditional branch. A block ending with an HIf instruction must have
@@ -2919,6 +2967,7 @@ class HIf FINAL : public HTemplateInstruction<1> {
     SetRawInputAt(0, input);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool IsControlFlow() const OVERRIDE { return true; }
 
   HBasicBlock* IfTrueSuccessor() const {
@@ -2932,7 +2981,7 @@ class HIf FINAL : public HTemplateInstruction<1> {
   DECLARE_INSTRUCTION(If);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HIf);
+  DISALLOW_ASSIGN(HIf);
 };
 
 
@@ -2995,7 +3044,7 @@ class HTryBoundary FINAL : public HTemplateInstruction<0> {
                 "Too many packed fields.");
   using BoundaryKindField = BitField<BoundaryKind, kFieldBoundaryKind, kFieldBoundaryKindSize>;
 
-  DISALLOW_COPY_AND_ASSIGN(HTryBoundary);
+  DISALLOW_ASSIGN(HTryBoundary);
 };
 
 // Deoptimize to interpreter, upon checking a condition.
@@ -3080,7 +3129,7 @@ class HDeoptimize FINAL : public HVariableInputSizeInstruction {
   using DeoptimizeKindField =
       BitField<DeoptimizationKind, kFieldDeoptimizeKind, kFieldDeoptimizeKindSize>;
 
-  DISALLOW_COPY_AND_ASSIGN(HDeoptimize);
+  DISALLOW_ASSIGN(HDeoptimize);
 };
 
 // Represents a should_deoptimize flag. Currently used for CHA-based devirtualization.
@@ -3107,7 +3156,7 @@ class HShouldDeoptimizeFlag FINAL : public HVariableInputSizeInstruction {
   DECLARE_INSTRUCTION(ShouldDeoptimizeFlag);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HShouldDeoptimizeFlag);
+  DISALLOW_ASSIGN(HShouldDeoptimizeFlag);
 };
 
 // Represents the ArtMethod that was passed as a first argument to
@@ -3121,7 +3170,7 @@ class HCurrentMethod FINAL : public HExpression<0> {
   DECLARE_INSTRUCTION(CurrentMethod);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HCurrentMethod);
+  DISALLOW_ASSIGN(HCurrentMethod);
 };
 
 // Fetches an ArtMethod from the virtual table or the interface method table
@@ -3167,7 +3216,7 @@ class HClassTableGet FINAL : public HExpression<1> {
   // The index of the ArtMethod in the table.
   const size_t index_;
 
-  DISALLOW_COPY_AND_ASSIGN(HClassTableGet);
+  DISALLOW_ASSIGN(HClassTableGet);
 };
 
 // PackedSwitch (jump table). A block ending with a PackedSwitch instruction will
@@ -3201,7 +3250,7 @@ class HPackedSwitch FINAL : public HTemplateInstruction<1> {
   const int32_t start_value_;
   const uint32_t num_entries_;
 
-  DISALLOW_COPY_AND_ASSIGN(HPackedSwitch);
+  DISALLOW_ASSIGN(HPackedSwitch);
 };
 
 class HUnaryOperation : public HExpression<1> {
@@ -3233,7 +3282,7 @@ class HUnaryOperation : public HExpression<1> {
   DECLARE_ABSTRACT_INSTRUCTION(UnaryOperation);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HUnaryOperation);
+  DISALLOW_ASSIGN(HUnaryOperation);
 };
 
 class HBinaryOperation : public HExpression<2> {
@@ -3323,7 +3372,7 @@ class HBinaryOperation : public HExpression<2> {
   DECLARE_ABSTRACT_INSTRUCTION(BinaryOperation);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HBinaryOperation);
+  DISALLOW_ASSIGN(HBinaryOperation);
 };
 
 // The comparison bias applies for floating point operations and indicates how NaN
@@ -3414,7 +3463,7 @@ class HCondition : public HBinaryOperation {
   }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HCondition);
+  DISALLOW_ASSIGN(HCondition);
 };
 
 // Instruction to check if two inputs are equal to each other.
@@ -3459,7 +3508,7 @@ class HEqual FINAL : public HCondition {
  private:
   template <typename T> static bool Compute(T x, T y) { return x == y; }
 
-  DISALLOW_COPY_AND_ASSIGN(HEqual);
+  DISALLOW_ASSIGN(HEqual);
 };
 
 class HNotEqual FINAL : public HCondition {
@@ -3467,6 +3516,7 @@ class HNotEqual FINAL : public HCondition {
   HNotEqual(HInstruction* first, HInstruction* second, uint32_t dex_pc = kNoDexPc)
       : HCondition(first, second, dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool IsCommutative() const OVERRIDE { return true; }
 
   HConstant* Evaluate(HNullConstant* x ATTRIBUTE_UNUSED,
@@ -3502,7 +3552,7 @@ class HNotEqual FINAL : public HCondition {
  private:
   template <typename T> static bool Compute(T x, T y) { return x != y; }
 
-  DISALLOW_COPY_AND_ASSIGN(HNotEqual);
+  DISALLOW_ASSIGN(HNotEqual);
 };
 
 class HLessThan FINAL : public HCondition {
@@ -3539,7 +3589,7 @@ class HLessThan FINAL : public HCondition {
  private:
   template <typename T> static bool Compute(T x, T y) { return x < y; }
 
-  DISALLOW_COPY_AND_ASSIGN(HLessThan);
+  DISALLOW_ASSIGN(HLessThan);
 };
 
 class HLessThanOrEqual FINAL : public HCondition {
@@ -3576,7 +3626,7 @@ class HLessThanOrEqual FINAL : public HCondition {
  private:
   template <typename T> static bool Compute(T x, T y) { return x <= y; }
 
-  DISALLOW_COPY_AND_ASSIGN(HLessThanOrEqual);
+  DISALLOW_ASSIGN(HLessThanOrEqual);
 };
 
 class HGreaterThan FINAL : public HCondition {
@@ -3613,7 +3663,7 @@ class HGreaterThan FINAL : public HCondition {
  private:
   template <typename T> static bool Compute(T x, T y) { return x > y; }
 
-  DISALLOW_COPY_AND_ASSIGN(HGreaterThan);
+  DISALLOW_ASSIGN(HGreaterThan);
 };
 
 class HGreaterThanOrEqual FINAL : public HCondition {
@@ -3621,6 +3671,7 @@ class HGreaterThanOrEqual FINAL : public HCondition {
   HGreaterThanOrEqual(HInstruction* first, HInstruction* second, uint32_t dex_pc = kNoDexPc)
       : HCondition(first, second, dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
   HConstant* Evaluate(HIntConstant* x, HIntConstant* y) const OVERRIDE {
     return MakeConstantCondition(Compute(x->GetValue(), y->GetValue()), GetDexPc());
   }
@@ -3650,7 +3701,7 @@ class HGreaterThanOrEqual FINAL : public HCondition {
  private:
   template <typename T> static bool Compute(T x, T y) { return x >= y; }
 
-  DISALLOW_COPY_AND_ASSIGN(HGreaterThanOrEqual);
+  DISALLOW_ASSIGN(HGreaterThanOrEqual);
 };
 
 class HBelow FINAL : public HCondition {
@@ -3690,7 +3741,7 @@ class HBelow FINAL : public HCondition {
     return MakeUnsigned(x) < MakeUnsigned(y);
   }
 
-  DISALLOW_COPY_AND_ASSIGN(HBelow);
+  DISALLOW_ASSIGN(HBelow);
 };
 
 class HBelowOrEqual FINAL : public HCondition {
@@ -3730,7 +3781,7 @@ class HBelowOrEqual FINAL : public HCondition {
     return MakeUnsigned(x) <= MakeUnsigned(y);
   }
 
-  DISALLOW_COPY_AND_ASSIGN(HBelowOrEqual);
+  DISALLOW_ASSIGN(HBelowOrEqual);
 };
 
 class HAbove FINAL : public HCondition {
@@ -3770,13 +3821,15 @@ class HAbove FINAL : public HCondition {
     return MakeUnsigned(x) > MakeUnsigned(y);
   }
 
-  DISALLOW_COPY_AND_ASSIGN(HAbove);
+  DISALLOW_ASSIGN(HAbove);
 };
 
 class HAboveOrEqual FINAL : public HCondition {
  public:
   HAboveOrEqual(HInstruction* first, HInstruction* second, uint32_t dex_pc = kNoDexPc)
       : HCondition(first, second, dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   HConstant* Evaluate(HIntConstant* x, HIntConstant* y) const OVERRIDE {
     return MakeConstantCondition(Compute(x->GetValue(), y->GetValue()), GetDexPc());
@@ -3810,7 +3863,7 @@ class HAboveOrEqual FINAL : public HCondition {
     return MakeUnsigned(x) >= MakeUnsigned(y);
   }
 
-  DISALLOW_COPY_AND_ASSIGN(HAboveOrEqual);
+  DISALLOW_ASSIGN(HAboveOrEqual);
 };
 
 // Instruction to check how two inputs compare to each other.
@@ -3901,7 +3954,7 @@ class HCompare FINAL : public HBinaryOperation {
   }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HCompare);
+  DISALLOW_ASSIGN(HCompare);
 };
 
 class HNewInstance FINAL : public HExpression<1> {
@@ -3966,7 +4019,7 @@ class HNewInstance FINAL : public HExpression<1> {
   const DexFile& dex_file_;
   QuickEntrypointEnum entrypoint_;
 
-  DISALLOW_COPY_AND_ASSIGN(HNewInstance);
+  DISALLOW_ASSIGN(HNewInstance);
 };
 
 enum IntrinsicNeedsEnvironmentOrCache {
@@ -4093,7 +4146,7 @@ class HInvoke : public HVariableInputSizeInstruction {
   uint32_t intrinsic_optimizations_;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HInvoke);
+  DISALLOW_ASSIGN(HInvoke);
 };
 
 class HInvokeUnresolved FINAL : public HInvoke {
@@ -4117,7 +4170,7 @@ class HInvokeUnresolved FINAL : public HInvoke {
   DECLARE_INSTRUCTION(InvokeUnresolved);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HInvokeUnresolved);
+  DISALLOW_ASSIGN(HInvokeUnresolved);
 };
 
 class HInvokePolymorphic FINAL : public HInvoke {
@@ -4139,7 +4192,7 @@ class HInvokePolymorphic FINAL : public HInvoke {
   DECLARE_INSTRUCTION(InvokePolymorphic);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HInvokePolymorphic);
+  DISALLOW_ASSIGN(HInvokePolymorphic);
 };
 
 class HInvokeStaticOrDirect FINAL : public HInvoke {
@@ -4225,6 +4278,8 @@ class HInvokeStaticOrDirect FINAL : public HInvoke {
         dispatch_info_(dispatch_info) {
     SetPackedField<ClinitCheckRequirementField>(clinit_check_requirement);
   }
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   void SetDispatchInfo(const DispatchInfo& dispatch_info) {
     bool had_current_method_input = HasCurrentMethodInput();
@@ -4387,7 +4442,7 @@ class HInvokeStaticOrDirect FINAL : public HInvoke {
   MethodReference target_method_;
   DispatchInfo dispatch_info_;
 
-  DISALLOW_COPY_AND_ASSIGN(HInvokeStaticOrDirect);
+  DISALLOW_ASSIGN(HInvokeStaticOrDirect);
 };
 std::ostream& operator<<(std::ostream& os, HInvokeStaticOrDirect::MethodLoadKind rhs);
 std::ostream& operator<<(std::ostream& os, HInvokeStaticOrDirect::ClinitCheckRequirement rhs);
@@ -4437,7 +4492,7 @@ class HInvokeVirtual FINAL : public HInvoke {
   // Cached value of the resolved method, to avoid needing the mutator lock.
   const uint32_t vtable_index_;
 
-  DISALLOW_COPY_AND_ASSIGN(HInvokeVirtual);
+  DISALLOW_ASSIGN(HInvokeVirtual);
 };
 
 class HInvokeInterface FINAL : public HInvoke {
@@ -4478,7 +4533,7 @@ class HInvokeInterface FINAL : public HInvoke {
   // Cached value of the resolved method, to avoid needing the mutator lock.
   const uint32_t imt_index_;
 
-  DISALLOW_COPY_AND_ASSIGN(HInvokeInterface);
+  DISALLOW_ASSIGN(HInvokeInterface);
 };
 
 class HNeg FINAL : public HUnaryOperation {
@@ -4506,7 +4561,7 @@ class HNeg FINAL : public HUnaryOperation {
   DECLARE_INSTRUCTION(Neg);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HNeg);
+  DISALLOW_ASSIGN(HNeg);
 };
 
 class HNewArray FINAL : public HExpression<2> {
@@ -4537,7 +4592,7 @@ class HNewArray FINAL : public HExpression<2> {
   DECLARE_INSTRUCTION(NewArray);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HNewArray);
+  DISALLOW_ASSIGN(HNewArray);
 };
 
 class HAdd FINAL : public HBinaryOperation {
@@ -4548,6 +4603,7 @@ class HAdd FINAL : public HBinaryOperation {
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool IsCommutative() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x + y; }
@@ -4572,7 +4628,7 @@ class HAdd FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Add);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HAdd);
+  DISALLOW_ASSIGN(HAdd);
 };
 
 class HSub FINAL : public HBinaryOperation {
@@ -4582,6 +4638,8 @@ class HSub FINAL : public HBinaryOperation {
        HInstruction* right,
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x - y; }
 
@@ -4605,7 +4663,7 @@ class HSub FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Sub);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HSub);
+  DISALLOW_ASSIGN(HSub);
 };
 
 class HMul FINAL : public HBinaryOperation {
@@ -4616,6 +4674,7 @@ class HMul FINAL : public HBinaryOperation {
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool IsCommutative() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x * y; }
@@ -4640,7 +4699,7 @@ class HMul FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Mul);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HMul);
+  DISALLOW_ASSIGN(HMul);
 };
 
 class HDiv FINAL : public HBinaryOperation {
@@ -4650,6 +4709,8 @@ class HDiv FINAL : public HBinaryOperation {
        HInstruction* right,
        uint32_t dex_pc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   template <typename T>
   T ComputeIntegral(T x, T y) const {
@@ -4687,7 +4748,7 @@ class HDiv FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Div);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HDiv);
+  DISALLOW_ASSIGN(HDiv);
 };
 
 class HRem FINAL : public HBinaryOperation {
@@ -4697,6 +4758,8 @@ class HRem FINAL : public HBinaryOperation {
        HInstruction* right,
        uint32_t dex_pc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   template <typename T>
   T ComputeIntegral(T x, T y) const {
@@ -4734,7 +4797,7 @@ class HRem FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Rem);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HRem);
+  DISALLOW_ASSIGN(HRem);
 };
 
 class HDivZeroCheck FINAL : public HExpression<1> {
@@ -4746,6 +4809,7 @@ class HDivZeroCheck FINAL : public HExpression<1> {
     SetRawInputAt(0, value);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
   Primitive::Type GetType() const OVERRIDE { return InputAt(0)->GetType(); }
 
   bool CanBeMoved() const OVERRIDE { return true; }
@@ -4760,7 +4824,7 @@ class HDivZeroCheck FINAL : public HExpression<1> {
   DECLARE_INSTRUCTION(DivZeroCheck);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HDivZeroCheck);
+  DISALLOW_ASSIGN(HDivZeroCheck);
 };
 
 class HShl FINAL : public HBinaryOperation {
@@ -4773,6 +4837,8 @@ class HShl FINAL : public HBinaryOperation {
     DCHECK_EQ(result_type, Primitive::PrimitiveKind(value->GetType()));
     DCHECK_EQ(Primitive::kPrimInt, Primitive::PrimitiveKind(distance->GetType()));
   }
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   template <typename T>
   static T Compute(T value, int32_t distance, int32_t max_shift_distance) {
@@ -4806,7 +4872,7 @@ class HShl FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Shl);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HShl);
+  DISALLOW_ASSIGN(HShl);
 };
 
 class HShr FINAL : public HBinaryOperation {
@@ -4819,6 +4885,8 @@ class HShr FINAL : public HBinaryOperation {
     DCHECK_EQ(result_type, Primitive::PrimitiveKind(value->GetType()));
     DCHECK_EQ(Primitive::kPrimInt, Primitive::PrimitiveKind(distance->GetType()));
   }
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   template <typename T>
   static T Compute(T value, int32_t distance, int32_t max_shift_distance) {
@@ -4852,7 +4920,7 @@ class HShr FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Shr);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HShr);
+  DISALLOW_ASSIGN(HShr);
 };
 
 class HUShr FINAL : public HBinaryOperation {
@@ -4865,6 +4933,8 @@ class HUShr FINAL : public HBinaryOperation {
     DCHECK_EQ(result_type, Primitive::PrimitiveKind(value->GetType()));
     DCHECK_EQ(Primitive::kPrimInt, Primitive::PrimitiveKind(distance->GetType()));
   }
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   template <typename T>
   static T Compute(T value, int32_t distance, int32_t max_shift_distance) {
@@ -4900,7 +4970,7 @@ class HUShr FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(UShr);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HUShr);
+  DISALLOW_ASSIGN(HUShr);
 };
 
 class HAnd FINAL : public HBinaryOperation {
@@ -4911,6 +4981,7 @@ class HAnd FINAL : public HBinaryOperation {
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool IsCommutative() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x & y; }
@@ -4937,7 +5008,7 @@ class HAnd FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(And);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HAnd);
+  DISALLOW_ASSIGN(HAnd);
 };
 
 class HOr FINAL : public HBinaryOperation {
@@ -4948,6 +5019,7 @@ class HOr FINAL : public HBinaryOperation {
       uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool IsCommutative() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x | y; }
@@ -4974,7 +5046,7 @@ class HOr FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Or);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HOr);
+  DISALLOW_ASSIGN(HOr);
 };
 
 class HXor FINAL : public HBinaryOperation {
@@ -4985,6 +5057,7 @@ class HXor FINAL : public HBinaryOperation {
        uint32_t dex_pc = kNoDexPc)
       : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc) {}
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool IsCommutative() const OVERRIDE { return true; }
 
   template <typename T> static T Compute(T x, T y) { return x ^ y; }
@@ -5011,7 +5084,7 @@ class HXor FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Xor);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HXor);
+  DISALLOW_ASSIGN(HXor);
 };
 
 class HRor FINAL : public HBinaryOperation {
@@ -5021,6 +5094,8 @@ class HRor FINAL : public HBinaryOperation {
     DCHECK_EQ(result_type, Primitive::PrimitiveKind(value->GetType()));
     DCHECK_EQ(Primitive::kPrimInt, Primitive::PrimitiveKind(distance->GetType()));
   }
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   template <typename T>
   static T Compute(T value, int32_t distance, int32_t max_shift_value) {
@@ -5062,7 +5137,7 @@ class HRor FINAL : public HBinaryOperation {
   DECLARE_INSTRUCTION(Ror);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HRor);
+  DISALLOW_ASSIGN(HRor);
 };
 
 // The value of a parameter in this method. Its location depends on
@@ -5106,7 +5181,7 @@ class HParameterValue FINAL : public HExpression<0> {
   // than HGraph::number_of_in_vregs_.
   const uint8_t index_;
 
-  DISALLOW_COPY_AND_ASSIGN(HParameterValue);
+  DISALLOW_ASSIGN(HParameterValue);
 };
 
 class HNot FINAL : public HUnaryOperation {
@@ -5139,7 +5214,7 @@ class HNot FINAL : public HUnaryOperation {
   DECLARE_INSTRUCTION(Not);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HNot);
+  DISALLOW_ASSIGN(HNot);
 };
 
 class HBooleanNot FINAL : public HUnaryOperation {
@@ -5176,7 +5251,7 @@ class HBooleanNot FINAL : public HUnaryOperation {
   DECLARE_INSTRUCTION(BooleanNot);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HBooleanNot);
+  DISALLOW_ASSIGN(HBooleanNot);
 };
 
 class HTypeConversion FINAL : public HExpression<1> {
@@ -5205,7 +5280,7 @@ class HTypeConversion FINAL : public HExpression<1> {
   DECLARE_INSTRUCTION(TypeConversion);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HTypeConversion);
+  DISALLOW_ASSIGN(HTypeConversion);
 };
 
 static constexpr uint32_t kNoRegNumber = -1;
@@ -5219,6 +5294,7 @@ class HNullCheck FINAL : public HExpression<1> {
     SetRawInputAt(0, value);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -5234,7 +5310,7 @@ class HNullCheck FINAL : public HExpression<1> {
   DECLARE_INSTRUCTION(NullCheck);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HNullCheck);
+  DISALLOW_ASSIGN(HNullCheck);
 };
 
 // Embeds an ArtField and all the information required by the compiler. We cache
@@ -5321,7 +5397,7 @@ class HInstanceFieldGet FINAL : public HExpression<1> {
  private:
   const FieldInfo field_info_;
 
-  DISALLOW_COPY_AND_ASSIGN(HInstanceFieldGet);
+  DISALLOW_ASSIGN(HInstanceFieldGet);
 };
 
 class HInstanceFieldSet FINAL : public HTemplateInstruction<2> {
@@ -5371,7 +5447,7 @@ class HInstanceFieldSet FINAL : public HTemplateInstruction<2> {
 
   const FieldInfo field_info_;
 
-  DISALLOW_COPY_AND_ASSIGN(HInstanceFieldSet);
+  DISALLOW_ASSIGN(HInstanceFieldSet);
 };
 
 class HArrayGet FINAL : public HExpression<2> {
@@ -5387,6 +5463,7 @@ class HArrayGet FINAL : public HExpression<2> {
     SetRawInputAt(1, index);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -5440,7 +5517,7 @@ class HArrayGet FINAL : public HExpression<2> {
   static_assert(kNumberOfArrayGetPackedBits <= HInstruction::kMaxNumberOfPackedBits,
                 "Too many packed fields.");
 
-  DISALLOW_COPY_AND_ASSIGN(HArrayGet);
+  DISALLOW_ASSIGN(HArrayGet);
 };
 
 class HArraySet FINAL : public HTemplateInstruction<3> {
@@ -5461,6 +5538,8 @@ class HArraySet FINAL : public HTemplateInstruction<3> {
     // Make a best guess now, may be refined during SSA building.
     ComputeSideEffects();
   }
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   bool NeedsEnvironment() const OVERRIDE {
     // We call a runtime method to throw ArrayStoreException.
@@ -5540,7 +5619,7 @@ class HArraySet FINAL : public HTemplateInstruction<3> {
   using ExpectedComponentTypeField =
       BitField<Primitive::Type, kFieldExpectedComponentType, kFieldExpectedComponentTypeSize>;
 
-  DISALLOW_COPY_AND_ASSIGN(HArraySet);
+  DISALLOW_ASSIGN(HArraySet);
 };
 
 class HArrayLength FINAL : public HExpression<1> {
@@ -5553,6 +5632,7 @@ class HArrayLength FINAL : public HExpression<1> {
     SetRawInputAt(0, array);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -5576,7 +5656,7 @@ class HArrayLength FINAL : public HExpression<1> {
   static_assert(kNumberOfArrayLengthPackedBits <= HInstruction::kMaxNumberOfPackedBits,
                 "Too many packed fields.");
 
-  DISALLOW_COPY_AND_ASSIGN(HArrayLength);
+  DISALLOW_ASSIGN(HArrayLength);
 };
 
 class HBoundsCheck FINAL : public HExpression<2> {
@@ -5594,6 +5674,7 @@ class HBoundsCheck FINAL : public HExpression<2> {
     SetRawInputAt(1, length);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
@@ -5612,13 +5693,15 @@ class HBoundsCheck FINAL : public HExpression<2> {
  private:
   static constexpr size_t kFlagIsStringCharAt = kNumberOfExpressionPackedBits;
 
-  DISALLOW_COPY_AND_ASSIGN(HBoundsCheck);
+  DISALLOW_ASSIGN(HBoundsCheck);
 };
 
 class HSuspendCheck FINAL : public HTemplateInstruction<0> {
  public:
   explicit HSuspendCheck(uint32_t dex_pc = kNoDexPc)
       : HTemplateInstruction(SideEffects::CanTriggerGC(), dex_pc), slow_path_(nullptr) {}
+
+  bool IsClonable() const OVERRIDE { return true; }
 
   bool NeedsEnvironment() const OVERRIDE {
     return true;
@@ -5634,7 +5717,7 @@ class HSuspendCheck FINAL : public HTemplateInstruction<0> {
   // of a same loop.
   SlowPathCode* slow_path_;
 
-  DISALLOW_COPY_AND_ASSIGN(HSuspendCheck);
+  DISALLOW_ASSIGN(HSuspendCheck);
 };
 
 // Pseudo-instruction which provides the native debugger with mapping information.
@@ -5651,7 +5734,7 @@ class HNativeDebugInfo : public HTemplateInstruction<0> {
   DECLARE_INSTRUCTION(NativeDebugInfo);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HNativeDebugInfo);
+  DISALLOW_ASSIGN(HNativeDebugInfo);
 };
 
 /**
@@ -5843,7 +5926,7 @@ class HLoadClass FINAL : public HInstruction {
 
   ReferenceTypeInfo loaded_class_rti_;
 
-  DISALLOW_COPY_AND_ASSIGN(HLoadClass);
+  DISALLOW_ASSIGN(HLoadClass);
 };
 std::ostream& operator<<(std::ostream& os, HLoadClass::LoadKind rhs);
 
@@ -5981,7 +6064,7 @@ class HLoadString FINAL : public HInstruction {
 
   Handle<mirror::String> string_;
 
-  DISALLOW_COPY_AND_ASSIGN(HLoadString);
+  DISALLOW_ASSIGN(HLoadString);
 };
 std::ostream& operator<<(std::ostream& os, HLoadString::LoadKind rhs);
 
@@ -6032,7 +6115,7 @@ class HClinitCheck FINAL : public HExpression<1> {
   DECLARE_INSTRUCTION(ClinitCheck);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HClinitCheck);
+  DISALLOW_ASSIGN(HClinitCheck);
 };
 
 class HStaticFieldGet FINAL : public HExpression<1> {
@@ -6079,7 +6162,7 @@ class HStaticFieldGet FINAL : public HExpression<1> {
  private:
   const FieldInfo field_info_;
 
-  DISALLOW_COPY_AND_ASSIGN(HStaticFieldGet);
+  DISALLOW_ASSIGN(HStaticFieldGet);
 };
 
 class HStaticFieldSet FINAL : public HTemplateInstruction<2> {
@@ -6126,7 +6209,7 @@ class HStaticFieldSet FINAL : public HTemplateInstruction<2> {
 
   const FieldInfo field_info_;
 
-  DISALLOW_COPY_AND_ASSIGN(HStaticFieldSet);
+  DISALLOW_ASSIGN(HStaticFieldSet);
 };
 
 class HUnresolvedInstanceFieldGet FINAL : public HExpression<1> {
@@ -6151,7 +6234,7 @@ class HUnresolvedInstanceFieldGet FINAL : public HExpression<1> {
  private:
   const uint32_t field_index_;
 
-  DISALLOW_COPY_AND_ASSIGN(HUnresolvedInstanceFieldGet);
+  DISALLOW_ASSIGN(HUnresolvedInstanceFieldGet);
 };
 
 class HUnresolvedInstanceFieldSet FINAL : public HTemplateInstruction<2> {
@@ -6189,7 +6272,7 @@ class HUnresolvedInstanceFieldSet FINAL : public HTemplateInstruction<2> {
 
   const uint32_t field_index_;
 
-  DISALLOW_COPY_AND_ASSIGN(HUnresolvedInstanceFieldSet);
+  DISALLOW_ASSIGN(HUnresolvedInstanceFieldSet);
 };
 
 class HUnresolvedStaticFieldGet FINAL : public HExpression<0> {
@@ -6212,7 +6295,7 @@ class HUnresolvedStaticFieldGet FINAL : public HExpression<0> {
  private:
   const uint32_t field_index_;
 
-  DISALLOW_COPY_AND_ASSIGN(HUnresolvedStaticFieldGet);
+  DISALLOW_ASSIGN(HUnresolvedStaticFieldGet);
 };
 
 class HUnresolvedStaticFieldSet FINAL : public HTemplateInstruction<1> {
@@ -6248,7 +6331,7 @@ class HUnresolvedStaticFieldSet FINAL : public HTemplateInstruction<1> {
 
   const uint32_t field_index_;
 
-  DISALLOW_COPY_AND_ASSIGN(HUnresolvedStaticFieldSet);
+  DISALLOW_ASSIGN(HUnresolvedStaticFieldSet);
 };
 
 // Implement the move-exception DEX instruction.
@@ -6262,7 +6345,7 @@ class HLoadException FINAL : public HExpression<0> {
   DECLARE_INSTRUCTION(LoadException);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HLoadException);
+  DISALLOW_ASSIGN(HLoadException);
 };
 
 // Implicit part of move-exception which clears thread-local exception storage.
@@ -6275,7 +6358,7 @@ class HClearException FINAL : public HTemplateInstruction<0> {
   DECLARE_INSTRUCTION(ClearException);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HClearException);
+  DISALLOW_ASSIGN(HClearException);
 };
 
 class HThrow FINAL : public HTemplateInstruction<1> {
@@ -6295,7 +6378,7 @@ class HThrow FINAL : public HTemplateInstruction<1> {
   DECLARE_INSTRUCTION(Throw);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HThrow);
+  DISALLOW_ASSIGN(HThrow);
 };
 
 /**
@@ -6366,7 +6449,7 @@ class HInstanceOf FINAL : public HExpression<2> {
   static_assert(kNumberOfInstanceOfPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
   using TypeCheckKindField = BitField<TypeCheckKind, kFieldTypeCheckKind, kFieldTypeCheckKindSize>;
 
-  DISALLOW_COPY_AND_ASSIGN(HInstanceOf);
+  DISALLOW_ASSIGN(HInstanceOf);
 };
 
 class HBoundType FINAL : public HExpression<1> {
@@ -6410,7 +6493,7 @@ class HBoundType FINAL : public HExpression<1> {
   //   }
   ReferenceTypeInfo upper_bound_;
 
-  DISALLOW_COPY_AND_ASSIGN(HBoundType);
+  DISALLOW_ASSIGN(HBoundType);
 };
 
 class HCheckCast FINAL : public HTemplateInstruction<2> {
@@ -6455,7 +6538,7 @@ class HCheckCast FINAL : public HTemplateInstruction<2> {
   static_assert(kNumberOfCheckCastPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
   using TypeCheckKindField = BitField<TypeCheckKind, kFieldTypeCheckKind, kFieldTypeCheckKindSize>;
 
-  DISALLOW_COPY_AND_ASSIGN(HCheckCast);
+  DISALLOW_ASSIGN(HCheckCast);
 };
 
 /**
@@ -6506,7 +6589,7 @@ class HMemoryBarrier FINAL : public HTemplateInstruction<0> {
                 "Too many packed fields.");
   using BarrierKindField = BitField<MemBarrierKind, kFieldBarrierKind, kFieldBarrierKindSize>;
 
-  DISALLOW_COPY_AND_ASSIGN(HMemoryBarrier);
+  DISALLOW_ASSIGN(HMemoryBarrier);
 };
 
 // A constructor fence orders all prior stores to fields that could be accessed via a final field of
@@ -6647,7 +6730,7 @@ class HConstructorFence FINAL : public HVariableInputSizeInstruction {
   DECLARE_INSTRUCTION(ConstructorFence);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HConstructorFence);
+  DISALLOW_ASSIGN(HConstructorFence);
 };
 
 class HMonitorOperation FINAL : public HTemplateInstruction<1> {
@@ -6692,7 +6775,7 @@ class HMonitorOperation FINAL : public HTemplateInstruction<1> {
   using OperationKindField = BitField<OperationKind, kFieldOperationKind, kFieldOperationKindSize>;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HMonitorOperation);
+  DISALLOW_ASSIGN(HMonitorOperation);
 };
 
 class HSelect FINAL : public HExpression<3> {
@@ -6729,7 +6812,7 @@ class HSelect FINAL : public HExpression<3> {
   DECLARE_INSTRUCTION(Select);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HSelect);
+  DISALLOW_ASSIGN(HSelect);
 };
 
 class MoveOperands : public ArenaObject<kArenaAllocMoveOperands> {
@@ -6863,7 +6946,7 @@ class HParallelMove FINAL : public HTemplateInstruction<0> {
  private:
   ArenaVector<MoveOperands> moves_;
 
-  DISALLOW_COPY_AND_ASSIGN(HParallelMove);
+  DISALLOW_ASSIGN(HParallelMove);
 };
 
 }  // namespace art
@@ -7074,6 +7157,7 @@ inline HInstruction* HuntForDeclaration(HInstruction* instruction) {
 void RemoveEnvironmentUses(HInstruction* instruction);
 bool HasEnvironmentUsedByOthers(HInstruction* instruction);
 void ResetEnvironmentInputRecords(HInstruction* instruction);
+HInstruction* ReplaceInstrOrPhiByClone(HInstruction* instr);
 
 }  // namespace art
 
