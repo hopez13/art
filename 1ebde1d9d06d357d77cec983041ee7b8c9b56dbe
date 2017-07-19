@@ -564,6 +564,103 @@
     },
     {
       "key": {
+        "uuid": "c6e937d5_c7e2cd59",
+        "filename": "runtime/dex_file-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-19T15:39:16Z",
+      "side": 1,
+      "message": "Why is this change related?",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e060d896_1c9496f0",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-19T15:39:16Z",
+      "side": 1,
+      "message": "Add a check that outer_method is not obsolete (it can\u0027t be because we don\u0027t inline in jvmti).",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07ed1ca7_6baa687c",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-19T15:39:16Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4548d029_afd2a787",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-19T15:39:16Z",
+      "side": 1,
+      "message": "Can you address this TODO?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 86
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e18b9f5_0e1038af",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-19T15:39:16Z",
+      "side": 1,
+      "message": "Why not keeping the old contract of only passing an interface method?",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 540,
+        "endChar": 3
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3f277c2_763d7829",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
