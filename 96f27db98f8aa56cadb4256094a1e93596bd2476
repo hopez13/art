@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b00e2bda_b130fa3a",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-07-19T00:33:27Z",
+      "side": 1,
+      "message": "at",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 16
+      },
+      "revId": "96f27db98f8aa56cadb4256094a1e93596bd2476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f00747b5_c2af9250",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-07-19T00:33:27Z",
+      "side": 1,
+      "message": "grammar?",
+      "range": {
+        "startLine": 237,
+        "startChar": 96,
+        "endLine": 238,
+        "endChar": 40
+      },
+      "revId": "96f27db98f8aa56cadb4256094a1e93596bd2476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06268abf_5fbffd4e",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-07-19T00:33:27Z",
+      "side": 1,
+      "message": "Why do we need a lambda here? Isn\u0027t this just a loop invariant boolean value? Move this and the initial check out of the loop?",
+      "range": {
+        "startLine": 244,
+        "startChar": 15,
+        "endLine": 244,
+        "endChar": 43
+      },
+      "revId": "96f27db98f8aa56cadb4256094a1e93596bd2476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
