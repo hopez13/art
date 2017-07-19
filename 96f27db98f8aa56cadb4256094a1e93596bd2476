@@ -164,6 +164,30 @@
       "revId": "96f27db98f8aa56cadb4256094a1e93596bd2476",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4230149_cad994dd",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-19T01:01:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "84135fdd_db386600",
+      "range": {
+        "startLine": 244,
+        "startChar": 15,
+        "endLine": 244,
+        "endChar": 43
+      },
+      "revId": "96f27db98f8aa56cadb4256094a1e93596bd2476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
