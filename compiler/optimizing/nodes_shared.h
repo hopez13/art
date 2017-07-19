@@ -135,6 +135,12 @@ class HIntermediateAddress FINAL : public HExpression<2> {
     SetRawInputAt(1, offset);
   }
 
+  bool IsClonable() const OVERRIDE { return true; }
+
+  HInstruction* ConstructClone(ArenaAllocator* arena) const OVERRIDE {
+    return new (arena) HIntermediateAddress(GetBaseAddress(), GetOffset(), GetDexPc());
+  }
+
   bool CanBeMoved() const OVERRIDE { return true; }
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
