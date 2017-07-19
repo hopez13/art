@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60604103_58032dd6",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-19T17:44:00Z",
+      "side": 1,
+      "message": "no, no, this is not how it works and you clearly did not test this, since it would crash\n\nYou will have to:\n\n(1) request a number of new registers, in your case 1\n\n mutatableCode.allocateTemporaryVRegs(1);\n\n(2) get the register (labeled from 0 on)\n\n int sumnimasNewTemp \u003d mutatableCode.getTemporaryVReg(0);\n\n(3) at the end of the mutation, patch up the code\n\nmutatableCode.finishedUsingTemporaryVRegs();",
+      "revId": "18e706eec7eee48dfc65553787468d0989cf9dbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
