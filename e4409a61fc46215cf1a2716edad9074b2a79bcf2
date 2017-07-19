@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "44c8b27f_87e9ad20",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T18:21:57Z",
+      "side": 1,
+      "message": "Correction, that should be:\n\n   Foo.class.getMethod(\"methodName\").getDeclaringClass()",
+      "parentUuid": "f5d69800_2f333b22",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c78e87_c075ab9f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 45
