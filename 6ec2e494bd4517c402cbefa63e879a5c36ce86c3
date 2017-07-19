@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "35ac5ea9_49377ac0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1774,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e1581ca_2db40e76",
+      "range": {
+        "startLine": 1774,
+        "startChar": 6,
+        "endLine": 1774,
+        "endChar": 14
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2894f3a_dc06d24e",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "label_low !\u003d nullptr",
+      "range": {
+        "startLine": 6532,
+        "startChar": 6,
+        "endLine": 6532,
+        "endChar": 15
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b119c889_47470c29",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6532,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2894f3a_dc06d24e",
       "range": {
         "startLine": 6532,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "544a16e2_abb12590",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6576,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Can\u0027t do it right now in most places of this patch. There are multiple reasons:\n\n- If I do it with this particular branch on R2, the following load will have to move to before the branch, so it can get into the delay slot. If it\u0027s a load with a patchable offset, the patcher label will disassociate from the patched instruction when the instruction moves into the delay slot. Ugliness will remain in the form of adjusting the label position.\n\nThis should also answer your below question about disabling reordering around load instructions with patchable offsets. Btw, there\u0027s also absorption of target instructions into delay slots, which can make copies of unpatched instructions.\n\n- Labeled branches expand to different instructions on R2 and R6. We generally prefer compact branches on R6 because they don\u0027t have delay slots (which is the reason for different instructions), however I\u0027m intentionally taking advantage of delay slots in the patch. If I use a labeled branch here, on R6 I\u0027ll have to have \"lw\" + \"beqzc\" + \"nop\" + \"jialc\", while I can have \"beqz\" + \"lw\" + \"jialc\".\n\n- Below there are sequences like \"beqz t9, ...\" + \"addiu t9, ...\", which are safe (the branch checks the register before the delay slot instruction changes that same register), but the assembler doesn\u0027t know that it\u0027s what we want and it will not put \"addiu t9, ...\" into the delay slot. It will generate an avoidable nop while the purpose of this patch is to reduce code size.\n\nI can introduce MipsNearLabel (or something of the kind) and the needed plumbing around it so these branches can use labels instead of hard-coded offsets, but it will not be a small change and it should be done separately.\n\nI will address the issue with labels of patchable instructions separately. I\u0027m working on better delay slot filling and it will be done as part of that effort.",
+      "parentUuid": "be3ed99d_d989f86d",
+      "range": {
+        "startLine": 6576,
+        "startChar": 20,
+        "endLine": 6576,
+        "endChar": 34
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a645156e_a2dca909",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "label_low !\u003d nullptr",
+      "range": {
+        "startLine": 6577,
+        "startChar": 12,
+        "endLine": 6577,
+        "endChar": 21
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35bd2ea7_454306b1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6577,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a645156e_a2dca909",
       "range": {
         "startLine": 6577,
         "startChar": 12,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "28a225d5_a7d6f218",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6605,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b65ee2f8_1f199b21",
+      "range": {
+        "startLine": 6605,
+        "startChar": 12,
+        "endLine": 6605,
+        "endChar": 21
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a2b9bee_a6074bb0",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "label_low !\u003d nullptr",
+      "range": {
+        "startLine": 6611,
+        "startChar": 12,
+        "endLine": 6611,
+        "endChar": 21
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a95d5299_a0ceb87c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6611,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a2b9bee_a6074bb0",
       "range": {
         "startLine": 6611,
         "startChar": 12,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "b642f3b5_93b0b89d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6643,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "We don\u0027t want the patched instruction to disassociate from its label in case the instruction moves into a delay slot.",
+      "parentUuid": "3a89ded9_3d0b60c8",
+      "range": {
+        "startLine": 6640,
+        "startChar": 0,
+        "endLine": 6643,
+        "endChar": 7
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba0d8e8d_87bf8a6b",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "why?",
+      "range": {
+        "startLine": 6655,
+        "startChar": 0,
+        "endLine": 6658,
+        "endChar": 5
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c0571db_848346db",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6658,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Ditto?",
+      "parentUuid": "ba0d8e8d_87bf8a6b",
       "range": {
         "startLine": 6655,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "e6554bb6_6bfa2df8",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6729,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Ditto. Will address separately.",
+      "parentUuid": "cb91a933_ad8b7939",
+      "range": {
+        "startLine": 6729,
+        "startChar": 21,
+        "endLine": 6729,
+        "endChar": 22
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cccc44c9_6f7489d6",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -220,6 +436,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "This branches into the JALR\u0027s delay slot?",
+      "range": {
+        "startLine": 6745,
+        "startChar": 8,
+        "endLine": 6745,
+        "endChar": 38
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ef8f63c_3406da9c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6745,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "cccc44c9_6f7489d6",
       "range": {
         "startLine": 6745,
         "startChar": 8,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "e4b0d025_2976935c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6830,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "192c6a53_6600c7ae",
+      "range": {
+        "startLine": 6830,
+        "startChar": 18,
+        "endLine": 6830,
+        "endChar": 19
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7149d664_e8a11317",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -266,6 +530,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "Branches into the JALR\u0027s delay slot?",
+      "range": {
+        "startLine": 6835,
+        "startChar": 6,
+        "endLine": 6835,
+        "endChar": 36
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1458c8b2_f49c8f9b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6835,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "7149d664_e8a11317",
       "range": {
         "startLine": 6835,
         "startChar": 6,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "939376b8_d11d7924",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4493,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "fff492fc_2c9f57e0",
+      "range": {
+        "startLine": 4493,
+        "startChar": 20,
+        "endLine": 4493,
+        "endChar": 21
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f421082_30df6715",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -312,6 +624,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "// Unpoison reference.",
+      "range": {
+        "startLine": 2734,
+        "startChar": 63,
+        "endLine": 2734,
+        "endChar": 64
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eba323c_f3d291d9",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2734,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f421082_30df6715",
       "range": {
         "startLine": 2734,
         "startChar": 63,
@@ -341,6 +677,24 @@
     },
     {
       "key": {
+        "uuid": "e9754f0f_d995865d",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done. T9 isn\u0027t needed, there\u0027s even a comment about it at the beginning of the routine.",
+      "parentUuid": "a9bae46f_3a6a7c45",
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55bc6ad5_f0f58adc",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -352,6 +706,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "Change the prefix to \"introspection_\"?",
+      "range": {
+        "startLine": 2741,
+        "startChar": 19,
+        "endLine": 2741,
+        "endChar": 25
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "014cfafd_28cc6fe1",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2741,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55bc6ad5_f0f58adc",
       "range": {
         "startLine": 2741,
         "startChar": 19,
@@ -381,6 +759,24 @@
     },
     {
       "key": {
+        "uuid": "6c759c77_c35366c2",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2748,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17d3d0a0_dae5744f",
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd5a90dd_4dd64e2c",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -392,6 +788,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "Why so early? I would expect this two lines later.",
+      "range": {
+        "startLine": 2751,
+        "startChar": 4,
+        "endLine": 2751,
+        "endChar": 12
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e723d1d_2c16a459",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2751,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "It\u0027s for the $at register only.",
+      "parentUuid": "cd5a90dd_4dd64e2c",
       "range": {
         "startLine": 2751,
         "startChar": 4,
@@ -427,6 +847,30 @@
     },
     {
       "key": {
+        "uuid": "5508d4b7_f6a3334d",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2766,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0e5d6f3_53c2cd52",
+      "range": {
+        "startLine": 2766,
+        "startChar": 63,
+        "endLine": 2766,
+        "endChar": 64
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c700ede_a9ed403d",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -438,6 +882,30 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "// Unpoison reference.",
+      "range": {
+        "startLine": 2776,
+        "startChar": 63,
+        "endLine": 2776,
+        "endChar": 64
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b1d95ca_be5f5957",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2776,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c700ede_a9ed403d",
       "range": {
         "startLine": 2776,
         "startChar": 63,
@@ -473,6 +941,30 @@
     },
     {
       "key": {
+        "uuid": "9ea13b7b_eae4e6a1",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2795,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaeee551_c7cb4851",
+      "range": {
+        "startLine": 2795,
+        "startChar": 4,
+        "endLine": 2795,
+        "endChar": 9
+      },
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dae3ae2d_fd801750",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -490,6 +982,24 @@
     },
     {
       "key": {
+        "uuid": "ef668e1f_338de688",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2808,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dae3ae2d_fd801750",
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "899dee86_602e323c",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -501,6 +1011,24 @@
       "writtenOn": "2017-07-18T13:06:30Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04e6c717_298a78d0",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2909,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-19T02:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "899dee86_602e323c",
       "revId": "6ec2e494bd4517c402cbefa63e879a5c36ce86c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
