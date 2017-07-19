@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1945a954_eebff6a1",
+        "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-19T11:00:45Z",
+      "side": 1,
+      "message": "Given that this is a standalone dominators computation, it\u0027s probably worth moving into its own package, e.g. com.android.ahat.dominators.",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
