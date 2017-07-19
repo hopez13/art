@@ -4860,11 +4860,13 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
       return WaitForInitializeClass(klass, self, lock);
     }
 
+    // Look to see if there's an oat class for this class. The compiler will try to validate the
+    // superclass descriptors, changing the class's status in the oat file if successful.
     bool has_oat_class = false;
-    const OatFile::OatClass oat_class =
-        (Runtime::Current()->IsStarted() && !Runtime::Current()->IsAotCompiler())
-            ? OatFile::FindOatClass(klass->GetDexFile(), klass->GetDexClassDefIndex(), &has_oat_class)
-            : OatFile::OatClass::Invalid();
+    const Runtime* runtime = Runtime::Current();
+    const OatFile::OatClass oat_class = (runtime->IsStarted() && !runtime->IsAotCompiler())
+        ? OatFile::FindOatClass(klass->GetDexFile(), klass->GetDexClassDefIndex(), &has_oat_class)
+        : OatFile::OatClass::Invalid();
     if (oat_class.GetStatus() < mirror::Class::kStatusSuperclassValidated &&
         !ValidateSuperClassDescriptors(klass)) {
       mirror::Class::SetStatus(klass, mirror::Class::kStatusErrorResolved, self);
