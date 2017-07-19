@@ -90,7 +90,6 @@ static MemMap* SplitMemMap(MemMap* existing_map,
   return new_map;
 }
 
-
 JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
                                    size_t max_capacity,
                                    bool generate_debug_info,
@@ -802,12 +801,18 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       //
       // For reference, this behavior is caused by this commit:
       // https://android.googlesource.com/kernel/msm/+/3fbe6bc28a6b9939d0650f2f17eb5216c719950c
-      FlushInstructionCache(reinterpret_cast<char*>(code_ptr),
-                            reinterpret_cast<char*>(code_ptr + code_size));
       if (writable_ptr != code_ptr) {
         FlushDataCache(reinterpret_cast<char*>(writable_ptr),
                        reinterpret_cast<char*>(writable_ptr + code_size));
       }
+      // Flush the instruction cache. In the case of two mappings for
+      // the jit-code cache, this is just invalidation instruction
+      // cache lines in the range as the preceeding FlushDataCache has
+      // evicted the dirty lines. The former is required first as it
+      // is writable, where as the executable code mapping is not.
+      FlushInstructionCache(reinterpret_cast<char*>(code_ptr),
+                            reinterpret_cast<char*>(code_ptr + code_size));
+
       DCHECK(!Runtime::Current()->IsAotCompiler());
       if (has_should_deoptimize_flag) {
         writable_method_header->SetHasShouldDeoptimizeFlag();
