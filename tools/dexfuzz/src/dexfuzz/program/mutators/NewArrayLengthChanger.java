@@ -120,6 +120,7 @@ public class NewArrayLengthChanger extends CodeMutator {
     MInsn newInsn = new MInsn();
     newInsn.insn = new Instruction();
     newInsn.insn.info = Instruction.getOpcodeInfo(Opcode.CONST_16);
+    newArrayInsn.insn.vregB = mutatableCode.getTemporaryVReg(0);
     newInsn.insn.vregA = (int) newArrayInsn.insn.vregB;
     // New length chosen randomly between 1 to 100.
     newInsn.insn.vregB = rng.nextInt(100);
