@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9fecf795_91ce5cdd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 44
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "004c64b8_81fd12fb",
+      "range": {
+        "startLine": 7,
+        "startChar": 32,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe5099d8_0225c343",
         "filename": "/COMMIT_MSG",
         "patchSetId": 44
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "nit: I don\u0027t think we need --host here if --jvm is also used.",
+      "range": {
+        "startLine": 54,
+        "startChar": 24,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ebdaba3_6603e501",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 44
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Maybe unnecessary but not wrong and this is how I run the test.",
+      "parentUuid": "fe5099d8_0225c343",
       "range": {
         "startLine": 54,
         "startChar": 24,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8d9d888f_7816a779",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Most such checks are in tests. This one is an exception and I\u0027d rather keep the Class API clean.",
+      "parentUuid": "62344b74_6d3990aa",
+      "range": {
+        "startLine": 382,
+        "startChar": 26,
+        "endLine": 382,
+        "endChar": 54
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8e6a03e_c244ef45",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 44
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "ac193ae4_93bacaac",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8e6a03e_c244ef45",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "325de272_f516e241",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 44
@@ -99,6 +189,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "Add comment why its safe for this DCHECK?",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3210bab_2e5b3105",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "325de272_f516e241",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "a111719d_91e310f6",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5658ef5d_6f0c5635",
+      "range": {
+        "startLine": 381,
+        "startChar": 57,
+        "endLine": 381,
+        "endChar": 64
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "271f8ce5_e70a969d",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 44
@@ -139,6 +271,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "Unclear why it would do this, it directly contradicts your comments for FindInterfaceMethod in class.h which says it would only check other superinterfaces and java.lang.Object only.",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a285ae76_a0771432",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Removed most of the cut-and-pasted comment.",
+      "parentUuid": "271f8ce5_e70a969d",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -162,6 +312,24 @@
     },
     {
       "key": {
+        "uuid": "b766ec3d_23df8a93",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s worth it.",
+      "parentUuid": "2d87fbb7_504c9906",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2010c1fb_9ee75f65",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 44
@@ -173,6 +341,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "Seems super complicated, can we just add a helper for this, GetReferredMethodIfProxy, GetReferrer, etc?",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d26045_c22de9ff",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "What do you find super complicated?\n\nAnd do you want another method just because the GetInterfaceMethodIfProxy() is a bad name when we\u0027re using it for the proxy constructor?",
+      "parentUuid": "2010c1fb_9ee75f65",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -202,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "ba497cfa_aab61f6c",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "We fill the DexCache method arrays with the resolution method. This should actually disappear in https://android-review.googlesource.com/431679 .",
+      "parentUuid": "b272e5bf_602d72cd",
+      "range": {
+        "startLine": 225,
+        "startChar": 41,
+        "endLine": 225,
+        "endChar": 79
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ad94c96_3bdb503d",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 44
@@ -213,6 +423,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "What\u0027s the difference between LookupResolvedType and GetResolvedMethod?  Maybe those 2 functions need extra comments added to their declaration?\n\nI think GetResolvedMethod can return a method that would fail the extra error checks that full resolution requires, but I\u0027m not 100% sure.\n\nIt seems to me if that\u0027s the case then \"GetResolvedMethod\" is also inaccurate name, it\u0027s more like GetUncheckedResolvedMethod or GetPartiallyResolvedMethod, etc.",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f98f85d3_0967f137",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 7983,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you\u0027re comparing the LookupResolvedType() with GetResolvedMethod() at all.\n\nBut I do see that GetResolvedMethod() is a bad name, though this is for historical reasons and I\u0027d be willing to hear suggestions for renaming.",
+      "parentUuid": "0ad94c96_3bdb503d",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -242,6 +470,30 @@
     },
     {
       "key": {
+        "uuid": "3f624b7a_5b8183f9",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Not necessarily, the ResolveMethod\u003c\u003e() functions do throw but the GetResolvedMethod() function does not. However, they perform the same checks.",
+      "parentUuid": "4edf6903_a5b20abf",
+      "range": {
+        "startLine": 284,
+        "startChar": 11,
+        "endLine": 284,
+        "endChar": 77
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ec53391_769b4f45",
         "filename": "runtime/class_linker.h",
         "patchSetId": 44
@@ -253,6 +505,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "Either its really simple (and allows noninterface-\u003eclass and interface-\u003einterface only) or it needs more explanation.\n\nIf it\u0027s really that simple, maybe just add it in there as a comment?",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ade2496_a03debea",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 1201,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ec53391_769b4f45",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -276,6 +546,24 @@
     },
     {
       "key": {
+        "uuid": "f5371c11_29d6388a",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8026819e_b3bc7b1b",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3f277c2_763d7829",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -287,6 +575,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "If its returning a copied method here  then how does the accessibility check work w.r.t. to referrer? Does it take into account where copied method was copied from?\n\nAlthough maybe its only a problem for abstract (miranda) methods? Defaults might never have accessibility problems, I\u0027m not 100% sure [but this should be stated somewhere if we rely on that assumption].",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bc4aa03_2841bfb8",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Interfaces do not have \"copied\" methods in ART.",
+      "parentUuid": "d3f277c2_763d7829",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -310,6 +616,24 @@
     },
     {
       "key": {
+        "uuid": "dd1751d9_a7a577cc",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "This is not used for \"copied\" methods. That\u0027s why it was originally named IsInheritedDeclaredMethod().",
+      "parentUuid": "312e1627_abfb5233",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27d4df9a_78275ff4",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -321,6 +645,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "Why does it need separate code? If you call GetInterfaceMethodIfProxy it returns \u0027this\u0027 for non-proxy.",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d92c51c_d5cb5622",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Maybe it does not. Is it premature optimization to try and avoid checking the IsProxyMethod() for each method?",
+      "parentUuid": "27d4df9a_78275ff4",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -344,6 +686,24 @@
     },
     {
       "key": {
+        "uuid": "2f074560_39133fe1",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Proxy classes are final and we\u0027ve already gone at least one step up from `this_klass`, so the current `klass` cannot be a proxy class.",
+      "parentUuid": "a9d900fc_504d1d2c",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b6216d6d_657ebf19",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -355,6 +715,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "Missing IsInheritedMethod checks?",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51e1f688_cbc9c5cc",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "I think \"copied\" methods are by definition inherited, otherwise we would not copy them in the first place.\n\n(Also, I intend to deal with \"copied\" methods later as they seem to be somewhat broken.)",
+      "parentUuid": "b6216d6d_657ebf19",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -378,6 +756,24 @@
     },
     {
       "key": {
+        "uuid": "a5565b89_4f1f664a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "This can return `null` if we find nothing in steps 2 (lines 516-530) and 3 (lines 541-548).",
+      "parentUuid": "5b17cb57_3e430767",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ac550e2_56e09a11",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -395,6 +791,24 @@
     },
     {
       "key": {
+        "uuid": "4ee4d24f_1342a728",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "This is an optimized version that\u0027s trying to compare a few numbers if possible instead of comparing lots of strings and accessing data all over the dex file.",
+      "parentUuid": "3ac550e2_56e09a11",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4e2bd0d_4a79b355",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -406,6 +820,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "Why? Proxy classes have constructors too.",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffef5374_1d7dce0b",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "This is a convenience method for a few calls in the runtime. It\u0027s not used on proxy classes. (Though it\u0027s used to find the constructor of java.lang.reflect.Proxy when creating proxy classes.)",
+      "parentUuid": "e4e2bd0d_4a79b355",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -435,6 +867,30 @@
     },
     {
       "key": {
+        "uuid": "4d00bbb1_68c62596",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aafddf8_9ecf9069",
+      "range": {
+        "startLine": 918,
+        "startChar": 78,
+        "endLine": 918,
+        "endChar": 87
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3c55aff_d7f2ab4a",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 44
@@ -446,6 +902,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "FindClassMethod has a section about ICCE, IAE, etc, this does not?",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d73de7a_1385208b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "No, FindClassMethod() does not have a section about ICCE/IAE. It has a section about one very odd corner case.",
+      "parentUuid": "c3c55aff_d7f2ab4a",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -475,6 +949,30 @@
     },
     {
       "key": {
+        "uuid": "677edeab_51488cf7",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92ffff4f_0a747318",
+      "range": {
+        "startLine": 940,
+        "startChar": 78,
+        "endLine": 940,
+        "endChar": 91
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df012fb5_942f09c4",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 44
@@ -486,6 +984,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "It might be worth to be more detailed about error conditions here as well (in a follow up CL)?",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ac49c4_76f34412",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "This function does not have error conditions. It either finds something or it doesn\u0027t.",
+      "parentUuid": "df012fb5_942f09c4",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -509,6 +1025,24 @@
     },
     {
       "key": {
+        "uuid": "c723115d_63ebd0ae",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "NoSuchMethodError is for the case where we didn\u0027t find anything. I do not think it needs particular attention here. This note is about a non-intuitive result of returning a method that has not been inherited.",
+      "parentUuid": "81a91e14_ba90daae",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2698fd1d_3a8b508d",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 44
@@ -520,6 +1054,30 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 1,
       "message": "Unclear what happens. Does it return null? Does it throw an error? Does it return a method, if invoked would throw an error? How does the caller fulfill the responsibility to check for the error condition?\n\nPlease document the exact behavior.",
+      "range": {
+        "startLine": 961,
+        "startChar": 0,
+        "endLine": 963,
+        "endChar": 28
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e95cb7_21dc218f",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "This note describes the case where we return a method (not null) that has _not_ been inherited. I\u0027d interpret this as breaking the \"m still exists in the type T\" (see JLS 15.12.4.3) but I think it\u0027s more reasonable to interpret this case as providing \"less access\" (13.4.7) and throwing ICCE itself rather than the NSME.\n\nFor the moment we do not perform the correct checks, i.e. the caller does not fully enforce 15.12.4.3.",
+      "parentUuid": "2698fd1d_3a8b508d",
       "range": {
         "startLine": 961,
         "startChar": 0,
@@ -555,6 +1113,30 @@
     },
     {
       "key": {
+        "uuid": "ba789ae0_e825c357",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 3852,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "I already reviewed all callers of ResolveMethod\u003c\u003e() to make sure they pass the correct ResolveMode.",
+      "parentUuid": "323454a2_2ece2c5a",
+      "range": {
+        "startLine": 3850,
+        "startChar": 0,
+        "endLine": 3852,
+        "endChar": 5
+      },
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a64ea15f_d519e492",
         "filename": "test/162-method-resolution/info.txt",
         "patchSetId": 44
@@ -572,6 +1154,24 @@
     },
     {
       "key": {
+        "uuid": "af532225_0794599c",
+        "filename": "test/162-method-resolution/info.txt",
+        "patchSetId": 44
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a64ea15f_d519e492",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65aa331c_c0efea43",
         "filename": "test/162-method-resolution/multidex.jpp",
         "patchSetId": 44
@@ -583,6 +1183,24 @@
       "writtenOn": "2017-07-18T21:12:13Z",
       "side": 1,
       "message": "This is jack only afaik, so what does it do for javac? Why does only jack need it?",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a56e9367_01c345d6",
+        "filename": "test/162-method-resolution/multidex.jpp",
+        "patchSetId": 44
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 1,
+      "message": "Because jack is weird. For javac we\u0027re using the source location (\"*-multidex/\" or not) but jack needs this spelled out.",
+      "parentUuid": "65aa331c_c0efea43",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

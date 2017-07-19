@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "20309dc7_95fd599d",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 0,
+      "message": "We now consistently do this check in ResolveMethod\u003ckCheckICCEAndIAE\u003e() whether the method is in the DexCache or not.",
+      "parentUuid": "ee1056c9_4fd56883",
+      "revId": "64a102dde8c5daad83b991710decb418ce43aac5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32a80da4_d5724fcf",
         "filename": "compiler/verifier_deps_test.cc",
         "patchSetId": 44
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-18T22:25:55Z",
       "side": 0,
       "message": "Why deleted?",
+      "revId": "64a102dde8c5daad83b991710decb418ce43aac5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f210f355_61645862",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-19T14:48:51Z",
+      "side": 0,
+      "message": "The VerifierDeps no longer distinguish between invoke types, so there is nothing to play with here.",
+      "parentUuid": "32a80da4_d5724fcf",
       "revId": "64a102dde8c5daad83b991710decb418ce43aac5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
