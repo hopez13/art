@@ -16,6 +16,24 @@
       "revId": "0b05096ff9023de4f9fc8b4680142fe90396e3dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a11210d6_a5362c8c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-19T22:05:30Z",
+      "side": 1,
+      "message": "took some time, but fixed it!",
+      "parentUuid": "b5a8865f_8b44c534",
+      "revId": "0b05096ff9023de4f9fc8b4680142fe90396e3dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
