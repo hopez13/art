@@ -22,6 +22,29 @@
       "revId": "efecaac2d500867bf87e53e960335fa261657f01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afe89d1b_0dc9d60b",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-19T11:42:39Z",
+      "side": 1,
+      "message": "Please add a comment you\u0027re creating a lambda for the annotation.",
+      "range": {
+        "startLine": 245,
+        "startChar": 10,
+        "endLine": 245,
+        "endChar": 81
+      },
+      "revId": "efecaac2d500867bf87e53e960335fa261657f01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
