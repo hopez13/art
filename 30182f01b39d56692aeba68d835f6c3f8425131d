@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac42b60f_26cf194a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-07-19T08:04:05Z",
+      "side": 1,
+      "message": "s/contrain\\([^A-z]\\)/constraint\\1/g",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "30182f01b39d56692aeba68d835f6c3f8425131d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b3769a_2cd98684",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-07-19T08:04:05Z",
+      "side": 1,
+      "message": "constraint",
+      "range": {
+        "startLine": 131,
+        "startChar": 25,
+        "endLine": 131,
+        "endChar": 35
+      },
+      "revId": "30182f01b39d56692aeba68d835f6c3f8425131d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
