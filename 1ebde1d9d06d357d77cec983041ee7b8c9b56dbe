@@ -599,6 +599,24 @@
     },
     {
       "key": {
+        "uuid": "4cdf8592_37f43e11",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "Default methods were copied into class methods, has this changed?",
+      "parentUuid": "5bc4aa03_2841bfb8",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "312e1627_abfb5233",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -663,6 +681,24 @@
       "side": 1,
       "message": "Maybe it does not. Is it premature optimization to try and avoid checking the IsProxyMethod() for each method?",
       "parentUuid": "27d4df9a_78275ff4",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4edb75ba_864d5c00",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "Yeah I don\u0027t think its really a win at all, it just makes this code more confusing. GetInterfaceMethodIfProxy will be quite fast since it just needs to check its own access flag and return itself.",
+      "parentUuid": "8d92c51c_d5cb5622",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -739,6 +775,24 @@
     },
     {
       "key": {
+        "uuid": "01c2901b_69ff85ee",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "Maybe it just needs some DCHECKs then with some comments?",
+      "parentUuid": "51e1f688_cbc9c5cc",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b17cb57_3e430767",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -809,6 +863,24 @@
     },
     {
       "key": {
+        "uuid": "9a3ae249_9157439a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "Maybe the parts that are different can be factored out into an overloaded function? It seems no real reason to keep 2 separate implementations, they will just drift apart over time.",
+      "parentUuid": "4ee4d24f_1342a728",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4e2bd0d_4a79b355",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
@@ -838,6 +910,24 @@
       "side": 1,
       "message": "This is a convenience method for a few calls in the runtime. It\u0027s not used on proxy classes. (Though it\u0027s used to find the constructor of java.lang.reflect.Proxy when creating proxy classes.)",
       "parentUuid": "e4e2bd0d_4a79b355",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "635f792c_ae5a20ec",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "Ok, but why is this DCHECK necessary? The code seems like it should work on a proxy class.\n\nDoes it break for L661 or something because it has a DexFile dependency?",
+      "parentUuid": "ffef5374_1d7dce0b",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -1002,6 +1092,24 @@
       "side": 1,
       "message": "This function does not have error conditions. It either finds something or it doesn\u0027t.",
       "parentUuid": "df012fb5_942f09c4",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01ec0894_bfdf6022",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "L961-L963 are what I was referring to. What would you call that? Edge conditions? The point is it\u0027s not detailed enough (L961-L963).",
+      "parentUuid": "a7ac49c4_76f34412",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

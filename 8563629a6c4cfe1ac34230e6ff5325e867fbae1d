@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "dacfa3a7_754cbd85",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "SGTM, as long as we cite something from JLS for each test case (if JLS covers it).",
+      "parentUuid": "9103fe97_c582fb65",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf7b88f4_7cd93192",
         "filename": "test/162-method-resolution/src/Main.java",
         "patchSetId": 43
@@ -288,6 +306,24 @@
       "side": 1,
       "message": "The behavior was deterministic in this case.",
       "parentUuid": "85dc631f_5c09e188",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a39724da_c415699f",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "I just mean it would be nice if there was a really short 1 sentence summary. It doesn\u0027t have to be what I said verbatim.\n\nL64-L71 is great but it\u0027s also very long and harder to understand.",
+      "parentUuid": "28f29002_83d826de",
       "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -1083,6 +1119,24 @@
       "side": 1,
       "message": "Test4 serves as a primary test that the invokeinterface works, Test6 serves to make sure having the method in DexCache does not circumvent the check.",
       "parentUuid": "e618f2ec_f774af5c",
+      "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc5c4ca1_cf5a02a8",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T15:36:57Z",
+      "side": 1,
+      "message": "Maybe include that as a reason for why Test6User exists?",
+      "parentUuid": "f0264f3a_30b2a377",
       "revId": "8563629a6c4cfe1ac34230e6ff5325e867fbae1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
