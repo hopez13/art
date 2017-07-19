@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5919dfa2_77c3996c",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-07-19T05:52:16Z",
+      "side": 1,
+      "message": "Thanks. I see.\n\nI would probably make is_suspending_for_user_code a bool, and apply the lambda immediately. But it probably doesn\u0027t make much difference.",
+      "range": {
+        "startLine": 245,
+        "startChar": 10,
+        "endLine": 245,
+        "endChar": 81
+      },
+      "revId": "efecaac2d500867bf87e53e960335fa261657f01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
