@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
+// This `#include` is outside the guard becausethis file (`nodes_shared.h`) is included
+// in `nodes.h`. Otherwise the order of definitions is wrong (wrt/ methods like AsType).
+#include "nodes.h"
+
 #ifndef ART_COMPILER_OPTIMIZING_NODES_SHARED_H_
 #define ART_COMPILER_OPTIMIZING_NODES_SHARED_H_
-
-// This `#include` should never be used by compilation, as this file (`nodes_shared.h`) is included
-// in `nodes.h`. However it helps editing tools (e.g. YouCompleteMe) by giving them better context
-// (defining `HInstruction` and co).
-#include "nodes.h"
 
 namespace art {
 
