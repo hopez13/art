@@ -17,9 +17,9 @@
 #include "instrumentation.h"
 
 #include "base/enums.h"
+#include "class_linker-inl.h"
 #include "common_runtime_test.h"
 #include "common_throws.h"
-#include "class_linker-inl.h"
 #include "dex_file.h"
 #include "gc/scoped_gc_critical_section.h"
 #include "handle_scope-inl.h"
@@ -27,8 +27,8 @@
 #include "jvalue.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
-#include "thread_list.h"
 #include "thread-inl.h"
+#include "thread_list.h"
 #include "well_known_classes.h"
 
 namespace art {
