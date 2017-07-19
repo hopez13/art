@@ -130,7 +130,7 @@ class HVecOperation : public HVariableInputSizeInstruction {
  private:
   const size_t vector_length_;
 
-  DISALLOW_COPY_AND_ASSIGN(HVecOperation);
+  DISALLOW_ASSIGN(HVecOperation);
 };
 
 // Abstraction of a unary vector operation.
@@ -155,7 +155,7 @@ class HVecUnaryOperation : public HVecOperation {
   DECLARE_ABSTRACT_INSTRUCTION(VecUnaryOperation);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecUnaryOperation);
+  DISALLOW_ASSIGN(HVecUnaryOperation);
 };
 
 // Abstraction of a binary vector operation.
@@ -183,7 +183,7 @@ class HVecBinaryOperation : public HVecOperation {
   DECLARE_ABSTRACT_INSTRUCTION(VecBinaryOperation);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecBinaryOperation);
+  DISALLOW_ASSIGN(HVecBinaryOperation);
 };
 
 // Abstraction of a vector operation that references memory, with an alignment.
@@ -220,7 +220,7 @@ class HVecMemoryOperation : public HVecOperation {
  private:
   Alignment alignment_;
 
-  DISALLOW_COPY_AND_ASSIGN(HVecMemoryOperation);
+  DISALLOW_ASSIGN(HVecMemoryOperation);
 };
 
 // Packed type consistency checker ("same vector length" integral types may mix freely).
@@ -268,7 +268,7 @@ class HVecReplicateScalar FINAL : public HVecUnaryOperation {
   DECLARE_INSTRUCTION(VecReplicateScalar);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecReplicateScalar);
+  DISALLOW_ASSIGN(HVecReplicateScalar);
 };
 
 // Extracts a particular scalar from the given vector,
@@ -301,7 +301,7 @@ class HVecExtractScalar FINAL : public HVecUnaryOperation {
   DECLARE_INSTRUCTION(VecExtractScalar);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecExtractScalar);
+  DISALLOW_ASSIGN(HVecExtractScalar);
 };
 
 // Reduces the given vector into the first element as sum/min/max,
@@ -341,7 +341,7 @@ class HVecReduce FINAL : public HVecUnaryOperation {
  private:
   const ReductionKind kind_;
 
-  DISALLOW_COPY_AND_ASSIGN(HVecReduce);
+  DISALLOW_ASSIGN(HVecReduce);
 };
 
 // Converts every component in the vector,
@@ -366,7 +366,7 @@ class HVecCnv FINAL : public HVecUnaryOperation {
   DECLARE_INSTRUCTION(VecCnv);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecCnv);
+  DISALLOW_ASSIGN(HVecCnv);
 };
 
 // Negates every component in the vector,
@@ -387,7 +387,7 @@ class HVecNeg FINAL : public HVecUnaryOperation {
   DECLARE_INSTRUCTION(VecNeg);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecNeg);
+  DISALLOW_ASSIGN(HVecNeg);
 };
 
 // Takes absolute value of every component in the vector,
@@ -408,7 +408,7 @@ class HVecAbs FINAL : public HVecUnaryOperation {
   DECLARE_INSTRUCTION(VecAbs);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecAbs);
+  DISALLOW_ASSIGN(HVecAbs);
 };
 
 // Bitwise- or boolean-nots every component in the vector,
@@ -430,7 +430,7 @@ class HVecNot FINAL : public HVecUnaryOperation {
   DECLARE_INSTRUCTION(VecNot);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecNot);
+  DISALLOW_ASSIGN(HVecNot);
 };
 
 //
@@ -457,7 +457,7 @@ class HVecAdd FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecAdd);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecAdd);
+  DISALLOW_ASSIGN(HVecAdd);
 };
 
 // Performs halving add on every component in the two vectors, viz.
@@ -503,7 +503,7 @@ class HVecHalvingAdd FINAL : public HVecBinaryOperation {
   static constexpr size_t kNumberOfHAddPackedBits = kFieldHAddIsRounded + 1;
   static_assert(kNumberOfHAddPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
 
-  DISALLOW_COPY_AND_ASSIGN(HVecHalvingAdd);
+  DISALLOW_ASSIGN(HVecHalvingAdd);
 };
 
 // Subtracts every component in the two vectors,
@@ -526,7 +526,7 @@ class HVecSub FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecSub);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecSub);
+  DISALLOW_ASSIGN(HVecSub);
 };
 
 // Multiplies every component in the two vectors,
@@ -549,7 +549,7 @@ class HVecMul FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecMul);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecMul);
+  DISALLOW_ASSIGN(HVecMul);
 };
 
 // Divides every component in the two vectors,
@@ -572,7 +572,7 @@ class HVecDiv FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecDiv);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecDiv);
+  DISALLOW_ASSIGN(HVecDiv);
 };
 
 // Takes minimum of every component in the two vectors,
@@ -610,7 +610,7 @@ class HVecMin FINAL : public HVecBinaryOperation {
   static constexpr size_t kNumberOfMinOpPackedBits = kFieldMinOpIsUnsigned + 1;
   static_assert(kNumberOfMinOpPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
 
-  DISALLOW_COPY_AND_ASSIGN(HVecMin);
+  DISALLOW_ASSIGN(HVecMin);
 };
 
 // Takes maximum of every component in the two vectors,
@@ -648,7 +648,7 @@ class HVecMax FINAL : public HVecBinaryOperation {
   static constexpr size_t kNumberOfMaxOpPackedBits = kFieldMaxOpIsUnsigned + 1;
   static_assert(kNumberOfMaxOpPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
 
-  DISALLOW_COPY_AND_ASSIGN(HVecMax);
+  DISALLOW_ASSIGN(HVecMax);
 };
 
 // Bitwise-ands every component in the two vectors,
@@ -670,7 +670,7 @@ class HVecAnd FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecAnd);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecAnd);
+  DISALLOW_ASSIGN(HVecAnd);
 };
 
 // Bitwise-and-nots every component in the two vectors,
@@ -692,7 +692,7 @@ class HVecAndNot FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecAndNot);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecAndNot);
+  DISALLOW_ASSIGN(HVecAndNot);
 };
 
 // Bitwise-ors every component in the two vectors,
@@ -714,7 +714,7 @@ class HVecOr FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecOr);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecOr);
+  DISALLOW_ASSIGN(HVecOr);
 };
 
 // Bitwise-xors every component in the two vectors,
@@ -736,7 +736,7 @@ class HVecXor FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecXor);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecXor);
+  DISALLOW_ASSIGN(HVecXor);
 };
 
 // Logically shifts every component in the vector left by the given distance,
@@ -758,7 +758,7 @@ class HVecShl FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecShl);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecShl);
+  DISALLOW_ASSIGN(HVecShl);
 };
 
 // Arithmetically shifts every component in the vector right by the given distance,
@@ -780,7 +780,7 @@ class HVecShr FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecShr);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecShr);
+  DISALLOW_ASSIGN(HVecShr);
 };
 
 // Logically shifts every component in the vector right by the given distance,
@@ -802,7 +802,7 @@ class HVecUShr FINAL : public HVecBinaryOperation {
   DECLARE_INSTRUCTION(VecUShr);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecUShr);
+  DISALLOW_ASSIGN(HVecUShr);
 };
 
 //
@@ -839,7 +839,7 @@ class HVecSetScalars FINAL : public HVecOperation {
   DECLARE_INSTRUCTION(VecSetScalars);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecSetScalars);
+  DISALLOW_ASSIGN(HVecSetScalars);
 };
 
 // Multiplies every component in the two vectors, adds the result vector to the accumulator vector.
@@ -891,7 +891,7 @@ class HVecMultiplyAccumulate FINAL : public HVecOperation {
   // Indicates if this is a MADD or MSUB.
   const InstructionKind op_kind_;
 
-  DISALLOW_COPY_AND_ASSIGN(HVecMultiplyAccumulate);
+  DISALLOW_ASSIGN(HVecMultiplyAccumulate);
 };
 
 // Loads a vector from memory, viz. load(mem, 1)
@@ -934,7 +934,7 @@ class HVecLoad FINAL : public HVecMemoryOperation {
   static constexpr size_t kNumberOfVecLoadPackedBits = kFieldIsStringCharAt + 1;
   static_assert(kNumberOfVecLoadPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
 
-  DISALLOW_COPY_AND_ASSIGN(HVecLoad);
+  DISALLOW_ASSIGN(HVecLoad);
 };
 
 // Stores a vector to memory, viz. store(m, 1, [x1, .. , xn] )
@@ -966,7 +966,7 @@ class HVecStore FINAL : public HVecMemoryOperation {
   DECLARE_INSTRUCTION(VecStore);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(HVecStore);
+  DISALLOW_ASSIGN(HVecStore);
 };
 
 }  // namespace art
