@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "f5d69800_2f333b22",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T18:21:08Z",
+      "side": 1,
+      "message": "Alex says that using reflection one can call \"Foo.class.getMethod(\"methodName\").getClass()\" and it will always return the class that \"methodName\" is declared in according to method resolution rules.\n\n(And that this works for both RI and ART).\n\nUsing a class will do the class method resolution, and using an interface will do the interface method resolution.",
+      "parentUuid": "382a84f6_3e54d0d3",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c78e87_c075ab9f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 45
