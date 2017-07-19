@@ -940,6 +940,24 @@
     },
     {
       "key": {
+        "uuid": "7db29859_ddffc93d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-19T17:21:42Z",
+      "side": 1,
+      "message": "If you think it\u0027s really hot this could be refactored into a template method:\n\n    template \u003cbool kIsProxy\u003e\n\n    for (ArtMethod\u0026 method : this_klass-\u003eGetDeclaredMethodsSlice(pointer_size)) {\n      ArtMethod* np_method \u003d (kIsProxy ? \n          method.GetInterfaceMethodIfProxy(pointer_size) : method);\n      if (np_method-\u003eGetName() \u003d\u003d name \u0026\u0026 np_method-\u003eGetSignature() \u003d\u003d signature) {\n        return \u0026method;\n      }\n    }",
+      "parentUuid": "0189c300_f8d2d4e1",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9d900fc_504d1d2c",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 44
