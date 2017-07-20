@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7cfe4b60_6b339bbc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4889,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-20T09:17:55Z",
+      "side": 1,
+      "message": "When you enter the method InitializeClass, \u0027klass\u0027 has a certain status. What I\u0027m saying is that if the status is not kStatusSuperClassValidated, then you need to do the check here. If it is kStatusSuperClassValidated, then you don\u0027t need to do the check..\n\nMeaning you don\u0027t need to fetch the oat status.",
+      "parentUuid": "87911545_0589daf8",
+      "range": {
+        "startLine": 4887,
+        "startChar": 1,
+        "endLine": 4889,
+        "endChar": 81
+      },
+      "revId": "0cb172874481f736c6b7c491dd621166cc25561b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8acf8050_a33ea74a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
