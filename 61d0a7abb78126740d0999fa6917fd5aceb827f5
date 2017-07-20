@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df357f57_7bde6976",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5498,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T21:25:09Z",
+      "side": 1,
+      "message": "I never understood why the CHA isn\u0027t attached to the ClassLinker, and as a unique_ptr. That would make this a null check.\n\n(I thought CHA isn\u0027t meant to be active during AoT, yet, at all? So don\u0027t create one when creating the runtime in dex2oat...)",
+      "range": {
+        "startLine": 5498,
+        "startChar": 6,
+        "endLine": 5498,
+        "endChar": 42
+      },
+      "revId": "61d0a7abb78126740d0999fa6917fd5aceb827f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
