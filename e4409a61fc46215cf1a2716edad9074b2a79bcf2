@@ -163,6 +163,24 @@
     },
     {
       "key": {
+        "uuid": "5fe2e701_6e2de86e",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T14:58:57Z",
+      "side": 1,
+      "message": "JNI specification does not list \"IncompatibleClassChangeError\" as one of the exception it throws.\n\nIt says \"MAY be defined\" .. \"or inherited\" .. which seems like it also MAY NOT. I wouldn\u0027t worry about it too much, JNI is hugely underspecified.",
+      "parentUuid": "076efaa9_881e05d4",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c78e87_c075ab9f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 45
