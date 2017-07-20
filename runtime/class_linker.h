@@ -140,7 +140,7 @@ class ClassLinker {
   };
 
   explicit ClassLinker(InternTable* intern_table);
-  ~ClassLinker();
+  virtual ~ClassLinker();
 
   // Initialize class linker by bootstraping from dex files.
   bool InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> boot_class_path,
@@ -700,6 +700,14 @@ class ClassLinker {
     ClassTable* class_table;
   };
 
+ protected:
+  virtual bool InitializeClass(Thread* self,
+                               Handle<mirror::Class> klass,
+                               bool can_run_clinit,
+                               bool can_init_parents)
+  REQUIRES_SHARED(Locks::mutator_lock_)
+  REQUIRES(!Locks::dex_lock_);
+
  private:
   class LinkInterfaceMethodsHelper;
 
@@ -889,12 +897,6 @@ class ClassLinker {
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool InitializeClass(Thread* self,
-                       Handle<mirror::Class> klass,
-                       bool can_run_clinit,
-                       bool can_init_parents)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::dex_lock_);
   bool InitializeDefaultInterfaceRecursive(Thread* self,
                                            Handle<mirror::Class> klass,
                                            bool can_run_clinit,
