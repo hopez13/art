@@ -455,16 +455,16 @@ class Runtime {
                        const std::string& profile_output_filename);
 
   // Transaction support.
-  bool IsActiveTransaction() const {
-    return preinitialization_transaction_ != nullptr;
-  }
+  bool IsActiveTransaction() const;
   void EnterTransactionMode();
-  void EnterTransactionMode(mirror::Class* root);
+  void EnterTransactionMode(bool strict, mirror::Class* root);
   void ExitTransactionMode();
   // Transaction rollback and exit transaction are always done together, it's convenience to
   // do them in one function.
   void RollbackAndExitTransactionMode() REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsTransactionAborted() const;
+  const std::unique_ptr<Transaction>& GetTransaction() const;
+  bool IsActiveStrictTransactionMode() const;
 
   void AbortTransactionAndThrowAbortError(Thread* self, const std::string& abort_message)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -847,7 +847,8 @@ class Runtime {
   bool dump_gc_performance_on_shutdown_;
 
   // Transaction used for pre-initializing classes at compilation time.
-  std::unique_ptr<Transaction> preinitialization_transaction_;
+  // Support nested transaction, maintain a list of transactions, the last one is the active one.
+  std::list<std::unique_ptr<Transaction>> preinitialization_transactions_;
 
   // If kNone, verification is disabled. kEnable by default.
   verifier::VerifyMode verify_;
