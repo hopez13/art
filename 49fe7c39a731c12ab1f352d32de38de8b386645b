@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "8512efb4_2e654473",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-20T23:58:34Z",
+      "side": 1,
+      "message": "Actually now all test config allowed will load app image, interp-ac seems not and is excluded. This is more like a fall back, in case the tes fail, we can know whether the app image is loaded properly.",
+      "parentUuid": "081fc23b_2ffd8945",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29a4c20d_b2068f00",
         "filename": "test/660-clinit/src/Main.java",
         "patchSetId": 1
@@ -149,6 +167,24 @@
       "side": 1,
       "message": "Then the explanation should be that anything with a \u003cclinit\u003e method doesn\u0027t get initialized?\n\nIn the current code, why would transactions abort pre-initializing this class?",
       "parentUuid": "b775124b_9381b643",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1be54f4a_60854a03",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-20T23:58:34Z",
+      "side": 1,
+      "message": "Because at the current code, I mean without the five following CLs, the aot compiler will not try to run clinit for app images.\n\nShall I still include the comment and delete it later?",
+      "parentUuid": "b803d549_605fe91f",
       "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
