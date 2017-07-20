@@ -352,6 +352,60 @@ bool HDeadCodeElimination::RemoveDeadBlocks() {
   return removed_one_or_more_blocks;
 }
 
+bool HDeadCodeElimination::TryIfConditionValueEvaluation(HIf* hif, HIf* second_hif) {
+  DCHECK_EQ(hif->InputAt(0), second_hif->InputAt(0));
+
+  HBasicBlock* true_succ = hif->IfTrueSuccessor();
+  HBasicBlock* false_succ = hif->IfFalseSuccessor();
+  HBasicBlock* second_hif_block = second_hif->GetBlock();
+  HIntConstant* propagated_value = nullptr;
+
+  // It is valid to replace the re-calculation of the condition for second_hif with TRUE value
+  // (FALSE value) if every path from the ENTRY_BLOCK to SECOND_HIF_BLOCK contains the edge
+  // HIF_BLOCK->TRUE_SUCC (HIF_BLOCK->FALSE_SUCC).
+  if (true_succ->Dominates(second_hif_block) &&
+      true_succ->GetPredecessors().size() == 1u) {
+    propagated_value = graph_->GetIntConstant(1);
+  } else if (false_succ->Dominates(second_hif_block) &&
+             false_succ->GetPredecessors().size() == 1u) {
+    propagated_value = graph_->GetIntConstant(0);
+  } else {
+    return false;
+  }
+
+  second_hif->ReplaceInput(propagated_value, 0);
+
+  return true;
+}
+
+bool HDeadCodeElimination::PropagateIfConditions() {
+  bool simplified_one_or_more_ifs = false;
+  for (HBasicBlock* block : graph_->GetReversePostOrder()) {
+    if (block->GetLastInstruction()->IsIf()) {
+      HIf* hif = block->GetLastInstruction()->AsIf();
+      HInstruction* input = hif->InputAt(0);
+
+      // HIf is already unconditional/transformed.
+      if (input->IsConstant()) {
+        continue;
+      }
+
+      const HUseList<HInstruction*>& uses = input->GetUses();
+      for (auto it = uses.begin(), end = uses.end(); it != end; /* ++it below */) {
+        HInstruction* use = it->GetUser();
+        // Increment `it` now because `*it` may disappear thanks to ReplaceInput() call in
+        // TryIfConditionValueEvaluation.
+        ++it;
+        if (use->IsIf() && use != hif) {
+          simplified_one_or_more_ifs |= TryIfConditionValueEvaluation(hif, use->AsIf());
+        }
+      }
+    }
+  }
+
+  return simplified_one_or_more_ifs;
+}
+
 void HDeadCodeElimination::RemoveDeadInstructions() {
   // Process basic blocks in post-order in the dominator tree, so that
   // a dead instruction depending on another dead instruction is removed.
@@ -382,6 +436,7 @@ void HDeadCodeElimination::Run() {
     ConnectSuccessiveBlocks();
     bool did_any_simplification = false;
     did_any_simplification |= SimplifyIfs();
+    did_any_simplification |= PropagateIfConditions();
     did_any_simplification |= RemoveDeadBlocks();
     if (did_any_simplification) {
       // Connect successive blocks created by dead branches.

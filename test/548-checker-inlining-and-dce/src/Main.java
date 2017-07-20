@@ -74,6 +74,77 @@ public class Main {
     inlinedForNull(it);
   }
 
+  /// CHECK-START: void Main.testIfCondStaticEvaluation(int[], boolean) dead_code_elimination$initial (before)
+  /// CHECK-DAG: <<ParamCond:z\d+>> ParameterValue
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1
+  /// CHECK-DAG:                    If [<<ParamCond>>]
+  /// CHECK-DAG:                    If [<<ParamCond>>]
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},{{i\d+}},<<Const0>>]
+  /// CHECK-DAG:                    If [<<ParamCond>>]
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},{{i\d+}},<<Const1>>]
+  //
+  /// CHECK-NOT:                    If [<<ParamCond>>]
+  /// CHECK-NOT:                    ArraySet
+
+  /// CHECK-START: void Main.testIfCondStaticEvaluation(int[], boolean) dead_code_elimination$initial (after)
+  /// CHECK-DAG: <<ParamCond:z\d+>> ParameterValue
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0
+  /// CHECK-DAG:                    If [<<ParamCond>>]
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},{{i\d+}},<<Const0>>]
+  //
+  /// CHECK-NOT:                    IntConstant 1
+  /// CHECK-NOT:                    If [<<ParamCond>>]
+  /// CHECK-NOT:                    ArraySet
+  private static void testIfCondStaticEvaluation(int[] a, boolean f) {
+    if (f) {
+      if (f) {
+        a[0] = 0;
+      }
+    } else {
+      if (f) {
+        a[0] = 1;
+      }
+    }
+  }
+
+  /// CHECK-START: void Main.testManualUnrollWithInvarExits(int[], boolean) dead_code_elimination$initial (before)
+  /// CHECK-DAG: <<ParamCond:z\d+>> ParameterValue                            loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
+  /// CHECK-DAG:                    If [<<ParamCond>>]                        loop:none
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},{{i\d+}},<<Const0>>]   loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi                                       loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:                    If [<<ParamCond>>]                        loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},{{i\d+}},<<Const0>>]   loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If [<<ParamCond>>]
+  /// CHECK-NOT:                    ArraySet
+
+  /// CHECK-START: void Main.testManualUnrollWithInvarExits(int[], boolean) dead_code_elimination$initial (after)
+  /// CHECK-DAG: <<ParamCond:z\d+>> ParameterValue                            loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
+  /// CHECK-DAG:                    If [<<ParamCond>>]                        loop:none
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},{{i\d+}},<<Const0>>]   loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi                                       loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},{{i\d+}},<<Const0>>]   loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If [<<ParamCond>>]
+  /// CHECK-NOT:                    ArraySet
+  private static void testManualUnrollWithInvarExits(int[] a, boolean f) {
+    if (f) {
+      return;
+    }
+    a[0] = 0;
+    for (int i = 1; i < a.length; i++) {
+      if (f) {
+        return;
+      }
+      a[i] = 0;
+    }
+  }
+
+  static final int LENGTH = 4 * 1024;
+
   public static void main(String[] args) {
     Main m = new Main();
     Iterable it = new Iterable() {
@@ -83,5 +154,11 @@ public class Main {
     m.testInlinedForFalseNotInlined(it);
     m.testInlinedForNullInlined(it);
     m.testInlinedForNullNotInlined(it);
+
+    int[] a = new int[LENGTH];
+    m.testIfCondStaticEvaluation(a, true);
+    m.testIfCondStaticEvaluation(a, false);
+    m.testManualUnrollWithInvarExits(a, true);
+    m.testManualUnrollWithInvarExits(a, false);
   }
 }

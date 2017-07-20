@@ -43,6 +43,11 @@ class HDeadCodeElimination : public HOptimization {
   bool SimplifyIfs();
   void ConnectSuccessiveBlocks();
 
+  // For two HIfs with the same HCondition try to statically evaluate the condition value for the
+  // second_if and transform it to an unconditional branch.
+  bool TryIfConditionValueEvaluation(HIf* hif, HIf* second_hif);
+  bool PropagateIfConditions();
+
   DISALLOW_COPY_AND_ASSIGN(HDeadCodeElimination);
 };
 
