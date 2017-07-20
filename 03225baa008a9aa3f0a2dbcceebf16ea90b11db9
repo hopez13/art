@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a40c3b4_48426f46",
+        "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "Cool. Good to know. Done.",
+      "parentUuid": "d1941fa8_46ebf123",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 34
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a291dfa2_545fad76",
         "filename": "tools/ahat/src/heapdump/AhatClassObj.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-19T15:56:45Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 34
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4423de39_9cec56b6",
+        "filename": "tools/ahat/src/heapdump/AhatClassObj.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a291dfa2_545fad76",
       "range": {
         "startLine": 95,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "52c073c1_c00691ec",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "I get a type error when I try to use the conditional expression, because it seems the desired type of emptyList cannot be inferred. I restructured the code to more closely match the conditional expression while still using an if statement, which doesn\u0027t lead to the same type error.",
+      "parentUuid": "73571d49_27191d08",
+      "range": {
+        "startLine": 279,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a1425b1_00ab8216",
         "filename": "tools/ahat/src/heapdump/DominatorReferenceIterator.java",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-07-19T15:56:45Z",
       "side": 1,
       "message": "This implementation requires that you call hasNext() before every call to next(), which is very weird behavior for an Iterator.  It also is supposed to throw NoSuchElementException if called when there\u0027s no next element.  You could fix both problems by wrapping with a hasNext() call:\n\nif (hasNext()) {\n  // current code\n} else {\n  throw new NoSuchElementException();\n}",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 30
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b020095d_4dcca1aa",
+        "filename": "tools/ahat/src/heapdump/DominatorReferenceIterator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "Good catch. Fixed.",
+      "parentUuid": "2a1425b1_00ab8216",
       "range": {
         "startLine": 47,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "230a6c43_0d63e083",
+        "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1945a954_eebff6a1",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ed9d021_e6ec9393",
         "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2017-07-19T15:56:45Z",
       "side": 1,
       "message": "No need to mark this static, interfaces are always static.",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 32
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b66397bd_a385dc61",
+        "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ed9d021_e6ec9393",
       "range": {
         "startLine": 36,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c4bcf554_8587f30e",
+        "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f99f73d0_614d75f7",
+      "range": {
+        "startLine": 56,
+        "startChar": 19,
+        "endLine": 56,
+        "endChar": 24
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cc9ad7a_9558e44f",
         "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2017-07-19T15:56:45Z",
       "side": 1,
       "message": "Is it possible we\u0027ll have to deal with more than 2 billion nodes in a heap dump?  I assume not, but it\u0027s worth considering.",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 18
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "472309cd_b6b60f69",
+        "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "I switched to long rather than worry about the case. \n\nPresumably if there were more than 2 billion nodes, I would to run into other problems trying to store them all in one big ArrayList?",
+      "parentUuid": "8cc9ad7a_9558e44f",
       "range": {
         "startLine": 73,
         "startChar": 4,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "cb9565da_4ea56a92",
+        "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d41e66eb_f21db0c8",
+      "range": {
+        "startLine": 82,
+        "startChar": 18,
+        "endLine": 82,
+        "endChar": 34
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a1c62bf_4d9beaf2",
         "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2017-07-19T15:56:45Z",
       "side": 1,
       "message": "Similarly, srcS.id \u003c this.id?",
+      "range": {
+        "startLine": 88,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 34
+      },
+      "revId": "03225baa008a9aa3f0a2dbcceebf16ea90b11db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "420e5b55_e41ba3cc",
+        "filename": "tools/ahat/src/heapdump/DominatorsComputation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-07-20T08:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a1c62bf_4d9beaf2",
       "range": {
         "startLine": 88,
         "startChar": 7,
