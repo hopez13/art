@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "080fd638_ecbe8b04",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T02:43:04Z",
+      "side": 1,
+      "message": "I agree with Igor\u0027s comment. We probably should have this configurable either explicitly or through slow-debug, so could get coverage for the \"optimizing\" test configuration?",
+      "range": {
+        "startLine": 1485,
+        "startChar": 0,
+        "endLine": 1487,
+        "endChar": 71
+      },
+      "revId": "2d057f70585f1ade482a362d31be89cdc52f0a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
