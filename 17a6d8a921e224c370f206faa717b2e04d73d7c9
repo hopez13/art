@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cead1458_4c7d5234",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T17:16:46Z",
+      "side": 1,
+      "message": "Try to make it const?",
+      "range": {
+        "startLine": 704,
+        "startChar": 36,
+        "endLine": 704,
+        "endChar": 55
+      },
+      "revId": "17a6d8a921e224c370f206faa717b2e04d73d7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
