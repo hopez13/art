@@ -46,6 +46,30 @@
       "revId": "37b4ade3f3b856c890d845d3e0e6dd28fcc40952",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08d80b1b_788f18e8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T02:57:38Z",
+      "side": 1,
+      "message": "It\u0027s strange to have this parameter if you push null. What does rely on adding verification results here?",
+      "parentUuid": "cc640995_26f192e1",
+      "range": {
+        "startLine": 1524,
+        "startChar": 8,
+        "endLine": 1524,
+        "endChar": 42
+      },
+      "revId": "37b4ade3f3b856c890d845d3e0e6dd28fcc40952",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
