@@ -237,7 +237,7 @@ Runtime::Runtime()
       system_thread_group_(nullptr),
       system_class_loader_(nullptr),
       dump_gc_performance_on_shutdown_(false),
-      preinitialization_transaction_(nullptr),
+      preinitialization_transactions_(),
       verify_(verifier::VerifyMode::kNone),
       allow_dex_file_fallback_(true),
       target_sdk_version_(0),
@@ -1832,8 +1832,8 @@ void Runtime::VisitConcurrentRoots(RootVisitor* visitor, VisitRootFlags flags) {
 }
 
 void Runtime::VisitTransactionRoots(RootVisitor* visitor) {
-  if (preinitialization_transaction_ != nullptr) {
-    preinitialization_transaction_->VisitRoots(visitor);
+  for (auto& transaction : preinitialization_transactions_) {
+    transaction->VisitRoots(visitor);
   }
 }
 
@@ -2065,29 +2065,31 @@ void Runtime::RegisterAppInfo(const std::vector<std::string>& code_paths,
 }
 
 // Transaction support.
-void Runtime::EnterTransactionMode() {
-  DCHECK(IsAotCompiler());
-  DCHECK(!IsActiveTransaction());
-  preinitialization_transaction_ = std::unique_ptr<Transaction>(new Transaction());
+bool Runtime::IsActiveTransaction() const {
+  return !preinitialization_transactions_.empty() && !GetTransaction()->IsRollbacking();
 }
 
-void Runtime::EnterTransactionMode(mirror::Class* root) {
+void Runtime::EnterTransactionMode() {
   DCHECK(IsAotCompiler());
-  preinitialization_transaction_ = std::unique_ptr<Transaction>(new Transaction(root));
+  preinitialization_transactions_.emplace_back(new Transaction());
+}
+
+void Runtime::EnterTransactionMode(bool strict, mirror::Class* root) {
+  DCHECK(IsAotCompiler());
+  preinitialization_transactions_.emplace_back(new Transaction(strict, root));
 }
 
 void Runtime::ExitTransactionMode() {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_ = nullptr;
+  preinitialization_transactions_.pop_back();
 }
 
 void Runtime::RollbackAndExitTransactionMode() {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  std::unique_ptr<Transaction> rollback_transaction_= std::move(preinitialization_transaction_);
-  ExitTransactionMode();
-  rollback_transaction_->Rollback();
+  preinitialization_transactions_.back()->Rollback();
+  preinitialization_transactions_.pop_back();
 }
 
 bool Runtime::IsTransactionAborted() const {
@@ -2095,8 +2097,16 @@ bool Runtime::IsTransactionAborted() const {
     return false;
   } else {
     DCHECK(IsAotCompiler());
-    return preinitialization_transaction_->IsAborted();
+    return GetTransaction()->IsAborted();
   }
+}
+
+bool Runtime::IsActiveStrictTransactionMode() const {
+  return IsActiveTransaction() && GetTransaction()->IsStrict();
+}
+
+const std::unique_ptr<Transaction>& Runtime::GetTransaction() const {
+  return preinitialization_transactions_.back();
 }
 
 void Runtime::AbortTransactionAndThrowAbortError(Thread* self, const std::string& abort_message) {
@@ -2105,57 +2115,59 @@ void Runtime::AbortTransactionAndThrowAbortError(Thread* self, const std::string
   // Throwing an exception may cause its class initialization. If we mark the transaction
   // aborted before that, we may warn with a false alarm. Throwing the exception before
   // marking the transaction aborted avoids that.
-  preinitialization_transaction_->ThrowAbortError(self, &abort_message);
-  preinitialization_transaction_->Abort(abort_message);
+  // But now the transaction can be nested, and abort the transaction will relax the constrains
+  // for constructing stack trace.
+  GetTransaction()->Abort(abort_message);
+  GetTransaction()->ThrowAbortError(self, &abort_message);
 }
 
 void Runtime::ThrowTransactionAbortError(Thread* self) {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
   // Passing nullptr means we rethrow an exception with the earlier transaction abort message.
-  preinitialization_transaction_->ThrowAbortError(self, nullptr);
+  GetTransaction()->ThrowAbortError(self, nullptr);
 }
 
 void Runtime::RecordWriteFieldBoolean(mirror::Object* obj, MemberOffset field_offset,
                                       uint8_t value, bool is_volatile) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWriteFieldBoolean(obj, field_offset, value, is_volatile);
+  GetTransaction()->RecordWriteFieldBoolean(obj, field_offset, value, is_volatile);
 }
 
 void Runtime::RecordWriteFieldByte(mirror::Object* obj, MemberOffset field_offset,
                                    int8_t value, bool is_volatile) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWriteFieldByte(obj, field_offset, value, is_volatile);
+  GetTransaction()->RecordWriteFieldByte(obj, field_offset, value, is_volatile);
 }
 
 void Runtime::RecordWriteFieldChar(mirror::Object* obj, MemberOffset field_offset,
                                    uint16_t value, bool is_volatile) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWriteFieldChar(obj, field_offset, value, is_volatile);
+  GetTransaction()->RecordWriteFieldChar(obj, field_offset, value, is_volatile);
 }
 
 void Runtime::RecordWriteFieldShort(mirror::Object* obj, MemberOffset field_offset,
                                     int16_t value, bool is_volatile) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWriteFieldShort(obj, field_offset, value, is_volatile);
+  GetTransaction()->RecordWriteFieldShort(obj, field_offset, value, is_volatile);
 }
 
 void Runtime::RecordWriteField32(mirror::Object* obj, MemberOffset field_offset,
                                  uint32_t value, bool is_volatile) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWriteField32(obj, field_offset, value, is_volatile);
+  GetTransaction()->RecordWriteField32(obj, field_offset, value, is_volatile);
 }
 
 void Runtime::RecordWriteField64(mirror::Object* obj, MemberOffset field_offset,
                                  uint64_t value, bool is_volatile) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWriteField64(obj, field_offset, value, is_volatile);
+  GetTransaction()->RecordWriteField64(obj, field_offset, value, is_volatile);
 }
 
 void Runtime::RecordWriteFieldReference(mirror::Object* obj,
@@ -2164,7 +2176,7 @@ void Runtime::RecordWriteFieldReference(mirror::Object* obj,
                                         bool is_volatile) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWriteFieldReference(obj,
+  GetTransaction()->RecordWriteFieldReference(obj,
                                                             field_offset,
                                                             value.Ptr(),
                                                             is_volatile);
@@ -2173,38 +2185,38 @@ void Runtime::RecordWriteFieldReference(mirror::Object* obj,
 void Runtime::RecordWriteArray(mirror::Array* array, size_t index, uint64_t value) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWriteArray(array, index, value);
+  GetTransaction()->RecordWriteArray(array, index, value);
 }
 
 void Runtime::RecordStrongStringInsertion(ObjPtr<mirror::String> s) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordStrongStringInsertion(s);
+  GetTransaction()->RecordStrongStringInsertion(s);
 }
 
 void Runtime::RecordWeakStringInsertion(ObjPtr<mirror::String> s) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWeakStringInsertion(s);
+  GetTransaction()->RecordWeakStringInsertion(s);
 }
 
 void Runtime::RecordStrongStringRemoval(ObjPtr<mirror::String> s) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordStrongStringRemoval(s);
+  GetTransaction()->RecordStrongStringRemoval(s);
 }
 
 void Runtime::RecordWeakStringRemoval(ObjPtr<mirror::String> s) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordWeakStringRemoval(s);
+  GetTransaction()->RecordWeakStringRemoval(s);
 }
 
 void Runtime::RecordResolveString(ObjPtr<mirror::DexCache> dex_cache,
                                   dex::StringIndex string_idx) const {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transaction_->RecordResolveString(dex_cache, string_idx);
+  GetTransaction()->RecordResolveString(dex_cache, string_idx);
 }
 
 void Runtime::SetFaultMessage(const std::string& message) {

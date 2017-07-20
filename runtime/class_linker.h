@@ -379,6 +379,15 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
+  // Wrapper of EnsureInitialized with check and creation of transaction mode.
+  bool EnsureInitializedWithTransaction(Thread* self,
+                                        Handle<mirror::Class> c,
+                                        bool can_init_fields,
+                                        bool can_init_parents)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+
+
   // Initializes classes that have instances in the image but that have
   // <clinit> methods so they could not be initialized by the compiler.
   void RunRootClinits()
