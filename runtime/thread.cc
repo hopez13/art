@@ -2741,8 +2741,8 @@ void Thread::ThrowNewWrappedException(const char* exception_class_descriptor,
     return;
   }
 
-  if (UNLIKELY(!runtime->GetClassLinker()->EnsureInitialized(soa.Self(), exception_class, true,
-                                                             true))) {
+  if (UNLIKELY(!runtime->GetClassLinker()->EnsureInitializedWithTransaction(
+      soa.Self(), exception_class, true, true))) {
     DCHECK(IsExceptionPending());
     return;
   }
