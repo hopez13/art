@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ab85247e_ed9f423c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-20T00:20:47Z",
+      "side": 1,
+      "message": "What would be the benefit of using this over the default kJitDefaultCompileThreshold build? Is it just to get faster JIT and potentially detect issues sooner?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 91
+      },
+      "revId": "97969183e310e1f8b18c9304cfdcf4300fede470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b8568d9_94b4a7c4",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "The \"?\" is the 4-indent under the expression. That is the ngeoffray-recommended way. :-)",
       "parentUuid": "7b8568d9_94b4a7c4",
+      "range": {
+        "startLine": 85,
+        "startChar": 41,
+        "endLine": 88,
+        "endChar": 50
+      },
+      "revId": "97969183e310e1f8b18c9304cfdcf4300fede470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c695ab5_52ffcd95",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-20T00:20:47Z",
+      "side": 1,
+      "message": "I was only talking about the huge number of spaces in front of \u0027?\u0027.\nHow about you move kIsDebugBuild on a new line?",
+      "parentUuid": "186063df_0aa7bb3b",
       "range": {
         "startLine": 85,
         "startChar": 41,
