@@ -711,6 +711,13 @@ const RegType& RegType::Merge(const RegType& incoming_type,
       DCHECK(c1 != nullptr && !c1->IsPrimitive());
       DCHECK(c2 != nullptr && !c2->IsPrimitive());
       mirror::Class* join_class = ClassJoin(c1, c2);
+      if (UNLIKELY(join_class == nullptr)) {
+        // Internal error joining the classes (e.g., OOME). Report an unresolved reference type.
+        // We cannot report an unresolved merge type, as that will attempt to merge the resolved
+        // components, leaving us in an infinite loop.
+        return reg_types->MakeUnresolvedReference();
+      }
+
       // Record the dependency that both `c1` and `c2` are assignable to `join_class`.
       // The `verifier` is null during unit tests.
       if (verifier != nullptr) {
@@ -754,9 +761,18 @@ mirror::Class* RegType::ClassJoin(mirror::Class* s, mirror::Class* t) {
       return result;
     }
     ObjPtr<mirror::Class> common_elem = ClassJoin(s_ct, t_ct);
+    if (UNLIKELY(common_elem == nullptr)) {
+      return nullptr;
+    }
     ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-    mirror::Class* array_class = class_linker->FindArrayClass(Thread::Current(), &common_elem);
-    DCHECK(array_class != nullptr);
+    Thread* self = Thread::Current();
+    mirror::Class* array_class = class_linker->FindArrayClass(self, &common_elem);
+    if (UNLIKELY(array_class == nullptr)) {
+      self->AssertPendingException();
+      self->ClearException();
+      // TODO: It's not clear whether we should report the exception from here (most likely OOME).
+      return nullptr;
+    }
     return array_class;
   } else {
     size_t s_depth = s->Depth();
