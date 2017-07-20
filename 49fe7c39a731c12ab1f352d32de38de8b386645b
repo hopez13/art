@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e644bf5_2aa13618",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T21:56:59Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98594b2d_47a095cb",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T21:56:59Z",
+      "side": 1,
+      "message": "How does this work if the app image is loaded? Won\u0027t the test fail?",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29a4c20d_b2068f00",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T21:56:59Z",
+      "side": 1,
+      "message": "Needs explanation on why it should not init.",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff61b25_96839672",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T21:56:59Z",
+      "side": 1,
+      "message": "Needs explanation on why it should not init.",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59fb0326_8c4fbe8a",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T21:56:59Z",
+      "side": 1,
+      "message": "nit: Don\u0027t like this name, it should be called more like \"expectPreinitialized\" and \"expectNotPreinitialized\"\n\nSidenote: The whole \"checkInitialized\" is poorly named too because under JLS the class must not be initialized before its ever touched, I\u0027ll let it slide since it was from a previous CL.",
+      "range": {
+        "startLine": 49,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a645559_ae0fd4e7",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T21:56:59Z",
+      "side": 1,
+      "message": "Please include comments inline with the code that would violate a constraint and make it non-preinitializable",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "447fab41_c4735293",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T21:56:59Z",
+      "side": 1,
+      "message": "This gets combined with the previous block so there\u0027s no real reason to make 2 static blocks, if you want to test them separately then make 2 separate Clinit classes.",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e79b2e2_2ac3f5f5",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T21:56:59Z",
+      "side": 1,
+      "message": "Same as L90, although this is not a clinit and I don\u0027t see why it matters.",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
