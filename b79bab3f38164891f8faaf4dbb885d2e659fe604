@@ -165,6 +165,30 @@
       "revId": "b79bab3f38164891f8faaf4dbb885d2e659fe604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51dc16b7_3cabd9fa",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-20T09:31:18Z",
+      "side": 1,
+      "message": "Ok, so the comment should say that in debuggable mode we want the clinit behavior to be observable for the debugger, so we don\u0027t do the clinit at compile time.",
+      "parentUuid": "cc4c06b2_1f6082bd",
+      "range": {
+        "startLine": 2303,
+        "startChar": 80,
+        "endLine": 2304,
+        "endChar": 40
+      },
+      "revId": "b79bab3f38164891f8faaf4dbb885d2e659fe604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
