@@ -22,6 +22,30 @@
       "revId": "18f57029d1967e6103e747e68a782c0d88cfcdbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985fcff3_8f46a721",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-20T16:08:21Z",
+      "side": 1,
+      "message": "It\u0027s used by PrepareRuntimeOptions",
+      "parentUuid": "9ad5537b_617a0aa6",
+      "range": {
+        "startLine": 1523,
+        "startChar": 0,
+        "endLine": 1529,
+        "endChar": 59
+      },
+      "revId": "18f57029d1967e6103e747e68a782c0d88cfcdbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
