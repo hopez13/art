@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "14b1f8eb_5a33e028",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T14:42:52Z",
+      "side": 1,
+      "message": "Ok, what about JNI?\n\nGetMethodId calls DIRECTLY into these FindClassMethod/FindInterfaceMethod as you just changed it yourself to do that in this CL.\n\nAlex seems to think the RI behavior for JNI should be similar (except I suppose in the places it diverges with JLS).",
+      "parentUuid": "048a328f_566a2036",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c78e87_c075ab9f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 45
