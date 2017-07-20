@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "048a328f_566a2036",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T10:01:26Z",
+      "side": 1,
+      "message": "Reflection is actually the wrong thing to use. It\u0027s mostly implemented in Class.java and it does not correspond to this lookup at all. Class.getMethod() restricts the search to public methods and does not search the implicitly declared methods (see JLS 9.2).",
+      "parentUuid": "b057ee39_285ab529",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c78e87_c075ab9f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 45
@@ -228,6 +246,24 @@
       "side": 1,
       "message": "Yes, PS48 is better, thanks. Sometimes losing a bit of documentation ends up improving it :).",
       "parentUuid": "e89afe97_dc388424",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1982dc59_8a1830f6",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T10:01:26Z",
+      "side": 1,
+      "message": "I was also seriously considering to improve the documentation by removing this comment altogether. But I\u0027m keeping the version in PS48 despite my doubts about it being better than nothing.",
+      "parentUuid": "53c5db61_4222a5a9",
       "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
