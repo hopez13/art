@@ -94,6 +94,30 @@
       "revId": "37b4ade3f3b856c890d845d3e0e6dd28fcc40952",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8d71878_44f9babd",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T03:05:44Z",
+      "side": 1,
+      "message": "I am asking what elsewhere requires to be able to add verification results immediately. Or in other words: should you remove the parameter?",
+      "parentUuid": "05c48a10_79697edd",
+      "range": {
+        "startLine": 1524,
+        "startChar": 8,
+        "endLine": 1524,
+        "endChar": 42
+      },
+      "revId": "37b4ade3f3b856c890d845d3e0e6dd28fcc40952",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
