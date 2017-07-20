@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "080facfc_d8c193df",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-07-20T16:49:12Z",
+      "side": 1,
+      "message": "Null dereference possible after the 1st loop iteration if target is null. Looking into current implementation of SuspendThreadByPeer() it could return null when timed_out is true.",
+      "revId": "88fd720b6799184c8ad61e766a6d37af33ed30ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
