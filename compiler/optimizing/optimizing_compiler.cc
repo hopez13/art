@@ -30,6 +30,11 @@
 
 #ifdef ART_ENABLE_CODEGEN_mips
 #include "pc_relative_fixups_mips.h"
+#include "instruction_simplifier_mips.h"
+#endif
+
+#ifdef ART_ENABLE_CODEGEN_mips64
+#include "instruction_simplifier_mips64.h"
 #endif
 
 #ifdef ART_ENABLE_CODEGEN_x86
@@ -532,6 +537,12 @@ static HOptimization* BuildOptimization(
 #ifdef ART_ENABLE_CODEGEN_mips
   } else if (opt_name == mips::PcRelativeFixups::kPcRelativeFixupsMipsPassName) {
     return new (arena) mips::PcRelativeFixups(graph, codegen, stats);
+  } else if (opt_name == mips::InstructionSimplifierMips::kInstructionSimplifierMipsPassName) {
+    return new (arena) mips::InstructionSimplifierMips(graph, stats);
+#endif
+#ifdef ART_ENABLE_CODEGEN_mips64
+  } else if (opt_name == mips64::InstructionSimplifierMips64::kInstructionSimplifierMips64PassName) {
+    return new (arena) mips64::InstructionSimplifierMips64(graph, stats);
 #endif
 #ifdef ART_ENABLE_CODEGEN_x86
   } else if (opt_name == x86::PcRelativeFixups::kPcRelativeFixupsX86PassName) {
@@ -675,10 +686,24 @@ void OptimizingCompiler::RunArchOptimizations(InstructionSet instruction_set,
     case kMips: {
       mips::PcRelativeFixups* pc_relative_fixups =
           new (arena) mips::PcRelativeFixups(graph, codegen, stats);
+      mips::InstructionSimplifierMips* simplifier =
+          new (arena) mips::InstructionSimplifierMips(graph, stats);
       HOptimization* mips_optimizations[] = {
+          simplifier,
           pc_relative_fixups,
       };
       RunOptimizations(mips_optimizations, arraysize(mips_optimizations), pass_observer);
+      break;
+    }
+#endif
+#ifdef ART_ENABLE_CODEGEN_mips64
+    case kMips64: {
+      mips64::InstructionSimplifierMips64* simplifier =
+          new (arena) mips64::InstructionSimplifierMips64(graph, stats);
+      HOptimization* mips64_optimizations[] = {
+        simplifier,
+      };
+      RunOptimizations(mips64_optimizations, arraysize(mips64_optimizations), pass_observer);
       break;
     }
 #endif
