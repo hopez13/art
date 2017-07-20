@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "076efaa9_881e05d4",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T14:54:46Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll keep JNI in mind as I work on improving compliance with JLS (and diverging from the RI). I think GetMethodID() -\u003e ToReflectedMethod() -\u003e toString() would be a good way to test.\n\nHowever, looking at jni_internal.cc#FindMethodID(), I think we should be a bit more strict about checking for ICCE. Note that JNI GetMethodID() also mentions inherited method but we can, in some circumstances, return a method that wasn\u0027t inherited.",
+      "parentUuid": "14b1f8eb_5a33e028",
+      "revId": "e4409a61fc46215cf1a2716edad9074b2a79bcf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c78e87_c075ab9f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 45
