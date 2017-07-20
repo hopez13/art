@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2afc855d_fc16f6bc",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T00:32:07Z",
+      "side": 1,
+      "message": "The original code declared debug builds to be JIT stress builds to find potential issues.\n\nA fast-debug build is still a debug build, so you\u0027d want to stress the JIT more than a regular build. However, I think having it at 2 is one of the issues for slow boot - considering most apps will run JIT after factory reset/flashing. So this CL is meant to try out some middle point. What the right value is I don\u0027t know. This is pretty much in the middle, so seemed like a good starting point.",
+      "parentUuid": "ab85247e_ed9f423c",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 91
+      },
+      "revId": "97969183e310e1f8b18c9304cfdcf4300fede470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b8568d9_94b4a7c4",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
@@ -93,6 +117,30 @@
       "revId": "97969183e310e1f8b18c9304cfdcf4300fede470",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e22d4dd4_dd526e10",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T00:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c695ab5_52ffcd95",
+      "range": {
+        "startLine": 85,
+        "startChar": 41,
+        "endLine": 88,
+        "endChar": 50
+      },
+      "revId": "97969183e310e1f8b18c9304cfdcf4300fede470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
