@@ -599,6 +599,24 @@
     },
     {
       "key": {
+        "uuid": "91082223_ac2a6bd9",
+        "filename": "runtime/dex_file-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-20T11:38:49Z",
+      "side": 1,
+      "message": "It does make the CL shorter, but up to you.",
+      "parentUuid": "740bee2b_6b469e31",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e060d896_1c9496f0",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 44
@@ -663,6 +681,24 @@
       "side": 1,
       "message": "No, it isn\u0027t. Check your gerrit settings.",
       "parentUuid": "07ed1ca7_6baa687c",
+      "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92948ae9_72563a4b",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-20T11:38:49Z",
+      "side": 1,
+      "message": "It\u0027s before your change, but there\u0027s 2 more spaces before the LOG(FATAL).",
+      "parentUuid": "5983a09c_a49fa92c",
       "revId": "1ebde1d9d06d357d77cec983041ee7b8c9b56dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
