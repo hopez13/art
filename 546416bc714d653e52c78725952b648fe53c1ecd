@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11ba65a0_9692d2e4",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T09:38:09Z",
+      "side": 1,
+      "message": "Unnecessary indirection, simplify to `StackHandleScope\u003ckMaxHandles\u003e*`.",
+      "range": {
+        "startLine": 695,
+        "startChar": 23,
+        "endLine": 695,
+        "endChar": 70
+      },
+      "revId": "546416bc714d653e52c78725952b648fe53c1ecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ae9422f_39c3ec9f",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T09:38:09Z",
+      "side": 1,
+      "message": "Add 4 spaces indentation.",
+      "range": {
+        "startLine": 697,
+        "startChar": 2,
+        "endLine": 697,
+        "endChar": 17
+      },
+      "revId": "546416bc714d653e52c78725952b648fe53c1ecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f749bebd_5f890c34",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T09:38:09Z",
+      "side": 1,
+      "message": "Line too long, break before \"class_linker-\u003e\".",
+      "revId": "546416bc714d653e52c78725952b648fe53c1ecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0181852b_31078c13",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T09:38:09Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "546416bc714d653e52c78725952b648fe53c1ecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4127b6c8_02b55e5d",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T09:38:09Z",
+      "side": 1,
+      "message": "You mean `length * 2 \u003e mem`? You\u0027re passing `length / 4` to the array allocation.",
+      "range": {
+        "startLine": 720,
+        "startChar": 12,
+        "endLine": 720,
+        "endChar": 28
+      },
+      "revId": "546416bc714d653e52c78725952b648fe53c1ecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "580d3909_84aefa46",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T09:38:09Z",
+      "side": 1,
+      "message": "What you really mean that we\u0027d have to visit roots in the RegTypeCache below.",
+      "range": {
+        "startLine": 746,
+        "startChar": 0,
+        "endLine": 747,
+        "endChar": 30
+      },
+      "revId": "546416bc714d653e52c78725952b648fe53c1ecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b555450_1b4232ac",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T09:38:09Z",
+      "side": 1,
+      "message": "This is unnecessary, the `hsp` shall keep the handles alive.",
+      "range": {
+        "startLine": 771,
+        "startChar": 2,
+        "endLine": 771,
+        "endChar": 53
+      },
+      "revId": "546416bc714d653e52c78725952b648fe53c1ecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
