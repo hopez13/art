@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "081fc23b_2ffd8945",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T23:25:06Z",
+      "side": 1,
+      "message": "That seems unobvious, can you just force app-image with custom run script?",
+      "parentUuid": "6d11325e_6a648d97",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29a4c20d_b2068f00",
         "filename": "test/660-clinit/src/Main.java",
         "patchSetId": 1
@@ -113,6 +131,24 @@
       "side": 1,
       "message": "It should, but clinit is not enabled now, and you said to let the test case pass, just assume they are all not initialized?\n\nLater I added some classes for each CL that fail to initialize will all have explainations.",
       "parentUuid": "29a4c20d_b2068f00",
+      "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b803d549_605fe91f",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-20T23:25:06Z",
+      "side": 1,
+      "message": "Then the explanation should be that anything with a \u003cclinit\u003e method doesn\u0027t get initialized?\n\nIn the current code, why would transactions abort pre-initializing this class?",
+      "parentUuid": "b775124b_9381b643",
       "revId": "49fe7c39a731c12ab1f352d32de38de8b386645b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
