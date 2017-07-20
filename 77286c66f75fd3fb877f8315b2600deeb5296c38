@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c12dbc1_f49d6f14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T21:02:26Z",
+      "side": 1,
+      "message": "But this is blatantly untrue in your implementation. You don\u0027t restrict this nicely. Instead all calls to EnsureInitialized now have extra work to do.",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 11
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46606f07_b689df0e",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T21:02:26Z",
+      "side": 1,
+      "message": "Comment why this needs a transaction? This seems *majorly* bogus.",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 37
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81c6cc97_88c11229",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T21:02:26Z",
+      "side": 1,
+      "message": "Why this single change?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04a41a91_9a787cdb",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T21:02:26Z",
+      "side": 1,
+      "message": "Why is this a list?\n\nWhy is it a list of Transaction? Looks like this would require to include \"transaction.h?\" Make it list\u003cunique_ptr\u003cTransaction\u003e\u003e?",
+      "range": {
+        "startLine": 851,
+        "startChar": 2,
+        "endLine": 851,
+        "endChar": 11
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1df58cdf_469d1998",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-20T21:02:26Z",
+      "side": 1,
+      "message": "What is this? Why is it necessary in runtime.h? This looks like pollution to me.",
+      "range": {
+        "startLine": 853,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 32
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
