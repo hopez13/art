@@ -26,8 +26,11 @@
 
 namespace art {
 
-// Add all capabilities to the given env.
-void SetAllCapabilities(jvmtiEnv* env);
+// Get a standard set of capabilities for use in tests.
+jvmtiCapabilities GetStandardCapabilities();
+
+// Add all the standard capabilities to the given env.
+void SetStandardCapabilities(jvmtiEnv* env);
 
 // Check whether the given error is NONE. If not, print out the corresponding error message
 // and abort.
