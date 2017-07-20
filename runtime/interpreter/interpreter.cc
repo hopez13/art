@@ -618,7 +618,7 @@ void ArtInterpreterToInterpreterBridge(Thread* self,
     if (UNLIKELY(!declaring_class->IsInitialized())) {
       StackHandleScope<1> hs(self);
       HandleWrapperObjPtr<mirror::Class> h_declaring_class(hs.NewHandleWrapper(&declaring_class));
-      if (UNLIKELY(!Runtime::Current()->GetClassLinker()->EnsureInitialized(
+      if (UNLIKELY(!Runtime::Current()->GetClassLinker()->EnsureInitializedWithTransaction(
           self, h_declaring_class, true, true))) {
         DCHECK(self->IsExceptionPending());
         self->PopShadowFrame();
