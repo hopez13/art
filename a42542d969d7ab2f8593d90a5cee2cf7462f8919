@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c6ec4380_3e8083fc",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T13:24:20Z",
+      "side": 1,
+      "message": "If writer_-\u003eHasBootImage(), we\u0027re doing resolution and ObjPtr\u003c\u003es shall be poisoned. Otherwise, we\u0027re doing just a lookup and ObjPtr\u003c\u003es should not be poisoned but the ScopedObjectAccessUnchecked destructor is poisoning them. (This \"poison in destructor\" was a bit difficult to find.)",
+      "parentUuid": "81731464_0bd73a10",
+      "range": {
+        "startLine": 1135,
+        "startChar": 4,
+        "endLine": 1135,
+        "endChar": 99
+      },
+      "revId": "a42542d969d7ab2f8593d90a5cee2cf7462f8919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8adfd9f8_adca3543",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a65fc237_bcaf00a9",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T13:24:20Z",
+      "side": 1,
+      "message": "Added a FIXME comment.",
+      "parentUuid": "8adfd9f8_adca3543",
+      "range": {
+        "startLine": 1600,
+        "startChar": 0,
+        "endLine": 1600,
+        "endChar": 19
+      },
+      "revId": "a42542d969d7ab2f8593d90a5cee2cf7462f8919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d941d7e_02d80a27",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 11
@@ -59,6 +107,24 @@
       "writtenOn": "2017-07-20T10:54:12Z",
       "side": 1,
       "message": "Add a ScopeAssertNoThreadSuspension.",
+      "revId": "a42542d969d7ab2f8593d90a5cee2cf7462f8919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2743e545_f0a7830c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2467,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-20T13:24:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d941d7e_02d80a27",
       "revId": "a42542d969d7ab2f8593d90a5cee2cf7462f8919",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
