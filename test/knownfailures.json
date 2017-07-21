@@ -721,5 +721,10 @@
                          "lookup changes" ],
         "bug": "b/63089991",
         "env_vars": {"ANDROID_COMPILE_WITH_JACK": "false"}
+    },
+    {
+        "tests": "660-clinit",
+        "variant": "interp-ac",
+        "description": "Tests <clinit> for app images, which interp-ac doesn't do"
     }
 ]
