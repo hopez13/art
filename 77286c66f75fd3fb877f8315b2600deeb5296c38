@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee565589_c5a56350",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-21T22:16:28Z",
+      "side": 1,
+      "message": "Not all calls have to do extra work, just some selected calls now need to do some extra work.",
+      "parentUuid": "5c12dbc1_f49d6f14",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 11
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46606f07_b689df0e",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f619434_606cd99d",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-21T22:16:28Z",
+      "side": 1,
+      "message": "Seems it appeared on the NEW_INSTANCE path before, but later this case is handled by another function.",
+      "parentUuid": "46606f07_b689df0e",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 37
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0f4c93f4_deb38ebb",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-21T22:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81c6cc97_88c11229",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a41a91_9a787cdb",
         "filename": "runtime/runtime.h",
         "patchSetId": 11
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "7a2f8f77_ec7cf241",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-21T22:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a41a91_9a787cdb",
+      "range": {
+        "startLine": 851,
+        "startChar": 2,
+        "endLine": 851,
+        "endChar": 11
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1df58cdf_469d1998",
         "filename": "runtime/runtime.h",
         "patchSetId": 11
@@ -114,6 +210,30 @@
       "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63da55b3_70ab985e",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-21T22:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1df58cdf_469d1998",
+      "range": {
+        "startLine": 853,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 32
+      },
+      "revId": "77286c66f75fd3fb877f8315b2600deeb5296c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
