@@ -2314,10 +2314,13 @@ class InitializeClassVisitor : public CompilationVisitor {
             CHECK(is_app_image);
             // The boot image case doesn't need to recursively initialize the dependencies with
             // special logic since the class linker already does this.
+            // Optimization will be disabled in debuggable build, because in debuggable mode we
+            // want the <clinit> behavior to be observable for the debugger, so we don't do the
+            // <clinit> at compile time.
             can_init_static_fields =
+                !manager_->GetCompiler()->GetCompilerOptions().GetDebuggable() &&
                 !soa.Self()->IsExceptionPending() &&
-                is_superclass_initialized &&
-                NoClinitInDependency(klass, soa.Self(), &class_loader);
+                is_superclass_initialized;
             // TODO The checking for clinit can be removed since it's already
             // checked when init superclass. Currently keep it because it contains
             // processing of intern strings. Will be removed later when intern strings
@@ -2331,6 +2334,11 @@ class InitializeClassVisitor : public CompilationVisitor {
             // a ReaderWriterMutex but we're holding the mutator lock so we fail mutex sanity
             // checks in Thread::AssertThreadSuspensionIsAllowable.
             Runtime* const runtime = Runtime::Current();
+            // Resolve the exception type before enabling the transaction in case the transaction
+            // aborts and cannot resolve the type.
+            manager_->GetClassLinker()->FindClass(Thread::Current(),
+                                                  Transaction::kAbortExceptionSignature,
+                                                  class_loader);
             // Run the class initializer in transaction mode.
             runtime->EnterTransactionMode(is_app_image, klass.Get());
             bool success = manager_->GetClassLinker()->EnsureInitialized(soa.Self(), klass, true,
@@ -2368,10 +2376,12 @@ class InitializeClassVisitor : public CompilationVisitor {
               }
             }
 
-            if (!success) {
+            if (!success && is_boot_image) {
               // On failure, still intern strings of static fields and seen in <clinit>, as these
               // will be created in the zygote. This is separated from the transaction code just
               // above as we will allocate strings, so must be allowed to suspend.
+              // We only need to intern strings for boot image because classes that failed to be
+              // initialized will not appear in app image.
               if (&klass->GetDexFile() == manager_->GetDexFile()) {
                 InternStrings(klass, class_loader);
               } else {
