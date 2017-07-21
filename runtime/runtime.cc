@@ -2065,17 +2065,25 @@ void Runtime::RegisterAppInfo(const std::vector<std::string>& code_paths,
 }
 
 // Transaction support.
-void Runtime::EnterTransactionMode(Transaction* transaction) {
+void Runtime::EnterTransactionMode() {
   DCHECK(IsAotCompiler());
-  DCHECK(transaction != nullptr);
   DCHECK(!IsActiveTransaction());
-  preinitialization_transaction_ = transaction;
+  preinitialization_transaction_ = new Transaction();
 }
 
 void Runtime::ExitTransactionMode() {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
   preinitialization_transaction_ = nullptr;
+}
+
+void Runtime::RollbackAndExitTransactionMode() {
+  DCHECK(IsAotCompiler());
+  DCHECK(IsActiveTransaction());
+  Transaction* rollback_transaction_= preinitialization_transaction_;
+  ExitTransactionMode();
+  rollback_transaction_->Rollback();
+  delete rollback_transaction_;
 }
 
 bool Runtime::IsTransactionAborted() const {

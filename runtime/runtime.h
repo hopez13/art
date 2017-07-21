@@ -24,6 +24,7 @@
 #include <set>
 #include <string>
 #include <utility>
+#include <memory>
 #include <vector>
 
 #include "arch/instruction_set.h"
@@ -457,8 +458,9 @@ class Runtime {
   bool IsActiveTransaction() const {
     return preinitialization_transaction_ != nullptr;
   }
-  void EnterTransactionMode(Transaction* transaction);
+  void EnterTransactionMode();
   void ExitTransactionMode();
+  void RollbackAndExitTransactionMode() REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsTransactionAborted() const;
 
   void AbortTransactionAndThrowAbortError(Thread* self, const std::string& abort_message)
