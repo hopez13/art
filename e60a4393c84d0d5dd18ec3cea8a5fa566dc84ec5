@@ -22,6 +22,98 @@
       "revId": "e60a4393c84d0d5dd18ec3cea8a5fa566dc84ec5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58c1df9f_cbf057d7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3010,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-21T19:25:30Z",
+      "side": 1,
+      "message": "We have an annoying dependency on the oat writers which need the profile info.\n\nSo the loading must be done before setup. Or at least you need to setup the pointer before that and make sure you load into it.\n\nSee CreateOatWriters usage during Setup.",
+      "range": {
+        "startLine": 3004,
+        "startChar": 0,
+        "endLine": 3010,
+        "endChar": 5
+      },
+      "revId": "e60a4393c84d0d5dd18ec3cea8a5fa566dc84ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c91390e5_a2fd6f10",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-21T19:25:30Z",
+      "side": 1,
+      "message": "it reads better if you test equality and continue. In that case, also add a comment, that it\u0027s ok if the profile contain other dex files besides the ones passed to this method.",
+      "range": {
+        "startLine": 1008,
+        "startChar": 3,
+        "endLine": 1008,
+        "endChar": 38
+      },
+      "revId": "e60a4393c84d0d5dd18ec3cea8a5fa566dc84ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68ec7348_33d1c17b",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-21T19:25:30Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 1013,
+        "startChar": 100,
+        "endLine": 1013,
+        "endChar": 105
+      },
+      "revId": "e60a4393c84d0d5dd18ec3cea8a5fa566dc84ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0fb174d_ecc8e891",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-21T19:25:30Z",
+      "side": 1,
+      "message": "Also, add inline cache validation.",
+      "range": {
+        "startLine": 1033,
+        "startChar": 6,
+        "endLine": 1033,
+        "endChar": 7
+      },
+      "revId": "e60a4393c84d0d5dd18ec3cea8a5fa566dc84ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
