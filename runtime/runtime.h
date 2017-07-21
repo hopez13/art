@@ -24,7 +24,6 @@
 #include <set>
 #include <string>
 #include <utility>
-#include <memory>
 #include <vector>
 
 #include "arch/instruction_set.h"
@@ -459,6 +458,7 @@ class Runtime {
     return preinitialization_transaction_ != nullptr;
   }
   void EnterTransactionMode();
+  void EnterTransactionMode(mirror::Class* root);
   void ExitTransactionMode();
   void RollbackAndExitTransactionMode() REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsTransactionAborted() const;

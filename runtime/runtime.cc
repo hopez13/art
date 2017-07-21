@@ -2071,6 +2071,11 @@ void Runtime::EnterTransactionMode() {
   preinitialization_transaction_ = std::unique_ptr<Transaction>(new Transaction());
 }
 
+void Runtime::EnterTransactionMode(mirror::Class* root) {
+  DCHECK(IsAotCompiler());
+  preinitialization_transaction_ = std::unique_ptr<Transaction>(new Transaction(root));
+}
+
 void Runtime::ExitTransactionMode() {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
