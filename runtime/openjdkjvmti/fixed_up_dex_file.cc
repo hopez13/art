@@ -49,14 +49,17 @@ static void DoDexUnquicken(const art::DexFile& new_dex_file, const art::DexFile&
     REQUIRES_SHARED(art::Locks::mutator_lock_) {
   const art::OatDexFile* oat_dex = original_dex_file.GetOatDexFile();
   if (oat_dex == nullptr) {
+    LOG(ERROR) << "Unquicken without oat_dex file!";
     return;
   }
   const art::OatFile* oat_file = oat_dex->GetOatFile();
   if (oat_file == nullptr) {
+    LOG(ERROR) << "Unquicken without oat file!";
     return;
   }
   const art::VdexFile* vdex = oat_file->GetVdexFile();
   if (vdex == nullptr) {
+    LOG(ERROR) << "Unquicken without vdex file!";
     return;
   }
   vdex->FullyUnquickenDexFile(new_dex_file, original_dex_file);
