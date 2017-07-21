@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7500804b_2e168427",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-21T18:09:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a250e5f_3520a43a",
+      "revId": "271624675de94b2d26f0d35072c32b5c18042cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cca49abf_075cefd9",
         "filename": "runtime/verifier/reg_type.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-21T09:05:03Z",
       "side": 1,
       "message": "Comment? What do do with the exception?",
+      "revId": "271624675de94b2d26f0d35072c32b5c18042cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8944257e_f1f803e5",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-21T18:09:58Z",
+      "side": 1,
+      "message": "There was no exception there, as ClassJoin was guaranteed to return without one. I changed that to simplify and have the single (non-recursive) caller deal with it.",
+      "parentUuid": "cca49abf_075cefd9",
       "revId": "271624675de94b2d26f0d35072c32b5c18042cfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
