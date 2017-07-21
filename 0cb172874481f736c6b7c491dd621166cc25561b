@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "6ee28646_afc7e410",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4889,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-21T15:39:53Z",
+      "side": 1,
+      "message": "klass does not ever have the new status (except during compilation).\n\nIf you look into VerifyClass, you\u0027ll see code doing something like this:\n\n bool preverified \u003d VerifyUsingOatClass(klass, oat_file);  // No mutation of klass\n if (preverified || RunVerification()) {\n   SetStatus(klass, Verified);\n }\n\nWe never write the status from the oat file directly into the class. So klass will never have the status SuperClassValidated.\n\n(But probably Jeff should un-inline this call to be equivalent to what the verifier does, so that this code looks more streamlined [and Clang can deal with making it fast])",
+      "parentUuid": "1a63f013_a74a6c44",
+      "range": {
+        "startLine": 4887,
+        "startChar": 1,
+        "endLine": 4889,
+        "endChar": 81
+      },
+      "revId": "0cb172874481f736c6b7c491dd621166cc25561b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8acf8050_a33ea74a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
