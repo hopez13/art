@@ -255,6 +255,7 @@ class JitCodeCache {
   JitCodeCache(MemMap* code_map,
                MemMap* data_map,
                MemMap* writable_code_map,
+               MemMap* code_sync_map,
                size_t initial_code_capacity,
                size_t initial_data_capacity,
                size_t max_capacity,
@@ -383,6 +384,9 @@ class JitCodeCache {
   std::unique_ptr<MemMap> executable_code_map_;
   // Mem map which holds a non-executable view of code for JIT.
   std::unique_ptr<MemMap> writable_code_map_;
+  // Mem map which holds one executable page that we use for flushing instruction
+  // fetch buffers. The code on this page is never executed.
+  std::unique_ptr<MemMap> code_sync_map_;
   // The opaque mspace for allocating code.
   void* code_mspace_ GUARDED_BY(lock_);
   // The opaque mspace for allocating data.
