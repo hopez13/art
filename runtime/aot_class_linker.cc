@@ -27,6 +27,16 @@ AotClassLinker::AotClassLinker(InternTable *intern_table) : ClassLinker(intern_t
 
 AotClassLinker::~AotClassLinker() {}
 
+bool AotClassLinker::CanAllocClass() {
+  // AllocClass doesn't work under transaction, so we abort.
+  if (Runtime::Current()->IsActiveTransaction()) {
+    Runtime::Current()->AbortTransactionAndThrowAbortError(Thread::Current(), "Can't resolve this "
+        "type within a transaction.");
+    return false;
+  }
+  return ClassLinker::CanAllocClass();
+}
+
 // Wrap the original InitializeClass with creation of transaction when in strict mode.
 bool AotClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
                                   bool can_init_statics, bool can_init_parents) {
