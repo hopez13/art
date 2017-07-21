@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e819507_69484a9a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2071,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-21T09:26:26Z",
+      "side": 1,
+      "message": "should that be a unique_ptr?",
+      "range": {
+        "startLine": 2071,
+        "startChar": 2,
+        "endLine": 2071,
+        "endChar": 32
+      },
+      "revId": "2c0ffb12c2c99928976591a810958991f9c13e01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15714174_279ee223",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-21T09:26:26Z",
+      "side": 1,
+      "message": "You need to delete it.",
+      "range": {
+        "startLine": 2077,
+        "startChar": 0,
+        "endLine": 2077,
+        "endChar": 43
+      },
+      "revId": "2c0ffb12c2c99928976591a810958991f9c13e01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
