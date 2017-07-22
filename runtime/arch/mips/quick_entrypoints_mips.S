@@ -2065,44 +2065,194 @@ END art_quick_proxy_invoke_handler
      *
      * Note that this stub writes to a0, t7 and t8.
      */
+    .extern artLookupResolvedMethod
+    .extern __atomic_load_8         # For long long std::atomic::load(std::memory_order).
 ENTRY art_quick_imt_conflict_trampoline
-// FIXME: The DexCache method array has been changed to hash-based cache with eviction.
-// We need a relaxed atomic load of a 64-bit location to try and load the method
-// and call artQuickResolutionTrampoline() if the index does not match.
-#if 0
-    lw      $t8, 0($sp)                                      # Load referrer.
-    lw      $t8, ART_METHOD_DEX_CACHE_METHODS_OFFSET_32($t8) # Load dex cache methods array.
-    sll     $t7, $t7, POINTER_SIZE_SHIFT                     # Calculate offset.
-    addu    $t7, $t8, $t7                                    # Add offset to base.
-    lw      $t7, 0($t7)                                      # Load interface method.
-    lw      $a0, ART_METHOD_JNI_OFFSET_32($a0)               # Load ImtConflictTable.
+    lw      $t8, 0($sp)                                       # $t8 = referrer.
+
+    # Part of SETUP_SAVE_REFS_AND_ARGS_FRAME with some saved GPRs excluded.
+
+    addiu   $sp, $sp, -112
+    .cfi_adjust_cfa_offset 112
+
+    sw      $ra, 108($sp)
+    .cfi_rel_offset 31, 108
+    # sw      $s8, 104($sp)
+    # .cfi_rel_offset 30, 104
+    sw      $gp, 100($sp)
+    # .cfi_rel_offset 28, 100
+    # sw      $s7, 96($sp)
+    # .cfi_rel_offset 23, 96
+    # sw      $s6, 92($sp)
+    # .cfi_rel_offset 22, 92
+    # sw      $s5, 88($sp)
+    # .cfi_rel_offset 21, 88
+    # sw      $s4, 84($sp)
+    # .cfi_rel_offset 20, 84
+    sw      $s3, 80($sp)
+    .cfi_rel_offset 19, 80
+    sw      $s2, 76($sp)
+    .cfi_rel_offset 18, 76
+    sw      $t1, 72($sp)
+    .cfi_rel_offset 9, 72
+    sw      $t0, 68($sp)
+    .cfi_rel_offset 8, 68
+    sw      $a3, 64($sp)
+    .cfi_rel_offset 7, 64
+    sw      $a2, 60($sp)
+    .cfi_rel_offset 6, 60
+    sw      $a1, 56($sp)
+    .cfi_rel_offset 5, 56
+    sdc1    $f18, 48($sp)
+    sdc1    $f16, 40($sp)
+    sdc1    $f14, 32($sp)
+    sdc1    $f12, 24($sp)
+    sdc1    $f10, 16($sp)
+    sdc1    $f8,   8($sp)
+
+    addiu   $sp, $sp, -ARG_SLOT_SIZE                # Reserve argument slots on the stack.
+    .cfi_adjust_cfa_offset ARG_SLOT_SIZE
+
+    lw      $t8, ART_METHOD_DEX_CACHE_METHODS_OFFSET_32($t8)  # $t8 = dex cache methods array.
+    la      $t9, __atomic_load_8
+
+    move    $s2, $t7                                # $s2 = method index (callee-saved).
+    sll     $t7, $t7, 32 - METHOD_DEX_CACHE_HASH_BITS  # $t7 = slot index in top bits, zeroes below.
+    srl     $t7, $t7, 32 - METHOD_DEX_CACHE_HASH_BITS - (POINTER_SIZE_SHIFT + 1)
+                                                    # $t7 = slot offset.
+    lw      $s3, ART_METHOD_JNI_OFFSET_32($a0)      # $s3 = ImtConflictTable (callee-saved).
+
+    li      $a1, 0                                  # $a1 = std::memory_order_relaxed.
+                                                    # TODO: static_assert(std::memory_order_relaxed == 0).
+    jalr    $t9                                     # [$v0, $v1] = __atomic_load_8($a0, $a1)
+    addu    $a0, $t8, $t7                           # $a0 = DexCache method slot address.
+
+    bne     $v1, $s2, .Limt_conflict_trampoline_dex_cache_miss  # Branch if method index miss.
+    addiu   $sp, $sp, ARG_SLOT_SIZE                 # Remove argument slots from the stack.
+    .cfi_adjust_cfa_offset -ARG_SLOT_SIZE
 
 .Limt_table_iterate:
-    lw      $t8, 0($a0)                                      # Load next entry in ImtConflictTable.
+    lw      $t8, 0($s3)                             # Load next entry in ImtConflictTable.
     # Branch if found.
-    beq     $t8, $t7, .Limt_table_found
+    beq     $t8, $v0, .Limt_table_found
     nop
     # If the entry is null, the interface method is not in the ImtConflictTable.
     beqz    $t8, .Lconflict_trampoline
     nop
     # Iterate over the entries of the ImtConflictTable.
     b       .Limt_table_iterate
-    addiu   $a0, $a0, 2 * __SIZEOF_POINTER__                 # Iterate to the next entry.
+    addiu   $s3, $s3, 2 * __SIZEOF_POINTER__        # Iterate to the next entry.
 
 .Limt_table_found:
     # We successfully hit an entry in the table. Load the target method and jump to it.
-    lw      $a0, __SIZEOF_POINTER__($a0)
+    .cfi_remember_state
+    lw      $a0, __SIZEOF_POINTER__($s3)
     lw      $t9, ART_METHOD_QUICK_CODE_OFFSET_32($a0)
+
+    lw      $ra, 108($sp)
+    .cfi_restore 31
+    # lw      $s8, 104($sp)
+    # .cfi_restore 30
+    # lw      $gp, 100($sp)
+    # .cfi_restore 28
+    # lw      $s7, 96($sp)
+    # .cfi_restore 23
+    # lw      $s6, 92($sp)
+    # .cfi_restore 22
+    # lw      $s5, 88($sp)
+    # .cfi_restore 21
+    # lw      $s4, 84($sp)
+    # .cfi_restore 20
+    lw      $s3, 80($sp)
+    .cfi_restore 19
+    lw      $s2, 76($sp)
+    .cfi_restore 18
+    lw      $t1, 72($sp)
+    .cfi_restore 9
+    lw      $t0, 68($sp)
+    .cfi_restore 8
+    lw      $a3, 64($sp)
+    .cfi_restore 7
+    lw      $a2, 60($sp)
+    .cfi_restore 6
+    lw      $a1, 56($sp)
+    .cfi_restore 5
+    ldc1    $f18, 48($sp)
+    ldc1    $f16, 40($sp)
+    ldc1    $f14, 32($sp)
+    ldc1    $f12, 24($sp)
+    ldc1    $f10, 16($sp)
+    ldc1    $f8,   8($sp)
+    addiu   $sp, $sp, 112                           # Pop frame.
+    .cfi_adjust_cfa_offset -112
+
     jalr    $zero, $t9
     nop
+    .cfi_restore_state
 
 .Lconflict_trampoline:
     # Call the runtime stub to populate the ImtConflictTable and jump to the resolved method.
-    move    $a0, $t7                                         # Load interface method.
-#else
-    move   $a0, $zero
-#endif
-    INVOKE_TRAMPOLINE_BODY artInvokeInterfaceTrampoline
+    .cfi_remember_state
+    lw      $gp, 100($sp)                           # Restore clobbered $gp.
+    lw      $a1, 56($sp)                            # Restore this.
+
+    # Save callee saves in case allocation triggers GC.
+    # Include previously skipped registers to look like SETUP_SAVE_REFS_AND_ARGS_FRAME.
+    sw      $s8, 104($sp)
+    .cfi_rel_offset 30, 104
+    sw      $s7, 96($sp)
+    .cfi_rel_offset 23, 96
+    sw      $s6, 92($sp)
+    .cfi_rel_offset 22, 92
+    sw      $s5, 88($sp)
+    .cfi_rel_offset 21, 88
+    sw      $s4, 84($sp)
+    .cfi_rel_offset 20, 84
+
+    # Complete INVOKE_TRAMPOLINE_BODY.
+    lw      $t0, %got(_ZN3art7Runtime9instance_E)($gp)
+    lw      $t0, 0($t0)
+    lw      $t0, RUNTIME_SAVE_REFS_AND_ARGS_METHOD_OFFSET($t0)
+    sw      $t0, 0($sp)                             # Place Method* at bottom of stack.
+    sw      $sp, THREAD_TOP_QUICK_FRAME_OFFSET(rSELF)
+                                                  # Place sp in Thread::Current()->top_quick_frame.
+    addiu   $sp, $sp, -ARG_SLOT_SIZE                # reserve argument slots on the stack
+    .cfi_adjust_cfa_offset ARG_SLOT_SIZE
+
+    move    $a0, $v0                                # Load interface method.
+    move    $a2, rSELF                              # pass Thread::Current
+    la      $t9, artInvokeInterfaceTrampoline
+    jalr    $t9                                     # (method, this, Thread*, $sp)
+    addiu   $a3, $sp, ARG_SLOT_SIZE                 # pass $sp (remove arg slots)
+    move    $a0, $v0                                # save target Method*
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    beqz    $v0, 1f
+    move    $t9, $v1                                # save $v0->code_
+    jalr    $zero, $t9
+    nop
+1:
+    DELIVER_PENDING_EXCEPTION
+    .cfi_restore_state
+
+.Limt_conflict_trampoline_dex_cache_miss:
+    # We're not creating a proper runtime method frame here,
+    # artLookupResolvedMethod() is not allowed to walk the stack.
+
+    lw      $gp, 100($sp)                           # Restore clobbered $gp.
+    lw      $a1, 112($sp)                           # $a1 = referrer.
+    la      $t9, artLookupResolvedMethod
+    addiu   $sp, $sp, -ARG_SLOT_SIZE                # Reserve argument slots on the stack.
+    .cfi_adjust_cfa_offset ARG_SLOT_SIZE
+    jalr    $t9                                     # (uint32_t method_index, ArtMethod* referrer)
+    move    $a0, $s2                                # $a0 = method index.
+
+    # If the method wasn't resolved, skip the lookup and go to artInvokeInterfaceTrampoline().
+    beqz    $v0, .Lconflict_trampoline
+    addiu   $sp, $sp, ARG_SLOT_SIZE                 # Remove argument slots from the stack.
+    .cfi_adjust_cfa_offset -ARG_SLOT_SIZE
+
+    b       .Limt_table_iterate
+    nop
 END art_quick_imt_conflict_trampoline
 
     .extern artQuickResolutionTrampoline

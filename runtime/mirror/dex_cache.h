@@ -482,7 +482,7 @@ class MANAGED DexCache FINAL : public Object {
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_);
 
   // Due to lack of 16-byte atomics support, we use hand-crafted routines.
-#if defined(__aarch64__)
+#if defined(__aarch64__) || defined(__mips__)
   // 16-byte atomics are supported on aarch64.
   ALWAYS_INLINE static ConversionPair64 AtomicLoadRelaxed16B(
       std::atomic<ConversionPair64>* target) {
