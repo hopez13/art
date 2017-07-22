@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0badb38b_43a64ec6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2071,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-22T01:38:45Z",
+      "side": 1,
+      "message": "ART is using C++14 (there are other uses of std::make_unique).",
+      "parentUuid": "3ab9cf84_48fb37ab",
+      "range": {
+        "startLine": 2071,
+        "startChar": 35,
+        "endLine": 2071,
+        "endChar": 63
+      },
+      "revId": "f03b1ea7936bec6d839e5c4869627b3d5fec09a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "029bfc9f_e863b71f",
         "filename": "runtime/runtime.h",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Can\u0027t them? When it is rollbacked, it also need to exit one layer. Those two calls are always conjuncted so this makes code cleaner. Besides, since the caller doesn\u0027t hold the transaction because creation is done in Runtime, they have to call GetTransaction to retrieve a handler before calling rollback, which is annoying.",
       "parentUuid": "029bfc9f_e863b71f",
+      "range": {
+        "startLine": 463,
+        "startChar": 7,
+        "endLine": 463,
+        "endChar": 37
+      },
+      "revId": "f03b1ea7936bec6d839e5c4869627b3d5fec09a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8c9de48_4b9dfbb1",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-22T01:38:45Z",
+      "side": 1,
+      "message": "I didn\u0027t say it\u0027s bad. I asked for comments. Add \"Convenience function: XYZ\" or something along that line...",
+      "parentUuid": "5704fb85_353fdb13",
       "range": {
         "startLine": 463,
         "startChar": 7,
