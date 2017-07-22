@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3ab9cf84_48fb37ab",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2071,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-22T01:27:11Z",
+      "side": 1,
+      "message": "Available in C++14, which standard are we using? I tried last time and it reports compile error.",
+      "parentUuid": "e12fbde4_722b423a",
+      "range": {
+        "startLine": 2071,
+        "startChar": 35,
+        "endLine": 2071,
+        "endChar": 63
+      },
+      "revId": "f03b1ea7936bec6d839e5c4869627b3d5fec09a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "029bfc9f_e863b71f",
         "filename": "runtime/runtime.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-22T01:18:45Z",
       "side": 1,
       "message": "What does this mean? Why it\u0027s rolled into one? Please add comments.",
+      "range": {
+        "startLine": 463,
+        "startChar": 7,
+        "endLine": 463,
+        "endChar": 37
+      },
+      "revId": "f03b1ea7936bec6d839e5c4869627b3d5fec09a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5704fb85_353fdb13",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-22T01:27:11Z",
+      "side": 1,
+      "message": "Can\u0027t them? When it is rollbacked, it also need to exit one layer. Those two calls are always conjuncted so this makes code cleaner. Besides, since the caller doesn\u0027t hold the transaction because creation is done in Runtime, they have to call GetTransaction to retrieve a handler before calling rollback, which is annoying.",
+      "parentUuid": "029bfc9f_e863b71f",
       "range": {
         "startLine": 463,
         "startChar": 7,
