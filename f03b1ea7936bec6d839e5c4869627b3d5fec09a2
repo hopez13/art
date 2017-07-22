@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e12fbde4_722b423a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2071,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-22T01:18:45Z",
+      "side": 1,
+      "message": "make_unique?",
+      "range": {
+        "startLine": 2071,
+        "startChar": 35,
+        "endLine": 2071,
+        "endChar": 63
+      },
+      "revId": "f03b1ea7936bec6d839e5c4869627b3d5fec09a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "029bfc9f_e863b71f",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-22T01:18:45Z",
+      "side": 1,
+      "message": "What does this mean? Why it\u0027s rolled into one? Please add comments.",
+      "range": {
+        "startLine": 463,
+        "startChar": 7,
+        "endLine": 463,
+        "endChar": 37
+      },
+      "revId": "f03b1ea7936bec6d839e5c4869627b3d5fec09a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42642723_57a7281f",
+        "filename": "runtime/transaction_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-22T01:18:45Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 499,
+        "startChar": 2,
+        "endLine": 499,
+        "endChar": 102
+      },
+      "revId": "f03b1ea7936bec6d839e5c4869627b3d5fec09a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fcaaf11_2a3bf1aa",
+        "filename": "runtime/transaction_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-22T01:18:45Z",
+      "side": 1,
+      "message": "No commented-out code.",
+      "range": {
+        "startLine": 500,
+        "startChar": 2,
+        "endLine": 501,
+        "endChar": 40
+      },
+      "revId": "f03b1ea7936bec6d839e5c4869627b3d5fec09a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
