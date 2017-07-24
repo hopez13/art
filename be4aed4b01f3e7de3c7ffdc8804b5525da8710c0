@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4381816_28c7d0d2",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:55:25Z",
+      "side": 1,
+      "message": "Your comment really applies to the code of L117, not so much to the method here (it is intended use). I would move this comment up to L117, and only describe what this method does here (find index of the first new-array in the method, -1 otherwise)",
+      "revId": "be4aed4b01f3e7de3c7ffdc8804b5525da8710c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8646aca3_e0e0de88",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:55:25Z",
+      "side": 1,
+      "message": "period at end",
+      "revId": "be4aed4b01f3e7de3c7ffdc8804b5525da8710c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f517f62_70199e08",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:55:25Z",
+      "side": 1,
+      "message": "watch your code layout: space before {",
+      "revId": "be4aed4b01f3e7de3c7ffdc8804b5525da8710c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
