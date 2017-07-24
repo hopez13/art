@@ -52,6 +52,41 @@
       "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5401f992_d7576868",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T19:00:17Z",
+      "side": 1,
+      "message": "Something like this :-)\n\nbefore:\n000124: d800 0104                              |0000: add-int/lit8 v0, v1, #int 4 // #04\n000128: 2300 0400                              |0002: new-array v0, v0, [I // type@0004\n00012c: 1100                                   |0004: return-object v0\n\n\nafter:\n000124: 0300 0100 0200                         |0000: move/16 v1, v2\n00012a: d800 0104                              |0003: add-int/lit8 v0, v1, #int 4 // #04\n00012e: 1302 1b00                              |0005: const/16 v2, #int 27 // #1b\n000132: 2320 0400                              |0007: new-array v0, v2, [I // type@0004\n000136: 1100                                   |0009: return-object v0",
+      "parentUuid": "c36eea14_b53c6ec7",
+      "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1983e09_efb15a5f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T19:00:17Z",
+      "side": 1,
+      "message": "Hmm, I got this?\n\nException in thread \"main\" java.lang.IndexOutOfBoundsException: Index: -1, Size: 3\n\tat java.util.LinkedList.checkElementIndex(LinkedList.java:555)\n\tat java.util.LinkedList.get(LinkedList.java:476)\n\tat dexfuzz.program.MutatableCode.insertInstructionAt(MutatableCode.java:161)\n\tat dexfuzz.program.mutators.NewArrayLengthChanger.applyMutation(NewArrayLengthChanger.java:126)",
+      "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
