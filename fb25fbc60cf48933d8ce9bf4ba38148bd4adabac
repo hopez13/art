@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4c58f55_7fedf35b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-24T10:27:05Z",
+      "side": 0,
+      "message": "This is b/62332932. Don\u0027t you need a dmb still before updating the ArtMethod entrypoint?",
+      "range": {
+        "startLine": 931,
+        "startChar": 0,
+        "endLine": 932,
+        "endChar": 76
+      },
+      "revId": "fb25fbc60cf48933d8ce9bf4ba38148bd4adabac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
