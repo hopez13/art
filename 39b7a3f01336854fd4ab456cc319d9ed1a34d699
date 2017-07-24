@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0320b90e_218785b7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T23:07:44Z",
+      "side": 1,
+      "message": "Saying this gives an exception is a bit cryptic (if you would continue it would eventually throw an exception, but since you don\u0027t do that, a future reader will not follow your logic). Be more specific.",
+      "revId": "39b7a3f01336854fd4ab456cc319d9ed1a34d699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37d2ae53_cd7540db",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T23:07:44Z",
+      "side": 1,
+      "message": "still no period at end.",
+      "revId": "39b7a3f01336854fd4ab456cc319d9ed1a34d699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dccdabd_d185815d",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T23:07:44Z",
+      "side": 1,
+      "message": "this is a hidden loop inside a loop :-(\n[remember, we talked about that earlier]\n\nif you scan the instructions, you can keep the index on the side to avoid that",
+      "revId": "39b7a3f01336854fd4ab456cc319d9ed1a34d699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
