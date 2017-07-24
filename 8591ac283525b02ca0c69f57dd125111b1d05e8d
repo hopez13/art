@@ -123,6 +123,24 @@
       "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b2520fb_cfe02341",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T20:15:48Z",
+      "side": 1,
+      "message": "No, this seems to be a general issue with using getInstructionIndex(). If the new-array is mutated by something before this mutation runs (dexfuzz can apply more than one mutation per method), the method does not find the original instruction (by reference) and returns -1.\n\nIf this happens we should probably make some effort to find a new-array, or just bail",
+      "parentUuid": "7d1edc16_8c8ab4fa",
+      "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
