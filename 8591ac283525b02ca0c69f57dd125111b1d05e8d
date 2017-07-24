@@ -159,6 +159,24 @@
       "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d0c8cc2_318f1b49",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-24T21:09:36Z",
+      "side": 1,
+      "message": "So the generateMutation and applyMutations are not guaranteed to be sequential...",
+      "parentUuid": "b9ebc135_2818a513",
+      "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
