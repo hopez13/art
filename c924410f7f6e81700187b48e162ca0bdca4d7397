@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "e67e2c1a_fdc8ff82",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-24T11:36:58Z",
+      "side": 1,
+      "message": "Move this to SuperblockCloner?",
+      "range": {
+        "startLine": 518,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 91
+      },
+      "revId": "c924410f7f6e81700187b48e162ca0bdca4d7397",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d7e1459_19eefbb1",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-24T11:36:58Z",
+      "side": 1,
+      "message": "Skip that if the method doesn\u0027t setup edges?",
+      "range": {
+        "startLine": 67,
+        "startChar": 48,
+        "endLine": 67,
+        "endChar": 78
+      },
+      "revId": "c924410f7f6e81700187b48e162ca0bdca4d7397",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e3c8ad0_e093e755",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 1
