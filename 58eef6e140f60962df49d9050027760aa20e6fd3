@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acb8adb1_17c0ded0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:17:47Z",
+      "side": 1,
+      "message": "extra white line",
+      "revId": "58eef6e140f60962df49d9050027760aa20e6fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aed1ff87_625a1a91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:17:47Z",
+      "side": 1,
+      "message": "nice example! :-) :-)",
+      "revId": "58eef6e140f60962df49d9050027760aa20e6fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be255a71_b705e36c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:17:47Z",
+      "side": 1,
+      "message": "move inside if above, also use \u003d\u003d -1 or \u003c 0 in both cases so readers don\u0027t get confused by the different ways of testing",
+      "revId": "58eef6e140f60962df49d9050027760aa20e6fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea77375b_220f3ad0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:17:47Z",
+      "side": 1,
+      "message": "document the bail",
+      "revId": "58eef6e140f60962df49d9050027760aa20e6fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30b6203f_cf3f1814",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:17:47Z",
+      "side": 1,
+      "message": "document this fall back",
+      "revId": "58eef6e140f60962df49d9050027760aa20e6fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -195,6 +195,24 @@
       "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75777ed9_2efd660a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T22:17:47Z",
+      "side": 1,
+      "message": "yes, it first collects all generateMutation()s, then runs the applyMutation()s (which is the context for what I wanted to bring up tomorrow too).",
+      "parentUuid": "1d0c8cc2_318f1b49",
+      "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
