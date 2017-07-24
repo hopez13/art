@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "67f91c41_80285cb2",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-24T23:51:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0320b90e_218785b7",
+      "revId": "39b7a3f01336854fd4ab456cc319d9ed1a34d699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37d2ae53_cd7540db",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 15
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "50311b6b_6b43e178",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-24T23:51:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37d2ae53_cd7540db",
+      "revId": "39b7a3f01336854fd4ab456cc319d9ed1a34d699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dccdabd_d185815d",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 15
@@ -47,6 +83,24 @@
       "writtenOn": "2017-07-24T23:07:44Z",
       "side": 1,
       "message": "this is a hidden loop inside a loop :-(\n[remember, we talked about that earlier]\n\nif you scan the instructions, you can keep the index on the side to avoid that",
+      "revId": "39b7a3f01336854fd4ab456cc319d9ed1a34d699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "932dabc2_15abc137",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-24T23:51:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dccdabd_d185815d",
       "revId": "39b7a3f01336854fd4ab456cc319d9ed1a34d699",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
