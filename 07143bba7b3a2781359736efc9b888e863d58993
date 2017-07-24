@@ -140,6 +140,30 @@
     },
     {
       "key": {
+        "uuid": "fd463487_98aeba0a",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-24T22:02:00Z",
+      "side": 1,
+      "message": "It used to, but later causes some problem, the Rollback function is fenced, but later outside here, will be other functions try to check the value of rollbacking_, but since log_lock_ is an exclusive lock, violation raised.\n\nThis is the only point set rollbacking_, and this is runs under one single thread, so seems all good.",
+      "parentUuid": "9818f48f_4e483eaa",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 22
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae1353b7_ab4b7aa7",
         "filename": "runtime/transaction.h",
         "patchSetId": 15
