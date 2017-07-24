@@ -1655,7 +1655,7 @@ void Thread::DumpState(std::ostream& os, const Thread* thread, pid_t tid) {
        << " (not attached)\n";
   }
 
-  if (thread != nullptr) {
+  if (thread != nullptr && !Locks::thread_suspend_count_lock_->IsExclusiveHeld(self)) {
     MutexLock mu(self, *Locks::thread_suspend_count_lock_);
     os << "  | group=\"" << group_name << "\""
        << " sCount=" << thread->tls32_.suspend_count
