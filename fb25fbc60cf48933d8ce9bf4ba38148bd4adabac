@@ -22,6 +22,30 @@
       "revId": "fb25fbc60cf48933d8ce9bf4ba38148bd4adabac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "039ec92a_33134988",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-07-24T11:55:31Z",
+      "side": 0,
+      "message": "We have to issue the stronger dsb barriers in FlushJitCodeCacheRange().\n\nThere\u0027s also a dsb in FlushDataCache() in this block boils down to:\n\nhttps://android.googlesource.com/toolchain/gcc/+/master/gcc-4.9/libgcc/config/aarch64/sync-cache.c",
+      "parentUuid": "e4c58f55_7fedf35b",
+      "range": {
+        "startLine": 931,
+        "startChar": 0,
+        "endLine": 932,
+        "endChar": 76
+      },
+      "revId": "fb25fbc60cf48933d8ce9bf4ba38148bd4adabac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
