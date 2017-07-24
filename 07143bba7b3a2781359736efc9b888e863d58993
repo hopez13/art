@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68fd00fa_a2d0df23",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2362,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-24T08:32:43Z",
+      "side": 1,
+      "message": "transactions",
+      "range": {
+        "startLine": 2362,
+        "startChar": 50,
+        "endLine": 2362,
+        "endChar": 61
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3944de_01169549",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2072,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-24T08:32:43Z",
+      "side": 1,
+      "message": "Seems more like PushTransaction now. See my comment below about ExitTransactionMode.",
+      "range": {
+        "startLine": 2072,
+        "startChar": 14,
+        "endLine": 2072,
+        "endChar": 34
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdd55b40_306781c8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2083,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-24T08:32:43Z",
+      "side": 1,
+      "message": "IMO the naming is no longer relevant. What about PopTransaction ?\n\n\"ExitTransactionMode\" suggests that the caller leaves the transaction mode (which used to be no more transaction active), like an on/off concept. Now we just pop the current transaction, making the outer one (if exists) active.",
+      "range": {
+        "startLine": 2083,
+        "startChar": 14,
+        "endLine": 2083,
+        "endChar": 33
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7662637e_a047fdee",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2110,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-24T08:32:43Z",
+      "side": 1,
+      "message": "Please add a check before\n\n  DCHECK(!preinitialization_transactions_.empty());",
+      "range": {
+        "startLine": 2110,
+        "startChar": 9,
+        "endLine": 2110,
+        "endChar": 47
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "638cad95_528a211a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2119,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-24T08:32:43Z",
+      "side": 1,
+      "message": "constraints",
+      "range": {
+        "startLine": 2119,
+        "startChar": 85,
+        "endLine": 2119,
+        "endChar": 95
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9818f48f_4e483eaa",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-24T08:32:43Z",
+      "side": 1,
+      "message": "Seems to suggest rollbacking_ is actually guarded by log_lock.",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 22
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae1353b7_ab4b7aa7",
+        "filename": "runtime/transaction.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-24T08:32:43Z",
+      "side": 1,
+      "message": "be allowed",
+      "range": {
+        "startLine": 64,
+        "startChar": 34,
+        "endLine": 64,
+        "endChar": 41
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dfcccb0_3d505be1",
+        "filename": "runtime/transaction.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-24T08:32:43Z",
+      "side": 1,
+      "message": "Why is it not guarded by log_lock like other members ?",
+      "range": {
+        "startLine": 301,
+        "startChar": 7,
+        "endLine": 301,
+        "endChar": 19
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
