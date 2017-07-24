@@ -141,6 +141,24 @@
       "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ebc135_2818a513",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-24T20:24:20Z",
+      "side": 1,
+      "message": "For example, extreme case, two times array length on same instruction, second would crash:\n\n{\"Generated random instruction\": 746, \"Clobbered the registers\": 1019, \"Deleted instruction\": 971, \"Called new method\": 229, \"Swapped two instructions\": 2002, \"Printed output value\": 1042, \"Duplicated instruction\": 2011, \"Changed a virtual register\": 1381, \"Changed arithmetic opcode\": 1867, \"Changed constant pool index\": 694, \"Printed nonsense string\": 231, \"Changed invoke call instruction\": 737, \"Shifted branch target\": 687, \"Changed constant value\": 1782, \"Changed if branch operator to random operator\": 741, \"Changed if branch operator to opposite operator\": 988, \"Changed length of new array\": 639, \"Repeating conversion\": 1125, \"Changed comparison bias\": 723, \"THIS WOULD CRASH!: new-array v1, v1 pool@4}\": 357}",
+      "parentUuid": "2b2520fb_cfe02341",
+      "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
