@@ -105,6 +105,24 @@
       "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d1edc16_8c8ab4fa",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-24T20:11:18Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused. \n\nIs this related to this CL or previous one?",
+      "parentUuid": "89f1d23d_2c82655b",
+      "revId": "8591ac283525b02ca0c69f57dd125111b1d05e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
