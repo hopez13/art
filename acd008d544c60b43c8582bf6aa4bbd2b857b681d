@@ -46,6 +46,30 @@
       "revId": "acd008d544c60b43c8582bf6aa4bbd2b857b681d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a068c871_1e0a68ab",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-24T15:41:45Z",
+      "side": 1,
+      "message": "There was a bug that the shipped library didn\u0027t provide the 16-byte atomics mutex-based fall-back for some architecture(s) and this would simply fail to link. If this links fine for mips, I\u0027d say that it is supported (even if using the mutex-based fall-back) and I\u0027d like the comment updated to say\n\n  16-byte atomics are supported on aarch64, mips and mips64.\n\nDon\u0027t bother with more details. I also didn\u0027t explain the odd details of the arm64 support.",
+      "parentUuid": "006222d9_e1a0fc9e",
+      "range": {
+        "startLine": 486,
+        "startChar": 38,
+        "endLine": 486,
+        "endChar": 45
+      },
+      "revId": "acd008d544c60b43c8582bf6aa4bbd2b857b681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
