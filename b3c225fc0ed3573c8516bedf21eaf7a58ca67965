@@ -22,6 +22,30 @@
       "revId": "b3c225fc0ed3573c8516bedf21eaf7a58ca67965",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a7841e_18024d36",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-07-24T12:17:50Z",
+      "side": 1,
+      "message": "The comment is extended and there\u0027s a pointer to relevant online ARM doc.",
+      "parentUuid": "9d468038_34c02cd3",
+      "range": {
+        "startLine": 773,
+        "startChar": 48,
+        "endLine": 773,
+        "endChar": 59
+      },
+      "revId": "b3c225fc0ed3573c8516bedf21eaf7a58ca67965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
