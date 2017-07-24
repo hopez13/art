@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "55be13fd_5fc6ef5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-24T22:39:10Z",
+      "side": 1,
+      "message": "Because they are really expected not pre-initialized, they are cases those contraints try to rule out.\n\nFor well-behaved cases, the test still won\u0027t work until the last CL.",
+      "parentUuid": "0a897cee_94ebd644",
+      "range": {
+        "startLine": 17,
+        "startChar": 5,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "a3d174311e3c07cde95032c7eeee7f3d0fa9e957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f58bd4c4_5591c5d3",
         "filename": "/COMMIT_MSG",
         "patchSetId": 20
@@ -39,6 +63,24 @@
       "revId": "a3d174311e3c07cde95032c7eeee7f3d0fa9e957",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2652741_3565866e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-24T22:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f58bd4c4_5591c5d3",
+      "revId": "a3d174311e3c07cde95032c7eeee7f3d0fa9e957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "a3d174311e3c07cde95032c7eeee7f3d0fa9e957",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "add30758_330ab9fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-24T22:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "565a0e2d_7b61c8ab",
+      "range": {
+        "startLine": 22,
+        "startChar": 18,
+        "endLine": 22,
+        "endChar": 71
+      },
+      "revId": "a3d174311e3c07cde95032c7eeee7f3d0fa9e957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

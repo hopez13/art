@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c47564e5_bf956830",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-24T22:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfed25f2_23ee6d31",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "30182f01b39d56692aeba68d835f6c3f8425131d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55b3769a_2cd98684",
         "filename": "runtime/transaction.cc",
         "patchSetId": 13
