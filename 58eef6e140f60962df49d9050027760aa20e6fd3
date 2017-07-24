@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9b88ec17_f75bf254",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-24T22:55:44Z",
+      "side": 1,
+      "message": "Thank you :)",
+      "parentUuid": "aed1ff87_625a1a91",
+      "revId": "58eef6e140f60962df49d9050027760aa20e6fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be255a71_b705e36c",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
         "patchSetId": 13
