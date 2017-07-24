@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22ffd70c_8f8117a5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-24T10:30:22Z",
+      "side": 1,
+      "message": "But only in some situations and when a class is being loaded. Shouldn\u0027t JitcodeCache::RemoveMethodsIn also call RemoveDependenciesForLinearAlloc?",
+      "range": {
+        "startLine": 2324,
+        "startChar": 0,
+        "endLine": 2325,
+        "endChar": 58
+      },
+      "revId": "9882055609bad87a2bbe92045b6fa1e8ec82ff7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
