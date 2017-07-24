@@ -22,6 +22,30 @@
       "revId": "9882055609bad87a2bbe92045b6fa1e8ec82ff7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6e80417_cbd10e60",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2325,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-24T16:56:19Z",
+      "side": 1,
+      "message": "RemoveMethodsIn() above does remove corresponding method headers in CHA dependency map also. It\u0027s not due to InvalidateSingleImplementationMethods so the comment \"InvalidateSingleImplementationMethods already removes ...\" needs to be updated.",
+      "parentUuid": "22ffd70c_8f8117a5",
+      "range": {
+        "startLine": 2324,
+        "startChar": 0,
+        "endLine": 2325,
+        "endChar": 58
+      },
+      "revId": "9882055609bad87a2bbe92045b6fa1e8ec82ff7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
