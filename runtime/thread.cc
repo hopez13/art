@@ -1656,10 +1656,18 @@ void Thread::DumpState(std::ostream& os, const Thread* thread, pid_t tid) {
   }
 
   if (thread != nullptr) {
-    MutexLock mu(self, *Locks::thread_suspend_count_lock_);
+    int sCount = -1;
+    int dsCount = -1;
+    // check IsExclusiveHeld to prevent recursive hold lock
+    if (!Locks::thread_suspend_count_lock_->IsExclusiveHeld(self)) {
+      MutexLock mu(self, *Locks::thread_suspend_count_lock_);
+      sCount = thread->tls32_.suspend_count;
+      dsCount = thread->tls32_.debug_suspend_count;
+    }
+
     os << "  | group=\"" << group_name << "\""
-       << " sCount=" << thread->tls32_.suspend_count
-       << " dsCount=" << thread->tls32_.debug_suspend_count
+       << " sCount=" << sCount
+       << " dsCount=" << dsCount
        << " flags=" << thread->tls32_.state_and_flags.as_struct.flags
        << " obj=" << reinterpret_cast<void*>(thread->tlsPtr_.opeer)
        << " self=" << reinterpret_cast<const void*>(thread) << "\n";

@@ -248,6 +248,11 @@ class DumpCheckpoint FINAL : public Closure {
 
 void ThreadList::Dump(std::ostream& os, bool dump_native_stack) {
   Thread* self = Thread::Current();
+  if (Locks::thread_list_lock_->IsExclusiveHeld(self)) {
+    os << "  Skip dumping thread list to prevent deadlock" << std::endl;
+    return;
+  }
+
   {
     MutexLock mu(self, *Locks::thread_list_lock_);
     os << "DALVIK THREADS (" << list_.size() << "):\n";
