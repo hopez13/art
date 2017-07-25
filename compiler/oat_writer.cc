@@ -335,6 +335,7 @@ OatWriter::OatWriter(bool compiling_boot_image, TimingLogger* timings, ProfileCo
     bss_method_entries_(),
     bss_type_entries_(),
     bss_string_entries_(),
+    map_boot_image_tables_to_bss_(false),
     oat_data_offset_(0u),
     oat_header_(nullptr),
     size_vdex_header_(0),
@@ -771,6 +772,8 @@ class OatWriter::InitBssLayoutMethodVisitor : public DexMethodVisitor {
         } else if (patch.GetType() == LinkerPatch::Type::kStringBssEntry) {
           StringReference ref(patch.TargetStringDexFile(), patch.TargetStringIndex());
           writer_->bss_string_entries_.Overwrite(ref, /* placeholder */ 0u);
+        } else if (patch.GetType() == LinkerPatch::Type::kStringInternTable) {
+          writer_->map_boot_image_tables_to_bss_ = true;
         }
       }
     } else {
@@ -1398,6 +1401,14 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
                                                                      target_offset);
                 break;
               }
+              case LinkerPatch::Type::kStringInternTable: {
+                uint32_t target_offset = GetInternTableEntryOffset(patch);
+                writer_->relative_patcher_->PatchPcRelativeReference(&patched_code_,
+                                                                     patch,
+                                                                     offset_ + literal_offset,
+                                                                     target_offset);
+                break;
+              }
               case LinkerPatch::Type::kStringBssEntry: {
                 StringReference ref(patch.TargetStringDexFile(), patch.TargetStringIndex());
                 uint32_t target_offset =
@@ -1602,6 +1613,32 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
     data[1] = (address >> 8) & 0xffu;
     data[2] = (address >> 16) & 0xffu;
     data[3] = (address >> 24) & 0xffu;
+  }
+
+  uint32_t GetInternTableEntryOffset(const LinkerPatch& patch)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    ScopedObjectAccessUnchecked soa(Thread::Current());
+    Runtime* runtime = Runtime::Current();
+    ClassLinker* linker = runtime->GetClassLinker();
+    GcRoot<mirror::String>* string_root =
+        linker->LookupStringRoot(*patch.TargetStringDexFile(), patch.TargetStringIndex());
+    DCHECK(string_root != nullptr);
+    DCHECK(!writer_->HasBootImage());
+    const uint8_t* raw_string_root = reinterpret_cast<const uint8_t*>(string_root);
+    uint32_t base_offset = writer_->bss_start_;
+    for (gc::space::ImageSpace* space : runtime->GetHeap()->GetBootImageSpaces()) {
+      const ImageSection& interned_strings =
+          space->GetImageHeader().GetImageSection(ImageHeader::kSectionInternedStrings);
+      const uint8_t* interned_strings_begin = space->Begin() + interned_strings.Offset();
+      size_t offset = static_cast<size_t>(raw_string_root - interned_strings_begin);
+      if (offset < interned_strings.Size()) {
+        DCHECK_LE(base_offset + offset, writer_->bss_start_ + writer_->bss_methods_offset_);
+        return base_offset + offset;
+      }
+      base_offset += space->GetImageHeader().GetConstantTablesMappedSize();
+    }
+    LOG(FATAL) << "Didn't find boot image string in boot image intern tables!";
+    UNREACHABLE();
   }
 };
 
@@ -1943,18 +1980,21 @@ void OatWriter::InitBssLayout(InstructionSet instruction_set) {
   DCHECK_EQ(bss_size_, 0u);
   if (HasBootImage()) {
     DCHECK(bss_string_entries_.empty());
-    if (bss_method_entries_.empty() && bss_type_entries_.empty()) {
-      // Nothing to put to the .bss section.
-      return;
-    }
+    DCHECK(!map_boot_image_tables_to_bss_);
+  }
+  if (!map_boot_image_tables_to_bss_ &&
+      bss_method_entries_.empty() &&
+      bss_type_entries_.empty() &&
+      bss_string_entries_.empty()) {
+    // Nothing to put to the .bss section.
+    return;
   }
 
-  // Allocate space for app dex cache arrays in the .bss section.
+  // Allocate space for boot image tables in the .bss section.
   PointerSize pointer_size = GetInstructionSetPointerSize(instruction_set);
-  if (!HasBootImage()) {
-    for (const DexFile* dex_file : *dex_files_) {
-      DexCacheArraysLayout layout(pointer_size, dex_file);
-      bss_size_ += layout.Size();
+  if (map_boot_image_tables_to_bss_) {
+    for (gc::space::ImageSpace* space : Runtime::Current()->GetHeap()->GetBootImageSpaces()) {
+      bss_size_ += space->GetImageHeader().GetConstantTablesMappedSize();
     }
   }
 
