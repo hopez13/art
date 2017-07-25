@@ -113,6 +113,7 @@ void Class::SetStatus(Handle<Class> h_this, Status new_status, Thread* self) {
   bool class_linker_initialized = class_linker != nullptr && class_linker->IsInitialized();
   if (LIKELY(class_linker_initialized)) {
     if (UNLIKELY(new_status <= old_status &&
+                 old_status != kStatusPreInitialized &&
                  new_status != kStatusErrorUnresolved &&
                  new_status != kStatusErrorResolved &&
                  new_status != kStatusRetired)) {

@@ -41,6 +41,9 @@ class AotClassLinker : public ClassLinker {
       OVERRIDE
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
+
+  void SetStatusInitialized(Thread* self, Handle<mirror::Class> klass)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 };
 }  // namespace art
 

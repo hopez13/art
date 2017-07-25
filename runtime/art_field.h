@@ -161,6 +161,9 @@ class ArtField FINAL {
   void Set64(ObjPtr<mirror::Object> object, uint64_t new_value)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void ResetField(ObjPtr<mirror::Object> object)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   template<class MirrorType = mirror::Object>
   ObjPtr<MirrorType> GetObj(ObjPtr<mirror::Object> object)
       REQUIRES_SHARED(Locks::mutator_lock_);
