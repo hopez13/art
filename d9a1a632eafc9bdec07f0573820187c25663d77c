@@ -51,6 +51,24 @@
       "revId": "d9a1a632eafc9bdec07f0573820187c25663d77c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4d3498_60c9593b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-25T16:47:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "620a1270_78df371d",
+      "revId": "d9a1a632eafc9bdec07f0573820187c25663d77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
