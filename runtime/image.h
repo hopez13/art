@@ -19,6 +19,7 @@
 
 #include <string.h>
 
+#include "base/bit_utils.h"
 #include "base/enums.h"
 #include "globals.h"
 #include "mirror/object.h"
@@ -309,6 +310,20 @@ class PACKED(4) ImageHeader {
     // App images currently require a boot image, if the size is non zero then it is an app image
     // header.
     return boot_image_size_ != 0u;
+  }
+
+  uint32_t GetConstantTablesMappedOffset() const {
+    return GetInternedStringsSection().Offset();
+  }
+
+  uint32_t GetConstantTablesMappedSize() const {
+    // Interned strings table and class table are mapped read only.
+    const ImageSection& interned_strings = GetImageSection(ImageHeader::kSectionInternedStrings);
+    const ImageSection& class_table = GetImageSection(ImageHeader::kSectionClassTable);
+    DCHECK_ALIGNED(interned_strings.Offset(), kPageSize);
+    DCHECK_LE(interned_strings.Offset(), class_table.Offset());
+    size_t tables_size = class_table.Offset() + class_table.Size() - interned_strings.Offset();
+    return RoundUp(tables_size, kPageSize);
   }
 
   // Visit ArtMethods in the section starting at base. Includes runtime methods.
