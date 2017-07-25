@@ -164,6 +164,30 @@
     },
     {
       "key": {
+        "uuid": "98c9cb39_9db2aa08",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-07-25T09:12:02Z",
+      "side": 1,
+      "message": "Thanks for the clarification. I think it\u0027s worth to document that then (in the header file).",
+      "parentUuid": "fd463487_98aeba0a",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 22
+      },
+      "revId": "07143bba7b3a2781359736efc9b888e863d58993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae1353b7_ab4b7aa7",
         "filename": "runtime/transaction.h",
         "patchSetId": 15
