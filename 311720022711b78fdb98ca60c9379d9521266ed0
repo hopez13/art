@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80a4ccd3_4f59c5a6",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-25T14:48:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer keeping two handles here. This stub should be rarely called.",
+      "range": {
+        "startLine": 2487,
+        "startChar": 0,
+        "endLine": 2488,
+        "endChar": 54
+      },
+      "revId": "311720022711b78fdb98ca60c9379d9521266ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
