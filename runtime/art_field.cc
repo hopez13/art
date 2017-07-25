@@ -86,4 +86,36 @@ void ArtField::GetOffsetDCheck() {
   CHECK(GetDeclaringClass()->IsResolved());
 }
 
+void ArtField::ResetField(ObjPtr<mirror::Object> o) {
+  auto field_type = GetTypeAsPrimitiveType();
+  switch (field_type) {
+    case Primitive::kPrimBoolean:
+      SetBoolean<false>(o, 0);
+      break;
+    case Primitive::kPrimByte:
+      SetByte<false>(o, 0);
+      break;
+    case Primitive::kPrimChar:
+      SetChar<false>(o, 0);
+      break;
+    case Primitive::kPrimInt:
+    case Primitive::kPrimFloat:
+      Set32<false>(o, 0);
+      break;
+    case Primitive::kPrimLong:
+    case Primitive::kPrimDouble:
+      Set64<false>(o, 0);
+      break;
+    case Primitive::kPrimShort:
+      SetShort<false>(o, 0);
+      break;
+    case Primitive::kPrimNot:
+      SetObject<false>(o, nullptr);
+      break;
+    case Primitive::kPrimVoid:
+      // Never okay.
+      return;
+  }
+}
+
 }  // namespace art

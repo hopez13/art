@@ -55,6 +55,7 @@ class Transaction FINAL {
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsAborted() REQUIRES(!log_lock_);
+  bool IsNeedRuntimeCheck() REQUIRES(!log_lock_);
 
   // If the transaction is rollbacking. Transactions will set this flag when they start rollbacking,
   // because the nested transaction should be disabled when rollbacking to restore the memory.
@@ -317,6 +318,7 @@ class Transaction FINAL {
   mirror::Class* root_ GUARDED_BY(log_lock_);
   uint32_t space_used_ GUARDED_BY(log_lock_);
   uint32_t space_limit_ GUARDED_BY(log_lock_);
+  bool need_runtime_check_ GUARDED_BY(log_lock_);
 
   DISALLOW_COPY_AND_ASSIGN(Transaction);
 };

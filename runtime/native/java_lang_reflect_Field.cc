@@ -255,6 +255,10 @@ ALWAYS_INLINE inline static void SetFieldValue(ObjPtr<mirror::Object> o,
                                                const JValue& new_value)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(f->GetDeclaringClass()->IsInitialized());
+  BOOT_MONITOR(f->GetArtField());
+  bool stripping_final = false;
+  ObjPtr<mirror::Field> host_field = nullptr;
+
   MemberOffset offset(f->GetOffset());
   const bool is_volatile = f->IsVolatile();
   switch (field_type) {
@@ -280,11 +284,29 @@ ALWAYS_INLINE inline static void SetFieldValue(ObjPtr<mirror::Object> o,
     }
     break;
   case Primitive::kPrimInt:
+    // The case that using reflection to remove Modifier.FINAL from accessFlag. The BOOT_MONITOR
+    // will fail to track the modification.
+    if (o->GetClass() == f->GetClass()) {  // Field's host is also a field
+      host_field = ObjPtr<mirror::Field>::DownCast(o);
+      if (host_field->GetDeclaringClass()->IsBootStrapClassLoaded()) {
+        // Host field's declaring class is in boot image.
+        if (host_field->IsFinal() && host_field->IsStatic()) {
+          // And host filed is static final now.
+          stripping_final = true;
+        }
+      }
+    }
+    FALLTHROUGH_INTENDED;
   case Primitive::kPrimFloat:
     if (is_volatile) {
       o->SetField32Volatile<false>(offset, new_value.GetI());
     } else {
       o->SetField32<false>(offset, new_value.GetI());
+    }
+    if (stripping_final && !host_field->IsFinal()) {
+      // Host field changed from final to non-final, have high potential to be modified, mark
+      // boot has been compromised.
+      Runtime::Current()->GetClassLinker()->SetBootCompromised();
     }
     break;
   case Primitive::kPrimLong:

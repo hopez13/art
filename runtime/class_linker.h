@@ -674,6 +674,14 @@ class ClassLinker {
     return cha_.get();
   }
 
+  void SetBootCompromised() {
+    is_boot_compromised_ = true;
+  }
+
+  bool IsBootCompromised() const {
+    return is_boot_compromised_;
+  }
+
   struct DexCacheData {
     // Construct an invalid data object.
     DexCacheData()
@@ -714,6 +722,11 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_) {
     return true;
+  }
+
+  virtual void SetStatusInitialized(Thread* self, Handle<mirror::Class> klass)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    klass->SetStatus(klass, mirror::Class::kStatusInitialized, self);
   }
 
  private:
@@ -1279,6 +1292,9 @@ class ClassLinker {
   PointerSize image_pointer_size_;
 
   std::unique_ptr<ClassHierarchyAnalysis> cha_;
+
+  // Whether any final static fields in boot class has been modified
+  bool is_boot_compromised_;
 
   class FindVirtualMethodHolderVisitor;
 

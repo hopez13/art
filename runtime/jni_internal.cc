@@ -1350,6 +1350,7 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT_RETURN_VOID(fid);
     ScopedObjectAccess soa(env);
     ArtField* f = jni::DecodeArtField(fid);
+    BOOT_MONITOR(f);
     NotifySetObjectField(f, nullptr, java_value);
     ObjPtr<mirror::Object> v = soa.Decode<mirror::Object>(java_value);
     f->SetObject<false>(f->GetDeclaringClass(), v);
@@ -1360,6 +1361,7 @@ class JNI {
   CHECK_NON_NULL_ARGUMENT_RETURN_ZERO(fid); \
   ScopedObjectAccess soa(env); \
   ArtField* f = jni::DecodeArtField(fid); \
+  BOOT_MONITOR(f); \
   NotifyGetField(f, instance); \
   ObjPtr<mirror::Object> o = soa.Decode<mirror::Object>(instance); \
   return f->Get ##fn (o)

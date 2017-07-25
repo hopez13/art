@@ -371,7 +371,8 @@ ClassLinker::ClassLinker(InternTable* intern_table)
       quick_generic_jni_trampoline_(nullptr),
       quick_to_interpreter_bridge_trampoline_(nullptr),
       image_pointer_size_(kRuntimePointerSize),
-      cha_(Runtime::Current()->IsAotCompiler() ? nullptr : new ClassHierarchyAnalysis()) {
+      cha_(Runtime::Current()->IsAotCompiler() ? nullptr : new ClassHierarchyAnalysis()),
+      is_boot_compromised_(false) {
   // For CHA disabled during Aot, see b/34193647.
 
   CHECK(intern_table_ != nullptr);
@@ -3113,7 +3114,6 @@ bool ClassLinker::ShouldUseInterpreterEntrypoint(ArtMethod* method, const void* 
 }
 
 void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
-  DCHECK(klass->IsInitialized()) << klass->PrettyDescriptor();
   if (klass->NumDirectMethods() == 0) {
     return;  // No direct methods => no static methods.
   }
@@ -3123,6 +3123,7 @@ void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
       return;  // OAT file unavailable.
     }
   }
+  DCHECK(klass->IsInitialized()) << klass->PrettyDescriptor();
 
   const DexFile& dex_file = klass->GetDexFile();
   const DexFile::ClassDef* dex_class_def = klass->GetClassDef();
@@ -4786,6 +4787,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
   }
 
   self->AllowThreadSuspension();
+  bool need_reset_static = false;
   uint64_t t0;
   {
     ObjectLock<mirror::Class> lock(self, klass);
@@ -4793,6 +4795,22 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
     // Re-check under the lock in case another thread initialized ahead of us.
     if (klass->IsInitialized()) {
       return true;
+    }
+
+    if (klass->GetStatus() == mirror::Class::kStatusPreInitialized &&
+        !is_boot_compromised_) {
+      // Guaranteed by AotClassLinker, compiler will never reach this point.
+      DCHECK(!Runtime::Current()->IsAotCompiler());
+      klass->SetObjectSizeAllocFastPath(std::numeric_limits<uint32_t>::max());
+      klass->SetStatus(klass, mirror::Class::kStatusInitialized, self);
+      return true;
+    }
+
+    if (klass->GetStatus() == mirror::Class::kStatusPreInitialized && is_boot_compromised_) {
+      klass->SetObjectSizeAllocFastPath(std::numeric_limits<uint32_t>::max());
+      klass->SetStatus(klass, mirror::Class::kStatusVerified, self);
+      // Need to reset all static fields before start <clinit>, or the previous results reused.
+      need_reset_static = true;
     }
 
     // Was the class already found to be erroneous? Done under the lock to match the JLS.
@@ -4974,6 +4992,12 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
       }
     }
 
+    if (UNLIKELY(need_reset_static)) {
+      for (size_t i = 0; i < num_static_fields; ++i) {
+        klass->GetStaticField(i)->ResetField(klass.Get());
+      }
+    }
+
     annotations::RuntimeEncodedStaticFieldValueIterator value_it(dex_file,
                                                                  &dex_cache,
                                                                  &class_loader,
@@ -5037,7 +5061,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
       global_stats->class_init_time_ns += (t1 - t0);
       thread_stats->class_init_time_ns += (t1 - t0);
       // Set the class as initialized except if failed to initialize static fields.
-      mirror::Class::SetStatus(klass, mirror::Class::kStatusInitialized, self);
+      SetStatusInitialized(self, klass);
       if (VLOG_IS_ON(class_linker)) {
         std::string temp;
         LOG(INFO) << "Initialized class " << klass->GetDescriptor(&temp) << " from " <<
