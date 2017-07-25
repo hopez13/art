@@ -35,7 +35,7 @@ import dexfuzz.listeners.UpdatingConsoleListener;
 public class DexFuzz {
   // Last version update 1.6: added temporary register to ArrayLengthChanger.
   private static int majorVersion = 1;
-  private static int minorVersion = 6;
+  private static int minorVersion = 7;
   private static int seedChangeVersion = 0;
 
   /**
