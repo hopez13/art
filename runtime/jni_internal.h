@@ -21,6 +21,7 @@
 #include <iosfwd>
 
 #include "base/macros.h"
+#include "boot_update_whitelist.h"
 
 namespace art {
 
@@ -53,6 +54,17 @@ ALWAYS_INLINE
 static inline ArtMethod* DecodeArtMethod(jmethodID method_id) {
   return reinterpret_cast<ArtMethod*>(method_id);
 }
+
+#ifndef BOOT_MONITOR
+#define BOOT_MONITOR(f) \
+  if (f->IsFinal() && \
+      f->IsStatic() && \
+      !Runtime::Current()->GetClassLinker()->IsBootCompromised() && \
+      f->GetDeclaringClass()->IsBootStrapClassLoaded() && \
+      !IsWhitelisted(f->PrettyField(false))) { \
+    Runtime::Current()->GetClassLinker()->SetBootCompromised(); \
+  }
+#endif
 
 }  // namespace jni
 }  // namespace art

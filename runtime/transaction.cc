@@ -18,6 +18,7 @@
 
 #include "base/logging.h"
 #include "base/stl_util.h"
+#include "boot_update_whitelist.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc_root-inl.h"
 #include "intern_table.h"
@@ -39,7 +40,8 @@ Transaction::Transaction()
       rolling_back_(false),
       strict_(false),
       space_used_(0),
-      space_limit_(1024 * 10) {  // default space limitation is 10kb
+      space_limit_(1024 * 10),  // default space limitation is 10kb
+      need_runtime_check_(false) {
   CHECK(Runtime::Current()->IsAotCompiler());
 }
 
@@ -145,7 +147,20 @@ bool Transaction::ReadConstraint(mirror::Object* obj, ArtField* field) {
       obj == root_) {  // self-updating, pass
     return false;
   }
+
+  if (obj->AsClass()->IsBootStrapClassLoaded() &&
+      field->IsFinal() &&
+      !transaction::IsBlacklisted(field->PrettyField(false))) {
+    // If try to read a static final field from boot image, mark this class need runtime check.
+    need_runtime_check_ = true;
+    return false;
+  }
   return true;
+}
+
+bool Transaction::IsNeedRuntimeCheck() REQUIRES(!log_lock_) {
+  MutexLock mu(Thread::Current(), log_lock_);
+  return need_runtime_check_;
 }
 
 void Transaction::RecordWriteFieldBoolean(mirror::Object* obj,

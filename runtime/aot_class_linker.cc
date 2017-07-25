@@ -20,6 +20,7 @@
 #include "mirror/class.h"
 #include "mirror/object-inl.h"
 #include "runtime.h"
+#include "transaction.h"
 
 namespace art {
 
@@ -37,6 +38,16 @@ bool AotClassLinker::CanAllocClass() {
   return ClassLinker::CanAllocClass();
 }
 
+void AotClassLinker::SetStatusInitialized(Thread* self, Handle<mirror::Class> klass)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (Runtime::Current()->IsActiveStrictTransactionMode() &&
+      Runtime::Current()->GetTransaction()->IsNeedRuntimeCheck()) {
+    klass->SetStatus(klass, mirror::Class::kStatusPreInitialized, self);
+  } else {
+    klass->SetStatus(klass, mirror::Class::kStatusInitialized, self);
+  }
+}
+
 // Wrap the original InitializeClass with creation of transaction when in strict mode.
 bool AotClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
                                   bool can_init_statics, bool can_init_parents) {
@@ -44,6 +55,10 @@ bool AotClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
   bool strict_mode_ = runtime->IsActiveStrictTransactionMode();
 
   DCHECK(klass != nullptr);
+  if (klass->GetStatus() == mirror::Class::kStatusPreInitialized) {
+    return true;
+  }
+
   if (klass->IsInitialized() || klass->IsInitializing()) {
     return ClassLinker::InitializeClass(self, klass, can_init_statics, can_init_parents);
   }

@@ -15,6 +15,7 @@
  */
 
 import java.util.*;
+import java.lang.reflect.*;
 
 public class Main {
 
@@ -30,6 +31,8 @@ public class Main {
     if (!checkAppImageContains(ClinitAlloc.class)) {
       System.out.println("ClInitAlloc class is not in app image!");
     }
+    // Modifying System.err, should not compromised boot.
+    System.setOut(System.err);
 
     expectPreInit(ClInit.class);
     expectPreInit(A.class);
@@ -50,6 +53,7 @@ public class Main {
     expectNotPreInit(Mul.class);
     expectNotPreInit(ObjectRef.class);
     expectNotPreInit(Print.class);
+    expectPreInit(UseArrayList.class);
 
     Print p = new Print();
     Gs gs = new Gs();
@@ -82,6 +86,28 @@ public class Main {
       ClinitE e = new ClinitE();
     } catch (Error err) { }
 
+    // check boot image modification monitor
+    Field data = ArrayList.class.getDeclaredField("elementData");
+    data.setAccessible(true);
+
+    Object[] newVal = {};
+    ArrayList<Integer> old_arr = new ArrayList<>();
+    // test modify static private final field of HashMap
+    Field field = ArrayList.class.getDeclaredField("DEFAULTCAPACITY_EMPTY_ELEMENTDATA");
+    field.setAccessible(true);  // make public
+    field.set(null, newVal);  // boot is now compromised
+
+    // test whehter actually modified
+    ArrayList<Integer> arr = new ArrayList<>();
+    ASSERT(data.get(old_arr) != newVal);
+    ASSERT(data.get(arr) == newVal);
+    ASSERT(field.get(arr) == newVal);
+    ASSERT(field.get(arr) == data.get(arr));
+
+    ASSERT(UseArrayList.x == 10);  // <clinit> gives correct results
+    ASSERT(data.get(UseArrayList.arr) == newVal);  // new ArrayList runs correctly.
+    ASSERT(UseArrayList.arr.size() == 0);  // new ArrayList runs correctly.
+
     return;
   }
 
@@ -96,6 +122,13 @@ public class Main {
       System.out.println(klass.getName() + " should not be initialized!");
     }
   }
+
+  static void ASSERT(boolean test) throws Exception {
+    if (!test) {
+      throw new Exception("Test fail");
+    }
+  }
+
 
   public static native boolean checkAppImageLoaded();
   public static native boolean checkAppImageContains(Class<?> klass);
@@ -114,6 +147,7 @@ class ClInit {
   static int z;
   static int x, y;
   public static volatile int a = 100;
+  public static ArrayList<String> arr = new ArrayList<>();
 
   static {
     StringBuilder sb = new StringBuilder();
@@ -264,6 +298,15 @@ class Forever {
     while (loop != 101) {
       loop += 100;
     }
+  }
+}
+
+class UseArrayList {
+  public static ArrayList<Integer> arr;
+  public static int x;
+  static {
+    x += 10;
+    arr = new ArrayList<>();
   }
 }
 
