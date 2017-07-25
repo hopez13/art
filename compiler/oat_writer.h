@@ -407,6 +407,9 @@ class OatWriter {
   // is the target offset for patching, starting at `bss_start_ + bss_roots_offset_`.
   SafeMap<StringReference, size_t, StringReferenceValueComparator> bss_string_entries_;
 
+  // Whether boot image tables should be mapped to the .bss.
+  bool map_boot_image_tables_to_bss_;
+
   // Offset of the oat data from the start of the mmapped region of the elf file.
   size_t oat_data_offset_;
 
