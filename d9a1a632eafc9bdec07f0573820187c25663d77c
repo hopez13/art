@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc3b0c9d_8adaadf3",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-25T00:16:39Z",
+      "side": 1,
+      "message": "This is still very cryptic? How about\n\n// If the original new-array instruction is no longer present\n// in the code (as indicated by an negative index), we make a\n// best effort to find any other new-array instruction to \n// apply the mutation to. If that effort fails, we simply\n// bail by doing nothing.",
+      "revId": "d9a1a632eafc9bdec07f0573820187c25663d77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "620a1270_78df371d",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewArrayLengthChanger.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-25T00:16:39Z",
+      "side": 1,
+      "message": "oh this is not what I meant. It is/was not really a loop *in* a loop, but a loop *after* loop (both here and in your original). \n\nWhat I meant is that you scan the instructions in the method to find a new-array. Then, when found, you call indexOf, which again scans the instructions, this time to find the index.\n\nWhy not keep the index while scanning, so in L148, with a bit of different logic (see elsewhere in dexfuzz)",
+      "revId": "d9a1a632eafc9bdec07f0573820187c25663d77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
