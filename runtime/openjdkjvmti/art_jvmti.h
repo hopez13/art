@@ -204,6 +204,10 @@ static inline jvmtiError CopyDataIntoJvmtiBuffer(ArtJvmTiEnv* env,
 
 ALWAYS_INLINE
 static inline JvmtiUniquePtr<char[]> CopyString(jvmtiEnv* env, const char* src, jvmtiError* error) {
+  if (src == nullptr) {
+    JvmtiUniquePtr<char[]> ret = AllocJvmtiUniquePtr<char[]>(env, 0, error);
+    return ret;
+  }
   size_t len = strlen(src) + 1;
   JvmtiUniquePtr<char[]> ret = AllocJvmtiUniquePtr<char[]>(env, len, error);
   if (ret != nullptr) {
