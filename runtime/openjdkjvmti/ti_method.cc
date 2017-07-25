@@ -813,6 +813,7 @@ jvmtiError MethodUtil::GetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
   if (target == nullptr) {
     return ERR(THREAD_NOT_ALIVE);
   }
+  art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
   GetLocalVariablesClosure c(self, depth, slot, type, val);
   art::MutexLock mu(self, *art::Locks::thread_list_lock_);
   if (!target->RequestSynchronousCheckpoint(&c)) {
@@ -946,6 +947,7 @@ jvmtiError MethodUtil::SetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
   if (target == nullptr) {
     return ERR(THREAD_NOT_ALIVE);
   }
+  art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
   SetLocalVariablesClosure c(self, depth, slot, type, val);
   art::MutexLock mu(self, *art::Locks::thread_list_lock_);
   if (!target->RequestSynchronousCheckpoint(&c)) {
@@ -1011,6 +1013,7 @@ jvmtiError MethodUtil::GetLocalInstance(jvmtiEnv* env ATTRIBUTE_UNUSED,
   if (target == nullptr) {
     return ERR(THREAD_NOT_ALIVE);
   }
+  art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
   GetLocalInstanceClosure c(self, depth, data);
   art::MutexLock mu(self, *art::Locks::thread_list_lock_);
   if (!target->RequestSynchronousCheckpoint(&c)) {
