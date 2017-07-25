@@ -21,6 +21,7 @@
 #include <iosfwd>
 
 #include "base/macros.h"
+#include "boot_update_whitelist.h"
 
 namespace art {
 

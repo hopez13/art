@@ -140,8 +140,9 @@ class MANAGED Class FINAL : public Object {
     kStatusVerified = 8,  // Logically part of linking; done pre-init.
     kStatusSuperclassValidated = 9,  // Superclass validation part of init done.
     kStatusInitializing = 10,  // Class init in progress.
-    kStatusInitialized = 11,  // Ready to go.
-    kStatusMax = 12,
+    kStatusPreInitialized = 11,  // Done init but need an intact boot img in runtime to use
+    kStatusInitialized = 12,  // Ready to go.
+    kStatusMax = 13,
   };
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
