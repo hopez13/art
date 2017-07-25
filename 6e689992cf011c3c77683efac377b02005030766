@@ -22,6 +22,30 @@
       "revId": "6e689992cf011c3c77683efac377b02005030766",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb47462c_66dca0f3",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-25T00:10:37Z",
+      "side": 1,
+      "message": "Plain oversight (probably due to the 2 line convention in the other file). Thanks and fixed!",
+      "parentUuid": "2e1fc505_d4ac998c",
+      "range": {
+        "startLine": 1303,
+        "startChar": 0,
+        "endLine": 1304,
+        "endChar": 0
+      },
+      "revId": "6e689992cf011c3c77683efac377b02005030766",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
