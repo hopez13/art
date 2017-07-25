@@ -109,6 +109,17 @@ ObjPtr<mirror::String> InternTable::LookupStrong(Thread* self,
   return strong_interns_.Find(string);
 }
 
+GcRoot<mirror::String>* InternTable::LookupRootStrong(Thread* self,
+                                                      uint32_t utf16_length,
+                                                      const char* utf8_data) {
+  DCHECK_EQ(utf16_length, CountModifiedUtf8Chars(utf8_data));
+  Utf8String string(utf16_length,
+                    utf8_data,
+                    ComputeUtf16HashFromModifiedUtf8(utf8_data, utf16_length));
+  MutexLock mu(self, *Locks::intern_table_lock_);
+  return strong_interns_.FindRoot(string);
+}
+
 ObjPtr<mirror::String> InternTable::LookupWeakLocked(ObjPtr<mirror::String> s) {
   return weak_interns_.Find(s);
 }
@@ -429,6 +440,17 @@ ObjPtr<mirror::String> InternTable::Table::Find(const Utf8String& string) {
     auto it = table.Find(string);
     if (it != table.end()) {
       return it->Read();
+    }
+  }
+  return nullptr;
+}
+
+GcRoot<mirror::String>* InternTable::Table::FindRoot(const Utf8String& string) {
+  Locks::intern_table_lock_->AssertHeld(Thread::Current());
+  for (UnorderedSet& table : tables_) {
+    auto it = table.Find(string);
+    if (it != table.end()) {
+      return std::addressof(*it);
     }
   }
   return nullptr;
