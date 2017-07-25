@@ -245,6 +245,11 @@ class ClassLinker {
                                ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Find a String with the given index from the DexFile and return the address
+  // of the intern table root. Return null if not found.
+  GcRoot<mirror::String>* LookupStringRoot(const DexFile& dex_file, dex::StringIndex string_idx)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Resolve a Type with the given index from the DexFile, storing the
   // result in the DexCache. The referrer is used to identify the
   // target DexCache and ClassLoader to use for resolution.
