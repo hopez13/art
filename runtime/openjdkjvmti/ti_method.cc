@@ -582,7 +582,7 @@ class CommonLocalVariableClosure : public art::Closure {
       return;
     }
     art::ArtMethod* method = visitor.GetMethod();
-    if (method->IsNative() || !visitor.IsShadowFrame()) {
+    if (method->IsNative()) {
       // TODO We really should support get/set for non-shadow frames.
       result_ = ERR(OPAQUE_FRAME);
       return;
@@ -590,6 +590,7 @@ class CommonLocalVariableClosure : public art::Closure {
       result_ = ERR(INVALID_SLOT);
       return;
     }
+    bool needs_instrument = !visitor.IsShadowFrame();
     uint32_t pc = visitor.GetDexPc(/*abort_on_failure*/ false);
     if (pc == art::DexFile::kDexNoIndex) {
       // Cannot figure out current PC.
@@ -610,6 +611,9 @@ class CommonLocalVariableClosure : public art::Closure {
       return;
     }
     result_ = Execute(method, visitor);
+    if (needs_instrument) {
+      art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(self);
+    }
   }
 
   jvmtiError GetResult() const {
