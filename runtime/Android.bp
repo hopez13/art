@@ -397,7 +397,6 @@ cc_defaults {
     generated_headers: ["cpp-define-generator-asm-support"],
     // export our headers so the libart-gtest targets can use it as well.
     export_generated_headers: ["cpp-define-generator-asm-support"],
-    clang: true,
     include_dirs: [
         "art/cmdline",
         "art/sigchainlib",

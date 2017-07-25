@@ -23,7 +23,6 @@ art_cc_defaults {
     name: "libart-compiler-defaults",
     defaults: ["art_defaults"],
     host_supported: true,
-    clang: true,
     srcs: [
         "compiled_method.cc",
         "debug/elf_debug_writer.cc",
