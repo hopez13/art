@@ -22,6 +22,30 @@
       "revId": "1a509c8effc938ba3da0f90ad83abb124b296386",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c347460d_69655696",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-25T17:01:55Z",
+      "side": 1,
+      "message": "After the parsing we look through the given classpaths and remove any of the files matching the compilation source (passed with --dex-file).\n\nThis is the behaviour that has always been there and it looks sensible to me. The plot thickens for no prebuilds where you need -classpath argument and then import that to dex2oat arguments.\n\nI think we can do a clean up on how we do the things (I already have a TODO in dex2oat) but I think it will be a more consistent change and this is a easier. In theory, it could also happen for secondary dex files where we have no control over what class loaders get created.",
+      "parentUuid": "753b9990_0495a918",
+      "range": {
+        "startLine": 10,
+        "startChar": 41,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "1a509c8effc938ba3da0f90ad83abb124b296386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
