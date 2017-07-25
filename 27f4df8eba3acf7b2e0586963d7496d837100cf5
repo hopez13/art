@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "a7625efe_79a02bbc",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-25T01:29:35Z",
+      "side": 1,
+      "message": "That isn\u0027t really saying why you need a list. Maybe:\n\n Contains all started transactions. These must be visited during a GC.\n\n(Still doesn\u0027t explain list vs stack etc.)",
+      "parentUuid": "a5e02217_d98a1996",
+      "range": {
+        "startLine": 849,
+        "startChar": 2,
+        "endLine": 849,
+        "endChar": 71
+      },
+      "revId": "27f4df8eba3acf7b2e0586963d7496d837100cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a396ef4_621856eb",
         "filename": "runtime/transaction.h",
         "patchSetId": 2
