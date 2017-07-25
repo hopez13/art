@@ -37,6 +37,7 @@
 #include "base/mutex-inl.h"
 #include "dex_file_annotations.h"
 #include "events-inl.h"
+#include "jit/jit.h"
 #include "jni_internal.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
@@ -582,7 +583,7 @@ class CommonLocalVariableClosure : public art::Closure {
       return;
     }
     art::ArtMethod* method = visitor.GetMethod();
-    if (method->IsNative() || !visitor.IsShadowFrame()) {
+    if (method->IsNative()) {
       // TODO We really should support get/set for non-shadow frames.
       result_ = ERR(OPAQUE_FRAME);
       return;
@@ -590,6 +591,7 @@ class CommonLocalVariableClosure : public art::Closure {
       result_ = ERR(INVALID_SLOT);
       return;
     }
+    bool needs_instrument = !visitor.IsShadowFrame();
     uint32_t pc = visitor.GetDexPc(/*abort_on_failure*/ false);
     if (pc == art::DexFile::kDexNoIndex) {
       // Cannot figure out current PC.
@@ -610,6 +612,9 @@ class CommonLocalVariableClosure : public art::Closure {
       return;
     }
     result_ = Execute(method, visitor);
+    if (needs_instrument) {
+      art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(self);
+    }
   }
 
   jvmtiError GetResult() const {
@@ -781,6 +786,8 @@ jvmtiError MethodUtil::GetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
     return ERR(ILLEGAL_ARGUMENT);
   }
   art::Thread* self = art::Thread::Current();
+  // Suspend JIT since it can get confused if we deoptimize methods getting jitted.
+  art::jit::ScopedJitSuspend suspend_jit;
   art::ScopedObjectAccess soa(self);
   art::MutexLock mu(self, *art::Locks::thread_list_lock_);
   art::Thread* target = ThreadUtil::GetNativeThread(thread, soa);
@@ -908,6 +915,8 @@ jvmtiError MethodUtil::SetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
     return ERR(ILLEGAL_ARGUMENT);
   }
   art::Thread* self = art::Thread::Current();
+  // Suspend JIT since it can get confused if we deoptimize methods getting jitted.
+  art::jit::ScopedJitSuspend suspend_jit;
   art::ScopedObjectAccess soa(self);
   art::MutexLock mu(self, *art::Locks::thread_list_lock_);
   art::Thread* target = ThreadUtil::GetNativeThread(thread, soa);
