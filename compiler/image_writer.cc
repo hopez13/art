@@ -1904,8 +1904,11 @@ size_t ImageWriter::ImageInfo::CreateImageSections(ImageSection* out_sections) c
   ImageSection* dex_cache_arrays_section = &out_sections[ImageHeader::kSectionDexCacheArrays];
   *dex_cache_arrays_section = ImageSection(bin_slot_offsets_[kBinDexCacheArray],
                                            bin_slot_sizes_[kBinDexCacheArray]);
-  // Round up to the alignment the string table expects. See HashSet::WriteToMemory.
-  size_t cur_pos = RoundUp(dex_cache_arrays_section->End(), sizeof(uint64_t));
+  // Round up to the page boundary to separate the interned strings and class table from the
+  // modifiable data. We shall mprotect() these pages read-only when we load the image.
+  // This is more than sufficient for the string table alignment. See HashSet::WriteToMemory.
+  static_assert(IsAligned<sizeof(uint64_t)>(kPageSize), "String table alignment check.");
+  size_t cur_pos = RoundUp(dex_cache_arrays_section->End(), kPageSize);
   // Calculate the size of the interned strings.
   ImageSection* interned_strings_section = &out_sections[ImageHeader::kSectionInternedStrings];
   *interned_strings_section = ImageSection(cur_pos, intern_table_bytes_);
