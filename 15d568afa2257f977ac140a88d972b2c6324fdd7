@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2f095381_1df15825",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-25T17:23:26Z",
+      "side": 1,
+      "message": "The instruction at the dex pc may be ambiguous. For example, if it\u0027s a monitor-enter, depending on whether it comes from a slow path of runtime locking, or from a method entry suspend check (both at dex pc of 0), we need to take different actions. Also a clinit runtime call can be implicit in an invoke-static, just seeing an invoke-static at the dex pc isn\u0027t enough to know whether that invoke-static should be called by the interpreter since it\u0027s not clear that invoke-static has really been invoked or not.",
+      "parentUuid": "9d0a5225_9d1161b1",
+      "range": {
+        "startLine": 1230,
+        "startChar": 5,
+        "endLine": 1240,
+        "endChar": 7
+      },
+      "revId": "15d568afa2257f977ac140a88d972b2c6324fdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "065bcf44_77ccf318",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2017-07-25T09:50:49Z",
       "side": 1,
       "message": "instruction",
+      "range": {
+        "startLine": 566,
+        "startChar": 63,
+        "endLine": 566,
+        "endChar": 74
+      },
+      "revId": "15d568afa2257f977ac140a88d972b2c6324fdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59bf04be_d73f7cbe",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-25T17:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "065bcf44_77ccf318",
       "range": {
         "startLine": 566,
         "startChar": 63,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "65d36bab_73c2dfb1",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-25T17:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1846323d_c9373393",
+      "range": {
+        "startLine": 590,
+        "startChar": 28,
+        "endLine": 590,
+        "endChar": 32
+      },
+      "revId": "15d568afa2257f977ac140a88d972b2c6324fdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcc516f0_88cf9bcb",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -105,6 +177,30 @@
       "writtenOn": "2017-07-25T00:11:09Z",
       "side": 1,
       "message": "Looks like something you should remove.",
+      "range": {
+        "startLine": 2302,
+        "startChar": 84,
+        "endLine": 2302,
+        "endChar": 88
+      },
+      "revId": "15d568afa2257f977ac140a88d972b2c6324fdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5764387_f8e01f4d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2302,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-25T17:23:26Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "fcc516f0_88cf9bcb",
       "range": {
         "startLine": 2302,
         "startChar": 84,
