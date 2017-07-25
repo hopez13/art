@@ -61,7 +61,7 @@ public class RegisterClobber extends CodeMutator{
 
   public RegisterClobber(Random rng, MutationStats stats, List<Mutation> mutations) {
     super(rng, stats, mutations);
-    likelihood = 40;
+    likelihood = 10;
   }
 
   @Override
@@ -90,6 +90,7 @@ public class RegisterClobber extends CodeMutator{
       newInsn.insn = new Instruction();
       newInsn.insn.info = Instruction.getOpcodeInfo(Opcode.CONST_16);
       newInsn.insn.vregA = i;
+      // Used zero because it also applies to objects resulting less verification failures.
       newInsn.insn.vregB = 0;
       mutatableCode.insertInstructionAt(newInsn, mutation.regClobberIdx + i);
     }
