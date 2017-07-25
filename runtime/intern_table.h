@@ -93,6 +93,11 @@ class InternTable {
   ObjPtr<mirror::String> LookupStrong(Thread* self, uint32_t utf16_length, const char* utf8_data)
       REQUIRES(!Locks::intern_table_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  GcRoot<mirror::String>* LookupRootStrong(Thread* self,
+                                           uint32_t utf16_length,
+                                           const char* utf8_data)
+      REQUIRES(!Locks::intern_table_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Lookup a weak intern, returns null if not found.
   ObjPtr<mirror::String> LookupWeak(Thread* self, ObjPtr<mirror::String> s)
@@ -190,6 +195,8 @@ class InternTable {
     ObjPtr<mirror::String> Find(ObjPtr<mirror::String> s) REQUIRES_SHARED(Locks::mutator_lock_)
         REQUIRES(Locks::intern_table_lock_);
     ObjPtr<mirror::String> Find(const Utf8String& string) REQUIRES_SHARED(Locks::mutator_lock_)
+        REQUIRES(Locks::intern_table_lock_);
+    GcRoot<mirror::String>* FindRoot(const Utf8String& string) REQUIRES_SHARED(Locks::mutator_lock_)
         REQUIRES(Locks::intern_table_lock_);
     void Insert(ObjPtr<mirror::String> s) REQUIRES_SHARED(Locks::mutator_lock_)
         REQUIRES(Locks::intern_table_lock_);

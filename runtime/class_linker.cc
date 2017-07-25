@@ -1760,6 +1760,17 @@ bool ClassLinker::AddImageSpace(
     header.VisitPackedArtMethods(&visitor, space->Begin(), image_pointer_size_);
   }
 
+  if (!app_image) {
+    // Make the string intern table and class table immutable for boot image.
+    // PIC app oat files may mmap a read-only copy into their own .bss section,
+    // so enforce that the data in the boot image tables remains unchanged.
+    //
+    // We cannot do that for app image even after the fixup as some interned
+    // String references may actually end up pointing to moveable Strings.
+    uint8_t* const_section_begin = space->Begin() + header.GetBootImageConstantTablesOffset();
+    mprotect(const_section_begin, header.GetBootImageConstantTablesSize(), PROT_READ);
+  }
+
   ClassTable* class_table = nullptr;
   {
     WriterMutexLock mu(self, *Locks::classlinker_classes_lock_);
@@ -7643,6 +7654,13 @@ mirror::String* ClassLinker::LookupString(const DexFile& dex_file,
     dex_cache->SetResolvedString(string_idx, string);
   }
   return string.Ptr();
+}
+
+GcRoot<mirror::String>* ClassLinker::LookupStringRoot(const DexFile& dex_file,
+                                                      dex::StringIndex string_idx) {
+  uint32_t utf16_length;
+  const char* utf8_data = dex_file.StringDataAndUtf16LengthByIdx(string_idx, &utf16_length);
+  return intern_table_->LookupRootStrong(Thread::Current(), utf16_length, utf8_data);
 }
 
 ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(const DexFile& dex_file,
