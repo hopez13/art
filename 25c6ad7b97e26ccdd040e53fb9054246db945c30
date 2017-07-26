@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bd3b7b13_eb06197c",
+        "filename": "runtime/openjdkjvmti/ti_method-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-26T16:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "527c908d_2dcc6d5d",
+      "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "640a3ad9_ccab0c4d",
         "filename": "runtime/openjdkjvmti/ti_method.cc",
         "patchSetId": 13
@@ -39,6 +57,30 @@
       "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93462b08_9f691cad",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-26T16:54:27Z",
+      "side": 1,
+      "message": "We have the jthread so we won\u0027t collect it and RequestSynchronousCheckpoint returns false if the thread is terminated so we should be fine.",
+      "parentUuid": "640a3ad9_ccab0c4d",
+      "range": {
+        "startLine": 814,
+        "startChar": 2,
+        "endLine": 814,
+        "endChar": 58
+      },
+      "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "b3660538_b4ecb552",
+        "filename": "runtime/openjdkjvmti/ti_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-26T16:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b43dc00_486bb411",
+      "range": {
+        "startLine": 101,
+        "startChar": 44,
+        "endLine": 101,
+        "endChar": 53
+      },
+      "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "681c5de1_72edf8d5",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 13
@@ -76,6 +142,30 @@
       "writtenOn": "2017-07-26T01:10:54Z",
       "side": 1,
       "message": "This needs to be fixed up (see b/62353392, cf. https://android-review.googlesource.com/c/420680).",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 1
+      },
+      "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4586b63e_44808779",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-07-26T16:54:27Z",
+      "side": 1,
+      "message": "I think we are fine.\n\nWe check for termination later so we don\u0027t care if the thread is terminated in the interim.\n\nUnless you mean just generally re its use in this file which might be true.",
+      "parentUuid": "681c5de1_72edf8d5",
       "range": {
         "startLine": 174,
         "startChar": 0,
