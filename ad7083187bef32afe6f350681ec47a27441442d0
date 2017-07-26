@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e276601_8a68e9a9",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-26T21:11:05Z",
+      "side": 1,
+      "message": "discussion: Do we want to keep updating the version every-time?\n\nLooking back now this seems to be a useless overhead for us.",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "ad7083187bef32afe6f350681ec47a27441442d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
