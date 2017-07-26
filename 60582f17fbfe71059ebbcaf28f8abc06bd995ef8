@@ -170,6 +170,29 @@
       "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e2eec86_723d9786",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-07-26T21:07:33Z",
+      "side": 1,
+      "message": "This is an expensive operation as currently it takes more than 4 secs on my machine. Why not to avoid this if paths are already set?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 8
+      },
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
