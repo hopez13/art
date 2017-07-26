@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "527c908d_2dcc6d5d",
+        "filename": "runtime/openjdkjvmti/ti_method-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T01:10:54Z",
+      "side": 1,
+      "message": "Do you expect this to be performance-sensitive? Otherwise move to .cc and explicitly instantiate.",
+      "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "640a3ad9_ccab0c4d",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T01:10:54Z",
+      "side": 1,
+      "message": "If you\u0027re not holding this over the function after retrieving \"target,\" \"target\" might die.",
+      "range": {
+        "startLine": 814,
+        "startChar": 2,
+        "endLine": 814,
+        "endChar": 58
+      },
+      "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b43dc00_486bb411",
+        "filename": "runtime/openjdkjvmti/ti_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T01:10:54Z",
+      "side": 1,
+      "message": "Not really sure I like this, going from template param to weird char. Why not at least Primitive type stuff?",
+      "range": {
+        "startLine": 101,
+        "startChar": 44,
+        "endLine": 101,
+        "endChar": 53
+      },
+      "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "681c5de1_72edf8d5",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T01:10:54Z",
+      "side": 1,
+      "message": "This needs to be fixed up (see b/62353392, cf. https://android-review.googlesource.com/c/420680).",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 1
+      },
+      "revId": "25c6ad7b97e26ccdd040e53fb9054246db945c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
