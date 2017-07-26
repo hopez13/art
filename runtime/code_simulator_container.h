@@ -19,9 +19,10 @@
 
 #include "arch/instruction_set.h"
 #include "base/logging.h"
-#include "simulator/code_simulator.h"
 
 namespace art {
+
+class CodeSimulator;
 
 // This container dynamically opens and closes libart-simulator.
 class CodeSimulatorContainer {
