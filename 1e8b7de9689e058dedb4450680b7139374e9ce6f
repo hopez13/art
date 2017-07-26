@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4263cb4a_12d3a011",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T18:37:02Z",
+      "side": 1,
+      "message": "Why plural?",
+      "range": {
+        "startLine": 693,
+        "startChar": 22,
+        "endLine": 693,
+        "endChar": 23
+      },
+      "revId": "1e8b7de9689e058dedb4450680b7139374e9ce6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73fee191_88bb1012",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T18:37:02Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 825,
+        "startChar": 22,
+        "endLine": 825,
+        "endChar": 23
+      },
+      "revId": "1e8b7de9689e058dedb4450680b7139374e9ce6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfee6b02_2fa54545",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T18:37:02Z",
+      "side": 1,
+      "message": "Consider refactoring Get and Set closures to share the commonality.",
+      "range": {
+        "startLine": 840,
+        "startChar": 4,
+        "endLine": 863,
+        "endChar": 5
+      },
+      "revId": "1e8b7de9689e058dedb4450680b7139374e9ce6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f3b9501_70336cff",
+        "filename": "runtime/openjdkjvmti/ti_thread.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T18:37:02Z",
+      "side": 1,
+      "message": "Sort",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "1e8b7de9689e058dedb4450680b7139374e9ce6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "630413bc_7b90c686",
+        "filename": "runtime/openjdkjvmti/ti_thread.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T18:37:02Z",
+      "side": 1,
+      "message": "Wrong indent.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 4
+      },
+      "revId": "1e8b7de9689e058dedb4450680b7139374e9ce6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
