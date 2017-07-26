@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "85e46c59_123132fe",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-07-26T22:05:41Z",
+      "side": 1,
+      "message": "Oops, I meant:\nANDROID_COMPILE_WITH_JACK is an input to the build, it _shouldn\u0027t_ be set by envsetup.sh\n￼",
+      "parentUuid": "2ac084c4_1b5b9356",
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f5d88a_97e2162c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
