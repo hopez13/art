@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "566bf2f7_cf942b26",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T23:25:36Z",
+      "side": 1,
+      "message": "Please use fallthrough to get switch-case checks. Put a LOG(FATAL) UNREACHABLE() after the switch.",
+      "range": {
+        "startLine": 712,
+        "startChar": 6,
+        "endLine": 712,
+        "endChar": 13
+      },
+      "revId": "fe6e5cfb6c3e51cdc79e2c5fffcc0167a92a46d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fe1afd1_865662de",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T23:25:36Z",
+      "side": 1,
+      "message": "UNREACHABLE",
+      "range": {
+        "startLine": 757,
+        "startChar": 8,
+        "endLine": 757,
+        "endChar": 29
+      },
+      "revId": "fe6e5cfb6c3e51cdc79e2c5fffcc0167a92a46d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25b955e1_b4f5e38e",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T23:25:36Z",
+      "side": 1,
+      "message": "See above.",
+      "range": {
+        "startLine": 833,
+        "startChar": 6,
+        "endLine": 833,
+        "endChar": 13
+      },
+      "revId": "fe6e5cfb6c3e51cdc79e2c5fffcc0167a92a46d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d46d7c_ac4eb11e",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T23:25:36Z",
+      "side": 1,
+      "message": "See above.",
+      "range": {
+        "startLine": 879,
+        "startChar": 8,
+        "endLine": 879,
+        "endChar": 29
+      },
+      "revId": "fe6e5cfb6c3e51cdc79e2c5fffcc0167a92a46d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
