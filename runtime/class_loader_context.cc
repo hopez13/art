@@ -585,7 +585,7 @@ std::unique_ptr<ClassLoaderContext> ClassLoaderContext::CreateContextForClassLoa
   }
 }
 
-bool ClassLoaderContext::VerifyClassLoaderContextMatch(const std::string& context_spec) {
+bool ClassLoaderContext::VerifyClassLoaderContextMatch(const std::string& context_spec) const {
   ClassLoaderContext expected_context;
   if (!expected_context.Parse(context_spec, /*parse_checksums*/ true)) {
     LOG(WARNING) << "Invalid class loader context: " << context_spec;

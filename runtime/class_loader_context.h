@@ -94,7 +94,7 @@ class ClassLoaderContext {
   //    - the number and type of the class loaders from the chain matches
   //    - the class loader from the same position have the same classpath
   //      (the order and checksum of the dex files matches)
-  bool VerifyClassLoaderContextMatch(const std::string& context_spec);
+  bool VerifyClassLoaderContextMatch(const std::string& context_spec) const;
 
   // Creates the class loader context from the given string.
   // The format: ClassLoaderType1[ClasspathElem1:ClasspathElem2...];ClassLoaderType2[...]...
