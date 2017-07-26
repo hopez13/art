@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "0078bb8a_9d4e61a1",
+        "filename": "runtime/aot_class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T16:51:18Z",
+      "side": 1,
+      "message": "Why does it need this code at all? In interpreter you can tell class would be initialized from new-instance, invoke-static, getstatic, putstatic, etc.",
+      "revId": "a7a7a4484a35bdd583e4c9989db8cdbbc9bfe94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd8a4038_1e242271",
         "filename": "runtime/aot_class_linker.h",
         "patchSetId": 6
