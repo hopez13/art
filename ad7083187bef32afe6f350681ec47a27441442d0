@@ -22,6 +22,30 @@
       "revId": "ad7083187bef32afe6f350681ec47a27441442d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b40027eb_9c9c62b5",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-26T21:28:26Z",
+      "side": 1,
+      "message": "In principle, yes, we need to, since bug reports may just include version number + initial seed, and we should always be able to reproduce the mutated class from there.\n\nIn practice, you could argue that Sumnima is making so many changes that we would wait until the very end.\n\nMy vote: let\u0027s do the right thing and just increase each time.\n\nI own wondering what the seedChangeVersion is for.",
+      "parentUuid": "7e276601_8a68e9a9",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "ad7083187bef32afe6f350681ec47a27441442d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
