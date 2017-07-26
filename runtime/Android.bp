@@ -421,6 +421,7 @@ cc_defaults {
     shared: {
         shared_libs: ["libsigchain"],
     },
+    header_libs: ["libart_simulator_headers"],
     export_include_dirs: ["."],
     // ART's macros.h depends on libbase's macros.h.
     export_shared_lib_headers: ["libbase"],
@@ -629,5 +630,4 @@ art_cc_test {
 subdirs = [
     "openjdkjvm",
     "openjdkjvmti",
-    "simulator",
 ]
