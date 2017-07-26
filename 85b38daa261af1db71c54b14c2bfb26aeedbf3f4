@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2281e285_6642f931",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-26T19:09:19Z",
+      "side": 1,
+      "message": "Thanks for the comments. I\u0027ll fix it.",
+      "parentUuid": "dcd62168_cb950929",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 36
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6cbd0462_2a1b350b",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 5
@@ -59,6 +83,30 @@
       "writtenOn": "2017-07-26T13:00:48Z",
       "side": 1,
       "message": "I don\u0027t understand this. Why is it not just ldr lr, [sp, #0] ?",
+      "range": {
+        "startLine": 1926,
+        "startChar": 0,
+        "endLine": 1928,
+        "endChar": 15
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df498af8_82afda28",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-26T19:09:19Z",
+      "side": 1,
+      "message": "No magic here. I modified x86 first and tried to mimic the the x86 code. It\u0027s not necessary here. Thanks for noticing it.",
+      "parentUuid": "6cbd0462_2a1b350b",
       "range": {
         "startLine": 1926,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "9a669093_22ad5001",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-26T19:09:19Z",
+      "side": 1,
+      "message": "Thanks for the comments. Will fix it.",
+      "parentUuid": "b428070f_51d275d0",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 42
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "398d15ab_65dbe844",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
@@ -105,6 +177,30 @@
       "writtenOn": "2017-07-26T13:00:48Z",
       "side": 1,
       "message": "ditto. If there\u0027s magic, the unfamiliar reader thinks this is a no-op.",
+      "range": {
+        "startLine": 2441,
+        "startChar": 0,
+        "endLine": 2446,
+        "endChar": 56
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8c6909e_2b01d788",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2446,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-26T19:09:19Z",
+      "side": 1,
+      "message": "Same as arm code. No magic here. I\u0027ll fix it.",
+      "parentUuid": "398d15ab_65dbe844",
       "range": {
         "startLine": 2441,
         "startChar": 0,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "e6f47e99_8362b12b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-26T19:09:19Z",
+      "side": 1,
+      "message": "I\u0027ll check all callers and make this a DCHECK.",
+      "parentUuid": "36f9db12_3f443800",
+      "range": {
+        "startLine": 967,
+        "startChar": 0,
+        "endLine": 969,
+        "endChar": 3
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7976f6e_239c41e4",
         "filename": "runtime/runtime.cc",
         "patchSetId": 5
@@ -151,6 +271,30 @@
       "writtenOn": "2017-07-26T13:00:48Z",
       "side": 1,
       "message": "You don\u0027t need this, ContainsPc will return false for it.",
+      "range": {
+        "startLine": 2304,
+        "startChar": 0,
+        "endLine": 2306,
+        "endChar": 3
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da267d89_3e04ea7b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2306,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-26T19:09:19Z",
+      "side": 1,
+      "message": "Ok, thanks for pointing it out. Fixed.",
+      "parentUuid": "a7976f6e_239c41e4",
       "range": {
         "startLine": 2304,
         "startChar": 0,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "8ad0d93a_ad8cd60c",
+        "filename": "test/597-deopt-runtime-method/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-26T19:09:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a7aff16_ee9315b3",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 93
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6916e1a2_0241e096",
         "filename": "test/597-deopt-runtime-method/run",
         "patchSetId": 5
@@ -197,6 +365,30 @@
       "writtenOn": "2017-07-26T13:00:48Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 50
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86585096_822ef156",
+        "filename": "test/597-deopt-runtime-method/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-26T19:09:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6916e1a2_0241e096",
       "range": {
         "startLine": 18,
         "startChar": 0,
