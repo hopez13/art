@@ -1537,6 +1537,8 @@ bool ProfileCompilationInfo::GenerateTestProfile(int fd,
 bool ProfileCompilationInfo::GenerateTestProfile(
     int fd,
     std::vector<std::unique_ptr<const DexFile>>& dex_files,
+    uint16_t method_ratio,
+    uint16_t class_ratio,
     uint32_t random_seed) {
   std::srand(random_seed);
   ProfileCompilationInfo info;
@@ -1544,8 +1546,7 @@ bool ProfileCompilationInfo::GenerateTestProfile(
     const std::string& location = dex_file->GetLocation();
     uint32_t checksum = dex_file->GetLocationChecksum();
     for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
-      // Randomly add a class from the dex file (with 50% chance).
-      if (std::rand() % 2 != 0) {
+      if (std::rand() % 100 < class_ratio) {
         info.AddClassIndex(location,
                            checksum,
                            dex_file->GetClassDef(i).class_idx_,
@@ -1553,8 +1554,7 @@ bool ProfileCompilationInfo::GenerateTestProfile(
       }
     }
     for (uint32_t i = 0; i < dex_file->NumMethodIds(); ++i) {
-      // Randomly add a method from the dex file (with 50% chance).
-      if (std::rand() % 2 != 0) {
+      if (std::rand() % 100 < method_ratio) {
         info.AddMethodIndex(MethodHotness::kFlagHot, MethodReference(dex_file.get(), i));
       }
     }
