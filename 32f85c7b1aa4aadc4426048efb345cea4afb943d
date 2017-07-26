@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb3d630a_6b286612",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-07-26T09:17:19Z",
+      "side": 1,
+      "message": "File removed",
+      "parentUuid": "453b0530_ab4be1bd",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 60
+      },
+      "revId": "32f85c7b1aa4aadc4426048efb345cea4afb943d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfa2b6d2_9e64b262",
         "filename": "compiler/Android.bp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-21T04:32:32Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "32f85c7b1aa4aadc4426048efb345cea4afb943d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6ec5885_645b130d",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-07-26T09:17:19Z",
+      "side": 1,
+      "message": "File removed",
+      "parentUuid": "dfa2b6d2_9e64b262",
       "range": {
         "startLine": 158,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a5bcbfb4_5719ed3b",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-07-26T09:17:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18fa2bc3_40adfe57",
+      "range": {
+        "startLine": 848,
+        "startChar": 0,
+        "endLine": 850,
+        "endChar": 106
+      },
+      "revId": "32f85c7b1aa4aadc4426048efb345cea4afb943d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1393c0d_a9f93ad7",
         "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "dde2a129_882ec1df",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-07-26T09:17:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1393c0d_a9f93ad7",
+      "range": {
+        "startLine": 852,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 106
+      },
+      "revId": "32f85c7b1aa4aadc4426048efb345cea4afb943d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd1e6acf_1303f0bc",
         "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2017-07-21T04:32:32Z",
       "side": 1,
       "message": "It is my understanding that we can\u0027t use fused floating-point multiply-add/subtract (FMADD/FMSUB.df) because we\u0027re looking at a sequence of regular multiplication and addition/subtraction. IOW, there will be a difference in rounding of the result if we do.\n\nArm64 doesn\u0027t use its fused mul-add/sub instructions (FMLA/FMLS) for this reason.\n\nAm I correct, Aart?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "32f85c7b1aa4aadc4426048efb345cea4afb943d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c291f36_46954fee",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-07-26T09:17:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd1e6acf_1303f0bc",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -439,6 +559,30 @@
     },
     {
       "key": {
+        "uuid": "de84e9af_86a8e921",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-07-26T09:17:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b7eddcb_3c379ef0",
+      "range": {
+        "startLine": 480,
+        "startChar": 60,
+        "endLine": 480,
+        "endChar": 61
+      },
+      "revId": "32f85c7b1aa4aadc4426048efb345cea4afb943d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b74e691d_b5d1a009",
         "filename": "disassembler/disassembler_mips.cc",
         "patchSetId": 1
@@ -450,6 +594,30 @@
       "writtenOn": "2017-07-21T04:32:32Z",
       "side": 1,
       "message": "No dot.",
+      "range": {
+        "startLine": 481,
+        "startChar": 60,
+        "endLine": 481,
+        "endChar": 61
+      },
+      "revId": "32f85c7b1aa4aadc4426048efb345cea4afb943d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145f3f00_5bc46b50",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-07-26T09:17:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b74e691d_b5d1a009",
       "range": {
         "startLine": 481,
         "startChar": 60,
