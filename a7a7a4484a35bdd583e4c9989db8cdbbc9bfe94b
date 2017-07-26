@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "869fb2c9_5c73ed81",
+        "filename": "runtime/aot_class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-26T15:34:11Z",
+      "side": 1,
+      "message": "And I strongly prefer not to have transaction code pasted all over the class-linker and interpreter for something that\u0027s off 99% of the time. :-)",
+      "parentUuid": "fd8a4038_1e242271",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "a7a7a4484a35bdd583e4c9989db8cdbbc9bfe94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd95fe70_16052504",
         "filename": "runtime/transaction.cc",
         "patchSetId": 6
