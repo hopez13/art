@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fa524f9e_ee44b7c5",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-07-26T21:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71f66a25_c869a7e3",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a26723b2_35ef3016",
         "filename": "tools/generate_cmake_lists.py",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-07-26T20:39:27Z",
       "side": 1,
       "message": "a future improvement would be to let the script accept a parameter to decide what arch user want: arm, arm64, x86 or x86_64.",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88b36efd_7bf0475d",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-07-26T21:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a26723b2_35ef3016",
       "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
