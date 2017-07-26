@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "2ac084c4_1b5b9356",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T21:55:27Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to export it for me:\n\niam@invoker:/mnt/ssd3/workspace/aosp_master_art$ source build/envsetup.sh \nincluding device/generic/art/arm_krait/vendorsetup.sh\nincluding device/generic/art/armv8/vendorsetup.sh\nincluding device/generic/art/mips32r2_fp/vendorsetup.sh\nincluding device/generic/art/mips32r2_fp_xburst/vendorsetup.sh\nincluding device/generic/art/mips64r6/vendorsetup.sh\nincluding device/generic/art/silvermont/vendorsetup.sh\niam@invoker:/mnt/ssd3/workspace/aosp_master_art$ echo $ANDROID_COMPILE_WITH_JACK \niam@invoker:/mnt/ssd3/workspace/aosp_master_art$",
+      "parentUuid": "60039cd5_32181f35",
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f5d88a_97e2162c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
