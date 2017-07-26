@@ -49,6 +49,40 @@
     },
     {
       "key": {
+        "uuid": "1891bee1_19e226e6",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T21:47:38Z",
+      "side": 1,
+      "message": "move below to main function\n\n   def main(argv):\n      ......\n\n   main(sys.argv)",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cafb824_1b03b103",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T21:47:38Z",
+      "side": 1,
+      "message": "why is it defaulting to native?",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a26723b2_35ef3016",
         "filename": "tools/generate_cmake_lists.py",
         "patchSetId": 2
@@ -81,6 +115,40 @@
       "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05dc9091_696ab095",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T21:47:38Z",
+      "side": 1,
+      "message": "nit: delete newline 2",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc709275_bca225be",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T21:47:38Z",
+      "side": 1,
+      "message": "nit: delete newline",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
