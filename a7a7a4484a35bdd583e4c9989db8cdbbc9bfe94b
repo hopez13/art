@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "5e734286_189f3b63",
+        "filename": "runtime/aot_class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-26T16:09:57Z",
+      "side": 1,
+      "message": "But don\u0027t we have it already?",
+      "parentUuid": "869fb2c9_5c73ed81",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "a7a7a4484a35bdd583e4c9989db8cdbbc9bfe94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd95fe70_16052504",
         "filename": "runtime/transaction.cc",
         "patchSetId": 6
