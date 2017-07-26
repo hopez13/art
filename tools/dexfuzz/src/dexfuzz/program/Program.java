@@ -32,6 +32,7 @@ import dexfuzz.program.mutators.InstructionDuplicator;
 import dexfuzz.program.mutators.InstructionSwapper;
 import dexfuzz.program.mutators.InvokeChanger;
 import dexfuzz.program.mutators.NewArrayLengthChanger;
+import dexfuzz.program.mutators.NewInstanceChanger;
 import dexfuzz.program.mutators.NewMethodCaller;
 import dexfuzz.program.mutators.NonsenseStringPrinter;
 import dexfuzz.program.mutators.OppositeBranchChanger;
@@ -204,6 +205,7 @@ public class Program {
     registerMutator(new InstructionSwapper(rng, mutationStats, mutations));
     registerMutator(new InvokeChanger(rng, mutationStats, mutations));
     registerMutator(new NewArrayLengthChanger(rng, mutationStats, mutations));
+    registerMutator(new NewInstanceChanger(rng, mutationStats, mutations));
     registerMutator(new NewMethodCaller(rng, mutationStats, mutations));
     registerMutator(new NonsenseStringPrinter(rng, mutationStats, mutations));
     registerMutator(new OppositeBranchChanger(rng, mutationStats, mutations));
@@ -608,5 +610,36 @@ public class Program {
     Log.debug(String.format("Field idx 0x%x specified is not defined in this DEX file.",
         fieldIdx));
     return null;
+  }
+
+  /**
+   * Used to convert the class index into string format.
+   * @param classIdx
+   * @return string format of class index.
+   */
+  public String getClassString(int classIdx) {
+    TypeIdItem typeIdItem = rawDexFile.typeIds.get(classIdx);
+    return rawDexFile.stringDatas.get(typeIdItem.descriptorIdx).getString();
+  }
+
+  /**
+   * Used to convert the method index into string format.
+   * @param methodIdx
+   * @return string format of method index.
+   */
+  public String getMethodName(int methodIdx) {
+    MethodIdItem methodIdItem = rawDexFile.methodIds.get(methodIdx);
+    return rawDexFile.stringDatas.get(methodIdItem.nameIdx).getString();
+  }
+
+  /**
+   * Used to find the protoID of a method and convert it to string.
+   * @param methodIdx
+   * @return string format of method index.
+   */
+  public String getMethodProto(int methodIdx) {
+    MethodIdItem methodIdItem = rawDexFile.methodIds.get(methodIdx);
+    ProtoIdItem protoIdItem = rawDexFile.protoIds.get(methodIdItem.protoIdx);
+    return rawDexFile.stringDatas.get(protoIdItem.shortyIdx).getString();
   }
 }
