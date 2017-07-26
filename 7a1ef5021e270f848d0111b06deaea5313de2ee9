@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d782a2a_0e0ce39b",
+        "filename": "tools/dexfuzz/src/dexfuzz/DexFuzz.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-26T16:55:29Z",
+      "side": 1,
+      "message": "also change the 1.6 to 1.7 (in the comment)",
+      "revId": "7a1ef5021e270f848d0111b06deaea5313de2ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f4c924f_3a906749",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/RegisterClobber.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-26T16:55:29Z",
+      "side": 1,
+      "message": "I am always surprised how many folks are reading along in these reviews :-) Thanks for the grammar correction Narayan.\n\nTo complete a full round of nitpicking, let\u0027s also put a comma after \"...to objects, resulting...\". Nothing starts a round of discussions in the morning as quickly as debating proper comma placement!",
+      "revId": "7a1ef5021e270f848d0111b06deaea5313de2ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
