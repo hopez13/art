@@ -32,6 +32,7 @@ import dexfuzz.program.mutators.InstructionDuplicator;
 import dexfuzz.program.mutators.InstructionSwapper;
 import dexfuzz.program.mutators.InvokeChanger;
 import dexfuzz.program.mutators.NewArrayLengthChanger;
+import dexfuzz.program.mutators.NewInstanceChanger;
 import dexfuzz.program.mutators.NewMethodCaller;
 import dexfuzz.program.mutators.NonsenseStringPrinter;
 import dexfuzz.program.mutators.OppositeBranchChanger;
@@ -204,6 +205,7 @@ public class Program {
     registerMutator(new InstructionSwapper(rng, mutationStats, mutations));
     registerMutator(new InvokeChanger(rng, mutationStats, mutations));
     registerMutator(new NewArrayLengthChanger(rng, mutationStats, mutations));
+    registerMutator(new NewInstanceChanger(rng, mutationStats, mutations));
     registerMutator(new NewMethodCaller(rng, mutationStats, mutations));
     registerMutator(new NonsenseStringPrinter(rng, mutationStats, mutations));
     registerMutator(new OppositeBranchChanger(rng, mutationStats, mutations));
@@ -608,5 +610,21 @@ public class Program {
     Log.debug(String.format("Field idx 0x%x specified is not defined in this DEX file.",
         fieldIdx));
     return null;
+  }
+
+  public String[] constructString(int classIdx, int methodIndex) {
+    TypeIdItem typeIdItem = rawDexFile.typeIds.get(classIdx);
+    String[] stringIds = {};
+    String className = rawDexFile.stringDatas.get(typeIdItem.descriptorIdx).getString();
+    stringIds[0] = className;
+
+    MethodIdItem methodIdItem = rawDexFile.methodIds.get(methodIndex);
+    String methodName = rawDexFile.stringDatas.get(methodIdItem.nameIdx).getString();
+    stringIds[1] = methodName;
+
+    ProtoIdItem protoIdItem = rawDexFile.protoIds.get(methodIdItem.protoIdx);
+    String shorty = rawDexFile.stringDatas.get(protoIdItem.shortyIdx).getString();
+    stringIds[2] = shorty;
+    return stringIds;
   }
 }
