@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "3842169d_032483b3",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T22:05:03Z",
+      "side": 1,
+      "message": "I took a look at envsetup.sh but it doesnt look like it actually exports anything until set_stuff_for_environment is called (from lunch).\n\nSo we could add an ART-specific script that does it but I\u0027m not really sure I see the value for just 2 lines?\n\nWould you prefer we add a script nevertheless?",
+      "parentUuid": "2ac084c4_1b5b9356",
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f5d88a_97e2162c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -179,6 +197,30 @@
       "side": 1,
       "message": "if [ \"$using_jack\" \u003d \"true\" ]; ...",
       "parentUuid": "7e4588ff_ab0c9329",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 23
+      },
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5534431_de8afde0",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T22:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2e631ee_6b6caf7d",
       "range": {
         "startLine": 66,
         "startChar": 6,
