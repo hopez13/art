@@ -782,7 +782,8 @@ jvmtiError MethodUtil::GetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::Thread* self = art::Thread::Current();
   art::ScopedObjectAccess soa(self);
-  art::Thread* target = ThreadUtil::GetNativeThread(thread, soa);
+  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+  art::Thread* target = ThreadUtil::GetNativeThreadLocked(thread, soa);
   if (target == nullptr && thread == nullptr) {
     return ERR(INVALID_THREAD);
   }
@@ -791,7 +792,6 @@ jvmtiError MethodUtil::GetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
   GetLocalVariableClosure c(self, depth, slot, type, val);
-  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
   if (!target->RequestSynchronousCheckpoint(&c)) {
     return ERR(THREAD_NOT_ALIVE);
   } else {
@@ -910,7 +910,8 @@ jvmtiError MethodUtil::SetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::Thread* self = art::Thread::Current();
   art::ScopedObjectAccess soa(self);
-  art::Thread* target = ThreadUtil::GetNativeThread(thread, soa);
+  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+  art::Thread* target = ThreadUtil::GetNativeThreadLocked(thread, soa);
   if (target == nullptr && thread == nullptr) {
     return ERR(INVALID_THREAD);
   }
@@ -919,7 +920,6 @@ jvmtiError MethodUtil::SetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
   SetLocalVariableClosure c(self, depth, slot, type, val);
-  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
   if (!target->RequestSynchronousCheckpoint(&c)) {
     return ERR(THREAD_NOT_ALIVE);
   } else {
@@ -976,7 +976,8 @@ jvmtiError MethodUtil::GetLocalInstance(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::Thread* self = art::Thread::Current();
   art::ScopedObjectAccess soa(self);
-  art::Thread* target = ThreadUtil::GetNativeThread(thread, soa);
+  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+  art::Thread* target = ThreadUtil::GetNativeThreadLocked(thread, soa);
   if (target == nullptr && thread == nullptr) {
     return ERR(INVALID_THREAD);
   }
@@ -985,7 +986,6 @@ jvmtiError MethodUtil::GetLocalInstance(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
   GetLocalInstanceClosure c(self, depth, data);
-  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
   if (!target->RequestSynchronousCheckpoint(&c)) {
     return ERR(THREAD_NOT_ALIVE);
   } else {

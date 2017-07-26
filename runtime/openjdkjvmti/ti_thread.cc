@@ -159,10 +159,8 @@ jvmtiError ThreadUtil::GetCurrentThread(jvmtiEnv* env ATTRIBUTE_UNUSED, jthread*
   return ERR(NONE);
 }
 
-static art::Thread* GetNativeThreadLocked(jthread thread,
-                                          const art::ScopedObjectAccessAlreadyRunnable& soa)
-    REQUIRES_SHARED(art::Locks::mutator_lock_)
-    REQUIRES(art::Locks::thread_list_lock_) {
+art::Thread* ThreadUtil::GetNativeThreadLocked(jthread thread,
+                                               const art::ScopedObjectAccessAlreadyRunnable& soa) {
   if (thread == nullptr) {
     return art::Thread::Current();
   }
