@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a45aafe_49fa0014",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T20:23:05Z",
+      "side": 1,
+      "message": "This already works in testrunner.py script\n\n   True -\u003e pass --build-with-jack to run-test\n   False -\u003e pass --build-with-javac to run-test\n   default -\u003e do not pass any extra args for run-test (uses run-test default)",
+      "parentUuid": "b3246186_562b6f6e",
+      "range": {
+        "startLine": 110,
+        "startChar": 80,
+        "endLine": 110,
+        "endChar": 89
+      },
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49f4c0fb_c306c93a",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "26ff0e93_e554eb0b",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T20:23:05Z",
+      "side": 1,
+      "message": "or we could export ANDROID_COMPILE_WITH_JACK from envsetup? :).",
+      "parentUuid": "49f4c0fb_c306c93a",
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f5d88a_97e2162c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2017-07-26T20:18:44Z",
       "side": 1,
       "message": "This is super confusing, converting it to true/false is much better than propagating 0 for true.",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 23
+      },
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e4588ff_ab0c9329",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T20:23:05Z",
+      "side": 1,
+      "message": "This was done intentionally so that if we ever get rid of \"ANDROID_COMPILE_WITH_JACK\" buildvar, it will return empty on line 35 and thus not match \"true\"\n\nCurrently the code is\n\n   if $using_jack;  ...\n\nthis will also execute if using_jack\u003d\"\" which is undesirable.",
+      "parentUuid": "e4f5d88a_97e2162c",
       "range": {
         "startLine": 66,
         "startChar": 6,
