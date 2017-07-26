@@ -156,6 +156,24 @@
     },
     {
       "key": {
+        "uuid": "727a528e_13342313",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T22:14:50Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem right to read the environment variable directly from this script (as the Base did) either because then we won\u0027t pick up the default jack-ness from the build if the varible is completely unset (as is the case virtually all of the time).\n\nI believe what it\u0027s doing now is the correct behavior; w.r.t. to organization of the code please let me know how to proceed.",
+      "parentUuid": "85e46c59_123132fe",
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f5d88a_97e2162c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
