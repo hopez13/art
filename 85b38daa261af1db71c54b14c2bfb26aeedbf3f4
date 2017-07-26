@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6cbd0462_2a1b350b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-26T13:00:48Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. Why is it not just ldr lr, [sp, #0] ?",
+      "range": {
+        "startLine": 1926,
+        "startChar": 0,
+        "endLine": 1928,
+        "endChar": 15
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "398d15ab_65dbe844",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2446,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-26T13:00:48Z",
+      "side": 1,
+      "message": "ditto. If there\u0027s magic, the unfamiliar reader thinks this is a no-op.",
+      "range": {
+        "startLine": 2441,
+        "startChar": 0,
+        "endLine": 2446,
+        "endChar": 56
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f9db12_3f443800",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-26T13:00:48Z",
+      "side": 1,
+      "message": "Should we just avoid entering here?",
+      "range": {
+        "startLine": 967,
+        "startChar": 0,
+        "endLine": 969,
+        "endChar": 3
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7976f6e_239c41e4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-26T13:00:48Z",
+      "side": 1,
+      "message": "You don\u0027t need this, ContainsPc will return false for it.",
+      "range": {
+        "startLine": 2304,
+        "startChar": 0,
+        "endLine": 2306,
+        "endChar": 3
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a7aff16_ee9315b3",
+        "filename": "test/597-deopt-runtime-method/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-26T13:00:48Z",
+      "side": 1,
+      "message": "update comment?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 93
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6916e1a2_0241e096",
+        "filename": "test/597-deopt-runtime-method/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-07-26T13:00:48Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 50
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
