@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "b28e0039_45e84708",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-07-26T22:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1891bee1_19e226e6",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cafb824_1b03b103",
         "filename": "tools/generate_cmake_lists.py",
         "patchSetId": 2
@@ -77,6 +95,24 @@
       "writtenOn": "2017-07-26T21:47:38Z",
       "side": 1,
       "message": "why is it defaulting to native?",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "121b28a0_32285a48",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-07-26T22:08:44Z",
+      "side": 1,
+      "message": "Change to input argument only. No default for this now.",
+      "parentUuid": "0cafb824_1b03b103",
       "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -135,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "615e964d_b004d0b7",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-07-26T22:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05dc9091_696ab095",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc709275_bca225be",
         "filename": "tools/generate_cmake_lists.py",
         "patchSetId": 2
@@ -149,6 +203,24 @@
       "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4af0b8af_c63501c2",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-07-26T22:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc709275_bca225be",
+      "revId": "a9da0e302f779e4a22393fbccfe45a5aa1349ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
