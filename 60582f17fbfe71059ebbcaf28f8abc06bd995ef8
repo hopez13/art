@@ -193,6 +193,30 @@
       "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2380e436_ec3407f2",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-26T21:53:05Z",
+      "side": 1,
+      "message": "I agree it\u0027s expensive but run-jdwp-tests is very slow, it takes several minutes to run (on host), it\u0027s not worth optimizing it here.\n\nIf we wanted to fix it then the right place is in envsetup.sh, it\u0027s not hitting the var cache for some get_build_var that setpaths calls which is why its so slow.",
+      "parentUuid": "1e2eec86_723d9786",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 8
+      },
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
