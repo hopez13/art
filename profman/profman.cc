@@ -1052,6 +1052,8 @@ class ProfMan FINAL {
       // Create a random profile file based on the set of dex files.
       result = ProfileCompilationInfo::GenerateTestProfile(profile_test_fd,
                                                            dex_files,
+                                                           test_profile_method_ratio_,
+                                                           test_profile_class_ratio_,
                                                            test_profile_seed_);
     }
     close(profile_test_fd);  // ignore close result.
