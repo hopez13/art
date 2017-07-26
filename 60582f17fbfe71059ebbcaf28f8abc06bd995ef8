@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "60039cd5_32181f35",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-07-26T20:27:09Z",
+      "side": 1,
+      "message": "ANDROID_COMPILE_WITH_JACK is an input to the build, it should be set by envsetup.sh",
+      "parentUuid": "26ff0e93_e554eb0b",
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f5d88a_97e2162c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "This was done intentionally so that if we ever get rid of \"ANDROID_COMPILE_WITH_JACK\" buildvar, it will return empty on line 35 and thus not match \"true\"\n\nCurrently the code is\n\n   if $using_jack;  ...\n\nthis will also execute if using_jack\u003d\"\" which is undesirable.",
       "parentUuid": "e4f5d88a_97e2162c",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 23
+      },
+      "revId": "60582f17fbfe71059ebbcaf28f8abc06bd995ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2e631ee_6b6caf7d",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-07-26T20:27:09Z",
+      "side": 1,
+      "message": "if [ \"$using_jack\" \u003d \"true\" ]; ...",
+      "parentUuid": "7e4588ff_ab0c9329",
       "range": {
         "startLine": 66,
         "startChar": 6,
