@@ -804,13 +804,6 @@ class JFuzz {
       return emitAssignment();  // fall back
     }
 
-    // TODO: remove this
-    // The jack bug b/28862040 prevents generating while/do-while loops because otherwise
-    // we get dozens of reports on the same issue per nightly/ run.
-    if (true) {
-      return emitAssignment();
-    }
-
     bool isWhile = random1(2) == 1;
     fputs("{\n", out_);
     indentation_ += 2;
