@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b27c7e0f_20daf2de",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1541,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T01:32:48Z",
+      "side": 1,
+      "message": "these are not ratios :) as you do not generate method_ration * max_methods method ids.\n\nThey represent the likelihood of adding a method to the profile. So you can still end up with 0 or all methods :)\n\nEither is good just make sure you document an adjust the names.",
+      "range": {
+        "startLine": 1540,
+        "startChar": 4,
+        "endLine": 1541,
+        "endChar": 24
+      },
+      "revId": "c14d3373a3afe73a2b9cf1fdecd2eff7020069c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
