@@ -16,6 +16,24 @@
       "revId": "b45528c1f1b83ca8c970f439b54fbfcfda6908ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c73b5907_e4e845ca",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-27T15:18:46Z",
+      "side": 1,
+      "message": "That would also apply to all the LookupResolved*() functions in the ClassLinker. We may consider that but I\u0027d rather not add that in this CL.",
+      "parentUuid": "5eaf493a_972a4b34",
+      "revId": "b45528c1f1b83ca8c970f439b54fbfcfda6908ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
