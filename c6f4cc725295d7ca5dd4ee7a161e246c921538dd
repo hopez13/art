@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "e0b55883_b02c6570",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T17:35:00Z",
+      "side": 1,
+      "message": "Needs to be a bit more descriptive. Does it changes the type to valid one? to an invalid one? can it be a primitive? How about the call to the init method after the new instance.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "c6f4cc725295d7ca5dd4ee7a161e246c921538dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cefbc57_b42626fc",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T17:35:00Z",
+      "side": 1,
+      "message": "missing space before.",
+      "range": {
+        "startLine": 30,
+        "startChar": 51,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "c6f4cc725295d7ca5dd4ee7a161e246c921538dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "813c975a_68efe814",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T17:35:00Z",
+      "side": 1,
+      "message": "Add documentation.",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 31
+      },
+      "revId": "c6f4cc725295d7ca5dd4ee7a161e246c921538dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1063e932_fe0e2d56",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T17:35:00Z",
+      "side": 1,
+      "message": "missing space.",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "c6f4cc725295d7ca5dd4ee7a161e246c921538dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4de80368_0731d973",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 3
@@ -16,6 +108,52 @@
       "revId": "c6f4cc725295d7ca5dd4ee7a161e246c921538dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f81f278_1619e9e6",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T17:35:00Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 104,
+        "startChar": 100,
+        "endLine": 104,
+        "endChar": 110
+      },
+      "revId": "c6f4cc725295d7ca5dd4ee7a161e246c921538dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "893356f6_09553457",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T17:35:00Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 124,
+        "startChar": 100,
+        "endLine": 124,
+        "endChar": 114
+      },
+      "revId": "c6f4cc725295d7ca5dd4ee7a161e246c921538dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
