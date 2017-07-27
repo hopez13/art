@@ -34,6 +34,24 @@
       "revId": "b45528c1f1b83ca8c970f439b54fbfcfda6908ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49d49562_3c6f1ce6",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-27T15:22:39Z",
+      "side": 1,
+      "message": "SGTM, just wanted to point out without that kind of lock annotation I think the call site must be prepared to suspend.",
+      "parentUuid": "c73b5907_e4e845ca",
+      "revId": "b45528c1f1b83ca8c970f439b54fbfcfda6908ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
