@@ -40,6 +40,10 @@ static void RemoveFromCycle(HInstruction* instruction) {
   instruction->RemoveAsUserOfAllInputs();
   instruction->RemoveEnvironmentUsers();
   instruction->GetBlock()->RemoveInstructionOrPhi(instruction, /*ensure_safety=*/ false);
+  // Remove the environment use records of this instruction for users.
+  RemoveEnvironmentUses(instruction);
+  // Reset environment records of the instruction itself.
+  ResetEnvironmentInputRecords(instruction);
 }
 
 // Detect a goto block and sets succ to the single successor.
@@ -448,6 +452,16 @@ void HLoopOptimization::SimplifyInduction(LoopNode* node) {
         for (HInstruction* i : *iset_) {
           RemoveFromCycle(i);
         }
+
+        // Check that there are no records of the deleted instructions.
+        if (kIsDebugBuild) {
+          for (HInstruction* instr : *iset_) {
+            DCHECK(instr->GetUses().empty());
+            DCHECK(instr->GetEnvUses().empty());
+            DCHECK(!HasEnvironmentUsedByOthers(instr));
+          }
+        }
+
         simplified_ = true;
       }
     }

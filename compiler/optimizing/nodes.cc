@@ -90,13 +90,40 @@ void HGraph::FindBackEdges(ArenaBitVector* visited) {
   }
 }
 
-static void RemoveEnvironmentUses(HInstruction* instruction) {
+void RemoveEnvironmentUses(HInstruction* instruction) {
   for (HEnvironment* environment = instruction->GetEnvironment();
        environment != nullptr;
        environment = environment->GetParent()) {
     for (size_t i = 0, e = environment->Size(); i < e; ++i) {
       if (environment->GetInstructionAt(i) != nullptr) {
         environment->RemoveAsUserOfInput(i);
+      }
+    }
+  }
+}
+
+bool HasEnvironmentUsedByOthers(HInstruction* instruction) {
+  for (HEnvironment* environment = instruction->GetEnvironment();
+       environment != nullptr;
+       environment = environment->GetParent()) {
+    for (size_t i = 0, e = environment->Size(); i < e; ++i) {
+      HInstruction* user = environment->GetInstructionAt(i);
+      if (user != nullptr) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+void ResetEnvironmentInputRecords(HInstruction* instruction) {
+  for (HEnvironment* environment = instruction->GetEnvironment();
+       environment != nullptr;
+       environment = environment->GetParent()) {
+    for (size_t i = 0, e = environment->Size(); i < e; ++i) {
+      DCHECK(environment->GetHolder() == instruction);
+      if (environment->GetInstructionAt(i) != nullptr) {
+        environment->SetRawEnvAt(i, nullptr);
       }
     }
   }

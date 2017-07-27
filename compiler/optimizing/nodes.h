@@ -7059,6 +7059,11 @@ inline HInstruction* HuntForDeclaration(HInstruction* instruction) {
   return instruction;
 }
 
+void RemoveEnvironmentUses(HInstruction* instruction);
+// Return whether instruction has an environment and it's used by others.
+bool HasEnvironmentUsedByOthers(HInstruction* instruction);
+void ResetEnvironmentInputRecords(HInstruction* instruction);
+
 }  // namespace art
 
 #endif  // ART_COMPILER_OPTIMIZING_NODES_H_
