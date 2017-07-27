@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a7c5241_07dd6507",
+        "filename": "test/550-checker-multiply-accumulate/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T00:07:05Z",
+      "side": 1,
+      "message": "uh, this was wrong in the original, but VecMull is not a node; I will send out a fix CL for this in the top of tree",
+      "revId": "97610b81dc556a4b1b807f47d6a3300eb1a74550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
