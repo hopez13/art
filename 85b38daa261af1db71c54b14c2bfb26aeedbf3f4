@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "b37fd3c0_aaa45788",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-27T20:42:23Z",
+      "side": 1,
+      "message": "I agree with Igor that this should be better motivated. It sounds conceptually simpler to always complete the instruction. It is not explained here why we\u0027re not doing that.\n\n(I think to remember this had to do with the complications of annotating the dex PC correctly in the compiled code?)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dcd62168_cb950929",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 5
@@ -257,6 +280,29 @@
       "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f34aea1b_5ef4a73a",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-27T20:42:23Z",
+      "side": 1,
+      "message": "Why isn\u0027t this a switch?",
+      "range": {
+        "startLine": 533,
+        "startChar": 6,
+        "endLine": 533,
+        "endChar": 78
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
