@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc3ce87d_b9efb538",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T23:27:15Z",
+      "side": 1,
+      "message": "this must change :-)\n\nalso before/after will be nice when it does",
+      "revId": "1ba673fff786aa0bfe7ef35cbf3b40c37d49cfd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3af948ad_de1ce7f9",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T23:27:15Z",
+      "side": 1,
+      "message": "note that until now, we have been changing non-registers in a bit sloppy way. This really should be setPoolIndex() after casting the format to ContainsPoolIndex.\n\nFor the constants we changed, this should have been setConst() after casting format to ContainsConst.\n\nwhat we have now is not wrong, but not quite along the style of the original code",
+      "revId": "1ba673fff786aa0bfe7ef35cbf3b40c37d49cfd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
