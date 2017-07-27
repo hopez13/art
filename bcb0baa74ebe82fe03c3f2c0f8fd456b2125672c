@@ -16,6 +16,24 @@
       "revId": "bcb0baa74ebe82fe03c3f2c0f8fd456b2125672c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebde3ea5_24f25df4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-07-27T17:02:32Z",
+      "side": 1,
+      "message": "was still working on NewArrayLengthChanger when I started this mutation, got me confused! sorry, and thank you :)",
+      "parentUuid": "bd5772ec_a83f544d",
+      "revId": "bcb0baa74ebe82fe03c3f2c0f8fd456b2125672c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
