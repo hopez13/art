@@ -22,6 +22,30 @@
       "revId": "780c24733172c0bdd273e8591102f609624a6f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a2ae807_693ba1ff",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-07-27T09:15:08Z",
+      "side": 1,
+      "message": "Yes, this scenario could lead to the same issue. As far as I can see from the code, art_quick_generic_jni_trampoline is the only one affected.\nAnd yes, other architectures (at least I tried ARM64) aren\u0027t affected because their nops aren\u0027t zero.",
+      "parentUuid": "d4ca216d_d2fc4955",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "780c24733172c0bdd273e8591102f609624a6f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
