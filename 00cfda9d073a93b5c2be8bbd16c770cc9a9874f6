@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09d26023_7a2d8950",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-27T14:26:40Z",
+      "side": 1,
+      "message": "nit: I thought lookup/resolve was quite confusing, can you rename all to match class_linker \"LookupResolved\"?\n\n   LookupClassFromTypeIndex... -\u003e LookupResolvedClassFromTypeIndex\n   LookupReturnType -\u003e LookupResolvedReturnType\n   etc",
+      "revId": "00cfda9d073a93b5c2be8bbd16c770cc9a9874f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
