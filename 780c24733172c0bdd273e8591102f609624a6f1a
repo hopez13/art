@@ -46,6 +46,30 @@
       "revId": "780c24733172c0bdd273e8591102f609624a6f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4692cd_e9314031",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-27T09:31:26Z",
+      "side": 1,
+      "message": "If it is really expected there would be a non-zero word before the entry point (I think it\u0027s ugly and at the very least it should\u0027ve been commented, but Google should confirm that this is the expectation and nothing else is needed, just a non-zero word), then there should be a custom entry point used, something like\n\n.macro ENTRY_...\n    .type ...\n    .global \\name\n    // comments\n    .word pad_value\n    # Btw, is it 32-bit on 64-bit architectures?\n    .balignl 16, pad_value\n\\name:\n...\n.endm",
+      "parentUuid": "7a2ae807_693ba1ff",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "780c24733172c0bdd273e8591102f609624a6f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
