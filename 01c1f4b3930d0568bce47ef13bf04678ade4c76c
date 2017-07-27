@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17c421ef_25061b55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-27T22:19:57Z",
+      "side": 1,
+      "message": "-1\n\nAt most for strict transactions. And I don\u0027t see your argument? What\u0027s wrong with constructing and throwing exceptions? This does *not* automatically mean that the clinit will fail.",
+      "range": {
+        "startLine": 22,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c09d7505_9c9c10e9",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-27T22:19:57Z",
+      "side": 1,
+      "message": "Sort order",
+      "range": {
+        "startLine": 35,
+        "startChar": 10,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b205768a_68b8db57",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-27T22:19:57Z",
+      "side": 1,
+      "message": "A",
+      "range": {
+        "startLine": 1792,
+        "startChar": 7,
+        "endLine": 1792,
+        "endChar": 8
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ae29e68_13c105ec",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-27T22:19:57Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1793,
+        "startChar": 4,
+        "endLine": 1793,
+        "endChar": 69
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b2b1172_6eca9a11",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2763,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-27T22:19:57Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 2760,
+        "startChar": 2,
+        "endLine": 2763,
+        "endChar": 3
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
