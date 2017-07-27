@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd5772ec_a83f544d",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T16:57:37Z",
+      "side": 1,
+      "message": "your canMutate tests for new-instances, your generateMutation still hunts for new-array (copy-and-paste much? :-)\nThis will occasionally crash on L103 if the size mismatches.",
+      "revId": "bcb0baa74ebe82fe03c3f2c0f8fd456b2125672c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
