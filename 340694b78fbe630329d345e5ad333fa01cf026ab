@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4ba2c8d_53504fda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T21:26:08Z",
+      "side": 1,
+      "message": "say which one in the title",
+      "revId": "340694b78fbe630329d345e5ad333fa01cf026ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd65f223_f87a53cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T21:26:08Z",
+      "side": 1,
+      "message": "space or newline after comma",
+      "revId": "340694b78fbe630329d345e5ad333fa01cf026ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3f61f41_1d0d84cc",
+        "filename": "tools/dexfuzz/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T21:26:08Z",
+      "side": 1,
+      "message": "typo: CHanger -\u003e Changer",
+      "revId": "340694b78fbe630329d345e5ad333fa01cf026ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f9f2959_bed4ffef",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T21:26:08Z",
+      "side": 1,
+      "message": "empty line before java imports",
+      "revId": "340694b78fbe630329d345e5ad333fa01cf026ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0634b0_3b997ff5",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T21:26:08Z",
+      "side": 1,
+      "message": "space after //",
+      "revId": "340694b78fbe630329d345e5ad333fa01cf026ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b34b49d3_86afd502",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T21:26:08Z",
+      "side": 1,
+      "message": "why -1? the nextInt is 0..N with N exclusive",
+      "revId": "340694b78fbe630329d345e5ad333fa01cf026ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43a7f433_59358318",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-27T21:26:08Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to jump through all these hoops. Other mutations simply get the MInsn from the cache through the index and change it. If it is no longer in the program, no harm done. See for example ConstantValueChanger",
+      "revId": "340694b78fbe630329d345e5ad333fa01cf026ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
