@@ -31,7 +31,8 @@
     .type \name, %function
     .global \name
     // Cache alignment for function entry.
-    .balign 16
+    // Gaps are filled with 0x00000025 (or $zero, $zero, $zero) instead of regular nop (0x00000000).
+    .balignl 16, 0x25
 \name:
     .cfi_startproc
      // Ensure we get a sane starting CFA.
