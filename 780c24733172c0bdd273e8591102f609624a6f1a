@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4ca216d_d2fc4955",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-07-27T08:48:59Z",
+      "side": 1,
+      "message": "What if preceding code ends in a nop (e.g. in a delay slot) and no alignment padding is needed after it? This fix would break, right? This doesn\u0027t look like the right fix.\n\nIs art_quick_generic_jni_trampoline the only one affected?\n\nWhy isn\u0027t this an issue on other architectures? Lucky non-zero encodings for padding (looks like nops aren\u0027t zero on x86 and ARM)? Or is something else wrong with MIPS?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "780c24733172c0bdd273e8591102f609624a6f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
