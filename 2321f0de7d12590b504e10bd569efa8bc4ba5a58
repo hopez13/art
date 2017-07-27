@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6fe69dd0_8ff66bee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T07:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f2c429_c8f584f1",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "2321f0de7d12590b504e10bd569efa8bc4ba5a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8065ee6_5ad7d4ca",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -83,6 +107,30 @@
       "writtenOn": "2017-07-26T09:15:12Z",
       "side": 1,
       "message": "need",
+      "range": {
+        "startLine": 188,
+        "startChar": 22,
+        "endLine": 188,
+        "endChar": 27
+      },
+      "revId": "2321f0de7d12590b504e10bd569efa8bc4ba5a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42520acc_5661867e",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-27T07:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92e85816_0e2118f4",
       "range": {
         "startLine": 188,
         "startChar": 22,
