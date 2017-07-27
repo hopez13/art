@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc1f458e_7326e1ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-27T23:36:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de509954_88d65e4e",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b37fd3c0_aaa45788",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-27T20:42:23Z",
       "side": 1,
       "message": "I agree with Igor that this should be better motivated. It sounds conceptually simpler to always complete the instruction. It is not explained here why we\u0027re not doing that.\n\n(I think to remember this had to do with the complications of annotating the dex PC correctly in the compiled code?)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c43e8af_7c4e6f32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-27T23:36:58Z",
+      "side": 1,
+      "message": "I\u0027ll split the CL into two and add more comments about the motivation.\n\nA runtime method doesn\u0027t map to a dex instruction 1-on-1 so we can always finish that dex instruction. clinit is such an example, it\u0027s only part of an invoke-static dex instruction so we should not advance dex_pc. A dex instruction can also map to multiple runtime methods, e.g. a monitor enter can be deoptimized at by a runtime monitor-enter or suspend-check. A suspend-check should not advance dex_pc but a monitor-enter should in this case.\n\nOne thing I can simplify is to identify suspend-check and clinit runtime methods instead of monitor-ops and clinit. Both suspend-check and clinit are SAVE_EVERYTHING which will make adding special runtime methods simpler. monitor-ops can be identified from the dex instruction, plus if it\u0027s not back from suspend-check.",
+      "parentUuid": "b37fd3c0_aaa45788",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -294,6 +342,30 @@
       "writtenOn": "2017-07-27T20:42:23Z",
       "side": 1,
       "message": "Why isn\u0027t this a switch?",
+      "range": {
+        "startLine": 533,
+        "startChar": 6,
+        "endLine": 533,
+        "endChar": 78
+      },
+      "revId": "85b38daa261af1db71c54b14c2bfb26aeedbf3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d27cd906_09306fe0",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-07-27T23:36:58Z",
+      "side": 1,
+      "message": "We check other things below like instr-\u003eIsInvoke() in addition to method_type.",
+      "parentUuid": "f34aea1b_5ef4a73a",
       "range": {
         "startLine": 533,
         "startChar": 6,
