@@ -37,6 +37,29 @@
     },
     {
       "key": {
+        "uuid": "00252488_76847aaf",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-27T15:19:35Z",
+      "side": 1,
+      "message": "DexCache/ClassLoader mismatch. Bug: 64097254",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 58
+      },
+      "revId": "35e42f0ab3b70203038fe037ee50d39e2d37af9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3de41497_7caa1a51",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
