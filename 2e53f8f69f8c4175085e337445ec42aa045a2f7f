@@ -94,6 +94,30 @@
       "revId": "2e53f8f69f8c4175085e337445ec42aa045a2f7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6548cfc6_1ac8e02b",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-28T16:46:31Z",
+      "side": 0,
+      "message": "Done (simple IsAssignable() check; not doing the \"IsInterface() || \u003d\u003d WellKnownClasses::java_lang_reflect_Proxy\")",
+      "parentUuid": "eb972b19_4fcf2940",
+      "range": {
+        "startLine": 387,
+        "startChar": 1,
+        "endLine": 398,
+        "endChar": 26
+      },
+      "revId": "2e53f8f69f8c4175085e337445ec42aa045a2f7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
