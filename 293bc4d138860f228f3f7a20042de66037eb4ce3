@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c338c1c_c11beb78",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-28T20:16:39Z",
+      "side": 1,
+      "message": "the comments here seem a bit too much if we document them in nodes.h well",
+      "revId": "293bc4d138860f228f3f7a20042de66037eb4ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18c04333_a2ba8a5a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-28T20:16:39Z",
+      "side": 1,
+      "message": "on the fence. I like defensive programming, but I like having lots of code for checking in the actual code less; perhaps we can make a helper for it at least?",
+      "revId": "293bc4d138860f228f3f7a20042de66037eb4ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7fd616b_fe6c98fd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7062,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-28T20:16:39Z",
+      "side": 1,
+      "message": "can you please document every new method (it is somewhat obvious, but since you documented one).",
+      "revId": "293bc4d138860f228f3f7a20042de66037eb4ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
