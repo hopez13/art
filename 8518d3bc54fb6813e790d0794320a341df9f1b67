@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "ec3a11f4_c7ad5b28",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-28T22:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2443575c_9411b7db",
+      "range": {
+        "startLine": 1156,
+        "startChar": 15,
+        "endLine": 1156,
+        "endChar": 16
+      },
+      "revId": "8518d3bc54fb6813e790d0794320a341df9f1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd7c6c2e_13b1f4e3",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-28T22:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "419daf97_b5a2c248",
+      "range": {
+        "startLine": 1156,
+        "startChar": 55,
+        "endLine": 1156,
+        "endChar": 56
+      },
+      "revId": "8518d3bc54fb6813e790d0794320a341df9f1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d35d2d6_04579348",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2017-07-28T22:06:21Z",
       "side": 1,
       "message": "Mind putting this onto the next line to make it clearer that you pass a lambda?",
+      "range": {
+        "startLine": 1158,
+        "startChar": 33,
+        "endLine": 1158,
+        "endChar": 95
+      },
+      "revId": "8518d3bc54fb6813e790d0794320a341df9f1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4567702e_16d7c9e0",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-28T22:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d35d2d6_04579348",
       "range": {
         "startLine": 1158,
         "startChar": 33,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "5fb99e5f_3853e6d3",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-28T22:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4460eeb3_bc183a5d",
+      "range": {
+        "startLine": 1488,
+        "startChar": 2,
+        "endLine": 1488,
+        "endChar": 18
+      },
+      "revId": "8518d3bc54fb6813e790d0794320a341df9f1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a70103ca_90198bb8",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2017-07-28T22:06:21Z",
       "side": 1,
       "message": "It probably would make more sense to create the global in the driver (which is the thing knowing about actual threading), as letting dex2oat handle simple local refs. Please clean up in a follow-up.",
+      "range": {
+        "startLine": 2928,
+        "startChar": 0,
+        "endLine": 2940,
+        "endChar": 2
+      },
+      "revId": "8518d3bc54fb6813e790d0794320a341df9f1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e8a9f54_641d1b19",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2940,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-28T22:56:46Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "a70103ca_90198bb8",
       "range": {
         "startLine": 2928,
         "startChar": 0,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "9d70f058_c160037d",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-28T22:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb42abc9_ed6b2932",
+      "range": {
+        "startLine": 698,
+        "startChar": 2,
+        "endLine": 698,
+        "endChar": 23
+      },
+      "revId": "8518d3bc54fb6813e790d0794320a341df9f1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef08768a_6a649f93",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2017-07-28T22:06:21Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 329,
+        "startChar": 2,
+        "endLine": 329,
+        "endChar": 6
+      },
+      "revId": "8518d3bc54fb6813e790d0794320a341df9f1b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "350bf1a5_9cd6cd1f",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-07-28T22:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef08768a_6a649f93",
       "range": {
         "startLine": 329,
         "startChar": 2,
