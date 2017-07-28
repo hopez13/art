@@ -22,6 +22,30 @@
       "revId": "2e53f8f69f8c4175085e337445ec42aa045a2f7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c6f5e97_6993172b",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-07-28T16:06:38Z",
+      "side": 0,
+      "message": "That would mean keeping ClassLinker::FindMethodForProxy() i.e. PS1.\n\n(And if we remove dex_cache_resolved_methods_, such check shall no longer be possible at all.)",
+      "parentUuid": "758d3b85_936c9823",
+      "range": {
+        "startLine": 387,
+        "startChar": 1,
+        "endLine": 398,
+        "endChar": 26
+      },
+      "revId": "2e53f8f69f8c4175085e337445ec42aa045a2f7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
