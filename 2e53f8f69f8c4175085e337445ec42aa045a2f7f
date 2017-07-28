@@ -46,6 +46,30 @@
       "revId": "2e53f8f69f8c4175085e337445ec42aa045a2f7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79be4b2c_44aac7e8",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-28T16:15:27Z",
+      "side": 0,
+      "message": "See \"similar.\" You could check that the method makes some sense, e.g., that it\u0027s in the proxy\u0027s interface class etc.",
+      "parentUuid": "4c6f5e97_6993172b",
+      "range": {
+        "startLine": 387,
+        "startChar": 1,
+        "endLine": 398,
+        "endChar": 26
+      },
+      "revId": "2e53f8f69f8c4175085e337445ec42aa045a2f7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
