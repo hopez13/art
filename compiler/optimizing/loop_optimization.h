@@ -108,12 +108,12 @@ class HLoopOptimization : public HOptimization {
   void LocalRun();
   void AddLoop(HLoopInformation* loop_info);
   void RemoveLoop(LoopNode* node);
-  void TraverseLoopsInnerToOuter(LoopNode* node);
+  bool TraverseLoopsInnerToOuter(LoopNode* node);
 
   // Optimization.
   void SimplifyInduction(LoopNode* node);
   void SimplifyBlocks(LoopNode* node);
-  void OptimizeInnerLoop(LoopNode* node);
+  bool OptimizeInnerLoop(LoopNode* node);
 
   // Vectorization analysis and synthesis.
   bool ShouldVectorize(LoopNode* node, HBasicBlock* block, int64_t trip_count);
@@ -160,7 +160,8 @@ class HLoopOptimization : public HOptimization {
 
   // Helpers.
   bool TrySetPhiInduction(HPhi* phi, bool restrict_uses);
-  bool TrySetSimpleLoopHeader(HBasicBlock* block);
+  bool TrySetPhiReduction(HPhi* phi);
+  bool TrySetSimpleLoopHeader(HBasicBlock* block, /*out*/ HPhi** main_phi);
   bool IsEmptyBody(HBasicBlock* block);
   bool IsOnlyUsedAfterLoop(HLoopInformation* loop_info,
                            HInstruction* instruction,
@@ -200,10 +201,9 @@ class HLoopOptimization : public HOptimization {
   // Contents reside in phase-local heap memory.
   ArenaSet<HInstruction*>* iset_;
 
-  // Counter that tracks how many induction cycles have been simplified. Useful
-  // to trigger incremental updates of induction variable analysis of outer loops
-  // when the induction of inner loops has changed.
-  uint32_t induction_simplication_count_;
+  // Temporary bookkeeping of reduction instructions.
+  // Contents reside in phase-local heap memory.
+  ArenaSafeMap<HInstruction*, HInstruction*>* reductions_;
 
   // Flag that tracks if any simplifications have occurred.
   bool simplified_;
