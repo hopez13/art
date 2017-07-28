@@ -16,6 +16,24 @@
       "revId": "548989e4e6adf6c1d281f0f4680c136eeea87ff3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5754e5f2_8d1326f4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-07-28T19:42:02Z",
+      "side": 1,
+      "message": "As the result of these changes VecMul instructions start to appear much earlier than before - in theory in can affect some optimization between \"instruction_simplifier$after_bce (after)\" and \"instruction_simplifier_$ARCH\", though those vector nodes are only semantically target-dependent (in comparison with, for instance, HMultiplyAccumulate defined in nodes_shared.h). But in general I guess it is fine.\n\nIs this the intended behavior?\n\nIf we do that only for the sake of avoiding code duplication we can leave \"TryCombineVecMultiplyAccumulate(HVecMul* mul)\" in instruction_simplifier_shared.cc (please note \"shared\" doesn\u0027t mean only ARM and ARM64) and adapt it/add case for MIPS. Then just call it from target-dependent instruction simplifiers.",
+      "parentUuid": "05637e70_7451f904",
+      "revId": "548989e4e6adf6c1d281f0f4680c136eeea87ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
