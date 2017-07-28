@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "4f9df1a0_26e944fd",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-28T22:52:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c09d7505_9c9c10e9",
+      "range": {
+        "startLine": 35,
+        "startChar": 10,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b205768a_68b8db57",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 22
@@ -68,6 +92,30 @@
       "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d69eb4b_aeae7c06",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-28T22:52:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b205768a_68b8db57",
+      "range": {
+        "startLine": 1792,
+        "startChar": 7,
+        "endLine": 1792,
+        "endChar": 8
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "5d7d2b23_6250b9b8",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-28T22:52:53Z",
+      "side": 1,
+      "message": "I tested a lot and found they are just legacy codes. The constraints is no much more elegant so we don\u0027t need use the abrot hack anymore.\n\nCreating exception is totally fine, but for the one special exception TransactionAbortError, it needs to be initialized before we start initialization. I\u0027ve patched this part in the last CL.",
+      "parentUuid": "8ae29e68_13c105ec",
+      "range": {
+        "startLine": 1793,
+        "startChar": 4,
+        "endLine": 1793,
+        "endChar": 69
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b2b1172_6eca9a11",
         "filename": "runtime/thread.cc",
         "patchSetId": 22
@@ -114,6 +186,30 @@
       "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3f7db4_1668d30c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2763,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-07-28T22:52:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b2b1172_6eca9a11",
+      "range": {
+        "startLine": 2760,
+        "startChar": 2,
+        "endLine": 2763,
+        "endChar": 3
+      },
+      "revId": "01c1f4b3930d0568bce47ef13bf04678ade4c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
