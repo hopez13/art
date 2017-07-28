@@ -22,6 +22,29 @@
       "revId": "9b1500470ddc161b0fd382f3e3f7481049e1fadb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7314140_54c35895",
+        "filename": "runtime/openjdkjvmti/ti_thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-28T21:21:48Z",
+      "side": 1,
+      "message": "Surprised this isn\u0027t complaining about not guaranteeing !thread_list_lock?",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 84
+      },
+      "revId": "9b1500470ddc161b0fd382f3e3f7481049e1fadb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
