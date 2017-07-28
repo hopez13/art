@@ -579,7 +579,11 @@ void ImageWriter::AssignImageBinSlot(mirror::Object* object, size_t oat_index) {
         }
       }
 
-      if (klass->GetStatus() == Class::kStatusInitialized) {
+      // Move classes that had dirty static methods into the dirty section.
+      if (dirty_image_classes_ != nullptr &&
+          dirty_image_classes_->find(klass->PrettyDescriptor()) != dirty_image_classes_->end()) {
+        bin = kBinMiscDirty;
+      } else if (klass->GetStatus() == Class::kStatusInitialized) {
         bin = kBinClassInitialized;
 
         // If the class's static fields are all final, put it into a separate bin
@@ -2774,7 +2778,8 @@ ImageWriter::ImageWriter(
     bool compile_app_image,
     ImageHeader::StorageMode image_storage_mode,
     const std::vector<const char*>& oat_filenames,
-    const std::unordered_map<const DexFile*, size_t>& dex_file_oat_index_map)
+    const std::unordered_map<const DexFile*, size_t>& dex_file_oat_index_map,
+    std::unordered_set<std::string>* dirty_image_classes)
     : compiler_driver_(compiler_driver),
       global_image_begin_(reinterpret_cast<uint8_t*>(image_begin)),
       image_objects_offset_begin_(0),
@@ -2786,7 +2791,8 @@ ImageWriter::ImageWriter(
       clean_methods_(0u),
       image_storage_mode_(image_storage_mode),
       oat_filenames_(oat_filenames),
-      dex_file_oat_index_map_(dex_file_oat_index_map) {
+      dex_file_oat_index_map_(dex_file_oat_index_map),
+      dirty_image_classes_(dirty_image_classes) {
   CHECK_NE(image_begin, 0U);
   std::fill_n(image_methods_, arraysize(image_methods_), nullptr);
   CHECK_EQ(compile_app_image, !Runtime::Current()->GetHeap()->GetBootImageSpaces().empty())

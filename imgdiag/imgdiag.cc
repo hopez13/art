@@ -330,12 +330,14 @@ template<>
 class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object> {
  public:
   RegionSpecializedBase(std::ostream* os,
+                        std::ostream* dirty_classes_os,
                         std::vector<uint8_t>* remote_contents,
                         std::vector<uint8_t>* zygote_contents,
                         const backtrace_map_t& boot_map,
                         const ImageHeader& image_header) :
     RegionCommon<mirror::Object>(os, remote_contents, zygote_contents, boot_map, image_header),
-    os_(*os) { }
+    os_(*os),
+    dirty_classes_os_(dirty_classes_os) { }
 
   void CheckEntrySanity(const uint8_t* current) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -396,7 +398,7 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
     class_data_[klass].AddDirtyObject(entry, entry_remote);
   }
 
-  void DiffEntryContents(mirror::Object* entry, uint8_t* remote_bytes, const uint8_t* base_ptr)
+  void DiffEntryContents(mirror::Object* entry, uint8_t* remote_bytes, const uint8_t* base_ptr, bool output_dirty_classes)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     const char* tabs = "    ";
     // Attempt to find fields for all dirty bytes.
@@ -453,6 +455,9 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
       }
     }
     if (!dirty_static_fields.empty()) {
+      if (output_dirty_classes && dirty_classes_os_ != nullptr) {
+        *dirty_classes_os_ << mirror::Class::PrettyDescriptor(entry->AsClass()) << "\n";
+      }
       os_ << tabs << "Dirty static fields " << dirty_static_fields.size() << "\n";
       for (ArtField* field : dirty_static_fields) {
         os_ << tabs << ArtField::PrettyField(field)
@@ -592,6 +597,7 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
   };
 
   std::ostream& os_;
+  std::ostream* dirty_classes_os_;
   std::map<mirror::Class*, ClassData> class_data_;
 
   DISALLOW_COPY_AND_ASSIGN(RegionSpecializedBase);
@@ -717,11 +723,12 @@ template <typename T>
 class RegionData : public RegionSpecializedBase<T> {
  public:
   RegionData(std::ostream* os,
+             std::ostream* dirty_classes_os,
              std::vector<uint8_t>* remote_contents,
              std::vector<uint8_t>* zygote_contents,
              const backtrace_map_t& boot_map,
              const ImageHeader& image_header) :
-    RegionSpecializedBase<T>(os, remote_contents, zygote_contents, boot_map, image_header),
+    RegionSpecializedBase<T>(os, dirty_classes_os, remote_contents, zygote_contents, boot_map, image_header),
     os_(*os) {
     CHECK(remote_contents != nullptr);
     CHECK(zygote_contents != nullptr);
@@ -773,7 +780,8 @@ class RegionData : public RegionSpecializedBase<T> {
     DiffDirtyEntries(ProcessType::kRemote,
                      begin_image_ptr,
                      RegionCommon<T>::remote_contents_,
-                     base_ptr);
+                     base_ptr,
+                     true);
     // Print shared dirty after since it's less important.
     if (RegionCommon<T>::GetZygoteDirtyEntryCount() != 0) {
       // We only reach this point if both pids were specified.  Furthermore,
@@ -784,7 +792,8 @@ class RegionData : public RegionSpecializedBase<T> {
       DiffDirtyEntries(ProcessType::kZygote,
                        begin_image_ptr,
                        RegionCommon<T>::zygote_contents_,
-                       begin_image_ptr);
+                       begin_image_ptr,
+                       false);
     }
     RegionSpecializedBase<T>::DumpDirtyEntries();
     RegionSpecializedBase<T>::DumpFalseDirtyEntries();
@@ -797,7 +806,8 @@ class RegionData : public RegionSpecializedBase<T> {
   void DiffDirtyEntries(ProcessType process_type,
                         const uint8_t* begin_image_ptr,
                         std::vector<uint8_t>* contents,
-                        const uint8_t* base_ptr)
+                        const uint8_t* base_ptr,
+                        bool output_dirty_classes)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     os_ << RegionCommon<T>::dirty_entries_.size() << "\n";
     const std::set<T*>& entries =
@@ -808,7 +818,7 @@ class RegionData : public RegionSpecializedBase<T> {
       uint8_t* entry_bytes = reinterpret_cast<uint8_t*>(entry);
       ptrdiff_t offset = entry_bytes - begin_image_ptr;
       uint8_t* remote_bytes = &(*contents)[offset];
-      RegionSpecializedBase<T>::DiffEntryContents(entry, remote_bytes, &base_ptr[offset]);
+      RegionSpecializedBase<T>::DiffEntryContents(entry, remote_bytes, &base_ptr[offset], output_dirty_classes);
     }
   }
 
@@ -872,12 +882,14 @@ class ImgDiagDumper {
                          const ImageHeader& image_header,
                          const std::string& image_location,
                          pid_t image_diff_pid,
-                         pid_t zygote_diff_pid)
+                         pid_t zygote_diff_pid,
+                         std::ostream* dirty_classes_os)
       : os_(os),
         image_header_(image_header),
         image_location_(image_location),
         image_diff_pid_(image_diff_pid),
         zygote_diff_pid_(zygote_diff_pid),
+        dirty_classes_os_(dirty_classes_os),
         zygote_pid_only_(false) {}
 
   bool Init() {
@@ -1204,6 +1216,7 @@ class ImgDiagDumper {
     }
 
     RegionData<mirror::Object> object_region_data(os_,
+                                                  dirty_classes_os_,
                                                   &remote_contents_,
                                                   &zygote_contents_,
                                                   boot_map_,
@@ -1364,6 +1377,7 @@ class ImgDiagDumper {
   const std::string image_location_;
   pid_t image_diff_pid_;  // Dump image diff against boot.art if pid is non-negative
   pid_t zygote_diff_pid_;  // Dump image diff against zygote boot.art if pid is non-negative
+  std::ostream* dirty_classes_os_;  // Ostream dump for classes with dirty static fields
   bool zygote_pid_only_;  // The user only specified a pid for the zygote.
 
   // BacktraceMap used for finding the memory mapping of the image file.
@@ -1391,7 +1405,8 @@ class ImgDiagDumper {
 static int DumpImage(Runtime* runtime,
                      std::ostream* os,
                      pid_t image_diff_pid,
-                     pid_t zygote_diff_pid) {
+                     pid_t zygote_diff_pid,
+                     std::ostream* dirty_classes_os) {
   ScopedObjectAccess soa(Thread::Current());
   gc::Heap* heap = runtime->GetHeap();
   std::vector<gc::space::ImageSpace*> image_spaces = heap->GetBootImageSpaces();
@@ -1407,7 +1422,8 @@ static int DumpImage(Runtime* runtime,
                                   image_header,
                                   image_space->GetImageLocation(),
                                   image_diff_pid,
-                                  zygote_diff_pid);
+                                  zygote_diff_pid,
+                                  dirty_classes_os);
     if (!img_diag_dumper.Init()) {
       return EXIT_FAILURE;
     }
@@ -1445,6 +1461,15 @@ struct ImgDiagArgs : public CmdlineArgs {
         *error_msg = "Zygote diff pid out of range";
         return kParseError;
       }
+    } else if (option.starts_with("--dirty-classes-dump=")) {
+      std::string dump_filename = option.substr(strlen("--dirty-classes-dump=")).ToString();
+      const char* filename = dump_filename.c_str();
+      dirty_classes_out_.reset(new std::ofstream(filename));
+      if (!dirty_classes_out_->good()) {
+        *error_msg = "Failed to open output file";
+        return kParseError;
+      }
+      dirty_classes_os_ = dirty_classes_out_.get();
     } else {
       return kParseUnknownArgument;
     }
@@ -1497,6 +1522,9 @@ struct ImgDiagArgs : public CmdlineArgs {
         "  --zygote-diff-pid=<pid>: provide the PID of the zygote whose boot.art you want to diff "
         "against.\n"
         "      Example: --zygote-diff-pid=$(pid zygote)\n"
+        "  --dirty-classes-dump=<file>: provide the file to dump all classes with dirty static "
+        "fields.\n"
+        "      Example: --dirty-classes-dump=/tmp/dirty-image-classes\n"
         "\n";
 
     return usage;
@@ -1505,6 +1533,8 @@ struct ImgDiagArgs : public CmdlineArgs {
  public:
   pid_t image_diff_pid_ = -1;
   pid_t zygote_diff_pid_ = -1;
+  std::ostream* dirty_classes_os_ = nullptr;
+  std::unique_ptr<std::ofstream> dirty_classes_out_;
 };
 
 struct ImgDiagMain : public CmdlineMain<ImgDiagArgs> {
@@ -1514,7 +1544,8 @@ struct ImgDiagMain : public CmdlineMain<ImgDiagArgs> {
     return DumpImage(runtime,
                      args_->os_,
                      args_->image_diff_pid_,
-                     args_->zygote_diff_pid_) == EXIT_SUCCESS;
+                     args_->zygote_diff_pid_,
+                     args_->dirty_classes_os_) == EXIT_SUCCESS;
   }
 };
 

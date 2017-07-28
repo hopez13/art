@@ -75,7 +75,8 @@ class ImageWriter FINAL {
               bool compile_app_image,
               ImageHeader::StorageMode image_storage_mode,
               const std::vector<const char*>& oat_filenames,
-              const std::unordered_map<const DexFile*, size_t>& dex_file_oat_index_map);
+              const std::unordered_map<const DexFile*, size_t>& dex_file_oat_index_map,
+              std::unordered_set<std::string>* dirty_image_classes);
 
   bool PrepareImageAddressSpace();
 
@@ -598,6 +599,8 @@ class ImageWriter FINAL {
 
   // Map of dex files to the indexes of oat files that they were compiled into.
   const std::unordered_map<const DexFile*, size_t>& dex_file_oat_index_map_;
+
+  std::unordered_set<std::string>* dirty_image_classes_;
 
   class ComputeLazyFieldsForClassesVisitor;
   class FixupClassVisitor;
