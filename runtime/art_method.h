@@ -726,9 +726,13 @@ class ArtMethod FINAL {
     // Short cuts to declaring_class_->dex_cache_ member for fast compiled code access.
     mirror::MethodDexCacheType* dex_cache_resolved_methods_;
 
-    // Pointer to JNI function registered to this method, or a function to resolve the JNI function,
-    // or the profiling data for non-native methods, or an ImtConflictTable, or the
-    // single-implementation of an abstract/interface method.
+    // Depending on the method type, the data is
+    //   - native method: pointer to the JNI function registered to this method
+    //                    or a function to resolve the JNI function,
+    //   - conflict method: ImtConflictTable,
+    //   - abstract/interface method: the single-implementation if any,
+    //   - proxy method: the original interface method or constructor,
+    //   - other methods: the profiling data.
     void* data_;
 
     // Method dispatch from quick compiled code invokes this pointer which may cause bridging into
