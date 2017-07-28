@@ -4651,6 +4651,9 @@ void ClassLinker::CreateProxyConstructor(Handle<mirror::Class> klass, ArtMethod*
                       kAccPublic |
                       kAccCompileDontBother);
   out->SetDeclaringClass(klass.Get());
+
+  // Set the original constructor method.
+  out->SetDataPtrSize(proxy_constructor, image_pointer_size_);
 }
 
 void ClassLinker::CheckProxyConstructor(ArtMethod* constructor) const {
@@ -4690,6 +4693,9 @@ void ClassLinker::CreateProxyMethod(Handle<mirror::Class> klass, ArtMethod* prot
   // Clear the dex_code_item_offset_. It needs to be 0 since proxy methods have no CodeItems but the
   // method they copy might (if it's a default method).
   out->SetCodeItemOffset(0);
+
+  // Set the original interface method.
+  out->SetDataPtrSize(prototype, image_pointer_size_);
 
   // At runtime the method looks like a reference and argument saving method, clone the code
   // related parameters from this method.
