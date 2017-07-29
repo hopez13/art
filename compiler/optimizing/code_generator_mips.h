@@ -537,7 +537,7 @@ class CodeGeneratorMIPS : public CodeGenerator {
                                            SlowPathCode* slow_path,
                                            bool direct);
 
-  void GenerateInvokeRuntime(int32_t entry_point_offset, bool direct);
+  void GenerateInvokeRuntime(int32_t entry_point_offset, bool tail_call, bool direct);
 
   ParallelMoveResolver* GetMoveResolver() OVERRIDE { return &move_resolver_; }
 

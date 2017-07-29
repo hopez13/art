@@ -443,13 +443,26 @@ class SuspendCheckSlowPathMIPS : public SlowPathCodeMIPS {
     CodeGeneratorMIPS* mips_codegen = down_cast<CodeGeneratorMIPS*>(codegen);
     __ Bind(GetEntryLabel());
     SaveLiveRegisters(codegen, locations);     // Only saves live vector registers for SIMD.
-    mips_codegen->InvokeRuntime(kQuickTestSuspend, instruction_, instruction_->GetDexPc(), this);
+
+    uint32_t core_spills = mips_codegen->GetSlowPathSpills(locations, /* core_registers */ true);
+    uint32_t fpu_spills = mips_codegen->GetSlowPathSpills(locations, /* core_registers */ false);
+    bool tail_call = (successor_ == nullptr) && ((core_spills | fpu_spills) == 0);
     CheckEntrypointTypes<kQuickTestSuspend, void, void>();
-    RestoreLiveRegisters(codegen, locations);  // Only restores live vector registers for SIMD.
-    if (successor_ == nullptr) {
-      __ B(GetReturnLabel());
+    if (tail_call) {
+      DCHECK(!IsDirectEntrypoint(kQuickTestSuspend));
+      mips_codegen->GenerateInvokeRuntime(
+          GetThreadOffset<kMipsPointerSize>(kQuickTestSuspend).Int32Value(),
+          /* tail_call */ true,
+          /* direct */ false);
+      // TODO: fix this ugliness w.r.t. RecordPcInfo().
     } else {
-      __ B(mips_codegen->GetLabelOf(successor_));
+      mips_codegen->InvokeRuntime(kQuickTestSuspend, instruction_, instruction_->GetDexPc(), this);
+      RestoreLiveRegisters(codegen, locations);  // Only restores live vector registers for SIMD.
+      if (successor_ == nullptr) {
+        __ B(GetReturnLabel());
+      } else {
+        __ B(mips_codegen->GetLabelOf(successor_));
+      }
     }
   }
 
@@ -1951,6 +1964,7 @@ void CodeGeneratorMIPS::InvokeRuntime(QuickEntrypointEnum entrypoint,
                                       SlowPathCode* slow_path) {
   ValidateInvokeRuntime(entrypoint, instruction, slow_path);
   GenerateInvokeRuntime(GetThreadOffset<kMipsPointerSize>(entrypoint).Int32Value(),
+                        /* tail_call */ false,
                         IsDirectEntrypoint(entrypoint));
   if (EntrypointRequiresStackMap(entrypoint)) {
     RecordPcInfo(instruction, dex_pc, slow_path);
@@ -1962,30 +1976,60 @@ void CodeGeneratorMIPS::InvokeRuntimeWithoutRecordingPcInfo(int32_t entry_point_
                                                             SlowPathCode* slow_path,
                                                             bool direct) {
   ValidateInvokeRuntimeWithoutRecordingPcInfo(instruction, slow_path);
-  GenerateInvokeRuntime(entry_point_offset, direct);
+  GenerateInvokeRuntime(entry_point_offset, /* tail_call */ false, direct);
 }
 
-void CodeGeneratorMIPS::GenerateInvokeRuntime(int32_t entry_point_offset, bool direct) {
-  bool reordering = __ SetReorder(false);
-  __ LoadFromOffset(kLoadWord, T9, TR, entry_point_offset);
-  __ Jalr(T9);
+void CodeGeneratorMIPS::GenerateInvokeRuntime(int32_t entry_point_offset,
+                                              bool tail_call,
+                                              bool direct) {
   if (direct) {
+    DCHECK(!tail_call);
+    bool reordering = __ SetReorder(false);
+    __ LoadFromOffset(kLoadWord, T9, TR, entry_point_offset);
+    __ Jalr(T9);
     // Reserve argument space on stack (for $a0-$a3) for
     // entrypoints that directly reference native implementations.
     // Called function may use this space to store $a0-$a3 regs.
     __ IncreaseFrameSize(kMipsDirectEntrypointRuntimeOffset);  // Single instruction in delay slot.
     __ DecreaseFrameSize(kMipsDirectEntrypointRuntimeOffset);
+    __ SetReorder(reordering);
   } else {
-    __ Nop();  // In delay slot.
+    MipsAssembler::DelaySlot forwarded_slot;
+    // AT may be modified by LoadFromOffset().
+    uint32_t at_mask = IsInt<16>(entry_point_offset) ? 0 : (1u << AT);
+    bool forwarded = __ ForwardLastInstructionGprs(
+        /* gpr_outs_mask */ (1u << T9) | at_mask,
+        /* gpr_ins_mask */ 0u,
+        forwarded_slot);
+    __ LoadFromOffset(kLoadWord, T9, TR, entry_point_offset);
+    if (GetInstructionSetFeatures().IsR6() && !forwarded) {
+      if (tail_call) {
+        __ Jic(T9, 0);
+      } else {
+        __ Jialc(T9, 0);
+      }
+    } else {
+      __ EmitForwardedInstruction(forwarded_slot);
+      if (tail_call) {
+        __ Jr(T9);  // Receives the forwarded instruction in its delay slot.
+      } else {
+        __ Jalr(T9);  // Receives the forwarded instruction in its delay slot.
+      }
+      __ NopIfNoReordering();
+    }
   }
-  __ SetReorder(reordering);
 }
 
 void InstructionCodeGeneratorMIPS::GenerateClassInitializationCheck(SlowPathCodeMIPS* slow_path,
                                                                     Register class_reg) {
   __ LoadFromOffset(kLoadWord, TMP, class_reg, mirror::Class::StatusOffset().Int32Value());
-  __ LoadConst32(AT, mirror::Class::kStatusInitialized);
-  __ Blt(TMP, AT, slow_path->GetEntryLabel());
+  if (IsInt<16>(static_cast<int32_t>(mirror::Class::kStatusInitialized))) {
+    __ Slti(TMP, TMP, mirror::Class::kStatusInitialized);
+    __ Bnez(TMP, slow_path->GetEntryLabel());
+  } else {
+    __ LoadConst32(AT, mirror::Class::kStatusInitialized);
+    __ Blt(TMP, AT, slow_path->GetEntryLabel());
+  }
   // Even if the initialized flag is set, we need to ensure consistent memory ordering.
   __ Sync(0);
   __ Bind(slow_path->GetExitLabel());
@@ -1997,18 +2041,45 @@ void InstructionCodeGeneratorMIPS::GenerateMemoryBarrier(MemBarrierKind kind ATT
 
 void InstructionCodeGeneratorMIPS::GenerateSuspendCheck(HSuspendCheck* instruction,
                                                         HBasicBlock* successor) {
+  LocationSummary* locations = instruction->GetLocations();
   SuspendCheckSlowPathMIPS* slow_path =
     new (GetGraph()->GetArena()) SuspendCheckSlowPathMIPS(instruction, successor);
   codegen_->AddSlowPath(slow_path);
+  bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
+  MipsAssembler::DelaySlot forwarded_slot;
+  uint32_t core_spills = codegen_->GetSlowPathSpills(locations, /* core_registers */ true);
+  uint32_t fpu_spills = codegen_->GetSlowPathSpills(locations, /* core_registers */ false);
+  bool tail_call = (successor == nullptr) && ((core_spills | fpu_spills) == 0);
+  if (!isR6) {
+    __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP) | (1u << AT),
+                                  /* gpr_ins_mask */ 0u,
+                                  forwarded_slot);
+  }
 
   __ LoadFromOffset(kLoadUnsignedHalfword,
                     TMP,
                     TR,
                     Thread::ThreadFlagsOffset<kMipsPointerSize>().Int32Value());
   if (successor == nullptr) {
-    __ Bnez(TMP, slow_path->GetEntryLabel());
-    __ Bind(slow_path->GetReturnLabel());
+    if (tail_call) {
+      if (isR6) {
+        __ Bnezalc(TMP, slow_path->GetEntryLabel());
+      } else {
+        __ Addiu(TMP, TMP, -1);
+        __ EmitForwardedInstruction(forwarded_slot);
+        __ Bgezal(TMP, slow_path->GetEntryLabel());
+      }
+      // TODO: fix this ugliness.
+      if (EntrypointRequiresStackMap(kQuickTestSuspend)) {
+        codegen_->RecordPcInfo(instruction, instruction->GetDexPc(), slow_path);
+      }
+    } else {
+      __ EmitForwardedInstruction(forwarded_slot);
+      __ Bnez(TMP, slow_path->GetEntryLabel());
+      __ Bind(slow_path->GetReturnLabel());
+    }
   } else {
+    __ EmitForwardedInstruction(forwarded_slot);
     __ Beqz(TMP, codegen_->GetLabelOf(successor));
     __ B(slow_path->GetEntryLabel());
     // slow_path will return to GetLabelOf(successor).
@@ -4269,92 +4340,165 @@ void InstructionCodeGeneratorMIPS::GenerateIntCompareAndBranch(IfCondition cond,
       }
     } else {
       // Special cases for more efficient comparison with constants on R2.
+      MipsAssembler::DelaySlot forwarded_slot;
       switch (cond) {
         case kCondEQ:
+          __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                        /* gpr_ins_mask */ 0u,
+                                        forwarded_slot);
           __ LoadConst32(TMP, rhs_imm);
+          __ EmitForwardedInstruction(forwarded_slot);
           __ Beq(lhs, TMP, label);
           break;
         case kCondNE:
+          __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                        /* gpr_ins_mask */ 0u,
+                                        forwarded_slot);
           __ LoadConst32(TMP, rhs_imm);
+          __ EmitForwardedInstruction(forwarded_slot);
           __ Bne(lhs, TMP, label);
           break;
         case kCondLT:
           if (IsInt<16>(rhs_imm)) {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ (1u << lhs),
+                                          forwarded_slot);
             __ Slti(TMP, lhs, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bnez(TMP, label);
           } else {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ 0u,
+                                          forwarded_slot);
             __ LoadConst32(TMP, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Blt(lhs, TMP, label);
           }
           break;
         case kCondGE:
           if (IsInt<16>(rhs_imm)) {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ (1u << lhs),
+                                          forwarded_slot);
             __ Slti(TMP, lhs, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Beqz(TMP, label);
           } else {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ 0u,
+                                          forwarded_slot);
             __ LoadConst32(TMP, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bge(lhs, TMP, label);
           }
           break;
         case kCondLE:
           if (IsInt<16>(rhs_imm + 1)) {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ (1u << lhs),
+                                          forwarded_slot);
             // Simulate lhs <= rhs via lhs < rhs + 1.
             __ Slti(TMP, lhs, rhs_imm + 1);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bnez(TMP, label);
           } else {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ 0u,
+                                          forwarded_slot);
             __ LoadConst32(TMP, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bge(TMP, lhs, label);
           }
           break;
         case kCondGT:
           if (IsInt<16>(rhs_imm + 1)) {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ (1u << lhs),
+                                          forwarded_slot);
             // Simulate lhs > rhs via !(lhs < rhs + 1).
             __ Slti(TMP, lhs, rhs_imm + 1);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Beqz(TMP, label);
           } else {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ 0u,
+                                          forwarded_slot);
             __ LoadConst32(TMP, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Blt(TMP, lhs, label);
           }
           break;
         case kCondB:
           if (IsInt<16>(rhs_imm)) {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ (1u << lhs),
+                                          forwarded_slot);
             __ Sltiu(TMP, lhs, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bnez(TMP, label);
           } else {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ 0u,
+                                          forwarded_slot);
             __ LoadConst32(TMP, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bltu(lhs, TMP, label);
           }
           break;
         case kCondAE:
           if (IsInt<16>(rhs_imm)) {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ (1u << lhs),
+                                          forwarded_slot);
             __ Sltiu(TMP, lhs, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Beqz(TMP, label);
           } else {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ 0u,
+                                          forwarded_slot);
             __ LoadConst32(TMP, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bgeu(lhs, TMP, label);
           }
           break;
         case kCondBE:
           if ((rhs_imm != -1) && IsInt<16>(rhs_imm + 1)) {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ (1u << lhs),
+                                          forwarded_slot);
             // Simulate lhs <= rhs via lhs < rhs + 1.
             // Note that this only works if rhs + 1 does not overflow
             // to 0, hence the check above.
             __ Sltiu(TMP, lhs, rhs_imm + 1);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bnez(TMP, label);
           } else {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ 0u,
+                                          forwarded_slot);
             __ LoadConst32(TMP, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bgeu(TMP, lhs, label);
           }
           break;
         case kCondA:
           if ((rhs_imm != -1) && IsInt<16>(rhs_imm + 1)) {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ (1u << lhs),
+                                          forwarded_slot);
             // Simulate lhs > rhs via !(lhs < rhs + 1).
             // Note that this only works if rhs + 1 does not overflow
             // to 0, hence the check above.
             __ Sltiu(TMP, lhs, rhs_imm + 1);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Beqz(TMP, label);
           } else {
+            __ ForwardLastInstructionGprs(/* gpr_outs_mask */ (1u << TMP),
+                                          /* gpr_ins_mask */ 0u,
+                                          forwarded_slot);
             __ LoadConst32(TMP, rhs_imm);
+            __ EmitForwardedInstruction(forwarded_slot);
             __ Bltu(TMP, lhs, label);
           }
           break;
@@ -5206,17 +5350,23 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
                                                               MipsLabel* label) {
   FRegister lhs = locations->InAt(0).AsFpuRegister<FRegister>();
   FRegister rhs = locations->InAt(1).AsFpuRegister<FRegister>();
+  constexpr int cc0 = 0;
   bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
+  MipsAssembler::DelaySlot forwarded_slot;
+  __ ForwardLastInstructionFprs(
+      /* fpr_outs_mask */ (isR6 ? (1u << FTMP) : 0u),
+      /* fpr_ins_mask */ (1u << lhs) | (1u << rhs),
+      /* cc_outs_mask */ (isR6 ? 0u : (1u << cc0)),
+      /* cc_ins_mask */ 0u,
+      forwarded_slot);
   if (type == DataType::Type::kFloat32) {
     if (isR6) {
       switch (cond) {
         case kCondEQ:
           __ CmpEqS(FTMP, lhs, rhs);
-          __ Bc1nez(FTMP, label);
           break;
         case kCondNE:
           __ CmpEqS(FTMP, lhs, rhs);
-          __ Bc1eqz(FTMP, label);
           break;
         case kCondLT:
           if (gt_bias) {
@@ -5224,7 +5374,6 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
           } else {
             __ CmpUltS(FTMP, lhs, rhs);
           }
-          __ Bc1nez(FTMP, label);
           break;
         case kCondLE:
           if (gt_bias) {
@@ -5232,7 +5381,6 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
           } else {
             __ CmpUleS(FTMP, lhs, rhs);
           }
-          __ Bc1nez(FTMP, label);
           break;
         case kCondGT:
           if (gt_bias) {
@@ -5240,7 +5388,6 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
           } else {
             __ CmpLtS(FTMP, rhs, lhs);
           }
-          __ Bc1nez(FTMP, label);
           break;
         case kCondGE:
           if (gt_bias) {
@@ -5248,7 +5395,6 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
           } else {
             __ CmpLeS(FTMP, rhs, lhs);
           }
-          __ Bc1nez(FTMP, label);
           break;
         default:
           LOG(FATAL) << "Unexpected non-floating-point condition";
@@ -5257,44 +5403,38 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
     } else {
       switch (cond) {
         case kCondEQ:
-          __ CeqS(0, lhs, rhs);
-          __ Bc1t(0, label);
+          __ CeqS(cc0, lhs, rhs);
           break;
         case kCondNE:
-          __ CeqS(0, lhs, rhs);
-          __ Bc1f(0, label);
+          __ CeqS(cc0, lhs, rhs);
           break;
         case kCondLT:
           if (gt_bias) {
-            __ ColtS(0, lhs, rhs);
+            __ ColtS(cc0, lhs, rhs);
           } else {
-            __ CultS(0, lhs, rhs);
+            __ CultS(cc0, lhs, rhs);
           }
-          __ Bc1t(0, label);
           break;
         case kCondLE:
           if (gt_bias) {
-            __ ColeS(0, lhs, rhs);
+            __ ColeS(cc0, lhs, rhs);
           } else {
-            __ CuleS(0, lhs, rhs);
+            __ CuleS(cc0, lhs, rhs);
           }
-          __ Bc1t(0, label);
           break;
         case kCondGT:
           if (gt_bias) {
-            __ CultS(0, rhs, lhs);
+            __ CultS(cc0, rhs, lhs);
           } else {
-            __ ColtS(0, rhs, lhs);
+            __ ColtS(cc0, rhs, lhs);
           }
-          __ Bc1t(0, label);
           break;
         case kCondGE:
           if (gt_bias) {
-            __ CuleS(0, rhs, lhs);
+            __ CuleS(cc0, rhs, lhs);
           } else {
-            __ ColeS(0, rhs, lhs);
+            __ ColeS(cc0, rhs, lhs);
           }
-          __ Bc1t(0, label);
           break;
         default:
           LOG(FATAL) << "Unexpected non-floating-point condition";
@@ -5307,11 +5447,9 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
       switch (cond) {
         case kCondEQ:
           __ CmpEqD(FTMP, lhs, rhs);
-          __ Bc1nez(FTMP, label);
           break;
         case kCondNE:
           __ CmpEqD(FTMP, lhs, rhs);
-          __ Bc1eqz(FTMP, label);
           break;
         case kCondLT:
           if (gt_bias) {
@@ -5319,7 +5457,6 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
           } else {
             __ CmpUltD(FTMP, lhs, rhs);
           }
-          __ Bc1nez(FTMP, label);
           break;
         case kCondLE:
           if (gt_bias) {
@@ -5327,7 +5464,6 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
           } else {
             __ CmpUleD(FTMP, lhs, rhs);
           }
-          __ Bc1nez(FTMP, label);
           break;
         case kCondGT:
           if (gt_bias) {
@@ -5335,7 +5471,6 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
           } else {
             __ CmpLtD(FTMP, rhs, lhs);
           }
-          __ Bc1nez(FTMP, label);
           break;
         case kCondGE:
           if (gt_bias) {
@@ -5343,7 +5478,6 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
           } else {
             __ CmpLeD(FTMP, rhs, lhs);
           }
-          __ Bc1nez(FTMP, label);
           break;
         default:
           LOG(FATAL) << "Unexpected non-floating-point condition";
@@ -5352,49 +5486,57 @@ void InstructionCodeGeneratorMIPS::GenerateFpCompareAndBranch(IfCondition cond,
     } else {
       switch (cond) {
         case kCondEQ:
-          __ CeqD(0, lhs, rhs);
-          __ Bc1t(0, label);
+          __ CeqD(cc0, lhs, rhs);
           break;
         case kCondNE:
-          __ CeqD(0, lhs, rhs);
-          __ Bc1f(0, label);
+          __ CeqD(cc0, lhs, rhs);
           break;
         case kCondLT:
           if (gt_bias) {
-            __ ColtD(0, lhs, rhs);
+            __ ColtD(cc0, lhs, rhs);
           } else {
-            __ CultD(0, lhs, rhs);
+            __ CultD(cc0, lhs, rhs);
           }
-          __ Bc1t(0, label);
           break;
         case kCondLE:
           if (gt_bias) {
-            __ ColeD(0, lhs, rhs);
+            __ ColeD(cc0, lhs, rhs);
           } else {
-            __ CuleD(0, lhs, rhs);
+            __ CuleD(cc0, lhs, rhs);
           }
-          __ Bc1t(0, label);
           break;
         case kCondGT:
           if (gt_bias) {
-            __ CultD(0, rhs, lhs);
+            __ CultD(cc0, rhs, lhs);
           } else {
-            __ ColtD(0, rhs, lhs);
+            __ ColtD(cc0, rhs, lhs);
           }
-          __ Bc1t(0, label);
           break;
         case kCondGE:
           if (gt_bias) {
-            __ CuleD(0, rhs, lhs);
+            __ CuleD(cc0, rhs, lhs);
           } else {
-            __ ColeD(0, rhs, lhs);
+            __ ColeD(cc0, rhs, lhs);
           }
-          __ Bc1t(0, label);
           break;
         default:
           LOG(FATAL) << "Unexpected non-floating-point condition";
           UNREACHABLE();
       }
+    }
+  }
+  __ EmitForwardedInstruction(forwarded_slot);
+  if (isR6) {
+    if (cond == kCondNE) {
+      __ Bc1eqz(FTMP, label);
+    } else {
+      __ Bc1nez(FTMP, label);
+    }
+  } else {
+    if (cond == kCondNE) {
+      __ Bc1f(cc0, label);
+    } else {
+      __ Bc1t(cc0, label);
     }
   }
 }
@@ -6582,6 +6724,15 @@ void InstructionCodeGeneratorMIPS::GenerateGcRootFieldLoad(HInstruction* instruc
                                                                 // extension in lw.
         bool short_offset = IsInt<16>(static_cast<int32_t>(offset));
         Register base = short_offset ? obj : TMP;
+        MipsAssembler::DelaySlot forwarded_slot;
+        // AT may be modified by LoadFromOffset().
+        uint32_t outs_mask = (1u << T9) |
+            (IsInt<16>(entry_point_offset) ? 0u : (1u << AT)) |
+            (short_offset ? 0u : (1u << base));
+        bool forwarded = !isR6 && __ ForwardLastInstructionGprs(
+            /* gpr_outs_mask */ outs_mask,
+            /* gpr_ins_mask */ (short_offset ? 0u : (1u << obj)),
+            forwarded_slot);
         // Loading the entrypoint does not require a load acquire since it is only changed when
         // threads are suspended or running a checkpoint.
         __ LoadFromOffset(kLoadWord, T9, TR, entry_point_offset);
@@ -6590,23 +6741,47 @@ void InstructionCodeGeneratorMIPS::GenerateGcRootFieldLoad(HInstruction* instruc
           DCHECK(!label_low);
           __ AddUpper(base, obj, offset_high);
         }
-        MipsLabel skip_call;
-        __ Beqz(T9, &skip_call, /* is_bare */ true);
         if (label_low != nullptr) {
           DCHECK(short_offset);
-          __ Bind(label_low);
         }
-        // /* GcRoot<mirror::Object> */ root = *(obj + offset)
-        __ LoadFromOffset(kLoadWord, root_reg, base, offset_low);  // Single instruction
-                                                                   // in delay slot.
+        MipsLabel skip_call;
         if (isR6) {
+          __ Beqz(T9, &skip_call, /* is_bare */ true);
+          if (label_low != nullptr) {
+            __ Bind(label_low);
+          }
+          // /* GcRoot<mirror::Object> */ root = *(obj + offset)
+          __ LoadFromOffset(kLoadWord, root_reg, base, offset_low);  // Single instruction
+                                                                     // in delay slot.
           __ Jialc(T9, thunk_disp);
+          __ Bind(&skip_call);
         } else {
-          __ Addiu(T9, T9, thunk_disp);
-          __ Jalr(T9);
-          __ Nop();
+          if (forwarded) {
+            __ Beqz(T9, &skip_call, /* is_bare */ true);
+            __ EmitForwardedInstruction(forwarded_slot);
+            __ Addiu(T9, T9, thunk_disp);
+            __ Jalr(T9);
+            if (label_low != nullptr) {
+              __ Bind(label_low);
+            }
+            __ Bind(&skip_call);
+            // /* GcRoot<mirror::Object> */ root = *(obj + offset)
+            __ LoadFromOffset(kLoadWord, root_reg, base, offset_low);  // Single instruction
+                                                                       // in delay slot.
+          } else {
+            __ Beqz(T9, &skip_call, /* is_bare */ true);
+            if (label_low != nullptr) {
+              __ Bind(label_low);
+            }
+            // /* GcRoot<mirror::Object> */ root = *(obj + offset)
+            __ LoadFromOffset(kLoadWord, root_reg, base, offset_low);  // Single instruction
+                                                                       // in delay slot.
+            __ Addiu(T9, T9, thunk_disp);
+            __ Jalr(T9);
+            __ Nop();
+            __ Bind(&skip_call);
+          }
         }
-        __ Bind(&skip_call);
         __ SetReorder(reordering);
       } else {
         // Note that we do not actually check the value of `GetIsGcMarking()`
@@ -6726,9 +6901,17 @@ void CodeGeneratorMIPS::GenerateFieldLoadWithBakerReadBarrier(HInstruction* inst
     int16_t offset_low = Low16Bits(offset);
     int16_t offset_high = High16Bits(offset - offset_low);  // Accounts for sign extension in lw.
     bool short_offset = IsInt<16>(static_cast<int32_t>(offset));
-    bool reordering = __ SetReorder(false);
+    Register ref_reg = ref.AsRegister<Register>();
+    Register base = short_offset ? obj : TMP;
     const int32_t entry_point_offset =
         Thread::ReadBarrierMarkEntryPointsOffset<kMipsPointerSize>(0);
+    MipsAssembler::DelaySlot forwarded_slot;
+    // AT may be modified by LoadFromOffset().
+    uint32_t outs_mask = (1u << T9) | (IsInt<16>(entry_point_offset) ? 0u : (1u << AT));
+    bool forwarded = short_offset && __ ForwardLastInstructionGprs(
+        /* gpr_outs_mask */ outs_mask,
+        /* gpr_ins_mask */ 0u,
+        forwarded_slot);
     // There may have or may have not been a null check if the field offset is smaller than
     // the page size.
     // There must've been a null check in case it's actually a load from an array.
@@ -6737,25 +6920,35 @@ void CodeGeneratorMIPS::GenerateFieldLoadWithBakerReadBarrier(HInstruction* inst
     if (instruction->IsArrayGet()) {
       DCHECK(!needs_null_check);
     }
+    bool reordering = __ SetReorder(false);
     const int thunk_disp = GetBakerMarkFieldArrayThunkDisplacement(obj, short_offset);
     // Loading the entrypoint does not require a load acquire since it is only changed when
     // threads are suspended or running a checkpoint.
     __ LoadFromOffset(kLoadWord, T9, TR, entry_point_offset);
-    Register ref_reg = ref.AsRegister<Register>();
-    Register base = short_offset ? obj : TMP;
     MipsLabel skip_call;
     if (short_offset) {
       if (isR6) {
-        __ Beqzc(T9, &skip_call, /* is_bare */ true);
-        __ Nop();  // In forbidden slot.
+        if (forwarded) {
+          __ Beqz(T9, &skip_call, /* is_bare */ true);
+          __ EmitForwardedInstruction(forwarded_slot);  // In delay slot.
+        } else {
+          __ Beqzc(T9, &skip_call, /* is_bare */ true);
+          __ Nop();  // In forbidden slot.
+        }
         __ Jialc(T9, thunk_disp);
+        __ Bind(&skip_call);
       } else {
         __ Beqz(T9, &skip_call, /* is_bare */ true);
         __ Addiu(T9, T9, thunk_disp);  // In delay slot.
         __ Jalr(T9);
-        __ Nop();  // In delay slot.
+        if (forwarded) {
+          __ Bind(&skip_call);
+          __ EmitForwardedInstruction(forwarded_slot);  // In delay slot.
+        } else {
+          __ Nop();  // In delay slot.
+          __ Bind(&skip_call);
+        }
       }
-      __ Bind(&skip_call);
     } else {
       if (isR6) {
         __ Beqz(T9, &skip_call, /* is_bare */ true);
@@ -7297,10 +7490,6 @@ void InstructionCodeGeneratorMIPS::VisitInvokeInterface(HInvokeInterface* invoke
   uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
   Offset entry_point = ArtMethod::EntryPointFromQuickCompiledCodeOffset(kMipsPointerSize);
 
-  // Set the hidden argument.
-  __ LoadConst32(invoke->GetLocations()->GetTemp(1).AsRegister<Register>(),
-                 invoke->GetDexMethodIndex());
-
   // temp = object->GetClass();
   if (receiver.IsStackSlot()) {
     __ LoadFromOffset(kLoadWord, temp, SP, receiver.GetStackIndex());
@@ -7325,6 +7514,9 @@ void InstructionCodeGeneratorMIPS::VisitInvokeInterface(HInvokeInterface* invoke
   __ LoadFromOffset(kLoadWord, temp, temp, method_offset);
   // T9 = temp->GetEntryPoint();
   __ LoadFromOffset(kLoadWord, T9, temp, entry_point.Int32Value());
+  // Set the hidden argument.
+  __ LoadConst32(invoke->GetLocations()->GetTemp(1).AsRegister<Register>(),
+                 invoke->GetDexMethodIndex());
   // T9();
   __ Jalr(T9);
   __ NopIfNoReordering();
@@ -7470,9 +7662,17 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(
   Register base_reg = (invoke->HasPcRelativeMethodLoadKind() && !is_r6 && !has_irreducible_loops)
       ? GetInvokeStaticOrDirectExtraParameter(invoke, temp.AsRegister<Register>())
       : ZERO;
+  MipsAssembler::DelaySlot forwarded_slot;
+  bool can_forward = (method_load_kind != HInvokeStaticOrDirect::MethodLoadKind::kRuntimeCall) &&
+      (code_ptr_location == HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod);
+  bool forwarded = false;
 
   switch (method_load_kind) {
     case HInvokeStaticOrDirect::MethodLoadKind::kStringInit: {
+      forwarded = can_forward && __ ForwardLastInstructionGprs(
+          /* gpr_outs_mask */ (1u << T9) | (1u << AT) | (1u << temp.AsRegister<Register>()),
+          /* gpr_ins_mask */ (1u << callee_method.AsRegister<Register>()),
+          forwarded_slot);
       // temp = thread->string_init_entrypoint
       uint32_t offset =
           GetThreadOffset<kMipsPointerSize>(invoke->GetStringInitEntryPoint()).Int32Value();
@@ -7484,26 +7684,42 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(
     }
     case HInvokeStaticOrDirect::MethodLoadKind::kRecursive:
       callee_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
+      forwarded = can_forward && __ ForwardLastInstructionGprs(
+          /* gpr_outs_mask */ (1u << T9) | (1u << AT),
+          /* gpr_ins_mask */ (1u << callee_method.AsRegister<Register>()),
+          forwarded_slot);
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kBootImageLinkTimePcRelative: {
       DCHECK(GetCompilerOptions().IsBootImage());
+      Register temp_reg = temp.AsRegister<Register>();
+      forwarded = can_forward && __ ForwardLastInstructionGprs(
+          /* gpr_outs_mask */ (1u << T9) | (1u << AT) | (1u << TMP) | (1u << temp_reg),
+          /* gpr_ins_mask */ (1u << callee_method.AsRegister<Register>()) | (1u << base_reg),
+          forwarded_slot);
       PcRelativePatchInfo* info_high = NewPcRelativeMethodPatch(invoke->GetTargetMethod());
       PcRelativePatchInfo* info_low =
           NewPcRelativeMethodPatch(invoke->GetTargetMethod(), info_high);
-      Register temp_reg = temp.AsRegister<Register>();
       EmitPcRelativeAddressPlaceholderHigh(info_high, TMP, base_reg);
       __ Addiu(temp_reg, TMP, /* placeholder */ 0x5678, &info_low->label);
       break;
     }
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
+      forwarded = can_forward && __ ForwardLastInstructionGprs(
+          /* gpr_outs_mask */ (1u << T9) | (1u << AT) | (1u << temp.AsRegister<Register>()),
+          /* gpr_ins_mask */ (1u << callee_method.AsRegister<Register>()),
+          forwarded_slot);
       __ LoadConst32(temp.AsRegister<Register>(), invoke->GetMethodAddress());
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kBssEntry: {
+      Register temp_reg = temp.AsRegister<Register>();
+      forwarded = can_forward && __ ForwardLastInstructionGprs(
+          /* gpr_outs_mask */ (1u << T9) | (1u << AT) | (1u << TMP) | (1u << temp_reg),
+          /* gpr_ins_mask */ (1u << callee_method.AsRegister<Register>()) | (1u << base_reg),
+          forwarded_slot);
       PcRelativePatchInfo* info_high = NewMethodBssEntryPatch(
           MethodReference(&GetGraph()->GetDexFile(), invoke->GetDexMethodIndex()));
       PcRelativePatchInfo* info_low = NewMethodBssEntryPatch(
           MethodReference(&GetGraph()->GetDexFile(), invoke->GetDexMethodIndex()), info_high);
-      Register temp_reg = temp.AsRegister<Register>();
       EmitPcRelativeAddressPlaceholderHigh(info_high, TMP, base_reg);
       __ Lw(temp_reg, TMP, /* placeholder */ 0x5678, &info_low->label);
       break;
@@ -7526,8 +7742,13 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(
                         ArtMethod::EntryPointFromQuickCompiledCodeOffset(
                             kMipsPointerSize).Int32Value());
       // T9()
-      __ Jalr(T9);
-      __ NopIfNoReordering();
+      if (is_r6 && !forwarded) {
+        __ Jialc(T9, 0);
+      } else {
+        __ EmitForwardedInstruction(forwarded_slot);
+        __ Jalr(T9);  // Receives the forwarded instruction in its delay slot.
+        __ NopIfNoReordering();
+      }
       break;
   }
   RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
@@ -7566,6 +7787,22 @@ void CodeGeneratorMIPS::GenerateVirtualCall(
   uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
   Offset entry_point = ArtMethod::EntryPointFromQuickCompiledCodeOffset(kMipsPointerSize);
 
+  MipsAssembler::DelaySlot forwarded_slot;
+  bool forwarded = __ ForwardLastInstructionGprs(
+      /* gpr_outs_mask */ (1u << temp) | (1u << T9) | (1u << AT),  // AT may be modified by LoadFromOffset().
+      /* gpr_ins_mask */ 1u << receiver,
+      forwarded_slot);
+  if (!forwarded) {
+    Register new_receiver;
+    forwarded = __ ForwardLastMoveSpecial(
+      receiver,
+      (1u << temp) | (1u << T9) | (1u << AT),
+      new_receiver,
+      forwarded_slot);
+    if (forwarded) {
+      receiver = new_receiver;
+    }
+  }
   // temp = object->GetClass();
   __ LoadFromOffset(kLoadWord, temp, receiver, class_offset);
   MaybeRecordImplicitNullCheck(invoke);
@@ -7582,8 +7819,13 @@ void CodeGeneratorMIPS::GenerateVirtualCall(
   // T9 = temp->GetEntryPoint();
   __ LoadFromOffset(kLoadWord, T9, temp, entry_point.Int32Value());
   // T9();
-  __ Jalr(T9);
-  __ NopIfNoReordering();
+  if (GetInstructionSetFeatures().IsR6() && !forwarded) {
+    __ Jialc(T9, 0);
+  } else {
+    __ EmitForwardedInstruction(forwarded_slot);
+    __ Jalr(T9);  // Receives the forwarded instruction in its delay slot.
+    __ NopIfNoReordering();
+  }
   RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
 }
 
@@ -7753,9 +7995,15 @@ void InstructionCodeGeneratorMIPS::VisitLoadClass(HLoadClass* cls) NO_THREAD_SAF
           codegen_->NewTypeBssEntryPatch(cls->GetDexFile(), cls->GetTypeIndex(), bss_info_high);
       constexpr bool non_baker_read_barrier = kUseReadBarrier && !kUseBakerReadBarrier;
       Register temp = non_baker_read_barrier ? out : locations->GetTemp(0).AsRegister<Register>();
+      MipsAssembler::DelaySlot forwarded_slot;
+      __ ForwardLastInstructionGprs(
+        /* gpr_outs_mask */ (1u << temp) | (1u << RA),
+        /* gpr_ins_mask */ 1u << base_or_current_method_reg,
+        forwarded_slot);
       codegen_->EmitPcRelativeAddressPlaceholderHigh(bss_info_high,
                                                      temp,
                                                      base_or_current_method_reg);
+      __ EmitForwardedInstruction(forwarded_slot);
       GenerateGcRootFieldLoad(cls,
                               out_loc,
                               temp,
@@ -7944,9 +8192,15 @@ void InstructionCodeGeneratorMIPS::VisitLoadString(HLoadString* load) NO_THREAD_
           codegen_->NewStringBssEntryPatch(load->GetDexFile(), load->GetStringIndex(), info_high);
       constexpr bool non_baker_read_barrier = kUseReadBarrier && !kUseBakerReadBarrier;
       Register temp = non_baker_read_barrier ? out : locations->GetTemp(0).AsRegister<Register>();
+      MipsAssembler::DelaySlot forwarded_slot;
+      __ ForwardLastInstructionGprs(
+        /* gpr_outs_mask */ (1u << temp) | (1u << RA),
+        /* gpr_ins_mask */ 1u << base_or_current_method_reg,
+        forwarded_slot);
       codegen_->EmitPcRelativeAddressPlaceholderHigh(info_high,
                                                      temp,
                                                      base_or_current_method_reg);
+      __ EmitForwardedInstruction(forwarded_slot);
       GenerateGcRootFieldLoad(load,
                               out_loc,
                               temp,
@@ -8208,10 +8462,21 @@ void InstructionCodeGeneratorMIPS::VisitNewInstance(HNewInstance* instruction) {
     // String is allocated through StringFactory. Call NewEmptyString entry point.
     Register temp = instruction->GetLocations()->GetTemp(0).AsRegister<Register>();
     MemberOffset code_offset = ArtMethod::EntryPointFromQuickCompiledCodeOffset(kMipsPointerSize);
+    MipsAssembler::DelaySlot forwarded_slot;
+    bool forwarded = __ ForwardLastInstructionGprs(
+        /* gpr_outs_mask */ (1u << temp) | (1u << T9) | (1u << AT),  // AT may be modified by LoadFromOffset().
+        /* gpr_ins_mask */ 0u,
+        forwarded_slot);
     __ LoadFromOffset(kLoadWord, temp, TR, QUICK_ENTRY_POINT(pNewEmptyString));
     __ LoadFromOffset(kLoadWord, T9, temp, code_offset.Int32Value());
-    __ Jalr(T9);
-    __ NopIfNoReordering();
+    // T9();
+    if (codegen_->GetInstructionSetFeatures().IsR6() && !forwarded) {
+      __ Jialc(T9, 0);
+    } else {
+      __ EmitForwardedInstruction(forwarded_slot);
+      __ Jalr(T9);  // Receives the forwarded instruction in its delay slot.
+      __ NopIfNoReordering();
+    }
     codegen_->RecordPcInfo(instruction, instruction->GetDexPc());
   } else {
     codegen_->InvokeRuntime(instruction->GetEntrypoint(), instruction, instruction->GetDexPc());

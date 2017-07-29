@@ -330,6 +330,8 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
   void Bc1f(int cc, uint16_t imm16);  // R2
   void Bc1t(uint16_t imm16);  // R2
   void Bc1t(int cc, uint16_t imm16);  // R2
+  void Bltzal(Register rt, uint16_t imm16);  // R2
+  void Bgezal(Register rt, uint16_t imm16);  // R2
   void J(uint32_t addr26);
   void Jal(uint32_t addr26);
   // Jalr() and Jr() fill their delay slots when reordering is enabled.
@@ -360,6 +362,12 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
   void Bnezc(Register rs, uint32_t imm21);  // R6
   void Bc1eqz(FRegister ft, uint16_t imm16);  // R6
   void Bc1nez(FRegister ft, uint16_t imm16);  // R6
+  void Bltzalc(Register rt, uint16_t imm16);  // R6
+  void Bgezalc(Register rt, uint16_t imm16);  // R6
+  void Blezalc(Register rt, uint16_t imm16);  // R6
+  void Bgtzalc(Register rt, uint16_t imm16);  // R6
+  void Beqzalc(Register rt, uint16_t imm16);  // R6
+  void Bnezalc(Register rt, uint16_t imm16);  // R6
 
   void AddS(FRegister fd, FRegister fs, FRegister ft);
   void SubS(FRegister fd, FRegister fs, FRegister ft);
@@ -686,6 +694,8 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
   void Bltu(Register rs, Register rt, MipsLabel* label, bool is_bare = false);
   void Bgeu(Register rs, Register rt, MipsLabel* label, bool is_bare = false);
   // R2-only branches with delay slots.
+  void Bltzal(Register rt, MipsLabel* label);  // R2
+  void Bgezal(Register rt, MipsLabel* label);  // R2
   void Bc1f(MipsLabel* label, bool is_bare = false);  // R2
   void Bc1f(int cc, MipsLabel* label, bool is_bare = false);  // R2
   void Bc1t(MipsLabel* label, bool is_bare = false);  // R2
@@ -706,6 +716,12 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
   void Bgec(Register rs, Register rt, MipsLabel* label, bool is_bare = false);  // R6
   void Bltuc(Register rs, Register rt, MipsLabel* label, bool is_bare = false);  // R6
   void Bgeuc(Register rs, Register rt, MipsLabel* label, bool is_bare = false);  // R6
+  void Bltzalc(Register rt, MipsLabel* label);  // R6
+  void Bgezalc(Register rt, MipsLabel* label);  // R6
+  void Blezalc(Register rt, MipsLabel* label);  // R6
+  void Bgtzalc(Register rt, MipsLabel* label);  // R6
+  void Beqzalc(Register rt, MipsLabel* label);  // R6
+  void Bnezalc(Register rt, MipsLabel* label);  // R6
   // R6-only branches with delay slots.
   void Bc1eqz(FRegister ft, MipsLabel* label, bool is_bare = false);  // R6
   void Bc1nez(FRegister ft, MipsLabel* label, bool is_bare = false);  // R6
@@ -1276,7 +1292,6 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
   // reordering.
   bool SetReorder(bool enable);
 
- private:
   // Description of the last instruction in terms of input and output registers.
   // Used to make the decision of moving the instruction into a delay slot.
   struct DelaySlot {
@@ -1303,6 +1318,22 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
     MipsLabel* patcher_label_;
   };
 
+  void FinalizeInstructionForwarding();
+  bool ForwardLastInstructionGprs(uint32_t gpr_outs_mask,
+                                  uint32_t gpr_ins_mask,
+                                  DelaySlot& forwarded_slot);
+  bool ForwardLastInstructionFprs(uint32_t fpr_outs_mask,
+                                  uint32_t fpr_ins_mask,
+                                  uint32_t cc_outs_mask,
+                                  uint32_t cc_ins_mask,
+                                  DelaySlot& forwarded_slot);
+  bool ForwardLastMoveSpecial(Register out,
+                              uint32_t disallowed_ins_mask,
+                              Register& in,
+                              DelaySlot& forwarded_slot);
+  void EmitForwardedInstruction(const DelaySlot& forwarded_slot);
+
+ private:
   // Delay slot finite state machine's (DS FSM's) state. The FSM state is updated
   // upon every new instruction and label generated. The FSM detects instructions
   // suitable for delay slots and immediately preceded with labels. These are target
@@ -1325,6 +1356,7 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
       kUncondBranch,
       kCondBranch,
       kCall,
+      kCondCall,
       // R2 short branches (can't be promoted to long), delay slots filled manually.
       kBareUncondBranch,
       kBareCondBranch,
@@ -1337,6 +1369,7 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
       kLongUncondBranch,
       kLongCondBranch,
       kLongCall,
+      kLongCondCall,
       // R2 far label.
       kFarLabel,
       // R2 far literal.
@@ -1345,6 +1378,7 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
       kR6UncondBranch,
       kR6CondBranch,
       kR6Call,
+      kR6CondCall,
       // R6 short branches (can't be promoted to long), forbidden/delay slots filled manually.
       kR6BareUncondBranch,
       kR6BareCondBranch,
@@ -1357,6 +1391,7 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
       kR6LongUncondBranch,
       kR6LongCondBranch,
       kR6LongCall,
+      kR6LongCondCall,
       // R6 far label.
       kR6FarLabel,
       // R6 far literal.
@@ -1416,6 +1451,12 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
            Register lhs_reg,
            Register rhs_reg,
            bool is_bare);
+    // Conditional call.
+    Branch(bool is_r6,
+           uint32_t location,
+           uint32_t target,
+           BranchCondition condition,
+           Register lhs_reg);
     // Label address (in literal area) or literal.
     Branch(bool is_r6,
            uint32_t location,
@@ -1553,7 +1594,9 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
   uint32_t EmitFR(int opcode, int fmt, FRegister ft, FRegister fs, FRegister fd, int funct);
   uint32_t EmitFI(int opcode, int fmt, FRegister rt, uint16_t imm);
   void EmitBcondR2(BranchCondition cond, Register rs, Register rt, uint16_t imm16);
+  void EmitBalCondR2(BranchCondition cond, Register rs, uint16_t imm16);
   void EmitBcondR6(BranchCondition cond, Register rs, Register rt, uint32_t imm16_21);
+  void EmitBalCondR6(BranchCondition cond, Register rs, uint16_t imm16);
   uint32_t EmitMsa3R(int operation,
                      int df,
                      VectorRegister wt,
@@ -1587,6 +1630,7 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
              Register lhs,
              Register rhs = ZERO);
   void Call(MipsLabel* label, bool is_r6, bool is_bare);
+  void CallCond(MipsLabel* label, bool is_r6, BranchCondition condition, Register rt);
   void FinalizeLabeledBranch(MipsLabel* label);
 
   // Various helpers for branch delay slot management.
