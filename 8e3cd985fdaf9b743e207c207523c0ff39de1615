@@ -22,6 +22,30 @@
       "revId": "8e3cd985fdaf9b743e207c207523c0ff39de1615",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c50770f9_f4ecbedf",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-29T01:45:03Z",
+      "side": 1,
+      "message": "Either way is ok with me; this way is more robust if someone runs dalvikvm then art script against the same dex file.",
+      "parentUuid": "58a22848_593341d0",
+      "range": {
+        "startLine": 223,
+        "startChar": 2,
+        "endLine": 223,
+        "endChar": 42
+      },
+      "revId": "8e3cd985fdaf9b743e207c207523c0ff39de1615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
