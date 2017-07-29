@@ -1009,6 +1009,16 @@ void MipsAssembler::Bc1t(int cc, uint16_t imm16) {
                       imm16));
 }
 
+void MipsAssembler::Bltzal(Register rt, uint16_t imm16) {
+  CHECK(!IsR6());
+  DsFsmInstrNop(EmitI(0x1, rt, static_cast<Register>(0x10), imm16));
+}
+
+void MipsAssembler::Bgezal(Register rt, uint16_t imm16) {
+  CHECK(!IsR6());
+  DsFsmInstrNop(EmitI(0x1, rt, static_cast<Register>(0x11), imm16));
+}
+
 void MipsAssembler::J(uint32_t addr26) {
   DsFsmInstrNop(EmitI26(0x2, addr26));
 }
@@ -1186,6 +1196,42 @@ void MipsAssembler::Bc1nez(FRegister ft, uint16_t imm16) {
   DsFsmInstrNop(EmitFI(0x11, 0xD, ft, imm16));
 }
 
+void MipsAssembler::Bltzalc(Register rt, uint16_t imm16) {
+  CHECK(IsR6());
+  CHECK_NE(rt, ZERO);
+  DsFsmInstrNop(EmitI(0x7, rt, rt, imm16));
+}
+
+void MipsAssembler::Bgezalc(Register rt, uint16_t imm16) {
+  CHECK(IsR6());
+  CHECK_NE(rt, ZERO);
+  DsFsmInstrNop(EmitI(0x6, rt, rt, imm16));
+}
+
+void MipsAssembler::Blezalc(Register rt, uint16_t imm16) {
+  CHECK(IsR6());
+  CHECK_NE(rt, ZERO);
+  DsFsmInstrNop(EmitI(0x6, static_cast<Register>(0), rt, imm16));
+}
+
+void MipsAssembler::Bgtzalc(Register rt, uint16_t imm16) {
+  CHECK(IsR6());
+  CHECK_NE(rt, ZERO);
+  DsFsmInstrNop(EmitI(0x7, static_cast<Register>(0), rt, imm16));
+}
+
+void MipsAssembler::Beqzalc(Register rt, uint16_t imm16) {
+  CHECK(IsR6());
+  CHECK_NE(rt, ZERO);
+  DsFsmInstrNop(EmitI(0x8, static_cast<Register>(0), rt, imm16));
+}
+
+void MipsAssembler::Bnezalc(Register rt, uint16_t imm16) {
+  CHECK(IsR6());
+  CHECK_NE(rt, ZERO);
+  DsFsmInstrNop(EmitI(0x18, static_cast<Register>(0), rt, imm16));
+}
+
 void MipsAssembler::EmitBcondR2(BranchCondition cond, Register rs, Register rt, uint16_t imm16) {
   switch (cond) {
     case kCondLTZ:
@@ -1235,6 +1281,21 @@ void MipsAssembler::EmitBcondR2(BranchCondition cond, Register rs, Register rt, 
     case kUncond:
       // We don't support synthetic R2 branches (preceded with slt[u]) at this level
       // (R2 doesn't have branches to compare 2 registers using <, <=, >=, >).
+      LOG(FATAL) << "Unexpected branch condition " << cond;
+      UNREACHABLE();
+  }
+}
+
+void MipsAssembler::EmitBalCondR2(BranchCondition cond, Register rs, uint16_t imm16) {
+  switch (cond) {
+    case kCondLTZ:
+      Bltzal(rs, imm16);
+      break;
+    case kCondGEZ:
+      Bgezal(rs, imm16);
+      break;
+    default:
+      // We don't support synthetic R2 branches at this level.
       LOG(FATAL) << "Unexpected branch condition " << cond;
       UNREACHABLE();
   }
@@ -1299,6 +1360,32 @@ void MipsAssembler::EmitBcondR6(BranchCondition cond, Register rs, Register rt, 
       Bc1nez(static_cast<FRegister>(rs), imm16_21);
       break;
     case kUncond:
+      LOG(FATAL) << "Unexpected branch condition " << cond;
+      UNREACHABLE();
+  }
+}
+
+void MipsAssembler::EmitBalCondR6(BranchCondition cond, Register rs, uint16_t imm16) {
+  switch (cond) {
+    case kCondLTZ:
+      Bltzalc(rs, imm16);
+      break;
+    case kCondGEZ:
+      Bgezalc(rs, imm16);
+      break;
+    case kCondLEZ:
+      Blezalc(rs, imm16);
+      break;
+    case kCondGTZ:
+      Bgtzalc(rs, imm16);
+      break;
+    case kCondEQZ:
+      Beqzalc(rs, imm16);
+      break;
+    case kCondNEZ:
+      Bnezalc(rs, imm16);
+      break;
+    default:
       LOG(FATAL) << "Unexpected branch condition " << cond;
       UNREACHABLE();
   }
@@ -3181,6 +3268,9 @@ void MipsAssembler::Branch::InitializeType(Type initial_type, bool is_r6) {
             break;
         }
         break;
+      case kCondCall:
+        InitShortOrLong(offset_size_needed, kR6CondCall, kR6LongCondCall);
+        break;
       case kBareCall:
         type_ = kR6BareCall;
         CHECK_LE(offset_size_needed, GetOffsetSize());
@@ -3216,6 +3306,9 @@ void MipsAssembler::Branch::InitializeType(Type initial_type, bool is_r6) {
             InitShortOrLong(offset_size_needed, kCondBranch, kLongCondBranch);
             break;
         }
+        break;
+      case kCondCall:
+        InitShortOrLong(offset_size_needed, kCondCall, kLongCondCall);
         break;
       case kBareCall:
         type_ = kBareCall;
@@ -3339,6 +3432,39 @@ MipsAssembler::Branch::Branch(bool is_r6,
 
 MipsAssembler::Branch::Branch(bool is_r6,
                               uint32_t location,
+                              uint32_t target,
+                              MipsAssembler::BranchCondition condition,
+                              Register lhs_reg)
+    : old_location_(location),
+      location_(location),
+      target_(target),
+      lhs_reg_(lhs_reg),
+      rhs_reg_(ZERO),
+      condition_(condition),
+      delayed_instruction_(kUnfilledDelaySlot),
+      patcher_label_(nullptr) {
+  CHECK_NE(condition, kUncond);
+  CHECK_NE(lhs_reg, ZERO);
+  switch (condition) {
+    case kCondLEZ:
+    case kCondGTZ:
+    case kCondEQZ:
+    case kCondNEZ:
+      // We don't support synthetic R2 branches at this level.
+      // We leave this up to the caller.
+      CHECK(is_r6);
+      FALLTHROUGH_INTENDED;
+    case kCondLTZ:
+    case kCondGEZ:
+      break;
+    default:
+      UNREACHABLE();
+  }
+  InitializeType(kCondCall, is_r6);
+}
+
+MipsAssembler::Branch::Branch(bool is_r6,
+                              uint32_t location,
                               Register dest_reg,
                               Register base_reg,
                               Type label_or_literal_type)
@@ -3442,6 +3568,7 @@ uint32_t MipsAssembler::Branch::GetPrecedingInstructionLength(Type type) const {
     case kLongUncondBranch:
     case kLongCondBranch:
     case kLongCall:
+    case kLongCondCall:
     case kR6LongCondBranch:
       return (delayed_instruction_ != kUnfilledDelaySlot &&
           delayed_instruction_ != kUnfillableDelaySlot) ? 1 : 0;
@@ -3500,6 +3627,7 @@ bool MipsAssembler::Branch::IsLong() const {
     case kUncondBranch:
     case kCondBranch:
     case kCall:
+    case kCondCall:
     // R2 short branches (can't be promoted to long), delay slots filled manually.
     case kBareUncondBranch:
     case kBareCondBranch:
@@ -3512,6 +3640,7 @@ bool MipsAssembler::Branch::IsLong() const {
     case kR6UncondBranch:
     case kR6CondBranch:
     case kR6Call:
+    case kR6CondCall:
     // R6 short branches (can't be promoted to long), forbidden/delay slots filled manually.
     case kR6BareUncondBranch:
     case kR6BareCondBranch:
@@ -3525,6 +3654,7 @@ bool MipsAssembler::Branch::IsLong() const {
     case kLongUncondBranch:
     case kLongCondBranch:
     case kLongCall:
+    case kLongCondCall:
     // R2 far label.
     case kFarLabel:
     // R2 far literal.
@@ -3533,6 +3663,7 @@ bool MipsAssembler::Branch::IsLong() const {
     case kR6LongUncondBranch:
     case kR6LongCondBranch:
     case kR6LongCall:
+    case kR6LongCondCall:
     // R6 far label.
     case kR6FarLabel:
     // R6 far literal.
@@ -3607,6 +3738,9 @@ void MipsAssembler::Branch::PromoteToLong() {
     case kCall:
       type_ = kLongCall;
       break;
+    case kCondCall:
+      type_ = kLongCondCall;
+      break;
     // R2 near label.
     case kLabel:
       type_ = kFarLabel;
@@ -3624,6 +3758,9 @@ void MipsAssembler::Branch::PromoteToLong() {
       break;
     case kR6Call:
       type_ = kR6LongCall;
+      break;
+    case kR6CondCall:
+      type_ = kR6LongCondCall;
       break;
     // R6 near label.
     case kR6Label:
@@ -3879,12 +4016,32 @@ bool MipsAssembler::Branch::CanHaveDelayedInstruction(const DelaySlot& delay_slo
           UNREACHABLE();
       }
 
+    // R2 conditional calls.
+    case kCondCall:
+    case kLongCondCall:
+      switch (condition_) {
+        // Branches with one GPR source.
+        case kCondLTZ:
+        case kCondGEZ:
+          // Instructions depending on or modifying RA should not be moved into delay slots
+          // of branches modifying RA.
+          return (((delay_slot.gpr_ins_mask_ | delay_slot.gpr_outs_mask_) & (1u << RA)) == 0) &&
+              ((delay_slot.gpr_outs_mask_ & (1u << lhs_reg_)) == 0);
+        default:
+          // We don't support synthetic R2 branches at this level.
+          LOG(FATAL) << "Unexpected branch condition " << condition_;
+          UNREACHABLE();
+      }
+
     // R6 unconditional branches.
     case kR6UncondBranch:
     case kR6LongUncondBranch:
     // R6 calls.
     case kR6Call:
     case kR6LongCall:
+    // R6 conditional calls.
+    case kR6CondCall:
+    case kR6LongCondCall:
       // There are no delay slots.
       return false;
 
@@ -3994,6 +4151,13 @@ void MipsAssembler::Bcond(MipsLabel* label,
 void MipsAssembler::Call(MipsLabel* label, bool is_r6, bool is_bare) {
   uint32_t target = label->IsBound() ? GetLabelLocation(label) : Branch::kUnresolved;
   branches_.emplace_back(is_r6, buffer_.Size(), target, /* is_call */ true, is_bare);
+  MoveInstructionToDelaySlot(branches_.back());
+  FinalizeLabeledBranch(label);
+}
+
+void MipsAssembler::CallCond(MipsLabel* label, bool is_r6, BranchCondition condition, Register rt) {
+  uint32_t target = label->IsBound() ? GetLabelLocation(label) : Branch::kUnresolved;
+  branches_.emplace_back(is_r6, buffer_.Size(), target, condition, rt);
   MoveInstructionToDelaySlot(branches_.back());
   FinalizeLabeledBranch(label);
 }
@@ -4145,6 +4309,7 @@ const MipsAssembler::Branch::BranchInfo MipsAssembler::Branch::branch_info_[] = 
   {  2, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kUncondBranch
   {  2, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kCondBranch
   {  2, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kCall
+  {  2, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kCondCall
   // R2 short branches (can't be promoted to long), delay slots filled manually.
   {  1, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kBareUncondBranch
   {  1, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kBareCondBranch
@@ -4157,6 +4322,7 @@ const MipsAssembler::Branch::BranchInfo MipsAssembler::Branch::branch_info_[] = 
   {  9, 3, 1, MipsAssembler::Branch::kOffset32, 0 },  // kLongUncondBranch
   { 10, 4, 1, MipsAssembler::Branch::kOffset32, 0 },  // kLongCondBranch
   {  6, 1, 1, MipsAssembler::Branch::kOffset32, 0 },  // kLongCall
+  {  7, 1, 4, MipsAssembler::Branch::kOffset32, 0 },  // kLongCondCall
   // R2 far label.
   {  3, 0, 0, MipsAssembler::Branch::kOffset32, 0 },  // kFarLabel
   // R2 far literal.
@@ -4166,6 +4332,7 @@ const MipsAssembler::Branch::BranchInfo MipsAssembler::Branch::branch_info_[] = 
   {  2, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kR6CondBranch
                                                       // Exception: kOffset23 for beqzc/bnezc.
   {  1, 0, 1, MipsAssembler::Branch::kOffset28, 2 },  // kR6Call
+  {  2, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kR6CondCall
   // R6 short branches (can't be promoted to long), forbidden/delay slots filled manually.
   {  1, 0, 1, MipsAssembler::Branch::kOffset28, 2 },  // kR6BareUncondBranch
   {  1, 0, 1, MipsAssembler::Branch::kOffset18, 2 },  // kR6BareCondBranch
@@ -4179,6 +4346,7 @@ const MipsAssembler::Branch::BranchInfo MipsAssembler::Branch::branch_info_[] = 
   {  2, 0, 0, MipsAssembler::Branch::kOffset32, 0 },  // kR6LongUncondBranch
   {  3, 1, 0, MipsAssembler::Branch::kOffset32, 0 },  // kR6LongCondBranch
   {  2, 0, 0, MipsAssembler::Branch::kOffset32, 0 },  // kR6LongCall
+  {  3, 1, 0, MipsAssembler::Branch::kOffset32, 0 },  // kR6LongCondCall
   // R6 far label.
   {  2, 0, 0, MipsAssembler::Branch::kOffset32, 0 },  // kR6FarLabel
   // R6 far literal.
@@ -4271,6 +4439,15 @@ void MipsAssembler::EmitBranch(uint32_t branch_id) {
       }
       CHECK_EQ(overwrite_location_, branch->GetOffsetLocation());
       Bal(offset);
+      Emit(delayed_instruction);
+      break;
+    case Branch::kCondCall:
+      DCHECK_NE(delayed_instruction, Branch::kUnfillableDelaySlot);
+      if (delayed_instruction == Branch::kUnfilledDelaySlot) {
+        delayed_instruction = 0;  // NOP.
+      }
+      CHECK_EQ(overwrite_location_, branch->GetOffsetLocation());
+      EmitBalCondR2(condition, lhs, offset);
       Emit(delayed_instruction);
       break;
     case Branch::kBareUncondBranch:
@@ -4371,6 +4548,22 @@ void MipsAssembler::EmitBranch(uint32_t branch_id) {
       Jalr(AT);
       Nop();
       break;
+    case Branch::kLongCondCall:
+      DCHECK_NE(delayed_instruction, Branch::kUnfillableDelaySlot);
+      if (delayed_instruction != Branch::kUnfilledDelaySlot) {
+        Emit(delayed_instruction);
+      }
+      // Note: the opposite condition branch encodes 6 as the distance, which is equal to the
+      // number of instructions skipped:
+      EmitBcondR2(Branch::OppositeCondition(condition), lhs, rhs, 6);
+      CHECK_EQ(overwrite_location_, branch->GetOffsetLocation());
+      Lui(RA, High16Bits(offset));
+      Ori(AT, RA, Low16Bits(offset));
+      Nal();
+      Addu(AT, AT, RA);
+      Jalr(AT);
+      Nop();
+      break;
 
     // R2 far label.
     case Branch::kFarLabel:
@@ -4412,6 +4605,12 @@ void MipsAssembler::EmitBranch(uint32_t branch_id) {
       DCHECK_EQ(delayed_instruction, Branch::kUnfilledDelaySlot);
       CHECK_EQ(overwrite_location_, branch->GetOffsetLocation());
       Balc(offset);
+      break;
+    case Branch::kR6CondCall:
+      DCHECK_EQ(delayed_instruction, Branch::kUnfilledDelaySlot);
+      CHECK_EQ(overwrite_location_, branch->GetOffsetLocation());
+      EmitBalCondR6(condition, lhs, offset);
+      Nop();  // TODO: improve by filling the forbidden slot.
       break;
     case Branch::kR6BareUncondBranch:
       DCHECK_EQ(delayed_instruction, Branch::kUnfilledDelaySlot);
@@ -4464,6 +4663,14 @@ void MipsAssembler::EmitBranch(uint32_t branch_id) {
     case Branch::kR6LongCall:
       DCHECK_EQ(delayed_instruction, Branch::kUnfilledDelaySlot);
       offset += (offset & 0x8000) << 1;  // Account for sign extension in jialc.
+      CHECK_EQ(overwrite_location_, branch->GetOffsetLocation());
+      Auipc(AT, High16Bits(offset));
+      Jialc(AT, Low16Bits(offset));
+      break;
+    case Branch::kR6LongCondCall:
+      DCHECK_EQ(delayed_instruction, Branch::kUnfilledDelaySlot);
+      EmitBcondR6(Branch::OppositeCondition(condition), lhs, rhs, 2);
+      offset += (offset & 0x8000) << 1;  // Account for sign extension in jic.
       CHECK_EQ(overwrite_location_, branch->GetOffsetLocation());
       Auipc(AT, High16Bits(offset));
       Jialc(AT, Low16Bits(offset));
@@ -4535,6 +4742,132 @@ void MipsAssembler::Bgtz(Register rt, MipsLabel* label, bool is_bare) {
   Bcond(label, /* is_r6 */ (IsR6() && !is_bare), is_bare, kCondGTZ, rt);
 }
 
+void MipsAssembler::FinalizeInstructionForwarding() {
+  // The last instruction cannot be used in a delay slot, do not commit
+  // the label before it (if any) and clear the delay slot.
+  DsFsmDropLabel();
+  DsFsmInstrNop(0);
+  // Remove the instruction from the buffer.
+  size_t size = buffer_.Size();
+  CHECK_GE(size, sizeof(uint32_t));
+  size -= sizeof(uint32_t);
+  buffer_.Resize(size);
+}
+
+// TODO: consider non-GPR reg dependencies.
+// TODO: consider order of memory operations.
+bool MipsAssembler::ForwardLastInstructionGprs(uint32_t gpr_outs_mask,
+                                               uint32_t gpr_ins_mask,
+                                               DelaySlot& forwarded_slot) {
+  forwarded_slot = delay_slot_;
+  if (delay_slot_.instruction_ == 0 ||
+      (delay_slot_.gpr_outs_mask_ & (gpr_ins_mask | gpr_outs_mask)) ||
+      (delay_slot_.gpr_ins_mask_ & gpr_outs_mask)) {
+    forwarded_slot.instruction_ = 0;
+    return false;
+  }
+  FinalizeInstructionForwarding();
+  return true;
+}
+
+static inline uint32_t MarkEvenAndOddFpu32Regs(uint32_t mask) {
+  // If in an even-odd pair of FPU registers (on 32-bit FPUs)
+  // either is marked, mark the other one as well.
+  mask |= (mask & 0x55555555u) << 1;
+  mask |= (mask & 0xAAAAAAAAu) >> 1;
+  return mask;
+}
+
+bool MipsAssembler::ForwardLastInstructionFprs(uint32_t fpr_outs_mask,
+                                               uint32_t fpr_ins_mask,
+                                               uint32_t cc_outs_mask,
+                                               uint32_t cc_ins_mask,
+                                               DelaySlot& forwarded_slot) {
+  if (Is32BitFPU()) {
+    // Handle register pairs on 32-bit FPUs properly.
+    fpr_outs_mask = MarkEvenAndOddFpu32Regs(fpr_outs_mask);
+    fpr_ins_mask = MarkEvenAndOddFpu32Regs(fpr_ins_mask);
+  }
+  forwarded_slot = delay_slot_;
+  if (delay_slot_.instruction_ == 0 ||
+      (delay_slot_.fpr_outs_mask_ & (fpr_ins_mask | fpr_outs_mask)) ||
+      (delay_slot_.fpr_ins_mask_ & fpr_outs_mask) ||
+      (delay_slot_.cc_outs_mask_ & (cc_ins_mask | cc_outs_mask)) ||
+      (delay_slot_.cc_ins_mask_ & cc_outs_mask)) {
+    forwarded_slot.instruction_ = 0;
+    return false;
+  }
+  FinalizeInstructionForwarding();
+  return true;
+}
+
+static inline bool IsGprMove(uint32_t instruction, Register& dst, Register& src) {
+  if ((instruction & 0xFC0007FFu) != 0x25) {
+    // Not "or rd, rs, rt".
+    // Ignore other possible forms of move (with e.g. ori, xori, addiu, addu, subu, and, sll, etc)
+    // since we use or for moves.
+    return false;
+  }
+  Register rd = static_cast<Register>((instruction >> kRdShift) & 0x1F);
+  Register rs = static_cast<Register>((instruction >> kRsShift) & 0x1F);
+  Register rt = static_cast<Register>((instruction >> kRtShift) & 0x1F);
+  if ((rs != ZERO && rt != ZERO && rs != rt) || rd == ZERO) {
+    return false;
+  }
+  rs = (rs != ZERO) ? rs : rt;
+  if (rs == ZERO || rd == rs) {
+    return false;
+  }
+  dst = rd;
+  src = rs;
+  return true;
+}
+
+bool MipsAssembler::ForwardLastMoveSpecial(Register out,
+                                           uint32_t disallowed_ins_mask,
+                                           Register& in,
+                                           DelaySlot& forwarded_slot) {
+  forwarded_slot = delay_slot_;
+  in = ZERO;
+  Register rd, rs;
+  if (!IsGprMove(delay_slot_.instruction_, rd, rs) ||
+      rd != out ||
+      (delay_slot_.gpr_ins_mask_ & disallowed_ins_mask)) {
+    forwarded_slot.instruction_ = 0;
+    return false;
+  }
+  in = rs;
+  FinalizeInstructionForwarding();
+  return true;
+}
+
+void MipsAssembler::EmitForwardedInstruction(const DelaySlot& forwarded_slot) {
+  if (forwarded_slot.instruction_ != 0) {
+    if (forwarded_slot.patcher_label_ != nullptr) {
+      // Update the patcher label location.
+      // TODO: this may be unnecessary (if the intstruction is taken into a labeled branch's
+      // delay slot).
+      CHECK(forwarded_slot.patcher_label_->IsBound());
+      uint32_t bound_pc = buffer_.Size();
+      uint32_t prev_branch_id_plus_one = branches_.size();
+      // Rebind the label.
+      forwarded_slot.patcher_label_->Reinitialize();
+      BindRelativeToPrecedingBranch(forwarded_slot.patcher_label_,
+                                    prev_branch_id_plus_one,
+                                    bound_pc);
+    }
+    Emit(forwarded_slot.instruction_);
+    DsFsmInstr(forwarded_slot.instruction_,
+               forwarded_slot.gpr_outs_mask_,
+               forwarded_slot.gpr_ins_mask_,
+               forwarded_slot.fpr_outs_mask_,
+               forwarded_slot.fpr_ins_mask_,
+               forwarded_slot.cc_outs_mask_,
+               forwarded_slot.cc_ins_mask_,
+               forwarded_slot.patcher_label_);
+  }
+}
+
 bool MipsAssembler::CanExchangeWithSlt(Register rs, Register rt) const {
   // If the instruction modifies AT, `rs` or `rt`, it can't be exchanged with the slt[u]
   // instruction because either slt[u] depends on `rs` or `rt` or the following
@@ -4561,6 +4894,10 @@ void MipsAssembler::ExchangeWithSlt(const DelaySlot& forwarded_slot) {
   // Set the current delay slot information to that of the last instruction
   // in the buffer.
   delay_slot_ = forwarded_slot;
+  // Move the patcher label along with the patched instruction.
+  if (delay_slot_.patcher_label_ != nullptr) {
+    delay_slot_.patcher_label_->AdjustBoundPosition(sizeof(uint32_t));
+  }
 }
 
 void MipsAssembler::GenerateSltForCondBranch(bool unsigned_slt, Register rs, Register rt) {
@@ -4625,6 +4962,14 @@ void MipsAssembler::Bgeu(Register rs, Register rt, MipsLabel* label, bool is_bar
     GenerateSltForCondBranch(/* unsigned_slt */ true, rs, rt);
     Beqz(AT, label, is_bare);
   }
+}
+
+void MipsAssembler::Bltzal(Register rt, MipsLabel* label) {
+  CallCond(label, /* is_r6 */ false, kCondLTZ, rt);
+}
+
+void MipsAssembler::Bgezal(Register rt, MipsLabel* label) {
+  CallCond(label, /* is_r6 */ false, kCondGEZ, rt);
 }
 
 void MipsAssembler::Bc1f(MipsLabel* label, bool is_bare) {
@@ -4707,6 +5052,30 @@ void MipsAssembler::Bc1eqz(FRegister ft, MipsLabel* label, bool is_bare) {
 
 void MipsAssembler::Bc1nez(FRegister ft, MipsLabel* label, bool is_bare) {
   Bcond(label, /* is_r6 */ true, is_bare, kCondT, static_cast<Register>(ft), ZERO);
+}
+
+void MipsAssembler::Bltzalc(Register rt, MipsLabel* label) {
+  CallCond(label, /* is_r6 */ true, kCondLTZ, rt);
+}
+
+void MipsAssembler::Bgezalc(Register rt, MipsLabel* label) {
+  CallCond(label, /* is_r6 */ true, kCondGEZ, rt);
+}
+
+void MipsAssembler::Blezalc(Register rt, MipsLabel* label) {
+  CallCond(label, /* is_r6 */ true, kCondLEZ, rt);
+}
+
+void MipsAssembler::Bgtzalc(Register rt, MipsLabel* label) {
+  CallCond(label, /* is_r6 */ true, kCondGTZ, rt);
+}
+
+void MipsAssembler::Beqzalc(Register rt, MipsLabel* label) {
+  CallCond(label, /* is_r6 */ true, kCondEQZ, rt);
+}
+
+void MipsAssembler::Bnezalc(Register rt, MipsLabel* label) {
+  CallCond(label, /* is_r6 */ true, kCondNEZ, rt);
 }
 
 void MipsAssembler::AdjustBaseAndOffset(Register& base,
