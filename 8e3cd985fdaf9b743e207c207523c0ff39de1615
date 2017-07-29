@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58a22848_593341d0",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-07-29T01:14:42Z",
+      "side": 1,
+      "message": "I think it\u0027s ok if you want to clean them before the script but we should also clean at exit to ensure we leave no garbage behind.\n\nFor debugging it makes sense to disable the clean up under a flag.",
+      "range": {
+        "startLine": 223,
+        "startChar": 2,
+        "endLine": 223,
+        "endChar": 42
+      },
+      "revId": "8e3cd985fdaf9b743e207c207523c0ff39de1615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
