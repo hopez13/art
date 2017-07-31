@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26e7bef2_e86492da",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-31T17:31:18Z",
+      "side": 1,
+      "message": "Move to top please (all my static methods are there), and give it a comment. As for order, probably last, right above the \"// Class methods\" separator.",
+      "revId": "f2e611c4ffd81326294a5531173489ca1bf785fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346ddc92_610a815e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-31T17:31:18Z",
+      "side": 1,
+      "message": "no longer needed right, since we call it from DCHECK now",
+      "revId": "f2e611c4ffd81326294a5531173489ca1bf785fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1762d177_b5779776",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-31T17:31:18Z",
+      "side": 1,
+      "message": "empty line // after comment to make it jump out\n(same as others in this file)",
+      "revId": "f2e611c4ffd81326294a5531173489ca1bf785fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
