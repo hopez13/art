@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d1264528_770125fc",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-07-31T23:50:19Z",
+      "side": 1,
+      "message": "dirty_image_objects isn\u0027t an output here.",
+      "parentUuid": "5b39364e_19e66f83",
+      "revId": "adb7def9e217c66025f87870c106a28af1dd2f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ded4fe2_ef422aea",
         "filename": "compiler/image_writer.h",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2017-07-31T23:41:43Z",
       "side": 1,
       "message": "nit: from --dirty-image-objects list",
+      "range": {
+        "startLine": 163,
+        "startChar": 62,
+        "endLine": 163,
+        "endChar": 69
+      },
+      "revId": "adb7def9e217c66025f87870c106a28af1dd2f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd030c55_51455b35",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-07-31T23:50:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ded4fe2_ef422aea",
       "range": {
         "startLine": 163,
         "startChar": 62,
