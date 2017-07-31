@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c61a414_d3e559ca",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-31T18:58:16Z",
+      "side": 1,
+      "message": "Maybe leave an explanation?\n\n   # Runs from pwd\u003dTOP. Cannot use $(TOP) because \u003cinsert reason here\u003e",
+      "revId": "c2128da7a7f08bd0d3e50ad1264769dacf8c7c9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
