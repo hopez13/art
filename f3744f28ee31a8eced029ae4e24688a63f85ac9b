@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "e1100070_fa50a30a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-07-31T23:41:43Z",
+      "side": 1,
+      "message": "Seems like a good idea. How will we identify non-class objects? Hash code?\n\nAnother thing is, the documentation and usage still says \"classes\", \"class names\", etc, so it\u0027s a bit disconnected from the parameter name.",
+      "parentUuid": "c8007715_d067203c",
+      "range": {
+        "startLine": 434,
+        "startChar": 18,
+        "endLine": 434,
+        "endChar": 37
+      },
+      "revId": "f3744f28ee31a8eced029ae4e24688a63f85ac9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3eb3fd05_238eccb1",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 1
