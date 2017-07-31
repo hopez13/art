@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3c8f244_aa421328",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1550,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-07-31T17:54:35Z",
+      "side": 1,
+      "message": "It\u0027s a little unexpected that the ratios have a range [0,100] instead of [0,1.0], but it looks like that\u0027s how it\u0027s used in GenerateTestProfile.\n\nI think I understand what this loop code is doing, but it\u0027s hard to follow. Also, be wary if the class_ratio is 100. You\u0027ll do a modulo 0 in the loop since number_of_classes \u003d\u003d classes_required_in_profile.",
+      "range": {
+        "startLine": 1550,
+        "startChar": 64,
+        "endLine": 1550,
+        "endChar": 75
+      },
+      "revId": "786f8b0f175b65ab7fc18942c078ef70db09033b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
