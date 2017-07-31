@@ -22,6 +22,30 @@
       "revId": "786f8b0f175b65ab7fc18942c078ef70db09033b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81059541_8edaf966",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1550,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-07-31T22:33:33Z",
+      "side": 1,
+      "message": "Added a method comment.\n\nFixed the issue when class_ratio \u003d 100",
+      "parentUuid": "b3c8f244_aa421328",
+      "range": {
+        "startLine": 1550,
+        "startChar": 64,
+        "endLine": 1550,
+        "endChar": 75
+      },
+      "revId": "786f8b0f175b65ab7fc18942c078ef70db09033b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
