@@ -22,6 +22,30 @@
       "revId": "35fae6ec916e1893a42b036228b3ce90029ddacb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f60f506_6554c84b",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-07-31T18:42:47Z",
+      "side": 1,
+      "message": "This is used by stack to find the tooling, e.g., which addr2line and objdump to use. Luckily, x86-64 prebuilts can be used for both 32-bit and 64-bit.\n\n(If we ever want to extend this to the target, then this will become more complicated...)",
+      "parentUuid": "4573b741_ac285b71",
+      "range": {
+        "startLine": 930,
+        "startChar": 11,
+        "endLine": 930,
+        "endChar": 33
+      },
+      "revId": "35fae6ec916e1893a42b036228b3ce90029ddacb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
