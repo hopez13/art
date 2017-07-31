@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "82d7c4e5_7d10ca5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-07-31T20:20:14Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "090dd244_f51a4914",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "ad831bb6cf56b0188a409c62ddcf88024337c145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "175b3bf6_3987d5dc",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-31T18:32:56Z",
       "side": 1,
       "message": "Add something like: \"Runtime correctness is ensured by ...\"",
+      "range": {
+        "startLine": 4863,
+        "startChar": 3,
+        "endLine": 4864,
+        "endChar": 89
+      },
+      "revId": "ad831bb6cf56b0188a409c62ddcf88024337c145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c76f1bc9_06127bd9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4864,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-07-31T20:20:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "175b3bf6_3987d5dc",
       "range": {
         "startLine": 4863,
         "startChar": 3,
