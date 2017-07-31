@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5e580c4_48fc7a32",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-31T18:07:40Z",
+      "side": 1,
+      "message": "closing { indentation is off.",
+      "revId": "0bc115150f9b0f896d89295e48d8ebb105682ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e22f9ebe_ca196a35",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-31T18:07:40Z",
+      "side": 1,
+      "message": "empty line before starting this comment",
+      "revId": "0bc115150f9b0f896d89295e48d8ebb105682ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03f34374_0444d66c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-31T18:07:40Z",
+      "side": 1,
+      "message": "this is not the right logic. You found the index during mutation creation, so before anything was actually mutated. I don\u0027t think this if is ever taken?!",
+      "revId": "0bc115150f9b0f896d89295e48d8ebb105682ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c91d012_d77d3591",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-31T18:07:40Z",
+      "side": 1,
+      "message": "why are you changing the invoke kind? It thought we decided to just set the new type of both the new-instance and invoke to the same? As in:\n\n000114: 2200 0000                              |0000: new-instance v0, LSumnima; // type@0000\n000118: 7010 0000 0000                         |0002: invoke-direct {v0}, LSumnima;.\u003cinit\u003e:()V // method@0000\n00011e: 1100                                   |0005: return-object v0\n\n\nbecomes:\n\n000114: 2200 0000                              |0000: new-instance v0, LOTHERTYPE; // type@0000\n000118: 7010 0000 0000                         |0002: invoke-direct {v0}, LOTHERTYPE;.\u003cinit\u003e:()V // method@0000\n00011e: 1100                                   |0005: return-object v0\n\nto make it more likely it will do something very different (of course it may fail on the \u003cinit\u003e arguments prototype, but that is okay...\n\nI don\u0027t think we should mess with the invoke-direct. We already mutate that elsewhere...",
+      "revId": "0bc115150f9b0f896d89295e48d8ebb105682ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75c19c0c_3dd768d7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-07-31T18:07:40Z",
+      "side": 1,
+      "message": "how can the newInstance instruction (which is also at index i) be the same as the invokeDirect. Looks like this method always returns -1?!\n\nI would just scan from newInstance forward by one and see if that is still an invoke direct.",
+      "revId": "0bc115150f9b0f896d89295e48d8ebb105682ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
