@@ -146,6 +146,24 @@
       "revId": "97fe7ef942d72b8444c26a284959bc18b5c16372",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46e4065c_fd213b1c",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-08-01T22:34:06Z",
+      "side": 1,
+      "message": "I\u0027ve changed it so that the dump of dirty objects is part of the standard output. We can grep it to generate the list we want.",
+      "parentUuid": "46d1276e_71866524",
+      "revId": "97fe7ef942d72b8444c26a284959bc18b5c16372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
