@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d5288df9_2470e4c3",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-01T00:13:02Z",
+      "side": 1,
+      "message": "It should just be const ...\u0026 then, and you could pass {} instead of null.",
+      "parentUuid": "d1264528_770125fc",
+      "revId": "adb7def9e217c66025f87870c106a28af1dd2f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ded4fe2_ef422aea",
         "filename": "compiler/image_writer.h",
         "patchSetId": 2
