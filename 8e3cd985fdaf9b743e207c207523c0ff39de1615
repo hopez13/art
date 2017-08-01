@@ -46,6 +46,30 @@
       "revId": "8e3cd985fdaf9b743e207c207523c0ff39de1615",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e6740a6_5e5f4471",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-01T19:56:54Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer both:\n- do it before in case previous run crashed\n- do it after to not pollute the disk",
+      "parentUuid": "c50770f9_f4ecbedf",
+      "range": {
+        "startLine": 223,
+        "startChar": 2,
+        "endLine": 223,
+        "endChar": 42
+      },
+      "revId": "8e3cd985fdaf9b743e207c207523c0ff39de1615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
