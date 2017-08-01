@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49067397_e274cce3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-01T19:38:48Z",
+      "side": 1,
+      "message": "This looks odd to me.\nI understand that the code works if an interface is passed but just removing the dcheck does not seem the right solution here.\n\nBeside, the naming issue, I think we had a good reason to add the check there. Why is it OK for this to be an interface now? and why is it failing only now?\n\nAs Andreas pointed in the bug, there\u0027s top level comment on the method being called that clearly states it should not be invoked on interfaces.\n\n\"// Find a method with the given name and signature in a non-interface class.\"\n\nThis indicates to me that something else goes wrong.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "e70c5b1d18207bf80363e893c3294d24c031260e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
