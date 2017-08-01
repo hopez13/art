@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "468c606a_b1b17f34",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-08-01T01:30:35Z",
+      "side": 1,
+      "message": "But why? I get this set from ReadCommentedInputFromFile as a pointer, and possibly null, so it seems easier to just pass the pointer.",
+      "parentUuid": "d5288df9_2470e4c3",
+      "revId": "adb7def9e217c66025f87870c106a28af1dd2f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ded4fe2_ef422aea",
         "filename": "compiler/image_writer.h",
         "patchSetId": 2
