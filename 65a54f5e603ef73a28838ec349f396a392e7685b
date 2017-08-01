@@ -22,6 +22,30 @@
       "revId": "65a54f5e603ef73a28838ec349f396a392e7685b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "440ebcb0_2d90ce8d",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1095168
+      },
+      "writtenOn": "2017-08-01T13:52:27Z",
+      "side": 1,
+      "message": "Thanks Calin. I have updated the change with a static RTP::FixUpInstructionType that only handles HSelect at this point but can be extended later to deal with other instructions. Is something like this what you had in mind?",
+      "parentUuid": "cc7a6cdd_04ba7cd4",
+      "range": {
+        "startLine": 148,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 66
+      },
+      "revId": "65a54f5e603ef73a28838ec349f396a392e7685b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
