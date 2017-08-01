@@ -36,6 +36,7 @@ public class Main {
             test7();
             test8();
             test9();
+            test10();
 
             // TODO: How to test that interface method resolution returns the unique
             // maximally-specific non-abstract superinterface method if there is one?
@@ -374,6 +375,32 @@ public class Main {
     private static void test9() throws Exception {
         invokeUserTest("Test9User");
         invokeUserTest("Test9User2");
+    }
+
+    /*
+     * Test10
+     * -----
+     * Tested function:
+     *     public class Test10Base implements Test10Interface { }
+     *     public interface Test10Interface {
+     *       public Object clone() {
+     *         throw new Error("Should not be called");
+     *       }
+     *     }
+     * Tested invokes:
+     *     invoke-interface Test10Interface.clone()Ljava/lang/Object; from Test10Caller in first dex
+     *         TODO This should throw either a NSME or IAE probably.
+     *         expected: throws IncompatibleClassChangeError
+     *
+     * Another test for invoke type mismatch.
+     *
+     * Files:
+     *   jasmin/Test10Base.j          - implements Test10Interface
+     *   jasmin/Test10Interface.java  - defines default clone()Ljava/lang/Object;.
+     *   jasmin/Test10User.j          - invokevirtual Test10Interface.clone()Ljava/lang/Object;
+     */
+    private static void test10() throws Exception {
+        invokeUserTest("Test10User");
     }
 
     private static void invokeUserTest(String userName) throws Exception {

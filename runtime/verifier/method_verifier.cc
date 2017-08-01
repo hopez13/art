@@ -3861,10 +3861,15 @@ ArtMethod* MethodVerifier::ResolveMethodAndCheckAccess(
   // TODO: Maybe we should not record dependency if the invoke type does not match the lookup type.
   VerifierDeps::MaybeRecordMethodResolution(*dex_file_, dex_method_idx, res_method);
 
+  bool must_fail = false;
   if (res_method == nullptr) {
+    must_fail = true;
     // Try to find the method also with the other type for better error reporting below
     // but do not store such bogus lookup result in the DexCache or VerifierDeps.
     if (klass->IsInterface()) {
+      // NB This is normally not really allowed but we want to get any static or private object
+      // methods for error message purposes. This will never be returned.
+      // TODO We might want to change the verifier to not require this.
       res_method = klass->FindClassMethod(dex_cache_.Get(), dex_method_idx, pointer_size);
     } else {
       // If there was an interface method with the same signature,
@@ -3950,6 +3955,7 @@ ArtMethod* MethodVerifier::ResolveMethodAndCheckAccess(
                                        "type of " << res_method->PrettyMethod();
     return nullptr;
   }
+  DCHECK(!must_fail);
   return res_method;
 }
 
