@@ -22,6 +22,30 @@
       "revId": "e70c5b1d18207bf80363e893c3294d24c031260e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88799e8d_9665f3ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-08-01T20:49:25Z",
+      "side": 1,
+      "message": "\u003e This looks odd to me.\n\u003e I understand that the code works if an interface is passed but just removing the dcheck does not seem the right solution here.\n\u003e \n\u003e Beside, the naming issue, I think we had a good reason to add the check there. Why is it OK for this to be an interface now? and why is it failing only now?\n\nI think we might have at one time but here: https://android.googlesource.com/platform/art/+/f7ed11ae8%5E%21/#F2 is where that code comes from originally. If we ever had a reason I think it might have been removed in the 6 years since being written.\n\nIt is only failing now due to the ordering changes vmarko@ made when he changed method lookup. Previously we would never bother to look through Object methods when doing an interface dispatch. With the change we will do so (since Object is the superclass of all interfaces) and if we find one we will check to see if it satisfies the method we are looking for. This includes doing a DCHECK that the source of the method is a superclass of the invoke\u0027s target, which calls the IsSubClass method.\n\nAlso ISTM that IsSubClass is perfectly valid for interfaces. The JLS and the RI both define interface classes as being subtypes of Object. (Although it is implicit in the JLS due to the relationship between casting and types.)\n\n[0] % cat abc.java\nclass abc {\n  static interface def {}\n  public static void main(String[] args) {\n    try { \n      def.class.asSubclass(Object.class);\n      System.out.println(\"Could cast interface to object\");\n    } catch (Exception e) { System.out.println(\"Could not cast interface to object\"); }\n  }\n}\n\n[0] % art -cp classes.dex abc                               \nCould cast interface to object\n\n[0] % java abc                                              \nCould cast interface to object\n\n\u003e \n\u003e As Andreas pointed in the bug, there\u0027s top level comment on the method being called that clearly states it should not be invoked on interfaces.\n\u003e \n\u003e \"// Find a method with the given name and signature in a non-interface class.\"\n\u003e \n\u003e This indicates to me that something else goes wrong.\n\nI actually think that we should not have 2 versions of this method. Looking at them both they are almost identical. https://android.googlesource.com/platform/art/+/master/runtime/mirror/class.cc#400 is FindInterfaceMethod and https://android.googlesource.com/platform/art/+/master/runtime/mirror/class.cc#558 is FindClassMethod.\n\nThey both do the same thing I believe with the only difference being the class one tries to use the dex indexes if possible.\n\nLooking at this this way I think that changing the call to GetClassMethod in the bug to GetInterfaceMethod would also solve the problem but I think that a longer term solution is to get rid of the redundant GetInterfaceMethod function and a handful of DCHECKS in GetClassMethod subroutines and then just use that everywhere.",
+      "parentUuid": "49067397_e274cce3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "e70c5b1d18207bf80363e893c3294d24c031260e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
