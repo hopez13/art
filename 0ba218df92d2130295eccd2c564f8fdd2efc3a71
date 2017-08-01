@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e11c0481_2e846882",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-08-01T18:51:59Z",
+      "side": 1,
+      "message": "Null dereference in DCHECK message: DCHECK prints message only if the condition is false, i.e., last_input is null, so last_input-\u003eDebugName results in SIGSEGV",
+      "revId": "0ba218df92d2130295eccd2c564f8fdd2efc3a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
