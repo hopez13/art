@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74c4ab25_ca8c5f5b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-01T21:38:30Z",
+      "side": 1,
+      "message": "Does loop header\u0027s suspend check\u0027s env use reduction? If yes, is this too strict?",
+      "range": {
+        "startLine": 1673,
+        "startChar": 24,
+        "endLine": 1673,
+        "endChar": 42
+      },
+      "revId": "26ed2eff53c9ae070bf134fd0d9e974c0c680536",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9bf088_8d1b8769",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-01T21:38:30Z",
+      "side": 1,
+      "message": "Can you comment what is a main_phi?",
+      "revId": "26ed2eff53c9ae070bf134fd0d9e974c0c680536",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
