@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7e8acfa_740530ab",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-01T21:38:44Z",
+      "side": 0,
+      "message": "Implements should be called for interfaces, not IsSubClass.\n\nIf you look at Zhengkai\u0027s change it\u0027ll also be apparent it only works for classes.",
+      "revId": "7f14c2ec37c70010d99cab6806d85018df56c555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

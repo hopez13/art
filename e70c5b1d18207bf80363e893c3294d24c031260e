@@ -70,6 +70,23 @@
       "revId": "e70c5b1d18207bf80363e893c3294d24c031260e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27eaef5c_ea88cf96",
+        "filename": "test/075-verification-error/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-01T21:38:44Z",
+      "side": 1,
+      "message": "The right behavior is to throw NoSuchMethodError because internalClone is a private method in Object. Private methods get ignored in Object.\n\nICCE is only for changing interface to class.",
+      "revId": "e70c5b1d18207bf80363e893c3294d24c031260e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
