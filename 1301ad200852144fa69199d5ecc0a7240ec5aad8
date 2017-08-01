@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "401f33a7_9073250d",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-01T18:37:05Z",
+      "side": 1,
+      "message": "Isn\u0027t this the same code as in the code generator?",
+      "range": {
+        "startLine": 792,
+        "startChar": 6,
+        "endLine": 814,
+        "endChar": 7
+      },
+      "revId": "1301ad200852144fa69199d5ecc0a7240ec5aad8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
