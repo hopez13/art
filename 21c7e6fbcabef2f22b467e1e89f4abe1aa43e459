@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba41e15a_2762bac4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-01T16:10:17Z",
+      "side": 1,
+      "message": "Note that I would not repeat this comment here (since that is now well documented) to use less real estate, but since this will conflict with my pending reduction CL, I will do that change during the merge (provided nobody complains then ;-) so we can move this CL forward.",
+      "revId": "21c7e6fbcabef2f22b467e1e89f4abe1aa43e459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e464490_cfdc59f8",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-01T16:10:17Z",
+      "side": 1,
+      "message": "test the value?",
+      "revId": "21c7e6fbcabef2f22b467e1e89f4abe1aa43e459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
