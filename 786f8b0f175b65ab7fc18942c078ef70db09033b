@@ -46,6 +46,30 @@
       "revId": "786f8b0f175b65ab7fc18942c078ef70db09033b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3bb0057_ec53cb3b",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1550,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-01T20:14:36Z",
+      "side": 1,
+      "message": "maybe name change the name to _percentage then?\n\nYou\u0027ll need to adjust profman options as well.",
+      "parentUuid": "81059541_8edaf966",
+      "range": {
+        "startLine": 1550,
+        "startChar": 64,
+        "endLine": 1550,
+        "endChar": 75
+      },
+      "revId": "786f8b0f175b65ab7fc18942c078ef70db09033b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
