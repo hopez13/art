@@ -517,7 +517,6 @@ inline bool Class::CheckResolvedMethodAccess(ObjPtr<Class> access_to,
 }
 
 inline bool Class::IsSubClass(ObjPtr<Class> klass) {
-  DCHECK(!IsInterface()) << PrettyClass();
   DCHECK(!IsArrayClass()) << PrettyClass();
   ObjPtr<Class> current = this;
   do {
