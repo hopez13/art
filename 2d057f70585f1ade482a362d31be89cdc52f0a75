@@ -22,6 +22,30 @@
       "revId": "2d057f70585f1ade482a362d31be89cdc52f0a75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b706f3_b29eb2dd",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-01T14:04:37Z",
+      "side": 1,
+      "message": "IIUC, runtime debug flags and slow-debug have been designed to provide some configurability at the runtime level. Do you think we could use that at the compiler level as well? Or introduce something new?",
+      "parentUuid": "080fd638_ecbe8b04",
+      "range": {
+        "startLine": 1485,
+        "startChar": 0,
+        "endLine": 1487,
+        "endChar": 71
+      },
+      "revId": "2d057f70585f1ade482a362d31be89cdc52f0a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
