@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "392e9933_2890492f",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-01T18:46:31Z",
+      "side": 1,
+      "message": "This doesn\u0027t make sense when passing in non-class objects.",
+      "range": {
+        "startLine": 604,
+        "startChar": 12,
+        "endLine": 604,
+        "endChar": 34
+      },
+      "revId": "97fe7ef942d72b8444c26a284959bc18b5c16372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1220fcd_7bcabd85",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-01T18:46:31Z",
+      "side": 1,
+      "message": "This doesn\u0027t make sense when passing in non-class objects.",
+      "range": {
+        "startLine": 434,
+        "startChar": 56,
+        "endLine": 434,
+        "endChar": 96
+      },
+      "revId": "97fe7ef942d72b8444c26a284959bc18b5c16372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b610e2ae_37afc1a7",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-01T18:46:31Z",
+      "side": 1,
+      "message": "Is it dumping anything new that isn\u0027t already dumped by omitting this flag?\n\nI feel like it should probably dump this to the standard output if this flag isn\u0027t specified, for manual reading. I agree it\u0027s more convenient to explicitly use a separate file for storing the \"profile\" file.",
+      "revId": "97fe7ef942d72b8444c26a284959bc18b5c16372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
