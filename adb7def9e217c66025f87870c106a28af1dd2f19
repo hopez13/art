@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "d7633354_a21d86f2",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-01T14:27:29Z",
+      "side": 1,
+      "message": "It\u0027s less confusing now that it\u0027s an input, not an output.\n\nAt the very least this should be const* so it\u0027s obvious it\u0027s not written to.",
+      "parentUuid": "468c606a_b1b17f34",
+      "revId": "adb7def9e217c66025f87870c106a28af1dd2f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ded4fe2_ef422aea",
         "filename": "compiler/image_writer.h",
         "patchSetId": 2
