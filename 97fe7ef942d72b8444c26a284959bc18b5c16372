@@ -128,6 +128,24 @@
       "revId": "97fe7ef942d72b8444c26a284959bc18b5c16372",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46d1276e_71866524",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-01T18:54:55Z",
+      "side": 1,
+      "message": "I\u0027m just worried how we\u0027d test later changes without having to pass in this extra flag every time.\n\nDavid recently did a big refactor and he always made sure things worked by comparing output before and after the changes. \n\nThat becomes much trickier with 2 output files.\n\nIf you could somehow get this to output to the regular stream (as well as dirty_objects_os -- or perhaps default to os only if dirty_objects_os is null) that would make it more maintainable.",
+      "parentUuid": "ebb2773f_f953c94e",
+      "revId": "97fe7ef942d72b8444c26a284959bc18b5c16372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
