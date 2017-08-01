@@ -46,6 +46,30 @@
       "revId": "e70c5b1d18207bf80363e893c3294d24c031260e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3cb6d57_0fe647d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-08-01T21:17:36Z",
+      "side": 1,
+      "message": "Looking at this all closer I noticed the main difference between FindInterfaceMethod and FindClassMethod, the search of the IFTable, which does mean they need to be separate.",
+      "parentUuid": "88799e8d_9665f3ac",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "e70c5b1d18207bf80363e893c3294d24c031260e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
