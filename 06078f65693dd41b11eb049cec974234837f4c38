@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efa859dc_eabae5aa",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2256,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-02T18:30:44Z",
+      "side": 1,
+      "message": "ClassLinker* class_linker",
+      "range": {
+        "startLine": 2256,
+        "startChar": 4,
+        "endLine": 2256,
+        "endChar": 17
+      },
+      "revId": "06078f65693dd41b11eb049cec974234837f4c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90eb9290_d2a5f9ff",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-02T18:30:44Z",
+      "side": 1,
+      "message": "Is it safe to return nullptr without having a pending exception? Can you be sure the caller\u0027s don\u0027t do AssertPendingException?",
+      "range": {
+        "startLine": 2860,
+        "startChar": 6,
+        "endLine": 2860,
+        "endChar": 21
+      },
+      "revId": "06078f65693dd41b11eb049cec974234837f4c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
