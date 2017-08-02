@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "6331b6e5_27a44d73",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3867,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-08-02T17:08:59Z",
+      "side": 1,
+      "message": "\u003e The intent of the new FindClassMethod,FindInterfaceMethod is that it always returns non-null if the method exists (even if it\u0027s private). Then the callers do the access checks.\n\nThis isn\u0027t true. FindInterfaceMethod currently only returns public methods. Whether this is desirable is another question but it is the current state of the world.\n\n\u003e So other than an ICCE (changing class\u003c-\u003einterface) we should never need to worry about getting null. For ICCE do we really need to know which method it *would\u0027ve* resolved? I don\u0027t think it is obvious we need that extra complexity.\n\nThis is probably pretty useful when using things like proguard that make every method have the same name. Knowing that translation failed could be useful (let you figure out that you need to keep around some methods or something).",
+      "parentUuid": "9d8d4c9c_8837c412",
+      "range": {
+        "startLine": 3867,
+        "startChar": 59,
+        "endLine": 3867,
+        "endChar": 71
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a53aac5e_846c9d75",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "I think the problem it it\u0027s under-defined *and* under-tested what it means to call them in reverse. If it\u0027s totally normal and expected then we should\u0027ve documented that in class.h and made sure that it works in both cases, and there should\u0027ve been tests that it works in both cases.\n\nIn fact, one could do a\n\n  DCHECK(FindInterfaceMethod(x)) in FindClassMethod\n\nand a \n \n  DCHECK(FindClassMethod(x)) in FindInterfaceMethod\n\nand this will shake out a lot of bugs where we call one unexpectedly from the other.\n\nBetter yet there should\u0027ve been JNI tests to explicitly call these.",
       "parentUuid": "885c7133_53426eb2",
+      "range": {
+        "startLine": 3870,
+        "startChar": 20,
+        "endLine": 3870,
+        "endChar": 48
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8fb8f57_4b63f0aa",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3870,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-08-02T17:08:59Z",
+      "side": 1,
+      "message": "That seems like much to large for a CL that needs to be as low risk as possible like this one. Good thing for future work though.",
+      "parentUuid": "9c53edaa_50483aa9",
       "range": {
         "startLine": 3870,
         "startChar": 20,
@@ -276,6 +324,30 @@
       "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1ea72d1_7df794b9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3959,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-08-02T17:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eee21b8_6f876008",
+      "range": {
+        "startLine": 3958,
+        "startChar": 2,
+        "endLine": 3959,
+        "endChar": 20
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
