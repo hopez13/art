@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9637b1cb_3374f088",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3867,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-02T10:15:38Z",
+      "side": 1,
+      "message": "This is traditional and helps with screwy bytecode. It will tell you that, yes, a method exists, but that it\u0027s called incorrectly. This significantly helps debugging, as locally it\u0027s hard to see the differences.",
+      "parentUuid": "5ea51c0c_0ed752bd",
+      "range": {
+        "startLine": 3867,
+        "startChar": 59,
+        "endLine": 3867,
+        "endChar": 71
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a53aac5e_846c9d75",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-02T01:51:33Z",
       "side": 1,
       "message": "I am not found of allowing this without a good reason. Long term this adds complexity. I guess depends on what \"better\" means above and if we really need it or is a nice to have.",
+      "range": {
+        "startLine": 3870,
+        "startChar": 20,
+        "endLine": 3870,
+        "endChar": 48
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "885c7133_53426eb2",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3870,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-02T10:15:38Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "a53aac5e_846c9d75",
       "range": {
         "startLine": 3870,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b5216dab_359c0e75",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3873,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-02T10:15:38Z",
+      "side": 1,
+      "message": "It\u0027s reused so that the checks can be reused. Introducing a new one would exactly negate all of that.",
+      "parentUuid": "70169402_a59cc17e",
+      "range": {
+        "startLine": 3873,
+        "startChar": 6,
+        "endLine": 3873,
+        "endChar": 16
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4acd5ca8_6ec8057e",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-08-02T01:51:33Z",
       "side": 1,
       "message": "see the comment above. Shouldn\u0027t we just return null and ignore res_method all together?",
+      "range": {
+        "startLine": 3958,
+        "startChar": 2,
+        "endLine": 3959,
+        "endChar": 20
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "104368e6_82f516bb",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3959,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-02T10:15:38Z",
+      "side": 1,
+      "message": "Disagree. Conservatively we should maintain this for debuggability.\n\nIf there\u0027s one thing to complain here it\u0027s that the !must_fail check isn\u0027t documented.",
+      "parentUuid": "4acd5ca8_6ec8057e",
       "range": {
         "startLine": 3958,
         "startChar": 2,
