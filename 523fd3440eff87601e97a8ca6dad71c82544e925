@@ -138,6 +138,30 @@
     },
     {
       "key": {
+        "uuid": "c7de1c1f_20d91b35",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3867,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T18:18:16Z",
+      "side": 1,
+      "message": "What makes you think so?\n\nThe documentation doesn\u0027t say this.\n\nThe implementation also will match a private method that is directly declared in the interface class \n\n  if (LIKELY(klass-\u003eIsInterface())) {\n    // Search declared methods, both direct and virtual.\n    // (This lookup is used also for invoke-static on interface classes.)\n    for (ArtMethod\u0026 method : klass-\u003eGetDeclaredMethodsSlice(pointer_size)) {\n      if (method.GetName() \u003d\u003d name \u0026\u0026 method.GetSignature() \u003d\u003d signature) {\n        return \u0026method;\n      }\n    }\n  }\n\nThat being said, this whole thread is just \"why\" , all Calin asked for was extra comments.",
+      "parentUuid": "6331b6e5_27a44d73",
+      "range": {
+        "startLine": 3867,
+        "startChar": 59,
+        "endLine": 3867,
+        "endChar": 71
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a53aac5e_846c9d75",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -221,6 +245,30 @@
       "side": 1,
       "message": "That seems like much to large for a CL that needs to be as low risk as possible like this one. Good thing for future work though.",
       "parentUuid": "9c53edaa_50483aa9",
+      "range": {
+        "startLine": 3870,
+        "startChar": 20,
+        "endLine": 3870,
+        "endChar": 48
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85606ef0_2027d02d",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3870,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T18:18:16Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "a8fb8f57_4b63f0aa",
       "range": {
         "startLine": 3870,
         "startChar": 20,
@@ -396,6 +444,132 @@
       "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a785e3ea_ba8b4c4e",
+        "filename": "test/075-verification-error/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T18:18:16Z",
+      "side": 1,
+      "message": "TODO: b/123456",
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3193157_082e28c4",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T18:18:16Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 14
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcb80dda_aa10e99b",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T18:18:16Z",
+      "side": 1,
+      "message": "expected: throws NoSuchMethodError (JLS 13.4.12)\nactual: throws IncompatibleClassChangeError (TODO: b/12345)",
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a667616c_b8e9c658",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T18:18:16Z",
+      "side": 1,
+      "message": "This test is simulating compiling Test10Interface with \"public Object clone()\" method, along with every other class. Then we delete \"clone\" from Test10Interface only, which under JLS 13.4.12 is expected to be binary incompatible and throw a NoSuchMethodError.",
+      "range": {
+        "startLine": 395,
+        "startChar": 7,
+        "endLine": 395,
+        "endChar": 45
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8f13a1f_f4c0dff9",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T18:18:16Z",
+      "side": 1,
+      "message": "it does not",
+      "range": {
+        "startLine": 399,
+        "startChar": 40,
+        "endLine": 399,
+        "endChar": 82
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1126258_e2045be4",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T18:18:16Z",
+      "side": 1,
+      "message": "invokeinterface",
+      "range": {
+        "startLine": 400,
+        "startChar": 40,
+        "endLine": 400,
+        "endChar": 53
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
