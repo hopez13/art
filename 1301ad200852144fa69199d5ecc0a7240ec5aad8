@@ -22,6 +22,30 @@
       "revId": "1301ad200852144fa69199d5ecc0a7240ec5aad8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c538336_8ef1b0cf",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-02T16:13:09Z",
+      "side": 1,
+      "message": "Yes, essentially. I refactored this into an Arm64Assembler::GenerateMarkingRegisterCheck method in PS31.",
+      "parentUuid": "401f33a7_9073250d",
+      "range": {
+        "startLine": 792,
+        "startChar": 6,
+        "endLine": 814,
+        "endChar": 7
+      },
+      "revId": "1301ad200852144fa69199d5ecc0a7240ec5aad8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
