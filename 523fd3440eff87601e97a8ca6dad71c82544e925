@@ -114,6 +114,30 @@
     },
     {
       "key": {
+        "uuid": "303da000_962690b9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3867,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-02T18:09:17Z",
+      "side": 1,
+      "message": "Can you add Andreas\u0027s explanation as a code comment?",
+      "parentUuid": "6331b6e5_27a44d73",
+      "range": {
+        "startLine": 3867,
+        "startChar": 59,
+        "endLine": 3867,
+        "endChar": 71
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a53aac5e_846c9d75",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -244,6 +268,30 @@
       "side": 1,
       "message": "It\u0027s reused so that the checks can be reused. Introducing a new one would exactly negate all of that.",
       "parentUuid": "70169402_a59cc17e",
+      "range": {
+        "startLine": 3873,
+        "startChar": 6,
+        "endLine": 3873,
+        "endChar": 16
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd67fe10_692f6ff0",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3873,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-02T18:09:17Z",
+      "side": 1,
+      "message": "The code is hard to read because you expect this method to return null after this point yet there\u0027s no clear sign which of the statements below will cause that.\n\nI also don\u0027t follow your comment on L3959. Why would you return a possibly valid method when you assert this should fail? What does failure mean here?",
+      "parentUuid": "b5216dab_359c0e75",
       "range": {
         "startLine": 3873,
         "startChar": 6,
