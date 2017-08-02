@@ -46,6 +46,30 @@
       "revId": "bf755fefbfcfbb2677a519c12efe7890f3879854",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "065014e9_b145d029",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-02T17:51:24Z",
+      "side": 1,
+      "message": "I\u0027d just change the comment to something like \"Note: Clang bug, we need a template arg.\"",
+      "parentUuid": "aaee8390_f3941a2f",
+      "range": {
+        "startLine": 587,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 79
+      },
+      "revId": "bf755fefbfcfbb2677a519c12efe7890f3879854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
