@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b335f6a7_33bcc252",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-02T23:58:12Z",
+      "side": 1,
+      "message": "I am not sure I understand the need for this.",
+      "range": {
+        "startLine": 358,
+        "startChar": 16,
+        "endLine": 358,
+        "endChar": 43
+      },
+      "revId": "a09d9c2ebc3cca8a672b6183dc0ea7c603df2e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ab02a4e_d0126749",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-02T23:58:12Z",
+      "side": 1,
+      "message": "add an underscore for better readability",
+      "range": {
+        "startLine": 1138,
+        "startChar": 20,
+        "endLine": 1138,
+        "endChar": 22
+      },
+      "revId": "a09d9c2ebc3cca8a672b6183dc0ea7c603df2e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dba96a2_1fe57eb6",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-02T23:58:12Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1139,
+        "startChar": 20,
+        "endLine": 1139,
+        "endChar": 22
+      },
+      "revId": "a09d9c2ebc3cca8a672b6183dc0ea7c603df2e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b5f2f72_591caf54",
+        "filename": "runtime/base/unix_file/fd_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-02T23:58:12Z",
+      "side": 1,
+      "message": "Compare what? the content? Be more specific and document the return.",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 34
+      },
+      "revId": "a09d9c2ebc3cca8a672b6183dc0ea7c603df2e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
