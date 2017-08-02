@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9cafbcbe_ba0db7f2",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T14:30:10Z",
+      "side": 1,
+      "message": "Actually I seem to recall I pointed out this method did not work with interfaces, as it doesn\u0027t check for default method inheritance. You can look at the previous CL for the comment history.",
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ea51c0c_0ed752bd",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -49,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "9d8d4c9c_8837c412",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3867,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T14:30:10Z",
+      "side": 1,
+      "message": "The intent of the new FindClassMethod,FindInterfaceMethod is that it always returns non-null if the method exists (even if it\u0027s private). Then the callers do the access checks.\n\nSo other than an ICCE (changing class\u003c-\u003einterface) we should never need to worry about getting null. For ICCE do we really need to know which method it *would\u0027ve* resolved? I don\u0027t think it is obvious we need that extra complexity.\n\nAlso see below.",
+      "parentUuid": "9637b1cb_3374f088",
+      "range": {
+        "startLine": 3867,
+        "startChar": 59,
+        "endLine": 3867,
+        "endChar": 71
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a53aac5e_846c9d75",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -84,6 +125,30 @@
       "side": 1,
       "message": "See above.",
       "parentUuid": "a53aac5e_846c9d75",
+      "range": {
+        "startLine": 3870,
+        "startChar": 20,
+        "endLine": 3870,
+        "endChar": 48
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c53edaa_50483aa9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3870,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T14:30:10Z",
+      "side": 1,
+      "message": "I think the problem it it\u0027s under-defined *and* under-tested what it means to call them in reverse. If it\u0027s totally normal and expected then we should\u0027ve documented that in class.h and made sure that it works in both cases, and there should\u0027ve been tests that it works in both cases.\n\nIn fact, one could do a\n\n  DCHECK(FindInterfaceMethod(x)) in FindClassMethod\n\nand a \n \n  DCHECK(FindClassMethod(x)) in FindInterfaceMethod\n\nand this will shake out a lot of bugs where we call one unexpectedly from the other.\n\nBetter yet there should\u0027ve been JNI tests to explicitly call these.",
+      "parentUuid": "885c7133_53426eb2",
       "range": {
         "startLine": 3870,
         "startChar": 20,
@@ -178,6 +243,30 @@
       "side": 1,
       "message": "Disagree. Conservatively we should maintain this for debuggability.\n\nIf there\u0027s one thing to complain here it\u0027s that the !must_fail check isn\u0027t documented.",
       "parentUuid": "4acd5ca8_6ec8057e",
+      "range": {
+        "startLine": 3958,
+        "startChar": 2,
+        "endLine": 3959,
+        "endChar": 20
+      },
+      "revId": "523fd3440eff87601e97a8ca6dad71c82544e925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eee21b8_6f876008",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3959,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-02T14:30:10Z",
+      "side": 1,
+      "message": "this:\n\n  DCHECK(!must_fail) \u003c\u003c PrettyMethod(res_method)",
+      "parentUuid": "104368e6_82f516bb",
       "range": {
         "startLine": 3958,
         "startChar": 2,
