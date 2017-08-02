@@ -22,6 +22,30 @@
       "revId": "bf755fefbfcfbb2677a519c12efe7890f3879854",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaee8390_f3941a2f",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-02T17:49:43Z",
+      "side": 1,
+      "message": "Good question, any ideas? Maybe its possible to use template specialization? Doesn\u0027t seem super important though.",
+      "parentUuid": "5b7ca310_57adf456",
+      "range": {
+        "startLine": 587,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 79
+      },
+      "revId": "bf755fefbfcfbb2677a519c12efe7890f3879854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
