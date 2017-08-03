@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4af665b8_1fb1a030",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-03T17:01:37Z",
+      "side": 1,
+      "message": "Could you add a comment what this function is supposed to do and what it returns please (I was thinking whether scalar loop peeling/unrolling should arrive here or to another function).",
+      "revId": "51ca54d8678084f55327e2961dca5e389d0a7cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4abe816_ab661086",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1682,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-03T17:01:37Z",
+      "side": 1,
+      "message": "Does an implicit assumption that first predecessor of a header is a preheader (not backedge) take place here? Maybe add a comment/DCHECK here?",
+      "range": {
+        "startLine": 1682,
+        "startChar": 39,
+        "endLine": 1682,
+        "endChar": 40
+      },
+      "revId": "51ca54d8678084f55327e2961dca5e389d0a7cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

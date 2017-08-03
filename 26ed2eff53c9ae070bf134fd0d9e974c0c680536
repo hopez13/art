@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "52c07760_ae1bf8ed",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-03T17:01:37Z",
+      "side": 1,
+      "message": "I have a question which doesn\u0027t relate directly to this patch; however could you elucidate please why it is safe do remove a cycle which is used by an instruction with an environment? I understand the cases with HDeoptimize and HSuspendCheck but what about others for which we do RecordPC/save a stackmap?",
+      "range": {
+        "startLine": 1856,
+        "startChar": 38,
+        "endLine": 1856,
+        "endChar": 52
+      },
+      "revId": "26ed2eff53c9ae070bf134fd0d9e974c0c680536",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad9bf088_8d1b8769",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 3
