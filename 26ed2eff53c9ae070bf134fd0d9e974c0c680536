@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "edc135b8_2231e25b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T17:08:51Z",
+      "side": 1,
+      "message": "For the optimizations done so far, we either remove the env use completely, or maintain the value correctly (like feeding in last value, or unrolled value). I do feel I need to revisit the usage pattern a bit more carefully though as we add more and more optimization (e.g. I think the CanRemoveCycle should not be necessary if we make these helper utilities better",
+      "parentUuid": "52c07760_ae1bf8ed",
+      "range": {
+        "startLine": 1856,
+        "startChar": 38,
+        "endLine": 1856,
+        "endChar": 52
+      },
+      "revId": "26ed2eff53c9ae070bf134fd0d9e974c0c680536",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad9bf088_8d1b8769",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 3

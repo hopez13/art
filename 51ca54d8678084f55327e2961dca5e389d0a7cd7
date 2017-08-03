@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cc426f32_0e5ff19f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T17:08:51Z",
+      "side": 1,
+      "message": "Done. Let me know if this suffices.",
+      "parentUuid": "4af665b8_1fb1a030",
+      "revId": "51ca54d8678084f55327e2961dca5e389d0a7cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4abe816_ab661086",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2017-08-03T17:01:37Z",
       "side": 1,
       "message": "Does an implicit assumption that first predecessor of a header is a preheader (not backedge) take place here? Maybe add a comment/DCHECK here?",
+      "range": {
+        "startLine": 1682,
+        "startChar": 39,
+        "endLine": 1682,
+        "endChar": 40
+      },
+      "revId": "51ca54d8678084f55327e2961dca5e389d0a7cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c75cb1a8_719315bc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1682,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T17:08:51Z",
+      "side": 1,
+      "message": "I was under the impression that is always the case. I hope I am not mistaken. I added a DCHECK for this. Thanks.",
+      "parentUuid": "a4abe816_ab661086",
       "range": {
         "startLine": 1682,
         "startChar": 39,
