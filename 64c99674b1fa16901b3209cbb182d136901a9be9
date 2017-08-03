@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "3cbb85b8_2e7811e2",
+        "filename": "runtime/arch/arm/asm_support_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-03T17:52:26Z",
+      "side": 1,
+      "message": "nit: #define in terms of FRAME_SIZE_SAVE_EVERYTHING ?",
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4dfa8a40_e868fb20",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
@@ -138,6 +155,23 @@
       "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f70709_f8fe8617",
+        "filename": "runtime/base/callee_save_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-03T17:52:26Z",
+      "side": 1,
+      "message": "I think I understand why we need one for \u003cclinit\u003e, why do we need one for suspend check?\n\nWith my proposed changes to suspend checks, we don\u0027t even have entrypoints to suspend checks anymore, it will just be signal based.",
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
