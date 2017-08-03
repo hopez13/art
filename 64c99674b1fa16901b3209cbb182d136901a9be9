@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "b78d2efd_abb39445",
+        "filename": "runtime/arch/arm/asm_support_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-03T20:49:37Z",
+      "side": 1,
+      "message": "Done. Alao fixed other platforms.",
+      "parentUuid": "3cbb85b8_2e7811e2",
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4dfa8a40_e868fb20",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
@@ -77,6 +95,30 @@
       "writtenOn": "2017-08-03T17:37:52Z",
       "side": 1,
       "message": "Unused?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f68c41a3_f2596974",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-03T20:49:37Z",
+      "side": 1,
+      "message": "Moved to next CL.",
+      "parentUuid": "4dfa8a40_e868fb20",
       "range": {
         "startLine": 250,
         "startChar": 0,
@@ -112,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "699f91ce_b33e98a5",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-03T20:49:37Z",
+      "side": 1,
+      "message": "Moved to next CL.",
+      "parentUuid": "809d1b24_3ec38c3e",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 65
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e08e89f_080f6fe9",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
@@ -123,6 +189,30 @@
       "writtenOn": "2017-08-03T17:37:52Z",
       "side": 1,
       "message": "In the other change?",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 63
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6ff7d7_6336ad0a",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-03T20:49:37Z",
+      "side": 1,
+      "message": "Moved to next CL.",
+      "parentUuid": "0e08e89f_080f6fe9",
       "range": {
         "startLine": 321,
         "startChar": 0,
@@ -158,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "be2a9553_f646febe",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-03T20:49:37Z",
+      "side": 1,
+      "message": "Moved to next CL.",
+      "parentUuid": "2a62bfe4_39ad747a",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 63
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f70709_f8fe8617",
         "filename": "runtime/base/callee_save_type.h",
         "patchSetId": 2
@@ -169,6 +283,24 @@
       "writtenOn": "2017-08-03T17:52:26Z",
       "side": 1,
       "message": "I think I understand why we need one for \u003cclinit\u003e, why do we need one for suspend check?\n\nWith my proposed changes to suspend checks, we don\u0027t even have entrypoints to suspend checks anymore, it will just be signal based.",
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96425c78_1f51e117",
+        "filename": "runtime/base/callee_save_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-03T20:49:37Z",
+      "side": 1,
+      "message": "Any back-edge/entrypoint suspend check if deoptimized has to execute the dex pc instruction at the loop header/dex pc 0.\nSignal is just an mechanism, the call into runtime should still be there through some trampoline.",
+      "parentUuid": "08f70709_f8fe8617",
       "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -198,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "ff1ad5d4_1d9accdb",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-03T20:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7338e64a_16aa5929",
+      "range": {
+        "startLine": 99,
+        "startChar": 90,
+        "endLine": 99,
+        "endChar": 91
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e37269eb_4c3d1f3e",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints_test.cc",
         "patchSetId": 2
@@ -209,6 +365,30 @@
       "writtenOn": "2017-08-03T17:37:52Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 106
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d07cd01b_a4d359d4",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-03T20:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e37269eb_4c3d1f3e",
       "range": {
         "startLine": 140,
         "startChar": 0,
