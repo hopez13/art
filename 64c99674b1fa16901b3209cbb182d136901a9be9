@@ -307,6 +307,24 @@
     },
     {
       "key": {
+        "uuid": "ac001fc7_209ebdfa",
+        "filename": "runtime/base/callee_save_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-03T21:27:00Z",
+      "side": 1,
+      "message": "Can we not change the compiled code so that the dex pc is unambiguous for back-edge/entrypoint suspend check? Will it break something else?",
+      "parentUuid": "96425c78_1f51e117",
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7338e64a_16aa5929",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints_test.cc",
         "patchSetId": 2
