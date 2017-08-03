@@ -46,6 +46,144 @@
       "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dfa8a40_e868fb20",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-03T17:37:52Z",
+      "side": 1,
+      "message": "Unused?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "809d1b24_3ec38c3e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-03T17:37:52Z",
+      "side": 1,
+      "message": "Should that be in the deopt change instead?",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 65
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e08e89f_080f6fe9",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-03T17:37:52Z",
+      "side": 1,
+      "message": "In the other change?",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 63
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a62bfe4_39ad747a",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-03T17:37:52Z",
+      "side": 1,
+      "message": "Int he other change?",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 63
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7338e64a_16aa5929",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-03T17:37:52Z",
+      "side": 1,
+      "message": "nit: alignment,",
+      "range": {
+        "startLine": 99,
+        "startChar": 90,
+        "endLine": 99,
+        "endChar": 91
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e37269eb_4c3d1f3e",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-03T17:37:52Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 106
+      },
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
