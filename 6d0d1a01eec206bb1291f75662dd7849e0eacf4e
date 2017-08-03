@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "29e8d08b_95bce1b1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2347,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-08-03T21:57:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84998738_c80a1b3c",
+      "range": {
+        "startLine": 2347,
+        "startChar": 69,
+        "endLine": 2347,
+        "endChar": 73
+      },
+      "revId": "6d0d1a01eec206bb1291f75662dd7849e0eacf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74e1e90c_da5b282c",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 6
@@ -36,6 +60,24 @@
       "writtenOn": "2017-08-03T20:45:49Z",
       "side": 1,
       "message": "Set slow path to true here so that it doesn\u0027t try to do allocation and SEGV.",
+      "revId": "6d0d1a01eec206bb1291f75662dd7849e0eacf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88d5ee0_59fb4e67",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-08-03T21:57:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74e1e90c_da5b282c",
       "revId": "6d0d1a01eec206bb1291f75662dd7849e0eacf4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "17a05542_3c37efbd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2080,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-08-03T21:57:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3da224c_983354b5",
+      "range": {
+        "startLine": 2080,
+        "startChar": 77,
+        "endLine": 2080,
+        "endChar": 88
+      },
+      "revId": "6d0d1a01eec206bb1291f75662dd7849e0eacf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1083e626_27597f74",
         "filename": "runtime/transaction.cc",
         "patchSetId": 6
@@ -76,6 +142,30 @@
       "writtenOn": "2017-08-03T20:45:49Z",
       "side": 1,
       "message": "KB",
+      "range": {
+        "startLine": 42,
+        "startChar": 19,
+        "endLine": 42,
+        "endChar": 23
+      },
+      "revId": "6d0d1a01eec206bb1291f75662dd7849e0eacf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c876c6_4ee86874",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1167013
+      },
+      "writtenOn": "2017-08-03T21:57:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1083e626_27597f74",
       "range": {
         "startLine": 42,
         "startChar": 19,
