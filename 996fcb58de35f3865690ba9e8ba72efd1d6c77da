@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8879666c_517c5fb2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T20:45:25Z",
+      "side": 1,
+      "message": "update this to something that says about making a best effort to replace \u003cinit\u003e call as well",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e9d474_d22f0f92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T20:45:25Z",
+      "side": 1,
+      "message": "let\u0027s work on that!",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50224792_21edbc6b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T20:45:25Z",
+      "side": 1,
+      "message": "(1) needs documentation\n(2) name is too generic, should reflect what it does\n(3) this is awfully specific to your special needs at the moment; with an eye on future users (could be you!) it seems to be friendlier to break this into three methods that return a class string, method name and method proto",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c01fad_5461e683",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T20:45:25Z",
+      "side": 1,
+      "message": "some effort to make sure it is not the same type?",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce1aa0cd_a785151a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T20:45:25Z",
+      "side": 1,
+      "message": "this can be written much cleaner\n\nyou always have pointer to newInstanceInsn so just always change that one\n\nthen, make a best effort in the invoke, in its method for readability",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdd70e19_9215d5fb",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-03T20:45:25Z",
+      "side": 1,
+      "message": "this does not seem to be corrected yet?",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
