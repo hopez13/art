@@ -1162,7 +1162,7 @@ class FixupInternVisitor {
  public:
   ALWAYS_INLINE ObjPtr<mirror::Object> TryInsertIntern(mirror::Object* obj) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    if (obj != nullptr && obj->IsString()) {
+    if (obj != nullptr && obj->IsString<kDefaultVerifyFlags, kWithoutReadBarrier>()) {
       const auto intern = Runtime::Current()->GetInternTable()->InternStrong(obj->AsString());
       return intern;
     }
