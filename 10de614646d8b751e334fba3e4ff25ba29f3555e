@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "975382c2_4c3642d6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-03T18:02:43Z",
+      "side": 1,
+      "message": "Let\u0027s be consistent and have the same name :)\n\nHow about: ValidateDexFileData? To me sounds less ambiguous.",
+      "range": {
+        "startLine": 707,
+        "startChar": 38,
+        "endLine": 707,
+        "endChar": 44
+      },
+      "revId": "10de614646d8b751e334fba3e4ff25ba29f3555e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48be2d5b_a97e4ad6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3014,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-03T18:02:43Z",
+      "side": 1,
+      "message": "Log an error.",
+      "range": {
+        "startLine": 3014,
+        "startChar": 6,
+        "endLine": 3014,
+        "endChar": 41
+      },
+      "revId": "10de614646d8b751e334fba3e4ff25ba29f3555e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b21ce675_96b623d2",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-03T18:02:43Z",
+      "side": 1,
+      "message": "Use ValidateChecksum (see on top of the file). It will ensure that we can run borg jobs with profiles.",
+      "range": {
+        "startLine": 1014,
+        "startChar": 4,
+        "endLine": 1014,
+        "endChar": 66
+      },
+      "revId": "10de614646d8b751e334fba3e4ff25ba29f3555e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
