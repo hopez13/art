@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f900c7d8_35039782",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-04T18:44:18Z",
+      "side": 1,
+      "message": "it would be a bit more consistent if\n(1) you call this getClassName\nor\n(2) you add String at the end of L630 (remove Name) and L636",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e85e9026_12fef859",
         "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
         "patchSetId": 12
