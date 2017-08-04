@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "2fed8c31_14ffbeb5",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T18:48:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e85e9026_12fef859",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a8a997b_fa8a1484",
         "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
         "patchSetId": 12
@@ -47,6 +65,24 @@
       "writtenOn": "2017-08-04T18:09:03Z",
       "side": 1,
       "message": "looking up proto id is an internal affair\nrestrict doc to public behavior\n\nI would say the same as the other \"Used to convert method ix into string format for shorty",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6583a5bb_db3151a4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T18:48:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a8a997b_fa8a1484",
       "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -76,6 +112,30 @@
     },
     {
       "key": {
+        "uuid": "5b2f7c2e_505a85a8",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T18:48:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee8957ee_bb04b5a3",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 6
+      },
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc7cf9d2_a0ab8087",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 12
@@ -87,6 +147,30 @@
       "writtenOn": "2017-08-04T00:05:26Z",
       "side": 1,
       "message": "alignment",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 10
+      },
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd4b9d13_ea3914e0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T18:48:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc7cf9d2_a0ab8087",
       "range": {
         "startLine": 127,
         "startChar": 4,
