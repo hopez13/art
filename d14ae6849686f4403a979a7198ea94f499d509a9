@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b1270685_6c94ebc2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-04T07:22:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0c5c228_a69babc0",
+      "range": {
+        "startLine": 1866,
+        "startChar": 4,
+        "endLine": 1866,
+        "endChar": 49
+      },
+      "revId": "d14ae6849686f4403a979a7198ea94f499d509a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e2d87cf4_86bbf4f8",
         "filename": "runtime/aot_class_linker.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-04T02:42:59Z",
       "side": 1,
       "message": "Document how this is different that the class linker verification and why you need a special version.",
+      "range": {
+        "startLine": 31,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "d14ae6849686f4403a979a7198ea94f499d509a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e026e2b1_5bda4380",
+        "filename": "runtime/aot_class_linker.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-04T07:22:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2d87cf4_86bbf4f8",
       "range": {
         "startLine": 31,
         "startChar": 24,
