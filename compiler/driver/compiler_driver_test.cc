@@ -366,6 +366,28 @@ TEST_F(CompilerDriverVerifyTest, VerifyCompilation) {
   CheckVerifiedClass(class_loader, "LSecond;");
 }
 
+TEST_F(CompilerDriverVerifyTest, RetryVerifcationStatus) {
+  Thread* const self = Thread::Current();
+  jobject class_loader;
+  std::vector<const DexFile*> dex_files;
+  const DexFile* dex_file = nullptr;
+  {
+    ScopedObjectAccess soa(self);
+    class_loader = LoadDex("ProfileTestMultiDex");
+    ASSERT_NE(class_loader, nullptr);
+    dex_files = GetDexFiles(class_loader);
+    ASSERT_GT(dex_files.size(), 0u);
+    dex_file = dex_files.front();
+  }
+  compiler_driver_->SetDexFilesForOatFile(dex_files);
+  ClassReference ref(dex_file, 0u);
+  compiler_driver_->RecordClassStatus(ref, mirror::Class::kStatusRetryVerificationAtRuntime);
+  mirror::Class::Status status = {};
+  ASSERT_TRUE(compiler_driver_->GetCompiledClass(ref, &status));
+  EXPECT_EQ(status, mirror::Class::kStatusRetryVerificationAtRuntime);
+}
+
+
 // TODO: need check-cast test (when stub complete & we can throw/catch
 
 }  // namespace art
