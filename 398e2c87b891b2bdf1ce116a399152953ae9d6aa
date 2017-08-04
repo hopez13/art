@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b1fab48_231fdb02",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T09:08:51Z",
+      "side": 1,
+      "message": "Move this to its own CL, please.",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 360,
+        "endChar": 17
+      },
+      "revId": "398e2c87b891b2bdf1ce116a399152953ae9d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "186b554b_7a8e98dd",
+        "filename": "runtime/aot_class_linker.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T09:08:51Z",
+      "side": 1,
+      "message": "grammar",
+      "range": {
+        "startLine": 31,
+        "startChar": 52,
+        "endLine": 31,
+        "endChar": 64
+      },
+      "revId": "398e2c87b891b2bdf1ce116a399152953ae9d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a56b8ff_3ee66bad",
+        "filename": "runtime/base/unix_file/fd_file.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T09:08:51Z",
+      "side": 1,
+      "message": "Separate CL with unit test (we have a file gtest).",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 29
+      },
+      "revId": "398e2c87b891b2bdf1ce116a399152953ae9d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9950a5e5_648363dc",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2441,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T09:08:51Z",
+      "side": 1,
+      "message": "Is this an independent issue that should go into an independent CL?",
+      "range": {
+        "startLine": 2441,
+        "startChar": 11,
+        "endLine": 2441,
+        "endChar": 83
+      },
+      "revId": "398e2c87b891b2bdf1ce116a399152953ae9d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
