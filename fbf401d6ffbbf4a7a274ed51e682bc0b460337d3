@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "961f2d81_ae0184d1",
+        "filename": "runtime/boot_update_whitelist.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T10:54:19Z",
+      "side": 1,
+      "message": "Why is one under a namespace, but not the other.\n\nPlease don\u0027t pollute the art namespace with something not clearly named.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "fbf401d6ffbbf4a7a274ed51e682bc0b460337d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff93add_bba2a038",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T10:54:19Z",
+      "side": 1,
+      "message": "Same line (it fits below)",
+      "range": {
+        "startLine": 4801,
+        "startChar": 8,
+        "endLine": 4801,
+        "endChar": 29
+      },
+      "revId": "fbf401d6ffbbf4a7a274ed51e682bc0b460337d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4138cb04_c8c55938",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5002,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T10:54:19Z",
+      "side": 1,
+      "message": "Document why you didn\u0027t do this immediately. Is this correct (in case of circular dependencies)?",
+      "range": {
+        "startLine": 4997,
+        "startChar": 0,
+        "endLine": 5002,
+        "endChar": 0
+      },
+      "revId": "fbf401d6ffbbf4a7a274ed51e682bc0b460337d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "015b163c_b193b020",
+        "filename": "runtime/jni_internal.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T10:54:19Z",
+      "side": 1,
+      "message": "Why is this a macro?!?!",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 20
+      },
+      "revId": "fbf401d6ffbbf4a7a274ed51e682bc0b460337d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
