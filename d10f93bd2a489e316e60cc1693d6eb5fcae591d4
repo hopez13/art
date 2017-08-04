@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f3370fe_f7bb89dc",
+        "filename": "runtime/base/unix_file/fd_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-04T22:00:53Z",
+      "side": 1,
+      "message": "Can you add what the result is according to memcmp as well? It will save a roundtrip to man pages.\n\nAlso, I think you can do with a simple boolean but up to you.",
+      "range": {
+        "startLine": 149,
+        "startChar": 29,
+        "endLine": 149,
+        "endChar": 35
+      },
+      "revId": "d10f93bd2a489e316e60cc1693d6eb5fcae591d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
