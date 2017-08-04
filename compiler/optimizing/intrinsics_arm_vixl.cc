@@ -2827,6 +2827,140 @@ void IntrinsicCodeGeneratorARMVIXL::VisitLongBitCount(HInvoke* invoke) {
   GenBitCount(invoke, Primitive::kPrimLong, GetAssembler());
 }
 
+static void GenHighestOneBit(HInvoke* invoke,
+                             Primitive::Type type,
+                             CodeGeneratorARMVIXL* codegen) {
+  DCHECK(Primitive::IsIntOrLongType(type));
+
+  ArmVIXLAssembler* assembler = codegen->GetAssembler();
+  UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
+  const vixl32::Register temp = temps.Acquire();
+
+  if (type == Primitive::kPrimLong) {
+    LocationSummary* locations = invoke->GetLocations();
+    Location in = locations->InAt(0);
+    Location out = locations->Out();
+
+    vixl32::Register in_reg_lo = LowRegisterFrom(in);
+    vixl32::Register in_reg_hi = HighRegisterFrom(in);
+    vixl32::Register out_reg_lo = LowRegisterFrom(out);
+    vixl32::Register out_reg_hi = HighRegisterFrom(out);
+
+    __ Mov(temp, 0x80000000);  // Modified immediate.
+    __ Clz(out_reg_lo, in_reg_lo);
+    __ Clz(out_reg_hi, in_reg_hi);
+    __ Lsr(out_reg_lo, temp, out_reg_lo);
+    __ Lsrs(out_reg_hi, temp, out_reg_hi);
+
+    // Since IT blocks longer than a 16-bit instruction are deprecated by ARMv8,
+    // we check that the output is in a low register, so that a 16-bit MOV
+    // encoding can be used.
+    if (out_reg_lo.IsLow()) {
+      ExactAssemblyScope it_scope(codegen->GetVIXLAssembler(),
+                                  2 * vixl32::k16BitT32InstructionSizeInBytes,
+                                  CodeBufferCheckScope::kExactSize);
+      __ it(ne);
+      // Discard result for lowest 32 bits if highest 32 bits are not zero.
+      __ mov(ne, out_reg_lo, 0);
+    } else {
+      __ Mov(ne, out_reg_lo, 0);
+    }
+  } else {
+    vixl32::Register out = OutputRegister(invoke);
+    vixl32::Register in = InputRegisterAt(invoke, 0);
+
+    __ Mov(temp, 0x80000000);  // Modified immediate.
+    __ Clz(out, in);
+    __ Lsr(out, temp, out);
+  }
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitIntegerHighestOneBit(HInvoke* invoke) {
+  CreateIntToIntLocations(arena_, invoke);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitIntegerHighestOneBit(HInvoke* invoke) {
+  GenHighestOneBit(invoke, Primitive::kPrimInt, codegen_);
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitLongHighestOneBit(HInvoke* invoke) {
+  LocationSummary* locations = new (arena_) LocationSummary(invoke,
+                                                            LocationSummary::kNoCall,
+                                                            kIntrinsified);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitLongHighestOneBit(HInvoke* invoke) {
+  GenHighestOneBit(invoke, Primitive::kPrimLong, codegen_);
+}
+
+static void GenLowestOneBit(HInvoke* invoke,
+                            Primitive::Type type,
+                            CodeGeneratorARMVIXL* codegen) {
+  DCHECK(Primitive::IsIntOrLongType(type));
+
+  ArmVIXLAssembler* assembler = codegen->GetAssembler();
+  UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
+  const vixl32::Register temp = temps.Acquire();
+
+  if (type == Primitive::kPrimLong) {
+    LocationSummary* locations = invoke->GetLocations();
+    Location in = locations->InAt(0);
+    Location out = locations->Out();
+
+    vixl32::Register in_reg_lo = LowRegisterFrom(in);
+    vixl32::Register in_reg_hi = HighRegisterFrom(in);
+    vixl32::Register out_reg_lo = LowRegisterFrom(out);
+    vixl32::Register out_reg_hi = HighRegisterFrom(out);
+
+    __ Rsb(temp, in_reg_hi, 0);
+    __ And(out_reg_hi, temp, in_reg_hi);
+    __ Rsbs(temp, in_reg_lo, 0);
+    __ And(LeaveFlags, out_reg_lo, temp, in_reg_lo);
+
+    // Since IT blocks longer than a 16-bit instruction are deprecated by ARMv8,
+    // we check that the output is in a low register, so that a 16-bit MOV
+    // encoding can be used.
+    if (out_reg_hi.IsLow()) {
+      ExactAssemblyScope it_scope(codegen->GetVIXLAssembler(),
+                                  2 * vixl32::k16BitT32InstructionSizeInBytes,
+                                  CodeBufferCheckScope::kExactSize);
+      __ it(ne);
+      // Discard result for highest 32 bits if lowest 32 bits are not zero.
+      __ mov(ne, out_reg_hi, 0);
+    } else {
+      __ Mov(ne, out_reg_hi, 0);
+    }
+  } else {
+    vixl32::Register out = OutputRegister(invoke);
+    vixl32::Register in = InputRegisterAt(invoke, 0);
+
+    __ Rsb(temp, in, 0);
+    __ And(out, temp, in);
+  }
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitIntegerLowestOneBit(HInvoke* invoke) {
+  CreateIntToIntLocations(arena_, invoke);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitIntegerLowestOneBit(HInvoke* invoke) {
+  GenLowestOneBit(invoke, Primitive::kPrimInt, codegen_);
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitLongLowestOneBit(HInvoke* invoke) {
+  LocationSummary* locations = new (arena_) LocationSummary(invoke,
+                                                            LocationSummary::kNoCall,
+                                                            kIntrinsified);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitLongLowestOneBit(HInvoke* invoke) {
+  GenLowestOneBit(invoke, Primitive::kPrimLong, codegen_);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitStringGetCharsNoCheck(HInvoke* invoke) {
   LocationSummary* locations = new (arena_) LocationSummary(invoke,
                                                             LocationSummary::kNoCall,
@@ -3124,10 +3258,6 @@ UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathRoundDouble)   // Could be done by changing
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeCASLong)     // High register pressure.
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, SystemArrayCopyChar)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, ReferenceGetReferent)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, IntegerHighestOneBit)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, LongHighestOneBit)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, IntegerLowestOneBit)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, LongLowestOneBit)
 
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, StringStringIndexOf);
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, StringStringIndexOfAfter);
