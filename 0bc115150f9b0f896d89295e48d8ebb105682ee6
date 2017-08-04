@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "05766054_c3c49620",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T00:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c91d012_d77d3591",
+      "revId": "0bc115150f9b0f896d89295e48d8ebb105682ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75c19c0c_3dd768d7",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 8
@@ -81,6 +99,24 @@
       "writtenOn": "2017-07-31T18:07:40Z",
       "side": 1,
       "message": "how can the newInstance instruction (which is also at index i) be the same as the invokeDirect. Looks like this method always returns -1?!\n\nI would just scan from newInstance forward by one and see if that is still an invoke direct.",
+      "revId": "0bc115150f9b0f896d89295e48d8ebb105682ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6be8f18_552d94ea",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T00:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75c19c0c_3dd768d7",
       "revId": "0bc115150f9b0f896d89295e48d8ebb105682ee6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

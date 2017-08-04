@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "8a468806_f868c2c7",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T00:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50224792_21edbc6b",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c01fad_5461e683",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 11
@@ -87,6 +105,24 @@
     },
     {
       "key": {
+        "uuid": "c3c1630b_85563f37",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T00:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce1aa0cd_a785151a",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bdd70e19_9215d5fb",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 11
@@ -98,6 +134,24 @@
       "writtenOn": "2017-08-03T20:45:25Z",
       "side": 1,
       "message": "this does not seem to be corrected yet?",
+      "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "202e0f2b_e9875013",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-04T00:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdd70e19_9215d5fb",
       "revId": "996fcb58de35f3865690ba9e8ba72efd1d6c77da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
