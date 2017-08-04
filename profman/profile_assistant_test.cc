@@ -372,6 +372,13 @@ TEST_F(ProfileAssistantTest, AdviseCompilationEmptyReferences) {
   ASSERT_TRUE(expected.MergeWith(info2));
   ASSERT_TRUE(expected.Equals(result));
 
+  ProfileCompilationInfo expected_merge_fd;
+  ASSERT_TRUE(profile1.GetFile()->ResetOffset());
+  ASSERT_TRUE(profile2.GetFile()->ResetOffset());
+  ASSERT_TRUE(expected_merge_fd.MergeWith(GetFd(profile1)));
+  ASSERT_TRUE(expected_merge_fd.MergeWith(GetFd(profile2)));
+  ASSERT_TRUE(expected_merge_fd.Equals(result));
+
   // The information from profiles must remain the same.
   CheckProfileInfo(profile1, info1);
   CheckProfileInfo(profile2, info2);
@@ -401,6 +408,11 @@ TEST_F(ProfileAssistantTest, AdviseCompilationEmptyReferencesBecauseOfClasses) {
   ProfileCompilationInfo expected;
   ASSERT_TRUE(expected.MergeWith(info1));
   ASSERT_TRUE(expected.Equals(result));
+
+  ProfileCompilationInfo expected_merge_fd;
+  ASSERT_TRUE(profile1.GetFile()->ResetOffset());
+  ASSERT_TRUE(expected_merge_fd.MergeWith(GetFd(profile1)));
+  ASSERT_TRUE(expected_merge_fd.Equals(result));
 
   // The information from profiles must remain the same.
   CheckProfileInfo(profile1, info1);
@@ -444,6 +456,15 @@ TEST_F(ProfileAssistantTest, AdviseCompilationNonEmptyReferences) {
   ASSERT_TRUE(expected.MergeWith(info2));
   ASSERT_TRUE(expected.MergeWith(reference_info));
   ASSERT_TRUE(expected.Equals(result));
+
+  ProfileCompilationInfo expected_merge_fd;
+  ASSERT_TRUE(reference_profile.GetFile()->ResetOffset());
+  ASSERT_TRUE(profile1.GetFile()->ResetOffset());
+  ASSERT_TRUE(profile2.GetFile()->ResetOffset());
+  ASSERT_TRUE(expected_merge_fd.MergeWith(GetFd(profile1)));
+  ASSERT_TRUE(expected_merge_fd.MergeWith(GetFd(profile2)));
+  ASSERT_TRUE(expected_merge_fd.MergeWith(GetFd(reference_profile)));
+  ASSERT_TRUE(expected_merge_fd.Equals(result));
 
   // The information from profiles must remain the same.
   CheckProfileInfo(profile1, info1);
@@ -910,6 +931,13 @@ TEST_F(ProfileAssistantTest, MergeProfilesWithDifferentDexOrder) {
   ASSERT_TRUE(expected.MergeWith(reference_info));
   ASSERT_TRUE(expected.MergeWith(info1));
   ASSERT_TRUE(expected.Equals(result));
+
+  ProfileCompilationInfo expected_merge_fd;
+  ASSERT_TRUE(reference_profile.GetFile()->ResetOffset());
+  ASSERT_TRUE(profile1.GetFile()->ResetOffset());
+  ASSERT_TRUE(expected_merge_fd.MergeWith(GetFd(reference_profile)));
+  ASSERT_TRUE(expected_merge_fd.MergeWith(GetFd(profile1)));
+  ASSERT_TRUE(expected_merge_fd.Equals(result));
 
   // The information from profile must remain the same.
   CheckProfileInfo(profile1, info1);

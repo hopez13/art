@@ -110,11 +110,7 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
     if (info.GetNumberOfMethods() != profile_methods.size()) {
       return false;
     }
-    ProfileCompilationInfo file_profile;
-    if (!file_profile.Load(filename, false)) {
-      return false;
-    }
-    if (!info.MergeWith(file_profile)) {
+    if (!info.MergeWith(filename)) {
       return false;
     }
 
