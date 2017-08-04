@@ -366,6 +366,34 @@ TEST_F(CompilerDriverVerifyTest, VerifyCompilation) {
   CheckVerifiedClass(class_loader, "LSecond;");
 }
 
+// Test that a class of status kStatusRetryVerificationAtRuntime is indeed recorded that way in the
+// driver.
+TEST_F(CompilerDriverVerifyTest, RetryVerifcationStatus) {
+  Thread* const self = Thread::Current();
+  jobject class_loader;
+  std::vector<const DexFile*> dex_files;
+  const DexFile* dex_file = nullptr;
+  {
+    ScopedObjectAccess soa(self);
+    class_loader = LoadDex("ProfileTestMultiDex");
+    ASSERT_NE(class_loader, nullptr);
+    dex_files = GetDexFiles(class_loader);
+    ASSERT_GT(dex_files.size(), 0u);
+    dex_file = dex_files.front();
+  }
+  compiler_driver_->SetDexFilesForOatFile(dex_files);
+  ClassReference ref(dex_file, 0u);
+  for (size_t i = mirror::Class::kStatusRetryVerificationAtRuntime;
+      i < mirror::Class::kStatusMax;
+      ++i) {
+    const mirror::Class::Status expected_status = static_cast<mirror::Class::Status>(i);
+    compiler_driver_->RecordClassStatus(ref, expected_status);
+    mirror::Class::Status status = {};
+    ASSERT_TRUE(compiler_driver_->GetCompiledClass(ref, &status));
+    EXPECT_EQ(status, expected_status);
+  }
+}
+
 // TODO: need check-cast test (when stub complete & we can throw/catch
 
 }  // namespace art
