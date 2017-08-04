@@ -168,6 +168,23 @@
     },
     {
       "key": {
+        "uuid": "e348bd03_0e4fbfdc",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-04T18:15:44Z",
+      "side": 1,
+      "message": "L175 is not strict enough, if you are accessing index+1, then index+1 \u003c count should be true\n\nException in thread \"main\" java.lang.IndexOutOfBoundsException: Index: 4, Size: 4\n\tat java.util.LinkedList.checkElementIndex(LinkedList.java:555)\n\tat java.util.LinkedList.get(LinkedList.java:476)\n\tat dexfuzz.program.MutatableCode.getInstructionAt(MutatableCode.java:139)\n\tat dexfuzz.program.mutators.NewInstanceChanger.changeInvokeDirect(NewInstanceChanger.java:178)\n\tat dexfuzz.program.mutators.NewInstanceChanger.applyMutation(NewInstanceChanger.java:156)\n\tat dexfuzz.program.mutators.CodeMutator.generateAndApplyMutation(CodeMutator.java:120)",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0367b48a_f5084ce4",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 12
