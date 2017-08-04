@@ -202,6 +202,23 @@
     },
     {
       "key": {
+        "uuid": "b23f4074_831a7206",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-04T18:37:40Z",
+      "side": 1,
+      "message": "you call getMethodName three times, and pass in different indices. Surely a mistake :-) You meant to call the three new methods you introduced.",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c732e03e_c425e29f",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 12
