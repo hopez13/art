@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b1a2438_b39e8419",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-04T20:16:40Z",
+      "side": 1,
+      "message": "Needs documentation.",
+      "range": {
+        "startLine": 85,
+        "startChar": 14,
+        "endLine": 85,
+        "endChar": 34
+      },
+      "revId": "0e22774533daaa16a0eab684dc1852ef1b29e1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "595cc6b9_b6dc5f4f",
+        "filename": "compiler/optimizing/select_generator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-04T20:16:40Z",
+      "side": 1,
+      "message": "Not a big fan of this. I don\u0027t think this is so common as to be concerned about caching the handles. So maybe it\u0027s just neater to do this inside the FixType method.",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 54
+      },
+      "revId": "0e22774533daaa16a0eab684dc1852ef1b29e1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
