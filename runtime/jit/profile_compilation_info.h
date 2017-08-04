@@ -303,6 +303,13 @@ class ProfileCompilationInfo {
   // we don't want all of the classes to be image classes.
   bool MergeWith(const ProfileCompilationInfo& info, bool merge_classes = true);
 
+  // Similar to MergeWith(ProfileCompilationInfo, bool), however, merges profiles without
+  // needing to create ProfileCompilationInfo object for the profile to be merged.
+  bool MergeWith(int fd, bool merge_classes = true);
+
+  // Merge profile information from the given file descriptor.
+  bool MergeWith(const std::string& filename);
+
   // Save the profile data to the given file descriptor.
   bool Save(int fd);
 
@@ -594,7 +601,7 @@ class ProfileCompilationInfo {
   };
 
   // Entry point for profile loding functionality.
-  ProfileLoadSatus LoadInternal(int fd, std::string* error);
+  ProfileLoadSatus LoadInternal(int fd, std::string* error, bool merge_classes = true);
 
   // Read the profile header from the given fd and store the number of profile
   // lines into number_of_dex_files.
@@ -619,6 +626,8 @@ class ProfileCompilationInfo {
   ProfileLoadSatus ReadProfileLine(SafeBuffer& buffer,
                                    uint8_t number_of_dex_files,
                                    const ProfileLineHeader& line_header,
+                                   const SafeMap<uint8_t, uint8_t>& dex_profile_index_remap,
+                                   bool merge_classes,
                                    /*out*/std::string* error);
 
   // Read all the classes from the buffer into the profile `info_` structure.
@@ -630,11 +639,18 @@ class ProfileCompilationInfo {
   bool ReadMethods(SafeBuffer& buffer,
                    uint8_t number_of_dex_files,
                    const ProfileLineHeader& line_header,
+                   const SafeMap<uint8_t, uint8_t>& dex_profile_index_remap,
                    /*out*/std::string* error);
+
+  // The method generates mapping of profile indices while merging a new profile
+  // data into current data. It returns true, if the mapping was successful.
+  bool RemapProfileIndex(const std::vector<ProfileLineHeader>& profile_line_headers,
+                         /*out*/SafeMap<uint8_t, uint8_t>* dex_profile_index_remap);
 
   // Read the inline cache encoding from line_bufer into inline_cache.
   bool ReadInlineCache(SafeBuffer& buffer,
                        uint8_t number_of_dex_files,
+                       const SafeMap<uint8_t, uint8_t>& dex_profile_index_remap,
                        /*out*/InlineCacheMap* inline_cache,
                        /*out*/std::string* error);
 
