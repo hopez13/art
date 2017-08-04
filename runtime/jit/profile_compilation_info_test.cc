@@ -110,11 +110,7 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
     if (info.GetNumberOfMethods() != profile_methods.size()) {
       return false;
     }
-    ProfileCompilationInfo file_profile;
-    if (!file_profile.Load(filename, false)) {
-      return false;
-    }
-    if (!info.MergeWith(file_profile)) {
+    if (!info.MergeWith(filename)) {
       return false;
     }
 
@@ -385,6 +381,22 @@ TEST_F(ProfileCompilationInfoTest, MergeFail) {
   ASSERT_TRUE(AddMethod("dex_location", /* checksum */ 2, /* method_idx */ 2, &info2));
 
   ASSERT_FALSE(info1.MergeWith(info2));
+}
+
+TEST_F(ProfileCompilationInfoTest, MergeFdFail) {
+  ScratchFile profile;
+
+  ProfileCompilationInfo info1;
+  ASSERT_TRUE(AddMethod("dex_location", /* checksum */ 1, /* method_idx */ 1, &info1));
+  // Use the same file, change the checksum.
+  ProfileCompilationInfo info2;
+  ASSERT_TRUE(AddMethod("dex_location", /* checksum */ 2, /* method_idx */ 2, &info2));
+
+  ASSERT_TRUE(info1.Save(profile.GetFd()));
+  ASSERT_EQ(0, profile.GetFile()->Flush());
+  ASSERT_TRUE(profile.GetFile()->ResetOffset());
+
+  ASSERT_FALSE(info2.MergeWith(profile.GetFd()));
 }
 
 TEST_F(ProfileCompilationInfoTest, SaveMaxMethods) {
@@ -759,6 +771,57 @@ TEST_F(ProfileCompilationInfoTest, MergeInlineCacheTriggerReindex) {
     ASSERT_TRUE(loaded_pmi2 != nullptr);
     ASSERT_TRUE(*loaded_pmi2 == pmi);
   }
+}
+
+TEST_F(ProfileCompilationInfoTest, MergeFdInlineCacheTriggerReindex) {
+  ScratchFile profile;
+
+  ProfileCompilationInfo info;
+  ProfileCompilationInfo info_reindexed;
+
+  ProfileCompilationInfo::InlineCacheMap* ic_map = CreateInlineCacheMap();
+  ProfileCompilationInfo::OfflineProfileMethodInfo pmi(ic_map);
+  pmi.dex_references.emplace_back("dex_location1", /* checksum */ 1, kMaxMethodIds);
+  pmi.dex_references.emplace_back("dex_location2", /* checksum */ 2, kMaxMethodIds);
+  for (uint16_t dex_pc = 1; dex_pc < 5; dex_pc++) {
+    ProfileCompilationInfo::DexPcData dex_pc_data(arena_.get());
+    dex_pc_data.AddClass(0, dex::TypeIndex(0));
+    dex_pc_data.AddClass(1, dex::TypeIndex(1));
+    ic_map->Put(dex_pc, dex_pc_data);
+  }
+
+  ProfileCompilationInfo::InlineCacheMap* ic_map_reindexed = CreateInlineCacheMap();
+  ProfileCompilationInfo::OfflineProfileMethodInfo pmi_reindexed(ic_map_reindexed);
+  pmi_reindexed.dex_references.emplace_back("dex_location2", /* checksum */ 2, kMaxMethodIds);
+  pmi_reindexed.dex_references.emplace_back("dex_location1", /* checksum */ 1, kMaxMethodIds);
+  for (uint16_t dex_pc = 1; dex_pc < 5; dex_pc++) {
+    ProfileCompilationInfo::DexPcData dex_pc_data(arena_.get());
+    dex_pc_data.AddClass(1, dex::TypeIndex(0));
+    dex_pc_data.AddClass(0, dex::TypeIndex(1));
+    ic_map_reindexed->Put(dex_pc, dex_pc_data);
+  }
+
+  // Profile 1 and Profile 2 get the same methods but in different order.
+  // This will trigger a different dex numbers.
+  for (uint16_t method_idx = 0; method_idx < 10; method_idx++) {
+    ASSERT_TRUE(AddMethod("dex_location1", /* checksum */ 1, method_idx, pmi, &info));
+    ASSERT_TRUE(AddMethod("dex_location2", /* checksum */ 2, method_idx, pmi, &info));
+  }
+
+  for (uint16_t method_idx = 0; method_idx < 10; method_idx++) {
+    ASSERT_TRUE(AddMethod(
+        "dex_location2", /* checksum */ 2, method_idx, pmi_reindexed, &info_reindexed));
+    ASSERT_TRUE(AddMethod(
+        "dex_location1", /* checksum */ 1, method_idx, pmi_reindexed, &info_reindexed));
+  }
+
+  ASSERT_TRUE(info_reindexed.Save(profile.GetFd()));
+  ASSERT_TRUE(profile.GetFile()->ResetOffset());
+  ProfileCompilationInfo info_backup;
+  info_backup.MergeWith(info);
+  ASSERT_TRUE(info.MergeWith(info_reindexed));
+  // Merging should have no effect as we're adding the exact same stuff.
+  ASSERT_TRUE(info.Equals(info_backup));
 }
 
 TEST_F(ProfileCompilationInfoTest, AddMoreDexFileThanLimit) {
