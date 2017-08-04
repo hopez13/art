@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "79fbdda3_4d894130",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-04T23:26:42Z",
+      "side": 1,
+      "message": "Isn\u0027t the need to have a Visit for most (?) instructions a bit brittle? Should you have instead just one \"VisitInstruction\" that will call CreateReferenceInfoForReferenceType? (and maybe a few special ones like VisitArrayGet, ...)",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 472,
+        "endChar": 3
+      },
+      "revId": "1f0eefc59d34fb5b6f088791cdd268a5ee194407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06b58f67_a8eabd4f",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 1
