@@ -325,6 +325,24 @@
     },
     {
       "key": {
+        "uuid": "9639f9bd_5b0b8846",
+        "filename": "runtime/base/callee_save_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-04T17:45:39Z",
+      "side": 1,
+      "message": "The dex pc itself is not ambiguous. It\u0027s where we hold environment live. It\u0027s how we come to that dex pc, say straight-line code, or the target of a back-edge suspend-check that can cause ambiguity.\n\nI guess you may mean something like for suspend-check we intentionally map to its previous dex pc so we always advance the dex pc when deoptimized? Any hacks like that is going to make things much more complicated. The previous dex pc may be another safe point, it\u0027s too confusing. And we don\u0027t always advance dex pc like the clinit case. For dex pc 0, the previous dex pc will be negative, and so on.",
+      "parentUuid": "ac001fc7_209ebdfa",
+      "revId": "64c99674b1fa16901b3209cbb182d136901a9be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7338e64a_16aa5929",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints_test.cc",
         "patchSetId": 2
