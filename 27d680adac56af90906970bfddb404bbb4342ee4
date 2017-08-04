@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "789145b5_e67d31e6",
+        "filename": "runtime/base/unix_file/fd_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-04T22:21:55Z",
+      "side": 1,
+      "message": "still fuzzy to me. What does a greater file means? You can say that for same length files it compares their bytes.",
+      "range": {
+        "startLine": 150,
+        "startChar": 41,
+        "endLine": 150,
+        "endChar": 48
+      },
+      "revId": "27d680adac56af90906970bfddb404bbb4342ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
