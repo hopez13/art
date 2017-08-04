@@ -46,6 +46,30 @@
       "revId": "421d18cbd436defbcd556fe658b9e36fde0f5792",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e843d40c_e04f12c3",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-04T19:38:11Z",
+      "side": 1,
+      "message": "But will you remove it? A constexpr referencing a constexpr isn\u0027t that useful...",
+      "parentUuid": "6154e23c_eedc07b0",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 39
+      },
+      "revId": "421d18cbd436defbcd556fe658b9e36fde0f5792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
