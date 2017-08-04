@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "e85e9026_12fef859",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-04T18:09:03Z",
+      "side": 1,
+      "message": "string format of method name",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a8a997b_fa8a1484",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-04T18:09:03Z",
+      "side": 1,
+      "message": "looking up proto id is an internal affair\nrestrict doc to public behavior\n\nI would say the same as the other \"Used to convert method ix into string format for shorty",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee8957ee_bb04b5a3",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 12
@@ -131,6 +165,23 @@
       "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0367b48a_f5084ce4",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-04T18:09:03Z",
+      "side": 1,
+      "message": "Exception in thread \"main\" java.lang.ClassCastException: dexfuzz.rawdex.formats.Format11x cannot be cast to dexfuzz.rawdex.formats.ContainsPoolIndex\n\tat dexfuzz.program.mutators.NewInstanceChanger.changeInvokeDirect(NewInstanceChanger.java:179)\n\tat dexfuzz.program.mutators.NewInstanceChanger.applyMutation(NewInstanceChanger.java:156)\n\tat dexfuzz.program.mutators.CodeMutator.generateAndApplyMutation(CodeMutator.java:120)",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
