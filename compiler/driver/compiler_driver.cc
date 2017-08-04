@@ -2879,9 +2879,9 @@ void CompilerDriver::AddCompiledMethod(const MethodReference& method_ref,
 bool CompilerDriver::GetCompiledClass(ClassReference ref, mirror::Class::Status* status) const {
   DCHECK(status != nullptr);
   // The table doesn't know if something wasn't inserted. For this case it will return
-  // kStatusNotReady. To handle this, just assume anything not verified is not compiled.
+  // kStatusNotReady. Treat classes with statuses still set to kStatusNotReady as not compiled.
   if (!compiled_classes_.Get(DexFileReference(ref.first, ref.second), status) ||
-      *status < mirror::Class::kStatusVerified) {
+      *status == mirror::Class::kStatusNotReady) {
     return false;
   }
   return true;
