@@ -22,6 +22,30 @@
       "revId": "421d18cbd436defbcd556fe658b9e36fde0f5792",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6154e23c_eedc07b0",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-04T13:53:29Z",
+      "side": 1,
+      "message": "It\u0027s a follow-up to fix all users. I wanted to keep this small.",
+      "parentUuid": "7e755181_101ac31d",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 39
+      },
+      "revId": "421d18cbd436defbcd556fe658b9e36fde0f5792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
