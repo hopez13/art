@@ -235,6 +235,7 @@ bool CompilerFilter::ParseCompilerFilter(const char* option, Filter* filter) {
   } else {
     return false;
   }
+  *filter = kQuicken;
   return true;
 }
 

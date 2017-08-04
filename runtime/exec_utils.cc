@@ -44,7 +44,7 @@ int ExecAndReturnCode(std::vector<std::string>& arg_vector, std::string* error_m
     args.push_back(arg_str);
   }
   args.push_back(nullptr);
-
+UNUSED(error_msg);
   // fork and exec
   pid_t pid = fork();
   if (pid == 0) {
@@ -61,12 +61,12 @@ int ExecAndReturnCode(std::vector<std::string>& arg_vector, std::string* error_m
     } else {
       execve(program, &args[0], envp);
     }
-    PLOG(ERROR) << "Failed to execve(" << command_line << ")";
+    LOG(ERROR) << "Failed to execve(" << command_line << ")";
     // _exit to avoid atexit handlers in child.
     _exit(1);
   } else {
     if (pid == -1) {
-      *error_msg = StringPrintf("Failed to execv(%s) because fork failed: %s",
+      LOG(ERROR) <<  StringPrintf("Failed to execv(%s) because fork failed: %s",
                                 command_line.c_str(), strerror(errno));
       return -1;
     }
@@ -75,7 +75,7 @@ int ExecAndReturnCode(std::vector<std::string>& arg_vector, std::string* error_m
     int status = -1;
     pid_t got_pid = TEMP_FAILURE_RETRY(waitpid(pid, &status, 0));
     if (got_pid != pid) {
-      *error_msg = StringPrintf("Failed after fork for execv(%s) because waitpid failed: "
+      LOG(ERROR) << StringPrintf("Failed after fork for execv(%s) because waitpid failed: "
                                 "wanted %d, got %d: %s",
                                 command_line.c_str(), pid, got_pid, strerror(errno));
       return -1;

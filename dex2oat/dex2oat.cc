@@ -92,6 +92,8 @@
 #include "well_known_classes.h"
 #include "zip_archive.h"
 
+#include "exec_utils.h"
+
 namespace art {
 
 using android::base::StringAppendV;
@@ -619,7 +621,7 @@ class Dex2Oat FINAL {
       app_image_fd_(kInvalidFd),
       profile_file_fd_(kInvalidFd),
       timings_(timings),
-      force_determinism_(false)
+      force_determinism_(true)
       {}
 
   ~Dex2Oat() {
@@ -658,6 +660,10 @@ class Dex2Oat FINAL {
     bool requested_specific_compiler = false;
     std::string error_msg;
   };
+
+  bool FirstRun() const {
+    return first_run_;
+  }
 
   void ParseZipFd(const StringPiece& option) {
     ParseUintOption(option, "--zip-fd", &zip_fd_, Usage);
@@ -1279,6 +1285,8 @@ class Dex2Oat FINAL {
         dump_stats_ = true;
       } else if (option == "--avoid-storing-invocation") {
         avoid_storing_invocation_ = true;
+      } else if (option == "--no-unload") {
+        no_unload_ = true;
       } else if (option.starts_with("--swap-file=")) {
         swap_file_name_ = option.substr(strlen("--swap-file=")).data();
       } else if (option.starts_with("--swap-fd=")) {
@@ -1326,6 +1334,11 @@ class Dex2Oat FINAL {
       }
     }
 
+    if (!avoid_storing_invocation_) {
+      first_run_ = true;
+      avoid_storing_invocation_ = true;
+    }
+
     ProcessOptions(parser_options.get());
 
     // Insert some compiler things.
@@ -1347,7 +1360,8 @@ class Dex2Oat FINAL {
     if (oat_fd_ == -1) {
       DCHECK(!oat_filenames_.empty());
       for (const char* oat_filename : oat_filenames_) {
-        std::unique_ptr<File> oat_file(OS::CreateEmptyFile(oat_filename));
+        std::string fname = oat_filename;
+        std::unique_ptr<File> oat_file(OS::CreateEmptyFile(fname.c_str()));
         if (oat_file.get() == nullptr) {
           PLOG(ERROR) << "Failed to create oat file: " << oat_filename;
           return false;
@@ -1370,7 +1384,7 @@ class Dex2Oat FINAL {
 
         DCHECK_EQ(output_vdex_fd_, -1);
         std::string vdex_filename = output_vdex_.empty()
-            ? ReplaceFileExtension(oat_filename, "vdex")
+            ? ReplaceFileExtension(fname, "vdex")
             : output_vdex_;
         if (vdex_filename == input_vdex_ && output_vdex_.empty()) {
           update_input_vdex_ = true;
@@ -1788,6 +1802,7 @@ class Dex2Oat FINAL {
     // app images.
     return !IsImage() &&
         dex_files_.size() > 1 &&
+        !no_unload_ &&
         !CompilerFilter::IsAotCompilationEnabled(compiler_options_->GetCompilerFilter());
   }
 
@@ -2223,9 +2238,14 @@ class Dex2Oat FINAL {
 
   bool FlushCloseOutputFile(std::unique_ptr<File>* file) {
     if (file->get() != nullptr) {
-      std::unique_ptr<File> tmp(file->release());
-      if (tmp->FlushCloseOrErase() != 0) {
-        PLOG(ERROR) << "Failed to flush and close output file: " << tmp->GetPath();
+      if (IsBootImage()) {
+        std::unique_ptr<File> tmp(file->release());
+        if (tmp->FlushCloseOrErase() != 0) {
+          PLOG(ERROR) << "Failed to flush and close output file: " << tmp->GetPath();
+          return false;
+        }
+      } else if ((*file)->Flush() != 0) {
+        PLOG(ERROR) << "Failed to flush and close output file: " << (*file)->GetPath();
         return false;
       }
     }
@@ -2327,7 +2347,7 @@ class Dex2Oat FINAL {
     return true;
   }
 
- private:
+ public:
   bool UseSwap(bool is_image, const std::vector<const DexFile*>& dex_files) {
     if (is_image) {
       // Don't use swap, we know generation should succeed, and we don't want to slow it down.
@@ -2909,6 +2929,8 @@ class Dex2Oat FINAL {
   bool dump_timing_;
   bool dump_slow_timing_;
   bool avoid_storing_invocation_;
+  bool no_unload_;
+  bool first_run_ = false;
   std::string swap_file_name_;
   int swap_fd_;
   size_t min_dex_files_for_swap_ = kDefaultMinDexFilesForSwap;
@@ -2936,6 +2958,7 @@ class Dex2Oat FINAL {
   // Whether the given input vdex is also the output.
   bool update_input_vdex_ = false;
 
+ private:
   DISALLOW_IMPLICIT_CONSTRUCTORS(Dex2Oat);
 };
 
@@ -3115,6 +3138,64 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
     result = CompileImage(*dex2oat);
   } else {
     result = CompileApp(*dex2oat);
+  }
+
+  if (!dex2oat->IsBootImage()) {
+    if (dex2oat->FirstRun()) {
+      std::string path;
+      for (std::unique_ptr<File>& file : dex2oat->vdex_files_) {
+        path = file->GetPath() + "-before.vdex";
+        std::unique_ptr<File> out(OS::CreateEmptyFile(path.c_str()));
+        CHECK_EQ(file->Flush(), 0) << "FLUSHFAIL";
+        out->Copy(file.get(), 0u, file->GetLength());
+        CHECK_EQ(file->Erase(true), true);
+        // CHECK_EQ(file->Close(), 0);
+        file.reset();
+        CHECK_EQ(out->FlushClose(), 0);
+      }
+      for (std::unique_ptr<File>& file : dex2oat->oat_files_) {
+        path = file->GetPath() + "-before.oat";
+        std::unique_ptr<File> out(OS::CreateEmptyFile(path.c_str()));
+        CHECK_EQ(file->Flush(), 0) << "FLUSHFAIL";
+        out->Copy(file.get(), 0u, file->GetLength());
+        CHECK_EQ(file->Erase(true), true);
+        // CHECK_EQ(file->Close(), 0);
+        file.reset();
+        CHECK_EQ(out->FlushClose(), 0);
+      }
+
+      // Exec again, this time pass the arg.
+      std::vector<std::string> args;
+      for (int i = 0; i < argc; ++i) {
+        args.push_back(argv[i]);
+      }
+      args.push_back("--avoid-storing-invocation");
+      args.push_back("--no-unload");
+      std::string error_msg;
+      // bool res = Exec(args, &error_msg);
+      std::vector<char*> chr;
+      for (std::string& s : args) {
+        chr.push_back(&s[0]);
+      }
+      chr.push_back(nullptr);
+      auto res = execvp(chr[0], &chr[0]);
+      LOG(ERROR) << res << " " << errno;
+    } else {
+      for (std::unique_ptr<File>& file : dex2oat->vdex_files_) {
+        std::string path = file->GetPath() + "-before.vdex";
+        std::unique_ptr<File> in(OS::OpenFileForReading(path.c_str()));
+        file->ResetOffset();
+        CHECK_EQ(file->Compare(in.get()), 0) << file->GetPath();
+        CHECK_EQ(in->FlushClose(), 0);
+      }
+      for (std::unique_ptr<File>& file : dex2oat->oat_files_) {
+        std::string path = file->GetPath() + "-before.oat";
+        std::unique_ptr<File> in(OS::OpenFileForReading(path.c_str()));
+        file->ResetOffset();
+        CHECK_EQ(file->Compare(in.get()), 0) << file->GetPath();
+        CHECK_EQ(in->FlushClose(), 0);
+      }
+    }
   }
 
   return result;

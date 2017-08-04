@@ -83,7 +83,7 @@ void VerificationResults::ProcessVerifiedMethod(verifier::MethodVerifier* method
     verified_method.release();
   } else {
     // TODO: Investigate why are we doing the work again for this method and try to avoid it.
-    LOG(WARNING) << "Method processed more than once: " << ref.PrettyMethod();
+    // LOG(WARNING) << "Method processed more than once: " << ref.PrettyMethod();
     if (!Runtime::Current()->UseJitCompilation()) {
       if (kIsDebugBuild) {
         auto ex_set = existing->GetSafeCastSet();
