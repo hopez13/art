@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cffd9b86_21ddd5a3",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:46:38Z",
+      "side": 1,
+      "message": "Looks like this is static and could as well be in the ReferenceTypeInfo class?",
+      "range": {
+        "startLine": 757,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 83
+      },
+      "revId": "0e22774533daaa16a0eab684dc1852ef1b29e1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b1a2438_b39e8419",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 4
