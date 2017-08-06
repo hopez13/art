@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42df5aba_1a89a7b2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 31
+      },
+      "lineNbr": 6423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:27:20Z",
+      "side": 1,
+      "message": "I think I\u0027d be ok with one \u0027if\u0027.",
+      "range": {
+        "startLine": 6419,
+        "startChar": 0,
+        "endLine": 6423,
+        "endChar": 62
+      },
+      "revId": "ce1095fa801ee811366b89e49ac26103249cdfb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "204335f5_80e23092",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 31
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:27:20Z",
+      "side": 1,
+      "message": "I think I\u0027d be fine having one \u0027if\u0027.",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 50
+      },
+      "revId": "ce1095fa801ee811366b89e49ac26103249cdfb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
