@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c18915f5_79746b4c",
+        "filename": "compiler/dex/quick_compiler_callbacks.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:05:28Z",
+      "side": 1,
+      "message": "I\u0027d really prefer to get things explicit and not hidden in null checks. Could you instead add a boolean flag \"does_class_unloading\" and make sure the driver is never null? Then you can just check that flag and this will make the code easier to understand.\n\nI worry that if things are not explicit, it will be easy for another engineer to add its new optimization and then making sure the driver is never null (thus breaking the optimization you just wrote).",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 39,
+        "endChar": 12
+      },
+      "revId": "637ad20d9955d2ea112a6ca4d5a14b19ed5155ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7da175a_e28f7ed0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1781,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:05:28Z",
+      "side": 1,
+      "message": "This looks like the only change to enable quickening? And the rest is just about verification right?\n\nI think it wouldn\u0027t hurt to dissociate the two changes, for testing / revert reasons.",
+      "range": {
+        "startLine": 1781,
+        "startChar": 25,
+        "endLine": 1781,
+        "endChar": 48
+      },
+      "revId": "637ad20d9955d2ea112a6ca4d5a14b19ed5155ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
