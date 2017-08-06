@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "cdaca540_e64797bb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 7064,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:36:46Z",
+      "side": 1,
+      "message": "Why is that not on HInstruction? Could you please move them there?",
+      "range": {
+        "startLine": 7061,
+        "startChar": 0,
+        "endLine": 7064,
+        "endChar": 61
+      },
+      "revId": "21c7e6fbcabef2f22b467e1e89f4abe1aa43e459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "436bae1a_1b908175",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:36:46Z",
+      "side": 1,
+      "message": "How is that testing your change? Wasn\u0027t the instruction already removed without your change.\n\nWhat surprises me is why didn\u0027t the graph checker catch the issue. Should you add checks there instead?",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 436,
+        "endChar": 20
+      },
+      "revId": "21c7e6fbcabef2f22b467e1e89f4abe1aa43e459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e464490_cfdc59f8",
         "filename": "test/623-checker-loop-regressions/src/Main.java",
         "patchSetId": 3
