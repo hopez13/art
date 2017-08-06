@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "853df826_045b69f8",
+        "filename": "runtime/interpreter/instruction_counter.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:54:49Z",
+      "side": 1,
+      "message": "Aren\u0027t transactions single threaded?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 32
+      },
+      "revId": "9bccf977de7cf3cb142d135e4d8b5b5caccdbaa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
