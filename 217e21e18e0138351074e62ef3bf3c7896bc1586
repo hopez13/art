@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fb8883c_002c3edd",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-06T21:58:46Z",
+      "side": 0,
+      "message": "Could you add some checks in HeapLocationCollector that no-one tries to run it on a single block?",
+      "range": {
+        "startLine": 570,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 70
+      },
+      "revId": "217e21e18e0138351074e62ef3bf3c7896bc1586",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
