@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dbcf0794_8422b3b5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 31
+      },
+      "lineNbr": 6423,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-07T17:43:41Z",
+      "side": 1,
+      "message": "The generated should be equivalent, but I like the fact that the current layout allows comments to be placed beforehand. If it were a single `if`, it would need to be changed to something like:\n\n  // Comment 1.\n  if (condition1 \u0026\u0026\n      // Comment 2.\n      condition2) {\n    // ...\n  }\n\nwhich I found less readable.",
+      "parentUuid": "42df5aba_1a89a7b2",
+      "range": {
+        "startLine": 6419,
+        "startChar": 0,
+        "endLine": 6423,
+        "endChar": 62
+      },
+      "revId": "ce1095fa801ee811366b89e49ac26103249cdfb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "204335f5_80e23092",
         "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
         "patchSetId": 31
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-06T21:27:20Z",
       "side": 1,
       "message": "I think I\u0027d be fine having one \u0027if\u0027.",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 50
+      },
+      "revId": "ce1095fa801ee811366b89e49ac26103249cdfb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a873b479_3e42d724",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 31
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-07T17:43:41Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "204335f5_80e23092",
       "range": {
         "startLine": 792,
         "startChar": 0,
