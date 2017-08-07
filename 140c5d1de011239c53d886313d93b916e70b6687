@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de741793_8917aaf1",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-08-07T09:09:10Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 447,
+        "startChar": 9,
+        "endLine": 447,
+        "endChar": 14
+      },
+      "revId": "140c5d1de011239c53d886313d93b916e70b6687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaa2108a_1e06c650",
+        "filename": "runtime/base/unix_file/fd_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-08-07T09:09:10Z",
+      "side": 1,
+      "message": "lengths",
+      "range": {
+        "startLine": 149,
+        "startChar": 25,
+        "endLine": 149,
+        "endChar": 32
+      },
+      "revId": "140c5d1de011239c53d886313d93b916e70b6687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0b8daef_77a06b89",
+        "filename": "runtime/base/unix_file/fd_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-08-07T09:09:10Z",
+      "side": 1,
+      "message": "\"depending on whether\"",
+      "range": {
+        "startLine": 149,
+        "startChar": 18,
+        "endLine": 149,
+        "endChar": 20
+      },
+      "revId": "140c5d1de011239c53d886313d93b916e70b6687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
