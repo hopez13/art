@@ -22,6 +22,30 @@
       "revId": "c73ee37b76494253862ee17933acfe2b88de1a01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f53b00da_621684dc",
+        "filename": "compiler/optimizing/loop_optimization_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-07T17:13:19Z",
+      "side": 1,
+      "message": "No problem.\nYes, it does, this was exactly the failure diagnostics I saw before the fix.",
+      "parentUuid": "7fa50e9b_139ac5a0",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 3
+      },
+      "revId": "c73ee37b76494253862ee17933acfe2b88de1a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
