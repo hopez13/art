@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "08cca3b9_ce17990b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-07T21:24:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1651e443_aa16089b",
+      "revId": "88d2cc8f5e389cafdbb022c043c2171d6e700752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23186137_fd056a48",
         "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-07T21:17:16Z",
       "side": 1,
       "message": "I would just return at this point\n\nreturn typeItem + \")\" + .....;",
+      "revId": "88d2cc8f5e389cafdbb022c043c2171d6e700752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31b8b9b1_3753c7c1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-07T21:24:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23186137_fd056a48",
       "revId": "88d2cc8f5e389cafdbb022c043c2171d6e700752",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
