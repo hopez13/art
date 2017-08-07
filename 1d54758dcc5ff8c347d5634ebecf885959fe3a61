@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a72628ba_8b223b20",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-07T20:34:16Z",
+      "side": 1,
+      "message": "typeIdx",
+      "revId": "1d54758dcc5ff8c347d5634ebecf885959fe3a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40fb3bc7_a5b136a9",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-07T20:34:16Z",
+      "side": 1,
+      "message": "you don\u0027t need this string, delete",
+      "revId": "1d54758dcc5ff8c347d5634ebecf885959fe3a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f74597c_ea7e646c",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-07T20:34:16Z",
+      "side": 1,
+      "message": "this is way too tight through the corner (you are looking at ALL type items!), you need to\n\n(1) test protoIdItem.parametersOff.pointsToSomething()\n      if this is false it will be \"()\u003cRET_TYPE\u003e\"\n\n(2) otherwise it will be \"(....)\u003cRET_TYPE\u003e\"\n     where you fill out the ... as\n\n      TypeList tl \u003d (TypeList)\n          protoIdItem.parametersOff.getPointedToItem();\n       and then looping over tl.size items",
+      "revId": "1d54758dcc5ff8c347d5634ebecf885959fe3a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da2119bf_c86ba6d0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-07T20:34:16Z",
+      "side": 1,
+      "message": "ws at end",
+      "revId": "1d54758dcc5ff8c347d5634ebecf885959fe3a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87cbecc6_9421072a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-07T20:34:16Z",
+      "side": 1,
+      "message": "ws at end",
+      "revId": "1d54758dcc5ff8c347d5634ebecf885959fe3a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
