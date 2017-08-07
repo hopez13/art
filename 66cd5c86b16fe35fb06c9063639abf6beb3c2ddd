@@ -22,6 +22,30 @@
       "revId": "66cd5c86b16fe35fb06c9063639abf6beb3c2ddd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e1b5b71_7fdddc1b",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1095168
+      },
+      "writtenOn": "2017-08-07T12:07:32Z",
+      "side": 1,
+      "message": "The invariant is that either both_successors_return or phi !\u003d nullptr. Therefore, I didn\u0027t want to flip the branches since that would the need an nullptr check.",
+      "parentUuid": "02be4ce5_c7cfc96d",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 55
+      },
+      "revId": "66cd5c86b16fe35fb06c9063639abf6beb3c2ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
