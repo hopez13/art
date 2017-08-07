@@ -52,7 +52,7 @@ static constexpr size_t kObjectAlignment = 1u << kObjectAlignmentShift;
 static constexpr size_t kLargeObjectAlignment = kPageSize;
 
 // Whether or not this is a debug build. Useful in conditionals where NDEBUG isn't.
-#if defined(NDEBUG)
+#if defined(NDEBUG) && !defined(__CLION_IDE__)
 static constexpr bool kIsDebugBuild = false;
 #else
 static constexpr bool kIsDebugBuild = true;
