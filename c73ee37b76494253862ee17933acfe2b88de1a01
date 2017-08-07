@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fa50e9b_139ac5a0",
+        "filename": "compiler/optimizing/loop_optimization_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-07T17:07:51Z",
+      "side": 1,
+      "message": "Thanks for the test. Do we agree graph_checker.cc:782 also covers this check?",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 3
+      },
+      "revId": "c73ee37b76494253862ee17933acfe2b88de1a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
