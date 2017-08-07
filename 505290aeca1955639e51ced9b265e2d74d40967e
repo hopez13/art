@@ -68,6 +68,30 @@
       "revId": "505290aeca1955639e51ced9b265e2d74d40967e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3740b64a_a64fc1d0",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-07T17:12:48Z",
+      "side": 1,
+      "message": "Or should we just pass result from lsa down to scheduler?",
+      "parentUuid": "cdcbfffe_afe0c01f",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 566,
+        "endChar": 22
+      },
+      "revId": "505290aeca1955639e51ced9b265e2d74d40967e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
