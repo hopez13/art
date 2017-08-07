@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad8158f5_a50416c8",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1095168
+      },
+      "writtenOn": "2017-08-07T10:53:27Z",
+      "side": 1,
+      "message": "I would prefer not to do that in this change if that is OK with you Nicolas. It brings up the question of the HandleCache again. Having it here, I can leave the HandleCache private. If I move it to ReferenceTypeInfo I would need to make HandleCache accessible both from ReferenceTypePropagation and from ReferenceTypeInfo. Based on Calin\u0027s comment that seems like something better left for you guys to figure out if you want to do or not? I will be happy to make follow-up changes as well if we agree on what we want to do with the HandleCache.",
+      "parentUuid": "cffd9b86_21ddd5a3",
+      "range": {
+        "startLine": 757,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 83
+      },
+      "revId": "0e22774533daaa16a0eab684dc1852ef1b29e1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b1a2438_b39e8419",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e8b8853c_d9a34f61",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1095168
+      },
+      "writtenOn": "2017-08-07T10:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b1a2438_b39e8419",
+      "range": {
+        "startLine": 85,
+        "startChar": 14,
+        "endLine": 85,
+        "endChar": 34
+      },
+      "revId": "0e22774533daaa16a0eab684dc1852ef1b29e1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595cc6b9_b6dc5f4f",
         "filename": "compiler/optimizing/select_generator.h",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-08-04T20:16:40Z",
       "side": 1,
       "message": "Not a big fan of this. I don\u0027t think this is so common as to be concerned about caching the handles. So maybe it\u0027s just neater to do this inside the FixType method.",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 54
+      },
+      "revId": "0e22774533daaa16a0eab684dc1852ef1b29e1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b38f857f_4a08ec0c",
+        "filename": "compiler/optimizing/select_generator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1095168
+      },
+      "writtenOn": "2017-08-07T10:53:27Z",
+      "side": 1,
+      "message": "Thanks Calin. I have changed this to just have a pointer to a VariableSizedHandleScope. Then the fixup method wraps that for the call to MergeTypes. That way, we can keep the HandleCache an internal private implementation detail of ReferenceTypePropagation.",
+      "parentUuid": "595cc6b9_b6dc5f4f",
       "range": {
         "startLine": 76,
         "startChar": 2,
