@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2618a08d_6e57f0f5",
+        "filename": "compiler/dex/quick_compiler_callbacks.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-07T20:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c18915f5_79746b4c",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 39,
+        "endChar": 12
+      },
+      "revId": "637ad20d9955d2ea112a6ca4d5a14b19ed5155ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7da175a_e28f7ed0",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-06T21:05:28Z",
       "side": 1,
       "message": "This looks like the only change to enable quickening? And the rest is just about verification right?\n\nI think it wouldn\u0027t hurt to dissociate the two changes, for testing / revert reasons.",
+      "range": {
+        "startLine": 1781,
+        "startChar": 25,
+        "endLine": 1781,
+        "endChar": 48
+      },
+      "revId": "637ad20d9955d2ea112a6ca4d5a14b19ed5155ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab2fe0fe_bfc61172",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1781,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-07T20:07:13Z",
+      "side": 1,
+      "message": "OK, I\u0027ll do that.",
+      "parentUuid": "d7da175a_e28f7ed0",
       "range": {
         "startLine": 1781,
         "startChar": 25,
