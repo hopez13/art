@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "826ec327_2a255efe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-08-07T14:14:43Z",
+      "side": 1,
+      "message": "I have put my comments in the code. Currently in instruction scheduling, alias analysis is only performed for the basic blocks that get instruction scheduled. According to my measurements, it is actually less expensive than always doing LSA on the whole CFG.\n\nBut again, besides compilation time concerns, I am OK with this change.",
+      "range": {
+        "startLine": 11,
+        "startChar": 10,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "505290aeca1955639e51ced9b265e2d74d40967e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caa1786c_12f6cc40",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-08-07T14:14:43Z",
+      "side": 1,
+      "message": "If we are going to do this, how about having \u0027lsa2\u0027 pass before scheduling pass? For example, we can add \u0027lsa2\u0027 pass for arm backends in OptimizingCompiler::RunArchOptimizations().",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 562,
+        "endChar": 70
+      },
+      "revId": "505290aeca1955639e51ced9b265e2d74d40967e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcbfffe_afe0c01f",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-08-07T14:14:43Z",
+      "side": 1,
+      "message": "My only concern is that this change will increase compilation time, because now we build aliasing matrix regardless of whether we want to do instruction scheduling.",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 566,
+        "endChar": 22
+      },
+      "revId": "505290aeca1955639e51ced9b265e2d74d40967e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
