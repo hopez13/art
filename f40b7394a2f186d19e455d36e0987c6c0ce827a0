@@ -106,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "28c2a6a3_08428c45",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-07T21:30:14Z",
+      "side": 1,
+      "message": "you overlooked my look carefully comment (pun intended :-)\n\nthis reminds me of setting up weakest precondition/strongest post condition while proving the correctness of programs in my first year of college\n\nwhat is the post condition on exiting the condition of this loop? is that what you want?",
+      "parentUuid": "29b19b31_cefc026a",
+      "revId": "f40b7394a2f186d19e455d36e0987c6c0ce827a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee8957ee_bb04b5a3",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 12
