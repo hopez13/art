@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c6ff20b1_ca2b7b5d",
+        "filename": "compiler/dex/quick_compiler_callbacks.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-08T18:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf6a7aaa_0f1f4d8c",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "beb79d316894d0af0f7dc186143f36d6b9907c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa630e50_452d01a5",
         "filename": "compiler/dex/quick_compiler_callbacks.h",
         "patchSetId": 12
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4078034f_b0325b0b",
+        "filename": "compiler/dex/quick_compiler_callbacks.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-08T18:49:59Z",
+      "side": 1,
+      "message": "Right now it seems that we create the compiler callbacks much earlier than the compiler driver in dex2oat. I think I\u0027ll just use the current approach for now.",
+      "parentUuid": "aa630e50_452d01a5",
+      "range": {
+        "startLine": 59,
+        "startChar": 56,
+        "endLine": 59,
+        "endChar": 89
+      },
+      "revId": "beb79d316894d0af0f7dc186143f36d6b9907c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a213dc1f_9706b9b8",
         "filename": "compiler/driver/compiler_driver_test.cc",
         "patchSetId": 12
@@ -59,6 +107,30 @@
       "writtenOn": "2017-08-08T08:35:15Z",
       "side": 1,
       "message": "Do this line 388?",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 70
+      },
+      "revId": "beb79d316894d0af0f7dc186143f36d6b9907c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8417d0e_99d0ef08",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-08T18:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a213dc1f_9706b9b8",
       "range": {
         "startLine": 406,
         "startChar": 0,
