@@ -40,7 +40,8 @@ class LSEVisitor : public HGraphVisitor {
  public:
   LSEVisitor(HGraph* graph,
              const HeapLocationCollector& heap_locations_collector,
-             const SideEffectsAnalysis& side_effects)
+             const SideEffectsAnalysis& side_effects,
+             OptimizingCompilerStats* stats)
       : HGraphVisitor(graph),
         heap_location_collector_(heap_locations_collector),
         side_effects_(side_effects),
@@ -54,7 +55,8 @@ class LSEVisitor : public HGraphVisitor {
         substitute_instructions_for_loads_(graph->GetArena()->Adapter(kArenaAllocLSE)),
         possibly_removed_stores_(graph->GetArena()->Adapter(kArenaAllocLSE)),
         singleton_new_instances_(graph->GetArena()->Adapter(kArenaAllocLSE)),
-        singleton_new_arrays_(graph->GetArena()->Adapter(kArenaAllocLSE)) {
+        singleton_new_arrays_(graph->GetArena()->Adapter(kArenaAllocLSE)),
+        stats_(stats) {
   }
 
   void VisitBasicBlock(HBasicBlock* block) OVERRIDE {
@@ -100,7 +102,8 @@ class LSEVisitor : public HGraphVisitor {
     //   * - Constructor fences (they never escape this thread).
     //   * - Allocations (if they are unused).
     for (HInstruction* new_instance : singleton_new_instances_) {
-      HConstructorFence::RemoveConstructorFences(new_instance);
+      size_t removed = HConstructorFence::RemoveConstructorFences(new_instance);
+      MaybeRecordStat(MethodCompilationStat::kConstructorFenceRemoved, removed);
 
       if (!new_instance->HasNonEnvironmentUses()) {
         new_instance->RemoveEnvironmentUsers();
@@ -108,7 +111,8 @@ class LSEVisitor : public HGraphVisitor {
       }
     }
     for (HInstruction* new_array : singleton_new_arrays_) {
-      HConstructorFence::RemoveConstructorFences(new_array);
+      size_t removed = HConstructorFence::RemoveConstructorFences(new_array);
+      MaybeRecordStat(MethodCompilationStat::kConstructorFenceRemoved, removed);
 
       if (!new_array->HasNonEnvironmentUses()) {
         new_array->RemoveEnvironmentUsers();
@@ -629,6 +633,12 @@ class LSEVisitor : public HGraphVisitor {
     return instruction;
   }
 
+  void MaybeRecordStat(MethodCompilationStat compilation_stat, size_t count) const {
+    if (stats_ != nullptr) {
+      stats_->RecordStat(compilation_stat, count);
+    }
+  }
+
   const HeapLocationCollector& heap_location_collector_;
   const SideEffectsAnalysis& side_effects_;
 
@@ -647,6 +657,9 @@ class LSEVisitor : public HGraphVisitor {
   ArenaVector<HInstruction*> singleton_new_instances_;
   ArenaVector<HInstruction*> singleton_new_arrays_;
 
+  // Used to record stats about the optimization.
+  OptimizingCompilerStats* const stats_;
+
   DISALLOW_COPY_AND_ASSIGN(LSEVisitor);
 };
 
@@ -663,7 +676,7 @@ void LoadStoreElimination::Run() {
     return;
   }
 
-  LSEVisitor lse_visitor(graph_, heap_location_collector, side_effects_);
+  LSEVisitor lse_visitor(graph_, heap_location_collector, side_effects_, stats_);
   for (HBasicBlock* block : graph_->GetReversePostOrder()) {
     lse_visitor.VisitBasicBlock(block);
   }

@@ -23,6 +23,7 @@
 #include <type_traits>
 
 #include "atomic.h"
+#include "globals.h"
 
 namespace art {
 
@@ -86,6 +87,8 @@ enum MethodCompilationStat {
   kNotInlinedWont,
   kNotInlinedRecursiveBudget,
   kNotInlinedProxy,
+  kConstructorFenceGenerated,
+  kConstructorFenceRemoved,
   kLastStat
 };
 
@@ -202,6 +205,8 @@ class OptimizingCompilerStats {
       case kNotInlinedWont: name = "NotInlinedWont"; break;
       case kNotInlinedRecursiveBudget: name = "NotInlinedRecursiveBudget"; break;
       case kNotInlinedProxy: name = "NotInlinedProxy"; break;
+      case kConstructorFenceGenerated: name = "ConstructorFenceGenerated"; break;
+      case kConstructorFenceRemoved: name = "ConstructorFenceRemoved"; break;
 
       case kLastStat:
         LOG(FATAL) << "invalid stat "

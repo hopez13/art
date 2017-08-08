@@ -17,6 +17,7 @@
 #ifndef ART_COMPILER_OPTIMIZING_PREPARE_FOR_REGISTER_ALLOCATION_H_
 #define ART_COMPILER_OPTIMIZING_PREPARE_FOR_REGISTER_ALLOCATION_H_
 
+#include "optimizing_compiler_stats.h"
 #include "nodes.h"
 
 namespace art {
@@ -28,7 +29,9 @@ namespace art {
  */
 class PrepareForRegisterAllocation : public HGraphDelegateVisitor {
  public:
-  explicit PrepareForRegisterAllocation(HGraph* graph) : HGraphDelegateVisitor(graph) {}
+  explicit PrepareForRegisterAllocation(HGraph* graph, OptimizingCompilerStats* stats)
+      : HGraphDelegateVisitor(graph),
+        stats_(stats) {}
 
   void Run();
 
@@ -36,6 +39,8 @@ class PrepareForRegisterAllocation : public HGraphDelegateVisitor {
       "prepare_for_register_allocation";
 
  private:
+  void MaybeRecordStat(const MethodCompilationStat& compilation_stat) const;
+
   void VisitNullCheck(HNullCheck* check) OVERRIDE;
   void VisitDivZeroCheck(HDivZeroCheck* check) OVERRIDE;
   void VisitBoundsCheck(HBoundsCheck* check) OVERRIDE;
@@ -49,6 +54,8 @@ class PrepareForRegisterAllocation : public HGraphDelegateVisitor {
 
   bool CanMoveClinitCheck(HInstruction* input, HInstruction* user) const;
   bool CanEmitConditionAt(HCondition* condition, HInstruction* user) const;
+
+  OptimizingCompilerStats* stats_;
 
   DISALLOW_COPY_AND_ASSIGN(PrepareForRegisterAllocation);
 };

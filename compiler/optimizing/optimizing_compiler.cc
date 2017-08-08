@@ -512,7 +512,8 @@ static HOptimization* BuildOptimization(
   } else if (opt_name == LoadStoreElimination::kLoadStoreEliminationPassName) {
     CHECK(most_recent_side_effects != nullptr);
     CHECK(most_recent_lsa != nullptr);
-    return new (arena) LoadStoreElimination(graph, *most_recent_side_effects, *most_recent_lsa);
+    return
+        new (arena) LoadStoreElimination(graph, *most_recent_side_effects, *most_recent_lsa, stats);
   } else if (opt_name == SideEffectsAnalysis::kSideEffectsAnalysisPassName) {
     return new (arena) SideEffectsAnalysis(graph);
   } else if (opt_name == HLoopOptimization::kLoopOptimizationPassName) {
@@ -716,11 +717,12 @@ NO_INLINE  // Avoid increasing caller's frame size by large stack-allocated obje
 static void AllocateRegisters(HGraph* graph,
                               CodeGenerator* codegen,
                               PassObserver* pass_observer,
-                              RegisterAllocator::Strategy strategy) {
+                              RegisterAllocator::Strategy strategy,
+                              OptimizingCompilerStats* stats) {
   {
     PassScope scope(PrepareForRegisterAllocation::kPrepareForRegisterAllocationPassName,
                     pass_observer);
-    PrepareForRegisterAllocation(graph).Run();
+    PrepareForRegisterAllocation(graph, stats).Run();
   }
   SsaLivenessAnalysis liveness(graph, codegen);
   {
@@ -778,7 +780,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
   BoundsCheckElimination* bce = new (arena) BoundsCheckElimination(graph, *side_effects1, induction);
   HLoopOptimization* loop = new (arena) HLoopOptimization(graph, driver, induction);
   LoadStoreAnalysis* lsa = new (arena) LoadStoreAnalysis(graph);
-  LoadStoreElimination* lse = new (arena) LoadStoreElimination(graph, *side_effects2, *lsa);
+  LoadStoreElimination* lse = new (arena) LoadStoreElimination(graph, *side_effects2, *lsa, stats);
   HSharpening* sharpening = new (arena) HSharpening(
       graph, codegen, dex_compilation_unit, driver, handles);
   InstructionSimplifier* simplify2 = new (arena) InstructionSimplifier(
@@ -1024,7 +1026,7 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
 
   RegisterAllocator::Strategy regalloc_strategy =
     compiler_options.GetRegisterAllocationStrategy();
-  AllocateRegisters(graph, codegen.get(), &pass_observer, regalloc_strategy);
+  AllocateRegisters(graph, codegen.get(), &pass_observer, regalloc_strategy, compilation_stats_.get());
 
   codegen->Compile(code_allocator);
   pass_observer.DumpDisassembly();

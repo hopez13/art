@@ -17,6 +17,7 @@
 #include "prepare_for_register_allocation.h"
 
 #include "jni_internal.h"
+#include "optimizing_compiler_stats.h"
 #include "well_known_classes.h"
 
 namespace art {
@@ -190,6 +191,7 @@ void PrepareForRegisterAllocation::VisitConstructorFence(HConstructorFence* cons
       // TODO: GetAssociatedAllocation should not care about multiple inputs
       // if we are in prepare_for_register_allocation pass only.
       constructor_fence->GetBlock()->RemoveInstruction(constructor_fence);
+      MaybeRecordStat(MethodCompilationStat::kConstructorFenceRemoved);
       return;
       // TODO: actually remove the dmb from the .S entrypoints (initialized variants only).
     }
@@ -267,6 +269,13 @@ bool PrepareForRegisterAllocation::CanMoveClinitCheck(HInstruction* input,
     }
   }
   return true;
+}
+
+void PrepareForRegisterAllocation::MaybeRecordStat(
+    const MethodCompilationStat& compilation_stat) const {
+  if (stats_ != nullptr) {
+    stats_->RecordStat(compilation_stat);
+  }
 }
 
 }  // namespace art
