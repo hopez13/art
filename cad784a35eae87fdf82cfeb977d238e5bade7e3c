@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ef717f53_e8cdf96e",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-08T16:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048cdf6f_93475edf",
+      "range": {
+        "startLine": 160,
+        "startChar": 11,
+        "endLine": 160,
+        "endChar": 79
+      },
+      "revId": "cad784a35eae87fdf82cfeb977d238e5bade7e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f832612_60ad0830",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-08T14:01:48Z",
       "side": 1,
       "message": "Add a comment that this will be the main induction?",
+      "range": {
+        "startLine": 1727,
+        "startChar": 0,
+        "endLine": 1727,
+        "endChar": 34
+      },
+      "revId": "cad784a35eae87fdf82cfeb977d238e5bade7e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bedc7da_e85097f2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1727,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-08T16:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f832612_60ad0830",
       "range": {
         "startLine": 1727,
         "startChar": 0,
