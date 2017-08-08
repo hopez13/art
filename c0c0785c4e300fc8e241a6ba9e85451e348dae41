@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfc105a1_58fc252c",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-08T11:43:47Z",
+      "side": 1,
+      "message": "Nit: You don\u0027t need quotes here.",
+      "range": {
+        "startLine": 26,
+        "startChar": 16,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "c0c0785c4e300fc8e241a6ba9e85451e348dae41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef31682b_d8761ebe",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-08T11:43:47Z",
+      "side": 1,
+      "message": "Change to\n\n  [[ \"x$CLEAN_OAT_FILES\" \u003d\u003d xyes ]]\n\nfor the sake of uniformity + guarding against empty `$CLEAN_OAT_FILES`.",
+      "range": {
+        "startLine": 181,
+        "startChar": 5,
+        "endLine": 181,
+        "endChar": 35
+      },
+      "revId": "c0c0785c4e300fc8e241a6ba9e85451e348dae41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49b864f9_55a39d81",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-08T11:43:47Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 299,
+        "startChar": 20,
+        "endLine": 299,
+        "endChar": 24
+      },
+      "revId": "c0c0785c4e300fc8e241a6ba9e85451e348dae41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
