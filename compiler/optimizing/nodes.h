@@ -6630,7 +6630,9 @@ class HConstructorFence FINAL : public HVariableInputSizeInstruction {
   // This must *not* be called during/after prepare_for_register_allocation,
   // because that removes all the inputs to the fences but the fence is actually
   // still considered live.
-  static void RemoveConstructorFences(HInstruction* instruction);
+  //
+  // Returns how many HConstructorFence instructions were removed from graph.
+  static size_t RemoveConstructorFences(HInstruction* instruction);
 
   // Check if this constructor fence is protecting
   // an HNewInstance or HNewArray that is also the immediate

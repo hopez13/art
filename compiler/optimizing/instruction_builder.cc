@@ -670,6 +670,7 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
       DCHECK(fence_target != nullptr);
 
       AppendInstruction(new (arena_) HConstructorFence(fence_target, dex_pc, arena_));
+      MaybeRecordStat(MethodCompilationStat::kConstructorFenceGeneratedFinal);
     }
     AppendInstruction(new (arena_) HReturnVoid(dex_pc));
   } else {
@@ -1039,6 +1040,7 @@ void HInstructionBuilder::BuildConstructorFenceForAllocation(HInstruction* alloc
   HConstructorFence* ctor_fence =
       new (arena_) HConstructorFence(allocation, allocation->GetDexPc(), arena_);
   AppendInstruction(ctor_fence);
+  MaybeRecordStat(MethodCompilationStat::kConstructorFenceGeneratedNew);
 }
 
 static bool IsSubClass(mirror::Class* to_test, mirror::Class* super_class)

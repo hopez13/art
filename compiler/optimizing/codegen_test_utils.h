@@ -237,7 +237,7 @@ static void RunCodeNoCheck(CodeGenerator* codegen,
                            bool has_result,
                            Expected expected) {
   SsaLivenessAnalysis liveness(graph, codegen);
-  PrepareForRegisterAllocation(graph).Run();
+  PrepareForRegisterAllocation(graph, /* stats */ nullptr).Run();
   liveness.Analyze();
   RegisterAllocator::Create(graph->GetArena(), codegen, liveness)->AllocateRegisters();
   hook_before_codegen(graph);

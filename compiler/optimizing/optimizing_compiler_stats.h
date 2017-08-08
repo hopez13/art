@@ -23,6 +23,7 @@
 #include <type_traits>
 
 #include "atomic.h"
+#include "globals.h"
 
 namespace art {
 
@@ -86,6 +87,10 @@ enum MethodCompilationStat {
   kNotInlinedWont,
   kNotInlinedRecursiveBudget,
   kNotInlinedProxy,
+  kConstructorFenceGeneratedNew,
+  kConstructorFenceGeneratedFinal,
+  kConstructorFenceRemovedLSE,
+  kConstructorFenceRemovedPFRA,
   kLastStat
 };
 
@@ -98,6 +103,14 @@ class OptimizingCompilerStats {
 
   void RecordStat(MethodCompilationStat stat, uint32_t count = 1) {
     compile_stats_[stat] += count;
+  }
+
+  static void MaybeRecordStat(OptimizingCompilerStats* compiler_stats,
+                              MethodCompilationStat stat,
+                              uint32_t count = 1) {
+    if (compiler_stats != nullptr) {
+      compiler_stats->RecordStat(stat, count);
+    }
   }
 
   void Log() const {
@@ -202,6 +215,10 @@ class OptimizingCompilerStats {
       case kNotInlinedWont: name = "NotInlinedWont"; break;
       case kNotInlinedRecursiveBudget: name = "NotInlinedRecursiveBudget"; break;
       case kNotInlinedProxy: name = "NotInlinedProxy"; break;
+      case kConstructorFenceGeneratedNew: name = "ConstructorFenceGeneratedNew"; break;
+      case kConstructorFenceGeneratedFinal: name = "ConstructorFenceGeneratedFinal"; break;
+      case kConstructorFenceRemovedLSE: name = "ConstructorFenceRemovedLSE"; break;
+      case kConstructorFenceRemovedPFRA: name = "ConstructorFenceRemovedPFRA"; break;
 
       case kLastStat:
         LOG(FATAL) << "invalid stat "
