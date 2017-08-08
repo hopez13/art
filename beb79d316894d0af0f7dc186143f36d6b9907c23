@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf6a7aaa_0f1f4d8c",
+        "filename": "compiler/dex/quick_compiler_callbacks.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-08T08:35:15Z",
+      "side": 1,
+      "message": "nit: drop the first sentence.\n\nI\u0027d say that this is both for:\n1) In case of the quicken filter: avoiding verification of quickened instructions, which the verifier doesn\u0027t support\n2) In case of the verify filter: avoiding verifiying twice.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "beb79d316894d0af0f7dc186143f36d6b9907c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa630e50_452d01a5",
+        "filename": "compiler/dex/quick_compiler_callbacks.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-08T08:35:15Z",
+      "side": 1,
+      "message": "Nit: I\u0027d pass that to the QuickCompilerCallbacks constructor.",
+      "range": {
+        "startLine": 59,
+        "startChar": 56,
+        "endLine": 59,
+        "endChar": 89
+      },
+      "revId": "beb79d316894d0af0f7dc186143f36d6b9907c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a213dc1f_9706b9b8",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-08T08:35:15Z",
+      "side": 1,
+      "message": "Do this line 388?",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 70
+      },
+      "revId": "beb79d316894d0af0f7dc186143f36d6b9907c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
