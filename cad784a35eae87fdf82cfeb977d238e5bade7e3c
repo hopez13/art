@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "048cdf6f_93475edf",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-08T14:01:48Z",
+      "side": 1,
+      "message": "nit: parens around the !\u003d.",
+      "range": {
+        "startLine": 160,
+        "startChar": 11,
+        "endLine": 160,
+        "endChar": 79
+      },
+      "revId": "cad784a35eae87fdf82cfeb977d238e5bade7e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f832612_60ad0830",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1727,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-08T14:01:48Z",
+      "side": 1,
+      "message": "Add a comment that this will be the main induction?",
+      "range": {
+        "startLine": 1727,
+        "startChar": 0,
+        "endLine": 1727,
+        "endChar": 34
+      },
+      "revId": "cad784a35eae87fdf82cfeb977d238e5bade7e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
