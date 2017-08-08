@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "11afbfc8_2c6e4f41",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-08T18:39:22Z",
+      "side": 1,
+      "message": "This doesn\u0027t look related to this unit test. Extract in its own test or document why is related.\n\nAnd at a closer look it seems that this is the case for all the changes in the tests. Please explain why you extend instead of adding new tests if needed.",
+      "range": {
+        "startLine": 460,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 48
+      },
+      "revId": "ba4ca0d485cbcff720811f8db2c35e7d7c811d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "628d8e87_1a9a3190",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-08T18:39:22Z",
+      "side": 1,
+      "message": "also explain what changed in the format.",
+      "range": {
+        "startLine": 50,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 35
+      },
+      "revId": "ba4ca0d485cbcff720811f8db2c35e7d7c811d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3282c96e_8642667c",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-08T18:39:22Z",
+      "side": 1,
+      "message": "O_RDONLY",
+      "range": {
+        "startLine": 184,
+        "startChar": 14,
+        "endLine": 184,
+        "endChar": 20
+      },
+      "revId": "ba4ca0d485cbcff720811f8db2c35e7d7c811d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d24175fa_0419f5e7",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-08T18:39:22Z",
+      "side": 1,
+      "message": "Since you modified it... could you rewrite this to a more readable form?\n\ne.g. [dexinfo]+[method_info]+ where dexinfo\u003d.... (regexp style)",
+      "range": {
+        "startLine": 324,
+        "startChar": 12,
+        "endLine": 330,
+        "endChar": 38
+      },
+      "revId": "ba4ca0d485cbcff720811f8db2c35e7d7c811d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68188dbb_e80f3375",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 1
@@ -94,6 +186,29 @@
     },
     {
       "key": {
+        "uuid": "c872fea5_fffe8e5e",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-08T18:39:22Z",
+      "side": 1,
+      "message": "\"First\" is out of context here. You should add temporal docs to the call sites.",
+      "range": {
+        "startLine": 654,
+        "startChar": 5,
+        "endLine": 654,
+        "endChar": 10
+      },
+      "revId": "ba4ca0d485cbcff720811f8db2c35e7d7c811d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf8829f3_538f8a9a",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 1
@@ -114,6 +229,52 @@
       "revId": "ba4ca0d485cbcff720811f8db2c35e7d7c811d0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb301e3f_31e64710",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-08T18:39:22Z",
+      "side": 1,
+      "message": "document return type",
+      "range": {
+        "startLine": 656,
+        "startChar": 2,
+        "endLine": 656,
+        "endChar": 6
+      },
+      "revId": "ba4ca0d485cbcff720811f8db2c35e7d7c811d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fe65458_ad05b455",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-08T18:39:22Z",
+      "side": 1,
+      "message": "/*out*/",
+      "range": {
+        "startLine": 657,
+        "startChar": 52,
+        "endLine": 657,
+        "endChar": 75
+      },
+      "revId": "ba4ca0d485cbcff720811f8db2c35e7d7c811d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
