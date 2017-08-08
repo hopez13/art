@@ -116,6 +116,30 @@
       "revId": "505290aeca1955639e51ced9b265e2d74d40967e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b281fa1a_b3637b4a",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-08-08T16:44:05Z",
+      "side": 1,
+      "message": "Did you mean pass the result from earlier lsa (before lse) down to scheduler?",
+      "parentUuid": "8a980692_cb5ef448",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 566,
+        "endChar": 22
+      },
+      "revId": "505290aeca1955639e51ced9b265e2d74d40967e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
