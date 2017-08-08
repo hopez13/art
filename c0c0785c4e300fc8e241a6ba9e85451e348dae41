@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "373baa6a_1a1dc463",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-08T12:28:32Z",
+      "side": 1,
+      "message": "I\u0027ll keep them for consistency with the file.",
+      "parentUuid": "cfc105a1_58fc252c",
+      "range": {
+        "startLine": 26,
+        "startChar": 16,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "c0c0785c4e300fc8e241a6ba9e85451e348dae41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef31682b_d8761ebe",
         "filename": "tools/art",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-08T11:43:47Z",
       "side": 1,
       "message": "Change to\n\n  [[ \"x$CLEAN_OAT_FILES\" \u003d\u003d xyes ]]\n\nfor the sake of uniformity + guarding against empty `$CLEAN_OAT_FILES`.",
+      "range": {
+        "startLine": 181,
+        "startChar": 5,
+        "endLine": 181,
+        "endChar": 35
+      },
+      "revId": "c0c0785c4e300fc8e241a6ba9e85451e348dae41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2d1cbbc_d579bcfc",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-08T12:28:32Z",
+      "side": 1,
+      "message": "ditto, that\u0027s the style in this file. We should do a follow-up cleanup.",
+      "parentUuid": "ef31682b_d8761ebe",
       "range": {
         "startLine": 181,
         "startChar": 5,
