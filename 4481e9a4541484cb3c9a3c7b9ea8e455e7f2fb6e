@@ -318,6 +318,24 @@
       "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02892c9a_1883e900",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T14:45:46Z",
+      "side": 1,
+      "message": "SGTM.\n\nThanks for explaining, I should be able to fix everything as suggested.",
+      "parentUuid": "d7afaea9_4c5a1dd4",
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
