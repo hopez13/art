@@ -22,6 +22,30 @@
       "revId": "cecc48852f55fd374219519ba9b31cfecf7dd813",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2c39db8_63f0c2fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T18:51:44Z",
+      "side": 1,
+      "message": "Performance:\n\nhttp://146.148.43.81:8080/Comparison?team\u003dart#targetA%3Dart-jit-cc%3BmachineTypeA%3Dlinux-armv8%3BrevisionA%3D10975%3BpatchA%3Dngeoffray-jit%3BtargetB%3Dart-jit-cc%3BmachineTypeB%3Dlinux-armv8%3BrevisionB%3D10975%3BpatchB%3DNone\n\nStartup:\nLocally but will look at the numbers once we do a master-release run.\n\nQuantify:\nWe agree that given we increment less, we\u0027ll compile less? ;-)\nBut Ritz numbers:\nBefore: 1184 compilations\nAfter: 1124 compilations",
+      "parentUuid": "01cd1305_d7d6b552",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "cecc48852f55fd374219519ba9b31cfecf7dd813",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
