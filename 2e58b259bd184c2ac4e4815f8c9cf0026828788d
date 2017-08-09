@@ -22,6 +22,30 @@
       "revId": "2e58b259bd184c2ac4e4815f8c9cf0026828788d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cc81ad9_7a774e01",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T11:09:21Z",
+      "side": 1,
+      "message": "No, the DeoptimizeStackVisitor is a read-only on the stack.",
+      "parentUuid": "aaa7d1c7_25142843",
+      "range": {
+        "startLine": 547,
+        "startChar": 3,
+        "endLine": 547,
+        "endChar": 36
+      },
+      "revId": "2e58b259bd184c2ac4e4815f8c9cf0026828788d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
