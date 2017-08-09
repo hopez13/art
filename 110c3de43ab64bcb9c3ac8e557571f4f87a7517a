@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed229347_ee14d420",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:17:21Z",
+      "side": 1,
+      "message": "Add a comment that we\u0027re driving this here and not in optimizing_compiler.cc to better control whether we should run the analysis or not.",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 564,
+        "endChar": 3
+      },
+      "revId": "110c3de43ab64bcb9c3ac8e557571f4f87a7517a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
