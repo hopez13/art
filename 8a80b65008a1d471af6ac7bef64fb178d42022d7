@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fc10c8d_7eb3d680",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:45:51Z",
+      "side": 1,
+      "message": "as discussed in the ARM meeting, good to have an example for reference, but let\u0027s split that into a later cl",
+      "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cff6e5d6_a2bbdc74",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:45:51Z",
+      "side": 1,
+      "message": "isn\u0027t it a bit cleaner to make this class-based types?",
+      "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c753197f_261e3c69",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:45:51Z",
+      "side": 1,
+      "message": "too many spaces",
+      "range": {
+        "startLine": 200,
+        "startChar": 18,
+        "endLine": 200,
+        "endChar": 19
+      },
+      "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "263525e3_a1cdf2eb",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:45:51Z",
+      "side": 1,
+      "message": "are we missing the CC file in this PS? In general I would move a few more method implementations there to make the class definitions read easier",
+      "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
