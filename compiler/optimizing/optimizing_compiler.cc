@@ -55,6 +55,7 @@
 #include "compiled_method.h"
 #include "compiler.h"
 #include "constant_folding.h"
+#include "constructor_fence_redundancy_elimination.h"
 #include "dead_code_elimination.h"
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
@@ -775,6 +776,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
   HLoopOptimization* loop = new (arena) HLoopOptimization(graph, driver, induction);
   LoadStoreAnalysis* lsa = new (arena) LoadStoreAnalysis(graph);
   LoadStoreElimination* lse = new (arena) LoadStoreElimination(graph, *side_effects2, *lsa, stats);
+  ConstructorFenceRedundancyElimination* cfre = new (arena) ConstructorFenceRedundancyElimination(graph, stats);
   HSharpening* sharpening = new (arena) HSharpening(
       graph, codegen, dex_compilation_unit, driver, handles);
   InstructionSimplifier* simplify2 = new (arena) InstructionSimplifier(
@@ -805,6 +807,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     fold2,  // TODO: if we don't inline we can also skip fold2.
     simplify2,
     dce2,
+    cfre,  // eliminate constructor fences earlier since they are very strict
     side_effects1,
     gvn,
     licm,

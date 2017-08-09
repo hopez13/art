@@ -53,6 +53,7 @@ art_cc_defaults {
         "optimizing/code_generator.cc",
         "optimizing/code_generator_utils.cc",
         "optimizing/code_sinking.cc",
+        "optimizing/constructor_fence_redundancy_elimination.cc",
         "optimizing/constant_folding.cc",
         "optimizing/dead_code_elimination.cc",
         "optimizing/escape.cc",
