@@ -34,6 +34,24 @@
       "revId": "79d8fa7c52c1810d4618c9bd1d43994be5abb53d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1acf0737_69d5a4a9",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T18:01:29Z",
+      "side": 1,
+      "message": "HInstructionBuilder::BuildReturn . If it does make an HConstructorFence there, it\u0027s always because there were finals in that [inlined] method.\n\n------------\n\nSo as I recall, previously code_sinking did not sink HMemoryBarrier::kStoreStore, but it did sink HNewInstance.\n\nIn my newer scheme HNewInstance+HConstructorFence \u003d\u003d old HNewInstance. My HConstructorFence-for-return is \u003d\u003d HMemoryBarrier::kStoreStore\n\nI believe I simply mimicked the logic of old (whatever was moved before would still move, but whatever wasn\u0027t moved before wouldn\u0027t move).\n\n------------\n\nI\u0027m not sure if that\u0027s still right, it seems overly strict. In particular IIUC if you sink\n\n  x \u003d HNewInstance\n\nThat means it also *must have* sunk all \"uses\" (especially the publishes) of x?\n\nso it should also be safe to sink\n\n  HConstructorFence(x)\n\nas the ordering w.r.t. to the publish(x) should not change.\n\n--------------------\n\nIn other words we want to maintain this invariant:\n\n\n * Given any publish(x) and hconstructorfence(x), the hconstructorfence(x) must dominate the publish after the sink if it dominated it before the sink.",
+      "parentUuid": "4dc04c3e_6e1407cb",
+      "revId": "79d8fa7c52c1810d4618c9bd1d43994be5abb53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
