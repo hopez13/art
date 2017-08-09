@@ -1,0 +1,308 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "764fcaa9_3dbbe9e5",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Given this is only used once, I would inline it there, with comments about why you\u0027re doing it.",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dfe770e_dad5f91c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Comments please.",
+      "range": {
+        "startLine": 1843,
+        "startChar": 0,
+        "endLine": 1844,
+        "endChar": 37
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0aed75_d1947bec",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2416,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 2416,
+        "startChar": 0,
+        "endLine": 2416,
+        "endChar": 51
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9742577a_4011b8db",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "This looks odd, how can it happen?",
+      "range": {
+        "startLine": 951,
+        "startChar": 9,
+        "endLine": 951,
+        "endChar": 26
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea60d777_52a649ae",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Which runtime methods return a reference? Could you be more explicit?",
+      "range": {
+        "startLine": 1182,
+        "startChar": 7,
+        "endLine": 1183,
+        "endChar": 10
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6f233d_b82256fe",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Good candidate for a helper GetInstrumentationDeoptKind?",
+      "range": {
+        "startLine": 1235,
+        "startChar": 0,
+        "endLine": 1250,
+        "endChar": 5
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39a48045_9c24b265",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "You should put the word deopt in the parameter name. method_type is overloaded.",
+      "range": {
+        "startLine": 504,
+        "startChar": 61,
+        "endLine": 504,
+        "endChar": 72
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3bcb81f_53f1de46",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Can you itemize (ieg with bullet points) each case in the comment? That will make it easier to read.\n\nAlso, should you DCHECK something based on the dex_pc (ie which instruction, and/or which value).",
+      "range": {
+        "startLine": 535,
+        "startChar": 51,
+        "endLine": 538,
+        "endChar": 50
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13cc57c0_04a95736",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Add a DCHECK about the method_type?",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e70e0cef_252ff004",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "DCHECK about the method_type?",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c491ed49_af3e2085",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Extra paren.",
+      "range": {
+        "startLine": 561,
+        "startChar": 12,
+        "endLine": 561,
+        "endChar": 13
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "089b7ad6_5a905e4a",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "DCHECK about the method_type?",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8df09d4a_a293f3cf",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Stalled comment? Should you update it now?",
+      "range": {
+        "startLine": 606,
+        "startChar": 4,
+        "endLine": 606,
+        "endChar": 83
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b32f912_d324bb8b",
+        "filename": "test/597-deopt-runtime-method/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:12:37Z",
+      "side": 1,
+      "message": "Could you use a volatile to synchronize?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 69
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
