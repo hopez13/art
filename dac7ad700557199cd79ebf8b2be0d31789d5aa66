@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac974a83_3ec67e8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "make more accurate, you are making a matching method id if needed.",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c3cc75c_11ce77a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "correct this and show example in commit message",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1b4a9e8_0c926f2f",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "comment incorrect, not shorty passed in.",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666ed628_f88011f0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "return comment is incorrect",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db08fc73_570ca40a",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "remove typeItem \u003d ... part!",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6bcfb26_a98ed2b9",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "not needed, see below",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "215f08a3_ad0718ed",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "this should be done outside the loop, only once!",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff4149d8_7ad00ce1",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "this return should log why it failed",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "469f464d_c430daca",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "you already tested this. at best make it an assertion",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "875249e3_9a27030b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-09T21:59:38Z",
+      "side": 1,
+      "message": "This lookup should be done in applyMutation, too much could change in between, so no need to store the index also",
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
