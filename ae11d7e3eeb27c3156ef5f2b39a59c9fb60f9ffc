@@ -94,6 +94,30 @@
       "revId": "ae11d7e3eeb27c3156ef5f2b39a59c9fb60f9ffc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e03eb0e6_2edfe157",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T14:43:11Z",
+      "side": 1,
+      "message": "\u003e 1. The c++ standard only say that the trick should work for\n \u003e trivially copyable classes however HInstruction is not.\n\nProbably due to the vtable? Then maybe have empty constructors for each HInstruction kind and then do the memcpy past the vtable?\n\n \u003e 2. If a constructor of some instruction type has some side effects\n \u003e (DCHECKs, etc) they will not take place.\n\nSure, but they have been made already on the HInstruction you\u0027re cloning.",
+      "parentUuid": "fb01661d_081e54b4",
+      "range": {
+        "startLine": 2160,
+        "startChar": 0,
+        "endLine": 2162,
+        "endChar": 17
+      },
+      "revId": "ae11d7e3eeb27c3156ef5f2b39a59c9fb60f9ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
