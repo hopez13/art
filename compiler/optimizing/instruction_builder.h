@@ -78,7 +78,6 @@ class HInstructionBuilder : public ValueObject {
   bool Build();
 
  private:
-  void MaybeRecordStat(MethodCompilationStat compilation_stat);
 
   void InitializeBlockLocals();
   void PropagateLocalsToCatchBlocks();
