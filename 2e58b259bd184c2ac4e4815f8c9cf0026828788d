@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaa7d1c7_25142843",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-08-09T10:09:42Z",
+      "side": 1,
+      "message": "will the dump output be different now that we\u0027re calling it after DeoptimizeStackVisitor has walked the stack ?",
+      "range": {
+        "startLine": 547,
+        "startChar": 3,
+        "endLine": 547,
+        "endChar": 36
+      },
+      "revId": "2e58b259bd184c2ac4e4815f8c9cf0026828788d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
