@@ -22,6 +22,29 @@
       "revId": "110c3de43ab64bcb9c3ac8e557571f4f87a7517a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "238f359f_a0a0e95f",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-08-09T09:41:42Z",
+      "side": 1,
+      "message": "One small suggestion is that we can use LoadStoreAnalysis::Run() interface here. There are extra checks in the LSA\u0027s Run() function to avoid building alias matrix in some extreme conditions, e.g. too many heap locations to deal with.\n\n  LoadStoreAnalysis lsa(graph);\n  if (!only_optimize_loop_blocks_ || graph-\u003eHasLoops()) {\n    lsa.Run();\n    const HeapLocationCollector\u0026 c \u003d lsa.GetHeapLocationCollector();\n    scheduling_graph_.SetHeapLocationCollector(c);\n  }",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 564,
+        "endChar": 3
+      },
+      "revId": "110c3de43ab64bcb9c3ac8e557571f4f87a7517a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
