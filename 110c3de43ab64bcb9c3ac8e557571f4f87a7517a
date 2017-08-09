@@ -45,6 +45,30 @@
       "revId": "110c3de43ab64bcb9c3ac8e557571f4f87a7517a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6910f080_a1b219ea",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-09T18:05:24Z",
+      "side": 1,
+      "message": "Good suggestion. Done.",
+      "parentUuid": "238f359f_a0a0e95f",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 564,
+        "endChar": 3
+      },
+      "revId": "110c3de43ab64bcb9c3ac8e557571f4f87a7517a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
