@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a004283_c2845f18",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T17:34:10Z",
+      "side": 1,
+      "message": "Nicolas, can you comment regarding the sound-ness of this assertion? I don\u0027t quite understand the invariants here so I think I may have been overly conservative.",
+      "revId": "79d8fa7c52c1810d4618c9bd1d43994be5abb53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
