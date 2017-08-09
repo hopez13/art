@@ -16,6 +16,24 @@
       "revId": "79d8fa7c52c1810d4618c9bd1d43994be5abb53d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc04c3e_6e1407cb",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T17:43:07Z",
+      "side": 1,
+      "message": "\"But not for finals\": Can you give an example where you would get a ConstructorFence for finals but not for new-instance?",
+      "parentUuid": "7a004283_c2845f18",
+      "revId": "79d8fa7c52c1810d4618c9bd1d43994be5abb53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
