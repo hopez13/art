@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c56d4f56_ba674054",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T18:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "070a64a0_b20b74cb",
+      "range": {
+        "startLine": 1029,
+        "startChar": 76,
+        "endLine": 1029,
+        "endChar": 103
+      },
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c239a23_1f9acb7f",
         "filename": "compiler/optimizing/optimizing_compiler_stats.h",
         "patchSetId": 1
@@ -107,6 +131,30 @@
       "writtenOn": "2017-08-09T08:39:38Z",
       "side": 1,
       "message": "Isn\u0027t that fixed?",
+      "range": {
+        "startLine": 196,
+        "startChar": 6,
+        "endLine": 196,
+        "endChar": 91
+      },
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b3101a5_8a469873",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T18:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15eb0b3a_5179744d",
       "range": {
         "startLine": 196,
         "startChar": 6,
@@ -274,6 +322,30 @@
       "side": 1,
       "message": "\"new constructor parameters\"? WDYM?",
       "parentUuid": "35e6872b_63449553",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 1
+      },
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfefcc7b_788676d9",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T18:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e653bcd_2260babb",
       "range": {
         "startLine": 274,
         "startChar": 0,
