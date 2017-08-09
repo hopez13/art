@@ -300,6 +300,24 @@
       "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7afaea9_4c5a1dd4",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T14:40:36Z",
+      "side": 1,
+      "message": "ok :) but not everywhere, right. Only the ones that require it (like in this CL).",
+      "parentUuid": "e87bd433_e9bcfe49",
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
