@@ -93,6 +93,30 @@
       "revId": "333fddefdd7af28ce034bacd5ee3aa6cf0a0a8df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd33b3a1_61935bf6",
+        "filename": "test/706-checker-scheduler/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T17:44:02Z",
+      "side": 1,
+      "message": "No. You can take a look at tests that have src-dex2oat-unresolved which do exactly such testing.",
+      "parentUuid": "67545879_15f7f432",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 38
+      },
+      "revId": "333fddefdd7af28ce034bacd5ee3aa6cf0a0a8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
