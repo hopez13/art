@@ -358,6 +358,30 @@
     },
     {
       "key": {
+        "uuid": "c7c5f17a_bdecfe09",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-09T19:57:15Z",
+      "side": 1,
+      "message": "I would have slightly prefer to have a stat instance in the GraphVisitor. It would make the invocation to MaybeRecordStat shorter to write :).",
+      "parentUuid": "bfefcc7b_788676d9",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 1
+      },
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e87bd433_e9bcfe49",
         "filename": "compiler/optimizing/prepare_for_register_allocation.h",
         "patchSetId": 1
