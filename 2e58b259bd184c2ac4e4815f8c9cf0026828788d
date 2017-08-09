@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76700b1c_d651baee",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T12:24:04Z",
+      "side": 1,
+      "message": "No due to kDebugExceptionDelivery. The intent is that you\u0027d get the logging even when -verbose:deopt is not set.",
+      "parentUuid": "c96153c5_59c7a2d8",
+      "range": {
+        "startLine": 543,
+        "startChar": 4,
+        "endLine": 543,
+        "endChar": 13
+      },
+      "revId": "2e58b259bd184c2ac4e4815f8c9cf0026828788d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaa7d1c7_25142843",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "writtenOn": "2017-08-09T11:21:09Z",
       "side": 1,
       "message": "Nit:\n\n  /* details */ true",
+      "range": {
+        "startLine": 547,
+        "startChar": 30,
+        "endLine": 547,
+        "endChar": 34
+      },
+      "revId": "2e58b259bd184c2ac4e4815f8c9cf0026828788d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed552ba4_b4453c1b",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T12:24:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba7804b7_04482b99",
       "range": {
         "startLine": 547,
         "startChar": 30,
