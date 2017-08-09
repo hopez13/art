@@ -100,6 +100,14 @@ class OptimizingCompilerStats {
     compile_stats_[stat] += count;
   }
 
+  static void MaybeRecordStat(OptimizingCompilerStats* compiler_stats,
+                              MethodCompilationStat stat,
+                              uint32_t count = 1) {
+    if (compiler_stats != nullptr) {
+      compiler_stats->RecordStat(stat, count);
+    }
+  }
+
   void Log() const {
     if (!kIsDebugBuild && !VLOG_IS_ON(compiler)) {
       // Log only in debug builds or if the compiler is verbose.

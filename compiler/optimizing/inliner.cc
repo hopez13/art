@@ -75,7 +75,7 @@ static constexpr bool kUseAOTInlineCaches = true;
 #define LOG_TRY() LOG_INTERNAL("Try inlinining call: ")
 #define LOG_NOTE() LOG_INTERNAL("Note: ")
 #define LOG_SUCCESS() LOG_INTERNAL("Success: ")
-#define LOG_FAIL(stat) MaybeRecordStat(stat); LOG_INTERNAL("Fail: ")
+#define LOG_FAIL(stat) OptimizingCompilerStats::MaybeRecordStat(stats_, stat); LOG_INTERNAL("Fail: ")
 #define LOG_FAIL_NO_STAT() LOG_INTERNAL("Fail: ")
 
 std::string HInliner::DepthString(int line) const {
@@ -440,9 +440,9 @@ bool HInliner::TryInline(HInvoke* invoke_instruction) {
         // Add dependency due to devirtulization. We've assumed resolved_method
         // has single implementation.
         outermost_graph_->AddCHASingleImplementationDependency(resolved_method);
-        MaybeRecordStat(kCHAInline);
+        OptimizingCompilerStats::MaybeRecordStat(stats_, kCHAInline);
       } else {
-        MaybeRecordStat(kInlinedInvokeVirtualOrInterface);
+        OptimizingCompilerStats::MaybeRecordStat(stats_, kInlinedInvokeVirtualOrInterface);
       }
     }
     return result;
@@ -532,7 +532,7 @@ bool HInliner::TryInlineFromInlineCache(const DexFile& caller_dex_file,
     }
 
     case kInlineCacheMonomorphic: {
-      MaybeRecordStat(kMonomorphicCall);
+      OptimizingCompilerStats::MaybeRecordStat(stats_, kMonomorphicCall);
       if (UseOnlyPolymorphicInliningWithNoDeopt()) {
         return TryInlinePolymorphicCall(invoke_instruction, resolved_method, inline_cache);
       } else {
@@ -541,7 +541,7 @@ bool HInliner::TryInlineFromInlineCache(const DexFile& caller_dex_file,
     }
 
     case kInlineCachePolymorphic: {
-      MaybeRecordStat(kPolymorphicCall);
+      OptimizingCompilerStats::MaybeRecordStat(stats_, kPolymorphicCall);
       return TryInlinePolymorphicCall(invoke_instruction, resolved_method, inline_cache);
     }
 
@@ -550,7 +550,7 @@ bool HInliner::TryInlineFromInlineCache(const DexFile& caller_dex_file,
           << "Interface or virtual call to "
           << caller_dex_file.PrettyMethod(invoke_instruction->GetDexMethodIndex())
           << " is megamorphic and not inlined";
-      MaybeRecordStat(kMegamorphicCall);
+      OptimizingCompilerStats::MaybeRecordStat(stats_, kMegamorphicCall);
       return false;
     }
 
@@ -803,7 +803,7 @@ bool HInliner::TryInlineMonomorphicCall(HInvoke* invoke_instruction,
                                      /* is_first_run */ false);
   rtp_fixup.Run();
 
-  MaybeRecordStat(kInlinedMonomorphicCall);
+  OptimizingCompilerStats::MaybeRecordStat(stats_, kInlinedMonomorphicCall);
   return true;
 }
 
@@ -993,7 +993,7 @@ bool HInliner::TryInlinePolymorphicCall(HInvoke* invoke_instruction,
     return false;
   }
 
-  MaybeRecordStat(kInlinedPolymorphicCall);
+  OptimizingCompilerStats::MaybeRecordStat(stats_, kInlinedPolymorphicCall);
 
   // Run type propagation to get the guards typed.
   ReferenceTypePropagation rtp_fixup(graph_,
@@ -1199,7 +1199,7 @@ bool HInliner::TryInlinePolymorphicCallToSameTarget(
                                      /* is_first_run */ false);
   rtp_fixup.Run();
 
-  MaybeRecordStat(kInlinedPolymorphicCall);
+  OptimizingCompilerStats::MaybeRecordStat(stats_, kInlinedPolymorphicCall);
 
   LOG_SUCCESS() << "Inlined same polymorphic target " << actual_method->PrettyMethod();
   return true;
@@ -1321,7 +1321,7 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
     if (TryPatternSubstitution(invoke_instruction, method, return_replacement)) {
       LOG_SUCCESS() << "Successfully replaced pattern of invoke "
                     << method->PrettyMethod();
-      MaybeRecordStat(kReplacedInvokeWithSimplePattern);
+      OptimizingCompilerStats::MaybeRecordStat(stats_, kReplacedInvokeWithSimplePattern);
       return true;
     }
     LOG_FAIL(kNotInlinedWont)
@@ -1393,7 +1393,7 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
   }
 
   LOG_SUCCESS() << method->PrettyMethod();
-  MaybeRecordStat(kInlinedInvoke);
+  OptimizingCompilerStats::MaybeRecordStat(stats_, kInlinedInvoke);
   return true;
 }
 
