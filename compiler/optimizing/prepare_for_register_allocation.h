@@ -28,7 +28,8 @@ namespace art {
  */
 class PrepareForRegisterAllocation : public HGraphDelegateVisitor {
  public:
-  explicit PrepareForRegisterAllocation(HGraph* graph) : HGraphDelegateVisitor(graph) {}
+  explicit PrepareForRegisterAllocation(HGraph* graph)
+      : HGraphDelegateVisitor(graph) {}
 
   void Run();
 
