@@ -52,6 +52,24 @@
       "revId": "79d8fa7c52c1810d4618c9bd1d43994be5abb53d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c172644b_b082c2d2",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T18:06:55Z",
+      "side": 1,
+      "message": "So I can just change this code to:\n\n   if (instruction-\u003eIsConstructorFence()) {\n      return true;\n   }\n\nand it would still be correct?",
+      "parentUuid": "1acf0737_69d5a4a9",
+      "revId": "79d8fa7c52c1810d4618c9bd1d43994be5abb53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
