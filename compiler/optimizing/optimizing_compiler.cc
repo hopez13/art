@@ -55,6 +55,7 @@
 #include "compiled_method.h"
 #include "compiler.h"
 #include "constant_folding.h"
+#include "constructor_fence_redundancy_elimination.h"
 #include "dead_code_elimination.h"
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
@@ -786,6 +787,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
   IntrinsicsRecognizer* intrinsics = new (arena) IntrinsicsRecognizer(graph, stats);
   CHAGuardOptimization* cha_guard = new (arena) CHAGuardOptimization(graph);
   CodeSinking* code_sinking = new (arena) CodeSinking(graph, stats);
+  ConstructorFenceRedundancyElimination* cfre = new (arena) ConstructorFenceRedundancyElimination(graph, stats);
 
   HOptimization* optimizations1[] = {
     intrinsics,
@@ -823,6 +825,8 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     // can satisfy. For example, the code generator does not expect to see a
     // HTypeConversion from a type to the same type.
     simplify4,
+    cfre,  // Eliminate constructor fences after code sinking to avoid
+           // complicated sinking logic to split a fence with many inputs.
   };
   RunOptimizations(optimizations2, arraysize(optimizations2), pass_observer);
 
