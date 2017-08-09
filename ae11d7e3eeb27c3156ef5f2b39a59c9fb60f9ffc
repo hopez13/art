@@ -22,6 +22,30 @@
       "revId": "ae11d7e3eeb27c3156ef5f2b39a59c9fb60f9ffc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "683b04bd_a25ee080",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-09T12:58:11Z",
+      "side": 1,
+      "message": "But we still need to construct instructions of particular types (like new HAdd, new HLoadClass, etc) via ConstructClone (which is the main contribution to the code bloat, CloneInstructionData is redefined only a couple of times).\n\nI suppose you didn\u0027t mean something like \"new(arena-\u003eAlloc(size, kArenaAllocInstruction)) char[size] + memcpy\" which seems to be very unsafe and dangerous.",
+      "parentUuid": "41038aaa_f040c7ac",
+      "range": {
+        "startLine": 2160,
+        "startChar": 0,
+        "endLine": 2162,
+        "endChar": 17
+      },
+      "revId": "ae11d7e3eeb27c3156ef5f2b39a59c9fb60f9ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
