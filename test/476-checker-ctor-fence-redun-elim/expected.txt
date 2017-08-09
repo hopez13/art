@@ -1,0 +1,172 @@
+Invoking public static void TestOneFinal.exercise()
+Static field values after test:
+external: OneFinal(w0: 1, w1: 2, w2: 3, w3: 0, x: 1)
+(( test method complete ))
+Invoking public static void TestThreeFinal.exercise()
+Static field values after test:
+external: ThreeFinal(w0: 3, w1: 0, w2: 0, w3: 0, x: 1, y: 1, z: 2)
+(( test method complete ))
+Invoking public static void TestThreeFinalTwice.exercise()
+Static field values after test:
+external: ThreeFinal(w0: 3, w1: 0, w2: 0, w3: 0, x: 1, y: 1, z: 2)
+external2: ThreeFinal(w0: 7, w1: 0, w2: 0, w3: 0, x: 4, y: 5, z: 6)
+(( test method complete ))
+Invoking public static void TestMultiAlloc.exercise()
+Static field values after test:
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+(( test method complete ))
+Invoking public static void TestNonEscaping.invoke()
+Static field values after test:
+array: [0]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: <null>
+external4: <null>
+test: false
+(( test method complete ))
+Invoking public static void TestNonEscaping.store()
+Static field values after test:
+array: [0]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: [0]
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.deopt()
+Static field values after test:
+array: [<null>,<null>,<null>]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: <null>
+external2: <null>
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: <null>)
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.invoke()
+Static field values after test:
+array: [<null>,<null>,<null>]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: <null>)
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.select()
+Static field values after test:
+array: [<null>,<null>,<null>]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: <null>)
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.storeAput()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),<null>,<null>]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: <null>)
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.storeIput()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),<null>,<null>]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: Base(w0: 0, w1: 0, w2: 0, w3: 0))
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.storeSput()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),<null>,<null>]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: Base(w0: 0, w1: 0, w2: 0, w3: 0))
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.deopt()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0)]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: Base(w0: 0, w1: 0, w2: 0, w3: 0))
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.invoke()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0)]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: Base(w0: 0, w1: 0, w2: 0, w3: 0))
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.select()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0)]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: Base(w0: 0, w1: 0, w2: 0, w3: 0))
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.storeAput()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0)]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: Base(w0: 0, w1: 0, w2: 0, w3: 0))
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.storeIput()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0)]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: Base(w0: 0, w1: 0, w2: 0, w3: 0))
+test: false
+(( test method complete ))
+Invoking public static void TestDontOptimizeAcrossEscape.storeSput()
+Static field values after test:
+array: [Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0),Base(w0: 0, w1: 0, w2: 0, w3: 0)]
+base: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external2: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external3: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+external4: Base(w0: 0, w1: 0, w2: 0, w3: 0)
+instanceEscaper: TestDontOptimizeAcrossEscape$InstanceEscaper(holder: Base(w0: 0, w1: 0, w2: 0, w3: 0))
+test: false
+(( test method complete ))
+TestDontOptimizeAcrossEscape$MakeBoundType(abcdefgh: 123, x: 2)
+TestDontOptimizeAcrossEscape$MakeBoundTypeSub(abcdefgh: 123, x: 1)
