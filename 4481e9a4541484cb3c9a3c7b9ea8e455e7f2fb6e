@@ -187,6 +187,30 @@
       "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e4d5d91_2e9d78b7",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T14:21:25Z",
+      "side": 1,
+      "message": "I still don\u0027t quite understand:\n\nOptimizingCompilerStats is instantiated as an instance in CompilerDriver (which could be static), but also every time a function is being inlined in HInliner (presumably if the inlining attempt fails we want to ignore the newly recorded stats). \n\nAre you suggesting we remove those instances? That will change the logic so I wanted to be sure that\u0027s what you meant?",
+      "parentUuid": "84620960_403b60fe",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 1
+      },
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
