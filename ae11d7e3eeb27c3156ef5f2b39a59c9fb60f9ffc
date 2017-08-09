@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41038aaa_f040c7ac",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-09T08:45:12Z",
+      "side": 1,
+      "message": "How about doing a memcpy(sizeof) and then adjusting inputs? Could that lead to a lot less redefinitions?",
+      "range": {
+        "startLine": 2160,
+        "startChar": 0,
+        "endLine": 2162,
+        "endChar": 17
+      },
+      "revId": "ae11d7e3eeb27c3156ef5f2b39a59c9fb60f9ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
