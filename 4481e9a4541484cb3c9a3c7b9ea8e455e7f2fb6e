@@ -235,6 +235,30 @@
       "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e6872b_63449553",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-09T14:27:17Z",
+      "side": 1,
+      "message": "Got it.\n\n /*static*/void OptimizingCompilerStats::MaybeRecordStat(OptimizingCompilerStats* stats,\n    const MethodCompilationStat\u0026 compilation_stat) {\n  if (stats !\u003d nullptr) {\n    stats-\u003eRecordStat(compilation_stat);\n  }\n }\n\nAs far as the instances go, leave it as-is by adding new constructor parameters everywhere ?",
+      "parentUuid": "64839571_b86a9160",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 1
+      },
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
