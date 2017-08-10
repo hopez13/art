@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "5606d8bc_12c2598a",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T00:06:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d36f0db7_9fce3e06",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15eb0b3a_5179744d",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 1
@@ -480,6 +504,24 @@
       "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22aa3004_f9eca24a",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T00:06:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02892c9a_1883e900",
+      "revId": "4481e9a4541484cb3c9a3c7b9ea8e455e7f2fb6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
