@@ -169,6 +169,29 @@
       "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccbf8e28_714c97a5",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-10T01:08:00Z",
+      "side": 1,
+      "message": "this comment seems obsolete.",
+      "range": {
+        "startLine": 209,
+        "startChar": 3,
+        "endLine": 209,
+        "endChar": 81
+      },
+      "revId": "dac7ad700557199cd79ebf8b2be0d31789d5aa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
