@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "22f28a9e_d422ea45",
+        "filename": "tools/dexfuzz/README",
+        "patchSetId": 20
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-10T18:34:13Z",
+      "side": 1,
+      "message": "because calin thought it may result into a lot of verification failures and  that it would be a good idea to make it less likely to fire, until we come up with a program which generates valid methodID",
+      "parentUuid": "abab97a8_69f5f7eb",
+      "revId": "7716e464960df03cab462bdeaf5ca997fcfa6a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac7a622f_d3147796",
         "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
         "patchSetId": 20
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "fb649aaf_21a4dd48",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-10T18:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac7a622f_d3147796",
+      "revId": "7716e464960df03cab462bdeaf5ca997fcfa6a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ae7a7_039b0bd0",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 20
@@ -47,6 +83,24 @@
       "writtenOn": "2017-08-10T18:12:43Z",
       "side": 1,
       "message": "move this down to L150 where it is used\n\nin general, try to keep variable logic close together, because it is confusing to the reader to keep def-use span unrelated statements",
+      "revId": "7716e464960df03cab462bdeaf5ca997fcfa6a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1f8026e_a1be8535",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-10T18:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab0ae7a7_039b0bd0",
       "revId": "7716e464960df03cab462bdeaf5ca997fcfa6a9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
