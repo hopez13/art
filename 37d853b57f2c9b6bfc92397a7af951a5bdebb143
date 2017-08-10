@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "52cd40af_1eb1e968",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-10T22:57:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5a8d3e5_02c5da8d",
+      "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59abeecb_56123d2d",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 23
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-10T22:12:21Z",
       "side": 1,
       "message": "How about logging\n\nChanged type of newInstanceInsn.toString() to ..\n\nand remove the oldTypeIdx completely (since could already have changed before)",
+      "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c25e7c4_89a87433",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-10T22:57:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59abeecb_56123d2d",
       "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "818a2520_3a1f089b",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-10T22:57:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ad4adc1_0ef7b91e",
+      "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80596643_84b16808",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 23
@@ -64,6 +118,24 @@
       "writtenOn": "2017-08-10T22:12:21Z",
       "side": 1,
       "message": "break here after ||",
+      "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f24b18cb_b20e7ae5",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-10T22:57:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80596643_84b16808",
       "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
