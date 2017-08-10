@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f257570f_680b8ce0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1175369
+      },
+      "writtenOn": "2017-08-10T20:57:20Z",
+      "side": 1,
+      "message": "i guess i should just remove it instead, and let canMutate do its job. what do you think?",
+      "parentUuid": "ab7cbe65_080d4ced",
+      "range": {
+        "startLine": 100,
+        "startChar": 10,
+        "endLine": 100,
+        "endChar": 22
+      },
+      "revId": "534c1192bdb1e0c88a3578aeeab3ec8a73f3449f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7947176d_1d94f890",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 21
