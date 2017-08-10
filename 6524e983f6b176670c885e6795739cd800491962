@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d19e53a_ce51ceb0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "42fe5d8a_89ecf955",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdcb4150_c867eddc",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-10T09:37:33Z",
       "side": 1,
       "message": "Allocate this with your own allocator (a requirement moving forward. I know some passes don\u0027t do this just yet).",
+      "range": {
+        "startLine": 26,
+        "startChar": 26,
+        "endLine": 26,
+        "endChar": 69
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ca6d9dd_238cda06",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "Did not know about this, thanks.",
+      "parentUuid": "cdcb4150_c867eddc",
       "range": {
         "startLine": 26,
         "startChar": 26,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "0a9e1562_2c50c993",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87ff0886_6957a0eb",
+      "range": {
+        "startLine": 120,
+        "startChar": 9,
+        "endLine": 120,
+        "endChar": 17
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19795dd4_3309c7e2",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2017-08-10T09:37:33Z",
       "side": 1,
       "message": "size() \u003c 2 ?",
+      "range": {
+        "startLine": 130,
+        "startChar": 26,
+        "endLine": 130,
+        "endChar": 33
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "507f7dd1_275086da",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "It works either way, do you prefer size() \u003c 2 ?",
+      "parentUuid": "19795dd4_3309c7e2",
       "range": {
         "startLine": 130,
         "startChar": 26,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "9c4e6fab_0d5a20d6",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "I can store a set of interesting_publishes -\u003e HInstruction if you want?",
+      "parentUuid": "8e2e17ca_a44a0cc6",
+      "range": {
+        "startLine": 149,
+        "startChar": 6,
+        "endLine": 153,
+        "endChar": 7
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5d5de1_7fc55a4b",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 1
@@ -151,6 +271,30 @@
       "writtenOn": "2017-08-10T09:37:33Z",
       "side": 1,
       "message": "Add a comment about the order you chose (and whether it\u0027s relevant).",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 188,
+        "endChar": 39
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c6c2fb4_cbb34bd1",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "(It doesn\u0027t since it only looks within the same block, but maybe I missed an abstraction for a block-level optimization pass?)",
+      "parentUuid": "9a5d5de1_7fc55a4b",
       "range": {
         "startLine": 188,
         "startChar": 2,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "764a42cb_f31b4918",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "It\u0027s greedy because the results are non-optimal.\n\nFor example\n\n   CF(x)\n   publish(x)\n   CF(y)\n   publish(y)\n\nwill not be optimized, but a clever-er algorithm would rearrange the publishes\n\n   CF(x)\n   CF(y)\n   publish(x)\n   publish(y)\n\nnow it becomes safe to merge the CFs\n\n   CF(x, y)\n   publish(x)\n   publish(y)",
+      "parentUuid": "40b10704_6276ffd4",
+      "range": {
+        "startLine": 27,
+        "startChar": 34,
+        "endLine": 27,
+        "endChar": 42
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0aa43b6c_088c19dd",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
         "patchSetId": 1
@@ -197,6 +365,30 @@
       "writtenOn": "2017-08-10T09:37:33Z",
       "side": 1,
       "message": "nit: alignment is off",
+      "range": {
+        "startLine": 50,
+        "startChar": 40,
+        "endLine": 51,
+        "endChar": 54
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "531984f9_853d5d0d",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0aa43b6c_088c19dd",
       "range": {
         "startLine": 50,
         "startChar": 40,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "5627cb44_9fee8d87",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "I can write the full thing out, I started with the abbreviation to make writing checker tests faster.",
+      "parentUuid": "342140e9_0b5f3aae",
+      "range": {
+        "startLine": 56,
+        "startChar": 44,
+        "endLine": 56,
+        "endChar": 48
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "031652e0_1f0ce27b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -243,6 +459,30 @@
       "writtenOn": "2017-08-10T09:37:33Z",
       "side": 1,
       "message": "What\u0027s the average size of inputs for a fence? Any pathological case?",
+      "range": {
+        "startLine": 1283,
+        "startChar": 0,
+        "endLine": 1299,
+        "endChar": 3
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8717562a_f8beb14b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T17:54:55Z",
+      "side": 1,
+      "message": "I\u0027ll experiment with some logging and find out.",
+      "parentUuid": "031652e0_1f0ce27b",
       "range": {
         "startLine": 1283,
         "startChar": 0,
