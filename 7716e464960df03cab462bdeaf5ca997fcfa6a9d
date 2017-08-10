@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abab97a8_69f5f7eb",
+        "filename": "tools/dexfuzz/README",
+        "patchSetId": 20
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T18:12:43Z",
+      "side": 1,
+      "message": "why did you pick such a low probability?",
+      "revId": "7716e464960df03cab462bdeaf5ca997fcfa6a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac7a622f_d3147796",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/Program.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T18:12:43Z",
+      "side": 1,
+      "message": "remove last \"of method name\"\n(does not make sense)",
+      "revId": "7716e464960df03cab462bdeaf5ca997fcfa6a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab0ae7a7_039b0bd0",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T18:12:43Z",
+      "side": 1,
+      "message": "move this down to L150 where it is used\n\nin general, try to keep variable logic close together, because it is confusing to the reader to keep def-use span unrelated statements",
+      "revId": "7716e464960df03cab462bdeaf5ca997fcfa6a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
