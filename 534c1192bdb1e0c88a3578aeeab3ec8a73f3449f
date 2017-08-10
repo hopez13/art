@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ab7cbe65_080d4ced",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T20:35:23Z",
+      "side": 1,
+      "message": "why would you quit here? this is just the canmutate test\n\nso you should Log.debug, as below, with \"skipping...\" at end, and then return false\n\nNote you *could* use the errorAndQuit and L121 to \"assert\" that your code is correct (that would be code that should never be executed, but flags anyone changing the canMutate later that something was done wrong)",
+      "parentUuid": "5b61969d_40212a25",
+      "range": {
+        "startLine": 100,
+        "startChar": 10,
+        "endLine": 100,
+        "endChar": 22
+      },
+      "revId": "534c1192bdb1e0c88a3578aeeab3ec8a73f3449f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7947176d_1d94f890",
         "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
         "patchSetId": 21
