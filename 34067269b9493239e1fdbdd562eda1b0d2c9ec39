@@ -16,6 +16,24 @@
       "revId": "34067269b9493239e1fdbdd562eda1b0d2c9ec39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7554840f_2d71b1e0",
+        "filename": "profman/profman.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-08-10T12:46:22Z",
+      "side": 1,
+      "message": "Or, better use android::base::unique_fd",
+      "parentUuid": "12713423_77336d8e",
+      "revId": "34067269b9493239e1fdbdd562eda1b0d2c9ec39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
