@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39c9d3d6_d76fc007",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-10T14:28:17Z",
+      "side": 1,
+      "message": "I completely agree, I noticed the same thing while writing the CFRE optimization and there\u0027s just way too many visitors to do a simple thing.\n\nShould we file a bug to get more abstract visitors that cover several instructions at once?",
+      "parentUuid": "79fbdda3_4d894130",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 472,
+        "endChar": 3
+      },
+      "revId": "1f0eefc59d34fb5b6f088791cdd268a5ee194407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06b58f67_a8eabd4f",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 1
