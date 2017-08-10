@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e72c2651_f0f4e165",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-10T18:04:37Z",
+      "side": 1,
+      "message": "Could you check that it does feed into a deopt?",
+      "range": {
+        "startLine": 460,
+        "startChar": 5,
+        "endLine": 460,
+        "endChar": 48
+      },
+      "revId": "671e48a4895cc1a0b7a1458d608f8c4f9b5cf85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
