@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba1339ff_6da88eee",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-08-10T05:43:33Z",
+      "side": 1,
+      "message": "Is there a reason not to use a CompressedReference here? I think this works for now. But my intent, and I thought kind of the original intent, was to use HeapReference for a reference living in the heap. Its refrence field is atomic, which doesn\u0027t make much sense for a local.",
+      "range": {
+        "startLine": 82,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 43
+      },
+      "revId": "ad8ebb38059b9fe47fde8b1390113eabba2ac888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
