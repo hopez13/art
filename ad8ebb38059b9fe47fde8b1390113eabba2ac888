@@ -22,6 +22,30 @@
       "revId": "ad8ebb38059b9fe47fde8b1390113eabba2ac888",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48a47d39_81437834",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-10T16:14:36Z",
+      "side": 1,
+      "message": "It needs to support heap poisoning, it would be possible to use mirror::ObjectReference though. Feel free to clean this up if you want.",
+      "parentUuid": "ba1339ff_6da88eee",
+      "range": {
+        "startLine": 82,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 43
+      },
+      "revId": "ad8ebb38059b9fe47fde8b1390113eabba2ac888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
