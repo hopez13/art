@@ -22,6 +22,30 @@
       "revId": "671e48a4895cc1a0b7a1458d608f8c4f9b5cf85c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5092f1c9_3f7b7e14",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T18:37:17Z",
+      "side": 1,
+      "message": "I am afraid that will make it very brittle on where it is used exactly. The current pattern makes sure the induction is removed at least?",
+      "parentUuid": "e72c2651_f0f4e165",
+      "range": {
+        "startLine": 460,
+        "startChar": 5,
+        "endLine": 460,
+        "endChar": 48
+      },
+      "revId": "671e48a4895cc1a0b7a1458d608f8c4f9b5cf85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
