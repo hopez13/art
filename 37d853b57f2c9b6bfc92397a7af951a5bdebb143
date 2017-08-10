@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5a8d3e5_02c5da8d",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T22:12:21Z",
+      "side": 1,
+      "message": "talking about indices here is not very clear (keep in mind that users read this)\n\nI find your comment much clear: not enough types \nor so would read easier than talking about indices out of the blue",
+      "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59abeecb_56123d2d",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T22:12:21Z",
+      "side": 1,
+      "message": "How about logging\n\nChanged type of newInstanceInsn.toString() to ..\n\nand remove the oldTypeIdx completely (since could already have changed before)",
+      "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad4adc1_0ef7b91e",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T22:12:21Z",
+      "side": 1,
+      "message": "bit confusing to talk abour random type, here, you already picked the type. How about\n\nMatches the type of the invoke with the randomly changed type of the prior new-instance. This might create ...",
+      "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80596643_84b16808",
+        "filename": "tools/dexfuzz/src/dexfuzz/program/mutators/NewInstanceChanger.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-10T22:12:21Z",
+      "side": 1,
+      "message": "break here after ||",
+      "revId": "37d853b57f2c9b6bfc92397a7af951a5bdebb143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
