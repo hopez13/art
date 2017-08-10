@@ -46,6 +46,30 @@
       "revId": "162d28e13f77be8a4c95ded4f9f72b5ab2e7b2a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7744c09c_b9442c6e",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-10T21:36:48Z",
+      "side": 1,
+      "message": "I find #defines with hard coded fields hard to read an annoying to debug i you rename the field or refactor the way the macro is used.",
+      "parentUuid": "d44d8550_47812feb",
+      "range": {
+        "startLine": 78,
+        "startChar": 39,
+        "endLine": 78,
+        "endChar": 45
+      },
+      "revId": "162d28e13f77be8a4c95ded4f9f72b5ab2e7b2a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
