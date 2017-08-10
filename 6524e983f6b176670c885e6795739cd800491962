@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "cb959726_d9a93192",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-10T18:03:27Z",
+      "side": 1,
+      "message": "Yes, as it would then match the comment line 131.",
+      "parentUuid": "507f7dd1_275086da",
+      "range": {
+        "startLine": 130,
+        "startChar": 26,
+        "endLine": 130,
+        "endChar": 33
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e2e17ca_a44a0cc6",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 1
