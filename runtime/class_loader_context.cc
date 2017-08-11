@@ -16,6 +16,8 @@
 
 #include "class_loader_context.h"
 
+#include <stdlib.h>
+
 #include "art_field-inl.h"
 #include "base/dchecked_vector.h"
 #include "base/stl_util.h"
@@ -206,6 +208,17 @@ bool ClassLoaderContext::OpenDexFiles(InstructionSet isa, const std::string& cla
       if (location[0] != '/') {
         location = classpath_dir + '/' + location;
       }
+      UniqueCPtr<const char[]> real_location(realpath(location.c_str(), nullptr));
+      if (real_location != nullptr) {
+        location.assign(real_location.get());
+      } else {
+        // If we can't get the realpath of the location there might be something wrong with the
+        // classpath (maybe the file was deleted).
+        // Do not continue in this case and return false.
+        PLOG(ERROR) << "Could not get the realpath of dex_location " << location;
+        return false;
+      }
+
       std::string error_msg;
       // When opening the dex files from the context we expect their checksum to match their
       // contents. So pass true to verify_checksum.
