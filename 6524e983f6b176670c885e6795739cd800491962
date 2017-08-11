@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "d8ce1f63_fe513e32",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-11T22:45:43Z",
+      "side": 1,
+      "message": "In fact I think *most* passes don\u0027t do this yet :-)\nLook at loop_optim for an example that keeps all alloc truly pass local (i.e. release at end of pass, not method)",
+      "parentUuid": "8ca6d9dd_238cda06",
+      "range": {
+        "startLine": 26,
+        "startChar": 26,
+        "endLine": 26,
+        "endChar": 69
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c6fd94a_2d792c2b",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 1
@@ -484,6 +508,30 @@
       "side": 1,
       "message": "I can write the full thing out, I started with the abbreviation to make writing checker tests faster.",
       "parentUuid": "342140e9_0b5f3aae",
+      "range": {
+        "startLine": 56,
+        "startChar": 44,
+        "endLine": 56,
+        "endChar": 48
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f951cec_3381b110",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-11T22:45:43Z",
+      "side": 1,
+      "message": "ok to pick something short, but this is rather cryptic\n\nhow about\n\ncfence_redundancy_elim\n\n?",
+      "parentUuid": "5627cb44_9fee8d87",
       "range": {
         "startLine": 56,
         "startChar": 44,
