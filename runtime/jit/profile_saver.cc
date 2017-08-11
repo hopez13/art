@@ -274,8 +274,9 @@ class GetClassesVisitor : public ClassVisitor {
 };
 
 using MethodReferenceCollection = DexReferenceCollection<uint16_t, ScopedArenaAllocatorAdapter>;
-using TypeReferenceCollection = DexReferenceCollection<dex::TypeIndex,
-                                                       ScopedArenaAllocatorAdapter>;
+using TypeStatusReferenceCollection =
+    DexReferenceCollection<std::pair<dex::TypeIndex, mirror::Class::Status>,
+                           ScopedArenaAllocatorAdapter>;
 
 // Iterate over all of the loaded classes and visit each one. For each class, add it to the
 // resolved_classes out argument if startup is true.
@@ -286,7 +287,7 @@ static void SampleClassesAndExecutedMethods(pthread_t profiler_pthread,
                                             ScopedArenaAllocator* allocator,
                                             uint32_t hot_method_sample_threshold,
                                             bool startup,
-                                            TypeReferenceCollection* resolved_classes,
+                                            TypeStatusReferenceCollection* resolved_classes,
                                             MethodReferenceCollection* hot_methods,
                                             MethodReferenceCollection* sampled_methods) {
   Thread* const self = Thread::Current();
@@ -339,7 +340,10 @@ static void SampleClassesAndExecutedMethods(pthread_t profiler_pthread,
     for (ObjPtr<mirror::Class> klass : classes) {
       if (startup) {
         // We only record classes for the startup case. This may change in the future.
-        resolved_classes->AddReference(&klass->GetDexFile(), klass->GetDexTypeIndex());
+        resolved_classes->AddReference(
+            &klass->GetDexFile(),
+            std::pair<dex::TypeIndex, mirror::Class::Status>(klass->GetDexTypeIndex(),
+                                                             klass->GetStatus()));
       }
       // Visit all of the methods in the class to see which ones were executed.
       for (ArtMethod& method : klass->GetMethods(kRuntimePointerSize)) {
@@ -377,7 +381,7 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods(bool startup) {
   ScopedArenaAllocator allocator(&stack);
   MethodReferenceCollection hot_methods(allocator.Adapter(), allocator.Adapter());
   MethodReferenceCollection sampled_methods(allocator.Adapter(), allocator.Adapter());
-  TypeReferenceCollection resolved_classes(allocator.Adapter(), allocator.Adapter());
+  TypeStatusReferenceCollection resolved_classes(allocator.Adapter(), allocator.Adapter());
   const bool is_low_ram = Runtime::Current()->GetHeap()->IsLowMemoryMode();
   pthread_t profiler_pthread;
   {
@@ -437,11 +441,11 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods(bool startup) {
     for (const auto& pair : resolved_classes.GetMap()) {
       const DexFile* const dex_file = pair.first;
       if (locations.find(dex_file->GetBaseLocation()) != locations.end()) {
-        const TypeReferenceCollection::IndexVector& classes = pair.second;
+        const TypeStatusReferenceCollection::IndexVector& classes = pair.second;
         VLOG(profiler) << "Added " << classes.size() << " classes for location "
                        << dex_file->GetBaseLocation()
                        << " (" << dex_file->GetLocation() << ")";
-        cached_info->AddClassesForDex(dex_file, classes.begin(), classes.end());
+        cached_info->AddClassesAndStatusesForDex(dex_file, classes.begin(), classes.end());
       } else {
         VLOG(profiler) << "Location not found " << dex_file->GetBaseLocation()
                        << " (" << dex_file->GetLocation() << ")";
