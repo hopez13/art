@@ -1496,20 +1496,39 @@ void DexLayout::DumpDexFile() {
   }
 }
 
+bool is_special_class(const char * class_name, const DexFile* dex_file) {
+  if (class_name == nullptr && dex_file == nullptr) {
+    return false;
+  }
+  return true;
+}
+
 std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const DexFile* dex_file) {
   std::vector<dex_ir::ClassDef*> new_class_def_order;
-  for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
-    dex::TypeIndex type_idx(class_def->ClassType()->GetIndex());
-    if (info_->ContainsClass(*dex_file, type_idx)) {
-      new_class_def_order.push_back(class_def.get());
-    }
-  }
+  // Laying out classes such in the order: non-profiled classes, uninitialized profiled classes,
+  // and initialized profiled classes
+
   for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
     dex::TypeIndex type_idx(class_def->ClassType()->GetIndex());
     if (!info_->ContainsClass(*dex_file, type_idx)) {
       new_class_def_order.push_back(class_def.get());
     }
   }
+
+  for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
+    dex::TypeIndex type_idx(class_def->ClassType()->GetIndex());
+    if (info_->ContainsClass(*dex_file, type_idx) && !info_->ContainsInitializedClass(*dex_file, type_idx)) {
+      new_class_def_order.push_back(class_def.get());
+    }
+  }
+
+  for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
+    dex::TypeIndex type_idx(class_def->ClassType()->GetIndex());
+    if (info_->ContainsInitializedClass(*dex_file, type_idx)) {
+      new_class_def_order.push_back(class_def.get());
+    }
+  }
+
   uint32_t class_defs_offset = header_->GetCollections().ClassDefsOffset();
   uint32_t class_data_offset = header_->GetCollections().ClassDatasOffset();
   std::unordered_set<dex_ir::ClassData*> visited_class_data;
@@ -1534,33 +1553,60 @@ void DexLayout::LayoutStringData(const DexFile* dex_file) {
   const size_t num_strings = header_->GetCollections().StringIds().size();
   std::vector<bool> is_shorty(num_strings, false);
   std::vector<bool> from_hot_method(num_strings, false);
+  // class_nums is meant to keep a mapping between strings and the first initialized class (if any)
+  // that they are related to. This way, strings that are associated with initialized classes do not
+  // lose higher importance. If there is no initialized class, then the last associated class is chosen.
+  std::vector<int> class_nums(num_strings, -1);
+  // method_nums behaves the same way as class_nums, except that it maps strings to the first method
+  // of the first initialized class (if any) that they are related to. If there is no initialized class,
+  // then the last associated method is chosen.
+  std::vector<int> method_nums(num_strings, -1);
+  int class_ctr = 0;
   for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
     // A name of a profile class is probably going to get looked up by ClassTable::Lookup, mark it
     // as hot. Add its super class and interfaces as well, which can be used during initialization.
     const bool is_profile_class =
         info_->ContainsClass(*dex_file, dex::TypeIndex(class_def->ClassType()->GetIndex()));
     if (is_profile_class) {
-      from_hot_method[class_def->ClassType()->GetStringId()->GetIndex()] = true;
+      int class_str_ind = class_def->ClassType()->GetStringId()->GetIndex();
+      from_hot_method[class_str_ind] = true;
+      if (class_nums[class_str_ind] != -1 &&
+          info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[class_str_ind])) == false) {
+        class_nums[class_str_ind] = class_ctr;
+      }
       const dex_ir::TypeId* superclass = class_def->Superclass();
       if (superclass != nullptr) {
-        from_hot_method[superclass->GetStringId()->GetIndex()] = true;
+        int super_class_str_ind = superclass->GetStringId()->GetIndex();
+        from_hot_method[super_class_str_ind] = true;
+        if (class_nums[super_class_str_ind] != -1 &&
+            info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[super_class_str_ind])) == false) {
+          class_nums[super_class_str_ind] = class_ctr;
+        }
       }
       const dex_ir::TypeList* interfaces = class_def->Interfaces();
       if (interfaces != nullptr) {
         for (const dex_ir::TypeId* interface_type : *interfaces->GetTypeList()) {
-          from_hot_method[interface_type->GetStringId()->GetIndex()] = true;
+          int interface_str_ind = interface_type->GetStringId()->GetIndex();
+          from_hot_method[interface_str_ind] = true;
+          if (class_nums[interface_str_ind] != -1 &&
+              info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[interface_str_ind])) == false) {
+            class_nums[interface_str_ind] = class_ctr;
+          }
         }
       }
     }
     dex_ir::ClassData* data = class_def->GetClassData();
     if (data == nullptr) {
+      class_ctr++;
       continue;
     }
+    int method_ctr = 0;
     for (size_t i = 0; i < 2; ++i) {
       for (auto& method : *(i == 0 ? data->DirectMethods() : data->VirtualMethods())) {
         const dex_ir::MethodId* method_id = method->GetMethodId();
         dex_ir::CodeItem* code_item = method->GetCodeItem();
         if (code_item == nullptr) {
+          method_ctr++;
           continue;
         }
         const bool is_clinit = is_profile_class &&
@@ -1569,34 +1615,90 @@ void DexLayout::LayoutStringData(const DexFile* dex_file) {
         const bool method_executed = is_clinit ||
             info_->GetMethodHotness(MethodReference(dex_file, method_id->GetIndex())).IsInProfile();
         if (!method_executed) {
+          method_ctr++;
           continue;
         }
-        is_shorty[method_id->Proto()->Shorty()->GetIndex()] = true;
+        int proto_shorty_str_ind = method_id->Proto()->Shorty()->GetIndex();
+        if (class_nums[proto_shorty_str_ind] != -1 &&
+            info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[proto_shorty_str_ind])) == false) {
+          is_shorty[proto_shorty_str_ind] = true;
+          class_nums[proto_shorty_str_ind] = class_ctr;
+          method_nums[proto_shorty_str_ind] = method_ctr;
+        }
         dex_ir::CodeFixups* fixups = code_item->GetCodeFixups();
         if (fixups == nullptr) {
+          method_ctr++;
           continue;
         }
         // Add const-strings.
         for (dex_ir::StringId* id : *fixups->StringIds()) {
-          from_hot_method[id->GetIndex()] = true;
+          int fixup_str_str_ind = id->GetIndex();
+          if (class_nums[fixup_str_str_ind] != -1 &&
+              info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[fixup_str_str_ind])) == false) {
+            from_hot_method[fixup_str_str_ind] = true;
+            class_nums[fixup_str_str_ind] = class_ctr;
+            method_nums[fixup_str_str_ind] = method_ctr;
+          }
         }
         // Add field classes, names, and types.
         for (dex_ir::FieldId* id : *fixups->FieldIds()) {
           // TODO: Only visit field ids from static getters and setters.
-          from_hot_method[id->Class()->GetStringId()->GetIndex()] = true;
-          from_hot_method[id->Name()->GetIndex()] = true;
-          from_hot_method[id->Type()->GetStringId()->GetIndex()] = true;
+          int fixup_field_str_ind = id->Class()->GetStringId()->GetIndex();
+          if (class_nums[fixup_field_str_ind] != -1 &&
+              info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[fixup_field_str_ind])) == false) {
+            from_hot_method[fixup_field_str_ind] = true;
+            class_nums[fixup_field_str_ind] = class_ctr;
+            method_nums[fixup_field_str_ind] = method_ctr;
+          }
+
+          int fixup_field_name_str_ind = id->Name()->GetIndex();
+          if (class_nums[fixup_field_name_str_ind] != -1 &&
+              info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[fixup_field_name_str_ind])) == false) {
+            from_hot_method[fixup_field_name_str_ind] = true;
+            class_nums[fixup_field_name_str_ind] = class_ctr;
+            method_nums[fixup_field_name_str_ind] = method_ctr;
+          }
+
+          int fixup_field_type_str_ind = id->Type()->GetStringId()->GetIndex();
+          if (class_nums[fixup_field_type_str_ind] != -1 &&
+              info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[fixup_field_type_str_ind])) == false) {
+            from_hot_method[fixup_field_type_str_ind] = true;
+            class_nums[fixup_field_type_str_ind] = class_ctr;
+            method_nums[fixup_field_type_str_ind] = method_ctr;
+          }
         }
         // For clinits, add referenced method classes, names, and protos.
         if (is_clinit) {
           for (dex_ir::MethodId* id : *fixups->MethodIds()) {
-            from_hot_method[id->Class()->GetStringId()->GetIndex()] = true;
-            from_hot_method[id->Name()->GetIndex()] = true;
-            is_shorty[id->Proto()->Shorty()->GetIndex()] = true;
+            int clinit_str_ind = id->Class()->GetStringId()->GetIndex();
+            if (class_nums[clinit_str_ind] != -1 &&
+                info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[clinit_str_ind])) == false) {
+              from_hot_method[clinit_str_ind] = true;
+              class_nums[clinit_str_ind] = class_ctr;
+              method_nums[clinit_str_ind] = method_ctr;
+            }
+
+            int clinit_name_str_ind = id->Name()->GetIndex();
+            if (class_nums[clinit_name_str_ind] != -1 &&
+                info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[clinit_name_str_ind])) == false) {
+              from_hot_method[clinit_name_str_ind] = true;
+              class_nums[clinit_name_str_ind] = class_ctr;
+              method_nums[clinit_name_str_ind] = method_ctr;
+            }
+
+            int clinit_shorty_str_ind = id->Proto()->Shorty()->GetIndex();
+            if (class_nums[clinit_shorty_str_ind] != -1 &&
+                info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(class_nums[clinit_shorty_str_ind])) == false) {
+              is_shorty[clinit_shorty_str_ind] = true;
+              class_nums[clinit_shorty_str_ind] = class_ctr;
+              method_nums[clinit_shorty_str_ind] = method_ctr;
+            }
           }
         }
+        method_ctr++;
       }
     }
+    class_ctr++;
   }
   // Sort string data by specified order.
   std::vector<dex_ir::StringId*> string_ids;
@@ -1616,11 +1718,22 @@ void DexLayout::LayoutStringData(const DexFile* dex_file) {
     }
     max_offset = std::max(max_offset, end_offset);
   }
-  VLOG(compiler) << "Hot string data bytes " << hot_bytes << "/" << max_offset - min_offset;
   std::sort(string_ids.begin(),
             string_ids.end(),
-            [&is_shorty, &from_hot_method](const dex_ir::StringId* a,
-                                           const dex_ir::StringId* b) {
+            [
+              this,
+              &dex_file,
+              &is_shorty,
+              &from_hot_method,
+              &class_nums,
+              &method_nums
+              ](const dex_ir::StringId* a, const dex_ir::StringId* b) {
+    const bool a_is_special = info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(a->GetIndex()));
+    const bool b_is_special = info_->ContainsInitializedClass(*dex_file, dex::TypeIndex(b->GetIndex()));
+    if (a_is_special != b_is_special) {
+      return a_is_special < b_is_special;
+    }
+
     const bool a_is_hot = from_hot_method[a->GetIndex()];
     const bool b_is_hot = from_hot_method[b->GetIndex()];
     if (a_is_hot != b_is_hot) {
@@ -1632,6 +1745,21 @@ void DexLayout::LayoutStringData(const DexFile* dex_file) {
     if (a_is_shorty != b_is_shorty) {
       return a_is_shorty < b_is_shorty;
     }
+
+    // Keep data associated with the same class together
+    const int a_class_ctr = class_nums[a->GetIndex()];
+    const int b_class_ctr = class_nums[b->GetIndex()];
+    if (a_class_ctr != b_class_ctr) {
+      return a_class_ctr < b_class_ctr;
+    }
+
+    // Keep data associated with the same method together
+    const int a_method_ctr = method_nums[a->GetIndex()];
+    const int b_method_ctr = method_nums[b->GetIndex()];
+    if (a_method_ctr != b_method_ctr) {
+      return a_method_ctr < b_method_ctr;
+    }
+
     // Preserve order.
     return a->DataItem()->GetOffset() < b->DataItem()->GetOffset();
   });
@@ -1994,7 +2122,6 @@ int DexLayout::ProcessFile(const char* file_name) {
   if (options_.verbose_) {
     fprintf(out_file_, "Processing '%s'...\n", file_name);
   }
-
   // If the file is not a .dex file, the function tries .zip/.jar/.apk files,
   // all of which are Zip archives with "classes.dex" inside.
   const bool verify_checksum = !options_.ignore_bad_checksum_;
@@ -2007,7 +2134,7 @@ int DexLayout::ProcessFile(const char* file_name) {
     fputc('\n', stderr);
     return -1;
   }
-
+  fprintf(stderr, "DexLayouting: number of dex files %zu\n", dex_files.size());
   // Success. Either report checksum verification or process
   // all dex files found in given file.
   if (options_.checksum_only_) {

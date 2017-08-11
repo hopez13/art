@@ -149,7 +149,7 @@ def main():
     filter_amount = len(trace_split) - len(trace_clean_split)
     print("Filtered out %d (%f%%) of %d. %d (%f%%) remain."
           % (filter_amount, filter_percent, len(trace_split),
-             len(trace_split) - filter_amount, 1 - filter_percent))
+             len(trace_split) - filter_amount, 100.0 - filter_percent))
 
 
 if __name__ == "__main__":

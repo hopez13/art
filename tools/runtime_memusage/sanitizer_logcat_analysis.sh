@@ -24,7 +24,7 @@ DO_REDO=false
 PACKAGE_NAME=""
 BAKSMALI_NUM=0
 # EXACT_ARG and MIN_ARG are passed to prune_sanitizer_output.py
-EXACT_ARG=""
+EXACT_ARG=()
 MIN_ARG=()
 OFFSET_ARGS=()
 TIME_ARGS=()
@@ -104,7 +104,7 @@ case ${opt} in
     OUT_DIR=$OPTARG
     ;;
   e)
-    EXACT_ARG='-e'
+    EXACT_ARG=( '-e' )
     ;;
   f)
     DO_REDO=true
@@ -248,7 +248,7 @@ do
     DO_REDO[$pid]=true
     echo "Filtering/Cleaning ASAN output"
     python "$ANDROID_BUILD_TOP"/art/tools/runtime_memusage/prune_sanitizer_output.py \
-      "$EXACT_ARG" "${MIN_ARG[@]}" -d "$intermediates_dir" "$asan_out"
+      "${EXACT_ARG[@]}" "${MIN_ARG[@]}" -d "$intermediates_dir" "$asan_out"
   else
     echo "Skipped: Filtering/Cleaning ASAN output"
   fi
@@ -310,10 +310,10 @@ do
       # Gets the baksmali dump associated with BAKSMALI_NUM
       awk "NR == $((BAKSMALI_NUM + 1))" "$dex_start" > "$filtered_dex_start"
       results_dir=$results_dir"_"$BAKSMALI_NUM
-      echo "Skipped: Retrieving Dex File format from baksmali; no package given"
     else
       cp "$dex_start" "$filtered_dex_start"
       baksmali_dmp_arg=""
+      echo "Skipped: Retrieving Dex File format from baksmali; no package given"
     fi
   else
     awk "NR == $((BAKSMALI_NUM + 1))" "$dex_start" > "$filtered_dex_start"

@@ -89,6 +89,16 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
     return info->AddClasses({classes});
   }
 
+  bool AddInitializedClass(const std::string& dex_location,
+                  uint32_t checksum,
+                  dex::TypeIndex type_index,
+                  ProfileCompilationInfo* info) {
+      DexCacheResolvedClasses initialized_classes(dex_location, dex_location, checksum, kMaxMethodIds);
+      initialized_classes.AddClass(type_index);
+      return info->AddInitializedClasses({initialized_classes});
+    }
+
+
   uint32_t GetFd(const ScratchFile& file) {
     return static_cast<uint32_t>(file.GetFd());
   }
@@ -400,6 +410,33 @@ TEST_F(ProfileCompilationInfoTest, SaveMaxMethods) {
   for (uint16_t i = 0; i < std::numeric_limits<uint16_t>::max(); i++) {
     ASSERT_TRUE(AddClass("dex_location1", /* checksum */ 1, dex::TypeIndex(i), &saved_info));
     ASSERT_TRUE(AddClass("dex_location2", /* checksum */ 2, dex::TypeIndex(i), &saved_info));
+  }
+
+  ASSERT_TRUE(saved_info.Save(GetFd(profile)));
+  ASSERT_EQ(0, profile.GetFile()->Flush());
+
+  // Check that we get back what we saved.
+  ProfileCompilationInfo loaded_info;
+  ASSERT_TRUE(profile.GetFile()->ResetOffset());
+  ASSERT_TRUE(loaded_info.Load(GetFd(profile)));
+  ASSERT_TRUE(loaded_info.Equals(saved_info));
+}
+
+TEST_F(ProfileCompilationInfoTest, SaveMaxMethodsAndInitialized) {
+  ScratchFile profile;
+
+  ProfileCompilationInfo saved_info;
+  // Save the maximum number of methods
+  for (uint16_t i = 0; i < std::numeric_limits<uint16_t>::max(); i++) {
+    ASSERT_TRUE(AddMethod("dex_location1", /* checksum */ 1, /* method_idx */ i, &saved_info));
+    ASSERT_TRUE(AddMethod("dex_location2", /* checksum */ 2, /* method_idx */ i, &saved_info));
+  }
+  // Save the maximum number of classes
+  for (uint16_t i = 0; i < std::numeric_limits<uint16_t>::max(); i++) {
+    ASSERT_TRUE(AddClass("dex_location1", /* checksum */ 1, dex::TypeIndex(i), &saved_info));
+    ASSERT_TRUE(AddInitializedClass("dex_location1", /* checksum */ 1, dex::TypeIndex(i), &saved_info));
+    ASSERT_TRUE(AddClass("dex_location2", /* checksum */ 2, dex::TypeIndex(i), &saved_info));
+    ASSERT_TRUE(AddInitializedClass("dex_location2", /* checksum */ 2, dex::TypeIndex(i), &saved_info));
   }
 
   ASSERT_TRUE(saved_info.Save(GetFd(profile)));
