@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bbffb8b6_ec6f4b5c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-11T22:41:01Z",
+      "side": 1,
+      "message": "+1 these macronames are really out of control as it is already :-)",
+      "parentUuid": "764fcaa9_3dbbe9e5",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dfe770e_dad5f91c",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 7
@@ -65,6 +89,23 @@
         "endLine": 2416,
         "endChar": 51
       },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "136a07fb_68a4817c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-11T22:41:01Z",
+      "side": 1,
+      "message": "document: class or array",
       "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -283,6 +324,23 @@
     },
     {
       "key": {
+        "uuid": "bca58143_7f76dcea",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-11T22:41:01Z",
+      "side": 1,
+      "message": "AdvanceDexPc?\n\ndefault is rather vague when read in its own context",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b32f912_d324bb8b",
         "filename": "test/597-deopt-runtime-method/src/Main.java",
         "patchSetId": 7
@@ -294,6 +352,30 @@
       "writtenOn": "2017-08-09T08:12:37Z",
       "side": 1,
       "message": "Could you use a volatile to synchronize?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 69
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3e1571_07d97029",
+        "filename": "test/597-deopt-runtime-method/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-11T22:41:01Z",
+      "side": 1,
+      "message": "yes, you should at least busy-wait in a volatile spin loop. That way, you don\u0027t waste the full 5 seconds also for this test",
+      "parentUuid": "5b32f912_d324bb8b",
       "range": {
         "startLine": 59,
         "startChar": 0,
