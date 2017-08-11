@@ -16,6 +16,10 @@
 
 #include "constructor_fence_redundancy_elimination.h"
 
+// TODO: remove these includes before merging.
+#include <stdlib.h>
+#include <string>
+
 namespace art {
 
 class CFREVisitor : public HGraphVisitor {
@@ -184,6 +188,20 @@ class CFREVisitor : public HGraphVisitor {
 };
 
 void ConstructorFenceRedundancyElimination::Run() {
+
+  // TODO: remove this block of code before merging
+  {
+    char* should_disable_env = getenv("ART_OPT_CFRE");
+    if (should_disable_env != nullptr) {
+      std::string should_disable(should_disable_env);
+
+      if (should_disable == "0" || should_disable == "false") {
+        LOG(INFO) << "ART_OPT_CFRE set to false, skip CFRE";
+        return;
+      }
+    }
+  }
+
   CFREVisitor cfre_visitor(graph_, stats_);
   cfre_visitor.VisitReversePostOrder();
 }
