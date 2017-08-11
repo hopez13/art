@@ -198,28 +198,125 @@ bool JitCodeCache::ContainsMethod(ArtMethod* method) {
 
 class ScopedCodeCacheWrite : ScopedTrace {
  public:
-  explicit ScopedCodeCacheWrite(MemMap* code_map, bool only_for_tlb_shootdown = false)
+  explicit ScopedCodeCacheWrite(MemMap* code_map)
       : ScopedTrace("ScopedCodeCacheWrite"),
-        code_map_(code_map),
-        only_for_tlb_shootdown_(only_for_tlb_shootdown) {
+        code_map_(code_map) {
     ScopedTrace trace("mprotect all");
     CHECKED_MPROTECT(
-        code_map_->Begin(), only_for_tlb_shootdown_ ? kPageSize : code_map_->Size(), kProtAll);
+        code_map_->Begin(), code_map_->Size(), kProtAll);
   }
   ~ScopedCodeCacheWrite() {
     ScopedTrace trace("mprotect code");
     CHECKED_MPROTECT(
-        code_map_->Begin(), only_for_tlb_shootdown_ ? kPageSize : code_map_->Size(), kProtCode);
+        code_map_->Begin(), code_map_->Size(), kProtCode);
   }
  private:
   MemMap* const code_map_;
 
-  // If we're using ScopedCacheWrite only for TLB shootdown, we limit the scope of mprotect to
-  // one page.
-  const bool only_for_tlb_shootdown_;
-
   DISALLOW_COPY_AND_ASSIGN(ScopedCodeCacheWrite);
 };
+
+class ScopedPriorityBoost : ScopedTrace {
+ public:
+  ScopedPriorityBoost() : ScopedTrace("ScopedPriorityBoost") {
+    Thread::Current()->SetNativePriority(ThreadPriority::kMaxThreadPriority);
+  }
+
+  ~ScopedPriorityBoost() {
+    Thread::Current()->SetNativePriority(ThreadPriority::kNormThreadPriority);
+  }
+};
+
+static void FlushInstructionPipelines() {
+  LOG(ERROR) << "OTH: FlushInstructionPipelines";
+
+#if defined(__aarch64__)
+  // struct timeval start_time;
+  // gettimeofday(&start_time, nullptr);
+
+  // static int max_us = 0;
+  // static int total_us = 0;
+  // static int hits = 0;
+
+  // Page table updates do not entail an IPI on ARM64 for the TLB
+  // maintenance. The IPI on other architectures has the side-benefit
+  // of flushing the instruction pipeline since taking an exception,
+  // the IPI, flushes the instruction pipeline.
+  //
+  // From Linux 4.3 upwards, the kernel supports membarrier. What we'd
+  // really like is the expedited form (IPI) described here:
+  //
+  //   https://lwn.net/Articles/728795/
+  //
+  cpu_set_t original_set;
+  if (sched_getaffinity(0, sizeof(original_set), &original_set) != 0) {
+    LOG(ERROR) << "Failed sched_getaffinity: " << strerror(errno);
+    return;
+  }
+
+  size_t unflushed_cpus = CPU_COUNT(&original_set);
+  DCHECK_GE(unflushed_cpus, 1u);
+
+  if (unflushed_cpus == 1) {
+    // FlushInstructionCache performs isb for active CPU. If running
+    // on a different CPU now, the instructions we want to remove
+    // cannot be in the pipeline.
+    return;
+  }
+
+  ScopedPriorityBoost boost;
+  //  size_t active_cpus = unflushed_cpus;
+  cpu_set_t current_cpu_set;
+  CPU_ZERO(&current_cpu_set);
+
+  //  size_t failures = 0;
+  for (size_t i = 0; i < CPU_SETSIZE; ++i) {
+    if (!CPU_ISSET(i, &original_set)) {
+      continue;
+    }
+
+    CPU_SET(i, &current_cpu_set);
+    if (sched_setaffinity(0, sizeof(current_cpu_set), &current_cpu_set) == 0) {
+      __asm __volatile("isb");
+    } else {
+      // Assume CPU is no longer active in our process space and so
+      // does not instruction pipeline flush.
+      //      failures++;
+    }
+    CPU_CLR(i, &current_cpu_set);
+
+    if (--unflushed_cpus == 0) {
+      // Bail fast as cpu_set_t can hold > 1,000 cpus on some architectures.
+      break;
+    }
+  }
+
+  if (sched_setaffinity(0, sizeof(original_set), &original_set) != 0) {
+    LOG(ERROR) << "Failed sched_setaffinity: " << strerror(errno);
+    return;
+  }
+
+  // struct timeval end_time;
+  // gettimeofday(&end_time, nullptr);
+  // int elapsed_us = (end_time.tv_sec - start_time.tv_sec) * 1000000 +
+  //     end_time.tv_usec - start_time.tv_usec;
+  // if (elapsed_us > max_us) {
+  //   max_us = elapsed_us;
+  // }
+
+  // total_us += elapsed_us;
+  // hits++;
+
+  // if ((hits % 100) == 0) {
+  //   LOG(ERROR) << "OTH: Flush " << active_cpus << " Failed " << failures
+  //              << " Time(us) " << elapsed_us
+  //              << " Stats (avg/max/n) "
+  //              << total_us / hits << "/"
+  //              << max_us << "/"
+  //              << hits;
+  // }
+#endif  // __aarch64__
+}
 
 uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   ArtMethod* method,
@@ -231,7 +328,6 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   size_t fp_spill_mask,
                                   const uint8_t* code,
                                   size_t code_size,
-                                  size_t data_size,
                                   bool osr,
                                   Handle<mirror::ObjectArray<mirror::Object>> roots,
                                   bool has_should_deoptimize_flag,
@@ -246,7 +342,6 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                        fp_spill_mask,
                                        code,
                                        code_size,
-                                       data_size,
                                        osr,
                                        roots,
                                        has_should_deoptimize_flag,
@@ -264,7 +359,6 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                 fp_spill_mask,
                                 code,
                                 code_size,
-                                data_size,
                                 osr,
                                 roots,
                                 has_should_deoptimize_flag,
@@ -554,7 +648,6 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           size_t fp_spill_mask,
                                           const uint8_t* code,
                                           size_t code_size,
-                                          size_t data_size,
                                           bool osr,
                                           Handle<mirror::ObjectArray<mirror::Object>> roots,
                                           bool has_should_deoptimize_flag,
@@ -599,6 +692,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       // https://android.googlesource.com/kernel/msm/+/3fbe6bc28a6b9939d0650f2f17eb5216c719950c
       FlushInstructionCache(reinterpret_cast<char*>(code_ptr),
                             reinterpret_cast<char*>(code_ptr + code_size));
+      FlushInstructionPipelines();
       DCHECK(!Runtime::Current()->IsAotCompiler());
       if (has_should_deoptimize_flag) {
         method_header->SetHasShouldDeoptimizeFlag();
@@ -644,13 +738,10 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     DCHECK_EQ(FromStackMapToRoots(stack_map), roots_data);
     DCHECK_LE(roots_data, stack_map);
     FillRootTable(roots_data, roots);
-    {
-      // Flush data cache, as compiled code references literals in it.
-      // We also need a TLB shootdown to act as memory barrier across cores.
-      ScopedCodeCacheWrite ccw(code_map_.get(), /* only_for_tlb_shootdown */ true);
-      FlushDataCache(reinterpret_cast<char*>(roots_data),
-                     reinterpret_cast<char*>(roots_data + data_size));
-    }
+
+    // Ensure the updates to the root table are visible with a store fence.
+    QuasiAtomic::ThreadFenceSequentiallyConsistent();
+
     method_code_map_.Put(code_ptr, method);
     if (osr) {
       number_of_osr_compilations_++;
