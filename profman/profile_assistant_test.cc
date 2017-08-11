@@ -69,7 +69,8 @@ class ProfileAssistantTest : public CommonRuntimeTest {
       ASSERT_TRUE(info->AddClassIndex(dex_location1,
                                       dex_location_checksum1,
                                       dex::TypeIndex(i),
-                                      kMaxMethodIds));
+                                      kMaxMethodIds,
+                                      /*initialized*/false));
     }
 
     ASSERT_TRUE(info->Save(GetFd(profile)));

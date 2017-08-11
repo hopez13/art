@@ -623,7 +623,11 @@ class Dex2oatLayoutTest : public Dex2oatTest {
     ProfileCompilationInfo info;
     std::string profile_key = ProfileCompilationInfo::GetProfileDexFileKey(dex_location);
     for (size_t i = 0; i < num_classes; ++i) {
-      info.AddClassIndex(profile_key, checksum, dex::TypeIndex(1 + i), kMaxMethodIds);
+      info.AddClassIndex(profile_key,
+                         checksum,
+                         dex::TypeIndex(1 + i),
+                         kMaxMethodIds,
+                         /*initialized*/false);
     }
     bool result = info.Save(profile_test_fd);
     close(profile_test_fd);

@@ -365,7 +365,7 @@ class DexLayoutTest : public CommonRuntimeTest {
       }
       classes.insert(cur_classes);
     }
-    pfi.AddClasses(classes);
+    pfi.AddClasses(classes, /*initialized*/false);
     // Write to provided file.
     std::unique_ptr<File> file(OS::CreateEmptyFile(out_profile.c_str()));
     ASSERT_TRUE(file != nullptr);

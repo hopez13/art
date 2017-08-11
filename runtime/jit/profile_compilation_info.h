@@ -28,6 +28,7 @@
 #include "dex_file.h"
 #include "dex_file_types.h"
 #include "method_reference.h"
+#include "oat_file.h"
 #include "safe_map.h"
 #include "type_reference.h"
 
@@ -241,7 +242,7 @@ class ProfileCompilationInfo {
   bool AddMethods(const std::vector<ProfileMethodInfo>& methods);
 
   // Add the given classes to the current profile object.
-  bool AddClasses(const std::set<DexCacheResolvedClasses>& resolved_classes);
+  bool AddClasses(const std::set<DexCacheResolvedClasses>& resolved_classes, bool initialized);
 
   // Add multiple type ids for classes in a single dex file. Iterator is for type_ids not
   // class_defs.
@@ -252,6 +253,23 @@ class ProfileCompilationInfo {
       return false;
     }
     data->class_set.insert(index_begin, index_end);
+    return true;
+  }
+
+  // TODO: THIS NEEDS COMMENTS
+  template <class Iterator>
+  bool AddClassesAndStatusesForDex(const DexFile* dex_file,
+                                   Iterator index_begin, Iterator index_end) {
+    DexFileData* data = GetOrAddDexFileData(dex_file);
+    if (data == nullptr) {
+      return false;
+    }
+    for (Iterator it = index_begin; it != index_end; it++) {
+      data->class_set.insert((*it).first);
+      if ((*it).second == mirror::Class::kStatusInitialized) {
+        data->initialized_class_set.insert((*it).first);
+      }
+    }
     return true;
   }
 
@@ -315,6 +333,9 @@ class ProfileCompilationInfo {
   // Return the number of resolved classes that were profiled.
   uint32_t GetNumberOfResolvedClasses() const;
 
+  // Return the number of resolved classes that were profiled and have been initialized.
+  uint32_t GetNumberOfInitializedResolvedClasses() const;
+
   // Returns the profile method info for a given method reference.
   MethodHotness GetMethodHotness(const MethodReference& method_ref) const;
   MethodHotness GetMethodHotness(const std::string& dex_location,
@@ -323,6 +344,9 @@ class ProfileCompilationInfo {
 
   // Return true if the class's type is present in the profiling info.
   bool ContainsClass(const DexFile& dex_file, dex::TypeIndex type_idx) const;
+
+  // Return true if the class's type is present in the profiling info as an initialized class.
+  bool ContainsInitializedClass(const DexFile& dex_file, dex::TypeIndex type_idx) const;
 
   // Return the method data for the given location and index from the profiling info.
   // If the method index is not found or the checksum doesn't match, null is returned.
@@ -413,6 +437,7 @@ class ProfileCompilationInfo {
           checksum(location_checksum),
           method_map(std::less<uint16_t>(), arena->Adapter(kArenaAllocProfile)),
           class_set(std::less<dex::TypeIndex>(), arena->Adapter(kArenaAllocProfile)),
+          initialized_class_set(std::less<dex::TypeIndex>(), arena->Adapter(kArenaAllocProfile)),
           num_method_ids(num_methods),
           bitmap_storage(arena->Adapter(kArenaAllocProfile)) {
       const size_t num_bits = num_method_ids * kBitmapIndexCount;
@@ -452,6 +477,9 @@ class ProfileCompilationInfo {
     // The classes which have been profiled. Note that these don't necessarily include
     // all the classes that can be found in the inline caches reference.
     ArenaSet<dex::TypeIndex> class_set;
+    // The classes which have been profiled and have been initialized. Note that these don't
+    // necessarily include all the classes that can be found in the inline caches reference.
+    ArenaSet<dex::TypeIndex> initialized_class_set;
     // Find the inline caches of the the given method index. Add an empty entry if
     // no previous data is found.
     InlineCacheMap* FindOrAddMethod(uint16_t method_index);
@@ -502,10 +530,12 @@ class ProfileCompilationInfo {
   bool AddClassIndex(const std::string& dex_location,
                      uint32_t checksum,
                      dex::TypeIndex type_idx,
-                     uint32_t num_method_ids);
+                     uint32_t num_method_ids,
+                     bool initialized);
 
-  // Add all classes from the given dex cache to the the profile.
-  bool AddResolvedClasses(const DexCacheResolvedClasses& classes);
+  // Add all classes from the given dex cache to the specified class set in the profile. There are
+  // two sets, one for all classes and one for initialized ones. Initialized classes are in both.
+  bool AddResolvedClasses(const DexCacheResolvedClasses& classes, bool initialized);
 
   // Encode the known dex_files into a vector. The index of a dex_reference will
   // be the same as the profile index of the dex file (used to encode the ClassReferences).
@@ -625,6 +655,11 @@ class ProfileCompilationInfo {
   bool ReadClasses(SafeBuffer& buffer,
                    const ProfileLineHeader& line_header,
                    /*out*/std::string* error);
+
+  // Read all the initialized classes from the buffer into the profile `info_` structure.
+  bool ReadInitializedClasses(SafeBuffer& buffer,
+                              const ProfileLineHeader& line_header,
+                              /*out*/std::string* error);
 
   // Read all the methods from the buffer into the profile `info_` structure.
   bool ReadMethods(SafeBuffer& buffer,

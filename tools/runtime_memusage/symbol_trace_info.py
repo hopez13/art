@@ -239,6 +239,9 @@ def read_data(parsed_argv):
                                if "use-after-poison" in line or
                                "unknown-crash" in line
                                ]
+    if len(data_lists["plot_list"]) != len(symbol_file_split):
+      raise argparse.ArgumentTypeError("sanitizer_trace and symbol_trace differ"
+                                       " in number of traces")
     # Contains a mapping between traces and the category they belong to
     # based on arguments
     data_lists["cat_list"] = [categories[find_match(categories, trace)]

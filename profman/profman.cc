@@ -820,7 +820,7 @@ class ProfMan FINAL {
       }
       // TODO: Check return values?
       profile->AddMethods(methods);
-      profile->AddClasses(resolved_class_set);
+      profile->AddClasses(resolved_class_set, /*initialized*/false);
       return true;
     }
 
