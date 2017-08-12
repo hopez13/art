@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e8327e58_28197a73",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "I actually want to keep this macro. The caller is already kind of complicated. The macro name is self explaining and consistent with implementations on other platforms.",
+      "parentUuid": "bbffb8b6_ec6f4b5c",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dfe770e_dad5f91c",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 7
@@ -60,6 +84,30 @@
       "writtenOn": "2017-08-09T08:12:37Z",
       "side": 1,
       "message": "Comments please.",
+      "range": {
+        "startLine": 1843,
+        "startChar": 0,
+        "endLine": 1844,
+        "endChar": 37
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "685a72c7_3fa35ee2",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dfe770e_dad5f91c",
       "range": {
         "startLine": 1843,
         "startChar": 0,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "582fcb6f_b1c5b844",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2416,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done. Also for other platforms.",
+      "parentUuid": "0f0aed75_d1947bec",
+      "range": {
+        "startLine": 2416,
+        "startChar": 0,
+        "endLine": 2416,
+        "endChar": 51
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "136a07fb_68a4817c",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 7
@@ -112,6 +184,24 @@
     },
     {
       "key": {
+        "uuid": "ea70d7cc_9b1d76c3",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "136a07fb_68a4817c",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9742577a_4011b8db",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 7
@@ -123,6 +213,30 @@
       "writtenOn": "2017-08-09T08:12:37Z",
       "side": 1,
       "message": "This looks odd, how can it happen?",
+      "range": {
+        "startLine": 951,
+        "startChar": 9,
+        "endLine": 951,
+        "endChar": 26
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64d63e8_c8349404",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "One gtest passes in nullptr.",
+      "parentUuid": "9742577a_4011b8db",
       "range": {
         "startLine": 951,
         "startChar": 9,
@@ -158,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "2ab1f960_0d09ad18",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "allocations, unresolved field accesses, etc. I added some comments.",
+      "parentUuid": "ea60d777_52a649ae",
+      "range": {
+        "startLine": 1182,
+        "startChar": 7,
+        "endLine": 1183,
+        "endChar": 10
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc6f233d_b82256fe",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 7
@@ -169,6 +307,30 @@
       "writtenOn": "2017-08-09T08:12:37Z",
       "side": 1,
       "message": "Good candidate for a helper GetInstrumentationDeoptKind?",
+      "range": {
+        "startLine": 1235,
+        "startChar": 0,
+        "endLine": 1250,
+        "endChar": 5
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb658f34_199d1e2e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6f233d_b82256fe",
       "range": {
         "startLine": 1235,
         "startChar": 0,
@@ -204,6 +366,30 @@
     },
     {
       "key": {
+        "uuid": "6a95e767_fea295c8",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39a48045_9c24b265",
+      "range": {
+        "startLine": 504,
+        "startChar": 61,
+        "endLine": 504,
+        "endChar": 72
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3bcb81f_53f1de46",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 7
@@ -215,6 +401,30 @@
       "writtenOn": "2017-08-09T08:12:37Z",
       "side": 1,
       "message": "Can you itemize (ieg with bullet points) each case in the comment? That will make it easier to read.\n\nAlso, should you DCHECK something based on the dex_pc (ie which instruction, and/or which value).",
+      "range": {
+        "startLine": 535,
+        "startChar": 51,
+        "endLine": 538,
+        "endChar": 50
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab1c559b_01936910",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Itemized. It\u0027s kind of hard to DCHECK instruction here since suspend check/clinit can point to many dex instructions.",
+      "parentUuid": "d3bcb81f_53f1de46",
       "range": {
         "startLine": 535,
         "startChar": 51,
@@ -244,6 +454,24 @@
     },
     {
       "key": {
+        "uuid": "9c74dc91_97182eef",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13cc57c0_04a95736",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e70e0cef_252ff004",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 7
@@ -255,6 +483,24 @@
       "writtenOn": "2017-08-09T08:12:37Z",
       "side": 1,
       "message": "DCHECK about the method_type?",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83c50ed8_e0e9c658",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e70e0cef_252ff004",
       "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -284,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "71830223_cae65c8c",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c491ed49_af3e2085",
+      "range": {
+        "startLine": 561,
+        "startChar": 12,
+        "endLine": 561,
+        "endChar": 13
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "089b7ad6_5a905e4a",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 7
@@ -295,6 +565,24 @@
       "writtenOn": "2017-08-09T08:12:37Z",
       "side": 1,
       "message": "DCHECK about the method_type?",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "083ab7a1_ce4655c9",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "089b7ad6_5a905e4a",
       "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -324,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "a0bc7982_c9f99491",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Updated to:\n    // Following deoptimizations of shadow frames must be at invocation point\n    // and should advance dex pc past the invoke instruction.",
+      "parentUuid": "8df09d4a_a293f3cf",
+      "range": {
+        "startLine": 606,
+        "startChar": 4,
+        "endLine": 606,
+        "endChar": 83
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bca58143_7f76dcea",
         "filename": "runtime/thread.h",
         "patchSetId": 7
@@ -335,6 +647,24 @@
       "writtenOn": "2017-08-11T22:41:01Z",
       "side": 1,
       "message": "AdvanceDexPc?\n\ndefault is rather vague when read in its own context",
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640beb0_81c53cff",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "We don\u0027t necessarily advance dex pc for this case. We\u0027ll decode later the dex instruction to decide the exact action. kKeepDexPc though says we can\u0027t advance dex pc. I added some comments.",
+      "parentUuid": "bca58143_7f76dcea",
       "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -376,6 +706,30 @@
       "side": 1,
       "message": "yes, you should at least busy-wait in a volatile spin loop. That way, you don\u0027t waste the full 5 seconds also for this test",
       "parentUuid": "5b32f912_d324bb8b",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 69
+      },
+      "revId": "792ddf40611d333f562154e8b72d12b1ffb160d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eacf076_0f53d1eb",
+        "filename": "test/597-deopt-runtime-method/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-12T00:24:10Z",
+      "side": 1,
+      "message": "Good suggestion. Done.",
+      "parentUuid": "4d3e1571_07d97029",
       "range": {
         "startLine": 59,
         "startChar": 0,
