@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a587fc4_60396a10",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-14T10:51:06Z",
+      "side": 1,
+      "message": "explain why",
+      "range": {
+        "startLine": 823,
+        "startChar": 46,
+        "endLine": 823,
+        "endChar": 67
+      },
+      "revId": "812f946339c8ba90e516775978b170548fa60101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0645344_88f2f2a8",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-14T10:51:06Z",
+      "side": 1,
+      "message": "explain why",
+      "range": {
+        "startLine": 819,
+        "startChar": 23,
+        "endLine": 819,
+        "endChar": 43
+      },
+      "revId": "812f946339c8ba90e516775978b170548fa60101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a94cfa8e_24189907",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-14T10:51:06Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 860,
+        "startChar": 0,
+        "endLine": 863,
+        "endChar": 22
+      },
+      "revId": "812f946339c8ba90e516775978b170548fa60101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f4fe0ce_b6ae8c0f",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-14T10:51:06Z",
+      "side": 1,
+      "message": "Do you have an average number for the ratio of classes we see at startup that are not initialized?",
+      "range": {
+        "startLine": 346,
+        "startChar": 61,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "812f946339c8ba90e516775978b170548fa60101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
