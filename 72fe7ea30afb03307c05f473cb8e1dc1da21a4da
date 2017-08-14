@@ -22,6 +22,30 @@
       "revId": "72fe7ea30afb03307c05f473cb8e1dc1da21a4da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cd8c981_d55e7509",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-14T15:34:44Z",
+      "side": 0,
+      "message": "I don\u0027t know; but I ran the test on host (with `art/test/testrunner/testrunner.py --host --prebuild --no-prebuild --relocate --no-relocate --verbose -t 529-checker-unresolved`) and everything was green.\n\nThis test was blacklisted on March 22, 2016 (https://android-review.googlesource.com/#/c/platform/art/+/209671/).",
+      "parentUuid": "44ce6cce_72cfb9ba",
+      "range": {
+        "startLine": 57,
+        "startChar": 19,
+        "endLine": 57,
+        "endChar": 41
+      },
+      "revId": "72fe7ea30afb03307c05f473cb8e1dc1da21a4da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
