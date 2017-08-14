@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f92c8f0a_d27f488a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-14T13:45:01Z",
+      "side": 1,
+      "message": "This now requires the mutator lock. No idea why we had the ScopedThreadSuspension above.",
+      "range": {
+        "startLine": 1194,
+        "startChar": 11,
+        "endLine": 1194,
+        "endChar": 50
+      },
+      "revId": "0888cf1821d6622fd623db31000be19b9365f81c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
