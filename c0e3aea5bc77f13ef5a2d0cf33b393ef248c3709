@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "208f34dd_94055aaa",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-14T20:18:55Z",
+      "side": 1,
+      "message": "Since sp isn\u0027t changed here, do I put .cfi_restore here or after line 1902? I need to do the same for other platforms also.",
+      "parentUuid": "7d510ffe_6d82aada",
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c569163c_df24fab4",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 8
@@ -30,6 +48,30 @@
       "writtenOn": "2017-08-14T11:42:21Z",
       "side": 1,
       "message": "I think the assembler accepts also\n\n    adr lr, art_quick_instrumentation_exit + /* thumb mode */ 1",
+      "range": {
+        "startLine": 1843,
+        "startChar": 0,
+        "endLine": 1845,
+        "endChar": 50
+      },
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f3823e7_51ae5783",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1845,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-14T20:18:55Z",
+      "side": 1,
+      "message": "Nice trick! Done.",
+      "parentUuid": "c569163c_df24fab4",
       "range": {
         "startLine": 1843,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "04abe558_042bed83",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-14T20:18:55Z",
+      "side": 1,
+      "message": "Nice catch! I noticed RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_SP and RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0 don\u0027t need to take offset as a parameter so I just removed offset from those.",
+      "parentUuid": "fc201bb9_6c262d4c",
+      "range": {
+        "startLine": 398,
+        "startChar": 50,
+        "endLine": 398,
+        "endChar": 51
+      },
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93c45ae7_92a3aa2c",
         "filename": "test/597-deopt-runtime-method/src/Main.java",
         "patchSetId": 8
@@ -76,6 +142,30 @@
       "writtenOn": "2017-08-14T11:37:37Z",
       "side": 1,
       "message": "Thread.yield() ?",
+      "range": {
+        "startLine": 60,
+        "startChar": 28,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e26aa7cd_413e58c9",
+        "filename": "test/597-deopt-runtime-method/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-14T20:18:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93c45ae7_92a3aa2c",
       "range": {
         "startLine": 60,
         "startChar": 28,
