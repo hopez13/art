@@ -22,6 +22,30 @@
       "revId": "0888cf1821d6622fd623db31000be19b9365f81c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "213c293b_47d87770",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-14T13:51:08Z",
+      "side": 1,
+      "message": "A leftover of:\nhttps://android-review.googlesource.com/#/c/platform/art/+/252314/",
+      "parentUuid": "f92c8f0a_d27f488a",
+      "range": {
+        "startLine": 1194,
+        "startChar": 11,
+        "endLine": 1194,
+        "endChar": 50
+      },
+      "revId": "0888cf1821d6622fd623db31000be19b9365f81c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
