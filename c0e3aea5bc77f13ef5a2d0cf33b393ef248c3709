@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "c569163c_df24fab4",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1845,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-14T11:42:21Z",
+      "side": 1,
+      "message": "I think the assembler accepts also\n\n    adr lr, art_quick_instrumentation_exit + /* thumb mode */ 1",
+      "range": {
+        "startLine": 1843,
+        "startChar": 0,
+        "endLine": 1845,
+        "endChar": 50
+      },
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc201bb9_6c262d4c",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 8
