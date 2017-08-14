@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7553db5_6e6ca367",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-08-14T11:36:23Z",
+      "side": 1,
+      "message": "prefer android::base::Realpath ?",
+      "range": {
+        "startLine": 211,
+        "startChar": 5,
+        "endLine": 211,
+        "endChar": 82
+      },
+      "revId": "0b792416996b07e9d71e96692b43b7e130cd779d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
