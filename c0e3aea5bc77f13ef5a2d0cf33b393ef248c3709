@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d510ffe_6d82aada",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-14T11:36:30Z",
+      "side": 1,
+      "message": "Still missing .cfi_restore directives.",
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc201bb9_6c262d4c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-14T11:36:30Z",
+      "side": 1,
+      "message": "Missing \"\\offset\".",
+      "range": {
+        "startLine": 398,
+        "startChar": 50,
+        "endLine": 398,
+        "endChar": 51
+      },
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
