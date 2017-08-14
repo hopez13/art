@@ -39,6 +39,29 @@
       "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93c45ae7_92a3aa2c",
+        "filename": "test/597-deopt-runtime-method/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-14T11:37:37Z",
+      "side": 1,
+      "message": "Thread.yield() ?",
+      "range": {
+        "startLine": 60,
+        "startChar": 28,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
