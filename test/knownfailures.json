@@ -720,5 +720,10 @@
         "variant": "target",
         "description": ["disable until ARM scheduling/aliasing bug is fixed."],
         "bug": "b/64018485"
+    },
+    {
+        "tests": "664-aget-verifier",
+        "description": ["Aget on potentially null array fails verification."],
+        "bug": "b/64683522"
     }
 ]
