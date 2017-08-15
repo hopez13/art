@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d166194_b5cb0044",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-15T06:40:33Z",
+      "side": 1,
+      "message": "Please explain the rationale for adding this. Both here, and in the code.\nHow does dexlayout uses this data, what are the benefits (are they easy to quantify?) and what is the cost to collect this.",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "b96a357281d67eb471f307be86667cb011c92a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c879885_5c390e91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-15T06:40:33Z",
+      "side": 1,
+      "message": "What is the size increase of the profiles and what is the extra cost (if any) to collect this data.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "b96a357281d67eb471f307be86667cb011c92a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a243d18_20bc3b0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-15T06:40:33Z",
+      "side": 1,
+      "message": "This should go in another CL.",
+      "range": {
+        "startLine": 12,
+        "startChar": 52,
+        "endLine": 13,
+        "endChar": 14
+      },
+      "revId": "b96a357281d67eb471f307be86667cb011c92a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8e50b1a_81bdbd85",
+        "filename": "runtime/jit/profile_compilation_info_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-15T06:40:33Z",
+      "side": 1,
+      "message": "This test does not really verify that the profiles handles initialized classes differently.",
+      "range": {
+        "startLine": 416,
+        "startChar": 35,
+        "endLine": 416,
+        "endChar": 70
+      },
+      "revId": "b96a357281d67eb471f307be86667cb011c92a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38c74d29_1efdf393",
+        "filename": "tools/runtime_memusage/prune_sanitizer_output.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-15T06:40:33Z",
+      "side": 1,
+      "message": "the changes to the runtime_memusage don\u0027t seem to belong here.",
+      "range": {
+        "startLine": 152,
+        "startChar": 47,
+        "endLine": 152,
+        "endChar": 52
+      },
+      "revId": "b96a357281d67eb471f307be86667cb011c92a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
