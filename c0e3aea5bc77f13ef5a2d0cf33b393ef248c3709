@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "715bc564_116d1def",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-15T12:01:17Z",
+      "side": 1,
+      "message": "Definitely here. The line 1902 seems to have its own problems, I\u0027ll add a comment there.",
+      "parentUuid": "208f34dd_94055aaa",
+      "revId": "c0e3aea5bc77f13ef5a2d0cf33b393ef248c3709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c569163c_df24fab4",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 8
