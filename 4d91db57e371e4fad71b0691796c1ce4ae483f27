@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f23d9180_3f1ec01c",
+        "filename": "test/664-aget-verifier/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-15T07:40:47Z",
+      "side": 1,
+      "message": "Please make this the opposite, and add an entry to knownfailures.json. We should fix this (note that you\u0027ll also have to handle the case where the test is run with interpreter/speed-profile/jit).",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 37
+      },
+      "revId": "4d91db57e371e4fad71b0691796c1ce4ae483f27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
