@@ -22,6 +22,7 @@
 exec ${RUN} \
   -Xcompiler-option --compiler-filter=quicken \
   --runtime-option '-Xcompiler-option --compiler-filter=quicken' \
+  --runtime-option -Xjitinitialsize:32M \
   --runtime-option -Xjitsaveprofilinginfo \
   --runtime-option -Xusejit:false \
   --runtime-option -Xps-profile-boot-class-path \
