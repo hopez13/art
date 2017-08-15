@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3a9d8b2_adca9757",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-15T16:22:21Z",
+      "side": 1,
+      "message": "Perhaps `QueuedWait` might be a better name. WDYT?",
+      "range": {
+        "startLine": 254,
+        "startChar": 31,
+        "endLine": 254,
+        "endChar": 46
+      },
+      "revId": "0e813287dd78c4bad16f0f42e7fa4c9196b05d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
