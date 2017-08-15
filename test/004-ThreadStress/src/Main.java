@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Semaphore;
 
 // Run on host with:
 //   javac ThreadTest.java && java ThreadStress && rm *.class
@@ -31,18 +32,23 @@ import java.util.Set;
 //   (It is important to pass Main if you want to give parameters...)
 //
 // ThreadStress command line parameters:
-//    -n X ............ number of threads
-//    -d X ............ number of daemon threads
-//    -o X ............ number of overall operations
-//    -t X ............ number of operations per thread
-//    --dumpmap ....... print the frequency map
-//    -oom:X .......... frequency of OOM (double)
-//    -alloc:X ........ frequency of Alloc
-//    -stacktrace:X ... frequency of StackTrace
-//    -exit:X ......... frequency of Exit
-//    -sleep:X ........ frequency of Sleep
-//    -wait:X ......... frequency of Wait
-//    -timedwait:X .... frequency of TimedWait
+//    -n X ................ number of threads
+//    -d X ................ number of daemon threads
+//    -o X ................ number of overall operations
+//    -t X ................ number of operations per thread
+//    -p X ................ number of permits granted by semaphore
+//    --dumpmap ........... print the frequency map
+//    -oom:X .............. frequency of OOM (double)
+//    -sigquit:X .......... frequency of SigQuit (double)
+//    -alloc:X ............ frequency of Alloc (double)
+//    -largealloc:X ....... frequency of LargeAlloc (double)
+//    -stacktrace:X ....... frequency of StackTrace (double)
+//    -exit:X ............. frequency of Exit (double)
+//    -sleep:X ............ frequency of Sleep (double)
+//    -wait:X ............. frequency of Wait (double)
+//    -timedwait:X ........ frequency of TimedWait (double)
+//    -syncandwork:X ...... frequency of SyncAndWork (double)
+//    -permitbasedwait:X .. frequency of PermitBasedWait (double)
 
 public class Main implements Runnable {
 
@@ -51,7 +57,7 @@ public class Main implements Runnable {
     private static abstract class Operation {
         /**
          * Perform the action represented by this operation. Returns true if the thread should
-         * continue.
+         * continue when executed by a runner (non-daemon) thread.
          */
         public abstract boolean perform();
     }
@@ -240,27 +246,55 @@ public class Main implements Runnable {
         }
     }
 
-    private final static Map<Operation, Double> createDefaultFrequencyMap(Object lock) {
+    // An operation requiring the acquisition of a permit from a semaphore
+    // for its execution. This operation has been added to exercise
+    // java.util.concurrent.locks.AbstractQueuedSynchronizer, used in the
+    // implementation of java.util.concurrent.Semaphore. We use the latter,
+    // as the former is not supposed to be used directly (see b/63822989).
+    private final static class PermitBasedWait extends Operation {
+        private final static int SLEEP_TIME = 100;
+
+        private final Semaphore semaphore;
+
+        public PermitBasedWait(Semaphore semaphore) {
+            this.semaphore = semaphore;
+        }
+
+        @Override
+        public boolean perform() {
+             try {
+                 semaphore.acquire();
+                 Thread.sleep(SLEEP_TIME);
+                 semaphore.release();
+             } catch (InterruptedException ignored) {
+             }
+             return true;
+        }
+    }
+
+    private final static Map<Operation, Double> createDefaultFrequencyMap(Object lock,
+            Semaphore semaphore) {
         Map<Operation, Double> frequencyMap = new HashMap<Operation, Double>();
-        frequencyMap.put(new OOM(), 0.005);             //  1/200
-        frequencyMap.put(new SigQuit(), 0.095);         // 19/200
-        frequencyMap.put(new Alloc(), 0.25);            // 50/200
-        frequencyMap.put(new LargeAlloc(), 0.05);       // 10/200
-        frequencyMap.put(new StackTrace(), 0.1);        // 20/200
-        frequencyMap.put(new Exit(), 0.25);             // 50/200
-        frequencyMap.put(new Sleep(), 0.125);           // 25/200
-        frequencyMap.put(new TimedWait(lock), 0.05);    // 10/200
-        frequencyMap.put(new Wait(lock), 0.075);        // 15/200
+        frequencyMap.put(new OOM(), 0.005);                        //  1/200
+        frequencyMap.put(new SigQuit(), 0.095);                    // 19/200
+        frequencyMap.put(new Alloc(), 0.225);                      // 45/200
+        frequencyMap.put(new LargeAlloc(), 0.05);                  // 10/200
+        frequencyMap.put(new StackTrace(), 0.1);                   // 20/200
+        frequencyMap.put(new Exit(), 0.225);                       // 45/200
+        frequencyMap.put(new Sleep(), 0.125);                      // 25/200
+        frequencyMap.put(new TimedWait(lock), 0.05);               // 10/200
+        frequencyMap.put(new Wait(lock), 0.075);                   // 15/200
+        frequencyMap.put(new PermitBasedWait(semaphore), 0.05);    // 10/200
 
         return frequencyMap;
     }
 
     private final static Map<Operation, Double> createLockFrequencyMap(Object lock) {
       Map<Operation, Double> frequencyMap = new HashMap<Operation, Double>();
-      frequencyMap.put(new Sleep(), 0.2);
-      frequencyMap.put(new TimedWait(lock), 0.2);
-      frequencyMap.put(new Wait(lock), 0.2);
-      frequencyMap.put(new SyncAndWork(lock), 0.4);
+      frequencyMap.put(new Sleep(), 0.2);                          // 40/200
+      frequencyMap.put(new TimedWait(lock), 0.2);                  // 40/200
+      frequencyMap.put(new Wait(lock), 0.2);                       // 40/200
+      frequencyMap.put(new SyncAndWork(lock), 0.4);                // 80/200
 
       return frequencyMap;
     }
@@ -271,7 +305,7 @@ public class Main implements Runnable {
     }
 
     private static Map<Operation, Double> updateFrequencyMap(Map<Operation, Double> in,
-            Object lock, String arg) {
+            Object lock, Semaphore semaphore, String arg) {
         String split[] = arg.split(":");
         if (split.length != 2) {
             throw new IllegalArgumentException("Can't split argument " + arg);
@@ -304,6 +338,10 @@ public class Main implements Runnable {
             op = new Wait(lock);
         } else if (split[0].equals("-timedwait")) {
             op = new TimedWait(lock);
+        } else if (split[0].equals("-syncandwork")) {
+            op = new SyncAndWork(lock);
+        } else if (split[0].equals("-permitbasedwait")) {
+            op = new PermitBasedWait(semaphore);
         } else {
             throw new IllegalArgumentException("Unknown arg " + arg);
         }
@@ -338,6 +376,7 @@ public class Main implements Runnable {
         int numberOfDaemons = -1;
         int totalOperations = -1;
         int operationsPerThread = -1;
+        int permits = -1;
         Object lock = new Object();
         Map<Operation, Double> frequencyMap = null;
         boolean dumpMap = false;
@@ -357,13 +396,17 @@ public class Main implements Runnable {
                 } else if (args[i].equals("-t")) {
                     i++;
                     operationsPerThread = Integer.parseInt(args[i]);
+                } else if (args[i].equals("-p")) {
+                    i++;
+                    permits = Integer.parseInt(args[i]);
                 } else if (args[i].equals("--locks-only")) {
                     lock = new Object();
                     frequencyMap = createLockFrequencyMap(lock);
                 } else if (args[i].equals("--dumpmap")) {
                     dumpMap = true;
                 } else {
-                    frequencyMap = updateFrequencyMap(frequencyMap, lock, args[i]);
+                    Semaphore semaphore = getSemaphore(permits);
+                    frequencyMap = updateFrequencyMap(frequencyMap, lock, semaphore, args[i]);
                 }
             }
         }
@@ -390,7 +433,8 @@ public class Main implements Runnable {
         }
 
         if (frequencyMap == null) {
-            frequencyMap = createDefaultFrequencyMap(lock);
+            Semaphore semaphore = getSemaphore(permits);
+            frequencyMap = createDefaultFrequencyMap(lock, semaphore);
         }
         normalize(frequencyMap);
 
@@ -407,6 +451,15 @@ public class Main implements Runnable {
         }
     }
 
+    private static Semaphore getSemaphore(int permits) {
+        if (permits == -1) {
+            // Default number of permits.
+            permits = 3;
+        }
+
+        return new Semaphore(permits, /* fair */ true);
+    }
+
     public static void runTest(final int numberOfThreads, final int numberOfDaemons,
                                final int operationsPerThread, final Object lock,
                                Map<Operation, Double> frequencyMap) throws Exception {
@@ -417,7 +470,7 @@ public class Main implements Runnable {
         // operations. Each daemon thread will loop over all
         // the operations and will not stop.
         // The distribution of operations is determined by
-        // the Operation.frequency values. We fill out an Operation[]
+        // the frequencyMap values. We fill out an Operation[]
         // for each thread with the operations it is to perform. The
         // Operation[] is shuffled so that there is more random
         // interactions between the threads.
@@ -452,7 +505,7 @@ public class Main implements Runnable {
         }
 
         // Enable to dump operation counts per thread to make sure its
-        // sane compared to Operation.frequency
+        // sane compared to frequencyMap.
         if (DEBUG) {
             for (int t = 0; t < threadStresses.length; t++) {
                 Operation[] operations = threadStresses[t].operations;
@@ -474,7 +527,7 @@ public class Main implements Runnable {
         }
 
         // Create the runners for each thread. The runner Thread
-        // ensures that thread that exit due to Operation.EXIT will be
+        // ensures that thread that exit due to operation Exit will be
         // restarted until they reach their desired
         // operationsPerThread.
         Thread[] runners = new Thread[numberOfThreads];
@@ -524,7 +577,7 @@ public class Main implements Runnable {
         }
 
         // The notifier thread is a daemon just loops forever to wake
-        // up threads in Operation.WAIT
+        // up threads in operation Wait.
         if (lock != null) {
             Thread notifier = new Thread("Notifier") {
                 public void run() {
@@ -620,6 +673,8 @@ public class Main implements Runnable {
                                                + " operation " + i
                                                + " is " + operation);
                         }
+                        // Ignore the result of the performed operation, making
+                        // Exit.perform() essentially a no-op for daemon threads.
                         operation.perform();
                         i = (i + 1) % operations.length;
                     }
