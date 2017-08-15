@@ -39,9 +39,14 @@ extern "C" JNIEXPORT void JNICALL Java_Main_ensureProfilingInfo(JNIEnv* env,
   ScopedObjectAccess soa(env);
   ObjPtr<mirror::Executable> exec = soa.Decode<mirror::Executable>(method);
   ArtMethod* art_method = exec->GetArtMethod();
-  if (!ProfilingInfo::Create(soa.Self(), art_method, /* retry_allocation */ true)) {
-    LOG(ERROR) << "Failed to create profiling info for method " << art_method->PrettyMethod();
+  // Retry a few times in case of spurious failures, not sure why these happen yet.
+  const size_t kRetryCount = 100;
+  for (size_t i = 0; i < kRetryCount; ++i) {
+    if (ProfilingInfo::Create(soa.Self(), art_method, /* retry_allocation */ true)) {
+      return;
+    }
   }
+  LOG(ERROR) << "Failed to create profiling info for method " << art_method->PrettyMethod();
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_ensureProfileProcessing(JNIEnv*, jclass) {
