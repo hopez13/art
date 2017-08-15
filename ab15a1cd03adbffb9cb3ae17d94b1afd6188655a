@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaa8776c_e842d8b6",
+        "filename": "test/595-profile-saving/profile-saving.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-15T08:23:13Z",
+      "side": 1,
+      "message": "Ah, that\u0027s because of the JIT cache being too small on debug builds.\n\nPlease do what art/test/570-checker-osr/run does:\n--runtime-option -Xjitinitialsize:32M\n\nTo make sure you\u0027ll succeed the allocation.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "ab15a1cd03adbffb9cb3ae17d94b1afd6188655a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
