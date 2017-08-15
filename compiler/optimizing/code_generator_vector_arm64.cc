@@ -27,12 +27,13 @@ namespace arm64 {
 using helpers::ARM64EncodableConstantOrRegister;
 using helpers::Arm64CanEncodeConstantAsImmediate;
 using helpers::DRegisterFrom;
-using helpers::VRegisterFrom;
 using helpers::HeapOperand;
 using helpers::InputRegisterAt;
 using helpers::Int64ConstantFrom;
-using helpers::XRegisterFrom;
+using helpers::OutputRegister;
+using helpers::VRegisterFrom;
 using helpers::WRegisterFrom;
+using helpers::XRegisterFrom;
 
 #define __ GetVIXLAssembler()->
 
@@ -127,20 +128,62 @@ void InstructionCodeGeneratorARM64::VisitVecReplicateScalar(HVecReplicateScalar*
   }
 }
 
-void LocationsBuilderARM64::VisitVecSetScalars(HVecSetScalars* instruction) {
-  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+void LocationsBuilderARM64::VisitVecExtractScalar(HVecExtractScalar* instruction) {
+  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction);
+  switch (instruction->GetPackedType()) {
+    case Primitive::kPrimBoolean:
+    case Primitive::kPrimByte:
+    case Primitive::kPrimChar:
+    case Primitive::kPrimShort:
+    case Primitive::kPrimInt:
+    case Primitive::kPrimLong:
+      locations->SetInAt(0, Location::RequiresFpuRegister());
+      locations->SetOut(Location::RequiresRegister());
+      break;
+    case Primitive::kPrimFloat:
+    case Primitive::kPrimDouble:
+      locations->SetInAt(0, Location::RequiresFpuRegister());
+      locations->SetOut(Location::SameAsFirstInput());
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
 }
 
-void InstructionCodeGeneratorARM64::VisitVecSetScalars(HVecSetScalars* instruction) {
-  LOG(FATAL) << "No SIMD for " << instruction->GetId();
-}
-
-void LocationsBuilderARM64::VisitVecSumReduce(HVecSumReduce* instruction) {
-  LOG(FATAL) << "No SIMD for " << instruction->GetId();
-}
-
-void InstructionCodeGeneratorARM64::VisitVecSumReduce(HVecSumReduce* instruction) {
-  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+void InstructionCodeGeneratorARM64::VisitVecExtractScalar(HVecExtractScalar* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  VRegister src = VRegisterFrom(locations->InAt(0));
+  Register dst = OutputRegister(instruction);
+  switch (instruction->GetPackedType()) {
+    case Primitive::kPrimBoolean:
+    case Primitive::kPrimByte:
+      DCHECK_EQ(16u, instruction->GetVectorLength());
+      __ Mov(dst, src.V16B(), 0);
+      break;
+    case Primitive::kPrimChar:
+    case Primitive::kPrimShort:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Mov(dst, src.V8H(), 0);
+      break;
+    case Primitive::kPrimInt:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ Mov(dst, src.V4S(), 0);
+      break;
+    case Primitive::kPrimLong:
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      __ Mov(dst, src.V2D(), 0);
+      break;
+    case Primitive::kPrimFloat:
+    case Primitive::kPrimDouble:
+      DCHECK_LE(2u, instruction->GetVectorLength());
+      DCHECK_LE(instruction->GetVectorLength(), 4u);
+      DCHECK(locations->InAt(0).Equals(locations->Out()));  // no code required
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
 }
 
 // Helper to set up locations for vector unary operations.
@@ -162,6 +205,46 @@ static void CreateVecUnOpLocations(ArenaAllocator* arena, HVecUnaryOperation* in
     case Primitive::kPrimDouble:
       locations->SetInAt(0, Location::RequiresFpuRegister());
       locations->SetOut(Location::RequiresFpuRegister(), Location::kNoOutputOverlap);
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
+}
+
+void LocationsBuilderARM64::VisitVecReduce(HVecReduce* instruction) {
+  CreateVecUnOpLocations(GetGraph()->GetArena(), instruction);
+}
+
+void InstructionCodeGeneratorARM64::VisitVecReduce(HVecReduce* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  VRegister src = VRegisterFrom(locations->InAt(0));
+  FPRegister dst = DRegisterFrom(locations->Out());
+  switch (instruction->GetPackedType()) {
+    case Primitive::kPrimInt:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      switch (instruction->GetKind()) {
+        case HVecReduce::kAdd:
+          __ Addv(dst.S(), src.V4S());
+          break;
+        case HVecReduce::kMin:
+          __ Sminv(dst.S(), src.V4S());
+          break;
+        case HVecReduce::kMax:
+          __ Smaxv(dst.S(), src.V4S());
+          break;
+      }
+      break;
+    case Primitive::kPrimLong:
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      switch (instruction->GetKind()) {
+        case HVecReduce::kAdd:
+          __ Addp(dst.D(), src.V2D());
+          break;
+        default:
+          LOG(FATAL) << "Unsupported SIMD min/max";
+          UNREACHABLE();
+      }
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type";
@@ -263,6 +346,7 @@ void InstructionCodeGeneratorARM64::VisitVecAbs(HVecAbs* instruction) {
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
   }
 }
 
@@ -798,6 +882,78 @@ void InstructionCodeGeneratorARM64::VisitVecUShr(HVecUShr* instruction) {
     case Primitive::kPrimLong:
       DCHECK_EQ(2u, instruction->GetVectorLength());
       __ Ushr(dst.V2D(), lhs.V2D(), value);
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
+}
+
+void LocationsBuilderARM64::VisitVecSetScalars(HVecSetScalars* instruction) {
+  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction);
+
+  DCHECK_EQ(1u, instruction->InputCount());  // only one input currently implemented
+
+  bool is_zero = IsZeroBitPattern(instruction->InputAt(0));
+
+  switch (instruction->GetPackedType()) {
+    case Primitive::kPrimBoolean:
+    case Primitive::kPrimByte:
+    case Primitive::kPrimChar:
+    case Primitive::kPrimShort:
+    case Primitive::kPrimInt:
+    case Primitive::kPrimLong:
+      if (!is_zero) {
+        locations->SetInAt(0, Location::RequiresRegister());
+      }
+      locations->SetOut(Location::RequiresFpuRegister());
+      break;
+    case Primitive::kPrimFloat:
+    case Primitive::kPrimDouble:
+      if (!is_zero) {
+        locations->SetInAt(0, Location::RequiresFpuRegister());
+      }
+      locations->SetOut(Location::RequiresFpuRegister());
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
+}
+
+void InstructionCodeGeneratorARM64::VisitVecSetScalars(HVecSetScalars* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  VRegister dst = VRegisterFrom(locations->Out());
+
+  DCHECK_EQ(1u, instruction->InputCount());  // only one input currently implemented
+
+  // Zero out all other elements first.
+  __ Movi(dst.V16B(), 0);
+
+  // Shorthand for any type of zero.
+  if (IsZeroBitPattern(instruction->InputAt(0))) {
+    return;
+  }
+
+  // Set required elements.
+  switch (instruction->GetPackedType()) {
+    case Primitive::kPrimBoolean:
+    case Primitive::kPrimByte:
+      DCHECK_EQ(16u, instruction->GetVectorLength());
+      __ Mov(dst.V16B(), 0, InputRegisterAt(instruction, 0));
+      break;
+    case Primitive::kPrimChar:
+    case Primitive::kPrimShort:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Mov(dst.V8H(), 0, InputRegisterAt(instruction, 0));
+      break;
+    case Primitive::kPrimInt:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ Mov(dst.V4S(), 0, InputRegisterAt(instruction, 0));
+      break;
+    case Primitive::kPrimLong:
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      __ Mov(dst.V2D(), 0, InputRegisterAt(instruction, 0));
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type";
