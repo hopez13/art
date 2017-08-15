@@ -22,6 +22,30 @@
       "revId": "4d91db57e371e4fad71b0691796c1ce4ae483f27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "609963ac_9e55aacb",
+        "filename": "test/664-aget-verifier/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-08-15T18:32:28Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll make it expect to compile, and add an entry into knownfailures.json. For the interpreter/jit case, we can just disable the test in those cases once it\u0027s working for the compiled cases.",
+      "parentUuid": "f23d9180_3f1ec01c",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 37
+      },
+      "revId": "4d91db57e371e4fad71b0691796c1ce4ae483f27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
