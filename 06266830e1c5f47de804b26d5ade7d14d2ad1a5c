@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cfe9c2dd_82adf3d4",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-16T18:59:21Z",
+      "side": 1,
+      "message": "I implemented x86 first where return address has to be on stack. There is no lr there. So I chose to save return address on stack on all platforms. The logic is simple this way also since we just depend on RESTORE_SAVE_EVERYTHING_FRAME... and ret/br to send it back to the right place.\n\ngdb might be unhappy temporarily but I think that\u0027s fine. instrumentation hijacks the return pc and the only way for gdb to accurately know the true return pc is to consult InstrumentationStackFrame, which gdb doesn\u0027t do anyway. So I wouldn\u0027t bet on gdb\u0027s stack trace if I ever set a breakpoint in instrumentation entry/exit stubs.\n\nI can delay the store and split it to two places, normal return and .Ldeoptimize. That might make gdb a littler happier. However I\u0027m kind of reluctant to add more complexity here.",
+      "parentUuid": "9cfa2e3f_e40ddd3e",
+      "range": {
+        "startLine": 1885,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 81
+      },
+      "revId": "06266830e1c5f47de804b26d5ade7d14d2ad1a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81c24eff_ddb0d290",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 10
@@ -84,6 +108,30 @@
       "writtenOn": "2017-08-16T13:53:58Z",
       "side": 1,
       "message": "Since the actual return address is initially stored on the stack, this LDR should be surrounded with \".cfi_rel_offset lr, 0\" and \".cfi_restore lr\".",
+      "range": {
+        "startLine": 1914,
+        "startChar": 0,
+        "endLine": 1915,
+        "endChar": 19
+      },
+      "revId": "06266830e1c5f47de804b26d5ade7d14d2ad1a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a0ce0a3_d4ea7c1e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1915,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-16T18:59:21Z",
+      "side": 1,
+      "message": "Done for both arm and arm_64.",
+      "parentUuid": "81c24eff_ddb0d290",
       "range": {
         "startLine": 1914,
         "startChar": 0,
