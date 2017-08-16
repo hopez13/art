@@ -58,14 +58,15 @@ static Maps* gMaps GUARDED_BY(MemMap::GetMemMapsLock()) = nullptr;
 
 static std::ostream& operator<<(
     std::ostream& os,
-    std::pair<BacktraceMap::const_iterator, BacktraceMap::const_iterator> iters) {
-  for (BacktraceMap::const_iterator it = iters.first; it != iters.second; ++it) {
+    std::pair<BacktraceMap::Iterator, BacktraceMap::Iterator> iters) {
+  for (auto it = iters.first; it != iters.second; ++it) {
+    auto map = *it;
     os << StringPrintf("0x%08x-0x%08x %c%c%c %s\n",
-                       static_cast<uint32_t>(it->start),
-                       static_cast<uint32_t>(it->end),
-                       (it->flags & PROT_READ) ? 'r' : '-',
-                       (it->flags & PROT_WRITE) ? 'w' : '-',
-                       (it->flags & PROT_EXEC) ? 'x' : '-', it->name.c_str());
+                       static_cast<uint32_t>(map.start),
+                       static_cast<uint32_t>(map.end),
+                       (map.flags & PROT_READ) ? 'r' : '-',
+                       (map.flags & PROT_WRITE) ? 'w' : '-',
+                       (map.flags & PROT_EXEC) ? 'x' : '-', map.name.c_str());
   }
   return os;
 }
@@ -169,9 +170,9 @@ bool MemMap::ContainedWithinExistingMap(uint8_t* ptr, size_t size, std::string* 
   }
 
   ScopedBacktraceMapIteratorLock lock(map.get());
-  for (BacktraceMap::const_iterator it = map->begin(); it != map->end(); ++it) {
-    if ((begin >= it->start && begin < it->end)  // start of new within old
-        && (end > it->start && end <= it->end)) {  // end of new within old
+  for (auto it = map->begin(); it != map->end(); ++it) {
+    if ((begin >= (*it).start && begin < (*it).end)  // start of new within old
+        && (end > (*it).start && end <= (*it).end)) {  // end of new within old
       return true;
     }
   }
@@ -193,17 +194,18 @@ static bool CheckNonOverlapping(uintptr_t begin,
     return false;
   }
   ScopedBacktraceMapIteratorLock lock(map.get());
-  for (BacktraceMap::const_iterator it = map->begin(); it != map->end(); ++it) {
-    if ((begin >= it->start && begin < it->end)      // start of new within old
-        || (end > it->start && end < it->end)        // end of new within old
-        || (begin <= it->start && end > it->end)) {  // start/end of new includes all of old
+  for (auto it = map->begin(); it != map->end(); ++it) {
+    auto cur_map = *it;
+    if ((begin >= cur_map.start && begin < cur_map.end)      // start of new within old
+        || (end > cur_map.start && end < cur_map.end)        // end of new within old
+        || (begin <= cur_map.start && end > cur_map.end)) {  // start/end of new includes all of old
       std::ostringstream map_info;
       map_info << std::make_pair(it, map->end());
       *error_msg = StringPrintf("Requested region 0x%08" PRIxPTR "-0x%08" PRIxPTR " overlaps with "
                                 "existing map 0x%08" PRIxPTR "-0x%08" PRIxPTR " (%s)\n%s",
                                 begin, end,
-                                static_cast<uintptr_t>(it->start), static_cast<uintptr_t>(it->end),
-                                it->name.c_str(),
+                                static_cast<uintptr_t>(cur_map.start), static_cast<uintptr_t>(cur_map.end),
+                                cur_map.name.c_str(),
                                 map_info.str().c_str());
       return false;
     }
