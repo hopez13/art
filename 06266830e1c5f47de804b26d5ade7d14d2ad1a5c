@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cfa2e3f_e40ddd3e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-16T13:53:58Z",
+      "side": 1,
+      "message": "If the return pc is art_quick_deoptimize, this messes up the CFI because at this point the stack does not contain the frame reserved for art_quick_deoptimize. We should delay this store until after the CBNZ below and deal with the CFI differently for the two branches.\n\nMaybe in the .Ldeoptimize branch we should not store this at all; simply move r0 to LR and avoid restoring LR. That way the stack trace shall still point to the old caller rather than art_quick_deoptimize but that\u0027s at least a valid stack trace.",
+      "range": {
+        "startLine": 1885,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 81
+      },
+      "revId": "06266830e1c5f47de804b26d5ade7d14d2ad1a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81c24eff_ddb0d290",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-16T13:53:58Z",
+      "side": 1,
+      "message": "Since the actual return address is initially stored on the stack, this LDR should be surrounded with \".cfi_rel_offset lr, 0\" and \".cfi_restore lr\".",
+      "range": {
+        "startLine": 1914,
+        "startChar": 0,
+        "endLine": 1915,
+        "endChar": 19
+      },
+      "revId": "06266830e1c5f47de804b26d5ade7d14d2ad1a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
