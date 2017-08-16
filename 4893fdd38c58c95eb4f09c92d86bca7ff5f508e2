@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "57e8d29c_5ddb5276",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1897,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-16T00:18:48Z",
+      "side": 1,
+      "message": "Done. Please take a look on other platforms also.",
+      "parentUuid": "f62ab5bb_313aeca5",
+      "revId": "4893fdd38c58c95eb4f09c92d86bca7ff5f508e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4245a567_0f19e16b",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-15T12:01:17Z",
       "side": 1,
       "message": "And we need a .cfi_def_cfa_offset or .cfi_adjust_cfa_offset here to undo the stack space allocation from the beginning of the function.",
+      "revId": "4893fdd38c58c95eb4f09c92d86bca7ff5f508e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4456266_9f7bde90",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-16T00:18:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4245a567_0f19e16b",
       "revId": "4893fdd38c58c95eb4f09c92d86bca7ff5f508e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
