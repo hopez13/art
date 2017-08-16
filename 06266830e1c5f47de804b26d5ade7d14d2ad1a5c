@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7fd5044b_0f5ab07b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-16T15:24:34Z",
+      "side": 1,
+      "message": "This seems concerning, is there a CFI test we can add for this?",
+      "parentUuid": "9cfa2e3f_e40ddd3e",
+      "range": {
+        "startLine": 1885,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 81
+      },
+      "revId": "06266830e1c5f47de804b26d5ade7d14d2ad1a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81c24eff_ddb0d290",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 10
