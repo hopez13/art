@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6ea053f1_3d858adf",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-17T22:40:55Z",
+      "side": 1,
+      "message": "I think instead of doing it like this, do it the way --secondary is implemented\n\n    elif [ \"x$1\" \u003d \"x--secondary\" ]; then\n        SECONDARY_DEX\u003d\":$DEX_LOCATION/$TEST_NAME-ex.jar\"\n        # Enable cfg-append to make sure we get the dump for both dex files.\n        # (otherwise the runtime compilation of the secondary dex will overwrite\n        # the dump of the first one).\n        FLAGS\u003d\"${FLAGS} -Xcompiler-option --dump-cfg-append\"\n        COMPILE_FLAGS\u003d\"${COMPILE_FLAGS} --dump-cfg-append\"\n        shift\n\n(on L315)",
+      "parentUuid": "ffab40b7_fa878216",
+      "revId": "4887e3dd829a091b4a11d1627a500b0d06f875d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a746e165_6dd9ce45",
         "filename": "test/run-test",
         "patchSetId": 2
@@ -86,6 +104,23 @@
       "revId": "4887e3dd829a091b4a11d1627a500b0d06f875d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d747d142_c8b846d3",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-17T22:40:55Z",
+      "side": 1,
+      "message": "I think this was correct in \"PS2\", you should bring this change back.\n\nOne thing is since \"dex2oat_jobs\" variable is not used anywhere else, just fold it\n\n  run_args\u003d\"${run_args} --dex2oat-jobs $1\"\n\nis fine. delete \u0027dex2oat_jobs\u0027 variable if its not used in more than 1 place.",
+      "revId": "4887e3dd829a091b4a11d1627a500b0d06f875d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
