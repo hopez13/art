@@ -22,6 +22,29 @@
       "revId": "0e813287dd78c4bad16f0f42e7fa4c9196b05d20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32a6a88f_e7f85579",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T10:22:35Z",
+      "side": 1,
+      "message": "Move to \"finally\"?",
+      "range": {
+        "startLine": 268,
+        "startChar": 17,
+        "endLine": 268,
+        "endChar": 37
+      },
+      "revId": "0e813287dd78c4bad16f0f42e7fa4c9196b05d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
