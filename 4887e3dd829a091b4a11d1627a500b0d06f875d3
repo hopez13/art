@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39e0c096_3881ea2d",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-17T21:22:47Z",
+      "side": 1,
+      "message": "Not enough, also needs to pass \u0027-Xcompiler-option -j...\" when dex2oat is run via dalvikvm (e.g. no-prebuild in runtest).",
+      "revId": "4887e3dd829a091b4a11d1627a500b0d06f875d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a746e165_6dd9ce45",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-17T21:22:47Z",
+      "side": 1,
+      "message": "dex2oat_jobs ?",
+      "revId": "4887e3dd829a091b4a11d1627a500b0d06f875d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0b2f378_6c40d332",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-17T21:22:47Z",
+      "side": 1,
+      "message": "Add to usage please.",
+      "revId": "4887e3dd829a091b4a11d1627a500b0d06f875d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
