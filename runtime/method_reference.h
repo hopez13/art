@@ -27,7 +27,7 @@ namespace art {
 struct MethodReference {
   MethodReference(const DexFile* file, uint32_t index) : dex_file(file), dex_method_index(index) {
   }
-  std::string PrettyMethod(bool with_signature = true) {
+  std::string PrettyMethod(bool with_signature = true) const {
     return dex_file->PrettyMethod(dex_method_index, with_signature);
   }
   const DexFile* dex_file;
