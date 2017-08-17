@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba6113ec_834ff783",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1907,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T18:44:37Z",
+      "side": 1,
+      "message": "If we know for sure that the LR here (i.e. the r0 returned by artInstrumentationMethodExitFromCode) points to art_quick_deoptimize, this could be simply\n\n    b art_quick_deoptimize\n\nand we can use the LR to hold the actual return address (i.e. the r1 returned by artInstrumentationMethodExitFromCode) in LR (by storing it to [sp, #FRAME_SIZE_SAVE_EVERYTHING + 16 - 4] instead of r0 before the RESTORE_*) rather than [sp]. Then we do not need the extra frame and we can simply get rid of all the odd CFI tricks.\n\n(Doing this for all platforms probably makes most of the other comments obsolete.)",
+      "range": {
+        "startLine": 1907,
+        "startChar": 4,
+        "endLine": 1907,
+        "endChar": 12
+      },
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e75b5de_9b1bada5",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T18:44:37Z",
+      "side": 1,
+      "message": "Extend RESTORE_SAVE_EVERYTHING_FRAME_FRPS with offset and reuse it here (as you did for x86-64).",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 33
+      },
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4689028_23903d76",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 2122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T18:44:37Z",
+      "side": 1,
+      "message": "This still needs the SP+\u003d32.",
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a22d8e09_569fa7d6",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 2132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T18:44:37Z",
+      "side": 1,
+      "message": "DEFINE_FUNCTION_CUSTOM_CFA art_quick_deoptimize, FRAME_SIZE_SAVE_EVERYTHING + 16\n\nNote the +16 instead of +12 because the frame includes the return address. (The default for DEFINE_FUNCTION is 4 because the return address is already on the stack.)",
+      "range": {
+        "startLine": 2130,
+        "startChar": 0,
+        "endLine": 2132,
+        "endChar": 53
+      },
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bf76a54_b53db463",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 2140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T18:44:37Z",
+      "side": 1,
+      "message": "It just occurred to me that we can POP straight into another memory location:\n\n    popl FRAME_SIZE_SAVE_EVERYTHING+12(%esp)\n    CFI_ADJUST_CFA_OFFSET(-4)\n    addl LITERAL(FRAME_SIZE_SAVE_EVERYTHING+8), %esp\n    CFI_ADJUST_CFA_OFFSET(-(FRAME_SIZE_SAVE_EVERYTHING+8))",
+      "range": {
+        "startLine": 2135,
+        "startChar": 0,
+        "endLine": 2140,
+        "endChar": 59
+      },
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7898508_cee7ec8e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 2088,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T18:44:37Z",
+      "side": 1,
+      "message": "Previously, arguments were popped before the exception check. Now you need SP+\u003d16.",
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4525a2f_0058570e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 2098,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T18:44:37Z",
+      "side": 1,
+      "message": "DEFINE_FUNCTION_CUSTOM_CFA art_quick_deoptimize, FRAME_SIZE_SAVE_EVERYTHING + 16",
+      "range": {
+        "startLine": 2096,
+        "startChar": 0,
+        "endLine": 2098,
+        "endChar": 52
+      },
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50512588_3db97a2d",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 2106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T18:44:37Z",
+      "side": 1,
+      "message": "Similar to x86:\n\n    popl FRAME_SIZE_SAVE_EVERYTHING+8(%esp)\n    CFI_ADJUST_CFA_OFFSET(-8)\n    addl LITERAL(FRAME_SIZE_SAVE_EVERYTHING), %esp\n    CFI_ADJUST_CFA_OFFSET(-(FRAME_SIZE_SAVE_EVERYTHING))",
+      "range": {
+        "startLine": 2101,
+        "startChar": 0,
+        "endLine": 2106,
+        "endChar": 58
+      },
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
