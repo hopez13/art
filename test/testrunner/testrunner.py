@@ -127,6 +127,7 @@ build = False
 gdb = False
 gdb_arg = ''
 stop_testrunner = False
+dex2oat_jobs = -1   # -1 corresponds to default threads for dex2oat
 
 def gather_test_info():
   """The method gathers test information about the test to be run which includes
@@ -270,11 +271,15 @@ def setup_test_env():
     ADDRESS_SIZES_TARGET['target'] = ADDRESS_SIZES_TARGET['target'].union(ADDRESS_SIZES)
 
   global n_thread
+  global dex2oat_jobs
   if n_thread is -1:
     if 'target' in TARGET_TYPES:
       n_thread = get_default_threads('target')
     else:
       n_thread = get_default_threads('host')
+
+  if n_thread > 1:
+    dex2oat_jobs = 1
 
   global semaphore
   semaphore = threading.Semaphore(n_thread)
@@ -340,6 +345,9 @@ def run_tests(tests):
     options_all += ' --gdb'
     if gdb_arg:
       options_all += ' --gdb-arg ' + gdb_arg
+
+  if dex2oat_jobs != -1:
+    options_all += ' --dex2oat-jobs ' + str(dex2oat_jobs)
 
   config = itertools.product(tests, TARGET_TYPES, RUN_TYPES, PREBUILD_TYPES,
                              COMPILER_TYPES, RELOCATE_TYPES, TRACE_TYPES,
