@@ -16,6 +16,24 @@
       "revId": "cdbbd1469be5564d0502d8973712af19211cda24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0eb75c71_a878f6eb",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-08-17T22:39:05Z",
+      "side": 1,
+      "message": "https://cs.corp.google.com/aosp-master/art/test/etc/run-test-jar?sq\u0026q\u003drun-test-jar+package:%5Eaosp-master$\u0026l\u003d124\n\nhere, run-test-jar pushes this to dalvikvm and dex2oat jobs.",
+      "parentUuid": "38fc6032_f406f41d",
+      "revId": "cdbbd1469be5564d0502d8973712af19211cda24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
