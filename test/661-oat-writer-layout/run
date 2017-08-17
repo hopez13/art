@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# Copyright (C) 2017 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Run the test in one of 3 modes:
+# 1) No oat code compiled -> use expected.no-compiled-code.txt
+# 2) Oat code compiled, no profile -> use expected.no-profile.txt
+# 3) Oat code compiled with profile -> use expected.profile.txt
+
+# Note: `check` script always compares against 'expected.no-compiled-code.txt' first,
+# otherwise it checks expected.txt
+cp expected.no-profile.txt expected.txt
+
+# Replace --random-profile with --profile and the expected.txt with expected.profile.txt
+# Otherwise it runs as normal.
+run_with_nonrandom_profile() {
+  local args_original=("$@")
+  local args=()
+
+  for i in "${args_original[@]}"; do
+    case $i in
+      --random-profile)
+        args+=(--profile)
+        cp expected.profile.txt expected.txt
+        ;;
+      *)
+        args+=("$1")
+        ;;
+    esac
+    shift
+  done
+
+  "${RUN}" "${args[@]}"
+}
+
+run_with_nonrandom_profile "$@"
