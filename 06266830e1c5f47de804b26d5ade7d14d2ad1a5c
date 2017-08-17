@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "7d049042_484113b1",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-17T09:50:05Z",
+      "side": 1,
+      "message": "Add a short comment that the backtrace shall be broken for a few instructions in that case.",
+      "parentUuid": "cfe9c2dd_82adf3d4",
+      "range": {
+        "startLine": 1885,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 81
+      },
+      "revId": "06266830e1c5f47de804b26d5ade7d14d2ad1a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81c24eff_ddb0d290",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 10
