@@ -20,6 +20,7 @@
 #include <stdint.h>
 #include <cstddef>
 #include <memory>
+#include <vector>
 
 #include "base/array_ref.h"
 #include "base/dchecked_vector.h"
@@ -258,6 +259,10 @@ class OatWriter {
   class OatDexMethodVisitor;
   class InitBssLayoutMethodVisitor;
   class InitOatClassesMethodVisitor;
+  class LayoutCodeMethodVisitor;
+  class LayoutReserveOffsetCodeMethodVisitor;
+  struct OrderedMethodData;
+  class OrderedMethodVisitor;
   class InitCodeMethodVisitor;
   class InitMapMethodVisitor;
   class InitMethodInfoVisitor;
@@ -474,6 +479,13 @@ class OatWriter {
 
   // Profile info used to generate new layout of files.
   ProfileCompilationInfo* profile_compilation_info_;
+
+  using OrderedMethodList = std::vector<OrderedMethodData>;
+
+  // List of compiled methods, sorted by the pretty name.
+  // Methods can be inserted more than once in case of duplicated methods.
+  // This pointer is only non-null after InitOatCodeDexFiles succeeds.
+  std::unique_ptr<OrderedMethodList> ordered_methods_;
 
   DISALLOW_COPY_AND_ASSIGN(OatWriter);
 };
