@@ -52,6 +52,24 @@
       "revId": "cdbbd1469be5564d0502d8973712af19211cda24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05564cc1_401d898b",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-17T22:54:41Z",
+      "side": 1,
+      "message": "Discussed offline, looks like this is better. Lets not change run-test-jar.\n\n(--secondary does do it via run-test-jar but they also have some custom logic. only --compile-pic does it via a separate run-test-jar flag and I added that my first month here, so I probably did it incorrectly).",
+      "parentUuid": "1fa18104_2fe53919",
+      "revId": "cdbbd1469be5564d0502d8973712af19211cda24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
