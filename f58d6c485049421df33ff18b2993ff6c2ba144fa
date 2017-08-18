@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4c9725f3_57e48b37",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1907,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-18T19:48:52Z",
+      "side": 1,
+      "message": "That\u0027s a very good point. I\u0027ve made it work for all platforms and things are much simplified.",
+      "parentUuid": "ba6113ec_834ff783",
+      "range": {
+        "startLine": 1907,
+        "startChar": 4,
+        "endLine": 1907,
+        "endChar": 12
+      },
+      "revId": "f58d6c485049421df33ff18b2993ff6c2ba144fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e75b5de_9b1bada5",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 12
