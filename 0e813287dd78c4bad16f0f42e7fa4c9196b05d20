@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "65de2522_5aef80b0",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-18T12:54:37Z",
+      "side": 1,
+      "message": "Renamed in PS2.",
+      "parentUuid": "c3a9d8b2_adca9757",
+      "range": {
+        "startLine": 254,
+        "startChar": 31,
+        "endLine": 254,
+        "endChar": 46
+      },
+      "revId": "0e813287dd78c4bad16f0f42e7fa4c9196b05d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32a6a88f_e7f85579",
         "filename": "test/004-ThreadStress/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-17T10:22:35Z",
       "side": 1,
       "message": "Move to \"finally\"?",
+      "range": {
+        "startLine": 268,
+        "startChar": 17,
+        "endLine": 268,
+        "endChar": 37
+      },
+      "revId": "0e813287dd78c4bad16f0f42e7fa4c9196b05d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf5d08ba_f5c76da9",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-18T12:54:37Z",
+      "side": 1,
+      "message": "Good point; done in PS2. Actually, we should release a permit only if it was acquired, so I added a sentinel in the `finally` block too.",
+      "parentUuid": "32a6a88f_e7f85579",
       "range": {
         "startLine": 268,
         "startChar": 17,
