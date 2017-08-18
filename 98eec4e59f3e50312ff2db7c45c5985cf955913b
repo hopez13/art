@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5278e6b2_e455f342",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-18T16:58:02Z",
+      "side": 1,
+      "message": "The code for boolean, byte, short, char, float, double is dead (which might be the reason for the following misuses of VIXL). It might be a good idea to keep only the code which is executed and add the rest when it is actually required.",
+      "range": {
+        "startLine": 154,
+        "startChar": 36,
+        "endLine": 154,
+        "endChar": 57
+      },
+      "revId": "98eec4e59f3e50312ff2db7c45c5985cf955913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acead2d_4e1f3d68",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-18T16:58:02Z",
+      "side": 1,
+      "message": "This can be only used for General Purpose Registers (with throw an assert otherwise); for floating point use OutputCPURegister or OutputFPRegister.",
+      "range": {
+        "startLine": 157,
+        "startChar": 17,
+        "endLine": 157,
+        "endChar": 31
+      },
+      "revId": "98eec4e59f3e50312ff2db7c45c5985cf955913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e44908_6d341578",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-18T16:58:02Z",
+      "side": 1,
+      "message": "This will result into emitting UMOV which is wrong for signed byte (the same for short). Take a look at the example to check the correct instruction from \n\n  __ Smov(w0, v4.B(), 0);   // byte\n  __ Umov(w0, v4.H(), 0);   // char\n  __ Smov(w0, v4.H(), 0);   // short\n  __ Umov(w0, v4.S(), 0);   // int    or __ Fmov(w0, s4);\n  __ Umov(x0, v4.D(), 0);   // long   or __ Fmov(x0, d4);",
+      "range": {
+        "startLine": 162,
+        "startChar": 9,
+        "endLine": 162,
+        "endChar": 12
+      },
+      "revId": "98eec4e59f3e50312ff2db7c45c5985cf955913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "187b6839_cea484b4",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-18T16:58:02Z",
+      "side": 1,
+      "message": "Why not to use VRegister here?",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 11
+      },
+      "revId": "98eec4e59f3e50312ff2db7c45c5985cf955913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba4dbb63_343ecd3e",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-08-18T16:58:02Z",
+      "side": 1,
+      "message": "Isn\u0027t the following code cleaner for the IsZeroPattern case?\n\nelse {\n locations-\u003eSetInAt(0, Location::ConstantLocation(input-\u003eAsConstant()));\n}",
+      "revId": "98eec4e59f3e50312ff2db7c45c5985cf955913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
