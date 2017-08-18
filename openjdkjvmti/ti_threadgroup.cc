@@ -87,19 +87,33 @@ jvmtiError ThreadGroupUtil::GetTopThreadGroups(jvmtiEnv* env,
   return ERR(NONE);
 }
 
+static art::ObjPtr<art::mirror::Object> GetThreadGroupObject(
+    art::ScopedObjectAccess& soa, jthreadGroup group) REQUIRES_SHARED(art::Locks::mutator_lock_) {
+  if (group == nullptr) {
+    art::ObjPtr<art::mirror::Object> peer = art::Thread::Current()->GetPeer();
+    if (peer.IsNull()) {
+      return nullptr;
+    }
+    art::ArtField* f = art::jni::DecodeArtField(art::WellKnownClasses::java_lang_Thread_group);
+    CHECK(f != nullptr);
+    return f->GetObject(peer);
+  } else {
+    if (soa.Env()->IsInstanceOf(group, art::WellKnownClasses::java_lang_ThreadGroup) == JNI_FALSE) {
+      return nullptr;
+    }
+
+    return soa.Decode<art::mirror::Object>(group);
+  }
+}
+
 jvmtiError ThreadGroupUtil::GetThreadGroupInfo(jvmtiEnv* env,
                                                jthreadGroup group,
                                                jvmtiThreadGroupInfo* info_ptr) {
-  if (group == nullptr) {
-    return ERR(INVALID_THREAD_GROUP);
-  }
-
   art::ScopedObjectAccess soa(art::Thread::Current());
-  if (soa.Env()->IsInstanceOf(group, art::WellKnownClasses::java_lang_ThreadGroup) == JNI_FALSE) {
+  art::ObjPtr<art::mirror::Object> obj = GetThreadGroupObject(soa, group);
+  if (obj.IsNull()) {
     return ERR(INVALID_THREAD_GROUP);
   }
-
-  art::ObjPtr<art::mirror::Object> obj = soa.Decode<art::mirror::Object>(group);
 
   // Do the name first. It's the only thing that can fail.
   {
