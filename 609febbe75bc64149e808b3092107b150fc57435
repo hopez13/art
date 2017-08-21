@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b08eefea_b5fd20fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-21T16:50:22Z",
+      "side": 1,
+      "message": "some",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 20
+      },
+      "revId": "609febbe75bc64149e808b3092107b150fc57435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c1a43e7_dbc0724d",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-21T16:50:22Z",
+      "side": 1,
+      "message": "Don\u0027t we need to store the return value also to the kSaveEverything frame from where it shall be restored below with RESTORE_SAVE_EVERYTHING_FRAME? And don\u0027t we need to do that conditionally on the return type of the called method, otherwise we risk overwriting some live value?",
+      "range": {
+        "startLine": 1855,
+        "startChar": 4,
+        "endLine": 1855,
+        "endChar": 14
+      },
+      "revId": "609febbe75bc64149e808b3092107b150fc57435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
