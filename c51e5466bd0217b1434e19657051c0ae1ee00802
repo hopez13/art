@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f5791af_4f0bbd99",
+        "filename": "openjdkjvmti/ti_phase.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-21T11:54:32Z",
+      "side": 1,
+      "message": "Line too long?",
+      "range": {
+        "startLine": 78,
+        "startChar": 100,
+        "endLine": 78,
+        "endChar": 101
+      },
+      "revId": "c51e5466bd0217b1434e19657051c0ae1ee00802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "422d222b_d93f4466",
+        "filename": "openjdkjvmti/ti_phase.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-21T11:54:32Z",
+      "side": 1,
+      "message": "Please write an explicit comment here why this coupling is necessary (basically avoiding the STS, I guess?).",
+      "range": {
+        "startLine": 80,
+        "startChar": 10,
+        "endLine": 80,
+        "endChar": 40
+      },
+      "revId": "c51e5466bd0217b1434e19657051c0ae1ee00802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
