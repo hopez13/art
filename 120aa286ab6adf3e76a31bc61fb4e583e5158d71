@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b5b7f5d_f1409c1d",
+        "filename": "runtime/dex_file_layout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-21T11:11:28Z",
+      "side": 1,
+      "message": "Please rename. This is specific to dex files, but that is not at all apparent from the name. Why isn\u0027t this whole header declaring its own namespace, e.g., art::dexlayout?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 2
+      },
+      "revId": "120aa286ab6adf3e76a31bc61fb4e583e5158d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
