@@ -53,6 +53,7 @@
 #include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
+#include "ti_thread.h"
 #include "thread-current-inl.h"
 #include "thread_list.h"
 #include "thread_pool.h"
@@ -822,6 +823,124 @@ jvmtiError StackUtil::GetFrameLocation(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
 
   return ERR(NONE);
+}
+
+struct MonitorVisitor : public art::StackVisitor {
+  MonitorVisitor(const art::ScopedObjectAccessAlreadyRunnable& soa,
+                 art::Thread* thread) REQUIRES_SHARED(art::Locks::mutator_lock_)
+    : art::StackVisitor(thread, nullptr, art::StackVisitor::StackWalkKind::kIncludeInlinedFrames),
+      soa(soa), current_stack_depth(0) {}
+
+  bool VisitFrame() NO_THREAD_SAFETY_ANALYSIS {
+    if (!GetMethod()->IsRuntimeMethod()) {
+      art::Monitor::VisitLocks(this, AppendOwnedMonitors, this);
+      ++current_stack_depth;
+    }
+    return true;
+  }
+
+  static void AppendOwnedMonitors(art::mirror::Object* owned_monitor, void* arg)
+      REQUIRES_SHARED(art::Locks::mutator_lock_) {
+    MonitorVisitor* visitor = reinterpret_cast<MonitorVisitor*>(arg);
+    visitor->monitors.push_back(visitor->soa.AddLocalReference<jobject>(owned_monitor));
+    visitor->stack_depths.push_back(visitor->current_stack_depth);
+  }
+
+  const art::ScopedObjectAccessAlreadyRunnable& soa;
+  jint current_stack_depth;
+  std::vector<jobject> monitors;
+  std::vector<uint32_t> stack_depths;
+};
+
+template<typename Fn>
+struct MonitorInfoClosure : public art::Closure {
+ public:
+  MonitorInfoClosure(const art::ScopedObjectAccessAlreadyRunnable& soa, Fn handle_results)
+      : soa_(soa), err_(OK), handle_results_(handle_results) {}
+  MonitorInfoClosure(const MonitorInfoClosure&) = default;
+  MonitorInfoClosure(MonitorInfoClosure&& other)
+      : soa_(other.soa_), err_(other.err_), handle_results_(other.handle_results_) {}
+  ~MonitorInfoClosure() OVERRIDE {}
+
+  void Run(art::Thread* target) OVERRIDE REQUIRES_SHARED(art::Locks::mutator_lock_) {
+    MonitorVisitor visitor(soa_, target);
+    visitor.WalkStack(/* include_transitions */ false);
+    err_ = handle_results_(visitor);
+  }
+
+  jvmtiError GetError() {
+    return err_;
+  }
+
+ private:
+  const art::ScopedObjectAccessAlreadyRunnable& soa_;
+  jvmtiError err_;
+  Fn handle_results_;
+};
+
+
+template <typename Fn>
+static jvmtiError GetOwnedMonitorInfoCommon(jthread thread, Fn handle_results) {
+  art::Thread* self = art::Thread::Current();
+  art::ScopedObjectAccess soa(self);
+  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+  art::Thread* target = ThreadUtil::GetNativeThread(thread, soa);
+  if (target == nullptr && thread == nullptr) {
+    return ERR(INVALID_THREAD);
+  }
+  if (target == nullptr) {
+    return ERR(THREAD_NOT_ALIVE);
+  }
+  MonitorInfoClosure<Fn> closure(soa, handle_results);
+  if (!target->RequestSynchronousCheckpoint(&closure)) {
+    return ERR(THREAD_NOT_ALIVE);
+  }
+  return closure.GetError();
+}
+
+
+jvmtiError StackUtil::GetOwnedMonitorStackDepthInfo(jvmtiEnv* env,
+                                                    jthread thread,
+                                                    jint* info_cnt,
+                                                    jvmtiMonitorStackDepthInfo** info_ptr) {
+  if (info_cnt == nullptr || info_ptr == nullptr) {
+    return ERR(NULL_POINTER);
+  }
+  auto handle_fun = [&] (MonitorVisitor& visitor) {
+    auto nbytes = sizeof(jvmtiMonitorStackDepthInfo) * visitor.monitors.size();
+    jvmtiError err = env->Allocate(nbytes, reinterpret_cast<unsigned char**>(info_ptr));
+    if (err != OK) {
+      return err;
+    }
+    *info_cnt = visitor.monitors.size();
+    jint final_depth = visitor.current_stack_depth;
+    for (size_t i = 0; i < visitor.monitors.size(); i++) {
+      jint depth = final_depth - static_cast<jint>(visitor.stack_depths[i]);
+      (*info_ptr)[i] = { visitor.monitors[i], depth };
+    }
+    return OK;
+  };
+  return GetOwnedMonitorInfoCommon(thread, handle_fun);
+}
+
+jvmtiError StackUtil::GetOwnedMonitorInfo(jvmtiEnv* env,
+                                          jthread thread,
+                                          jint* owned_monitor_count_ptr,
+                                          jobject** owned_monitors_ptr) {
+  if (owned_monitors_ptr == nullptr || owned_monitors_ptr == nullptr) {
+    return ERR(NULL_POINTER);
+  }
+  auto handle_fun = [&] (MonitorVisitor& visitor) {
+    auto nbytes = sizeof(jobject) * visitor.monitors.size();
+    jvmtiError err = env->Allocate(nbytes, reinterpret_cast<unsigned char**>(owned_monitors_ptr));
+    if (err != OK) {
+      return err;
+    }
+    *owned_monitor_count_ptr = visitor.monitors.size();
+    memcpy(*owned_monitors_ptr, visitor.monitors.data(), nbytes);
+    return OK;
+  };
+  return GetOwnedMonitorInfoCommon(thread, handle_fun);
 }
 
 }  // namespace openjdkjvmti
