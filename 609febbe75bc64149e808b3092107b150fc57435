@@ -117,6 +117,30 @@
       "revId": "609febbe75bc64149e808b3092107b150fc57435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b0ffb81_666fee2a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-21T23:46:47Z",
+      "side": 1,
+      "message": "Done. except for x86 where eax and edx are not next to each other in the kSaveEverything frame.",
+      "parentUuid": "19488209_16525bb7",
+      "range": {
+        "startLine": 1855,
+        "startChar": 4,
+        "endLine": 1855,
+        "endChar": 14
+      },
+      "revId": "609febbe75bc64149e808b3092107b150fc57435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
