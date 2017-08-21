@@ -93,6 +93,30 @@
       "revId": "609febbe75bc64149e808b3092107b150fc57435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19488209_16525bb7",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-21T19:00:39Z",
+      "side": 1,
+      "message": "Ah, I see, the line 1848 saves everything _after_ we have returned from the runtime function.\n\nSo, the code is correct but could be simplified to pass pointers to the slots inside the kSaveEverything frame instead of pushing the return values again:\n\n    add r2, sp, #136  @ store gpr_res pointer.\n    add r3, sp, #8    @ store fpr_res pointer.",
+      "parentUuid": "74a44a5e_557b3c1c",
+      "range": {
+        "startLine": 1855,
+        "startChar": 4,
+        "endLine": 1855,
+        "endChar": 14
+      },
+      "revId": "609febbe75bc64149e808b3092107b150fc57435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
