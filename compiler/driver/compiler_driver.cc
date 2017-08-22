@@ -2105,14 +2105,10 @@ class VerifyClassVisitor : public CompilationVisitor {
       // It is *very* problematic if there are verification errors in the boot classpath. For example,
       // we rely on things working OK without verification when the decryption dialog is brought up.
       // So abort in a debug build if we find this violated.
+      DCHECK(!manager_->GetCompiler()->GetCompilerOptions().IsBootImage() || klass->IsVerified())
+          << "Boot classpath class " << klass->PrettyClass()
+          << " failed to fully verify: state= " << klass->GetStatus();
       if (kIsDebugBuild) {
-        // TODO(narayan): Remove this special case for signature polymorphic
-        // invokes once verifier support is fully implemented.
-        if (manager_->GetCompiler()->GetCompilerOptions().IsBootImage() &&
-            !android::base::StartsWith(descriptor, "Ljava/lang/invoke/")) {
-          DCHECK(klass->IsVerified()) << "Boot classpath class " << klass->PrettyClass()
-              << " failed to fully verify: state= " << klass->GetStatus();
-        }
         if (klass->IsVerified()) {
           DCHECK_EQ(failure_kind, verifier::FailureKind::kNoFailure);
         } else if (klass->ShouldVerifyAtRuntime()) {
