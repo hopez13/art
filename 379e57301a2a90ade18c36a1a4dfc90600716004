@@ -22,6 +22,30 @@
       "revId": "379e57301a2a90ade18c36a1a4dfc90600716004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23dffed1_47a17cc8",
+        "filename": "test/067-preemptive-unpark/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-22T14:46:59Z",
+      "side": 1,
+      "message": "We print everything to System.out in tests to avoid interleaved out/err output.",
+      "parentUuid": "31d7cf1e_5d62abfd",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "379e57301a2a90ade18c36a1a4dfc90600716004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
