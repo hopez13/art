@@ -315,6 +315,31 @@ struct CmdlineType<unsigned int> : CmdlineTypeParser<unsigned int> {
   static const char* Name() { return "unsigned integer"; }
 };
 
+template <>
+struct CmdlineType<int> : CmdlineTypeParser<int> {
+  Result Parse(const std::string& str) {
+    const char* begin = str.c_str();
+    char* end;
+
+    // Parse into a larger type (long long) because we can't use strtoul
+    // since it silently converts negative values into unsigned long and doesn't set errno.
+    errno = 0;
+    long long int result = strtoll(begin, &end, 10);  // NOLINT [runtime/int] [4]
+    if (begin == end || *end != '\0' || errno == EINVAL) {
+      return Result::Failure("Failed to parse integer from " + str);
+    } else if ((errno == ERANGE) ||  // NOLINT [runtime/int] [4]
+        result < std::numeric_limits<int>::min()
+        || result > std::numeric_limits<int>::max()) {
+      return Result::OutOfRange(
+          "Failed to parse integer from " + str + "; out of unsigned int range");
+    }
+
+    return Result::Success(static_cast<int>(result));
+  }
+
+  static const char* Name() { return "unsigned integer"; }
+};
+
 // Lightweight nanosecond value type. Allows parser to convert user-input from milliseconds
 // to nanoseconds automatically after parsing.
 //
