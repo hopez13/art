@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "12b48dc4_66666f45",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T21:28:19Z",
+      "side": 1,
+      "message": "Is it linking to libart? I think it shouldn\u0027t need to since only cmdline_types.h which is header-only that has any art dependencies.\n\nmaybe the test needs it since it depends on cmdline_types.h?",
+      "parentUuid": "e49118ce_833418e0",
+      "revId": "f46f57923663c0659804157afccf1543ca7d5b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7fa4075_acd91efe",
         "filename": "cmdline/cmdline_parser.h",
         "patchSetId": 1
