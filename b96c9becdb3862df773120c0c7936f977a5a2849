@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "53cb3f6f_2f3b2480",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-23T16:23:11Z",
+      "side": 1,
+      "message": "Don\u0027t totally drop, just put it into a separate CL.",
+      "parentUuid": "a1109f81_ab27aea3",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 8
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cac978bb_f0503118",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
