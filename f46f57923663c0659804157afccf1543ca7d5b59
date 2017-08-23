@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1df82d86_a8d227b7",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:48:40Z",
+      "side": 1,
+      "message": "Upon thinking of this some more, only cmdline_types.h should have any ART dependency (and probably the test file). It could be split apart into ART directory to avoid this dependency.",
+      "parentUuid": "c7211786_cb0aff29",
+      "revId": "f46f57923663c0659804157afccf1543ca7d5b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7fa4075_acd91efe",
         "filename": "cmdline/cmdline_parser.h",
         "patchSetId": 1
