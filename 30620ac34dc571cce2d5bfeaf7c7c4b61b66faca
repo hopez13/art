@@ -76,6 +76,24 @@
     },
     {
       "key": {
+        "uuid": "3998fd8a_1eba6ed8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-23T19:04:09Z",
+      "side": 1,
+      "message": "I want to split the parser, just like it\u0027s done right now. Parts here, parts in CompilerOptions. That\u0027s the reason for the \"extra\" component (and I\u0027ll make this false again) - so I can sort out what dex2oat doesn\u0027t understand and pass it on to CompilerOptions.\n\nIf you have a better idea (I didn\u0027t want to be too invasive, but I guess I could alternatively store a vector of all ignored unrecognized tokens), please let me know.",
+      "parentUuid": "f064a3ea_f703f6fb",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c59a779_ff3f945e",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -87,6 +105,24 @@
       "writtenOn": "2017-08-23T18:59:06Z",
       "side": 1,
       "message": "return std::make_unique",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bac14c62_3f3dee42",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-23T19:04:09Z",
+      "side": 1,
+      "message": "Yeah. Not review-ready, yet. This is just copied from parsed_options...",
+      "parentUuid": "1c59a779_ff3f945e",
       "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
