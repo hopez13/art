@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e49118ce_833418e0",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-23T18:56:56Z",
+      "side": 1,
+      "message": "I am wondering whether this should rather be a proper library that, by chance, doesn\u0027t include any .cc files but exports headers. That way it\u0027s possible to add the libart dependency.\n\n(I\u0027m just not sure that soong/make/ninja can handle the circular dependency.)\n\nLonger term, I think the type specializations should go into art/runtime, I think.",
+      "parentUuid": "1df82d86_a8d227b7",
+      "revId": "f46f57923663c0659804157afccf1543ca7d5b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7fa4075_acd91efe",
         "filename": "cmdline/cmdline_parser.h",
         "patchSetId": 1
