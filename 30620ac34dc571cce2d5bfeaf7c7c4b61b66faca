@@ -130,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "967ff959_5cdd784a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T19:56:48Z",
+      "side": 1,
+      "message": "I don\u0027t know which flags you\u0027re specifically referring to, but you can just parse flags as a regular string with CmdlineParser.\n\nThen the string can be passed down to whatever else to do extra parsing of that.\n\nThat being said command line parsing should probably be done in one place instead of being scattered throughout.",
+      "parentUuid": "b133de2e_0a598b95",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c59a779_ff3f945e",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
