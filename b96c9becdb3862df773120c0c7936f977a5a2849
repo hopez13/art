@@ -135,6 +135,30 @@
     },
     {
       "key": {
+        "uuid": "ec669272_9117f350",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T16:30:04Z",
+      "side": 1,
+      "message": "you mean you want it to be (size_t)-1 if its invalid?",
+      "parentUuid": "713afaa5_b42ce99f",
+      "range": {
+        "startLine": 876,
+        "startChar": 2,
+        "endLine": 876,
+        "endChar": 22
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "998a329f_44d4f4d2",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -169,6 +193,30 @@
       "writtenOn": "2017-08-23T16:19:32Z",
       "side": 1,
       "message": "Shouldn\u0027t we sort by class name and then method name instead of the PrettyMethod()?\n\nMaybe PrettyMethod(..., /* with_signature */ false) but it can be reconstructed from the method_reference in the operator\u003c().",
+      "range": {
+        "startLine": 1027,
+        "startChar": 0,
+        "endLine": 1032,
+        "endChar": 7
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fa1e662_c95dee60",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T16:30:04Z",
+      "side": 1,
+      "message": "That one is just for development feature, validate reordering works without a profile file. See comment for kOatWriterForceOatCodeLayout.",
+      "parentUuid": "1a0d0270_8a0b1487",
       "range": {
         "startLine": 1027,
         "startChar": 0,
