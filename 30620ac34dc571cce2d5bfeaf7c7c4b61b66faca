@@ -112,6 +112,24 @@
     },
     {
       "key": {
+        "uuid": "b133de2e_0a598b95",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-23T19:45:21Z",
+      "side": 1,
+      "message": "That, over the last one and a half years, we split things - into what concerns dex2oat directly, and what is compiler configuration. Not sure we should go back and re-expose what could be called compiler internals. +rpl, who I think started it.",
+      "parentUuid": "ba85ec31_979a2980",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c59a779_ff3f945e",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
