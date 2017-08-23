@@ -537,6 +537,22 @@ TEST_F(CmdlineParserTest, TestIgnoreUnrecognized) {
   EXPECT_SINGLE_PARSE_EMPTY_SUCCESS("-non-existent-option1 --non-existent-option-2");
 }  //  TEST_F
 
+TEST_F(CmdlineParserTest, TestIgnoreUnrecognizedExtra) {
+  RuntimeParser::Builder parserBuilder;
+
+  parserBuilder
+      .Define("-help")
+          .IntoKey(M::Help)
+      .IgnoreUnrecognized(false);
+
+  parser_.reset(new RuntimeParser(parserBuilder.Build()));
+
+  CmdlineResult result = parser_->Parse("-help -non-existent-option --non-existent-option-2");
+  ASSERT_FALSE(result.IsSuccess());
+  EXPECT_EQ(CmdlineResult::kUnknown, result.GetStatus());
+  EXPECT_EQ(1u, result.GetExtra());
+}  //  TEST_F
+
 TEST_F(CmdlineParserTest, TestIgnoredArguments) {
   std::initializer_list<const char*> ignored_args = {
       "-ea", "-da", "-enableassertions", "-disableassertions", "--runtime-arg", "-esa",

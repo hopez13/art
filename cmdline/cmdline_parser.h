@@ -547,7 +547,8 @@ struct CmdlineParser {
         // Common case:
         // Bail out on the first unknown argument with an error.
         return CmdlineResult(CmdlineResult::kUnknown,
-                             std::string("Unknown argument: ") + possible_name[0]);
+                             std::string("Unknown argument: ") + possible_name[0],
+                             i);
       }
 
       // Look at the best-matched argument definition and try to parse against that.

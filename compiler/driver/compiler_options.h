@@ -258,7 +258,7 @@ class CompilerOptions FINAL {
   }
 
  private:
-  void ParseDumpInitFailures(const StringPiece& option, UsageFn Usage);
+  bool ParseDumpInitFailures(const std::string& option, std::string* error_msg);
   void ParseDumpCfgPasses(const StringPiece& option, UsageFn Usage);
   void ParseInlineMaxCodeUnits(const StringPiece& option, UsageFn Usage);
   void ParseNumDexMethods(const StringPiece& option, UsageFn Usage);
@@ -266,7 +266,7 @@ class CompilerOptions FINAL {
   void ParseSmallMethodMax(const StringPiece& option, UsageFn Usage);
   void ParseLargeMethodMax(const StringPiece& option, UsageFn Usage);
   void ParseHugeMethodMax(const StringPiece& option, UsageFn Usage);
-  void ParseRegisterAllocationStrategy(const StringPiece& option, UsageFn Usage);
+  bool ParseRegisterAllocationStrategy(const std::string& option, std::string* error_msg);
 
   CompilerFilter::Filter compiler_filter_;
   size_t huge_method_threshold_;
@@ -326,6 +326,9 @@ class CompilerOptions FINAL {
   friend class DexToDexDecompilerTest;
   friend class CommonCompilerTest;
   friend class verifier::VerifierDepsTest;
+
+  template <class Base>
+  friend bool ReadCompilerOptions(Base& map, CompilerOptions* options, std::string* error_msg);
 
   DISALLOW_COPY_AND_ASSIGN(CompilerOptions);
 };
