@@ -26,28 +26,88 @@
 namespace art {
 namespace interpreter {
 
-#define HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(instr)                                    \
-  do {                                                                                          \
-    DCHECK(self->IsExceptionPending());                                                         \
-    self->AllowThreadSuspension();                                                              \
-    uint32_t found_dex_pc = FindNextInstructionFollowingException(self, shadow_frame,           \
-                                                                  inst->GetDexPc(insns),        \
-                                                                  instr);                       \
-    if (found_dex_pc == DexFile::kDexNoIndex) {                                                 \
-      /* Structured locking is to be enforced for abnormal termination, too. */                 \
-      DoMonitorCheckOnExit<do_assignability_check>(self, &shadow_frame);                        \
-      if (interpret_one_instruction) {                                                          \
-        /* Signal mterp to return to caller */                                                  \
-        shadow_frame.SetDexPC(DexFile::kDexNoIndex);                                            \
-      }                                                                                         \
-      return JValue(); /* Handled in caller. */                                                 \
-    } else {                                                                                    \
-      int32_t displacement = static_cast<int32_t>(found_dex_pc) - static_cast<int32_t>(dex_pc); \
-      inst = inst->RelativeAt(displacement);                                                    \
-    }                                                                                           \
+enum class SendUnwindEvent {
+  kSendEvent,
+  kDoNotSendEvent,
+};
+
+template<SendUnwindEvent send_event>
+NO_INLINE static bool MoveToExceptionHandler(
+    Thread* self,
+    ShadowFrame& shadow_frame,
+    const uint16_t* const raw_instructions,
+    const instrumentation::Instrumentation* instrumentation,
+    Instruction const** inst_out) REQUIRES_SHARED(Locks::mutator_lock_) {
+  self->VerifyStack();
+  StackHandleScope<2> hs(self);
+  MutableHandle<mirror::Throwable> exception(hs.NewHandle<mirror::Throwable>(nullptr));
+  MutableHandle<mirror::Class> exception_klass(hs.NewHandle<mirror::Class>(nullptr));
+  while (true) {
+    uint32_t dex_pc = (*inst_out)->GetDexPc(raw_instructions);
+    exception.Assign(self->GetException());
+    exception_klass.Assign(exception->GetClass());
+    DCHECK(!exception.IsNull());
+    if (instrumentation->HasExceptionThrownListeners() &&
+        self->IsExceptionThrownByCurrentMethod(exception.Get())) {
+      instrumentation->ExceptionThrownEvent(self, exception.Get());
+    }
+    bool clear_exception = false;
+    uint32_t found_dex_pc = shadow_frame.GetMethod()->FindCatchBlock(exception_klass,
+                                                                     dex_pc,
+                                                                     &clear_exception);
+    if (found_dex_pc == DexFile::kDexNoIndex) {
+      if (send_event == SendUnwindEvent::kSendEvent &&
+          instrumentation->HasMethodUnwindListeners()) {
+        // Exception is not caught by the current method. We will unwind to the
+        // caller. Notify any instrumentation listener.
+        instrumentation->MethodUnwindEvent(self, shadow_frame.GetThisObject(),
+                                          shadow_frame.GetMethod(), dex_pc);
+      }
+      // Don't go around again even if MethodUnwindEvent throws a new exception. We have left the
+      // method so we will need to handle it in the callers.
+      return false;
+    } else {
+      // Move to the handler.
+      *inst_out = (*inst_out)->RelativeAt(
+          static_cast<int32_t>(found_dex_pc) - static_cast<int32_t>(dex_pc));
+      // Send the ExceptionHandled event;
+      if (instrumentation->HasExceptionHandledListeners()) {
+        self->ClearException();
+        instrumentation->ExceptionHandledEvent(self, exception.Get());
+        if (self->GetException() != nullptr) {
+          // We got a new exception. See if we have any other handlers for this one.
+          continue;
+        } else {
+          self->SetException(exception.Get());
+        }
+      }
+      // Exception is caught in the current method. We will jump to the found_dex_pc.
+      if (clear_exception) {
+        self->ClearException();
+      }
+      return true;
+    }
+  }
+}
+
+#define HANDLE_PENDING_EXCEPTION_COMMON(send_unwind_event)                                        \
+  do {                                                                                            \
+    DCHECK(self->IsExceptionPending());                                                           \
+    self->AllowThreadSuspension();                                                                \
+    if (!MoveToExceptionHandler<send_unwind_event>( \
+          self, shadow_frame, insns, instrumentation, &inst)) { \
+      /* Structured locking is to be enforced for abnormal termination, too. */                   \
+      DoMonitorCheckOnExit<do_assignability_check>(self, &shadow_frame);                          \
+      if (interpret_one_instruction) {                                                            \
+        shadow_frame.SetDexPC(DexFile::kDexNoIndex);                                              \
+      }                                                                                           \
+      return JValue(); /* Handled in caller. */                                                   \
+    }                                                                                             \
   } while (false)
 
-#define HANDLE_PENDING_EXCEPTION() HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(instrumentation)
+#define HANDLE_PENDING_EXCEPTION() HANDLE_PENDING_EXCEPTION_COMMON(SendUnwindEvent::kSendEvent)
+#define HANDLE_PENDING_EXCEPTION_FROM_EXIT_EVENT() \
+    HANDLE_PENDING_EXCEPTION_COMMON(SendUnwindEvent::kDoNotSendEvent)
 
 #define POSSIBLY_HANDLE_PENDING_EXCEPTION(_is_exception_pending, _next_function)  \
   do {                                                                            \
@@ -149,6 +209,23 @@ NO_INLINE static bool DoDexPcMoveEvent(Thread* self,
     return true;
   }
 }
+
+// NO_INLINE static bool DoSendExceptionHandled(
+//     art::Thread* self, const instrumentation::Instrumentation* instrumentation)
+//     REQUIRES_SHARED(art::Locks::mutator_lock_) {
+//   DCHECK(self->IsExceptionPending());
+//   StackHandleScope<1> hs(self);
+//   Handle<mirror::Throwable> old_exception(hs.NewHandle(self->GetException()));
+//   DCHECK(!old_exception.IsNull());
+//   self->ClearException();
+//   instrumentation->ExceptionHandledEvent(self, old_exception.Get());
+//   if (self->IsExceptionPending()) {
+//     return false;
+//   } else {
+//     self->SetException(old_exception.Get());
+//     return true;
+//   }
+// }
 
 template<bool do_access_check, bool transaction_active>
 JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
@@ -268,7 +345,7 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
                                            result);
           if (UNLIKELY(self->IsExceptionPending())) {
             // Don't send another method exit event.
-            HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(nullptr);
+            HANDLE_PENDING_EXCEPTION_FROM_EXIT_EVENT();
           }
         }
         if (interpret_one_instruction) {
@@ -289,7 +366,7 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
                                            result);
           if (UNLIKELY(self->IsExceptionPending())) {
             // Don't send another method exit event.
-            HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(nullptr);
+            HANDLE_PENDING_EXCEPTION_FROM_EXIT_EVENT();
           }
         }
         if (interpret_one_instruction) {
@@ -311,7 +388,7 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
                                            result);
           if (UNLIKELY(self->IsExceptionPending())) {
             // Don't send another method exit event.
-            HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(nullptr);
+            HANDLE_PENDING_EXCEPTION_FROM_EXIT_EVENT();
           }
         }
         if (interpret_one_instruction) {
@@ -332,7 +409,7 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
                                            result);
           if (UNLIKELY(self->IsExceptionPending())) {
             // Don't send another method exit event.
-            HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(nullptr);
+            HANDLE_PENDING_EXCEPTION_FROM_EXIT_EVENT();
           }
         }
         if (interpret_one_instruction) {
@@ -373,7 +450,7 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
                                            result);
           if (UNLIKELY(self->IsExceptionPending())) {
             // Don't send another method exit event.
-            HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(nullptr);
+            HANDLE_PENDING_EXCEPTION_FROM_EXIT_EVENT();
           }
           // Re-load since it might have moved during the MethodExitEvent.
           result.SetL(shadow_frame.GetVRegReference(ref_idx));
