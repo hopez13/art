@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a1109f81_ab27aea3",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 8
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cac978bb_f0503118",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -16,6 +39,420 @@
       "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f03d5db9_21200dac",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Can we keep the old code? This new version is messy because the offset reservation (\"offset_ +\u003d header.SizeOf()\") is far from updating the oat_class_headers_. And I\u0027d also like to keep the order, i.e. update the data before adjusting the offset; this applies also to both the oat_classes_ and oat_class_headers_.",
+      "range": {
+        "startLine": 840,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 61
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1ad3d4_7b0ae58a",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Remove this member, the name can be reconstructed using method_reference.",
+      "range": {
+        "startLine": 867,
+        "startChar": 2,
+        "endLine": 867,
+        "endChar": 19
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "713afaa5_b42ce99f",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "This can be replaced with\n\n  bool HasDebugInfo() const {\n    return debug_info_idx !\u003d kInvalidDebugInfoIndex;\n  }\n  static constexpr size_t kInvalidDebugInfoIndex \u003d static_cast\u003csize_t\u003e(debug_info_idx);",
+      "range": {
+        "startLine": 876,
+        "startChar": 2,
+        "endLine": 876,
+        "endChar": 22
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "998a329f_44d4f4d2",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Why not simply \"OrderedMethodData\u0026 data\"?",
+      "range": {
+        "startLine": 950,
+        "startChar": 27,
+        "endLine": 958,
+        "endChar": 48
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a0d0270_8a0b1487",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we sort by class name and then method name instead of the PrettyMethod()?\n\nMaybe PrettyMethod(..., /* with_signature */ false) but it can be reconstructed from the method_reference in the operator\u003c().",
+      "range": {
+        "startLine": 1027,
+        "startChar": 0,
+        "endLine": 1032,
+        "endChar": 7
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7f2f0d0_08f77431",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Single line.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 47
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc563361_adb1b6a5",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Unnecessary comment. The intent of the old code was to reserve space after visiting all methods; that didn\u0027t change here.",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1107,
+        "endChar": 38
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea66a4d8_2967ff15",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "This scope is rather unnecessary now.",
+      "range": {
+        "startLine": 1125,
+        "startChar": 4,
+        "endLine": 1125,
+        "endChar": 5
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e199940c_f557222b",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Why is it still an OatDexMethodVisitor?",
+      "range": {
+        "startLine": 1524,
+        "startChar": 49,
+        "endLine": 1524,
+        "endChar": 68
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fe8dc30_69322305",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "These two overloads are not called directly. Get rid of them?",
+      "range": {
+        "startLine": 1782,
+        "startChar": 0,
+        "endLine": 1789,
+        "endChar": 3
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c472588e_86bc784d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "This log looks useless.",
+      "range": {
+        "startLine": 2257,
+        "startChar": 0,
+        "endLine": 2260,
+        "endChar": 42
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30c05eef_867922a1",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "We should change the MethodReference::PrettyMethod() to const.",
+      "range": {
+        "startLine": 2265,
+        "startChar": 12,
+        "endLine": 2265,
+        "endChar": 40
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d863f793_8c74a5e8",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Drop blank lines.",
+      "range": {
+        "startLine": 2281,
+        "startChar": 0,
+        "endLine": 2282,
+        "endChar": 0
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5684906e_09670a85",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Why the extra indirection? Cannot instantiate std::vector\u003c.\u003e with incomplete type?",
+      "range": {
+        "startLine": 488,
+        "startChar": 2,
+        "endLine": 488,
+        "endChar": 17
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0908ce99_d7f1922e",
+        "filename": "test/661-oat-writer-layout/gen.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "The only required ordering is with respect to superclass and superinterfaces, see https://source.android.com/devices/tech/dalvik/dex-format .",
+      "range": {
+        "startLine": 103,
+        "startChar": 12,
+        "endLine": 103,
+        "endChar": 54
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "927bd82d_b3b9b201",
+        "filename": "test/661-oat-writer-layout/parse_oatdump_offsets.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Line too long, use the continuation character: \\",
+      "range": {
+        "startLine": 22,
+        "startChar": 49,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82fa7356_35ebef33",
+        "filename": "test/661-oat-writer-layout/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "return Long.compare(codeOffset, other.codeOffset);",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec0b2798_62119b8d",
+        "filename": "test/661-oat-writer-layout/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T16:19:32Z",
+      "side": 1,
+      "message": "Changing the interpretation from code pointer to code offset!\n\nIf we change to 64-bit references, this can cause ordering issues around UINT64_C(1)\u003c\u003c63.",
+      "range": {
+        "startLine": 54,
+        "startChar": 23,
+        "endLine": 54,
+        "endChar": 74
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
