@@ -504,6 +504,11 @@ void Instrumentation::AddListener(InstrumentationListener* listener, uint32_t ev
                            exception_thrown_listeners_,
                            listener,
                            &have_exception_thrown_listeners_);
+  PotentiallyAddListenerTo(kExceptionHandled,
+                           events,
+                           exception_handled_listeners_,
+                           listener,
+                           &have_exception_handled_listeners_);
   UpdateInterpreterHandlerTable();
 }
 
@@ -581,6 +586,11 @@ void Instrumentation::RemoveListener(InstrumentationListener* listener, uint32_t
                                 exception_thrown_listeners_,
                                 listener,
                                 &have_exception_thrown_listeners_);
+  PotentiallyRemoveListenerFrom(kExceptionHandled,
+                                events,
+                                exception_handled_listeners_,
+                                listener,
+                                &have_exception_handled_listeners_);
   UpdateInterpreterHandlerTable();
 }
 
@@ -1093,6 +1103,23 @@ void Instrumentation::ExceptionThrownEvent(Thread* thread,
     for (InstrumentationListener* listener : exception_thrown_listeners_) {
       if (listener != nullptr) {
         listener->ExceptionThrown(thread, h_exception);
+      }
+    }
+    thread->SetException(h_exception.Get());
+  }
+}
+
+void Instrumentation::ExceptionHandledEvent(Thread* thread,
+                                            mirror::Throwable* exception_object) const {
+  Thread* self = Thread::Current();
+  StackHandleScope<1> hs(self);
+  Handle<mirror::Throwable> h_exception(hs.NewHandle(exception_object));
+  if (HasExceptionHandledListeners()) {
+    DCHECK_EQ(thread->GetException(), h_exception.Get());
+    thread->ClearException();
+    for (InstrumentationListener* listener : exception_handled_listeners_) {
+      if (listener != nullptr) {
+        listener->ExceptionHandled(thread, h_exception);
       }
     }
     thread->SetException(h_exception.Get());

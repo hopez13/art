@@ -250,6 +250,11 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
         break;
       case Instruction::MOVE_EXCEPTION: {
         PREAMBLE();
+        // TODO Figure out where we should do this.
+        if (UNLIKELY(instrumentation->HasExceptionHandledListeners())) {
+          instrumentation->ExceptionHandledEvent(self, self->GetException());
+          // TODO Handle new exception
+        }
         ObjPtr<mirror::Throwable> exception = self->GetException();
         DCHECK(exception != nullptr) << "No pending exception on MOVE_EXCEPTION instruction";
         shadow_frame.SetVRegReference(inst->VRegA_11x(inst_data), exception.Ptr());
