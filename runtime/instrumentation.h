@@ -130,6 +130,10 @@ struct InstrumentationListener {
                                Handle<mirror::Throwable> exception_object)
       REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 
+  // Call-back when an exception is caught/handled by java code.
+  virtual void ExceptionHandled(Thread* thread, Handle<mirror::Throwable> exception_object)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+
   // Call-back for when we execute a branch.
   virtual void Branch(Thread* thread,
                       ArtMethod* method,
@@ -162,6 +166,7 @@ class Instrumentation {
     kExceptionThrown = 0x40,
     kBranch = 0x80,
     kInvokeVirtualOrInterface = 0x100,
+    kExceptionHandled = 0x400,
   };
 
   enum class InstrumentationLevel {
@@ -335,11 +340,16 @@ class Instrumentation {
     return have_invoke_virtual_or_interface_listeners_;
   }
 
+  bool HasExceptionHandledListeners() const REQUIRES_SHARED(Locks::mutator_lock_) {
+    return have_exception_handled_listeners_;
+  }
+
   bool IsActive() const REQUIRES_SHARED(Locks::mutator_lock_) {
     return have_dex_pc_listeners_ || have_method_entry_listeners_ || have_method_exit_listeners_ ||
         have_field_read_listeners_ || have_field_write_listeners_ ||
         have_exception_thrown_listeners_ || have_method_unwind_listeners_ ||
-        have_branch_listeners_ || have_invoke_virtual_or_interface_listeners_;
+        have_branch_listeners_ || have_invoke_virtual_or_interface_listeners_ ||
+        have_exception_handled_listeners_;
   }
 
   // Any instrumentation *other* than what is needed for Jit profiling active?
@@ -347,7 +357,7 @@ class Instrumentation {
     return have_dex_pc_listeners_ || have_method_exit_listeners_ ||
         have_field_read_listeners_ || have_field_write_listeners_ ||
         have_exception_thrown_listeners_ || have_method_unwind_listeners_ ||
-        have_branch_listeners_;
+        have_branch_listeners_ || have_exception_handled_listeners_;
   }
 
   // Inform listeners that a method has been entered. A dex PC is provided as we may install
@@ -427,6 +437,11 @@ class Instrumentation {
 
   // Inform listeners that an exception was thrown.
   void ExceptionThrownEvent(Thread* thread, mirror::Throwable* exception_object) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Inform listeners that an exception has been handled. This is not sent for native code or for
+  // exceptions which reach the end of the thread's stack.
+  void ExceptionHandledEvent(Thread* thread, mirror::Throwable* exception_object) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Called when an instrumented method is entered. The intended link register (lr) is saved so
@@ -612,6 +627,10 @@ class Instrumentation {
   // Do we have any invoke listeners? Short-cut to avoid taking the instrumentation_lock_.
   bool have_invoke_virtual_or_interface_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
+  // Do we have any exception handled listeners? Short-cut to avoid taking the
+  // instrumentation_lock_.
+  bool have_exception_handled_listeners_ GUARDED_BY(Locks::mutator_lock_);
+
   // Contains the instrumentation level required by each client of the instrumentation identified
   // by a string key.
   typedef SafeMap<const char*, InstrumentationLevel> InstrumentationLevelTable;
@@ -637,6 +656,7 @@ class Instrumentation {
   std::list<InstrumentationListener*> field_read_listeners_ GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> field_write_listeners_ GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> exception_thrown_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  std::list<InstrumentationListener*> exception_handled_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
   // The set of methods being deoptimized (by the debugger) which must be executed with interpreter
   // only.
