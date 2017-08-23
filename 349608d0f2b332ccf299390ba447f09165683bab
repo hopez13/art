@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f27f6f9_27dd5024",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T12:31:01Z",
+      "side": 1,
+      "message": "Why not\n\n    __ Mov(temp, 0x80000000);  // Modified immediate.\n    __ Lsr(out_reg_lo, temp, out_reg_lo);\n    __ Lsrs(out_reg_hi, temp, out_reg_hi);\n\n? (And I would schedule the MOV earlier, so that no two consecutive instructions are dependent here.)",
+      "range": {
+        "startLine": 2851,
+        "startChar": 0,
+        "endLine": 2855,
+        "endChar": 36
+      },
+      "revId": "349608d0f2b332ccf299390ba447f09165683bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5df33b7_48200219",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2863,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T12:31:01Z",
+      "side": 1,
+      "message": "out_reg_lo may be a high register making the MOV a 32-bit instruction, deprecated in an IT block.",
+      "range": {
+        "startLine": 2862,
+        "startChar": 0,
+        "endLine": 2863,
+        "endChar": 32
+      },
+      "revId": "349608d0f2b332ccf299390ba447f09165683bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3723dc54_49742c8c",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2872,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T12:31:01Z",
+      "side": 1,
+      "message": "Why not\n\n    __ Mov(temp, 0x80000000);  // Modified immediate.\n    __ Lsr(out, temp, out);\n\n?",
+      "range": {
+        "startLine": 2870,
+        "startChar": 0,
+        "endLine": 2872,
+        "endChar": 23
+      },
+      "revId": "349608d0f2b332ccf299390ba447f09165683bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c97f1eb_47da94ae",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2926,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-23T12:31:01Z",
+      "side": 1,
+      "message": "out_reg_hi may be a high register making the MOV a 32-bit instruction, deprecated in an IT block.",
+      "range": {
+        "startLine": 2925,
+        "startChar": 0,
+        "endLine": 2926,
+        "endChar": 32
+      },
+      "revId": "349608d0f2b332ccf299390ba447f09165683bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
