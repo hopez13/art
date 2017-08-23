@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a70dc629_7578b220",
+        "filename": "cmdline/cmdline_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:59:06Z",
+      "side": 1,
+      "message": "nit: please document what the 1 is",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbc9feef_868c0a89",
+        "filename": "cmdline/cmdline_result.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:59:06Z",
+      "side": 1,
+      "message": "What is an extra? Document please.",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7827d5ca_da32dbe0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:59:06Z",
+      "side": 1,
+      "message": "Would prefer if we have  some kind of FdInt wrapper so that the parser can automatically check FDs (it should basically try to dup it and then close it, to check for validity).",
+      "range": {
+        "startLine": 676,
+        "startChar": 22,
+        "endLine": 676,
+        "endChar": 25
+      },
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f064a3ea_f703f6fb",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:59:06Z",
+      "side": 1,
+      "message": "Don\u0027t think ths is the current dex2oat behavior",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c59a779_ff3f945e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:59:06Z",
+      "side": 1,
+      "message": "return std::make_unique",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68304d7e_d48e3afa",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:59:06Z",
+      "side": 1,
+      "message": "there should already be a parser-\u003eParse argc/argv, if not lets add one.",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4afc1b7_b80de72b",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:59:06Z",
+      "side": 1,
+      "message": "nit: line length",
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b6b8d16_4b07c894",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T18:59:06Z",
+      "side": 1,
+      "message": "nit: Dex2Oat ? What do we do elsewhere?",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "30620ac34dc571cce2d5bfeaf7c7c4b61b66faca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
