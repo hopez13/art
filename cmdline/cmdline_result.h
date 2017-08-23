@@ -49,18 +49,20 @@ namespace art {
     // Get the error message, *must* only be called for error status results.
     const std::string& GetMessage() const { assert(IsError()); return message_; }
 
-    // Constructor any status. No message.
-    explicit CmdlineResult(Status status) : status_(status) {}
+    size_t GetExtra() const { return extra_; }
+
+    // Constructor any status. No message, no extra.
+    explicit CmdlineResult(Status status) : status_(status), extra_(0) {}
 
     // Constructor with an error status, copying the message.
-    CmdlineResult(Status status, const std::string& message)
-      : status_(status), message_(message) {
+    CmdlineResult(Status status, const std::string& message, size_t extra = 0u)
+      : status_(status), message_(message), extra_(extra) {
       assert(status != kSuccess);
     }
 
     // Constructor with an error status, taking over the message.
-    CmdlineResult(Status status, std::string&& message)
-      : status_(status), message_(message) {
+    CmdlineResult(Status status, std::string&& message, size_t extra = 0u)
+      : status_(status), message_(message), extra_(extra) {
       assert(status != kSuccess);
     }
 
@@ -72,6 +74,7 @@ namespace art {
   private:
     const Status status_;
     const std::string message_;
+    const size_t extra_;
   };
 
   // TODO: code-generate this

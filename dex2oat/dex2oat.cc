@@ -50,12 +50,14 @@
 #include "base/unix_file/fd_file.h"
 #include "class_linker.h"
 #include "class_loader_context.h"
+#include "cmdline_parser.h"
 #include "compiler.h"
 #include "compiler_callbacks.h"
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
 #include "dex/quick_compiler_callbacks.h"
 #include "dex/verification_results.h"
+#include "dex2oat_options.h"
 #include "dex2oat_return_codes.h"
 #include "dex_file-inl.h"
 #include "driver/compiler_driver.h"
@@ -659,6 +661,26 @@ class Dex2Oat FINAL {
     std::string error_msg;
   };
 
+  using Dex2oatArgumentParser = CmdlineParser<Dex2oatArgumentMap, Dex2oatArgumentMap::Key>;
+
+  static std::unique_ptr<Dex2oatArgumentParser> CreateArgumentParser() {
+    using M = Dex2oatArgumentMap;
+
+    std::unique_ptr<Dex2oatArgumentParser::Builder> parser_builder =
+        std::unique_ptr<Dex2oatArgumentParser::Builder>(new Dex2oatArgumentParser::Builder());
+
+    parser_builder->
+        Define("-help")
+            .IntoKey(M::Help)
+        .Define("--zip-fd=_")
+            .WithType<int>()
+            .IntoKey(M::ZipFd)
+        .IgnoreUnrecognized(true);
+
+    return std::unique_ptr<Dex2oatArgumentParser>(
+        new Dex2oatArgumentParser(parser_builder->Build()));
+  }
+
   void ParseZipFd(const StringPiece& option) {
     ParseUintOption(option, "--zip-fd", &zip_fd_, Usage);
   }
@@ -1185,6 +1207,14 @@ class Dex2Oat FINAL {
     if (argc == 0) {
       Usage("No arguments specified");
     }
+
+    auto parser = CreateArgumentParser();
+    std::vector<const char*> argv_list;
+    for (int i = 0; i < argc; i++) {
+      argv_list.push_back(argv[i]);
+    }
+    CmdlineResult parse_result = parser->Parse(argv_list);
+
 
     std::unique_ptr<ParserOptions> parser_options(new ParserOptions());
     compiler_options_.reset(new CompilerOptions());
