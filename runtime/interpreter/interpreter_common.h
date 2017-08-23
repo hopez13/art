@@ -462,9 +462,10 @@ static inline int32_t DoSparseSwitch(const Instruction* inst, const ShadowFrame&
   return 3;
 }
 
-uint32_t FindNextInstructionFollowingException(Thread* self, ShadowFrame& shadow_frame,
-    uint32_t dex_pc, const instrumentation::Instrumentation* instrumentation)
-        REQUIRES_SHARED(Locks::mutator_lock_);
+bool MoveToExceptionHandler(Thread* self,
+                            ShadowFrame& shadow_frame,
+                            const instrumentation::Instrumentation* instrumentation)
+  REQUIRES_SHARED(Locks::mutator_lock_);
 
 NO_RETURN void UnexpectedOpcode(const Instruction* inst, const ShadowFrame& shadow_frame)
   __attribute__((cold))
