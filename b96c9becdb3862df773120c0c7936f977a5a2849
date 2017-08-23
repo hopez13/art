@@ -453,6 +453,24 @@
     },
     {
       "key": {
+        "uuid": "0069f789_981cc7dd",
+        "filename": "test/661-oat-writer-layout/gen.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T17:15:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7f24fc38_89613a66",
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0908ce99_d7f1922e",
         "filename": "test/661-oat-writer-layout/gen.py",
         "patchSetId": 1
@@ -464,6 +482,30 @@
       "writtenOn": "2017-08-23T16:19:32Z",
       "side": 1,
       "message": "The only required ordering is with respect to superclass and superinterfaces, see https://source.android.com/devices/tech/dalvik/dex-format .",
+      "range": {
+        "startLine": 103,
+        "startChar": 12,
+        "endLine": 103,
+        "endChar": 54
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06af4754_5a78d2c0",
+        "filename": "test/661-oat-writer-layout/gen.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-23T17:15:30Z",
+      "side": 1,
+      "message": "Meant to delete this TODO. As I mention elsewhere in L265, dx happens to sort by class name so this works just fine.",
+      "parentUuid": "0908ce99_d7f1922e",
       "range": {
         "startLine": 103,
         "startChar": 12,
