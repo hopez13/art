@@ -1583,8 +1583,8 @@ void IntrinsicCodeGeneratorARM64::VisitStringEquals(HInvoke* invoke) {
   static_assert(IsAligned<8>(kObjectAlignment), "String of odd length is not zero padded");
 
   if (const_string != nullptr &&
-      const_string_length < (is_compressed ? kShortConstStringEqualsCutoffInBytes
-                                           : kShortConstStringEqualsCutoffInBytes / 2u)) {
+      const_string_length <= (is_compressed ? kShortConstStringEqualsCutoffInBytes
+                                            : kShortConstStringEqualsCutoffInBytes / 2u)) {
     // Load and compare the contents. Though we know the contents of the short const string
     // at compile time, materializing constants may be more code than loading from memory.
     int32_t offset = value_offset;
@@ -1592,7 +1592,7 @@ void IntrinsicCodeGeneratorARM64::VisitStringEquals(HInvoke* invoke) {
         RoundUp(is_compressed ? const_string_length : const_string_length * 2u, 8u);
     temp = temp.X();
     temp1 = temp1.X();
-    while (remaining_bytes > 8u) {
+    while (remaining_bytes > sizeof(uint64_t)) {
       Register temp2 = XRegisterFrom(locations->GetTemp(0));
       __ Ldp(temp, temp1, MemOperand(str.X(), offset));
       __ Ldp(temp2, out, MemOperand(arg.X(), offset));
