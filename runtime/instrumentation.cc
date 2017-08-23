@@ -506,6 +506,11 @@ void Instrumentation::AddListener(InstrumentationListener* listener, uint32_t ev
                            exception_thrown_listeners_,
                            listener,
                            &have_exception_thrown_listeners_);
+  PotentiallyAddListenerTo(kExceptionHandled,
+                           events,
+                           exception_handled_listeners_,
+                           listener,
+                           &have_exception_handled_listeners_);
   UpdateInterpreterHandlerTable();
 }
 
@@ -583,6 +588,11 @@ void Instrumentation::RemoveListener(InstrumentationListener* listener, uint32_t
                                 exception_thrown_listeners_,
                                 listener,
                                 &have_exception_thrown_listeners_);
+  PotentiallyRemoveListenerFrom(kExceptionHandled,
+                                events,
+                                exception_handled_listeners_,
+                                listener,
+                                &have_exception_handled_listeners_);
   UpdateInterpreterHandlerTable();
 }
 
@@ -1098,7 +1108,25 @@ void Instrumentation::ExceptionThrownEvent(Thread* thread,
         listener->ExceptionThrown(thread, h_exception);
       }
     }
+    // See b/65049545 for discussion about this behavior.
+    thread->AssertNoPendingException();
     thread->SetException(h_exception.Get());
+  }
+}
+
+void Instrumentation::ExceptionHandledEvent(Thread* thread,
+                                            mirror::Throwable* exception_object) const {
+  Thread* self = Thread::Current();
+  StackHandleScope<1> hs(self);
+  Handle<mirror::Throwable> h_exception(hs.NewHandle(exception_object));
+  if (HasExceptionHandledListeners()) {
+    // We should have cleared the exception so that callers can detect a new one.
+    DCHECK(thread->GetException() == nullptr);
+    for (InstrumentationListener* listener : exception_handled_listeners_) {
+      if (listener != nullptr) {
+        listener->ExceptionHandled(thread, h_exception);
+      }
+    }
   }
 }
 
