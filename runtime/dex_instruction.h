@@ -577,6 +577,18 @@ class Instruction {
     return (kInstructionDescriptors[Opcode()].flags & kInvoke) != 0;
   }
 
+  // Determine if this instruction is a range invoke.
+  bool IsRangeInvoke() const {
+    return Opcode() == INVOKE_VIRTUAL_RANGE ||
+           Opcode() == INVOKE_SUPER_RANGE ||
+           Opcode() == INVOKE_DIRECT_RANGE ||
+           Opcode() == INVOKE_STATIC_RANGE ||
+           Opcode() == INVOKE_INTERFACE_RANGE ||
+           Opcode() == INVOKE_VIRTUAL_RANGE_QUICK ||
+           Opcode() == INVOKE_POLYMORPHIC_RANGE ||
+           Opcode() == INVOKE_CUSTOM_RANGE;
+  }
+
   // Determine if this instruction is experimental.
   bool IsExperimental() const {
     return (kInstructionDescriptors[Opcode()].flags & kExperimental) != 0;
