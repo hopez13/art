@@ -22,6 +22,23 @@
       "revId": "42c4221620fb9f8460237fcc4278bdbc43a658c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f15e560b_b691e0ee",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-24T20:21:33Z",
+      "side": 1,
+      "message": "I think this should be switched to using FdFile and this problem disappears. \n\nFdFile is not copyable so it has to be explicitly moved or duplicated.",
+      "revId": "42c4221620fb9f8460237fcc4278bdbc43a658c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
