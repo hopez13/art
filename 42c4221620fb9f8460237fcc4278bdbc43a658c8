@@ -39,6 +39,24 @@
       "revId": "42c4221620fb9f8460237fcc4278bdbc43a658c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b531e565_eee31fa9",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T20:25:23Z",
+      "side": 1,
+      "message": "Yes, that is overall the right way, cleaning up our API. But that\u0027s a follow-up CL.",
+      "parentUuid": "f15e560b_b691e0ee",
+      "revId": "42c4221620fb9f8460237fcc4278bdbc43a658c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
