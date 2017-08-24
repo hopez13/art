@@ -116,6 +116,30 @@
       "revId": "866e83efed11f5cab6e28a9c3d9fc0e127172689",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1de44da9_2b80b571",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1897,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-08-24T14:54:03Z",
+      "side": 1,
+      "message": "Before line 1842 seems to be the proper place.",
+      "parentUuid": "9e16d3e4_20c9164f",
+      "range": {
+        "startLine": 1897,
+        "startChar": 4,
+        "endLine": 1897,
+        "endChar": 73
+      },
+      "revId": "866e83efed11f5cab6e28a9c3d9fc0e127172689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
