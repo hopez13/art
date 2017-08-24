@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50fc51b7_5b2343b4",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T00:06:26Z",
+      "side": 1,
+      "message": "Sort",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a67669d2_3ebf2cbc",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T00:06:26Z",
+      "side": 1,
+      "message": "Please put a comment why we need a Context here (because VisitLocks retrieves the monitor objects...)\n\n(You could also consider calling Context::Create() here and adding a destructor explicitly deleting it, so that the users become simpler?)",
+      "range": {
+        "startLine": 832,
+        "startChar": 32,
+        "endLine": 832,
+        "endChar": 35
+      },
+      "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4369d122_e03462e3",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T00:06:26Z",
+      "side": 1,
+      "message": "Is that the right indent?",
+      "range": {
+        "startLine": 832,
+        "startChar": 2,
+        "endLine": 832,
+        "endChar": 4
+      },
+      "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b4418b3_0206812b",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T00:06:26Z",
+      "side": 1,
+      "message": "Consider AllocJvmtiUniquePtr, which handles sizing etc...",
+      "range": {
+        "startLine": 948,
+        "startChar": 21,
+        "endLine": 948,
+        "endChar": 34
+      },
+      "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
