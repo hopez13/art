@@ -95,7 +95,7 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
                            const std::vector<std::string>& extra_args = {},
                            bool expect_success = true,
                            bool use_fd = false,
-                           std::function<void(const OatFile&)> check_oat = [](const OatFile&) {}) {
+                           const std::function<void(const OatFile&)>& check_oat = [](const OatFile&) {}) {
     std::string error_msg;
     int status = GenerateOdexForTestWithStatus({dex_location},
                                                odex_location,
