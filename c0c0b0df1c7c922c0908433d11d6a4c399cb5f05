@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cfed09e_b12b79af",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T00:27:07Z",
+      "side": 1,
+      "message": "Not super happy with this, as it\u0027s an outlier to everything else which is based directly on the flags from the list.",
+      "range": {
+        "startLine": 582,
+        "startChar": 0,
+        "endLine": 589,
+        "endChar": 43
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "984b065f_879f0953",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T00:27:07Z",
+      "side": 1,
+      "message": "Just call VRegB().",
+      "range": {
+        "startLine": 1188,
+        "startChar": 8,
+        "endLine": 1193,
+        "endChar": 9
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30c56535_87d4e5e1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T00:27:07Z",
+      "side": 1,
+      "message": "This may not be OK for proxy methods.",
+      "range": {
+        "startLine": 1194,
+        "startChar": 17,
+        "endLine": 1194,
+        "endChar": 32
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
