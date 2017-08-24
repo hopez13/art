@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "3a387943_8769c602",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T16:05:06Z",
+      "side": 1,
+      "message": "Yeah, that would be my plan, too. Keep the runtime-specific parts in the runtime to make this easier to reuse for the other tools (see the WIP :-) ).",
+      "parentUuid": "676a6f21_3f127d0e",
+      "revId": "f46f57923663c0659804157afccf1543ca7d5b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7fa4075_acd91efe",
         "filename": "cmdline/cmdline_parser.h",
         "patchSetId": 1
