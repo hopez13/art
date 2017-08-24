@@ -211,6 +211,30 @@
       "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54a44b8_d175ecf1",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-08-24T17:56:11Z",
+      "side": 1,
+      "message": "jvmtiErr err;\nJvmtiUniquePtr\u003cjvmtiMonitorStackDepthInfo[]\u003e info(AllocateJvmtiUniquePtr(env, visitor.monitors.size(), \u0026err);\nif (err !\u003d OK) {\n  return err;\n}\n...\n*info_ptr \u003d info.release();\n\nis pretty similarly messy IMO especially because we cannot fail after we allocate the memory so the unique ptr doesn\u0027t buy us much.",
+      "parentUuid": "ed4ea56b_f325b04c",
+      "range": {
+        "startLine": 948,
+        "startChar": 21,
+        "endLine": 948,
+        "endChar": 34
+      },
+      "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
