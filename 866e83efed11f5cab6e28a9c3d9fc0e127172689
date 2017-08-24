@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b4d7482e_e3f89056",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1870,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-08-24T13:52:38Z",
+      "side": 1,
+      "message": "Nevermind, I forgot the code above.",
+      "parentUuid": "9f049bb4_0c86df53",
+      "range": {
+        "startLine": 1869,
+        "startChar": 6,
+        "endLine": 1870,
+        "endChar": 53
+      },
+      "revId": "866e83efed11f5cab6e28a9c3d9fc0e127172689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d9d99e7_4f827914",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 2
