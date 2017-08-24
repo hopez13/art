@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7dcefe48_d7c6956a",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2863,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-08-24T16:27:07Z",
+      "side": 1,
+      "message": "Good point.\nPetre, please refer to some of the it block generation examples in code_generator_arm_vixl.cc. You can still generate such it block, but you will need to check if out_reg.IsLow() first.",
+      "parentUuid": "b5df33b7_48200219",
+      "range": {
+        "startLine": 2862,
+        "startChar": 0,
+        "endLine": 2863,
+        "endChar": 32
+      },
+      "revId": "349608d0f2b332ccf299390ba447f09165683bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3723dc54_49742c8c",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
