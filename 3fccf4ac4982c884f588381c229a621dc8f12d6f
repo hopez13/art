@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97754cbf_c0996d49",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-24T11:14:02Z",
+      "side": 1,
+      "message": "What about\n\n  constexpr size_t high_bit \u003d (type \u003d\u003d Primitive::kPrimLong) ? 63u : 31u;\n  constexpr size_t clz_high_bit \u003d (type \u003d\u003d Primitive::kPrimLong) ? 6u : 5u;\n  __ Clz(temp, src)\n  __ Mov(dst, UINT64_C(1) \u003c\u003c high_bit);  // MOV (bitmask immediate)\n  __ Bic(dst, dst, Operand(temp, LSL, high_bit - clz_high_bit));  // Clear dst if src was 0.\n  __ Lsr(dst, dst, temp);\n\n? (One less instruction but using a shifted-register operand.)",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 20
+      },
+      "revId": "3fccf4ac4982c884f588381c229a621dc8f12d6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
