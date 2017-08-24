@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "91695835_4ea38e1e",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-24T21:33:45Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "7cfed09e_b12b79af",
+      "range": {
+        "startLine": 582,
+        "startChar": 0,
+        "endLine": 589,
+        "endChar": 43
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "984b065f_879f0953",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-24T00:27:07Z",
       "side": 1,
       "message": "Just call VRegB().",
+      "range": {
+        "startLine": 1188,
+        "startChar": 8,
+        "endLine": 1193,
+        "endChar": 9
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d27fe734_ca6f6d6b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-24T21:33:45Z",
+      "side": 1,
+      "message": "That simplifies a lot. Thanks.",
+      "parentUuid": "984b065f_879f0953",
       "range": {
         "startLine": 1188,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f75d0c53_5ffef011",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-24T21:33:45Z",
+      "side": 1,
+      "message": "Added GetInterfaceMethodIfProxy()-\u003e before GetDexFile()",
+      "parentUuid": "30c56535_87d4e5e1",
+      "range": {
+        "startLine": 1194,
+        "startChar": 17,
+        "endLine": 1194,
+        "endChar": 32
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab4fcd1a_283216d5",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-08-24T08:16:09Z",
       "side": 1,
       "message": "Needed only in the then-block of the \"if\" below, so move it there. (Maybe also merge and clean up the comments.)",
+      "range": {
+        "startLine": 1230,
+        "startChar": 0,
+        "endLine": 1233,
+        "endChar": 24
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1d158d6_3ef162a0",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-24T21:33:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab4fcd1a_283216d5",
       "range": {
         "startLine": 1230,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "aaf2d524_cecdc24c",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-24T21:33:45Z",
+      "side": 1,
+      "message": "Compiled code does seem to call StringFactory.newEmptyString(). I sort of remember that\u0027s how the original code was added to handle the deoptimization back from the call. Otherwise deoptimization isn\u0027t possible at new-instance before this CL which allows deoptimization when coming back from runtime method.\n\nchanged the comment to:\nincluding \"new-instance String\" which is compiled into a call into StringFactory.newEmptyString().",
+      "parentUuid": "d7ae4d29_4ec29cfe",
+      "range": {
+        "startLine": 564,
+        "startChar": 59,
+        "endLine": 565,
+        "endChar": 65
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bda207cb_d3a73f53",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 4
@@ -128,6 +248,24 @@
       "writtenOn": "2017-08-24T08:16:09Z",
       "side": 1,
       "message": "We could also explicitly handle the opcodes just like we special-case the NEW_INSTANCE above.",
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f702c14_f8b28559",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-24T21:33:45Z",
+      "side": 1,
+      "message": "changed to:\nThat also requires that we can tell the return type of a runtime method, possibly by decoding the dex instruction at the caller.",
+      "parentUuid": "bda207cb_d3a73f53",
       "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "b5761d51_33a9c68e",
+        "filename": "test/597-deopt-busy-loop/deopt.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-24T21:33:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d782b42_68182e13",
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c54fd0a6_998101ba",
         "filename": "test/597-deopt-invoke-stub/deopt.cc",
         "patchSetId": 4
@@ -162,6 +318,24 @@
       "writtenOn": "2017-08-24T08:16:09Z",
       "side": 1,
       "message": "Delete this _unused_ file.",
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc4f3fc8_8e48b707",
+        "filename": "test/597-deopt-invoke-stub/deopt.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-24T21:33:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c54fd0a6_998101ba",
       "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
