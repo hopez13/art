@@ -68,6 +68,103 @@
       "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab4fcd1a_283216d5",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-24T08:16:09Z",
+      "side": 1,
+      "message": "Needed only in the then-block of the \"if\" below, so move it there. (Maybe also merge and clean up the comments.)",
+      "range": {
+        "startLine": 1230,
+        "startChar": 0,
+        "endLine": 1233,
+        "endChar": 24
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7ae4d29_4ec29cfe",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-24T08:16:09Z",
+      "side": 1,
+      "message": "This is \"new-instance String\" rather than \"invoke-direct String.\u003cinit\u003e()\". The interpreter turns it into\n\n  obj \u003d mirror::String::AllocEmptyString\u003ctrue\u003e(self, allocator_type);\n\nrather than a StringFactory call.",
+      "range": {
+        "startLine": 564,
+        "startChar": 59,
+        "endLine": 565,
+        "endChar": 65
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bda207cb_d3a73f53",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-24T08:16:09Z",
+      "side": 1,
+      "message": "We could also explicitly handle the opcodes just like we special-case the NEW_INSTANCE above.",
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d782b42_68182e13",
+        "filename": "test/597-deopt-busy-loop/deopt.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-24T08:16:09Z",
+      "side": 1,
+      "message": "Delete this _unused_ file. It\u0027s not listed in test/Android.bp and if it was, that would cause an ODR violation for Java_Main_deoptimizeAll in libarttest.so, no diagnostic required.\n\nThe test shall reuse the native code from test/597-deopt-new-string/deopt.cc .",
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54fd0a6_998101ba",
+        "filename": "test/597-deopt-invoke-stub/deopt.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-24T08:16:09Z",
+      "side": 1,
+      "message": "Delete this _unused_ file.",
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
