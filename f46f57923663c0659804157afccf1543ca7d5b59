@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "676a6f21_3f127d0e",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-24T15:59:36Z",
+      "side": 1,
+      "message": "If we wanted to do more cleanup, I think having art_cmdline.h or runtime_cmdline.h that\u0027s in art/runtime directory and has the ART-specific type specialization of the cmdline parsing would be the easiest way to do that (potentially in a future CL).",
+      "parentUuid": "f536fefc_a677dde9",
+      "revId": "f46f57923663c0659804157afccf1543ca7d5b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7fa4075_acd91efe",
         "filename": "cmdline/cmdline_parser.h",
         "patchSetId": 1
