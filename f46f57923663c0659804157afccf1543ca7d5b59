@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "f536fefc_a677dde9",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T15:21:51Z",
+      "side": 1,
+      "message": "It isn\u0027t linking, but you need libart exactly because of the types. It would be nice to get that automagically, but I think it is some extra point I\u0027d like to clean up in the future.",
+      "parentUuid": "12b48dc4_66666f45",
+      "revId": "f46f57923663c0659804157afccf1543ca7d5b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7fa4075_acd91efe",
         "filename": "cmdline/cmdline_parser.h",
         "patchSetId": 1
