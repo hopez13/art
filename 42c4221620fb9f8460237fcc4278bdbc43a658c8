@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "084fc036_ae9a2ff9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2796,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-08-24T20:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db95abfc_19cf56b2",
+      "range": {
+        "startLine": 2796,
+        "startChar": 32,
+        "endLine": 2796,
+        "endChar": 51
+      },
+      "revId": "42c4221620fb9f8460237fcc4278bdbc43a658c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f15e560b_b691e0ee",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
