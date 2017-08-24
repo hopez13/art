@@ -187,6 +187,30 @@
       "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4ea56b_f325b04c",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-24T17:50:17Z",
+      "side": 1,
+      "message": "But it isn\u0027t pretty and requires manual size computation.",
+      "parentUuid": "68f00de7_94767f35",
+      "range": {
+        "startLine": 948,
+        "startChar": 21,
+        "endLine": 948,
+        "endChar": 34
+      },
+      "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
