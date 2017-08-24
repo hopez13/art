@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e1debca_2a07f8c3",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1595,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-08-24T13:46:46Z",
+      "side": 1,
+      "message": "BTW, VIXL has vixl::aarch64::kXRegSizeInBytes, though it is more verbose.",
+      "range": {
+        "startLine": 1595,
+        "startChar": 29,
+        "endLine": 1595,
+        "endChar": 45
+      },
+      "revId": "866e83efed11f5cab6e28a9c3d9fc0e127172689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f049bb4_0c86df53",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1870,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-08-24T13:46:46Z",
+      "side": 1,
+      "message": "Alternatively:\n\n __ Sub(temp, temp, out);\n codegen_-\u003eGenerateConditionWithZero(kCondEQ, out, temp);\n __ Bind(\u0026end);\n return;\n\nYou can also change the last of the unrolled iterations in the same way (when there are no remaining bytes).\n\nBTW, according to the VIXL team, a conditional Bind() makes no difference, and, indeed, the current upstream VIXL version removes the IsReferenced() method completely.",
+      "range": {
+        "startLine": 1869,
+        "startChar": 6,
+        "endLine": 1870,
+        "endChar": 53
+      },
+      "revId": "866e83efed11f5cab6e28a9c3d9fc0e127172689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d9d99e7_4f827914",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1897,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-08-24T13:46:46Z",
+      "side": 1,
+      "message": "Mention this before line 1866 as well?",
+      "range": {
+        "startLine": 1897,
+        "startChar": 4,
+        "endLine": 1897,
+        "endChar": 73
+      },
+      "revId": "866e83efed11f5cab6e28a9c3d9fc0e127172689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
