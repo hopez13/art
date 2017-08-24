@@ -89,13 +89,14 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
     return status;
   }
 
-  void GenerateOdexForTest(const std::string& dex_location,
-                           const std::string& odex_location,
-                           CompilerFilter::Filter filter,
-                           const std::vector<std::string>& extra_args = {},
-                           bool expect_success = true,
-                           bool use_fd = false,
-                           std::function<void(const OatFile&)> check_oat = [](const OatFile&) {}) {
+  void GenerateOdexForTest(
+      const std::string& dex_location,
+      const std::string& odex_location,
+      CompilerFilter::Filter filter,
+      const std::vector<std::string>& extra_args = {},
+      bool expect_success = true,
+      bool use_fd = false,
+      const std::function<void(const OatFile&)>& check_oat = [](const OatFile&) {}) {
     std::string error_msg;
     int status = GenerateOdexForTestWithStatus({dex_location},
                                                odex_location,
