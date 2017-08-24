@@ -259,6 +259,30 @@
       "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e1eae95_b088a025",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-08-24T18:13:47Z",
+      "side": 1,
+      "message": "Ack. I think that is a bit too magical TBH.",
+      "parentUuid": "ff79328e_71cc9397",
+      "range": {
+        "startLine": 948,
+        "startChar": 21,
+        "endLine": 948,
+        "endChar": 34
+      },
+      "revId": "e92c10715000ad462803dff017ab7bd77ccf6e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
