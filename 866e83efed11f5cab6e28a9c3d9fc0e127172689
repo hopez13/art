@@ -92,6 +92,30 @@
       "revId": "866e83efed11f5cab6e28a9c3d9fc0e127172689",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e16d3e4_20c9164f",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1897,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-24T14:39:15Z",
+      "side": 1,
+      "message": "That would be misplaced. Maybe near the RoundUp() at line 1852? Or simply move the comment before line 1842?",
+      "parentUuid": "3d9d99e7_4f827914",
+      "range": {
+        "startLine": 1897,
+        "startChar": 4,
+        "endLine": 1897,
+        "endChar": 73
+      },
+      "revId": "866e83efed11f5cab6e28a9c3d9fc0e127172689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
