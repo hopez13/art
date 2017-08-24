@@ -2793,7 +2793,10 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
                              &error_msg);
   } else if (oat_dex_file->source_.IsRawFile()) {
     File* raw_file = oat_dex_file->source_.GetRawFile();
-    dex_file = DexFile::OpenDex(raw_file->Fd(), location, /* verify_checksum */ true, &error_msg);
+    dex_file = DexFile::OpenDex(dup(raw_file->Fd()),
+                                location,
+                                /* verify_checksum */ true,
+                                &error_msg);
   } else {
     // The source data is a vdex file.
     CHECK(oat_dex_file->source_.IsRawData())
