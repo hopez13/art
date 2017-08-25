@@ -55,6 +55,47 @@
     },
     {
       "key": {
+        "uuid": "feaae144_fd836027",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2889,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-25T17:37:37Z",
+      "side": 1,
+      "message": "All other \"new (arena_) LocationSummary(...)\" calls in this file are encapsulated in helper functions. So it would make sense to add that helper function in this CL.",
+      "parentUuid": "0f78399e_aa69d2ca",
+      "revId": "82fbd46005d11cf3ce1f1e07e4af4f616eb4b07d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d2edb0e_2196fb45",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-25T17:37:37Z",
+      "side": 1,
+      "message": "Since we\u0027ve got kOutputOverlap, the input and output shall be in different registers. So, using the output registers instead of the temp, we can have better scheduling and, if both input and output are low regs, smaller code size:\n\n    __ Rsb(out_reg_hi, in_reg_hi, 0);\n    __ Rsb(out_reg_lo, in_reg_lo, 0);\n    __ And(out_reg_hi, out_reg_hi, in_reg_hi);\n    // The result of this operation is 0 iff in_reg_lo is 0\n    __ Ands(out_reg_lo, out_reg_lo, in_reg_lo);\n\nwhere all 4 instructions are potentially 16-bit. However, 16-bit versions would set flags and that\u0027s supposedly bad on Cortex-A57 (but OK on Cortex-A53).",
+      "range": {
+        "startLine": 2919,
+        "startChar": 0,
+        "endLine": 2923,
+        "endChar": 41
+      },
+      "revId": "82fbd46005d11cf3ce1f1e07e4af4f616eb4b07d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cde54d9d_2d4edda8",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 5
