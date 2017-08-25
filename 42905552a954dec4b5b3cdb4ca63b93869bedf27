@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ebb2e96_e53f9a5d",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-08-25T23:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3b5efef_ef794a41",
+      "range": {
+        "startLine": 216,
+        "startChar": 14,
+        "endLine": 216,
+        "endChar": 22
+      },
+      "revId": "42905552a954dec4b5b3cdb4ca63b93869bedf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2816ae4c_020f5f4b",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-11T23:28:16Z",
       "side": 1,
       "message": "thinking more about this...\nI think we should just collapse this functionality in the Load method. I don\u0027t think we need so many different ways to load/merge profiles. With your change we should be able to lift the restriction in Load for the profile to be empty. That restriction was added because it was non-trivial to merge directly from a file but not it should be ok.",
+      "range": {
+        "startLine": 308,
+        "startChar": 7,
+        "endLine": 308,
+        "endChar": 16
+      },
+      "revId": "42905552a954dec4b5b3cdb4ca63b93869bedf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1cdf424_fc357ea8",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-08-25T23:59:40Z",
+      "side": 1,
+      "message": "There are few dependencies on MergeWith(in tests and others), will add a TODO here to remove it.",
+      "parentUuid": "2816ae4c_020f5f4b",
       "range": {
         "startLine": 308,
         "startChar": 7,
