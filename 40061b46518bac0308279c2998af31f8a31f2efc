@@ -52,6 +52,24 @@
       "revId": "40061b46518bac0308279c2998af31f8a31f2efc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3481de28_b08203da",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-25T16:11:46Z",
+      "side": 0,
+      "message": "This isn\u0027t really pretty in C++, IMHO, and means that you have to put a lambda into a variable so you can take a pointer, right?\n\nI instead went with the two functions approach.",
+      "parentUuid": "17dc48e7_7cc49167",
+      "revId": "40061b46518bac0308279c2998af31f8a31f2efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
