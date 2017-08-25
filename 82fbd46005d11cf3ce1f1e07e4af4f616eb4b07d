@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1767729c_43888671",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2889,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-25T17:12:45Z",
+      "side": 1,
+      "message": "here, and below, any reason not to use the CreateIntToIntLocations utility?\n\nBrowsing around it seems we have missed a few other places we could have done that, unless I am overlooking a subtlety here",
+      "revId": "82fbd46005d11cf3ce1f1e07e4af4f616eb4b07d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cde54d9d_2d4edda8",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2958,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-25T17:12:45Z",
+      "side": 1,
+      "message": "same question",
+      "revId": "82fbd46005d11cf3ce1f1e07e4af4f616eb4b07d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
