@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b0ceb09_f22fe540",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2873,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-25T13:47:37Z",
+      "side": 1,
+      "message": "This part can be taken out of the if-then-else and shared for both branches. Just construct an Operand to pass to the mov().",
+      "range": {
+        "startLine": 2869,
+        "startChar": 0,
+        "endLine": 2873,
+        "endChar": 35
+      },
+      "revId": "bb95d878d64576e25d438ebe876708a44b57bf01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
