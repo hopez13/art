@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c06ef69_c3e7b188",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2866,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-25T10:15:06Z",
+      "side": 1,
+      "message": "This generates 6 bytes:\n\n    bne 1f\n    mov out_reg_lo, #0\n  1:\n\nIf you want to use a branch-free but 8-byte sequence, you can change that to\n\n    mov temp, #0  // LeaveFlags\n    it ne\n    movne out_reg_lo, temp\n\nDo you prefer smaller code or branch-free code?\n\nIf you want the smaller code, you can remove the explicit IT+MOV above. The \"__ Mov(ne, out_reg_lo, 0);\" macro shall do that for you if out_reg_lo is a low register.",
+      "range": {
+        "startLine": 2866,
+        "startChar": 6,
+        "endLine": 2866,
+        "endChar": 32
+      },
+      "revId": "ee77edaaf1bb1c1a11f70f324c0c0e8a9d393d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd42698_2d7ae443",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2934,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-25T10:15:06Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2922,
+        "startChar": 0,
+        "endLine": 2934,
+        "endChar": 5
+      },
+      "revId": "ee77edaaf1bb1c1a11f70f324c0c0e8a9d393d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
