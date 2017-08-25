@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63905fac_daff9c9e",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2848,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-25T15:21:24Z",
+      "side": 1,
+      "message": "I\u0027d prefer this closer to its use, i.e. just before the \"if\". Maybe even\n\n    Operand mov_src(0);\n    if (!out_reg_lo.IsLow()) {\n      __ Mov(LeaveFlags, temp, 0);\n      mov_src \u003d Operand(temp);\n    }\n\nto avoid the ternary operator and make it clear that the MOV and setting the mov_src belong together.",
+      "revId": "438c23f7965ab608e49cf85dd38ffd28394b2ac5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
