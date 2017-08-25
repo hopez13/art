@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "7b8d905d_23ccff85",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-25T09:45:30Z",
+      "side": 1,
+      "message": "I see. While SsaBuilder::RemoveRedundantUninitializedStrings() replaces some HNewInstance/String with HNullConstant, those that remain use the pNewEmptyString entrypoint to call through to StringFactory.newEmptyString().",
+      "parentUuid": "aaf2d524_cecdc24c",
+      "range": {
+        "startLine": 564,
+        "startChar": 59,
+        "endLine": 565,
+        "endChar": 65
+      },
+      "revId": "c0c0b0df1c7c922c0908433d11d6a4c399cb5f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bda207cb_d3a73f53",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 4
