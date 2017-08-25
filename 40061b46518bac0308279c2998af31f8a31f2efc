@@ -16,6 +16,24 @@
       "revId": "40061b46518bac0308279c2998af31f8a31f2efc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2d5a413_f1b7593b",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-25T01:44:05Z",
+      "side": 0,
+      "message": "I\u0027d rather add the \u0026 (and I\u0027m not aware how to do the default nicely with lambdas - I guess a second function?) then add a NOLINT.",
+      "parentUuid": "3bbd6c31_8b7bf655",
+      "revId": "40061b46518bac0308279c2998af31f8a31f2efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
