@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0f78399e_aa69d2ca",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2889,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-25T17:22:22Z",
+      "side": 1,
+      "message": "Ah I knew I was overlooking something :-)\n\nNevertheless, since we are using the overlap case twice now (and I see a few more that could benefit), I still would suggest using a new utility for that with an intuitive name to (1) avoid code dup and (2) make the subtlety jump out more.",
+      "parentUuid": "1b155143_60ffdaed",
+      "revId": "82fbd46005d11cf3ce1f1e07e4af4f616eb4b07d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cde54d9d_2d4edda8",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 5
