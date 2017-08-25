@@ -31,11 +31,15 @@
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/unix_file/fd_file.h"
+#include "class_linker.h"
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
 #include "image.h"
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
+#include "oat.h"
+#include "oat_file.h"
+#include "oat_file_manager.h"
 #include "os.h"
 #include "scoped_thread_state_change-inl.h"
 
@@ -337,7 +341,13 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
                         bool dump_dirty_objects)
       : RegionCommon<mirror::Object>(os, remote_contents, zygote_contents, boot_map, image_header),
         os_(*os),
-        dump_dirty_objects_(dump_dirty_objects) { }
+        dump_dirty_objects_(dump_dirty_objects) {
+      // Initialized for processing the region.
+      region_end_ =
+          image_header.GetImageBegin() +
+          image_header.GetImageSection(ImageHeader::kSectionObjects).End();
+      skip_image_header_ = true;
+    }
 
   void CheckEntrySanity(const uint8_t* current) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -354,8 +364,17 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
 
   mirror::Object* GetNextEntry(mirror::Object* entry)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    uint8_t* next =
-        reinterpret_cast<uint8_t*>(entry) + RoundUp(EntrySize(entry), kObjectAlignment);
+    uint8_t* next;
+    if (skip_image_header_) {
+      // Skip the ImageHeader, which is in the Object space.
+      next = reinterpret_cast<uint8_t*>(entry) + RoundUp(sizeof(ImageHeader), kObjectAlignment);
+      skip_image_header_ = false;
+    } else {
+      next = reinterpret_cast<uint8_t*>(entry) + RoundUp(EntrySize(entry), kObjectAlignment);
+    }
+    if (next >= region_end_) {
+      return nullptr;
+    }
     return reinterpret_cast<mirror::Object*>(next);
   }
 
@@ -611,43 +630,102 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
   bool dump_dirty_objects_;
   std::unordered_set<mirror::Object*> dirty_objects_;
   std::map<mirror::Class*, ClassData> class_data_;
+  const uint8_t* region_end_;
+  bool skip_image_header_;
 
   DISALLOW_COPY_AND_ASSIGN(RegionSpecializedBase);
+};
+
+
+// Struct and functor for computing offsets of members of ArtMethods.
+template<typename RegionType>
+struct MemberInfo {
+  template<typename T>
+  void operator() (ArtMethod* method, const T* member_address, const std::string& name) {
+    size_t offset =
+        reinterpret_cast<const uint8_t*>(member_address) - reinterpret_cast<const uint8_t*>(method);
+    offset_to_tuple_.emplace(offset, Tuple(sizeof(T), name));
+  }
+
+  struct Tuple {
+    size_t size_;
+    std::string name_;
+    Tuple(size_t size, const std::string& name) : size_(size), name_(name) { }
+    Tuple() : size_(0), name_("INVALID") { }
+  };
+
+  std::map<size_t, Tuple> offset_to_tuple_;
 };
 
 // Region analysis for ArtMethods.
 // TODO: most of these need work.
 template<>
-class RegionSpecializedBase<ArtMethod> : RegionCommon<ArtMethod> {
+class RegionSpecializedBase<ArtMethod> : public RegionCommon<ArtMethod> {
  public:
+  using MemberInfoTuple = MemberInfo<RegionSpecializedBase>::Tuple;
+
   RegionSpecializedBase(std::ostream* os,
                         std::vector<uint8_t>* remote_contents,
                         std::vector<uint8_t>* zygote_contents,
                         const backtrace_map_t& boot_map,
-                        const ImageHeader& image_header) :
-    RegionCommon<ArtMethod>(os, remote_contents, zygote_contents, boot_map, image_header),
-    os_(*os) { }
+                        const ImageHeader& image_header,
+                        bool dump_dirty_objects ATTRIBUTE_UNUSED)
+      : RegionCommon<ArtMethod>(os, remote_contents, zygote_contents, boot_map, image_header),
+        os_(*os) {
+    ArtMethod* art_method = reinterpret_cast<ArtMethod*>(&(*remote_contents)[0]);
+    art_method->VisitMembers(member_info_);
+    BuildEntryPointNames();
+    // Set up the iterator.
+    array_ = nullptr;
+    region_end_ =
+        image_header.GetImageBegin() +
+        image_header.GetImageSection(ImageHeader::kSectionArtMethods).End();
+    class_linker_ = Runtime::Current()->GetClassLinker();
+  }
 
-  void CheckEntrySanity(const uint8_t* current ATTRIBUTE_UNUSED) const
+  void CheckEntrySanity(const uint8_t* current) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
+    CHECK_ALIGNED(current, kObjectAlignment);
+    // TODO: other sanity checks.
   }
 
   ArtMethod* GetNextEntry(ArtMethod* entry)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    uint8_t* next = reinterpret_cast<uint8_t*>(entry) + RoundUp(EntrySize(entry), kObjectAlignment);
-    return reinterpret_cast<ArtMethod*>(next);
+    const PointerSize pointer_size =
+        InstructionSetPointerSize(Runtime::Current()->GetInstructionSet());
+    const size_t method_alignment = ArtMethod::Alignment(pointer_size);
+    const size_t method_size = ArtMethod::Size(pointer_size);
+    if (array_ == nullptr) {
+      if (reinterpret_cast<uint8_t*>(entry) >= region_end_) {
+        return nullptr;
+      }
+      array_ = reinterpret_cast<LengthPrefixedArray<ArtMethod>*>(entry);
+      array_index_ = 0;
+    } else {
+      ++array_index_;
+      if (array_index_ >= array_->size()) {
+        entry = &array_->At(array_index_, method_size, method_alignment);
+        if (reinterpret_cast<uint8_t*>(entry) >= region_end_) {
+          return nullptr;
+        } else {
+          array_ = reinterpret_cast<LengthPrefixedArray<ArtMethod>*>(entry);
+          array_index_ = 0;
+        }
+      }
+    }
+    return &array_->At(array_index_, method_size, method_alignment);
   }
 
   void VisitEntry(ArtMethod* method ATTRIBUTE_UNUSED)
       REQUIRES_SHARED(Locks::mutator_lock_) {
   }
 
+  void AddCleanEntry(ArtMethod* method ATTRIBUTE_UNUSED) {
+  }
+
   void AddFalseDirtyEntry(ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     RegionCommon<ArtMethod>::AddFalseDirtyEntry(method);
-  }
-
-  void AddCleanEntry(ArtMethod* method ATTRIBUTE_UNUSED) {
   }
 
   void AddDirtyEntry(ArtMethod* method, ArtMethod* method_remote)
@@ -667,14 +745,51 @@ class RegionSpecializedBase<ArtMethod> : RegionCommon<ArtMethod> {
     dirty_entries_.push_back(method);
   }
 
-  void DiffEntryContents(ArtMethod* method ATTRIBUTE_UNUSED,
-                         uint8_t* remote_bytes ATTRIBUTE_UNUSED,
-                         const uint8_t* base_ptr ATTRIBUTE_UNUSED)
+  void DiffEntryContents(ArtMethod* method,
+                         uint8_t* remote_bytes,
+                         const uint8_t* base_ptr,
+                         bool log_dirty_objects ATTRIBUTE_UNUSED)
       REQUIRES_SHARED(Locks::mutator_lock_) {
+    const char* tabs = "    ";
+    os_ << tabs << "ArtMethod " << ArtMethod::PrettyMethod(method) << "\n";
+
+    std::unordered_set<size_t> dirty_members;
+    // Examine the members comprising the ArtMethod, computing which members are dirty.
+    for (const std::pair<size_t, MemberInfoTuple>& p : member_info_.offset_to_tuple_) {
+      size_t offset = p.first;
+      if (memcmp(base_ptr + offset, remote_bytes + offset, p.second.size_) != 0) {
+        dirty_members.insert(p.first);
+      }
+    }
+    // Dump different fields.
+    if (!dirty_members.empty()) {
+      os_ << tabs << "Dirty members " << dirty_members.size() << "\n";
+      for (size_t offset : dirty_members) {
+        const MemberInfoTuple& member_info = member_info_.offset_to_tuple_[offset];
+        os_ << tabs << member_info.name_
+            << " original=" << StringFromBytes(base_ptr + offset, member_info.size_)
+            << " remote=" << StringFromBytes(remote_bytes + offset, member_info.size_)
+            << "\n";
+      }
+    }
+    os_ << "\n";
+  }
+
+  void DumpDirtyObjects() REQUIRES_SHARED(Locks::mutator_lock_) {
   }
 
   void DumpDirtyEntries() REQUIRES_SHARED(Locks::mutator_lock_) {
     DumpSamplesAndOffsetCount();
+    os_ << "      offset to field map:\n";
+    for (const std::pair<size_t, MemberInfoTuple>& p : member_info_.offset_to_tuple_) {
+      size_t offset = p.first;
+      size_t size = p.second.size_;
+
+      os_ << StringPrintf("        %zu-%zu: ", offset, offset + size - 1)
+          << p.second.name_
+          << std::endl;
+    }
+
     os_ << "      field contents:\n";
     for (ArtMethod* method : dirty_entries_) {
       // remote method
@@ -694,6 +809,7 @@ class RegionSpecializedBase<ArtMethod> : RegionCommon<ArtMethod> {
   }
 
   void DumpFalseDirtyEntries() REQUIRES_SHARED(Locks::mutator_lock_) {
+    os_ << "\n" << "  False-dirty ArtMethods\n";
     os_ << "      field contents:\n";
     for (ArtMethod* method : false_dirty_entries_) {
       // local class
@@ -707,6 +823,83 @@ class RegionSpecializedBase<ArtMethod> : RegionCommon<ArtMethod> {
 
  private:
   std::ostream& os_;
+  const uint8_t* region_end_;
+  LengthPrefixedArray<ArtMethod>* array_;
+  size_t array_index_;
+  MemberInfo<RegionSpecializedBase> member_info_;
+  std::map<const void*, std::string> entry_point_names_;
+  ClassLinker* class_linker_;
+
+  void BuildEntryPointNames() {
+    OatFileManager& oat_file_manager = Runtime::Current()->GetOatFileManager();
+    std::vector<const OatFile*> boot_oat_files = oat_file_manager.GetBootOatFiles();
+    for (const OatFile* oat_file : boot_oat_files) {
+      const OatHeader& oat_header = oat_file->GetOatHeader();
+      const void* i2ib = oat_header.GetInterpreterToInterpreterBridge();
+      if (i2ib != nullptr) {
+        entry_point_names_[i2ib] = "InterpreterToInterpreterBridge (from boot oat file)";
+      }
+      const void* i2ccb = oat_header.GetInterpreterToCompiledCodeBridge();
+      if (i2ccb != nullptr) {
+        entry_point_names_[i2ccb] = "InterpreterToCompiledCodeBridge (from boot oat file)";
+      }
+      const void* jdl = oat_header.GetJniDlsymLookup();
+      if (jdl != nullptr) {
+        entry_point_names_[jdl] = "JniDlsymLookup (from boot oat file)";
+      }
+      const void* qgjt = oat_header.GetQuickGenericJniTrampoline();
+      if (qgjt != nullptr) {
+        entry_point_names_[qgjt] = "QuickGenericJniTrampoline (from boot oat file)";
+      }
+      const void* qrt = oat_header.GetQuickResolutionTrampoline();
+      if (qrt != nullptr) {
+        entry_point_names_[qrt] = "QuickResolutionTrampoline (from boot oat file)";
+      }
+      const void* qict = oat_header.GetQuickImtConflictTrampoline();
+      if (qict != nullptr) {
+        entry_point_names_[qict] = "QuickImtConflictTrampoline (from boot oat file)";
+      }
+      const void* q2ib = oat_header.GetQuickToInterpreterBridge();
+      if (q2ib != nullptr) {
+        entry_point_names_[q2ib] = "QuickToInterpreterBridge (from boot oat file)";
+      }
+    }
+  }
+
+  std::string StringFromBytes(const uint8_t* bytes, size_t size) {
+    switch (size) {
+      case 1:
+        return StringPrintf("%" PRIx8, *bytes);
+      case 2:
+        return StringPrintf("%" PRIx16, *reinterpret_cast<const uint16_t*>(bytes));
+      case 4:
+      case 8: {
+        uint64_t intval;
+        if (size == 4) {
+          intval = *reinterpret_cast<const uint32_t*>(bytes);
+        } else {
+          intval = *reinterpret_cast<const uint64_t*>(bytes);
+        }
+        const void* addr = reinterpret_cast<const void*>(intval);
+        if (class_linker_->IsQuickToInterpreterBridge(addr)) {
+          return "QuickToInterpreterBridge";
+        } else if (class_linker_->IsQuickGenericJniStub(addr)) {
+          return "QuickGenericJniStub";
+        } else if (class_linker_->IsQuickResolutionStub(addr)) {
+          return "QuickResolutionStub";
+        } else if (class_linker_->IsJniDlsymLookupStub(addr)) {
+          return "JniDlsymLookupStub";
+        }
+        if (entry_point_names_.find(addr) != entry_point_names_.end()) {
+          return entry_point_names_[addr];
+        }
+        return StringPrintf("%" PRIx64, intval);
+      }
+      default:
+        LOG(WARNING) << "Don't know how to convert " << size << " bytes to integer";
+        return "<UNKNOWN>";
+    }
+  }
 
   void DumpOneArtMethod(ArtMethod* art_method,
                         mirror::Class* declaring_class,
@@ -756,11 +949,12 @@ class RegionData : public RegionSpecializedBase<T> {
   void ProcessRegion(const MappingData& mapping_data,
                      RemoteProcesses remotes,
                      const uint8_t* begin_image_ptr,
-                     const uint8_t* end_image_ptr)
+                     const uint8_t* begin_region_ptr,
+                     const uint8_t* end_region_ptr ATTRIBUTE_UNUSED)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    const uint8_t* current = begin_image_ptr + RoundUp(sizeof(ImageHeader), kObjectAlignment);
-    T* entry = reinterpret_cast<T*>(const_cast<uint8_t*>(current));
-    while (reinterpret_cast<uintptr_t>(entry) < reinterpret_cast<uintptr_t>(end_image_ptr)) {
+    T* entry = reinterpret_cast<T*>(const_cast<uint8_t*>(begin_region_ptr));
+    entry = RegionSpecializedBase<T>::GetNextEntry(entry);
+    while (entry != nullptr) {
       ComputeEntryDirty(entry, begin_image_ptr, mapping_data.dirty_page_set);
 
       entry = RegionSpecializedBase<T>::GetNextEntry(entry);
@@ -1208,8 +1402,6 @@ class ImgDiagDumper {
        << "\n\n";
 
     const uint8_t* image_begin_unaligned = image_header_.GetImageBegin();
-    const uint8_t* image_mirror_end_unaligned = image_begin_unaligned +
-        image_header_.GetImageSection(ImageHeader::kSectionObjects).Size();
     const uint8_t* image_end_unaligned = image_begin_unaligned + image_header_.GetImageSize();
 
     // Adjust range to nearest page
@@ -1235,14 +1427,6 @@ class ImgDiagDumper {
     if (!ComputeDirtyBytes(image_begin, &mapping_data)) {
       return false;
     }
-
-    RegionData<mirror::Object> object_region_data(os_,
-                                                  &remote_contents_,
-                                                  &zygote_contents_,
-                                                  boot_map_,
-                                                  image_header_,
-                                                  dump_dirty_objects_);
-
     RemoteProcesses remotes;
     if (zygote_pid_only_) {
       remotes = RemoteProcesses::kZygoteOnly;
@@ -1252,11 +1436,39 @@ class ImgDiagDumper {
       remotes = RemoteProcesses::kImageOnly;
     }
 
+    // Check all the mirror::Object entries in the image.
+    const uint8_t* object_begin_unaligned = image_begin_unaligned +
+        image_header_.GetImageSection(ImageHeader::kSectionObjects).Offset();
+    const uint8_t* object_end_unaligned = object_begin_unaligned +
+        image_header_.GetImageSection(ImageHeader::kSectionObjects).Size();
+    RegionData<mirror::Object> object_region_data(os_,
+                                                  &remote_contents_,
+                                                  &zygote_contents_,
+                                                  boot_map_,
+                                                  image_header_,
+                                                  dump_dirty_objects_);
     object_region_data.ProcessRegion(mapping_data,
                                      remotes,
                                      image_begin_unaligned,
-                                     image_mirror_end_unaligned);
+                                     object_begin_unaligned,
+                                     object_end_unaligned);
 
+    // Check all the ArtMethod entries in the image.
+    const uint8_t* artmethod_begin_unaligned = image_begin_unaligned +
+        image_header_.GetImageSection(ImageHeader::kSectionArtMethods).Offset();
+    const uint8_t* artmethod_end_unaligned = artmethod_begin_unaligned +
+        image_header_.GetImageSection(ImageHeader::kSectionArtMethods).Size();
+    RegionData<ArtMethod> artmethod_region_data(os_,
+                                                &remote_contents_,
+                                                &zygote_contents_,
+                                                boot_map_,
+                                                image_header_,
+                                                dump_dirty_objects_);
+    artmethod_region_data.ProcessRegion(mapping_data,
+                                        remotes,
+                                        image_begin_unaligned,
+                                        artmethod_begin_unaligned,
+                                        artmethod_end_unaligned);
     return true;
   }
 
