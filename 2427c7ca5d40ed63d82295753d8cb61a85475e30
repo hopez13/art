@@ -34,6 +34,24 @@
       "revId": "2427c7ca5d40ed63d82295753d8cb61a85475e30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f112e9d_78032983",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T02:52:10Z",
+      "side": 1,
+      "message": "There\u0027s really no value in doing this outside of move constructors or type deduction tricks.\n\nIt only makes things more complicated.\n\nFor example, consider that std::move itself returns a \u0026\u0026 that means\n\n   std::move(code) on L31 returns a std::vector\u003cuint8_t\u003e\u0026\u0026 \n\nbut then, why is the std::move necessary if code is already that type?\n\nbecause it becomes an lvalue reference the moment it\u0027s bound to a variable.",
+      "parentUuid": "63e6b5a8_e00ac69a",
+      "revId": "2427c7ca5d40ed63d82295753d8cb61a85475e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

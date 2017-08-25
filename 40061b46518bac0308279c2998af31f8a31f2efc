@@ -34,6 +34,24 @@
       "revId": "40061b46518bac0308279c2998af31f8a31f2efc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17dc48e7_7cc49167",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T02:52:10Z",
+      "side": 0,
+      "message": "In this case it would\u0027ve been cleaner to have an optional parameter that is not invoked when it\u0027s not set. Think java listeners.\n\n\n    void foo(Function f) {\n       if (f !\u003d null) {\n          f.apply(...);\n       }\n    }",
+      "parentUuid": "c2d5a413_f1b7593b",
+      "revId": "40061b46518bac0308279c2998af31f8a31f2efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
