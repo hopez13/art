@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "74e3a031_4b89cf21",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53cb3f6f_2f3b2480",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 8
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cac978bb_f0503118",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -89,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "536e44cc_c08cdbeb",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f03d5db9_21200dac",
+      "range": {
+        "startLine": 840,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 61
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a1ad3d4_7b0ae58a",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -100,6 +148,30 @@
       "writtenOn": "2017-08-23T16:19:32Z",
       "side": 1,
       "message": "Remove this member, the name can be reconstructed using method_reference.",
+      "range": {
+        "startLine": 867,
+        "startChar": 2,
+        "endLine": 867,
+        "endChar": 19
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3029b4_bd1a73d1",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a1ad3d4_7b0ae58a",
       "range": {
         "startLine": 867,
         "startChar": 2,
@@ -183,6 +255,30 @@
     },
     {
       "key": {
+        "uuid": "e912809c_9a202346",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad57ab0c_c949022f",
+      "range": {
+        "startLine": 876,
+        "startChar": 2,
+        "endLine": 876,
+        "endChar": 22
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "998a329f_44d4f4d2",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -206,6 +302,30 @@
     },
     {
       "key": {
+        "uuid": "d8ab5efc_734577ca",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "998a329f_44d4f4d2",
+      "range": {
+        "startLine": 950,
+        "startChar": 27,
+        "endLine": 958,
+        "endChar": 48
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18086f99_ca0596ed",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -217,6 +337,30 @@
       "writtenOn": "2017-08-24T09:48:43Z",
       "side": 1,
       "message": "With reordered methods this shall result in overlapping compilation units. I guess that\u0027s not good for the debugger.",
+      "range": {
+        "startLine": 1007,
+        "startChar": 0,
+        "endLine": 1009,
+        "endChar": 57
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b262c968_e1bd46ea",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Do I need to take any action here? It\u0027s passing all the tests as-is.",
+      "parentUuid": "18086f99_ca0596ed",
       "range": {
         "startLine": 1007,
         "startChar": 0,
@@ -299,6 +443,30 @@
     },
     {
       "key": {
+        "uuid": "b3cd9f26_840d7a4e",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7f2f0d0_08f77431",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 47
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc563361_adb1b6a5",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -322,6 +490,30 @@
     },
     {
       "key": {
+        "uuid": "503d80c9_424e8cc6",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc563361_adb1b6a5",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1107,
+        "endChar": 38
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea66a4d8_2967ff15",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -333,6 +525,30 @@
       "writtenOn": "2017-08-23T16:19:32Z",
       "side": 1,
       "message": "This scope is rather unnecessary now.",
+      "range": {
+        "startLine": 1125,
+        "startChar": 4,
+        "endLine": 1125,
+        "endChar": 5
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b6c6ac2_4f4c363f",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea66a4d8_2967ff15",
       "range": {
         "startLine": 1125,
         "startChar": 4,
@@ -391,6 +607,30 @@
     },
     {
       "key": {
+        "uuid": "73a12931_4e129d39",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fe8dc30_69322305",
+      "range": {
+        "startLine": 1782,
+        "startChar": 0,
+        "endLine": 1789,
+        "endChar": 3
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c472588e_86bc784d",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -402,6 +642,30 @@
       "writtenOn": "2017-08-23T16:19:32Z",
       "side": 1,
       "message": "This log looks useless.",
+      "range": {
+        "startLine": 2257,
+        "startChar": 0,
+        "endLine": 2260,
+        "endChar": 42
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dc2ed55_d8a5c945",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2260,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c472588e_86bc784d",
       "range": {
         "startLine": 2257,
         "startChar": 0,
@@ -437,6 +701,30 @@
     },
     {
       "key": {
+        "uuid": "7ef95dd3_c4780138",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2265,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30c05eef_867922a1",
+      "range": {
+        "startLine": 2265,
+        "startChar": 12,
+        "endLine": 2265,
+        "endChar": 40
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d863f793_8c74a5e8",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -460,6 +748,30 @@
     },
     {
       "key": {
+        "uuid": "1d1900e6_909af6c3",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2282,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d863f793_8c74a5e8",
+      "range": {
+        "startLine": 2281,
+        "startChar": 0,
+        "endLine": 2282,
+        "endChar": 0
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5684906e_09670a85",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 1
@@ -471,6 +783,30 @@
       "writtenOn": "2017-08-23T16:19:32Z",
       "side": 1,
       "message": "Why the extra indirection? Cannot instantiate std::vector\u003c.\u003e with incomplete type?",
+      "range": {
+        "startLine": 488,
+        "startChar": 2,
+        "endLine": 488,
+        "endChar": 17
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74248c55_dbd6b8aa",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "5684906e_09670a85",
       "range": {
         "startLine": 488,
         "startChar": 2,
@@ -518,6 +854,24 @@
     },
     {
       "key": {
+        "uuid": "07559b05_d77d25be",
+        "filename": "test/661-oat-writer-layout/gen.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0069f789_981cc7dd",
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0908ce99_d7f1922e",
         "filename": "test/661-oat-writer-layout/gen.py",
         "patchSetId": 1
@@ -553,6 +907,30 @@
       "side": 1,
       "message": "Meant to delete this TODO. As I mention elsewhere in L265, dx happens to sort by class name so this works just fine.",
       "parentUuid": "0908ce99_d7f1922e",
+      "range": {
+        "startLine": 103,
+        "startChar": 12,
+        "endLine": 103,
+        "endChar": 54
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2ec2cab_6f5fef70",
+        "filename": "test/661-oat-writer-layout/gen.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06af4754_5a78d2c0",
       "range": {
         "startLine": 103,
         "startChar": 12,
@@ -611,6 +989,30 @@
     },
     {
       "key": {
+        "uuid": "95f4cd92_ebe4af4c",
+        "filename": "test/661-oat-writer-layout/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82fa7356_35ebef33",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec0b2798_62119b8d",
         "filename": "test/661-oat-writer-layout/src/Main.java",
         "patchSetId": 1
@@ -622,6 +1024,30 @@
       "writtenOn": "2017-08-23T16:19:32Z",
       "side": 1,
       "message": "Changing the interpretation from code pointer to code offset!\n\nIf we change to 64-bit references, this can cause ordering issues around UINT64_C(1)\u003c\u003c63.",
+      "range": {
+        "startLine": 54,
+        "startChar": 23,
+        "endLine": 54,
+        "endChar": 74
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "804237af_b4ffa664",
+        "filename": "test/661-oat-writer-layout/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-25T22:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec0b2798_62119b8d",
       "range": {
         "startLine": 54,
         "startChar": 23,
