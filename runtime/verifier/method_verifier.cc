@@ -3763,10 +3763,12 @@ const RegType& MethodVerifier::ResolveClassAndCheckAccess(dex::TypeIndex class_i
   // Check if access is allowed. Unresolved types use xxxWithAccessCheck to
   // check at runtime if access is allowed and so pass here. If result is
   // primitive, skip the access check.
-  if (result->IsNonZeroReferenceTypes() && !result->IsUnresolvedTypes()) {
+  //
+  // Note: we do this for unresolved classes to trigger re-verification at runtime.
+  if (result->IsNonZeroReferenceTypes()) {
     const RegType& referrer = GetDeclaringClass();
-    if (!referrer.IsUnresolvedTypes() && !referrer.CanAccess(*result)) {
-      Fail(VERIFY_ERROR_ACCESS_CLASS) << "illegal class access: '"
+    if (!referrer.CanAccess(*result)) {
+      Fail(VERIFY_ERROR_ACCESS_CLASS) << "(possibly) illegal class access: '"
                                       << referrer << "' -> '" << *result << "'";
     }
   }
@@ -4820,6 +4822,7 @@ ArtField* MethodVerifier::GetStaticField(int field_idx) {
     return nullptr;
   }
   if (klass_type.IsUnresolvedTypes()) {
+    DCHECK(!failures_.empty());  // Accessibility checks depend on resolved fields.
     return nullptr;  // Can't resolve Class so no more to do here, will do checking at runtime.
   }
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
@@ -4858,6 +4861,7 @@ ArtField* MethodVerifier::GetInstanceField(const RegType& obj_type, int field_id
     return nullptr;
   }
   if (klass_type.IsUnresolvedTypes()) {
+    DCHECK(!failures_.empty());  // Accessibility checks depend on resolved fields.
     return nullptr;  // Can't resolve Class so no more to do here
   }
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
