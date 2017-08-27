@@ -87,13 +87,12 @@ static jobject Method_invoke(JNIEnv* env, jobject javaMethod, jobject javaReceiv
   return InvokeMethod(soa, javaMethod, javaReceiver, javaArgs);
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(Method, getDefaultValue, "()Ljava/lang/Object;"),
-  FAST_NATIVE_METHOD(Method, getExceptionTypes, "()[Ljava/lang/Class;"),
-  FAST_NATIVE_METHOD(Method, invoke, "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"),
-};
-
 void register_java_lang_reflect_Method(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(Method, getDefaultValue, "()Ljava/lang/Object;"),
+    FAST_NATIVE_METHOD(Method, getExceptionTypes, "()[Ljava/lang/Class;"),
+    FAST_NATIVE_METHOD(Method, invoke, "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/reflect/Method");
 }
 

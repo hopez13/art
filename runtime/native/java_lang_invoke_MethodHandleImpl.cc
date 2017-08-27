@@ -68,11 +68,11 @@ static jobject MethodHandleImpl_getMemberInternal(JNIEnv* env, jobject thiz) {
   return soa.AddLocalReference<jobject>(h_object.Get());
 }
 
-static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(MethodHandleImpl, getMemberInternal, "()Ljava/lang/reflect/Member;"),
-};
 
 void register_java_lang_invoke_MethodHandleImpl(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    NATIVE_METHOD(MethodHandleImpl, getMemberInternal, "()Ljava/lang/reflect/Member;"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/invoke/MethodHandleImpl");
 }
 

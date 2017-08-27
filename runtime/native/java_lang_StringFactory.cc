@@ -88,13 +88,14 @@ static jstring StringFactory_newStringFromString(JNIEnv* env, jclass, jstring to
   return soa.AddLocalReference<jstring>(result);
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(StringFactory, newStringFromBytes, "([BIII)Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(StringFactory, newStringFromChars, "(II[C)Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(StringFactory, newStringFromString, "(Ljava/lang/String;)Ljava/lang/String;"),
-};
-
 void register_java_lang_StringFactory(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(StringFactory, newStringFromBytes, "([BIII)Ljava/lang/String;"),
+    FAST_NATIVE_METHOD(StringFactory, newStringFromChars, "(II[C)Ljava/lang/String;"),
+    FAST_NATIVE_METHOD(StringFactory,
+                       newStringFromString,
+                       "(Ljava/lang/String;)Ljava/lang/String;"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/StringFactory");
 }
 

@@ -170,18 +170,17 @@ static void DdmVmInternal_threadNotify(JNIEnv*, jclass, jboolean enable) {
   Dbg::DdmSetThreadNotification(enable);
 }
 
-static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(DdmVmInternal, enableRecentAllocations, "(Z)V"),
-  FAST_NATIVE_METHOD(DdmVmInternal, getRecentAllocations, "()[B"),
-  FAST_NATIVE_METHOD(DdmVmInternal, getRecentAllocationStatus, "()Z"),
-  NATIVE_METHOD(DdmVmInternal, getStackTraceById, "(I)[Ljava/lang/StackTraceElement;"),
-  NATIVE_METHOD(DdmVmInternal, getThreadStats, "()[B"),
-  FAST_NATIVE_METHOD(DdmVmInternal, heapInfoNotify, "(I)Z"),
-  NATIVE_METHOD(DdmVmInternal, heapSegmentNotify, "(IIZ)Z"),
-  NATIVE_METHOD(DdmVmInternal, threadNotify, "(Z)V"),
-};
-
 void register_org_apache_harmony_dalvik_ddmc_DdmVmInternal(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    NATIVE_METHOD(DdmVmInternal, enableRecentAllocations, "(Z)V"),
+    FAST_NATIVE_METHOD(DdmVmInternal, getRecentAllocations, "()[B"),
+    FAST_NATIVE_METHOD(DdmVmInternal, getRecentAllocationStatus, "()Z"),
+    NATIVE_METHOD(DdmVmInternal, getStackTraceById, "(I)[Ljava/lang/StackTraceElement;"),
+    NATIVE_METHOD(DdmVmInternal, getThreadStats, "()[B"),
+    FAST_NATIVE_METHOD(DdmVmInternal, heapInfoNotify, "(I)Z"),
+    NATIVE_METHOD(DdmVmInternal, heapSegmentNotify, "(IIZ)Z"),
+    NATIVE_METHOD(DdmVmInternal, threadNotify, "(Z)V"),
+  };
   REGISTER_NATIVE_METHODS("org/apache/harmony/dalvik/ddmc/DdmVmInternal");
 }
 

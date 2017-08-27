@@ -230,19 +230,18 @@ static void System_arraycopyBooleanUnchecked(JNIEnv* env, jclass, jobject javaSr
       javaDst, dstPos, count);
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(System, arraycopy, "(Ljava/lang/Object;ILjava/lang/Object;II)V"),
-  FAST_NATIVE_METHOD(System, arraycopyCharUnchecked, "([CI[CII)V"),
-  FAST_NATIVE_METHOD(System, arraycopyByteUnchecked, "([BI[BII)V"),
-  FAST_NATIVE_METHOD(System, arraycopyShortUnchecked, "([SI[SII)V"),
-  FAST_NATIVE_METHOD(System, arraycopyIntUnchecked, "([II[III)V"),
-  FAST_NATIVE_METHOD(System, arraycopyLongUnchecked, "([JI[JII)V"),
-  FAST_NATIVE_METHOD(System, arraycopyFloatUnchecked, "([FI[FII)V"),
-  FAST_NATIVE_METHOD(System, arraycopyDoubleUnchecked, "([DI[DII)V"),
-  FAST_NATIVE_METHOD(System, arraycopyBooleanUnchecked, "([ZI[ZII)V"),
-};
-
 void register_java_lang_System(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(System, arraycopy, "(Ljava/lang/Object;ILjava/lang/Object;II)V"),
+    FAST_NATIVE_METHOD(System, arraycopyCharUnchecked, "([CI[CII)V"),
+    FAST_NATIVE_METHOD(System, arraycopyByteUnchecked, "([BI[BII)V"),
+    FAST_NATIVE_METHOD(System, arraycopyShortUnchecked, "([SI[SII)V"),
+    FAST_NATIVE_METHOD(System, arraycopyIntUnchecked, "([II[III)V"),
+    FAST_NATIVE_METHOD(System, arraycopyLongUnchecked, "([JI[JII)V"),
+    FAST_NATIVE_METHOD(System, arraycopyFloatUnchecked, "([FI[FII)V"),
+    FAST_NATIVE_METHOD(System, arraycopyDoubleUnchecked, "([DI[DII)V"),
+    FAST_NATIVE_METHOD(System, arraycopyBooleanUnchecked, "([ZI[ZII)V"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/System");
 }
 

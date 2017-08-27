@@ -34,11 +34,10 @@ static void DdmServer_nativeSendChunk(JNIEnv* env, jclass, jint type,
   Dbg::DdmSendChunk(type, length, reinterpret_cast<const uint8_t*>(&data[offset]));
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(DdmServer, nativeSendChunk, "(I[BII)V"),
-};
-
 void register_org_apache_harmony_dalvik_ddmc_DdmServer(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(DdmServer, nativeSendChunk, "(I[BII)V"),
+  };
   REGISTER_NATIVE_METHODS("org/apache/harmony/dalvik/ddmc/DdmServer");
 }
 

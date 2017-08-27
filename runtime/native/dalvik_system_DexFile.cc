@@ -744,45 +744,44 @@ static jobjectArray DexFile_getDexFileOutputPaths(JNIEnv* env,
   return result;
 }
 
-static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(DexFile, closeDexFile, "(Ljava/lang/Object;)Z"),
-  NATIVE_METHOD(DexFile,
-                defineClassNative,
-                "(Ljava/lang/String;"
-                "Ljava/lang/ClassLoader;"
-                "Ljava/lang/Object;"
-                "Ldalvik/system/DexFile;"
-                ")Ljava/lang/Class;"),
-  NATIVE_METHOD(DexFile, getClassNameList, "(Ljava/lang/Object;)[Ljava/lang/String;"),
-  NATIVE_METHOD(DexFile, isDexOptNeeded, "(Ljava/lang/String;)Z"),
-  NATIVE_METHOD(DexFile, getDexOptNeeded,
-                "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)I"),
-  NATIVE_METHOD(DexFile, openDexFileNative,
-                "(Ljava/lang/String;"
-                "Ljava/lang/String;"
-                "I"
-                "Ljava/lang/ClassLoader;"
-                "[Ldalvik/system/DexPathList$Element;"
-                ")Ljava/lang/Object;"),
-  NATIVE_METHOD(DexFile, createCookieWithDirectBuffer,
-                "(Ljava/nio/ByteBuffer;II)Ljava/lang/Object;"),
-  NATIVE_METHOD(DexFile, createCookieWithArray, "([BII)Ljava/lang/Object;"),
-  NATIVE_METHOD(DexFile, isValidCompilerFilter, "(Ljava/lang/String;)Z"),
-  NATIVE_METHOD(DexFile, isProfileGuidedCompilerFilter, "(Ljava/lang/String;)Z"),
-  NATIVE_METHOD(DexFile,
-                getNonProfileGuidedCompilerFilter,
-                "(Ljava/lang/String;)Ljava/lang/String;"),
-  NATIVE_METHOD(DexFile,
-                getSafeModeCompilerFilter,
-                "(Ljava/lang/String;)Ljava/lang/String;"),
-  NATIVE_METHOD(DexFile, isBackedByOatFile, "(Ljava/lang/Object;)Z"),
-  NATIVE_METHOD(DexFile, getDexFileStatus,
-                "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"),
-  NATIVE_METHOD(DexFile, getDexFileOutputPaths,
-                "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;")
-};
-
 void register_dalvik_system_DexFile(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+      NATIVE_METHOD(DexFile, closeDexFile, "(Ljava/lang/Object;)Z"),
+      NATIVE_METHOD(DexFile,
+                    defineClassNative,
+                    "(Ljava/lang/String;"
+                    "Ljava/lang/ClassLoader;"
+                    "Ljava/lang/Object;"
+                    "Ldalvik/system/DexFile;"
+                    ")Ljava/lang/Class;"),
+      NATIVE_METHOD(DexFile, getClassNameList, "(Ljava/lang/Object;)[Ljava/lang/String;"),
+      NATIVE_METHOD(DexFile, isDexOptNeeded, "(Ljava/lang/String;)Z"),
+      NATIVE_METHOD(DexFile, getDexOptNeeded,
+          "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)I"),
+      NATIVE_METHOD(DexFile, openDexFileNative,
+                    "(Ljava/lang/String;"
+                    "Ljava/lang/String;"
+                    "I"
+                    "Ljava/lang/ClassLoader;"
+                    "[Ldalvik/system/DexPathList$Element;"
+                    ")Ljava/lang/Object;"),
+      NATIVE_METHOD(DexFile, createCookieWithDirectBuffer,
+                    "(Ljava/nio/ByteBuffer;II)Ljava/lang/Object;"),
+      NATIVE_METHOD(DexFile, createCookieWithArray, "([BII)Ljava/lang/Object;"),
+      NATIVE_METHOD(DexFile, isValidCompilerFilter, "(Ljava/lang/String;)Z"),
+      NATIVE_METHOD(DexFile, isProfileGuidedCompilerFilter, "(Ljava/lang/String;)Z"),
+      NATIVE_METHOD(DexFile,
+                    getNonProfileGuidedCompilerFilter,
+                    "(Ljava/lang/String;)Ljava/lang/String;"),
+      NATIVE_METHOD(DexFile,
+                    getSafeModeCompilerFilter,
+                    "(Ljava/lang/String;)Ljava/lang/String;"),
+      NATIVE_METHOD(DexFile, isBackedByOatFile, "(Ljava/lang/Object;)Z"),
+      NATIVE_METHOD(DexFile, getDexFileStatus,
+                    "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"),
+      NATIVE_METHOD(DexFile, getDexFileOutputPaths,
+                    "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;")
+  };
   REGISTER_NATIVE_METHODS("dalvik/system/DexFile");
 }
 

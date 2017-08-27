@@ -323,25 +323,28 @@ static jint Executable_getParameterCountInternal(JNIEnv* env, jobject javaMethod
 }
 
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(Executable, compareMethodParametersInternal,
-                     "(Ljava/lang/reflect/Method;)I"),
-  FAST_NATIVE_METHOD(Executable, getAnnotationNative,
-                     "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;"),
-  FAST_NATIVE_METHOD(Executable, getDeclaredAnnotationsNative,
-                     "()[Ljava/lang/annotation/Annotation;"),
-  FAST_NATIVE_METHOD(Executable, getParameterAnnotationsNative,
-                     "()[[Ljava/lang/annotation/Annotation;"),
-  FAST_NATIVE_METHOD(Executable, getMethodNameInternal, "()Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(Executable, getMethodReturnTypeInternal, "()Ljava/lang/Class;"),
-  FAST_NATIVE_METHOD(Executable, getParameterTypesInternal, "()[Ljava/lang/Class;"),
-  FAST_NATIVE_METHOD(Executable, getParameterCountInternal, "()I"),
-  FAST_NATIVE_METHOD(Executable, getParameters0, "()[Ljava/lang/reflect/Parameter;"),
-  FAST_NATIVE_METHOD(Executable, getSignatureAnnotation, "()[Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(Executable, isAnnotationPresentNative, "(Ljava/lang/Class;)Z"),
-};
-
 void register_java_lang_reflect_Executable(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(Executable,
+                       compareMethodParametersInternal,
+                       "(Ljava/lang/reflect/Method;)I"),
+    FAST_NATIVE_METHOD(Executable,
+                       getAnnotationNative,
+                       "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;"),
+    FAST_NATIVE_METHOD(Executable,
+                       getDeclaredAnnotationsNative,
+                       "()[Ljava/lang/annotation/Annotation;"),
+    FAST_NATIVE_METHOD(Executable,
+                       getParameterAnnotationsNative,
+                       "()[[Ljava/lang/annotation/Annotation;"),
+    FAST_NATIVE_METHOD(Executable, getMethodNameInternal, "()Ljava/lang/String;"),
+    FAST_NATIVE_METHOD(Executable, getMethodReturnTypeInternal, "()Ljava/lang/Class;"),
+    FAST_NATIVE_METHOD(Executable, getParameterTypesInternal, "()[Ljava/lang/Class;"),
+    FAST_NATIVE_METHOD(Executable, getParameterCountInternal, "()I"),
+    FAST_NATIVE_METHOD(Executable, getParameters0, "()[Ljava/lang/reflect/Parameter;"),
+    FAST_NATIVE_METHOD(Executable, getSignatureAnnotation, "()[Ljava/lang/String;"),
+    FAST_NATIVE_METHOD(Executable, isAnnotationPresentNative, "(Ljava/lang/Class;)Z"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/reflect/Executable");
 }
 

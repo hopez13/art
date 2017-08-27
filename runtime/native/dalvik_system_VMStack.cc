@@ -145,15 +145,18 @@ static jobjectArray VMStack_getThreadStackTrace(JNIEnv* env, jclass, jobject jav
   return Thread::InternalStackTraceToStackTraceElementArray(soa, trace);
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(VMStack, fillStackTraceElements, "(Ljava/lang/Thread;[Ljava/lang/StackTraceElement;)I"),
-  FAST_NATIVE_METHOD(VMStack, getCallingClassLoader, "()Ljava/lang/ClassLoader;"),
-  FAST_NATIVE_METHOD(VMStack, getClosestUserClassLoader, "()Ljava/lang/ClassLoader;"),
-  FAST_NATIVE_METHOD(VMStack, getStackClass2, "()Ljava/lang/Class;"),
-  FAST_NATIVE_METHOD(VMStack, getThreadStackTrace, "(Ljava/lang/Thread;)[Ljava/lang/StackTraceElement;"),
-};
-
 void register_dalvik_system_VMStack(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(VMStack,
+                       fillStackTraceElements,
+                       "(Ljava/lang/Thread;[Ljava/lang/StackTraceElement;)I"),
+    FAST_NATIVE_METHOD(VMStack, getCallingClassLoader, "()Ljava/lang/ClassLoader;"),
+    FAST_NATIVE_METHOD(VMStack, getClosestUserClassLoader, "()Ljava/lang/ClassLoader;"),
+    FAST_NATIVE_METHOD(VMStack, getStackClass2, "()Ljava/lang/Class;"),
+    FAST_NATIVE_METHOD(VMStack,
+                       getThreadStackTrace,
+                       "(Ljava/lang/Thread;)[Ljava/lang/StackTraceElement;"),
+  };
   REGISTER_NATIVE_METHODS("dalvik/system/VMStack");
 }
 

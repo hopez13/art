@@ -194,21 +194,20 @@ static void Thread_yield(JNIEnv*, jobject) {
   sched_yield();
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(Thread, currentThread, "()Ljava/lang/Thread;"),
-  FAST_NATIVE_METHOD(Thread, interrupted, "()Z"),
-  FAST_NATIVE_METHOD(Thread, isInterrupted, "()Z"),
-  NATIVE_METHOD(Thread, nativeCreate, "(Ljava/lang/Thread;JZ)V"),
-  NATIVE_METHOD(Thread, nativeGetStatus, "(Z)I"),
-  NATIVE_METHOD(Thread, nativeHoldsLock, "(Ljava/lang/Object;)Z"),
-  FAST_NATIVE_METHOD(Thread, nativeInterrupt, "()V"),
-  NATIVE_METHOD(Thread, nativeSetName, "(Ljava/lang/String;)V"),
-  NATIVE_METHOD(Thread, nativeSetPriority, "(I)V"),
-  FAST_NATIVE_METHOD(Thread, sleep, "(Ljava/lang/Object;JI)V"),
-  NATIVE_METHOD(Thread, yield, "()V"),
-};
-
 void register_java_lang_Thread(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(Thread, currentThread, "()Ljava/lang/Thread;"),
+    FAST_NATIVE_METHOD(Thread, interrupted, "()Z"),
+    FAST_NATIVE_METHOD(Thread, isInterrupted, "()Z"),
+    NATIVE_METHOD(Thread, nativeCreate, "(Ljava/lang/Thread;JZ)V"),
+    NATIVE_METHOD(Thread, nativeGetStatus, "(Z)I"),
+    NATIVE_METHOD(Thread, nativeHoldsLock, "(Ljava/lang/Object;)Z"),
+    FAST_NATIVE_METHOD(Thread, nativeInterrupt, "()V"),
+    NATIVE_METHOD(Thread, nativeSetName, "(Ljava/lang/String;)V"),
+    NATIVE_METHOD(Thread, nativeSetPriority, "(I)V"),
+    FAST_NATIVE_METHOD(Thread, sleep, "(Ljava/lang/Object;JI)V"),
+    NATIVE_METHOD(Thread, yield, "()V"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/Thread");
 }
 

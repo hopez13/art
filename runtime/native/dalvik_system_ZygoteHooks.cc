@@ -353,14 +353,13 @@ static void ZygoteHooks_stopZygoteNoThreadCreation(JNIEnv* env ATTRIBUTE_UNUSED,
   Runtime::Current()->SetZygoteNoThreadSection(false);
 }
 
-static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(ZygoteHooks, nativePreFork, "()J"),
-  NATIVE_METHOD(ZygoteHooks, nativePostForkChild, "(JIZLjava/lang/String;)V"),
-  NATIVE_METHOD(ZygoteHooks, startZygoteNoThreadCreation, "()V"),
-  NATIVE_METHOD(ZygoteHooks, stopZygoteNoThreadCreation, "()V"),
-};
-
 void register_dalvik_system_ZygoteHooks(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    NATIVE_METHOD(ZygoteHooks, nativePreFork, "()J"),
+    NATIVE_METHOD(ZygoteHooks, nativePostForkChild, "(JIZLjava/lang/String;)V"),
+    NATIVE_METHOD(ZygoteHooks, startZygoteNoThreadCreation, "()V"),
+    NATIVE_METHOD(ZygoteHooks, stopZygoteNoThreadCreation, "()V"),
+  };
   REGISTER_NATIVE_METHODS("dalvik/system/ZygoteHooks");
 }
 

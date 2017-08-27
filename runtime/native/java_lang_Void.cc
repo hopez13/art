@@ -32,11 +32,10 @@ static jclass Void_lookupType(JNIEnv* env, jclass) {
       Runtime::Current()->GetClassLinker()->GetClassRoot(ClassLinker::kPrimitiveVoid));
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(Void, lookupType, "()Ljava/lang/Class;"),
-};
-
 void register_java_lang_Void(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(Void, lookupType, "()Ljava/lang/Class;"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/Void");
 }
 

@@ -29,11 +29,10 @@ static jboolean AtomicLong_VMSupportsCS8(JNIEnv*, jclass) {
   return QuasiAtomic::LongAtomicsUseMutexes(kRuntimeISA) ? JNI_FALSE : JNI_TRUE;
 }
 
-static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(AtomicLong, VMSupportsCS8, "()Z"),
-};
-
 void register_java_util_concurrent_atomic_AtomicLong(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    NATIVE_METHOD(AtomicLong, VMSupportsCS8, "()Z"),
+  };
   REGISTER_NATIVE_METHODS("java/util/concurrent/atomic/AtomicLong");
 }
 

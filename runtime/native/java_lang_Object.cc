@@ -57,16 +57,15 @@ static jint Object_identityHashCodeNative(JNIEnv* env, jclass, jobject javaObjec
   return static_cast<jint>(o->IdentityHashCode());
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(Object, internalClone, "()Ljava/lang/Object;"),
-  FAST_NATIVE_METHOD(Object, notify, "()V"),
-  FAST_NATIVE_METHOD(Object, notifyAll, "()V"),
-  OVERLOADED_FAST_NATIVE_METHOD(Object, wait, "()V", wait),
-  OVERLOADED_FAST_NATIVE_METHOD(Object, wait, "(JI)V", waitJI),
-  FAST_NATIVE_METHOD(Object, identityHashCodeNative, "(Ljava/lang/Object;)I"),
-};
-
 void register_java_lang_Object(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(Object, internalClone, "()Ljava/lang/Object;"),
+    FAST_NATIVE_METHOD(Object, notify, "()V"),
+    FAST_NATIVE_METHOD(Object, notifyAll, "()V"),
+    OVERLOADED_FAST_NATIVE_METHOD(Object, wait, "()V", wait),
+    OVERLOADED_FAST_NATIVE_METHOD(Object, wait, "(JI)V", waitJI),
+    FAST_NATIVE_METHOD(Object, identityHashCodeNative, "(Ljava/lang/Object;)I"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/Object");
 }
 

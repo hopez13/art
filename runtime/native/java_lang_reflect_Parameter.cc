@@ -64,13 +64,13 @@ static jobject Parameter_getAnnotationNative(JNIEnv* env,
       annotations::GetAnnotationForMethodParameter(method, parameterIndex, klass));
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(Parameter,
-                getAnnotationNative,
-                "(Ljava/lang/reflect/Executable;ILjava/lang/Class;)Ljava/lang/annotation/Annotation;"),
-};
-
 void register_java_lang_reflect_Parameter(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(
+        Parameter,
+        getAnnotationNative,
+        "(Ljava/lang/reflect/Executable;ILjava/lang/Class;)Ljava/lang/annotation/Annotation;"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/reflect/Parameter");
 }
 

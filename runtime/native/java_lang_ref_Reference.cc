@@ -42,12 +42,11 @@ static void Reference_clearReferent(JNIEnv* env, jobject javaThis) {
   Runtime::Current()->GetHeap()->GetReferenceProcessor()->ClearReferent(ref);
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(Reference, getReferent, "()Ljava/lang/Object;"),
-  FAST_NATIVE_METHOD(Reference, clearReferent, "()V"),
-};
-
 void register_java_lang_ref_Reference(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(Reference, getReferent, "()Ljava/lang/Object;"),
+    FAST_NATIVE_METHOD(Reference, clearReferent, "()V"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/ref/Reference");
 }
 

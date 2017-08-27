@@ -38,12 +38,13 @@ static jobjectArray Throwable_nativeGetStackTrace(JNIEnv* env, jclass, jobject j
   return Thread::InternalStackTraceToStackTraceElementArray(soa, javaStackState);
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(Throwable, nativeFillInStackTrace, "()Ljava/lang/Object;"),
-  FAST_NATIVE_METHOD(Throwable, nativeGetStackTrace, "(Ljava/lang/Object;)[Ljava/lang/StackTraceElement;"),
-};
-
 void register_java_lang_Throwable(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(Throwable, nativeFillInStackTrace, "()Ljava/lang/Object;"),
+    FAST_NATIVE_METHOD(Throwable,
+                       nativeGetStackTrace,
+                       "(Ljava/lang/Object;)[Ljava/lang/StackTraceElement;"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/Throwable");
 }
 

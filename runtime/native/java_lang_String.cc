@@ -109,18 +109,17 @@ static jcharArray String_toCharArray(JNIEnv* env, jobject java_this) {
   return soa.AddLocalReference<jcharArray>(s->ToCharArray(soa.Self()));
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(String, charAt, "(I)C"),
-  FAST_NATIVE_METHOD(String, compareTo, "(Ljava/lang/String;)I"),
-  FAST_NATIVE_METHOD(String, concat, "(Ljava/lang/String;)Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(String, doReplace, "(CC)Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(String, fastSubstring, "(II)Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(String, getCharsNoCheck, "(II[CI)V"),
-  FAST_NATIVE_METHOD(String, intern, "()Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(String, toCharArray, "()[C"),
-};
-
 void register_java_lang_String(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+      FAST_NATIVE_METHOD(String, charAt, "(I)C"),
+      FAST_NATIVE_METHOD(String, compareTo, "(Ljava/lang/String;)I"),
+      FAST_NATIVE_METHOD(String, concat, "(Ljava/lang/String;)Ljava/lang/String;"),
+      FAST_NATIVE_METHOD(String, doReplace, "(CC)Ljava/lang/String;"),
+      FAST_NATIVE_METHOD(String, fastSubstring, "(II)Ljava/lang/String;"),
+      FAST_NATIVE_METHOD(String, getCharsNoCheck, "(II[CI)V"),
+      FAST_NATIVE_METHOD(String, intern, "()Ljava/lang/String;"),
+      FAST_NATIVE_METHOD(String, toCharArray, "()[C"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/String");
 }
 

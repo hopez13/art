@@ -148,12 +148,13 @@ static jobjectArray VMClassLoader_getBootClassPathEntries(JNIEnv* env, jclass) {
   return array;
 }
 
-static JNINativeMethod gMethods[] = {
-  FAST_NATIVE_METHOD(VMClassLoader, findLoadedClass, "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;"),
-  NATIVE_METHOD(VMClassLoader, getBootClassPathEntries, "()[Ljava/lang/String;"),
-};
-
 void register_java_lang_VMClassLoader(JNIEnv* env) {
+  JNINativeMethod gMethods[] = {
+    FAST_NATIVE_METHOD(VMClassLoader,
+                       findLoadedClass,
+                       "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;"),
+    NATIVE_METHOD(VMClassLoader, getBootClassPathEntries, "()[Ljava/lang/String;"),
+  };
   REGISTER_NATIVE_METHODS("java/lang/VMClassLoader");
 }
 
