@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "8a28f565_ab69ea28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-28T18:52:37Z",
+      "side": 1,
+      "message": "Also add a Make target to run a simple test exercising dexfuzz (maybe in another CL)?",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 47
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62f07839_f5a8f461",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-28T18:52:37Z",
+      "side": 1,
+      "message": "What about inverting the condition, and raising the exception in the `then` branch (much the same way you did with the following condition, lines 116–117)?",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 19
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da380aca_eb1ddde1",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-28T18:52:37Z",
+      "side": 1,
+      "message": "Maybe distinguish timeouts from  other errors?",
+      "range": {
+        "startLine": 114,
+        "startChar": 55,
+        "endLine": 114,
+        "endChar": 70
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52bc6c82_e419aa03",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-28T18:52:37Z",
+      "side": 1,
+      "message": "Should we also log errors from javac, just in case?",
+      "range": {
+        "startLine": 114,
+        "startChar": 34,
+        "endLine": 114,
+        "endChar": 38
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff52cea1_c7f83fc1",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-28T18:52:37Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 117,
+        "startChar": 64,
+        "endLine": 117,
+        "endChar": 79
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfca4d3c_436144fb",
         "filename": "tools/jfuzz/run_dex_fuzz_test.py",
         "patchSetId": 1
@@ -45,6 +160,52 @@
       "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dff78b08_faca39ef",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-28T18:52:37Z",
+      "side": 1,
+      "message": "Likewise, maybe log errors from jfuzz?",
+      "range": {
+        "startLine": 142,
+        "startChar": 52,
+        "endLine": 142,
+        "endChar": 56
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4631e609_e05533ac",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-08-28T18:52:37Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we use dx by default now? And maybe have a `--use_jack` option (disabled by default) instead?",
+      "range": {
+        "startLine": 180,
+        "startChar": 42,
+        "endLine": 180,
+        "endChar": 47
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
