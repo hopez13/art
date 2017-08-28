@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f8df7c81_a56bf2b9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-28T23:28:57Z",
+      "side": 1,
+      "message": "Ah, didn\u0027t see that it was checking HasCompiledCode. Seems good then.",
+      "parentUuid": "c5070eba_903b3a9d",
+      "range": {
+        "startLine": 860,
+        "startChar": 18,
+        "endLine": 860,
+        "endChar": 35
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c1329d1_75badad8",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -154,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "9aeb613f_ee7cd9d7",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-28T23:28:57Z",
+      "side": 1,
+      "message": "Seems like it\u0027s OK for now, I was just wondering if we could maybe not do the logic for quickening (since IsAnyCompilationEnabled includes quickening).",
+      "parentUuid": "eb9e8ed5_b31668e0",
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e07c816_7ae30101",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -189,6 +231,30 @@
       "side": 1,
       "message": "Not sure what you are asking?\n\nTo write out an oat file, there exists a different OatWriter instance for each one.",
       "parentUuid": "3e07c816_7ae30101",
+      "range": {
+        "startLine": 2913,
+        "startChar": 6,
+        "endLine": 2913,
+        "endChar": 33
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9396529_5e858cfd",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2913,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-28T23:28:57Z",
+      "side": 1,
+      "message": "Since the visitor frees the array when it goes out of scope, it should free the vector. So this seems good to me.",
+      "parentUuid": "7857421d_1139b332",
       "range": {
         "startLine": 2913,
         "startChar": 6,
