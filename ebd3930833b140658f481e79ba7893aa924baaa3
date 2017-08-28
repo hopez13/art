@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c1329d1_75badad8",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-28T22:49:30Z",
+      "side": 1,
+      "message": "Properly update comment?",
+      "range": {
+        "startLine": 871,
+        "startChar": 5,
+        "endLine": 871,
+        "endChar": 42
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6947ef41_617abee5",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-28T22:49:30Z",
+      "side": 1,
+      "message": "PrettyMethod on a MethodReference (which is guaranteed dex-file backed) doesn\u0027t require the mutator lock.",
+      "range": {
+        "startLine": 896,
+        "startChar": 6,
+        "endLine": 896,
+        "endChar": 48
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
