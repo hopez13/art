@@ -22,6 +22,30 @@
       "revId": "dba8be7afc31771779f1222209d480f6e5e36d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6807bc7b_044d6c7f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5009,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-28T15:14:43Z",
+      "side": 1,
+      "message": "Unresolved super class, for example, means that we won\u0027t have an ArtField, because we won\u0027t have a Class. This is following some other optimizations already in the verifier to handle unresolved cases better, which I\u0027d prefer to keep consistent for now.",
+      "parentUuid": "41d2b79e_a7a614fb",
+      "range": {
+        "startLine": 5009,
+        "startChar": 6,
+        "endLine": 5009,
+        "endChar": 59
+      },
+      "revId": "dba8be7afc31771779f1222209d480f6e5e36d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
