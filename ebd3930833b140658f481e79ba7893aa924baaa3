@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5070eba_903b3a9d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-28T23:14:55Z",
+      "side": 1,
+      "message": "I\u0027m not following, I think it just skips adding anything if HasCompiledCode returns false -- see L986.\n\nCan you please let me know what action to take here?",
+      "parentUuid": "e565bbd7_b97dd0f4",
+      "range": {
+        "startLine": 860,
+        "startChar": 18,
+        "endLine": 860,
+        "endChar": 35
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c1329d1_75badad8",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-28T22:49:30Z",
       "side": 1,
       "message": "Properly update comment?",
+      "range": {
+        "startLine": 871,
+        "startChar": 5,
+        "endLine": 871,
+        "endChar": 42
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69f24151_7e26e005",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-28T23:14:55Z",
+      "side": 1,
+      "message": "This is up-to-date. If you find it confusing, can you please let me know verbatim what you would like?",
+      "parentUuid": "3c1329d1_75badad8",
       "range": {
         "startLine": 871,
         "startChar": 5,
@@ -88,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "eb9e8ed5_b31668e0",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-28T23:14:55Z",
+      "side": 1,
+      "message": "Same question as above.",
+      "parentUuid": "96c43b50_8ae9139d",
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e07c816_7ae30101",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -99,6 +165,30 @@
       "writtenOn": "2017-08-28T23:05:24Z",
       "side": 1,
       "message": "Based on my understanding, the methods will get released in between each dex right?",
+      "range": {
+        "startLine": 2913,
+        "startChar": 6,
+        "endLine": 2913,
+        "endChar": 33
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7857421d_1139b332",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2913,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-28T23:14:55Z",
+      "side": 1,
+      "message": "Not sure what you are asking?\n\nTo write out an oat file, there exists a different OatWriter instance for each one.",
+      "parentUuid": "3e07c816_7ae30101",
       "range": {
         "startLine": 2913,
         "startChar": 6,
