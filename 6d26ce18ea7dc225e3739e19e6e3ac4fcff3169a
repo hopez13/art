@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97468e2b_76cf9530",
+        "filename": "test/954-invoke-polymorphic-verifier/smali/Unresolved.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-28T18:28:41Z",
+      "side": 1,
+      "message": "This is discussion-worthy. Abstract being unresolvable leads to a conservative IllegalAccessError with this change (we did not mark a NO_CLASS before, which is strange), which marks the rest of the method as dead, which skips looking for hard failures.\n\nI\u0027m not sure that\u0027s intended. We\u0027ve been inconsistent in the past, and try to find some hard errors (typically in the same instruction), but not others (i.e., down-the-line, as inherited from Dalvik). I think it\u0027s OK behavior at the moment to throw a runtime exception instead of rejecting the class.\n\nOrion, what was your motivation of hard-failing on unresolved receivers?",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 74
+      },
+      "revId": "6d26ce18ea7dc225e3739e19e6e3ac4fcff3169a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
