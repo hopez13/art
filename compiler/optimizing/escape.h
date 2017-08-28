@@ -17,9 +17,14 @@
 #ifndef ART_COMPILER_OPTIMIZING_ESCAPE_H_
 #define ART_COMPILER_OPTIMIZING_ESCAPE_H_
 
+#include "android-base/macros.h"
+#include "base/arena_containers.h"
+
 namespace art {
 
+class HBasicBlock;
 class HInstruction;
+class HGraph;
 
 /*
  * Methods related to escape analysis, i.e. determining whether an object
@@ -62,6 +67,65 @@ void CalculateEscape(HInstruction* reference,
  * Callers should be aware that this method invokes the full analysis at each call.
  */
 bool DoesNotEscape(HInstruction* reference, bool (*no_escape)(HInstruction*, HInstruction*));
+
+/*
+ * Iterative, local per-block escape visitor.
+ *
+ * As each instruction is visited, performs on-the-fly escape analysis for
+ * tracked instructions. Some references might end up being aliased,
+ * and that is tracked as well.
+ *
+ * If a reference (or its alias) is found to be escaping, VisitEscaped is invoked.
+ *
+ * At any time (e.g. during VisitInstruction), AddEscapeeTracking can be called
+ * to track more references.
+ */
+class EscapeVisitor {
+ public:
+  EscapeVisitor(HGraph* graph);
+  virtual ~EscapeVisitor() {}
+
+  // Visit every instruction in the block (in succession order),
+  // performing escape analysis on references being tracked.
+  //
+  // Tracked instructions are cleared once every instruction in the block
+  // has been visited.
+  void VisitBasicBlock(HBasicBlock* block);
+
+  // Begin tracking `reference` as an escapee. If `reference` escapes
+  // as an input to another instruction (either directly or as an alias),
+  // VisitEscaped is called.
+  //
+  // Type of `reference` must be kPrimNot.
+  void AddEscapeeTracking(HInstruction* reference);
+
+  // VisitEscaped is called if some instruction `inst` serves an escape point
+  // for a tracked escapee. Note that escapee can be an alias for a trackee.
+  // (Called before VisitInstruction).
+  //
+  // VisitEscaped can be called multiple times for the same `inst` if
+  // it escapes multiple tracked references.
+  //
+  // Returning `true` will clear all the tracked references; this takes
+  // effect immediately prior to the next VisitInstruction.
+  virtual bool VisitEscaped(HInstruction* inst ATTRIBUTE_UNUSED,
+                            HInstruction* escapee ATTRIBUTE_UNUSED) = 0;
+  // Visit each instruction in the basic block from start to end.
+  // (Called after VisitEscaped).
+  virtual void VisitInstruction(HInstruction* instruction ATTRIBUTE_UNUSED) = 0;
+
+ protected:
+  HGraph* graph_;
+
+ private:
+  // Reset all escapees (and aliases) to none.
+  void ClearEscapeeTracking();
+
+  void VisitInstructionImpl(HInstruction* instruction);
+
+  ArenaVector<HInstruction*> escapee_list_;
+  DISALLOW_COPY_AND_ASSIGN(EscapeVisitor);
+};
 
 }  // namespace art
 
