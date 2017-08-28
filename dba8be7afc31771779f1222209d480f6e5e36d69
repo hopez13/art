@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41d2b79e_a7a614fb",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5009,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-28T15:04:39Z",
+      "side": 1,
+      "message": "How can things change at runtime? CodeItem and class definition are in the same dex file, so most likely there won\u0027t be any field at runtime, right?\n\nTherefore I\u0027d suggest dropping the conditional and just always Fail(VERIFY_ERROR_ACCESS_FIELD).",
+      "range": {
+        "startLine": 5009,
+        "startChar": 6,
+        "endLine": 5009,
+        "endChar": 59
+      },
+      "revId": "dba8be7afc31771779f1222209d480f6e5e36d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
