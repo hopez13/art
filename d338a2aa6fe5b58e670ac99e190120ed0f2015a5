@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "34b92c1d_9dbd0b4c",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-28T19:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62f07839_f5a8f461",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 19
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da380aca_eb1ddde1",
         "filename": "tools/jfuzz/run_dex_fuzz_test.py",
         "patchSetId": 1
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "8c8a8e32_644aa6d2",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-28T19:58:49Z",
+      "side": 1,
+      "message": "I have not seen that generate useful errors (the only failure I have ever seen is a full crash)",
+      "parentUuid": "52bc6c82_e419aa03",
+      "range": {
+        "startLine": 114,
+        "startChar": 34,
+        "endLine": 114,
+        "endChar": 38
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff52cea1_c7f83fc1",
         "filename": "tools/jfuzz/run_dex_fuzz_test.py",
         "patchSetId": 1
@@ -105,6 +153,30 @@
       "writtenOn": "2017-08-28T18:52:37Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 117,
+        "startChar": 64,
+        "endLine": 117,
+        "endChar": 79
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e904a262_6de25212",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-28T19:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff52cea1_c7f83fc1",
       "range": {
         "startLine": 117,
         "startChar": 64,
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "f3f5995b_b10fa3c4",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-28T19:58:49Z",
+      "side": 1,
+      "message": "Oh, when the compilation fails, the script exits and this file is still around to see what went wrong. So if we reach this without error, it will be empty.",
+      "parentUuid": "bfca4d3c_436144fb",
+      "range": {
+        "startLine": 122,
+        "startChar": 8,
+        "endLine": 122,
+        "endChar": 30
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8911c57_d40568b6",
         "filename": "tools/jfuzz/run_dex_fuzz_test.py",
         "patchSetId": 1
@@ -151,6 +247,30 @@
       "writtenOn": "2017-08-28T18:47:56Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 132,
+        "startChar": 5,
+        "endLine": 132,
+        "endChar": 30
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "376b7b8f_685d2edb",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-28T19:58:49Z",
+      "side": 1,
+      "message": "Same. The files are around on failure. And cleaned up on success.",
+      "parentUuid": "f8911c57_d40568b6",
       "range": {
         "startLine": 132,
         "startChar": 5,
@@ -186,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "930ba98e_ab9feb0d",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-28T19:58:49Z",
+      "side": 1,
+      "message": "does not generate any",
+      "parentUuid": "dff78b08_faca39ef",
+      "range": {
+        "startLine": 142,
+        "startChar": 52,
+        "endLine": 142,
+        "endChar": 56
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4631e609_e05533ac",
         "filename": "tools/jfuzz/run_dex_fuzz_test.py",
         "patchSetId": 1
@@ -197,6 +341,30 @@
       "writtenOn": "2017-08-28T18:52:37Z",
       "side": 1,
       "message": "Shouldn\u0027t we use dx by default now? And maybe have a `--use_jack` option (disabled by default) instead?",
+      "range": {
+        "startLine": 180,
+        "startChar": 42,
+        "endLine": 180,
+        "endChar": 47
+      },
+      "revId": "d338a2aa6fe5b58e670ac99e190120ed0f2015a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb64fb95_21af848f",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-28T19:58:49Z",
+      "side": 1,
+      "message": "maybe, but the -use_dx flag was already there \"from the old days\"; it does not matter much in the end (other than that we perhaps remove the flag altogether in the future)",
+      "parentUuid": "4631e609_e05533ac",
       "range": {
         "startLine": 180,
         "startChar": 42,
