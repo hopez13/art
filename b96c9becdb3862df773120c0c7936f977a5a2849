@@ -584,6 +584,30 @@
     },
     {
       "key": {
+        "uuid": "0c74773c_ea8ee3b9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-28T16:50:33Z",
+      "side": 1,
+      "message": "Done.\n\nApologies, I seem to have missed this one in PS2. Removed in PS3.",
+      "parentUuid": "e199940c_f557222b",
+      "range": {
+        "startLine": 1524,
+        "startChar": 49,
+        "endLine": 1524,
+        "endChar": 68
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fe8dc30_69322305",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
