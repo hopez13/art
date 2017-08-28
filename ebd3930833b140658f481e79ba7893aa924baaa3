@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e565bbd7_b97dd0f4",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-28T23:05:24Z",
+      "side": 1,
+      "message": "This seems quite RAM hungry if we have one per method index. If we only have it for AOT compilation modes it should be fine.",
+      "range": {
+        "startLine": 860,
+        "startChar": 18,
+        "endLine": 860,
+        "endChar": 35
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c1329d1_75badad8",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -45,6 +68,69 @@
       "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96c43b50_8ae9139d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-28T23:05:24Z",
+      "side": 1,
+      "message": "Possible to only do this if IsAotCompilationEnabled?",
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e07c816_7ae30101",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2913,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-28T23:05:24Z",
+      "side": 1,
+      "message": "Based on my understanding, the methods will get released in between each dex right?",
+      "range": {
+        "startLine": 2913,
+        "startChar": 6,
+        "endLine": 2913,
+        "endChar": 33
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e5abfb_dd6b7f72",
+        "filename": "test/661-oat-writer-layout/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-28T23:05:24Z",
+      "side": 1,
+      "message": "Add the license?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
