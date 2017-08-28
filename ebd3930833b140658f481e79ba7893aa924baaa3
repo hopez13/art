@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "b838edf3_10d305f9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-28T23:32:18Z",
+      "side": 1,
+      "message": "I didn\u0027t bring this up because I\u0027d think that this is eclipsed by other metadata and compiler needs, anyways.",
+      "parentUuid": "f8df7c81_a56bf2b9",
+      "range": {
+        "startLine": 860,
+        "startChar": 18,
+        "endLine": 860,
+        "endChar": 35
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c1329d1_75badad8",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "This is up-to-date. If you find it confusing, can you please let me know verbatim what you would like?",
       "parentUuid": "3c1329d1_75badad8",
+      "range": {
+        "startLine": 871,
+        "startChar": 5,
+        "endLine": 871,
+        "endChar": 42
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4fd8b4b_d83d4a41",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-28T23:32:18Z",
+      "side": 1,
+      "message": "\"Can be\" makes no sense on a constant. The \"Can be\" should be on debug_info_idx, not the constant that defines invalid.\n\nIMHO a better comment for this line is \"A value of -1 denotes missing debug info.\"",
+      "parentUuid": "69f24151_7e26e005",
       "range": {
         "startLine": 871,
         "startChar": 5,
