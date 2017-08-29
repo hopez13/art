@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "687d82a6_d53a7ad5",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-29T23:08:36Z",
+      "side": 1,
+      "message": "This is implementing operator\u003c , so whatever it compares needs to obey a strict weak ordering relation (see http://en.cppreference.com/w/cpp/concept/Compare).\n\nIf the bit flags (which already obey that relation, guaranteed because it\u0027s using explicit enum values for each element) are not what you want to use, can you please recommend something more specific?",
+      "parentUuid": "55e64ec4_ea3d3f83",
+      "range": {
+        "startLine": 904,
+        "startChar": 8,
+        "endLine": 904,
+        "endChar": 67
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e320ee40_50bfa2dd",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -248,6 +272,30 @@
       "writtenOn": "2017-08-29T19:48:48Z",
       "side": 1,
       "message": "I don\u0027t understand this comment.",
+      "range": {
+        "startLine": 1012,
+        "startChar": 6,
+        "endLine": 1012,
+        "endChar": 37
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0faf9263_d919fb1c",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-29T23:08:36Z",
+      "side": 1,
+      "message": "I did not add this, the gerrit diff just doesn\u0027t recognize it was extracted from a different part of the old code. It\u0027s in L870 of base file.",
+      "parentUuid": "e320ee40_50bfa2dd",
       "range": {
         "startLine": 1012,
         "startChar": 6,
@@ -545,6 +593,30 @@
     },
     {
       "key": {
+        "uuid": "8bb1fb23_450f3ea4",
+        "filename": "test/661-oat-writer-layout/check",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-29T23:08:36Z",
+      "side": 1,
+      "message": "I was under the impression JNI_OnLoad is printed twice for interpreter? No?\n\nHow about if I leave a TODO here to cleanup the JNI_OnLoad from all the other tests, since it seems pointless (to add it to every expected.txt that uses JNI) except for that 1 test which actually validates JNI_OnLoad is called?",
+      "parentUuid": "f38a2b04_9d00954f",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cb99f890_5c30db5c",
         "filename": "test/661-oat-writer-layout/check",
         "patchSetId": 3
@@ -556,6 +628,30 @@
       "writtenOn": "2017-08-29T19:48:48Z",
       "side": 1,
       "message": "Do you need this in order to make it work for no prebuild configs? Why not just blacklist the test for that config?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 55
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84259f06_8a11845f",
+        "filename": "test/661-oat-writer-layout/check",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-29T23:08:36Z",
+      "side": 1,
+      "message": "Nothing to do with prebuild, dalvikvm can still call dex2oat on its own and generate an OAT file.\n\nIf the --compiler-filter is not high enough to generate an OAT class with compiled code, there\u0027s nothing for us to do here (for example --compiler-filter\u003dextract, --compiler-filter\u003dquicken, etc). There might be some other magical interactions to override this as well (-Xint, -no-dex2oat, etc) that I don\u0027t know the full list of.\n\n\u003e Why not just blacklist the test for that config?\n\nIIRC, this was to prevent having to blacklist it again and again for new configs, and to be tolerant of existing config changes.",
+      "parentUuid": "cb99f890_5c30db5c",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -636,6 +732,30 @@
       "writtenOn": "2017-08-29T19:48:48Z",
       "side": 1,
       "message": "Is this \n\"exec ${RUN} $@ --profile -Xcompiler-option --compiler-filter\u003dspeed-profile\"\nnot enough?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9919ab8_14060d12",
+        "filename": "test/661-oat-writer-layout/run",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-29T23:08:36Z",
+      "side": 1,
+      "message": "It\u0027s supposed to test --compiler-filter\u003dspeed, --profile\u003d... (as that was the requirement for this CL), so doing as suggested would not be testing the right config.",
+      "parentUuid": "428a8176_995e2d67",
       "range": {
         "startLine": 26,
         "startChar": 0,
