@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "909fcb2f_7b2eedb9",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2962,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-29T11:12:21Z",
+      "side": 1,
+      "message": "This is misleading: the method handles \"long\" yet you\u0027re calling a helper that does IntToInt.",
+      "range": {
+        "startLine": 2962,
+        "startChar": 2,
+        "endLine": 2962,
+        "endChar": 36
+      },
+      "revId": "27292e64b312007cd301fed8aa96ed7c0215b231",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
