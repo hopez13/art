@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68483026_5c3138ab",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-29T00:19:41Z",
+      "side": 1,
+      "message": "Nicolas, I suggested to Igor moving all escape related logic to our escape.* files, so we don\u0027t have escape related decisions all over the place. Please comment if you agree with this direction.",
+      "revId": "8317602b948341f6a5a5d32fb82349814b80fa32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
