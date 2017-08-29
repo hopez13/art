@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02aea0e5_63c82ca0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-08-29T21:10:00Z",
+      "side": 1,
+      "message": "Please limit to 72 columns.",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 92
+      },
+      "revId": "b42374bc2641eef99b103875cfe795fcc278a583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8d217b2_400b5f0f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1665,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-08-29T21:10:00Z",
+      "side": 1,
+      "message": "Maybe take this and the initial vertical  bar formatting out out of the conditional? That would make it  more apparent what happened if the rest of the output goes missing.",
+      "range": {
+        "startLine": 1665,
+        "startChar": 7,
+        "endLine": 1665,
+        "endChar": 68
+      },
+      "revId": "b42374bc2641eef99b103875cfe795fcc278a583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
