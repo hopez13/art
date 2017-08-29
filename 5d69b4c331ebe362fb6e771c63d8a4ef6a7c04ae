@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5723acc_46fd7c86",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-29T16:13:13Z",
+      "side": 1,
+      "message": "this could use helper too",
+      "revId": "5d69b4c331ebe362fb6e771c63d8a4ef6a7c04ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c96c39b6_21efa924",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-29T16:13:13Z",
+      "side": 1,
+      "message": "would it make sense to move all these up so that it is easier to spot if a helper already exists (I realize there is some tension between having it close to where it is used and this request)?",
+      "revId": "5d69b4c331ebe362fb6e771c63d8a4ef6a7c04ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
