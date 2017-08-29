@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b81adc8f_f9e21792",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-29T16:06:54Z",
+      "side": 1,
+      "message": "Are you setting the paths from envsetup.sh to get the correct platform prebuilts javac?",
+      "revId": "8d31b9f7f36a4668d6fa2a64ea87bdb4b96a9e3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "801abd2a_87637346",
+        "filename": "tools/jfuzz/run_dex_fuzz_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-29T16:06:54Z",
+      "side": 1,
+      "message": "Recommend reading from DX, JAVAC, JACK, etc environment variables if they are set.\n\nIn particular we should be able to substitute a different dexer tool here without having to modify the code.",
+      "revId": "8d31b9f7f36a4668d6fa2a64ea87bdb4b96a9e3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
