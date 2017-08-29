@@ -22,6 +22,30 @@
       "revId": "27292e64b312007cd301fed8aa96ed7c0215b231",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05570d0b_da00885b",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2962,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:32:27Z",
+      "side": 1,
+      "message": "I\u0027ve got a bit confused when switching context between arm and arm64 intrinsics. On arm64, we indeed use the \"IntToInt\" also for Long* intrinsics but not so on arm. I should have merged PS5 and leave the cleanup for later.\n\nThere are also other intrinsics that could use the helper. And I must have missed something (or a lot) when I previously wrote that \u0027All other \"new (arena_) LocationSummary(...)\" calls in this file are encapsulated in helper functions.\u0027",
+      "parentUuid": "909fcb2f_7b2eedb9",
+      "range": {
+        "startLine": 2962,
+        "startChar": 2,
+        "endLine": 2962,
+        "endChar": 36
+      },
+      "revId": "27292e64b312007cd301fed8aa96ed7c0215b231",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
