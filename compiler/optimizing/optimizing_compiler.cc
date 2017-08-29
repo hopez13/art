@@ -776,7 +776,6 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
   HLoopOptimization* loop = new (arena) HLoopOptimization(graph, driver, induction);
   LoadStoreAnalysis* lsa = new (arena) LoadStoreAnalysis(graph);
   LoadStoreElimination* lse = new (arena) LoadStoreElimination(graph, *side_effects2, *lsa, stats);
-  ConstructorFenceRedundancyElimination* cfre = new (arena) ConstructorFenceRedundancyElimination(graph, stats);
   HSharpening* sharpening = new (arena) HSharpening(
       graph, codegen, dex_compilation_unit, driver, handles);
   InstructionSimplifier* simplify2 = new (arena) InstructionSimplifier(
@@ -788,6 +787,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
   IntrinsicsRecognizer* intrinsics = new (arena) IntrinsicsRecognizer(graph, stats);
   CHAGuardOptimization* cha_guard = new (arena) CHAGuardOptimization(graph);
   CodeSinking* code_sinking = new (arena) CodeSinking(graph, stats);
+  ConstructorFenceRedundancyElimination* cfre = new (arena) ConstructorFenceRedundancyElimination(graph, stats);
 
   HOptimization* optimizations1[] = {
     intrinsics,
@@ -807,7 +807,6 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     fold2,  // TODO: if we don't inline we can also skip fold2.
     simplify2,
     dce2,
-    cfre,  // eliminate constructor fences earlier since they are very strict
     side_effects1,
     gvn,
     licm,
@@ -826,6 +825,8 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     // can satisfy. For example, the code generator does not expect to see a
     // HTypeConversion from a type to the same type.
     simplify4,
+    cfre,  // Eliminate constructor fences after code sinking to avoid
+           // complicated sinking logic to split a fence with many inputs.
   };
   RunOptimizations(optimizations2, arraysize(optimizations2), pass_observer);
 

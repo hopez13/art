@@ -15,6 +15,7 @@
  */
 
 #include "constructor_fence_redundancy_elimination.h"
+#include "escape.h"
 
 // TODO: remove these includes before merging.
 #include <stdlib.h>
@@ -22,117 +23,67 @@
 
 namespace art {
 
-class CFREVisitor : public HGraphVisitor {
+class CFREVisitor : public EscapeVisitor {
  public:
   CFREVisitor(HGraph* graph,
               OptimizingCompilerStats* stats)
-      : HGraphVisitor(graph),
+      : EscapeVisitor(graph),
         candidate_fences_(graph->GetArena()->Adapter(kArenaAllocCFRE)),
         stats_(stats) {}
 
-  void VisitBasicBlock(HBasicBlock* block) OVERRIDE {
-    // Visit all instructions in block.
-    HGraphVisitor::VisitBasicBlock(block);
+  void VisitReversePostOrder() {
+    for (HBasicBlock* block : graph_->GetReversePostOrder()) {
+      // Visit all instructions in block.
+      VisitBasicBlock(block);
 
-    // If there were any unmerged fences left, merge them together,
-    // the objects are considered 'published' at the end of the block.
-    MergeCandidateFences();
-  }
-
-  void VisitConstructorFence(HConstructorFence* constructor_fence) OVERRIDE {
-    candidate_fences_.push_back(constructor_fence);
-  }
-
-  void VisitInstanceFieldSet(HInstanceFieldSet* instruction) OVERRIDE {
-    HInstruction* value = instruction->InputAt(1);
-    VisitSetLocation(instruction, value);
-  }
-
-  void VisitStaticFieldSet(HStaticFieldSet* instruction) OVERRIDE {
-    HInstruction* value = instruction->InputAt(1);
-    VisitSetLocation(instruction, value);
-  }
-
-  void VisitArraySet(HArraySet* instruction) OVERRIDE {
-    HInstruction* value = instruction->InputAt(2);
-    VisitSetLocation(instruction, value);
-  }
-
-  void VisitDeoptimize(HDeoptimize* instruction ATTRIBUTE_UNUSED) {
-    // XX: Do I need to handle DEOPTIMIZE at all?
-  }
-
-  void VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invoke) OVERRIDE {
-    HandleInvoke(invoke);
-  }
-
-  void VisitInvokeVirtual(HInvokeVirtual* invoke) OVERRIDE {
-    HandleInvoke(invoke);
-  }
-
-  void VisitInvokeInterface(HInvokeInterface* invoke) OVERRIDE {
-    HandleInvoke(invoke);
-  }
-
-  void VisitInvokeUnresolved(HInvokeUnresolved* invoke) OVERRIDE {
-    HandleInvoke(invoke);
-  }
-
-  void VisitInvokePolymorphic(HInvokePolymorphic* invoke) OVERRIDE {
-    HandleInvoke(invoke);
-  }
-
-  void VisitClinitCheck(HClinitCheck* clinit) OVERRIDE {
-    HandleInvoke(clinit);
-  }
-
-  void VisitUnresolvedInstanceFieldGet(HUnresolvedInstanceFieldGet* instruction) OVERRIDE {
-    // Conservatively treat it as an invocation.
-    HandleInvoke(instruction);
-  }
-
-  void VisitUnresolvedInstanceFieldSet(HUnresolvedInstanceFieldSet* instruction) OVERRIDE {
-    // Conservatively treat it as an invocation.
-    HandleInvoke(instruction);
-  }
-
-  void VisitUnresolvedStaticFieldGet(HUnresolvedStaticFieldGet* instruction) OVERRIDE {
-    // Conservatively treat it as an invocation.
-    HandleInvoke(instruction);
-  }
-
-  void VisitUnresolvedStaticFieldSet(HUnresolvedStaticFieldSet* instruction) OVERRIDE {
-    // Conservatively treat it as an invocation.
-    HandleInvoke(instruction);
-  }
-
- private:
-  void HandleInvoke(HInstruction* invoke) {
-    // An object is considered "published" if it escapes into an invoke as any of the parameters.
-    for (size_t input_count = 0; input_count < invoke->InputCount(); ++input_count) {
-      if (IsInterestingPublishTarget(invoke->InputAt(input_count))) {
-        MergeCandidateFences();
-      }
-    }
-  }
-
-  void VisitSetLocation(HInstruction* inst ATTRIBUTE_UNUSED, HInstruction* store_input) {
-    // An object is considered "published" if it's stored onto the heap.
-    // Sidenote: A later "LSE" pass can still remove the fence if it proves the
-    // object doesn't actually escape.
-    if (IsInterestingPublishTarget(store_input)) {
-      // Greedily merge all constructor fences that we've seen since
-      // the last interesting store (or since the beginning).
+      // If there were any unmerged fences left, merge them together,
+      // all objects are considered 'published' at the end of the block.
       MergeCandidateFences();
     }
   }
 
+  virtual void VisitInstruction(HInstruction* instruction) OVERRIDE {
+    if (instruction->IsConstructorFence()) {
+      HConstructorFence* constructor_fence = instruction->AsConstructorFence();
+
+      // Mark this fence to be part of the merge list when MergeCandidateFences is called later.
+      candidate_fences_.push_back(constructor_fence);
+      // Mark the constructor fence targets as being tracked by the escape analysis.
+      // VisitEscapee(?, AliasOf(target)) will be called if it escapes.
+      for (size_t input_idx = 0; input_idx < constructor_fence->InputCount(); ++input_idx) {
+        AddEscapeeTracking(constructor_fence->InputAt(input_idx));
+      }
+    } else if (instruction->IsDeoptimize()) {
+      // Pessimize: Merge any constructor fence prior to Deopt.
+      MergeCandidateFences();
+    } else if (instruction->IsClinitCheck()) {
+      // Pessimize: Merge any constructor fence prior to ClinitCheck.
+      // XX: Should the escape analysis treat the ClinitCheck as an escape-to-heap instead?
+      MergeCandidateFences();
+    }
+  }
+
+  // One of the (potentially aliased) candidate fence targets (i.e. `escapee`)
+  // has escaped into the heap.
+  virtual bool VisitEscaped(HInstruction* instruction ATTRIBUTE_UNUSED,
+                            HInstruction* escapee ATTRIBUTE_UNUSED) OVERRIDE {
+    // An object is considered "published" if it escapes.
+    //
+    // Greedily merge all constructor fences that we've seen since
+    // the tracked escape (or since the beginning).
+    MergeCandidateFences();
+
+    // Always clear all the escaping references being tracked.
+    return true;
+  }
+
+ private:
   // Merges all the existing fences we've seen so far into the last-most fence.
   //
   // This resets the list of candidate fences back to {}.
   void MergeCandidateFences() {
     if (candidate_fences_.empty()) {
-      // Nothing to do, need 2+ fences to merge.
+      // Nothing to do, need 1+ fences to merge.
       return;
     }
 
@@ -144,20 +95,6 @@ class CFREVisitor : public HGraphVisitor {
     }
 
     candidate_fences_.clear();
-  }
-
-  // A publishing 'store' is only interesting if the value being stored
-  // is one of the fence `targets` in `candidate_fences`.
-  bool IsInterestingPublishTarget(HInstruction* store_input) const {
-    for (HConstructorFence* fence : candidate_fences_) {
-      for (size_t input_count = 0; input_count < fence->InputCount(); ++input_count) {
-        if (fence->InputAt(input_count) == store_input) {
-          return true;
-        }
-      }
-    }
-
-    return false;
   }
 
   void MaybeMerge(HConstructorFence* target, HConstructorFence* src) {
@@ -203,7 +140,12 @@ void ConstructorFenceRedundancyElimination::Run() {
   }
 
   CFREVisitor cfre_visitor(graph_, stats_);
+
+  // Arbitrarily visit in reverse-post order.
+  // The exact block visitation order does not matter, as the algorithm
+  // only operates on a single block at a time.
   cfre_visitor.VisitReversePostOrder();
+
 }
 
 }  // namespace art
