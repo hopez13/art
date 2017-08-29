@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "4be85b95_38897371",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-29T23:36:10Z",
+      "side": 1,
+      "message": "you can still achieve the desire effect by using the enum values.\n\nThe issue with the current approach is that you strongly bind the values of that enum to the order in which the methods will be laid out in the oat file. If I extend/update that enum with more refined values I will have to remember to (possibly) update this code (to preserve the order you describe in the docs). The values of the enums were randomly chosen and it\u0027s just a coincidence that \u0027\u003c\u0027 matches the order you want here.\n\nIf this is a major performance concern you could implement \u0027\u003c\u0027 (or an equiv method) in MethodHotness and document it.",
+      "parentUuid": "687d82a6_d53a7ad5",
+      "range": {
+        "startLine": 904,
+        "startChar": 8,
+        "endLine": 904,
+        "endChar": 67
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e320ee40_50bfa2dd",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -605,6 +629,30 @@
       "side": 1,
       "message": "I was under the impression JNI_OnLoad is printed twice for interpreter? No?\n\nHow about if I leave a TODO here to cleanup the JNI_OnLoad from all the other tests, since it seems pointless (to add it to every expected.txt that uses JNI) except for that 1 test which actually validates JNI_OnLoad is called?",
       "parentUuid": "f38a2b04_9d00954f",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9688f5f_35ad1c22",
+        "filename": "test/661-oat-writer-layout/check",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-29T23:36:10Z",
+      "side": 1,
+      "message": "Probably we could do it. I don\u0027t know if any run-test actually verifies the JNI_OnLoad explicitly.",
+      "parentUuid": "8bb1fb23_450f3ea4",
       "range": {
         "startLine": 20,
         "startChar": 0,
