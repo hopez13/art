@@ -70,6 +70,30 @@
       "revId": "dba8be7afc31771779f1222209d480f6e5e36d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4f7be8f_51122b59",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5009,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-29T15:18:40Z",
+      "side": 1,
+      "message": "It may not be necessary, depending on the code. I don\u0027t think we autofail, if usage is consistent with the descriptors.",
+      "parentUuid": "bb9c3256_6006548d",
+      "range": {
+        "startLine": 5009,
+        "startChar": 6,
+        "endLine": 5009,
+        "endChar": 59
+      },
+      "revId": "dba8be7afc31771779f1222209d480f6e5e36d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
