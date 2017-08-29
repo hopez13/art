@@ -308,8 +308,13 @@ while true; do
     elif [ "x$1" = "x--random-profile" ]; then
         RANDOM_PROFILE="y"
         shift
-    elif [ "x$1" = "x--set-stack-trace-dump-dir" ]; then
-        SET_STACK_TRACE_DUMP_DIR="y"
+    elif [ "x$1" = "x--speed-profile" ]; then
+        RANDOM_PROFILE="y"
+        COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=speed-profile"
+        shift
+    elif [ "x$1" = "x--speed-with-profile" ]; then
+        RANDOM_PROFILE="y"
+        COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=speed"
         shift
     elif expr "x$1" : "x--" >/dev/null 2>&1; then
         echo "unknown $0 option: $1" 1>&2
