@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43f1fdae_8c7cbec1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5000,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-29T21:37:16Z",
+      "side": 1,
+      "message": "This makes it sound like we can post another error as well but we choose to have ACCESS_FIELD.\n\nCould you clarify the comment?",
+      "range": {
+        "startLine": 5000,
+        "startChar": 23,
+        "endLine": 5000,
+        "endChar": 39
+      },
+      "revId": "7373aaa76133f1ab252ab59f352dfd8576008422",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
