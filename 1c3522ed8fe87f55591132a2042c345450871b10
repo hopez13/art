@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3209a2ca_c207b6e5",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-29T21:49:07Z",
+      "side": 1,
+      "message": "you don\u0027t need this comment here as this does not write or clear the profile.",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 74
+      },
+      "revId": "1c3522ed8fe87f55591132a2042c345450871b10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d966db77_44c6b693",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-29T21:49:07Z",
+      "side": 1,
+      "message": "please keep the bug open until you address this todo.",
+      "range": {
+        "startLine": 306,
+        "startChar": 2,
+        "endLine": 306,
+        "endChar": 55
+      },
+      "revId": "1c3522ed8fe87f55591132a2042c345450871b10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
