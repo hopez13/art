@@ -22,6 +22,30 @@
       "revId": "7373aaa76133f1ab252ab59f352dfd8576008422",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "842a9b8c_14ab6d5e",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5000,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-29T23:07:04Z",
+      "side": 1,
+      "message": "I\u0027m happy to discuss formulation of this.\n\nThe bug here is concerned with AoT incorrectly setting the class to verified, while it should have been re-verified. The comment is about a simplification of the code - to not distinguish whether Runtime::IsAotCompiler(). If the field is not resolvable, when executing this code will not lead to an IllegalAccessError, as indicated by ACCESS_FIELD. It will rather lead to a NoSuchFieldError, as would be indicated by a NO_FIELD. However, said NO_FIELD should be posted above (at the point of ArtField* retrieval) - and, anyways, the effect is the same. Both compiler and interpreter will go slow-path and trigger the correct error.\n\nIf you have a good idea to write this in a short one-liner, I\u0027m all open. :-)",
+      "parentUuid": "43f1fdae_8c7cbec1",
+      "range": {
+        "startLine": 5000,
+        "startChar": 23,
+        "endLine": 5000,
+        "endChar": 39
+      },
+      "revId": "7373aaa76133f1ab252ab59f352dfd8576008422",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
