@@ -373,6 +373,30 @@
     },
     {
       "key": {
+        "uuid": "fc8fda9f_83066dbc",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:48:08Z",
+      "side": 1,
+      "message": "I was hoping that dsrbecky would weigh in.",
+      "parentUuid": "b262c968_e1bd46ea",
+      "range": {
+        "startLine": 1007,
+        "startChar": 0,
+        "endLine": 1009,
+        "endChar": 57
+      },
+      "revId": "b96c9becdb3862df773120c0c7936f977a5a2849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a0d0270_8a0b1487",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1

@@ -191,6 +191,75 @@
     },
     {
       "key": {
+        "uuid": "22e91a08_c742c86b",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:48:08Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1015,
+        "startChar": 0,
+        "endLine": 1020,
+        "endChar": 7
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e50f5716_5ddc9c0a",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:48:08Z",
+      "side": 1,
+      "message": "Initialize debug_info_idx with kDebugInfoIdxInvalid above and drop the has_debug_info variable.",
+      "range": {
+        "startLine": 1039,
+        "startChar": 0,
+        "endLine": 1041,
+        "endChar": 55
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00bf8e89_8ba84369",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1536,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:48:08Z",
+      "side": 1,
+      "message": "As this no longer overrides StartClass() from OatDexMethodVisitor, maybe we should give it some other name and change the return type to void.",
+      "range": {
+        "startLine": 1536,
+        "startChar": 7,
+        "endLine": 1536,
+        "endChar": 17
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96c43b50_8ae9139d",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -238,6 +307,29 @@
       "side": 1,
       "message": "Seems like it\u0027s OK for now, I was just wondering if we could maybe not do the logic for quickening (since IsAnyCompilationEnabled includes quickening).",
       "parentUuid": "eb9e8ed5_b31668e0",
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfb7b44_e4ca40a3",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:48:08Z",
+      "side": 1,
+      "message": "We can drop the const_cast\u003c\u003e now.",
+      "range": {
+        "startLine": 2217,
+        "startChar": 12,
+        "endLine": 2217,
+        "endChar": 40
+      },
       "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -308,6 +400,63 @@
         "startChar": 6,
         "endLine": 2913,
         "endChar": 33
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61958dcd_63e11603",
+        "filename": "test/661-oat-writer-layout/gen.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:48:08Z",
+      "side": 1,
+      "message": "Does python allow splitting lines like this?",
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04e31fc6_79429be5",
+        "filename": "test/661-oat-writer-layout/gen.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:48:08Z",
+      "side": 1,
+      "message": "and this?",
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c1d7495_05f84e80",
+        "filename": "test/661-oat-writer-layout/gen.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-29T11:48:08Z",
+      "side": 1,
+      "message": "and these?",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 102
       },
       "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
