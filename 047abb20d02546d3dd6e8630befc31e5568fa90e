@@ -22,6 +22,30 @@
       "revId": "047abb20d02546d3dd6e8630befc31e5568fa90e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36855d4f_179b40ab",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-08-29T20:08:40Z",
+      "side": 1,
+      "message": "Here we specifically want to get the first non-runtime method and its callee\u0027s shorty if it\u0027s at an invoke. There may also be back-to-back quick-to-interpreter and quick_invoke stubs so it\u0027s hard to say how many runtime methods are on the top.",
+      "parentUuid": "179248a4_34dba7a3",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1197,
+        "endChar": 19
+      },
+      "revId": "047abb20d02546d3dd6e8630befc31e5568fa90e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
