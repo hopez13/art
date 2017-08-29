@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "179248a4_34dba7a3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-29T11:18:20Z",
+      "side": 1,
+      "message": "I think we already have a GetNthMethod visitor.",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1197,
+        "endChar": 19
+      },
+      "revId": "047abb20d02546d3dd6e8630befc31e5568fa90e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
