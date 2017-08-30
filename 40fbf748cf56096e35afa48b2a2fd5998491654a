@@ -22,6 +22,30 @@
       "revId": "40fbf748cf56096e35afa48b2a2fd5998491654a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fed6d297_19847ae4",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T16:21:44Z",
+      "side": 1,
+      "message": "Wow, that CL is a long time back. Yes, this seems a bit too optimistic, and can only be assumed if the operands are e.g. in lower precision. I will remove this case.\n\nIncidentally I am just working on this for the SAD idiom, and proposed to introduce MIN/MAX/ABS as HInstruction nodes in b/65164101 so we don\u0027t have to always special case for intrinsics and selects and what not....",
+      "parentUuid": "c60fac1b_2904207a",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 20
+      },
+      "revId": "40fbf748cf56096e35afa48b2a2fd5998491654a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
