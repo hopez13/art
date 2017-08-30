@@ -333,6 +333,30 @@
     },
     {
       "key": {
+        "uuid": "bee0f606_8d7e7ad8",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T17:32:29Z",
+      "side": 1,
+      "message": "I don\u0027t know what specifically you want me to do here [other than implementing the ordering in MethodHotness], can we discuss offline?",
+      "parentUuid": "850c970b_f2dfa1e3",
+      "range": {
+        "startLine": 904,
+        "startChar": 8,
+        "endLine": 904,
+        "endChar": 67
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e320ee40_50bfa2dd",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
