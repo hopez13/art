@@ -46,6 +46,30 @@
       "revId": "7373aaa76133f1ab252ab59f352dfd8576008422",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e16a3e2_b53b6833",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5000,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-30T18:51:05Z",
+      "side": 1,
+      "message": "I think the key thing to add to your comment to make it clear (from my perspective) is that \"Both compiler and interpreter will go slow-path and trigger the correct error.\"",
+      "parentUuid": "842a9b8c_14ab6d5e",
+      "range": {
+        "startLine": 5000,
+        "startChar": 23,
+        "endLine": 5000,
+        "endChar": 39
+      },
+      "revId": "7373aaa76133f1ab252ab59f352dfd8576008422",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
