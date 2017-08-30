@@ -16,6 +16,24 @@
       "revId": "5c3e9d1f60607420bb52fa8c9230967b9d9ea248",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07eb728a_4f92bc43",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-30T17:52:38Z",
+      "side": 1,
+      "message": "Why would it be copied? It\u0027s an ArtMethod*, so not subject to moving GC or anything like that.\n\n(And with respect to the other meaning of \"copied\" methods, `prototype` is an interface method and we do not have \"copied\" methods in interfaces.)",
+      "parentUuid": "b70096cc_a1460a2d",
+      "revId": "5c3e9d1f60607420bb52fa8c9230967b9d9ea248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
