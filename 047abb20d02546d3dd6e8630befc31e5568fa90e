@@ -46,6 +46,30 @@
       "revId": "047abb20d02546d3dd6e8630befc31e5568fa90e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "907d6c61_9fe60f85",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-30T09:19:57Z",
+      "side": 1,
+      "message": "NthCallerVisitor in nth_caller_visitor.h has a flag to not take runtime methods.",
+      "parentUuid": "36855d4f_179b40ab",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1197,
+        "endChar": 19
+      },
+      "revId": "047abb20d02546d3dd6e8630befc31e5568fa90e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
