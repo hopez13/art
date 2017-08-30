@@ -34,6 +34,24 @@
       "revId": "80be041454871a9b72c39790a10954595d721a63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93f087e1_d223f6bb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4695,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T18:16:41Z",
+      "side": 0,
+      "message": "Why wasn\u0027t the original code just checking what you\u0027re checking now?\n\nWhy wasn\u0027t it this in the first place?\n\n  CHECK_EQ(prototype, method-\u003eGetInterfaceMethodIfProxy(image_pointer_size_));\n\nDid some invariant change since the original old checks were written?",
+      "parentUuid": "638c8f40_972c1646",
+      "revId": "80be041454871a9b72c39790a10954595d721a63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
