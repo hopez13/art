@@ -139,7 +139,7 @@ def gather_test_info():
   VARIANT_TYPE_DICT['jvmti'] = {'no-jvmti', 'jvmti-stress', 'redefine-stress', 'trace-stress',
                                 'field-stress', 'step-stress'}
   VARIANT_TYPE_DICT['compiler'] = {'interp-ac', 'interpreter', 'jit', 'optimizing',
-                                   'regalloc_gc', 'speed-profile'}
+                                   'regalloc_gc', 'speed-profile', 'speed-with-profile'}
 
   for v_type in VARIANT_TYPE_DICT:
     TOTAL_VARIANTS_SET = TOTAL_VARIANTS_SET.union(VARIANT_TYPE_DICT.get(v_type))
@@ -184,6 +184,8 @@ def setup_test_env():
     _user_input_variants['compiler'].add('optimizing')
   if env.ART_TEST_SPEED_PROFILE:
     _user_input_variants['compiler'].add('speed-profile')
+  if env.ART_TEST_SPEED_PROFILE:
+    _user_input_variants['compiler'].add('speed-with-profile')
 
   # By default only run without jvmti
   if not _user_input_variants['jvmti']:
@@ -196,6 +198,7 @@ def setup_test_env():
     _user_input_variants['compiler'].add('interpreter')
     _user_input_variants['compiler'].add('interp-ac')
     _user_input_variants['compiler'].add('speed-profile')
+    _user_input_variants['compiler'].add('speed-with-profile')
 
   if env.ART_TEST_RUN_TEST_RELOCATE:
     _user_input_variants['relocate'].add('relocate')
@@ -398,6 +401,8 @@ def run_tests(tests):
       elif compiler == 'jit':
         options_test += ' --jit'
       elif compiler == 'speed-profile':
+        options_test += ' --speed-profile'
+      elif compiler == 'speed-with-profile':
         options_test += ' --random-profile'
 
       if relocate == 'relocate':
