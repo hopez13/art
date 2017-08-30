@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "c34044a8_888c3130",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T00:03:48Z",
+      "side": 1,
+      "message": "It\u0027s not a performance concern, it\u0027s more a correctness concern. If there\u0027s new flags added later, it will just keep working. I don\u0027t think rearranging the flags would harm anything either (other than tests needing to be updated).\n\nImplementing MethodHotness::operator\u003c seems like it would address both of our concerns.",
+      "parentUuid": "4be85b95_38897371",
+      "range": {
+        "startLine": 904,
+        "startChar": 8,
+        "endLine": 904,
+        "endChar": 67
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e320ee40_50bfa2dd",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
