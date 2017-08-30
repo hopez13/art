@@ -1,0 +1,277 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2033601c_97b6fe7f",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "Perhaps instead of copying-and-pasting the above code we can refactor it to a template?",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85ff7f81_0e43f70a",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "Misleading. \"Failed to construct std::ofstream\" makes more sense, since it\u0027s unlikely out-of-memory, but \"option\" is likely illegal parameter for ofstream",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "928d27d4_0548f448",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "These very-scary templates should probably go into a separate file (compiler_options_map.cc, etc)",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6a56715_e6d2df49",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "return std::make_unique",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e82de31_fc3fec1c",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "This wasn\u0027t always required was it? I don\u0027t remember writing it like this.",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 20
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08a5cc17_3f86b325",
+        "filename": "compiler/driver/compiler_options_map.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "nit: not aligned to below",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22abda77_5c2e432b",
+        "filename": "compiler/driver/compiler_options_map.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "nit: is there any reason for these blank lines?",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5162b9d7_f053a3d4",
+        "filename": "compiler/driver/compiler_options_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "?",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79256910_1fcd6d3a",
+        "filename": "compiler/driver/compiler_options_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "move to top",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5fffcf3_961a0f77",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "I don\u0027t even want to know....",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c77f369_6109ac34",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "AssignOrDefault(map,key,out,default_value)",
+      "range": {
+        "startLine": 1125,
+        "startChar": 7,
+        "endLine": 1125,
+        "endChar": 25
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0434460f_a719d74d",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "I\u0027m actually not a fan of spreading these include-macro-templates into the middle of a file, can we move to another file to isolate this [even if it\u0027s just an -inl header]?",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ebce659_83e924f9",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "nit: example should be relevant to Dex2OatArgumentMap",
+      "range": {
+        "startLine": 52,
+        "startChar": 14,
+        "endLine": 52,
+        "endChar": 32
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f1eb7af_1fc62b22",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "Missing comment as above.\n\nName should probably be \"MaybeAssign\", \"MaybeAssignInto\", not sure which one sounds better.\n\nThat being said the most reasonable thing would\u0027ve been \"AssignOrDefault\" to match above, I\u0027m not sure why you chose to keep default values out of the key definitions?",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cafda7c_662977ba",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:19:28Z",
+      "side": 1,
+      "message": "DCHECK(out !\u003d nullptr) ?",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
