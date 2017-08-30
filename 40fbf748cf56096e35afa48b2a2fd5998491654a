@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c60fac1b_2904207a",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-30T09:41:20Z",
+      "side": 1,
+      "message": "Can this really be relied on?\n\n    Math.abs(Long.MIN_VALUE) \u003d Long.MIN_VALUE\n    Math.abs(Integer.MIN_VALUE) \u003d Integer.MIN_VALUE",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 20
+      },
+      "revId": "40fbf748cf56096e35afa48b2a2fd5998491654a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
