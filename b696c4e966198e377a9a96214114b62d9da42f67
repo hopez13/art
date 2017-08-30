@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "364e6e01_e061f184",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T00:15:07Z",
+      "side": 1,
+      "message": "Don\u0027t need this, --random-profile and --optimizing should already do this.",
+      "revId": "b696c4e966198e377a9a96214114b62d9da42f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0423a8a3_512a77a9",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T00:15:07Z",
+      "side": 1,
+      "message": "Document new flags in usage (--help)",
+      "revId": "b696c4e966198e377a9a96214114b62d9da42f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9c560bf_ad93adb1",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T00:15:07Z",
+      "side": 1,
+      "message": "Not strictly required to add a new flag, --random-profile and --optimizing should already do this.\n\nI don\u0027t think it matters either way if you add this but to be consistent with other flags we should minimize run-test-jar flags (i.e. definitely remove speed-with-profile from run-test-jar, and consider removing speed-profile from run-test)",
+      "revId": "b696c4e966198e377a9a96214114b62d9da42f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cb1cd82_9fb2e93d",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T00:15:07Z",
+      "side": 1,
+      "message": "nit: Please do refactoring in separate CL",
+      "range": {
+        "startLine": 163,
+        "startChar": 9,
+        "endLine": 163,
+        "endChar": 29
+      },
+      "revId": "b696c4e966198e377a9a96214114b62d9da42f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89fd436f_022abb2f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T00:15:07Z",
+      "side": 1,
+      "message": "--speed-with-profile could call run-test with --optimizing and --random-profile",
+      "revId": "b696c4e966198e377a9a96214114b62d9da42f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
