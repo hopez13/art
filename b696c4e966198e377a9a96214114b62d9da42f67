@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c11ae0ed_a5348a87",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-08-30T00:22:45Z",
+      "side": 1,
+      "message": "Isn\u0027t that implicit? If we change dex2oat default to speed-profile, it will no more be speed with profile.",
+      "parentUuid": "364e6e01_e061f184",
+      "revId": "b696c4e966198e377a9a96214114b62d9da42f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0423a8a3_512a77a9",
         "filename": "test/run-test",
         "patchSetId": 2
