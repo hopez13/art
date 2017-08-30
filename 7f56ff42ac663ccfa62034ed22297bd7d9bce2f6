@@ -22,6 +22,30 @@
       "revId": "7f56ff42ac663ccfa62034ed22297bd7d9bce2f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1be876f_ca2da319",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T18:16:46Z",
+      "side": 1,
+      "message": "I agree, but just wanted to keep the ABS here with some result just in case we want to improve it later; hopefully moving to a MIN/MAX/ABS node will consolidate a lot of the commonality",
+      "parentUuid": "b6b1a07e_3ea9c1ef",
+      "range": {
+        "startLine": 93,
+        "startChar": 15,
+        "endLine": 93,
+        "endChar": 48
+      },
+      "revId": "7f56ff42ac663ccfa62034ed22297bd7d9bce2f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
