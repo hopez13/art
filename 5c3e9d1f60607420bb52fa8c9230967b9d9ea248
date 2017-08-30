@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b70096cc_a1460a2d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4696,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T17:34:32Z",
+      "side": 1,
+      "message": "Does this actually always work? What if the method is copied for any reason? Do we have DCHECK it\u0027s never copied?",
+      "revId": "5c3e9d1f60607420bb52fa8c9230967b9d9ea248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
