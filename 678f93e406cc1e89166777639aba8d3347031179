@@ -70,6 +70,30 @@
       "revId": "678f93e406cc1e89166777639aba8d3347031179",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78b643ef_873fcd85",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-30T21:17:39Z",
+      "side": 1,
+      "message": "As it is now we do not use this configuration. Your unmerged CL is the only one enabling this config. And it will only be used in one very specific case. I just wonder if we should waste the bots resources and time for a limited use case... We could just rely on the tests that your CL adds.",
+      "parentUuid": "ad241548_0dc371ca",
+      "range": {
+        "startLine": 142,
+        "startChar": 68,
+        "endLine": 142,
+        "endChar": 86
+      },
+      "revId": "678f93e406cc1e89166777639aba8d3347031179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
