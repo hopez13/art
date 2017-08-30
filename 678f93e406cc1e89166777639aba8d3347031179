@@ -94,6 +94,30 @@
       "revId": "678f93e406cc1e89166777639aba8d3347031179",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25b159d2_08ea6796",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T21:32:54Z",
+      "side": 1,
+      "message": "This is too subtle, this is why we should be explicitly enumerating the variants in target_config.py for art-test",
+      "parentUuid": "78b643ef_873fcd85",
+      "range": {
+        "startLine": 142,
+        "startChar": 68,
+        "endLine": 142,
+        "endChar": 86
+      },
+      "revId": "678f93e406cc1e89166777639aba8d3347031179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
