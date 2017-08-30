@@ -22,6 +22,30 @@
       "revId": "d704f0b4414fc1bd4f0be4ac615386ae9ed8bfd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cab09e8_2e099351",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-08-30T00:48:33Z",
+      "side": 1,
+      "message": "I don\u0027t remember that as well. What I am seeing is - we have two limits - kProfileSizeErrorThresholdInBytes and kProfileSizeWarningThresholdInBytes.\n\nWe are returning false with Error one and not with this one.",
+      "parentUuid": "3b4fdf62_ad674a30",
+      "range": {
+        "startLine": 413,
+        "startChar": 4,
+        "endLine": 414,
+        "endChar": 72
+      },
+      "revId": "d704f0b4414fc1bd4f0be4ac615386ae9ed8bfd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
