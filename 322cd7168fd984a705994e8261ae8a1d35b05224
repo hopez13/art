@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ff07a714_135498fe",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "Can I leave this to you? I\u0027m not the greatest fan of std::enable_if. Any simpler ideas how this could be restricted to primitives?",
+      "parentUuid": "2033601c_97b6fe7f",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85ff7f81_0e43f70a",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 4
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "903d4e05_2026daa0",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "Should be consistent with dex2oat_options: no unique_ptr necessary anyways.",
+      "parentUuid": "c6a56715_e6d2df49",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e82de31_fc3fec1c",
         "filename": "compiler/driver/compiler_options_map-inl.h",
         "patchSetId": 4
@@ -81,6 +117,30 @@
       "writtenOn": "2017-08-30T23:19:28Z",
       "side": 1,
       "message": "This wasn\u0027t always required was it? I don\u0027t remember writing it like this.",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 20
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a48c2c3_7bcd5532",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "I think it\u0027s because b is a template parameter itself?",
+      "parentUuid": "4e82de31_fc3fec1c",
       "range": {
         "startLine": 89,
         "startChar": 11,
@@ -161,6 +221,24 @@
     },
     {
       "key": {
+        "uuid": "62c57726_97812f16",
+        "filename": "compiler/driver/compiler_options_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "I don\u0027t think so? It\u0027s in the end a current-lib include, so it should be in this block.",
+      "parentUuid": "79256910_1fcd6d3a",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5fffcf3_961a0f77",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 4
@@ -172,6 +250,24 @@
       "writtenOn": "2017-08-30T23:19:28Z",
       "side": 1,
       "message": "I don\u0027t even want to know....",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eca0a11c_fbfe9f68",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "We already had this for the key-value store. I did not want to go through and change all our std::vector\u003cconst char*\u003e and such.",
+      "parentUuid": "f5fffcf3_961a0f77",
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -201,6 +297,30 @@
     },
     {
       "key": {
+        "uuid": "a4b60321_155a5f66",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "That assumes I know the defaults for everything. That\u0027s why I didn\u0027t encode them, yet. Would like this for incremental cleanup. Besides the const char* crappage above, none of these Assign functions should exist.",
+      "parentUuid": "6c77f369_6109ac34",
+      "range": {
+        "startLine": 1125,
+        "startChar": 7,
+        "endLine": 1125,
+        "endChar": 25
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0434460f_a719d74d",
         "filename": "dex2oat/dex2oat_options.cc",
         "patchSetId": 4
@@ -212,6 +332,24 @@
       "writtenOn": "2017-08-30T23:19:28Z",
       "side": 1,
       "message": "I\u0027m actually not a fan of spreading these include-macro-templates into the middle of a file, can we move to another file to isolate this [even if it\u0027s just an -inl header]?",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7308930c_3ce9a7b0",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "I have to check how to properly do this. I need the template instantiation to be visible to the parser code below, I don\u0027t remember whether the storage was the same.",
+      "parentUuid": "0434460f_a719d74d",
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -241,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "e7f9c31d_980313dd",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "Yeah, comments are still mostly stale and will be fixed in another patchset.",
+      "parentUuid": "9ebce659_83e924f9",
+      "range": {
+        "startLine": 52,
+        "startChar": 14,
+        "endLine": 52,
+        "endChar": 32
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f1eb7af_1fc62b22",
         "filename": "runtime/base/variant_map.h",
         "patchSetId": 4
@@ -252,6 +414,24 @@
       "writtenOn": "2017-08-30T23:19:28Z",
       "side": 1,
       "message": "Missing comment as above.\n\nName should probably be \"MaybeAssign\", \"MaybeAssignInto\", not sure which one sounds better.\n\nThat being said the most reasonable thing would\u0027ve been \"AssignOrDefault\" to match above, I\u0027m not sure why you chose to keep default values out of the key definitions?",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "321148d4_37391a49",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T23:54:25Z",
+      "side": 1,
+      "message": "Because we didn\u0027t have defaults before, and we have a few things that show being optional through pointers. I\u0027d like to clean those up (the CL is already too large), and then remove this again.",
+      "parentUuid": "0f1eb7af_1fc62b22",
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
