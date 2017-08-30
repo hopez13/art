@@ -22,6 +22,30 @@
       "revId": "98be1a9d7280f82e533bc02d2df564da4c8f73a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4414809a_0b167031",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-30T22:45:08Z",
+      "side": 1,
+      "message": "I\u0027m on bdc\u0027s side here. Increased readability at callsites without having to write comments. :-)",
+      "parentUuid": "2ca67bd5_d3f694df",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 4
+      },
+      "revId": "98be1a9d7280f82e533bc02d2df564da4c8f73a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
