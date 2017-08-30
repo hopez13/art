@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "040e020d_2f3a24f1",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T16:13:04Z",
+      "side": 1,
+      "message": "I don\u0027t mind either way, but if there is a location builder helper for it already, I call it, and let the codegen fatal (see e.g. Cnv below). That way, we have to fill in less later :-)",
+      "parentUuid": "7cc2a2ea_7fe09ca9",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 62
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2fa1cd18_b0b85bef",
         "filename": "compiler/optimizing/code_generator_vector_mips.cc",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2017-08-30T14:14:52Z",
       "side": 1,
       "message": "LOG(FATAL)",
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d6131eb_820a67db",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T16:13:04Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "2fa1cd18_b0b85bef",
       "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "d412362d_64a8557c",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T16:13:04Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "92458dfb_2cf7fbb8",
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2bd5543_95db4815",
         "filename": "compiler/optimizing/code_generator_vector_x86.cc",
         "patchSetId": 5
@@ -70,6 +130,30 @@
       "writtenOn": "2017-08-30T14:14:52Z",
       "side": 1,
       "message": "nit: is that individually tested?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab4e42fd_4cd40dd0",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T16:13:04Z",
+      "side": 1,
+      "message": "Alas, even though I recently made a big step forwards testing SIMDization on golem and are buildbots, we still cannot rely on x86 checkers tests having SIMD (that would require setting the flags explicitly on dex2oat). I want to move to that direction though",
+      "parentUuid": "b2bd5543_95db4815",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "f05f2b06_83f46811",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T16:13:04Z",
+      "side": 1,
+      "message": "because the first phi is the scalar phi, and this phi carries a vector type. Note that there is no packed data type on a phi, since it is not a vecop \n\n(ideally I would like to have a HVecPhi :-)",
+      "parentUuid": "ddf0b83d_659d2db3",
+      "range": {
+        "startLine": 1444,
+        "startChar": 46,
+        "endLine": 1444,
+        "endChar": 70
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f4b542d_4f9756e2",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 5
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "2fd025c2_258428e8",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T16:13:04Z",
+      "side": 1,
+      "message": "Yes, I think you are right. Changed.",
+      "parentUuid": "2f4b542d_4f9756e2",
+      "range": {
+        "startLine": 65,
+        "startChar": 23,
+        "endLine": 76,
+        "endChar": 27
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ea56864_e1b30081",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 5
@@ -139,6 +271,30 @@
       "writtenOn": "2017-08-30T14:14:52Z",
       "side": 1,
       "message": "number_of_scalars?",
+      "range": {
+        "startLine": 821,
+        "startChar": 24,
+        "endLine": 821,
+        "endChar": 38
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82907b65_2d1569a5",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-30T16:13:04Z",
+      "side": 1,
+      "message": "Changed.",
+      "parentUuid": "8ea56864_e1b30081",
       "range": {
         "startLine": 821,
         "startChar": 24,
