@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cc2a2ea_7fe09ca9",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-30T14:14:52Z",
+      "side": 1,
+      "message": "LOG(FATAL) (for consistency).",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 62
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fa1cd18_b0b85bef",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-30T14:14:52Z",
+      "side": 1,
+      "message": "LOG(FATAL)",
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92458dfb_2cf7fbb8",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-30T14:14:52Z",
+      "side": 1,
+      "message": "LOG(FATAL)",
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2bd5543_95db4815",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-30T14:14:52Z",
+      "side": 1,
+      "message": "nit: is that individually tested?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddf0b83d_659d2db3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-30T14:14:52Z",
+      "side": 1,
+      "message": "why is that no phi-\u003eGetTYpe()\n\n(and also consider sharing lines 1433-1436 with 1443-1446)",
+      "range": {
+        "startLine": 1444,
+        "startChar": 46,
+        "endLine": 1444,
+        "endChar": 70
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f4b542d_4f9756e2",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-30T14:14:52Z",
+      "side": 1,
+      "message": "Would it read easier with (1 \u003c\u003c N) ?",
+      "range": {
+        "startLine": 65,
+        "startChar": 23,
+        "endLine": 76,
+        "endChar": 27
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ea56864_e1b30081",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-30T14:14:52Z",
+      "side": 1,
+      "message": "number_of_scalars?",
+      "range": {
+        "startLine": 821,
+        "startChar": 24,
+        "endLine": 821,
+        "endChar": 38
+      },
+      "revId": "91802301ae448df3c71a2125efe9ead2b58c3cca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
