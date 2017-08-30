@@ -309,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "850c970b_f2dfa1e3",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-08-30T04:24:09Z",
+      "side": 1,
+      "message": "I am not sure why you think you cannot get a correct implementation of \u0027\u003c\u0027 here without using the flags int values. I know it\u0027s more convenient to just use \u0027\u003c\u0027 but you\u0027re relying on a coincidence that the current int values yield the order you describe at L880. And that\u0027s brittle.",
+      "parentUuid": "c34044a8_888c3130",
+      "range": {
+        "startLine": 904,
+        "startChar": 8,
+        "endLine": 904,
+        "endChar": 67
+      },
+      "revId": "ebd3930833b140658f481e79ba7893aa924baaa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e320ee40_50bfa2dd",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
