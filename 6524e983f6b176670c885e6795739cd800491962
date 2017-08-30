@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "642d5fb0_e0301fff",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8ce1f63_fe513e32",
+      "range": {
+        "startLine": 26,
+        "startChar": 26,
+        "endLine": 26,
+        "endChar": 69
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c6fd94a_2d792c2b",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "writtenOn": "2017-08-10T09:37:33Z",
       "side": 1,
       "message": "Doesn\u0027t it act as a publish barrier?",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 49
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f614472_7cb8647e",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c6fd94a_2d792c2b",
       "range": {
         "startLine": 58,
         "startChar": 4,
@@ -178,6 +226,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "87ff0886_6957a0eb",
+      "range": {
+        "startLine": 120,
+        "startChar": 9,
+        "endLine": 120,
+        "endChar": 17
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8362ddd9_c58e1bf7",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a9e1562_2c50c993",
       "range": {
         "startLine": 120,
         "startChar": 9,
@@ -285,6 +357,30 @@
     },
     {
       "key": {
+        "uuid": "ff43200c_1b365bcb",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cef96c04_51c34abc",
+      "range": {
+        "startLine": 130,
+        "startChar": 26,
+        "endLine": 130,
+        "endChar": 33
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e2e17ca_a44a0cc6",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 1
@@ -320,6 +416,30 @@
       "side": 1,
       "message": "I can store a set of interesting_publishes -\u003e HInstruction if you want?",
       "parentUuid": "8e2e17ca_a44a0cc6",
+      "range": {
+        "startLine": 149,
+        "startChar": 6,
+        "endLine": 153,
+        "endChar": 7
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cccb7aba_c399562b",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c4e6fab_0d5a20d6",
       "range": {
         "startLine": 149,
         "startChar": 6,
@@ -426,6 +546,30 @@
     },
     {
       "key": {
+        "uuid": "55733c4b_bc11a23b",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "764a42cb_f31b4918",
+      "range": {
+        "startLine": 27,
+        "startChar": 34,
+        "endLine": 27,
+        "endChar": 42
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0aa43b6c_088c19dd",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
         "patchSetId": 1
@@ -461,6 +605,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "0aa43b6c_088c19dd",
+      "range": {
+        "startLine": 50,
+        "startChar": 40,
+        "endLine": 51,
+        "endChar": 54
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38092d58_2d8d8a3a",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "531984f9_853d5d0d",
       "range": {
         "startLine": 50,
         "startChar": 40,
@@ -544,6 +712,30 @@
     },
     {
       "key": {
+        "uuid": "096bebaa_0b06526e",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f951cec_3381b110",
+      "range": {
+        "startLine": 56,
+        "startChar": 44,
+        "endLine": 56,
+        "endChar": 48
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "031652e0_1f0ce27b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -579,6 +771,30 @@
       "side": 1,
       "message": "I\u0027ll experiment with some logging and find out.",
       "parentUuid": "031652e0_1f0ce27b",
+      "range": {
+        "startLine": 1283,
+        "startChar": 0,
+        "endLine": 1299,
+        "endChar": 3
+      },
+      "revId": "6524e983f6b176670c885e6795739cd800491962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3eb9d19_43686158",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T23:21:02Z",
+      "side": 1,
+      "message": "Compiling core images (make build-art)\n\nTotal fence inputs: 377332\nAverage fence inputs: 1\nMax fence inputs: 5",
+      "parentUuid": "8717562a_f8beb14b",
       "range": {
         "startLine": 1283,
         "startChar": 0,
