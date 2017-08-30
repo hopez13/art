@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "13e423d6_10f95300",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-30T01:10:36Z",
+      "side": 1,
+      "message": "My point here is that if there\u0027s enough flags in run-test-jar already, we don\u0027t need to add more.\n\nIn this case, that\u0027s already true.\n\nThis comment seems consistent with the last time you added more flags to run-test but not run-test-jar.",
+      "parentUuid": "c11ae0ed_a5348a87",
+      "revId": "b696c4e966198e377a9a96214114b62d9da42f67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0423a8a3_512a77a9",
         "filename": "test/run-test",
         "patchSetId": 2
