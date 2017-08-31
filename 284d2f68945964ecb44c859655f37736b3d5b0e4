@@ -22,6 +22,30 @@
       "revId": "284d2f68945964ecb44c859655f37736b3d5b0e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "936a4951_89cd2627",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-08-31T23:43:49Z",
+      "side": 1,
+      "message": "Thanks.\n\nHowever, I don\u0027t see how this worked as intended for e.g. the test on line 154.\n\n(uint64_t)(-1) !\u003d (uint64_t)(-1U)\n\nas I just confirmed with a test program. (The right side only has 32 ones, the left side has 64.)\n\nIs it just that our testing of DCHECKs leaves something to be desired?\n\nIn any case, this CL should fix the bug. I\u0027ll get rid of the Us in the DCHECKs.\n\nIt looks like Linux kernels currently limit tids to 22 bits at the most, so we should be OK using -1.",
+      "parentUuid": "9d65300f_a7598c43",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 26
+      },
+      "revId": "284d2f68945964ecb44c859655f37736b3d5b0e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
