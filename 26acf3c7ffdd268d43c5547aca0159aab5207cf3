@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bed2c1aa_e470d9b2",
+        "filename": "test/testrunner/run_build_test_target.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:40:35Z",
+      "side": 1,
+      "message": "Unclear if it prints the command without running it or what its purpose is?\n\nIf it prints the command (without running it), then what happens if you run without --print-command? Does it not print command?",
+      "revId": "26acf3c7ffdd268d43c5547aca0159aab5207cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d078922c_f1b10014",
+        "filename": "test/testrunner/run_build_test_target.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:40:35Z",
+      "side": 1,
+      "message": "it needs to print exports too\n\n  export SOONG_ALLOW_MISSING_DEPENDENCIES\u003dtrue\n  export ART_USE_READ_BARRIER\u003dfalse\n\n   .. etc",
+      "revId": "26acf3c7ffdd268d43c5547aca0159aab5207cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64f7476e_cf3d43be",
+        "filename": "test/testrunner/run_build_test_target.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:40:35Z",
+      "side": 1,
+      "message": "Make into helper function? This pattern is repeated 3x?",
+      "revId": "26acf3c7ffdd268d43c5547aca0159aab5207cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d22aa9c9_187a0184",
+        "filename": "test/testrunner/run_build_test_target.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:40:35Z",
+      "side": 1,
+      "message": "Not quite right, if there\u0027s spaces it should have space encoded as \"\\ \", if there\u0027s \" it should encode as \\\", and so on.\n\nI recommend making it a helper so it\u0027s not 3x copy-pasted.",
+      "revId": "26acf3c7ffdd268d43c5547aca0159aab5207cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
