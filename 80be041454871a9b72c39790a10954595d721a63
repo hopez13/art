@@ -52,6 +52,24 @@
       "revId": "80be041454871a9b72c39790a10954595d721a63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef71724a_0d7c1af6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-31T12:44:15Z",
+      "side": 0,
+      "message": "Those checks were initially meaningful but that changed in\n\n  https://android-review.googlesource.com/#/c/platform/art/+/148090/18/runtime/class_linker.cc@3496\n\nI mentioned that CL in the commit message.",
+      "parentUuid": "93f087e1_d223f6bb",
+      "revId": "80be041454871a9b72c39790a10954595d721a63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
