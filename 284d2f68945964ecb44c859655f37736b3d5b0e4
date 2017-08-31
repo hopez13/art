@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d65300f_a7598c43",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-31T23:00:51Z",
+      "side": 1,
+      "message": "This is the case that returns a tid of -1.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 26
+      },
+      "revId": "284d2f68945964ecb44c859655f37736b3d5b0e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
