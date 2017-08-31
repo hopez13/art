@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2866e699_44b98e7f",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:03:21Z",
+      "side": 1,
+      "message": "I don\u0027t think you need any enable_if here.\n\nLeave cmdlinetype\u003cint\u003e/cmdline\u003cunsigned int\u003e specializations as-is.\n\nRefactor parse into a template function\n\n  template \u003ctypename T\u003e\n  Result ParseNumeric(...) {\n\n    // same code as CmdlineType\u003cunsigned int\u003e::Parse\n    // replace \"unsigned int\" -\u003e T\n    // replace \"int\" -\u003e std::make_signed\u003cT\u003e::type\n  }\n\nMaybe don\u0027t let \"unsigned long long\" or anything larger than \"long long\" through since that would fail.",
+      "parentUuid": "ff07a714_135498fe",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85ff7f81_0e43f70a",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 4
@@ -153,6 +171,30 @@
     },
     {
       "key": {
+        "uuid": "65a200a3_09381dbb",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:03:21Z",
+      "side": 1,
+      "message": "Ok, that explains it.",
+      "parentUuid": "3a48c2c3_7bcd5532",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 20
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08a5cc17_3f86b325",
         "filename": "compiler/driver/compiler_options_map.def",
         "patchSetId": 4
@@ -233,6 +275,24 @@
       "side": 1,
       "message": "I don\u0027t think so? It\u0027s in the end a current-lib include, so it should be in this block.",
       "parentUuid": "79256910_1fcd6d3a",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b8ba884_5a555c5b",
+        "filename": "compiler/driver/compiler_options_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:03:21Z",
+      "side": 1,
+      "message": "current-lib includes should go before system headers, that way if those headers themselves are missing includes they won\u0027t spuriously succeed\n\nthis is in our style guide",
+      "parentUuid": "62c57726_97812f16",
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -321,6 +381,30 @@
     },
     {
       "key": {
+        "uuid": "0df14bfd_064b99c9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:03:21Z",
+      "side": 1,
+      "message": "I only pointed out this case because you know the defaults for this case is \u0027true\u0027",
+      "parentUuid": "a4b60321_155a5f66",
+      "range": {
+        "startLine": 1125,
+        "startChar": 7,
+        "endLine": 1125,
+        "endChar": 25
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0434460f_a719d74d",
         "filename": "dex2oat/dex2oat_options.cc",
         "patchSetId": 4
@@ -350,6 +434,24 @@
       "side": 1,
       "message": "I have to check how to properly do this. I need the template instantiation to be visible to the parser code below, I don\u0027t remember whether the storage was the same.",
       "parentUuid": "0434460f_a719d74d",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8a301c1_91d22b93",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:03:21Z",
+      "side": 1,
+      "message": "If you can\u0027t put it into another .cc file, hide inside another -inl.h (or maybe .def) file is better too.",
+      "parentUuid": "7308930c_3ce9a7b0",
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -432,6 +534,24 @@
       "side": 1,
       "message": "Because we didn\u0027t have defaults before, and we have a few things that show being optional through pointers. I\u0027d like to clean those up (the CL is already too large), and then remove this again.",
       "parentUuid": "0f1eb7af_1fc62b22",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1409e41_8f457429",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T00:03:21Z",
+      "side": 1,
+      "message": "So if no explicit default value is specified for the key, it uses T{} which I think will give nullptr for pointers, 0 for ints, etc.",
+      "parentUuid": "321148d4_37391a49",
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
