@@ -118,6 +118,30 @@
       "revId": "678f93e406cc1e89166777639aba8d3347031179",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb370452_40b373a7",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-31T08:55:46Z",
+      "side": 1,
+      "message": "I agree with Calin. Let\u0027s not waste bot resource. It\u0027s ok to have a test that requests speed-with-profile, but I don\u0027t think it matches the bar of needing all tests to run on that config.",
+      "parentUuid": "25b159d2_08ea6796",
+      "range": {
+        "startLine": 142,
+        "startChar": 68,
+        "endLine": 142,
+        "endChar": 86
+      },
+      "revId": "678f93e406cc1e89166777639aba8d3347031179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
