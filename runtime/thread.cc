@@ -1736,7 +1736,7 @@ void Thread::DumpState(std::ostream& os, const Thread* thread, pid_t tid) {
           os << " \"" << mutex->GetName() << "\"";
           if (mutex->IsReaderWriterMutex()) {
             ReaderWriterMutex* rw_mutex = down_cast<ReaderWriterMutex*>(mutex);
-            if (rw_mutex->GetExclusiveOwnerTid() == static_cast<uint64_t>(tid)) {
+            if (rw_mutex->GetExclusiveOwnerTid() == static_cast<uint32_t>(tid)) {
               os << "(exclusive held)";
             } else {
               os << "(shared held)";
