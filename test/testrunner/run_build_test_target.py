@@ -28,6 +28,7 @@ See target_config.py for the configuration syntax.
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 
@@ -36,6 +37,8 @@ import env
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-j', default='1', dest='n_threads')
+parser.add_argument('--print-command', action='store_true', dest='print_command',
+                    help='Print the command to build the test target.')
 # either -l/--list OR build-target is required (but not both).
 group = parser.add_mutually_exclusive_group(required=True)
 group.add_argument('build_target', nargs='?')
@@ -59,7 +62,7 @@ target = target_config[options.build_target]
 n_threads = options.n_threads
 custom_env = target.get('env', {})
 custom_env['SOONG_ALLOW_MISSING_DEPENDENCIES'] = 'true'
-print custom_env
+print re.sub(r'[{|}|,]', '', str(custom_env)).replace(': ', '=')
 os.environ.update(custom_env)
 
 if target.has_key('make'):
@@ -69,9 +72,9 @@ if target.has_key('make'):
   build_command += ' ' + target.get('make')
   # Add 'dist' to avoid Jack issues b/36169180.
   build_command += ' dist'
-  sys.stdout.write(str(build_command) + '\n')
+  sys.stdout.write(build_command + '\n')
   sys.stdout.flush()
-  if subprocess.call(build_command.split()):
+  if not options.print_command and subprocess.call(build_command.split()):
     sys.exit(1)
 
 if target.has_key('golem'):
@@ -86,24 +89,24 @@ if target.has_key('golem'):
   cmd += ['--machine-type=%s' %(machine_type)]
   cmd += ['--golem=%s' %(default_golem_config)]
   cmd += ['--tarball']
-  sys.stdout.write(str(cmd) + '\n')
+  sys.stdout.write(' '.join(cmd) + '\n')
   sys.stdout.flush()
 
-  if subprocess.call(cmd):
+  if not options.print_command and subprocess.call(cmd):
     sys.exit(1)
 
 if target.has_key('run-test'):
   run_test_command = [os.path.join(env.ANDROID_BUILD_TOP,
                                    'art/test/testrunner/testrunner.py')]
   run_test_command += target.get('run-test', [])
-  run_test_command += ['-j', str(n_threads)]
+  run_test_command += ['-j' + str(n_threads)]
   run_test_command += ['-b']
   run_test_command += ['--host']
   run_test_command += ['--verbose']
 
-  sys.stdout.write(str(run_test_command) + '\n')
+  sys.stdout.write(' '.join(run_test_command) + '\n')
   sys.stdout.flush()
-  if subprocess.call(run_test_command):
+  if not options.print_command and subprocess.call(run_test_command):
     sys.exit(1)
 
 sys.exit(0)
