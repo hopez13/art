@@ -75,8 +75,9 @@ verifier::FailureKind AotClassLinker::PerformClassVerification(Thread* self,
                                                                std::string* error_msg) {
   Runtime* const runtime = Runtime::Current();
   CompilerCallbacks* callbacks = runtime->GetCompilerCallbacks();
-  if (callbacks->CanAssumeVerified(ClassReference(&klass->GetDexFile(),
-                                                  klass->GetDexClassDefIndex()))) {
+  mirror::ClassStatus old_status = callbacks->GetPreviousClassState(
+      ClassReference(&klass->GetDexFile(), klass->GetDexClassDefIndex()));
+  if (old_status >= mirror::ClassStatus::kStatusVerified) {
     return verifier::FailureKind::kNoFailure;
   }
   return ClassLinker::PerformClassVerification(self, klass, log_level, error_msg);
