@@ -16,6 +16,29 @@
       "revId": "f94cd3cf077635c918e40364d880d0d0d07c4a63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f798b00c_aaeb3d85",
+        "filename": "test/597-deopt-new-string/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-31T09:25:33Z",
+      "side": 1,
+      "message": "This reduces the number of configurations we\u0027re testing, right?",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "f94cd3cf077635c918e40364d880d0d0d07c4a63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
