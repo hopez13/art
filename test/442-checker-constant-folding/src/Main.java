@@ -225,11 +225,8 @@ public class Main {
   /// CHECK-DAG:     <<Const2:i\d+>>  IntConstant 2
   /// CHECK-DAG:     <<Const5:i\d+>>  IntConstant 5
   /// CHECK-DAG:     <<Const6:i\d+>>  IntConstant 6
-  /// CHECK-DAG:     <<Const11:i\d+>> IntConstant 11
   /// CHECK-DAG:     <<Add1:i\d+>>    Add [<<Const1>>,<<Const2>>]
   /// CHECK-DAG:                      Add [<<Const5>>,<<Const6>>]
-  /// CHECK-DAG:     <<Add3:i\d+>>    Add [<<Add1>>,<<Const11>>]
-  /// CHECK-DAG:                      Return [<<Add3>>]
 
   /// CHECK-START: int Main.IntAddition2() constant_folding (after)
   /// CHECK-DAG:     <<Const14:i\d+>> IntConstant 14
@@ -1015,14 +1012,10 @@ public class Main {
   /// CHECK-DAG:     <<Const5:i\d+>>  IntConstant 5
   /// CHECK-DAG:     <<Add:i\d+>>     Add [<<Const5>>,<<Const2>>]
   /// CHECK-DAG:     <<Sub:i\d+>>     Sub [<<Const5>>,<<Const2>>]
-  /// CHECK-DAG:     <<Phi:i\d+>>     Phi [<<Add>>,<<Sub>>]
-  /// CHECK-DAG:                      Return [<<Phi>>]
 
   /// CHECK-START: int Main.JumpsAndConditionals(boolean) constant_folding (after)
   /// CHECK-DAG:     <<Const3:i\d+>>  IntConstant 3
   /// CHECK-DAG:     <<Const7:i\d+>>  IntConstant 7
-  /// CHECK-DAG:     <<Phi:i\d+>>     Phi [<<Const7>>,<<Const3>>]
-  /// CHECK-DAG:                      Return [<<Phi>>]
 
   /// CHECK-START: int Main.JumpsAndConditionals(boolean) constant_folding (after)
   /// CHECK-NOT:                      Add
