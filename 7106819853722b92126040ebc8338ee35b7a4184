@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cf8e3d5_131d6bb6",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-31T23:01:40Z",
+      "side": 1,
+      "message": "Consider moving into FindCatchMethodsFromThrow for better scoping.",
+      "range": {
+        "startLine": 313,
+        "startChar": 6,
+        "endLine": 313,
+        "endChar": 25
+      },
+      "revId": "7106819853722b92126040ebc8338ee35b7a4184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aa3b1b0_744285aa",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-31T23:01:40Z",
+      "side": 1,
+      "message": "In a follow-up, rename and move to a header or something. This file is becoming exceedingly large, let\u0027s break it up a little.",
+      "range": {
+        "startLine": 362,
+        "startChar": 6,
+        "endLine": 362,
+        "endChar": 30
+      },
+      "revId": "7106819853722b92126040ebc8338ee35b7a4184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e75e06ce_5b407cd7",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-31T23:01:40Z",
+      "side": 1,
+      "message": "static?",
+      "range": {
+        "startLine": 608,
+        "startChar": 2,
+        "endLine": 608,
+        "endChar": 6
+      },
+      "revId": "7106819853722b92126040ebc8338ee35b7a4184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69a69988_11c6517b",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-31T23:01:40Z",
+      "side": 1,
+      "message": "I didn\u0027t check last time. But now I see the inconsistency here.",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 158,
+        "endChar": 11
+      },
+      "revId": "7106819853722b92126040ebc8338ee35b7a4184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71d27765_60b77532",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-31T23:01:40Z",
+      "side": 1,
+      "message": "Wrong indent / break lines.",
+      "range": {
+        "startLine": 447,
+        "startChar": 41,
+        "endLine": 448,
+        "endChar": 89
+      },
+      "revId": "7106819853722b92126040ebc8338ee35b7a4184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68dcab64_452093ed",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-31T23:01:40Z",
+      "side": 1,
+      "message": "Needs documentation.",
+      "range": {
+        "startLine": 465,
+        "startChar": 5,
+        "endLine": 465,
+        "endChar": 27
+      },
+      "revId": "7106819853722b92126040ebc8338ee35b7a4184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b9407ea_5f64958d",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-08-31T23:01:40Z",
+      "side": 1,
+      "message": "Wrong indent.",
+      "range": {
+        "startLine": 468,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 2
+      },
+      "revId": "7106819853722b92126040ebc8338ee35b7a4184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
