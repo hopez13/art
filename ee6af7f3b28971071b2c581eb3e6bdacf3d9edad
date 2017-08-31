@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45bc8eae_fdc03e1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "I would say the analysis or optimization is local (local pass seems to suggest something else)",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab5774b1_51d28a25",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "this comes alphabetically after constant_folding",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33855447_23ad8ddf",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e0f9653_b57263e8",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "as discussed offline a few times, +1 on this\n\nat the very least, we should keep escape related decisions in one file so we don\u0027t overlook cases",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218ed787_1aaa9f37",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "is that true? did you verify that the release really happens after pass is done? I did not observe that when I wrote the loop optimizer (since optimizer keeps all pass objects alive for too long), so I needed an explicit early release at the end of Run()",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c25b490a_10bc393f",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": ": -\u003e .",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59e5f313_6d7a3cc8",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "is this common terminology or a joke? if the latter, please rephrase?",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75f0fd5b_c82eefaa",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6649,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "\"previous\" is a bit confusing here?",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8cd225c1_997d28c7",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "you will need to add your new phase to this one too!!!",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59c1204d_6a6ad71f",
+        "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-08-31T23:12:04Z",
+      "side": 1,
+      "message": "nothing here? no sanity checks on the publishes?",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
