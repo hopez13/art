@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2144be29_79f6fa2f",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-08-31T07:41:13Z",
+      "side": 0,
+      "message": "Alternatively, it is simple enough to port this over as Smali code but I felt the current check for removal of Add and Sub together with checking of return value should be enough to prove constants where fold correctly.\n\nThoughts?",
+      "range": {
+        "startLine": 1027,
+        "startChar": 19,
+        "endLine": 1027,
+        "endChar": 48
+      },
+      "revId": "02cb397857c979dffae95e2db2678a72ec407cf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
