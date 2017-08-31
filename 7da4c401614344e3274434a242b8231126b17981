@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "083347b4_7349630a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-08-31T15:17:23Z",
+      "side": 1,
+      "message": "Can we instead compare\n\n  field_id.class_idx_ \u003d\u003d dex_file_-\u003eGetMethodId(dex_method_idx_).class_idx_\n\n?",
+      "range": {
+        "startLine": 5009,
+        "startChar": 0,
+        "endLine": 5013,
+        "endChar": 59
+      },
+      "revId": "7da4c401614344e3274434a242b8231126b17981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
