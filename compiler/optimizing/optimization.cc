@@ -50,6 +50,7 @@
 #include "load_store_analysis.h"
 #include "load_store_elimination.h"
 #include "loop_optimization.h"
+#include "expression_dag_balancing.h"
 #include "scheduler.h"
 #include "select_generator.h"
 #include "sharpening.h"
@@ -97,6 +98,8 @@ const char* OptimizationPassName(OptimizationPass pass) {
       return CodeSinking::kCodeSinkingPassName;
     case OptimizationPass::kConstructorFenceRedundancyElimination:
       return ConstructorFenceRedundancyElimination::kCFREPassName;
+    case OptimizationPass::kExpressionDAGBalancing:
+      return ExpressionDAGBalancing::kExpressionDAGBalancingPassName;
     case OptimizationPass::kScheduling:
       return HInstructionScheduling::kInstructionSchedulingPassName;
 #ifdef ART_ENABLE_CODEGEN_arm
@@ -142,6 +145,7 @@ OptimizationPass OptimizationPassByName(const std::string& name) {
   X(OptimizationPass::kLoadStoreAnalysis);
   X(OptimizationPass::kLoadStoreElimination);
   X(OptimizationPass::kLoopOptimization);
+  X(OptimizationPass::kExpressionDAGBalancing);
   X(OptimizationPass::kScheduling);
   X(OptimizationPass::kSelectGenerator);
   X(OptimizationPass::kSharpening);
@@ -279,6 +283,9 @@ ArenaVector<HOptimization*> ConstructOptimizations(
         break;
       case OptimizationPass::kConstructorFenceRedundancyElimination:
         opt = new (allocator) ConstructorFenceRedundancyElimination(graph, stats, name);
+        break;
+      case OptimizationPass::kExpressionDAGBalancing:
+        opt = new (allocator) ExpressionDAGBalancing(graph, stats);
         break;
       case OptimizationPass::kScheduling:
         opt = new (allocator) HInstructionScheduling(

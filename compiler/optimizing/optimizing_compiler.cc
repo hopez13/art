@@ -42,6 +42,7 @@
 #include "driver/compiler_driver-inl.h"
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
+#include "expression_dag_balancing.h"
 #include "graph_checker.h"
 #include "graph_visualizer.h"
 #include "inliner.h"
@@ -486,6 +487,7 @@ void OptimizingCompiler::RunArchOptimizations(HGraph* graph,
         OptDef(OptimizationPass::kInstructionSimplifierArm64),
         OptDef(OptimizationPass::kSideEffectsAnalysis),
         OptDef(OptimizationPass::kGlobalValueNumbering, "GVN$after_arch"),
+        OptDef(OptimizationPass::kExpressionDAGBalancing),
         OptDef(OptimizationPass::kScheduling)
       };
       RunOptimizations(graph,

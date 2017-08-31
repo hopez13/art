@@ -1031,6 +1031,18 @@ void HBasicBlock::InsertInstructionAfter(HInstruction* instruction, HInstruction
   instructions_.InsertInstructionAfter(instruction, cursor);
 }
 
+void HBasicBlock::MoveInstructionAfter(HInstruction* instruction, HInstruction* cursor) {
+  DCHECK(!cursor->IsPhi());
+  DCHECK(!instruction->IsPhi());
+  DCHECK_NE(cursor->GetId(), -1);
+  DCHECK_NE(instruction->GetId(), -1);
+  DCHECK_EQ(cursor->GetBlock(), this);
+  DCHECK_EQ(instruction->GetBlock(), this);
+  DCHECK(!cursor->IsControlFlow());
+  DCHECK(!instruction->IsControlFlow());
+  instructions_.MoveInstructionAfter(instruction, cursor);
+}
+
 void HBasicBlock::InsertPhiAfter(HPhi* phi, HPhi* cursor) {
   DCHECK_EQ(phi->GetId(), -1);
   DCHECK_NE(cursor->GetId(), -1);
@@ -1175,6 +1187,22 @@ void HInstructionList::InsertInstructionAfter(HInstruction* instruction, HInstru
     cursor->next_ = instruction;
     instruction->next_->previous_ = instruction;
   }
+}
+
+void HInstructionList::MoveInstructionAfter(HInstruction* instruction, HInstruction* cursor) {
+  DCHECK(Contains(instruction));
+  DCHECK(Contains(cursor));
+  if (instruction == first_instruction_) {
+    instruction->next_->previous_ = nullptr;
+    first_instruction_ = instruction->next_;
+  } else if (instruction == last_instruction_) {
+    instruction->previous_->next_ = nullptr;
+    last_instruction_ = instruction->previous_;
+  } else {
+    instruction->previous_->next_ = instruction->next_;
+    instruction->next_->previous_ = instruction->previous_;
+  }
+  InsertInstructionAfter(instruction, cursor);
 }
 
 void HInstructionList::RemoveInstruction(HInstruction* instruction) {

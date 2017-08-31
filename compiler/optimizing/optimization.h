@@ -72,6 +72,7 @@ enum class OptimizationPass {
   kConstantFolding,
   kConstructorFenceRedundancyElimination,
   kDeadCodeElimination,
+  kExpressionDAGBalancing,
   kGlobalValueNumbering,
   kInductionVarAnalysis,
   kInliner,

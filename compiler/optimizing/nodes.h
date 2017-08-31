@@ -146,6 +146,9 @@ class HInstructionList : public ValueObject {
   void InsertInstructionBefore(HInstruction* instruction, HInstruction* cursor);
   void InsertInstructionAfter(HInstruction* instruction, HInstruction* cursor);
 
+  // Move existing `instruction` after an existing instruction `cursor`.
+  void MoveInstructionAfter(HInstruction* instruction, HInstruction* cursor);
+
   // Return true if this list contains `instruction`.
   bool Contains(HInstruction* instruction) const;
 
@@ -178,6 +181,7 @@ class HInstructionList : public ValueObject {
   friend class HInstructionIterator;
   friend class HInstructionIteratorHandleChanges;
   friend class HBackwardInstructionIterator;
+  friend class HBackwardInstructionIteratorHandleChanges;
 
   DISALLOW_COPY_AND_ASSIGN(HInstructionList);
 };
@@ -1194,6 +1198,8 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
   // Insert `instruction` before/after an existing instruction `cursor`.
   void InsertInstructionBefore(HInstruction* instruction, HInstruction* cursor);
   void InsertInstructionAfter(HInstruction* instruction, HInstruction* cursor);
+  // Move existing `instruction` after and existing instruction `cursor`.
+  void MoveInstructionAfter(HInstruction* instruction, HInstruction* cursor);
   // Replace phi `initial` with `replacement` within this block.
   void ReplaceAndRemovePhiWith(HPhi* initial, HPhi* replacement);
   // Replace instruction `initial` with `replacement` within this block.
@@ -2568,6 +2574,24 @@ class HBackwardInstructionIterator : public ValueObject {
   HInstruction* next_;
 
   DISALLOW_COPY_AND_ASSIGN(HBackwardInstructionIterator);
+};
+
+class HBackwardInstructionIteratorHandleChanges : public ValueObject {
+ public:
+  explicit HBackwardInstructionIteratorHandleChanges(const HInstructionList& instructions)
+      : instruction_(instructions.last_instruction_) {
+  }
+
+  bool Done() const { return instruction_ == nullptr; }
+  HInstruction* Current() const { return instruction_; }
+  void Advance() {
+    instruction_ = instruction_->GetPrevious();
+  }
+
+ private:
+  HInstruction* instruction_;
+
+  DISALLOW_COPY_AND_ASSIGN(HBackwardInstructionIteratorHandleChanges);
 };
 
 class HVariableInputSizeInstruction : public HInstruction {
