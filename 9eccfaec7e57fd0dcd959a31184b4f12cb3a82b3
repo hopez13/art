@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d73c13ec_eb62c45a",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-31T20:42:16Z",
+      "side": 1,
+      "message": "Why not just store accumulator in the other visitor?",
+      "range": {
+        "startLine": 699,
+        "startChar": 40,
+        "endLine": 699,
+        "endChar": 65
+      },
+      "revId": "9eccfaec7e57fd0dcd959a31184b4f12cb3a82b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e6365b7_7812886b",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-31T20:42:16Z",
+      "side": 1,
+      "message": "Possible to pass the things by value and use a template on the visitor side?",
+      "range": {
+        "startLine": 707,
+        "startChar": 12,
+        "endLine": 708,
+        "endChar": 34
+      },
+      "revId": "9eccfaec7e57fd0dcd959a31184b4f12cb3a82b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a1e5185_5d956cf7",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-08-31T20:42:16Z",
+      "side": 1,
+      "message": "Add a comment that imgdiag doesn\u0027t support running as a different ISA than the image? That is why it\u0027s OK to directly read the pointers without using the getters.",
+      "range": {
+        "startLine": 732,
+        "startChar": 45,
+        "endLine": 732,
+        "endChar": 91
+      },
+      "revId": "9eccfaec7e57fd0dcd959a31184b4f12cb3a82b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
