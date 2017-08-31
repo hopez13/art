@@ -260,6 +260,30 @@
       "revId": "ab00d0095e607d248f63da7581a06a293aa663c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2851044d_341f9119",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T18:40:49Z",
+      "side": 1,
+      "message": "The closest I could move it is right above L1609 unless you want me to redefine it multiple times\n\nWhat should I do?",
+      "parentUuid": "bfbb24c5_2a89ceb4",
+      "range": {
+        "startLine": 1601,
+        "startChar": 40,
+        "endLine": 1601,
+        "endChar": 71
+      },
+      "revId": "ab00d0095e607d248f63da7581a06a293aa663c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
