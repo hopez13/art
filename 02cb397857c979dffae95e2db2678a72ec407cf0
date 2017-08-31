@@ -22,6 +22,30 @@
       "revId": "02cb397857c979dffae95e2db2678a72ec407cf0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "035c7aa5_f1ae0c91",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-08-31T08:03:31Z",
+      "side": 0,
+      "message": "I would generally prefer moving things to Smali, but if you\u0027ve studied the test and realized some are duplicate I could agree with you. +rpl who owns constant folding.",
+      "parentUuid": "2144be29_79f6fa2f",
+      "range": {
+        "startLine": 1027,
+        "startChar": 19,
+        "endLine": 1027,
+        "endChar": 48
+      },
+      "revId": "02cb397857c979dffae95e2db2678a72ec407cf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
