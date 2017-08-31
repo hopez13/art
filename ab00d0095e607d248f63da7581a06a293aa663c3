@@ -112,6 +112,30 @@
     },
     {
       "key": {
+        "uuid": "89f820d1_9baf9d53",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-08-31T18:39:47Z",
+      "side": 1,
+      "message": "It\u0027s this line of code in ElfCompilationUnitWriter::Write \n\n   CHECK(unique) \u003c\u003c \"Redefinition of \" \u003c\u003c dex_class_desc; // near L164\n\nart/compiler/debug/elf_debug_info_writer.h",
+      "parentUuid": "8330a002_574dda67",
+      "range": {
+        "startLine": 1031,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 57
+      },
+      "revId": "ab00d0095e607d248f63da7581a06a293aa663c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5aaf437_185a2e48",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 5
