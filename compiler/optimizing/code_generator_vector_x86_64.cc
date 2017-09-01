@@ -1005,12 +1005,42 @@ void InstructionCodeGeneratorX86_64::VisitVecSetScalars(HVecSetScalars* instruct
   }
 }
 
-void LocationsBuilderX86_64::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instr) {
-  LOG(FATAL) << "No SIMD for " << instr->GetId();
+// Helper to set up locations for vector accumulations.
+static void CreateVecAccumLocations(ArenaAllocator* arena, HVecOperation* instruction) {
+  LocationSummary* locations = new (arena) LocationSummary(instruction);
+  switch (instruction->GetPackedType()) {
+    case Primitive::kPrimByte:
+    case Primitive::kPrimChar:
+    case Primitive::kPrimShort:
+    case Primitive::kPrimInt:
+    case Primitive::kPrimLong:
+      locations->SetInAt(0, Location::RequiresFpuRegister());
+      locations->SetInAt(1, Location::RequiresFpuRegister());
+      locations->SetInAt(2, Location::RequiresFpuRegister());
+      locations->SetOut(Location::SameAsFirstInput());
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
 }
 
-void InstructionCodeGeneratorX86_64::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instr) {
-  LOG(FATAL) << "No SIMD for " << instr->GetId();
+void LocationsBuilderX86_64::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instruction) {
+  CreateVecAccumLocations(GetGraph()->GetArena(), instruction);
+}
+
+void InstructionCodeGeneratorX86_64::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instruction) {
+  // TODO: pmaddwd?
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderX86_64::VisitVecSADAccumulate(HVecSADAccumulate* instruction) {
+  CreateVecAccumLocations(GetGraph()->GetArena(), instruction);
+}
+
+void InstructionCodeGeneratorX86_64::VisitVecSADAccumulate(HVecSADAccumulate* instruction) {
+  // TODO: psadbw for unsigned?
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
 }
 
 // Helper to set up locations for vector memory operations.
