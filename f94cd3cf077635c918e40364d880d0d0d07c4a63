@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d6dcd5a8_241d35d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-09-01T18:52:14Z",
+      "side": 1,
+      "message": "This CL shouldn\u0027t affect jvm/jni performance, unless instrumentation is used (like doing method tracing), we now save/restore every registers.\nI ran the perf test in the bug on my sailfish and I didn\u0027t see performance difference with this CL. The test didn\u0027t do any instrumentation/deoptimization so this CL should not affect performance.",
+      "parentUuid": "0a08ed70_2270040b",
+      "revId": "f94cd3cf077635c918e40364d880d0d0d07c4a63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f798b00c_aaeb3d85",
         "filename": "test/597-deopt-new-string/run",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2017-08-31T09:25:33Z",
       "side": 1,
       "message": "This reduces the number of configurations we\u0027re testing, right?",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "f94cd3cf077635c918e40364d880d0d0d07c4a63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3651bf57_43fe6419",
+        "filename": "test/597-deopt-new-string/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-09-01T18:52:14Z",
+      "side": 1,
+      "message": "I removed this change.",
+      "parentUuid": "f798b00c_aaeb3d85",
       "range": {
         "startLine": 18,
         "startChar": 12,
