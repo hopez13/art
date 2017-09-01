@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3eb09f4b_71f678a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "I don\u0027t know, but that is the point. How about the pass currently performs local optimization only, i.e. within ....",
+      "parentUuid": "c8795c0f_9848dafc",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab5774b1_51d28a25",
         "filename": "compiler/Android.bp",
         "patchSetId": 3
@@ -89,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "01c1e123_1fddea12",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "ok, but some rationale in the TODO would be nice, lest we don\u0027t forget",
+      "parentUuid": "395068c6_003a5686",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e0f9653_b57263e8",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 3
@@ -100,6 +136,40 @@
       "writtenOn": "2017-08-31T23:12:04Z",
       "side": 1,
       "message": "as discussed offline a few times, +1 on this\n\nat the very least, we should keep escape related decisions in one file so we don\u0027t overlook cases",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f557a322_3357610e",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "document this method: called by any instruction visitor that may create an alias",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23ce7828_3ea8f338",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "this is not always an invoke is it?",
       "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -135,6 +205,24 @@
       "side": 1,
       "message": "scoped_allocator_ is in a separate type CFREVisitor which is locally scoped in Run\n\n  Run() {\n    CFREVisitor visit(...);\n    visit.VisitRPO();\n    // implicit ~CFREVisitor\n    // implicit scoped_allocator_::~ArenaAllocator\n  }",
       "parentUuid": "218ed787_1aaa9f37",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "060acd84_2b5b0427",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "oh yes, good point, that is the difference here.",
+      "parentUuid": "9be55e64_afabe7da",
       "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -193,6 +281,24 @@
     },
     {
       "key": {
+        "uuid": "c729ace0_facb55cc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "I still think more descriptive names would be more helpful here. Your textbook was clearly trying to be more funny than mine :-)",
+      "parentUuid": "d6b5147d_e08634a3",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75f0fd5b_c82eefaa",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -222,6 +328,24 @@
       "side": 1,
       "message": "previous as in the instruction immediately preceding this one. Should I use \"immediately preceding\" instead? Do you have something specific in mind?",
       "parentUuid": "75f0fd5b_c82eefaa",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f975b993_f4960b1b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6649,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "what makes the input previous? that is I guess what I want to read in this comment here",
+      "parentUuid": "cfc541cd_9dbb605f",
       "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -263,6 +387,24 @@
     },
     {
       "key": {
+        "uuid": "e442b486_6c636a2a",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "of course, but that does not mean you don\u0027t have to add it now?",
+      "parentUuid": "e764a6bb_2fd728d4",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59c1204d_6a6ad71f",
         "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
         "patchSetId": 3
@@ -292,6 +434,24 @@
       "side": 1,
       "message": "I can call all the exercises() but not sure if there\u0027s any point?\n\nAs it\u0027s a single threaded test, it could insert arbitrary barriers or remove all the barriers and the effects would be unobservable.\n\nFWIW the original HMemoryBarrier test that Calin wrote also has an empty main.",
       "parentUuid": "59c1204d_6a6ad71f",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45e963ca_e5cb32a6",
+        "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-01T17:49:43Z",
+      "side": 1,
+      "message": "I leave that up to you since it is your test. I had similar discussions on printing \"passed\" vs. not printing anything. I just am very uncomfortable with tests that would still pass when all code is removed :-)",
+      "parentUuid": "0d8d2cf2_1dc271fa",
       "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
