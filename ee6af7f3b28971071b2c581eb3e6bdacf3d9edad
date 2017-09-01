@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c8795c0f_9848dafc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-01T00:09:20Z",
+      "side": 1,
+      "message": "What does \"local pass\" mean?",
+      "parentUuid": "45bc8eae_fdc03e1f",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab5774b1_51d28a25",
         "filename": "compiler/Android.bp",
         "patchSetId": 3
@@ -47,6 +65,24 @@
       "writtenOn": "2017-08-31T23:12:04Z",
       "side": 1,
       "message": "why?",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "395068c6_003a5686",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-01T00:09:20Z",
+      "side": 1,
+      "message": "I think Nicolas suggested this a while back.",
+      "parentUuid": "33855447_23ad8ddf",
       "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "9be55e64_afabe7da",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-01T00:09:20Z",
+      "side": 1,
+      "message": "scoped_allocator_ is in a separate type CFREVisitor which is locally scoped in Run\n\n  Run() {\n    CFREVisitor visit(...);\n    visit.VisitRPO();\n    // implicit ~CFREVisitor\n    // implicit scoped_allocator_::~ArenaAllocator\n  }",
+      "parentUuid": "218ed787_1aaa9f37",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c25b490a_10bc393f",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
         "patchSetId": 3
@@ -121,6 +175,24 @@
     },
     {
       "key": {
+        "uuid": "d6b5147d_e08634a3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-01T00:09:20Z",
+      "side": 1,
+      "message": "Common terminology for substring lookup algorithms.",
+      "parentUuid": "59e5f313_6d7a3cc8",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75f0fd5b_c82eefaa",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -132,6 +204,24 @@
       "writtenOn": "2017-08-31T23:12:04Z",
       "side": 1,
       "message": "\"previous\" is a bit confusing here?",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfc541cd_9dbb605f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6649,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-01T00:09:20Z",
+      "side": 1,
+      "message": "previous as in the instruction immediately preceding this one. Should I use \"immediately preceding\" instead? Do you have something specific in mind?",
+      "parentUuid": "75f0fd5b_c82eefaa",
       "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -155,6 +245,24 @@
     },
     {
       "key": {
+        "uuid": "e764a6bb_2fd728d4",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-01T00:09:20Z",
+      "side": 1,
+      "message": "I think this is why we have that bug open right? :).\n\nI can add it now though without a test no idea if it will actually work. Maybe leave TODO for now? WDYT?",
+      "parentUuid": "8cd225c1_997d28c7",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59c1204d_6a6ad71f",
         "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
         "patchSetId": 3
@@ -166,6 +274,24 @@
       "writtenOn": "2017-08-31T23:12:04Z",
       "side": 1,
       "message": "nothing here? no sanity checks on the publishes?",
+      "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d8d2cf2_1dc271fa",
+        "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-01T00:09:20Z",
+      "side": 1,
+      "message": "I can call all the exercises() but not sure if there\u0027s any point?\n\nAs it\u0027s a single threaded test, it could insert arbitrary barriers or remove all the barriers and the effects would be unobservable.\n\nFWIW the original HMemoryBarrier test that Calin wrote also has an empty main.",
+      "parentUuid": "59c1204d_6a6ad71f",
       "revId": "ee6af7f3b28971071b2c581eb3e6bdacf3d9edad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
