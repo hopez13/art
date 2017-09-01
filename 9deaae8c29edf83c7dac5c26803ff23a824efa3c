@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95780a24_5ccef48b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-01T19:35:51Z",
+      "side": 1,
+      "message": "Document that we do not abort dex2oat compilation for bad profiles and we try to make the best of it and that errors will be logged in VerifyProfileData(). \n\nAdd a todo, mentioning the bug number, that we should revisit this decision.",
+      "range": {
+        "startLine": 3131,
+        "startChar": 4,
+        "endLine": 3131,
+        "endChar": 33
+      },
+      "revId": "9deaae8c29edf83c7dac5c26803ff23a824efa3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec1bcaab_1f2a148e",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-01T19:35:51Z",
+      "side": 1,
+      "message": "capital F to be consistent with the others.",
+      "range": {
+        "startLine": 301,
+        "startChar": 7,
+        "endLine": 301,
+        "endChar": 8
+      },
+      "revId": "9deaae8c29edf83c7dac5c26803ff23a824efa3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0de423d5_6abf2443",
+        "filename": "test/707-checker-invalid-profile/check",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-01T19:35:51Z",
+      "side": 1,
+      "message": "document why you need this and what is it doing.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 16
+      },
+      "revId": "9deaae8c29edf83c7dac5c26803ff23a824efa3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
