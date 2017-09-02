@@ -46,6 +46,30 @@
       "revId": "284d2f68945964ecb44c859655f37736b3d5b0e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68afd28b_31772626",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-09-02T00:47:09Z",
+      "side": 1,
+      "message": "I decided on a slightly different approach in PS2.  Unfortunately, the behavior is also different with and without ART_USE_FUTEXES. I was tempted just to return 0 here, but I guess the -1 can be useful for debugging information.",
+      "parentUuid": "936a4951_89cd2627",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 26
+      },
+      "revId": "284d2f68945964ecb44c859655f37736b3d5b0e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
