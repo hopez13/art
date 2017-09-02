@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cadab242_c814ef55",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-09-02T00:22:53Z",
+      "side": 1,
+      "message": "A single VisitInvoke() is enough if it subclasses HGraphDelegateVisitor.",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 32
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa7bbef0_b282ab02",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
         "patchSetId": 4
