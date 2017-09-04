@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6baf4372_a0ae6a1b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-04T08:53:40Z",
+      "side": 1,
+      "message": "I thought it invokes the invocation handler. (But the signature of the call is indeed that of the proxied method.)",
+      "range": {
+        "startLine": 1209,
+        "startChar": 8,
+        "endLine": 1209,
+        "endChar": 56
+      },
+      "revId": "35b3cbb9c667b5f89fdca539f1d9ac89a4dadb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
