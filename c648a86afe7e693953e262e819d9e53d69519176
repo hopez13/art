@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "7b81ad6c_87ba3cf3",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a22622dd_1994406f",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer having the VisitAlias chekc if the input is a NullCheck.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 49
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cadab242_c814ef55",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 4
@@ -18,6 +64,138 @@
         "startChar": 7,
         "endLine": 90,
         "endChar": 32
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e3c7dd2_064e60b7",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85f72122_298c6d09",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "Add a comment about which instructions are aliases, and why you\u0027re not handling phis.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 64
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3897ef48_be8e0ec1",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 101
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32cb64d3_e0f291b8",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "Isn\u0027t this also an \"alias\"? It shouldn\u0027t be limited to invokes then.",
+      "range": {
+        "startLine": 165,
+        "startChar": 56,
+        "endLine": 165,
+        "endChar": 62
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cfcb821_cc33389c",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "Comment on why you\u0027re clearing. Maybe you should do that in VisitBasicBlock.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 37
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6864982b_2781f04b",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "visit",
+      "range": {
+        "startLine": 245,
+        "startChar": 21,
+        "endLine": 245,
+        "endChar": 31
       },
       "revId": "c648a86afe7e693953e262e819d9e53d69519176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -64,6 +242,75 @@
         "startChar": 43,
         "endLine": 36,
         "endChar": 51
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d587dda2_79067eb6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "cannot",
+      "range": {
+        "startLine": 1280,
+        "startChar": 22,
+        "endLine": 1280,
+        "endChar": 27
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e63ecd4e_d271683d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "Move this before simplify4. simplify4 is a codegen preparation cleanup that should run last.",
+      "range": {
+        "startLine": 831,
+        "startChar": 0,
+        "endLine": 832,
+        "endChar": 74
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd6bcd90_5985085a",
+        "filename": "test/476-checker-ctor-fence-redun-elim/expected.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T16:20:19Z",
+      "side": 1,
+      "message": "Could you replace these with an expectEquals in the java file? A golden file should really only be used for simple output.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 66
       },
       "revId": "c648a86afe7e693953e262e819d9e53d69519176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
