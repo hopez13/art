@@ -77,9 +77,17 @@ verifier::FailureKind AotClassLinker::PerformClassVerification(Thread* self,
   CompilerCallbacks* callbacks = runtime->GetCompilerCallbacks();
   mirror::ClassStatus old_status = callbacks->GetPreviousClassState(
       ClassReference(&klass->GetDexFile(), klass->GetDexClassDefIndex()));
+  // Was it verified? Report no failure.
   if (old_status >= mirror::ClassStatus::kStatusVerified) {
     return verifier::FailureKind::kNoFailure;
   }
+  // Does it need to be verified at runtime? Report soft failure.
+  if (old_status >= mirror::ClassStatus::kStatusRetryVerificationAtRuntime) {
+    // Error messages from here are only reported through -verbose:class. It is not worth it to
+    // create a message.
+    return verifier::FailureKind::kSoftFailure;
+  }
+  // Do the actual work.
   return ClassLinker::PerformClassVerification(self, klass, log_level, error_msg);
 }
 
