@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2855538_7016bb5e",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T08:24:49Z",
+      "side": 0,
+      "message": "Removing this line isn\u0027t right. Not sure why you did it, so I\u0027ll just revert the change for now, as it leads to deopt issues in libcore tests.",
+      "revId": "9c4feaa082d8e8c00611a0657c3f80b1c1179a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
