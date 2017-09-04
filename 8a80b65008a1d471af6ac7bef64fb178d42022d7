@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6b8374bb_13224586",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-04T17:11:31Z",
+      "side": 1,
+      "message": "Ok, this particular function is removed now.",
+      "parentUuid": "8fc10c8d_7eb3d680",
+      "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cff6e5d6_a2bbdc74",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-09T21:45:51Z",
       "side": 1,
       "message": "isn\u0027t it a bit cleaner to make this class-based types?",
+      "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a273f69_50568e1f",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-04T17:11:31Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "cff6e5d6_a2bbdc74",
       "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "8c15f6a1_b9b194b5",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-04T17:11:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c753197f_261e3c69",
+      "range": {
+        "startLine": 200,
+        "startChar": 18,
+        "endLine": 200,
+        "endChar": 19
+      },
+      "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "263525e3_a1cdf2eb",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 2
@@ -70,6 +130,24 @@
       "writtenOn": "2017-08-09T21:45:51Z",
       "side": 1,
       "message": "are we missing the CC file in this PS? In general I would move a few more method implementations there to make the class definitions read easier",
+      "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aac4026_daba73e1",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-04T17:11:31Z",
+      "side": 1,
+      "message": "My original intent was to upload a patch with API only to get some high-level feedback (maybe something is terribly wrong already). So now I\u0027ve uploaded a full patch with the implementation.",
+      "parentUuid": "263525e3_a1cdf2eb",
       "revId": "8a80b65008a1d471af6ac7bef64fb178d42022d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
