@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e59ae8e_28a2e371",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-04T14:41:16Z",
+      "side": 1,
+      "message": "I don\u0027t think we should create those constants in the builder. vixl supports constant pools.",
+      "range": {
+        "startLine": 1790,
+        "startChar": 0,
+        "endLine": 1792,
+        "endChar": 97
+      },
+      "revId": "4802d6d3b3c24106aec9a7968b7ab7e7195ef410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
