@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c43a6e73_7c24eabf",
+        "filename": "runtime/mirror/class_status.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T16:32:46Z",
+      "side": 1,
+      "message": "Why is it in the mirror namespace? It\u0027s not a descendant of mirror::Object*",
+      "revId": "91f8ea0730be8755a0746891d64253f04a18d9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
