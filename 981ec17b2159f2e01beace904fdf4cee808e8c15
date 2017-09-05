@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "51dc5831_b47e6b14",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T16:51:34Z",
+      "side": 1,
+      "message": "My empirical evidence is that there appears to be 4 bins for system_server in practice:\n\n* None\n* PostStartup\n* PostStartup \u0026 Hot\n* All\n\n\u003e suboptimal\n\nCan you please explain why you think it\u0027s suboptimal? It will lose at most 1 page per bin. As there are 8 bins, that\u0027s at most 32KB.",
+      "parentUuid": "f029da0a_df1ddb49",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 908,
+        "endChar": 21
+      },
+      "revId": "981ec17b2159f2e01beace904fdf4cee808e8c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9586e38_a2bfe540",
         "filename": "test/661-oat-writer-layout/expected.no-compiled-code.txt",
         "patchSetId": 6
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "5bdff25c_5ee4af19",
+        "filename": "test/661-oat-writer-layout/src/Generated.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T16:51:34Z",
+      "side": 1,
+      "message": "Ensure it\u0027s subsorted by class_idx. With only A\u0026B it could get lucky and just get A\u0026B in that order (50% chance) . With A\u0026B\u0026C it\u0027s (1/6) chance of getting that order.",
+      "parentUuid": "3e9018cb_b46b0180",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 9
+      },
+      "revId": "981ec17b2159f2e01beace904fdf4cee808e8c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2ba5c76_a1ee458d",
         "filename": "test/661-oat-writer-layout/src/Test.java",
         "patchSetId": 6
@@ -76,6 +124,30 @@
       "writtenOn": "2017-09-01T03:06:44Z",
       "side": 1,
       "message": "Is this only to simplify the oatdump parsing? Seems unnecessary.",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "981ec17b2159f2e01beace904fdf4cee808e8c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba30f9a_83816340",
+        "filename": "test/661-oat-writer-layout/src/Test.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T16:51:34Z",
+      "side": 1,
+      "message": "There is no oatdump parsing.\n\nIf there\u0027s something specific you\u0027d like me to add to the comments on line 18-20, can you please say what it is? I will add more comments verbatim.",
+      "parentUuid": "b2ba5c76_a1ee458d",
       "range": {
         "startLine": 17,
         "startChar": 13,
