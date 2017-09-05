@@ -180,6 +180,30 @@
     },
     {
       "key": {
+        "uuid": "f0334e68_7a96c30a",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T14:13:50Z",
+      "side": 1,
+      "message": "It has to do everything (that this function is doing) for correctness in VisitBasicBlock, including merging all the fences outstanding so far.",
+      "parentUuid": "1cfcb821_cc33389c",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 37
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6864982b_2781f04b",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 4
