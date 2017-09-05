@@ -31,6 +31,8 @@
 
 #include "events-inl.h"
 
+#include <array>
+
 #include "art_field-inl.h"
 #include "art_jvmti.h"
 #include "art_method-inl.h"
@@ -245,6 +247,9 @@ static void SetupObjectAllocationTracking(art::gc::AllocationListener* listener,
     art::Runtime::Current()->GetHeap()->RemoveAllocationListener();
   }
 }
+
+// static void SetupMonitorListener(art::MonitorListener* listener, bool enable) {
+// }
 
 // Report GC pauses (see spec) as GARBAGE_COLLECTION_START and GARBAGE_COLLECTION_END.
 class JvmtiGcPauseListener : public art::gc::GcPauseListener {
@@ -625,6 +630,21 @@ void EventHandler::HandleLocalAccessCapabilityAdded() {
   instr->DeoptimizeEverything("jvmti-local-variable-access");
 }
 
+// bool EventHandler::OtherMonitorEventsEnabledAnywhere(ArtJvmtiEvent event) {
+//   std::array<ArtJvmtiEvent, 4> events = {
+//     ArtJvmtiEvent::kMonitorContendedEnter,
+//     ArtJvmtiEvent::kMonitorContendedEntered,
+//     ArtJvmtiEvent::kMonitorWait,
+//     ArtJvmtiEvent::kMonitorWaited,
+//   };
+//   for (ArtJvmtiEvent e : events) {
+//     if (e != event && IsEventEnabledAnywhere(e)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
 // Handle special work for the given event type, if necessary.
 void EventHandler::HandleEventType(ArtJvmtiEvent event, bool enable) {
   switch (event) {
@@ -654,7 +674,15 @@ void EventHandler::HandleEventType(ArtJvmtiEvent event, bool enable) {
     case ArtJvmtiEvent::kFieldModification:
       SetupTraceListener(method_trace_listener_.get(), event, enable);
       return;
-
+    case ArtJvmtiEvent::kMonitorContendedEnter:
+    case ArtJvmtiEvent::kMonitorContendedEntered:
+    case ArtJvmtiEvent::kMonitorWait:
+    case ArtJvmtiEvent::kMonitorWaited:
+      LOG(FATAL) << "Not yet implemented!";
+      // if (!OtherMonitorEventsEnabledAnywhere(event)) {
+      //   SetupMonitorListener(monitor_listener_.get(), enable);
+      // }
+      return;
     default:
       break;
   }
@@ -783,6 +811,7 @@ EventHandler::EventHandler() {
   alloc_listener_.reset(new JvmtiAllocationListener(this));
   gc_pause_listener_.reset(new JvmtiGcPauseListener(this));
   method_trace_listener_.reset(new JvmtiMethodTraceListener(this));
+  // monitor_listener_.reset(new JvmtiMonitorListener(this));
 }
 
 EventHandler::~EventHandler() {
