@@ -22,6 +22,30 @@
       "revId": "91f8ea0730be8755a0746891d64253f04a18d9b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd7c7ca_642228dc",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-05T21:20:14Z",
+      "side": 0,
+      "message": "That doesn\u0027t make sense here. This is testing the compiler driver, which does not expose GetPreviousClassState. Instead, it\u0027s GetCompiledClass, which is tested a couple of lines above.\n\nThis would possibly go into quick_compiler_callbacks_test, if we had one.",
+      "parentUuid": "b56ecc7e_8d3d2632",
+      "range": {
+        "startLine": 408,
+        "startChar": 30,
+        "endLine": 408,
+        "endChar": 47
+      },
+      "revId": "91f8ea0730be8755a0746891d64253f04a18d9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
