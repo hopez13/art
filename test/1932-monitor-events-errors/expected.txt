@@ -1,0 +1,24 @@
+Testing contended locking where lock is released before callback ends.
+Locker thread 1 for NamedLock[Lock testLockUncontend] contended-LOCKING NamedLock[Lock testLockUncontend]
+Releasing NamedLock[Lock testLockUncontend] during monitorEnter event.
+Locker thread 1 for NamedLock[Lock testLockUncontend] LOCKED NamedLock[Lock testLockUncontend]
+Testing throwing exceptions in monitor_enter
+Locker thread 3 for NamedLock[Lock testLockThrowEnter] contended-LOCKING NamedLock[Lock testLockThrowEnter]
+Throwing exception in MonitorEnter
+Locker thread 3 for NamedLock[Lock testLockThrowEnter] LOCKED NamedLock[Lock testLockThrowEnter]
+Caught exception: art.Monitors$TestException: Exception thrown by other thread!
+	Caused by: art.Monitors$TestException: throwing exception during monitorEnter of NamedLock[Lock testLockThrowEnter]
+Testing throwing exceptions in monitor_entered
+Locker thread 5 for NamedLock[Lock testLockThrowEntered] contended-LOCKING NamedLock[Lock testLockThrowEntered]
+Locker thread 5 for NamedLock[Lock testLockThrowEntered] LOCKED NamedLock[Lock testLockThrowEntered]
+Throwing exception in MonitorEntered
+Caught exception: art.Monitors$TestException: Exception thrown by other thread!
+	Caused by: art.Monitors$TestException: throwing exception during monitorEntered of NamedLock[Lock testLockThrowEntered]
+Testing throwing exceptions in both monitorEnter & monitor_entered
+Locker thread 7 for NamedLock[Lock testLockThrowBoth] contended-LOCKING NamedLock[Lock testLockThrowBoth]
+Throwing exception in MonitorEnter
+Locker thread 7 for NamedLock[Lock testLockThrowBoth] LOCKED NamedLock[Lock testLockThrowBoth]
+Throwing exception in MonitorEntered
+Caught exception: art.Monitors$TestException: Exception thrown by other thread!
+	Caused by: art.Monitors$TestException: throwing exception during monitorEntered of NamedLock[Lock testLockThrowBoth]
+TODO Other ones.

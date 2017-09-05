@@ -29,12 +29,14 @@ namespace art {
 namespace mirror {
 class Class;
 class ClassLoader;
+class Object;
 }  // namespace mirror
 
 class ArtMethod;
 class ClassLoadCallback;
 class Thread;
 class MethodCallback;
+class Monitor;
 class ThreadLifecycleCallback;
 
 // Note: RuntimeCallbacks uses the mutator lock to synchronize the callback lists. A thread must
@@ -71,6 +73,18 @@ class RuntimePhaseCallback {
   virtual ~RuntimePhaseCallback() {}
 
   virtual void NextRuntimePhase(RuntimePhase phase) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+};
+
+class MonitorCallback {
+ public:
+  virtual void MonitorContendedLocking(Monitor* mon) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+  virtual void MonitorContendedLocked(Monitor* mon) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+  virtual void ObjectWaitStart(Handle<mirror::Object> obj, int64_t millis_timeout)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+  virtual void ObjectWaitEnd(Handle<mirror::Object> obj, bool timeout, bool waited)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+
+  virtual ~MonitorCallback() {}
 };
 
 class RuntimeCallbacks {
@@ -120,6 +134,16 @@ class RuntimeCallbacks {
                             /*out*/void** new_implementation)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void MonitorContendedLocking(Monitor* m) REQUIRES_SHARED(Locks::mutator_lock_);
+  void MonitorContendedLocked(Monitor* m) REQUIRES_SHARED(Locks::mutator_lock_);
+  void ObjectWaitStart(Handle<mirror::Object> m, int64_t timeout)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  void ObjectWaitEnd(Handle<mirror::Object> m, bool timeout, bool waited)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void AddMonitorCallback(MonitorCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+  void RemoveMonitorCallback(MonitorCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   std::vector<ThreadLifecycleCallback*> thread_callbacks_
       GUARDED_BY(Locks::mutator_lock_);
@@ -130,6 +154,8 @@ class RuntimeCallbacks {
   std::vector<RuntimePhaseCallback*> phase_callbacks_
       GUARDED_BY(Locks::mutator_lock_);
   std::vector<MethodCallback*> method_callbacks_
+      GUARDED_BY(Locks::mutator_lock_);
+  std::vector<MonitorCallback*> monitor_callbacks_
       GUARDED_BY(Locks::mutator_lock_);
 };
 

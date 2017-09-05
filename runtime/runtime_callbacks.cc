@@ -38,6 +38,38 @@ static inline void Remove(T* cb, std::vector<T*>* data) {
   }
 }
 
+void RuntimeCallbacks::MonitorContendedLocking(Monitor* m) {
+  for (MonitorCallback* cb : monitor_callbacks_) {
+    cb->MonitorContendedLocking(m);
+  }
+}
+
+void RuntimeCallbacks::MonitorContendedLocked(Monitor* m) {
+  for (MonitorCallback* cb : monitor_callbacks_) {
+    cb->MonitorContendedLocked(m);
+  }
+}
+
+void RuntimeCallbacks::ObjectWaitStart(Handle<mirror::Object> m, int64_t timeout) {
+  for (MonitorCallback* cb : monitor_callbacks_) {
+    cb->ObjectWaitStart(m, timeout);
+  }
+}
+
+void RuntimeCallbacks::ObjectWaitEnd(Handle<mirror::Object> m, bool timeout, bool waited) {
+  for (MonitorCallback* cb : monitor_callbacks_) {
+    cb->ObjectWaitEnd(m, timeout, waited);
+  }
+}
+
+void RuntimeCallbacks::AddMonitorCallback(MonitorCallback* cb) {
+  monitor_callbacks_.push_back(cb);
+}
+
+void RuntimeCallbacks::RemoveMonitorCallback(MonitorCallback* cb) {
+  Remove(cb, &monitor_callbacks_);
+}
+
 void RuntimeCallbacks::RemoveThreadLifecycleCallback(ThreadLifecycleCallback* cb) {
   Remove(cb, &thread_callbacks_);
 }
