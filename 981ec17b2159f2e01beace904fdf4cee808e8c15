@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b085e4a7_43e42561",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-05T19:08:06Z",
+      "side": 1,
+      "message": "You split the hot \u0026 startup from hot \u0026 startup \u0026 post startup. Intuitively that doesn\u0027t seem optimal. I think you should prefer the order based on time and then hotness rather then the other way around.\n\nI don\u0027t understand the 32KB reference.",
+      "parentUuid": "51dc5831_b47e6b14",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 908,
+        "endChar": 21
+      },
+      "revId": "981ec17b2159f2e01beace904fdf4cee808e8c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9586e38_a2bfe540",
         "filename": "test/661-oat-writer-layout/expected.no-compiled-code.txt",
         "patchSetId": 6
@@ -113,6 +137,30 @@
     },
     {
       "key": {
+        "uuid": "1da64b53_d98d149a",
+        "filename": "test/661-oat-writer-layout/src/Generated.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-05T19:08:06Z",
+      "side": 1,
+      "message": "Why would \"luck\" play a role here? You know precisely the sorting order.",
+      "parentUuid": "5bdff25c_5ee4af19",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 9
+      },
+      "revId": "981ec17b2159f2e01beace904fdf4cee808e8c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2ba5c76_a1ee458d",
         "filename": "test/661-oat-writer-layout/src/Test.java",
         "patchSetId": 6
@@ -148,6 +196,30 @@
       "side": 1,
       "message": "There is no oatdump parsing.\n\nIf there\u0027s something specific you\u0027d like me to add to the comments on line 18-20, can you please say what it is? I will add more comments verbatim.",
       "parentUuid": "b2ba5c76_a1ee458d",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "981ec17b2159f2e01beace904fdf4cee808e8c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a2cc907_b91200fe",
+        "filename": "test/661-oat-writer-layout/src/Test.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-05T19:08:06Z",
+      "side": 1,
+      "message": "I am not sure I understand why this is needed for the ordering test.",
+      "parentUuid": "9ba30f9a_83816340",
       "range": {
         "startLine": 17,
         "startChar": 13,
