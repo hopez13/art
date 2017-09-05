@@ -29,15 +29,11 @@ extern "C" int artLockObjectFromCode(mirror::Object* obj, Thread* self)
     ThrowNullPointerException("Null reference used for synchronization (monitor-enter)");
     return -1;  // Failure.
   } else {
-    if (kIsDebugBuild) {
-      obj = obj->MonitorEnter(self);  // May block
-      CHECK(self->HoldsLock(obj));
-      CHECK(!self->IsExceptionPending());
-    } else {
-      obj->MonitorEnter(self);  // May block
-    }
-    return 0;  // Success.
-    // Only possible exception is NPE and is handled before entry
+    obj = obj->MonitorEnter(self);  // May block
+    // Exceptions can be thrown by monitor event listeners. This is expected to be rare however.
+    // Even if an exception is thrown the monitor will have been acquired however.
+    DCHECK(self->HoldsLock(obj));
+    return UNLIKELY(self->IsExceptionPending()) ? -1 : 0;  // Success.
   }
 }
 
