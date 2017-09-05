@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "73709e7d_3502027e",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-05T12:16:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8107e8aa_42a5215e",
+      "range": {
+        "startLine": 344,
+        "startChar": 34,
+        "endLine": 344,
+        "endChar": 53
+      },
+      "revId": "82182c94033acaebd04fcc35e03628819e278939",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db187f55_0c462431",
         "filename": "runtime/class_loader_context_test.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-05T12:01:14Z",
       "side": 1,
       "message": "Maybe cleaner to calculate the start position directly based on \u0027/\u0027 test above.",
+      "range": {
+        "startLine": 345,
+        "startChar": 19,
+        "endLine": 345,
+        "endChar": 66
+      },
+      "revId": "82182c94033acaebd04fcc35e03628819e278939",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21a79f29_9b63bc4b",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-05T12:16:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db187f55_0c462431",
       "range": {
         "startLine": 345,
         "startChar": 19,
