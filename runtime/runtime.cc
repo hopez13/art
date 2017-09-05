@@ -417,6 +417,7 @@ struct AbortState {
       return;
     }
     Thread* self = Thread::Current();
+    DumpAllThreads(os, self);
     if (self == nullptr) {
       os << "(Aborting thread was not attached to runtime!)\n";
       DumpKernelStack(os, GetTid(), "  kernel: ", false);
@@ -432,7 +433,6 @@ struct AbortState {
         }
       }
     }
-    DumpAllThreads(os, self);
   }
 
   // No thread-safety analysis as we do explicitly test for holding the mutator lock.
