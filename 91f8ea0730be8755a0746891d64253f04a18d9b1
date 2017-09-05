@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "311ee1e3_caa80495",
+        "filename": "runtime/mirror/class_status.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-05T17:22:36Z",
+      "side": 1,
+      "message": "Significantly copied, so retaining original date.",
+      "parentUuid": "ded2787f_677a212e",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "91f8ea0730be8755a0746891d64253f04a18d9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c43a6e73_7c24eabf",
         "filename": "runtime/mirror/class_status.h",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-09-05T16:32:46Z",
       "side": 1,
       "message": "Why is it in the mirror namespace? It\u0027s not a descendant of mirror::Object*",
+      "revId": "91f8ea0730be8755a0746891d64253f04a18d9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a996cdc_38543982",
+        "filename": "runtime/mirror/class_status.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-05T17:22:36Z",
+      "side": 1,
+      "message": "It seemed easiest as it\u0027s still strongly related to Class. (I would like to avoid cluttering runtime/ even more than it already is.) Suggestions welcome.",
+      "parentUuid": "c43a6e73_7c24eabf",
       "revId": "91f8ea0730be8755a0746891d64253f04a18d9b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
