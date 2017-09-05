@@ -22,6 +22,30 @@
       "revId": "35b3cbb9c667b5f89fdca539f1d9ac89a4dadb5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72ee5807_c05b14c1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-09-05T17:03:52Z",
+      "side": 1,
+      "message": "Changed to:\n// Proxy method just invokes its proxied method via art_quick_proxy_invoke_handler.",
+      "parentUuid": "6baf4372_a0ae6a1b",
+      "range": {
+        "startLine": 1209,
+        "startChar": 8,
+        "endLine": 1209,
+        "endChar": 56
+      },
+      "revId": "35b3cbb9c667b5f89fdca539f1d9ac89a4dadb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
