@@ -81,6 +81,24 @@
       "revId": "91f8ea0730be8755a0746891d64253f04a18d9b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e746f0d_64821353",
+        "filename": "runtime/mirror/class_status.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:25:01Z",
+      "side": 1,
+      "message": "I don\u0027t see any precedent for having things that arent objects in mirror directory. So what if there\u0027s one more thing in runtime :). Maybe make a new directory, e.g. runtime/enums ?",
+      "parentUuid": "4a996cdc_38543982",
+      "revId": "91f8ea0730be8755a0746891d64253f04a18d9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
