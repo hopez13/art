@@ -293,6 +293,23 @@
     },
     {
       "key": {
+        "uuid": "f7900e57_35dc00e7",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:21:58Z",
+      "side": 1,
+      "message": "This only works when the runtime pointer size \u003d\u003d image pointer size.",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "64d37d9d_42ad4657",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
