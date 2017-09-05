@@ -1,0 +1,312 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6636a67e_c12867fa",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "How does this math work? Is the End() relative to GetImageBegin?",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "767bd698_c8c66f41",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "Seems like there should be a AdvanceNextEntry or similar instead that will do the skip.\n\nThe reason being that it has a side-effect on the current fields (L371) . It\u0027s also strange that it changes a bunch of other fields but doesn\u0027t actually change the current \"next_\" field.",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22ccf787_63f18a79",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "Why is this templated to RegionType? It is not used anywhere.\n\nIf there is a plan to do this to allow for some kind of template tricks then should there be a comment and a TODO?",
+      "range": {
+        "startLine": 641,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 8
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a542a504_198de97d",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "nit: space after template for consistency with pre-existing code in this file",
+      "range": {
+        "startLine": 643,
+        "startChar": 2,
+        "endLine": 643,
+        "endChar": 10
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3356fe8_93a65e4d",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "This does not depend on RegionType, so should it be inside the template?\n\nnit: naming is poor as there already is an std::tuple, why not NameAndSize?",
+      "range": {
+        "startLine": 650,
+        "startChar": 9,
+        "endLine": 650,
+        "endChar": 14
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7c82f1c_eace316b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "This seems like the same thing as the other one, maybe refactor it so it only takes ImageHeader::kSectionArtMethods as an argument?",
+      "range": {
+        "startLine": 681,
+        "startChar": 0,
+        "endLine": 683,
+        "endChar": 76
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17360ff1_d7cc9b47",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "GetNextEntry -\u003e AdvanceNextEntry?\n\nIt\u0027s changing array_ and array_index_, but not next_ ?",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baa79579_b450d82a",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "nit: It\u0027s better to compare with uintptr_t, if the pointers point to different [C++] objects then comparison behavior is unspecified.",
+      "range": {
+        "startLine": 698,
+        "startChar": 10,
+        "endLine": 698,
+        "endChar": 58
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4da115ba_d0e3e108",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c0b5ba8_b9baad6a",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "Why is this method so complicated? Isn\u0027t there existing functionality to do this? Maybe in one of the image visitors?",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ad867c3_8f9f614b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "nit: can we avoid hardcoding these string literals? A macro can help here.",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ced8b6d_650450d2",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "Seems like this list of if/if/if/if/.. is practically begging for some kind of visitor refactoring in the rest of the ART code?",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "533a7d31_6d8652cc",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "This could be done much more compact with an ostream that casts to the right type.\n\n  if (size \u003d\u003d 2) ostream \u003c\u003c (uint16_t*)(bytes)[0]\n  else if (size \u003d\u003d 4) ostream \u003c\u003c (uint32_t*)(bytes)[0]\n\netc.",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1862971e_d1a8c952",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "same as above^",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c96535dd_004896e8",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "nit: use pointer-to-member instead,\n\n    \u0026ArtMethod::declaring_class_\n\netc",
+      "range": {
+        "startLine": 680,
+        "startChar": 18,
+        "endLine": 680,
+        "endChar": 35
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64d37d9d_42ad4657",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-05T17:20:17Z",
+      "side": 1,
+      "message": "nit: 1 line per argument",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
