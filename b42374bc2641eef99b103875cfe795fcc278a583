@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ef5f5325_f0144cd5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1023590
+      },
+      "writtenOn": "2017-09-05T02:15:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02aea0e5_63c82ca0",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 92
+      },
+      "revId": "b42374bc2641eef99b103875cfe795fcc278a583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8d217b2_400b5f0f",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-29T21:10:00Z",
       "side": 1,
       "message": "Maybe take this and the initial vertical  bar formatting out out of the conditional? That would make it  more apparent what happened if the rest of the output goes missing.",
+      "range": {
+        "startLine": 1665,
+        "startChar": 7,
+        "endLine": 1665,
+        "endChar": 68
+      },
+      "revId": "b42374bc2641eef99b103875cfe795fcc278a583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d58eca0c_40b3510e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1665,
+      "author": {
+        "id": 1023590
+      },
+      "writtenOn": "2017-09-05T02:15:37Z",
+      "side": 1,
+      "message": "PS2 will log suspend_count and debug_suspend_count as -1 if thread_suspend_count_lock_ is already held.\nBut, I think it may bring some confusion.\nWelcome any idea to make it better.\nThanks.",
+      "parentUuid": "e8d217b2_400b5f0f",
       "range": {
         "startLine": 1665,
         "startChar": 7,
