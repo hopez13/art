@@ -341,7 +341,8 @@ static std::string CreateRelativeString(const std::string& in, const char* cwd) 
   if (!android::base::StartsWith(in, cwd)) {
     LOG(FATAL) << in << " " << cwd;
   }
-  return in.substr(strlen(cwd) + 1);
+  bool contains_trailing_slash = (cwd[strlen(cwd) - 1] == '/');
+  return in.substr(strlen(cwd) + (contains_trailing_slash ? 0 : 1));
 }
 
 TEST_F(ClassLoaderContextTest, OpenValidDexFilesRelative) {
