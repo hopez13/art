@@ -25,6 +25,7 @@ import com.android.tools.perflib.heap.ClassObj;
 import com.android.tools.perflib.heap.Heap;
 import com.android.tools.perflib.heap.Instance;
 import com.android.tools.perflib.heap.ProguardMap;
+import com.android.tools.perflib.heap.Queries;
 import com.android.tools.perflib.heap.RootObj;
 import com.android.tools.perflib.heap.Snapshot;
 import com.android.tools.perflib.heap.StackFrame;
@@ -156,7 +157,7 @@ public class AhatSnapshot implements Diffable<AhatSnapshot> {
 
     // Record the roots and their types.
     SuperRoot superRoot = new SuperRoot();
-    for (RootObj root : snapshot.getGCRoots()) {
+    for (RootObj root : Queries.getRoots(snapshot)) {
       Instance inst = root.getReferredInstance();
       if (inst != null) {
         AhatInstance ahat = findInstance(inst.getId());
