@@ -16,6 +16,24 @@
       "revId": "9c4feaa082d8e8c00611a0657c3f80b1c1179a6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "373b2893_19ee9207",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-05T16:36:49Z",
+      "side": 0,
+      "message": "\u003e Removing this line isn\u0027t right. Not sure why you did it, so I\u0027ll just revert the change for now, as it leads to deopt issues in libcore tests.\n\nSure. I think I did it since I didn\u0027t think it would make any difference since this will only be different if an exception is pending and we now update the dex-pc in that helper. I guess if some code relies on the dex_pc_ being set directly and not via pointer offset it could cause some problems.\n\nAnyway I\u0027ll make a fix.",
+      "parentUuid": "a2855538_7016bb5e",
+      "revId": "9c4feaa082d8e8c00611a0657c3f80b1c1179a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
