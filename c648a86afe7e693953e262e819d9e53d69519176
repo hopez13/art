@@ -696,6 +696,30 @@
     },
     {
       "key": {
+        "uuid": "0515c835_dacef20f",
+        "filename": "test/476-checker-ctor-fence-redun-elim/expected.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T19:06:31Z",
+      "side": 1,
+      "message": "Here are some tests with similar types of output:\n\n    046-reflect\n    913-heaps\n    064-dex-array-access\n    034-dex-minimal\n\nSome of these are not even possible to sanely update by hand, the output is non-obvious.",
+      "parentUuid": "14c88a3d_42b3c734",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 66
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dee19b8b_c6769dd6",
         "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
         "patchSetId": 4
