@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8cb7cc0c_ac4b3c7c",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-06T18:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "209e1433_21d0bbbb",
+      "range": {
+        "startLine": 635,
+        "startChar": 12,
+        "endLine": 635,
+        "endChar": 23
+      },
+      "revId": "769477dbdcae9386cad6ca8be9c3b38cb874df14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c40816cc_5d81d9e6",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a30defd4_4d3f4bb6",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-06T18:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c40816cc_5d81d9e6",
+      "range": {
+        "startLine": 636,
+        "startChar": 17,
+        "endLine": 636,
+        "endChar": 20
+      },
+      "revId": "769477dbdcae9386cad6ca8be9c3b38cb874df14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0aec5ce3_6f2fc3b8",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-09-06T10:14:13Z",
       "side": 1,
       "message": "be",
+      "range": {
+        "startLine": 682,
+        "startChar": 63,
+        "endLine": 682,
+        "endChar": 64
+      },
+      "revId": "769477dbdcae9386cad6ca8be9c3b38cb874df14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "532edc93_aa0810c9",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-06T18:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0aec5ce3_6f2fc3b8",
       "range": {
         "startLine": 682,
         "startChar": 63,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "c0490b72_5eabbbc3",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-06T18:44:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "93968f2f_6d831944",
+      "range": {
+        "startLine": 686,
+        "startChar": 6,
+        "endLine": 687,
+        "endChar": 36
+      },
+      "revId": "769477dbdcae9386cad6ca8be9c3b38cb874df14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bafac72a_4b816003",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 1
@@ -129,6 +225,30 @@
       "writtenOn": "2017-09-06T10:14:13Z",
       "side": 1,
       "message": "Do this first as a fast check?",
+      "range": {
+        "startLine": 720,
+        "startChar": 0,
+        "endLine": 727,
+        "endChar": 7
+      },
+      "revId": "769477dbdcae9386cad6ca8be9c3b38cb874df14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "857d1991_ec69618c",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-06T18:44:36Z",
+      "side": 1,
+      "message": "We expect the checks to pass, at least in the normal case. If they don\u0027t, it\u0027s likely that they will fail when comparing the names rather than the checksums. I think the names offers more useful information, so I\u0027m keeping them first.",
+      "parentUuid": "bafac72a_4b816003",
       "range": {
         "startLine": 720,
         "startChar": 0,
