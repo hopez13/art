@@ -297,6 +297,30 @@
     },
     {
       "key": {
+        "uuid": "7fc3ba01_37d06561",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:23:40Z",
+      "side": 1,
+      "message": "With respect to \"may\" that seems like a non-informative assertion to make.\n\n  \"x may be 2\" is vacuously true if \"X is an int\"\n\nI can reword this to\n\n  \"P\u003dPublish(R) must not exist for any R in CFTargets if P is between any CF in CFS\"",
+      "parentUuid": "3aa999f6_9191a93f",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d587dda2_79067eb6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
