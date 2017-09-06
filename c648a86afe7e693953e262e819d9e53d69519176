@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b5a430b6_69be784d",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b81ad6c_87ba3cf3",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a22622dd_1994406f",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-04T16:20:19Z",
       "side": 1,
       "message": "I think I\u0027d prefer having the VisitAlias chekc if the input is a NullCheck.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 49
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0097193_c8928f62",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a22622dd_1994406f",
       "range": {
         "startLine": 61,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f4d483ad_134993bf",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Agreed it would be superior.\n\nNo need to do anything right now, there\u0027s a TODO on L25 to refactor this file with escape analysis. If you look at the WIP CLs, it was already using IsInvoke() to avoid specificity.",
+      "parentUuid": "cadab242_c814ef55",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 32
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e3c7dd2_064e60b7",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 4
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "fce45248_db2d80e4",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e3c7dd2_064e60b7",
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85f72122_298c6d09",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 4
@@ -99,6 +189,30 @@
       "writtenOn": "2017-09-04T16:20:19Z",
       "side": 1,
       "message": "Add a comment about which instructions are aliases, and why you\u0027re not handling phis.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 64
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f269471e_908889d5",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85f72122_298c6d09",
       "range": {
         "startLine": 142,
         "startChar": 0,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "35f08dc6_3809fda1",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3897ef48_be8e0ec1",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 101
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32cb64d3_e0f291b8",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 4
@@ -145,6 +283,30 @@
       "writtenOn": "2017-09-04T16:20:19Z",
       "side": 1,
       "message": "Isn\u0027t this also an \"alias\"? It shouldn\u0027t be limited to invokes then.",
+      "range": {
+        "startLine": 165,
+        "startChar": 56,
+        "endLine": 165,
+        "endChar": 62
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b3dcfdf_c52f03ff",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32cb64d3_e0f291b8",
       "range": {
         "startLine": 165,
         "startChar": 56,
@@ -204,6 +366,30 @@
     },
     {
       "key": {
+        "uuid": "8af77c74_5c4ca95c",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0334e68_7a96c30a",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 37
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6864982b_2781f04b",
         "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
         "patchSetId": 4
@@ -215,6 +401,30 @@
       "writtenOn": "2017-09-04T16:20:19Z",
       "side": 1,
       "message": "visit",
+      "range": {
+        "startLine": 245,
+        "startChar": 21,
+        "endLine": 245,
+        "endChar": 31
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11a89174_c7d055c8",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6864982b_2781f04b",
       "range": {
         "startLine": 245,
         "startChar": 21,
@@ -321,6 +531,30 @@
     },
     {
       "key": {
+        "uuid": "3666475a_ad2cb1cb",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fc3ba01_37d06561",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d587dda2_79067eb6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -332,6 +566,30 @@
       "writtenOn": "2017-09-04T16:20:19Z",
       "side": 1,
       "message": "cannot",
+      "range": {
+        "startLine": 1280,
+        "startChar": 22,
+        "endLine": 1280,
+        "endChar": 27
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd3c1f76_665325ae",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d587dda2_79067eb6",
       "range": {
         "startLine": 1280,
         "startChar": 22,
@@ -390,6 +648,30 @@
     },
     {
       "key": {
+        "uuid": "ca45961a_3c8c7eb5",
+        "filename": "test/476-checker-ctor-fence-redun-elim/expected.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "The test is run once with e.g. --interpreter --update to generate this output. It\u0027s unnecessary to write this output by hand.\n\nWe can move this to the java file but that makes the test, and maintaining it, a lot more complicated.\n\nDo you definitively want me to do this?",
+      "parentUuid": "fd6bcd90_5985085a",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 66
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dee19b8b_c6769dd6",
         "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
         "patchSetId": 4
@@ -401,6 +683,24 @@
       "writtenOn": "2017-09-01T23:43:45Z",
       "side": 1,
       "message": "I like it!",
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ff6b9fc_afb4bdfa",
+        "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:45:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dee19b8b_c6769dd6",
       "revId": "c648a86afe7e693953e262e819d9e53d69519176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
