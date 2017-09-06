@@ -333,6 +333,9 @@ class OatWriter {
 
   bool MayHaveCompiledMethods() const;
 
+  // Find the address of the ClassTable::TableSlot for a boot image class.
+  const uint8_t* LookupBootImageClassTableSlot(const DexFile& dex_file, dex::TypeIndex type_idx);
+
   enum class WriteState {
     kAddingDexFileSources,
     kPrepareLayout,

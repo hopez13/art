@@ -1283,6 +1283,7 @@ class ClassLinker {
   friend class ImageWriter;  // for GetClassRoots
   friend class JniCompilerTest;  // for GetRuntimeQuickGenericJniStub
   friend class JniInternalTest;  // for GetRuntimeQuickGenericJniStub
+  friend class OatWriter;  // for boot class TableSlot address lookup.
   friend class VMClassLoader;  // for LookupClass and FindClassInBaseDexClassLoader.
   ART_FRIEND_TEST(ClassLinkerTest, RegisterDexFileName);  // for DexLock, and RegisterDexFileLocked
   ART_FRIEND_TEST(mirror::DexCacheMethodHandlesTest, Open);  // for AllocDexCache
