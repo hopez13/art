@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "93968f2f_6d831944",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T17:13:59Z",
+      "side": 1,
+      "message": "No they can\u0027t unless he wants to rewrite the whole thing as a ternary expression or extract it into a function/lambda/etc. lvalue references cannot be re-bound [in a different statement].",
+      "parentUuid": "0f9e1c92_dde921ee",
+      "range": {
+        "startLine": 686,
+        "startChar": 6,
+        "endLine": 687,
+        "endChar": 36
+      },
+      "revId": "769477dbdcae9386cad6ca8be9c3b38cb874df14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bafac72a_4b816003",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 1
