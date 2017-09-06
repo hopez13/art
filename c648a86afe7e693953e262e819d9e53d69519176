@@ -720,6 +720,30 @@
     },
     {
       "key": {
+        "uuid": "36cd53ad_c0df0649",
+        "filename": "test/476-checker-ctor-fence-redun-elim/expected.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-06T20:58:37Z",
+      "side": 1,
+      "message": "It\u0027s not that \"you cannot\" :) But I always felt that expected files are a poor way to express a test, as it requires the reader / person debugging to try to match the printed line with the Java code. And it obviously gets harder the longer the expected file is.\n\n(having one test with a golden file is good, but having all tests have a golden file not so much).",
+      "parentUuid": "0515c835_dacef20f",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 66
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dee19b8b_c6769dd6",
         "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
         "patchSetId": 4
