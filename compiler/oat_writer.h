@@ -333,6 +333,9 @@ class OatWriter {
 
   bool MayHaveCompiledMethods() const;
 
+  const uint8_t* LookupBootImageClassTableSlot(const DexFile& dex_file, dex::TypeIndex type_idx)
+      NO_THREAD_SAFETY_ANALYSIS;
+
   enum class WriteState {
     kAddingDexFileSources,
     kPrepareLayout,
