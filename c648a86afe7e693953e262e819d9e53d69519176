@@ -672,6 +672,30 @@
     },
     {
       "key": {
+        "uuid": "14c88a3d_42b3c734",
+        "filename": "test/476-checker-ctor-fence-redun-elim/expected.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-06T18:53:43Z",
+      "side": 1,
+      "message": "Nicolas, can you elaborate why we cannot use the expected.txt for this (Igor guarantees the output is not brittle)?\n\nNote that the original tests had no output whatsoever because it did not exercise the code at all, so I think this is so much better.",
+      "parentUuid": "ca45961a_3c8c7eb5",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 66
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dee19b8b_c6769dd6",
         "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
         "patchSetId": 4
