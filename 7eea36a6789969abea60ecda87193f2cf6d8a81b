@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d20ff2be_37e1f9e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-06T13:49:40Z",
+      "side": 1,
+      "message": "Do you want to start writing tests that attach gdb to a process?\n\nOr do you want just a simple `nm whatever.oat | grep -E \u0027BakerReadBarrier(Field|Array|Root)\u0027` to check that these seymbols are present?",
+      "parentUuid": "e0c4bebc_ab34741d",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0be20c1d_73ce3687",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-09-05T18:13:42Z",
       "side": 1,
       "message": "nit: {} is enough",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10906622_5f1627fe",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-06T13:49:40Z",
+      "side": 1,
+      "message": "Copy-pasted from elsewhere. Also, did we update lint rules to accept the \"{};\" without complaining about the trailing \";\"?",
+      "parentUuid": "0be20c1d_73ce3687",
       "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f53cf409_be2ac54c",
+        "filename": "compiler/linker/multi_oat_relative_patcher_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-06T13:49:40Z",
+      "side": 1,
+      "message": "What do you mean?\n\nThe UNREACHABLE() is necessary after LOG(FATAL) to avoid errors from not returning anything.",
+      "parentUuid": "ce965b90_f8fecdd1",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4019ad41_3f853f4d",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2017-09-05T18:13:42Z",
       "side": 1,
       "message": "Can we hold up this CL for a bit until after we resolve the OAT layout CL? It seems to be touching the same code here.",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "024a19a8_e35b6318",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-06T13:49:40Z",
+      "side": 1,
+      "message": "I was OK with the OAT layout CL but now other people have made further comments. Please hurry to address that, so that we do not accumulate more changes that conflict with this CL.\n\n(That layout CL also surely conflicts with https://android-review.googlesource.com/476338 .)",
+      "parentUuid": "4019ad41_3f853f4d",
       "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
