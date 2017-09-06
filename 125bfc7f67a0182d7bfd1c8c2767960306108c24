@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "132a4fbd_999a8495",
+        "filename": "openjdkjvmti/ti_object.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-06T23:17:00Z",
+      "side": 1,
+      "message": "This isn\u0027t safe if you\u0027re coming through a FastNative call, as the caller must not hold the mutator lock. You can copy the the ti_heap code, for example: soa + sts + ssa.",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 78
+      },
+      "revId": "125bfc7f67a0182d7bfd1c8c2767960306108c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd54f8cb_ba513598",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-06T23:17:00Z",
+      "side": 1,
+      "message": "Can you explain when you see this? Seems suspicious to me. Same below. (MonitorInfo gives a warning about this being only safe during suspend, and I\u0027m wondering whether there are unsafe suspend points that expose half-written lockword updates?)",
+      "range": {
+        "startLine": 1501,
+        "startChar": 6,
+        "endLine": 1501,
+        "endChar": 30
+      },
+      "revId": "125bfc7f67a0182d7bfd1c8c2767960306108c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
