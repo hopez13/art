@@ -744,6 +744,30 @@
     },
     {
       "key": {
+        "uuid": "a7fa5d11_28bbc524",
+        "filename": "test/476-checker-ctor-fence-redun-elim/expected.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-06T21:20:19Z",
+      "side": 1,
+      "message": "Note that one argument for having a diff file in this case would be that a compiler could optimize away asserts, as in\n\nx \u003d 3;                x \u003d 3;\nif (x !\u003d 3)       -\u003e  if (3 !\u003d 3)  -\u003e   \u003cdead\u003e\n   throw ...             \u003cdead\u003e\n\nwhereas with an output file you have an \"independent external judge\". But asserts are indeed often more intuitive for the next person reading the code. Here you would have to diff the full output file against expected.txt, the one line diff will not tell you much...",
+      "parentUuid": "36cd53ad_c0df0649",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 66
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dee19b8b_c6769dd6",
         "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
         "patchSetId": 4
