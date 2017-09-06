@@ -273,6 +273,30 @@
     },
     {
       "key": {
+        "uuid": "3aa999f6_9191a93f",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-06T18:19:47Z",
+      "side": 1,
+      "message": "It\u0027s saying this in human readable language:\n\n    ¬∃(Publish(R) | R ∊ CFTargets)",
+      "parentUuid": "fa7bbef0_b282ab02",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "c648a86afe7e693953e262e819d9e53d69519176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d587dda2_79067eb6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
