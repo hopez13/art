@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b7fc622_90682745",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-07T11:45:56Z",
+      "side": 1,
+      "message": "Could this be done in another CL?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 56
+      },
+      "revId": "b8d5a3c33d8928b6bb39f24d6ee0719fa40c25da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "461c501a_a2d8aad5",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-07T11:45:56Z",
+      "side": 1,
+      "message": "Mention when this is true.",
+      "range": {
+        "startLine": 410,
+        "startChar": 2,
+        "endLine": 410,
+        "endChar": 60
+      },
+      "revId": "b8d5a3c33d8928b6bb39f24d6ee0719fa40c25da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f9b9aea_9e3e28c2",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-07T11:45:56Z",
+      "side": 1,
+      "message": "Add a comment about why early return.",
+      "range": {
+        "startLine": 472,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 3
+      },
+      "revId": "b8d5a3c33d8928b6bb39f24d6ee0719fa40c25da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "832c4b59_fc47a316",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-07T11:45:56Z",
+      "side": 1,
+      "message": "Mention why we\u0027re doing that.",
+      "range": {
+        "startLine": 1764,
+        "startChar": 4,
+        "endLine": 1764,
+        "endChar": 77
+      },
+      "revId": "b8d5a3c33d8928b6bb39f24d6ee0719fa40c25da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
