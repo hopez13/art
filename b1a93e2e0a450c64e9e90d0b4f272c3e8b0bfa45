@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "94e4b7cb_ab55136a",
+        "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T19:56:02Z",
+      "side": 1,
+      "message": "You didn\u0027t move the \"if doThrow\" part of the code into Smali, the behavior will be different because the DEX code is different.\n\nI recommend staying simple and simply disassembling existing java methods into smali 1:1, don\u0027t try to extract parts of it since then the checkers will also need to be changed.",
+      "parentUuid": "f577e8d3_69722998",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 770,
+        "endChar": 42
+      },
+      "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62bdd809_5331d826",
         "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
         "patchSetId": 1
