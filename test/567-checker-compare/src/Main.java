@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.lang.reflect.Method;
 
 public class Main {
 
@@ -42,50 +43,14 @@ public class Main {
     }
   }
 
-  /// CHECK-START: int Main.compareBooleans(boolean, boolean) intrinsics_recognition (after)
-  /// CHECK-DAG:     <<Method:[ij]\d+>> CurrentMethod
-  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<PhiX:i\d+>>   Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<PhiY:i\d+>>   Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<Result:i\d+>> InvokeStaticOrDirect [<<PhiX>>,<<PhiY>>,<<Method>>] intrinsic:IntegerCompare
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.compareBooleans(boolean, boolean) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<PhiX:i\d+>>   Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<PhiY:i\d+>>   Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<PhiX>>,<<PhiY>>]
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.compareBooleans(boolean, boolean) instruction_simplifier (after)
-  /// CHECK-NOT:                     InvokeStaticOrDirect
-
-  /// CHECK-START: int Main.compareBooleans(boolean, boolean) select_generator (after)
-  /// CHECK:         <<ArgX:z\d+>>   ParameterValue
-  /// CHECK:         <<ArgY:z\d+>>   ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<SelX:i\d+>>   Select [<<Zero>>,<<One>>,<<ArgX>>]
-  /// CHECK-DAG:     <<SelY:i\d+>>   Select [<<Zero>>,<<One>>,<<ArgY>>]
-  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<SelX>>,<<SelY>>]
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.compareBooleans(boolean, boolean) select_generator (after)
-  /// CHECK-NOT:                     Phi
-
-  /// CHECK-START: int Main.compareBooleans(boolean, boolean) instruction_simplifier$after_bce (after)
-  /// CHECK:         <<ArgX:z\d+>>   ParameterValue
-  /// CHECK:         <<ArgY:z\d+>>   ParameterValue
-  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<ArgX>>,<<ArgY>>]
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.compareBooleans(boolean, boolean) instruction_simplifier$after_bce (after)
-  /// CHECK-NOT:                     Select
-
   private static int compareBooleans(boolean x, boolean y) {
-    return Integer.compare((x ? 1 : 0), (y ? 1 : 0));
+    try {
+      Class<?> c = Class.forName("Smali");
+      Method m = c.getMethod("compareBooleans", boolean.class, boolean.class);
+      return (Integer) m.invoke(null, x, y);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /// CHECK-START: int Main.compareBytes(byte, byte) intrinsics_recognition (after)
