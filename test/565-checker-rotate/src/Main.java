@@ -13,57 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.lang.reflect.Method;
 
 public class Main {
 
-  /// CHECK-START: int Main.rotateLeftBoolean(boolean, int) intrinsics_recognition (after)
-  /// CHECK-DAG:     <<Method:[ij]\d+>> CurrentMethod
-  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
-  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
-  /// CHECK-DAG:     <<Val:i\d+>>     Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<Result:i\d+>>  InvokeStaticOrDirect [<<Val>>,<<ArgDist>>,<<Method>>] intrinsic:IntegerRotateLeft
-  /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int Main.rotateLeftBoolean(boolean, int) instruction_simplifier (after)
-  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
-  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
-  /// CHECK-DAG:     <<Val:i\d+>>     Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
-  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<Val>>,<<NegDist>>]
-  /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int Main.rotateLeftBoolean(boolean, int) instruction_simplifier (after)
-  /// CHECK-NOT:                      InvokeStaticOrDirect
-
-  /// CHECK-START: int Main.rotateLeftBoolean(boolean, int) select_generator (after)
-  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
-  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
-  /// CHECK-DAG:     <<SelVal:i\d+>>  Select [<<Zero>>,<<One>>,<<ArgVal>>]
-  /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
-  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<SelVal>>,<<NegDist>>]
-  /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int Main.rotateLeftBoolean(boolean, int) select_generator (after)
-  /// CHECK-NOT:                      Phi
-
-  /// CHECK-START: int Main.rotateLeftBoolean(boolean, int) instruction_simplifier$after_bce (after)
-  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
-  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
-  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
-  /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int Main.rotateLeftBoolean(boolean, int) instruction_simplifier$after_bce (after)
-  /// CHECK-NOT:                      Select
-
   private static int rotateLeftBoolean(boolean value, int distance) {
-    return Integer.rotateLeft(value ? 1 : 0, distance);
+    try {
+      Class<?> c = Class.forName("Smali");
+      Method m = c.getMethod("rotateLeftBoolean", boolean.class, int.class);
+      return (Integer) m.invoke(null, value, distance);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /// CHECK-START: int Main.rotateLeftByte(byte, int) intrinsics_recognition (after)
@@ -171,52 +132,14 @@ public class Main {
     return Long.rotateLeft(value, distance);
   }
 
-
-  /// CHECK-START: int Main.rotateRightBoolean(boolean, int) intrinsics_recognition (after)
-  /// CHECK-DAG:     <<Method:[ij]\d+>> CurrentMethod
-  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
-  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
-  /// CHECK-DAG:     <<Val:i\d+>>     Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<Result:i\d+>>  InvokeStaticOrDirect [<<Val>>,<<ArgDist>>,<<Method>>] intrinsic:IntegerRotateRight
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.rotateRightBoolean(boolean, int) instruction_simplifier (after)
-  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
-  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
-  /// CHECK-DAG:     <<Val:i\d+>>     Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<Val>>,<<ArgDist>>]
-  /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int Main.rotateRightBoolean(boolean, int) instruction_simplifier (after)
-  /// CHECK-NOT:                      InvokeStaticOrDirect
-
-  /// CHECK-START: int Main.rotateRightBoolean(boolean, int) select_generator (after)
-  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
-  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
-  /// CHECK-DAG:     <<SelVal:i\d+>>  Select [<<Zero>>,<<One>>,<<ArgVal>>]
-  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<SelVal>>,<<ArgDist>>]
-  /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int Main.rotateRightBoolean(boolean, int) select_generator (after)
-  /// CHECK-NOT:                     Phi
-
-  /// CHECK-START: int Main.rotateRightBoolean(boolean, int) instruction_simplifier$after_bce (after)
-  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
-  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
-  /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int Main.rotateRightBoolean(boolean, int) instruction_simplifier$after_bce (after)
-  /// CHECK-NOT:                     Select
-
   private static int rotateRightBoolean(boolean value, int distance) {
-    return Integer.rotateRight(value ? 1 : 0, distance);
+    try {
+      Class<?> c = Class.forName("Smali");
+      Method m = c.getMethod("rotateRightBoolean", boolean.class, int.class);
+      return (Integer) m.invoke(null, value, distance);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /// CHECK-START: int Main.rotateRightByte(byte, int) intrinsics_recognition (after)
