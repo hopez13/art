@@ -170,6 +170,24 @@
       "revId": "a54118421c4aef412490ec944263318874f442bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ffd27e6_8de5a37a",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T22:46:07Z",
+      "side": 1,
+      "message": "Never mind, I had Zhengkai\u0027s CL rebased on top of this which was disabling it in knownfailures.json in a separate spot globally.",
+      "parentUuid": "6809fcff_a0aa1f90",
+      "revId": "a54118421c4aef412490ec944263318874f442bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
