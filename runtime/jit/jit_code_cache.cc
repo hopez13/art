@@ -17,6 +17,7 @@
 #include "jit_code_cache.h"
 
 #include <sstream>
+#include <zlib.h>
 
 #include "arch/context.h"
 #include "art_method-inl.h"
@@ -59,6 +60,76 @@ static constexpr size_t kStackMapSizeLogThreshold = 50 * KB;
       PLOG(FATAL) << "Failed to mprotect jit code cache";   \
     }                                                       \
   } while (false)                                           \
+
+// Temporary checksumming code whilst investigating (b/65312375) which
+#if defined(__aarch64__)
+static const bool kChecksumEnabled = true;
+#else
+static const bool kChecksumEnabled = false;
+#endif  // __aarch64__
+
+template <bool ChecksumEnabled>
+class CodeChecksum {
+ public:
+  static uint32_t Calculate(const void* code, size_t code_size);
+  static uint32_t Read(const void* code, size_t code_size);
+  static void Write(void* code, size_t code_size, uint32_t checksum);
+  static void Validate(const void* code);
+
+  static const size_t Size;
+};
+
+template <>
+const size_t CodeChecksum<true>::Size = sizeof(uint32_t);
+
+template <>
+uint32_t CodeChecksum<true>::Calculate(const void* code, size_t code_size) {
+  const uint8_t* code_start = reinterpret_cast<const uint8_t*>(code);
+  return adler32(0u, code_start, code_size);
+}
+
+template <>
+uint32_t CodeChecksum<true>::Read(const void* code, size_t code_size) {
+  const uint8_t* code_start = reinterpret_cast<const uint8_t*>(code);
+  uint32_t checksum;
+  memcpy(&checksum, code_start + code_size, sizeof(checksum));
+  return checksum;
+}
+
+template <>
+void CodeChecksum<true>::Write(void* code, size_t code_size, uint32_t checksum) {
+  uint8_t* code_start = reinterpret_cast<uint8_t*>(code);
+  memcpy(code_start + code_size, &checksum, sizeof(checksum));
+}
+
+template<>
+void CodeChecksum<true>::Validate(const void* code) {
+  OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code);
+  size_t code_size = method_header->GetCodeSize();
+  uint32_t current_checksum = Calculate(code, code_size);
+  uint32_t original_checksum = Read(code, code_size);
+  if (current_checksum != original_checksum) {
+    const uint8_t* code_end = reinterpret_cast<const uint8_t*>(code) + code_size;
+    LOG(WARNING) << "JIT Cache Corruption in range: "
+        << code << "-" << reinterpret_cast<const void*>(code_end)
+        << android::base::StringPrintf(" (%08x != %08x)", current_checksum, original_checksum);
+  }
+}
+
+template <>
+const size_t CodeChecksum<false>::Size = sizeof(uint32_t);
+
+template <>
+uint32_t CodeChecksum<false>::Calculate(const void*, size_t) { return 0; }
+
+template <>
+uint32_t CodeChecksum<false>::Read(const void*, size_t) { return 0; }
+
+template <>
+void CodeChecksum<false>::Write(void*, size_t, uint32_t) {}
+
+template<>
+void CodeChecksum<false>::Validate(const void*) {}
 
 JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
                                    size_t max_capacity,
@@ -414,6 +485,7 @@ void JitCodeCache::FreeCode(const void* code_ptr) {
   // Notify native debugger that we are about to remove the code.
   // It does nothing if we are not using native debugger.
   DeleteJITCodeEntryForAddress(reinterpret_cast<uintptr_t>(code_ptr));
+  CodeChecksum<kChecksumEnabled>::Validate(code_ptr);
   FreeData(GetRootTable(code_ptr));
   FreeCode(reinterpret_cast<uint8_t*>(allocation));
 }
@@ -564,7 +636,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
   size_t alignment = GetInstructionSetAlignment(kRuntimeISA);
   // Ensure the header ends up at expected instruction alignment.
   size_t header_size = RoundUp(sizeof(OatQuickMethodHeader), alignment);
-  size_t total_size = header_size + code_size;
+  size_t total_size = header_size + code_size + CodeChecksum<kChecksumEnabled>::Size;
 
   OatQuickMethodHeader* method_header = nullptr;
   uint8_t* code_ptr = nullptr;
@@ -590,6 +662,10 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
           core_spill_mask,
           fp_spill_mask,
           code_size);
+
+      uint32_t checksum = CodeChecksum<kChecksumEnabled>::Calculate(code, code_size);
+      CodeChecksum<kChecksumEnabled>::Write(code_ptr, code_size, checksum);
+
       // Flush caches before we remove write permission because some ARMv8 Qualcomm kernels may
       // trigger a segfault if a page fault occurs when requesting a cache maintenance operation.
       // This is a kernel bug that we need to work around until affected devices (e.g. Nexus 5X and
@@ -1149,6 +1225,7 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
     for (const auto& it : method_code_map_) {
       ArtMethod* method = it.second;
       const void* code_ptr = it.first;
+      CodeChecksum<kChecksumEnabled>::Validate(code_ptr);
       const OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
       if (method_header->GetEntryPoint() == method->GetEntryPointFromQuickCompiledCode()) {
         GetLiveBitmap()->AtomicTestAndSet(FromCodeToAllocation(code_ptr));
