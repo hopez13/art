@@ -24,6 +24,7 @@
 #include "class_linker.h"
 #include "common_runtime_test.h"
 #include "dex_file.h"
+#include "dexopt_test.h"
 #include "handle_scope-inl.h"
 #include "mirror/class.h"
 #include "mirror/class_loader.h"
@@ -36,7 +37,7 @@
 
 namespace art {
 
-class ClassLoaderContextTest : public CommonRuntimeTest {
+class ClassLoaderContextTest : public DexoptTest {
  public:
   void VerifyContextSize(ClassLoaderContext* context, size_t expected_size) {
     ASSERT_TRUE(context != nullptr);
@@ -84,8 +85,12 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
       ClassLoaderContext* context,
       size_t index,
       std::vector<std::vector<std::unique_ptr<const DexFile>>*>& all_dex_files,
+      std::vector<std::unique_ptr<OatFile>*>* all_oat_files = nullptr,
       LocationCheck mode = LocationCheck::kEquals,
       BaseLocationCheck base_mode = BaseLocationCheck::kEquals) {
+    if (all_oat_files != nullptr) {
+      ASSERT_EQ(all_dex_files.size(), all_oat_files->size());
+    }
     ASSERT_TRUE(context != nullptr);
     ASSERT_TRUE(context->dex_files_open_attempted_);
     ASSERT_TRUE(context->dex_files_open_result_);
@@ -94,6 +99,7 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
     size_t cur_open_dex_index = 0;
     for (size_t k = 0; k < all_dex_files.size(); k++) {
       std::vector<std::unique_ptr<const DexFile>>& dex_files_for_cp_elem = *(all_dex_files[k]);
+
       for (size_t i = 0; i < dex_files_for_cp_elem.size(); i++) {
         ASSERT_LT(cur_open_dex_index, info.opened_dex_files.size());
 
@@ -128,6 +134,17 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
                 << info.classpath[k] << " vs " << opened_dex_file->GetBaseLocation();
             break;
         }
+      }
+
+      if (all_oat_files == nullptr) {
+        // The dex files are not expected to be opened from the oat file if all_oat_files == null.
+        ASSERT_EQ(0u, info.opened_oat_files.size());
+      } else {
+        // We expect that all dex files in this context to be opened from the oat file.
+        ASSERT_LT(k, info.opened_oat_files.size());
+        const std::unique_ptr<OatFile>* expected_oat_file = (*all_oat_files)[k];
+        const std::unique_ptr<OatFile>& actual_oat_file = info.opened_oat_files[k];
+        ASSERT_EQ((*expected_oat_file)->GetLocation(), actual_oat_file->GetLocation());
       }
     }
   }
@@ -326,8 +343,8 @@ TEST_F(ClassLoaderContextTest, OpenValidDexFilesRelative) {
   std::vector<std::vector<std::unique_ptr<const DexFile>>*> all_dex_files1;
   all_dex_files1.push_back(&dex_files);
 
-  VerifyOpenDexFiles(context.get(), 0, all_dex_files0, LocationCheck::kEndsWith);
-  VerifyOpenDexFiles(context.get(), 1, all_dex_files1, LocationCheck::kEndsWith);
+  VerifyOpenDexFiles(context.get(), 0, all_dex_files0, nullptr, LocationCheck::kEndsWith);
+  VerifyOpenDexFiles(context.get(), 1, all_dex_files1, nullptr, LocationCheck::kEndsWith);
 }
 
 TEST_F(ClassLoaderContextTest, OpenValidDexFilesClasspathDir) {
@@ -358,9 +375,45 @@ TEST_F(ClassLoaderContextTest, OpenValidDexFilesClasspathDir) {
   all_dex_files1.push_back(&dex_files);
 
   VerifyOpenDexFiles(
-      context.get(), 0, all_dex_files0, LocationCheck::kEquals, BaseLocationCheck::kEndsWith);
+      context.get(),
+      0,
+      all_dex_files0,
+      nullptr,
+      LocationCheck::kEquals,
+      BaseLocationCheck::kEndsWith);
   VerifyOpenDexFiles(
-      context.get(), 1, all_dex_files1, LocationCheck::kEquals, BaseLocationCheck::kEndsWith);
+      context.get(),
+      1,
+      all_dex_files1,
+      nullptr,
+      LocationCheck::kEquals,
+      BaseLocationCheck::kEndsWith);
+}
+
+TEST_F(ClassLoaderContextTest, OpenValidDexFilesFromOatFiles) {
+  std::string dex_location = GetScratchDir() + "/the.jar";
+  std::string odex_location = GetOdexDir() + "/the.odex";
+
+  Copy(GetDexSrc1(), dex_location);
+
+  GenerateOdexForTest(dex_location, odex_location, CompilerFilter::kQuicken);
+
+  std::unique_ptr<ClassLoaderContext> context =
+      ClassLoaderContext::Create("PCL[" + dex_location + "]");
+  ASSERT_TRUE(context->OpenDexFiles(kRuntimeISA, /*classpath_dir*/ ""));
+
+  OatFileAssistant oat_file_assistant(dex_location.c_str(), kRuntimeISA, false);
+  std::unique_ptr<OatFile> oat_file(oat_file_assistant.GetBestOatFile());
+  std::vector<std::unique_ptr<const DexFile>> oat_dex_files;
+
+  ASSERT_TRUE(oat_file != nullptr);
+  ASSERT_TRUE(OatFileAssistant::LoadDexFiles(*oat_file, dex_location, &oat_dex_files));
+
+  std::vector<std::vector<std::unique_ptr<const DexFile>>*> all_dex_files;
+  all_dex_files.push_back(&oat_dex_files);
+  std::vector<std::unique_ptr<OatFile>*> all_oat_files;
+  all_oat_files.push_back(&oat_file);
+  VerifyOpenDexFiles(context.get(), 0, all_dex_files, &all_oat_files);
 }
 
 TEST_F(ClassLoaderContextTest, OpenInvalidDexFilesMix) {
