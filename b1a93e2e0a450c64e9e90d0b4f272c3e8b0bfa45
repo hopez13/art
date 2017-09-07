@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f577e8d3_69722998",
+        "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-07T19:18:52Z",
+      "side": 1,
+      "message": "Yeah, from Java:\n\n\nMain.$noinline$NotNotBool @ instruction_simplifier$after_inlining (before) looks like this:\n\n      0 1 z0 ParameterValue loop:none \u003c|@                                                                                                                                                                                                       \n      0 2 i6 IntConstant 0 loop:none \u003c|@                                                                                                                                                                                                        \n      0 2 i13 IntConstant 1 loop:none \u003c|@\n\n       .....\n\n      0 1 i41 Select [i13,i6,z0] loop:none \u003c|@                                                                                                                                                                                                  \n\n       .....\n      0 1 i39 Select [i13,i6,i41] loop:none \u003c|@                                                                                                                                                                                                 \n      0 0 v16 Return [i39] loop:none \u003c|@        \n\nFrom Smali\n\nSmaliTests.$noinline$NotNotBool @ instruction_simplifier$after_inlining (before) looks like this:\n\n      0 1 z0 ParameterValue loop:none \u003c|@                                                                                                                                                                                                       \n      0 1 i5 IntConstant 0 loop:none \u003c|@                                                                                                                                                                                                        \n      0 1 i9 IntConstant 1 loop:none \u003c|@                                                                                                                                                                                                        \n      0 0 v1 SuspendCheck env:[[_,z0]] loop:none \u003c|@                                                                                                                                                                                            \n      0 0 v2 Goto loop:none \u003c|@   \n\n      0 1 z21 BooleanNot [z0] loop:none \u003c|@                                                                                                                                                                                                     \n      0 1 i22 Select [i9,i5,z21] loop:none \u003c|@                                                                                                                                                                                                  \n      0 0 v12 Return [i22] loop:none \u003c|@\n\n\nDo you happen to know why?",
+      "parentUuid": "9e610be2_0c1252e2",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 770,
+        "endChar": 42
+      },
+      "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62bdd809_5331d826",
         "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
         "patchSetId": 1
