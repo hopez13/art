@@ -468,3 +468,96 @@
 
     return v0
 .end method
+
+#  
+#  Test simplification of double Boolean negation. Note that sometimes
+#  both negations can be removed but we only expect the simplifier to
+#  remove the second.
+#  
+
+##  CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) instruction_simplifier (before)
+##  CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
+##  CHECK-DAG:     <<Const1:i\d+>>    IntConstant 0
+##  CHECK-DAG:     <<Result:z\d+>>    InvokeStaticOrDirect method_name:SmaliTests.NegateValueBranch
+##  CHECK-DAG:     <<NotResult:z\d+>> NotEqual [<<Result>>,<<Const1>>]
+##  CHECK-DAG:                        If [<<NotResult>>]
+
+##  CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) instruction_simplifier (after)
+##  CHECK-NOT:                        NotEqual
+
+##  CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) instruction_simplifier (after)
+##  CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
+##  CHECK-DAG:     <<Result:z\d+>>    InvokeStaticOrDirect method_name:SmaliTests.NegateValueBranch
+##  CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
+##  CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
+##  CHECK-DAG:     <<Phi:i\d+>>       Phi [<<Const1>>,<<Const0>>]
+##  CHECK-DAG:                        Return [<<Phi>>]
+
+##  CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
+##  CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
+##  CHECK-NOT:                        BooleanNot [<<Arg>>]
+##  CHECK-NOT:                        Phi
+
+##  CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
+##  CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
+##  CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
+##  CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
+##  CHECK-DAG:     <<Sel:i\d+>>       Select [<<Const1>>,<<Const0>>,<<Arg>>]
+##  CHECK-DAG:     <<Sel2:i\d+>>      Select [<<Const1>>,<<Const0>>,<<Sel>>]
+##  CHECK-DAG:                        Return [<<Sel2>>]
+
+##  CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (after)
+##  CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
+##  CHECK:                            BooleanNot [<<Arg>>]
+##  CHECK-NEXT:                       Goto
+
+##  CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (after)
+##  CHECK-NOT:                        Select
+
+##  CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) dead_code_elimination$final (after)
+##  CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
+##  CHECK-NOT:                        BooleanNot [<<Arg>>]
+##  CHECK-DAG:                        Return [<<Arg>>]
+
+.method public static $noinline$NotNotBool(Z)Z
+    # if (doThrow) { throw new Error(); }
+    # return !(NegateValue(arg));
+    .registers 2
+    sget-boolean v0, LMain;->doThrow:Z
+
+    if-eqz v0, :cond_a
+    new-instance v0, Ljava/lang/Error;
+    invoke-direct {v0}, Ljava/lang/Error;-><init>()V
+    throw v0
+
+    :cond_a
+    invoke-static {p0}, LSmaliTests;->NegateValueBranch(Z)Z
+    move-result v0
+    if-nez v0, :cond_12
+
+    const/4 v0, 0x1
+    :goto_11
+    return v0
+
+    :cond_12
+    const/4 v0, 0x0
+
+    goto :goto_11
+.end method
+
+.method public static NegateValueBranch(Z)Z
+    # if (doThrow) { throw new Error(); }
+    # return !(NegateValue(arg));
+    .registers 2
+    if-nez p0, :cond_4
+
+    const/4 v0, 0x1
+
+    :goto_3
+    return v0
+
+    :cond_4
+    const/4 v0, 0x0
+
+    goto :goto_3
+.end method

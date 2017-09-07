@@ -627,12 +627,6 @@ public class Main {
     return arg ^ 0;
   }
 
-  /// CHECK-START: int Main.$noinline$XorAllOnes(int) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
-  /// CHECK-DAG:     <<ConstF:i\d+>>   IntConstant -1
-  /// CHECK-DAG:     <<Xor:i\d+>>      Xor [<<Arg>>,<<ConstF>>]
-  /// CHECK-DAG:                       Return [<<Xor>>]
-
   /// CHECK-START: int Main.$noinline$XorAllOnes(int) instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Not:i\d+>>      Not [<<Arg>>]
@@ -685,36 +679,14 @@ public class Main {
    * increasing the register pressure by creating or extending live ranges.
    */
 
-  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) instruction_simplifier (before)
+  // return  -(arg1 + arg2)
+
+  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) instruction_simplifier$after_bce (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add1:i\d+>>     Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:     <<Add2:i\d+>>     Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Add1>>,<<Add2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add1:i\d+>>     Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:     <<Add2:i\d+>>     Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-NOT:                       Neg
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Add1>>,<<Add2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) GVN (after)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add:i\d+>>      Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Add>>,<<Add>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
+  /// CHECK-DAG:     <<Add1:i\d+>>     Add [<<Arg1>>,<<Arg2>>]
+  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Add1>>]
+  /// CHECK-DAG:                       Return [<<Neg1>>]
   public static int $noinline$AddNegs2(int arg1, int arg2) {
     if (doThrow) { throw new Error(); }
     int temp1 = -arg1;
@@ -803,27 +775,11 @@ public class Main {
    * increasing the register pressure by creating or extending live ranges.
    */
 
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier$after_bce (after)
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg:j\d+>>      Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add1:j\d+>>     Add [<<Arg1>>,<<Neg>>]
-  /// CHECK-DAG:     <<Add2:j\d+>>     Add [<<Arg1>>,<<Neg>>]
-  /// CHECK-DAG:     <<Res:j\d+>>      Or [<<Add1>>,<<Add2>>]
-  /// CHECK-DAG:                       Return [<<Res>>]
-
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg:j\d+>>      Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add1:j\d+>>     Add [<<Arg1>>,<<Neg>>]
-  /// CHECK-DAG:     <<Add2:j\d+>>     Add [<<Arg1>>,<<Neg>>]
-  /// CHECK-DAG:     <<Res:j\d+>>      Or [<<Add1>>,<<Add2>>]
-  /// CHECK-DAG:                       Return [<<Res>>]
-
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (after)
-  /// CHECK-NOT:                       Sub
-
+  /// CHECK-DAG:     <<Sub:j\d+>>      Sub [<<Arg1>>,<<Arg2>>]
+  /// CHECK-DAG:                       Return [<<Sub>>]
   public static long $noinline$AddNeg2(long arg1, long arg2) {
     if (doThrow) { throw new Error(); }
     long temp = -arg2;
@@ -952,24 +908,14 @@ public class Main {
    * increasing the register pressure by creating or extending live ranges.
    */
 
-  /// CHECK-START: int Main.$noinline$NegSub2(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$NegSub2(int, int) instruction_simplifier$after_bce (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg1>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Sub>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Sub>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
+  /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg2>>,<<Arg1>>]
+  /// CHECK-DAG:                       Return [<<Sub>>]
 
-  /// CHECK-START: int Main.$noinline$NegSub2(int, int) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg1>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Sub>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Sub>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
+  /// CHECK-START: int Main.$noinline$NegSub1(int, int) instruction_simplifier$after_bce (after)
+  /// CHECK-NOT:                       Neg
   public static int $noinline$NegSub2(int arg1, int arg2) {
     if (doThrow) { throw new Error(); }
     int temp = arg1 - arg2;
@@ -981,12 +927,6 @@ public class Main {
    * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitNot`.
    */
 
-  /// CHECK-START: long Main.$noinline$NotNot1(long) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg:j\d+>>       ParameterValue
-  /// CHECK-DAG:     <<ConstNeg1:j\d+>> LongConstant -1
-  /// CHECK-DAG:     <<Not1:j\d+>>      Xor [<<Arg>>,<<ConstNeg1>>]
-  /// CHECK-DAG:     <<Not2:j\d+>>      Xor [<<Not1>>,<<ConstNeg1>>]
-  /// CHECK-DAG:                        Return [<<Not2>>]
 
   /// CHECK-START: long Main.$noinline$NotNot1(long) instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
@@ -999,14 +939,6 @@ public class Main {
     if (doThrow) { throw new Error(); }
     return ~~arg;
   }
-
-  /// CHECK-START: int Main.$noinline$NotNot2(int) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg:i\d+>>       ParameterValue
-  /// CHECK-DAG:     <<ConstNeg1:i\d+>> IntConstant -1
-  /// CHECK-DAG:     <<Not1:i\d+>>      Xor [<<Arg>>,<<ConstNeg1>>]
-  /// CHECK-DAG:     <<Not2:i\d+>>      Xor [<<Not1>>,<<ConstNeg1>>]
-  /// CHECK-DAG:     <<Add:i\d+>>       Add [<<Not2>>,<<Not1>>]
-  /// CHECK-DAG:                        Return [<<Add>>]
 
   /// CHECK-START: int Main.$noinline$NotNot2(int) instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
@@ -1064,27 +996,11 @@ public class Main {
    * increasing the register pressure by creating or extending live ranges.
    */
 
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier$after_bce (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Sub1:i\d+>>     Sub [<<Neg>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Sub2:i\d+>>     Sub [<<Neg>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Sub1>>,<<Sub2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Sub1:i\d+>>     Sub [<<Neg>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Sub2:i\d+>>     Sub [<<Neg>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Sub1>>,<<Sub2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (after)
-  /// CHECK-NOT:                       Add
-
+  /// CHECK-DAG:     <<Add1:i\d+>>     Add [<<Arg1>>,<<Arg2>>]
+  /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Add1>>]
   public static int $noinline$SubNeg2(int arg1, int arg2) {
     if (doThrow) { throw new Error(); }
     int temp = -arg1;
@@ -1183,41 +1099,9 @@ public class Main {
    * remove the second.
    */
 
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-DAG:     <<Const1:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<Result:z\d+>>    InvokeStaticOrDirect method_name:Main.NegateValue
-  /// CHECK-DAG:     <<NotResult:z\d+>> NotEqual [<<Result>>,<<Const1>>]
-  /// CHECK-DAG:                        If [<<NotResult>>]
 
   /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier (after)
   /// CHECK-NOT:                        NotEqual
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-DAG:     <<Result:z\d+>>    InvokeStaticOrDirect method_name:Main.NegateValue
-  /// CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<Phi:i\d+>>       Phi [<<Const1>>,<<Const0>>]
-  /// CHECK-DAG:                        Return [<<Phi>>]
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-NOT:                        BooleanNot [<<Arg>>]
-  /// CHECK-NOT:                        Phi
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<Sel:i\d+>>       Select [<<Const1>>,<<Const0>>,<<Arg>>]
-  /// CHECK-DAG:     <<Sel2:i\d+>>      Select [<<Const1>>,<<Const0>>,<<Sel>>]
-  /// CHECK-DAG:                        Return [<<Sel2>>]
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (after)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK:                            BooleanNot [<<Arg>>]
-  /// CHECK-NEXT:                       Goto
 
   /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (after)
   /// CHECK-NOT:                        Select
