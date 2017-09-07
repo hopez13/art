@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "74d320e4_30b69633",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T14:34:28Z",
+      "side": 1,
+      "message": "Split out https://android-review.googlesource.com/478257 .\n(The diff PS10 PS11 is minimal despite the different parent.)",
+      "parentUuid": "1b7fc622_90682745",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 56
+      },
+      "revId": "b8d5a3c33d8928b6bb39f24d6ee0719fa40c25da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "461c501a_a2d8aad5",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-07T11:45:56Z",
       "side": 1,
       "message": "Mention when this is true.",
+      "range": {
+        "startLine": 410,
+        "startChar": 2,
+        "endLine": 410,
+        "endChar": 60
+      },
+      "revId": "b8d5a3c33d8928b6bb39f24d6ee0719fa40c25da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "972076b3_91faf26c",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T14:34:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "461c501a_a2d8aad5",
       "range": {
         "startLine": 410,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "45759de7_9861db54",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T14:34:28Z",
+      "side": 1,
+      "message": "Looks rather obvious that we should not try to read data from an empty section. Note that the same check is in PatchClassTable() and there\u0027s no comment there either.\n\nI\u0027m wondering whether I should pull this fix out to a separate CL. We\u0027re hitting this case for one of the boot images in AOSP. The ClassTable section is also empty in that case, so I guess we\u0027ve been \"lucky\" that we have enough zero-padding until the end of the page.",
+      "parentUuid": "5f9b9aea_9e3e28c2",
+      "range": {
+        "startLine": 472,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 3
+      },
+      "revId": "b8d5a3c33d8928b6bb39f24d6ee0719fa40c25da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "832c4b59_fc47a316",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2017-09-07T11:45:56Z",
       "side": 1,
       "message": "Mention why we\u0027re doing that.",
+      "range": {
+        "startLine": 1764,
+        "startChar": 4,
+        "endLine": 1764,
+        "endChar": 77
+      },
+      "revId": "b8d5a3c33d8928b6bb39f24d6ee0719fa40c25da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a1a7fc1_9a49df95",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T14:34:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "832c4b59_fc47a316",
       "range": {
         "startLine": 1764,
         "startChar": 4,
