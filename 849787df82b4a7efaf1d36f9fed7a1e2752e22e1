@@ -73,6 +73,30 @@
       "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c901ba53_9406f1a1",
+        "filename": "runtime/intern_table.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T16:17:19Z",
+      "side": 1,
+      "message": "Can you add a comment here that this is to be used when:\n\n1) intern table is in the boot image\n2) when the intern table is immutable\n\n?",
+      "parentUuid": "020e9633_af7998be",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 25
+      },
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
