@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8d8f6c0_bf9d9ea9",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-07T10:53:58Z",
+      "side": 1,
+      "message": "What happens next? Will we ever try to verify the dex code, or will we use the verification status of the oat files?",
+      "revId": "483faa9a42a6e5bb6b84cd84010a8b55179a787a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23e83a40_3a422c5d",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-07T10:53:58Z",
+      "side": 1,
+      "message": "exist",
+      "range": {
+        "startLine": 224,
+        "startChar": 34,
+        "endLine": 224,
+        "endChar": 40
+      },
+      "revId": "483faa9a42a6e5bb6b84cd84010a8b55179a787a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
