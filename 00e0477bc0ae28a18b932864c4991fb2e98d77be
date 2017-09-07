@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "31cf2912_21c6e268",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T15:37:06Z",
+      "side": 1,
+      "message": "Both https://android-review.googlesource.com/476338 and this CL change the 552-checker-sharpening. Check the list of affected files.",
+      "parentUuid": "2cd4b356_7064c634",
+      "revId": "00e0477bc0ae28a18b932864c4991fb2e98d77be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f15070f6_d07afb5f",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 3
