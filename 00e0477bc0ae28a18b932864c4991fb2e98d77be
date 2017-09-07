@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0079f823_18992430",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T14:04:32Z",
+      "side": 1,
+      "message": "How is it that the existing tests are already covering it? Did we lose coverage elsewhere?",
+      "revId": "00e0477bc0ae28a18b932864c4991fb2e98d77be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f15070f6_d07afb5f",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 3
