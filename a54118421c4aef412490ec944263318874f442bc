@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4ac410ec_ebb1913a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-07T21:58:06Z",
+      "side": 1,
+      "message": "Needs a comment as to why, and measurements of what this means to the heap of some well-known apps (and the zygote).",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "a54118421c4aef412490ec944263318874f442bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5abb846_0a3925bb",
         "filename": "test/knownfailures.json",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2017-09-07T21:53:12Z",
       "side": 1,
       "message": "Bug please.\n\nAlso it shouldn\u0027t be.",
+      "range": {
+        "startLine": 740,
+        "startChar": 5,
+        "endLine": 740,
+        "endChar": 0
+      },
+      "revId": "a54118421c4aef412490ec944263318874f442bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27734601_aebbd663",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-07T21:58:06Z",
+      "side": 1,
+      "message": "Yeah. This sounds like you need to adjust the expectations. JVMTI has deep insight into runtime internals, so this is not super robust.",
+      "parentUuid": "d5abb846_0a3925bb",
       "range": {
         "startLine": 740,
         "startChar": 5,
