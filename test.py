@@ -62,6 +62,11 @@ if options.gtest or not options.run_test:
   if options.target or not options.host:
     build_target += ' test-art-target-gtest'
 
+  # The build will only need to build either DX or D8 depending
+  # on the current default. Since indiviual tests can specify
+  # which dexer they want to use, we need to explicity build both.
+  build_target += ' dx d8 '
+
   build_command = 'make'
   build_command += ' -j' + str(options.n_threads)
 
