@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bcde905a_0cfe5af3",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T17:34:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f92d1dc_9d8f1760",
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aebc8c68_494c8c76",
         "filename": "dex2oat/dex2oat_test.cc",
         "patchSetId": 11
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "729be8da_1d940239",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T17:34:14Z",
+      "side": 1,
+      "message": "Originally I aligned the InternTable section on a page boundary also for app images. And that would completely hide the difference in the image size for this test.\n\nThe important question for this test is what do we really want to check. I think we should check the size of the Objects section; depending on the size of the entire image is prone to breakages when we introduce new alignment requirements (kPageSize).",
+      "parentUuid": "aebc8c68_494c8c76",
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f460814_4ae33665",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 11
@@ -47,6 +83,30 @@
       "writtenOn": "2017-09-07T16:54:24Z",
       "side": 1,
       "message": "Is this guaranteed to be page aligned?",
+      "range": {
+        "startLine": 1771,
+        "startChar": 13,
+        "endLine": 1771,
+        "endChar": 32
+      },
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f98a2b4_18b6aa81",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T17:34:14Z",
+      "side": 1,
+      "message": "Yes, space-\u003eBegin() and header.GetBootImageConstantTablesOffset() are both page-aligned.",
+      "parentUuid": "5f460814_4ae33665",
       "range": {
         "startLine": 1771,
         "startChar": 13,
@@ -88,6 +148,24 @@
       "side": 1,
       "message": "GC should only ever remove weak roots, maybe a comment that this is why its safe to only look at strong roots.",
       "parentUuid": "0ffe7cda_2c2ac44e",
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b47cf75f_62472217",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T17:34:14Z",
+      "side": 1,
+      "message": "This is used only to calculate the offset of the entry. The table shall be mmapped into the app oat .bss.\n\nMoved to OatWriter.",
+      "parentUuid": "77b18f11_69630c5d",
       "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -153,6 +231,30 @@
       "side": 1,
       "message": "Is there a way to set a debug boolean after having called LookupRootStrong that would abort when trying to insert extra entries? That could maybe catch bugs related to dangling pointers here.",
       "parentUuid": "c901ba53_9406f1a1",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 25
+      },
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "529bb9f2_d7364971",
+        "filename": "runtime/intern_table.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-07T17:34:14Z",
+      "side": 1,
+      "message": "Moved to the OatWriter.\n\nNote that the mprotect() should guard against inserting new entries (unless we\u0027re at the size/capacity where we want to resize the hash map).",
+      "parentUuid": "1c295ca4_3645042b",
       "range": {
         "startLine": 96,
         "startChar": 2,
