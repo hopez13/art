@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.lang.reflect.Method;
 
 // This base class has a single final field;
 // the constructor should have one fence.
@@ -112,35 +113,14 @@ public class Main {
     return new Ellipse(vertex, covertex).getArea();
   }
 
-  /// CHECK-START: double Main.calcCircleAreaOrCircumference(double, boolean) load_store_elimination (before)
-  /// CHECK: NewInstance
-  /// CHECK: InstanceFieldSet
-  /// CHECK: ConstructorFence
-  /// CHECK: InstanceFieldGet
-
-  /// CHECK-START: double Main.calcCircleAreaOrCircumference(double, boolean) load_store_elimination (after)
-  /// CHECK: NewInstance
-  /// CHECK-NOT: ConstructorFence
-
-  //
-  // The object allocation will not be eliminated by LSE because of aliased stores.
-  // However the object is still a singleton, so it never escapes the current thread.
-  // There should not be a constructor fence here after LSE.
   static double calcCircleAreaOrCircumference(double radius, boolean area_or_circumference) {
-    CalcCircleAreaOrCircumference calc =
-      new CalcCircleAreaOrCircumference(
-          area_or_circumference ? CalcCircleAreaOrCircumference.TYPE_AREA :
-          CalcCircleAreaOrCircumference.TYPE_CIRCUMFERENCE);
-
-    if (area_or_circumference) {
-      // Area
-      calc.value = Math.PI * Math.PI * radius;
-    } else {
-      // Circumference
-      calc.value = 2 * Math.PI * radius;
+    try {
+      Class<?> c = Class.forName("Smali");
+      Method m = c.getMethod("calcCircleAreaOrCircumference", double.class, boolean.class);
+      return (Double) m.invoke(null, radius, area_or_circumference);
+    } catch (Exception ex) {
+      throw new Error(ex);
     }
-
-    return calc.value;
   }
 
   /// CHECK-START: Circle Main.makeCircle(double) load_store_elimination (after)
