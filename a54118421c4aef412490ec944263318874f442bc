@@ -152,6 +152,24 @@
       "revId": "a54118421c4aef412490ec944263318874f442bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6809fcff_a0aa1f90",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T22:44:27Z",
+      "side": 1,
+      "message": "How are you reproing?\n\n  iam@invoker:/mnt/ssd3/workspace/aosp_master_art$ art/test.py -j32 --host --run-test -t 913-heaps\n  [\u0027/mnt/ssd3/workspace/aosp_master_art/art/test/testrunner/testrunner.py\u0027, \u0027-j32\u0027, \u0027--host\u0027, \u0027-t\u0027, \u0027913-heaps\u0027]\n  0/10 (0%) test passed.                                                                                                                                                                                                                             \n\n  SKIPPED TESTS: \n  test-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-no-jvmti-913-heaps64\n  test-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-no-jvmti-913-heaps32\n  test-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-no-jvmti-913-heaps64\n  test-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-\n  npictest-ndebuggable-no-jvmti-913-heaps32\n  ...\n\n\n0/10 seems like nothing is running to me. and it explicitly lists both 32 and 64 in the skipped tests section.",
+      "parentUuid": "f93f2c9e_e1a439fb",
+      "revId": "a54118421c4aef412490ec944263318874f442bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
