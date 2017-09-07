@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "62277ae7_2fb8fc03",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-07T20:35:21Z",
+      "side": 1,
+      "message": "We would also need to relayout all of slicer (or import without any directory).",
+      "parentUuid": "79498b23_45f9625e",
+      "range": {
+        "startLine": 354,
+        "startChar": 4,
+        "endLine": 354,
+        "endChar": 35
+      },
+      "revId": "cb5730cb0b7e80602c4a05f31b0ae0ae6e2fd152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9df3026f_0717e23e",
         "filename": "test/ti-stress/stress.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "41f5161a_61934d47",
+        "filename": "test/ti-stress/stress.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-07T20:35:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9df3026f_0717e23e",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 12
+      },
+      "revId": "cb5730cb0b7e80602c4a05f31b0ae0ae6e2fd152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8a3ba1c_01288379",
         "filename": "test/ti-stress/stress.cc",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "cb5730cb0b7e80602c4a05f31b0ae0ae6e2fd152",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb3a4787_e365a939",
+        "filename": "test/ti-stress/stress.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-07T20:35:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8a3ba1c_01288379",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 49
+      },
+      "revId": "cb5730cb0b7e80602c4a05f31b0ae0ae6e2fd152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
