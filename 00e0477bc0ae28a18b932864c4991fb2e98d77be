@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f15070f6_d07afb5f",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-07T13:25:09Z",
+      "side": 1,
+      "message": "nit: add high-level comment.",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 32
+      },
+      "revId": "00e0477bc0ae28a18b932864c4991fb2e98d77be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a17e5031_4d7f161d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4989,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-07T13:25:09Z",
+      "side": 1,
+      "message": "what are those? Please add a comment (or reference to the code where those hash bits are).",
+      "range": {
+        "startLine": 4989,
+        "startChar": 62,
+        "endLine": 4989,
+        "endChar": 75
+      },
+      "revId": "00e0477bc0ae28a18b932864c4991fb2e98d77be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
