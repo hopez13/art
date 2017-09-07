@@ -69,6 +69,40 @@
       "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fba127c3_3d94834f",
+        "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T14:32:28Z",
+      "side": 1,
+      "message": "Move above checker tests to this function. Not above NegateTest.",
+      "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b69823f_8c179660",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T14:32:28Z",
+      "side": 1,
+      "message": "delete above line from every function you changed",
+      "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
