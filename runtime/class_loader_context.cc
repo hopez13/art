@@ -183,6 +183,29 @@ bool ClassLoaderContext::Parse(const std::string& spec, bool parse_checksums) {
   return true;
 }
 
+std::unique_ptr<ClassLoaderContext> ClassLoaderContext::Slice(size_t start_info_index,
+                                                              size_t start_cp_elem_index) {
+  std::unique_ptr<ClassLoaderContext> context(new ClassLoaderContext(/*owns_the_dex_files*/ false));
+  for (size_t i = start_info_index; i < class_loader_chain_.size(); i++) {
+    const ClassLoaderInfo& src_info = class_loader_chain_[i];
+    context->class_loader_chain_.push_back(ClassLoaderInfo(src_info.type));
+    ClassLoaderInfo& dst_info = context->class_loader_chain_.back();
+
+    size_t elem_start = (i == start_info_index) ? start_cp_elem_index : 0;
+    for (size_t k = elem_start; k < src_info.opened_dex_files.size(); k++) {
+      dst_info.classpath.push_back(src_info.opened_dex_files[k]->GetLocation());
+      dst_info.checksums.push_back(src_info.opened_dex_files[k]->GetLocationChecksum());
+      const DexFile* dex_file = src_info.opened_dex_files[i].get();
+      dst_info.opened_dex_files.push_back(std::unique_ptr<const DexFile>(dex_file));
+    }
+  }
+
+  context->dex_files_open_attempted_ = true;
+  context->dex_files_open_result_ = true;
+
+  return context;
+}
+
 // Opens requested class path files and appends them to opened_dex_files. If the dex files have
 // been stripped, this opens them from their oat files (which get added to opened_oat_files).
 bool ClassLoaderContext::OpenDexFiles(InstructionSet isa, const std::string& classpath_dir) {
@@ -205,9 +228,11 @@ bool ClassLoaderContext::OpenDexFiles(InstructionSet isa, const std::string& cla
   // TODO(calin): Refine the dex opening interface to be able to tell if an archive contains
   // no dex files. So that we can distinguish the real failures...
   const ArtDexFileLoader dex_file_loader;
-  for (ClassLoaderInfo& info : class_loader_chain_) {
+  for (int i = class_loader_chain_.size() - 1; i >= 0; i--) {
+    ClassLoaderInfo& info = class_loader_chain_[i];
     size_t opened_dex_files_index = info.opened_dex_files.size();
-    for (const std::string& cp_elem : info.classpath) {
+    for (int k = info.classpath.size() - 1; k >= 0; k--) {
+      const std::string& cp_elem = info.classpath[k];
       // If path is relative, append it to the provided base directory.
       std::string location = cp_elem;
       if (location[0] != '/' && !classpath_dir.empty()) {
@@ -215,29 +240,50 @@ bool ClassLoaderContext::OpenDexFiles(InstructionSet isa, const std::string& cla
       }
 
       std::string error_msg;
-      // When opening the dex files from the context we expect their checksum to match their
-      // contents. So pass true to verify_checksum.
-      if (!dex_file_loader.Open(location.c_str(),
-                                location.c_str(),
-                                Runtime::Current()->IsVerificationEnabled(),
-                                /*verify_checksum*/ true,
-                                &error_msg,
-                                &info.opened_dex_files)) {
-        // If we fail to open the dex file because it's been stripped, try to open the dex file
-        // from its corresponding oat file.
-        // This could happen when we need to recompile a pre-build whose dex code has been stripped.
-        // (for example, if the pre-build is only quicken and we want to re-compile it
-        // speed-profile).
-        // TODO(calin): Use the vdex directly instead of going through the oat file.
-        OatFileAssistant oat_file_assistant(location.c_str(), isa, false);
-        std::unique_ptr<OatFile> oat_file(oat_file_assistant.GetBestOatFile());
-        std::vector<std::unique_ptr<const DexFile>> oat_dex_files;
-        if (oat_file != nullptr &&
-            OatFileAssistant::LoadDexFiles(*oat_file, location, &oat_dex_files)) {
-          info.opened_oat_files.push_back(std::move(oat_file));
-          info.opened_dex_files.insert(info.opened_dex_files.end(),
-                                       std::make_move_iterator(oat_dex_files.begin()),
-                                       std::make_move_iterator(oat_dex_files.end()));
+
+      // First, try to open the dex files from the vdex files.
+      // This will avoid extracting from apks if the vdex is up to date.
+      OatFileAssistant oat_file_assistant(location.c_str(), isa, false);
+      std::unique_ptr<OatFile> oat_file(oat_file_assistant.GetBestOatFile());
+      std::vector<std::unique_ptr<const DexFile>> oat_dex_files;
+
+      bool oat_file_ok = false;
+      if (oat_file != nullptr) {
+        std::unique_ptr<ClassLoaderContext> oat_expected_context = Slice(i, k);
+        if (oat_expected_context->VerifyClassLoaderContextMatch(
+            oat_file->GetClassLoaderContext())) {
+          if (OatFileAssistant::LoadDexFiles(*oat_file, location, &oat_dex_files)) {
+            oat_file_ok = true;
+            VLOG(compiler) << "Opened dex files from vdex for " << location;
+            info.opened_oat_files.insert(info.opened_oat_files.begin(), std::move(oat_file));
+            info.opened_dex_files.insert(info.opened_dex_files.begin(),
+                                         std::make_move_iterator(oat_dex_files.begin()),
+                                         std::make_move_iterator(oat_dex_files.end()));
+          }
+        } else {
+          VLOG(compiler)
+              << "The context for oat file does not verify"
+              << "expected: " << oat_expected_context->EncodeContextForOatFile(classpath_dir)
+              << "actual: " << oat_file->GetClassLoaderContext();
+        }
+      }
+      if (!oat_file_ok) {
+        // The vdex file does not exist or is not up to date.
+        // Attempt to open from the actual location. This may extract in-memory if the location
+        // is an archive.
+        VLOG(compiler) << "Could not open dex files from vdex. Trying the apk for " << location;
+        // When opening the dex files from the context we expect their checksum to match their
+        // contents. So pass true to verify_checksum.
+        std::vector<std::unique_ptr<const DexFile>> dex_files;
+        if (dex_file_loader.Open(location.c_str(),
+                                 location.c_str(),
+                                 Runtime::Current()->IsVerificationEnabled(),
+                                 /*verify_checksum*/ true,
+                                 &error_msg,
+                                 &dex_files)) {
+          info.opened_dex_files.insert(info.opened_dex_files.begin(),
+                                       std::make_move_iterator(dex_files.begin()),
+                                       std::make_move_iterator(dex_files.end()));
         } else {
           LOG(WARNING) << "Could not open dex files from location: " << location;
           dex_files_open_result_ = false;
@@ -669,9 +715,9 @@ bool ClassLoaderContext::VerifyClassLoaderContextMatch(const std::string& contex
 
   if (expected_context.class_loader_chain_.size() != class_loader_chain_.size()) {
     LOG(WARNING) << "ClassLoaderContext size mismatch. expected="
-        << expected_context.class_loader_chain_.size()
-        << ", actual=" << class_loader_chain_.size()
-        << " (" << context_spec << " | " << EncodeContextForOatFile("") << ")";
+                 << expected_context.class_loader_chain_.size()
+                 << ", actual=" << class_loader_chain_.size()
+                 << " (" << context_spec << " | " << EncodeContextForOatFile("") << ")";
     return false;
   }
 

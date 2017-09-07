@@ -1127,6 +1127,27 @@ class Dex2oatClassLoaderContextTest : public Dex2oatTest {
     return GetOdexDir() + "/Context.odex";
   }
 
+  std::string GetExpectedPCLClassPathKey(const std::string& location) {
+    std::string expected_classpath_key;
+    {
+      // Open the oat file to get the expected classpath.
+      OatFileAssistant oat_file_assistant(location.c_str(), kRuntimeISA, false);
+      std::unique_ptr<OatFile> oat_file(oat_file_assistant.GetBestOatFile());
+      std::vector<std::unique_ptr<const DexFile>> oat_dex_files =
+          OatFileAssistant::LoadDexFiles(*oat_file, location.c_str());
+      expected_classpath_key = "PCL[";
+      for (size_t i = 0; i < oat_dex_files.size(); i++) {
+        if (i > 0) {
+          expected_classpath_key + ":";
+        }
+        expected_classpath_key += oat_dex_files[i]->GetLocation() + "*" +
+            std::to_string(oat_dex_files[i]->GetLocationChecksum());
+      }
+      expected_classpath_key += "]";
+    }
+    return expected_classpath_key;
+  }
+
   const char* kEmptyClassPathKey = "PCL[]";
 };
 
@@ -1158,6 +1179,26 @@ TEST_F(Dex2oatClassLoaderContextTest, ContextWithOtherDexFiles) {
   RunTest(context.c_str(), expected_classpath_key.c_str(), true);
 }
 
+TEST_F(Dex2oatClassLoaderContextTest, ContextWithOtherDexFilesBackedByOdex) {
+  std::string dex_file = GetScratchDir() + "/dex_file.jar";
+  std::string odex_for_classpath = GetOdexDir() + "/dex_file.odex";
+
+  Copy(GetDexSrc2(), dex_file);
+
+  GenerateOdexForTest(dex_file,
+                      odex_for_classpath,
+                      CompilerFilter::kQuicken,
+                      {},
+                      true);
+
+  std::string context = "PCL[" + dex_file + "]";
+  std::string expected_classpath_key = GetExpectedPCLClassPathKey(dex_file);
+  RunTest(context.c_str(),
+          expected_classpath_key.c_str(),
+          /*expected_success*/ true,
+          /*use_second_source*/ true);
+}
+
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithStrippedDexFiles) {
   std::string stripped_classpath = GetScratchDir() + "/stripped_classpath.jar";
   Copy(GetStrippedDexSrc1(), stripped_classpath);
@@ -1183,23 +1224,7 @@ TEST_F(Dex2oatClassLoaderContextTest, ContextWithStrippedDexFilesBackedByOdex) {
   Copy(GetStrippedDexSrc1(), stripped_classpath);
 
   std::string context = "PCL[" + stripped_classpath + "]";
-  std::string expected_classpath_key;
-  {
-    // Open the oat file to get the expected classpath.
-    OatFileAssistant oat_file_assistant(stripped_classpath.c_str(), kRuntimeISA, false, false);
-    std::unique_ptr<OatFile> oat_file(oat_file_assistant.GetBestOatFile());
-    std::vector<std::unique_ptr<const DexFile>> oat_dex_files =
-        OatFileAssistant::LoadDexFiles(*oat_file, stripped_classpath.c_str());
-    expected_classpath_key = "PCL[";
-    for (size_t i = 0; i < oat_dex_files.size(); i++) {
-      if (i > 0) {
-        expected_classpath_key + ":";
-      }
-      expected_classpath_key += oat_dex_files[i]->GetLocation() + "*" +
-          std::to_string(oat_dex_files[i]->GetLocationChecksum());
-    }
-    expected_classpath_key += "]";
-  }
+  std::string expected_classpath_key = GetExpectedPCLClassPathKey(stripped_classpath);
 
   RunTest(context.c_str(),
           expected_classpath_key.c_str(),
