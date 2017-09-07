@@ -13,49 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.lang.reflect.Method;
 
 public class Main {
 
-  /// CHECK-START: int Main.signBoolean(boolean) intrinsics_recognition (after)
-  /// CHECK-DAG:     <<Method:[ij]\d+>> CurrentMethod
-  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<Phi:i\d+>>    Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<Result:i\d+>> InvokeStaticOrDirect [<<Phi>>,<<Method>>] intrinsic:IntegerSignum
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.signBoolean(boolean) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<Phi:i\d+>>    Phi [<<One>>,<<Zero>>]
-  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<Phi>>,<<Zero>>]
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.signBoolean(boolean) instruction_simplifier (after)
-  /// CHECK-NOT:                     InvokeStaticOrDirect
-
-  /// CHECK-START: int Main.signBoolean(boolean) select_generator (after)
-  /// CHECK-DAG:     <<Arg:z\d+>>    ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<One:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<Sel:i\d+>>    Select [<<Zero>>,<<One>>,<<Arg>>]
-  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<Sel>>,<<Zero>>]
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.signBoolean(boolean) select_generator (after)
-  /// CHECK-NOT:                     Phi
-
-  /// CHECK-START: int Main.signBoolean(boolean) instruction_simplifier$after_bce (after)
-  /// CHECK-DAG:     <<Arg:z\d+>>    ParameterValue
-  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<Arg>>,<<Zero>>]
-  /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int Main.signBoolean(boolean) instruction_simplifier$after_bce (after)
-  /// CHECK-NOT:                     Select
-
   private static int signBoolean(boolean x) {
-    return Integer.signum(x ? 1 : 0);
+    try {
+      Class<?> c = Class.forName("Smali");
+      Method m = c.getMethod("signBoolean", boolean.class);
+      return (Integer) m.invoke(null, x);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /// CHECK-START: int Main.signByte(byte) intrinsics_recognition (after)
