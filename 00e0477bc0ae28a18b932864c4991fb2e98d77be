@@ -182,6 +182,30 @@
       "revId": "00e0477bc0ae28a18b932864c4991fb2e98d77be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e4d4aba_72e3f09e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4989,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-09-07T16:56:54Z",
+      "side": 1,
+      "message": "How much code size would it save to get rid of the hash bits? I added that a while back to make class lookups a bit faster.",
+      "parentUuid": "6b7d18b5_06c742ca",
+      "range": {
+        "startLine": 4989,
+        "startChar": 62,
+        "endLine": 4989,
+        "endChar": 75
+      },
+      "revId": "00e0477bc0ae28a18b932864c4991fb2e98d77be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
