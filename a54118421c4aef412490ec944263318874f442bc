@@ -93,6 +93,47 @@
       "revId": "a54118421c4aef412490ec944263318874f442bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e87e9614_8893ebb8",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T22:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a5eec26_b327aa9e",
+      "range": {
+        "startLine": 740,
+        "startChar": 5,
+        "endLine": 740,
+        "endChar": 0
+      },
+      "revId": "a54118421c4aef412490ec944263318874f442bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2125fa6f_b1dfdb01",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T22:17:13Z",
+      "side": 1,
+      "message": "I guess variant: 64 doesn\u0027t seem to do anything? It skips everything..",
+      "revId": "a54118421c4aef412490ec944263318874f442bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
