@@ -225,29 +225,31 @@ bool ClassLoaderContext::OpenDexFiles(InstructionSet isa, const std::string& cla
       }
 
       std::string error_msg;
-      // When opening the dex files from the context we expect their checksum to match their
-      // contents. So pass true to verify_checksum.
-      if (!DexFile::Open(location.c_str(),
-                         location.c_str(),
-                         /*verify_checksum*/ true,
-                         &error_msg,
-                         &info.opened_dex_files)) {
-        // If we fail to open the dex file because it's been stripped, try to open the dex file
-        // from its corresponding oat file.
-        // This could happen when we need to recompile a pre-build whose dex code has been stripped.
-        // (for example, if the pre-build is only quicken and we want to re-compile it
-        // speed-profile).
-        // TODO(calin): Use the vdex directly instead of going through the oat file.
-        OatFileAssistant oat_file_assistant(location.c_str(), isa, false);
-        std::unique_ptr<OatFile> oat_file(oat_file_assistant.GetBestOatFile());
-        std::vector<std::unique_ptr<const DexFile>> oat_dex_files;
-        if (oat_file != nullptr &&
-            OatFileAssistant::LoadDexFiles(*oat_file, location, &oat_dex_files)) {
-          info.opened_oat_files.push_back(std::move(oat_file));
-          info.opened_dex_files.insert(info.opened_dex_files.end(),
-                                       std::make_move_iterator(oat_dex_files.begin()),
-                                       std::make_move_iterator(oat_dex_files.end()));
-        } else {
+
+      // First, try to open the dex files from the vdex files.
+      // This will avoid extracting from apks if the vdex is up to date.
+      OatFileAssistant oat_file_assistant(location.c_str(), isa, false);
+      std::unique_ptr<OatFile> oat_file(oat_file_assistant.GetBestOatFile());
+      std::vector<std::unique_ptr<const DexFile>> oat_dex_files;
+      if (oat_file != nullptr &&
+          OatFileAssistant::LoadDexFiles(*oat_file, location, &oat_dex_files)) {
+        VLOG(compiler) << "Opened dex files from vdex for " << location;
+        info.opened_oat_files.push_back(std::move(oat_file));
+        info.opened_dex_files.insert(info.opened_dex_files.end(),
+                                     std::make_move_iterator(oat_dex_files.begin()),
+                                     std::make_move_iterator(oat_dex_files.end()));
+      } else {
+        // The vdex file does not exist or is not up to date.
+        // Attempt to open from the actual location. This may extract in-memory if the location
+        // is an archive.
+        VLOG(compiler) << "Could not open dex files from vdex. Trying the apk for " << location;
+        // When opening the dex files from the context we expect their checksum to match their
+        // contents. So pass true to verify_checksum.
+        if (!DexFile::Open(location.c_str(),
+                           location.c_str(),
+                           /*verify_checksum*/ true,
+                           &error_msg,
+                           &info.opened_dex_files)) {
           LOG(WARNING) << "Could not open dex files from location: " << location;
           dex_files_open_result_ = false;
         }
