@@ -134,6 +134,24 @@
       "revId": "a54118421c4aef412490ec944263318874f442bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f93f2c9e_e1a439fb",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-09-07T22:42:18Z",
+      "side": 1,
+      "message": "It seems to be working for it.\nIt is skipping 64 bit tests.",
+      "parentUuid": "2125fa6f_b1dfdb01",
+      "revId": "a54118421c4aef412490ec944263318874f442bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
