@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e715abf_2591fbca",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T23:45:12Z",
+      "side": 1,
+      "message": "nit: Can we not use pid_t everywhere?",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 10
+      },
+      "revId": "66388cfe4709291eb9f4d0bdb8be445751048ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
