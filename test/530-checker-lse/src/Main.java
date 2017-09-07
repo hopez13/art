@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.lang.reflect.Method;
 
 class Circle {
   Circle(double radius) {
@@ -166,49 +167,24 @@ public class Main {
     return obj.i + obj1.j + obj2.i + obj2.j;
   }
 
-  /// CHECK-START: int Main.test4(TestClass, boolean) load_store_elimination (before)
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK: InstanceFieldSet
-
-  /// CHECK-START: int Main.test4(TestClass, boolean) load_store_elimination (after)
-  /// CHECK: InstanceFieldSet
-  /// CHECK-NOT: NullCheck
-  /// CHECK-NOT: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK: InstanceFieldSet
-
-  // Set and merge the same value in two branches.
   static int test4(TestClass obj, boolean b) {
-    if (b) {
-      obj.i = 1;
-    } else {
-      obj.i = 1;
+    try {
+      Class<?> c = Class.forName("Smali");
+      Method m = c.getMethod("test4", TestClass.class, boolean.class);
+      return (Integer) m.invoke(null, obj, b);
+    } catch (Exception ex) {
+      throw new Error(ex);
     }
-    return obj.i;
   }
 
-  /// CHECK-START: int Main.test5(TestClass, boolean) load_store_elimination (before)
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK: InstanceFieldSet
-
-  /// CHECK-START: int Main.test5(TestClass, boolean) load_store_elimination (after)
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK: InstanceFieldSet
-
-  // Set and merge different values in two branches.
   static int test5(TestClass obj, boolean b) {
-    if (b) {
-      obj.i = 1;
-    } else {
-      obj.i = 2;
+    try {
+      Class<?> c = Class.forName("Smali");
+      Method m = c.getMethod("test5", TestClass.class, boolean.class);
+      return (Integer) m.invoke(null, obj, b);
+    } catch (Exception ex) {
+      throw new Error(ex);
     }
-    return obj.i;
   }
 
   /// CHECK-START: int Main.test6(TestClass, TestClass, boolean) load_store_elimination (before)
@@ -557,36 +533,14 @@ public class Main {
     return sum;
   }
 
-  /// CHECK-START: int Main.test23(boolean) load_store_elimination (before)
-  /// CHECK: NewInstance
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK: InstanceFieldGet
-  /// CHECK: InstanceFieldSet
-
-  /// CHECK-START: int Main.test23(boolean) load_store_elimination (after)
-  /// CHECK: NewInstance
-  /// CHECK-NOT: InstanceFieldSet
-  /// CHECK-NOT: InstanceFieldGet
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK-NOT: InstanceFieldGet
-  /// CHECK: InstanceFieldSet
-
-  // Test store elimination on merging.
   static int test23(boolean b) {
-    TestClass obj = new TestClass();
-    obj.i = 3;      // This store can be eliminated since the value flows into each branch.
-    if (b) {
-      obj.i += 1;   // This store cannot be eliminated due to the merge later.
-    } else {
-      obj.i += 2;   // This store cannot be eliminated due to the merge later.
+    try {
+      Class<?> c = Class.forName("Smali");
+      Method m = c.getMethod("test23", boolean.class);
+      return (Integer) m.invoke(null, b);
+    } catch (Exception ex) {
+      throw new Error(ex);
     }
-    return obj.i;
   }
 
   /// CHECK-START: float Main.test24() load_store_elimination (before)
