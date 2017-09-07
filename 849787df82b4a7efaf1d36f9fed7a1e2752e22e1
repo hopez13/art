@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f92d1dc_9d8f1760",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T15:41:38Z",
+      "side": 1,
+      "message": "A comment would be nice?",
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aebc8c68_494c8c76",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T15:41:38Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ffe7cda_2c2ac44e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T15:41:38Z",
+      "side": 1,
+      "message": "Why is this ok? The address won\u0027t change after GC?",
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "020e9633_af7998be",
+        "filename": "runtime/intern_table.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-07T15:41:38Z",
+      "side": 1,
+      "message": "Was it exposing this before? You\u0027re adding a new contract to InternTable to ensure that the table entries do not move around in physical memory.",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 25
+      },
+      "revId": "849787df82b4a7efaf1d36f9fed7a1e2752e22e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
