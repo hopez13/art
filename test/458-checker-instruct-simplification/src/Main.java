@@ -627,23 +627,15 @@ public class Main {
     return arg ^ 0;
   }
 
-  /// CHECK-START: int Main.$noinline$XorAllOnes(int) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
-  /// CHECK-DAG:     <<ConstF:i\d+>>   IntConstant -1
-  /// CHECK-DAG:     <<Xor:i\d+>>      Xor [<<Arg>>,<<ConstF>>]
-  /// CHECK-DAG:                       Return [<<Xor>>]
-
-  /// CHECK-START: int Main.$noinline$XorAllOnes(int) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
-  /// CHECK-DAG:     <<Not:i\d+>>      Not [<<Arg>>]
-  /// CHECK-DAG:                       Return [<<Not>>]
-
-  /// CHECK-START: int Main.$noinline$XorAllOnes(int) instruction_simplifier (after)
-  /// CHECK-NOT:                       Xor
-
   public static int $noinline$XorAllOnes(int arg) {
     if (doThrow) { throw new Error(); }
-    return arg ^ -1;
+    try {
+      Class<?> c = Class.forName("SmaliTests");
+      Method m = c.getMethod("$noinline$XorAllOnes", int.class);
+      return (Integer) m.invoke(null, arg);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /**
@@ -674,52 +666,15 @@ public class Main {
     return -arg1 + -arg2;
   }
 
-  /**
-   * This is similar to the test-case AddNegs1, but the negations have
-   * multiple uses.
-   * The transformation tested is implemented in
-   * `InstructionSimplifierVisitor::TryMoveNegOnInputsAfterBinop`.
-   * The current code won't perform the previous optimization. The
-   * transformations do not look at other uses of their inputs. As they don't
-   * know what will happen with other uses, they do not take the risk of
-   * increasing the register pressure by creating or extending live ranges.
-   */
-
-  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add1:i\d+>>     Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:     <<Add2:i\d+>>     Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Add1>>,<<Add2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add1:i\d+>>     Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:     <<Add2:i\d+>>     Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-NOT:                       Neg
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Add1>>,<<Add2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) GVN (after)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add:i\d+>>      Add [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Add>>,<<Add>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
   public static int $noinline$AddNegs2(int arg1, int arg2) {
     if (doThrow) { throw new Error(); }
-    int temp1 = -arg1;
-    int temp2 = -arg2;
-    return (temp1 + temp2) | (temp1 + temp2);
+    try {
+      Class<?> c = Class.forName("SmaliTests");
+      Method m = c.getMethod("$noinline$AddNegs2", int.class, int.class);
+      return (Integer) m.invoke(null, arg1, arg2);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /**
@@ -794,40 +749,15 @@ public class Main {
     return -arg1 + arg2;
   }
 
-  /**
-   * This is similar to the test-case AddNeg1, but the negation has two uses.
-   * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitAdd`.
-   * The current code won't perform the previous optimization. The
-   * transformations do not look at other uses of their inputs. As they don't
-   * know what will happen with other uses, they do not take the risk of
-   * increasing the register pressure by creating or extending live ranges.
-   */
-
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg:j\d+>>      Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add1:j\d+>>     Add [<<Arg1>>,<<Neg>>]
-  /// CHECK-DAG:     <<Add2:j\d+>>     Add [<<Arg1>>,<<Neg>>]
-  /// CHECK-DAG:     <<Res:j\d+>>      Or [<<Add1>>,<<Add2>>]
-  /// CHECK-DAG:                       Return [<<Res>>]
-
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg:j\d+>>      Neg [<<Arg2>>]
-  /// CHECK-DAG:     <<Add1:j\d+>>     Add [<<Arg1>>,<<Neg>>]
-  /// CHECK-DAG:     <<Add2:j\d+>>     Add [<<Arg1>>,<<Neg>>]
-  /// CHECK-DAG:     <<Res:j\d+>>      Or [<<Add1>>,<<Add2>>]
-  /// CHECK-DAG:                       Return [<<Res>>]
-
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (after)
-  /// CHECK-NOT:                       Sub
-
   public static long $noinline$AddNeg2(long arg1, long arg2) {
     if (doThrow) { throw new Error(); }
-    long temp = -arg2;
-    return (arg1 + temp) | (arg1 + temp);
+    try {
+      Class<?> c = Class.forName("SmaliTests");
+      Method m = c.getMethod("$noinline$AddNeg2", long.class, long.class);
+      return (Long) m.invoke(null, arg1, arg2);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /**
@@ -942,89 +872,37 @@ public class Main {
     return -(arg1 - arg2);
   }
 
-  /**
-   * This is similar to the test-case NegSub1, but the subtraction has
-   * multiple uses.
-   * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitNeg`.
-   * The current code won't perform the previous optimization. The
-   * transformations do not look at other uses of their inputs. As they don't
-   * know what will happen with other uses, they do not take the risk of
-   * increasing the register pressure by creating or extending live ranges.
-   */
-
-  /// CHECK-START: int Main.$noinline$NegSub2(int, int) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg1>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Sub>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Sub>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$NegSub2(int, int) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg1>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Sub>>]
-  /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Sub>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Neg1>>,<<Neg2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
   public static int $noinline$NegSub2(int arg1, int arg2) {
     if (doThrow) { throw new Error(); }
-    int temp = arg1 - arg2;
-    return -temp | -temp;
+    try {
+      Class<?> c = Class.forName("SmaliTests");
+      Method m = c.getMethod("$noinline$NegSub2", int.class, int.class);
+      return (Integer) m.invoke(null, arg1, arg2);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
-
-  /**
-   * Test simplification of the `~~var` pattern.
-   * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitNot`.
-   */
-
-  /// CHECK-START: long Main.$noinline$NotNot1(long) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg:j\d+>>       ParameterValue
-  /// CHECK-DAG:     <<ConstNeg1:j\d+>> LongConstant -1
-  /// CHECK-DAG:     <<Not1:j\d+>>      Xor [<<Arg>>,<<ConstNeg1>>]
-  /// CHECK-DAG:     <<Not2:j\d+>>      Xor [<<Not1>>,<<ConstNeg1>>]
-  /// CHECK-DAG:                        Return [<<Not2>>]
-
-  /// CHECK-START: long Main.$noinline$NotNot1(long) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
-  /// CHECK-DAG:                       Return [<<Arg>>]
-
-  /// CHECK-START: long Main.$noinline$NotNot1(long) instruction_simplifier (after)
-  /// CHECK-NOT:                       Xor
 
   public static long $noinline$NotNot1(long arg) {
     if (doThrow) { throw new Error(); }
-    return ~~arg;
+    try {
+      Class<?> c = Class.forName("SmaliTests");
+      Method m = c.getMethod("$noinline$NotNot1", long.class);
+      return (Long) m.invoke(null, arg);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
-
-  /// CHECK-START: int Main.$noinline$NotNot2(int) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg:i\d+>>       ParameterValue
-  /// CHECK-DAG:     <<ConstNeg1:i\d+>> IntConstant -1
-  /// CHECK-DAG:     <<Not1:i\d+>>      Xor [<<Arg>>,<<ConstNeg1>>]
-  /// CHECK-DAG:     <<Not2:i\d+>>      Xor [<<Not1>>,<<ConstNeg1>>]
-  /// CHECK-DAG:     <<Add:i\d+>>       Add [<<Not2>>,<<Not1>>]
-  /// CHECK-DAG:                        Return [<<Add>>]
-
-  /// CHECK-START: int Main.$noinline$NotNot2(int) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
-  /// CHECK-DAG:     <<Not:i\d+>>      Not [<<Arg>>]
-  /// CHECK-DAG:     <<Add:i\d+>>      Add [<<Arg>>,<<Not>>]
-  /// CHECK-DAG:                       Return [<<Add>>]
-
-  /// CHECK-START: int Main.$noinline$NotNot2(int) instruction_simplifier (after)
-  /// CHECK:                           Not
-  /// CHECK-NOT:                       Not
-
-  /// CHECK-START: int Main.$noinline$NotNot2(int) instruction_simplifier (after)
-  /// CHECK-NOT:                       Xor
 
   public static int $noinline$NotNot2(int arg) {
     if (doThrow) { throw new Error(); }
-    int temp = ~arg;
-    return temp + ~temp;
+    try {
+      Class<?> c = Class.forName("SmaliTests");
+      Method m = c.getMethod("$noinline$NotNot2", int.class);
+      return (int) m.invoke(null, arg);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /**
@@ -1054,41 +932,15 @@ public class Main {
     return -arg1 - arg2;
   }
 
-  /**
-   * This is similar to the test-case SubNeg1, but the negation has
-   * multiple uses.
-   * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitSub`.
-   * The current code won't perform the previous optimization. The
-   * transformations do not look at other uses of their inputs. As they don't
-   * know what will happen with other uses, they do not take the risk of
-   * increasing the register pressure by creating or extending live ranges.
-   */
-
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Sub1:i\d+>>     Sub [<<Neg>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Sub2:i\d+>>     Sub [<<Neg>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Sub1>>,<<Sub2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
-  /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg1>>]
-  /// CHECK-DAG:     <<Sub1:i\d+>>     Sub [<<Neg>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Sub2:i\d+>>     Sub [<<Neg>>,<<Arg2>>]
-  /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Sub1>>,<<Sub2>>]
-  /// CHECK-DAG:                       Return [<<Or>>]
-
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (after)
-  /// CHECK-NOT:                       Add
-
   public static int $noinline$SubNeg2(int arg1, int arg2) {
     if (doThrow) { throw new Error(); }
-    int temp = -arg1;
-    return (temp - arg2) | (temp - arg2);
+    try {
+      Class<?> c = Class.forName("SmaliTests");
+      Method m = c.getMethod("$noinline$SubNeg2", int.class, int.class);
+      return (Integer) m.invoke(null, arg1, arg2);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /**
@@ -1177,63 +1029,15 @@ public class Main {
     return (arg ? $inline$ReturnArg(0) : $inline$ReturnArg(1)) == 2;
   }
 
-  /*
-   * Test simplification of double Boolean negation. Note that sometimes
-   * both negations can be removed but we only expect the simplifier to
-   * remove the second.
-   */
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier (before)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-DAG:     <<Const1:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<Result:z\d+>>    InvokeStaticOrDirect method_name:Main.NegateValue
-  /// CHECK-DAG:     <<NotResult:z\d+>> NotEqual [<<Result>>,<<Const1>>]
-  /// CHECK-DAG:                        If [<<NotResult>>]
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier (after)
-  /// CHECK-NOT:                        NotEqual
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier (after)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-DAG:     <<Result:z\d+>>    InvokeStaticOrDirect method_name:Main.NegateValue
-  /// CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<Phi:i\d+>>       Phi [<<Const1>>,<<Const0>>]
-  /// CHECK-DAG:                        Return [<<Phi>>]
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-NOT:                        BooleanNot [<<Arg>>]
-  /// CHECK-NOT:                        Phi
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
-  /// CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
-  /// CHECK-DAG:     <<Sel:i\d+>>       Select [<<Const1>>,<<Const0>>,<<Arg>>]
-  /// CHECK-DAG:     <<Sel2:i\d+>>      Select [<<Const1>>,<<Const0>>,<<Sel>>]
-  /// CHECK-DAG:                        Return [<<Sel2>>]
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (after)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK:                            BooleanNot [<<Arg>>]
-  /// CHECK-NEXT:                       Goto
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (after)
-  /// CHECK-NOT:                        Select
-
-  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) dead_code_elimination$final (after)
-  /// CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-  /// CHECK-NOT:                        BooleanNot [<<Arg>>]
-  /// CHECK-DAG:                        Return [<<Arg>>]
-
-  public static boolean NegateValue(boolean arg) {
-    return !arg;
-  }
-
   public static boolean $noinline$NotNotBool(boolean arg) {
     if (doThrow) { throw new Error(); }
-    return !(NegateValue(arg));
+    try {
+      Class<?> c = Class.forName("SmaliTests");
+      Method m = c.getMethod("$noinline$NotNotBool", boolean.class);
+      return (Boolean) m.invoke(null, arg);
+    } catch (Exception ex) {
+      throw new Error(ex);
+    }
   }
 
   /// CHECK-START: float Main.$noinline$Div2(float) instruction_simplifier (before)
