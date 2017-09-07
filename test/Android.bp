@@ -349,7 +349,9 @@ art_cc_defaults {
     ],
     shared_libs: [
         "libbase",
+        "slicer",
     ],
+    include_dirs: ["tools/dexter"],
     header_libs: ["libopenjdkjvmti_headers"],
 }
 
