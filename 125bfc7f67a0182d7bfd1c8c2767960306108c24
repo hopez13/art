@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d646292_178060c0",
+        "filename": "openjdkjvmti/ti_object.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-07T00:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "132a4fbd_999a8495",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 78
+      },
+      "revId": "125bfc7f67a0182d7bfd1c8c2767960306108c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd54f8cb_ba513598",
         "filename": "runtime/monitor.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-06T23:17:00Z",
       "side": 1,
       "message": "Can you explain when you see this? Seems suspicious to me. Same below. (MonitorInfo gives a warning about this being only safe during suspend, and I\u0027m wondering whether there are unsafe suspend points that expose half-written lockword updates?)",
+      "range": {
+        "startLine": 1501,
+        "startChar": 6,
+        "endLine": 1501,
+        "endChar": 30
+      },
+      "revId": "125bfc7f67a0182d7bfd1c8c2767960306108c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "897cb550_0c314578",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-07T00:35:12Z",
+      "side": 1,
+      "message": "Looking closer it does seem that this isn\u0027t needed for kThinLocked. It is needed for kFatLocked.\n\nI think it\u0027s just an oversight on the part of whoever make MonitorInfo. We only reset the lock-word back to kUnlocked from kFatLocked during Deflate which is only done during a GC. This means that if you examine the monitor info shortly after a fat-lock lost all monitors you will see it being unlocked but the lock-word is still kFatLocked. Presumably, since having fat-locks at all is rare and this is very timing dependent, nobody noticed.",
+      "parentUuid": "bd54f8cb_ba513598",
       "range": {
         "startLine": 1501,
         "startChar": 6,
