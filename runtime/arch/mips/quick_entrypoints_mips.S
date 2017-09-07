@@ -216,12 +216,12 @@
     .cfi_rel_offset 6, 60
     sw      $a1, 56($sp)
     .cfi_rel_offset 5, 56
-    SDu     $f18, $f19, 48, $sp, $t8
-    SDu     $f16, $f17, 40, $sp, $t8
-    SDu     $f14, $f15, 32, $sp, $t8
-    SDu     $f12, $f13, 24, $sp, $t8
-    SDu     $f10, $f11, 16, $sp, $t8
-    SDu     $f8, $f9, 8, $sp, $t8
+    sdc1   $f18, 48($sp)
+    sdc1   $f16, 40($sp)
+    sdc1   $f14, 32($sp)
+    sdc1   $f12, 24($sp)
+    sdc1   $f10, 16($sp)
+    sdc1   $f8,   8($sp)
     # bottom will hold Method*
 .endm
 
@@ -320,12 +320,12 @@
     lw      $a2, 60($sp)
     .cfi_restore 6
     RESTORE_SAVE_REFS_AND_ARGS_FRAME_A1
-    LDu     $f18, $f19, 48, $sp, $t8
-    LDu     $f16, $f17, 40, $sp, $t8
-    LDu     $f14, $f15, 32, $sp, $t8
-    LDu     $f12, $f13, 24, $sp, $t8
-    LDu     $f10, $f11, 16, $sp, $t8
-    LDu     $f8, $f9, 8, $sp, $t8
+    ldc1    $f18, 48($sp)
+    ldc1    $f16, 40($sp)
+    ldc1    $f14, 32($sp)
+    ldc1    $f12, 24($sp)
+    ldc1    $f10, 16($sp)
+    ldc1    $f8,   8($sp)
     addiu   $sp, $sp, 112                           # Pop frame.
     .cfi_adjust_cfa_offset -112
 .endm
@@ -412,22 +412,22 @@
 1:
     .cpload $ra
 
-    SDu $f30, $f31, 136, $sp, $t1
-    SDu $f28, $f29, 128, $sp, $t1
-    SDu $f26, $f27, 120, $sp, $t1
-    SDu $f24, $f25, 112, $sp, $t1
-    SDu $f22, $f23, 104, $sp, $t1
-    SDu $f20, $f21, 96,  $sp, $t1
-    SDu $f18, $f19, 88,  $sp, $t1
-    SDu $f16, $f17, 80,  $sp, $t1
-    SDu $f14, $f15, 72,  $sp, $t1
-    SDu $f12, $f13, 64,  $sp, $t1
-    SDu $f10, $f11, 56,  $sp, $t1
-    SDu $f8, $f9, 48,  $sp, $t1
-    SDu $f6, $f7, 40,  $sp, $t1
-    SDu $f4, $f5, 32,  $sp, $t1
-    SDu $f2, $f3, 24,  $sp, $t1
-    SDu $f0, $f1, 16,  $sp, $t1
+    sdc1   $f30, 136($sp)
+    sdc1   $f28, 128($sp)
+    sdc1   $f26, 120($sp)
+    sdc1   $f24, 112($sp)
+    sdc1   $f22, 104($sp)
+    sdc1   $f20,  96($sp)
+    sdc1   $f18,  88($sp)
+    sdc1   $f16,  80($sp)
+    sdc1   $f14,  72($sp)
+    sdc1   $f12,  64($sp)
+    sdc1   $f10,  56($sp)
+    sdc1   $f8,   48($sp)
+    sdc1   $f6,   40($sp)
+    sdc1   $f4,   32($sp)
+    sdc1   $f2,   24($sp)
+    sdc1   $f0,   16($sp)
 
     # 3 words padding and 1 word for holding Method*
 
@@ -665,7 +665,7 @@ ENTRY art_quick_osr_stub
     b      .Losr_exit
     sw     $v1, 4($a2)                     # store v0/v1 into result
 .Losr_fp_result:
-    SDu    $f0, $f1, 0, $a2, $t0           # store f0/f1 into result
+    sdc1   $f0, 0($a2)                     # store f0/f1 into result
 .Losr_exit:
     lw     $ra, 44($sp)
     .cfi_restore 31
@@ -1068,7 +1068,7 @@ loopEnd:
     jalr  $zero, $ra
     sw    $v1, 4($t0)           # store the other half of the result
 5:
-    SDu   $f0, $f1, 0, $t0, $t1 # store floating point result
+    sdc1  $f0, 0($t0)           # store floating point result
     jalr  $zero, $ra
     nop
 
@@ -1227,7 +1227,7 @@ loopEndS:
     jalr  $zero, $ra
     sw    $v1, 4($t0)           # store the other half of the result
 6:
-    SDu   $f0, $f1, 0, $t0, $t1 # store floating point result
+    sdc1  $f0, 0($t0)           # store floating point result
     jalr  $zero, $ra
     nop
 
@@ -3229,7 +3229,7 @@ ENTRY art_quick_invoke_polymorphic
     lhu   $v0, 16($sp)                        # Move char from JValue result to return value register.
 .Lstore_double_result:
 .Lstore_float_result:
-    LDu   $f0, $f1, 16, $sp, $t0              # Move double/float from JValue result to return value register.
+    ldc1  $f0, 16($sp)                        # Move double/float from JValue result to return value register.
     b .Lcleanup_and_return
     nop
 .Lstore_long_result:

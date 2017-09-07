@@ -173,4 +173,31 @@
   .set pop
 .endm
 
+// This utility macro is used during the removal of the SDu/LDu macros.
+// Default usage is confirm that the address stored in $sp is a multiple
+// of 8. It can be used for other alignments, and for other base address
+// registers, if needed.
+//
+// NOTE: The value of alignment must be a power of 2, and must fit in an
+// unsigned 15-bit integer. The macro won't behave as expected if these
+// conditions aren't met.
+//
+// TODO: When SDu/LDu macros are no longer used this macro can be deleted
+// unless it's needed for some other reason.
+//
+.macro UNALIGNED_BASE_ADDRESS ba=$sp, alignment=8, tmp=$at
+    .set push
+    .set noat
+    andi  \tmp, \ba, \alignment-1
+#if defined(_MIPS_ARCH_MIPS32R6)
+    beqzc \tmp, 1f
+#else
+    beqz  \tmp, 1f
+    nop
+#endif
+    break
+1:
+    .set pop
+.endm
+
 #endif  // ART_RUNTIME_ARCH_MIPS_ASM_SUPPORT_MIPS_S_
