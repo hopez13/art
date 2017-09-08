@@ -46,6 +46,30 @@
       "revId": "66388cfe4709291eb9f4d0bdb8be445751048ea0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b004845c_2f2a4aa5",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-08T15:28:56Z",
+      "side": 1,
+      "message": "Why is it more brittle? pid_t is signed.\n\nhttp://pubs.opengroup.org/onlinepubs/009696699/basedefs/sys/types.h.html\n\n\u003e blksize_t, pid_t, and ssize_t shall be signed integer types.\n\nDoesn\u0027t it always fit into atomic?\n(this seems to imply sizeof(pid_t) \u003c\u003d sizeof(long) , no?)\n\n\u003e The implementation shall support one or more programming environments in which the widths of blksize_t, pid_t, size_t, ssize_t, suseconds_t, and useconds_t are no greater than the width of type long.",
+      "parentUuid": "1c9c226e_c3a805ae",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 10
+      },
+      "revId": "66388cfe4709291eb9f4d0bdb8be445751048ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
