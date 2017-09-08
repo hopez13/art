@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "36277d28_8d6e444f",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-08T10:14:10Z",
+      "side": 1,
+      "message": "Then won\u0027t we have a problem if the code in the vdex is quickened?",
+      "parentUuid": "1dfa6cad_03770c9f",
+      "revId": "483faa9a42a6e5bb6b84cd84010a8b55179a787a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23e83a40_3a422c5d",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 1
