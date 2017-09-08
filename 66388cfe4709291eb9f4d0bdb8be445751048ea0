@@ -70,6 +70,30 @@
       "revId": "66388cfe4709291eb9f4d0bdb8be445751048ea0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c9700c6_54cf7df2",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2017-09-08T17:03:14Z",
+      "side": 1,
+      "message": "pid_t also seems more intention-revealing. java has so many different \"thread ids\" that using pid_t seems like a useful clue that we\u0027re talking about the \"real\" one here.",
+      "parentUuid": "b004845c_2f2a4aa5",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 10
+      },
+      "revId": "66388cfe4709291eb9f4d0bdb8be445751048ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
