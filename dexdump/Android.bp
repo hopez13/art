@@ -23,10 +23,24 @@ art_cc_binary {
         "dexdump.cc",
     ],
     cflags: ["-Wall"],
-    shared_libs: [
-        "libart",
-        "libbase",
-    ],
+    target: {
+        android: {
+            shared_libs: [
+                "libart",
+                "libbase",
+            ],
+        },
+        host: {
+            static_libs: [
+                "libart",
+                "libbase",
+            ] + art_static_dependencies,
+            host_ldlibs: [
+                "-ldl",
+                "-lrt",
+            ],
+        },
+    }
 }
 
 art_cc_test {
