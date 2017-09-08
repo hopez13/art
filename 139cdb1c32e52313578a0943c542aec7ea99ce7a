@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82ad90ff_feefb811",
+        "filename": "test/586-checker-null-array-get/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-08T21:52:04Z",
+      "side": 1,
+      "message": "SmaliTests now has both versions.\n\nI left a dexer agnostic Java version in. Should I just remove it?",
+      "range": {
+        "startLine": 97,
+        "startChar": 17,
+        "endLine": 97,
+        "endChar": 30
+      },
+      "revId": "139cdb1c32e52313578a0943c542aec7ea99ce7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
