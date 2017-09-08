@@ -206,6 +206,30 @@
       "revId": "00e0477bc0ae28a18b932864c4991fb2e98d77be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b29a1ca8_69503a2f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4989,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-08T09:48:37Z",
+      "side": 1,
+      "message": "Without the SUB, the services.odex mentioned in the commit message would go down to 19705328 (-68KiB).\n\nI remember that you measured the performance and it was worth the effort, right? (It avoids a lot of costly strcmp.)",
+      "parentUuid": "1e4d4aba_72e3f09e",
+      "range": {
+        "startLine": 4989,
+        "startChar": 62,
+        "endLine": 4989,
+        "endChar": 75
+      },
+      "revId": "00e0477bc0ae28a18b932864c4991fb2e98d77be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
