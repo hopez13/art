@@ -670,6 +670,12 @@ InductionVarRange::Value InductionVarRange::GetFetch(HInstruction* instruction,
       return AddValue(GetFetch(instruction->InputAt(0), trip, in_body, is_min),
                       Value(static_cast<int32_t>(value)));
     }
+  } else if (instruction->IsSub()) {
+    // Incorporate suitable constants in the chased value.
+    if (IsInt64AndGet(instruction->InputAt(1), &value) && CanLongValueFitIntoInt(-value)) {
+      return AddValue(GetFetch(instruction->InputAt(0), trip, in_body, is_min),
+                      Value(static_cast<int32_t>(-value)));
+    }
   } else if (instruction->IsArrayLength()) {
     // Exploit length properties when chasing constants or chase into a new array declaration.
     if (chase_hint_ == nullptr) {
