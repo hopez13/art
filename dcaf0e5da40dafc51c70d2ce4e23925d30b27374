@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6df1f558_8e563eb9",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-08T18:59:01Z",
+      "side": 1,
+      "message": "note that these technically do not matter, since the shuffle does the right thing after this, but it is still good to show the right intent",
+      "revId": "dcaf0e5da40dafc51c70d2ce4e23925d30b27374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4e0a8eb_aa50a3c5",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-08T18:59:01Z",
+      "side": 1,
+      "message": "this one matters though, since higher order bits should not be moved in",
+      "revId": "dcaf0e5da40dafc51c70d2ce4e23925d30b27374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
