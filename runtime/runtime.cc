@@ -400,6 +400,9 @@ Runtime::~Runtime() {
   // TODO: acquire a static mutex on Runtime to avoid racing.
   CHECK(instance_ == nullptr || instance_ == this);
   instance_ = nullptr;
+
+  // Well-known classes must be deleted. We rely on a small initialization bug in Runtime::Start().
+  WellKnownClasses::Clear();
 }
 
 struct AbortState {
