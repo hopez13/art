@@ -22,6 +22,30 @@
       "revId": "5562867f331e1753f38f0d294ea3a8bc370568e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "beb52b97_b8791b59",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-09T17:04:19Z",
+      "side": 1,
+      "message": "Yes you are right. I might as well generalize this all the way through. Done.",
+      "parentUuid": "15f17e1f_14c8f07d",
+      "range": {
+        "startLine": 675,
+        "startChar": 22,
+        "endLine": 675,
+        "endChar": 45
+      },
+      "revId": "5562867f331e1753f38f0d294ea3a8bc370568e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
