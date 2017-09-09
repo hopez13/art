@@ -1774,6 +1774,9 @@ uint32_t HLoopOptimization::GetUnrollingFactor(HBasicBlock* block, int64_t trip_
       }
 
       uint32_t instruction_count = block->GetInstructions().CountSize();
+      if (instruction_count >= ARM64_SIMD_HEURISTIC_MAX_BODY_SIZE) {
+        return 1;
+      }
 
       // Find a beneficial unroll factor with the following restrictions:
       //  - At least one iteration of the transformed loop should be executed.
