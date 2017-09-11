@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f1ca593_11fb7874",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T20:23:28Z",
+      "side": 1,
+      "message": "nit: document the parameter names",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0eb1658_2f8aaba3",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T20:23:28Z",
+      "side": 1,
+      "message": "nit: vertical spaces (or comments) before/after function definition",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17e23d28_998cc8b9",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T20:23:28Z",
+      "side": 1,
+      "message": "Is this for a template to specialize later? Leave a comment?",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90e76ff9_590e79d0",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T20:23:28Z",
+      "side": 1,
+      "message": "This whole class seems identical to ImgObjectVisitor except for the CHECK/assert? Worth not duplicating?",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8665f4d9_5b8a9a8b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T20:23:28Z",
+      "side": 1,
+      "message": "nit: emplace and insert are equally efficient with C++11 and later, I suggest using insert for clarity (although it matters for more vectors).\n\n   offset_to_name_and_size_.insert({offset, NameAndSize(sizeof(T), name));",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6132e16f_3fdc7374",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T20:23:28Z",
+      "side": 1,
+      "message": "Add a DCHECK for kRuntimePointerSize \u003d\u003d image pointer size.",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe7a0e3_95253427",
+        "filename": "runtime/image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T20:23:28Z",
+      "side": 1,
+      "message": "nit: Why is this unused? Can we at least DCHECK here for it?",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
