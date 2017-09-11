@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e1d47dd7_f0a43f95",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "GetImageBegin returns the address in memory of the image.\nGetImageSection(...).End() is an offset from the beginning of the image (either on disk or in memory).",
+      "parentUuid": "6636a67e_c12867fa",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "767bd698_c8c66f41",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "2ccbdd95_a1463b52",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "All these are now replaced by visitors from ImageHeader.",
+      "parentUuid": "767bd698_c8c66f41",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22ccf787_63f18a79",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -47,6 +83,54 @@
       "writtenOn": "2017-09-05T17:20:17Z",
       "side": 1,
       "message": "Why is this templated to RegionType? It is not used anywhere.\n\nIf there is a plan to do this to allow for some kind of template tricks then should there be a comment and a TODO?",
+      "range": {
+        "startLine": 641,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 8
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7c680b4_bfd0f7c6",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "22ccf787_63f18a79",
+      "range": {
+        "startLine": 641,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 8
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f91b114_5ce5e04e",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22ccf787_63f18a79",
       "range": {
         "startLine": 641,
         "startChar": 0,
@@ -82,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "fac5e408_8fa9c869",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a542a504_198de97d",
+      "range": {
+        "startLine": 643,
+        "startChar": 2,
+        "endLine": 643,
+        "endChar": 10
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3356fe8_93a65e4d",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -93,6 +201,30 @@
       "writtenOn": "2017-09-05T17:20:17Z",
       "side": 1,
       "message": "This does not depend on RegionType, so should it be inside the template?\n\nnit: naming is poor as there already is an std::tuple, why not NameAndSize?",
+      "range": {
+        "startLine": 650,
+        "startChar": 9,
+        "endLine": 650,
+        "endChar": 14
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3865156f_2a2e8107",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Fixed by removing the template type and renaming.",
+      "parentUuid": "c3356fe8_93a65e4d",
       "range": {
         "startLine": 650,
         "startChar": 9,
@@ -128,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "fd2699eb_edfbda06",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Removed.  Replaced by call to visitor.",
+      "parentUuid": "b7c82f1c_eace316b",
+      "range": {
+        "startLine": 681,
+        "startChar": 0,
+        "endLine": 683,
+        "endChar": 76
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "17360ff1_d7cc9b47",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -139,6 +295,24 @@
       "writtenOn": "2017-09-05T17:20:17Z",
       "side": 1,
       "message": "GetNextEntry -\u003e AdvanceNextEntry?\n\nIt\u0027s changing array_ and array_index_, but not next_ ?",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2256187_f6444567",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "All these are now replaced by visitors from ImageHeader.",
+      "parentUuid": "17360ff1_d7cc9b47",
       "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -168,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "9dfc6db9_1b8e4932",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Ditto.  No longer relevant.",
+      "parentUuid": "baa79579_b450d82a",
+      "range": {
+        "startLine": 698,
+        "startChar": 10,
+        "endLine": 698,
+        "endChar": 58
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4da115ba_d0e3e108",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -179,6 +377,24 @@
       "writtenOn": "2017-09-05T17:20:17Z",
       "side": 1,
       "message": "Same as above.",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cbdfb66_36435855",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Ditto.  No longer relevant.",
+      "parentUuid": "4da115ba_d0e3e108",
       "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -202,6 +418,24 @@
     },
     {
       "key": {
+        "uuid": "51c1f56b_5b310685",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Ditto.  No longer relevant.",
+      "parentUuid": "0c0b5ba8_b9baad6a",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ad867c3_8f9f614b",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -213,6 +447,24 @@
       "writtenOn": "2017-09-05T17:20:17Z",
       "side": 1,
       "message": "nit: can we avoid hardcoding these string literals? A macro can help here.",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0cb6aca_ba26647b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "I\u0027m going to take a TODO on these three, to move them to Runtime and ClassLinker respectively, and clean up the stream stuff.",
+      "parentUuid": "9ad867c3_8f9f614b",
       "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -236,6 +488,24 @@
     },
     {
       "key": {
+        "uuid": "eb5fbd3a_c9b5a5d8",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "9ced8b6d_650450d2",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "533a7d31_6d8652cc",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -247,6 +517,24 @@
       "writtenOn": "2017-09-05T17:20:17Z",
       "side": 1,
       "message": "This could be done much more compact with an ostream that casts to the right type.\n\n  if (size \u003d\u003d 2) ostream \u003c\u003c (uint16_t*)(bytes)[0]\n  else if (size \u003d\u003d 4) ostream \u003c\u003c (uint32_t*)(bytes)[0]\n\netc.",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ba9e323_9de29e9b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "See above again.",
+      "parentUuid": "533a7d31_6d8652cc",
       "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -293,6 +581,30 @@
     },
     {
       "key": {
+        "uuid": "c37f1103_72e7bc31",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Per our discussions, this runs afoul of ptr_sized_fields_ and the level of detail I need.",
+      "parentUuid": "c96535dd_004896e8",
+      "range": {
+        "startLine": 680,
+        "startChar": 18,
+        "endLine": 680,
+        "endChar": 35
+      },
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7900e57_35dc00e7",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
@@ -310,6 +622,24 @@
     },
     {
       "key": {
+        "uuid": "45a475a3_9beecb24",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Hence the comment above.  Which I\u0027ve made now a little more explicit about pointer sizes.",
+      "parentUuid": "f7900e57_35dc00e7",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "64d37d9d_42ad4657",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
@@ -321,6 +651,24 @@
       "writtenOn": "2017-09-05T17:20:17Z",
       "side": 1,
       "message": "nit: 1 line per argument",
+      "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3edd682a_213b2c82",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T20:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d37d9d_42ad4657",
       "revId": "7b85b98264752748a81dc381ccb6dbcde739d9d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
