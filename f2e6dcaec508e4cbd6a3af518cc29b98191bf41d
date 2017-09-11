@@ -128,6 +128,30 @@
       "revId": "f2e6dcaec508e4cbd6a3af518cc29b98191bf41d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b4a08a7_81fda81a",
+        "filename": "test/913-heaps/heaps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-11T22:16:46Z",
+      "side": 1,
+      "message": "The Java code inserts these when the classes are tagged. So it\u0027s defined by that and stable.",
+      "parentUuid": "6ff59a86_6952a9e2",
+      "range": {
+        "startLine": 70,
+        "startChar": 27,
+        "endLine": 70,
+        "endChar": 43
+      },
+      "revId": "f2e6dcaec508e4cbd6a3af518cc29b98191bf41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
