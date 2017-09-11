@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "805cc6a0_be07bec6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-11T15:14:53Z",
+      "side": 1,
+      "message": "Jonas just emailed us. Do you need a bug?",
+      "parentUuid": "7ef587e4_3d5bda5e",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 36
+      },
+      "revId": "b4933d73449fb8d5eed28e20815f2a4d837ca86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eef83c19_0b6330c9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-11T14:55:20Z",
       "side": 1,
       "message": "I\u0027m not sure I understand this, and whether this is the appropriate place. Can you please explain why the in-verifier callback isn\u0027t doing its job?",
+      "range": {
+        "startLine": 4312,
+        "startChar": 2,
+        "endLine": 4315,
+        "endChar": 3
+      },
+      "revId": "b4933d73449fb8d5eed28e20815f2a4d837ca86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fcf87ba_f8d80ba6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-11T15:14:53Z",
+      "side": 1,
+      "message": "because compiler driver just iterates over the compiled dex file. If a class in the compiled dex file has a superclass which is in the classpath, then this verification only happens in the runtime, the compiler never sees it.",
+      "parentUuid": "eef83c19_0b6330c9",
       "range": {
         "startLine": 4312,
         "startChar": 2,
