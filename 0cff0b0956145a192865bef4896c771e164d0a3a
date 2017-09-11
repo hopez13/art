@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "fd57fbfe_246c035c",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-11T14:47:40Z",
+      "side": 1,
+      "message": "See runtime_android.cc, InitPlatformSignalHandlers. We don\u0027t usually dump ourselves on devices and let debuggerd/tombstoned handle that. We mostly have the unexpected-signal handler for the host to get stack traces there...",
+      "parentUuid": "f9b96b32_6cd8cc1b",
+      "range": {
+        "startLine": 420,
+        "startChar": 4,
+        "endLine": 430,
+        "endChar": 5
+      },
+      "revId": "0cff0b0956145a192865bef4896c771e164d0a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e534656_9e352444",
         "filename": "runtime/runtime_common.h",
         "patchSetId": 3
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "RoundUp()",
       "parentUuid": "2e534656_9e352444",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "0cff0b0956145a192865bef4896c771e164d0a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c40b198_11a4e017",
+        "filename": "runtime/runtime_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-11T14:47:40Z",
+      "side": 1,
+      "message": "But that\u0027s only used in the .cc file, so should be included there.",
+      "parentUuid": "bec509e6_4121aaf4",
       "range": {
         "startLine": 33,
         "startChar": 0,
