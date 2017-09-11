@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "89e81170_d3608c5e",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-11T21:15:29Z",
+      "side": 1,
+      "message": "Note really :P. It just means that we have to reason and test if the limitation is still valid.",
+      "parentUuid": "94b4d4f2_f0e24bb7",
+      "revId": "483faa9a42a6e5bb6b84cd84010a8b55179a787a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23e83a40_3a422c5d",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 1
