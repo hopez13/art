@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "811a85ab_be3764d5",
+        "filename": "test/913-heaps/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T18:48:33Z",
+      "side": 1,
+      "message": "In your CL you said odd sizes are safe.\n\nI\u0027m not really sure why (if you have class Byte { byte s; }} ) isnt that an odd size? I assume alignment is orthogonal.\n\nHowever, assuming that assertion is correct, then it should probably start at an odd number and increment by 2.",
+      "revId": "f2e6dcaec508e4cbd6a3af518cc29b98191bf41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8bbfda46_4f2f7667",
         "filename": "test/913-heaps/heaps.cc",
         "patchSetId": 1
