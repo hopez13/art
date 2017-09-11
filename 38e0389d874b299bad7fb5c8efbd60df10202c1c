@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59f98caa_26d59dcc",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T18:57:11Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem clean encapsulation to have compiler files call into dex2oat files. We end up with a circular dependency between art/compiler and art/dex2oat.\n\nWhat about putting this into libart-linker.so in the directory art/linker or art/compiler/linker instead?",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e30136a_e737178d",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T18:57:11Z",
+      "side": 1,
+      "message": "I think this needs to be fixed so it doesn\u0027t need a copy in art/dex2oat/generate-operator-out.py",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d05765ca_b1e7155b",
+        "filename": "dex2oat/generate-operator-out.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T18:57:11Z",
+      "side": 1,
+      "message": "Why is this copied-and-pasted from art/tools ?",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4ff64b7_9317c346",
+        "filename": "dex2oat/linker/elf_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T18:57:11Z",
+      "side": 1,
+      "message": "IMHO if it\u0027s in the linker namespace it should be in a linker directory.\n\n  art/linker/elf_writer.h\n  art/compiler/linker/elf_writer.h\n\netc.\n\nWe did this for \u0027art::mirror\u0027 and it makes much more sense.",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
