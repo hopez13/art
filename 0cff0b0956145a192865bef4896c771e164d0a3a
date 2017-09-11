@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a9dacbf6_9d6c8683",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-09-11T13:28:42Z",
+      "side": 1,
+      "message": "Shoot, yes, 65312375.",
+      "parentUuid": "c2166c00_23bea72b",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "0cff0b0956145a192865bef4896c771e164d0a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f3dca2f_f3696f95",
         "filename": "runtime/runtime_common.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f9b96b32_6cd8cc1b",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-09-11T13:28:42Z",
+      "side": 1,
+      "message": "Thanks for the heads-up, I was not aware of this. It seems I\u0027m missing something in the hint here - is this controlled by FaultManager or somewhere else?",
+      "parentUuid": "0f3dca2f_f3696f95",
+      "range": {
+        "startLine": 420,
+        "startChar": 4,
+        "endLine": 430,
+        "endChar": 5
+      },
+      "revId": "0cff0b0956145a192865bef4896c771e164d0a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e534656_9e352444",
         "filename": "runtime/runtime_common.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2017-09-08T15:48:59Z",
       "side": 1,
       "message": "Why include this in the header?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "0cff0b0956145a192865bef4896c771e164d0a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec509e6_4121aaf4",
+        "filename": "runtime/runtime_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-09-11T13:28:42Z",
+      "side": 1,
+      "message": "RoundUp()",
+      "parentUuid": "2e534656_9e352444",
       "range": {
         "startLine": 33,
         "startChar": 0,
