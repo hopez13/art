@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8321770_2405edd5",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-11T17:34:45Z",
+      "side": 1,
+      "message": "(Is AsyncDeopt defined and documented somewhere? Otherwise state here that it will enforce the interpreter otherwise.)",
+      "range": {
+        "startLine": 747,
+        "startChar": 14,
+        "endLine": 747,
+        "endChar": 45
+      },
+      "revId": "395c3f37dd81a930f9f70e4e5eefaf3e114b8102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
