@@ -22,6 +22,29 @@
       "revId": "395c3f37dd81a930f9f70e4e5eefaf3e114b8102",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "292196a0_82356ae3",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-09-11T17:36:55Z",
+      "side": 1,
+      "message": "compiled methods are AsyncDeoptimizeable ?",
+      "range": {
+        "startLine": 747,
+        "startChar": 23,
+        "endLine": 747,
+        "endChar": 46
+      },
+      "revId": "395c3f37dd81a930f9f70e4e5eefaf3e114b8102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
