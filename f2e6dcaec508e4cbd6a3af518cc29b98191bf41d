@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "87b9ff8f_14a13770",
+        "filename": "test/913-heaps/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-11T21:39:51Z",
+      "side": 1,
+      "message": "You\u0027re right, only small odd sizes are probably safe. However, this size is large enough that no class should reach it? (I can easily make it larger, it\u0027s a jlong...)",
+      "parentUuid": "811a85ab_be3764d5",
+      "revId": "f2e6dcaec508e4cbd6a3af518cc29b98191bf41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8bbfda46_4f2f7667",
         "filename": "test/913-heaps/heaps.cc",
         "patchSetId": 1
@@ -58,6 +76,30 @@
         "startChar": 16,
         "endLine": 70,
         "endChar": 24
+      },
+      "revId": "f2e6dcaec508e4cbd6a3af518cc29b98191bf41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e87bf47a_7617b6b1",
+        "filename": "test/913-heaps/heaps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-11T21:39:51Z",
+      "side": 1,
+      "message": "Sorted by insertion order (that\u0027s why it\u0027s a serial :-) ).",
+      "parentUuid": "8bbfda46_4f2f7667",
+      "range": {
+        "startLine": 70,
+        "startChar": 27,
+        "endLine": 70,
+        "endChar": 43
       },
       "revId": "f2e6dcaec508e4cbd6a3af518cc29b98191bf41d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
