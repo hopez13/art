@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4a2b074e_3695ae98",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T21:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f1ca593_11fb7874",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0eb1658_2f8aaba3",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2017-09-11T20:23:28Z",
       "side": 1,
       "message": "nit: vertical spaces (or comments) before/after function definition",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8260875e_7009b101",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T21:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0eb1658_2f8aaba3",
       "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7292e839_5df8b656",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T21:34:44Z",
+      "side": 1,
+      "message": "Comment added.",
+      "parentUuid": "17e23d28_998cc8b9",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90e76ff9_590e79d0",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 6
@@ -64,6 +118,24 @@
       "writtenOn": "2017-09-11T20:23:28Z",
       "side": 1,
       "message": "This whole class seems identical to ImgObjectVisitor except for the CHECK/assert? Worth not duplicating?",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74c5baa7_d63d2f35",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T21:34:44Z",
+      "side": 1,
+      "message": "Actually, ArtMethodVisitor and ObjectVisitor could have been one class in image.h (they\u0027re currently unrelated classes), which would have done what you suggest.  But that\u0027s a refactoring I don\u0027t want to do for this CL.",
+      "parentUuid": "90e76ff9_590e79d0",
       "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "fb570347_44691067",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T21:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8665f4d9_5b8a9a8b",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6132e16f_3fdc7374",
         "filename": "runtime/art_method.h",
         "patchSetId": 6
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "22984526_c4bcc301",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T21:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6132e16f_3fdc7374",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "afe7a0e3_95253427",
         "filename": "runtime/image.cc",
         "patchSetId": 6
@@ -115,6 +223,24 @@
       "writtenOn": "2017-09-11T20:23:28Z",
       "side": 1,
       "message": "nit: Why is this unused? Can we at least DCHECK here for it?",
+      "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e266fbd1_ede38041",
+        "filename": "runtime/image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-09-11T21:34:44Z",
+      "side": 1,
+      "message": "It was needed solely to make the signature conform to VisitPackedArtMethods.  DCHECK added.",
+      "parentUuid": "afe7a0e3_95253427",
       "revId": "44bdd06e4876e6dd564e919bd63881e97448f348",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
