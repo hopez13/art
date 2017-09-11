@@ -104,6 +104,30 @@
       "revId": "f2e6dcaec508e4cbd6a3af518cc29b98191bf41d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ff59a86_6952a9e2",
+        "filename": "test/913-heaps/heaps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T22:14:21Z",
+      "side": 1,
+      "message": "yes, but what is insertion order sorted by? it should probably be sorted by something (e.g. class name) so it\u0027s stable.",
+      "parentUuid": "e87bf47a_7617b6b1",
+      "range": {
+        "startLine": 70,
+        "startChar": 27,
+        "endLine": 70,
+        "endChar": 43
+      },
+      "revId": "f2e6dcaec508e4cbd6a3af518cc29b98191bf41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
