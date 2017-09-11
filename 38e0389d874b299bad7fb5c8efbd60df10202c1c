@@ -67,6 +67,24 @@
       "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f20bf8f_3e0f0133",
+        "filename": "dex2oat/linker/elf_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-11T18:59:00Z",
+      "side": 1,
+      "message": "Ignore, I was misinterpreting gerrit \"rename\". What you did with the rename makes much more sense than before, thanks!\n\nHowever the file structure is inconsistent (linker namespace, but dex2oat directory) with the code?",
+      "parentUuid": "f4ff64b7_9317c346",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
