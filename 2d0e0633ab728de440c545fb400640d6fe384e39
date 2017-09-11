@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "397eda69_b93c9c39",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1778,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-11T15:29:12Z",
+      "side": 1,
+      "message": "Consider a named constant, now that there are 4 uses of \"1\"? \"kDontUnrollFactor,\" maybe?",
+      "range": {
+        "startLine": 1778,
+        "startChar": 15,
+        "endLine": 1778,
+        "endChar": 16
+      },
+      "revId": "2d0e0633ab728de440c545fb400640d6fe384e39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3f14c23_ef2535ba",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
