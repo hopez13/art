@@ -4309,6 +4309,10 @@ verifier::FailureKind ClassLinker::VerifyClass(
       EnsureSkipAccessChecksMethods(klass, image_pointer_size_);
     }
   }
+  if (Runtime::Current()->IsAotCompiler()) {
+    Runtime::Current()->GetCompilerCallbacks()->UpdateClassState(
+        ClassReference(&klass->GetDexFile(), klass->GetDexClassDefIndex()), klass->GetStatus());
+  }
   return verifier_failure;
 }
 
