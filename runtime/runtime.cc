@@ -405,6 +405,10 @@ Runtime::~Runtime() {
   // instance. We rely on a small initialization order issue in Runtime::Start() that requires
   // elements of WellKnownClasses to be null, see b/65500943.
   WellKnownClasses::Clear();
+
+  // Ensure that libnativehelper caching is invalidated, in case a new runtime is to be brought
+  // up later.
+  JniConstants::clear();
 }
 
 struct AbortState {
