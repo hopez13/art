@@ -813,6 +813,53 @@ void InstructionSimplifierVisitor::VisitBooleanNot(HBooleanNot* bool_not) {
   }
 }
 
+// Constructs a new ABS(x) node in the HIR using a fake intrinsic.
+// TODO: b/65164101 : would moving towards a real HAbs node make more sense?
+static HInstruction* NewIntegralAbs(ArenaAllocator* arena, HInstruction* x, HInstruction* cursor) {
+  Primitive::Type type = x->GetType();
+  DCHECK(type == Primitive::kPrimInt || type ==  Primitive::kPrimLong);
+  HInvokeStaticOrDirect::DispatchInfo dispatch_info = {
+    HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress,
+    HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod,
+    0u
+  };
+  HInvokeStaticOrDirect* invoke = new (arena) HInvokeStaticOrDirect(
+      arena,
+      1,
+      type,
+      kNoDexPc,
+      /*method_idx*/ -1,
+      /*resolved_method*/ nullptr,
+      dispatch_info,
+      kStatic,
+      MethodReference(nullptr, DexFile::kDexNoIndex),
+      HInvokeStaticOrDirect::ClinitCheckRequirement::kImplicit);
+  invoke->SetArgumentAt(0, x);
+  invoke->SetIntrinsic(type == Primitive::kPrimInt ? Intrinsics::kMathAbsInt
+                                                   : Intrinsics::kMathAbsLong,
+                       kNoEnvironmentOrCache,
+                       kNoSideEffects,
+                       kNoThrow);
+  cursor->GetBlock()->InsertInstructionBefore(invoke, cursor);
+  return invoke;
+}
+
+static bool AreLowerPrecisionArgs(Primitive::Type to_type, HInstruction* c1, HInstruction* c2) {
+  if (c1->IsTypeConversion() && c1->GetType() == to_type) {
+    c1 = c1->InputAt(0);
+  }
+  if (c2->IsTypeConversion() && c2->GetType() == to_type) {
+    c2 = c2->InputAt(0);
+  }
+  Primitive::Type type1 = c1->GetType();
+  Primitive::Type type2 = c2->GetType();
+  return (type1 == Primitive::kPrimByte  && type2 == Primitive::kPrimByte) ||
+         (type1 == Primitive::kPrimShort && type2 == Primitive::kPrimShort) ||
+         (type1 == Primitive::kPrimChar  && type2 == Primitive::kPrimChar) ||
+         (type1 == Primitive::kPrimInt   && type2 == Primitive::kPrimInt &&
+          to_type == Primitive::kPrimLong);
+}
+
 void InstructionSimplifierVisitor::VisitSelect(HSelect* select) {
   HInstruction* replace_with = nullptr;
   HInstruction* condition = select->GetCondition();
@@ -848,6 +895,41 @@ void InstructionSimplifierVisitor::VisitSelect(HSelect* select) {
     } else if (true_value->AsIntConstant()->IsFalse() && false_value->AsIntConstant()->IsTrue()) {
       // Replace (cond ? false : true) with (!cond).
       replace_with = GetGraph()->InsertOppositeCondition(condition, select);
+    }
+  } else if (condition->IsCondition()) {
+    IfCondition cmp = condition->AsCondition()->GetCondition();
+    HInstruction* c1 = condition->InputAt(0);
+    HInstruction* c2 = condition->InputAt(1);
+    Primitive::Type t_type = true_value->GetType();
+    Primitive::Type f_type = false_value->GetType();
+    if (t_type == f_type && (t_type == Primitive::kPrimInt || t_type == Primitive::kPrimLong)) {
+      // Try to replace typical integral ABS constructs.
+      if (true_value->IsNeg()) {
+        HInstruction* x1 = true_value->InputAt(0);
+        if ((cmp == kCondLT || cmp == kCondLE) && (c1 == x1 && c1 == false_value && IsInt64Value(c2, 0))) {
+          // Found a < 0 ? -a : a which can be replaced by ABS(a).
+          replace_with = NewIntegralAbs(GetGraph()->GetArena(), false_value, select);
+        }
+      } else if (false_value->IsNeg()) {
+        HInstruction* y1 = false_value->InputAt(0);
+        if ((cmp == kCondGT || cmp == kCondGE) && (c1 == true_value && c1 == y1 && IsInt64Value(c2, 0))) {
+          // Found a > 0 ? a : -a which can be replaced by ABS(a).
+          replace_with = NewIntegralAbs(GetGraph()->GetArena(), true_value, select);
+        }
+      } else if (true_value->IsSub() && false_value->IsSub()) {
+        HInstruction* x1 = true_value->InputAt(0);
+        HInstruction* x2 = true_value->InputAt(1);
+        HInstruction* y1 = false_value->InputAt(0);
+        HInstruction* y2 = false_value->InputAt(1);
+        if ((((cmp == kCondGT || cmp == kCondGE) && (c1 == x1 && c2 == x2 && c1 == y2 && c2 == y1)) ||
+             ((cmp == kCondLT || cmp == kCondLE) && (c1 == x2 && c2 == x1 && c1 == y1 && c2 == y2))) &&
+            AreLowerPrecisionArgs(t_type, c1, c2)) {
+          // Found a > b ? a - b  : b - a   or
+          //       a < b ? b - a  : a - b
+          // which can be replaced by ABS(a - b) for lower precision operands a, b.
+          replace_with = NewIntegralAbs(GetGraph()->GetArena(), true_value, select);
+        }
+      }
     }
   }
 
