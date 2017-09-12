@@ -237,6 +237,30 @@
       "revId": "b4933d73449fb8d5eed28e20815f2a4d837ca86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d22a995_69ce0888",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4315,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-12T21:03:03Z",
+      "side": 1,
+      "message": "Andreas: where else would you put this?\n\nNicolas: add more code docs on why we need to do this.",
+      "parentUuid": "6f4bfe46_6a9cffd9",
+      "range": {
+        "startLine": 4312,
+        "startChar": 2,
+        "endLine": 4315,
+        "endChar": 3
+      },
+      "revId": "b4933d73449fb8d5eed28e20815f2a4d837ca86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
