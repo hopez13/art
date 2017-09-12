@@ -198,9 +198,12 @@ unspecified registers or condition codes.
  * restore it in such cases also.
  *
  */
+.macro REFRESH_IBASE_REG reg
+    movq    THREAD_CURRENT_IBASE_OFFSET(\reg), rIBASE
+.endm
 .macro REFRESH_IBASE
     movq    rSELF, rIBASE
-    movq    THREAD_CURRENT_IBASE_OFFSET(rIBASE), rIBASE
+    REFRESH_IBASE_REG rIBASE
 .endm
 
 /*
@@ -364,9 +367,10 @@ SYMBOL(ExecuteMterpImpl):
 
     /* Starting ibase */
     movq    IN_ARG0, rSELF
-    REFRESH_IBASE
+    REFRESH_IBASE_REG IN_ARG0
 
     /* Set up for backwards branches & osr profiling */
+    movq    IN_ARG0, OUT_ARG2  /* Set up OUT_ARG2 before clobbering IN_ARG0 */
     movq    OFF_FP_METHOD(rFP), OUT_ARG0
     leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG1
     call    SYMBOL(MterpSetUpHotnessCountdown)
