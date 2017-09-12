@@ -189,6 +189,30 @@
       "revId": "b4933d73449fb8d5eed28e20815f2a4d837ca86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e25e8c91_b74fa62f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4315,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-12T15:45:18Z",
+      "side": 1,
+      "message": "Because Nicolas didn\u0027t update this thread: the issue is that the callback as-is only reports per-method, but not per-class.\n\nThat said, I\u0027m not sure I like the place here, as it\u0027s inconsistent with the other places the verifier reports through callbacks (and I\u0027m not sure the verifier result vs the Class state is sufficiently distinct to have to place this here).",
+      "parentUuid": "a28de62a_66f049df",
+      "range": {
+        "startLine": 4312,
+        "startChar": 2,
+        "endLine": 4315,
+        "endChar": 3
+      },
+      "revId": "b4933d73449fb8d5eed28e20815f2a4d837ca86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
