@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0b55165_008b8fb3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-12T22:08:18Z",
+      "side": 1,
+      "message": "how about moving everything inside the DCHECK, as in\n\nDCHECK(!range-\u003eIsMonotonicValueRange() || instruction-\u003eIsLoopHeaderPhi());\n\nto avoid harder to remove deadcode?\n\nbut, early detection, always good!",
+      "revId": "b6d51bb1e373130c3fd3bd59a429501954c44be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
