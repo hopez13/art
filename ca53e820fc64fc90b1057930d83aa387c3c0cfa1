@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "115738ce_7a926bdc",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-09-12T14:32:20Z",
+      "side": 1,
+      "message": "shouldn\u0027t this now be runtime_flags ?",
+      "range": {
+        "startLine": 157,
+        "startChar": 32,
+        "endLine": 157,
+        "endChar": 52
+      },
+      "revId": "ca53e820fc64fc90b1057930d83aa387c3c0cfa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdc8fbb1_fa0def01",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-09-12T14:32:20Z",
+      "side": 1,
+      "message": "assuming you want to leave these unchanged ?",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 160,
+        "endChar": 21
+      },
+      "revId": "ca53e820fc64fc90b1057930d83aa387c3c0cfa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
