@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "73e1dea8_012e4e87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-12T14:45:07Z",
+      "side": 1,
+      "message": "I think the test based on nm makes sense, even if it only checks for presence.\n\nAlso, we could check that the assembly code for those symbols matches our expectations.",
+      "parentUuid": "d20ff2be_37e1f9e5",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0be20c1d_73ce3687",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
         "patchSetId": 3
@@ -108,6 +126,87 @@
     },
     {
       "key": {
+        "uuid": "a0c699e8_ad7dd1dc",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-12T14:45:07Z",
+      "side": 1,
+      "message": "I think this should work; there are other examples of this pattern in ART\u0027s code base, e.g. in https://android.googlesource.com/platform/art/+/master/openjdkjvmti/ti_thread.cc#310\n\n  InternalThreadState thread_state \u003d {};",
+      "parentUuid": "10906622_5f1627fe",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a91a3a2_cd56a3e5",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-12T14:45:07Z",
+      "side": 1,
+      "message": "You could also use:\n\n  info.trampoline_name \u003d base_name + \"_\" + std::to_string(i);",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 41
+      },
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7de64527_f23ce693",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-12T14:45:07Z",
+      "side": 1,
+      "message": "Nit: Add a blank line after line 385?",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5d0acac_778fe3b1",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-12T14:45:07Z",
+      "side": 1,
+      "message": "Nit: Swap the operands of `\u003d\u003d` to match the style used in the rest of this method?",
+      "range": {
+        "startLine": 403,
+        "startChar": 17,
+        "endLine": 403,
+        "endChar": 97
+      },
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce965b90_f8fecdd1",
         "filename": "compiler/linker/multi_oat_relative_patcher_test.cc",
         "patchSetId": 3
@@ -154,6 +253,24 @@
       "writtenOn": "2017-09-12T14:39:41Z",
       "side": 1,
       "message": "Why is it ok that this function doesn\u0027t implement anything? I guess it\u0027s for a test but a comment would be nice.",
+      "parentUuid": "f53cf409_be2ac54c",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "907ffc75_bcf0972b",
+        "filename": "compiler/linker/multi_oat_relative_patcher_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-12T14:45:07Z",
+      "side": 1,
+      "message": "Igor, note that this method belongs to a mock class (for the purpose of testing).",
       "parentUuid": "f53cf409_be2ac54c",
       "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
