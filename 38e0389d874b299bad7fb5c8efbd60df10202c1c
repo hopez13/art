@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "631609ac_0beb41b5",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-12T09:27:00Z",
+      "side": 1,
+      "message": "With this refactoring, nothing in compiler/ calls into dex2oat/ files.\n\nNote that I didn\u0027t move the elf_builder.h as it\u0027s also used by oatdump (for --symbolize).\n\nI plan to move the relative patcher as well but it shall need some bits extracted into compiler/ exactly to avoid the calls from compiler/ to dex2oat/.",
+      "parentUuid": "59f98caa_26d59dcc",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e30136a_e737178d",
         "filename": "dex2oat/Android.bp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "3d968986_4337b34b",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-12T09:27:00Z",
+      "side": 1,
+      "message": "You mean refactored so that we don\u0027t need 4 or 5 copies...\n\n  compiler/generate-operator-out.py\n  openjdkjvmti/generate-operator-out.py\n  runtime/generate-operator-out.py\n  tools/generate-operator-out.py\n  dex2oat/generate-operator-out.py [NEW]\n\nNot doing that in this CL.",
+      "parentUuid": "7e30136a_e737178d",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d05765ca_b1e7155b",
         "filename": "dex2oat/generate-operator-out.py",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2017-09-11T18:57:11Z",
       "side": 1,
       "message": "Why is this copied-and-pasted from art/tools ?",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f7d6b4_9c666c5e",
+        "filename": "dex2oat/generate-operator-out.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-12T09:27:00Z",
+      "side": 1,
+      "message": "5th copy, 4 already exist.",
+      "parentUuid": "d05765ca_b1e7155b",
       "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -82,6 +136,24 @@
       "side": 1,
       "message": "Ignore, I was misinterpreting gerrit \"rename\". What you did with the rename makes much more sense than before, thanks!\n\nHowever the file structure is inconsistent (linker namespace, but dex2oat directory) with the code?",
       "parentUuid": "f4ff64b7_9317c346",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "599ef9f7_4b6d0665",
+        "filename": "dex2oat/linker/elf_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-12T09:27:00Z",
+      "side": 1,
+      "message": "This is in line with the rest. We do not have an art::runtime or art::compiler namespace either.",
+      "parentUuid": "8f20bf8f_3e0f0133",
       "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
