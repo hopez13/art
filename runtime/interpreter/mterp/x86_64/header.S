@@ -191,9 +191,12 @@ unspecified registers or condition codes.
  * restore it in such cases also.
  *
  */
+.macro REFRESH_IBASE_REG reg
+    movq    THREAD_CURRENT_IBASE_OFFSET(\reg), rIBASE
+.endm
 .macro REFRESH_IBASE
     movq    rSELF, rIBASE
-    movq    THREAD_CURRENT_IBASE_OFFSET(rIBASE), rIBASE
+    REFRESH_IBASE_REG rIBASE
 .endm
 
 /*
