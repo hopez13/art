@@ -260,13 +260,13 @@ static jlong ZygoteHooks_nativePreFork(JNIEnv* env, jclass) {
 static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
                                             jclass,
                                             jlong token,
-                                            jint debug_flags,
+                                            jint runtime_flags,
                                             jboolean is_system_server,
                                             jstring instruction_set) {
   Thread* thread = reinterpret_cast<Thread*>(token);
   // Our system thread ID, etc, has changed so reset Thread state.
   thread->InitAfterFork();
-  EnableDebugFeatures(debug_flags);
+  EnableDebugFeatures(runtime_flags);
 
   // Update tracing.
   if (Trace::GetMethodTracingMode() != TracingMode::kTracingInactive) {
