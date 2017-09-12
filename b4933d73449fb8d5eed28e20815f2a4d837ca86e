@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3f58511b_a4cecfbc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-12T15:37:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c9ab084_559abef1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 36
+      },
+      "revId": "b4933d73449fb8d5eed28e20815f2a4d837ca86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eef83c19_0b6330c9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Is that the issue?\n\nSuperclass verification still calls VerifyClass, which will still call the compiler callback. It just seems that doesn\u0027t react correctly (it feels like we might not be registering the classpath dex files in the atomic map, and get an invalid-dex-file error when asking for it, maybe?).\n\nWhat am I missing?",
       "parentUuid": "9fcf87ba_f8d80ba6",
+      "range": {
+        "startLine": 4312,
+        "startChar": 2,
+        "endLine": 4315,
+        "endChar": 3
+      },
+      "revId": "b4933d73449fb8d5eed28e20815f2a4d837ca86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e47e252b_99a91eca",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-12T15:37:44Z",
+      "side": 1,
+      "message": "Clarified offline. The existing compiler callback is on methods. I\u0027m adding one on classes.",
+      "parentUuid": "a28de62a_66f049df",
       "range": {
         "startLine": 4312,
         "startChar": 2,
