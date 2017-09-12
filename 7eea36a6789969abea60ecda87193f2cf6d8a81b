@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2e2efc96_3a5982cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-12T14:39:41Z",
+      "side": 1,
+      "message": "Either of those tests sounds good. Gdb might be more robust but it sounds harder to implement.",
+      "parentUuid": "d20ff2be_37e1f9e5",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0be20c1d_73ce3687",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Copy-pasted from elsewhere. Also, did we update lint rules to accept the \"{};\" without complaining about the trailing \";\"?",
       "parentUuid": "0be20c1d_73ce3687",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e105fae_8c755669",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-12T14:39:41Z",
+      "side": 1,
+      "message": "Probably not, ignore.",
+      "parentUuid": "10906622_5f1627fe",
       "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -107,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "4339e1f8_0885c483",
+        "filename": "compiler/linker/multi_oat_relative_patcher_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-12T14:39:41Z",
+      "side": 1,
+      "message": "Why is it ok that this function doesn\u0027t implement anything? I guess it\u0027s for a test but a comment would be nice.",
+      "parentUuid": "f53cf409_be2ac54c",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4019ad41_3f853f4d",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -136,6 +190,24 @@
       "side": 1,
       "message": "I was OK with the OAT layout CL but now other people have made further comments. Please hurry to address that, so that we do not accumulate more changes that conflict with this CL.\n\n(That layout CL also surely conflicts with https://android-review.googlesource.com/476338 .)",
       "parentUuid": "4019ad41_3f853f4d",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f13619e_c5ea8140",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-12T14:39:41Z",
+      "side": 1,
+      "message": "Ok, just go ahead and merge this in whenever it\u0027s ready. I don\u0027t think we should hold it up for oat layout.",
+      "parentUuid": "024a19a8_e35b6318",
       "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
