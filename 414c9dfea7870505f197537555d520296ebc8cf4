@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b0f2658_3a6c7e00",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-09-12T02:08:41Z",
+      "side": 1,
+      "message": "Remove this part of the comment and invoke the macro from the relevant places.",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 2
+      },
+      "revId": "414c9dfea7870505f197537555d520296ebc8cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a755f42_c265e281",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-09-12T02:08:41Z",
+      "side": 1,
+      "message": "Rename to something like CHECK_ALIGNMENT.",
+      "range": {
+        "startLine": 188,
+        "startChar": 7,
+        "endLine": 188,
+        "endChar": 29
+      },
+      "revId": "414c9dfea7870505f197537555d520296ebc8cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6013fea_30b42205",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-09-12T02:08:41Z",
+      "side": 1,
+      "message": "Enclose the body in something like\n\n#ifdef MIPS_CHECK_ALIGNMENT\n#endif\n\nso we can enable the check in the future when needed.",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 12
+      },
+      "revId": "414c9dfea7870505f197537555d520296ebc8cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
