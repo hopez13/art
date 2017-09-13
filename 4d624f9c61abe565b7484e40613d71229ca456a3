@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "615bd613_0f0cccb3",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-09-13T20:33:04Z",
+      "side": 1,
+      "message": "I wonder if would have been good enough to put an UNLIKELY here.",
+      "range": {
+        "startLine": 791,
+        "startChar": 6,
+        "endLine": 791,
+        "endChar": 28
+      },
+      "revId": "4d624f9c61abe565b7484e40613d71229ca456a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
