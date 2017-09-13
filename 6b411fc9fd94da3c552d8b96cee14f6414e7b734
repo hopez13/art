@@ -22,6 +22,30 @@
       "revId": "6b411fc9fd94da3c552d8b96cee14f6414e7b734",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e647315_63d6b08e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-13T21:39:46Z",
+      "side": 0,
+      "message": "removing some style inconsistent comments\n(also, we hardly subsection the other parts)",
+      "parentUuid": "6dbe145b_7b0f1f75",
+      "range": {
+        "startLine": 981,
+        "startChar": 0,
+        "endLine": 983,
+        "endChar": 19
+      },
+      "revId": "6b411fc9fd94da3c552d8b96cee14f6414e7b734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
