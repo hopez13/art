@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a776595_bbf74281",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-09-13T20:18:00Z",
+      "side": 1,
+      "message": "I\u0027ll do the former. Given that we currently don\u0027t include \u003catomic\u003e directly, and instead use the ART atomics layer, I\u0027m inclined to leave the assertion as is. Otherwise, we could also check ATOMIC_INT_LOCK_FREE as a stop-gap.",
+      "parentUuid": "07a69f21_0612a398",
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f4109dd_9aee454b",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2017-09-13T17:33:28Z",
       "side": 1,
       "message": "pid_t is signed, so is it better to use -2 here to indicate that no owner was set yet?\n\nditto for rest of this file.",
+      "range": {
+        "startLine": 364,
+        "startChar": 46,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f3280b1_bae0e1ff",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-09-13T20:18:00Z",
+      "side": 1,
+      "message": "As enh pointed out in the bug, the definition of e.g. the Posix kill() API guarantees that neither 0 nor negative values can be used as a valid pid/tid. I think any of them work, and 0 seems like the most natural one.",
+      "parentUuid": "2f4109dd_9aee454b",
       "range": {
         "startLine": 364,
         "startChar": 46,
