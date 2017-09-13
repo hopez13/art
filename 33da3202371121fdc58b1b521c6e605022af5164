@@ -225,6 +225,30 @@
       "revId": "33da3202371121fdc58b1b521c6e605022af5164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b450c381_e34ab310",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-09-13T23:51:28Z",
+      "side": 1,
+      "message": "Probably. But I don\u0027t think it\u0027s worth the code churn.\n\nThese values seem to be used to:\n\n1. Compare to other ids or 0,\n2. Print for debugging purposes, or\n3. Return as the result of other \"get owner\" functions, whose result is similarly used.\n\nWe\u0027d either be inconsistent with other parts of ART, or have to change code all over the place. And debugging output would change in weird ways, or we\u0027d have to translate back to zero.\n\nAnd I think there is really not much danger of these things getting passed to system calls. AFAIK, we just don\u0027t send signals to or wait for the owner of a lock.\n\nThe thing that scares me slightly more is the weird -1 convention for shared ownership. But that was just broken to start with, so it\u0027s unlikely it affects anything but debug output.",
+      "parentUuid": "a4dba5b7_1bb36b6c",
+      "range": {
+        "startLine": 364,
+        "startChar": 46,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
