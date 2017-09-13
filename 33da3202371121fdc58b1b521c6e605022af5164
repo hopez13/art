@@ -153,6 +153,30 @@
       "revId": "33da3202371121fdc58b1b521c6e605022af5164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94922766_6a667b10",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2017-09-13T22:18:16Z",
+      "side": 1,
+      "message": "the advantage of a negative number though is that it\u0027s always an invalid *input*. so if you accidentally pass it to a system call, you\u0027ll get EINVAL rather than anything weird happening (such as the kill(2) example).",
+      "parentUuid": "e6d42d56_fec08282",
+      "range": {
+        "startLine": 364,
+        "startChar": 46,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
