@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07a69f21_0612a398",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T17:33:28Z",
+      "side": 1,
+      "message": "Should we leave a comment here for future?\n\n  // TODO: use std::atomic::is_always_lock_free after switching to C++17\n\nAnd/or switch to using \n\n   DCHECK(std::atomic\u003cpid_t\u003e().is_lock_free())\n\nfor time being?",
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f4109dd_9aee454b",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T17:33:28Z",
+      "side": 1,
+      "message": "pid_t is signed, so is it better to use -2 here to indicate that no owner was set yet?\n\nditto for rest of this file.",
+      "range": {
+        "startLine": 364,
+        "startChar": 46,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
