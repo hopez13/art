@@ -70,6 +70,30 @@
       "revId": "3efdc283356c6427b5bb324ca4c95f725f2cbe20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93bb67e3_cd4cfddb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-13T16:17:35Z",
+      "side": 1,
+      "message": "Oh, it is failing *now* already, not just with the upcoming CL. This fix was as a result of doing the market scans, which found much more than just SAD related stuff.\n\nAnd yes, we should not bail at all but just do the right thing (which is not super hard, but requires some overlap testing).  I did not want to re-do the work Xueliang is already doing and finding a slightly smarter bail is almost as much work.\n\nArtem/Xueliang when do you expect your code to go in? If soon, that would be best, if soonish, but not super soon, I would like this to go in for now to make the mainline right. If not soonish at all I can work on the proper fix...",
+      "parentUuid": "61ea6317_2b43ea49",
+      "range": {
+        "startLine": 673,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 3
+      },
+      "revId": "3efdc283356c6427b5bb324ca4c95f725f2cbe20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
