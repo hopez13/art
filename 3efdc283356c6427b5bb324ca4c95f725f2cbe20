@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e4e46f0_16f842dd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-13T08:43:09Z",
+      "side": 1,
+      "message": "This looks too aggressive? What if their is code in the graph that would benefit from lse?",
+      "range": {
+        "startLine": 673,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 3
+      },
+      "revId": "3efdc283356c6427b5bb324ca4c95f725f2cbe20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
