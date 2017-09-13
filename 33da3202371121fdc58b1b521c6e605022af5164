@@ -177,6 +177,30 @@
       "revId": "33da3202371121fdc58b1b521c6e605022af5164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21dd0ac3_0b6f80a4",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-09-13T22:28:16Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s entirely true. According to Posix, kill interprets a negative pid as a process group, and -1 as all processes. Except for -1 that would usually fail, but it might not, if I happen to hit my own process group?",
+      "parentUuid": "94922766_6a667b10",
+      "range": {
+        "startLine": 364,
+        "startChar": 46,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
