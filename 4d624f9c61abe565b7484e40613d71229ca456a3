@@ -22,6 +22,30 @@
       "revId": "4d624f9c61abe565b7484e40613d71229ca456a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ada2f4c_87784d3c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T22:06:54Z",
+      "side": 1,
+      "message": "Pretty sure it\u0027s not a bad idea to put the UNLIKELY anyways, but I doubt Clang would have optimized the stack differently.",
+      "parentUuid": "615bd613_0f0cccb3",
+      "range": {
+        "startLine": 791,
+        "startChar": 6,
+        "endLine": 791,
+        "endChar": 28
+      },
+      "revId": "4d624f9c61abe565b7484e40613d71229ca456a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
