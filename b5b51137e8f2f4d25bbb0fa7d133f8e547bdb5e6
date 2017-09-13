@@ -22,6 +22,30 @@
       "revId": "b5b51137e8f2f4d25bbb0fa7d133f8e547bdb5e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2b48f7a_cdc5e8a8",
+        "filename": "tools/ahat/src/heapdump/Site.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-13T12:07:51Z",
+      "side": 1,
+      "message": "Yes, I was specifically trying to prevent the possibility of a bug I had where the returned child list was being resorted, which broke looking up sites by id.\n\nI\u0027ll switch to Collections.unmodifiableList.",
+      "parentUuid": "89304479_bd14d7eb",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 39
+      },
+      "revId": "b5b51137e8f2f4d25bbb0fa7d133f8e547bdb5e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
