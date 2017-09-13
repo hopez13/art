@@ -46,6 +46,30 @@
       "revId": "3efdc283356c6427b5bb324ca4c95f725f2cbe20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61ea6317_2b43ea49",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-13T16:02:04Z",
+      "side": 1,
+      "message": "Can we bail differently? I worry about potential regressions, but also making a precedent of bailing an existing correct optimization due to the bringing up of a new optimization.",
+      "parentUuid": "b572a3ae_4d2b0b5f",
+      "range": {
+        "startLine": 673,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 3
+      },
+      "revId": "3efdc283356c6427b5bb324ca4c95f725f2cbe20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
