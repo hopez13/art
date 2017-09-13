@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89304479_bd14d7eb",
+        "filename": "tools/ahat/src/heapdump/Site.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-13T10:09:43Z",
+      "side": 1,
+      "message": "Is there a particular reason you want to make this an Iterable?  Iterables are generally pretty annoying to use.  If you\u0027re worried about someone modifying the list, it\u0027s more natural to return Collections.unmodifiableList(mChildren), which lets callers still treat it as a List.",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 39
+      },
+      "revId": "b5b51137e8f2f4d25bbb0fa7d133f8e547bdb5e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
