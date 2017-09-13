@@ -201,6 +201,30 @@
       "revId": "33da3202371121fdc58b1b521c6e605022af5164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4dba5b7_1bb36b6c",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T22:33:49Z",
+      "side": 1,
+      "message": "RE: Elliott, Hans,\n\nCan we use an extremely large negative numbers, perhaps MIN_INT, MIN_INT+1 as our 2 sentinel values?\n\nThat seems much less likely to be a valid group number than a very small number.",
+      "parentUuid": "21dd0ac3_0b6f80a4",
+      "range": {
+        "startLine": 364,
+        "startChar": 46,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
