@@ -105,6 +105,30 @@
       "revId": "33da3202371121fdc58b1b521c6e605022af5164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b6cceb_b2c918e8",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-09-13T21:40:10Z",
+      "side": 1,
+      "message": "FWIW, this is arguably more consistent with fork(). Posix itself isn\u0027t terribly consistent in its interpretation of a 0 pid.",
+      "parentUuid": "8f2ba2cd_57cb32a2",
+      "range": {
+        "startLine": 364,
+        "startChar": 46,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
