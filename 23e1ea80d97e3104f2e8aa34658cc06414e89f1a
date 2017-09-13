@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc583f58_94ea8c03",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T18:49:21Z",
+      "side": 1,
+      "message": "Are we doing this anywhere else? Should the reasoning rather be that agents may leave local refs around (and then this should be everywhere)? I don\u0027t really understand...",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 270,
+        "endChar": 25
+      },
+      "revId": "23e1ea80d97e3104f2e8aa34658cc06414e89f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b52a783_17b3db28",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T18:49:21Z",
+      "side": 1,
+      "message": "Remove, and describe more state-of-fact (as a valid interpretation of the spec yadda yadda).",
+      "range": {
+        "startLine": 332,
+        "startChar": 5,
+        "endLine": 332,
+        "endChar": 9
+      },
+      "revId": "23e1ea80d97e3104f2e8aa34658cc06414e89f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

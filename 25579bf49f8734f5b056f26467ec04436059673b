@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "743cb620_2f642b9f",
+        "filename": "runtime/entrypoints/quick/quick_lock_entrypoints.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T18:49:21Z",
+      "side": 1,
+      "message": "At least make a check that plugins are loaded, to protect against non-JVMTI regression?",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 96
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90945404_449b5a57",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T18:49:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37ab4cd8_08704515",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T18:49:21Z",
+      "side": 1,
+      "message": "Why not scope the MutexLock, which is the ordinary (and more trustworthy) way compared to introducing yet another RAII assertion thingy...",
+      "range": {
+        "startLine": 370,
+        "startChar": 2,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "919a926e_3a4a8a18",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T18:49:21Z",
+      "side": 1,
+      "message": "Remove unrelated style changes.",
+      "range": {
+        "startLine": 675,
+        "startChar": 0,
+        "endLine": 679,
+        "endChar": 37
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c7fef00_cf799537",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T18:49:21Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 816,
+        "startChar": 2,
+        "endLine": 816,
+        "endChar": 9
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26dab84e_5edb8194",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-13T18:49:21Z",
+      "side": 1,
+      "message": "I don\u0027t see tests added for this.",
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
