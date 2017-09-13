@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dcc5df9_b9643fe0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T20:54:40Z",
+      "side": 1,
+      "message": "Coast guard?",
+      "revId": "b7806b360e29f6970274d16ad63631a187edd63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59b3a54a_72a93211",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T20:54:40Z",
+      "side": 1,
+      "message": "Gerrit only links to first one, need one per line.",
+      "revId": "b7806b360e29f6970274d16ad63631a187edd63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3ce3b01_ed261fb2",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T20:54:40Z",
+      "side": 1,
+      "message": "nit: f !\u003d nullptr",
+      "revId": "b7806b360e29f6970274d16ad63631a187edd63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8614883_14bcb03f",
+        "filename": "compiler/utils/x86/assembler_x86_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T20:54:40Z",
+      "side": 1,
+      "message": "nit: EXPECT_EQ(expected, actual)",
+      "revId": "b7806b360e29f6970274d16ad63631a187edd63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59f1dc4f_a0ed42d8",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T20:54:40Z",
+      "side": 1,
+      "message": "nit: /* f */ nullptr",
+      "range": {
+        "startLine": 285,
+        "startChar": 20,
+        "endLine": 285,
+        "endChar": 27
+      },
+      "revId": "b7806b360e29f6970274d16ad63631a187edd63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f20cfa9_17ffb573",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T20:54:40Z",
+      "side": 1,
+      "message": "nit: EXPECT_EQ(expected, actual) --- flip the arguments\n\nThe error message mentions \u0027expected\u0027 and \u0027actual\u0027 so its mildly confusing to do it in the opposite order.",
+      "revId": "b7806b360e29f6970274d16ad63631a187edd63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
