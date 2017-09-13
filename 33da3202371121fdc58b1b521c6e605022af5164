@@ -81,6 +81,30 @@
       "revId": "33da3202371121fdc58b1b521c6e605022af5164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f2ba2cd_57cb32a2",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-13T20:31:10Z",
+      "side": 1,
+      "message": "kill(2) interprets a pid of 0 as send a signal to *all* processes.\n\n\u003e        If pid equals 0, then sig is sent to every process in the process group\n\u003e        of the calling process.\n\n\nUsing a pid of 0 in this context means *no* processes.\n\nJust a bit inconsistent :). I\u0027m personally ok with it either way.",
+      "parentUuid": "3f3280b1_bae0e1ff",
+      "range": {
+        "startLine": 364,
+        "startChar": 46,
+        "endLine": 364,
+        "endChar": 48
+      },
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
