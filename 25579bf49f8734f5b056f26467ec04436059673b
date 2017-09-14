@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "36f09548_93393334",
+        "filename": "runtime/entrypoints/quick/quick_lock_entrypoints.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T00:09:51Z",
+      "side": 1,
+      "message": "IsExceptionPending is a single load-ifeq I\u0027m not sure we can get much cheaper.\n\nOr do you mean a DCHECK(ArePluginsLoaded())?\n\nIf the second I don\u0027t think we want to do that since we might want to use this for internal reasons eventually.",
+      "parentUuid": "743cb620_2f642b9f",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 96
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90945404_449b5a57",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-13T18:49:21Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fe98ec8_94fb2dd9",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T00:09:51Z",
+      "side": 1,
+      "message": "See above",
+      "parentUuid": "90945404_449b5a57",
       "range": {
         "startLine": 73,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "98310617_d473e916",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T00:09:51Z",
+      "side": 1,
+      "message": "A 300 line diff?\n\nAlso the fact that we were manually unlocking and relocking made the MutexLock rather misleading from the beginning IMO.\nI can do this if you want though.",
+      "parentUuid": "37ab4cd8_08704515",
+      "range": {
+        "startLine": 370,
+        "startChar": 2,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "919a926e_3a4a8a18",
         "filename": "runtime/monitor.cc",
         "patchSetId": 10
@@ -91,6 +163,30 @@
       "revId": "25579bf49f8734f5b056f26467ec04436059673b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57298fb0_ce592c64",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T00:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "919a926e_3a4a8a18",
+      "range": {
+        "startLine": 675,
+        "startChar": 0,
+        "endLine": 679,
+        "endChar": 37
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "74e24d8f_39e0ac6b",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T00:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c7fef00_cf799537",
+      "range": {
+        "startLine": 816,
+        "startChar": 2,
+        "endLine": 816,
+        "endChar": 9
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26dab84e_5edb8194",
         "filename": "runtime/runtime_callbacks.h",
         "patchSetId": 10
@@ -128,6 +248,24 @@
       "writtenOn": "2017-09-13T18:49:21Z",
       "side": 1,
       "message": "I don\u0027t see tests added for this.",
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b5043a4_6c08ab5e",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T00:09:51Z",
+      "side": 1,
+      "message": "Given the inherently multi-threaded nature of this callback gtests are incredibly annoying to construct. I\u0027ll make some simple ones however.",
+      "parentUuid": "26dab84e_5edb8194",
       "revId": "25579bf49f8734f5b056f26467ec04436059673b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

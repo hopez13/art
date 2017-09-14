@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9a9cee3_71ef3d24",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T00:09:51Z",
+      "side": 1,
+      "message": "yeah we should be doing this in all situations. I\u0027ll do a follow up to consolidate all the calls for this.",
+      "parentUuid": "fc583f58_94ea8c03",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 270,
+        "endChar": 25
+      },
+      "revId": "23e1ea80d97e3104f2e8aa34658cc06414e89f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b52a783_17b3db28",
         "filename": "openjdkjvmti/events.cc",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "23e1ea80d97e3104f2e8aa34658cc06414e89f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f845357_6948de1e",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T00:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b52a783_17b3db28",
+      "range": {
+        "startLine": 332,
+        "startChar": 5,
+        "endLine": 332,
+        "endChar": 9
+      },
+      "revId": "23e1ea80d97e3104f2e8aa34658cc06414e89f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
