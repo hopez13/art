@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "00906a72_d6210e68",
+        "filename": "runtime/entrypoints/quick/quick_lock_entrypoints.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T17:29:27Z",
+      "side": 1,
+      "message": "Very well.\n\nDone.",
+      "parentUuid": "9271e61a_c386a09b",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 96
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90945404_449b5a57",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 10
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "I\u0027d like a comment from Mathieu.\n\nPersonally, I would have preferred this broken up like all the callbacks changes before: first introduce the callbacks with tests, then the plugin changes to use it. That would make the review simple, and even the 300-line diff would be relatively trivial, as Gerrit would mark all of it as adding \"  \".",
       "parentUuid": "98310617_d473e916",
+      "range": {
+        "startLine": 370,
+        "startChar": 2,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f266fb06_3433305e",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-14T17:29:27Z",
+      "side": 1,
+      "message": "\u003e I\u0027d like a comment from Mathieu.\n\nSure.\n\n\u003e Personally, I would have preferred this broken up like all the callbacks changes before: first introduce the callbacks with tests, then the plugin changes to use it. That would make the review simple, and even the 300-line diff would be relatively trivial, as Gerrit would mark all of it as adding \"  \".\n\nHonestly the multi-threaded nature of this callback makes creating gtests incredibly difficult. Even doing the run-test was quite challenging.",
+      "parentUuid": "74c70723_c3addfe1",
       "range": {
         "startLine": 370,
         "startChar": 2,
