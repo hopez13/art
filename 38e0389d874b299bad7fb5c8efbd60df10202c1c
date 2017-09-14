@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "e05ca8ac_7015bebf",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-14T09:40:23Z",
+      "side": 1,
+      "message": "I\u0027d loosen that condition: only code in dex2oat/ calls into dex2oat/ . There may be other files and/or directories added to dex2oat/ (not just dex2oat/linker/) and files from dex2oat/linker/ may need to call them. (As an example, we could pull ImageWriter out of linker/ but the OatWriter would still need to call it.)",
+      "parentUuid": "4ca4125b_dd56e25a",
+      "revId": "38e0389d874b299bad7fb5c8efbd60df10202c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e30136a_e737178d",
         "filename": "dex2oat/Android.bp",
         "patchSetId": 2
