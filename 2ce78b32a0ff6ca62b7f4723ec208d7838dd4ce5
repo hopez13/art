@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5585a1f_bc26bc73",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-14T15:41:00Z",
+      "side": 1,
+      "message": "This is pretty wishy-washy. So we\u0027re defining a static library, but we access the headers of said library not be library dependencies, but by the fact that they\u0027re in the dex2oat directory. Not very well modularized/isolated.\n\n(I was actively trying to kill these things, so it becomes obvious when one library depends on another in a way that it shouldn\u0027t - e.g., see the intrinsics, where libart uses libart-compiler.)",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 1
+      },
+      "revId": "2ce78b32a0ff6ca62b7f4723ec208d7838dd4ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
