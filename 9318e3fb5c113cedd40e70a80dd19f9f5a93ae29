@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bd226b2_2c92d115",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-14T22:16:46Z",
+      "side": 1,
+      "message": "Nit: could you add a comment why those particular dispatch info, method_idx and resolved_method were chosen for the fake intrinsic?",
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67526b5b_ee7b9fbf",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-14T22:16:46Z",
+      "side": 1,
+      "message": "It doesn\u0027t matter whether it is kNoDexPc or x-\u003eGetDexPc(), right?",
+      "range": {
+        "startLine": 830,
+        "startChar": 6,
+        "endLine": 830,
+        "endChar": 14
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59250465_d043ec4e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-14T22:16:46Z",
+      "side": 1,
+      "message": "Nit: maybe longer and a little bit more meaningful variable names for c1, x1, y1, etc?",
+      "range": {
+        "startLine": 901,
+        "startChar": 18,
+        "endLine": 901,
+        "endChar": 20
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1b5d5a_f4455883",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-14T22:16:46Z",
+      "side": 1,
+      "message": "Long line here and 3 more time below.",
+      "range": {
+        "startLine": 909,
+        "startChar": 100,
+        "endLine": 909,
+        "endChar": 107
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "185544f1_c2a87bde",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-14T22:16:46Z",
+      "side": 1,
+      "message": "Nit: order of checks here doesn\u0027t match the one for rue_value-\u003eIsNeg() (could be c1 \u003d\u003d y1 first).",
+      "range": {
+        "startLine": 915,
+        "startChar": 51,
+        "endLine": 915,
+        "endChar": 67
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
