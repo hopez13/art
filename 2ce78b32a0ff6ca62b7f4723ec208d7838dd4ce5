@@ -46,6 +46,30 @@
       "revId": "2ce78b32a0ff6ca62b7f4723ec208d7838dd4ce5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b3898b8_c50d9665",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-14T17:02:26Z",
+      "side": 1,
+      "message": "static_libs means you get what that library exports (so in this case the .a file during linking). libart-dex2oat doesn\u0027t export any headers. So you\u0027re finding the headers because you\u0027re compiling dex2oat in the same directory.\n\n(That\u0027s at least how I think this works. ccross could confirm)",
+      "parentUuid": "aca5d856_af2dffe0",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 1
+      },
+      "revId": "2ce78b32a0ff6ca62b7f4723ec208d7838dd4ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
