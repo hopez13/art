@@ -46,6 +46,30 @@
       "revId": "4d624f9c61abe565b7484e40613d71229ca456a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "005dc3c2_e58ad62a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-09-14T19:46:43Z",
+      "side": 1,
+      "message": "Tried adding UNLIKELY as the only change and it didn\u0027t fix the perf regression, so the refactoring is still needed. Also tried adding UNLIKELY to this CL and the perf regression is still fixed. So I\u0027ll add UNLIKELY here to this CL.",
+      "parentUuid": "5ada2f4c_87784d3c",
+      "range": {
+        "startLine": 791,
+        "startChar": 6,
+        "endLine": 791,
+        "endChar": 28
+      },
+      "revId": "4d624f9c61abe565b7484e40613d71229ca456a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
