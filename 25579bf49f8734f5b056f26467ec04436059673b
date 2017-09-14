@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9271e61a_c386a09b",
+        "filename": "runtime/entrypoints/quick/quick_lock_entrypoints.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-14T16:52:16Z",
+      "side": 1,
+      "message": "Eventually, but not now. You\u0027re severely lifting an invariant, with only a single known use-case right now. Please keep invariants as tight as possible.",
+      "parentUuid": "36f09548_93393334",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 96
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90945404_449b5a57",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 10
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "A 300 line diff?\n\nAlso the fact that we were manually unlocking and relocking made the MutexLock rather misleading from the beginning IMO.\nI can do this if you want though.",
       "parentUuid": "37ab4cd8_08704515",
+      "range": {
+        "startLine": 370,
+        "startChar": 2,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74c70723_c3addfe1",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-14T16:52:16Z",
+      "side": 1,
+      "message": "I\u0027d like a comment from Mathieu.\n\nPersonally, I would have preferred this broken up like all the callbacks changes before: first introduce the callbacks with tests, then the plugin changes to use it. That would make the review simple, and even the 300-line diff would be relatively trivial, as Gerrit would mark all of it as adding \"  \".",
+      "parentUuid": "98310617_d473e916",
       "range": {
         "startLine": 370,
         "startChar": 2,
