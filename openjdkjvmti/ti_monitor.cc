@@ -37,10 +37,13 @@
 #include <mutex>
 
 #include "art_jvmti.h"
+#include "monitor.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 #include "ti_thread.h"
+#include "thread.h"
+#include "thread_pool.h"
 
 namespace openjdkjvmti {
 
@@ -321,6 +324,54 @@ jvmtiError MonitorUtil::RawMonitorNotifyAll(jvmtiEnv* env ATTRIBUTE_UNUSED, jraw
   }
 
   return ERR(NONE);
+}
+
+jvmtiError MonitorUtil::GetCurrentContendedMonitor(jvmtiEnv* env ATTRIBUTE_UNUSED,
+                                                   jthread thread,
+                                                   jobject* monitor) {
+  if (monitor == nullptr) {
+    return ERR(NULL_POINTER);
+  }
+  art::Thread* self = art::Thread::Current();
+  art::ScopedObjectAccess soa(self);
+  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+  art::Thread* target = ThreadUtil::GetNativeThread(thread, soa);
+  if (target == nullptr && thread == nullptr) {
+    return ERR(INVALID_THREAD);
+  }
+  if (target == nullptr) {
+    return ERR(THREAD_NOT_ALIVE);
+  }
+  struct GetContendedMonitorClosure : public art::Closure {
+   public:
+    explicit GetContendedMonitorClosure(art::Thread* current, jobject* out)
+        : result_thread_(current), out_(out) {}
+
+    void Run(art::Thread* target_thread) REQUIRES_SHARED(art::Locks::mutator_lock_) {
+      switch (target_thread->GetState()) {
+        case art::kBlocked:
+        case art::kTimedWaiting:
+        case art::kWaiting: {
+          art::mirror::Object* mon = art::Monitor::GetContendedMonitor(target_thread);
+          *out_ = (mon == nullptr) ? nullptr
+                                  : result_thread_->GetJniEnv()->AddLocalReference<jobject>(mon);
+          return;
+        }
+        default: {
+          // We aren't currently waiting for anything so just return null.
+          *out_ = nullptr;
+          return;
+        }
+      }
+    }
+
+   private:
+    art::Thread* result_thread_;
+    jobject* out_;
+  };
+  GetContendedMonitorClosure closure(self, monitor);
+  target->RequestSynchronousCheckpoint(&closure);
+  return OK;
 }
 
 }  // namespace openjdkjvmti
