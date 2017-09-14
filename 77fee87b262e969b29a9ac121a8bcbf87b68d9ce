@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efdff37a_ab9c14da",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-14T17:39:12Z",
+      "side": 1,
+      "message": "Are these only called on the slow paths?",
+      "revId": "77fee87b262e969b29a9ac121a8bcbf87b68d9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09bdb7ca_acec4c10",
+        "filename": "runtime/runtime_callbacks_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-14T17:39:12Z",
+      "side": 1,
+      "message": "These should probably be using googlemock instead of doing a homebrew mock.\n\nhttps://github.com/google/googletest/blob/master/googlemock/docs/ForDummies.md",
+      "revId": "77fee87b262e969b29a9ac121a8bcbf87b68d9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
