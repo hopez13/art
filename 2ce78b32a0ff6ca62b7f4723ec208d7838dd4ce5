@@ -22,6 +22,30 @@
       "revId": "2ce78b32a0ff6ca62b7f4723ec208d7838dd4ce5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aca5d856_af2dffe0",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-14T16:14:19Z",
+      "side": 1,
+      "message": "Access by what code?\n\nFor example, when we\u0027re compiling dex2oat.cc for the art_cc_binary \"dex2oat\", there is a static_libs dependency on \"libart-dex2oat\".",
+      "parentUuid": "c5585a1f_bc26bc73",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 1
+      },
+      "revId": "2ce78b32a0ff6ca62b7f4723ec208d7838dd4ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
