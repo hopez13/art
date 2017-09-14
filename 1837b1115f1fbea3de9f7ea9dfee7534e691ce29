@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd21260b_89a24d8b",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2903,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-14T10:00:12Z",
+      "side": 1,
+      "message": "Note for later refactoring: ClassReference should be turned into a proper data structure (like DexFileReference, instead of being an std::pair.",
+      "range": {
+        "startLine": 2903,
+        "startChar": 53,
+        "endLine": 2903,
+        "endChar": 67
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aacac3ff_1aeef352",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2906,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-14T10:00:12Z",
+      "side": 1,
+      "message": "Note for later refactoring: Make DexFileReference directly constructible from a ClassReference.",
+      "range": {
+        "startLine": 2906,
+        "startChar": 27,
+        "endLine": 2906,
+        "endChar": 43
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "868decc8_6e72b6fc",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3075,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-14T10:00:12Z",
+      "side": 1,
+      "message": "Refactor this logic (also used in CompilerDriver::SetDexFilesForOatFile) in its own method?",
+      "range": {
+        "startLine": 3071,
+        "startChar": 0,
+        "endLine": 3075,
+        "endChar": 3
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba922092_8832b293",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-14T10:00:12Z",
+      "side": 1,
+      "message": "Document this new method.",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 27
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9263b2bf_dfbebba1",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-14T10:00:12Z",
+      "side": 1,
+      "message": "Move that line before line 492?",
+      "range": {
+        "startLine": 490,
+        "startChar": 2,
+        "endLine": 490,
+        "endChar": 81
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3ed04aa_aebb7b16",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-14T10:00:12Z",
+      "side": 1,
+      "message": "Document this new member.",
+      "range": {
+        "startLine": 493,
+        "startChar": 18,
+        "endLine": 493,
+        "endChar": 36
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b1a24b6_beb34391",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1868,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-14T10:00:12Z",
+      "side": 1,
+      "message": "Note for later refactoring: Every time I\u0027m seeing this method (and similarly named ones in art::CompilerOptions and art::CompilerCallbacks) I have to check its definition to make sure it means \"Are we compiling a boot image?\". Should we rename it as `IsCompilingBootImage` for the sake of disambiguation?",
+      "range": {
+        "startLine": 1868,
+        "startChar": 9,
+        "endLine": 1868,
+        "endChar": 20
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
