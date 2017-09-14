@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "aaa0ec1e_56e65ef6",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-09-14T17:39:19Z",
+      "side": 1,
+      "message": "Just add mutex lock in follow up CL? That way its easy to tell theres no real changes in the diff.",
+      "parentUuid": "f266fb06_3433305e",
+      "range": {
+        "startLine": 370,
+        "startChar": 2,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "25579bf49f8734f5b056f26467ec04436059673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "919a926e_3a4a8a18",
         "filename": "runtime/monitor.cc",
         "patchSetId": 10
