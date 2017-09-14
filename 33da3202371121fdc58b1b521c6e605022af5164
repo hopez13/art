@@ -273,6 +273,23 @@
       "revId": "33da3202371121fdc58b1b521c6e605022af5164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad883cf_ac02ccc4",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2017-09-14T01:25:18Z",
+      "side": 1,
+      "message": "if you\u0027re trying to reduce namespace pollution (i think art was sensitive about this), you actually only need \u003csys/types.h\u003e for pid_t.",
+      "revId": "33da3202371121fdc58b1b521c6e605022af5164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
