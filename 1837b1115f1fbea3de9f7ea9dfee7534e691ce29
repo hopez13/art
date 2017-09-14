@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "63e409ed_393f414e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-14T16:09:39Z",
+      "side": 1,
+      "message": "Having the table for the classpath will speed up compilation for apks using it :) (e.g. gms modules). Multidex should have 0 benefit from it since the classpath table should be empty. I guess the speed up you report is because RecordClassStatus in the driver will update compiled_classes_.\n\nUpdate the comment to make it clear which part drives the improvement.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d5cc82_824dcc46",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
