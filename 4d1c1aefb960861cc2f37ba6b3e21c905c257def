@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d715f94_fba56860",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-15T16:03:12Z",
+      "side": 1,
+      "message": "IMO, this description does not convey the message that there is no problem here, and that disabling this test configuration is normal. I\u0027d says something like this:\n\n  \"This test expects to always run in JIT mode (forced using runtime option -Xusejit:true); this is incompatible with interpreter configurations (which use -Xint); this is fine, simply ignore them.\"\n\nOr perhaps this shorter version:\n\n  \"This test expects to always run in JIT mode; this is incompatible with interpreter configurations; simply ignore them.\"\n\nMore generally, I think we should do a better job at distinguishing (more prominently) tests blacklisted for a \"good\" (expected) reason from tests blacklisted because of a bug. There is often a \"Bug\" key for the latter, but not always…",
+      "range": {
+        "startLine": 105,
+        "startChar": 25,
+        "endLine": 105,
+        "endChar": 95
+      },
+      "revId": "4d1c1aefb960861cc2f37ba6b3e21c905c257def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
