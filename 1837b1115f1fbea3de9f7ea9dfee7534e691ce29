@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "53d6ae3d_c1d92ec3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T11:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63e409ed_393f414e",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d5cc82_824dcc46",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-14T10:04:10Z",
       "side": 1,
       "message": "Do we need a new test to cover this change, or is the existing test suite enough?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20a0892f_179090b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T11:57:14Z",
+      "side": 1,
+      "message": "go/lem is half covering for it. I\u0027ll think about a new gtest once FB on go/lem is fixed.",
+      "parentUuid": "91d5cc82_824dcc46",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -140,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "8f6c36ee_e80f4cf8",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T11:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba922092_8832b293",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 27
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9263b2bf_dfbebba1",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 5
@@ -163,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "34faf067_d12809b3",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T11:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9263b2bf_dfbebba1",
+      "range": {
+        "startLine": 490,
+        "startChar": 2,
+        "endLine": 490,
+        "endChar": 81
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3ed04aa_aebb7b16",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 5
@@ -174,6 +270,30 @@
       "writtenOn": "2017-09-14T10:00:12Z",
       "side": 1,
       "message": "Document this new member.",
+      "range": {
+        "startLine": 493,
+        "startChar": 18,
+        "endLine": 493,
+        "endChar": 36
+      },
+      "revId": "1837b1115f1fbea3de9f7ea9dfee7534e691ce29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6837f18d_0b9b34a8",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T11:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3ed04aa_aebb7b16",
       "range": {
         "startLine": 493,
         "startChar": 18,
