@@ -21,6 +21,7 @@
 #include "common_throws.h"
 #include "debugger.h"
 #include "dex_file-inl.h"
+#include "dex_file_types.h"
 #include "dex_instruction-inl.h"
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "entrypoints/runtime_asm_entrypoints.h"
@@ -1283,7 +1284,7 @@ extern "C" const void* artQuickResolutionTrampoline(
             called->FindDexMethodIndexInOtherDexFile(*caller_dex_file,
                                                      caller_method_name_and_sig_index);
       }
-      if (update_dex_cache_method_index != DexFile::kDexNoIndex) {
+      if (update_dex_cache_method_index != dex::kDexNoIndex) {
         // Note: We do not need the read barrier for the dex cache as the SetResolvedMethod()
         // operates on native (non-moveable) data and constants (num_resolved_methods_).
         ObjPtr<mirror::DexCache> caller_dex_cache = caller->GetDexCache<kWithoutReadBarrier>();
