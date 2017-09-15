@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3084e842_8293c222",
+        "filename": "test/164-resolution-trampoline-dex-cache/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T13:57:06Z",
+      "side": 1,
+      "message": "Would it be reasonable to add a DCHECK on this in DexCache::SetResolvedMethod? (in a follow-up CL to keep this change small).",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "67b4879f28d8c4fd1a5ee647dcbe298e796e1efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
