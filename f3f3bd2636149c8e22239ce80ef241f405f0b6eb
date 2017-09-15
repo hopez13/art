@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05e3c4ac_905369b1",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-15T15:59:29Z",
+      "side": 1,
+      "message": "Could you comment here why a single function for address test cases is OK? I was wondering whether allowed address modes aren\u0027t uniform enough (e.g., whether register-offset is allowed or not) between instructions in the ISAs the test has to support.\n\n(I.e., why is it not necessary to have a generation function given to Repeat that generates them specifically for the instruction under test?)",
+      "range": {
+        "startLine": 644,
+        "startChar": 2,
+        "endLine": 644,
+        "endChar": 47
+      },
+      "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
