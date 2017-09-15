@@ -42,6 +42,99 @@
     },
     {
       "key": {
+        "uuid": "12ba2d51_51239c76",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T14:08:36Z",
+      "side": 1,
+      "message": "still better to use the original instruction\u0027s dex pc.",
+      "parentUuid": "67526b5b_ee7b9fbf",
+      "range": {
+        "startLine": 830,
+        "startChar": 6,
+        "endLine": 830,
+        "endChar": 14
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "663737f1_2aa0ad7e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T14:08:36Z",
+      "side": 1,
+      "message": "kNone.",
+      "range": {
+        "startLine": 836,
+        "startChar": 53,
+        "endLine": 836,
+        "endChar": 62
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6548c86_fbef0e75",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T14:08:36Z",
+      "side": 1,
+      "message": "nit: missing High-level comment.",
+      "range": {
+        "startLine": 847,
+        "startChar": 12,
+        "endLine": 847,
+        "endChar": 33
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff38a7_d31fc446",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T14:08:36Z",
+      "side": 1,
+      "message": "Reads odd?",
+      "range": {
+        "startLine": 899,
+        "startChar": 13,
+        "endLine": 899,
+        "endChar": 37
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59250465_d043ec4e",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -58,6 +151,53 @@
         "startChar": 18,
         "endLine": 901,
         "endChar": 20
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8627da16_8149ae88",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T14:08:36Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "59250465_d043ec4e",
+      "range": {
+        "startLine": 901,
+        "startChar": 18,
+        "endLine": 901,
+        "endChar": 20
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e70eb5_b6798668",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T14:08:36Z",
+      "side": 1,
+      "message": "Add a comment why this isn\u0027t necessarily true?",
+      "range": {
+        "startLine": 905,
+        "startChar": 8,
+        "endLine": 905,
+        "endChar": 24
       },
       "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -105,6 +245,23 @@
         "endLine": 915,
         "endChar": 67
       },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d93da2c_7be6348d",
+        "filename": "test/660-checker-sad1/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T14:08:36Z",
+      "side": 1,
+      "message": "Make the test directory called 660-checker-sad-byte? (ditto for the other tests).",
       "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
