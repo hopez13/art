@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "59a84386_04e3ec17",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-15T16:23:22Z",
+      "side": 1,
+      "message": "The functions exposed imply having a monitor, so yes, these are always \"slow-path.\"",
+      "parentUuid": "efdff37a_ab9c14da",
+      "revId": "77fee87b262e969b29a9ac121a8bcbf87b68d9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09bdb7ca_acec4c10",
         "filename": "runtime/runtime_callbacks_test.cc",
         "patchSetId": 12
@@ -30,6 +48,24 @@
       "writtenOn": "2017-09-14T17:39:12Z",
       "side": 1,
       "message": "These should probably be using googlemock instead of doing a homebrew mock.\n\nhttps://github.com/google/googletest/blob/master/googlemock/docs/ForDummies.md",
+      "revId": "77fee87b262e969b29a9ac121a8bcbf87b68d9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ff9f556_42c4b3d5",
+        "filename": "runtime/runtime_callbacks_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-15T16:23:22Z",
+      "side": 1,
+      "message": "-1 we don\u0027t do this now, there\u0027s no reason to start experimenting when we have other working examples. I\u0027d rather not introduce experiments right now. Follow-up, maybe.",
+      "parentUuid": "09bdb7ca_acec4c10",
       "revId": "77fee87b262e969b29a9ac121a8bcbf87b68d9ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
