@@ -46,6 +46,52 @@
       "revId": "67b4879f28d8c4fd1a5ee647dcbe298e796e1efb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "855853d8_13f31304",
+        "filename": "test/164-resolution-trampoline-dex-cache/src-ex/MostDerived.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-15T14:10:56Z",
+      "side": 1,
+      "message": "Nit: extra space.",
+      "range": {
+        "startLine": 21,
+        "startChar": 83,
+        "endLine": 21,
+        "endChar": 84
+      },
+      "revId": "67b4879f28d8c4fd1a5ee647dcbe298e796e1efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e4e3aaf_c54179eb",
+        "filename": "test/164-resolution-trampoline-dex-cache/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-15T14:10:56Z",
+      "side": 1,
+      "message": "Is this comment referring to `location`? or `path`? I would make it explicit.\n\nAlso, maybe mention ART instead of Dalvik?",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 68
+      },
+      "revId": "67b4879f28d8c4fd1a5ee647dcbe298e796e1efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
