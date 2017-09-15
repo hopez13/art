@@ -22,6 +22,30 @@
       "revId": "67b4879f28d8c4fd1a5ee647dcbe298e796e1efb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1b7e5ec_5160ee7a",
+        "filename": "test/164-resolution-trampoline-dex-cache/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-15T14:09:29Z",
+      "side": 1,
+      "message": "Yes, it could be done. However, such DCHECK() would need to find the ClassLoader/ClassTable associated with the DexCache and then do a lookup in that ClassTable which is quite costly.",
+      "parentUuid": "3084e842_8293c222",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "67b4879f28d8c4fd1a5ee647dcbe298e796e1efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
