@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8eff6d5c_e67aa511",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-15T21:04:58Z",
+      "side": 1,
+      "message": "Is that what breaks if you don\u0027t bail in LSE? If yes, why?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 72
+      },
+      "revId": "d30f205f128c5ae625642d525e65a7fdd23d47a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
