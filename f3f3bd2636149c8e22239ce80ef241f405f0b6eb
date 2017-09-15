@@ -46,6 +46,30 @@
       "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6383b343_03dcac40",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-15T16:15:25Z",
+      "side": 1,
+      "message": "My comparison wasn\u0027t against multiple repeat functions, but instead of using a member function for creation like I did before (when I wasn\u0027t the template wizard I am now ;-) ), add a function to the parameters (something that accepts a lambda). Then it would look more like yours, but without the side effect that\u0027s somewhat hard to follow (and also disallows sharding, if we ever decide for multithreaded gtest execution).\n\n RepeatA(AddressesVectorToFull, ...)\n RepeatA(SetAddressesVectorRegOfll, ...)\n\n(and allows to have a local lambda in the test for anything that isn\u0027t shared and thus doesn\u0027t deserve to have a predefined member function in the test).",
+      "parentUuid": "ac315620_8a03d82d",
+      "range": {
+        "startLine": 644,
+        "startChar": 2,
+        "endLine": 644,
+        "endChar": 47
+      },
+      "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
