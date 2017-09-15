@@ -22,6 +22,30 @@
       "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac315620_8a03d82d",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-15T16:10:13Z",
+      "side": 1,
+      "message": "Ok, will add a comment. \n\nShort answer is that GetAddresses is fully under control of tests, so that e.g. by pointing to a different vector that is returned, the repeat will go over a more restricted set of addressing modes.\n\nOf course your point is that perhaps\n\nRepeatA_full(...)\nRepeatA_reg_off(....)\n\nis perhaps cleaner than\n\nSetAddressesVectorToFull();\nRepeatA(...)\nSetAddressesVectorRegOfll();\nRepeatA(....)\n\nbut my counter argument is that (1) it will be a lot more coding in the test driver for very little test gain and (2) the approach will need coding a new Repeat every time we can think of a new class of address sets. \"My\" approach does not have that drawback....\n\nSounds reasonable?",
+      "parentUuid": "05e3c4ac_905369b1",
+      "range": {
+        "startLine": 644,
+        "startChar": 2,
+        "endLine": 644,
+        "endChar": 47
+      },
+      "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
