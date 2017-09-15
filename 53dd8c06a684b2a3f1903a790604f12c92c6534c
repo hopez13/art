@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9252788_34d2d85f",
+        "filename": "openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-15T16:28:09Z",
+      "side": 1,
+      "message": "No defaults, please. If and when you introduce another thread state, this should be reviewed, and case warnings enforce that.",
+      "range": {
+        "startLine": 360,
+        "startChar": 8,
+        "endLine": 360,
+        "endChar": 18
+      },
+      "revId": "53dd8c06a684b2a3f1903a790604f12c92c6534c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
