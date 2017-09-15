@@ -70,6 +70,30 @@
       "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "721b79bd_b7cbe0e0",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-15T16:29:20Z",
+      "side": 1,
+      "message": "I like the idea, but it would deviate from the existing setup (not necessarily a bad thing, but ideally we would have to rewrite the others too than; having restricted sets of registers is a feature too).\n\nThe concurrent execution argument is an interesting one. In such an environment, refresh my memory, does each thread gets its own testing fixture (so my approach would work), or do they share one fixture between all?",
+      "parentUuid": "6383b343_03dcac40",
+      "range": {
+        "startLine": 644,
+        "startChar": 2,
+        "endLine": 644,
+        "endChar": 47
+      },
+      "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
