@@ -23,7 +23,6 @@ import com.android.ahat.heapdump.Parser;
 import com.android.ahat.proguard.ProguardMap;
 import com.sun.net.httpserver.HttpServer;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.InetAddress;
@@ -49,8 +48,7 @@ public class Main {
     out.println("");
   }
 
-  public static void main(String[] args)
-    throws FileNotFoundException, IOException, HprofFormatException {
+  public static void main(String[] args) {
     int port = 7100;
     for (String arg : args) {
       if (arg.equals("--help")) {
@@ -107,34 +105,40 @@ public class Main {
       return;
     }
 
-    // Launch the server before parsing the hprof file so we get
-    // BindExceptions quickly.
-    InetAddress loopback = InetAddress.getLoopbackAddress();
-    InetSocketAddress addr = new InetSocketAddress(loopback, port);
-    HttpServer server = HttpServer.create(addr, 0);
+    try {
+      // Launch the server before parsing the hprof file so we get
+      // BindExceptions quickly.
+      InetAddress loopback = InetAddress.getLoopbackAddress();
+      InetSocketAddress addr = new InetSocketAddress(loopback, port);
+      System.out.println("Preparing " + addr + " ...");
+      HttpServer server = HttpServer.create(addr, 0);
 
-    System.out.println("Processing hprof file...");
-    AhatSnapshot ahat = Parser.parseHeapDump(hprof, map);
+      System.out.println("Processing '" + hprof + "' ...");
+      AhatSnapshot ahat = Parser.parseHeapDump(hprof, map);
 
-    if (hprofbase != null) {
-      System.out.println("Processing baseline hprof file...");
-      AhatSnapshot base = Parser.parseHeapDump(hprofbase, mapbase);
+      if (hprofbase != null) {
+        System.out.println("Processing '" + hprofbase + "' ...");
+        AhatSnapshot base = Parser.parseHeapDump(hprofbase, mapbase);
 
-      System.out.println("Diffing hprof files...");
-      Diff.snapshots(ahat, base);
+        System.out.println("Diffing heap dumps ...");
+        Diff.snapshots(ahat, base);
+      }
+
+      server.createContext("/", new AhatHttpHandler(new OverviewHandler(ahat, hprof, hprofbase)));
+      server.createContext("/rooted", new AhatHttpHandler(new RootedHandler(ahat)));
+      server.createContext("/object", new AhatHttpHandler(new ObjectHandler(ahat)));
+      server.createContext("/objects", new AhatHttpHandler(new ObjectsHandler(ahat)));
+      server.createContext("/site", new AhatHttpHandler(new SiteHandler(ahat)));
+      server.createContext("/bitmap", new BitmapHandler(ahat));
+      server.createContext("/style.css", new StaticHandler("style.css", "text/css"));
+      server.setExecutor(Executors.newFixedThreadPool(1));
+      System.out.println("Server started on localhost:" + port);
+
+      server.start();
+    } catch (HprofFormatException|IOException e) {
+      System.err.println("Unable to launch ahat:");
+      e.printStackTrace();
     }
-
-    server.createContext("/", new AhatHttpHandler(new OverviewHandler(ahat, hprof, hprofbase)));
-    server.createContext("/rooted", new AhatHttpHandler(new RootedHandler(ahat)));
-    server.createContext("/object", new AhatHttpHandler(new ObjectHandler(ahat)));
-    server.createContext("/objects", new AhatHttpHandler(new ObjectsHandler(ahat)));
-    server.createContext("/site", new AhatHttpHandler(new SiteHandler(ahat)));
-    server.createContext("/bitmap", new BitmapHandler(ahat));
-    server.createContext("/style.css", new StaticHandler("style.css", "text/css"));
-    server.setExecutor(Executors.newFixedThreadPool(1));
-    System.out.println("Server started on localhost:" + port);
-
-    server.start();
   }
 }
 
