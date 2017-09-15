@@ -46,6 +46,30 @@
       "revId": "4d1c1aefb960861cc2f37ba6b3e21c905c257def",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bfa0245_8327faba",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-15T16:23:14Z",
+      "side": 1,
+      "message": "Cool, thanks Vladimir.",
+      "parentUuid": "1633dbdb_e16e63b3",
+      "range": {
+        "startLine": 105,
+        "startChar": 25,
+        "endLine": 105,
+        "endChar": 95
+      },
+      "revId": "4d1c1aefb960861cc2f37ba6b3e21c905c257def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
