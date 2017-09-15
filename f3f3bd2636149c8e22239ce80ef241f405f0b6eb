@@ -94,6 +94,30 @@
       "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c44d74b0_22b39985",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-15T16:35:01Z",
+      "side": 1,
+      "message": "Honestly don\u0027t know. Argument could be made that all the initialization data should be shared, as it\u0027s the same. :-)\n\nI do understand the refactoring argument for the other things (that\u0027s why I am not \"forcing\" my view). :-)",
+      "parentUuid": "721b79bd_b7cbe0e0",
+      "range": {
+        "startLine": 644,
+        "startChar": 2,
+        "endLine": 644,
+        "endChar": 47
+      },
+      "revId": "f3f3bd2636149c8e22239ce80ef241f405f0b6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
