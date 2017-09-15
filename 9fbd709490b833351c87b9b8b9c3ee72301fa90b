@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fec4ba3a_e35228f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-15T22:45:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a786d3_42f98e6e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "9fbd709490b833351c87b9b8b9c3ee72301fa90b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f885f9de_59511d6c",
         "filename": "test/567-checker-compare/src/Main.java",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2989b68a_4b46abda",
+        "filename": "test/567-checker-compare/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-15T22:45:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f885f9de_59511d6c",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "9fbd709490b833351c87b9b8b9c3ee72301fa90b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40c05cd6_246b48a3",
         "filename": "test/567-checker-compare/src/Main.java",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-09-14T17:10:25Z",
       "side": 1,
       "message": "You could just let the exception escape this method (and adding the required `throws` clause) instead.",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "9fbd709490b833351c87b9b8b9c3ee72301fa90b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8ba607c_32155c62",
+        "filename": "test/567-checker-compare/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-15T22:45:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40c05cd6_246b48a3",
       "range": {
         "startLine": 67,
         "startChar": 6,
