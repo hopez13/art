@@ -50,6 +50,7 @@
 #include "base/time_utils.h"
 #include "base/timing_logger.h"
 #include "base/unix_file/fd_file.h"
+#include "cdex/experiments.h"
 #include "class_linker.h"
 #include "class_loader_context.h"
 #include "cmdline_parser.h"
@@ -1816,12 +1817,16 @@ class Dex2Oat FINAL {
       callbacks_->SetVerifierDeps(new verifier::VerifierDeps(dex_files_));
     }
     // Invoke the compilation.
+    jobject result = nullptr;
     if (compile_individually) {
       CompileDexFilesIndividually();
       // Return a null classloader since we already freed released it.
-      return nullptr;
+    } else {
+      result = CompileDexFiles(dex_files_);
     }
-    return CompileDexFiles(dex_files_);
+    CDexExperiments experiments;
+    experiments.RunAll(dex_files_);
+    return result;
   }
 
   // Create the class loader, use it to compile, and return.
