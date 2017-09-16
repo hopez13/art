@@ -58,6 +58,7 @@ class Options {
   bool show_file_headers_ = false;
   bool show_section_headers_ = false;
   bool show_section_statistics_ = false;
+  bool compact_dex_experiments_ = false;
   bool verbose_ = false;
   // TODO: Set verify_output_ back to false by default. Was set to true for debugging b/62840842.
   bool verify_output_ = true;

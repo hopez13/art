@@ -33,6 +33,7 @@
 
 #include "android-base/stringprintf.h"
 
+#include "cdex/experiments.h"
 #include "dex_file-inl.h"
 #include "dex_file_layout.h"
 #include "dex_file_types.h"
@@ -2011,6 +2012,10 @@ int DexLayout::ProcessFile(const char* file_name) {
   if (options_.checksum_only_) {
     fprintf(out_file_, "Checksum verified\n");
   } else {
+    if (options_.compact_dex_experiments_) {
+      CDexExperiments experiments;
+      experiments.RunAll(dex_files);
+    }
     for (size_t i = 0; i < dex_files.size(); i++) {
       ProcessDexFile(file_name, dex_files[i].get(), i);
     }
