@@ -96,6 +96,29 @@
     },
     {
       "key": {
+        "uuid": "8a7c5e72_28cbb28d",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2017-09-16T00:14:16Z",
+      "side": 1,
+      "message": "Why use a separate lock file instead of locking the generated file itself?",
+      "range": {
+        "startLine": 179,
+        "startChar": 87,
+        "endLine": 179,
+        "endChar": 92
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af65b3b6_892b9794",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -136,6 +159,29 @@
         "startChar": 12,
         "endLine": 514,
         "endChar": 34
+      },
+      "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85afb07f_9435f791",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2017-09-16T00:14:16Z",
+      "side": 1,
+      "message": "Why not just mkdir unconditionally?",
+      "range": {
+        "startLine": 582,
+        "startChar": 6,
+        "endLine": 582,
+        "endChar": 11
       },
       "revId": "357c66dcc20ce15108ecf05f5ecf69a80b383dab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
