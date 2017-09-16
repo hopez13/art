@@ -59,6 +59,7 @@ static void Usage(void) {
   fprintf(stderr, " -s : visualize reference pattern\n");
   fprintf(stderr, " -t : display file section sizes\n");
   fprintf(stderr, " -v : verify output file is canonical to input (IR level comparison)\n");
+  fprintf(stderr, " -x : run compact dex experiments\n");
   fprintf(stderr, " -w : output dex directory \n");
 }
 
@@ -77,7 +78,7 @@ int DexlayoutDriver(int argc, char** argv) {
 
   // Parse all arguments.
   while (1) {
-    const int ic = getopt(argc, argv, "abcdefghil:mo:p:stvw:");
+    const int ic = getopt(argc, argv, "abcdexfghil:mo:p:stvw:");
     if (ic < 0) {
       break;  // done
     }
@@ -135,6 +136,9 @@ int DexlayoutDriver(int argc, char** argv) {
         break;
       case 'v':  // verify output
         options.verify_output_ = true;
+        break;
+      case 'x':  // run compact dex experiments
+        options.compact_dex_experiments_ = true;
         break;
       case 'w':  // output dex files directory
         options.output_dex_directory_ = optarg;
