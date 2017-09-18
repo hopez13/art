@@ -144,6 +144,24 @@
     },
     {
       "key": {
+        "uuid": "74cb42f3_5453586b",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-18T13:11:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0c699e8_ad7dd1dc",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a91a3a2_cd56a3e5",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
         "patchSetId": 3
@@ -155,6 +173,30 @@
       "writtenOn": "2017-09-12T14:45:07Z",
       "side": 1,
       "message": "You could also use:\n\n  info.trampoline_name \u003d base_name + \"_\" + std::to_string(i);",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 41
+      },
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "104d8ff5_724209c1",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-18T13:11:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a91a3a2_cd56a3e5",
       "range": {
         "startLine": 256,
         "startChar": 0,
@@ -184,6 +226,24 @@
     },
     {
       "key": {
+        "uuid": "8386e3bd_f3d9468a",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-18T13:11:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7de64527_f23ce693",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5d0acac_778fe3b1",
         "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
         "patchSetId": 3
@@ -195,6 +255,30 @@
       "writtenOn": "2017-09-12T14:45:07Z",
       "side": 1,
       "message": "Nit: Swap the operands of `\u003d\u003d` to match the style used in the rest of this method?",
+      "range": {
+        "startLine": 403,
+        "startChar": 17,
+        "endLine": 403,
+        "endChar": 97
+      },
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b08394_1bbf040f",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-18T13:11:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5d0acac_778fe3b1",
       "range": {
         "startLine": 403,
         "startChar": 17,
