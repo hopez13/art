@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3166875b_f7b0ca28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-18T12:02:24Z",
+      "side": 1,
+      "message": "I\u0027m not too fond of references to internal CLs not intended for submission. For AOSP, this would be a dangling reference forever.\n\nMaybe just drop it? Or mention that the issue affected old versions of ART?",
+      "revId": "23e3e6004209f2b9c2181a449e3085f822f5d5a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
