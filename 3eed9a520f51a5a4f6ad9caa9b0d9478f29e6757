@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b99ac83_db0d74b2",
+        "filename": "tools/ahat/src/HtmlEscaper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T11:08:31Z",
+      "side": 1,
+      "message": "You can use \u0026apos; if you prefer (the numeric entity seems out of place otherwise).  You may have previously seen people say that it was nonstandard, but (a) every browser supports it regardless, and (b) it\u0027s part of HTML5 anyway.",
+      "range": {
+        "startLine": 25,
+        "startChar": 66,
+        "endLine": 25,
+        "endChar": 73
+      },
+      "revId": "3eed9a520f51a5a4f6ad9caa9b0d9478f29e6757",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e470a8cf_299c780c",
+        "filename": "tools/ahat/src/StaticHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T11:08:31Z",
+      "side": 1,
+      "message": "It probably doesn\u0027t matter in practice, but is.read() returns -1 if the stream is finished and 0 if for some reason it couldn\u0027t read any characters but the stream is still live.  It\u0027s unlikely that any implementation ever actually returns 0, but you probably want to check \u003e -1 instead of \u003e 0.",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 41
+      },
+      "revId": "3eed9a520f51a5a4f6ad9caa9b0d9478f29e6757",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
