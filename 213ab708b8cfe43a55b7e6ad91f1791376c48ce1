@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6335df2e_88367534",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-18T19:12:37Z",
+      "side": 1,
+      "message": "I think proper indent would align with \u0027!\u0027.",
+      "range": {
+        "startLine": 191,
+        "startChar": 6,
+        "endLine": 191,
+        "endChar": 16
+      },
+      "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c78797_fa51860e",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-18T19:12:37Z",
+      "side": 1,
+      "message": "Single whitespace. Also below.",
+      "range": {
+        "startLine": 200,
+        "startChar": 61,
+        "endLine": 200,
+        "endChar": 63
+      },
+      "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55f845ed_8cebd60b",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-18T19:12:37Z",
+      "side": 1,
+      "message": "Document why both are necessary? For \"most\" cases an ART thread has a JNIEnv (and the reverse is always true). Point out where the second version is necessary (and not just a forward).",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 92
+      },
+      "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
