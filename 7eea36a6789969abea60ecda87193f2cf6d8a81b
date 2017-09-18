@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "a35d0796_26772784",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-18T15:57:39Z",
+      "side": 1,
+      "message": "I still don\u0027t know how to make a proper automated test without very invasive changes to run-test-jar. I need a test only for AOT, filter based on $ISA, pull the compiled oat file from the device (no \"nm\" on device) and do the \"nm\" on host.\n\nI\u0027m going to submit this as is and think about adding the test later.",
+      "parentUuid": "73e1dea8_012e4e87",
+      "revId": "7eea36a6789969abea60ecda87193f2cf6d8a81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0be20c1d_73ce3687",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
         "patchSetId": 3
