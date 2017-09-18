@@ -66,6 +66,54 @@
     },
     {
       "key": {
+        "uuid": "c117bc9f_498dc1db",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67526b5b_ee7b9fbf",
+      "range": {
+        "startLine": 830,
+        "startChar": 6,
+        "endLine": 830,
+        "endChar": 14
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f00ba4f_27fe1767",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12ba2d51_51239c76",
+      "range": {
+        "startLine": 830,
+        "startChar": 6,
+        "endLine": 830,
+        "endChar": 14
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "663737f1_2aa0ad7e",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -77,6 +125,30 @@
       "writtenOn": "2017-09-15T14:08:36Z",
       "side": 1,
       "message": "kNone.",
+      "range": {
+        "startLine": 836,
+        "startChar": 53,
+        "endLine": 836,
+        "endChar": 62
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00fa41c5_e10a34cb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "663737f1_2aa0ad7e",
       "range": {
         "startLine": 836,
         "startChar": 53,
@@ -112,6 +184,30 @@
     },
     {
       "key": {
+        "uuid": "47a11b8b_9d57cfbc",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6548c86_fbef0e75",
+      "range": {
+        "startLine": 847,
+        "startChar": 12,
+        "endLine": 847,
+        "endChar": 33
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff38a7_d31fc446",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -123,6 +219,30 @@
       "writtenOn": "2017-09-15T14:08:36Z",
       "side": 1,
       "message": "Reads odd?",
+      "range": {
+        "startLine": 899,
+        "startChar": 13,
+        "endLine": 899,
+        "endChar": 37
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50251ac4_cc0d86a8",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "True, but condition may not be a condition :-)",
+      "parentUuid": "5fff38a7_d31fc446",
       "range": {
         "startLine": 899,
         "startChar": 13,
@@ -182,6 +302,30 @@
     },
     {
       "key": {
+        "uuid": "710830e1_2acf4809",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "Done. Also added a comment to help see the patterns.",
+      "parentUuid": "8627da16_8149ae88",
+      "range": {
+        "startLine": 901,
+        "startChar": 18,
+        "endLine": 901,
+        "endChar": 20
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e70eb5_b6798668",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -193,6 +337,30 @@
       "writtenOn": "2017-09-15T14:08:36Z",
       "side": 1,
       "message": "Add a comment why this isn\u0027t necessarily true?",
+      "range": {
+        "startLine": 905,
+        "startChar": 8,
+        "endLine": 905,
+        "endChar": 24
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ff02643_470282f0",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e70eb5_b6798668",
       "range": {
         "startLine": 905,
         "startChar": 8,
@@ -251,6 +419,30 @@
     },
     {
       "key": {
+        "uuid": "d2b2d67c_76ec0ab6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "It actually does match the order correctly, for some definition of order at least, (I am sensitive to that too), since x1 is true_value above, and y1 is false_value here.\n\nHopefully with the new names it reads better now.",
+      "parentUuid": "185544f1_c2a87bde",
+      "range": {
+        "startLine": 915,
+        "startChar": 51,
+        "endLine": 915,
+        "endChar": 67
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d93da2c_7be6348d",
         "filename": "test/660-checker-sad1/src/Main.java",
         "patchSetId": 1
@@ -262,6 +454,24 @@
       "writtenOn": "2017-09-15T14:08:36Z",
       "side": 1,
       "message": "Make the test directory called 660-checker-sad-byte? (ditto for the other tests).",
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7c5ee70_b620fb06",
+        "filename": "test/660-checker-sad1/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-18T17:38:03Z",
+      "side": 1,
+      "message": "Yes, that is actually a very good idea. I don\u0027t know why I started out this way :-)",
+      "parentUuid": "2d93da2c_7be6348d",
       "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
