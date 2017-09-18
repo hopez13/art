@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a12a8ab2_cc74003d",
+        "filename": "tools/ahat/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "Might make your life easier to just declare \"throws Exception\"",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 67
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e6a91fe_7ce602d1",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "This is initialized and then immediately overwritten, better to just leave it uninitialized.",
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ff3986c_4273f8cd",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "Using appendCodePoint when you\u0027re never going to have more than a single byte is odd.  Why not format.append((char) b)?",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 34
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f81cca5a_7d4bfa7e",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "It would be nice to use an enum for this, though possibly the performance cost would be too great.",
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3301f168_af7a9146",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "Putting break on the same line as the closing brace is quite weird.  Either on a new line or inside the block is much more typical.",
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e088dcd4_81093ce2",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "This doesn\u0027t handle the case where a new key comes in that\u0027s smaller than the current minimum key but doesn\u0027t tick the count high enough to require reallocation (and therefore requires mKeyAt0 to change and the array to be shifted).",
+      "range": {
+        "startLine": 658,
+        "startChar": 4,
+        "endLine": 658,
+        "endChar": 40
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77980de5_b89995f5",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "It seems odd to return ints for these given that there are existing types of these sizes (byte, short/char).",
+      "range": {
+        "startLine": 787,
+        "startChar": 4,
+        "endLine": 787,
+        "endChar": 24
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7b243f_002b9a68",
+        "filename": "tools/ahat/src/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "Assuming you don\u0027t intend to ever modify these (which I don\u0027t think you do), good to make these final.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "629064a4_3dae3200",
+        "filename": "tools/ahat/src/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-18T13:04:20Z",
+      "side": 1,
+      "message": "I really hope not, that sounds terrible.",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 69
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
