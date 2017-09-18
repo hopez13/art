@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a6fa3596_ecca09c7",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-18T20:10:00Z",
+      "side": 1,
+      "message": "This won\u0027t work for JNIEnv*\u0026, JNIEnv*\u0026\u0026, const JNIEnv*, volatile JNIEnv*, etc.\n\nYou need to apply std::decay to fix it which removes these extra qualifiers.\n\n   std::decay_t\u003cstd::tuple_element_t\u003c ... \u003e\u003e\n-------\n\nnit: use std::tuple_element_t\u003cx\u003e instead of std::tuple_element\u003cx\u003e::type",
+      "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6335df2e_88367534",
         "filename": "openjdkjvmti/events-inl.h",
         "patchSetId": 1
@@ -41,6 +58,80 @@
         "startChar": 61,
         "endLine": 200,
         "endChar": 63
+      },
+      "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e68e77c_ce3aa314",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-18T20:10:00Z",
+      "side": 1,
+      "message": "nit: You can put UNUSED(suspend_) in the constructor. Although I\u0027m not sure we have a convention for this.",
+      "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "377df6bf_0817afea",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-18T20:10:00Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "789447ee_a6428866",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-18T20:10:00Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8172568c_d832e0ee",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-18T20:10:00Z",
+      "side": 1,
+      "message": "I assume it\u0027s only used with \"extern C\" APIs? Since otherwise \"Args\u0026\u0026... args\" is the correct way to do it.",
+      "range": {
+        "startLine": 189,
+        "startChar": 61,
+        "endLine": 189,
+        "endChar": 73
       },
       "revId": "213ab708b8cfe43a55b7e6ad91f1791376c48ce1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
