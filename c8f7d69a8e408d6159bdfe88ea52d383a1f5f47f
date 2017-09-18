@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2c2ecfe5_6dbee0e1",
+        "filename": "tools/ahat/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-18T15:44:26Z",
+      "side": 1,
+      "message": "Done. I have plans to clean up this error handling soon anyway.",
+      "parentUuid": "a12a8ab2_cc74003d",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 67
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e6a91fe_7ce602d1",
         "filename": "tools/ahat/src/heapdump/Parser.java",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-09-18T13:04:20Z",
       "side": 1,
       "message": "This is initialized and then immediately overwritten, better to just leave it uninitialized.",
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c14cd92_68f73356",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-18T15:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e6a91fe_7ce602d1",
       "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "469c2834_134d201c",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-18T15:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ff3986c_4273f8cd",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 34
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f81cca5a_7d4bfa7e",
         "filename": "tools/ahat/src/heapdump/Parser.java",
         "patchSetId": 2
@@ -76,6 +142,24 @@
       "writtenOn": "2017-09-18T13:04:20Z",
       "side": 1,
       "message": "It would be nice to use an enum for this, though possibly the performance cost would be too great.",
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59cbd2e_3bf5a813",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-18T15:44:26Z",
+      "side": 1,
+      "message": "The ordinals are not continuous. Is there a way to skip ordinal values with Java enums?\n\nAlternatively I could define static integers HPROF_RECORD_STRING \u003d 1, HPROF_RECORD_LOAD_CLASS \u003d 2, and so on. Do you think that\u0027s worth doing?",
+      "parentUuid": "f81cca5a_7d4bfa7e",
       "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "346c3cab_3aa89b2a",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-18T15:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3301f168_af7a9146",
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e088dcd4_81093ce2",
         "filename": "tools/ahat/src/heapdump/Parser.java",
         "patchSetId": 2
@@ -110,6 +212,30 @@
       "writtenOn": "2017-09-18T13:04:20Z",
       "side": 1,
       "message": "This doesn\u0027t handle the case where a new key comes in that\u0027s smaller than the current minimum key but doesn\u0027t tick the count high enough to require reallocation (and therefore requires mKeyAt0 to change and the array to be shifted).",
+      "range": {
+        "startLine": 658,
+        "startChar": 4,
+        "endLine": 658,
+        "endChar": 40
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c0a9538_5d20e4d7",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-18T15:44:26Z",
+      "side": 1,
+      "message": "In that case, rather than shift all the elements we wrap around the buffer, putting the new value at the end of the array. I added comments that hopefully clarify how things work.",
+      "parentUuid": "e088dcd4_81093ce2",
       "range": {
         "startLine": 658,
         "startChar": 4,
@@ -145,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "2662e2ff_5ad92954",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-18T15:44:26Z",
+      "side": 1,
+      "message": "I\u0027m never sure in this case how to handle the signed/unsigned mismatch between byte/U1 and short/U2. I put it as an int to avoid any worry that an unsigned number would be interpreted as a signed number.\n\nI don\u0027t use the same approach with getU4, because often they are used as array indices, which I would have to cast to signed to use anyway. It\u0027s really tedious to cast every one to int before using it.\n\nI don\u0027t think it is safe to use short for U2, because the constant pool size, number of static fields, and number of instance fields may improperly be treated as negative numbers. One place getU1 is used is for the heap dump record tag, where it\u0027s convenient to cast it to something larger than a byte to avoid casts in case statements such as \"case (byte)0x8e: { // ROOT JNI MONITOR\".",
+      "parentUuid": "77980de5_b89995f5",
+      "range": {
+        "startLine": 787,
+        "startChar": 4,
+        "endLine": 787,
+        "endChar": 24
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b7b243f_002b9a68",
         "filename": "tools/ahat/src/proguard/ProguardMap.java",
         "patchSetId": 2
@@ -156,6 +306,30 @@
       "writtenOn": "2017-09-18T13:04:20Z",
       "side": 1,
       "message": "Assuming you don\u0027t intend to ever modify these (which I don\u0027t think you do), good to make these final.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52ce46f3_2c2d1c9a",
+        "filename": "tools/ahat/src/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-18T15:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b7b243f_002b9a68",
       "range": {
         "startLine": 40,
         "startChar": 4,
