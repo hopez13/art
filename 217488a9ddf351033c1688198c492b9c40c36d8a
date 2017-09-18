@@ -16,6 +16,24 @@
       "revId": "217488a9ddf351033c1688198c492b9c40c36d8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94a44298_6f664d1b",
+        "filename": "runtime/heap_poisoning.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-18T20:21:10Z",
+      "side": 1,
+      "message": "Just copy-pasted, and in the style of the other USE_XYZ things (where we just distinguish on existence, e.g., see line 31). Not sure it\u0027s worth changing that. What do you see as benefits?",
+      "parentUuid": "c0294de1_b0c558d0",
+      "revId": "217488a9ddf351033c1688198c492b9c40c36d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
