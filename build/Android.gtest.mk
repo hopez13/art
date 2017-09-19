@@ -352,7 +352,9 @@ define define-art-gtest-rule-target
     $$($(3)TARGET_OUT_SHARED_LIBRARIES)/libopenjdkd.so \
     $$(TARGET_OUT_JAVA_LIBRARIES)/core-libart-testdex.jar \
     $$(TARGET_OUT_JAVA_LIBRARIES)/core-oj-testdex.jar \
-    $$(ART_TARGET_TEST_OUT)/valgrind-target-suppressions.txt
+    $$(ART_TARGET_TEST_OUT)/valgrind-target-suppressions.txt \
+    dx \
+    d8
 
 $$(gtest_rule) valgrind-$$(gtest_rule): PRIVATE_TARGET_EXE := $$(gtest_target_exe)
 
@@ -423,6 +425,7 @@ define define-art-gtest-rule-host
     $$($(3)ART_HOST_OUT_SHARED_LIBRARIES)/libopenjdkd$$(ART_HOST_SHLIB_EXTENSION) \
     $$(gtest_exe) \
     $$(ART_GTEST_$(1)_HOST_DEPS) \
+    dx d8 \
     $(foreach file,$(ART_GTEST_$(1)_DEX_DEPS),$(ART_TEST_HOST_GTEST_$(file)_DEX))
 
   ART_TEST_HOST_GTEST_DEPENDENCIES += $$(gtest_deps)
