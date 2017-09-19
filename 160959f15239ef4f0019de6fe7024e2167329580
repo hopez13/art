@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "222e0a02_e1c3cac2",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T15:43:35Z",
+      "side": 1,
+      "message": "Yeah, IIRC dependencies must be explicitly honored when linking statically (by putting the dependent before its dependency).",
+      "parentUuid": "35462bae_e7c66beb",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 16
+      },
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b569db9_8a77764d",
         "filename": "dex2oat/Android.bp",
         "patchSetId": 9
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "These are the *_test.cc files, libart-dex2oat declares non-test files.",
       "parentUuid": "9b569db9_8a77764d",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 36
+      },
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba38a6ce_b9ad7532",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T15:43:35Z",
+      "side": 1,
+      "message": "Ah, sorry, read that too fast.",
+      "parentUuid": "528fc1bc_f7f11004",
       "range": {
         "startLine": 218,
         "startChar": 0,
