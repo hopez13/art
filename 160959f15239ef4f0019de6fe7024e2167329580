@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8e2ba1e_2c223bb7",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T12:42:29Z",
+      "side": 1,
+      "message": "Is the order here determined by libraries dependencies on one another? If not, maybe sort them by name?",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 16
+      },
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b569db9_8a77764d",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T12:42:29Z",
+      "side": 1,
+      "message": "Is this needed, given that you are declaring libartd-dex2oat as a dependency line 233?",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 36
+      },
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99cc00bf_383a5373",
+        "filename": "dex2oat/generate-operator-out.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T12:42:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this file be a symlink to ../tools/generate-operator-out.py (like runtime/generate-operator-out.py, compiler/generate-operator-out.py, etc.)?",
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f275ea42_6da03ac0",
+        "filename": "dex2oat/linker/oat_writer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T12:42:29Z",
+      "side": 1,
+      "message": "I think this should not indented.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 2
+      },
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85dfb156_a2f3d4a4",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T12:42:29Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c80ffc07_f676a06d",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T12:42:29Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b3f0683_1258660d",
+        "filename": "runtime/image.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-19T12:42:29Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 2
+      },
+      "revId": "160959f15239ef4f0019de6fe7024e2167329580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
