@@ -326,6 +326,30 @@
     },
     {
       "key": {
+        "uuid": "41451654_21c586e5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-19T12:48:48Z",
+      "side": 1,
+      "message": "nit: using left/right or condition/true_value/false_value read better to me than a or b.",
+      "parentUuid": "710830e1_2acf4809",
+      "range": {
+        "startLine": 901,
+        "startChar": 18,
+        "endLine": 901,
+        "endChar": 20
+      },
+      "revId": "9318e3fb5c113cedd40e70a80dd19f9f5a93ae29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e70eb5_b6798668",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
