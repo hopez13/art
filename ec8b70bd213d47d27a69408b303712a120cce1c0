@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cea3ae7c_76b3b204",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2373,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-09-19T08:46:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7019f481_31779bd2",
+      "range": {
+        "startLine": 2372,
+        "startChar": 0,
+        "endLine": 2373,
+        "endChar": 82
+      },
+      "revId": "ec8b70bd213d47d27a69408b303712a120cce1c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8dd7214_283b1d67",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "12f0b93e_c2e302dd",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2234,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-09-19T08:46:10Z",
+      "side": 1,
+      "message": "This nop fills the forbidden slot, which can\u0027t contain a branch. Only unconditional compact branches on R6 (bc, jic, jialc) have neither a delay slot nor a forbidden slot. All others have one of the two kinds of slots.",
+      "parentUuid": "d8dd7214_283b1d67",
+      "range": {
+        "startLine": 2234,
+        "startChar": 4,
+        "endLine": 2234,
+        "endChar": 7
+      },
+      "revId": "ec8b70bd213d47d27a69408b303712a120cce1c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "108e7753_d255adb8",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-09-18T11:40:56Z",
       "side": 1,
       "message": "ENTRY_NO_GP? And maybe define the CFI right at the beginning with the full frame information?",
+      "range": {
+        "startLine": 2255,
+        "startChar": 0,
+        "endLine": 2256,
+        "endChar": 82
+      },
+      "revId": "ec8b70bd213d47d27a69408b303712a120cce1c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6d2e579_ecfeb588",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2256,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-09-19T08:46:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "108e7753_d255adb8",
       "range": {
         "startLine": 2255,
         "startChar": 0,
