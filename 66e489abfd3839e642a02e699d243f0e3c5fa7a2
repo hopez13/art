@@ -22,6 +22,30 @@
       "revId": "66e489abfd3839e642a02e699d243f0e3c5fa7a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8e9f6f1_88964b4f",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-09-19T18:03:24Z",
+      "side": 1,
+      "message": "This is tricky, because make doesn\u0027t actually know what rule is creating this file.  In GNU make you would have to fake a rule that depends on the proguard jar and touches the map file or copies it somewhere.  We have an extension to make in kati that can have multiple output files for a rule, so we could add to the proguard rule:\n\n $(full_classes_proguard_jar): .KATI_IMPLICIT_OUTPUTS :\u003d $(proguard_dictionary)",
+      "parentUuid": "971e9402_10a53d0d",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 34
+      },
+      "revId": "66e489abfd3839e642a02e699d243f0e3c5fa7a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
