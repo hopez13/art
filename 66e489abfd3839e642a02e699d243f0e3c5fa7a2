@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "971e9402_10a53d0d",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-19T13:27:20Z",
+      "side": 1,
+      "message": "If not already present in the out/ directory, this leads to the following error: \u0027out/target/common/obj/JAVA_LIBRARIES/ahat-test-dump_intermediates/proguard_dictionary\u0027, needed by \u0027out/host/common/obj/JAVA_LIBRARIES/ahat-tests_intermediates/java-source-list\u0027, missing and no known rule to make it\n\n$(AHAT_TEST_DUMP_PROGUARD_MAP) is the proguard map generated as a side effect of building ahat-test-dump.jar.\n\nColin, how can I tell ninja that $(AHAT_TEST_DUMP_PROGUARD_MAP) is generated as a side effect of building ahat-test-dump.jar?",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 34
+      },
+      "revId": "66e489abfd3839e642a02e699d243f0e3c5fa7a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
