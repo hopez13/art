@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b2e12b8_37c2dcf6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 3131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-19T23:27:44Z",
+      "side": 1,
+      "message": "add a note explaining the reason: \n\"If dex2oat fails, installd will remove the oat files causing the app to fallback to apk with possible in-memory extraction. We want to avoid that, and thus we\u0027re lenient towards profile corruptions.\"",
+      "revId": "a71e5acf1931fdb88e8d6f42c05188dd7ccd26e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "385fe372_4f7c2e64",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-19T23:27:44Z",
+      "side": 1,
+      "message": "style: extra space",
+      "range": {
+        "startLine": 1051,
+        "startChar": 78,
+        "endLine": 1051,
+        "endChar": 79
+      },
+      "revId": "a71e5acf1931fdb88e8d6f42c05188dd7ccd26e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
