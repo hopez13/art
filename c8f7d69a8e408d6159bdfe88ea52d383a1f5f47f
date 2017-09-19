@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "60a675a2_f3b2ed61",
+        "filename": "tools/ahat/src/heapdump/Parser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-09-19T09:16:02Z",
+      "side": 1,
+      "message": "\u003e The ordinals are not continuous. Is there a way to skip ordinal\n \u003e values with Java enums?\n \u003e \n \u003e Alternatively I could define static integers HPROF_RECORD_STRING \u003d\n \u003e 1, HPROF_RECORD_LOAD_CLASS \u003d 2, and so on. Do you think that\u0027s\n \u003e worth doing?\n\nThere\u0027s a common pattern to set up a map to do this.\n\nenum MyEnum {\n  FOO(0x01),\n  BAR(0x02),\n  BAZ(0x04),\n  ...\n\n  private final int value;\n  private MyEnum(int value) { this.value \u003d value; }\n\n  private static final Map\u003cInteger, MyEnum\u003e BY_VALUE \u003d new HashMap\u003c\u003e();\n  static {\n    for (MyEnum val : MyEnum.values()) {\n      BY_VALUE.put(val.value, val);\n    }\n  }\n\n  public static MyEnum fromValue(int value) { return BY_VALUE.get(value); }\n}\n\nThe cost is that you have to do a map lookup and box a primitive every time, though, so it\u0027s not free.  But if you do that, you can write\n\nswitch (MyEnum.fromValue(value)) {\n  case FOO:\n    ...;\n  case BAR:\n    ...;\n}\n\nIt\u0027s fine either way.",
+      "parentUuid": "d59cbd2e_3bf5a813",
+      "revId": "c8f7d69a8e408d6159bdfe88ea52d383a1f5f47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3301f168_af7a9146",
         "filename": "tools/ahat/src/heapdump/Parser.java",
         "patchSetId": 2
