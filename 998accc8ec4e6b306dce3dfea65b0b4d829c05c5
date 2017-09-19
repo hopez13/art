@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bed2c4e_32e3a581",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-19T06:10:14Z",
+      "side": 1,
+      "message": "We lost the ability to specify a custom DX. Is that important?\n\n\nIf so we can keep $USE_D8 just for the build itself while each test case can have a something like \"$LOCAL_DISABLE_D8\".\n\nThoughts?",
+      "revId": "998accc8ec4e6b306dce3dfea65b0b4d829c05c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
