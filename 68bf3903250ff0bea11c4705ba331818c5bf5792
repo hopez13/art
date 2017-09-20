@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "387bc125_e906b00a",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-20T18:02:29Z",
+      "side": 1,
+      "message": "why are we doing this?",
+      "range": {
+        "startLine": 275,
+        "startChar": 4,
+        "endLine": 275,
+        "endChar": 39
+      },
+      "revId": "68bf3903250ff0bea11c4705ba331818c5bf5792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73201a41_d9342765",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-20T18:02:29Z",
+      "side": 1,
+      "message": "is it for this check? surely we can test against a validity mask.",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 3
+      },
+      "revId": "68bf3903250ff0bea11c4705ba331818c5bf5792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
