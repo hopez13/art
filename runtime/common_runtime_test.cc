@@ -21,7 +21,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <cstdio>
-#include "nativehelper/ScopedLocalRef.h"
+#include "utils/scoped_local_ref.h"
 
 #include "../../external/icu/icu4c/source/common/unicode/uvernum.h"
 #include "android-base/stringprintf.h"
@@ -44,13 +44,13 @@
 #include "mem_map.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
-#include "native/dalvik_system_DexFile.h"
 #include "noop_compiler_callbacks.h"
 #include "os.h"
 #include "primitive.h"
 #include "runtime-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
+#include "native/dalvik_system_DexFile.h"
 #include "well_known_classes.h"
 
 int main(int argc, char **argv) {

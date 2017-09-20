@@ -31,9 +31,9 @@
 #include "mirror/method_type.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "obj_ptr-inl.h"
 #include "thread.h"
+#include "utils/scoped_local_ref.h"
 #include "verifier/method_verifier.h"
 #include "well_known_classes.h"
 

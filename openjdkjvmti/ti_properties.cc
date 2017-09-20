@@ -35,8 +35,8 @@
 #include <vector>
 
 #include "jni.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "nativehelper/ScopedUtfChars.h"
+#include "utils/scoped_local_ref.h"
 
 #include "art_jvmti.h"
 #include "runtime.h"
@@ -179,13 +179,13 @@ static jvmtiError GetLibraryPath(jvmtiEnv* env, char** value_ptr) {
                                                   "(Ljava/lang/String;)Ljava/lang/String;");
   CHECK(get_prop != nullptr);
 
-  ScopedLocalRef<jobject> input_str(jni_env, jni_env->NewStringUTF(kPropertyLibraryPath));
+  art::ScopedLocalRef<jobject> input_str(jni_env, jni_env->NewStringUTF(kPropertyLibraryPath));
   if (input_str.get() == nullptr) {
     jni_env->ExceptionClear();
     return ERR(OUT_OF_MEMORY);
   }
 
-  ScopedLocalRef<jobject> prop_res(
+  art::ScopedLocalRef<jobject> prop_res(
       jni_env, jni_env->CallStaticObjectMethod(art::WellKnownClasses::java_lang_System,
                                                get_prop,
                                                input_str.get()));

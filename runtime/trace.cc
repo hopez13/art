@@ -39,12 +39,12 @@
 #include "mirror/dex_cache-inl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "os.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
 #include "thread.h"
 #include "thread_list.h"
+#include "utils/scoped_local_ref.h"
 #include "utils.h"
 
 namespace art {

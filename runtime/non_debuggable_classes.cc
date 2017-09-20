@@ -19,9 +19,9 @@
 #include "base/logging.h"
 #include "jni_internal.h"
 #include "mirror/class-inl.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "obj_ptr-inl.h"
 #include "thread-current-inl.h"
+#include "utils/scoped_local_ref.h"
 
 namespace art {
 

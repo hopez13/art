@@ -47,7 +47,6 @@
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
 #include "modifiers.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
@@ -56,6 +55,7 @@
 #include "ti_stack.h"
 #include "ti_thread.h"
 #include "ti_phase.h"
+#include "utils/scoped_local_ref.h"
 
 namespace openjdkjvmti {
 
@@ -67,7 +67,7 @@ struct TiMethodCallback : public art::MethodCallback {
     if (event_handler->IsEventEnabledAnywhere(ArtJvmtiEvent::kNativeMethodBind)) {
       art::Thread* thread = art::Thread::Current();
       art::JNIEnvExt* jnienv = thread->GetJniEnv();
-      ScopedLocalRef<jthread> thread_jni(
+      art::ScopedLocalRef<jthread> thread_jni(
           jnienv, PhaseUtil::IsLivePhase() ? jnienv->AddLocalReference<jthread>(thread->GetPeer())
                                            : nullptr);
       art::ScopedThreadSuspension sts(thread, art::ThreadState::kNative);

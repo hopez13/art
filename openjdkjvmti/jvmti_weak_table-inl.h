@@ -44,8 +44,8 @@
 #include "jvmti_allocator.h"
 #include "mirror/class.h"
 #include "mirror/object.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "runtime.h"
+#include "utils/scoped_local_ref.h"
 
 namespace openjdkjvmti {
 

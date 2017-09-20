@@ -23,9 +23,9 @@
 
 #include "events.h"
 #include "jni_internal.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "ti_breakpoint.h"
+#include "utils/scoped_local_ref.h"
 
 #include "art_jvmti.h"
 
@@ -225,7 +225,7 @@ class ScopedEventDispatchEnvironment FINAL : public art::ValueObject {
 
  private:
   JNIEnv* env_;
-  ScopedLocalRef<jthrowable> thr_;
+  art::ScopedLocalRef<jthrowable> thr_;
   // Not actually unused. The destructor/constructor does important work.
   art::ScopedThreadStateChange suspend_;
 

@@ -22,12 +22,12 @@
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
 #include "mirror/reference-inl.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "object_callbacks.h"
 #include "reference_processor-inl.h"
 #include "reflection.h"
 #include "scoped_thread_state_change-inl.h"
 #include "task_processor.h"
+#include "utils/scoped_local_ref.h"
 #include "utils.h"
 #include "well_known_classes.h"
 
