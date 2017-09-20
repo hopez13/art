@@ -66,10 +66,12 @@ Header* DexIrBuilder(const DexFile& dex_file) {
     collections.CreateMethodId(dex_file, i);
   }
   // ClassDef table.
+  InstHistogram histogram;
   collections.SetClassDefsOffset(disk_header.class_defs_off_);
   for (uint32_t i = 0; i < dex_file.NumClassDefs(); ++i) {
-    collections.CreateClassDef(dex_file, i);
+    collections.CreateClassDef(dex_file, i, &histogram);
   }
+  histogram.Dump();
   // MapItem.
   collections.SetMapListOffset(disk_header.map_off_);
   // CallSiteIds and MethodHandleItems.

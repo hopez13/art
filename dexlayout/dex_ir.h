@@ -24,6 +24,7 @@
 #include <map>
 #include <vector>
 
+#include "android-base/stringprintf.h"
 #include "base/stl_util.h"
 #include "dex_file-inl.h"
 #include "dex_file_types.h"
@@ -31,6 +32,9 @@
 #include "utf.h"
 
 namespace art {
+
+class Instruction;
+
 namespace dex_ir {
 
 // Forward declarations for classes used in containers or pointed to.
@@ -72,6 +76,24 @@ static constexpr size_t kMethodIdItemSize = 8;
 static constexpr size_t kClassDefItemSize = 32;
 static constexpr size_t kCallSiteIdItemSize = 4;
 static constexpr size_t kMethodHandleItemSize = 8;
+
+class InstHistogram {
+ public:
+  InstHistogram();
+  void CountInst(const Instruction& inst);
+  void NewMethod();
+  void Dump();
+
+ private:
+  std::map<uint16_t, uint32_t> singleton_count_;
+  std::map<uint16_t, uint32_t> argument_indices_;
+  std::map<uint16_t, uint32_t> method_index_;
+  std::map<uint16_t, uint32_t> arg_counts_;
+  uint32_t getter_ = 0;
+  uint32_t setter_ = 0;
+  std::map<std::string, uint32_t> vtypes_;
+  DISALLOW_COPY_AND_ASSIGN(InstHistogram);
+};
 
 // Visitor support
 class AbstractDispatcher {
@@ -200,7 +222,7 @@ class Collections {
   void CreateProtoId(const DexFile& dex_file, uint32_t i);
   void CreateFieldId(const DexFile& dex_file, uint32_t i);
   void CreateMethodId(const DexFile& dex_file, uint32_t i);
-  void CreateClassDef(const DexFile& dex_file, uint32_t i);
+  void CreateClassDef(const DexFile& dex_file, uint32_t i, InstHistogram* histogram);
   void CreateCallSiteId(const DexFile& dex_file, uint32_t i);
   void CreateMethodHandleItem(const DexFile& dex_file, uint32_t i);
 
@@ -213,9 +235,14 @@ class Collections {
       const DexFile::AnnotationSetItem* disk_annotations_item, uint32_t offset);
   AnnotationsDirectoryItem* CreateAnnotationsDirectoryItem(const DexFile& dex_file,
       const DexFile::AnnotationsDirectoryItem* disk_annotations_item, uint32_t offset);
-  CodeItem* CreateCodeItem(
-      const DexFile& dex_file, const DexFile::CodeItem& disk_code_item, uint32_t offset);
-  ClassData* CreateClassData(const DexFile& dex_file, const uint8_t* encoded_data, uint32_t offset);
+  CodeItem* CreateCodeItem(const DexFile& dex_file,
+                           const DexFile::CodeItem& disk_code_item,
+                           uint32_t offset,
+                           InstHistogram* histogram);
+  ClassData* CreateClassData(const DexFile& dex_file,
+                             const uint8_t* encoded_data,
+                             uint32_t offset,
+                             InstHistogram* histogram);
 
   StringId* GetStringId(uint32_t index) {
     CHECK_LT(index, StringIdsSize());
@@ -329,7 +356,9 @@ class Collections {
 
   ParameterAnnotation* GenerateParameterAnnotation(const DexFile& dex_file, MethodId* method_id,
       const DexFile::AnnotationSetRefList* annotation_set_ref_list, uint32_t offset);
-  MethodItem* GenerateMethodItem(const DexFile& dex_file, ClassDataItemIterator& cdii);
+  MethodItem* GenerateMethodItem(const DexFile& dex_file,
+                                 ClassDataItemIterator& cdii,
+                                 InstHistogram* histogram);
 
   CollectionVector<StringId> string_ids_;
   CollectionVector<TypeId> type_ids_;
