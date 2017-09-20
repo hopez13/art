@@ -2,6 +2,374 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a156a43_8bfa369e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Expand the acronym here?",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68ca4f5f_0227f521",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c \"Unsupported SIMD type: \" \u003c\u003c instruction-\u003eGetPackedType();\n\n(Here and everywhere else in this CL.)",
+      "range": {
+        "startLine": 967,
+        "startChar": 6,
+        "endLine": 967,
+        "endChar": 44
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b967320e_b0ef76a9",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "I don\u0027t think this is needed, as this function returns `void` (likewise for other similar instances in this CL).",
+      "range": {
+        "startLine": 968,
+        "startChar": 6,
+        "endLine": 968,
+        "endChar": 20
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d375fb7_99421e28",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "This extra spacing (here and below) does not seem to match the C++ style.",
+      "range": {
+        "startLine": 981,
+        "startChar": 16,
+        "endLine": 981,
+        "endChar": 18
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6303efc_6aebac54",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "\u003c\u003c locations-\u003eInAt(0) \u003c\u003c \" \" \u003c\u003c locations-\u003eOut();",
+      "range": {
+        "startLine": 985,
+        "startChar": 53,
+        "endLine": 985,
+        "endChar": 54
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c4daa9f_8eef37ae",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "\u003c\u003c locations-\u003eInAt(0) \u003c\u003c \" \" \u003c\u003c locations-\u003eOut();",
+      "range": {
+        "startLine": 1065,
+        "startChar": 53,
+        "endLine": 1065,
+        "endChar": 54
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc082ff1_8dc10e7e",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Nit: Extra space.",
+      "range": {
+        "startLine": 1078,
+        "startChar": 42,
+        "endLine": 1078,
+        "endChar": 43
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1fb4b5d_9dc9aae3",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1079,
+        "startChar": 43,
+        "endLine": 1079,
+        "endChar": 44
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c9a1e2_24bd694c",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Why are we not crashing early here? Is this work in progress? If so, I would add a TODO or move that part of the change to another CL.",
+      "range": {
+        "startLine": 653,
+        "startChar": 2,
+        "endLine": 653,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acb6635f_4d4e9519",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 855,
+        "startChar": 21,
+        "endLine": 855,
+        "endChar": 23
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd08d7cb_6136488b",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto: If this is WIP, add a TODO or move to another CL.",
+      "range": {
+        "startLine": 899,
+        "startChar": 2,
+        "endLine": 899,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34274c99_987c2500",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto: If this is WIP, add a TODO or move to another CL.",
+      "range": {
+        "startLine": 903,
+        "startChar": 2,
+        "endLine": 903,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fda5f9fe_d56ad23b",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto: If this is WIP, add a TODO or move to another CL.",
+      "range": {
+        "startLine": 1056,
+        "startChar": 2,
+        "endLine": 1056,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "863aeae0_30073c28",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 2,
+        "endLine": 1065,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63532ca9_2a5d71d4",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto: If this is WIP, add a TODO or move to another CL.",
+      "range": {
+        "startLine": 1029,
+        "startChar": 2,
+        "endLine": 1029,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abff00d8_7a5a5e03",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto: If this is WIP, add a TODO or move to another CL.",
+      "range": {
+        "startLine": 1038,
+        "startChar": 2,
+        "endLine": 1038,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ccbdd93_c4bfd06a",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -18,6 +386,98 @@
         "startChar": 34,
         "endLine": 78,
         "endChar": 51
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef92b49c_9df83d95",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "You should use IsInt (from runtime/base/bit_utils.h) here and below. (I argue this would have caught/prevented the typo you fixed line 95.)",
+      "range": {
+        "startLine": 86,
+        "startChar": 12,
+        "endLine": 87,
+        "endChar": 55
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a6bad82_ad4b30f6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 147,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 56
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4658e2a_57662d6a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "I don\u0027t think this matches the C++ style we use; this statement should be on its own line. Also, this makes statements attached to multiple `case`s harder to read (e.g. lines 195–196).\n\n(Likewise below in other switch statements.)",
+      "range": {
+        "startLine": 194,
+        "startChar": 36,
+        "endLine": 194,
+        "endChar": 87
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dc9cef2_6b12319b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "\u003c\u003c induc_type;",
+      "range": {
+        "startLine": 818,
+        "startChar": 81,
+        "endLine": 818,
+        "endChar": 82
       },
       "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -117,6 +577,29 @@
     },
     {
       "key": {
+        "uuid": "11db568c_06d66f98",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "One operand of `\u0026\u0026` per line please.",
+      "range": {
+        "startLine": 1127,
+        "startChar": 30,
+        "endLine": 1127,
+        "endChar": 48
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b209664d_a108bc5f",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -209,6 +692,29 @@
     },
     {
       "key": {
+        "uuid": "33481628_ddb2dcfe",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1847,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "What does `red_type` mean?",
+      "range": {
+        "startLine": 1847,
+        "startChar": 58,
+        "endLine": 1847,
+        "endChar": 66
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5dcd948_65cd84bf",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -278,6 +784,236 @@
     },
     {
       "key": {
+        "uuid": "372be30e_4e147045",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1876,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "What about:\n\n  Primitive::Type sub_type \u003d a-\u003eGetType();\n  if (a-\u003eIsTypeConversion()) {\n    sub_type \u003d a-\u003eInputAt(0)-\u003eGetType();\n  }\n  if (b-\u003eIsTypeConversion()) {\n    sub_type \u003d b-\u003eInputAt(0)-\u003eGetType();\n  }\n\n?\n\nIf find this easier to read.",
+      "range": {
+        "startLine": 1875,
+        "startChar": 0,
+        "endLine": 1876,
+        "endChar": 93
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1f475ab_4756a15d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "I would split that into two separate DCHECKs.",
+      "range": {
+        "startLine": 1887,
+        "startChar": 2,
+        "endLine": 1887,
+        "endChar": 39
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e8acefe_d523dc75",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "of?",
+      "range": {
+        "startLine": 78,
+        "startChar": 42,
+        "endLine": 78,
+        "endChar": 43
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64cc849c_9a4d86fa",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Turn this into\n\n  HInstruction* scalars[]\n\nand remove the comment?",
+      "range": {
+        "startLine": 818,
+        "startChar": 17,
+        "endLine": 818,
+        "endChar": 50
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fce40a_4440db85",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "\u003c\u003c scalars[i]-\u003eDebugName();",
+      "range": {
+        "startLine": 830,
+        "startChar": 79,
+        "endLine": 830,
+        "endChar": 80
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27714790_e4640c35",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": ")",
+      "range": {
+        "startLine": 894,
+        "startChar": 61,
+        "endLine": 894,
+        "endChar": 62
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "852b3965_ba5d2536",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "left?",
+      "range": {
+        "startLine": 901,
+        "startChar": 34,
+        "endLine": 901,
+        "endChar": 42
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25479c05_18b34c41",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "right?",
+      "range": {
+        "startLine": 902,
+        "startChar": 34,
+        "endLine": 902,
+        "endChar": 43
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631713f9_116686b5",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "\u003c\u003c sad_left-\u003eDebugName();",
+      "range": {
+        "startLine": 913,
+        "startChar": 38,
+        "endLine": 913,
+        "endChar": 39
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb8cf8a8_54959c17",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "\u003c\u003c sad_right-\u003eDebugName();",
+      "range": {
+        "startLine": 914,
+        "startChar": 39,
+        "endLine": 914,
+        "endChar": 40
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b9c66c1_4c67f475",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 11
@@ -294,6 +1030,627 @@
         "startChar": 19,
         "endLine": 479,
         "endChar": 37
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cdc1cf_590ef359",
+        "filename": "test/651-checker-char-simd-minmax/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 105,
+        "startChar": 84,
+        "endLine": 105,
+        "endChar": 85
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2daa16e3_2ad50c28",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "All these blocks constitute independent test cases. Move each of them to its own method?",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 5
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2ad8f7c_5bee22c0",
+        "filename": "test/660-checker-simd-sad-byte/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Nit: Use same indentation as in line 97?",
+      "range": {
+        "startLine": 99,
+        "startChar": 77,
+        "endLine": 99,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3e319c8_42b89710",
+        "filename": "test/660-checker-simd-sad-byte/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 163,
+        "startChar": 77,
+        "endLine": 163,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e104014e_df8b581b",
+        "filename": "test/660-checker-simd-sad-byte/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 201,
+        "startChar": 77,
+        "endLine": 201,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a9b2f87_fb628c3c",
+        "filename": "test/660-checker-simd-sad-byte/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 238,
+        "startChar": 77,
+        "endLine": 238,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c26b381d_8fe57f78",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Nit: Use same indentation as in line 64?",
+      "range": {
+        "startLine": 66,
+        "startChar": 77,
+        "endLine": 66,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d26aaab0_54d2fd5f",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Maybe add a comment saying that the SAD idiom vectorization does not support char arrays yet? (Or maybe this is what you meant in the TODO line 22?)",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a1abbd6_70c75a96",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 89,
+        "startChar": 77,
+        "endLine": 89,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08064082_6949afc3",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 114,
+        "startChar": 77,
+        "endLine": 114,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "659b7f8c_43d9f629",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 144,
+        "startChar": 77,
+        "endLine": 144,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b780292_5d7441f8",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 172,
+        "startChar": 77,
+        "endLine": 172,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9794d11b_72e8e341",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Nit: Use same indentation as in line 29?",
+      "range": {
+        "startLine": 31,
+        "startChar": 77,
+        "endLine": 31,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96bb67f2_201d33a2",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Add a comment about why the SAD idiom vectorization is not performed in that case?",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 33
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9867926c_1654ce41",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 88,
+        "startChar": 77,
+        "endLine": 88,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1e4923a_a384ed23",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 126,
+        "startChar": 77,
+        "endLine": 126,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d8ccb1_e3b3f52f",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 163,
+        "startChar": 77,
+        "endLine": 163,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d6bcd51_63126a11",
+        "filename": "test/660-checker-simd-sad-long/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Nit: Use same indentation as in line 30?",
+      "range": {
+        "startLine": 32,
+        "startChar": 77,
+        "endLine": 32,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bb031cb_802a817d",
+        "filename": "test/660-checker-simd-sad-long/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Add a comment about why the SAD idiom vectorization is not performed in that case?",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73a598af_932a64e4",
+        "filename": "test/660-checker-simd-sad-long/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 92,
+        "startChar": 77,
+        "endLine": 92,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d1510b9_07843ec1",
+        "filename": "test/660-checker-simd-sad-long/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 129,
+        "startChar": 77,
+        "endLine": 129,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e23a1910_2d881898",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Nit: Use same indentation as in line 64?",
+      "range": {
+        "startLine": 66,
+        "startChar": 77,
+        "endLine": 66,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2c1a133_b05caaf2",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 97,
+        "startChar": 77,
+        "endLine": 97,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f8d5e96_e76b135e",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 130,
+        "startChar": 77,
+        "endLine": 130,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30f29e53_36b51e4e",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 168,
+        "startChar": 77,
+        "endLine": 168,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f90e38b_8fa29902",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 205,
+        "startChar": 77,
+        "endLine": 205,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52858557_0970c4d6",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T12:15:36Z",
+      "side": 1,
+      "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 145,
+        "startChar": 56,
+        "endLine": 145,
+        "endChar": 62
       },
       "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
