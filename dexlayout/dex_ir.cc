@@ -20,6 +20,7 @@
  * file layout.
  */
 
+#include <iostream>
 #include "dex_ir.h"
 #include "dex_instruction-inl.h"
 #include "dex_ir_builder.h"
@@ -183,12 +184,15 @@ static bool GetIdsFromByteCode(Collections& collections,
                                std::vector<TypeId*>* type_ids,
                                std::vector<StringId*>* string_ids,
                                std::vector<MethodId*>* method_ids,
-                               std::vector<FieldId*>* field_ids) {
+                               std::vector<FieldId*>* field_ids,
+                               InstHistogram* histogram) {
+  histogram->NewMethod();
   bool has_id = false;
   // Iterate over all instructions.
   const uint16_t* insns = code->Insns();
   for (uint32_t insn_idx = 0; insn_idx < code->InsnsSize();) {
     const Instruction* instruction = Instruction::At(&insns[insn_idx]);
+    histogram->CountInst(instruction);
     const uint32_t insn_width = instruction->SizeInCodeUnits();
     if (insn_width == 0) {
       break;
@@ -202,6 +206,87 @@ static bool GetIdsFromByteCode(Collections& collections,
     insn_idx += insn_width;
   }  // for
   return has_id;
+}
+
+InstHistogram::InstHistogram() {
+}
+
+static bool IsVirtualGetter(const Instruction* inst) {
+  return inst->Opcode() == Instruction::INVOKE_VIRTUAL &&
+         inst->VRegA_35c() == 1 &&
+         ((inst->Next()->Opcode() == Instruction::MOVE_RESULT) ||
+          (inst->Next()->Opcode() == Instruction::MOVE_RESULT_OBJECT));
+}
+
+static bool IsVirtualSetter(const Instruction* inst) {
+  return inst->Opcode() == Instruction::INVOKE_VIRTUAL &&
+         inst->VRegA_35c() == 2 &&
+         ((inst->Next()->Opcode() != Instruction::MOVE_RESULT) &&
+          (inst->Next()->Opcode() != Instruction::MOVE_RESULT_OBJECT));
+}
+
+void InstHistogram::CountInst(const Instruction* inst) {
+  Instruction::Code opcode = inst->Opcode();
+  singleton_count_[opcode]++;
+  if (Instruction::FormatOf(opcode) == Instruction::k35c) {
+    // Invokes.
+    argument_indices_[inst->Fetch16(2)]++;
+    method_index_[inst->Fetch16(1)]++;
+    arg_counts_[inst->VRegA_35c()]++;
+    // Virtuals with some special sauce.
+    if (IsVirtualGetter(inst)) {
+      getter_++;
+    }
+    if (IsVirtualSetter(inst)) {
+      setter_++;
+    }
+  }
+  if (inst->Opcode() == Instruction::INVOKE_VIRTUAL) {
+    uint8_t arg_count = inst->VRegA_35c();
+    std::string suffix = "n";
+    if ((inst->Next()->Opcode() == Instruction::MOVE_RESULT) ||
+        (inst->Next()->Opcode() == Instruction::MOVE_RESULT_OBJECT)) {
+      suffix = "y";
+    }
+    vtypes_[std::to_string(arg_count) + suffix]++;
+  }
+}
+
+void InstHistogram::NewMethod() {
+}
+
+void InstHistogram::Dump() {
+  std::string hist_string;
+  for (uint32_t i = 0; i < 256; ++i) {
+    hist_string += "," + std::to_string(singleton_count_[i]);
+  }
+  std::cerr << "INSTRUCTIONS" << hist_string << std::endl;
+  hist_string = "";
+  for (const std::pair<uint16_t, uint32_t>& pair : argument_indices_) {
+    hist_string +=
+        "ARGUMENTS," + std::to_string(pair.second) + "," + std::to_string(pair.first) + "\n";
+  }
+  std::cerr << hist_string;
+  hist_string = "";
+  for (const std::pair<uint16_t, uint32_t>& pair : method_index_) {
+    hist_string +=
+        "METHODS," + std::to_string(pair.second) + "," + std::to_string(pair.first) + "\n";
+  }
+  std::cerr << hist_string;
+  hist_string = "";
+  for (const std::pair<uint16_t, uint32_t>& pair : arg_counts_) {
+    hist_string +=
+        "ARGS," + std::to_string(pair.second) + "," + std::to_string(pair.first) + "\n";
+  }
+  std::cerr << hist_string;
+  std::cerr << "GETTER: " << getter_ << std::endl;
+  std::cerr << "SETTER: " << setter_ << std::endl;
+  hist_string = "TYPE,";
+  std::string types[] = { "0n", "0y", "1n", "1y", "2n", "2y", "3n", "3y", "4n", "4y", "5n", "5y" };
+  for (const std::string& type : types) {
+    hist_string += std::to_string(vtypes_[type]) + ",";
+  }
+  std::cerr << hist_string << std::endl;
 }
 
 EncodedValue* Collections::ReadEncodedValue(const uint8_t** data) {
@@ -362,7 +447,9 @@ void Collections::CreateMethodId(const DexFile& dex_file, uint32_t i) {
   method_ids_.AddIndexedItem(method_id, MethodIdsOffset() + i * MethodId::ItemSize(), i);
 }
 
-void Collections::CreateClassDef(const DexFile& dex_file, uint32_t i) {
+void Collections::CreateClassDef(const DexFile& dex_file,
+                                 uint32_t i,
+                                 InstHistogram* histogram) {
   const DexFile::ClassDef& disk_class_def = dex_file.GetClassDef(i);
   const TypeId* class_type = GetTypeId(disk_class_def.class_idx_.index_);
   uint32_t access_flags = disk_class_def.access_flags_;
@@ -385,7 +472,7 @@ void Collections::CreateClassDef(const DexFile& dex_file, uint32_t i) {
   EncodedArrayItem* static_values =
       CreateEncodedArrayItem(static_data, disk_class_def.static_values_off_);
   ClassData* class_data = CreateClassData(
-      dex_file, dex_file.GetClassData(disk_class_def), disk_class_def.class_data_off_);
+      dex_file, dex_file.GetClassData(disk_class_def), disk_class_def.class_data_off_, histogram);
   ClassDef* class_def = new ClassDef(class_type, access_flags, superclass, interfaces_type_list,
                                      source_file, annotations, static_values, class_data);
   class_defs_.AddIndexedItem(class_def, ClassDefsOffset() + i * ClassDef::ItemSize(), i);
@@ -559,7 +646,9 @@ ParameterAnnotation* Collections::GenerateParameterAnnotation(
 }
 
 CodeItem* Collections::CreateCodeItem(const DexFile& dex_file,
-                                      const DexFile::CodeItem& disk_code_item, uint32_t offset) {
+                                      const DexFile::CodeItem& disk_code_item,
+                                      uint32_t offset,
+                                      InstHistogram* histogram) {
   uint16_t registers_size = disk_code_item.registers_size_;
   uint16_t ins_size = disk_code_item.ins_size_;
   uint16_t outs_size = disk_code_item.outs_size_;
@@ -678,7 +767,8 @@ CodeItem* Collections::CreateCodeItem(const DexFile& dex_file,
                          type_ids.get(),
                          string_ids.get(),
                          method_ids.get(),
-                         field_ids.get())) {
+                         field_ids.get(),
+                         histogram)) {
     CodeFixups* fixups = new CodeFixups(type_ids.release(),
                                         string_ids.release(),
                                         method_ids.release(),
@@ -689,7 +779,9 @@ CodeItem* Collections::CreateCodeItem(const DexFile& dex_file,
   return code_item;
 }
 
-MethodItem* Collections::GenerateMethodItem(const DexFile& dex_file, ClassDataItemIterator& cdii) {
+MethodItem* Collections::GenerateMethodItem(const DexFile& dex_file,
+                                            ClassDataItemIterator& cdii,
+                                            InstHistogram* histogram) {
   MethodId* method_id = GetMethodId(cdii.GetMemberIndex());
   uint32_t access_flags = cdii.GetRawMemberAccessFlags();
   const DexFile::CodeItem* disk_code_item = cdii.GetMethodCodeItem();
@@ -697,7 +789,10 @@ MethodItem* Collections::GenerateMethodItem(const DexFile& dex_file, ClassDataIt
   DebugInfoItem* debug_info = nullptr;
   if (disk_code_item != nullptr) {
     if (code_item == nullptr) {
-      code_item = CreateCodeItem(dex_file, *disk_code_item, cdii.GetMethodCodeItemOffset());
+      code_item = CreateCodeItem(dex_file,
+                                 *disk_code_item,
+                                 cdii.GetMethodCodeItemOffset(),
+                                 histogram);
     }
     debug_info = code_item->DebugInfo();
   }
@@ -710,8 +805,10 @@ MethodItem* Collections::GenerateMethodItem(const DexFile& dex_file, ClassDataIt
   return new MethodItem(access_flags, method_id, code_item);
 }
 
-ClassData* Collections::CreateClassData(
-    const DexFile& dex_file, const uint8_t* encoded_data, uint32_t offset) {
+ClassData* Collections::CreateClassData(const DexFile& dex_file,
+                                        const uint8_t* encoded_data,
+                                        uint32_t offset,
+                                        InstHistogram* histogram) {
   // Read the fields and methods defined by the class, resolving the circular reference from those
   // to classes by setting class at the same time.
   ClassData* class_data = class_datas_.GetExistingObject(offset);
@@ -735,12 +832,14 @@ ClassData* Collections::CreateClassData(
     // Direct methods.
     MethodItemVector* direct_methods = new MethodItemVector();
     for (; cdii.HasNextDirectMethod(); cdii.Next()) {
-      direct_methods->push_back(std::unique_ptr<MethodItem>(GenerateMethodItem(dex_file, cdii)));
+      direct_methods->push_back(
+          std::unique_ptr<MethodItem>(GenerateMethodItem(dex_file, cdii, histogram)));
     }
     // Virtual methods.
     MethodItemVector* virtual_methods = new MethodItemVector();
     for (; cdii.HasNextVirtualMethod(); cdii.Next()) {
-      virtual_methods->push_back(std::unique_ptr<MethodItem>(GenerateMethodItem(dex_file, cdii)));
+      virtual_methods->push_back(
+          std::unique_ptr<MethodItem>(GenerateMethodItem(dex_file, cdii, histogram)));
     }
     class_data = new ClassData(static_fields, instance_fields, direct_methods, virtual_methods);
     class_data->SetSize(cdii.EndDataPointer() - encoded_data);
