@@ -51,10 +51,10 @@
 #include "mirror/class.h"
 #include "mirror/class_ext.h"
 #include "mirror/object.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "object_lock.h"
 #include "runtime.h"
 #include "transform.h"
+#include "utils/scoped_local_ref.h"
 
 namespace openjdkjvmti {
 

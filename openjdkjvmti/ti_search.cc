@@ -43,7 +43,6 @@
 #include "mirror/class-inl.h"
 #include "mirror/object.h"
 #include "mirror/string.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "obj_ptr-inl.h"
 #include "runtime.h"
 #include "runtime_callbacks.h"
@@ -51,6 +50,7 @@
 #include "thread-current-inl.h"
 #include "thread_list.h"
 #include "ti_phase.h"
+#include "utils/scoped_local_ref.h"
 #include "well_known_classes.h"
 
 namespace openjdkjvmti {
@@ -91,7 +91,7 @@ static void Update() REQUIRES_SHARED(art::Locks::mutator_lock_) {
       class_linker->LookupClass(self, "Ljava/util/Properties;", nullptr);
   DCHECK(properties_class != nullptr);
 
-  ScopedLocalRef<jobject> defaults_jobj(self->GetJniEnv(), nullptr);
+  art::ScopedLocalRef<jobject> defaults_jobj(self->GetJniEnv(), nullptr);
   {
     art::ObjPtr<art::mirror::Object> props_obj = GetSystemProperties(self, class_linker);
 
@@ -122,7 +122,7 @@ static void Update() REQUIRES_SHARED(art::Locks::mutator_lock_) {
   DCHECK(set_property->GetDeclaringClass() == properties_class);
 
   // This is an allocation. Do this late to avoid the need for handles.
-  ScopedLocalRef<jobject> cp_jobj(self->GetJniEnv(), nullptr);
+  art::ScopedLocalRef<jobject> cp_jobj(self->GetJniEnv(), nullptr);
   {
     art::ObjPtr<art::mirror::Object> cp_key =
         art::mirror::String::AllocFromModifiedUtf8(self, "java.class.path");
@@ -137,11 +137,11 @@ static void Update() REQUIRES_SHARED(art::Locks::mutator_lock_) {
   // OK, now get the current value.
   std::string str_value;
   {
-    ScopedLocalRef<jobject> old_value(self->GetJniEnv(),
-                                      self->GetJniEnv()->CallObjectMethod(
-                                          defaults_jobj.get(),
-                                          art::jni::EncodeArtMethod(get_property),
-                                          cp_jobj.get()));
+    art::ScopedLocalRef<jobject> old_value(self->GetJniEnv(),
+                                           self->GetJniEnv()->CallObjectMethod(
+                                               defaults_jobj.get(),
+                                               art::jni::EncodeArtMethod(get_property),
+                                               cp_jobj.get()));
     DCHECK(old_value.get() != nullptr);
 
     str_value = self->DecodeJObject(old_value.get())->AsString()->ToModifiedUtf8();
@@ -158,7 +158,7 @@ static void Update() REQUIRES_SHARED(art::Locks::mutator_lock_) {
   gSystemOnloadSegments.clear();
 
   // Create the new value object.
-  ScopedLocalRef<jobject> new_val_jobj(self->GetJniEnv(), nullptr);
+  art::ScopedLocalRef<jobject> new_val_jobj(self->GetJniEnv(), nullptr);
   {
     art::ObjPtr<art::mirror::Object> new_value =
         art::mirror::String::AllocFromModifiedUtf8(self, str_value.c_str());
@@ -172,11 +172,12 @@ static void Update() REQUIRES_SHARED(art::Locks::mutator_lock_) {
   }
 
   // Write to the defaults.
-  ScopedLocalRef<jobject> res_obj(self->GetJniEnv(),
-                                  self->GetJniEnv()->CallObjectMethod(defaults_jobj.get(),
-                                      art::jni::EncodeArtMethod(set_property),
-                                      cp_jobj.get(),
-                                      new_val_jobj.get()));
+  art::ScopedLocalRef<jobject> res_obj(self->GetJniEnv(),
+                                       self->GetJniEnv()->CallObjectMethod(
+                                           defaults_jobj.get(),
+                                           art::jni::EncodeArtMethod(set_property),
+                                           cp_jobj.get(),
+                                           new_val_jobj.get()));
   if (self->IsExceptionPending()) {
     self->ClearException();
     return;
@@ -280,7 +281,7 @@ jvmtiError SearchUtil::AddToSystemClassLoaderSearch(jvmtiEnv* jvmti_env ATTRIBUT
     return ERR(INTERNAL);
   }
 
-  ScopedLocalRef<jstring> dex_path(env, env->NewStringUTF(segment));
+  art::ScopedLocalRef<jstring> dex_path(env, env->NewStringUTF(segment));
   if (dex_path.get() == nullptr) {
     return ERR(INTERNAL);
   }

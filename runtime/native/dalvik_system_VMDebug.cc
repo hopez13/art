@@ -40,10 +40,10 @@
 #include "mirror/class.h"
 #include "mirror/object_array-inl.h"
 #include "native_util.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "nativehelper/ScopedUtfChars.h"
 #include "scoped_fast_native_object_access-inl.h"
 #include "trace.h"
+#include "utils/scoped_local_ref.h"
 #include "well_known_classes.h"
 
 namespace art {

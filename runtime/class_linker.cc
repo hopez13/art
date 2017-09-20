@@ -98,7 +98,6 @@
 #include "mirror/stack_trace_element.h"
 #include "mirror/string-inl.h"
 #include "native/dalvik_system_DexFile.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "oat.h"
 #include "oat_file-inl.h"
 #include "oat_file.h"
@@ -113,8 +112,9 @@
 #include "thread_list.h"
 #include "trace.h"
 #include "utf.h"
-#include "utils.h"
 #include "utils/dex_cache_arrays_layout-inl.h"
+#include "utils/scoped_local_ref.h"
+#include "utils.h"
 #include "verifier/method_verifier.h"
 #include "well_known_classes.h"
 
