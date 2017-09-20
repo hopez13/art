@@ -59,7 +59,6 @@
 #include "mirror/object_array-inl.h"
 #include "mirror/object_reference.h"
 #include "mirror/reference.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "primitive.h"
 #include "reflection.h"
 #include "runtime.h"
@@ -70,6 +69,7 @@
 #include "ti_class_loader.h"
 #include "ti_phase.h"
 #include "ti_redefine.h"
+#include "utils/scoped_local_ref.h"
 #include "utils.h"
 #include "well_known_classes.h"
 
@@ -186,7 +186,7 @@ struct ClassCallback : public art::ClassLoadCallback {
 
     art::Thread* self = art::Thread::Current();
     art::JNIEnvExt* env = self->GetJniEnv();
-    ScopedLocalRef<jobject> loader(
+    art::ScopedLocalRef<jobject> loader(
         env, class_loader.IsNull() ? nullptr : env->AddLocalReference<jobject>(class_loader.Get()));
     std::unique_ptr<FixedUpDexFile> dex_file_copy(FixedUpDexFile::Create(initial_dex_file));
 
@@ -312,10 +312,10 @@ struct ClassCallback : public art::ClassLoadCallback {
   void ClassLoad(art::Handle<art::mirror::Class> klass) REQUIRES_SHARED(art::Locks::mutator_lock_) {
     if (event_handler->IsEventEnabledAnywhere(ArtJvmtiEvent::kClassLoad)) {
       art::Thread* thread = art::Thread::Current();
-      ScopedLocalRef<jclass> jklass(thread->GetJniEnv(),
-                                    thread->GetJniEnv()->AddLocalReference<jclass>(klass.Get()));
+      art::ScopedLocalRef<jclass> jklass(
+          thread->GetJniEnv(), thread->GetJniEnv()->AddLocalReference<jclass>(klass.Get()));
       art::ObjPtr<art::mirror::Object> peer(thread->GetPeer());
-      ScopedLocalRef<jthread> thread_jni(
+      art::ScopedLocalRef<jthread> thread_jni(
           thread->GetJniEnv(),
           peer.IsNull() ? nullptr : thread->GetJniEnv()->AddLocalReference<jthread>(peer));
       event_handler->DispatchEvent<ArtJvmtiEvent::kClassLoad>(
@@ -339,10 +339,10 @@ struct ClassCallback : public art::ClassLoadCallback {
         DCHECK(temp_klass->IsRetired());
         HandleTempClass(thread, temp_klass, klass);
       }
-      ScopedLocalRef<jclass> jklass(thread->GetJniEnv(),
-                                    thread->GetJniEnv()->AddLocalReference<jclass>(klass.Get()));
+      art::ScopedLocalRef<jclass> jklass(
+          thread->GetJniEnv(), thread->GetJniEnv()->AddLocalReference<jclass>(klass.Get()));
       art::ObjPtr<art::mirror::Object> peer(thread->GetPeer());
-      ScopedLocalRef<jthread> thread_jni(
+      art::ScopedLocalRef<jthread> thread_jni(
           thread->GetJniEnv(),
           peer.IsNull() ? nullptr : thread->GetJniEnv()->AddLocalReference<jthread>(peer));
       event_handler->DispatchEvent<ArtJvmtiEvent::kClassPrepare>(

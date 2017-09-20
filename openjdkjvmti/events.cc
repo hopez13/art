@@ -49,13 +49,13 @@
 #include "mirror/class.h"
 #include "mirror/object-inl.h"
 #include "monitor.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
 #include "thread-inl.h"
 #include "thread_list.h"
 #include "ti_phase.h"
+#include "utils/scoped_local_ref.h"
 
 namespace openjdkjvmti {
 
@@ -205,7 +205,7 @@ static void RunEventCallback(EventHandler* handler,
                              art::JNIEnvExt* jnienv,
                              Args... args)
     REQUIRES_SHARED(art::Locks::mutator_lock_) {
-  ScopedLocalRef<jthread> thread_jni(jnienv, AddLocalRef<jthread>(jnienv, self->GetPeer()));
+  art::ScopedLocalRef<jthread> thread_jni(jnienv, AddLocalRef<jthread>(jnienv, self->GetPeer()));
   handler->DispatchEvent<kEvent>(self,
                                  static_cast<JNIEnv*>(jnienv),
                                  thread_jni.get(),
@@ -231,9 +231,9 @@ class JvmtiAllocationListener : public art::gc::AllocationListener {
       //      jclass object_klass,
       //      jlong size
       art::JNIEnvExt* jni_env = self->GetJniEnv();
-      ScopedLocalRef<jobject> object(
+      art::ScopedLocalRef<jobject> object(
           jni_env, jni_env->AddLocalReference<jobject>(*obj));
-      ScopedLocalRef<jclass> klass(
+      art::ScopedLocalRef<jclass> klass(
           jni_env, jni_env->AddLocalReference<jclass>(obj->Ptr()->GetClass()));
 
       RunEventCallback<ArtJvmtiEvent::kVmObjectAlloc>(handler_,
@@ -270,7 +270,7 @@ class JvmtiMonitorListener : public art::MonitorCallback {
     if (handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMonitorContendedEnter)) {
       art::Thread* self = art::Thread::Current();
       art::JNIEnvExt* jnienv = self->GetJniEnv();
-      ScopedLocalRef<jobject> mon(jnienv, AddLocalRef<jobject>(jnienv, m->GetObject()));
+      art::ScopedLocalRef<jobject> mon(jnienv, AddLocalRef<jobject>(jnienv, m->GetObject()));
       RunEventCallback<ArtJvmtiEvent::kMonitorContendedEnter>(
           handler_,
           self,
@@ -284,7 +284,7 @@ class JvmtiMonitorListener : public art::MonitorCallback {
     if (handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMonitorContendedEntered)) {
       art::Thread* self = art::Thread::Current();
       art::JNIEnvExt* jnienv = self->GetJniEnv();
-      ScopedLocalRef<jobject> mon(jnienv, AddLocalRef<jobject>(jnienv, m->GetObject()));
+      art::ScopedLocalRef<jobject> mon(jnienv, AddLocalRef<jobject>(jnienv, m->GetObject()));
       RunEventCallback<ArtJvmtiEvent::kMonitorContendedEntered>(
           handler_,
           self,
@@ -298,7 +298,7 @@ class JvmtiMonitorListener : public art::MonitorCallback {
     if (handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMonitorWait)) {
       art::Thread* self = art::Thread::Current();
       art::JNIEnvExt* jnienv = self->GetJniEnv();
-      ScopedLocalRef<jobject> mon(jnienv, AddLocalRef<jobject>(jnienv, obj.Get()));
+      art::ScopedLocalRef<jobject> mon(jnienv, AddLocalRef<jobject>(jnienv, obj.Get()));
       RunEventCallback<ArtJvmtiEvent::kMonitorWait>(
           handler_,
           self,
@@ -325,7 +325,7 @@ class JvmtiMonitorListener : public art::MonitorCallback {
     if (handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMonitorWaited)) {
       art::Thread* self = art::Thread::Current();
       art::JNIEnvExt* jnienv = self->GetJniEnv();
-      ScopedLocalRef<jobject> mon(jnienv, AddLocalRef<jobject>(jnienv, m->GetObject()));
+      art::ScopedLocalRef<jobject> mon(jnienv, AddLocalRef<jobject>(jnienv, m->GetObject()));
       RunEventCallback<ArtJvmtiEvent::kMonitorWaited>(
           handler_,
           self,
@@ -438,7 +438,8 @@ class JvmtiMethodTraceListener FINAL : public art::instrumentation::Instrumentat
       DCHECK(!self->IsExceptionPending());
       jvalue val;
       art::JNIEnvExt* jnienv = self->GetJniEnv();
-      ScopedLocalRef<jobject> return_jobj(jnienv, AddLocalRef<jobject>(jnienv, return_value.Get()));
+      art::ScopedLocalRef<jobject> return_jobj(jnienv,
+                                               AddLocalRef<jobject>(jnienv, return_value.Get()));
       val.l = return_jobj.get();
       RunEventCallback<ArtJvmtiEvent::kMethodExit>(
           event_handler_,
@@ -544,10 +545,11 @@ class JvmtiMethodTraceListener FINAL : public art::instrumentation::Instrumentat
     if (event_handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kFieldAccess)) {
       art::JNIEnvExt* jnienv = self->GetJniEnv();
       // DCHECK(!self->IsExceptionPending());
-      ScopedLocalRef<jobject> this_ref(jnienv, AddLocalRef<jobject>(jnienv, this_object.Get()));
-      ScopedLocalRef<jobject> fklass(jnienv,
-                                     AddLocalRef<jobject>(jnienv,
-                                                          field->GetDeclaringClass().Ptr()));
+      art::ScopedLocalRef<jobject> this_ref(jnienv,
+                                            AddLocalRef<jobject>(jnienv, this_object.Get()));
+      art::ScopedLocalRef<jobject> fklass(jnienv,
+                                          AddLocalRef<jobject>(jnienv,
+                                                               field->GetDeclaringClass().Ptr()));
       RunEventCallback<ArtJvmtiEvent::kFieldAccess>(event_handler_,
                                                     self,
                                                     jnienv,
@@ -569,11 +571,12 @@ class JvmtiMethodTraceListener FINAL : public art::instrumentation::Instrumentat
     if (event_handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kFieldModification)) {
       art::JNIEnvExt* jnienv = self->GetJniEnv();
       // DCHECK(!self->IsExceptionPending());
-      ScopedLocalRef<jobject> this_ref(jnienv, AddLocalRef<jobject>(jnienv, this_object.Get()));
-      ScopedLocalRef<jobject> fklass(jnienv,
-                                     AddLocalRef<jobject>(jnienv,
-                                                          field->GetDeclaringClass().Ptr()));
-      ScopedLocalRef<jobject> fval(jnienv, AddLocalRef<jobject>(jnienv, new_val.Get()));
+      art::ScopedLocalRef<jobject> this_ref(jnienv,
+                                            AddLocalRef<jobject>(jnienv, this_object.Get()));
+      art::ScopedLocalRef<jobject> fklass(jnienv,
+                                          AddLocalRef<jobject>(jnienv,
+                                                               field->GetDeclaringClass().Ptr()));
+      art::ScopedLocalRef<jobject> fval(jnienv, AddLocalRef<jobject>(jnienv, new_val.Get()));
       jvalue val;
       val.l = fval.get();
       RunEventCallback<ArtJvmtiEvent::kFieldModification>(
@@ -601,10 +604,11 @@ class JvmtiMethodTraceListener FINAL : public art::instrumentation::Instrumentat
     if (event_handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kFieldModification)) {
       art::JNIEnvExt* jnienv = self->GetJniEnv();
       DCHECK(!self->IsExceptionPending());
-      ScopedLocalRef<jobject> this_ref(jnienv, AddLocalRef<jobject>(jnienv, this_object.Get()));
-      ScopedLocalRef<jobject> fklass(jnienv,
-                                     AddLocalRef<jobject>(jnienv,
-                                                          field->GetDeclaringClass().Ptr()));
+      art::ScopedLocalRef<jobject> this_ref(jnienv,
+                                            AddLocalRef<jobject>(jnienv, this_object.Get()));
+      art::ScopedLocalRef<jobject> fklass(jnienv,
+                                          AddLocalRef<jobject>(jnienv,
+                                                               field->GetDeclaringClass().Ptr()));
       char type_char = art::Primitive::Descriptor(field->GetTypeAsPrimitiveType())[0];
       jvalue val;
       // 64bit integer is the largest value in the union so we should be fine simply copying it into
@@ -722,8 +726,8 @@ class JvmtiMethodTraceListener FINAL : public art::instrumentation::Instrumentat
       art::ArtMethod* method = self->GetCurrentMethod(&dex_pc,
                                                       /* check_suspended */ true,
                                                       /* abort_on_error */ art::kIsDebugBuild);
-      ScopedLocalRef<jobject> exception(jnienv,
-                                        AddLocalRef<jobject>(jnienv, exception_object.Get()));
+      art::ScopedLocalRef<jobject> exception(jnienv,
+                                             AddLocalRef<jobject>(jnienv, exception_object.Get()));
       RunEventCallback<ArtJvmtiEvent::kException>(
           event_handler_,
           self,
@@ -748,8 +752,8 @@ class JvmtiMethodTraceListener FINAL : public art::instrumentation::Instrumentat
       art::ArtMethod* method = self->GetCurrentMethod(&dex_pc,
                                                       /* check_suspended */ true,
                                                       /* abort_on_error */ art::kIsDebugBuild);
-      ScopedLocalRef<jobject> exception(jnienv,
-                                        AddLocalRef<jobject>(jnienv, exception_object.Get()));
+      art::ScopedLocalRef<jobject> exception(jnienv,
+                                             AddLocalRef<jobject>(jnienv, exception_object.Get()));
       RunEventCallback<ArtJvmtiEvent::kExceptionCatch>(
           event_handler_,
           self,

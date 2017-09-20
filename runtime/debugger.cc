@@ -55,7 +55,6 @@
 #include "mirror/object_array-inl.h"
 #include "mirror/string-inl.h"
 #include "mirror/throwable.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "nativehelper/ScopedPrimitiveArray.h"
 #include "obj_ptr-inl.h"
 #include "reflection.h"
@@ -64,6 +63,7 @@
 #include "stack.h"
 #include "thread_list.h"
 #include "utf.h"
+#include "utils/scoped_local_ref.h"
 #include "well_known_classes.h"
 
 namespace art {

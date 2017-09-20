@@ -49,7 +49,6 @@
 #include "mirror/object_array-inl.h"
 #include "mirror/string-inl.h"
 #include "mirror/throwable.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "parsed_options.h"
 #include "reflection.h"
 #include "runtime.h"
@@ -57,6 +56,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 #include "utf.h"
+#include "utils/scoped_local_ref.h"
 #include "well_known_classes.h"
 
 namespace {
