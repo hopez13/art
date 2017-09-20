@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "903dd146_081ea211",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-20T01:23:24Z",
+      "side": 1,
+      "message": "can you also validate that profile\u0027s num_method_ids matches the dex_file one?",
+      "range": {
+        "startLine": 1056,
+        "startChar": 26,
+        "endLine": 1056,
+        "endChar": 34
+      },
+      "revId": "26765207bd51665f2413f37658b77c66391c6106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
