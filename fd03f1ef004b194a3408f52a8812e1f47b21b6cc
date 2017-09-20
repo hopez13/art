@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e47465a5_0dec7068",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-20T17:38:00Z",
+      "side": 1,
+      "message": "Or some weird unloading. Also, we might be getting the fake BootClassLoader here.",
+      "parentUuid": "84502703_3fa08115",
+      "range": {
+        "startLine": 841,
+        "startChar": 18,
+        "endLine": 841,
+        "endChar": 22
+      },
+      "revId": "fd03f1ef004b194a3408f52a8812e1f47b21b6cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc354fd7_3130a4f5",
         "filename": "runtime/java_vm_ext.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6b51431c_e9fe3f9c",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-20T17:38:00Z",
+      "side": 1,
+      "message": "But that is complicated and requires insight into the type of the classloader. Are you sure it\u0027s worth the pain?",
+      "parentUuid": "fc354fd7_3130a4f5",
+      "range": {
+        "startLine": 846,
+        "startChar": 0,
+        "endLine": 849,
+        "endChar": 73
+      },
+      "revId": "fd03f1ef004b194a3408f52a8812e1f47b21b6cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d144f93_99c5445f",
         "filename": "runtime/java_vm_ext.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-09-20T08:53:55Z",
       "side": 1,
       "message": "nit: \"(failed to call toString)\"\n\n?",
+      "range": {
+        "startLine": 862,
+        "startChar": 16,
+        "endLine": 862,
+        "endChar": 20
+      },
+      "revId": "fd03f1ef004b194a3408f52a8812e1f47b21b6cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75aa7326_b46890a8",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-20T17:38:00Z",
+      "side": 1,
+      "message": "This one means the jweak was cleared, i.e., boot classloader or unloading. So null seems correct?",
+      "parentUuid": "0d144f93_99c5445f",
       "range": {
         "startLine": 862,
         "startChar": 16,
