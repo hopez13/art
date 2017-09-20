@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c7cbfa96_5db79b82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a156a43_8bfa369e",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68ca4f5f_0227f521",
         "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "LOG(FATAL) \u003c\u003c \"Unsupported SIMD type: \" \u003c\u003c instruction-\u003eGetPackedType();\n\n(Here and everywhere else in this CL.)",
+      "range": {
+        "startLine": 967,
+        "startChar": 6,
+        "endLine": 967,
+        "endChar": 44
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc3320aa_3f052463",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "I don\u0027t generally want to push back on reviewer feedback, but I have used this LOG format very consistently over all code_generator_vector* files. I am okay changing, but then I will change them all for consistency, making this CL even larger :-)",
+      "parentUuid": "68ca4f5f_0227f521",
       "range": {
         "startLine": 967,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5838d288_8df1ff8b",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "I believe I was asked to use this idiom everywhere inside a switch. Here too you will see that all files use this style.",
+      "parentUuid": "b967320e_b0ef76a9",
+      "range": {
+        "startLine": 968,
+        "startChar": 6,
+        "endLine": 968,
+        "endChar": 20
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d375fb7_99421e28",
         "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "This extra spacing (here and below) does not seem to match the C++ style.",
+      "range": {
+        "startLine": 981,
+        "startChar": 16,
+        "endLine": 981,
+        "endChar": 18
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b7b738b_d894ae29",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Okay, removed. I like to lines those up, but am ok not doing it.",
+      "parentUuid": "7d375fb7_99421e28",
       "range": {
         "startLine": 981,
         "startChar": 16,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "056c1244_db1efd7e",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Same concern a bit.",
+      "parentUuid": "c6303efc_6aebac54",
+      "range": {
+        "startLine": 985,
+        "startChar": 53,
+        "endLine": 985,
+        "endChar": 54
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c4daa9f_8eef37ae",
         "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
         "patchSetId": 11
@@ -128,6 +248,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "\u003c\u003c locations-\u003eInAt(0) \u003c\u003c \" \" \u003c\u003c locations-\u003eOut();",
+      "range": {
+        "startLine": 1065,
+        "startChar": 53,
+        "endLine": 1065,
+        "endChar": 54
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfbc23ec_5ad2b7ee",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "As above",
+      "parentUuid": "7c4daa9f_8eef37ae",
       "range": {
         "startLine": 1065,
         "startChar": 53,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "bc37febd_b47c15aa",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "bc082ff1_8dc10e7e",
+      "range": {
+        "startLine": 1078,
+        "startChar": 42,
+        "endLine": 1078,
+        "endChar": 43
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1fb4b5d_9dc9aae3",
         "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
         "patchSetId": 11
@@ -174,6 +342,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1079,
+        "startChar": 43,
+        "endLine": 1079,
+        "endChar": 44
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe82794d_5ce5dbbf",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Here is only one space?",
+      "parentUuid": "c1fb4b5d_9dc9aae3",
       "range": {
         "startLine": 1079,
         "startChar": 43,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "f18771f8_56adb5e1",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Because I am introducing another accumulate instruction, I want to make sure our partners use the same helpers as elsewhere when implementing the code. I am rather particular about keeping the same look\u003dand\u003dfeel in our 6 code generators.",
+      "parentUuid": "64c9a1e2_24bd694c",
+      "range": {
+        "startLine": 653,
+        "startChar": 2,
+        "endLine": 653,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acb6635f_4d4e9519",
         "filename": "compiler/optimizing/code_generator_vector_mips.cc",
         "patchSetId": 11
@@ -220,6 +436,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 855,
+        "startChar": 21,
+        "endLine": 855,
+        "endChar": 23
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30f4074d_6363f6dd",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acb6635f_4d4e9519",
       "range": {
         "startLine": 855,
         "startChar": 21,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "822e0404_6284a6f0",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Just making sure our partners will follow this structure. I really want to keep this in the same CL to make sure all our reductions follow this pattern.",
+      "parentUuid": "cd08d7cb_6136488b",
+      "range": {
+        "startLine": 899,
+        "startChar": 2,
+        "endLine": 899,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34274c99_987c2500",
         "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
         "patchSetId": 11
@@ -266,6 +530,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto: If this is WIP, add a TODO or move to another CL.",
+      "range": {
+        "startLine": 903,
+        "startChar": 2,
+        "endLine": 903,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9eb6ff2_0a533686",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Same. Please allow me to keep.",
+      "parentUuid": "34274c99_987c2500",
       "range": {
         "startLine": 903,
         "startChar": 2,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "934164d3_0ad3235a",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "fda5f9fe_d56ad23b",
+      "range": {
+        "startLine": 1056,
+        "startChar": 2,
+        "endLine": 1056,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "863aeae0_30073c28",
         "filename": "compiler/optimizing/code_generator_vector_x86.cc",
         "patchSetId": 11
@@ -312,6 +624,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 2,
+        "endLine": 1065,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6515f23c_c60ca953",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "863aeae0_30073c28",
       "range": {
         "startLine": 1065,
         "startChar": 2,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "797d2c52_5719eeb5",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "63532ca9_2a5d71d4",
+      "range": {
+        "startLine": 1029,
+        "startChar": 2,
+        "endLine": 1029,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abff00d8_7a5a5e03",
         "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
         "patchSetId": 11
@@ -358,6 +718,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto: If this is WIP, add a TODO or move to another CL.",
+      "range": {
+        "startLine": 1038,
+        "startChar": 2,
+        "endLine": 1038,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "242869ae_268efd8e",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "abff00d8_7a5a5e03",
       "range": {
         "startLine": 1038,
         "startChar": 2,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "f40f398e_d216631c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ccbdd93_c4bfd06a",
+      "range": {
+        "startLine": 78,
+        "startChar": 34,
+        "endLine": 78,
+        "endChar": 51
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef92b49c_9df83d95",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -404,6 +812,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "You should use IsInt (from runtime/base/bit_utils.h) here and below. (I argue this would have caught/prevented the typo you fixed line 95.)",
+      "range": {
+        "startLine": 86,
+        "startChar": 12,
+        "endLine": 87,
+        "endChar": 55
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64843fa3_7a564833",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Ah nice! Great suggestion.",
+      "parentUuid": "ef92b49c_9df83d95",
       "range": {
         "startLine": 86,
         "startChar": 12,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "3e503df9_43338606",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a6bad82_ad4b30f6",
+      "range": {
+        "startLine": 147,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 56
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4658e2a_57662d6a",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -450,6 +906,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "I don\u0027t think this matches the C++ style we use; this statement should be on its own line. Also, this makes statements attached to multiple `case`s harder to read (e.g. lines 195–196).\n\n(Likewise below in other switch statements.)",
+      "range": {
+        "startLine": 194,
+        "startChar": 36,
+        "endLine": 194,
+        "endChar": 87
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "127af334_91ff079a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "I find the condensed code much easier to read, but if you prefer this. Moved.",
+      "parentUuid": "a4658e2a_57662d6a",
       "range": {
         "startLine": 194,
         "startChar": 36,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "95b0d814_c1645989",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dc9cef2_6b12319b",
+      "range": {
+        "startLine": 818,
+        "startChar": 81,
+        "endLine": 818,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f4a2a0_2a7644c8",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -496,6 +1000,30 @@
       "writtenOn": "2017-09-20T09:52:30Z",
       "side": 1,
       "message": "indentation is off",
+      "range": {
+        "startLine": 1032,
+        "startChar": 0,
+        "endLine": 1032,
+        "endChar": 9
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e390db8_fa8593f0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f4a2a0_2a7644c8",
       "range": {
         "startLine": 1032,
         "startChar": 0,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "d531d27b_5ef6c2fc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5bc2a03_4136df63",
+      "range": {
+        "startLine": 1120,
+        "startChar": 13,
+        "endLine": 1120,
+        "endChar": 19
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "693399a6_057e0a43",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -542,6 +1094,30 @@
       "writtenOn": "2017-09-20T09:52:30Z",
       "side": 1,
       "message": "size_from?",
+      "range": {
+        "startLine": 1121,
+        "startChar": 13,
+        "endLine": 1121,
+        "endChar": 20
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5e0b8d_ac8f4a82",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "693399a6_057e0a43",
       "range": {
         "startLine": 1121,
         "startChar": 13,
@@ -577,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "6d315a6f_8c249a3f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3b34461_ec9d90e7",
+      "range": {
+        "startLine": 1122,
+        "startChar": 13,
+        "endLine": 1122,
+        "endChar": 18
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11db568c_06d66f98",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -588,6 +1188,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "One operand of `\u0026\u0026` per line please.",
+      "range": {
+        "startLine": 1127,
+        "startChar": 30,
+        "endLine": 1127,
+        "endChar": 48
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5882940b_85f675b4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11db568c_06d66f98",
       "range": {
         "startLine": 1127,
         "startChar": 30,
@@ -623,6 +1247,30 @@
     },
     {
       "key": {
+        "uuid": "f5326f46_190facad",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b209664d_a108bc5f",
+      "range": {
+        "startLine": 1465,
+        "startChar": 19,
+        "endLine": 1465,
+        "endChar": 20
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b597b1d9_91d96246",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -634,6 +1282,30 @@
       "writtenOn": "2017-09-20T09:52:30Z",
       "side": 1,
       "message": "nit: worth adding a comment.",
+      "range": {
+        "startLine": 1466,
+        "startChar": 0,
+        "endLine": 1473,
+        "endChar": 78
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b744605_1cb822c9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1473,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b597b1d9_91d96246",
       "range": {
         "startLine": 1466,
         "startChar": 0,
@@ -715,6 +1387,30 @@
     },
     {
       "key": {
+        "uuid": "e47c0347_d22d06e8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1847,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "renamed",
+      "parentUuid": "33481628_ddb2dcfe",
+      "range": {
+        "startLine": 1847,
+        "startChar": 58,
+        "endLine": 1847,
+        "endChar": 66
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5dcd948_65cd84bf",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -726,6 +1422,30 @@
       "writtenOn": "2017-09-20T09:52:30Z",
       "side": 1,
       "message": "left",
+      "range": {
+        "startLine": 1855,
+        "startChar": 16,
+        "endLine": 1855,
+        "endChar": 17
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3386cb5e_6614ca42",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "see below.",
+      "parentUuid": "f5dcd948_65cd84bf",
       "range": {
         "startLine": 1855,
         "startChar": 16,
@@ -761,6 +1481,30 @@
     },
     {
       "key": {
+        "uuid": "5b4c5b22_0b54043f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "I picked the names such that we get a nice q, r, s below. Changing that would make it harder to read below?",
+      "parentUuid": "8aa9b0c7_a2642928",
+      "range": {
+        "startLine": 1856,
+        "startChar": 16,
+        "endLine": 1856,
+        "endChar": 17
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85e1e9c5_acb022ed",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -772,6 +1516,30 @@
       "writtenOn": "2017-09-20T09:52:30Z",
       "side": 1,
       "message": "What\u0027s \u0027r\u0027 and \u0027s\u0027? Comment line 1839 only talks about \u0027a\u0027 and \u0027b\u0027.",
+      "range": {
+        "startLine": 1872,
+        "startChar": 16,
+        "endLine": 1873,
+        "endChar": 17
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d16f000_9c38eeee",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1873,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "85e1e9c5_acb022ed",
       "range": {
         "startLine": 1872,
         "startChar": 16,
@@ -807,6 +1575,30 @@
     },
     {
       "key": {
+        "uuid": "6cdde026_e015a542",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1876,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "372be30e_4e147045",
+      "range": {
+        "startLine": 1875,
+        "startChar": 0,
+        "endLine": 1876,
+        "endChar": 93
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1f475ab_4756a15d",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 11
@@ -818,6 +1610,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "I would split that into two separate DCHECKs.",
+      "range": {
+        "startLine": 1887,
+        "startChar": 2,
+        "endLine": 1887,
+        "endChar": 39
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1814ba49_342076c7",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1f475ab_4756a15d",
       "range": {
         "startLine": 1887,
         "startChar": 2,
@@ -853,6 +1669,30 @@
     },
     {
       "key": {
+        "uuid": "92ff3496_8b5736bc",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e8acefe_d523dc75",
+      "range": {
+        "startLine": 78,
+        "startChar": 42,
+        "endLine": 78,
+        "endChar": 43
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64cc849c_9a4d86fa",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 11
@@ -864,6 +1704,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Turn this into\n\n  HInstruction* scalars[]\n\nand remove the comment?",
+      "range": {
+        "startLine": 818,
+        "startChar": 17,
+        "endLine": 818,
+        "endChar": 50
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ddad527_40aaec6e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64cc849c_9a4d86fa",
       "range": {
         "startLine": 818,
         "startChar": 17,
@@ -899,6 +1763,30 @@
     },
     {
       "key": {
+        "uuid": "9e7fb404_0a006856",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "same concern that I should really change all of them then",
+      "parentUuid": "99fce40a_4440db85",
+      "range": {
+        "startLine": 830,
+        "startChar": 79,
+        "endLine": 830,
+        "endChar": 80
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27714790_e4640c35",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 11
@@ -910,6 +1798,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": ")",
+      "range": {
+        "startLine": 894,
+        "startChar": 61,
+        "endLine": 894,
+        "endChar": 62
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80e93e16_b210b9f9",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Good eye!",
+      "parentUuid": "27714790_e4640c35",
       "range": {
         "startLine": 894,
         "startChar": 61,
@@ -945,6 +1857,30 @@
     },
     {
       "key": {
+        "uuid": "482d706d_55ba2394",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "I followed naming convention above (mul_left vs sad_left)",
+      "parentUuid": "852b3965_ba5d2536",
+      "range": {
+        "startLine": 901,
+        "startChar": 34,
+        "endLine": 901,
+        "endChar": 42
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25479c05_18b34c41",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 11
@@ -956,6 +1892,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "right?",
+      "range": {
+        "startLine": 902,
+        "startChar": 34,
+        "endLine": 902,
+        "endChar": 43
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04527c10_1027c6c2",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Same",
+      "parentUuid": "25479c05_18b34c41",
       "range": {
         "startLine": 902,
         "startChar": 34,
@@ -991,6 +1951,30 @@
     },
     {
       "key": {
+        "uuid": "fe8d8f51_a98ee4a9",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "same concern",
+      "parentUuid": "631713f9_116686b5",
+      "range": {
+        "startLine": 913,
+        "startChar": 38,
+        "endLine": 913,
+        "endChar": 39
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb8cf8a8_54959c17",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 11
@@ -1002,6 +1986,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "\u003c\u003c sad_right-\u003eDebugName();",
+      "range": {
+        "startLine": 914,
+        "startChar": 39,
+        "endLine": 914,
+        "endChar": 40
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aef6583c_dc3c3d5e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "same concern",
+      "parentUuid": "eb8cf8a8_54959c17",
       "range": {
         "startLine": 914,
         "startChar": 39,
@@ -1037,6 +2045,30 @@
     },
     {
       "key": {
+        "uuid": "0bf19b11_7a9b1963",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Related to reductions (it should have gone in back then), but exposed by the new code. Do you want a separate CL for this?",
+      "parentUuid": "9b9c66c1_4c67f475",
+      "range": {
+        "startLine": 479,
+        "startChar": 19,
+        "endLine": 479,
+        "endChar": 37
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cdc1cf_590ef359",
         "filename": "test/651-checker-char-simd-minmax/src/Main.java",
         "patchSetId": 11
@@ -1048,6 +2080,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 105,
+        "startChar": 84,
+        "endLine": 105,
+        "endChar": 85
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5504e188_d20004a3",
+        "filename": "test/651-checker-char-simd-minmax/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02cdc1cf_590ef359",
       "range": {
         "startLine": 105,
         "startChar": 84,
@@ -1083,6 +2139,30 @@
     },
     {
       "key": {
+        "uuid": "d56e5efd_553139a6",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2daa16e3_2ad50c28",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 5
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2ad8f7c_5bee22c0",
         "filename": "test/660-checker-simd-sad-byte/src/Main.java",
         "patchSetId": 11
@@ -1094,6 +2174,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Nit: Use same indentation as in line 97?",
+      "range": {
+        "startLine": 99,
+        "startChar": 77,
+        "endLine": 99,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99c002eb_a1be147d",
+        "filename": "test/660-checker-simd-sad-byte/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2ad8f7c_5bee22c0",
       "range": {
         "startLine": 99,
         "startChar": 77,
@@ -1129,6 +2233,30 @@
     },
     {
       "key": {
+        "uuid": "0288121c_e4389c5d",
+        "filename": "test/660-checker-simd-sad-byte/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3e319c8_42b89710",
+      "range": {
+        "startLine": 163,
+        "startChar": 77,
+        "endLine": 163,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e104014e_df8b581b",
         "filename": "test/660-checker-simd-sad-byte/src/Main.java",
         "patchSetId": 11
@@ -1140,6 +2268,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 201,
+        "startChar": 77,
+        "endLine": 201,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e443783c_93ae938a",
+        "filename": "test/660-checker-simd-sad-byte/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e104014e_df8b581b",
       "range": {
         "startLine": 201,
         "startChar": 77,
@@ -1175,6 +2327,30 @@
     },
     {
       "key": {
+        "uuid": "490c94dc_8b8fa301",
+        "filename": "test/660-checker-simd-sad-byte/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a9b2f87_fb628c3c",
+      "range": {
+        "startLine": 238,
+        "startChar": 77,
+        "endLine": 238,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c26b381d_8fe57f78",
         "filename": "test/660-checker-simd-sad-char/src/Main.java",
         "patchSetId": 11
@@ -1186,6 +2362,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Nit: Use same indentation as in line 64?",
+      "range": {
+        "startLine": 66,
+        "startChar": 77,
+        "endLine": 66,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fc3cf26_07e79a8c",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c26b381d_8fe57f78",
       "range": {
         "startLine": 66,
         "startChar": 77,
@@ -1221,6 +2421,30 @@
     },
     {
       "key": {
+        "uuid": "62b201a6_368a24c5",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d26aaab0_54d2fd5f",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a1abbd6_70c75a96",
         "filename": "test/660-checker-simd-sad-char/src/Main.java",
         "patchSetId": 11
@@ -1232,6 +2456,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 89,
+        "startChar": 77,
+        "endLine": 89,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a4753ac_918105b6",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a1abbd6_70c75a96",
       "range": {
         "startLine": 89,
         "startChar": 77,
@@ -1267,6 +2515,30 @@
     },
     {
       "key": {
+        "uuid": "54ae7cf5_e7e122b9",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08064082_6949afc3",
+      "range": {
+        "startLine": 114,
+        "startChar": 77,
+        "endLine": 114,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "659b7f8c_43d9f629",
         "filename": "test/660-checker-simd-sad-char/src/Main.java",
         "patchSetId": 11
@@ -1278,6 +2550,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 144,
+        "startChar": 77,
+        "endLine": 144,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9071266f_984ee52c",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "659b7f8c_43d9f629",
       "range": {
         "startLine": 144,
         "startChar": 77,
@@ -1313,6 +2609,30 @@
     },
     {
       "key": {
+        "uuid": "a81701ef_a4e23959",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b780292_5d7441f8",
+      "range": {
+        "startLine": 172,
+        "startChar": 77,
+        "endLine": 172,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9794d11b_72e8e341",
         "filename": "test/660-checker-simd-sad-int/src/Main.java",
         "patchSetId": 11
@@ -1324,6 +2644,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Nit: Use same indentation as in line 29?",
+      "range": {
+        "startLine": 31,
+        "startChar": 77,
+        "endLine": 31,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "156af0c9_29defb49",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9794d11b_72e8e341",
       "range": {
         "startLine": 31,
         "startChar": 77,
@@ -1359,6 +2703,30 @@
     },
     {
       "key": {
+        "uuid": "ebb6465a_218c37c4",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96bb67f2_201d33a2",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 33
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9867926c_1654ce41",
         "filename": "test/660-checker-simd-sad-int/src/Main.java",
         "patchSetId": 11
@@ -1370,6 +2738,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 88,
+        "startChar": 77,
+        "endLine": 88,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e0ec4e_b0fc5962",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9867926c_1654ce41",
       "range": {
         "startLine": 88,
         "startChar": 77,
@@ -1405,6 +2797,30 @@
     },
     {
       "key": {
+        "uuid": "76b4c1f2_a3f7ba4c",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1e4923a_a384ed23",
+      "range": {
+        "startLine": 126,
+        "startChar": 77,
+        "endLine": 126,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19d8ccb1_e3b3f52f",
         "filename": "test/660-checker-simd-sad-int/src/Main.java",
         "patchSetId": 11
@@ -1416,6 +2832,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 163,
+        "startChar": 77,
+        "endLine": 163,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dad8552_a777f13e",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19d8ccb1_e3b3f52f",
       "range": {
         "startLine": 163,
         "startChar": 77,
@@ -1451,6 +2891,30 @@
     },
     {
       "key": {
+        "uuid": "efbd32a3_f2ef5cb6",
+        "filename": "test/660-checker-simd-sad-long/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d6bcd51_63126a11",
+      "range": {
+        "startLine": 32,
+        "startChar": 77,
+        "endLine": 32,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bb031cb_802a817d",
         "filename": "test/660-checker-simd-sad-long/src/Main.java",
         "patchSetId": 11
@@ -1462,6 +2926,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Add a comment about why the SAD idiom vectorization is not performed in that case?",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a5c1df_0e61d242",
+        "filename": "test/660-checker-simd-sad-long/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bb031cb_802a817d",
       "range": {
         "startLine": 70,
         "startChar": 6,
@@ -1497,6 +2985,30 @@
     },
     {
       "key": {
+        "uuid": "0c7b45c2_8930237e",
+        "filename": "test/660-checker-simd-sad-long/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73a598af_932a64e4",
+      "range": {
+        "startLine": 92,
+        "startChar": 77,
+        "endLine": 92,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d1510b9_07843ec1",
         "filename": "test/660-checker-simd-sad-long/src/Main.java",
         "patchSetId": 11
@@ -1508,6 +3020,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 129,
+        "startChar": 77,
+        "endLine": 129,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e6ef82f_699d5618",
+        "filename": "test/660-checker-simd-sad-long/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d1510b9_07843ec1",
       "range": {
         "startLine": 129,
         "startChar": 77,
@@ -1543,6 +3079,30 @@
     },
     {
       "key": {
+        "uuid": "15819402_3f4a9a61",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e23a1910_2d881898",
+      "range": {
+        "startLine": 66,
+        "startChar": 77,
+        "endLine": 66,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2c1a133_b05caaf2",
         "filename": "test/660-checker-simd-sad-short/src/Main.java",
         "patchSetId": 11
@@ -1554,6 +3114,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 97,
+        "startChar": 77,
+        "endLine": 97,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6660515d_70f2b5e6",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2c1a133_b05caaf2",
       "range": {
         "startLine": 97,
         "startChar": 77,
@@ -1589,6 +3173,30 @@
     },
     {
       "key": {
+        "uuid": "8beae791_876db0b6",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f8d5e96_e76b135e",
+      "range": {
+        "startLine": 130,
+        "startChar": 77,
+        "endLine": 130,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30f29e53_36b51e4e",
         "filename": "test/660-checker-simd-sad-short/src/Main.java",
         "patchSetId": 11
@@ -1600,6 +3208,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 168,
+        "startChar": 77,
+        "endLine": 168,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e350c601_97338b2c",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30f29e53_36b51e4e",
       "range": {
         "startLine": 168,
         "startChar": 77,
@@ -1635,6 +3267,30 @@
     },
     {
       "key": {
+        "uuid": "f4ce248d_47664968",
+        "filename": "test/660-checker-simd-sad-short/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f90e38b_8fa29902",
+      "range": {
+        "startLine": 205,
+        "startChar": 77,
+        "endLine": 205,
+        "endChar": 82
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52858557_0970c4d6",
         "filename": "test/661-checker-simd-reduc/src/Main.java",
         "patchSetId": 11
@@ -1646,6 +3302,30 @@
       "writtenOn": "2017-09-20T12:15:36Z",
       "side": 1,
       "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 145,
+        "startChar": 56,
+        "endLine": 145,
+        "endChar": 62
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4086d4a1_c30c3bf5",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52858557_0970c4d6",
       "range": {
         "startLine": 145,
         "startChar": 56,
