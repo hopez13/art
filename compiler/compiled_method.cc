@@ -108,7 +108,7 @@ CompiledMethod::CompiledMethod(CompilerDriver* driver,
                                const ArrayRef<const uint8_t>& method_info,
                                const ArrayRef<const uint8_t>& vmap_table,
                                const ArrayRef<const uint8_t>& cfi_info,
-                               const ArrayRef<const LinkerPatch>& patches)
+                               const ArrayRef<const linker::LinkerPatch>& patches)
     : CompiledCode(driver, instruction_set, quick_code),
       frame_size_in_bytes_(frame_size_in_bytes),
       core_spill_mask_(core_spill_mask),
@@ -129,7 +129,7 @@ CompiledMethod* CompiledMethod::SwapAllocCompiledMethod(
     const ArrayRef<const uint8_t>& method_info,
     const ArrayRef<const uint8_t>& vmap_table,
     const ArrayRef<const uint8_t>& cfi_info,
-    const ArrayRef<const LinkerPatch>& patches) {
+    const ArrayRef<const linker::LinkerPatch>& patches) {
   SwapAllocator<CompiledMethod> alloc(driver->GetCompiledMethodStorage()->GetSwapSpaceAllocator());
   CompiledMethod* ret = alloc.allocate(1);
   alloc.construct(ret,

@@ -19,6 +19,7 @@
 
 #include <string>
 
+#include "base/array_ref.h"
 #include "compiled_method.h"
 #include "dex_file.h"
 
