@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56751b20_bfcd7aa5",
+        "filename": "runtime/base/timing_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-09-20T14:50:09Z",
+      "side": 1,
+      "message": "Perhaps a more indicative name or comment here. The implementation looks to be monotonic. Might be good to include an indication of units.",
+      "range": {
+        "startLine": 84,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 13
+      },
+      "revId": "eaf1d17928e54ff0a50a6034fa3db28d35e2f2eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
