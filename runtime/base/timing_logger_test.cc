@@ -158,4 +158,20 @@ TEST_F(TimingLoggerTest, ScopedAndExplicit) {
   EXPECT_LE(timings[idx_innerinnersplit1].GetTime(), timings[idx_innerinnersplit2].GetTime());
 }
 
+TEST_F(TimingLoggerTest, ThreadCpuAndMonotonic) {
+  TimingLogger mon_logger("Scoped", true, false, TimingLogger::TimingKind::kMonotonic);
+  TimingLogger cpu_logger("Scoped", true, false, TimingLogger::TimingKind::kThreadCpu);
+  cpu_logger.StartTiming("CPU");
+  mon_logger.StartTiming("MON");
+
+  sleep(2);
+  
+  mon_logger.EndTiming();
+  cpu_logger.EndTiming();
+  EXPECT_LT((cpu_logger.GetTimings()[1].GetTime() - cpu_logger.GetTimings()[0].GetTime()),
+            MsToNs(1000u));
+  EXPECT_GT((mon_logger.GetTimings()[1].GetTime() - mon_logger.GetTimings()[0].GetTime()),
+            MsToNs(1000u));
+}
+
 }  // namespace art
