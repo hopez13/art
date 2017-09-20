@@ -2093,6 +2093,30 @@
     },
     {
       "key": {
+        "uuid": "55377ee1_7459aa05",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-20T20:19:29Z",
+      "side": 1,
+      "message": "We were marking the slot with the wrong type (SIMD vs. non-SIMD). \n\nMoving this to its own CL is a fair request. I will make it so, and see if I can remember what new test belonged to that :-)",
+      "parentUuid": "fbac4703_fb42ee69",
+      "range": {
+        "startLine": 479,
+        "startChar": 19,
+        "endLine": 479,
+        "endChar": 37
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cdc1cf_590ef359",
         "filename": "test/651-checker-char-simd-minmax/src/Main.java",
         "patchSetId": 11
