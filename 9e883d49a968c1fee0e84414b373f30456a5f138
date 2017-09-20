@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e565274_6325762e",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T13:12:05Z",
+      "side": 1,
+      "message": "Note: Instead of duplicating the contents of line 307 to print it, you can use\n\n  set -x\n\nbeforehand, to turn on execution tracing, and then use\n\n  set +x\n\nafterwards to turn this feature off.",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 141
+      },
+      "revId": "9e883d49a968c1fee0e84414b373f30456a5f138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

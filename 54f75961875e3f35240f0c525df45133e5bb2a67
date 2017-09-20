@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5523163c_cd6b493f",
+        "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T13:12:05Z",
+      "side": 1,
+      "message": "Nit: Use decimal literals?",
+      "range": {
+        "startLine": 359,
+        "startChar": 16,
+        "endLine": 359,
+        "endChar": 19
+      },
+      "revId": "54f75961875e3f35240f0c525df45133e5bb2a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "461ace71_80f418ef",
+        "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T13:12:05Z",
+      "side": 1,
+      "message": "Wouldn\u0027t \n\n  add-int v2, v0, v1\n\nbe a more faithful translation?",
+      "range": {
+        "startLine": 374,
+        "startChar": 4,
+        "endLine": 374,
+        "endChar": 28
+      },
+      "revId": "54f75961875e3f35240f0c525df45133e5bb2a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52f49948_da7808ad",
+        "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-20T13:12:05Z",
+      "side": 1,
+      "message": "Nit: Remove line 428?",
+      "revId": "54f75961875e3f35240f0c525df45133e5bb2a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
