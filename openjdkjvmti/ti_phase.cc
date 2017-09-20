@@ -34,13 +34,13 @@
 #include "art_jvmti.h"
 #include "base/macros.h"
 #include "events-inl.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "runtime.h"
 #include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 #include "thread_list.h"
 #include "ti_thread.h"
+#include "utils/scoped_local_ref.h"
 
 namespace openjdkjvmti {
 
@@ -73,7 +73,7 @@ struct PhaseUtil::PhaseCallback : public art::RuntimePhaseCallback {
           ThreadUtil::CacheData();
           PhaseUtil::current_phase_ = JVMTI_PHASE_LIVE;
           {
-            ScopedLocalRef<jthread> thread(GetJniEnv(), GetCurrentJThread());
+            art::ScopedLocalRef<jthread> thread(GetJniEnv(), GetCurrentJThread());
             art::ScopedThreadSuspension sts(art::Thread::Current(), art::ThreadState::kNative);
             event_handler->DispatchEvent<ArtJvmtiEvent::kVmInit>(
                 nullptr, GetJniEnv(), thread.get());

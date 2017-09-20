@@ -43,7 +43,6 @@
 #include "mirror/class.h"
 #include "mirror/object-inl.h"
 #include "mirror/string.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "obj_ptr.h"
 #include "runtime.h"
 #include "runtime_callbacks.h"
@@ -51,6 +50,7 @@
 #include "thread-current-inl.h"
 #include "thread_list.h"
 #include "ti_phase.h"
+#include "utils/scoped_local_ref.h"
 #include "well_known_classes.h"
 
 namespace openjdkjvmti {
@@ -68,7 +68,7 @@ struct ThreadCallback : public art::ThreadLifecycleCallback {
   template <ArtJvmtiEvent kEvent>
   void Post(art::Thread* self) REQUIRES_SHARED(art::Locks::mutator_lock_) {
     DCHECK_EQ(self, art::Thread::Current());
-    ScopedLocalRef<jthread> thread(self->GetJniEnv(), GetThreadObject(self));
+    art::ScopedLocalRef<jthread> thread(self->GetJniEnv(), GetThreadObject(self));
     art::ScopedThreadSuspension sts(self, art::ThreadState::kNative);
     event_handler->DispatchEvent<kEvent>(self,
                                          reinterpret_cast<JNIEnv*>(self->GetJniEnv()),

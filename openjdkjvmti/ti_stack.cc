@@ -53,7 +53,6 @@
 #include "jni_internal.h"
 #include "mirror/class.h"
 #include "mirror/dex_cache.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
 #include "ti_thread.h"
@@ -61,6 +60,7 @@
 #include "thread_list.h"
 #include "thread_pool.h"
 #include "ti_thread.h"
+#include "utils/scoped_local_ref.h"
 #include "well_known_classes.h"
 
 namespace openjdkjvmti {

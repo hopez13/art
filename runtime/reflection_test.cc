@@ -24,8 +24,8 @@
 #include "common_compiler_test.h"
 #include "java_vm_ext.h"
 #include "jni_internal.h"
-#include "nativehelper/ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
+#include "utils/scoped_local_ref.h"
 
 namespace art {
 
