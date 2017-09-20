@@ -46,6 +46,30 @@
       "revId": "66e489abfd3839e642a02e699d243f0e3c5fa7a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6f54edb_3ed5c3ca",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-09-20T09:27:11Z",
+      "side": 1,
+      "message": "I\u0027ll just add a fake rule to copy the file. That appears to fix the issue.",
+      "parentUuid": "b8e9f6f1_88964b4f",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 34
+      },
+      "revId": "66e489abfd3839e642a02e699d243f0e3c5fa7a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
