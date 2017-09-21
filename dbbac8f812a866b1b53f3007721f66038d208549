@@ -22,6 +22,30 @@
       "revId": "dbbac8f812a866b1b53f3007721f66038d208549",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "560b1ec9_c74e199b",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-21T18:12:28Z",
+      "side": 1,
+      "message": "For zero extension, we need unsigned indeed. But please note that *that* decision is made in the vectorizer. If a char is first converted to short and then sign extended into e.g. int, we could hit this case. The vectorizer will set a signed/unsigned attribute to SAD (tbd), just like we did elsewhere.",
+      "parentUuid": "6354f2fb_c3e941e2",
+      "range": {
+        "startLine": 1128,
+        "startChar": 9,
+        "endLine": 1128,
+        "endChar": 29
+      },
+      "revId": "dbbac8f812a866b1b53f3007721f66038d208549",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
