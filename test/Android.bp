@@ -66,7 +66,6 @@ art_cc_defaults {
         "libbase",
         "libicuuc",
         "libicui18n",
-        "libnativehelper",
     ],
     whole_static_libs: [
         "libsigchain",
@@ -204,7 +203,6 @@ cc_defaults {
     shared_libs: [
         "libbacktrace",
         "libbase",
-        "libnativehelper",
     ],
     target: {
         android: {
@@ -420,13 +418,12 @@ cc_defaults {
         "642-fp-callees/fp_callees.cc",
         "647-jni-get-field-id/get_field_id.cc",
         "656-annotation-lookup-generic-jni/test.cc",
-	"664-aget-verifier/aget-verifier.cc",
+        "664-aget-verifier/aget-verifier.cc",
         "708-jit-cache-churn/jit.cc"
     ],
     shared_libs: [
         "libbacktrace",
         "libbase",
-        "libnativehelper",
     ],
     target: {
         android: {

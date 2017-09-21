@@ -51,7 +51,6 @@ cc_defaults {
     header_libs: ["libopenjdkjvmti_headers"],
     shared_libs: [
         "libbase",
-        "libnativehelper",
     ],
 }
 

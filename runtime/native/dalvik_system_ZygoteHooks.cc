@@ -28,8 +28,6 @@
 #include "jni_internal.h"
 #include "native_util.h"
 #include "nativehelper/jni_macros.h"
-#include "nativehelper/JNIHelp.h"
-#include "nativehelper/ScopedUtfChars.h"
 #include "non_debuggable_classes.h"
 #include "oat_file.h"
 #include "oat_file_manager.h"
@@ -38,6 +36,7 @@
 #include "thread-current-inl.h"
 #include "thread_list.h"
 #include "trace.h"
+#include "utils/scoped_utf_chars.h"
 
 #if defined(__linux__)
 #include <sys/prctl.h>

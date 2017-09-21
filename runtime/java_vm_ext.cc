@@ -34,7 +34,6 @@
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
 #include "nativebridge/native_bridge.h"
-#include "nativehelper/ScopedUtfChars.h"
 #include "nativeloader/native_loader.h"
 #include "object_callbacks.h"
 #include "parsed_options.h"
@@ -46,6 +45,7 @@
 #include "thread_list.h"
 #include "ti/agent.h"
 #include "utils/scoped_local_ref.h"
+#include "utils/scoped_utf_chars.h"
 
 namespace art {
 
