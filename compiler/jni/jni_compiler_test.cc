@@ -55,10 +55,10 @@ extern "C" JNIEXPORT jint JNICALL Java_MyClassNatives_sbar(JNIEnv*, jclass, jint
 namespace art {
 
 enum class JniKind {
-  kNormal   = Compiler::kNone,               // Regular kind of un-annotated natives.
-  kFast     = Compiler::kFastNative,         // Native method annotated with @FastNative.
-  kCritical = Compiler::kCriticalNative,     // Native method annotated with @CriticalNative.
-  kCount    = Compiler::kCriticalNative + 1  // How many different types of JNIs we can have.
+  kNormal,                // Regular kind of un-annotated natives.
+  kFast,                  // Native method annotated with @FastNative.
+  kCritical,              // Native method annotated with @CriticalNative.
+  kCount                  // How many different types of JNIs we can have.
 };
 
 // Used to initialize array sizes that want to have different state per current jni.

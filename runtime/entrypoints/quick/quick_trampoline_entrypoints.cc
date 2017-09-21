@@ -30,6 +30,7 @@
 #include "imtable-inl.h"
 #include "instrumentation.h"
 #include "interpreter/interpreter.h"
+#include "jit/jit.h"
 #include "linear_alloc.h"
 #include "method_bss_mapping.h"
 #include "method_handles.h"
@@ -2176,7 +2177,12 @@ extern "C" TwoWordReturn artQuickGenericJniTrampoline(Thread* self, ArtMethod** 
   //
   // Note however that the Generic JNI trampoline does not expect
   // exception being thrown at that stage.
-  *sp = Runtime::Current()->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs);
+  Runtime* runtime = Runtime::Current();
+  *sp = runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs);
+  jit::Jit* jit = runtime->GetJit();
+  if (jit != nullptr) {
+    jit->AddSamples(self, called, 1u, /*with_backedges*/ false);
+  }
   self->SetTopOfStack(sp);
   uint32_t shorty_len = 0;
   const char* shorty = called->GetShorty(&shorty_len);
