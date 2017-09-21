@@ -52,6 +52,24 @@
       "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "781c6c1f_883ab77b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-21T21:05:47Z",
+      "side": 1,
+      "message": "In my dynamic peeling experiment for SIMD code, which uses something very similar to the intermediate address construct, calling GVN was crucial too getting very tight and clean inner loop code. \n\nSo +1 on using GVN, but also +1 on doing this for all architectures now.",
+      "parentUuid": "764a2977_430b8cd3",
+      "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
