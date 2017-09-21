@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "97717fb3_6edcda28",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-21T17:13:11Z",
+      "side": 1,
+      "message": "Thanks",
+      "parentUuid": "f7b97a87_8fde9003",
+      "range": {
+        "startLine": 967,
+        "startChar": 6,
+        "endLine": 967,
+        "endChar": 44
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b967320e_b0ef76a9",
         "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
         "patchSetId": 11
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "I looked at `switch` statements within a `void`-returning function in compiler/optimizing/code_generator_arm64.cc. Apart from two bogus occurrences, none of them use `UNREACHABLE`. We should be consistent with that style. I\u0027m fine if this is done in another CL.",
       "parentUuid": "5838d288_8df1ff8b",
+      "range": {
+        "startLine": 968,
+        "startChar": 6,
+        "endLine": 968,
+        "endChar": 20
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a061725_0c85bb6c",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-21T17:13:11Z",
+      "side": 1,
+      "message": "I vaguely remember this was to avoid missing break statement warnings, but perhaps it was indeed just for returning methods. I am ok if we want to change the style over all our files with a follow up CL",
+      "parentUuid": "57bbc738_108e76cb",
       "range": {
         "startLine": 968,
         "startChar": 6,
@@ -603,6 +651,30 @@
       "side": 1,
       "message": "I\u0027d add a TODO to explain this then. At the moment, we are calling a method with no immediate reason.\n\nYou could also surround it with\n\n  #if 0\n\nand\n\n  #endif\n\n(in addition to the TODO) to avoid the cost of the call.",
       "parentUuid": "822e0404_6284a6f0",
+      "range": {
+        "startLine": 899,
+        "startChar": 2,
+        "endLine": 899,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0604cad5_6fd9d185",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-21T17:13:11Z",
+      "side": 1,
+      "message": "Well, we will never execute this (and if we do, hit the fatal below). But I added a TODO.",
+      "parentUuid": "1a6782f8_cef7507c",
       "range": {
         "startLine": 899,
         "startChar": 2,
@@ -1519,6 +1591,30 @@
       "side": 1,
       "message": "Where?",
       "parentUuid": "e47c0347_d22d06e8",
+      "range": {
+        "startLine": 1847,
+        "startChar": 58,
+        "endLine": 1847,
+        "endChar": 66
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be29e875_2f0e054f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1847,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-21T17:13:11Z",
+      "side": 1,
+      "message": "oops, did not seem to have used the edit. Done now :-)",
+      "parentUuid": "e786e2df_efabfce1",
       "range": {
         "startLine": 1847,
         "startChar": 58,
