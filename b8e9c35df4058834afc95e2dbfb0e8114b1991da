@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64912617_458e48ab",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-21T14:56:16Z",
+      "side": 1,
+      "message": "Is this beneficial without an architecture-specific simplifier (as on ARM/ARM64)?",
+      "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
