@@ -66,7 +66,6 @@ art_cc_defaults {
         "libbase",
         "libicuuc",
         "libicui18n",
-        "libnativehelper",
         "libz",
     ],
     whole_static_libs: [
@@ -187,7 +186,6 @@ cc_defaults {
     shared_libs: [
         "libbacktrace",
         "libbase",
-        "libnativehelper",
     ],
 }
 
@@ -401,7 +399,6 @@ cc_defaults {
     shared_libs: [
         "libbacktrace",
         "libbase",
-        "libnativehelper",
     ],
 }
 

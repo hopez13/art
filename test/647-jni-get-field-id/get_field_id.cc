@@ -16,7 +16,7 @@
 
 #include "jni.h"
 
-#include "nativehelper/ScopedUtfChars.h"
+#include "utils/scoped_utf_chars.h"
 
 namespace art {
 
