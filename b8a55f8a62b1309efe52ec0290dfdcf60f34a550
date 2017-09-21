@@ -16,6 +16,24 @@
       "revId": "b8a55f8a62b1309efe52ec0290dfdcf60f34a550",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab2a563f_a3dc8738",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-21T18:44:59Z",
+      "side": 1,
+      "message": "That\u0027s a lot of effort.\n\nI tried reserve(64) and that made with_signature\u003dtrue (\"void main(java.lang.String[])\") faster and with_signature\u003dfalse (\"Main.main\") slower. I\u0027d rather keep with_signature\u003dfalse fast. If you feel that 9-character output is not representative of our needs, feel free to improve this further.",
+      "parentUuid": "c6e4c201_8d8ab9e9",
+      "revId": "b8a55f8a62b1309efe52ec0290dfdcf60f34a550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
