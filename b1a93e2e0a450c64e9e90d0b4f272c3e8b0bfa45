@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "f3961bda_917174df",
+        "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-21T00:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e4b7cb_ab55136a",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 770,
+        "endChar": 42
+      },
+      "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62bdd809_5331d826",
         "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
         "patchSetId": 1
@@ -108,6 +132,30 @@
       "writtenOn": "2017-09-07T02:06:20Z",
       "side": 1,
       "message": "Ditto here.",
+      "range": {
+        "startLine": 775,
+        "startChar": 0,
+        "endLine": 778,
+        "endChar": 56
+      },
+      "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "558effb5_3da1df4f",
+        "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-21T00:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62bdd809_5331d826",
       "range": {
         "startLine": 775,
         "startChar": 0,
@@ -137,6 +185,24 @@
     },
     {
       "key": {
+        "uuid": "949bdd25_ed08c9ee",
+        "filename": "test/458-checker-instruct-simplification/smali/SmaliTests.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-21T00:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fba127c3_3d94834f",
+      "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b69823f_8c179660",
         "filename": "test/458-checker-instruct-simplification/src/Main.java",
         "patchSetId": 1
@@ -148,6 +214,24 @@
       "writtenOn": "2017-09-07T14:32:28Z",
       "side": 1,
       "message": "delete above line from every function you changed",
+      "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "014a0df1_e0489e76",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-21T00:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b69823f_8c179660",
       "revId": "b1a93e2e0a450c64e9e90d0b4f272c3e8b0bfa45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
