@@ -34,6 +34,24 @@
       "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "764a2977_430b8cd3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-09-21T20:58:42Z",
+      "side": 1,
+      "message": "This reduces .oat files by 0.1-0.15% in size on MIPS.\n\nAlso I hear that this is needed (or helpful) for HIntermediateArrayAddressIndex (we want to avoid duplicate index scaling in e.g. a[i] \u003d b[i] + c[i]), which is in the works.",
+      "parentUuid": "64912617_458e48ab",
+      "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
