@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62441ff1_9d8a5863",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-21T22:59:49Z",
+      "side": 1,
+      "message": "LGTM, any way to assert we don\u0027t statically link in [this function] libart?",
+      "revId": "f52608c6a4f1ca4349d2df462ca463ffdf498bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4081d6c_afc058c1",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-21T22:59:49Z",
+      "side": 1,
+      "message": "nit: /*out*/\u0026info",
+      "revId": "f52608c6a4f1ca4349d2df462ca463ffdf498bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
