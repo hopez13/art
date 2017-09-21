@@ -21,8 +21,8 @@
 #include "jni_internal.h"
 #include "native_util.h"
 #include "nativehelper/jni_macros.h"
-#include "nativehelper/ScopedPrimitiveArray.h"
 #include "scoped_fast_native_object_access-inl.h"
+#include "utils/scoped_primitive_array.h"
 
 namespace art {
 
