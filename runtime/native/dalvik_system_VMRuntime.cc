@@ -22,7 +22,6 @@
 extern "C" void android_set_application_target_sdk_version(uint32_t version);
 #endif
 #include <limits.h>
-#include "nativehelper/ScopedUtfChars.h"
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wshadow"
@@ -58,6 +57,8 @@ extern "C" void android_set_application_target_sdk_version(uint32_t version);
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 #include "thread_list.h"
+#include "utils/scoped_utf_chars.h"
+
 
 namespace art {
 
