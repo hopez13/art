@@ -22,6 +22,30 @@
       "revId": "9e883d49a968c1fee0e84414b373f30456a5f138",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a5bf4d5_517d74a5",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-21T01:00:32Z",
+      "side": 1,
+      "message": "Oops! Those changes was suppose to be in another CL but you are right set -x is much better.",
+      "parentUuid": "7e565274_6325762e",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 141
+      },
+      "revId": "9e883d49a968c1fee0e84414b373f30456a5f138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

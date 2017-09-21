@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3e5515f9_67072bd4",
+        "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-21T01:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5523163c_cd6b493f",
+      "range": {
+        "startLine": 359,
+        "startChar": 16,
+        "endLine": 359,
+        "endChar": 19
+      },
+      "revId": "54f75961875e3f35240f0c525df45133e5bb2a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "461ace71_80f418ef",
         "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c996221f_5659b086",
+        "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-21T01:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "461ace71_80f418ef",
+      "range": {
+        "startLine": 374,
+        "startChar": 4,
+        "endLine": 374,
+        "endChar": 28
+      },
+      "revId": "54f75961875e3f35240f0c525df45133e5bb2a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52f49948_da7808ad",
         "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
         "patchSetId": 4
@@ -59,6 +107,24 @@
       "writtenOn": "2017-09-20T13:12:05Z",
       "side": 1,
       "message": "Nit: Remove line 428?",
+      "revId": "54f75961875e3f35240f0c525df45133e5bb2a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c880ff1_28718919",
+        "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-09-21T01:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52f49948_da7808ad",
       "revId": "54f75961875e3f35240f0c525df45133e5bb2a67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
