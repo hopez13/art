@@ -464,8 +464,7 @@ class ArtMethod FINAL {
     // where the declaring class is treated as a weak reference (accessing it with
     // a read barrier would either prevent unloading the class, or crash the runtime if
     // the GC wants to unload it).
-    DCHECK(!IsNative());
-    if (UNLIKELY(IsProxyMethod())) {
+    if (UNLIKELY(IsNative<kWithoutReadBarrier>()) || UNLIKELY(IsProxyMethod())) {
       return nullptr;
     }
     return reinterpret_cast<ProfilingInfo*>(GetDataPtrSize(pointer_size));
