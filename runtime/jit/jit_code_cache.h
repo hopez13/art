@@ -24,23 +24,34 @@
 #include "base/histogram-inl.h"
 #include "base/macros.h"
 #include "base/mutex.h"
-#include "gc/accounting/bitmap.h"
 #include "gc_root.h"
-#include "jni.h"
 #include "method_reference.h"
-#include "oat_file.h"
-#include "profile_compilation_info.h"
 #include "safe_map.h"
-#include "thread_pool.h"
 
 namespace art {
 
 class ArtMethod;
+template<class T> class Handle;
 class LinearAlloc;
 class InlineCache;
 class IsMarkedVisitor;
+class JitJniStubTestHelper;
 class OatQuickMethodHeader;
+struct ProfileMethodInfo;
 class ProfilingInfo;
+class Thread;
+
+namespace gc {
+namespace accounting {
+template<size_t kAlignment> class MemoryRangeBitmap;
+}  // namespace accounting
+}  // namespace gc
+
+namespace mirror {
+class Class;
+class Object;
+template<class T> class ObjectArray;
+}  // namespace mirror
 
 namespace jit {
 
@@ -66,6 +77,7 @@ class JitCodeCache {
                               size_t max_capacity,
                               bool generate_debug_info,
                               std::string* error_msg);
+  ~JitCodeCache();
 
   // Number of bytes allocated in the code cache.
   size_t CodeCacheSize() REQUIRES(!lock_);
@@ -126,6 +138,9 @@ class JitCodeCache {
 
   // Return true if the code cache contains this method.
   bool ContainsMethod(ArtMethod* method) REQUIRES(!lock_);
+
+  // Return the code pointer for a JNI-compiled stub if the method is in the cache, null otherwise.
+  const void* GetJniStubCode(ArtMethod* method) REQUIRES(!lock_);
 
   // Allocate a region of data that contain `size` bytes, and potentially space
   // for storing `number_of_roots` roots. Returns null if there is no more room.
@@ -210,11 +225,6 @@ class JitCodeCache {
 
   uint64_t GetLastUpdateTimeNs() const;
 
-  size_t GetCurrentCapacity() REQUIRES(!lock_) {
-    MutexLock lock(Thread::Current(), lock_);
-    return current_capacity_;
-  }
-
   size_t GetMemorySizeOfCodePointer(const void* ptr) REQUIRES(!lock_);
 
   void InvalidateCompiledCodeFor(ArtMethod* method, const OatQuickMethodHeader* code)
@@ -291,6 +301,12 @@ class JitCodeCache {
       REQUIRES(!lock_)
       REQUIRES(!Locks::cha_lock_);
 
+  // Removes method from the cache. The caller must ensure that all threads
+  // are suspended and the method should not be in any thread's stack.
+  bool RemoveMethodLocked(ArtMethod* method, bool release_memory)
+      REQUIRES(lock_)
+      REQUIRES(Locks::mutator_lock_);
+
   // Free in the mspace allocations for `code_ptr`.
   void FreeCode(const void* code_ptr) REQUIRES(lock_);
 
@@ -336,6 +352,9 @@ class JitCodeCache {
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  class JniStubKey;
+  class JniStubData;
+
   // Lock for guarding allocations, collections, and the method_code_map_.
   Mutex lock_;
   // Condition to wait on during collection.
@@ -352,6 +371,8 @@ class JitCodeCache {
   void* data_mspace_ GUARDED_BY(lock_);
   // Bitmap for collecting code and data.
   std::unique_ptr<CodeCacheBitmap> live_bitmap_;
+  // Holds compiled code associated with the shorty for a JNI stub.
+  SafeMap<JniStubKey, JniStubData> jni_stubs_map_ GUARDED_BY(lock_);
   // Holds compiled code associated to the ArtMethod.
   SafeMap<const void*, ArtMethod*> method_code_map_ GUARDED_BY(lock_);
   // Holds osr compiled code associated to the ArtMethod.
@@ -413,6 +434,7 @@ class JitCodeCache {
   // Condition to wait on for accessing inline caches.
   ConditionVariable inline_cache_cond_ GUARDED_BY(lock_);
 
+  friend class art::JitJniStubTestHelper;
   DISALLOW_IMPLICIT_CONSTRUCTORS(JitCodeCache);
 };
 
