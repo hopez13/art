@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f7b97a87_8fde9003",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-21T14:01:36Z",
+      "side": 1,
+      "message": "SGTM if you want to do this in a follow-up CL.",
+      "parentUuid": "dc3320aa_3f052463",
+      "range": {
+        "startLine": 967,
+        "startChar": 6,
+        "endLine": 967,
+        "endChar": 44
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b967320e_b0ef76a9",
         "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
         "patchSetId": 11
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I believe I was asked to use this idiom everywhere inside a switch. Here too you will see that all files use this style.",
       "parentUuid": "b967320e_b0ef76a9",
+      "range": {
+        "startLine": 968,
+        "startChar": 6,
+        "endLine": 968,
+        "endChar": 20
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57bbc738_108e76cb",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-21T14:01:36Z",
+      "side": 1,
+      "message": "I looked at `switch` statements within a `void`-returning function in compiler/optimizing/code_generator_arm64.cc. Apart from two bogus occurrences, none of them use `UNREACHABLE`. We should be consistent with that style. I\u0027m fine if this is done in another CL.",
+      "parentUuid": "5838d288_8df1ff8b",
       "range": {
         "startLine": 968,
         "startChar": 6,
@@ -378,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "4d24b499_721d86e0",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-21T14:01:36Z",
+      "side": 1,
+      "message": "Indeed; sorry about that.",
+      "parentUuid": "fe82794d_5ce5dbbf",
+      "range": {
+        "startLine": 1079,
+        "startChar": 43,
+        "endLine": 1079,
+        "endChar": 44
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64c9a1e2_24bd694c",
         "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
         "patchSetId": 11
@@ -507,6 +579,30 @@
       "side": 1,
       "message": "Just making sure our partners will follow this structure. I really want to keep this in the same CL to make sure all our reductions follow this pattern.",
       "parentUuid": "cd08d7cb_6136488b",
+      "range": {
+        "startLine": 899,
+        "startChar": 2,
+        "endLine": 899,
+        "endChar": 63
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6782f8_cef7507c",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-21T14:01:36Z",
+      "side": 1,
+      "message": "I\u0027d add a TODO to explain this then. At the moment, we are calling a method with no immediate reason.\n\nYou could also surround it with\n\n  #if 0\n\nand\n\n  #endif\n\n(in addition to the TODO) to avoid the cost of the call.",
+      "parentUuid": "822e0404_6284a6f0",
       "range": {
         "startLine": 899,
         "startChar": 2,
@@ -1399,6 +1495,30 @@
       "side": 1,
       "message": "renamed",
       "parentUuid": "33481628_ddb2dcfe",
+      "range": {
+        "startLine": 1847,
+        "startChar": 58,
+        "endLine": 1847,
+        "endChar": 66
+      },
+      "revId": "aa2f01eff3c54d14e0e156d37c904c39553815e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e786e2df_efabfce1",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1847,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-21T14:01:36Z",
+      "side": 1,
+      "message": "Where?",
+      "parentUuid": "e47c0347_d22d06e8",
       "range": {
         "startLine": 1847,
         "startChar": 58,

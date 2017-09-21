@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fffe626_14f6f7e2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-21T14:01:36Z",
+      "side": 1,
+      "message": "This explicit parameter is not needed (ditto for other cases below), as it can be deduced from the type of `value` (which is how `IsInt` et al. are mostly used in ART\u0027s code base).",
+      "range": {
+        "startLine": 88,
+        "startChar": 19,
+        "endLine": 88,
+        "endChar": 28
+      },
+      "revId": "5da388cb1d9982e4b914d2f0a021f13a6c8e22ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31a2daab_4a878308",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-21T14:01:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 148,
+        "startChar": 20,
+        "endLine": 148,
+        "endChar": 29
+      },
+      "revId": "5da388cb1d9982e4b914d2f0a021f13a6c8e22ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
