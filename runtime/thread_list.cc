@@ -24,8 +24,6 @@
 
 #include "android-base/stringprintf.h"
 #include "backtrace/BacktraceMap.h"
-#include "nativehelper/ScopedUtfChars.h"
-#include "utils/scoped_local_ref.h"
 
 #include "base/histogram-inl.h"
 #include "base/mutex-inl.h"
@@ -45,6 +43,8 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 #include "trace.h"
+#include "utils/scoped_local_ref.h"
+#include "utils/scoped_utf_chars.h"
 #include "well_known_classes.h"
 
 #if ART_USE_FUTEXES

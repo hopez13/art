@@ -53,12 +53,12 @@
 #include "mirror/string-inl.h"
 #include "monitor.h"
 #include "native/scoped_fast_native_object_access-inl.h"
-#include "nativehelper/ScopedUtfChars.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 #include "thread_list.h"
 #include "utils/scoped_local_ref.h"
+#include "utils/scoped_utf_chars.h"
 #include "verify_object.h"
 
 #undef LOG_TAG
@@ -323,7 +323,7 @@ JNIEXPORT jstring JVM_NativeLoad(JNIEnv* env,
                                  jstring javaFilename,
                                  jobject javaLoader,
                                  jstring javaLibrarySearchPath) {
-  ScopedUtfChars filename(env, javaFilename);
+  art::ScopedUtfChars filename(env, javaFilename);
   if (filename.c_str() == NULL) {
     return NULL;
   }
@@ -406,7 +406,7 @@ JNIEXPORT jboolean JVM_HoldsLock(JNIEnv* env, jclass unused ATTRIBUTE_UNUSED, jo
 }
 
 JNIEXPORT void JVM_SetNativeThreadName(JNIEnv* env, jobject jthread, jstring java_name) {
-  ScopedUtfChars name(env, java_name);
+  art::ScopedUtfChars name(env, java_name);
   {
     art::ScopedObjectAccess soa(env);
     if (soa.Decode<art::mirror::Object>(jthread) == soa.Self()->GetPeer()) {

@@ -214,6 +214,7 @@ cc_defaults {
         "transaction.cc",
         "type_lookup_table.cc",
         "utf.cc",
+        "utils/scoped_utf_chars.cc",
         "utils.cc",
         "vdex_file.cc",
         "verifier/instruction_flags.cc",

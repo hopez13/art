@@ -35,7 +35,7 @@
 #include "mirror/string-inl.h"
 #include "native_util.h"
 #include "nativehelper/jni_macros.h"
-#include "nativehelper/ScopedUtfChars.h"
+#include "utils/scoped_utf_chars.h"
 #include "nth_caller_visitor.h"
 #include "obj_ptr-inl.h"
 #include "reflection.h"

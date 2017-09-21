@@ -35,8 +35,8 @@
 #include <vector>
 
 #include "jni.h"
-#include "nativehelper/ScopedUtfChars.h"
 #include "utils/scoped_local_ref.h"
+#include "utils/scoped_utf_chars.h"
 
 #include "art_jvmti.h"
 #include "runtime.h"
@@ -198,7 +198,7 @@ static jvmtiError GetLibraryPath(jvmtiEnv* env, char** value_ptr) {
     return ERR(NONE);
   }
 
-  ScopedUtfChars chars(jni_env, reinterpret_cast<jstring>(prop_res.get()));
+  art::ScopedUtfChars chars(jni_env, reinterpret_cast<jstring>(prop_res.get()));
   return Copy(env, chars.c_str(), value_ptr);
 }
 
