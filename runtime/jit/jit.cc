@@ -288,7 +288,7 @@ bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
   // If we get a request to compile a proxy method, we pass the actual Java method
   // of that proxy method, as the compiler does not expect a proxy method.
   ArtMethod* method_to_compile = method->GetInterfaceMethodIfProxy(kRuntimePointerSize);
-  if (!code_cache_->NotifyCompilationOf(method_to_compile, self, osr)) {
+  if (!method->IsNative() && !code_cache_->NotifyCompilationOf(method_to_compile, self, osr)) {
     return false;
   }
 
@@ -640,7 +640,7 @@ void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_
     return;
   }
 
-  if (method->IsClassInitializer() || method->IsNative() || !method->IsCompilable()) {
+  if (method->IsClassInitializer() || !method->IsCompilable()) {
     // We do not want to compile such methods.
     return;
   }
@@ -658,6 +658,7 @@ void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_
   int32_t new_count = starting_count + count;   // int32 here to avoid wrap-around;
   if (starting_count < warm_method_threshold_) {
     if ((new_count >= warm_method_threshold_) &&
+        !method->IsNative() &&
         (method->GetProfilingInfo(kRuntimePointerSize) == nullptr)) {
       bool success = ProfilingInfo::Create(self, method, /* retry_allocation */ false);
       if (success) {

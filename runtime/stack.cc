@@ -736,11 +736,16 @@ QuickMethodFrameInfo StackVisitor::GetCurrentQuickFrameInfo() const {
   }
 
   // The only remaining case is if the method is native and uses the generic JNI stub.
+  // JIT may have updated the entrypoint but this particular frame is not using it.
   DCHECK(method->IsNative());
-  ClassLinker* class_linker = runtime->GetClassLinker();
-  const void* entry_point = runtime->GetInstrumentation()->GetQuickCodeFor(method,
-                                                                           kRuntimePointerSize);
-  DCHECK(class_linker->IsQuickGenericJniStub(entry_point)) << method->PrettyMethod();
+  if (kIsDebugBuild) {
+    ClassLinker* class_linker = runtime->GetClassLinker();
+    const void* entry_point = runtime->GetInstrumentation()->GetQuickCodeFor(method,
+                                                                             kRuntimePointerSize);
+    CHECK(class_linker->IsQuickGenericJniStub(entry_point) ||
+          (runtime->GetJit() != nullptr &&
+           runtime->GetJit()->GetCodeCache()->ContainsPc(entry_point))) << method->PrettyMethod();
+  }
   // Generic JNI frame.
   uint32_t handle_refs = GetNumberOfReferenceArgsWithoutReceiver(method) + 1;
   size_t scope_size = HandleScope::SizeOf(handle_refs);

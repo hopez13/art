@@ -567,7 +567,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           bool has_should_deoptimize_flag,
                                           const ArenaSet<ArtMethod*>&
                                               cha_single_implementation_list) {
-  DCHECK(stack_map != nullptr);
+  DCHECK_NE(stack_map != nullptr, method->IsNative());
   size_t alignment = GetInstructionSetAlignment(kRuntimeISA);
   // Ensure the header ends up at expected instruction alignment.
   size_t header_size = RoundUp(sizeof(OatQuickMethodHeader), alignment);
@@ -591,8 +591,8 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       std::copy(code, code + code_size, code_ptr);
       method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
       new (method_header) OatQuickMethodHeader(
-          code_ptr - stack_map,
-          code_ptr - method_info,
+          (stack_map != nullptr) ? code_ptr - stack_map : 0u,
+          (method_info != nullptr) ? code_ptr - method_info : 0u,
           frame_size_in_bytes,
           core_spill_mask,
           fp_spill_mask,
@@ -647,16 +647,21 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     // possible that the compiled code is considered invalidated by some class linking,
     // but below we still make the compiled code valid for the method.
     MutexLock mu(self, lock_);
-    // Fill the root table before updating the entry point.
-    DCHECK_EQ(FromStackMapToRoots(stack_map), roots_data);
-    DCHECK_LE(roots_data, stack_map);
-    FillRootTable(roots_data, roots);
-    {
-      // Flush data cache, as compiled code references literals in it.
-      // We also need a TLB shootdown to act as memory barrier across cores.
-      ScopedCodeCacheWrite ccw(code_map_.get(), /* only_for_tlb_shootdown */ true);
-      FlushDataCache(reinterpret_cast<char*>(roots_data),
-                     reinterpret_cast<char*>(roots_data + data_size));
+    if (UNLIKELY(method->IsNative())) {
+      DCHECK(stack_map == nullptr);
+      DCHECK(roots_data == nullptr);
+    } else {
+      // Fill the root table before updating the entry point.
+      DCHECK_EQ(FromStackMapToRoots(stack_map), roots_data);
+      DCHECK_LE(roots_data, stack_map);
+      FillRootTable(roots_data, roots);
+      {
+        // Flush data cache, as compiled code references literals in it.
+        // We also need a TLB shootdown to act as memory barrier across cores.
+        ScopedCodeCacheWrite ccw(code_map_.get(), /* only_for_tlb_shootdown */ true);
+        FlushDataCache(reinterpret_cast<char*>(roots_data),
+                       reinterpret_cast<char*>(roots_data + data_size));
+      }
     }
     method_code_map_.Put(code_ptr, method);
     if (osr) {
@@ -1481,9 +1486,11 @@ void JitCodeCache::DoneCompilerUse(ArtMethod* method, Thread* self) {
 }
 
 void JitCodeCache::DoneCompiling(ArtMethod* method, Thread* self ATTRIBUTE_UNUSED, bool osr) {
-  ProfilingInfo* info = method->GetProfilingInfo(kRuntimePointerSize);
-  DCHECK(info->IsMethodBeingCompiled(osr));
-  info->SetIsMethodBeingCompiled(false, osr);
+  if (LIKELY(!method->IsNative())) {
+    ProfilingInfo* info = method->GetProfilingInfo(kRuntimePointerSize);
+    DCHECK(info->IsMethodBeingCompiled(osr));
+    info->SetIsMethodBeingCompiled(false, osr);
+  }
 }
 
 size_t JitCodeCache::GetMemorySizeOfCodePointer(const void* ptr) {

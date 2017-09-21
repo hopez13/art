@@ -549,26 +549,16 @@ static void CompileMethod(Thread* self,
               /* referrer */ nullptr,
               invoke_type);
 
-      // Query any JNI optimization annotations such as @FastNative or @CriticalNative.
-      Compiler::JniOptimizationFlags optimization_flags = Compiler::kNone;
       if (UNLIKELY(method == nullptr)) {
         // Failed method resolutions happen very rarely, e.g. ancestor class cannot be resolved.
         DCHECK(self->IsExceptionPending());
         self->ClearException();
-      } else if (method->IsAnnotatedWithFastNative()) {
-        // TODO: Will no longer need this CHECK once we have verifier checking this.
-        CHECK(!method->IsAnnotatedWithCriticalNative());
-        optimization_flags = Compiler::kFastNative;
-      } else if (method->IsAnnotatedWithCriticalNative()) {
-        // TODO: Will no longer need this CHECK once we have verifier checking this.
-        CHECK(!method->IsAnnotatedWithFastNative());
-        optimization_flags = Compiler::kCriticalNative;
       }
 
       compiled_method = driver->GetCompiler()->JniCompile(access_flags,
                                                           method_idx,
                                                           dex_file,
-                                                          optimization_flags);
+                                                          method);
       CHECK(compiled_method != nullptr);
     }
   } else if ((access_flags & kAccAbstract) != 0) {
