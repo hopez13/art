@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6354f2fb_c3e941e2",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-09-21T18:08:45Z",
+      "side": 1,
+      "message": "Char case is not supported in the vectorizer yet, right? Moreover for chars I guess we need unsigned extension.",
+      "range": {
+        "startLine": 1128,
+        "startChar": 9,
+        "endLine": 1128,
+        "endChar": 29
+      },
+      "revId": "dbbac8f812a866b1b53f3007721f66038d208549",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
