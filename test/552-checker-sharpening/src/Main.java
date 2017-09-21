@@ -63,10 +63,6 @@ public class Main {
   /// CHECK-START-X86_64: int Main.testSimple(int) sharpening (after)
   /// CHECK:                InvokeStaticOrDirect method_load_kind:BssEntry
 
-  /// CHECK-START-MIPS: int Main.testSimple(int) pc_relative_fixups_mips (after)
-  /// CHECK:                MipsComputeBaseMethodAddress
-  /// CHECK-NOT:            MipsComputeBaseMethodAddress
-
   /// CHECK-START-X86: int Main.testSimple(int) pc_relative_fixups_x86 (after)
   /// CHECK:                X86ComputeBaseMethodAddress
   /// CHECK-NOT:            X86ComputeBaseMethodAddress
@@ -104,14 +100,6 @@ public class Main {
   /// CHECK:                InvokeStaticOrDirect method_load_kind:BssEntry
   /// CHECK:                InvokeStaticOrDirect method_load_kind:BssEntry
 
-  /// CHECK-START-MIPS: int Main.testDiamond(boolean, int) pc_relative_fixups_mips (after)
-  /// CHECK:                MipsComputeBaseMethodAddress
-  /// CHECK-NOT:            MipsComputeBaseMethodAddress
-
-  /// CHECK-START-MIPS: int Main.testDiamond(boolean, int) pc_relative_fixups_mips (after)
-  /// CHECK:                MipsComputeBaseMethodAddress
-  /// CHECK-NEXT:           If
-
   /// CHECK-START-X86: int Main.testDiamond(boolean, int) pc_relative_fixups_x86 (after)
   /// CHECK:                X86ComputeBaseMethodAddress
   /// CHECK-NOT:            X86ComputeBaseMethodAddress
@@ -129,24 +117,6 @@ public class Main {
       return $noinline$foo(x);
     }
   }
-
-  /// CHECK-START-MIPS: int Main.testLoop(int[], int) pc_relative_fixups_mips (before)
-  /// CHECK-NOT:            MipsComputeBaseMethodAddress
-
-  /// CHECK-START-MIPS: int Main.testLoop(int[], int) pc_relative_fixups_mips (after)
-  /// CHECK:                MipsComputeBaseMethodAddress
-  /// CHECK-NOT:            MipsComputeBaseMethodAddress
-
-  /// CHECK-START-MIPS: int Main.testLoop(int[], int) pc_relative_fixups_mips (after)
-  /// CHECK:                InvokeStaticOrDirect
-  /// CHECK-NOT:            InvokeStaticOrDirect
-
-  /// CHECK-START-MIPS: int Main.testLoop(int[], int) pc_relative_fixups_mips (after)
-  /// CHECK:                ArrayLength
-  /// CHECK-NEXT:           MipsComputeBaseMethodAddress
-  /// CHECK-NEXT:           Goto
-  /// CHECK:                begin_block
-  /// CHECK:                InvokeStaticOrDirect method_load_kind:BssEntry
 
   /// CHECK-START-X86: int Main.testLoop(int[], int) pc_relative_fixups_x86 (before)
   /// CHECK-NOT:            X86ComputeBaseMethodAddress
@@ -173,16 +143,6 @@ public class Main {
     }
     return x;
   }
-
-  /// CHECK-START-MIPS: int Main.testLoopWithDiamond(int[], boolean, int) pc_relative_fixups_mips (before)
-  /// CHECK-NOT:            MipsComputeBaseMethodAddress
-
-  /// CHECK-START-MIPS: int Main.testLoopWithDiamond(int[], boolean, int) pc_relative_fixups_mips (after)
-  /// CHECK:                If
-  /// CHECK:                begin_block
-  /// CHECK:                ArrayLength
-  /// CHECK-NEXT:           MipsComputeBaseMethodAddress
-  /// CHECK-NEXT:           Goto
 
   /// CHECK-START-X86: int Main.testLoopWithDiamond(int[], boolean, int) pc_relative_fixups_x86 (before)
   /// CHECK-NOT:            X86ComputeBaseMethodAddress
