@@ -78,7 +78,8 @@ class LSEVisitor : public HGraphVisitor {
       DCHECK(load != nullptr);
       DCHECK(load->IsInstanceFieldGet() ||
              load->IsStaticFieldGet() ||
-             load->IsArrayGet());
+             load->IsArrayGet() ||
+             load->IsVecLoad());
       HInstruction* substitute = substitute_instructions_for_loads_[i];
       DCHECK(substitute != nullptr);
       // Keep tracing substitute till one that's not removed.
@@ -93,7 +94,10 @@ class LSEVisitor : public HGraphVisitor {
 
     // At this point, stores in possibly_removed_stores_ can be safely removed.
     for (HInstruction* store : possibly_removed_stores_) {
-      DCHECK(store->IsInstanceFieldSet() || store->IsStaticFieldSet() || store->IsArraySet());
+      DCHECK(store->IsInstanceFieldSet() ||
+             store->IsStaticFieldSet() ||
+             store->IsArraySet() ||
+             store->IsVecStore());
       store->GetBlock()->RemoveInstruction(store);
     }
 
@@ -132,7 +136,9 @@ class LSEVisitor : public HGraphVisitor {
   void KeepIfIsStore(HInstruction* heap_value) {
     if (heap_value == kDefaultHeapValue ||
         heap_value == kUnknownHeapValue ||
-        !(heap_value->IsInstanceFieldSet() || heap_value->IsArraySet())) {
+        !(heap_value->IsInstanceFieldSet() ||
+          heap_value->IsArraySet() ||
+          heap_value->IsVecStore())) {
       return;
     }
     auto idx = std::find(possibly_removed_stores_.begin(),
@@ -315,7 +321,9 @@ class LSEVisitor : public HGraphVisitor {
       return;
     }
     if (heap_value != kUnknownHeapValue) {
-      if (heap_value->IsInstanceFieldSet() || heap_value->IsArraySet()) {
+      if (heap_value->IsInstanceFieldSet() ||
+          heap_value->IsArraySet() ||
+          heap_value->IsVecStore()) {
         HInstruction* store = heap_value;
         // This load must be from a singleton since it's from the same
         // field/element that a "removed" store puts the value. That store
@@ -417,7 +425,9 @@ class LSEVisitor : public HGraphVisitor {
 
     if (!same_value) {
       if (possibly_redundant) {
-        DCHECK(instruction->IsInstanceFieldSet() || instruction->IsArraySet());
+        DCHECK(instruction->IsInstanceFieldSet() ||
+               instruction->IsArraySet() ||
+               instruction->IsVecStore());
         // Put the store as the heap value. If the value is loaded from heap
         // by a load later, this store isn't really redundant.
         heap_values[idx] = instruction;
@@ -430,8 +440,24 @@ class LSEVisitor : public HGraphVisitor {
       if (i == idx) {
         continue;
       }
-      if (heap_values[i] == value) {
-        // Same value should be kept even if aliasing happens.
+      if (heap_values[i] == value && !instruction->IsVecOperation()) {
+        // For field/array, same value should be kept even if aliasing happens.
+        //
+        // For vector values , this is NOT safe. For example:
+        //   packed_data = [0xA, 0xB, 0xC, 0xD];            <-- Different values in each lane.
+        //   VecStore array[i  ,i+1,i+2,i+3] = packed_data;
+        //   VecStore array[i+1,i+2,i+3,i+4] = packed_data; <-- We are here (partial overlap).
+        //   VecLoad  vx = array[i,i+1,i+2,i+3];            <-- Cannot be eliminated.
+        //
+        // TODO: to allow such 'same value' optimization on vector data,
+        // LSA needs to report more fine-grain MAY alias information:
+        // (1) May alias due to two vector data partial overlap.
+        //     e.g. a[i..i+3] and a[i+1,..,i+4].
+        // (2) May alias due to two vector data may complete overlap each other.
+        //     e.g. a[i..i+3] and b[i..i+3].
+        // (3) May alias but the exact relationship between two locations is unknown.
+        //     e.g. a[i..i+3] and b[j..j+3], where values of a,b,i,j are all unknown.
+        // This 'same value' optimization can apply only on case (2).
         continue;
       }
       if (heap_values[i] == kUnknownHeapValue) {
@@ -521,6 +547,32 @@ class LSEVisitor : public HGraphVisitor {
                      value);
   }
 
+  void VisitVecLoad(HVecLoad* instruction) OVERRIDE {
+    HInstruction* array = instruction->InputAt(0);
+    HInstruction* index = instruction->InputAt(1);
+    size_t vector_length = instruction->GetVectorLength();
+    VisitGetLocation(instruction,
+                     array,
+                     HeapLocation::kInvalidFieldOffset,
+                     index,
+                     vector_length,
+                     HeapLocation::kDeclaringClassDefIndexForArrays);
+  }
+
+  void VisitVecStore(HVecStore* instruction) OVERRIDE {
+    HInstruction* array = instruction->InputAt(0);
+    HInstruction* index = instruction->InputAt(1);
+    HInstruction* value = instruction->InputAt(2);
+    size_t vector_length = instruction->GetVectorLength();
+    VisitSetLocation(instruction,
+                     array,
+                     HeapLocation::kInvalidFieldOffset,
+                     index,
+                     vector_length,
+                     HeapLocation::kDeclaringClassDefIndexForArrays,
+                     value);
+  }
+
   void VisitDeoptimize(HDeoptimize* instruction) {
     const ArenaVector<HInstruction*>& heap_values =
         heap_values_for_[instruction->GetBlock()->GetBlockId()];
@@ -530,7 +582,9 @@ class LSEVisitor : public HGraphVisitor {
         continue;
       }
       // A store is kept as the heap value for possibly removed stores.
-      if (heap_value->IsInstanceFieldSet() || heap_value->IsArraySet()) {
+      if (heap_value->IsInstanceFieldSet() ||
+          heap_value->IsArraySet() ||
+          heap_value->IsVecStore()) {
         // Check whether the reference for a store is used by an environment local of
         // HDeoptimize.
         HInstruction* reference = heap_value->InputAt(0);
@@ -693,11 +747,6 @@ void LoadStoreElimination::Run() {
   const HeapLocationCollector& heap_location_collector = lsa_.GetHeapLocationCollector();
   if (heap_location_collector.GetNumberOfHeapLocations() == 0) {
     // No HeapLocation information from LSA, skip this optimization.
-    return;
-  }
-
-  // TODO: analyze VecLoad/VecStore better.
-  if (graph_->HasSIMD()) {
     return;
   }
 
