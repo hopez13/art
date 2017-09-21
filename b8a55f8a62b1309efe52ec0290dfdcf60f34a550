@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6e4c201_8d8ab9e9",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-21T18:09:03Z",
+      "side": 1,
+      "message": "If you change this to a 2-pass\n\n1) calculate size first\n2) actually append\n\nthen it won\u0027t need to do multiple dynamic allocations",
+      "revId": "b8a55f8a62b1309efe52ec0290dfdcf60f34a550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
