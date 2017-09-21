@@ -2624,6 +2624,9 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2) + data_offset;
         __ LoadFromOffset(kLoadSignedHalfword, out, obj, offset, null_checker);
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+        __ Addu(TMP, index.AsRegister<Register>(), obj);
+        __ LoadFromOffset(kLoadSignedHalfword, out, TMP, data_offset, null_checker);
       } else {
         __ ShiftAndAdd(TMP, index.AsRegister<Register>(), obj, TIMES_2, TMP);
         __ LoadFromOffset(kLoadSignedHalfword, out, TMP, data_offset, null_checker);
@@ -2675,6 +2678,9 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
           __ ShiftAndAdd(TMP, index_reg, obj, TIMES_2, TMP);
           __ LoadFromOffset(kLoadUnsignedHalfword, out, TMP, data_offset);
           __ Bind(&done);
+        } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(TMP, index.AsRegister<Register>(), obj);
+          __ LoadFromOffset(kLoadUnsignedHalfword, out, TMP, data_offset, null_checker);
         } else {
           __ ShiftAndAdd(TMP, index_reg, obj, TIMES_2, TMP);
           __ LoadFromOffset(kLoadUnsignedHalfword, out, TMP, data_offset, null_checker);
@@ -2690,6 +2696,9 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4) + data_offset;
         __ LoadFromOffset(kLoadWord, out, obj, offset, null_checker);
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(TMP, index.AsRegister<Register>(), obj);
+          __ LoadFromOffset(kLoadWord, out, TMP, data_offset, null_checker);
       } else {
         __ ShiftAndAdd(TMP, index.AsRegister<Register>(), obj, TIMES_4, TMP);
         __ LoadFromOffset(kLoadWord, out, TMP, data_offset, null_checker);
@@ -2763,6 +2772,9 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8) + data_offset;
         __ LoadFromOffset(kLoadDoubleword, out, obj, offset, null_checker);
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(TMP, index.AsRegister<Register>(), obj);
+          __ LoadFromOffset(kLoadDoubleword, out, TMP, data_offset, null_checker);
       } else {
         __ ShiftAndAdd(TMP, index.AsRegister<Register>(), obj, TIMES_8, TMP);
         __ LoadFromOffset(kLoadDoubleword, out, TMP, data_offset, null_checker);
@@ -2776,6 +2788,9 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4) + data_offset;
         __ LoadSFromOffset(out, obj, offset, null_checker);
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(TMP, index.AsRegister<Register>(), obj);
+          __ LoadSFromOffset(out, TMP, data_offset, null_checker);
       } else {
         __ ShiftAndAdd(TMP, index.AsRegister<Register>(), obj, TIMES_4, TMP);
         __ LoadSFromOffset(out, TMP, data_offset, null_checker);
@@ -2789,6 +2804,9 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8) + data_offset;
         __ LoadDFromOffset(out, obj, offset, null_checker);
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(TMP, index.AsRegister<Register>(), obj);
+          __ LoadDFromOffset(out, TMP, data_offset, null_checker);
       } else {
         __ ShiftAndAdd(TMP, index.AsRegister<Register>(), obj, TIMES_8, TMP);
         __ LoadDFromOffset(out, TMP, data_offset, null_checker);
@@ -2902,6 +2920,8 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       uint32_t data_offset = mirror::Array::DataOffset(sizeof(uint16_t)).Uint32Value();
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2;
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(base_reg, index.AsRegister<Register>(), obj);
       } else {
         __ ShiftAndAdd(base_reg, index.AsRegister<Register>(), obj, TIMES_2, base_reg);
       }
@@ -2919,6 +2939,8 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       uint32_t data_offset = mirror::Array::DataOffset(sizeof(int32_t)).Uint32Value();
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4;
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(base_reg, index.AsRegister<Register>(), obj);
       } else {
         __ ShiftAndAdd(base_reg, index.AsRegister<Register>(), obj, TIMES_4, base_reg);
       }
@@ -2968,6 +2990,8 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
           uint32_t data_offset = mirror::Array::DataOffset(sizeof(int32_t)).Uint32Value();
           if (index.IsConstant()) {
             data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4;
+          } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(base_reg, index.AsRegister<Register>(), obj);
           } else {
             __ ShiftAndAdd(base_reg, index.AsRegister<Register>(), obj, TIMES_4, base_reg);
           }
@@ -3051,6 +3075,8 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       uint32_t data_offset = mirror::Array::DataOffset(sizeof(int64_t)).Uint32Value();
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8;
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(base_reg, index.AsRegister<Register>(), obj);
       } else {
         __ ShiftAndAdd(base_reg, index.AsRegister<Register>(), obj, TIMES_8, base_reg);
       }
@@ -3068,6 +3094,8 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       uint32_t data_offset = mirror::Array::DataOffset(sizeof(float)).Uint32Value();
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4;
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(base_reg, index.AsRegister<Register>(), obj);
       } else {
         __ ShiftAndAdd(base_reg, index.AsRegister<Register>(), obj, TIMES_4, base_reg);
       }
@@ -3085,6 +3113,8 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       uint32_t data_offset = mirror::Array::DataOffset(sizeof(double)).Uint32Value();
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8;
+      } else if (instruction->InputAt(1)->IsIntermediateArrayAddressIndex()) {
+          __ Addu(base_reg, index.AsRegister<Register>(), obj);
       } else {
         __ ShiftAndAdd(base_reg, index.AsRegister<Register>(), obj, TIMES_8, base_reg);
       }
@@ -3102,6 +3132,26 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       LOG(FATAL) << "Unreachable type " << instruction->GetType();
       UNREACHABLE();
   }
+}
+
+void LocationsBuilderMIPS::VisitIntermediateArrayAddressIndex(
+    HIntermediateArrayAddressIndex* instruction) {
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
+
+  HIntConstant* shift = instruction->GetShift()->AsIntConstant();
+
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::ConstantLocation(shift));
+  locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
+}
+
+void InstructionCodeGeneratorMIPS::VisitIntermediateArrayAddressIndex(
+    HIntermediateArrayAddressIndex* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  Register index_reg = locations->InAt(0).AsRegister<Register>();
+  uint32_t shift = instruction->GetShift()->AsIntConstant()->GetValue();
+  __ Sll(locations->Out().AsRegister<Register>(), index_reg, shift);
 }
 
 void LocationsBuilderMIPS::VisitBoundsCheck(HBoundsCheck* instruction) {

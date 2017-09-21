@@ -27,6 +27,7 @@
 #endif
 
 #ifdef ART_ENABLE_CODEGEN_mips
+#include "instruction_simplifier_mips.h"
 #include "pc_relative_fixups_mips.h"
 #endif
 
@@ -528,6 +529,8 @@ static HOptimization* BuildOptimization(
 #ifdef ART_ENABLE_CODEGEN_mips
   } else if (opt_name == mips::PcRelativeFixups::kPcRelativeFixupsMipsPassName) {
     return new (arena) mips::PcRelativeFixups(graph, codegen, stats);
+  } else if (opt_name == mips::InstructionSimplifierMips::kInstructionSimplifierMipsPassName) {
+    return new (arena) mips::InstructionSimplifierMips(graph, codegen, stats);
 #endif
 #ifdef ART_ENABLE_CODEGEN_x86
   } else if (opt_name == x86::PcRelativeFixups::kPcRelativeFixupsX86PassName) {
@@ -673,7 +676,10 @@ void OptimizingCompiler::RunArchOptimizations(InstructionSet instruction_set,
           new (arena) mips::PcRelativeFixups(graph, codegen, stats);
       SideEffectsAnalysis* side_effects = new (arena) SideEffectsAnalysis(graph);
       GVNOptimization* gvn = new (arena) GVNOptimization(graph, *side_effects, "GVN$after_arch");
+      mips::InstructionSimplifierMips* simplifier =
+          new (arena) mips::InstructionSimplifierMips(graph, codegen, stats);
       HOptimization* mips_optimizations[] = {
+          simplifier,
           side_effects,
           gvn,
           pc_relative_fixups,

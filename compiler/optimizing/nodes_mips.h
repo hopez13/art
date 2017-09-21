@@ -69,6 +69,30 @@ class HMipsPackedSwitch FINAL : public HTemplateInstruction<2> {
   DISALLOW_COPY_AND_ASSIGN(HMipsPackedSwitch);
 };
 
+class HIntermediateArrayAddressIndex FINAL : public HExpression<2> {
+ public:
+  HIntermediateArrayAddressIndex(
+      HInstruction* index, HInstruction* shift, uint32_t dex_pc)
+      : HExpression(Primitive::kPrimInt, SideEffects::None(), dex_pc) {
+    SetRawInputAt(0, index);
+    SetRawInputAt(1, shift);
+  }
+
+  bool CanBeMoved() const OVERRIDE { return true; }
+  bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
+    return true;
+  }
+  bool IsActualObject() const OVERRIDE { return false; }
+
+  HInstruction* GetIndex() const { return InputAt(0); }
+  HInstruction* GetShift() const { return InputAt(1); }
+
+  DECLARE_INSTRUCTION(IntermediateArrayAddressIndex);
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(HIntermediateArrayAddressIndex);
+};
+
 }  // namespace art
 
 #endif  // ART_COMPILER_OPTIMIZING_NODES_MIPS_H_
