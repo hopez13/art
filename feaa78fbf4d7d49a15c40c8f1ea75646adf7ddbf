@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed49ee27_bed998c1",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-22T16:42:40Z",
+      "side": 1,
+      "message": "you could consider naming these Float32 and Float64, or FP32 and FP64 in a similar size-reflecting fashion as the others, but this is a very non-binding suggestion :-)",
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79de2e26_eecb6247",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-22T16:42:40Z",
+      "side": 1,
+      "message": "realign comment",
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
