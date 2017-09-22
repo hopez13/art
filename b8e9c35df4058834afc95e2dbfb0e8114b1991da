@@ -88,6 +88,24 @@
       "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f81c437_32f04ac5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-09-22T15:41:27Z",
+      "side": 1,
+      "message": "For ARM backends the arch specific optimizations work like:\n\n  (1) arm64/arm specific simplifier: extracts \u0026 generates IntermediateAddress for array get/set.\n  (2) gvn: removes any duplicate IntermediateAddress.\n  (3) scheduling: reorder the arrray get/set in the loop.\n\nSo first, we\u0027d better not remove all arch specific GVNs. And second, for ARM backends, I think scheduling better come last.",
+      "parentUuid": "db91a500_23270d20",
+      "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
