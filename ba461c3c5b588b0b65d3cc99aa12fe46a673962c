@@ -22,6 +22,30 @@
       "revId": "ba461c3c5b588b0b65d3cc99aa12fe46a673962c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5eae98b_a214ebce",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-22T21:31:22Z",
+      "side": 1,
+      "message": "I\u0027ll add a bug to do that. b/66709480",
+      "parentUuid": "60c9a95e_a98e32a6",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 58
+      },
+      "revId": "ba461c3c5b588b0b65d3cc99aa12fe46a673962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
