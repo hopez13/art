@@ -70,6 +70,24 @@
       "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db91a500_23270d20",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-22T09:18:14Z",
+      "side": 1,
+      "message": "Where would you do it? After architecture optimizations? But maybe ARM wants to make sure scheduling is last?",
+      "parentUuid": "781c6c1f_883ab77b",
+      "revId": "b8e9c35df4058834afc95e2dbfb0e8114b1991da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
