@@ -68,10 +68,6 @@ art_global_defaults {
             cflags: [
                 "-DART_TARGET",
 
-                // Enable missing-noreturn only on non-Mac. As lots of things are not implemented
-                // for Apple, it's a pain.
-                "-Wmissing-noreturn",
-
                 // To use oprofile_android --callgraph, uncomment this and recompile with
                 //    mmma -j art
                 // "-fno-omit-frame-pointer",
@@ -84,14 +80,11 @@ art_global_defaults {
                 "bionic/libc/private",
             ],
         },
-        linux: {
+        linux_based: {
             cflags: [
                 // Enable missing-noreturn only on non-Mac. As lots of things are not implemented for
                 // Apple, it's a pain.
                 "-Wmissing-noreturn",
-            ],
-            host_ldlibs: [
-                "-lrt",
             ],
         },
         host: {
@@ -108,10 +101,6 @@ art_global_defaults {
                 // x86/x86_64 target should not be affected.
                 "-msse4.2",
                 "-mpopcnt",
-            ],
-            host_ldlibs: [
-                "-ldl",
-                "-lpthread",
             ],
         },
     },

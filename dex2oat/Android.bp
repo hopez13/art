@@ -27,10 +27,6 @@ art_cc_defaults {
         "linker/oat_writer.cc",
     ],
     target: {
-        host: {
-            // For compiler driver TLS.
-            host_ldlibs: ["-lpthread"],
-        },
         android: {
             // For atrace.
             shared_libs: ["libcutils"],

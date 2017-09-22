@@ -181,10 +181,6 @@ art_cc_defaults {
         },
     },
     target: {
-        host: {
-            // For compiler driver TLS.
-            host_ldlibs: ["-lpthread"],
-        },
         android: {
             // For atrace.
             shared_libs: ["libcutils"],

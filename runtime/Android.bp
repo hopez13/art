@@ -356,7 +356,6 @@ cc_defaults {
                 "thread_android.cc",
             ],
             shared_libs: [
-                "libdl",
                 // For android::FileMap used by libziparchive.
                 "libutils",
                 "libtombstoned_client"
