@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fea9478c_c90cc732",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-22T16:55:33Z",
+      "side": 1,
+      "message": "Add documentation to this class. We should do that better in our source in general, but in this particular case, there is no cloner.cc file this belongs to, so for future readers, this is extra important.",
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bdb4874_93f3785d",
         "filename": "compiler/optimizing/cloner_test.cc",
         "patchSetId": 8
@@ -163,6 +180,23 @@
     },
     {
       "key": {
+        "uuid": "4170b148_57a124e0",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-22T16:55:33Z",
+      "side": 1,
+      "message": "nit: ASSERT is typically used if running the rest of the test depends on the value. So a last one by definition should be an EXPECT_TRUE (although I can see you want symmetry with L167). Likewise, is L189 really an ASSERT or an EXPECT?",
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e8affc1_79cb1f5e",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 8
@@ -174,6 +208,30 @@
       "writtenOn": "2017-09-22T12:19:18Z",
       "side": 1,
       "message": "Don\u0027t forget to remove this test. :)",
+      "range": {
+        "startLine": 133,
+        "startChar": 75,
+        "endLine": 133,
+        "endChar": 85
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75b9d268_1ed29f5b",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-22T16:55:33Z",
+      "side": 1,
+      "message": "I like the idea of preserving how to do this somewhere. Do we have a mechanism for a test that is only run by hand or could we somehow put this in a test that generates all nodes by reflection or something of the sort?",
+      "parentUuid": "6e8affc1_79cb1f5e",
       "range": {
         "startLine": 133,
         "startChar": 75,
@@ -341,6 +399,23 @@
         "endLine": 7253,
         "endChar": 38
       },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1300ce79_ff93ed89",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-22T16:55:33Z",
+      "side": 1,
+      "message": "this begs for a macro definition\n\nEXPLICT_CONSTRUCTOR(HVecOperation);\n\nor something like that",
       "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
