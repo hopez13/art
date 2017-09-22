@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60c9a95e_a98e32a6",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-22T21:24:05Z",
+      "side": 1,
+      "message": "I would have used env-\u003eIsInstanceOf earlier (which is something that should protect all jthread input methods, I guess).",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 58
+      },
+      "revId": "ba461c3c5b588b0b65d3cc99aa12fe46a673962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
