@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "c3bd93ea_4f05ca0f",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2017-09-22T01:46:46Z",
+      "side": 1,
+      "message": "yeah, that\u0027s what we did for a similar situation in the NDK. it was brittle though; bitrotted without us noticing.",
+      "parentUuid": "2e6967e0_2c353294",
+      "revId": "f52608c6a4f1ca4349d2df462ca463ffdf498bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a4081d6c_afc058c1",
         "filename": "runtime/utils.cc",
         "patchSetId": 2
