@@ -335,12 +335,10 @@ jvmtiError MonitorUtil::GetCurrentContendedMonitor(jvmtiEnv* env ATTRIBUTE_UNUSE
   art::Thread* self = art::Thread::Current();
   art::ScopedObjectAccess soa(self);
   art::MutexLock mu(self, *art::Locks::thread_list_lock_);
-  art::Thread* target = ThreadUtil::GetNativeThread(thread, soa);
-  if (target == nullptr && thread == nullptr) {
-    return ERR(INVALID_THREAD);
-  }
-  if (target == nullptr) {
-    return ERR(THREAD_NOT_ALIVE);
+  art::Thread* target = nullptr;
+  jvmtiError err = ERR(INTERNAL);
+  if (!ThreadUtil::GetAliveNativeThread(thread, soa, &target, &err)) {
+    return err;
   }
   struct GetContendedMonitorClosure : public art::Closure {
    public:

@@ -93,8 +93,21 @@ class ThreadUtil {
                                      const jthread* threads,
                                      jvmtiError* results);
 
-  static art::Thread* GetNativeThread(jthread thread,
-                                      const art::ScopedObjectAccessAlreadyRunnable& soa)
+  // Returns true if we decoded the thread and it is alive, false otherwise with an appropriate
+  // error placed into 'err'
+  static bool GetAliveNativeThread(jthread thread,
+                                   const art::ScopedObjectAccessAlreadyRunnable& soa,
+                                   /*out*/ art::Thread** thr,
+                                   /*out*/ jvmtiError* err)
+      REQUIRES_SHARED(art::Locks::mutator_lock_)
+      REQUIRES(art::Locks::thread_list_lock_);
+
+  // Returns true if we decoded the thread, false otherwise with an appropriate error placed into
+  // 'err'
+  static bool GetNativeThread(jthread thread,
+                              const art::ScopedObjectAccessAlreadyRunnable& soa,
+                              /*out*/ art::Thread** thr,
+                              /*out*/ jvmtiError* err)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
       REQUIRES(art::Locks::thread_list_lock_);
 
