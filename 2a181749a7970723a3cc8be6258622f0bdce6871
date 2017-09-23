@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0845c326_70e012db",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-23T00:00:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41ccb9b7_a6c21dc6",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 191,
+        "endChar": 3
+      },
+      "revId": "2a181749a7970723a3cc8be6258622f0bdce6871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "159d3f05_ff5a73c3",
         "filename": "openjdkjvmti/ti_thread.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-22T23:38:43Z",
       "side": 1,
       "message": "Is this necessary? It isn\u0027t obvious to me, at least from the function name.",
+      "range": {
+        "startLine": 890,
+        "startChar": 21,
+        "endLine": 890,
+        "endChar": 26
+      },
+      "revId": "2a181749a7970723a3cc8be6258622f0bdce6871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61590d72_12d5e17b",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-23T00:00:07Z",
+      "side": 1,
+      "message": "I guess not.",
+      "parentUuid": "159d3f05_ff5a73c3",
       "range": {
         "startLine": 890,
         "startChar": 21,
