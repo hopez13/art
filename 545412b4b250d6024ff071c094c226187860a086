@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "76abd8e1_b15bf5ff",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-23T00:31:27Z",
+      "side": 1,
+      "message": "double new line",
+      "revId": "545412b4b250d6024ff071c094c226187860a086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fabffc0c_2bb6e202",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-23T00:31:27Z",
+      "side": 1,
+      "message": "I\u0027m looking forward to see if we get here...\n\nWe have a very loose way to enforce it and rely that whatever JIT reports will be sampled by mathieu\u0027s class walking.",
+      "range": {
+        "startLine": 959,
+        "startChar": 3,
+        "endLine": 968,
+        "endChar": 5
+      },
+      "revId": "545412b4b250d6024ff071c094c226187860a086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62ffba9d_83819add",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 9
@@ -18,6 +58,29 @@
         "startChar": 0,
         "endLine": 1849,
         "endChar": 81
+      },
+      "revId": "545412b4b250d6024ff071c094c226187860a086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7847e3_97f6c906",
+        "filename": "test/661-oat-writer-layout/parse_oatdump_offsets.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-23T00:31:27Z",
+      "side": 1,
+      "message": "Where is this tool used in the test flow?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 80
       },
       "revId": "545412b4b250d6024ff071c094c226187860a086",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",

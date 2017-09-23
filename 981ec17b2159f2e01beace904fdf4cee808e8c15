@@ -161,6 +161,30 @@
     },
     {
       "key": {
+        "uuid": "7b5961f6_803e44da",
+        "filename": "test/661-oat-writer-layout/src/Generated.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-23T00:31:27Z",
+      "side": 1,
+      "message": "what about this comment?",
+      "parentUuid": "1da64b53_d98d149a",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 9
+      },
+      "revId": "981ec17b2159f2e01beace904fdf4cee808e8c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2ba5c76_a1ee458d",
         "filename": "test/661-oat-writer-layout/src/Test.java",
         "patchSetId": 6
@@ -220,6 +244,30 @@
       "side": 1,
       "message": "I am not sure I understand why this is needed for the ordering test.",
       "parentUuid": "9ba30f9a_83816340",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "981ec17b2159f2e01beace904fdf4cee808e8c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20d74654_d3e927b7",
+        "filename": "test/661-oat-writer-layout/src/Test.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-09-23T00:31:27Z",
+      "side": 1,
+      "message": "So coming back to this: why is it not enough to just walk all the class methods programatically and you need to list them here? I still don\u0027t get the need to this class.",
+      "parentUuid": "2a2cc907_b91200fe",
       "range": {
         "startLine": 17,
         "startChar": 13,
