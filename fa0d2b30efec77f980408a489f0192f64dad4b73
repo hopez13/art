@@ -244,6 +244,30 @@
     },
     {
       "key": {
+        "uuid": "d3cf726a_eb869fdf",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-24T12:24:49Z",
+      "side": 1,
+      "message": "Usually we guard such code with a compile-time condition, disabled by default; e.g.:\n\n  // \u003cDocumentation goes here.\u003e\n  static constexpr bool kCondition \u003d false;\n\n  // ...\n\n  if (kCondition) {\n     // Test code here.\n  }\n\nSometimes, such a condition is hooked to `kIsDebugBuild` (however I\u0027m not sure we want to do this here).",
+      "parentUuid": "75b9d268_1ed29f5b",
+      "range": {
+        "startLine": 133,
+        "startChar": 75,
+        "endLine": 133,
+        "endChar": 85
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "023fdaba_f78c454f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
