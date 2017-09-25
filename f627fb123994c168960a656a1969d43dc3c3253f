@@ -52,6 +52,24 @@
       "revId": "f627fb123994c168960a656a1969d43dc3c3253f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e9e6ff8_07247cca",
+        "filename": "runtime/utils/scoped_local_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-25T18:34:43Z",
+      "side": 1,
+      "message": "Base doesn\u0027t have weird caching semantics. :-)",
+      "parentUuid": "2d937d5c_2300466d",
+      "revId": "f627fb123994c168960a656a1969d43dc3c3253f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
