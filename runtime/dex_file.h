@@ -37,6 +37,10 @@ class Signature;
 class StringPiece;
 class ZipArchive;
 
+namespace linker {
+class OatTest;
+}  // namespace linker
+
 class DexFile {
  public:
   // First Dex format version supporting default methods.
@@ -1231,7 +1235,7 @@ class DexFile {
   mutable const OatDexFile* oat_dex_file_;
 
   friend class DexFileVerifierTest;
-  friend class OatWriter;
+  friend class linker::OatTest;
   ART_FRIEND_TEST(ClassLinkerTest, RegisterDexFileName);  // for constructor
 };
 
