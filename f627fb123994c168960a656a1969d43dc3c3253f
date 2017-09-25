@@ -16,6 +16,24 @@
       "revId": "f627fb123994c168960a656a1969d43dc3c3253f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e5ecec8_12930b8a",
+        "filename": "runtime/utils/scoped_local_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-25T18:28:55Z",
+      "side": 1,
+      "message": "I don\u0027t want yet another header-only library on libnativehelper *just* for scoped_local_ref. I think it\u0027s better to get to a state where we don\u0027t depend on libnativehelper _at all_.",
+      "parentUuid": "3b043e62_e3885e9d",
+      "revId": "f627fb123994c168960a656a1969d43dc3c3253f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
