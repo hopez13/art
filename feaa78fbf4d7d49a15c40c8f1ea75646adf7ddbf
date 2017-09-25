@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fd2b9310_a3033521",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-25T13:49:43Z",
+      "side": 1,
+      "message": "The cost of using the \"enum class\". OTOH, it exposed some unintended code, see TypeEffects::TypeFlag() in nodes.h.",
+      "parentUuid": "ebf72c08_2bed0f8e",
+      "range": {
+        "startLine": 930,
+        "startChar": 30,
+        "endLine": 930,
+        "endChar": 44
+      },
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed49ee27_bed998c1",
         "filename": "compiler/optimizing/data_type.h",
         "patchSetId": 2
@@ -60,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "2833f962_e4eba1c9",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-25T13:49:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9afa40c_63b56e48",
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd1e7493_dea23739",
         "filename": "compiler/optimizing/data_type.h",
         "patchSetId": 2
@@ -83,6 +125,30 @@
     },
     {
       "key": {
+        "uuid": "2c74f735_cbfb3d01",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-25T13:49:43Z",
+      "side": 1,
+      "message": "Renamed kBoolean to kBool with permissible values 0 and 1. kUint8 shall mean values 0 to 255.",
+      "parentUuid": "fd1e7493_dea23739",
+      "range": {
+        "startLine": 138,
+        "startChar": 35,
+        "endLine": 138,
+        "endChar": 39
+      },
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79de2e26_eecb6247",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 2
@@ -94,6 +160,24 @@
       "writtenOn": "2017-09-22T16:42:40Z",
       "side": 1,
       "message": "realign comment",
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2687964_aae4123d",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-25T13:49:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79de2e26_eecb6247",
       "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
