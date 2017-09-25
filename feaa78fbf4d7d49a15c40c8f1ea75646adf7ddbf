@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ebf72c08_2bed0f8e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-25T08:48:17Z",
+      "side": 1,
+      "message": "A bit annoying that you have to write twice \"Type\".",
+      "range": {
+        "startLine": 930,
+        "startChar": 30,
+        "endLine": 930,
+        "endChar": 44
+      },
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed49ee27_bed998c1",
         "filename": "compiler/optimizing/data_type.h",
         "patchSetId": 2
@@ -13,6 +36,47 @@
       "writtenOn": "2017-09-22T16:42:40Z",
       "side": 1,
       "message": "you could consider naming these Float32 and Float64, or FP32 and FP64 in a similar size-reflecting fashion as the others, but this is a very non-binding suggestion :-)",
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9afa40c_63b56e48",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-25T08:48:17Z",
+      "side": 1,
+      "message": "kFloat32 and kFloat64 sgtm.",
+      "parentUuid": "ed49ee27_bed998c1",
+      "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd1e7493_dea23739",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-25T08:48:17Z",
+      "side": 1,
+      "message": "This scares me a bit, as mixing Java naming (boolean) and c naming. Could we just avoid the boolean name and use uint8_t instead?",
+      "range": {
+        "startLine": 138,
+        "startChar": 35,
+        "endLine": 138,
+        "endChar": 39
+      },
       "revId": "feaa78fbf4d7d49a15c40c8f1ea75646adf7ddbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
