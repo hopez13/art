@@ -34,6 +34,24 @@
       "revId": "f627fb123994c168960a656a1969d43dc3c3253f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d937d5c_2300466d",
+        "filename": "runtime/utils/scoped_local_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-25T18:30:36Z",
+      "side": 1,
+      "message": "What makes this different than depending on android::base ?",
+      "parentUuid": "3e5ecec8_12930b8a",
+      "revId": "f627fb123994c168960a656a1969d43dc3c3253f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
