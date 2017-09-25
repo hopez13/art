@@ -28,6 +28,7 @@
 #include "base/file_magic.h"
 #include "base/stl_util.h"
 #include "base/unix_file/fd_file.h"
+#include "cdex/cdex_file.h"
 #include "class_linker.h"
 #include "class_table-inl.h"
 #include "compiled_method-inl.h"
@@ -52,6 +53,7 @@
 #include "mirror/class_loader.h"
 #include "mirror/dex_cache-inl.h"
 #include "mirror/object-inl.h"
+#include "native_dex_file.h"
 #include "oat_quick_method_header.h"
 #include "os.h"
 #include "safe_map.h"
@@ -415,7 +417,7 @@ bool OatWriter::AddDexFileSource(const char* filename,
   if (fd.Fd() == -1) {
     PLOG(ERROR) << "Failed to read magic number from dex file: '" << filename << "'";
     return false;
-  } else if (IsDexMagic(magic)) {
+  } else if (DexFile::IsDexOrCDexMagic(magic)) {
     // The file is open for reading, not writing, so it's OK to let the File destructor
     // close it without checking for explicit Close(), so pass checkUsage = false.
     raw_dex_files_.emplace_back(new File(fd.Release(), location, /* checkUsage */ false));
@@ -478,7 +480,7 @@ bool OatWriter::AddVdexDexFilesSource(const VdexFile& vdex_file,
       LOG(ERROR) << "Unexpected number of dex files in vdex " << location;
       return false;
     }
-    if (!DexFile::IsMagicValid(current_dex_data)) {
+    if (!DexFile::IsDexOrCDexMagic(current_dex_data)) {
       LOG(ERROR) << "Invalid magic in vdex file created from " << location;
       return false;
     }
@@ -3107,11 +3109,15 @@ bool OatWriter::ReadDexFileHeader(File* file, OatDexFile* oat_dex_file) {
 }
 
 bool OatWriter::ValidateDexFileHeader(const uint8_t* raw_header, const char* location) {
-  if (!DexFile::IsMagicValid(raw_header)) {
+  const bool valid_native_dex_magic = NativeDexFile::IsMagicValid(raw_header);
+  const bool valid_cdex_magic = CDexFile::IsMagicValid(raw_header);
+  if (!valid_native_dex_magic && !valid_cdex_magic) {
     LOG(ERROR) << "Invalid magic number in dex file header. " << " File: " << location;
     return false;
   }
-  if (!DexFile::IsVersionValid(raw_header)) {
+  if (UNLIKELY(valid_native_dex_magic
+      ? !NativeDexFile::IsVersionValid(raw_header)
+      : !CDexFile::IsVersionValid(raw_header))) {
     LOG(ERROR) << "Invalid version number in dex file header. " << " File: " << location;
     return false;
   }
