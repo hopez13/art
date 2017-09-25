@@ -37,17 +37,17 @@ class Signature;
 class StringPiece;
 class ZipArchive;
 
+// Dex file is the API that exposes native dex files (normal dex files) and compact dex.
 class DexFile {
  public:
+  // Number of bytes in the dex file magic.
+  static constexpr size_t kDexMagicSize = 4;
+  static constexpr size_t kDexVersionLen = 4;
+
   // First Dex format version supporting default methods.
   static const uint32_t kDefaultMethodsVersion = 37;
   // First Dex format version enforcing class definition ordering rules.
   static const uint32_t kClassDefinitionOrderEnforcedVersion = 37;
-
-  static const uint8_t kDexMagic[];
-  static constexpr size_t kNumDexVersions = 3;
-  static constexpr size_t kDexVersionLen = 4;
-  static const uint8_t kDexMagicVersions[kNumDexVersions][kDexVersionLen];
 
   static constexpr size_t kSha1DigestSize = 20;
   static constexpr uint32_t kDexEndianConstant = 0x12345678;
@@ -529,10 +529,13 @@ class DexFile {
   }
 
   // Returns true if the byte string points to the magic value.
-  static bool IsMagicValid(const uint8_t* magic);
+  virtual bool IsMagicValid() const = 0;
 
   // Returns true if the byte string after the magic is the correct value.
-  static bool IsVersionValid(const uint8_t* magic);
+  virtual bool IsVersionValid() const = 0;
+
+  static bool IsDexOrCDexMagic(uint32_t magic);
+  static bool IsDexOrCDexMagic(const uint8_t* magic);
 
   // Returns the number of string identifiers in the .dex file.
   size_t NumStringIds() const {
@@ -1102,7 +1105,7 @@ class DexFile {
   // Returns a human-readable form of the type at an index.
   std::string PrettyType(dex::TypeIndex type_idx) const;
 
- private:
+ protected:
   static std::unique_ptr<const DexFile> OpenFile(int fd,
                                                  const std::string& location,
                                                  bool verify,
@@ -1232,7 +1235,6 @@ class DexFile {
 
   friend class DexFileVerifierTest;
   friend class OatWriter;
-  ART_FRIEND_TEST(ClassLinkerTest, RegisterDexFileName);  // for constructor
 };
 
 std::ostream& operator<<(std::ostream& os, const DexFile& dex_file);
