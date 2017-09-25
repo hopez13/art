@@ -868,5 +868,62 @@ TEST_F(OatTest, UpdateChecksum) {
   EXPECT_EQ(216138397U, oat_header->GetChecksum());
 }
 
+// Minimal base64-encoded (good) Dex file generated with:
+//
+//   cat <<EOF >A.smali
+//   .class public LA;
+//   .super Ljava/lang/Object;
+//   EOF
+//   smali -o classes.dex A.smali
+//   base64 classes.dex
+
+static const char kGoodTestDex[] =
+    "ZGV4CjAzNQBJHQ1sVs9XDQMWBbQ5HQczeYisJ8GA5P4YAQAAcAAAAHhWNBIAAAAAAAAAAMAAAAAC"
+    "AAAAcAAAAAIAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAB4AAAAoAAAAKAA"
+    "AAClAAAAAAAAAAEAAAAAAAAAAQAAAAEAAAAAAAAA/////wAAAAAAAAAAAAAAAANMQTsAEkxqYXZh"
+    "L2xhbmcvT2JqZWN0OwAAAAAAAAAABwAAAAAAAAABAAAAAAAAAAEAAAACAAAAcAAAAAIAAAACAAAA"
+    "eAAAAAYAAAABAAAAgAAAAAIgAAACAAAAoAAAAAMQAAABAAAAvAAAAAAQAAABAAAAwAAAAA==";
+
+static void FixUpChecksum(uint8_t* dex_file) {
+  DexFile::Header* header = reinterpret_cast<DexFile::Header*>(dex_file);
+  uint32_t expected_size = header->file_size_;
+  uint32_t adler_checksum = adler32(0L, Z_NULL, 0);
+  const uint32_t non_sum = sizeof(DexFile::Header::magic_) + sizeof(DexFile::Header::checksum_);
+  const uint8_t* non_sum_ptr = dex_file + non_sum;
+  adler_checksum = adler32(adler_checksum, non_sum_ptr, expected_size - non_sum);
+  header->checksum_ = adler_checksum;
+}
+
+TEST_F(OatTest, BogusClassDefsSize) {
+  Compiler::Kind compiler_kind = Compiler::kQuick;
+  InstructionSet insn_set = kRuntimeISA;
+  if (insn_set == kArm) insn_set = kThumb2;
+  std::string error_msg;
+  std::vector<std::string> compiler_options;
+  compiler_options.push_back("--compiler-filter=extract");
+  SetupCompiler(compiler_kind, insn_set, compiler_options, /*out*/ &error_msg);
+
+  size_t length;
+  std::unique_ptr<uint8_t[]> dex_bytes(DecodeBase64(kGoodTestDex, &length));
+  CHECK(dex_bytes != nullptr);
+  // Note: `dex_file` will be destroyed before `dex_bytes`.
+  std::unique_ptr<DexFile> dex_file(GetDexFile(dex_bytes.get(), length));
+
+  DexFile::Header* header = const_cast<DexFile::Header*>(
+      reinterpret_cast<const DexFile::Header*>(dex_file->Begin()));
+  // The Dex file encoded in `kGoodTestDex` contains a single class (`A`).
+  EXPECT_EQ(header->class_defs_size_, 1u);
+  // Overwrite the number of class definitions with a huge bogus value.
+  header->class_defs_size_ = 1000 * 1000 * 1000;  // Dr. Evil: "One billion class definitions!"
+  FixUpChecksum(const_cast<uint8_t*>(dex_file->Begin()));
+
+  std::vector<const DexFile*> dex_files({dex_file.get()});
+
+  ScratchFile tmp_oat, tmp_vdex(tmp_oat, ".vdex");
+  SafeMap<std::string, std::string> key_value_store;
+  bool success = WriteElf(tmp_vdex.GetFile(), tmp_oat.GetFile(), dex_files, key_value_store, false);
+  ASSERT_TRUE(!success);
+}
+
 }  // namespace linker
 }  // namespace art

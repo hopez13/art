@@ -1230,9 +1230,7 @@ class DexFile {
   // null.
   mutable const OatDexFile* oat_dex_file_;
 
-  friend class DexFileVerifierTest;
-  friend class OatWriter;
-  ART_FRIEND_TEST(ClassLinkerTest, RegisterDexFileName);  // for constructor
+  friend class CommonRuntimeTestImpl;  // For constructor.
 };
 
 std::ostream& operator<<(std::ostream& os, const DexFile& dex_file);

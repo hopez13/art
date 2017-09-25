@@ -141,6 +141,15 @@ class CommonRuntimeTestImpl {
 
   std::string GetTestAndroidRoot();
 
+  static DexFile* GetDexFile(const uint8_t* dex_bytes, size_t length) {
+    return GetDexFile(dex_bytes, length, "tmp");
+  }
+
+  static DexFile* GetDexFile(const uint8_t* dex_bytes, size_t length, const std::string& location) {
+    return new DexFile(
+        dex_bytes, length, location, /* location_checksum */ 0u, /* oat_dex_file */ nullptr);
+  }
+
   std::vector<std::unique_ptr<const DexFile>> OpenTestDexFiles(const char* name);
 
   std::unique_ptr<const DexFile> OpenTestDexFile(const char* name);

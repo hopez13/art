@@ -2754,6 +2754,38 @@ bool OatWriter::ValidateDexFileHeader(const uint8_t* raw_header, const char* loc
                << " File: " << location;
     return false;
   }
+
+  // Check that `header->class_defs_size_` is not a clearly invalid
+  // value, so that we can bail out gracefully. A bogus huge value
+  // could indeed make the statement
+  // `oat_dex_file->class_offsets_.resize(header->class_defs_size_)`
+  // in OatWriter::ReadDexFileHeader fail a memory (re)allocation on
+  // device, thus crashing dex2oat with an uncaught std::bad_alloc
+  // exception (see b/65954127).
+  //
+  // Also note that
+  // - the size of a class_def_item is 32 bytes;
+  // - the maximum number of class definitions in a Dex file is 2^32-1
+  //   (class_def_size is a 32-bit unsigned int)
+  // (see https://source.android.com/devices/tech/dalvik/dex-format).
+  // This means that the theoretical size of a class definition
+  // section is almost 2^38 bytes (~128 GiB), which cannot be encoded
+  // on a 32-bit unsigned int. Promote all the values manipulated here
+  // to 64-bit unsigned integers to avoid any overflowing or incorrect
+  // comparison.
+  uint64_t file_size_in_bytes = header->file_size_;
+  uint64_t class_defs_count = header->class_defs_size_;
+  uint64_t class_defs_size_in_bytes = class_defs_count * sizeof(DexFile::ClassDef);
+  if (file_size_in_bytes < class_defs_size_in_bytes) {
+    LOG(ERROR)
+        << "Dex file header specifies class definition section larger than Dex file."
+        << " File: " << location
+        << ", file_size: " << file_size_in_bytes << " bytes"
+        << ", class_defs_size: " << class_defs_count << " items"
+        << ", sizeof(class_def_item): " << sizeof(DexFile::ClassDef) << " bytes"
+        << ", class_defs_size * sizeof(class_def_item): " << class_defs_size_in_bytes << " bytes";
+    return false;
+  }
   return true;
 }
 
