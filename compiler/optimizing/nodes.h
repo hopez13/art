@@ -1762,12 +1762,24 @@ class SideEffects : public ValueObject {
 
   // Translates type to bit flag.
   static uint64_t TypeFlag(DataType::Type type, int offset) {
-    CHECK_NE(type, DataType::Type::kVoid);
-    const uint64_t one = 1;
-    const int shift = static_cast<int>(type);  // 0-based consecutive enum
+    int shift;
+    switch (type) {
+      case DataType::Type::kReference: shift = 0; break;
+      case DataType::Type::kBool:      shift = 1; break;
+      case DataType::Type::kInt8:      shift = 2; break;
+      case DataType::Type::kUint16:    shift = 3; break;
+      case DataType::Type::kInt16:     shift = 4; break;
+      case DataType::Type::kInt32:     shift = 5; break;
+      case DataType::Type::kInt64:     shift = 6; break;
+      case DataType::Type::kFloat32:   shift = 7; break;
+      case DataType::Type::kFloat64:   shift = 8; break;
+      default:
+        LOG(FATAL) << "Unexpected data type " << type;
+        UNREACHABLE();
+    }
     DCHECK_LE(kFieldWriteOffset, shift);
     DCHECK_LT(shift, kArrayWriteOffset);
-    return one << (shift + offset);
+    return UINT64_C(1) << (shift + offset);
   }
 
   // Private constructor on direct flags value.

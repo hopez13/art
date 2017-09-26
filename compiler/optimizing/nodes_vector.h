@@ -475,13 +475,20 @@ class HVecHalvingAdd FINAL : public HVecBinaryOperation {
                  bool is_rounded,
                  uint32_t dex_pc = kNoDexPc)
       : HVecBinaryOperation(arena, left, right, packed_type, vector_length, dex_pc) {
+    // The `is_unsigned` flag should be used exclusively with the Int32 or Int64.
+    // This flag is a temporary measure while we do not have the Uint32 and Uint64 data types.
+    DCHECK(!is_unsigned ||
+           packed_type == DataType::Type::kInt32 ||
+           packed_type == DataType::Type::kInt64);
     DCHECK(HasConsistentPackedTypes(left, packed_type));
     DCHECK(HasConsistentPackedTypes(right, packed_type));
     SetPackedFlag<kFieldHAddIsUnsigned>(is_unsigned);
     SetPackedFlag<kFieldHAddIsRounded>(is_rounded);
   }
 
-  bool IsUnsigned() const { return GetPackedFlag<kFieldHAddIsUnsigned>(); }
+  bool IsUnsigned() const {
+    return GetPackedFlag<kFieldHAddIsUnsigned>();
+  }
   bool IsRounded() const { return GetPackedFlag<kFieldHAddIsRounded>(); }
 
   bool CanBeMoved() const OVERRIDE { return true; }

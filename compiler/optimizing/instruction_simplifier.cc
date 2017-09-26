@@ -251,7 +251,8 @@ bool InstructionSimplifierVisitor::TryCombineVecMultiplyAccumulate(HVecMul* mul)
   InstructionSet isa = codegen_->GetInstructionSet();
   switch (isa) {
     case kArm64:
-      if (!(type == DataType::Type::kInt8 ||
+      if (!(type == DataType::Type::kUint8 ||
+            type == DataType::Type::kInt8 ||
             type == DataType::Type::kUint16 ||
             type == DataType::Type::kInt16 ||
             type == DataType::Type::kInt32)) {
@@ -260,7 +261,8 @@ bool InstructionSimplifierVisitor::TryCombineVecMultiplyAccumulate(HVecMul* mul)
       break;
     case kMips:
     case kMips64:
-      if (!(type == DataType::Type::kInt8 ||
+      if (!(type == DataType::Type::kUint8 ||
+            type == DataType::Type::kInt8 ||
             type == DataType::Type::kUint16 ||
             type == DataType::Type::kInt16 ||
             type == DataType::Type::kInt32 ||
@@ -858,10 +860,11 @@ static bool AreLowerPrecisionArgs(DataType::Type to_type, HInstruction* a, HInst
   }
   DataType::Type type1 = a->GetType();
   DataType::Type type2 = b->GetType();
-  return (type1 == DataType::Type::kInt8  && type2 == DataType::Type::kInt8) ||
-         (type1 == DataType::Type::kInt16 && type2 == DataType::Type::kInt16) ||
-         (type1 == DataType::Type::kUint16  && type2 == DataType::Type::kUint16) ||
-         (type1 == DataType::Type::kInt32   && type2 == DataType::Type::kInt32 &&
+  return (type1 == DataType::Type::kUint8  && type2 == DataType::Type::kUint8) ||
+         (type1 == DataType::Type::kInt8   && type2 == DataType::Type::kInt8) ||
+         (type1 == DataType::Type::kInt16  && type2 == DataType::Type::kInt16) ||
+         (type1 == DataType::Type::kUint16 && type2 == DataType::Type::kUint16) ||
+         (type1 == DataType::Type::kInt32  && type2 == DataType::Type::kInt32 &&
           to_type == DataType::Type::kInt64);
 }
 
@@ -1018,30 +1021,13 @@ void InstructionSimplifierVisitor::VisitArraySet(HArraySet* instruction) {
   }
 }
 
-static bool IsTypeConversionImplicit(DataType::Type input_type, DataType::Type result_type) {
-  // Invariant: We should never generate a conversion to a Boolean value.
-  DCHECK_NE(DataType::Type::kBool, result_type);
-
-  // Besides conversion to the same type, widening integral conversions are implicit,
-  // excluding conversions to long and the byte->char conversion where we need to
-  // clear the high 16 bits of the 32-bit sign-extended representation of byte.
-  return result_type == input_type ||
-      (result_type == DataType::Type::kInt32 && (input_type == DataType::Type::kBool ||
-                                                 input_type == DataType::Type::kInt8 ||
-                                                 input_type == DataType::Type::kInt16 ||
-                                                 input_type == DataType::Type::kUint16)) ||
-      (result_type == DataType::Type::kUint16 && input_type == DataType::Type::kBool) ||
-      (result_type == DataType::Type::kInt16 && (input_type == DataType::Type::kBool ||
-                                                 input_type == DataType::Type::kInt8)) ||
-      (result_type == DataType::Type::kInt8 && input_type == DataType::Type::kBool);
-}
-
 static bool IsTypeConversionLossless(DataType::Type input_type, DataType::Type result_type) {
   // The conversion to a larger type is loss-less with the exception of two cases,
-  //   - conversion to Uint16, the only unsigned type, where we may lose some bits, and
+  //   - conversion to the unsigned type Uint16, where we may lose some bits, and
   //   - conversion from float to long, the only FP to integral conversion with smaller FP type.
   // For integral to FP conversions this holds because the FP mantissa is large enough.
-  DCHECK_NE(input_type, result_type);
+  // Note: The size check excludes Uint8 as the result type.
+  DCHECK(!DataType::IsTypeConversionImplicit(input_type, result_type));
   return DataType::Size(result_type) > DataType::Size(input_type) &&
       result_type != DataType::Type::kUint16 &&
       !(result_type == DataType::Type::kInt64 && input_type == DataType::Type::kFloat32);
@@ -1051,7 +1037,7 @@ void InstructionSimplifierVisitor::VisitTypeConversion(HTypeConversion* instruct
   HInstruction* input = instruction->GetInput();
   DataType::Type input_type = input->GetType();
   DataType::Type result_type = instruction->GetResultType();
-  if (IsTypeConversionImplicit(input_type, result_type)) {
+  if (DataType::IsTypeConversionImplicit(input_type, result_type)) {
     // Remove the implicit conversion; this includes conversion to the same type.
     instruction->ReplaceWith(input);
     instruction->GetBlock()->RemoveInstruction(instruction);
@@ -1080,7 +1066,7 @@ void InstructionSimplifierVisitor::VisitTypeConversion(HTypeConversion* instruct
 
     if (is_first_conversion_lossless || integral_conversions_with_non_widening_second) {
       // If the merged conversion is implicit, do the simplification unconditionally.
-      if (IsTypeConversionImplicit(original_type, result_type)) {
+      if (DataType::IsTypeConversionImplicit(original_type, result_type)) {
         instruction->ReplaceWith(original_input);
         instruction->GetBlock()->RemoveInstruction(instruction);
         if (!input_conversion->HasUses()) {
@@ -1109,7 +1095,7 @@ void InstructionSimplifierVisitor::VisitTypeConversion(HTypeConversion* instruct
       if (trailing_ones >= kBitsPerByte * DataType::Size(result_type)) {
         // The `HAnd` is useless, for example in `(byte) (x & 0xff)`, get rid of it.
         HInstruction* original_input = input_and->GetLeastConstantLeft();
-        if (IsTypeConversionImplicit(original_input->GetType(), result_type)) {
+        if (DataType::IsTypeConversionImplicit(original_input->GetType(), result_type)) {
           instruction->ReplaceWith(original_input);
           instruction->GetBlock()->RemoveInstruction(instruction);
           RecordSimplification();
