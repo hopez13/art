@@ -48,6 +48,7 @@ constexpr char DataType::TypeId(DataType::Type type) {
   // Type id for visualizer.
   switch (type) {
     case DataType::Type::kBool: return 'z';
+    case DataType::Type::kUint8: return 'a';
     case DataType::Type::kInt8: return 'b';
     case DataType::Type::kUint16: return 'c';
     case DataType::Type::kInt16: return 's';

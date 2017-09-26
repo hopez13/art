@@ -1521,6 +1521,7 @@ void InstructionCodeGeneratorX86_64::GenerateCompareTest(HCondition* condition) 
   DataType::Type type = condition->InputAt(0)->GetType();
   switch (type) {
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8:
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
@@ -2036,9 +2037,10 @@ void LocationsBuilderX86_64::VisitCompare(HCompare* compare) {
       new (GetGraph()->GetArena()) LocationSummary(compare, LocationSummary::kNoCall);
   switch (compare->InputAt(0)->GetType()) {
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-    case DataType::Type::kInt16:
     case DataType::Type::kUint16:
+    case DataType::Type::kInt16:
     case DataType::Type::kInt32:
     case DataType::Type::kInt64: {
       locations->SetInAt(0, Location::RequiresRegister());
@@ -2070,9 +2072,10 @@ void InstructionCodeGeneratorX86_64::VisitCompare(HCompare* compare) {
 
   switch (type) {
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-    case DataType::Type::kInt16:
     case DataType::Type::kUint16:
+    case DataType::Type::kInt16:
     case DataType::Type::kInt32: {
       codegen_->GenerateIntCompare(left, right);
       break;
@@ -2207,12 +2210,13 @@ void LocationsBuilderX86_64::VisitReturn(HReturn* ret) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(ret, LocationSummary::kNoCall);
   switch (ret->InputAt(0)->GetType()) {
+    case DataType::Type::kReference:
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8:
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
     case DataType::Type::kInt32:
-    case DataType::Type::kReference:
     case DataType::Type::kInt64:
       locations->SetInAt(0, Location::RegisterLocation(RAX));
       break;
@@ -2230,12 +2234,13 @@ void LocationsBuilderX86_64::VisitReturn(HReturn* ret) {
 void InstructionCodeGeneratorX86_64::VisitReturn(HReturn* ret) {
   if (kIsDebugBuild) {
     switch (ret->InputAt(0)->GetType()) {
+      case DataType::Type::kReference:
       case DataType::Type::kBool:
+      case DataType::Type::kUint8:
       case DataType::Type::kInt8:
       case DataType::Type::kUint16:
       case DataType::Type::kInt16:
       case DataType::Type::kInt32:
-      case DataType::Type::kReference:
       case DataType::Type::kInt64:
         DCHECK_EQ(ret->GetLocations()->InAt(0).AsRegister<CpuRegister>().AsRegister(), RAX);
         break;
@@ -2255,12 +2260,13 @@ void InstructionCodeGeneratorX86_64::VisitReturn(HReturn* ret) {
 
 Location InvokeDexCallingConventionVisitorX86_64::GetReturnLocation(DataType::Type type) const {
   switch (type) {
+    case DataType::Type::kReference:
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8:
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
     case DataType::Type::kInt32:
-    case DataType::Type::kReference:
     case DataType::Type::kInt64:
       return Location::RegisterLocation(RAX);
 
@@ -2281,12 +2287,13 @@ Location InvokeDexCallingConventionVisitorX86_64::GetMethodLocation() const {
 
 Location InvokeDexCallingConventionVisitorX86_64::GetNextLocation(DataType::Type type) {
   switch (type) {
+    case DataType::Type::kReference:
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8:
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-    case DataType::Type::kInt32:
-    case DataType::Type::kReference: {
+    case DataType::Type::kInt32: {
       uint32_t index = gp_index_++;
       stack_index_++;
       if (index < calling_convention.GetNumberOfRegisters()) {
@@ -2536,68 +2543,31 @@ void LocationsBuilderX86_64::VisitTypeConversion(HTypeConversion* conversion) {
       new (GetGraph()->GetArena()) LocationSummary(conversion, LocationSummary::kNoCall);
   DataType::Type result_type = conversion->GetResultType();
   DataType::Type input_type = conversion->GetInputType();
-  DCHECK_NE(result_type, input_type);
-
-  // The Java language does not allow treating boolean as an integral type but
-  // our bit representation makes it safe.
+  DCHECK(!DataType::IsTypeConversionImplicit(input_type, result_type));
 
   switch (result_type) {
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      switch (input_type) {
-        case DataType::Type::kInt64:
-          // Type conversion from long to byte is a result of code transformations.
-        case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
-        case DataType::Type::kInt16:
-        case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-          // Processing a Dex `int-to-byte' instruction.
-          locations->SetInAt(0, Location::Any());
-          locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
-          break;
-
-        default:
-          LOG(FATAL) << "Unexpected type conversion from " << input_type
-                     << " to " << result_type;
-      }
-      break;
-
+    case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      switch (input_type) {
-        case DataType::Type::kInt64:
-          // Type conversion from long to short is a result of code transformations.
-        case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
-        case DataType::Type::kInt8:
-        case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-          // Processing a Dex `int-to-short' instruction.
-          locations->SetInAt(0, Location::Any());
-          locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
-          break;
-
-        default:
-          LOG(FATAL) << "Unexpected type conversion from " << input_type
-                     << " to " << result_type;
-      }
+      DCHECK(DataType::IsIntegralType(input_type));
+      locations->SetInAt(0, Location::Any());
+      locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
       break;
 
     case DataType::Type::kInt32:
       switch (input_type) {
         case DataType::Type::kInt64:
-          // Processing a Dex `long-to-int' instruction.
           locations->SetInAt(0, Location::Any());
           locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
           break;
 
         case DataType::Type::kFloat32:
-          // Processing a Dex `float-to-int' instruction.
           locations->SetInAt(0, Location::RequiresFpuRegister());
           locations->SetOut(Location::RequiresRegister());
           break;
 
         case DataType::Type::kFloat64:
-          // Processing a Dex `double-to-int' instruction.
           locations->SetInAt(0, Location::RequiresFpuRegister());
           locations->SetOut(Location::RequiresRegister());
           break;
@@ -2611,12 +2581,11 @@ void LocationsBuilderX86_64::VisitTypeConversion(HTypeConversion* conversion) {
     case DataType::Type::kInt64:
       switch (input_type) {
         case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
+        case DataType::Type::kUint8:
         case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
         case DataType::Type::kInt16:
         case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-          // Processing a Dex `int-to-long' instruction.
           // TODO: We would benefit from a (to-be-implemented)
           // Location::RegisterOrStackSlot requirement for this input.
           locations->SetInAt(0, Location::RequiresRegister());
@@ -2624,35 +2593,13 @@ void LocationsBuilderX86_64::VisitTypeConversion(HTypeConversion* conversion) {
           break;
 
         case DataType::Type::kFloat32:
-          // Processing a Dex `float-to-long' instruction.
           locations->SetInAt(0, Location::RequiresFpuRegister());
           locations->SetOut(Location::RequiresRegister());
           break;
 
         case DataType::Type::kFloat64:
-          // Processing a Dex `double-to-long' instruction.
           locations->SetInAt(0, Location::RequiresFpuRegister());
           locations->SetOut(Location::RequiresRegister());
-          break;
-
-        default:
-          LOG(FATAL) << "Unexpected type conversion from " << input_type
-                     << " to " << result_type;
-      }
-      break;
-
-    case DataType::Type::kUint16:
-      switch (input_type) {
-        case DataType::Type::kInt64:
-          // Type conversion from long to char is a result of code transformations.
-        case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
-        case DataType::Type::kInt8:
-        case DataType::Type::kInt16:
-        case DataType::Type::kInt32:
-          // Processing a Dex `int-to-char' instruction.
-          locations->SetInAt(0, Location::Any());
-          locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
           break;
 
         default:
@@ -2664,24 +2611,21 @@ void LocationsBuilderX86_64::VisitTypeConversion(HTypeConversion* conversion) {
     case DataType::Type::kFloat32:
       switch (input_type) {
         case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
+        case DataType::Type::kUint8:
         case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
         case DataType::Type::kInt16:
         case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-          // Processing a Dex `int-to-float' instruction.
           locations->SetInAt(0, Location::Any());
           locations->SetOut(Location::RequiresFpuRegister());
           break;
 
         case DataType::Type::kInt64:
-          // Processing a Dex `long-to-float' instruction.
           locations->SetInAt(0, Location::Any());
           locations->SetOut(Location::RequiresFpuRegister());
           break;
 
         case DataType::Type::kFloat64:
-          // Processing a Dex `double-to-float' instruction.
           locations->SetInAt(0, Location::Any());
           locations->SetOut(Location::RequiresFpuRegister(), Location::kNoOutputOverlap);
           break;
@@ -2695,24 +2639,21 @@ void LocationsBuilderX86_64::VisitTypeConversion(HTypeConversion* conversion) {
     case DataType::Type::kFloat64:
       switch (input_type) {
         case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
+        case DataType::Type::kUint8:
         case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
         case DataType::Type::kInt16:
         case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-          // Processing a Dex `int-to-double' instruction.
           locations->SetInAt(0, Location::Any());
           locations->SetOut(Location::RequiresFpuRegister());
           break;
 
         case DataType::Type::kInt64:
-          // Processing a Dex `long-to-double' instruction.
           locations->SetInAt(0, Location::Any());
           locations->SetOut(Location::RequiresFpuRegister());
           break;
 
         case DataType::Type::kFloat32:
-          // Processing a Dex `float-to-double' instruction.
           locations->SetInAt(0, Location::Any());
           locations->SetOut(Location::RequiresFpuRegister(), Location::kNoOutputOverlap);
           break;
@@ -2735,18 +2676,39 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
   Location in = locations->InAt(0);
   DataType::Type result_type = conversion->GetResultType();
   DataType::Type input_type = conversion->GetInputType();
-  DCHECK_NE(result_type, input_type);
+  DCHECK(!DataType::IsTypeConversionImplicit(input_type, result_type));
   switch (result_type) {
-    case DataType::Type::kInt8:
+    case DataType::Type::kUint8:
       switch (input_type) {
-        case DataType::Type::kInt64:
-          // Type conversion from long to byte is a result of code transformations.
-        case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
+        case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
         case DataType::Type::kInt16:
         case DataType::Type::kInt32:
+        case DataType::Type::kInt64:
+          if (in.IsRegister()) {
+            __ movzxb(out.AsRegister<CpuRegister>(), in.AsRegister<CpuRegister>());
+          } else if (in.IsStackSlot() || in.IsDoubleStackSlot()) {
+            __ movzxb(out.AsRegister<CpuRegister>(),
+                      Address(CpuRegister(RSP), in.GetStackIndex()));
+          } else {
+            __ movl(out.AsRegister<CpuRegister>(),
+                    Immediate(static_cast<uint8_t>(Int64FromConstant(in.GetConstant()))));
+          }
+          break;
+
+        default:
+          LOG(FATAL) << "Unexpected type conversion from " << input_type
+                     << " to " << result_type;
+      }
+      break;
+
+    case DataType::Type::kInt8:
+      switch (input_type) {
+        case DataType::Type::kUint8:
         case DataType::Type::kUint16:
-          // Processing a Dex `int-to-byte' instruction.
+        case DataType::Type::kInt16:
+        case DataType::Type::kInt32:
+        case DataType::Type::kInt64:
           if (in.IsRegister()) {
             __ movsxb(out.AsRegister<CpuRegister>(), in.AsRegister<CpuRegister>());
           } else if (in.IsStackSlot() || in.IsDoubleStackSlot()) {
@@ -2764,16 +2726,34 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
       }
       break;
 
+    case DataType::Type::kUint16:
+      switch (input_type) {
+        case DataType::Type::kInt8:
+        case DataType::Type::kInt16:
+        case DataType::Type::kInt32:
+        case DataType::Type::kInt64:
+          if (in.IsRegister()) {
+            __ movzxw(out.AsRegister<CpuRegister>(), in.AsRegister<CpuRegister>());
+          } else if (in.IsStackSlot() || in.IsDoubleStackSlot()) {
+            __ movzxw(out.AsRegister<CpuRegister>(),
+                      Address(CpuRegister(RSP), in.GetStackIndex()));
+          } else {
+            __ movl(out.AsRegister<CpuRegister>(),
+                    Immediate(static_cast<uint16_t>(Int64FromConstant(in.GetConstant()))));
+          }
+          break;
+
+        default:
+          LOG(FATAL) << "Unexpected type conversion from " << input_type
+                     << " to " << result_type;
+      }
+      break;
+
     case DataType::Type::kInt16:
       switch (input_type) {
-        case DataType::Type::kInt64:
-          // Type conversion from long to short is a result of code transformations.
-        case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
-        case DataType::Type::kInt8:
-        case DataType::Type::kInt32:
         case DataType::Type::kUint16:
-          // Processing a Dex `int-to-short' instruction.
+        case DataType::Type::kInt32:
+        case DataType::Type::kInt64:
           if (in.IsRegister()) {
             __ movsxw(out.AsRegister<CpuRegister>(), in.AsRegister<CpuRegister>());
           } else if (in.IsStackSlot() || in.IsDoubleStackSlot()) {
@@ -2794,7 +2774,6 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
     case DataType::Type::kInt32:
       switch (input_type) {
         case DataType::Type::kInt64:
-          // Processing a Dex `long-to-int' instruction.
           if (in.IsRegister()) {
             __ movl(out.AsRegister<CpuRegister>(), in.AsRegister<CpuRegister>());
           } else if (in.IsDoubleStackSlot()) {
@@ -2809,7 +2788,6 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
           break;
 
         case DataType::Type::kFloat32: {
-          // Processing a Dex `float-to-int' instruction.
           XmmRegister input = in.AsFpuRegister<XmmRegister>();
           CpuRegister output = out.AsRegister<CpuRegister>();
           NearLabel done, nan;
@@ -2831,7 +2809,6 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
         }
 
         case DataType::Type::kFloat64: {
-          // Processing a Dex `double-to-int' instruction.
           XmmRegister input = in.AsFpuRegister<XmmRegister>();
           CpuRegister output = out.AsRegister<CpuRegister>();
           NearLabel done, nan;
@@ -2862,18 +2839,16 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
       switch (input_type) {
         DCHECK(out.IsRegister());
         case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
+        case DataType::Type::kUint8:
         case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
         case DataType::Type::kInt16:
         case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-          // Processing a Dex `int-to-long' instruction.
           DCHECK(in.IsRegister());
           __ movsxd(out.AsRegister<CpuRegister>(), in.AsRegister<CpuRegister>());
           break;
 
         case DataType::Type::kFloat32: {
-          // Processing a Dex `float-to-long' instruction.
           XmmRegister input = in.AsFpuRegister<XmmRegister>();
           CpuRegister output = out.AsRegister<CpuRegister>();
           NearLabel done, nan;
@@ -2895,7 +2870,6 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
         }
 
         case DataType::Type::kFloat64: {
-          // Processing a Dex `double-to-long' instruction.
           XmmRegister input = in.AsFpuRegister<XmmRegister>();
           CpuRegister output = out.AsRegister<CpuRegister>();
           NearLabel done, nan;
@@ -2922,42 +2896,14 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
       }
       break;
 
-    case DataType::Type::kUint16:
-      switch (input_type) {
-        case DataType::Type::kInt64:
-          // Type conversion from long to char is a result of code transformations.
-        case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
-        case DataType::Type::kInt8:
-        case DataType::Type::kInt16:
-        case DataType::Type::kInt32:
-          // Processing a Dex `int-to-char' instruction.
-          if (in.IsRegister()) {
-            __ movzxw(out.AsRegister<CpuRegister>(), in.AsRegister<CpuRegister>());
-          } else if (in.IsStackSlot() || in.IsDoubleStackSlot()) {
-            __ movzxw(out.AsRegister<CpuRegister>(),
-                      Address(CpuRegister(RSP), in.GetStackIndex()));
-          } else {
-            __ movl(out.AsRegister<CpuRegister>(),
-                    Immediate(static_cast<uint16_t>(Int64FromConstant(in.GetConstant()))));
-          }
-          break;
-
-        default:
-          LOG(FATAL) << "Unexpected type conversion from " << input_type
-                     << " to " << result_type;
-      }
-      break;
-
     case DataType::Type::kFloat32:
       switch (input_type) {
         case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
+        case DataType::Type::kUint8:
         case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
         case DataType::Type::kInt16:
         case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-          // Processing a Dex `int-to-float' instruction.
           if (in.IsRegister()) {
             __ cvtsi2ss(out.AsFpuRegister<XmmRegister>(), in.AsRegister<CpuRegister>(), false);
           } else if (in.IsConstant()) {
@@ -2971,7 +2917,6 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
           break;
 
         case DataType::Type::kInt64:
-          // Processing a Dex `long-to-float' instruction.
           if (in.IsRegister()) {
             __ cvtsi2ss(out.AsFpuRegister<XmmRegister>(), in.AsRegister<CpuRegister>(), true);
           } else if (in.IsConstant()) {
@@ -2985,7 +2930,6 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
           break;
 
         case DataType::Type::kFloat64:
-          // Processing a Dex `double-to-float' instruction.
           if (in.IsFpuRegister()) {
             __ cvtsd2ss(out.AsFpuRegister<XmmRegister>(), in.AsFpuRegister<XmmRegister>());
           } else if (in.IsConstant()) {
@@ -3007,12 +2951,11 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
     case DataType::Type::kFloat64:
       switch (input_type) {
         case DataType::Type::kBool:
-          // Boolean input is a result of code transformations.
+        case DataType::Type::kUint8:
         case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
         case DataType::Type::kInt16:
         case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-          // Processing a Dex `int-to-double' instruction.
           if (in.IsRegister()) {
             __ cvtsi2sd(out.AsFpuRegister<XmmRegister>(), in.AsRegister<CpuRegister>(), false);
           } else if (in.IsConstant()) {
@@ -3026,7 +2969,6 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
           break;
 
         case DataType::Type::kInt64:
-          // Processing a Dex `long-to-double' instruction.
           if (in.IsRegister()) {
             __ cvtsi2sd(out.AsFpuRegister<XmmRegister>(), in.AsRegister<CpuRegister>(), true);
           } else if (in.IsConstant()) {
@@ -3040,7 +2982,6 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
           break;
 
         case DataType::Type::kFloat32:
-          // Processing a Dex `float-to-double' instruction.
           if (in.IsFpuRegister()) {
             __ cvtss2sd(out.AsFpuRegister<XmmRegister>(), in.AsFpuRegister<XmmRegister>());
           } else if (in.IsConstant()) {
@@ -3883,6 +3824,7 @@ void InstructionCodeGeneratorX86_64::VisitDivZeroCheck(HDivZeroCheck* instructio
 
   switch (instruction->GetType()) {
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8:
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
@@ -4290,7 +4232,8 @@ void InstructionCodeGeneratorX86_64::HandleFieldGet(HInstruction* instruction,
   uint32_t offset = field_info.GetFieldOffset().Uint32Value();
 
   switch (field_type) {
-    case DataType::Type::kBool: {
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8: {
       __ movzxb(out.AsRegister<CpuRegister>(), Address(base, offset));
       break;
     }
@@ -4300,13 +4243,13 @@ void InstructionCodeGeneratorX86_64::HandleFieldGet(HInstruction* instruction,
       break;
     }
 
-    case DataType::Type::kInt16: {
-      __ movsxw(out.AsRegister<CpuRegister>(), Address(base, offset));
+    case DataType::Type::kUint16: {
+      __ movzxw(out.AsRegister<CpuRegister>(), Address(base, offset));
       break;
     }
 
-    case DataType::Type::kUint16: {
-      __ movzxw(out.AsRegister<CpuRegister>(), Address(base, offset));
+    case DataType::Type::kInt16: {
+      __ movsxw(out.AsRegister<CpuRegister>(), Address(base, offset));
       break;
     }
 
@@ -4433,6 +4376,7 @@ void InstructionCodeGeneratorX86_64::HandleFieldSet(HInstruction* instruction,
 
   switch (field_type) {
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8: {
       if (value.IsConstant()) {
         __ movb(Address(base, offset),
@@ -4443,8 +4387,8 @@ void InstructionCodeGeneratorX86_64::HandleFieldSet(HInstruction* instruction,
       break;
     }
 
-    case DataType::Type::kInt16:
-    case DataType::Type::kUint16: {
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16: {
       if (value.IsConstant()) {
         __ movw(Address(base, offset),
                 Immediate(CodeGenerator::GetInt16ValueOf(value.GetConstant())));
@@ -4714,7 +4658,8 @@ void InstructionCodeGeneratorX86_64::VisitArrayGet(HArrayGet* instruction) {
 
   DataType::Type type = instruction->GetType();
   switch (type) {
-    case DataType::Type::kBool: {
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8: {
       CpuRegister out = out_loc.AsRegister<CpuRegister>();
       __ movzxb(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_1, data_offset));
       break;
@@ -4723,12 +4668,6 @@ void InstructionCodeGeneratorX86_64::VisitArrayGet(HArrayGet* instruction) {
     case DataType::Type::kInt8: {
       CpuRegister out = out_loc.AsRegister<CpuRegister>();
       __ movsxb(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_1, data_offset));
-      break;
-    }
-
-    case DataType::Type::kInt16: {
-      CpuRegister out = out_loc.AsRegister<CpuRegister>();
-      __ movsxw(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_2, data_offset));
       break;
     }
 
@@ -4751,6 +4690,12 @@ void InstructionCodeGeneratorX86_64::VisitArrayGet(HArrayGet* instruction) {
       } else {
         __ movzxw(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_2, data_offset));
       }
+      break;
+    }
+
+    case DataType::Type::kInt16: {
+      CpuRegister out = out_loc.AsRegister<CpuRegister>();
+      __ movsxw(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_2, data_offset));
       break;
     }
 
@@ -4865,6 +4810,7 @@ void InstructionCodeGeneratorX86_64::VisitArraySet(HArraySet* instruction) {
 
   switch (value_type) {
     case DataType::Type::kBool:
+    case DataType::Type::kUint8:
     case DataType::Type::kInt8: {
       uint32_t offset = mirror::Array::DataOffset(sizeof(uint8_t)).Uint32Value();
       Address address = CodeGeneratorX86_64::ArrayAddress(array, index, TIMES_1, offset);
@@ -4877,8 +4823,8 @@ void InstructionCodeGeneratorX86_64::VisitArraySet(HArraySet* instruction) {
       break;
     }
 
-    case DataType::Type::kInt16:
-    case DataType::Type::kUint16: {
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16: {
       uint32_t offset = mirror::Array::DataOffset(sizeof(uint16_t)).Uint32Value();
       Address address = CodeGeneratorX86_64::ArrayAddress(array, index, TIMES_2, offset);
       if (value.IsRegister()) {
