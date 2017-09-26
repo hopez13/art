@@ -70,6 +70,30 @@
       "revId": "7f9f26ab7b6e095649a20532d9acc62520f81287",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "934cac50_a4604a46",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3711,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-09-26T16:38:59Z",
+      "side": 1,
+      "message": "OK. My suggestion was to make those async exceptions not first class, and only jvmti-related. But what you are saying is that lots of places in the runtime need to be aware of it?",
+      "parentUuid": "ba4e3782_14fafa7e",
+      "range": {
+        "startLine": 3704,
+        "startChar": 0,
+        "endLine": 3711,
+        "endChar": 38
+      },
+      "revId": "7f9f26ab7b6e095649a20532d9acc62520f81287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
