@@ -22,6 +22,30 @@
       "revId": "7f9f26ab7b6e095649a20532d9acc62520f81287",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dadc7ed_9c1e45d4",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3711,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-26T15:08:25Z",
+      "side": 1,
+      "message": "Then you\u0027d need a callback at every point ObserveAsyncException is called to actually install the exception. That seems a good bit worse (I don\u0027t see any meaningful difference of storing a flag vs storing the exception).",
+      "parentUuid": "63d70dfc_28c8f517",
+      "range": {
+        "startLine": 3704,
+        "startChar": 0,
+        "endLine": 3711,
+        "endChar": 38
+      },
+      "revId": "7f9f26ab7b6e095649a20532d9acc62520f81287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
