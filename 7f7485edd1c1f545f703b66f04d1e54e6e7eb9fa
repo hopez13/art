@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43462c8a_0d469976",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-26T18:04:54Z",
+      "side": 1,
+      "message": "Note: in the existing situation, the vectorizer\u0027s codegen does *not* use the underlying scalar data type to decide whether operations are signed (sign ext) or unsigned (zero ext). Instead, the vectorizer\u0027s analysis recognizes idioms, and then marks them as IsSigned or IsUnsigned. Since currently SAD is always signed, this was indented, since one could potentially cast uint16 to sint16 first and then have the idiom (so you get a sign extension).\n\nYour direction clearly is to mark the leaf nodes always with the right type, so we no longer have to do this.\n\nWe have to be careful that mixing same-width data types (so loops with both uint16 and sint16 for example) still keeps on vectorizing correctly though.",
+      "revId": "7f7485edd1c1f545f703b66f04d1e54e6e7eb9fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
