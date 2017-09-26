@@ -22,6 +22,29 @@
       "revId": "af1f554b5eb924b655d97a57223bb39b0f864f74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2851eaa_5728b303",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-26T20:27:10Z",
+      "side": 1,
+      "message": "Can you split up this refactoring into a separate CL to make it easier to understand where the real diff is?\n\nOr at least reply in a comment on a per-line basis where the actual change is (to add the new variants)?",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 165,
+        "endChar": 24
+      },
+      "revId": "af1f554b5eb924b655d97a57223bb39b0f864f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
