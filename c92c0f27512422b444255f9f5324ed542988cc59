@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "9b935907_5dab3e2f",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2779,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-26T17:05:27Z",
+      "side": 1,
+      "message": "Is this before we run the verifier, because of your changes to writing dex files early to the vdex? (Though I am not clear why we\u0027d allocate all OatDexFile data aggressively before verifying - and that would seem the bug to me that should be fixed)",
+      "parentUuid": "ea5a4c6b_0960e78f",
+      "range": {
+        "startLine": 2779,
+        "startChar": 6,
+        "endLine": 2779,
+        "endChar": 51
+      },
+      "revId": "c92c0f27512422b444255f9f5324ed542988cc59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b44bb5e3_b5fb07ff",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
