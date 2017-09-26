@@ -46,6 +46,30 @@
       "revId": "7f9f26ab7b6e095649a20532d9acc62520f81287",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba4e3782_14fafa7e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3711,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-09-26T16:06:50Z",
+      "side": 1,
+      "message": "There is a lot of code that assumes that all exceptions are sent synchronously (most notably the verifier). Trying to remove that assumption would be extremely difficult. By doing things this way we let the async exception be seen like synchronous exception by only throwing them at specific times.",
+      "parentUuid": "8dadc7ed_9c1e45d4",
+      "range": {
+        "startLine": 3704,
+        "startChar": 0,
+        "endLine": 3711,
+        "endChar": 38
+      },
+      "revId": "7f9f26ab7b6e095649a20532d9acc62520f81287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
