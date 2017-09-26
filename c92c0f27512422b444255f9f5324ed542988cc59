@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "870726f1_6c0b4f95",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2763,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-26T19:23:00Z",
+      "side": 1,
+      "message": "The fact that it crashes the allocation (on device) is \"merely\" a consequence of the bug. The real problem is catching a bogus value in a Dex file header (to be on par with other tools, like dexdump). However, because this value is used before being checked by the verifier (later), it may crash dex2oat.\n\nNote that we already run a couple of checks in OatWriter (here and in other methods) before handing the Dex file to the verifier.",
+      "parentUuid": "f702bfa1_c0371302",
+      "range": {
+        "startLine": 2763,
+        "startChar": 52,
+        "endLine": 2763,
+        "endChar": 66
+      },
+      "revId": "c92c0f27512422b444255f9f5324ed542988cc59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea5a4c6b_0960e78f",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f3de57bb_362fd1a0",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2779,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-26T19:23:00Z",
+      "side": 1,
+      "message": "I think that\u0027s because that check is run too late. On device, a bogus value can crash the above allocation, while on host it usually succeeds, and the verifier eventually catches the issue.\n\nFor instance, here\u0027s the output of dex2oat on host without this CL:\n\n  dex2oatd E 09-26 16:35:52 103898 103898 oat_writer.cc:2808] Failed to open dex file from oat file. File: /tmp/fuzzed_228.dex Error: Failure to verify dex file \u0027/tmp/fuzzed_228.dex\u0027: Offset(818675712) should be within file size(9637813) for proto-ids.\n\nand with this CL:\n\n  dex2oatd E 09-26 16:24:48 76082 76082 oat_writer.cc:2371] Dex file header specifies class definition section larger than Dex file. File: /tmp/fuzzed_228.dex, file_size: 9637813 bytes, class_defs_size: 453378057 items, sizeof(class_def_item): 32 bytes, class_defs_size * sizeof(class_def_item): 14508097824 bytes",
+      "parentUuid": "ea5a4c6b_0960e78f",
+      "range": {
+        "startLine": 2779,
+        "startChar": 6,
+        "endLine": 2779,
+        "endChar": 51
+      },
+      "revId": "c92c0f27512422b444255f9f5324ed542988cc59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b44bb5e3_b5fb07ff",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
@@ -83,6 +131,24 @@
       "writtenOn": "2017-09-26T09:34:39Z",
       "side": 1,
       "message": "ART_FRIEND_TEST?",
+      "revId": "c92c0f27512422b444255f9f5324ed542988cc59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22e5872c_8e60ba2b",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-26T19:23:00Z",
+      "side": 1,
+      "message": "I refactored this part in PS2.",
+      "parentUuid": "b44bb5e3_b5fb07ff",
       "revId": "c92c0f27512422b444255f9f5324ed542988cc59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
