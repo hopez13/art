@@ -161,6 +161,12 @@ def setup_test_env():
     # Bisection search writes to standard output.
     env.ART_TEST_QUIET = False
 
+  global _user_input_variants
+  if env.ART_TEST_FULL:
+    target_types = _user_input_variants['target']
+    _user_input_variants = VARIANT_TYPE_DICT
+    _user_input_variants['target'] = target_types
+
   if not _user_input_variants['target']:
     _user_input_variants['target'].add('host')
     _user_input_variants['target'].add('target')
