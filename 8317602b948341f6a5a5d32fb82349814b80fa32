@@ -16,6 +16,24 @@
       "revId": "8317602b948341f6a5a5d32fb82349814b80fa32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edf56cd5_2d5b564f",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-27T21:55:00Z",
+      "side": 1,
+      "message": "Nicolas,\nare you okay if Igor proceeds with the refactoring work? especially in the light of e.g. the missing vecload/store case, I would like to keep related analysis in one place as much as possible.\nAart",
+      "parentUuid": "68483026_5c3138ab",
+      "revId": "8317602b948341f6a5a5d32fb82349814b80fa32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
