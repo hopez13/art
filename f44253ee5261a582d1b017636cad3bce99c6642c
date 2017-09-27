@@ -46,6 +46,30 @@
       "revId": "f44253ee5261a582d1b017636cad3bce99c6642c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12425a49_2153f438",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3037,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-27T18:44:18Z",
+      "side": 1,
+      "message": "If clear_exception_ isn\u0027t set (i.e., there\u0027s a move-exception), the exception will be re-installed in FindCatch.\n\nJust thought it\u0027s a good idea to ensure just before we jump that the invariant still holds.",
+      "parentUuid": "55a7ec90_9a292d5e",
+      "range": {
+        "startLine": 3037,
+        "startChar": 2,
+        "endLine": 3037,
+        "endChar": 33
+      },
+      "revId": "f44253ee5261a582d1b017636cad3bce99c6642c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
