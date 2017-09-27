@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "763bbaf6_8849be1d",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-09-27T12:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4c34c4a_a893670d",
+      "range": {
+        "startLine": 925,
+        "startChar": 0,
+        "endLine": 927,
+        "endChar": 3
+      },
+      "revId": "6543f2c0fad84dc690f5d55bf2f8923237a9738b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3c7c15f_58a4eaf7",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-27T10:22:44Z",
       "side": 1,
       "message": "Why do you add those helpers? Could you remove them and inline the code in class_linker methods?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 1
+      },
+      "revId": "6543f2c0fad84dc690f5d55bf2f8923237a9738b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed869494_9888cbda",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-09-27T12:20:54Z",
+      "side": 1,
+      "message": "Done. This followed the pattern of resolution for string used by the interpreter.",
+      "parentUuid": "e3c7c15f_58a4eaf7",
       "range": {
         "startLine": 205,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "90afb81a_a53ec28d",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-09-27T12:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc3004cb_f90a5b22",
+      "range": {
+        "startLine": 409,
+        "startChar": 35,
+        "endLine": 409,
+        "endChar": 40
+      },
+      "revId": "6543f2c0fad84dc690f5d55bf2f8923237a9738b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0228ba7d_e63926b3",
         "filename": "test/979-const-method-handle/info.txt",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-09-27T10:22:44Z",
       "side": 1,
       "message": "manipulation",
+      "range": {
+        "startLine": 7,
+        "startChar": 33,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "6543f2c0fad84dc690f5d55bf2f8923237a9738b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb7014de_b2c9c362",
+        "filename": "test/979-const-method-handle/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-09-27T12:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0228ba7d_e63926b3",
       "range": {
         "startLine": 7,
         "startChar": 33,
