@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4087802_57025f0e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T21:08:37Z",
+      "side": 1,
+      "message": "please note that not only did the methods IsSign/IsZeroExtensionAndGet become simpler, they also became much more powerful! (none of the example loops in the new test used to vectorize). this is only expected to improve as the simplifier will unclutter more and more of the redundant type conversions",
+      "revId": "126f54804ae0f9088e91030be10cbc9b70070716",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
