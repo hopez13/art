@@ -90,6 +90,7 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("");
   UsageError("  --dump-only: dumps the content of the specified profile files");
   UsageError("      to standard output (default) in a human readable form.");
+  UsageError("  --verify: verifies profile integrity with input dex files");
   UsageError("");
   UsageError("  --dump-output-to-fd=<number>: redirects --dump-only output to a file descriptor.");
   UsageError("");
@@ -266,7 +267,9 @@ class ProfMan FINAL {
                         Usage);
       } else if (option.starts_with("--generate-test-profile-seed=")) {
         ParseUintOption(option, "--generate-test-profile-seed", &test_profile_seed_, Usage);
-      } else {
+      } else if (option.starts_with("--verify")) {
+        verify_ = true;
+      }  else {
         Usage("Unknown argument '%s'", option.data());
       }
     }
@@ -298,14 +301,21 @@ class ProfMan FINAL {
             "should only be used together");
     }
     ProfileAssistant::ProcessingResult result;
+    std::unique_ptr<ProfileCompilationInfo> info;
     if (profile_files_.empty()) {
       // The file doesn't need to be flushed here (ProcessProfiles will do it)
       // so don't check the usage.
       File file(reference_profile_file_fd_, false);
-      result = ProfileAssistant::ProcessProfiles(profile_files_fd_, reference_profile_file_fd_);
+      result = ProfileAssistant::ProcessProfiles(profile_files_fd_, reference_profile_file_fd_,
+          &info);
       CloseAllFds(profile_files_fd_, "profile_files_fd_");
     } else {
-      result = ProfileAssistant::ProcessProfiles(profile_files_, reference_profile_file_);
+      result = ProfileAssistant::ProcessProfiles(profile_files_, reference_profile_file_, &info);
+    }
+    if (result == ProfileAssistant::kCompile) {
+      if (!VerifyProfileData(info.get()) == VerificationResult::kFailure) {
+        return ProfileAssistant::kErrorBadProfiles;
+      }
     }
     return result;
   }
@@ -1058,8 +1068,58 @@ class ProfMan FINAL {
     return result ? 0 : -1;
   }
 
+  int VerifyProfileData() {
+    if (!profile_files_fd_.empty()) {
+      for (int profile_file_fd : profile_files_fd_) {
+        std::unique_ptr<ProfileCompilationInfo> info(new ProfileCompilationInfo());
+        info->Load(profile_file_fd);
+        if (!VerifyProfileData(info.get())) {
+          return VerificationResult::kFailure;
+        }
+      }
+    }
+    if (!profile_files_.empty()) {
+      for (const std::string& profile_file : profile_files_) {
+        std::unique_ptr<ProfileCompilationInfo> info(new ProfileCompilationInfo());
+        int fd = open(profile_file.c_str(), O_RDONLY);
+        info->Load(fd);
+        if (!VerifyProfileData(info.get())) {
+          return VerificationResult::kFailure;
+        }
+      }
+    }
+    return VerificationResult::kSuccess;
+  }
+
+  bool VerifyProfileData(ProfileCompilationInfo* info) {
+    // If given APK files or DEX locations, check that they're ok.
+    if (!apk_files_.empty() || !apks_fd_.empty() || !dex_locations_.empty()) {
+      if (apk_files_.empty() && apks_fd_.empty()) {
+        Usage("APK files must be specified when passing DEX locations to verify profile");
+      }
+      if (dex_locations_.empty()) {
+        Usage("DEX locations must be specified when passing APK files to verify profile");
+      }
+    }
+    // Initialize MemMap for ZipArchive::OpenFromFd.
+    MemMap::Init();
+    // Open the dex files to look up classes and methods.
+    std::vector<std::unique_ptr<const DexFile>> dex_files;
+    OpenApkFilesFromLocations(&dex_files);
+
+    std::vector<const DexFile*> const_dex_files;
+    for (size_t i = 0; i < dex_files.size(); i++) {
+      const_dex_files.push_back(dex_files[i].get());
+    }
+    return info->VerifyProfileData(const_dex_files);
+  }
+
   bool ShouldGenerateTestProfile() {
     return !test_profile_.empty();
+  }
+
+  bool ShouldOnlyVerify() {
+    return verify_;
   }
 
  private:
@@ -1087,6 +1147,11 @@ class ProfMan FINAL {
     }
   }
 
+  enum VerificationResult {
+    kSuccess = 0,
+    kFailure = 1
+  };
+
   std::vector<std::string> profile_files_;
   std::vector<int> profile_files_fd_;
   std::vector<std::string> dex_locations_;
@@ -1106,6 +1171,7 @@ class ProfMan FINAL {
   uint16_t test_profile_class_percentage_;
   uint32_t test_profile_seed_;
   uint64_t start_ns_;
+  bool verify_;
 };
 
 // See ProfileAssistant::ProcessingResult for return codes.
@@ -1127,9 +1193,11 @@ static int profman(int argc, char** argv) {
   if (profman.ShouldCreateProfile()) {
     return profman.CreateProfile();
   }
-
   if (profman.ShouldCreateBootProfile()) {
     return profman.CreateBootProfile();
+  }
+  if (profman.ShouldOnlyVerify()) {
+    return profman.VerifyProfileData();
   }
   // Process profile information and assess if we need to do a profile guided compilation.
   // This operation involves I/O.

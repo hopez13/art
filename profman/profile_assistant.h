@@ -53,16 +53,19 @@ class ProfileAssistant {
   //
   static ProcessingResult ProcessProfiles(
       const std::vector<std::string>& profile_files,
-      const std::string& reference_profile_file);
+      const std::string& reference_profile_file,
+      std::unique_ptr<ProfileCompilationInfo>* info_out /* out */);
 
   static ProcessingResult ProcessProfiles(
       const std::vector<int>& profile_files_fd_,
-      int reference_profile_file_fd);
+      int reference_profile_file_fd,
+      std::unique_ptr<ProfileCompilationInfo>* info_out /* out */);
 
  private:
   static ProcessingResult ProcessProfilesInternal(
       const std::vector<ScopedFlock>& profile_files,
-      const ScopedFlock& reference_profile_file);
+      const ScopedFlock& reference_profile_file,
+      std::unique_ptr<ProfileCompilationInfo>* info_out /* out */);
 
   DISALLOW_COPY_AND_ASSIGN(ProfileAssistant);
 };
