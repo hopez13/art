@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b281633b_390cf48d",
+        "filename": "compiler/optimizing/nodes_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:19:16Z",
+      "side": 1,
+      "message": "This nodes need similar documentation as the ones used for ARM. More importantly, however, we should consider introducing these for all architectures. Soon, for alignment, I will be introducing an address computing node for all six architectures...",
+      "revId": "0078e6200d6d9487a26f14aae7381b51e3987f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
