@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "694dd79c_0bc1c878",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-09-28T03:07:39Z",
+      "side": 1,
+      "message": "Not really sure why we have this shared on the host but static on device. I\u0027d think you could make this static globally now, if you wanted to.",
+      "range": {
+        "startLine": 390,
+        "startChar": 16,
+        "endLine": 390,
+        "endChar": 23
+      },
+      "revId": "0e503b50d5eb48b57b7ca53ee42e4eb1603a650b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
