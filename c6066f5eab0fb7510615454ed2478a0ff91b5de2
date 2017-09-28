@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e6f7162_54f94f9c",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-09-28T20:48:54Z",
+      "side": 1,
+      "message": "This can\u0027t be fatal (without additional changes) because the oat writer layout test is using a profile that will trigger this warning.",
+      "revId": "c6066f5eab0fb7510615454ed2478a0ff91b5de2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
