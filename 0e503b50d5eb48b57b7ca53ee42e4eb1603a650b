@@ -22,6 +22,30 @@
       "revId": "0e503b50d5eb48b57b7ca53ee42e4eb1603a650b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b566252_827ab9a0",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2017-09-28T03:20:45Z",
+      "side": 1,
+      "message": "I\u0027ll leave that to a follow up. We\u0027d want to move libziparchive too, since the static libraries need to be ordered properly (at least for now)",
+      "parentUuid": "694dd79c_0bc1c878",
+      "range": {
+        "startLine": 390,
+        "startChar": 16,
+        "endLine": 390,
+        "endChar": 23
+      },
+      "revId": "0e503b50d5eb48b57b7ca53ee42e4eb1603a650b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
