@@ -360,18 +360,33 @@ void InstructionSimplifierVisitor::VisitShift(HBinaryOperation* instruction) {
   }
 
   // Shift operations implicitly mask the shift amount according to the type width. Get rid of
-  // unnecessary explicit masking operations on the shift amount.
+  // unnecessary And/Or/Xor/Add/Sub/TypeConversion operations on the shift amount that do not
+  // affect the relevant bits.
   // Replace code looking like
   //    AND masked_shift, shift, <superset of implicit mask>
   //    SHL dst, value, masked_shift
   // with
   //    SHL dst, value, shift
-  if (shift_amount->IsAnd()) {
-    HAnd* and_insn = shift_amount->AsAnd();
-    HConstant* mask = and_insn->GetConstantRight();
-    if ((mask != nullptr) && ((Int64FromConstant(mask) & implicit_mask) == implicit_mask)) {
-      instruction->ReplaceInput(and_insn->GetLeastConstantLeft(), 1);
+  if (shift_amount->IsAnd() ||
+      shift_amount->IsOr() ||
+      shift_amount->IsXor() ||
+      shift_amount->IsAdd() ||
+      shift_amount->IsSub()) {
+    HConstant* mask = shift_amount->AsBinaryOperation()->GetConstantRight();
+    int64_t required_result = shift_amount->IsAnd() ? implicit_mask : 0;
+    if (mask != nullptr && (Int64FromConstant(mask) & implicit_mask) == required_result) {
+      instruction->ReplaceInput(shift_amount->AsBinaryOperation()->GetLeastConstantLeft(), 1);
       RecordSimplification();
+      return;
+    }
+  } else if (shift_amount->IsTypeConversion()) {
+    DCHECK_NE(shift_amount->GetType(), DataType::Type::kBool);  // We never convert to bool.
+    DataType::Type source_type = shift_amount->InputAt(0)->GetType();
+    // Non-integral and 64-bit source types require an explicit type conversion.
+    if (DataType::IsIntegralType(source_type) && !DataType::Is64BitType(source_type)) {
+      instruction->ReplaceInput(shift_amount->AsTypeConversion()->GetInput(), 1);
+      RecordSimplification();
+      return;
     }
   }
 }
