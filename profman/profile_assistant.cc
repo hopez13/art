@@ -23,27 +23,25 @@ namespace art {
 
 // Minimum number of new methods/classes that profiles
 // must contain to enable recompilation.
-static constexpr const uint32_t kMinNewMethodsForCompilation = 100;
-static constexpr const uint32_t kMinNewMethodsPercentChangeForCompilation = 2;
-static constexpr const uint32_t kMinNewClassesForCompilation = 50;
-static constexpr const uint32_t kMinNewClassesPercentChangeForCompilation = 2;
-
+static constexpr const uint32_t kMinNewMethodsForCompilation = 10;
+static constexpr const uint32_t kMinNewClassesForCompilation = 10;
 
 ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfilesInternal(
         const std::vector<ScopedFlock>& profile_files,
-        const ScopedFlock& reference_profile_file) {
+        const ScopedFlock& reference_profile_file,
+        std::unique_ptr<ProfileCompilationInfo>* info_out /* out */) {
   DCHECK(!profile_files.empty());
 
-  ProfileCompilationInfo info;
+  std::unique_ptr<ProfileCompilationInfo> info(new ProfileCompilationInfo());
   // Load the reference profile.
-  if (!info.Load(reference_profile_file->Fd())) {
+  if (!info->Load(reference_profile_file->Fd())) {
     LOG(WARNING) << "Could not load reference profile file";
     return kErrorBadProfiles;
   }
 
   // Store the current state of the reference profile before merging with the current profiles.
-  uint32_t number_of_methods = info.GetNumberOfMethods();
-  uint32_t number_of_classes = info.GetNumberOfResolvedClasses();
+  uint32_t number_of_methods = info->GetNumberOfMethods();
+  uint32_t number_of_classes = info->GetNumberOfResolvedClasses();
 
   // Merge all current profiles.
   for (size_t i = 0; i < profile_files.size(); i++) {
@@ -52,22 +50,15 @@ ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfilesInternal(
       LOG(WARNING) << "Could not load profile file at index " << i;
       return kErrorBadProfiles;
     }
-    if (!info.MergeWith(cur_info)) {
+    if (!info->MergeWith(cur_info)) {
       LOG(WARNING) << "Could not merge profile file at index " << i;
       return kErrorBadProfiles;
     }
   }
 
-  uint32_t min_change_in_methods_for_compilation = std::max(
-      (kMinNewMethodsPercentChangeForCompilation * number_of_methods) / 100,
-      kMinNewMethodsForCompilation);
-  uint32_t min_change_in_classes_for_compilation = std::max(
-      (kMinNewClassesPercentChangeForCompilation * number_of_classes) / 100,
-      kMinNewClassesForCompilation);
   // Check if there is enough new information added by the current profiles.
-  if (((info.GetNumberOfMethods() - number_of_methods) < min_change_in_methods_for_compilation) &&
-      ((info.GetNumberOfResolvedClasses() - number_of_classes)
-          < min_change_in_classes_for_compilation)) {
+  if (((info->GetNumberOfMethods() - number_of_methods) < kMinNewMethodsForCompilation) &&
+      ((info->GetNumberOfResolvedClasses() - number_of_classes) < kMinNewClassesForCompilation)) {
     return kSkipCompilation;
   }
 
@@ -76,11 +67,12 @@ ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfilesInternal(
     PLOG(WARNING) << "Could not clear reference profile file";
     return kErrorIO;
   }
-  if (!info.Save(reference_profile_file->Fd())) {
+  if (!info->Save(reference_profile_file->Fd())) {
     LOG(WARNING) << "Could not save reference profile file";
     return kErrorIO;
   }
 
+  *info_out = std::move(info);
   return kCompile;
 }
 
@@ -122,7 +114,8 @@ class ScopedFlockList {
 
 ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfiles(
         const std::vector<int>& profile_files_fd,
-        int reference_profile_file_fd) {
+        int reference_profile_file_fd,
+        std::unique_ptr<ProfileCompilationInfo>* info_out /* out */) {
   DCHECK_GE(reference_profile_file_fd, 0);
 
   std::string error;
@@ -143,12 +136,13 @@ ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfiles(
     return kErrorCannotLock;
   }
 
-  return ProcessProfilesInternal(profile_files.Get(), reference_profile_file);
+  return ProcessProfilesInternal(profile_files.Get(), reference_profile_file, info_out);
 }
 
 ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfiles(
         const std::vector<std::string>& profile_files,
-        const std::string& reference_profile_file) {
+        const std::string& reference_profile_file,
+        std::unique_ptr<ProfileCompilationInfo>* info_out /* out */) {
   std::string error;
 
   ScopedFlockList profile_files_list(profile_files.size());
@@ -164,7 +158,8 @@ ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfiles(
     return kErrorCannotLock;
   }
 
-  return ProcessProfilesInternal(profile_files_list.Get(), locked_reference_profile_file);
+  return ProcessProfilesInternal(profile_files_list.Get(), locked_reference_profile_file,
+      info_out);
 }
 
 }  // namespace art
