@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31002db7_dd0940fc",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 0,
+      "message": "why was this removed? We can have the same (short)(char-data) situation, making this a perfectly fine signed abs!\n\nAbs and SAD are the ones I called \"implicitly\" signed.\n\n(I was pondering on given them IsUnsigned -\u003e false method to make that more clear, but with the direction that we are going now that would be a waste).\n\n\nalternatively, you could do the normalize packed data type trick for abs in the loop opt if you prefer",
+      "revId": "c3485eeb861dabdbac11268a27d57174b0b62f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6de5bc30_99c29a3a",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 0,
+      "message": "same concern",
+      "revId": "c3485eeb861dabdbac11268a27d57174b0b62f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26037103_984367ba",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 0,
+      "message": "same concern",
+      "revId": "c3485eeb861dabdbac11268a27d57174b0b62f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f173a1_d88d5ad6",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 0,
+      "message": "same concern",
+      "revId": "c3485eeb861dabdbac11268a27d57174b0b62f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

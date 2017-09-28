@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f13850c_5d12c0e5",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 1,
+      "message": "somewhat unrelated change but ok",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ee870f5_72301d4c",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 1,
+      "message": "somewhat unrelated change but ok",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1ea0f15_f436a7c6",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 1,
+      "message": "that is handled by L1007, what needs to be fixed?",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3494b9b_c578b3fc",
+        "filename": "compiler/optimizing/data_type-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 1,
+      "message": "just curious, is this a standard convention, or are we just creating one here?",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c3ad0ad_57497a7c",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 1,
+      "message": "any particular reason for this change? was something wrong?\n[seems unrelated to the change as a whole]",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1e59_6a161116",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-28T22:07:04Z",
+      "side": 1,
+      "message": "same",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
