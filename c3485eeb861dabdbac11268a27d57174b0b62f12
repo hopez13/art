@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "84fcd395_fa71c8cf",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-29T17:06:24Z",
+      "side": 0,
+      "message": "Something like \n\n  static void vmarko(char[] y) {\n    for (int i \u003d 0; i \u003c 10; i++) {\n      y[i] \u003d (char) Math.abs((short)y[i]);\n    }\n  }\n\nvectorizes, but leaves unsigned packed data types on the ABS (just because vectorizer only cares about data width, the operations themselves reflect signed/unsignedness). The current code will LOG FATAL on that! (incidentally, the CL that I send out for review fixes this by being cleaner in the type, anticipating the direction we are taking now).\n\nI will send out a unit test to make sure we watch these cases better.\n\nSo I am okay with removing the unsigned type here, but for the moment, you should call NormalizePackedType() with the (always false) is_unsigned variable in loop_optimization.cc at L1747 right before creating HVecAbs() to ensure the packed data types always reflect the is-signed-ness. Very much like you did for Min/Max/SAD",
+      "parentUuid": "a92965fa_3632d446",
+      "revId": "c3485eeb861dabdbac11268a27d57174b0b62f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6de5bc30_99c29a3a",
         "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
         "patchSetId": 4
