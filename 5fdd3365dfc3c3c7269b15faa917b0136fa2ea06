@@ -70,6 +70,29 @@
     },
     {
       "key": {
+        "uuid": "45fff5bf_37e4700b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-29T01:26:56Z",
+      "side": 1,
+      "message": "although unrelated, I like this change! Since I was anticipating to use it later for narrow/wide and wide/narrow, feel free to use a left shift or right shift depending on which is larger (but if you prefer, we can add that as needed)",
+      "range": {
+        "startLine": 317,
+        "startChar": 27,
+        "endLine": 317,
+        "endChar": 28
+      },
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c3ad0ad_57497a7c",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 4
