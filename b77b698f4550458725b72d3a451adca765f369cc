@@ -46,6 +46,30 @@
       "revId": "b77b698f4550458725b72d3a451adca765f369cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b40a147d_174db09f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3085,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-09-29T12:59:35Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/#/c/platform/art/+/498152/.",
+      "parentUuid": "7e769b89_9f21cec3",
+      "range": {
+        "startLine": 3083,
+        "startChar": 2,
+        "endLine": 3085,
+        "endChar": 3
+      },
+      "revId": "b77b698f4550458725b72d3a451adca765f369cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
