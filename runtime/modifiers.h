@@ -89,8 +89,9 @@ static constexpr uint32_t kAccHasDefaultMethod          = 0x40000000;
 // class/ancestor overrides finalize()
 static constexpr uint32_t kAccClassIsFinalizable        = 0x80000000;
 
-static constexpr uint32_t kAccFlagsNotUsedByIntrinsic   = 0x00FFFFFF;
-static constexpr uint32_t kAccMaxIntrinsic              = 0x7F;
+// Continuous sequence of bits used for intrinsic identifier. Flags
+// which overlap are not valid when kAccIntrinsic is set.
+static constexpr uint32_t kAccIntrinsicBits           = 0x7f800000;
 
 // Valid (meaningful) bits for a field.
 static constexpr uint32_t kAccValidFieldFlags = kAccPublic | kAccPrivate | kAccProtected |
