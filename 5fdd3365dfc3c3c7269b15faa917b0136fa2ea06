@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "4465d744_17d67bd0",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-29T14:27:25Z",
+      "side": 1,
+      "message": "I missed that. Removed.",
+      "parentUuid": "b1ea0f15_f436a7c6",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3494b9b_c578b3fc",
         "filename": "compiler/optimizing/data_type-inl.h",
         "patchSetId": 4
@@ -64,6 +82,24 @@
       "writtenOn": "2017-09-28T22:07:04Z",
       "side": 1,
       "message": "just curious, is this a standard convention, or are we just creating one here?",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1de13c73_07b47e86",
+        "filename": "compiler/optimizing/data_type-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-29T14:27:25Z",
+      "side": 1,
+      "message": "The other types come from Java shorty. Since Java does not have an unsigned byte I made this up.",
+      "parentUuid": "e3494b9b_c578b3fc",
       "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +129,30 @@
     },
     {
       "key": {
+        "uuid": "d36fd39b_baf4dd3f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-29T14:27:25Z",
+      "side": 1,
+      "message": "I didn\u0027t want to change the semantics in this change. When needed, we can drop the DCHECK_GE() above and change this to \"(vl \u003c\u003c vector_shift) \u003e\u003e other_shift\".",
+      "parentUuid": "45fff5bf_37e4700b",
+      "range": {
+        "startLine": 317,
+        "startChar": 27,
+        "endLine": 317,
+        "endChar": 28
+      },
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c3ad0ad_57497a7c",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 4
@@ -110,6 +170,24 @@
     },
     {
       "key": {
+        "uuid": "c6efdd9f_47c63feb",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-29T14:27:25Z",
+      "side": 1,
+      "message": "I want to propagate the side effects from the original instruction as its type shall soon be detached from the underlying array type (i.e. loading Uint8 from byte[]). Additionally, SideEffects::ArrayReadOfType(Uint8) is actually invalid.",
+      "parentUuid": "2c3ad0ad_57497a7c",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1e59_6a161116",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 4
@@ -121,6 +199,24 @@
       "writtenOn": "2017-09-28T22:07:04Z",
       "side": 1,
       "message": "same",
+      "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42da4c67_89bbd1e5",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-29T14:27:25Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d59c1e59_6a161116",
       "revId": "5fdd3365dfc3c3c7269b15faa917b0136fa2ea06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a92965fa_3632d446",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-09-29T14:27:25Z",
+      "side": 0,
+      "message": "ABS on an unsigned type is rather meaningless. We should always set the packed type of the VecAbs to signed (though the packed type of the input may be unsigned).",
+      "parentUuid": "31002db7_dd0940fc",
+      "revId": "c3485eeb861dabdbac11268a27d57174b0b62f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6de5bc30_99c29a3a",
         "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
         "patchSetId": 4
