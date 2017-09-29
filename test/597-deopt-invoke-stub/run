@@ -15,4 +15,4 @@
 # limitations under the License.
 
 # We want to run in debuggable mode and compiled.
-exec ${RUN} --jit -Xcompiler-option --debuggable "${@}"
+exec ${RUN} --jit --runtime-option -Xjitthreshold:10 -Xcompiler-option --debuggable "${@}"
