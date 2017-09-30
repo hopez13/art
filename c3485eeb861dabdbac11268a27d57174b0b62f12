@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "14b7a068_71b74d7a",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-09-30T00:18:29Z",
+      "side": 0,
+      "message": "Reading my own comment back, I noticed I was a bit unclear. The loop I showed vectorizes correctly with ToT but, if you make your change here, it will start to LOG FATAL. So please make the change I suggested above. If you go with NormalizePackedType(), please remove kUint16 from all the other code_generator_vector*.cc files too.",
+      "parentUuid": "84fcd395_fa71c8cf",
+      "revId": "c3485eeb861dabdbac11268a27d57174b0b62f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6de5bc30_99c29a3a",
         "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
         "patchSetId": 4
