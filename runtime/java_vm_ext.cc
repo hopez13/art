@@ -25,6 +25,7 @@
 #include "base/mutex-inl.h"
 #include "base/stl_util.h"
 #include "base/systrace.h"
+#include "base/time_utils.h"
 #include "check_jni.h"
 #include "dex_file-inl.h"
 #include "fault_handler.h"
@@ -48,6 +49,7 @@
 #include "thread-inl.h"
 #include "thread_list.h"
 #include "ti/agent.h"
+#include "well_known_classes.h"
 
 namespace art {
 
@@ -57,6 +59,12 @@ using android::base::StringAppendV;
 static constexpr size_t kGlobalsMax = 51200;  // Arbitrary sanity check. (Must fit in 16 bits.)
 
 static constexpr size_t kWeakGlobalsMax = 51200;  // Arbitrary sanity check. (Must fit in 16 bits.)
+
+// If true, run a GC and finalizers and try a second time to allocate global references when the
+// table is full.
+static constexpr bool kSecondChanceGlobalReferences = true;
+static constexpr bool kClearSoftReferencesOnSecondChance = false;
+static constexpr jlong kSecondChanceFinalizerTimeoutMs = MsToNs(1000);
 
 bool JavaVMExt::IsBadJniVersion(int version) {
   // We don't support JNI_VERSION_1_1. These are the only other valid versions.
@@ -619,20 +627,36 @@ void JavaVMExt::CheckGlobalRefAllocationTrackingLocked() {
   }
 }
 
+static void SecondChanceCleanUp(Thread* self, const char* type) {
+  LOG(WARNING) << "Second chance cleanup for overflow of " << type << " references!";
+
+  Runtime::Current()->GetHeap()->CollectGarbage(kClearSoftReferencesOnSecondChance);
+  self->GetJniEnv()->CallStaticVoidMethod(
+      WellKnownClasses::dalvik_system_VMRuntime,
+      WellKnownClasses::dalvik_system_VMRuntime_runFinalization,
+      kSecondChanceFinalizerTimeoutMs);
+}
+
 jobject JavaVMExt::AddGlobalRef(Thread* self, ObjPtr<mirror::Object> obj) {
   // Check for null after decoding the object to handle cleared weak globals.
   if (obj == nullptr) {
     return nullptr;
   }
-  IndirectRef ref;
   std::string error_msg;
-  {
+  auto try_add = [&]() REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Locks::jni_globals_lock_) {
     WriterMutexLock mu(self, *Locks::jni_globals_lock_);
-    ref = globals_.Add(kIRTFirstSegment, obj, &error_msg);
-  }
+    return globals_.Add(kIRTFirstSegment, obj, &error_msg);
+  };
+  IndirectRef ref = try_add();
   if (UNLIKELY(ref == nullptr)) {
-    LOG(FATAL) << error_msg;
-    UNREACHABLE();
+    if (kSecondChanceGlobalReferences) {
+      SecondChanceCleanUp(self, "global");
+      ref = try_add();
+    }
+    if (ref == nullptr) {
+      LOG(FATAL) << error_msg;
+      UNREACHABLE();
+    }
   }
   CheckGlobalRefAllocationTrackingLocked();
   return reinterpret_cast<jobject>(ref);
@@ -642,21 +666,32 @@ jweak JavaVMExt::AddWeakGlobalRef(Thread* self, ObjPtr<mirror::Object> obj) {
   if (obj == nullptr) {
     return nullptr;
   }
-  MutexLock mu(self, *Locks::jni_weak_globals_lock_);
-  // CMS needs this to block for concurrent reference processing because an object allocated during
-  // the GC won't be marked and concurrent reference processing would incorrectly clear the JNI weak
-  // ref. But CC (kUseReadBarrier == true) doesn't because of the to-space invariant.
-  while (!kUseReadBarrier && UNLIKELY(!MayAccessWeakGlobals(self))) {
-    // Check and run the empty checkpoint before blocking so the empty checkpoint will work in the
-    // presence of threads blocking for weak ref access.
-    self->CheckEmptyCheckpointFromWeakRefAccess(Locks::jni_weak_globals_lock_);
-    weak_globals_add_condition_.WaitHoldingLocks(self);
-  }
   std::string error_msg;
-  IndirectRef ref = weak_globals_.Add(kIRTFirstSegment, obj, &error_msg);
+  auto try_add = [&]()
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::jni_weak_globals_lock_) {
+    MutexLock mu(self, *Locks::jni_weak_globals_lock_);
+    // CMS needs this to block for concurrent reference processing because an object allocated
+    // during the GC won't be marked and concurrent reference processing would incorrectly clear the
+    // JNI weak ref. But CC (kUseReadBarrier == true) doesn't because of the to-space invariant.
+    while (!kUseReadBarrier && UNLIKELY(!MayAccessWeakGlobals(self))) {
+      // Check and run the empty checkpoint before blocking so the empty checkpoint will work in the
+      // presence of threads blocking for weak ref access.
+      self->CheckEmptyCheckpointFromWeakRefAccess(Locks::jni_weak_globals_lock_);
+      weak_globals_add_condition_.WaitHoldingLocks(self);
+    }
+    return weak_globals_.Add(kIRTFirstSegment, obj, &error_msg);
+  };
+  IndirectRef ref = try_add();
   if (UNLIKELY(ref == nullptr)) {
-    LOG(FATAL) << error_msg;
-    UNREACHABLE();
+    if (kSecondChanceGlobalReferences) {
+      SecondChanceCleanUp(self, "weak-global");
+      ref = try_add();
+    }
+    if (ref == nullptr) {
+      LOG(FATAL) << error_msg;
+      UNREACHABLE();
+    }
   }
   return reinterpret_cast<jweak>(ref);
 }
