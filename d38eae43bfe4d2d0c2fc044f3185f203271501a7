@@ -1,0 +1,227 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40b5e28b_9146f853",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5741,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "I\u0027d had\n\n  \u003c\u003c input_type \u003c\u003c \" -\u003e \" \u003c\u003c result_type;\n\nor something similar (here and elsewhere).",
+      "range": {
+        "startLine": 5741,
+        "startChar": 70,
+        "endLine": 5741,
+        "endChar": 71
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e66469df_8e0d2379",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3803,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "\u003c\u003c input_type;\n\n(Here and elsewhere.)",
+      "range": {
+        "startLine": 3803,
+        "startChar": 50,
+        "endLine": 3803,
+        "endChar": 51
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284237ab_09f92d0a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 6193,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Suggestion for a follow-up CL: move this logic into a GetLoadOperandType, as in the ARM code generator.",
+      "range": {
+        "startLine": 6167,
+        "startChar": 0,
+        "endLine": 6193,
+        "endChar": 3
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d7d8d8_2e5ed118",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 6343,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Suggestion for a follow-up CL: move this logic into a GetStoreOperandType, as in the ARM code generator.",
+      "range": {
+        "startLine": 6321,
+        "startChar": 0,
+        "endLine": 6343,
+        "endChar": 3
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3eedf043_20f6fc96",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2435,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Is this normal that kBool as `input_type` was dropped here?",
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e408e271_5c82f77c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2595,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Ditto?",
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e601b40f_d3d0d924",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2625,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Ditto?",
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b571acb0_21c04ee2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2654,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Ditto?",
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3993cb1_75accd0d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2686,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Ditto?",
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0755bce9_26fca375",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Why this change? The original version was shorter and less error-prone IMO. If we want to make sure the numeric (shift) values associated with the enum values are preserved over time, we could check them in a test.",
+      "range": {
+        "startLine": 1766,
+        "startChar": 0,
+        "endLine": 1779,
+        "endChar": 4
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7273908d_dccd106d",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T15:26:34Z",
+      "side": 1,
+      "message": "Perhaps we should mention that instructions like HVecHalvingAdd are always synthesized by the compiler, and thus cannot really be given a Dex PC location.",
+      "range": {
+        "startLine": 478,
+        "startChar": 76,
+        "endLine": 478,
+        "endChar": 84
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
