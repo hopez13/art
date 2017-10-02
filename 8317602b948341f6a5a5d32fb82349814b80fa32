@@ -52,6 +52,24 @@
       "revId": "8317602b948341f6a5a5d32fb82349814b80fa32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4df59ebf_e0613eca",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-02T21:18:04Z",
+      "side": 1,
+      "message": "How should I proceed?\n\nIs the approach taken here in this stack OK or should I take a different approach? If the latter, what is the approach?",
+      "parentUuid": "8885edb5_ef45650b",
+      "revId": "8317602b948341f6a5a5d32fb82349814b80fa32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
