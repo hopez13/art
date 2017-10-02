@@ -52,6 +52,24 @@
       "revId": "0078e6200d6d9487a26f14aae7381b51e3987f65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "246969bd_3c96e905",
+        "filename": "compiler/optimizing/nodes_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T18:49:44Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want any intermediate nodes on x86/x86-64 and this kind of intermediate node doesn\u0027t make much sense on arm/arm64 either (given shifter operands), so this is fine with me.",
+      "parentUuid": "c9a54cd0_f83e7e80",
+      "revId": "0078e6200d6d9487a26f14aae7381b51e3987f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
