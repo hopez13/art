@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "b50ea9d0_1414a4e7",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T12:09:39Z",
+      "side": 0,
+      "message": "NormalizePackedType() has been added in PS7, kUint16 has already been removed from all VecAbs codegens that handled it in PS4 (x86/x86-64 does not support 16-bit VecAbs).",
+      "parentUuid": "14b7a068_71b74d7a",
+      "revId": "c3485eeb861dabdbac11268a27d57174b0b62f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6de5bc30_99c29a3a",
         "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
         "patchSetId": 4
