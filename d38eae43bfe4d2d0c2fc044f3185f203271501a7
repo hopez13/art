@@ -408,6 +408,30 @@
       "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f37c3b5_eac36d13",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-02T17:12:56Z",
+      "side": 1,
+      "message": "I should probably have started this discussion earlier, but do we want to keep the dex pc location the same as the original sequential code, or is marking new code with kNoDexPc acceptable? With an upcoming peeling loop, vector loop and potential cleanup loop, we could have three copies of the same original loop. What is the best approach here? Depending on the answer we could try to get the original dex pc back, or I can cleanup some of the vector hierarchy to avoid passing this around.",
+      "parentUuid": "4fba4a4d_4820f37b",
+      "range": {
+        "startLine": 478,
+        "startChar": 76,
+        "endLine": 478,
+        "endChar": 84
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
