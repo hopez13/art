@@ -94,6 +94,46 @@
     },
     {
       "key": {
+        "uuid": "47141091_ebbdad16",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T12:30:31Z",
+      "side": 1,
+      "message": "This optimization sounds a bit limited. I\u0027m thinking about a more general optimization:\n\n    b[i] +    // b + (i \u003c\u003c ELEM_SHIFT) + CONST_OFFSET\n    b[i+1] +  // b + (i \u003c\u003c ELEM_SHIFT) + (CONST_OFFSET + 1 \u003c\u003c ELEM_SHIFT)\n    b[i+2];   // b + (i \u003c\u003c ELEM_SHIFT) + (CONST_OFFSET + 2 \u003c\u003c ELEM_SHIFT)\n\nwhere we could share either the \"(i \u003c\u003c ELEM_SHIFT)\" or the \"b + (i \u003c\u003c ELEM_SHIFT)\". (Before we do the sharing of \"b + (i \u003c\u003c ELEM_SHIFT)\", we need to extend stack maps to describe pointers into the middle of an array.)\n\nBut it\u0027s OK to go ahead with this as a starting point.",
+      "revId": "f5fe5a414fcd90e2384ffbb879d4f70cad2ccca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b2cca0_3366c1a2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2682,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T12:30:31Z",
+      "side": 1,
+      "message": "index_reg",
+      "range": {
+        "startLine": 2682,
+        "startChar": 23,
+        "endLine": 2682,
+        "endChar": 51
+      },
+      "revId": "f5fe5a414fcd90e2384ffbb879d4f70cad2ccca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13962eb_29f6f73b",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -347,6 +387,30 @@
     },
     {
       "key": {
+        "uuid": "468ee6bb_b6056386",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T12:30:31Z",
+      "side": 1,
+      "message": "And add a blank line between the #include \"instruction_simplifier_mips.h\" and other includes.",
+      "parentUuid": "cb155d70_0b4ba973",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 52
+      },
+      "revId": "f5fe5a414fcd90e2384ffbb879d4f70cad2ccca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c08daf2b_3b4ec268",
         "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
         "patchSetId": 3
@@ -529,6 +593,29 @@
         "startChar": 0,
         "endLine": 60,
         "endChar": 57
+      },
+      "revId": "f5fe5a414fcd90e2384ffbb879d4f70cad2ccca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0505a34e_6747cfe3",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T12:30:31Z",
+      "side": 1,
+      "message": "Please move this and the InstructionSimplifierMipsVisitor to the .cc file. Then replace the codegen #include with a forward declaration. (Seeing this CL motivated me to prepare https://android-review.googlesource.com/499350 .)",
+      "range": {
+        "startLine": 64,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 3
       },
       "revId": "f5fe5a414fcd90e2384ffbb879d4f70cad2ccca0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
