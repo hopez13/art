@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "931bd0d2_433fce88",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-02T17:57:44Z",
+      "side": 1,
+      "message": "(No action needed)\n\nHow to enable?",
+      "revId": "7b6c155acd0bec69ea6c518a9aa9c379525de686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cdb7fce_8fb4dff6",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-02T17:57:44Z",
+      "side": 1,
+      "message": "nit: read into temp variable with the full type name first\n \n  SomeType name \u003d it-\u003efirst;\n  SomeOtherType naeme2 \u003d it-\u003esecond;",
+      "revId": "7b6c155acd0bec69ea6c518a9aa9c379525de686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
