@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e582422_8bbcf53d",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T17:12:49Z",
+      "side": 1,
+      "message": "This #include should be first, followed by the blank line and then all the other #includes in alphabetical order.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "7698e41280a4549e457c419480ec9c8a17322c95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88c54947_f0f2dbe6",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T17:12:49Z",
+      "side": 1,
+      "message": "Line too long, break after \"load/store\". (And, per Alexey\u0027s previous comment, add the word \"instructions\".)",
+      "revId": "7698e41280a4549e457c419480ec9c8a17322c95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
