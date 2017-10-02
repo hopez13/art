@@ -22,6 +22,30 @@
       "revId": "cfcc9cfb44bab79f7381bcc4bfd9bf2d4435f734",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98b1813b_129055ba",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-02T12:38:12Z",
+      "side": 1,
+      "message": "Good spot. I had briefly considered concatenating Name here, rejected the idea and failed to clean up the string. I\u0027ll fix it in the existing follow-up CL that adds the VarHandle intrinsics.",
+      "parentUuid": "a216f14f_7ac61da2",
+      "range": {
+        "startLine": 37,
+        "startChar": 45,
+        "endLine": 37,
+        "endChar": 47
+      },
+      "revId": "cfcc9cfb44bab79f7381bcc4bfd9bf2d4435f734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
