@@ -34,6 +34,24 @@
       "revId": "0078e6200d6d9487a26f14aae7381b51e3987f65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a54cd0_f83e7e80",
+        "filename": "compiler/optimizing/nodes_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-02T18:46:38Z",
+      "side": 1,
+      "message": "Nicolas, Vladimir,\nAny feedback on trying to avoid too much per-arch fragmentation of intermediate nodes?",
+      "parentUuid": "b281633b_390cf48d",
+      "revId": "0078e6200d6d9487a26f14aae7381b51e3987f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
