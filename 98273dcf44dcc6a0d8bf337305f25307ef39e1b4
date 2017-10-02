@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa9781be_409f01b2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T12:28:33Z",
+      "side": 1,
+      "message": "I\u0027d prefer \"Uint16\" over \"uint16\".",
+      "range": {
+        "startLine": 86,
+        "startChar": 20,
+        "endLine": 86,
+        "endChar": 26
+      },
+      "revId": "98273dcf44dcc6a0d8bf337305f25307ef39e1b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97e067a1_ce6555af",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T12:28:33Z",
+      "side": 1,
+      "message": "Do we now recognize both SADs in the following?\n\n  private static int sadCastedCharAndShort2Int(char[] s1, hort[] s2) {\n    int min_length \u003d Math.min(s1.length, s2.length);\n    int sad1 \u003d 0;\n    int sad2 \u003d 0;\n    for (int i \u003d 0; i \u003c min_length; i++) {\n      short value1 \u003d ((short) s1[i]);\n      short value2 \u003d s2[i];\n      sad1 +\u003d Math.abs(value1 - value2);\n      sad2 +\u003d Math.abs(value2 - value1);\n    }\n    return sad1 ^ sad2;\n  }",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 36
+      },
+      "revId": "98273dcf44dcc6a0d8bf337305f25307ef39e1b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
