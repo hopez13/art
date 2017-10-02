@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f0764b6_2acf11e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-02T21:38:00Z",
+      "side": 1,
+      "message": "Assuming D8 has lambda support, you also need DESUGAR\u003dfalse\n\n  Test: DESUGAR\u003dfalse USE_D8\u003dtrue ANDROID_COMPILE_WITH_JACK\u003dfalse art/test.py -j20 --host -b\n\nOtherwise it will run javac -\u003e desugar -\u003e d8\n\nwhich is probably not what you want.\n\n------\n\nPerhaps in the long run we should be better off with a --build-with-d8 option that is smart enough to disable desugar and to use d8 instead of dx ?",
+      "revId": "b525c5c10317a010b51c086f6d70b8ec9f5d71b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
