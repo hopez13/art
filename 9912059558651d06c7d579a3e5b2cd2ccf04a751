@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4d9b1ce_e09e756d",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-02T20:06:31Z",
+      "side": 1,
+      "message": "nit, arguably for a general utility this case should return false, but I understand keeping this a check fail given its intended usages",
+      "revId": "9912059558651d06c7d579a3e5b2cd2ccf04a751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
