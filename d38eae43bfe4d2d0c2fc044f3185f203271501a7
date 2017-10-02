@@ -388,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "32d64eac_a23f119c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T18:01:02Z",
+      "side": 1,
+      "message": "I don\u0027t see keeping this code switch-free as a sufficient reason to pollute the definition of DataType::Type.",
+      "parentUuid": "a626a731_013aa749",
+      "range": {
+        "startLine": 1766,
+        "startChar": 0,
+        "endLine": 1779,
+        "endChar": 4
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7273908d_dccd106d",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 8
@@ -470,6 +494,30 @@
       "writtenOn": "2017-10-02T17:53:14Z",
       "side": 1,
       "message": "Good question. I can\u0027t remember whether we have a well defined rationale for this. If not, we should start drafting one. :)",
+      "parentUuid": "9f37c3b5_eac36d13",
+      "range": {
+        "startLine": 478,
+        "startChar": 76,
+        "endLine": 478,
+        "endChar": 84
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa163592_a080fa4e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-02T18:01:02Z",
+      "side": 1,
+      "message": "I\u0027m OK with either approach. But please wait until this CL is submitted.",
       "parentUuid": "9f37c3b5_eac36d13",
       "range": {
         "startLine": 478,
