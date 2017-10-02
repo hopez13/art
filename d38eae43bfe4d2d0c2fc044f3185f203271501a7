@@ -456,6 +456,30 @@
       "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e874af7a_27fa7a7d",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T17:53:14Z",
+      "side": 1,
+      "message": "Good question. I can\u0027t remember whether we have a well defined rationale for this. If not, we should start drafting one. :)",
+      "parentUuid": "9f37c3b5_eac36d13",
+      "range": {
+        "startLine": 478,
+        "startChar": 76,
+        "endLine": 478,
+        "endChar": 84
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
