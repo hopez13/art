@@ -364,6 +364,30 @@
     },
     {
       "key": {
+        "uuid": "a626a731_013aa749",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-02T17:50:24Z",
+      "side": 1,
+      "message": "I see. What about assigning these numerical values directly to the enumeration definition instead then?",
+      "parentUuid": "d2ea5c37_c0e039b0",
+      "range": {
+        "startLine": 1766,
+        "startChar": 0,
+        "endLine": 1779,
+        "endChar": 4
+      },
+      "revId": "d38eae43bfe4d2d0c2fc044f3185f203271501a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7273908d_dccd106d",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 8
