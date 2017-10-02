@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1403a4a_356bf2a6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-10-02T19:58:42Z",
+      "side": 1,
+      "message": "Based on the implementation, it doesn\u0027t look like it to me. With the current implementation, Wait seems to perform a redundant check.",
+      "range": {
+        "startLine": 434,
+        "startChar": 34,
+        "endLine": 434,
+        "endChar": 49
+      },
+      "revId": "848574ca50bb7e2d109608359d1086b3ca6bb4b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
