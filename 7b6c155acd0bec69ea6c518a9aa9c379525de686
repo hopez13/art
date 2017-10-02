@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4c0e4889_1244bc3d",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-02T22:07:46Z",
+      "side": 1,
+      "message": "See the follow-up CL. The right call is:\n\n art::gc::AllocRecordObjectMap::SetAllocTrackingEnabled(true);",
+      "parentUuid": "931bd0d2_433fce88",
+      "revId": "7b6c155acd0bec69ea6c518a9aa9c379525de686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1cdb7fce_8fb4dff6",
         "filename": "runtime/reference_table.cc",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "7b6c155acd0bec69ea6c518a9aa9c379525de686",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df7e85d7_cc9f4f1d",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-02T22:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cdb7fce_8fb4dff6",
+      "revId": "7b6c155acd0bec69ea6c518a9aa9c379525de686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
