@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f8d1b245_88cd84cb",
+        "filename": "tools/ahat/benchmark-src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-10-03T15:39:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8439b56a_d8d0af2c",
+      "revId": "bbe92416c980cff865eca5c258a26b6e0c0ca0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3bc8e7f_1ee507c7",
         "filename": "tools/ahat/benchmark-src/Main.java",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9a498125_d945fafa",
+        "filename": "tools/ahat/benchmark-src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-10-03T15:39:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3bc8e7f_1ee507c7",
+      "revId": "bbe92416c980cff865eca5c258a26b6e0c0ca0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfd5c4ad_d352a3d8",
         "filename": "tools/ahat/jar-src/BitmapHandler.java",
         "patchSetId": 1
@@ -47,6 +83,30 @@
       "writtenOn": "2017-10-03T14:22:22Z",
       "side": 1,
       "message": "Maybe move this logic to its own method, e.g.\n\n  static BufferedImage createBufferedImage(BitmapInfo info)\n\n?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 74
+      },
+      "revId": "bbe92416c980cff865eca5c258a26b6e0c0ca0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73e48f45_4a6391d3",
+        "filename": "tools/ahat/jar-src/BitmapHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-10-03T15:39:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfd5c4ad_d352a3d8",
       "range": {
         "startLine": 49,
         "startChar": 0,
