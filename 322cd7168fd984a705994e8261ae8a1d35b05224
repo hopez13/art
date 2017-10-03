@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "259c9b72_ab0d108b",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Not sure I follow the structure of what you want to see here. Can you give more details, please?",
+      "parentUuid": "2866e699_44b98e7f",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85ff7f81_0e43f70a",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 4
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "da9d1e7e_f1700b3c",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85ff7f81_0e43f70a",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "928d27d4_0548f448",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 4
@@ -86,6 +122,24 @@
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0da6eb9d_3d9423c6",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "It\u0027s an implementation detail for ParseCompilerOptions, which I\u0027d like to hide. Anyways, moved to simple_compiler_options.map.h.",
+      "parentUuid": "928d27d4_0548f448",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +175,24 @@
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daa01afb_cd8521d2",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "903d4e05_2026daa0",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -212,6 +284,24 @@
     },
     {
       "key": {
+        "uuid": "f7882246_e47ba61e",
+        "filename": "compiler/driver/compiler_options_map.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08a5cc17_3f86b325",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22abda77_5c2e432b",
         "filename": "compiler/driver/compiler_options_map.def",
         "patchSetId": 4
@@ -229,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "22f9fad5_bd01a7b1",
+        "filename": "compiler/driver/compiler_options_map.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "I thought it was nice to separate them thematically, but done.",
+      "parentUuid": "22abda77_5c2e432b",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5162b9d7_f053a3d4",
         "filename": "compiler/driver/compiler_options_map.h",
         "patchSetId": 4
@@ -243,6 +351,24 @@
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "273ceef6_ffbba240",
+        "filename": "compiler/driver/compiler_options_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5162b9d7_f053a3d4",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -296,6 +422,24 @@
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bb3598a_8da4fdd1",
+        "filename": "compiler/driver/compiler_options_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Except other files in art/ follow Google style on this. I\u0027d rather be consistent with those.",
+      "parentUuid": "3b8ba884_5a555c5b",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -405,6 +549,30 @@
     },
     {
       "key": {
+        "uuid": "4c740def_5ea4e3eb",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "I wanted the name to be more expressive. As stated above, I\u0027ll clean this up incrementally, keeping this CL as the transition.",
+      "parentUuid": "0df14bfd_064b99c9",
+      "range": {
+        "startLine": 1125,
+        "startChar": 7,
+        "endLine": 1125,
+        "endChar": 25
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0434460f_a719d74d",
         "filename": "dex2oat/dex2oat_options.cc",
         "patchSetId": 4
@@ -458,6 +626,24 @@
     },
     {
       "key": {
+        "uuid": "96b04154_5bbdab3e",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Is this worth it? It will be a macro of a macro.",
+      "parentUuid": "e8a301c1_91d22b93",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ebce659_83e924f9",
         "filename": "dex2oat/dex2oat_options.h",
         "patchSetId": 4
@@ -502,6 +688,30 @@
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd514522_095127c7",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7f9c31d_980313dd",
+      "range": {
+        "startLine": 52,
+        "startChar": 14,
+        "endLine": 52,
+        "endChar": 32
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -572,6 +782,24 @@
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c6737d5_b40c593b",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T19:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cafda7c_662977ba",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
