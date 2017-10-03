@@ -46,7 +46,7 @@ static constexpr int64_t kDoubleNaN = INT64_C(0x7FF8000000000000);
 static constexpr int32_t kFloatNaN = INT32_C(0x7FC00000);
 
 IntrinsicLocationsBuilderX86::IntrinsicLocationsBuilderX86(CodeGeneratorX86* codegen)
-  : arena_(codegen->GetGraph()->GetArena()),
+  : arena_(codegen->GetGraph()->GetAllocator()),
     codegen_(codegen) {
 }
 
@@ -56,7 +56,7 @@ X86Assembler* IntrinsicCodeGeneratorX86::GetAssembler() {
 }
 
 ArenaAllocator* IntrinsicCodeGeneratorX86::GetAllocator() {
-  return codegen_->GetGraph()->GetArena();
+  return codegen_->GetGraph()->GetAllocator();
 }
 
 bool IntrinsicLocationsBuilderX86::TryDispatch(HInvoke* invoke) {

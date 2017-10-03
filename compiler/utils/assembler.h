@@ -92,8 +92,8 @@ class AssemblerBuffer {
   explicit AssemblerBuffer(ArenaAllocator* arena);
   ~AssemblerBuffer();
 
-  ArenaAllocator* GetArena() {
-    return arena_;
+  ArenaAllocator* GetAllocator() {
+    return allocator_;
   }
 
   // Basic support for emitting, loading, and storing.
@@ -252,7 +252,7 @@ class AssemblerBuffer {
   // for a single, fast space check per instruction.
   static const int kMinimumGap = 32;
 
-  ArenaAllocator* arena_;
+  ArenaAllocator* allocator_;
   uint8_t* contents_;
   uint8_t* cursor_;
   uint8_t* limit_;
@@ -392,8 +392,8 @@ class Assembler : public DeletableArenaObject<kArenaAllocAssembler> {
    */
   DebugFrameOpCodeWriterForAssembler& cfi() { return cfi_; }
 
-  ArenaAllocator* GetArena() {
-    return buffer_.GetArena();
+  ArenaAllocator* GetAllocator() {
+    return buffer_.GetAllocator();
   }
 
   AssemblerBuffer* GetBuffer() {
