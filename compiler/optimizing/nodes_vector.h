@@ -34,13 +34,17 @@ class Alignment {
     DCHECK(IsPowerOfTwo(base));
   }
 
-  // Returns true if memory is "at least" aligned at the given boundary.
+  // Returns true if memory is at least aligned at the given boundary.
   // Assumes requested base is power of two.
   bool IsAlignedAt(size_t base) const {
     DCHECK_NE(0u, base);
     DCHECK(IsPowerOfTwo(base));
     return ((offset_ | base_) & (base - 1u)) == 0;
   }
+
+  size_t Base() const { return base_; }
+
+  size_t Offset() const { return offset_; }
 
   std::string ToString() const {
     return "ALIGN(" + std::to_string(base_) + "," + std::to_string(offset_) + ")";
@@ -116,6 +120,22 @@ class HVecOperation : public HVariableInputSizeInstruction {
     return GetVectorLength() == o->GetVectorLength() && GetPackedType() == o->GetPackedType();
   }
 
+  // Maps an integral type to the same-size signed type and leaves other types alone.
+  // Can be used to test relaxed type consistency in which packed same-size integral
+  // types can co-exist, but other type mixes are an error.
+  static DataType::Type ToSignedType(DataType::Type type) {
+    switch (type) {
+      case DataType::Type::kBool:  // 1-byte storage unit
+      case DataType::Type::kUint8:
+        return DataType::Type::kInt8;
+      case DataType::Type::kUint16:
+        return DataType::Type::kInt16;
+      default:
+        DCHECK(type != DataType::Type::kVoid && type != DataType::Type::kReference);
+        return type;
+    }
+  }
+
   DECLARE_ABSTRACT_INSTRUCTION(VecOperation);
 
  protected:
@@ -187,8 +207,7 @@ class HVecBinaryOperation : public HVecOperation {
 };
 
 // Abstraction of a vector operation that references memory, with an alignment.
-// The Android runtime guarantees at least "component size" alignment for array
-// elements and, thus, vectors.
+// The Android runtime guarantees elements have at least natural alignment.
 class HVecMemoryOperation : public HVecOperation {
  public:
   HVecMemoryOperation(ArenaAllocator* arena,
@@ -230,20 +249,7 @@ inline static bool HasConsistentPackedTypes(HInstruction* input, DataType::Type 
   }
   DCHECK(input->IsVecOperation());
   DataType::Type input_type = input->AsVecOperation()->GetPackedType();
-  switch (input_type) {
-    case DataType::Type::kBool:
-    case DataType::Type::kUint8:
-    case DataType::Type::kInt8:
-      return type == DataType::Type::kBool ||
-             type == DataType::Type::kUint8 ||
-             type == DataType::Type::kInt8;
-    case DataType::Type::kUint16:
-    case DataType::Type::kInt16:
-      return type == DataType::Type::kUint16 ||
-             type == DataType::Type::kInt16;
-    default:
-      return type == input_type;
-  }
+  return HVecOperation::ToSignedType(input_type) == HVecOperation::ToSignedType(type);
 }
 
 //
@@ -393,7 +399,8 @@ class HVecNeg FINAL : public HVecUnaryOperation {
 };
 
 // Takes absolute value of every component in the vector,
-// viz. abs[ x1, .. , xn ]  = [ |x1|, .. , |xn| ].
+// viz. abs[ x1, .. , xn ]  = [ |x1|, .. , |xn| ]
+// for signed operand x.
 class HVecAbs FINAL : public HVecUnaryOperation {
  public:
   HVecAbs(ArenaAllocator* arena,
@@ -465,7 +472,7 @@ class HVecAdd FINAL : public HVecBinaryOperation {
 // Performs halving add on every component in the two vectors, viz.
 // rounded   [ x1, .. , xn ] hradd [ y1, .. , yn ] = [ (x1 + y1 + 1) >> 1, .. , (xn + yn + 1) >> 1 ]
 // truncated [ x1, .. , xn ] hadd  [ y1, .. , yn ] = [ (x1 + y1)     >> 1, .. , (xn + yn )    >> 1 ]
-// for signed operands x, y (sign extension) or unsigned operands x, y (zero extension).
+// for either both signed or both unsigned operands x, y.
 class HVecHalvingAdd FINAL : public HVecBinaryOperation {
  public:
   HVecHalvingAdd(ArenaAllocator* arena,
@@ -474,8 +481,9 @@ class HVecHalvingAdd FINAL : public HVecBinaryOperation {
                  DataType::Type packed_type,
                  size_t vector_length,
                  bool is_rounded,
-                 bool is_unsigned = false)
-      : HVecBinaryOperation(arena, left, right, packed_type, vector_length, kNoDexPc) {
+                 bool is_unsigned,
+                 uint32_t dex_pc = kNoDexPc)
+      : HVecBinaryOperation(arena, left, right, packed_type, vector_length, dex_pc) {
     // The `is_unsigned` flag should be used exclusively with the Int32 or Int64.
     // This flag is a temporary measure while we do not have the Uint32 and Uint64 data types.
     DCHECK(!is_unsigned ||
@@ -582,7 +590,8 @@ class HVecDiv FINAL : public HVecBinaryOperation {
 };
 
 // Takes minimum of every component in the two vectors,
-// viz. MIN( [ x1, .. , xn ] , [ y1, .. , yn ]) = [ min(x1, y1), .. , min(xn, yn) ].
+// viz. MIN( [ x1, .. , xn ] , [ y1, .. , yn ]) = [ min(x1, y1), .. , min(xn, yn) ]
+// for either both signed or both unsigned operands x, y.
 class HVecMin FINAL : public HVecBinaryOperation {
  public:
   HVecMin(ArenaAllocator* arena,
@@ -590,8 +599,9 @@ class HVecMin FINAL : public HVecBinaryOperation {
           HInstruction* right,
           DataType::Type packed_type,
           size_t vector_length,
-          bool is_unsigned = false)
-      : HVecBinaryOperation(arena, left, right, packed_type, vector_length, kNoDexPc) {
+          bool is_unsigned,
+          uint32_t dex_pc = kNoDexPc)
+      : HVecBinaryOperation(arena, left, right, packed_type, vector_length, dex_pc) {
     // The `is_unsigned` flag should be used exclusively with the Int32 or Int64.
     // This flag is a temporary measure while we do not have the Uint32 and Uint64 data types.
     DCHECK(!is_unsigned ||
@@ -624,7 +634,8 @@ class HVecMin FINAL : public HVecBinaryOperation {
 };
 
 // Takes maximum of every component in the two vectors,
-// viz. MAX( [ x1, .. , xn ] , [ y1, .. , yn ]) = [ max(x1, y1), .. , max(xn, yn) ].
+// viz. MAX( [ x1, .. , xn ] , [ y1, .. , yn ]) = [ max(x1, y1), .. , max(xn, yn) ]
+// for either both signed or both unsigned operands x, y.
 class HVecMax FINAL : public HVecBinaryOperation {
  public:
   HVecMax(ArenaAllocator* arena,
@@ -632,8 +643,9 @@ class HVecMax FINAL : public HVecBinaryOperation {
           HInstruction* right,
           DataType::Type packed_type,
           size_t vector_length,
-          bool is_unsigned = false)
-      : HVecBinaryOperation(arena, left, right, packed_type, vector_length, kNoDexPc) {
+          bool is_unsigned,
+          uint32_t dex_pc = kNoDexPc)
+      : HVecBinaryOperation(arena, left, right, packed_type, vector_length, dex_pc) {
     // The `is_unsigned` flag should be used exclusively with the Int32 or Int64.
     // This flag is a temporary measure while we do not have the Uint32 and Uint64 data types.
     DCHECK(!is_unsigned ||
@@ -905,9 +917,9 @@ class HVecMultiplyAccumulate FINAL : public HVecOperation {
 
 // Takes the absolute difference of two vectors, and adds the results to
 // same-precision or wider-precision components in the accumulator,
-// viz. SAD([ a1, .. , am ], [ x1, .. , xn ], [ y1, .. , yn ] =
+// viz. SAD([ a1, .. , am ], [ x1, .. , xn ], [ y1, .. , yn ]) =
 //          [ a1 + sum abs(xi-yi), .. , am + sum abs(xj-yj) ],
-//      for m <= n and non-overlapping sums.
+//      for m <= n, non-overlapping sums, and signed operands x, y.
 class HVecSADAccumulate FINAL : public HVecOperation {
  public:
   HVecSADAccumulate(ArenaAllocator* arena,
