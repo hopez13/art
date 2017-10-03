@@ -39,6 +39,69 @@
       "revId": "7698e41280a4549e457c419480ec9c8a17322c95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6993b7d_d6ce7c24",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-03T06:25:51Z",
+      "side": 1,
+      "message": "There are two empty lines between these functions. Remove one of them.",
+      "revId": "7698e41280a4549e457c419480ec9c8a17322c95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e02b40ea_44e84740",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-03T06:25:51Z",
+      "side": 1,
+      "message": "Delete 2 leading spaces from each of these 3 lines.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 3
+      },
+      "revId": "7698e41280a4549e457c419480ec9c8a17322c95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9388291_ca9553e7",
+        "filename": "compiler/optimizing/nodes_mips.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-03T06:25:51Z",
+      "side": 1,
+      "message": "in",
+      "range": {
+        "startLine": 77,
+        "startChar": 46,
+        "endLine": 77,
+        "endChar": 49
+      },
+      "revId": "7698e41280a4549e457c419480ec9c8a17322c95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
