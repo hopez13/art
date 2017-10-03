@@ -137,7 +137,7 @@ bool InstructionSimplifierArmVisitor::TryMergeIntoShifterOperand(HInstruction* u
 
   if (do_merge) {
     HDataProcWithShifterOp* alu_with_op =
-        new (GetGraph()->GetArena()) HDataProcWithShifterOp(use,
+        new (GetGraph()->GetAllocator()) HDataProcWithShifterOp(use,
                                                             other_input,
                                                             bitfield_op->InputAt(0),
                                                             op_kind,

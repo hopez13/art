@@ -35,7 +35,7 @@ namespace art {
 namespace mips64 {
 
 IntrinsicLocationsBuilderMIPS64::IntrinsicLocationsBuilderMIPS64(CodeGeneratorMIPS64* codegen)
-  : codegen_(codegen), arena_(codegen->GetGraph()->GetArena()) {
+  : codegen_(codegen), arena_(codegen->GetGraph()->GetAllocator()) {
 }
 
 Mips64Assembler* IntrinsicCodeGeneratorMIPS64::GetAssembler() {
@@ -43,7 +43,7 @@ Mips64Assembler* IntrinsicCodeGeneratorMIPS64::GetAssembler() {
 }
 
 ArenaAllocator* IntrinsicCodeGeneratorMIPS64::GetAllocator() {
-  return codegen_->GetGraph()->GetArena();
+  return codegen_->GetGraph()->GetAllocator();
 }
 
 #define __ codegen->GetAssembler()->

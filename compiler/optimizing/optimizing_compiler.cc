@@ -44,6 +44,7 @@
 #include "base/dumpable.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "base/scoped_arena_allocator.h"
 #include "base/timing_logger.h"
 #include "bounds_check_elimination.h"
 #include "builder.h"
@@ -147,7 +148,7 @@ class PassObserver : public ValueObject {
         cached_method_name_(),
         timing_logger_enabled_(compiler_driver->GetDumpPasses()),
         timing_logger_(timing_logger_enabled_ ? GetMethodName() : "", true, true),
-        disasm_info_(graph->GetArena()),
+        disasm_info_(graph->GetAllocator()),
         visualizer_oss_(),
         visualizer_output_(visualizer_output),
         visualizer_enabled_(!compiler_driver->GetCompilerOptions().GetDumpCfgFileName().empty()),
@@ -363,7 +364,8 @@ class OptimizingCompiler FINAL : public Compiler {
   // 2) Transforms the graph to SSA. Returns null if it failed.
   // 3) Runs optimizations on the graph, including register allocator.
   // 4) Generates code with the `code_allocator` provided.
-  CodeGenerator* TryCompile(ArenaAllocator* arena,
+  CodeGenerator* TryCompile(ArenaAllocator* allocator,
+                            ArenaStack* arena_stack,
                             CodeVectorAllocator* code_allocator,
                             const DexFile::CodeItem* code_item,
                             uint32_t access_flags,
@@ -605,7 +607,7 @@ void OptimizingCompiler::MaybeRunInliner(HGraph* graph,
     return;
   }
   size_t number_of_dex_registers = dex_compilation_unit.GetCodeItem()->registers_size_;
-  HInliner* inliner = new (graph->GetArena()) HInliner(
+  HInliner* inliner = new (graph->GetAllocator()) HInliner(
       graph,                   // outer_graph
       graph,                   // outermost_graph
       codegen,
@@ -628,7 +630,7 @@ void OptimizingCompiler::RunArchOptimizations(InstructionSet instruction_set,
                                               PassObserver* pass_observer) const {
   UNUSED(codegen);  // To avoid compilation error when compiling for svelte
   OptimizingCompilerStats* stats = compilation_stats_.get();
-  ArenaAllocator* arena = graph->GetArena();
+  ArenaAllocator* arena = graph->GetAllocator();
   switch (instruction_set) {
 #if defined(ART_ENABLE_CODEGEN_arm)
     case kThumb2:
@@ -750,7 +752,7 @@ static void AllocateRegisters(HGraph* graph,
   }
   {
     PassScope scope(RegisterAllocator::kRegisterAllocatorPassName, pass_observer);
-    RegisterAllocator::Create(graph->GetArena(), codegen, liveness, strategy)->AllocateRegisters();
+    RegisterAllocator::Create(graph->GetAllocator(), codegen, liveness, strategy)->AllocateRegisters();
   }
 }
 
@@ -761,7 +763,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
                                           PassObserver* pass_observer,
                                           VariableSizedHandleScope* handles) const {
   OptimizingCompilerStats* stats = compilation_stats_.get();
-  ArenaAllocator* arena = graph->GetArena();
+  ArenaAllocator* arena = graph->GetAllocator();
   if (driver->GetCompilerOptions().GetPassesToRun() != nullptr) {
     ArenaVector<HOptimization*> optimizations = BuildOptimizations(
         *driver->GetCompilerOptions().GetPassesToRun(),
@@ -859,7 +861,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
 }
 
 static ArenaVector<linker::LinkerPatch> EmitAndSortLinkerPatches(CodeGenerator* codegen) {
-  ArenaVector<linker::LinkerPatch> linker_patches(codegen->GetGraph()->GetArena()->Adapter());
+  ArenaVector<linker::LinkerPatch> linker_patches(codegen->GetGraph()->GetAllocator()->Adapter());
   codegen->EmitLinkerPatches(&linker_patches);
 
   // Sort patches by literal offset. Required for .oat_patches encoding.
@@ -906,7 +908,8 @@ CompiledMethod* OptimizingCompiler::Emit(ArenaAllocator* arena,
   return compiled_method;
 }
 
-CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
+CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
+                                              ArenaStack* arena_stack,
                                               CodeVectorAllocator* code_allocator,
                                               const DexFile::CodeItem* code_item,
                                               uint32_t access_flags,
@@ -964,8 +967,9 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
       /* verified_method */ nullptr,
       dex_cache);
 
-  HGraph* graph = new (arena) HGraph(
-      arena,
+  HGraph* graph = new (allocator) HGraph(
+      allocator,
+      arena_stack,
       dex_file,
       method_idx,
       compiler_driver->GetInstructionSet(),
@@ -1018,7 +1022,6 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
                           codegen.get(),
                           compilation_stats_.get(),
                           interpreter_metadata,
-                          dex_cache,
                           handles);
     GraphAnalysisResult result = builder.BuildGraph();
     if (result != kAnalysisSuccess) {
@@ -1085,11 +1088,12 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
   DCHECK(Runtime::Current()->IsAotCompiler());
   const VerifiedMethod* verified_method = compiler_driver->GetVerifiedMethod(&dex_file, method_idx);
   DCHECK(!verified_method->HasRuntimeThrow());
-  if (compiler_driver->IsMethodVerifiedWithoutFailures(method_idx, class_def_idx, dex_file)
-      || verifier::CanCompilerHandleVerificationFailure(
-            verified_method->GetEncounteredVerificationFailures())) {
-    ArenaAllocator arena(Runtime::Current()->GetArenaPool());
-    CodeVectorAllocator code_allocator(&arena);
+  if (compiler_driver->IsMethodVerifiedWithoutFailures(method_idx, class_def_idx, dex_file) ||
+      verifier::CanCompilerHandleVerificationFailure(
+          verified_method->GetEncounteredVerificationFailures())) {
+    ArenaAllocator allocator(Runtime::Current()->GetArenaPool());
+    ArenaStack arena_stack(Runtime::Current()->GetArenaPool());
+    CodeVectorAllocator code_allocator(&allocator);
     std::unique_ptr<CodeGenerator> codegen;
     {
       ScopedObjectAccess soa(Thread::Current());
@@ -1097,7 +1101,8 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
       // Go to native so that we don't block GC during compilation.
       ScopedThreadSuspension sts(soa.Self(), kNative);
       codegen.reset(
-          TryCompile(&arena,
+          TryCompile(&allocator,
+                     &arena_stack,
                      &code_allocator,
                      code_item,
                      access_flags,
@@ -1114,12 +1119,16 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
     if (codegen.get() != nullptr) {
       MaybeRecordStat(compilation_stats_.get(),
                       MethodCompilationStat::kCompiled);
-      method = Emit(&arena, &code_allocator, codegen.get(), compiler_driver, code_item);
+      method = Emit(&allocator, &code_allocator, codegen.get(), compiler_driver, code_item);
 
       if (kArenaAllocatorCountAllocations) {
-        if (arena.BytesAllocated() > kArenaAllocatorMemoryReportThreshold) {
-          MemStats mem_stats(arena.GetMemStats());
+        if (allocator.BytesAllocated() > kArenaAllocatorMemoryReportThreshold) {
+          MemStats mem_stats(allocator.GetMemStats());
           LOG(INFO) << dex_file.PrettyMethod(method_idx) << " " << Dumpable<MemStats>(mem_stats);
+        }
+        if (arena_stack.PeakBytesAllocated() > kArenaAllocatorMemoryReportThreshold) {
+          MemStats peak_stats(arena_stack.GetPeakStats());
+          LOG(INFO) << dex_file.PrettyMethod(method_idx) << " " << Dumpable<MemStats>(peak_stats);
         }
       }
     }
@@ -1194,8 +1203,9 @@ bool OptimizingCompiler::JitCompile(Thread* self,
   const uint32_t access_flags = method->GetAccessFlags();
   const InvokeType invoke_type = method->GetInvokeType();
 
-  ArenaAllocator arena(Runtime::Current()->GetJitArenaPool());
-  CodeVectorAllocator code_allocator(&arena);
+  ArenaAllocator allocator(Runtime::Current()->GetJitArenaPool());
+  ArenaStack arena_stack(Runtime::Current()->GetJitArenaPool());
+  CodeVectorAllocator code_allocator(&allocator);
   VariableSizedHandleScope handles(self);
 
   std::unique_ptr<CodeGenerator> codegen;
@@ -1203,7 +1213,8 @@ bool OptimizingCompiler::JitCompile(Thread* self,
     // Go to native so that we don't block GC during compilation.
     ScopedThreadSuspension sts(self, kNative);
     codegen.reset(
-        TryCompile(&arena,
+        TryCompile(&allocator,
+                   &arena_stack,
                    &code_allocator,
                    code_item,
                    access_flags,
@@ -1221,8 +1232,8 @@ bool OptimizingCompiler::JitCompile(Thread* self,
     }
 
     if (kArenaAllocatorCountAllocations) {
-      if (arena.BytesAllocated() > kArenaAllocatorMemoryReportThreshold) {
-        MemStats mem_stats(arena.GetMemStats());
+      if (allocator.BytesAllocated() > kArenaAllocatorMemoryReportThreshold) {
+        MemStats mem_stats(allocator.GetMemStats());
         LOG(INFO) << dex_file->PrettyMethod(method_idx) << " " << Dumpable<MemStats>(mem_stats);
       }
     }
@@ -1315,7 +1326,7 @@ bool OptimizingCompiler::JitCompile(Thread* self,
     CreateJITCodeEntryForAddress(code_address, std::move(elf_file));
   }
 
-  Runtime::Current()->GetJit()->AddMemoryUsage(method, arena.BytesUsed());
+  Runtime::Current()->GetJit()->AddMemoryUsage(method, allocator.BytesUsed());
   if (jit_logger != nullptr) {
     jit_logger->WriteLog(code, code_allocator.GetSize(), method);
   }

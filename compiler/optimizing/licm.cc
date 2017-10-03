@@ -84,7 +84,7 @@ void LICM::Run() {
   // Only used during debug.
   ArenaBitVector* visited = nullptr;
   if (kIsDebugBuild) {
-    visited = new (graph_->GetArena()) ArenaBitVector(graph_->GetArena(),
+    visited = new (graph_->GetAllocator()) ArenaBitVector(graph_->GetAllocator(),
                                                       graph_->GetBlocks().size(),
                                                       false,
                                                       kArenaAllocLICM);

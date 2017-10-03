@@ -65,7 +65,7 @@ ArmVIXLAssembler* IntrinsicCodeGeneratorARMVIXL::GetAssembler() {
 }
 
 ArenaAllocator* IntrinsicCodeGeneratorARMVIXL::GetAllocator() {
-  return codegen_->GetGraph()->GetArena();
+  return codegen_->GetGraph()->GetAllocator();
 }
 
 // Default slow-path for fallback (calling the managed code to handle the intrinsic) in an
@@ -246,7 +246,7 @@ class ReadBarrierSystemArrayCopySlowPathARMVIXL : public SlowPathCodeARMVIXL {
 };
 
 IntrinsicLocationsBuilderARMVIXL::IntrinsicLocationsBuilderARMVIXL(CodeGeneratorARMVIXL* codegen)
-    : arena_(codegen->GetGraph()->GetArena()),
+    : arena_(codegen->GetGraph()->GetAllocator()),
       codegen_(codegen),
       assembler_(codegen->GetAssembler()),
       features_(codegen->GetInstructionSetFeatures()) {}

@@ -135,7 +135,7 @@ void HSelectGenerator::Run() {
     DCHECK(both_successors_return || phi != nullptr);
 
     // Create the Select instruction and insert it in front of the If.
-    HSelect* select = new (graph_->GetArena()) HSelect(if_instruction->InputAt(0),
+    HSelect* select = new (graph_->GetAllocator()) HSelect(if_instruction->InputAt(0),
                                                        true_value,
                                                        false_value,
                                                        if_instruction->GetDexPc());
