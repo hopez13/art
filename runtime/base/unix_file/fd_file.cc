@@ -172,13 +172,24 @@ int FdFile::Close() {
   }
 }
 
+bool FdFile::IsRegularFile() {
+  struct stat st;
+  int rc = fstat(fd_, &st);
+  return rc == 0 && S_ISREG(st.st_mode);
+}
+
 int FdFile::Flush() {
   DCHECK(!read_only_mode_);
+
+  int rc = 0;
+  if (IsRegularFile()) {
 #ifdef __linux__
-  int rc = TEMP_FAILURE_RETRY(fdatasync(fd_));
+    rc = TEMP_FAILURE_RETRY(fdatasync(fd_));
 #else
-  int rc = TEMP_FAILURE_RETRY(fsync(fd_));
+    rc = TEMP_FAILURE_RETRY(fsync(fd_));
 #endif
+  }
+
   moveUp(GuardState::kFlushed, "Flushing closed file.");
   return (rc == -1) ? -errno : rc;
 }
