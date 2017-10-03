@@ -18,6 +18,7 @@ package com.android.ahat;
 
 import com.android.ahat.heapdump.AhatInstance;
 import com.android.ahat.heapdump.AhatSnapshot;
+import com.android.ahat.heapdump.BitmapInfo;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import java.awt.image.BufferedImage;
@@ -38,13 +39,28 @@ class BitmapHandler implements HttpHandler {
     try {
       Query query = new Query(exchange.getRequestURI());
       long id = query.getLong("id", 0);
-      BufferedImage bitmap = null;
+      BitmapInfo info = null;
       AhatInstance inst = mSnapshot.findInstance(id);
       if (inst != null) {
-        bitmap = inst.asBitmap();
+        info = inst.asBitmap();
       }
 
-      if (bitmap != null) {
+      if (info != null) {
+        // Convert the raw data to an image
+        // Convert BGRA to ABGR
+        int[] abgr = new int[info.height * info.width];
+        for (int i = 0; i < abgr.length; i++) {
+          abgr[i] = (
+              (((int) info.buffer[i * 4 + 3] & 0xFF) << 24)
+              + (((int) info.buffer[i * 4 + 0] & 0xFF) << 16)
+              + (((int) info.buffer[i * 4 + 1] & 0xFF) << 8)
+              + ((int) info.buffer[i * 4 + 2] & 0xFF));
+        }
+
+        BufferedImage bitmap = new BufferedImage(
+            info.width, info.height, BufferedImage.TYPE_4BYTE_ABGR);
+        bitmap.setRGB(0, 0, info.width, info.height, abgr, 0, info.width);
+
         exchange.getResponseHeaders().add("Content-Type", "image/png");
         exchange.sendResponseHeaders(200, 0);
         OutputStream os = exchange.getResponseBody();

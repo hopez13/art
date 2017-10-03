@@ -20,7 +20,7 @@ include art/build/Android.common_path.mk
 
 # --- ahat.jar ----------------
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_SRC_FILES := $(call all-java-files-under, src jar-src)
 LOCAL_JAR_MANIFEST := src/manifest.txt
 LOCAL_JAVA_RESOURCE_FILES := $(LOCAL_PATH)/src/style.css
 LOCAL_IS_HOST_MODULE := true
@@ -102,6 +102,19 @@ LOCAL_MODULE_TAGS := tests
 LOCAL_MODULE := ahat-tests
 include $(BUILD_HOST_JAVA_LIBRARY)
 AHAT_TEST_JAR := $(LOCAL_BUILT_MODULE)
+
+# --- ahat-benchmark.jar --------------
+include $(CLEAR_VARS)
+LOCAL_MODULE := ahat-benchmark
+LOCAL_MODULE_TAGS := tests
+LOCAL_SRC_FILES := $(call all-java-files-under, src benchmark-src)
+LOCAL_JAVA_RESOURCE_FILES := \
+  $(AHAT_TEST_DUMP_HPROF) \
+  $(AHAT_TEST_DUMP_PROGUARD_MAP)
+LOCAL_NO_STANDARD_LIBRARIES := true
+LOCAL_JAVA_LIBRARIES := $(TARGET_CORE_JARS)
+LOCAL_DX_FLAGS := --min-sdk-version 24
+include $(BUILD_JAVA_LIBRARY)
 
 .PHONY: ahat-test
 ahat-test: PRIVATE_AHAT_TEST_JAR := $(AHAT_TEST_JAR)

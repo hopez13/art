@@ -17,7 +17,6 @@
 package com.android.ahat.heapdump;
 
 import com.android.ahat.dominators.DominatorsComputation;
-import java.awt.image.BufferedImage;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -369,7 +368,7 @@ public abstract class AhatInstance implements Diffable<AhatInstance>,
    * This is relevant for instances of android.graphics.Bitmap and byte[].
    * Returns null if there is no bitmap associated with the given instance.
    */
-  public BufferedImage asBitmap() {
+  public BitmapInfo asBitmap() {
     return null;
   }
 
