@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01bf26e8_b1c14dfc",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-03T21:58:18Z",
+      "side": 1,
+      "message": "Is this needed? The commit mention nothing about gtests.\n\nThe art bots fail with\n\n\"ninja: error: \u0027d8\u0027, needed by \u0027test-art-host-gtest32\u0027,",
+      "range": {
+        "startLine": 607,
+        "startChar": 35,
+        "endLine": 607,
+        "endChar": 37
+      },
+      "revId": "69107b3df192b1c834cb88c1aeec748e24c700e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
