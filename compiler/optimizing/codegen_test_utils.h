@@ -295,7 +295,8 @@ static void RunCodeNoCheck(CodeGenerator* codegen,
                            const std::function<void(HGraph*)>& hook_before_codegen,
                            bool has_result,
                            Expected expected) {
-  SsaLivenessAnalysis liveness(graph, codegen);
+  ScopedArenaAllocator local_allocator(graph->GetArenaStack());
+  SsaLivenessAnalysis liveness(graph, codegen, &local_allocator);
   PrepareForRegisterAllocation(graph).Run();
   liveness.Analyze();
   RegisterAllocator::Create(graph->GetArena(), codegen, liveness)->AllocateRegisters();

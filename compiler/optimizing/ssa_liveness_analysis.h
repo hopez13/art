@@ -20,6 +20,8 @@
 #include <iostream>
 
 #include "base/iteration_range.h"
+#include "base/scoped_arena_allocator.h"
+#include "base/scoped_arena_containers.h"
 #include "nodes.h"
 #include "utils/intrusive_forward_list.h"
 
@@ -32,7 +34,7 @@ static constexpr int kNoRegister = -1;
 
 class BlockInfo : public ArenaObject<kArenaAllocSsaLiveness> {
  public:
-  BlockInfo(ArenaAllocator* allocator, const HBasicBlock& block, size_t number_of_ssa_values)
+  BlockInfo(ScopedArenaAllocator* allocator, const HBasicBlock& block, size_t number_of_ssa_values)
       : block_(block),
         live_in_(allocator, number_of_ssa_values, false, kArenaAllocSsaLiveness),
         live_out_(allocator, number_of_ssa_values, false, kArenaAllocSsaLiveness),
@@ -1158,14 +1160,15 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
  */
 class SsaLivenessAnalysis : public ValueObject {
  public:
-  SsaLivenessAnalysis(HGraph* graph, CodeGenerator* codegen)
+  SsaLivenessAnalysis(HGraph* graph, CodeGenerator* codegen, ScopedArenaAllocator* local_allocator)
       : graph_(graph),
         codegen_(codegen),
+        local_allocator_(local_allocator),
         block_infos_(graph->GetBlocks().size(),
                      nullptr,
-                     graph->GetArena()->Adapter(kArenaAllocSsaLiveness)),
-        instructions_from_ssa_index_(graph->GetArena()->Adapter(kArenaAllocSsaLiveness)),
-        instructions_from_lifetime_position_(graph->GetArena()->Adapter(kArenaAllocSsaLiveness)),
+                     local_allocator_->Adapter(kArenaAllocSsaLiveness)),
+        instructions_from_ssa_index_(local_allocator_->Adapter(kArenaAllocSsaLiveness)),
+        instructions_from_lifetime_position_(local_allocator_->Adapter(kArenaAllocSsaLiveness)),
         number_of_ssa_values_(0) {
   }
 
@@ -1284,13 +1287,17 @@ class SsaLivenessAnalysis : public ValueObject {
 
   HGraph* const graph_;
   CodeGenerator* const codegen_;
-  ArenaVector<BlockInfo*> block_infos_;
+
+  // Use a local ScopedArenaAllocator for allocating memory.
+  ScopedArenaAllocator* local_allocator_;
+
+  ScopedArenaVector<BlockInfo*> block_infos_;
 
   // Temporary array used when computing live_in, live_out, and kill sets.
-  ArenaVector<HInstruction*> instructions_from_ssa_index_;
+  ScopedArenaVector<HInstruction*> instructions_from_ssa_index_;
 
   // Temporary array used when inserting moves in the graph.
-  ArenaVector<HInstruction*> instructions_from_lifetime_position_;
+  ScopedArenaVector<HInstruction*> instructions_from_lifetime_position_;
   size_t number_of_ssa_values_;
 
   ART_FRIEND_TEST(RegisterAllocatorTest, SpillInactive);

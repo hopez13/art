@@ -45,6 +45,7 @@
 
 namespace art {
 
+class ArenaStack;
 class GraphChecker;
 class HBasicBlock;
 class HConstructorFence;
@@ -306,6 +307,7 @@ std::ostream& operator<<(std::ostream& os, const ReferenceTypeInfo& rhs);
 class HGraph : public ArenaObject<kArenaAllocGraph> {
  public:
   HGraph(ArenaAllocator* arena,
+         ArenaStack* arena_stack,
          const DexFile& dex_file,
          uint32_t method_idx,
          InstructionSet instruction_set,
@@ -314,6 +316,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
          bool osr = false,
          int start_instruction_id = 0)
       : arena_(arena),
+        arena_stack_(arena_stack),
         blocks_(arena->Adapter(kArenaAllocBlockList)),
         reverse_post_order_(arena->Adapter(kArenaAllocReversePostOrder)),
         linear_order_(arena->Adapter(kArenaAllocLinearOrder)),
@@ -353,6 +356,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   void InitializeInexactObjectRTI(VariableSizedHandleScope* handles);
 
   ArenaAllocator* GetArena() const { return arena_; }
+  ArenaStack* GetArenaStack() const { return arena_stack_; }
   const ArenaVector<HBasicBlock*>& GetBlocks() const { return blocks_; }
 
   bool IsInSsaForm() const { return in_ssa_form_; }
@@ -630,6 +634,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   void CacheDoubleConstant(HDoubleConstant* constant);
 
   ArenaAllocator* const arena_;
+  ArenaStack* const arena_stack_;
 
   // List of blocks in insertion order.
   ArenaVector<HBasicBlock*> blocks_;

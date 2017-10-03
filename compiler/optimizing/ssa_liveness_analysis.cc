@@ -26,7 +26,7 @@ namespace art {
 void SsaLivenessAnalysis::Analyze() {
   // Compute the linear order directly in the graph's data structure
   // (there are no more following graph mutations).
-  LinearizeGraph(graph_, graph_->GetArena(), &graph_->linear_order_);
+  LinearizeGraph(graph_, &graph_->linear_order_);
 
   // Liveness analysis.
   NumberInstructions();
@@ -89,7 +89,7 @@ void SsaLivenessAnalysis::NumberInstructions() {
 void SsaLivenessAnalysis::ComputeLiveness() {
   for (HBasicBlock* block : graph_->GetLinearOrder()) {
     block_infos_[block->GetBlockId()] =
-        new (graph_->GetArena()) BlockInfo(graph_->GetArena(), *block, number_of_ssa_values_);
+        new (local_allocator_) BlockInfo(local_allocator_, *block, number_of_ssa_values_);
   }
 
   // Compute the live ranges, as well as the initial live_in, live_out, and kill sets.
