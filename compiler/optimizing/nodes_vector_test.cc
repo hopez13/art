@@ -104,6 +104,10 @@ TEST(NodesVector, Alignment) {
   EXPECT_FALSE(Alignment(16, 1).IsAlignedAt(16));
   EXPECT_FALSE(Alignment(16, 7).IsAlignedAt(16));
   EXPECT_FALSE(Alignment(16, 0).IsAlignedAt(32));
+
+  EXPECT_EQ(16u, Alignment(16, 0).Base());
+  EXPECT_EQ(0u, Alignment(16, 0).Offset());
+  EXPECT_EQ(4u, Alignment(16, 4).Offset());
 }
 
 TEST(NodesVector, AlignmentEQ) {
@@ -255,10 +259,14 @@ TEST_F(NodesVectorTest, VectorSignMattersOnMin) {
       &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ false);
   HVecMin* v2 = new (&allocator_) HVecMin(
       &allocator_, p0, p0, DataType::Type::kInt32, 2, /*is_unsigned*/ true);
-  HVecMin* v3 = new (&allocator_) HVecMin(&allocator_, p1, p1, DataType::Type::kUint8, 16);
-  HVecMin* v4 = new (&allocator_) HVecMin(&allocator_, p1, p1, DataType::Type::kInt8, 16);
-  HVecMin* v5 = new (&allocator_) HVecMin(&allocator_, p2, p2, DataType::Type::kUint16, 8);
-  HVecMin* v6 = new (&allocator_) HVecMin(&allocator_, p2, p2, DataType::Type::kInt16, 8);
+  HVecMin* v3 = new (&allocator_) HVecMin(
+      &allocator_, p1, p1, DataType::Type::kUint8, 16, /*is_unsigned*/ false);
+  HVecMin* v4 = new (&allocator_) HVecMin(
+      &allocator_, p1, p1, DataType::Type::kInt8, 16, /*is_unsigned*/ false);
+  HVecMin* v5 = new (&allocator_) HVecMin(
+      &allocator_, p2, p2, DataType::Type::kUint16, 8, /*is_unsigned*/ false);
+  HVecMin* v6 = new (&allocator_) HVecMin(
+      &allocator_, p2, p2, DataType::Type::kInt16, 8, /*is_unsigned*/ false);
   HVecMin* min_insns[] = { v0, v1, v2, v3, v4, v5, v6 };
 
   EXPECT_FALSE(p0->CanBeMoved());
@@ -295,10 +303,14 @@ TEST_F(NodesVectorTest, VectorSignMattersOnMax) {
       &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ false);
   HVecMax* v2 = new (&allocator_) HVecMax(
       &allocator_, p0, p0, DataType::Type::kInt32, 2, /*is_unsigned*/ true);
-  HVecMax* v3 = new (&allocator_) HVecMax(&allocator_, p1, p1, DataType::Type::kUint8, 16);
-  HVecMax* v4 = new (&allocator_) HVecMax(&allocator_, p1, p1, DataType::Type::kInt8, 16);
-  HVecMax* v5 = new (&allocator_) HVecMax(&allocator_, p2, p2, DataType::Type::kUint16, 8);
-  HVecMax* v6 = new (&allocator_) HVecMax(&allocator_, p2, p2, DataType::Type::kInt16, 8);
+  HVecMax* v3 = new (&allocator_) HVecMax(
+      &allocator_, p1, p1, DataType::Type::kUint8, 16, /*is_unsigned*/ false);
+  HVecMax* v4 = new (&allocator_) HVecMax(
+      &allocator_, p1, p1, DataType::Type::kInt8, 16, /*is_unsigned*/ false);
+  HVecMax* v5 = new (&allocator_) HVecMax(
+      &allocator_, p2, p2, DataType::Type::kUint16, 8, /*is_unsigned*/ false);
+  HVecMax* v6 = new (&allocator_) HVecMax(
+      &allocator_, p2, p2, DataType::Type::kInt16, 8, /*is_unsigned*/ false);
   HVecMax* max_insns[] = { v0, v1, v2, v3, v4, v5, v6 };
 
   EXPECT_FALSE(p0->CanBeMoved());
@@ -340,21 +352,21 @@ TEST_F(NodesVectorTest, VectorAttributesMatterOnHalvingAdd) {
   HVecHalvingAdd* v4 = new (&allocator_) HVecHalvingAdd(
       &allocator_, p0, p0, DataType::Type::kInt32, 2, /*is_rounded*/ true, /*is_unsigned*/ true);
   HVecHalvingAdd* v5 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p1, p1, DataType::Type::kUint8, 16, /*is_rounded*/ true);
+      &allocator_, p1, p1, DataType::Type::kUint8, 16, /*is_rounded*/ true, /*is_unsigned*/ false);
   HVecHalvingAdd* v6 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p1, p1, DataType::Type::kUint8, 16, /*is_rounded*/ false);
+      &allocator_, p1, p1, DataType::Type::kUint8, 16, /*is_rounded*/ false, /*is_unsigned*/ false);
   HVecHalvingAdd* v7 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p1, p1, DataType::Type::kInt8, 16, /*is_rounded*/ true);
+      &allocator_, p1, p1, DataType::Type::kInt8, 16, /*is_rounded*/ true, /*is_unsigned*/ false);
   HVecHalvingAdd* v8 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p1, p1, DataType::Type::kInt8, 16, /*is_rounded*/ false);
+      &allocator_, p1, p1, DataType::Type::kInt8, 16, /*is_rounded*/ false, /*is_unsigned*/ false);
   HVecHalvingAdd* v9 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p2, p2, DataType::Type::kUint16, 8, /*is_rounded*/ true);
+      &allocator_, p2, p2, DataType::Type::kUint16, 8, /*is_rounded*/ true, /*is_unsigned*/ false);
   HVecHalvingAdd* v10 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p2, p2, DataType::Type::kUint16, 8, /*is_rounded*/ false);
+      &allocator_, p2, p2, DataType::Type::kUint16, 8, /*is_rounded*/ false, /*is_unsigned*/ false);
   HVecHalvingAdd* v11 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p2, p2, DataType::Type::kInt16, 2, /*is_rounded*/ true);
+      &allocator_, p2, p2, DataType::Type::kInt16, 2, /*is_rounded*/ true, /*is_unsigned*/ false);
   HVecHalvingAdd* v12 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p2, p2, DataType::Type::kInt16, 2, /*is_rounded*/ false);
+      &allocator_, p2, p2, DataType::Type::kInt16, 2, /*is_rounded*/ false, /*is_unsigned*/ false);
   HVecHalvingAdd* hadd_insns[] = { v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12 };
 
   EXPECT_FALSE(p0->CanBeMoved());

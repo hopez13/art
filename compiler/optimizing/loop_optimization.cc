@@ -1123,7 +1123,7 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
     HInstruction* base = instruction->InputAt(0);
     HInstruction* index = instruction->InputAt(1);
     HInstruction* offset = nullptr;
-    if (DataType::ToSignedType(type) == DataType::ToSignedType(instruction->GetType()) &&
+    if (HVecOperation::ToSignedType(type) == HVecOperation::ToSignedType(instruction->GetType()) &&
         node->loop_info->IsDefinedOutOfTheLoop(base) &&
         induction_range_.IsUnitStride(instruction, index, graph_, &offset)) {
       if (generate_code) {
@@ -1546,13 +1546,14 @@ void HLoopOptimization::GenerateVecMem(HInstruction* org,
                                        HInstruction* opb,
                                        HInstruction* offset,
                                        DataType::Type type) {
+  uint32_t dex_pc = org->GetDexPc();
   HInstruction* vector = nullptr;
   if (vector_mode_ == kVector) {
     // Vector store or load.
     HInstruction* base = org->InputAt(0);
     if (opb != nullptr) {
       vector = new (global_allocator_) HVecStore(
-          global_allocator_, base, opa, opb, type, org->GetSideEffects(), vector_length_);
+          global_allocator_, base, opa, opb, type, org->GetSideEffects(), vector_length_, dex_pc);
     } else  {
       bool is_string_char_at = org->AsArrayGet()->IsStringCharAt();
       vector = new (global_allocator_) HVecLoad(global_allocator_,
@@ -1561,7 +1562,8 @@ void HLoopOptimization::GenerateVecMem(HInstruction* org,
                                                 type,
                                                 org->GetSideEffects(),
                                                 vector_length_,
-                                                is_string_char_at);
+                                                is_string_char_at,
+                                                dex_pc);
     }
     // Known dynamically enforced alignment?
     if (vector_peeling_candidate_ != nullptr &&
@@ -1574,11 +1576,11 @@ void HLoopOptimization::GenerateVecMem(HInstruction* org,
     DCHECK(vector_mode_ == kSequential);
     if (opb != nullptr) {
       vector = new (global_allocator_) HArraySet(
-          org->InputAt(0), opa, opb, type, org->GetSideEffects(), kNoDexPc);
+          org->InputAt(0), opa, opb, type, org->GetSideEffects(), dex_pc);
     } else  {
       bool is_string_char_at = org->AsArrayGet()->IsStringCharAt();
       vector = new (global_allocator_) HArrayGet(
-          org->InputAt(0), opa, type, org->GetSideEffects(), kNoDexPc, is_string_char_at);
+          org->InputAt(0), opa, type, org->GetSideEffects(), dex_pc, is_string_char_at);
     }
   }
   vector_map_->Put(org, vector);
@@ -1677,69 +1679,70 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
                                       HInstruction* opb,
                                       DataType::Type type,
                                       bool is_unsigned) {
+  uint32_t dex_pc = org->GetDexPc();
   HInstruction* vector = nullptr;
   DataType::Type org_type = org->GetType();
   switch (org->GetKind()) {
     case HInstruction::kNeg:
       DCHECK(opb == nullptr);
       GENERATE_VEC(
-          new (global_allocator_) HVecNeg(global_allocator_, opa, type, vector_length_),
-          new (global_allocator_) HNeg(org_type, opa));
+        new (global_allocator_) HVecNeg(global_allocator_, opa, type, vector_length_, dex_pc),
+        new (global_allocator_) HNeg(org_type, opa, dex_pc));
     case HInstruction::kNot:
       DCHECK(opb == nullptr);
       GENERATE_VEC(
-          new (global_allocator_) HVecNot(global_allocator_, opa, type, vector_length_),
-          new (global_allocator_) HNot(org_type, opa));
+        new (global_allocator_) HVecNot(global_allocator_, opa, type, vector_length_, dex_pc),
+        new (global_allocator_) HNot(org_type, opa, dex_pc));
     case HInstruction::kBooleanNot:
       DCHECK(opb == nullptr);
       GENERATE_VEC(
-          new (global_allocator_) HVecNot(global_allocator_, opa, type, vector_length_),
-          new (global_allocator_) HBooleanNot(opa));
+        new (global_allocator_) HVecNot(global_allocator_, opa, type, vector_length_, dex_pc),
+        new (global_allocator_) HBooleanNot(opa, dex_pc));
     case HInstruction::kTypeConversion:
       DCHECK(opb == nullptr);
       GENERATE_VEC(
-          new (global_allocator_) HVecCnv(global_allocator_, opa, type, vector_length_),
-          new (global_allocator_) HTypeConversion(org_type, opa, kNoDexPc));
+        new (global_allocator_) HVecCnv(global_allocator_, opa, type, vector_length_, dex_pc),
+        new (global_allocator_) HTypeConversion(org_type, opa, dex_pc));
     case HInstruction::kAdd:
       GENERATE_VEC(
-          new (global_allocator_) HVecAdd(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HAdd(org_type, opa, opb));
+        new (global_allocator_) HVecAdd(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HAdd(org_type, opa, opb, dex_pc));
     case HInstruction::kSub:
       GENERATE_VEC(
-          new (global_allocator_) HVecSub(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HSub(org_type, opa, opb));
+        new (global_allocator_) HVecSub(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HSub(org_type, opa, opb, dex_pc));
     case HInstruction::kMul:
       GENERATE_VEC(
-          new (global_allocator_) HVecMul(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HMul(org_type, opa, opb));
+        new (global_allocator_) HVecMul(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HMul(org_type, opa, opb, dex_pc));
     case HInstruction::kDiv:
       GENERATE_VEC(
-          new (global_allocator_) HVecDiv(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HDiv(org_type, opa, opb, kNoDexPc));
+        new (global_allocator_) HVecDiv(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HDiv(org_type, opa, opb, dex_pc));
     case HInstruction::kAnd:
       GENERATE_VEC(
-          new (global_allocator_) HVecAnd(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HAnd(org_type, opa, opb));
+        new (global_allocator_) HVecAnd(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HAnd(org_type, opa, opb, dex_pc));
     case HInstruction::kOr:
       GENERATE_VEC(
-          new (global_allocator_) HVecOr(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HOr(org_type, opa, opb));
+        new (global_allocator_) HVecOr(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HOr(org_type, opa, opb, dex_pc));
     case HInstruction::kXor:
       GENERATE_VEC(
-          new (global_allocator_) HVecXor(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HXor(org_type, opa, opb));
+        new (global_allocator_) HVecXor(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HXor(org_type, opa, opb, dex_pc));
     case HInstruction::kShl:
       GENERATE_VEC(
-          new (global_allocator_) HVecShl(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HShl(org_type, opa, opb));
+        new (global_allocator_) HVecShl(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HShl(org_type, opa, opb, dex_pc));
     case HInstruction::kShr:
       GENERATE_VEC(
-          new (global_allocator_) HVecShr(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HShr(org_type, opa, opb));
+        new (global_allocator_) HVecShr(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HShr(org_type, opa, opb, dex_pc));
     case HInstruction::kUShr:
       GENERATE_VEC(
-          new (global_allocator_) HVecUShr(global_allocator_, opa, opb, type, vector_length_),
-          new (global_allocator_) HUShr(org_type, opa, opb));
+        new (global_allocator_) HVecUShr(global_allocator_, opa, opb, type, vector_length_, dex_pc),
+        new (global_allocator_) HUShr(org_type, opa, opb, dex_pc));
     case HInstruction::kInvokeStaticOrDirect: {
       HInvokeStaticOrDirect* invoke = org->AsInvokeStaticOrDirect();
       if (vector_mode_ == kVector) {
@@ -1749,7 +1752,8 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
           case Intrinsics::kMathAbsFloat:
           case Intrinsics::kMathAbsDouble:
             DCHECK(opb == nullptr);
-            vector = new (global_allocator_) HVecAbs(global_allocator_, opa, type, vector_length_);
+            vector = new (global_allocator_)
+                HVecAbs(global_allocator_, opa, type, vector_length_, dex_pc);
             break;
           case Intrinsics::kMathMinIntInt:
           case Intrinsics::kMathMinLongLong:
@@ -1757,7 +1761,7 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
           case Intrinsics::kMathMinDoubleDouble: {
             NormalizePackedType(&type, &is_unsigned);
             vector = new (global_allocator_)
-                HVecMin(global_allocator_, opa, opb, type, vector_length_, is_unsigned);
+                HVecMin(global_allocator_, opa, opb, type, vector_length_, is_unsigned, dex_pc);
             break;
           }
           case Intrinsics::kMathMaxIntInt:
@@ -1766,7 +1770,7 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
           case Intrinsics::kMathMaxDoubleDouble: {
             NormalizePackedType(&type, &is_unsigned);
             vector = new (global_allocator_)
-                HVecMax(global_allocator_, opa, opb, type, vector_length_, is_unsigned);
+                HVecMax(global_allocator_, opa, opb, type, vector_length_, is_unsigned, dex_pc);
             break;
           }
           default:
