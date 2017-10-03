@@ -17,6 +17,7 @@
 #ifndef ART_COMPILER_OPTIMIZING_OPTIMIZING_UNIT_TEST_H_
 #define ART_COMPILER_OPTIMIZING_OPTIMIZING_UNIT_TEST_H_
 
+#include "base/scoped_arena_allocator.h"
 #include "builder.h"
 #include "common_compiler_test.h"
 #include "dex_file.h"
@@ -78,21 +79,35 @@ void RemoveSuspendChecks(HGraph* graph) {
   }
 }
 
-inline HGraph* CreateGraph(ArenaAllocator* allocator) {
-  return new (allocator) HGraph(
-      allocator,
-      *reinterpret_cast<DexFile*>(allocator->Alloc(sizeof(DexFile))),
+class ArenaPoolAndAllocator {
+ public:
+  ArenaPoolAndAllocator() : pool_(), arena_(&pool_), arena_stack_(&pool_) { }
+
+  ArenaAllocator* GetArena() { return &arena_; }
+  ArenaStack* GetArenaStack() { return &arena_stack_; }
+
+ private:
+  ArenaPool pool_;
+  ArenaAllocator arena_;
+  ArenaStack arena_stack_;
+};
+
+inline HGraph* CreateGraph(ArenaPoolAndAllocator* pool_and_allocator) {
+  return new (pool_and_allocator->GetArena()) HGraph(
+      pool_and_allocator->GetArena(),
+      pool_and_allocator->GetArenaStack(),
+      *reinterpret_cast<DexFile*>(pool_and_allocator->GetArena()->Alloc(sizeof(DexFile))),
       /*method_idx*/-1,
       kRuntimeISA);
 }
 
 // Create a control-flow graph from Dex instructions.
-inline HGraph* CreateCFG(ArenaAllocator* allocator,
+inline HGraph* CreateCFG(ArenaPoolAndAllocator* pool_and_allocator,
                          const uint16_t* data,
                          DataType::Type return_type = DataType::Type::kInt32) {
   const DexFile::CodeItem* item =
     reinterpret_cast<const DexFile::CodeItem*>(data);
-  HGraph* graph = CreateGraph(allocator);
+  HGraph* graph = CreateGraph(pool_and_allocator);
 
   {
     ScopedObjectAccess soa(Thread::Current());
@@ -102,6 +117,29 @@ inline HGraph* CreateCFG(ArenaAllocator* allocator,
     return graph_built ? graph : nullptr;
   }
 }
+
+class OptimizingUnitTest : public CommonCompilerTest {
+ protected:
+  OptimizingUnitTest() : pool_and_allocator_(new ArenaPoolAndAllocator()) { }
+
+  ArenaAllocator* GetArena() { return pool_and_allocator_->GetArena(); }
+  ArenaStack* GetArenaStack() { return pool_and_allocator_->GetArenaStack(); }
+
+  void ResetPoolAndAllocator() {
+    pool_and_allocator_.reset(new ArenaPoolAndAllocator());
+  }
+
+  HGraph* CreateGraph() {
+    return art::CreateGraph(pool_and_allocator_.get());
+  }
+
+  HGraph* CreateCFG(const uint16_t* data, DataType::Type return_type = DataType::Type::kInt32) {
+    return art::CreateCFG(pool_and_allocator_.get(), data, return_type);
+  }
+
+ private:
+  std::unique_ptr<ArenaPoolAndAllocator> pool_and_allocator_;
+};
 
 // Naive string diff data type.
 typedef std::list<std::pair<std::string, std::string>> diff_t;
