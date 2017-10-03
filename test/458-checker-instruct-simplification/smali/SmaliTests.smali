@@ -349,15 +349,7 @@
     .param p0, "arg"    # J
 
     .prologue
-    sget-boolean v0, LMain;->doThrow:Z
 
-    # if (doThrow) throw new Error();
-    if-eqz v0, :cond_a
-    new-instance v0, Ljava/lang/Error;
-    invoke-direct {v0}, Ljava/lang/Error;-><init>()V
-    throw v0
-
-  :cond_a
     # return ~~arg
     not-long v0, p0
     not-long v0, v0
@@ -386,15 +378,7 @@
     .param p0, "arg"    # I
 
     .prologue
-    sget-boolean v1, LMain;->doThrow:Z
 
-    # if (doThrow) throw new Error();
-    if-eqz v1, :cond_a
-    new-instance v1, Ljava/lang/Error;
-    invoke-direct {v1}, Ljava/lang/Error;-><init>()V
-    throw v1
-
-  :cond_a
     # temp = ~arg; return temp + ~temp;
     not-int v0, p0
     not-int v1, v0
@@ -452,15 +436,7 @@
     .param p0, "arg"    # Z
 
     .prologue
-    sget-boolean v0, LMain;->doThrow:Z
 
-    # if (doThrow) throw new Error();
-    if-eqz v0, :cond_a
-    new-instance v0, Ljava/lang/Error;
-    invoke-direct {v0}, Ljava/lang/Error;-><init>()V
-    throw v0
-
-  :cond_a
     # return !Negate(arg)
     invoke-static {p0}, LSmaliTests;->NegateValue(Z)Z
     move-result v0
