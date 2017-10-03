@@ -1444,29 +1444,39 @@ void ThreadList::Unregister(Thread* self) {
   // If tracing, remember thread id and name before thread exits.
   Trace::StoreExitingThreadInfo(self);
 
+  CHECK_NE(self->GetState(), kRunnable);
+  Locks::mutator_lock_->AssertNotHeld(self);
+
   uint32_t thin_lock_id = self->GetThreadId();
   while (true) {
     // Remove and delete the Thread* while holding the thread_list_lock_ and
     // thread_suspend_count_lock_ so that the unregistering thread cannot be suspended.
     // Note: deliberately not using MutexLock that could hold a stale self pointer.
-    MutexLock mu(self, *Locks::thread_list_lock_);
+    // Note: Lock on nullptr since 'self' might get deleted before this lock is released.
+    MutexLock mu(nullptr, *Locks::thread_list_lock_);
     if (!Contains(self)) {
       std::string thread_name;
       self->GetThreadName(thread_name);
       std::ostringstream os;
       DumpNativeStack(os, GetTid(), nullptr, "  native: ", nullptr);
       LOG(ERROR) << "Request to unregister unattached thread " << thread_name << "\n" << os.str();
-      break;
     } else {
+      // We need to lock this inside of the thread_list_lock_ mutex since otherwise we could
+      // interleave with RequestSynchronousCheckpoint and end up deleting self while suspended and
+      // running a checkpoint by running before the suspension and then grabbing the
+      // thread_list_lock_ while the checkpoint is running.
       MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
-      if (!self->IsSuspended()) {
+      if (self->IsSuspended()) {
+        // We failed to remove the thread due to a suspend request, loop and try again.
+        continue;
+      } else {
         list_.remove(self);
-        break;
       }
     }
-    // We failed to remove the thread due to a suspend request, loop and try again.
+    // Delete the thread while under the thread_list_lock.
+    delete self;
+    break;
   }
-  delete self;
 
   // Release the thread ID after the thread is finished and deleted to avoid cases where we can
   // temporarily have multiple threads with the same thread id. When this occurs, it causes
