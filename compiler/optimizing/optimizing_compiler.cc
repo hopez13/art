@@ -44,6 +44,7 @@
 #include "base/dumpable.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "base/scoped_arena_allocator.h"
 #include "base/timing_logger.h"
 #include "bounds_check_elimination.h"
 #include "builder.h"
@@ -364,6 +365,7 @@ class OptimizingCompiler FINAL : public Compiler {
   // 3) Runs optimizations on the graph, including register allocator.
   // 4) Generates code with the `code_allocator` provided.
   CodeGenerator* TryCompile(ArenaAllocator* arena,
+                            ArenaStack* arena_stack,
                             CodeVectorAllocator* code_allocator,
                             const DexFile::CodeItem* code_item,
                             uint32_t access_flags,
@@ -907,6 +909,7 @@ CompiledMethod* OptimizingCompiler::Emit(ArenaAllocator* arena,
 }
 
 CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
+                                              ArenaStack* arena_stack,
                                               CodeVectorAllocator* code_allocator,
                                               const DexFile::CodeItem* code_item,
                                               uint32_t access_flags,
@@ -966,6 +969,7 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
 
   HGraph* graph = new (arena) HGraph(
       arena,
+      arena_stack,
       dex_file,
       method_idx,
       compiler_driver->GetInstructionSet(),
@@ -1018,7 +1022,6 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
                           codegen.get(),
                           compilation_stats_.get(),
                           interpreter_metadata,
-                          dex_cache,
                           handles);
     GraphAnalysisResult result = builder.BuildGraph();
     if (result != kAnalysisSuccess) {
@@ -1085,10 +1088,11 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
   DCHECK(Runtime::Current()->IsAotCompiler());
   const VerifiedMethod* verified_method = compiler_driver->GetVerifiedMethod(&dex_file, method_idx);
   DCHECK(!verified_method->HasRuntimeThrow());
-  if (compiler_driver->IsMethodVerifiedWithoutFailures(method_idx, class_def_idx, dex_file)
-      || verifier::CanCompilerHandleVerificationFailure(
-            verified_method->GetEncounteredVerificationFailures())) {
+  if (compiler_driver->IsMethodVerifiedWithoutFailures(method_idx, class_def_idx, dex_file) ||
+      verifier::CanCompilerHandleVerificationFailure(
+          verified_method->GetEncounteredVerificationFailures())) {
     ArenaAllocator arena(Runtime::Current()->GetArenaPool());
+    ArenaStack arena_stack(Runtime::Current()->GetArenaPool());
     CodeVectorAllocator code_allocator(&arena);
     std::unique_ptr<CodeGenerator> codegen;
     {
@@ -1098,6 +1102,7 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
       ScopedThreadSuspension sts(soa.Self(), kNative);
       codegen.reset(
           TryCompile(&arena,
+                     &arena_stack,
                      &code_allocator,
                      code_item,
                      access_flags,
@@ -1120,6 +1125,10 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
         if (arena.BytesAllocated() > kArenaAllocatorMemoryReportThreshold) {
           MemStats mem_stats(arena.GetMemStats());
           LOG(INFO) << dex_file.PrettyMethod(method_idx) << " " << Dumpable<MemStats>(mem_stats);
+        }
+        if (arena_stack.PeakBytesAllocated() > kArenaAllocatorMemoryReportThreshold) {
+          MemStats peak_stats(arena_stack.GetPeakStats());
+          LOG(INFO) << dex_file.PrettyMethod(method_idx) << " " << Dumpable<MemStats>(peak_stats);
         }
       }
     }
@@ -1195,6 +1204,7 @@ bool OptimizingCompiler::JitCompile(Thread* self,
   const InvokeType invoke_type = method->GetInvokeType();
 
   ArenaAllocator arena(Runtime::Current()->GetJitArenaPool());
+  ArenaStack arena_stack(Runtime::Current()->GetJitArenaPool());
   CodeVectorAllocator code_allocator(&arena);
   VariableSizedHandleScope handles(self);
 
@@ -1204,6 +1214,7 @@ bool OptimizingCompiler::JitCompile(Thread* self,
     ScopedThreadSuspension sts(self, kNative);
     codegen.reset(
         TryCompile(&arena,
+                   &arena_stack,
                    &code_allocator,
                    code_item,
                    access_flags,
