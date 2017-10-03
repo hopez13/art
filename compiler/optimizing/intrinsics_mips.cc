@@ -35,7 +35,7 @@ namespace art {
 namespace mips {
 
 IntrinsicLocationsBuilderMIPS::IntrinsicLocationsBuilderMIPS(CodeGeneratorMIPS* codegen)
-  : codegen_(codegen), arena_(codegen->GetGraph()->GetArena()) {
+  : codegen_(codegen), arena_(codegen->GetGraph()->GetAllocator()) {
 }
 
 MipsAssembler* IntrinsicCodeGeneratorMIPS::GetAssembler() {
@@ -43,7 +43,7 @@ MipsAssembler* IntrinsicCodeGeneratorMIPS::GetAssembler() {
 }
 
 ArenaAllocator* IntrinsicCodeGeneratorMIPS::GetAllocator() {
-  return codegen_->GetGraph()->GetArena();
+  return codegen_->GetGraph()->GetAllocator();
 }
 
 inline bool IntrinsicCodeGeneratorMIPS::IsR2OrNewer() const {
