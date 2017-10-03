@@ -22,6 +22,30 @@
       "revId": "c1058f91cef16b30e47fd7c0f8f8f5886a9964b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b9308ce_85818216",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-03T23:49:53Z",
+      "side": 1,
+      "message": "The compiler is orthogonal to the prebuild parameter. prebuild just means whether we run dex2oat explicitly or through the runtime. Prebuilt oat files are generated according to the compiler parameter.\n\nSo this one really just says \"only the runtime should be compiling oat files, and if so, only jit.\"",
+      "parentUuid": "5080f2d9_940146b5",
+      "range": {
+        "startLine": 234,
+        "startChar": 57,
+        "endLine": 234,
+        "endChar": 67
+      },
+      "revId": "c1058f91cef16b30e47fd7c0f8f8f5886a9964b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
