@@ -16,7 +16,6 @@
 
 package com.android.ahat.heapdump;
 
-import java.awt.image.BufferedImage;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -176,18 +175,6 @@ public class AhatClassInstance extends AhatInstance {
     return field == null ? null : field.asByteArray();
   }
 
-  private static class BitmapInfo {
-    public final int width;
-    public final int height;
-    public final byte[] buffer;
-
-    public BitmapInfo(int width, int height, byte[] buffer) {
-      this.width = width;
-      this.height = height;
-      this.buffer = buffer;
-    }
-  }
-
   /**
    * Return bitmap info for this object, or null if no appropriate bitmap
    * info is available.
@@ -220,27 +207,8 @@ public class AhatClassInstance extends AhatInstance {
 
   }
 
-  public BufferedImage asBitmap() {
-    BitmapInfo info = getBitmapInfo();
-    if (info == null) {
-      return null;
-    }
-
-    // Convert the raw data to an image
-    // Convert BGRA to ABGR
-    int[] abgr = new int[info.height * info.width];
-    for (int i = 0; i < abgr.length; i++) {
-      abgr[i] = (
-          (((int) info.buffer[i * 4 + 3] & 0xFF) << 24)
-          + (((int) info.buffer[i * 4 + 0] & 0xFF) << 16)
-          + (((int) info.buffer[i * 4 + 1] & 0xFF) << 8)
-          + ((int) info.buffer[i * 4 + 2] & 0xFF));
-    }
-
-    BufferedImage bitmap = new BufferedImage(
-        info.width, info.height, BufferedImage.TYPE_4BYTE_ABGR);
-    bitmap.setRGB(0, 0, info.width, info.height, abgr, 0, info.width);
-    return bitmap;
+  public BitmapInfo asBitmap() {
+    return getBitmapInfo();
   }
 
   @Override
