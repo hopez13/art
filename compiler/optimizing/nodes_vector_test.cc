@@ -23,12 +23,10 @@ namespace art {
 /**
  * Fixture class for testing vector nodes.
  */
-class NodesVectorTest : public CommonCompilerTest {
+class NodesVectorTest : public OptimizingUnitTest {
  public:
   NodesVectorTest()
-      : pool_(),
-        allocator_(&pool_),
-        graph_(CreateGraph(&allocator_)) {
+      : graph_(CreateGraph()) {
     BuildGraph();
   }
 
@@ -36,32 +34,31 @@ class NodesVectorTest : public CommonCompilerTest {
 
   void BuildGraph() {
     graph_->SetNumberOfVRegs(1);
-    entry_block_ = new (&allocator_) HBasicBlock(graph_);
-    exit_block_ = new (&allocator_) HBasicBlock(graph_);
+    entry_block_ = new (GetArena()) HBasicBlock(graph_);
+    exit_block_ = new (GetArena()) HBasicBlock(graph_);
     graph_->AddBlock(entry_block_);
     graph_->AddBlock(exit_block_);
     graph_->SetEntryBlock(entry_block_);
     graph_->SetExitBlock(exit_block_);
-    parameter_ = new (&allocator_) HParameterValue(graph_->GetDexFile(),
-                                                   dex::TypeIndex(0),
-                                                   0,
-                                                   DataType::Type::kInt32);
+    parameter_ = new (GetArena()) HParameterValue(graph_->GetDexFile(),
+                                                  dex::TypeIndex(0),
+                                                  0,
+                                                  DataType::Type::kInt32);
     entry_block_->AddInstruction(parameter_);
-    int8_parameter_ = new (&allocator_) HParameterValue(graph_->GetDexFile(),
-                                                        dex::TypeIndex(1),
-                                                        0,
-                                                        DataType::Type::kInt8);
+    int8_parameter_ = new (GetArena()) HParameterValue(graph_->GetDexFile(),
+                                                       dex::TypeIndex(1),
+                                                       0,
+                                                       DataType::Type::kInt8);
     entry_block_->AddInstruction(int8_parameter_);
-    int16_parameter_ = new (&allocator_) HParameterValue(graph_->GetDexFile(),
-                                                         dex::TypeIndex(2),
-                                                         0,
-                                                         DataType::Type::kInt16);
+    int16_parameter_ = new (GetArena()) HParameterValue(graph_->GetDexFile(),
+                                                        dex::TypeIndex(2),
+                                                        0,
+                                                        DataType::Type::kInt16);
     entry_block_->AddInstruction(int16_parameter_);
   }
 
   // General building fields.
-  ArenaPool pool_;
-  ArenaAllocator allocator_;
+  ArenaPoolAndAllocator pool_and_allocator_;
   HGraph* graph_;
 
   HBasicBlock* entry_block_;
@@ -130,16 +127,16 @@ TEST(NodesVector, AlignmentString) {
 }
 
 TEST_F(NodesVectorTest, VectorOperationProperties) {
-  HVecOperation* v0 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt32, 4);
-  HVecOperation* v1 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt32, 4);
-  HVecOperation* v2 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt32, 2);
-  HVecOperation* v3 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt16, 4);
-  HVecOperation* v4 = new (&allocator_) HVecStore(
-      &allocator_,
+  HVecOperation* v0 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt32, 4);
+  HVecOperation* v1 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt32, 4);
+  HVecOperation* v2 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt32, 2);
+  HVecOperation* v3 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt16, 4);
+  HVecOperation* v4 = new (GetArena()) HVecStore(
+      GetArena(),
       parameter_,
       parameter_,
       v0,
@@ -193,27 +190,27 @@ TEST_F(NodesVectorTest, VectorOperationProperties) {
 }
 
 TEST_F(NodesVectorTest, VectorAlignmentAndStringCharAtMatterOnLoad) {
-  HVecLoad* v0 = new (&allocator_) HVecLoad(&allocator_,
-                                            parameter_,
-                                            parameter_,
-                                            DataType::Type::kInt32,
-                                            SideEffects::ArrayReadOfType(DataType::Type::kInt32),
-                                            4,
-                                            /*is_string_char_at*/ false);
-  HVecLoad* v1 = new (&allocator_) HVecLoad(&allocator_,
-                                            parameter_,
-                                            parameter_,
-                                            DataType::Type::kInt32,
-                                            SideEffects::ArrayReadOfType(DataType::Type::kInt32),
-                                            4,
-                                            /*is_string_char_at*/ false);
-  HVecLoad* v2 = new (&allocator_) HVecLoad(&allocator_,
-                                            parameter_,
-                                            parameter_,
-                                            DataType::Type::kInt32,
-                                            SideEffects::ArrayReadOfType(DataType::Type::kInt32),
-                                            4,
-                                            /*is_string_char_at*/ true);
+  HVecLoad* v0 = new (GetArena()) HVecLoad(GetArena(),
+                                           parameter_,
+                                           parameter_,
+                                           DataType::Type::kInt32,
+                                           SideEffects::ArrayReadOfType(DataType::Type::kInt32),
+                                           4,
+                                           /*is_string_char_at*/ false);
+  HVecLoad* v1 = new (GetArena()) HVecLoad(GetArena(),
+                                           parameter_,
+                                           parameter_,
+                                           DataType::Type::kInt32,
+                                           SideEffects::ArrayReadOfType(DataType::Type::kInt32),
+                                           4,
+                                           /*is_string_char_at*/ false);
+  HVecLoad* v2 = new (GetArena()) HVecLoad(GetArena(),
+                                           parameter_,
+                                           parameter_,
+                                           DataType::Type::kInt32,
+                                           SideEffects::ArrayReadOfType(DataType::Type::kInt32),
+                                           4,
+                                           /*is_string_char_at*/ true);
 
   EXPECT_TRUE(v0->CanBeMoved());
   EXPECT_TRUE(v1->CanBeMoved());
@@ -242,23 +239,23 @@ TEST_F(NodesVectorTest, VectorAlignmentAndStringCharAtMatterOnLoad) {
 }
 
 TEST_F(NodesVectorTest, VectorSignMattersOnMin) {
-  HVecOperation* p0 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt32, 4);
-  HVecOperation* p1 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, int8_parameter_, DataType::Type::kInt8, 4);
-  HVecOperation* p2 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, int16_parameter_, DataType::Type::kInt16, 4);
+  HVecOperation* p0 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt32, 4);
+  HVecOperation* p1 = new (GetArena())
+      HVecReplicateScalar(GetArena(), int8_parameter_, DataType::Type::kInt8, 4);
+  HVecOperation* p2 = new (GetArena())
+      HVecReplicateScalar(GetArena(), int16_parameter_, DataType::Type::kInt16, 4);
 
-  HVecMin* v0 = new (&allocator_) HVecMin(
-      &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ true);
-  HVecMin* v1 = new (&allocator_) HVecMin(
-      &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ false);
-  HVecMin* v2 = new (&allocator_) HVecMin(
-      &allocator_, p0, p0, DataType::Type::kInt32, 2, /*is_unsigned*/ true);
-  HVecMin* v3 = new (&allocator_) HVecMin(&allocator_, p1, p1, DataType::Type::kUint8, 16);
-  HVecMin* v4 = new (&allocator_) HVecMin(&allocator_, p1, p1, DataType::Type::kInt8, 16);
-  HVecMin* v5 = new (&allocator_) HVecMin(&allocator_, p2, p2, DataType::Type::kUint16, 8);
-  HVecMin* v6 = new (&allocator_) HVecMin(&allocator_, p2, p2, DataType::Type::kInt16, 8);
+  HVecMin* v0 = new (GetArena()) HVecMin(
+      GetArena(), p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ true);
+  HVecMin* v1 = new (GetArena()) HVecMin(
+      GetArena(), p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ false);
+  HVecMin* v2 = new (GetArena()) HVecMin(
+      GetArena(), p0, p0, DataType::Type::kInt32, 2, /*is_unsigned*/ true);
+  HVecMin* v3 = new (GetArena()) HVecMin(GetArena(), p1, p1, DataType::Type::kUint8, 16);
+  HVecMin* v4 = new (GetArena()) HVecMin(GetArena(), p1, p1, DataType::Type::kInt8, 16);
+  HVecMin* v5 = new (GetArena()) HVecMin(GetArena(), p2, p2, DataType::Type::kUint16, 8);
+  HVecMin* v6 = new (GetArena()) HVecMin(GetArena(), p2, p2, DataType::Type::kInt16, 8);
   HVecMin* min_insns[] = { v0, v1, v2, v3, v4, v5, v6 };
 
   EXPECT_FALSE(p0->CanBeMoved());
@@ -282,23 +279,23 @@ TEST_F(NodesVectorTest, VectorSignMattersOnMin) {
 }
 
 TEST_F(NodesVectorTest, VectorSignMattersOnMax) {
-  HVecOperation* p0 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt32, 4);
-  HVecOperation* p1 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, int8_parameter_, DataType::Type::kInt8, 4);
-  HVecOperation* p2 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, int16_parameter_, DataType::Type::kInt16, 4);
+  HVecOperation* p0 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt32, 4);
+  HVecOperation* p1 = new (GetArena())
+      HVecReplicateScalar(GetArena(), int8_parameter_, DataType::Type::kInt8, 4);
+  HVecOperation* p2 = new (GetArena())
+      HVecReplicateScalar(GetArena(), int16_parameter_, DataType::Type::kInt16, 4);
 
-  HVecMax* v0 = new (&allocator_) HVecMax(
-      &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ true);
-  HVecMax* v1 = new (&allocator_) HVecMax(
-      &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ false);
-  HVecMax* v2 = new (&allocator_) HVecMax(
-      &allocator_, p0, p0, DataType::Type::kInt32, 2, /*is_unsigned*/ true);
-  HVecMax* v3 = new (&allocator_) HVecMax(&allocator_, p1, p1, DataType::Type::kUint8, 16);
-  HVecMax* v4 = new (&allocator_) HVecMax(&allocator_, p1, p1, DataType::Type::kInt8, 16);
-  HVecMax* v5 = new (&allocator_) HVecMax(&allocator_, p2, p2, DataType::Type::kUint16, 8);
-  HVecMax* v6 = new (&allocator_) HVecMax(&allocator_, p2, p2, DataType::Type::kInt16, 8);
+  HVecMax* v0 = new (GetArena()) HVecMax(
+      GetArena(), p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ true);
+  HVecMax* v1 = new (GetArena()) HVecMax(
+      GetArena(), p0, p0, DataType::Type::kInt32, 4, /*is_unsigned*/ false);
+  HVecMax* v2 = new (GetArena()) HVecMax(
+      GetArena(), p0, p0, DataType::Type::kInt32, 2, /*is_unsigned*/ true);
+  HVecMax* v3 = new (GetArena()) HVecMax(GetArena(), p1, p1, DataType::Type::kUint8, 16);
+  HVecMax* v4 = new (GetArena()) HVecMax(GetArena(), p1, p1, DataType::Type::kInt8, 16);
+  HVecMax* v5 = new (GetArena()) HVecMax(GetArena(), p2, p2, DataType::Type::kUint16, 8);
+  HVecMax* v6 = new (GetArena()) HVecMax(GetArena(), p2, p2, DataType::Type::kInt16, 8);
   HVecMax* max_insns[] = { v0, v1, v2, v3, v4, v5, v6 };
 
   EXPECT_FALSE(p0->CanBeMoved());
@@ -322,39 +319,39 @@ TEST_F(NodesVectorTest, VectorSignMattersOnMax) {
 }
 
 TEST_F(NodesVectorTest, VectorAttributesMatterOnHalvingAdd) {
-  HVecOperation* p0 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt32, 4);
-  HVecOperation* p1 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, int8_parameter_, DataType::Type::kInt8, 4);
-  HVecOperation* p2 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, int16_parameter_, DataType::Type::kInt16, 4);
+  HVecOperation* p0 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt32, 4);
+  HVecOperation* p1 = new (GetArena())
+      HVecReplicateScalar(GetArena(), int8_parameter_, DataType::Type::kInt8, 4);
+  HVecOperation* p2 = new (GetArena())
+      HVecReplicateScalar(GetArena(), int16_parameter_, DataType::Type::kInt16, 4);
 
-  HVecHalvingAdd* v0 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_rounded*/ true, /*is_unsigned*/ true);
-  HVecHalvingAdd* v1 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_rounded*/ false, /*is_unsigned*/ true);
-  HVecHalvingAdd* v2 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_rounded*/ true, /*is_unsigned*/ false);
-  HVecHalvingAdd* v3 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p0, p0, DataType::Type::kInt32, 4, /*is_rounded*/ false, /*is_unsigned*/ false);
-  HVecHalvingAdd* v4 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p0, p0, DataType::Type::kInt32, 2, /*is_rounded*/ true, /*is_unsigned*/ true);
-  HVecHalvingAdd* v5 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p1, p1, DataType::Type::kUint8, 16, /*is_rounded*/ true);
-  HVecHalvingAdd* v6 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p1, p1, DataType::Type::kUint8, 16, /*is_rounded*/ false);
-  HVecHalvingAdd* v7 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p1, p1, DataType::Type::kInt8, 16, /*is_rounded*/ true);
-  HVecHalvingAdd* v8 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p1, p1, DataType::Type::kInt8, 16, /*is_rounded*/ false);
-  HVecHalvingAdd* v9 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p2, p2, DataType::Type::kUint16, 8, /*is_rounded*/ true);
-  HVecHalvingAdd* v10 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p2, p2, DataType::Type::kUint16, 8, /*is_rounded*/ false);
-  HVecHalvingAdd* v11 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p2, p2, DataType::Type::kInt16, 2, /*is_rounded*/ true);
-  HVecHalvingAdd* v12 = new (&allocator_) HVecHalvingAdd(
-      &allocator_, p2, p2, DataType::Type::kInt16, 2, /*is_rounded*/ false);
+  HVecHalvingAdd* v0 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p0, p0, DataType::Type::kInt32, 4, /*is_rounded*/ true, /*is_unsigned*/ true);
+  HVecHalvingAdd* v1 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p0, p0, DataType::Type::kInt32, 4, /*is_rounded*/ false, /*is_unsigned*/ true);
+  HVecHalvingAdd* v2 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p0, p0, DataType::Type::kInt32, 4, /*is_rounded*/ true, /*is_unsigned*/ false);
+  HVecHalvingAdd* v3 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p0, p0, DataType::Type::kInt32, 4, /*is_rounded*/ false, /*is_unsigned*/ false);
+  HVecHalvingAdd* v4 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p0, p0, DataType::Type::kInt32, 2, /*is_rounded*/ true, /*is_unsigned*/ true);
+  HVecHalvingAdd* v5 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p1, p1, DataType::Type::kUint8, 16, /*is_rounded*/ true);
+  HVecHalvingAdd* v6 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p1, p1, DataType::Type::kUint8, 16, /*is_rounded*/ false);
+  HVecHalvingAdd* v7 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p1, p1, DataType::Type::kInt8, 16, /*is_rounded*/ true);
+  HVecHalvingAdd* v8 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p1, p1, DataType::Type::kInt8, 16, /*is_rounded*/ false);
+  HVecHalvingAdd* v9 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p2, p2, DataType::Type::kUint16, 8, /*is_rounded*/ true);
+  HVecHalvingAdd* v10 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p2, p2, DataType::Type::kUint16, 8, /*is_rounded*/ false);
+  HVecHalvingAdd* v11 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p2, p2, DataType::Type::kInt16, 2, /*is_rounded*/ true);
+  HVecHalvingAdd* v12 = new (GetArena()) HVecHalvingAdd(
+      GetArena(), p2, p2, DataType::Type::kInt16, 2, /*is_rounded*/ false);
   HVecHalvingAdd* hadd_insns[] = { v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12 };
 
   EXPECT_FALSE(p0->CanBeMoved());
@@ -394,15 +391,15 @@ TEST_F(NodesVectorTest, VectorAttributesMatterOnHalvingAdd) {
 }
 
 TEST_F(NodesVectorTest, VectorOperationMattersOnMultiplyAccumulate) {
-  HVecOperation* v0 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt32, 4);
+  HVecOperation* v0 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt32, 4);
 
-  HVecMultiplyAccumulate* v1 = new (&allocator_) HVecMultiplyAccumulate(
-      &allocator_, HInstruction::kAdd, v0, v0, v0, DataType::Type::kInt32, 4);
-  HVecMultiplyAccumulate* v2 = new (&allocator_) HVecMultiplyAccumulate(
-      &allocator_, HInstruction::kSub, v0, v0, v0, DataType::Type::kInt32, 4);
-  HVecMultiplyAccumulate* v3 = new (&allocator_) HVecMultiplyAccumulate(
-      &allocator_, HInstruction::kAdd, v0, v0, v0, DataType::Type::kInt32, 2);
+  HVecMultiplyAccumulate* v1 = new (GetArena()) HVecMultiplyAccumulate(
+      GetArena(), HInstruction::kAdd, v0, v0, v0, DataType::Type::kInt32, 4);
+  HVecMultiplyAccumulate* v2 = new (GetArena()) HVecMultiplyAccumulate(
+      GetArena(), HInstruction::kSub, v0, v0, v0, DataType::Type::kInt32, 4);
+  HVecMultiplyAccumulate* v3 = new (GetArena()) HVecMultiplyAccumulate(
+      GetArena(), HInstruction::kAdd, v0, v0, v0, DataType::Type::kInt32, 2);
 
   EXPECT_FALSE(v0->CanBeMoved());
   EXPECT_TRUE(v1->CanBeMoved());
@@ -422,15 +419,15 @@ TEST_F(NodesVectorTest, VectorOperationMattersOnMultiplyAccumulate) {
 }
 
 TEST_F(NodesVectorTest, VectorKindMattersOnReduce) {
-  HVecOperation* v0 = new (&allocator_)
-      HVecReplicateScalar(&allocator_, parameter_, DataType::Type::kInt32, 4);
+  HVecOperation* v0 = new (GetArena())
+      HVecReplicateScalar(GetArena(), parameter_, DataType::Type::kInt32, 4);
 
-  HVecReduce* v1 = new (&allocator_) HVecReduce(
-      &allocator_, v0, DataType::Type::kInt32, 4, HVecReduce::kSum);
-  HVecReduce* v2 = new (&allocator_) HVecReduce(
-      &allocator_, v0, DataType::Type::kInt32, 4, HVecReduce::kMin);
-  HVecReduce* v3 = new (&allocator_) HVecReduce(
-      &allocator_, v0, DataType::Type::kInt32, 4, HVecReduce::kMax);
+  HVecReduce* v1 = new (GetArena()) HVecReduce(
+      GetArena(), v0, DataType::Type::kInt32, 4, HVecReduce::kSum);
+  HVecReduce* v2 = new (GetArena()) HVecReduce(
+      GetArena(), v0, DataType::Type::kInt32, 4, HVecReduce::kMin);
+  HVecReduce* v3 = new (GetArena()) HVecReduce(
+      GetArena(), v0, DataType::Type::kInt32, 4, HVecReduce::kMax);
 
   EXPECT_FALSE(v0->CanBeMoved());
   EXPECT_TRUE(v1->CanBeMoved());
