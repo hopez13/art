@@ -16,6 +16,24 @@
       "revId": "b525c5c10317a010b51c086f6d70b8ec9f5d71b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae1e67b9_db4e06ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-10-03T00:10:48Z",
+      "side": 1,
+      "message": "Re:desugaring\n\nYes, D8 should have lambda support but I haven\u0027t tested it yet. My initial plan was to bring desugaring in with R8 but that might change as well. Either case, I don\u0027t plan to address it in this CL.\n\nRe: --build-with-d8\n\nAgree, as discussed offline. We should probably something like that.",
+      "parentUuid": "2f0764b6_2acf11e6",
+      "revId": "b525c5c10317a010b51c086f6d70b8ec9f5d71b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
