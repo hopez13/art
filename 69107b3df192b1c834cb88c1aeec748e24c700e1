@@ -46,6 +46,30 @@
       "revId": "69107b3df192b1c834cb88c1aeec748e24c700e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68e74734_6febe6b4",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-03T23:24:39Z",
+      "side": 1,
+      "message": "It needs to be added to both master-art and master-art-host manifests.",
+      "parentUuid": "4ee8c415_e61abd75",
+      "range": {
+        "startLine": 607,
+        "startChar": 35,
+        "endLine": 607,
+        "endChar": 37
+      },
+      "revId": "69107b3df192b1c834cb88c1aeec748e24c700e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
