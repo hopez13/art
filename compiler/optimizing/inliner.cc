@@ -1643,6 +1643,7 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
   const int32_t caller_instruction_counter = graph_->GetCurrentInstructionId();
   HGraph* callee_graph = new (graph_->GetArena()) HGraph(
       graph_->GetArena(),
+      graph_->GetArenaStack(),
       callee_dex_file,
       method_index,
       compiler_driver_->GetInstructionSet(),
