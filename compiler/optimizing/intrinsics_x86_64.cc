@@ -41,7 +41,7 @@ namespace art {
 namespace x86_64 {
 
 IntrinsicLocationsBuilderX86_64::IntrinsicLocationsBuilderX86_64(CodeGeneratorX86_64* codegen)
-  : arena_(codegen->GetGraph()->GetArena()), codegen_(codegen) {
+  : arena_(codegen->GetGraph()->GetAllocator()), codegen_(codegen) {
 }
 
 X86_64Assembler* IntrinsicCodeGeneratorX86_64::GetAssembler() {
@@ -49,7 +49,7 @@ X86_64Assembler* IntrinsicCodeGeneratorX86_64::GetAssembler() {
 }
 
 ArenaAllocator* IntrinsicCodeGeneratorX86_64::GetAllocator() {
-  return codegen_->GetGraph()->GetArena();
+  return codegen_->GetGraph()->GetAllocator();
 }
 
 bool IntrinsicLocationsBuilderX86_64::TryDispatch(HInvoke* invoke) {
