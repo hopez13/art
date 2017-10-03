@@ -70,7 +70,7 @@ MacroAssembler* IntrinsicCodeGeneratorARM64::GetVIXLAssembler() {
 }
 
 ArenaAllocator* IntrinsicCodeGeneratorARM64::GetAllocator() {
-  return codegen_->GetGraph()->GetArena();
+  return codegen_->GetGraph()->GetAllocator();
 }
 
 #define __ codegen->GetVIXLAssembler()->
@@ -2189,7 +2189,7 @@ void IntrinsicLocationsBuilderARM64::VisitSystemArrayCopyChar(HInvoke* invoke) {
     }
   }
 
-  ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetArena();
+  ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
   LocationSummary* locations = new (allocator) LocationSummary(invoke,
                                                                LocationSummary::kCallOnSlowPath,
                                                                kIntrinsified);
@@ -2428,7 +2428,7 @@ void IntrinsicLocationsBuilderARM64::VisitSystemArrayCopy(HInvoke* invoke) {
     return;
   }
 
-  ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetArena();
+  ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
   LocationSummary* locations = new (allocator) LocationSummary(invoke,
                                                                LocationSummary::kCallOnSlowPath,
                                                                kIntrinsified);
