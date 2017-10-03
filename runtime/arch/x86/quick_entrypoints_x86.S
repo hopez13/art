@@ -1186,11 +1186,6 @@ MACRO1(COMPUTE_ARRAY_SIZE_UNKNOWN, slow_path)
     // Add array header + alignment rounding.
     add MACRO_LITERAL(MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK), %edx
     // Add 4 extra bytes if we are doing a long array.
-    add MACRO_LITERAL(1), %ecx
-    and MACRO_LITERAL(4), %ecx
-#if MIRROR_WIDE_ARRAY_DATA_OFFSET != MIRROR_INT_ARRAY_DATA_OFFSET + 4
-#error Long array data offset must be 4 greater than int array data offset.
-#endif
     addl %ecx, %edx
     POP ecx
 END_MACRO
