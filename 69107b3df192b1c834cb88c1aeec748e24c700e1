@@ -22,6 +22,30 @@
       "revId": "69107b3df192b1c834cb88c1aeec748e24c700e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ee8c415_e61abd75",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-10-03T22:41:16Z",
+      "side": 1,
+      "message": "I added d8 to art-host but the bots never merged it. I am guessing only certain people have permission to do so?\n\nAnyways, the CL is committed now.",
+      "parentUuid": "01bf26e8_b1c14dfc",
+      "range": {
+        "startLine": 607,
+        "startChar": 35,
+        "endLine": 607,
+        "endChar": 37
+      },
+      "revId": "69107b3df192b1c834cb88c1aeec748e24c700e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
