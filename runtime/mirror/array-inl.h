@@ -52,7 +52,7 @@ inline size_t Array::SizeOf() {
 
 inline MemberOffset Array::DataOffset(size_t component_size) {
   DCHECK(IsPowerOfTwo(component_size)) << component_size;
-  size_t data_offset = RoundUp(OFFSETOF_MEMBER(Array, first_element_), component_size);
+  size_t data_offset = RoundUp(OFFSETOF_MEMBER(Array, first_element_), kObjectAlignment);
   DCHECK_EQ(RoundUp(data_offset, component_size), data_offset)
       << "Array data offset isn't aligned with component size";
   return MemberOffset(data_offset);
