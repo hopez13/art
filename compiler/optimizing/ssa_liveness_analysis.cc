@@ -26,7 +26,7 @@ namespace art {
 void SsaLivenessAnalysis::Analyze() {
   // Compute the linear order directly in the graph's data structure
   // (there are no more following graph mutations).
-  LinearizeGraph(graph_, graph_->GetArena(), &graph_->linear_order_);
+  LinearizeGraph(graph_, &graph_->linear_order_);
 
   // Liveness analysis.
   NumberInstructions();

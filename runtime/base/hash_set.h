@@ -389,6 +389,10 @@ class HashSet {
     InsertWithHash(element, hashfn_(element));
   }
 
+  void Insert(T&& element) {
+    InsertWithHash(std::move(element), hashfn_(element));
+  }
+
   void InsertWithHash(const T& element, size_t hash) {
     DCHECK_EQ(hash, hashfn_(element));
     if (num_elements_ >= elements_until_expand_) {
@@ -397,6 +401,17 @@ class HashSet {
     }
     const size_t index = FirstAvailableSlot(IndexForHash(hash));
     data_[index] = element;
+    ++num_elements_;
+  }
+
+  void InsertWithHash(T&& element, size_t hash) {
+    DCHECK_EQ(hash, hashfn_(element));
+    if (num_elements_ >= elements_until_expand_) {
+      Expand();
+      DCHECK_LT(num_elements_, elements_until_expand_);
+    }
+    const size_t index = FirstAvailableSlot(IndexForHash(hash));
+    data_[index] = std::move(element);
     ++num_elements_;
   }
 
