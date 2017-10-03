@@ -72,33 +72,36 @@ static ::std::vector<CodegenTargetConfig> GetTargetConfigs() {
   return v;
 }
 
-static void TestCode(const uint16_t* data,
-                     bool has_result = false,
-                     int32_t expected = 0) {
+class CodegenTest : public OptimizingUnitTest {
+ protected:
+  void TestCode(const uint16_t* data, bool has_result = false, int32_t expected = 0);
+  void TestCodeLong(const uint16_t* data, bool has_result, int64_t expected);
+  void TestComparison(IfCondition condition,
+                      int64_t i,
+                      int64_t j,
+                      DataType::Type type,
+                      const CodegenTargetConfig target_config);
+};
+
+void CodegenTest::TestCode(const uint16_t* data, bool has_result, int32_t expected) {
   for (const CodegenTargetConfig& target_config : GetTargetConfigs()) {
-    ArenaPool pool;
-    ArenaAllocator arena(&pool);
-    HGraph* graph = CreateCFG(&arena, data);
+    ResetPoolAndAllocator();
+    HGraph* graph = CreateCFG(data);
     // Remove suspend checks, they cannot be executed in this context.
     RemoveSuspendChecks(graph);
     RunCode(target_config, graph, [](HGraph*) {}, has_result, expected);
   }
 }
 
-static void TestCodeLong(const uint16_t* data,
-                         bool has_result,
-                         int64_t expected) {
+void CodegenTest::TestCodeLong(const uint16_t* data, bool has_result, int64_t expected) {
   for (const CodegenTargetConfig& target_config : GetTargetConfigs()) {
-    ArenaPool pool;
-    ArenaAllocator arena(&pool);
-    HGraph* graph = CreateCFG(&arena, data, DataType::Type::kInt64);
+    ResetPoolAndAllocator();
+    HGraph* graph = CreateCFG(data, DataType::Type::kInt64);
     // Remove suspend checks, they cannot be executed in this context.
     RemoveSuspendChecks(graph);
     RunCode(target_config, graph, [](HGraph*) {}, has_result, expected);
   }
 }
-
-class CodegenTest : public CommonCompilerTest {};
 
 TEST_F(CodegenTest, ReturnVoid) {
   const uint16_t data[] = ZERO_REGISTER_CODE_ITEM(Instruction::RETURN_VOID);
@@ -412,28 +415,25 @@ TEST_F(CodegenTest, ReturnMulIntLit16) {
 
 TEST_F(CodegenTest, NonMaterializedCondition) {
   for (CodegenTargetConfig target_config : GetTargetConfigs()) {
-    ArenaPool pool;
-    ArenaAllocator allocator(&pool);
+    HGraph* graph = CreateGraph();
 
-    HGraph* graph = CreateGraph(&allocator);
-
-    HBasicBlock* entry = new (&allocator) HBasicBlock(graph);
+    HBasicBlock* entry = new (GetArena()) HBasicBlock(graph);
     graph->AddBlock(entry);
     graph->SetEntryBlock(entry);
-    entry->AddInstruction(new (&allocator) HGoto());
+    entry->AddInstruction(new (GetArena()) HGoto());
 
-    HBasicBlock* first_block = new (&allocator) HBasicBlock(graph);
+    HBasicBlock* first_block = new (GetArena()) HBasicBlock(graph);
     graph->AddBlock(first_block);
     entry->AddSuccessor(first_block);
     HIntConstant* constant0 = graph->GetIntConstant(0);
     HIntConstant* constant1 = graph->GetIntConstant(1);
-    HEqual* equal = new (&allocator) HEqual(constant0, constant0);
+    HEqual* equal = new (GetArena()) HEqual(constant0, constant0);
     first_block->AddInstruction(equal);
-    first_block->AddInstruction(new (&allocator) HIf(equal));
+    first_block->AddInstruction(new (GetArena()) HIf(equal));
 
-    HBasicBlock* then_block = new (&allocator) HBasicBlock(graph);
-    HBasicBlock* else_block = new (&allocator) HBasicBlock(graph);
-    HBasicBlock* exit_block = new (&allocator) HBasicBlock(graph);
+    HBasicBlock* then_block = new (GetArena()) HBasicBlock(graph);
+    HBasicBlock* else_block = new (GetArena()) HBasicBlock(graph);
+    HBasicBlock* exit_block = new (GetArena()) HBasicBlock(graph);
     graph->SetExitBlock(exit_block);
 
     graph->AddBlock(then_block);
@@ -444,9 +444,9 @@ TEST_F(CodegenTest, NonMaterializedCondition) {
     then_block->AddSuccessor(exit_block);
     else_block->AddSuccessor(exit_block);
 
-    exit_block->AddInstruction(new (&allocator) HExit());
-    then_block->AddInstruction(new (&allocator) HReturn(constant0));
-    else_block->AddInstruction(new (&allocator) HReturn(constant1));
+    exit_block->AddInstruction(new (GetArena()) HExit());
+    then_block->AddInstruction(new (GetArena()) HReturn(constant0));
+    else_block->AddInstruction(new (GetArena()) HReturn(constant1));
 
     ASSERT_FALSE(equal->IsEmittedAtUseSite());
     graph->BuildDominatorTree();
@@ -475,19 +475,17 @@ TEST_F(CodegenTest, MaterializedCondition1) {
     int rhs[] = {2, 1, 2, -1, 0xabc};
 
     for (size_t i = 0; i < arraysize(lhs); i++) {
-      ArenaPool pool;
-      ArenaAllocator allocator(&pool);
-      HGraph* graph = CreateGraph(&allocator);
+      HGraph* graph = CreateGraph();
 
-      HBasicBlock* entry_block = new (&allocator) HBasicBlock(graph);
+      HBasicBlock* entry_block = new (GetArena()) HBasicBlock(graph);
       graph->AddBlock(entry_block);
       graph->SetEntryBlock(entry_block);
-      entry_block->AddInstruction(new (&allocator) HGoto());
-      HBasicBlock* code_block = new (&allocator) HBasicBlock(graph);
+      entry_block->AddInstruction(new (GetArena()) HGoto());
+      HBasicBlock* code_block = new (GetArena()) HBasicBlock(graph);
       graph->AddBlock(code_block);
-      HBasicBlock* exit_block = new (&allocator) HBasicBlock(graph);
+      HBasicBlock* exit_block = new (GetArena()) HBasicBlock(graph);
       graph->AddBlock(exit_block);
-      exit_block->AddInstruction(new (&allocator) HExit());
+      exit_block->AddInstruction(new (GetArena()) HExit());
 
       entry_block->AddSuccessor(code_block);
       code_block->AddSuccessor(exit_block);
@@ -523,24 +521,22 @@ TEST_F(CodegenTest, MaterializedCondition2) {
 
 
     for (size_t i = 0; i < arraysize(lhs); i++) {
-      ArenaPool pool;
-      ArenaAllocator allocator(&pool);
-      HGraph* graph = CreateGraph(&allocator);
+      HGraph* graph = CreateGraph();
 
-      HBasicBlock* entry_block = new (&allocator) HBasicBlock(graph);
+      HBasicBlock* entry_block = new (GetArena()) HBasicBlock(graph);
       graph->AddBlock(entry_block);
       graph->SetEntryBlock(entry_block);
-      entry_block->AddInstruction(new (&allocator) HGoto());
+      entry_block->AddInstruction(new (GetArena()) HGoto());
 
-      HBasicBlock* if_block = new (&allocator) HBasicBlock(graph);
+      HBasicBlock* if_block = new (GetArena()) HBasicBlock(graph);
       graph->AddBlock(if_block);
-      HBasicBlock* if_true_block = new (&allocator) HBasicBlock(graph);
+      HBasicBlock* if_true_block = new (GetArena()) HBasicBlock(graph);
       graph->AddBlock(if_true_block);
-      HBasicBlock* if_false_block = new (&allocator) HBasicBlock(graph);
+      HBasicBlock* if_false_block = new (GetArena()) HBasicBlock(graph);
       graph->AddBlock(if_false_block);
-      HBasicBlock* exit_block = new (&allocator) HBasicBlock(graph);
+      HBasicBlock* exit_block = new (GetArena()) HBasicBlock(graph);
       graph->AddBlock(exit_block);
-      exit_block->AddInstruction(new (&allocator) HExit());
+      exit_block->AddInstruction(new (GetArena()) HExit());
 
       graph->SetEntryBlock(entry_block);
       entry_block->AddSuccessor(if_block);
@@ -599,27 +595,25 @@ TEST_F(CodegenTest, ReturnDivInt2Addr) {
 }
 
 // Helper method.
-static void TestComparison(IfCondition condition,
-                           int64_t i,
-                           int64_t j,
-                           DataType::Type type,
-                           const CodegenTargetConfig target_config) {
-  ArenaPool pool;
-  ArenaAllocator allocator(&pool);
-  HGraph* graph = CreateGraph(&allocator);
+void CodegenTest::TestComparison(IfCondition condition,
+                                 int64_t i,
+                                 int64_t j,
+                                 DataType::Type type,
+                                 const CodegenTargetConfig target_config) {
+  HGraph* graph = CreateGraph();
 
-  HBasicBlock* entry_block = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* entry_block = new (GetArena()) HBasicBlock(graph);
   graph->AddBlock(entry_block);
   graph->SetEntryBlock(entry_block);
-  entry_block->AddInstruction(new (&allocator) HGoto());
+  entry_block->AddInstruction(new (GetArena()) HGoto());
 
-  HBasicBlock* block = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* block = new (GetArena()) HBasicBlock(graph);
   graph->AddBlock(block);
 
-  HBasicBlock* exit_block = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* exit_block = new (GetArena()) HBasicBlock(graph);
   graph->AddBlock(exit_block);
   graph->SetExitBlock(exit_block);
-  exit_block->AddInstruction(new (&allocator) HExit());
+  exit_block->AddInstruction(new (GetArena()) HExit());
 
   entry_block->AddSuccessor(block);
   block->AddSuccessor(exit_block);
@@ -641,48 +635,48 @@ static void TestComparison(IfCondition condition,
   const uint64_t y = j;
   switch (condition) {
     case kCondEQ:
-      comparison = new (&allocator) HEqual(op1, op2);
+      comparison = new (GetArena()) HEqual(op1, op2);
       expected_result = (i == j);
       break;
     case kCondNE:
-      comparison = new (&allocator) HNotEqual(op1, op2);
+      comparison = new (GetArena()) HNotEqual(op1, op2);
       expected_result = (i != j);
       break;
     case kCondLT:
-      comparison = new (&allocator) HLessThan(op1, op2);
+      comparison = new (GetArena()) HLessThan(op1, op2);
       expected_result = (i < j);
       break;
     case kCondLE:
-      comparison = new (&allocator) HLessThanOrEqual(op1, op2);
+      comparison = new (GetArena()) HLessThanOrEqual(op1, op2);
       expected_result = (i <= j);
       break;
     case kCondGT:
-      comparison = new (&allocator) HGreaterThan(op1, op2);
+      comparison = new (GetArena()) HGreaterThan(op1, op2);
       expected_result = (i > j);
       break;
     case kCondGE:
-      comparison = new (&allocator) HGreaterThanOrEqual(op1, op2);
+      comparison = new (GetArena()) HGreaterThanOrEqual(op1, op2);
       expected_result = (i >= j);
       break;
     case kCondB:
-      comparison = new (&allocator) HBelow(op1, op2);
+      comparison = new (GetArena()) HBelow(op1, op2);
       expected_result = (x < y);
       break;
     case kCondBE:
-      comparison = new (&allocator) HBelowOrEqual(op1, op2);
+      comparison = new (GetArena()) HBelowOrEqual(op1, op2);
       expected_result = (x <= y);
       break;
     case kCondA:
-      comparison = new (&allocator) HAbove(op1, op2);
+      comparison = new (GetArena()) HAbove(op1, op2);
       expected_result = (x > y);
       break;
     case kCondAE:
-      comparison = new (&allocator) HAboveOrEqual(op1, op2);
+      comparison = new (GetArena()) HAboveOrEqual(op1, op2);
       expected_result = (x >= y);
       break;
   }
   block->AddInstruction(comparison);
-  block->AddInstruction(new (&allocator) HReturn(comparison));
+  block->AddInstruction(new (GetArena()) HReturn(comparison));
 
   graph->BuildDominatorTree();
   RunCode(target_config, graph, [](HGraph*) {}, true, expected_result);
@@ -718,9 +712,7 @@ TEST_F(CodegenTest, ComparisonsLong) {
 TEST_F(CodegenTest, ARMVIXLParallelMoveResolver) {
   std::unique_ptr<const ArmInstructionSetFeatures> features(
       ArmInstructionSetFeatures::FromCppDefines());
-  ArenaPool pool;
-  ArenaAllocator allocator(&pool);
-  HGraph* graph = CreateGraph(&allocator);
+  HGraph* graph = CreateGraph();
   arm::CodeGeneratorARMVIXL codegen(graph, *features.get(), CompilerOptions());
 
   codegen.Initialize();
@@ -744,9 +736,7 @@ TEST_F(CodegenTest, ARMVIXLParallelMoveResolver) {
 TEST_F(CodegenTest, ARM64ParallelMoveResolverB34760542) {
   std::unique_ptr<const Arm64InstructionSetFeatures> features(
       Arm64InstructionSetFeatures::FromCppDefines());
-  ArenaPool pool;
-  ArenaAllocator allocator(&pool);
-  HGraph* graph = CreateGraph(&allocator);
+  HGraph* graph = CreateGraph();
   arm64::CodeGeneratorARM64 codegen(graph, *features.get(), CompilerOptions());
 
   codegen.Initialize();
@@ -796,9 +786,7 @@ TEST_F(CodegenTest, ARM64ParallelMoveResolverB34760542) {
 TEST_F(CodegenTest, ARM64ParallelMoveResolverSIMD) {
   std::unique_ptr<const Arm64InstructionSetFeatures> features(
       Arm64InstructionSetFeatures::FromCppDefines());
-  ArenaPool pool;
-  ArenaAllocator allocator(&pool);
-  HGraph* graph = CreateGraph(&allocator);
+  HGraph* graph = CreateGraph();
   arm64::CodeGeneratorARM64 codegen(graph, *features.get(), CompilerOptions());
 
   codegen.Initialize();
@@ -841,33 +829,31 @@ TEST_F(CodegenTest, MipsClobberRA) {
     return;
   }
 
-  ArenaPool pool;
-  ArenaAllocator allocator(&pool);
-  HGraph* graph = CreateGraph(&allocator);
+  HGraph* graph = CreateGraph();
 
-  HBasicBlock* entry_block = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* entry_block = new (GetArena()) HBasicBlock(graph);
   graph->AddBlock(entry_block);
   graph->SetEntryBlock(entry_block);
-  entry_block->AddInstruction(new (&allocator) HGoto());
+  entry_block->AddInstruction(new (GetArena()) HGoto());
 
-  HBasicBlock* block = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* block = new (GetArena()) HBasicBlock(graph);
   graph->AddBlock(block);
 
-  HBasicBlock* exit_block = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* exit_block = new (GetArena()) HBasicBlock(graph);
   graph->AddBlock(exit_block);
   graph->SetExitBlock(exit_block);
-  exit_block->AddInstruction(new (&allocator) HExit());
+  exit_block->AddInstruction(new (GetArena()) HExit());
 
   entry_block->AddSuccessor(block);
   block->AddSuccessor(exit_block);
 
   // To simplify matters, don't create PC-relative HLoadClass or HLoadString.
   // Instead, generate HMipsComputeBaseMethodAddress directly.
-  HMipsComputeBaseMethodAddress* base = new (&allocator) HMipsComputeBaseMethodAddress();
+  HMipsComputeBaseMethodAddress* base = new (GetArena()) HMipsComputeBaseMethodAddress();
   block->AddInstruction(base);
   // HMipsComputeBaseMethodAddress is defined as int, so just make the
   // compiled method return it.
-  block->AddInstruction(new (&allocator) HReturn(base));
+  block->AddInstruction(new (GetArena()) HReturn(base));
 
   graph->BuildDominatorTree();
 

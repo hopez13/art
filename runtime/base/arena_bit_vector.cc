@@ -18,6 +18,7 @@
 
 #include "base/allocator.h"
 #include "base/arena_allocator.h"
+#include "base/bit_vector-inl.h"
 
 namespace art {
 
@@ -93,6 +94,7 @@ ArenaBitVector::ArenaBitVector(ScopedArenaAllocator* arena,
   :  BitVector(start_bits,
                expandable,
                ArenaBitVectorAllocator<ScopedArenaAllocator>::Create(arena, kind)) {
+  ClearAllBits();
 }
 
 }  // namespace art

@@ -43,8 +43,8 @@ class HInstructionBuilder : public ValueObject {
                       const DexFile* dex_file,
                       const DexFile::CodeItem& code_item,
                       DataType::Type return_type,
-                      DexCompilationUnit* dex_compilation_unit,
-                      const DexCompilationUnit* const outer_compilation_unit,
+                      const DexCompilationUnit* dex_compilation_unit,
+                      const DexCompilationUnit* outer_compilation_unit,
                       CompilerDriver* driver,
                       CodeGenerator* code_generator,
                       const uint8_t* interpreter_metadata,
@@ -342,7 +342,7 @@ class HInstructionBuilder : public ValueObject {
 
   // The compilation unit of the current method being compiled. Note that
   // it can be an inlined method.
-  DexCompilationUnit* const dex_compilation_unit_;
+  const DexCompilationUnit* const dex_compilation_unit_;
 
   // The compilation unit of the outermost method being compiled. That is the
   // method being compiled (and not inlined), and potentially inlining other
