@@ -128,6 +128,7 @@ class DataType {
 
   static Type ToSignedType(Type type) {
     switch (type) {
+      case Type::kBool:
       case Type::kUint8:
         return Type::kInt8;
       case Type::kUint16:
