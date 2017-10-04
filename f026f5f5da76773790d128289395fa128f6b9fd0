@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0e339ad_c0b2b42f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-04T18:13:39Z",
+      "side": 1,
+      "message": "Maybe worth adding a comment in Thread::~Thread that it\u0027s called while holding a lock to remember to avoid anything too expensive.",
+      "range": {
+        "startLine": 1477,
+        "startChar": 4,
+        "endLine": 1477,
+        "endChar": 16
+      },
+      "revId": "f026f5f5da76773790d128289395fa128f6b9fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
