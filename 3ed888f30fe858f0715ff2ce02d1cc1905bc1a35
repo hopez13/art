@@ -52,6 +52,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f370e4b7_558e8b73",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-04T16:47:45Z",
+      "side": 1,
+      "message": "Initializing x and y is unnecesary work if you want to do\n\n  x \u003d a \u0026 b;\n  y \u003d a \u0026 ~b;\n\nor similar operations on a BitVector.\n\nYes, the naming is odd.",
+      "parentUuid": "6df11cc5_6f8ee424",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
