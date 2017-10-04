@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "6d1c16e1_25d10a5e",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T15:19:51Z",
+      "side": 1,
+      "message": "Why are these new changes necessary?",
+      "revId": "065d6d9481983844bd917477e32f692f029d3ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e7ac549_2d6f9f9f",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T15:19:51Z",
+      "side": 1,
+      "message": "Was this comment inaccurate before since the arena allocator wasnt \"scoped\" ?",
+      "range": {
+        "startLine": 232,
+        "startChar": 59,
+        "endLine": 233,
+        "endChar": 83
+      },
+      "revId": "065d6d9481983844bd917477e32f692f029d3ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c640cb94_ce499437",
         "filename": "runtime/base/hash_set.h",
         "patchSetId": 4
@@ -13,6 +53,30 @@
       "writtenOn": "2017-10-04T15:05:51Z",
       "side": 1,
       "message": "Should we have\n\n  template \u003ctypename U\u003e\n  void Insert(U\u0026\u0026 element) {\n    InsertWithHash(std::forward\u003cU\u003e(element), hashfn_(element));\n  }\n\ninstead of the two overloads? (Same for InsertWithHash().)",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 3
+      },
+      "revId": "065d6d9481983844bd917477e32f692f029d3ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ede3d06f_98d7e0a9",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T15:19:51Z",
+      "side": 1,
+      "message": "I think we may want U, enable_if U convertible to T ?",
+      "parentUuid": "c640cb94_ce499437",
       "range": {
         "startLine": 392,
         "startChar": 0,
