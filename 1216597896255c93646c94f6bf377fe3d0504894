@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1adc3748_69c8e626",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-04T06:04:42Z",
+      "side": 1,
+      "message": "It looks like the undesirable code expansion was due to us not checking whether the index can become constant after bounds checking.\n\nAdd\n\n    ||\n    (index-\u003eIsBoundsCheck() \u0026\u0026 index-\u003eAsBoundsCheck()-\u003eGetIndex()-\u003eIsConstant())\n\nWith this we\u0027re getting some very modest code size savings, but at least there\u0027s no expansion.",
+      "range": {
+        "startLine": 58,
+        "startChar": 6,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "1216597896255c93646c94f6bf377fe3d0504894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "152296e4_fdfc2081",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-04T06:04:42Z",
+      "side": 1,
+      "message": "non-",
+      "range": {
+        "startLine": 61,
+        "startChar": 33,
+        "endLine": 61,
+        "endChar": 37
+      },
+      "revId": "1216597896255c93646c94f6bf377fe3d0504894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edd4dde1_4a89af5a",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-04T06:04:42Z",
+      "side": 1,
+      "message": "embeddable",
+      "range": {
+        "startLine": 61,
+        "startChar": 37,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "1216597896255c93646c94f6bf377fe3d0504894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbc91eb4_0ba6846e",
+        "filename": "compiler/optimizing/instruction_simplifier_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-04T06:04:42Z",
+      "side": 1,
+      "message": "constants",
+      "range": {
+        "startLine": 61,
+        "startChar": 47,
+        "endLine": 61,
+        "endChar": 55
+      },
+      "revId": "1216597896255c93646c94f6bf377fe3d0504894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
