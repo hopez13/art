@@ -34,6 +34,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df11cc5_6f8ee424",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T16:32:34Z",
+      "side": 1,
+      "message": "So I noticed a few things:\n\nIt\u0027s called BitVector, but it\u0027s really a BitArray because there is no push-back, insert, etc. There is no distinct length/capacity like in a real vector.\n\nIf it seems to be \"unnecessary work\", perhaps the allocator should have a wrapper to enforce zero-initialization (with memset(0)) or at least a trait to indicate if it does that?\n\n---\n\n\nAny sane data structure should have a well-defined initial state, in this case, as a post-condition of BitVector{} the bits accessible via iterator should be all 0s.",
+      "parentUuid": "6ba9e534_ff9067c5",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
