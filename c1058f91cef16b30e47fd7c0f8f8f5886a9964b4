@@ -46,6 +46,30 @@
       "revId": "c1058f91cef16b30e47fd7c0f8f8f5886a9964b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6301db44_3ee3bcda",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-04T09:49:52Z",
+      "side": 1,
+      "message": "Not sure if you\u0027re contradicting what I\u0027m saying or not :(\n\nIn any case, the commit message talks about \"compiling\" a method, which AFAIU you\u0027ll get with \u0027optimizing\u0027 whether prebuild or not.",
+      "parentUuid": "9b9308ce_85818216",
+      "range": {
+        "startLine": 234,
+        "startChar": 57,
+        "endLine": 234,
+        "endChar": 67
+      },
+      "revId": "c1058f91cef16b30e47fd7c0f8f8f5886a9964b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
