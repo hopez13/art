@@ -22,6 +22,30 @@
       "revId": "df87fc2ddbf008b897388ba1f8c7e95adcdb8fcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "082f7585_0f85de77",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-04T22:54:03Z",
+      "side": 1,
+      "message": "It is almost certainly not something the caller intended (Moltmann\u0027s initial complaint was that the error was too cryptic, not that the behavior was wrong) so I think we\u0027d want to give agent writers some hint that they are probably doing something wrong. Especially since at this point we already have classes loaded I cannot see this happening without a bug in the agent.",
+      "parentUuid": "43a42031_6d49d06b",
+      "range": {
+        "startLine": 1107,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 73
+      },
+      "revId": "df87fc2ddbf008b897388ba1f8c7e95adcdb8fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
