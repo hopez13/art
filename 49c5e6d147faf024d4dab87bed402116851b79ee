@@ -16,6 +16,24 @@
       "revId": "49c5e6d147faf024d4dab87bed402116851b79ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3428e8db_4bb261c1",
+        "filename": "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-04T15:56:14Z",
+      "side": 1,
+      "message": "ArenaAllocator accumulates all the allocated memory with no possibility of reuse (other than the odd case of Realloc()), releasing allocated Arenas to the ArenaPool on destruction.\n\nWith the ScopedArenaAllocator, the memory is held by the ArenaStack. When the ScopedArenaAllocator is destroyed, it resets the position in ArenaStack so that the memory already held by ArenaStack can be reused. ScopedArenaAllocator is designed for nested allocation scopes.\n\nArenaAllocator guarantees zero-initialization, ScopedArenaAllocator does not.\n\n(And a short comment would be rather useless here. Instead of adding a lengthy comment here and everywhere else, just refer to comments in scoped_arena_allocator.h .)",
+      "parentUuid": "18e163d8_6e779ca5",
+      "revId": "49c5e6d147faf024d4dab87bed402116851b79ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
