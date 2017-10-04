@@ -88,6 +88,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e3a8e1c_2ba5efd4",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-04T17:28:09Z",
+      "side": 1,
+      "message": "The Union(), Intersect(), Subtract() and Negate() functions would also need to take the allocator, length, and expandable arguments.\n\nAll such cleanup is outside the scope of this CL.",
+      "parentUuid": "33b94262_a9a71048",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
