@@ -208,7 +208,9 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
         : StackVisitor(thread_in, context, kInstrumentationStackWalk),
           instrumentation_stack_(thread_in->GetInstrumentationStack()),
           instrumentation_exit_pc_(instrumentation_exit_pc),
-          reached_existing_instrumentation_frames_(false), instrumentation_stack_depth_(0),
+          reached_existing_instrumentation_frames_(false),
+          should_be_at_top_(false),
+          instrumentation_stack_depth_(0),
           last_return_pc_(0) {
     }
 
@@ -221,6 +223,8 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
         last_return_pc_ = 0;
         return true;  // Ignore upcalls.
       }
+      DCHECK(!should_be_at_top_) << "Reached unexpected frame above what should have been top: "
+                                 << m->PrettyMethod();
       if (GetCurrentQuickFrame() == nullptr) {
         bool interpreter_frame = true;
         InstrumentationStackFrame instrumentation_frame(GetThisObject(), m, 0, GetFrameId(),
@@ -266,9 +270,21 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
         if (kVerboseInstrumentation) {
           LOG(INFO) << "Ignoring already instrumented " << frame.Dump();
         }
+      } else if (reached_existing_instrumentation_frames_) {
+        // If tracing was enabled we might have had all methods have the instrumentation frame
+        // except the runtime transition method at the very top of the stack. This isn't really a
+        // problem since the transition method just goes back into the runtime and never leaves it
+        // so it can be ignored.
+        should_be_at_top_ = true;
+        DCHECK(m->IsRuntimeMethod()) << "Expected method to be runtime method at start of thread "
+                                     << "but was " << m->PrettyMethod();
+        if (kVerboseInstrumentation) {
+          LOG(INFO) << "reached expected top frame " << m->PrettyMethod();
+        }
+        // Don't bother continuing on the upcalls on non-debug builds.
+        return kIsDebugBuild ? true : false;
       } else {
         CHECK_NE(return_pc, 0U);
-        CHECK(!reached_existing_instrumentation_frames_);
         InstrumentationStackFrame instrumentation_frame(
             m->IsRuntimeMethod() ? nullptr : GetThisObject(),
             m,
@@ -306,6 +322,7 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
     std::vector<uint32_t> dex_pcs_;
     const uintptr_t instrumentation_exit_pc_;
     bool reached_existing_instrumentation_frames_;
+    bool should_be_at_top_;
     size_t instrumentation_stack_depth_;
     uintptr_t last_return_pc_;
   };
