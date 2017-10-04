@@ -22,6 +22,30 @@
       "revId": "20bdfb855853e918e3360ef9d3f943efacf45abf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5f42e51_88bdeeaf",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-04T10:00:06Z",
+      "side": 1,
+      "message": "Yeah, in hindsight perhaps we should try a bit harder to preserve Dex PCs for synthesized instructions.\n\nI think one of the problems mentioned by Aart was that a loop in the original Dex code, represented by a set of HIR instructions (corresponding to a given Dex PC range) could be turned into several loops of HIR instructions by vectorization optimizations (e.g. because of peeling).\n\nIs that really a problem to have several HIR instructions point to the same Dex PC? Is this supported by the debugger?",
+      "parentUuid": "ed015dd3_2bc8302b",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 62
+      },
+      "revId": "20bdfb855853e918e3360ef9d3f943efacf45abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
