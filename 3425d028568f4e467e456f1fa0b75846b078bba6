@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d2b97637_4e76e9e1",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T17:12:20Z",
+      "side": 1,
+      "message": "nit: Would\u0027ve been better if message was also templated, since anything with \u003c\u003c Operator will work here.",
+      "revId": "3425d028568f4e467e456f1fa0b75846b078bba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb9c0eb4_2260b68b",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -13,6 +30,30 @@
       "writtenOn": "2017-10-04T17:02:33Z",
       "side": 1,
       "message": "Looking at this in action, not really sure this was the best choice. Now things are:\n\n  CheckedCall(mprotect, \"Bla\", mprotect-args)\n\nwhy is this better than\n\n  CheckedCall(mprotect(mprotect-args), \"Bla\")\n\n? As in, does evaluation inside CheckedCall give us an advantage over just passing rc down and having a complete call \"visible?\"",
+      "range": {
+        "startLine": 343,
+        "startChar": 11,
+        "endLine": 343,
+        "endChar": 29
+      },
+      "revId": "3425d028568f4e467e456f1fa0b75846b078bba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "742a4c02_6766f677",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T17:12:20Z",
+      "side": 1,
+      "message": "I would\u0027ve preferred to \u003c\u003c the message in.\n\n  CheckedCall(???) \u003c\u003c msg;",
+      "parentUuid": "eb9c0eb4_2260b68b",
       "range": {
         "startLine": 343,
         "startChar": 11,
