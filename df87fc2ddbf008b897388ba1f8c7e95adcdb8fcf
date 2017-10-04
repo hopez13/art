@@ -46,6 +46,30 @@
       "revId": "df87fc2ddbf008b897388ba1f8c7e95adcdb8fcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68216976_3e04095f",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-04T23:05:37Z",
+      "side": 1,
+      "message": "But the caller may be uninterested. E.g., I install hooks into code that\u0027s already broken. Very not uncommon...",
+      "parentUuid": "082f7585_0f85de77",
+      "range": {
+        "startLine": 1107,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 73
+      },
+      "revId": "df87fc2ddbf008b897388ba1f8c7e95adcdb8fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
