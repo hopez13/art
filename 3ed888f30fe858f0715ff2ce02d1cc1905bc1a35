@@ -124,6 +124,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3666fa83_6d7da31a",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-04T18:05:50Z",
+      "side": 1,
+      "message": "I\u0027m not breaking it. I\u0027m preserving the existing semantics where ArenaBitVector is zero-initialized when used with ArenaAllocator but not zero-initialized when used with ScopedArenaAllocator. Note that for example the BlockInfo is already explicitly clearing its ArenaBitVectors even though they are initialized using ArenaAllocator.",
+      "parentUuid": "e458435b_6588a7d7",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
