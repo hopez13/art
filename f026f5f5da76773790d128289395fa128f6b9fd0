@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "84102d20_06e1f394",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T18:17:31Z",
+      "side": 1,
+      "message": "How is it safe to pass null here?\n\nThis calls Mutex::ExclusiveLock(thread*) which can call Thread::CheckEmptyCheckPointFromMutex which has a DCHECK_EQ(Thread::Current(), this) which would fail.",
+      "range": {
+        "startLine": 1456,
+        "startChar": 17,
+        "endLine": 1456,
+        "endChar": 24
+      },
+      "revId": "f026f5f5da76773790d128289395fa128f6b9fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2930240_42e7671c",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T18:17:31Z",
+      "side": 1,
+      "message": "I suppose this comment is simply to elaborate what the old code was doing?",
+      "range": {
+        "startLine": 1464,
+        "startChar": 9,
+        "endLine": 1464,
+        "endChar": 67
+      },
+      "revId": "f026f5f5da76773790d128289395fa128f6b9fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e0e339ad_c0b2b42f",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -19,6 +65,23 @@
         "endLine": 1477,
         "endChar": 16
       },
+      "revId": "f026f5f5da76773790d128289395fa128f6b9fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64e32da0_fdd5ed1e",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T18:17:31Z",
+      "side": 1,
+      "message": "Unclear why it can\u0027t be deleted afterwards?\n\nWhat invariants is it setting in the destructor that makes this OK?",
       "revId": "f026f5f5da76773790d128289395fa128f6b9fd0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
