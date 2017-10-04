@@ -22,6 +22,30 @@
       "revId": "8cdfac752808784d29185710095ad104922cd861",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f26e561a_5ec775b1",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-10-04T19:57:29Z",
+      "side": 0,
+      "message": "I am not 100% sure.\n\nIf I use DX on:\n\n    StringBuilder s \u003d new StringBuilder();                                                                                                   \n    s.append(\"x\");                                                                                                                           \n    s.append(\"x\");                                                                                                                           \n    return s.length();\n\nThere is no NullChecks either. Could it be a (SSA?) defined variable from NewInstance never need NullCheck?",
+      "parentUuid": "43875684_f8f870b2",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 61
+      },
+      "revId": "8cdfac752808784d29185710095ad104922cd861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
