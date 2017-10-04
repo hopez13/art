@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c0bb1314_891ae91c",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-04T16:12:44Z",
+      "side": 1,
+      "message": "Why? The storage unit of our Java boolean is one byte, we even have Size(kBool) \u003d\u003d Size(kInt8) in this file, so this feels really right to me.\n\nBut let me try to understand. This change makes perfect sense for the only client of ToSignedType() right now (the vectorizer where packed bytes and packed booleans are compatible). What clients do you see in the future that would not want the boolean included?",
+      "parentUuid": "e968b80c_b5db4c62",
+      "revId": "20bdfb855853e918e3360ef9d3f943efacf45abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed015dd3_2bc8302b",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 2
@@ -78,6 +96,30 @@
       "side": 1,
       "message": "Yes, that\u0027s supported, and that\u0027s what we should ideally generate. We accept that we may loose that information when doing transformations, but doing it best effort would be great.",
       "parentUuid": "d5f42e51_88bdeeaf",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 62
+      },
+      "revId": "20bdfb855853e918e3360ef9d3f943efacf45abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17b42e96_81281341",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-04T16:12:44Z",
+      "side": 1,
+      "message": "Okidoki. Then I will change this to putting the dex_pc back where vmarko removed it instead. Coming up.",
+      "parentUuid": "4887d546_d5c7844e",
       "range": {
         "startLine": 70,
         "startChar": 0,
