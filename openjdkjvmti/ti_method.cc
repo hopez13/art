@@ -778,10 +778,11 @@ jvmtiError MethodUtil::GetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
   // Suspend JIT since it can get confused if we deoptimize methods getting jitted.
   art::jit::ScopedJitSuspend suspend_jit;
   art::ScopedObjectAccess soa(self);
-  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+  art::Locks::thread_list_lock_->ExclusiveLock(self);
   art::Thread* target = nullptr;
   jvmtiError err = ERR(INTERNAL);
   if (!ThreadUtil::GetAliveNativeThread(thread, soa, &target, &err)) {
+    art::Locks::thread_list_lock_->ExclusiveUnlock(self);
     return err;
   }
   GetLocalVariableClosure c(self, depth, slot, type, val);
@@ -905,10 +906,11 @@ jvmtiError MethodUtil::SetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
   // Suspend JIT since it can get confused if we deoptimize methods getting jitted.
   art::jit::ScopedJitSuspend suspend_jit;
   art::ScopedObjectAccess soa(self);
-  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+  art::Locks::thread_list_lock_->ExclusiveLock(self);
   art::Thread* target = nullptr;
   jvmtiError err = ERR(INTERNAL);
   if (!ThreadUtil::GetAliveNativeThread(thread, soa, &target, &err)) {
+    art::Locks::thread_list_lock_->ExclusiveUnlock(self);
     return err;
   }
   SetLocalVariableClosure c(self, depth, slot, type, val);
@@ -962,10 +964,11 @@ jvmtiError MethodUtil::GetLocalInstance(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::Thread* self = art::Thread::Current();
   art::ScopedObjectAccess soa(self);
-  art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+  art::Locks::thread_list_lock_->ExclusiveLock(self);
   art::Thread* target = nullptr;
   jvmtiError err = ERR(INTERNAL);
   if (!ThreadUtil::GetAliveNativeThread(thread, soa, &target, &err)) {
+    art::Locks::thread_list_lock_->ExclusiveUnlock(self);
     return err;
   }
   GetLocalInstanceClosure c(self, depth, data);

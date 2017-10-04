@@ -267,7 +267,7 @@ class Thread {
       REQUIRES(Locks::thread_suspend_count_lock_);
   bool RequestSynchronousCheckpoint(Closure* function)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(Locks::thread_list_lock_)
+      RELEASE(Locks::thread_list_lock_)
       REQUIRES(!Locks::thread_suspend_count_lock_);
   bool RequestEmptyCheckpoint()
       REQUIRES(Locks::thread_suspend_count_lock_);
