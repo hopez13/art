@@ -22,6 +22,30 @@
       "revId": "391ba8e109690fd9ce39c45d752dab60eb0a5d28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e475936_cd8a5911",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-04T09:28:15Z",
+      "side": 1,
+      "message": "Other configs should not be affected by --pictest anyway.",
+      "parentUuid": "f248ee8b_8b64a54b",
+      "range": {
+        "startLine": 71,
+        "startChar": 23,
+        "endLine": 71,
+        "endChar": 35
+      },
+      "revId": "391ba8e109690fd9ce39c45d752dab60eb0a5d28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
