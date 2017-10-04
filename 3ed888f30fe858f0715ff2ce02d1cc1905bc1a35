@@ -106,6 +106,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e458435b_6588a7d7",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T17:51:32Z",
+      "side": 1,
+      "message": "It seems far too brittle to me to rely on a separate call to clear all the bits.\n\nIf you insist on \"BitVector\" remaining ill-defined after construction, at least don\u0027t break ArenaBitVector when it was well-defined after construction prior to this CL?",
+      "parentUuid": "3e3a8e1c_2ba5efd4",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
