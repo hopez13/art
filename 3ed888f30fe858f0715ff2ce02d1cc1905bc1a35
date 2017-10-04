@@ -70,6 +70,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b94262_a9a71048",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-04T17:14:51Z",
+      "side": 1,
+      "message": "Sounds like there should\u0027ve been\n\n   static BitVector Union(a,b)\n   static BitVector Negate(a)\n\netc.\n\nto bypass the initialization.",
+      "parentUuid": "f370e4b7_558e8b73",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
