@@ -89,6 +89,16 @@ class OatFile {
                        const char* abs_dex_location,
                        std::string* error_msg);
 
+  static OatFile* Open(const int vdex_fd,
+                       const int oat_fd,
+                       const std::string& oat_location,
+                       uint8_t* requested_base,
+                       uint8_t* oat_file_begin,
+                       bool executable,
+                       bool low_4gb,
+                       const char* abs_dex_location,
+                       std::string* error_msg);
+
   // Open an oat file from an already opened File.
   // Does not use dlopen underneath so cannot be used for runtime use
   // where relocations may be required. Currently used from
