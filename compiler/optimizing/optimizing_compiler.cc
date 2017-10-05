@@ -757,15 +757,18 @@ static void AllocateRegisters(HGraph* graph,
                     pass_observer);
     PrepareForRegisterAllocation(graph, stats).Run();
   }
-  SsaLivenessAnalysis liveness(graph, codegen);
+  // Use local allocator shared by SSA liveness analysis and register allocator.
+  // (Register allocator creates new objects in the liveness data.)
+  ScopedArenaAllocator local_allocator(graph->GetArenaStack());
+  SsaLivenessAnalysis liveness(graph, codegen, &local_allocator);
   {
     PassScope scope(SsaLivenessAnalysis::kLivenessPassName, pass_observer);
     liveness.Analyze();
   }
   {
     PassScope scope(RegisterAllocator::kRegisterAllocatorPassName, pass_observer);
-    RegisterAllocator* register_allocator =
-        RegisterAllocator::Create(graph->GetAllocator(), codegen, liveness, strategy);
+    std::unique_ptr<RegisterAllocator> register_allocator =
+        RegisterAllocator::Create(&local_allocator, codegen, liveness, strategy);
     register_allocator->AllocateRegisters();
   }
 }
