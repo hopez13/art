@@ -94,6 +94,30 @@
       "revId": "c1058f91cef16b30e47fd7c0f8f8f5886a9964b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a45ce4d9_9ef344e3",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T09:24:25Z",
+      "side": 1,
+      "message": "--prebuild will pick up \u0027optimizing\u0027 if not provided. So sorry, I still don\u0027t see what is being fixed here.",
+      "parentUuid": "ec6cbd9f_41a535be",
+      "range": {
+        "startLine": 234,
+        "startChar": 57,
+        "endLine": 234,
+        "endChar": 67
+      },
+      "revId": "c1058f91cef16b30e47fd7c0f8f8f5886a9964b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
