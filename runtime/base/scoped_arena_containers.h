@@ -52,6 +52,12 @@ template <typename T>
 using ScopedArenaVector = dchecked_vector<T, ScopedArenaAllocatorAdapter<T>>;
 
 template <typename T, typename Comparator = std::less<T>>
+using ScopedArenaPriorityQueue = std::priority_queue<T, ScopedArenaVector<T>, Comparator>;
+
+template <typename T>
+using ScopedArenaStdStack = std::stack<T, ScopedArenaDeque<T>>;
+
+template <typename T, typename Comparator = std::less<T>>
 using ScopedArenaSet = std::set<T, Comparator, ScopedArenaAllocatorAdapter<T>>;
 
 template <typename K, typename V, typename Comparator = std::less<K>>
