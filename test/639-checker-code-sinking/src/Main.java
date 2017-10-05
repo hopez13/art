@@ -41,7 +41,7 @@ public class Main {
     }
 
     try {
-      testStoreStore(doThrow);
+      $noinline$testStoreStore(doThrow, true);
     } catch (Error e) {
       // expected
       System.out.println(e.getMessage());
@@ -306,7 +306,7 @@ public class Main {
   }
 
   // Test that we preserve the order of stores.
-  /// CHECK-START: void Main.testStoreStore(boolean) code_sinking (before)
+  /// CHECK-START: void Main.$noinline$testStoreStore(boolean, boolean) code_sinking (before)
   /// CHECK: <<Int42:i\d+>>       IntConstant 42
   /// CHECK: <<Int43:i\d+>>       IntConstant 43
   /// CHECK: <<LoadClass:l\d+>>   LoadClass class_name:Main
@@ -317,27 +317,30 @@ public class Main {
   /// CHECK:                      begin_block
   /// CHECK:                      Throw
 
-  /// CHECK-START: void Main.testStoreStore(boolean) code_sinking (after)
-  /// CHECK: <<Int42:i\d+>>       IntConstant 42
-  /// CHECK: <<Int43:i\d+>>       IntConstant 43
-  /// CHECK-NOT:                  NewInstance
-  /// CHECK:                      If
-  /// CHECK:                      begin_block
-  /// CHECK: <<Error:l\d+>>       LoadClass class_name:java.lang.Error
-  /// CHECK: <<LoadClass:l\d+>>   LoadClass class_name:Main
-  /// CHECK-NOT:                  begin_block
-  /// CHECK: <<NewInstance:l\d+>> NewInstance [<<LoadClass>>]
-  /// CHECK-NOT:                  begin_block
-  /// CHECK:                      InstanceFieldSet [<<NewInstance>>,<<Int42>>]
-  /// CHECK-NOT:                  begin_block
-  /// CHECK:                      InstanceFieldSet [<<NewInstance>>,<<Int43>>]
-  /// CHECK-NOT:                  begin_block
-  /// CHECK:                      NewInstance [<<Error>>]
-  /// CHECK:                      Throw
-  public static void testStoreStore(boolean doThrow) {
+  // TODO: fail to sink this.
+
+  // CHECK-START: void Main.$noinline$testStoreStore(boolean, boolean) code_sinking (after)
+  // CHECK: <<Int42:i\d+>>       IntConstant 42
+  // CHECK: <<Int43:i\d+>>       IntConstant 43
+  // CHECK-NOT:                  NewInstance
+  // CHECK:                      If
+  // CHECK:                      begin_block
+  // CHECK: <<Error:l\d+>>       LoadClass class_name:java.lang.Error
+  // CHECK: <<LoadClass:l\d+>>   LoadClass class_name:Main
+  // CHECK-NOT:                  begin_block
+  // CHECK: <<NewInstance:l\d+>> NewInstance [<<LoadClass>>]
+  // CHECK-NOT:                  begin_block
+  // CHECK:                      InstanceFieldSet [<<NewInstance>>,<<Int42>>]
+  // CHECK-NOT:                  begin_block
+  // CHECK:                      InstanceFieldSet [<<NewInstance>>,<<Int43>>]
+  // CHECK-NOT:                  begin_block
+  // CHECK:                      NewInstance [<<Error>>]
+  // CHECK:                      Throw
+
+  public static void $noinline$testStoreStore(boolean doThrow, boolean flag) {
     Main m = new Main();
     m.intField = 42;
-    m.intField = 43;
+    m.intField2 = 43;
     if (doThrow) {
       throw new Error(m.$opt$noinline$toString());
     }
@@ -349,6 +352,7 @@ public class Main {
 
   volatile int volatileField;
   int intField;
+  int intField2;
   Object objectField;
   static boolean doThrow;
   static boolean doLoop;
