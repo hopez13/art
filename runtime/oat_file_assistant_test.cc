@@ -20,6 +20,7 @@
 
 #include <string>
 #include <vector>
+#include <fcntl.h>
 
 #include <gtest/gtest.h>
 
@@ -219,6 +220,42 @@ TEST_F(OatFileAssistantTest, OatUpToDate) {
   EXPECT_FALSE(oat_file_assistant.IsInBootClassPath());
   EXPECT_EQ(OatFileAssistant::kOatCannotOpen, oat_file_assistant.OdexFileStatus());
   EXPECT_EQ(OatFileAssistant::kOatUpToDate, oat_file_assistant.OatFileStatus());
+  EXPECT_TRUE(oat_file_assistant.HasOriginalDexFiles());
+}
+
+TEST_F(OatFileAssistantTest, GetDexOptNeededWithFd) {
+  std::string dex_location = GetScratchDir() + "/OatUpToDate.jar";
+  std::string odex_location = GetScratchDir() + "/OatUpToDate.odex";
+  std::string vdex_location = GetScratchDir() + "/OatUpToDate.vdex";
+
+  Copy(GetDexSrc1(), dex_location);
+  GenerateOatForTest(dex_location.c_str(),
+                     odex_location.c_str(),
+                     CompilerFilter::kSpeed,
+                     true,
+                     false,
+                     false);
+
+  android::base::unique_fd odex_fd(open(odex_location.c_str(), O_RDONLY));
+  android::base::unique_fd vdex_fd(open(vdex_location.c_str(), O_RDONLY));
+
+  OatFileAssistant oat_file_assistant(dex_location.c_str(),
+                                      kRuntimeISA,
+                                      false,
+                                      vdex_fd.get(),
+                                      odex_fd.get());
+  EXPECT_EQ(OatFileAssistant::kNoDexOptNeeded,
+      oat_file_assistant.GetDexOptNeeded(CompilerFilter::kSpeed));
+  EXPECT_EQ(OatFileAssistant::kNoDexOptNeeded,
+      oat_file_assistant.GetDexOptNeeded(CompilerFilter::kQuicken));
+  EXPECT_EQ(OatFileAssistant::kNoDexOptNeeded,
+      oat_file_assistant.GetDexOptNeeded(CompilerFilter::kExtract));
+  EXPECT_EQ(-OatFileAssistant::kDex2OatForFilter,
+      oat_file_assistant.GetDexOptNeeded(CompilerFilter::kEverything));
+
+  EXPECT_FALSE(oat_file_assistant.IsInBootClassPath());
+  EXPECT_EQ(OatFileAssistant::kOatUpToDate, oat_file_assistant.OdexFileStatus());
+  EXPECT_EQ(OatFileAssistant::kOatCannotOpen, oat_file_assistant.OatFileStatus());
   EXPECT_TRUE(oat_file_assistant.HasOriginalDexFiles());
 }
 
