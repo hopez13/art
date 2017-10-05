@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd421452_a82aa678",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-05T20:57:28Z",
+      "side": 1,
+      "message": "const is useless here. (and in the other places you used it as the parameter).",
+      "range": {
+        "startLine": 92,
+        "startChar": 23,
+        "endLine": 93,
+        "endChar": 40
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "600f9905_0dd2ade5",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-05T20:57:28Z",
+      "side": 1,
+      "message": "Note that this can\u0027t be submitted before https://android-review.googlesource.com/c/platform/art/+/476977.",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 3
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11a5925b_089bbb5d",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-05T20:57:28Z",
+      "side": 1,
+      "message": "This is not right. The oat location is different than the odex location and by using the same fd you equal them.\n\nI am happy if we assume the odex location when you pass fds for opening file. So you can set the inner fields of this one to reflect that there\u0027s no file (i.e. file_ \u003d null \u0026 load_attempted \u003d true \u0026 status_attempted \u003d true)",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 3
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d77f6687_52ac4ff0",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-05T20:57:28Z",
+      "side": 1,
+      "message": "this will fail as well with fds.\n\nSince we should assume the odex_ location when you pass fds I\u0027m ok if you set dex_parent_writable to true so that GetBestOatFile() takes the right oat file.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 44
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1efd976_10b69bee",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-05T20:57:28Z",
+      "side": 1,
+      "message": "You need to handle this case as well.",
+      "range": {
+        "startLine": 1017,
+        "startChar": 4,
+        "endLine": 1026,
+        "endChar": 28
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
