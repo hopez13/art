@@ -16,6 +16,24 @@
       "revId": "efac0df8c738764823c637deeca1f3be33912064",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd16f663_bee5ee4e",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-05T00:02:59Z",
+      "side": 0,
+      "message": "We still need to \u0027delete\u0027 self.",
+      "parentUuid": "6cc55a9d_96ff61b9",
+      "revId": "efac0df8c738764823c637deeca1f3be33912064",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

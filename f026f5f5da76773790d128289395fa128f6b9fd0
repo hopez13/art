@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bee0a859_cf7de62b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-05T00:02:59Z",
+      "side": 1,
+      "message": "AddToExpectedMutexesOnWeakRefAccess is never called on thread_list_lock_ so we never SetShouldRespondeToEmptyCheckpointRequests so we never call the CheckEmptyCheckPointFromMutex.\n\nAlso this isn\u0027t the only place we do this. Look at line 1495 in this same function.",
+      "parentUuid": "84102d20_06e1f394",
+      "range": {
+        "startLine": 1456,
+        "startChar": 17,
+        "endLine": 1456,
+        "endChar": 24
+      },
+      "revId": "f026f5f5da76773790d128289395fa128f6b9fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2930240_42e7671c",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ffe01fc7_a088468e",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-05T00:02:59Z",
+      "side": 1,
+      "message": "The current code is doing it too.\n\nThis is just more explicit.",
+      "parentUuid": "b2930240_42e7671c",
+      "range": {
+        "startLine": 1464,
+        "startChar": 9,
+        "endLine": 1464,
+        "endChar": 67
+      },
+      "revId": "f026f5f5da76773790d128289395fa128f6b9fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7af8ffc1_efc0a96c",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-10-04T18:25:51Z",
       "side": 1,
       "message": "I don\u0027t see the fix.\n\nRequestSynchronousCheckpoint drops thread_list_lock using ScopedThreadListLockUnlock and then happily uses \"Thread*\" afterwards.\n\n\n   // 1\n\n        ScopedThreadListLockUnlock stllu(self);\n        ScopedThreadSuspension sts(self, ThreadState::kWaiting);\n        barrier_closure.Wait(self);\n\n   // 2\n\n   {\n      ScopedThreadListLockUnlock stllu(self);\n      {\n        ScopedThreadSuspension sts(self, ThreadState::kWaiting);\n        while (GetState() \u003d\u003d ThreadState::kRunnable) {\n          // We became runnable again. Wait till the suspend triggered in ModifySuspendCount\n          // moves us to suspended.\n          sched_yield();\n        }\n      }\n\n      function-\u003eRun(this);\n    }\n\n    {\n      MutexLock mu2(self, *Locks::thread_suspend_count_lock_);\n\n      DCHECK_NE(GetState(), ThreadState::kRunnable);\n      bool updated \u003d ModifySuspendCount(self, -1, nullptr, SuspendReason::kInternal);\n      DCHECK(updated);\n    }\n\n    {\n      // Imitate ResumeAll, the thread may be waiting on Thread::resume_cond_ since we raised its\n      // suspend count. Now the suspend_count_ is lowered so we must do the broadcast.\n      MutexLock mu2(self, *Locks::thread_suspend_count_lock_);\n      Thread::resume_cond_-\u003eBroadcast(self);\n    }\n\n    return true;  // We\u0027re done, break out of the loop.",
+      "range": {
+        "startLine": 1465,
+        "startChar": 58,
+        "endLine": 1467,
+        "endChar": 58
+      },
+      "revId": "f026f5f5da76773790d128289395fa128f6b9fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9ff663e_4748a67a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-05T00:02:59Z",
+      "side": 1,
+      "message": "In that case it is the ModifySuspendCount and the loop checking IsSuspended that provides synchronization.",
+      "parentUuid": "7af8ffc1_efc0a96c",
       "range": {
         "startLine": 1465,
         "startChar": 58,
