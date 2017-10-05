@@ -160,6 +160,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "944030ec_e478a476",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-05T09:13:55Z",
+      "side": 1,
+      "message": "No, AFAIK no one has done such measurements.\n\nI\u0027m not rewriting how BitVector works in this CL. Period.",
+      "parentUuid": "3c2e690e_c2aba401",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
