@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "271a79c3_fcda76ce",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-05T23:12:12Z",
+      "side": 1,
+      "message": "I guess you can submit it but once you tighten the selinux policy things will break :) So we just need to submit it before then.",
+      "parentUuid": "f8e050bb_c5ca467a",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 3
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11a5925b_089bbb5d",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -201,6 +225,30 @@
       "side": 1,
       "message": "GetFile() should not return nullptr with the fds are valid. Ideally, this will never hit.",
       "parentUuid": "e1efd976_10b69bee",
+      "range": {
+        "startLine": 1017,
+        "startChar": 4,
+        "endLine": 1026,
+        "endChar": 28
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3cde870_fbcd43b9",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-05T23:12:12Z",
+      "side": 1,
+      "message": "GetFile() will return null if you have a vdex but not an odex.\n\nI agree that it makes a pretty weird design and I\u0027ll be happy if we improve it (in another CL)",
+      "parentUuid": "06e7dd50_dae59a98",
       "range": {
         "startLine": 1017,
         "startChar": 4,
