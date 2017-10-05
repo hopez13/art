@@ -16,6 +16,24 @@
       "revId": "0afa07af28def04784678599d68b3634c36cbb47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ec8b6c5_8b9d17a5",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-10-05T21:35:28Z",
+      "side": 1,
+      "message": "Just making sure I understand your idea.\n\nDo you mean:\n\n if env.USE_D8_BY_DEFAULT \u003d\u003d True:\n  options_test +\u003d \u0027 --build-with-d8\u0027\n elif env.ANDROID_COMPILE_WITH_JACK \u003d\u003d True:\n  options_test +\u003d \u0027 --build-with-jack\u0027\n elif env.ANDROID_COMPILE_WITH_JACK \u003d\u003d False:\n  options_test +\u003d \u0027 --build-with-javac-dx\u0027",
+      "parentUuid": "70348cc5_cac8f76e",
+      "revId": "0afa07af28def04784678599d68b3634c36cbb47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
