@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b283b043_b9c461c2",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T10:02:31Z",
+      "side": 1,
+      "message": "There should be some message and handling that both fds are provided.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 89
+      },
+      "revId": "4c693740791da9d48fb5f7251ed20e0bb8ffc9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01cfd549_6e24602d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T10:02:31Z",
+      "side": 1,
+      "message": "Invalid",
+      "range": {
+        "startLine": 1342,
+        "startChar": 31,
+        "endLine": 1342,
+        "endChar": 38
+      },
+      "revId": "4c693740791da9d48fb5f7251ed20e0bb8ffc9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e366485_96694d06",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T10:02:31Z",
+      "side": 1,
+      "message": "Keep order consistent (here it\u0027s vdex then oat, above it\u0027s oat and vdex). I\u0027d favor vdex then oat.",
+      "range": {
+        "startLine": 1101,
+        "startChar": 34,
+        "endLine": 1102,
+        "endChar": 40
+      },
+      "revId": "4c693740791da9d48fb5f7251ed20e0bb8ffc9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f68703f5_f3cc9c6f",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T10:02:31Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 125,
+        "startChar": 35,
+        "endLine": 125,
+        "endChar": 37
+      },
+      "revId": "4c693740791da9d48fb5f7251ed20e0bb8ffc9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc8e5970_ec22a68b",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T10:02:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 126,
+        "startChar": 36,
+        "endLine": 126,
+        "endChar": 38
+      },
+      "revId": "4c693740791da9d48fb5f7251ed20e0bb8ffc9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
