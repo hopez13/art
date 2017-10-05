@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0734b5cf_042a82f1",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-05T09:23:55Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep a single DCHECK(). If we want to know the type in case of failure, add \" \u003c\u003c type\".",
+      "parentUuid": "dd04a56b_26fc515e",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 84
+      },
+      "revId": "114e2de616fb0923769f19d3b1cee6a299e55baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a79ab39a_3717b631",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 5
