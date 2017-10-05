@@ -22,6 +22,30 @@
       "revId": "c5f78d314a43c76e800ad8b732248ca45925d5ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f8e0a0a_57d4901f",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-10-05T09:25:05Z",
+      "side": 1,
+      "message": "Not sure what you mean, it can be different instructions depending on which dexer.",
+      "parentUuid": "085827ba_bd88c29a",
+      "range": {
+        "startLine": 174,
+        "startChar": 44,
+        "endLine": 174,
+        "endChar": 52
+      },
+      "revId": "c5f78d314a43c76e800ad8b732248ca45925d5ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
