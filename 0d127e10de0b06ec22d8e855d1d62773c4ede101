@@ -16,6 +16,24 @@
       "revId": "0d127e10de0b06ec22d8e855d1d62773c4ede101",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "999d1453_90deeee2",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-05T17:19:37Z",
+      "side": 1,
+      "message": "Good point; yes, I was planning to do that in a follow-up CL.",
+      "parentUuid": "91964f29_f07c25cc",
+      "revId": "0d127e10de0b06ec22d8e855d1d62773c4ede101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
