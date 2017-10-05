@@ -1693,6 +1693,11 @@ class SideEffects : public ValueObject {
     return (flags_ & kAllReads);
   }
 
+  // Returns true if something is read/written.
+  bool DoesAnyReadOrWrite() const {
+    return DoesAnyRead() || DoesAnyWrite();
+  }
+
   // Returns true if potentially everything is written and read
   // (every type and every kind of access).
   bool DoesAllReadWrite() const {
