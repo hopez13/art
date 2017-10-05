@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91964f29_f07c25cc",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-05T17:06:18Z",
+      "side": 1,
+      "message": "Did you also want to add the BKPT to validate MR hasn\u0027t changed (like in the optimizing compiler)? Perhaps in a follow-up CL?",
+      "revId": "0d127e10de0b06ec22d8e855d1d62773c4ede101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
