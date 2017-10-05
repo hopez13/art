@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "bd8c0087_0c927a54",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-05T23:20:00Z",
+      "side": 1,
+      "message": "Oh, yeah. Make sense. When are you planning to submit it? (I see Nicolas +2ed it long ago)",
+      "parentUuid": "271a79c3_fcda76ce",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 3
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11a5925b_089bbb5d",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -249,6 +273,30 @@
       "side": 1,
       "message": "GetFile() will return null if you have a vdex but not an odex.\n\nI agree that it makes a pretty weird design and I\u0027ll be happy if we improve it (in another CL)",
       "parentUuid": "06e7dd50_dae59a98",
+      "range": {
+        "startLine": 1017,
+        "startChar": 4,
+        "endLine": 1026,
+        "endChar": 28
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fafa7d8_35eed502",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-05T23:20:00Z",
+      "side": 1,
+      "message": "With fd support, one has to provide fds for both odex and vdex. So this scenarios will never come that GetFile() return nullptr for odex provided a valid oat_fd.",
+      "parentUuid": "a3cde870_fbcd43b9",
       "range": {
         "startLine": 1017,
         "startChar": 4,
