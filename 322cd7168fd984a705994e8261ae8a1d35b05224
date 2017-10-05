@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "b9a54316_34099cc0",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-05T22:04:43Z",
+      "side": 1,
+      "message": ".\n\ntemplate \u003c\u003e\nstruct CmdlineType\u003cunsigned int\u003e : CmdlineTypeParser\u003cunsigned int\u003e {\n  Result Parse(const std::string\u0026 str) {\n     return ParseNumeric\u003cunsigned int\u003e();\n  }\n}\n\n\ntemplate \u003c\u003e\nstruct CmdlineType\u003cint\u003e : CmdlineTypeParser\u003cint\u003e {\n  Result Parse(const std::string\u0026 str) {\n     return ParseNumeric\u003cint\u003e();\n  }\n}\n\n\n  template \u003ctypename T\u003e\n  Result ParseNumeric(...) {\n    // same code as CmdlineType\u003cunsigned int\u003e::Parse\n    // replace \"unsigned int\" -\u003e T\n    // replace \"int\" -\u003e std::make_signed\u003cT\u003e::type\n  }",
+      "parentUuid": "259c9b72_ab0d108b",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85ff7f81_0e43f70a",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 4
@@ -337,6 +355,24 @@
     },
     {
       "key": {
+        "uuid": "9cd026c3_fe11f0d6",
+        "filename": "compiler/driver/compiler_options_map.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-05T22:04:43Z",
+      "side": 1,
+      "message": "It\u0027s not a bad idea, but maybe put comments there instead?\n\nOr at least\n\n  // -------------------------------\n\nTo make it more obvious that it\u0027s separated intentionally.",
+      "parentUuid": "22f9fad5_bd01a7b1",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5162b9d7_f053a3d4",
         "filename": "compiler/driver/compiler_options_map.h",
         "patchSetId": 4
@@ -440,6 +476,24 @@
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8380543_6f17fb0f",
+        "filename": "compiler/driver/compiler_options_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-05T22:04:43Z",
+      "side": 1,
+      "message": "A lot of the code is written prior to the \"Art\" style guide, doesn\u0027t mean its right for new code.\n\nIf you don\u0027t agree with the ART style guide, the discussion should be there and not here.",
+      "parentUuid": "8bb3598a_8da4fdd1",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -573,6 +627,30 @@
     },
     {
       "key": {
+        "uuid": "ac24eea1_3a7097d7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-05T22:04:43Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "4c740def_5ea4e3eb",
+      "range": {
+        "startLine": 1125,
+        "startChar": 7,
+        "endLine": 1125,
+        "endChar": 25
+      },
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0434460f_a719d74d",
         "filename": "dex2oat/dex2oat_options.cc",
         "patchSetId": 4
@@ -638,6 +716,24 @@
       "side": 1,
       "message": "Is this worth it? It will be a macro of a macro.",
       "parentUuid": "e8a301c1_91d22b93",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82ef0c26_9cbb5621",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-05T22:04:43Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "96b04154_5bbdab3e",
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
