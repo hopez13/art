@@ -46,6 +46,30 @@
       "revId": "c5f78d314a43c76e800ad8b732248ca45925d5ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eb4240b_fb43d888",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T09:26:12Z",
+      "side": 1,
+      "message": "Right, could you add that as a comment (and say which instructions for eg DX and D8)?",
+      "parentUuid": "2f8e0a0a_57d4901f",
+      "range": {
+        "startLine": 174,
+        "startChar": 44,
+        "endLine": 174,
+        "endChar": 52
+      },
+      "revId": "c5f78d314a43c76e800ad8b732248ca45925d5ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
