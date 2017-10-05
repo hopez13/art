@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "dd04a56b_26fc515e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T09:16:29Z",
+      "side": 1,
+      "message": "You could do two DCHECK_NE?",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 84
+      },
+      "revId": "114e2de616fb0923769f19d3b1cee6a299e55baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a79ab39a_3717b631",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 5
