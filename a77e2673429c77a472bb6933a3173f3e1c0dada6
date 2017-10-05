@@ -306,6 +306,30 @@
       "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43133726_63c8a88a",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-05T23:28:31Z",
+      "side": 1,
+      "message": "the oat file might fail to load for various reasons:\n- corruption (happened before)\n- out of date (i.e. different oat version)\n- and much more :) check the open workflow.",
+      "parentUuid": "7fafa7d8_35eed502",
+      "range": {
+        "startLine": 1017,
+        "startChar": 4,
+        "endLine": 1026,
+        "endChar": 28
+      },
+      "revId": "a77e2673429c77a472bb6933a3173f3e1c0dada6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
