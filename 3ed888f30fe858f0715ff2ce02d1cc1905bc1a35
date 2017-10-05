@@ -178,6 +178,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1f788cb_96061a34",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-05T14:11:13Z",
+      "side": 1,
+      "message": "I wasn\u0027t asking for a rewrite.\n\nDo you feel that strongly opposed to calling \"ClearAllBits\" in the ArenaBitVector constructor given that there\u0027s no measurements to indicate it would be noticeably \"unnecessary work\" ?",
+      "parentUuid": "944030ec_e478a476",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
