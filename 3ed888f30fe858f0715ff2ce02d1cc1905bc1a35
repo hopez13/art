@@ -196,6 +196,24 @@
       "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c22427cb_43dc20f6",
+        "filename": "runtime/base/arena_bit_vector.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-05T16:27:27Z",
+      "side": 1,
+      "message": "I do not want to do such change in this CL. And, frankly, I\u0027m not very eager to rewrite the BitVector anytime soon, I\u0027ve got enough refactorings on my plate.",
+      "parentUuid": "a1f788cb_96061a34",
+      "revId": "3ed888f30fe858f0715ff2ce02d1cc1905bc1a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
