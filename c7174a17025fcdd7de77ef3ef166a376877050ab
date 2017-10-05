@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c64bd983_fe171dc6",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-05T17:21:27Z",
+      "side": 1,
+      "message": "We changed the RequestSynchronousCheckpoint method so we need to control the mutex\u0027s directly.",
+      "parentUuid": "6a85b882_a605930f",
+      "revId": "c7174a17025fcdd7de77ef3ef166a376877050ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c399535_f6599c8d",
         "filename": "runtime/monitor.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-05T17:10:12Z",
       "side": 1,
       "message": "???",
+      "revId": "c7174a17025fcdd7de77ef3ef166a376877050ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b2f627f_d7cfe407",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-05T17:21:27Z",
+      "side": 1,
+      "message": "Need to make sure the lock state is the same at line 489 regardless of the path through this \u0027if\u0027",
+      "parentUuid": "8c399535_f6599c8d",
       "revId": "c7174a17025fcdd7de77ef3ef166a376877050ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
