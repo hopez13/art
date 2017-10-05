@@ -46,6 +46,30 @@
       "revId": "8cdfac752808784d29185710095ad104922cd861",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c999b5c7_34c24fb2",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-05T11:43:57Z",
+      "side": 0,
+      "message": "Ah right, we have that optimization.",
+      "parentUuid": "f26e561a_5ec775b1",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 61
+      },
+      "revId": "8cdfac752808784d29185710095ad104922cd861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
