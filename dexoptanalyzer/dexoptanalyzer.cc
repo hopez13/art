@@ -97,6 +97,10 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("  --android-data=<directory>: optional, the directory which should be used as");
   UsageError("       android-data. By default ANDROID_DATA env variable is used.");
   UsageError("");
+  UsageError("  --oat-fd=number: file descriptor of the oat file which should be analyzed");
+  UsageError("");
+  UsageError("  --vdex-fd=number: file descriptor of the vdex file corresponding to the oat file");
+  UsageError("");
   UsageError("  --downgrade: optional, if the purpose of dexopt is to downgrade the dex file");
   UsageError("       By default, dexopt considers upgrade case.");
   UsageError("");
@@ -167,6 +171,10 @@ class DexoptAnalyzer FINAL {
         setenv("ANDROID_DATA", new_android_data.c_str(), 1);
       } else if (option.starts_with("--downgrade")) {
         downgrade_ = true;
+      } else if (option.starts_with("--oat-fd")) {
+        oat_fd_ = std::stoi(option.substr(strlen("--oat-fd=")).ToString(), nullptr, 0);
+      } else if (option.starts_with("--vdex-fd")) {
+        vdex_fd_ = std::stoi(option.substr(strlen("--vdex-fd=")).ToString(), nullptr, 0);
       } else { Usage("Unknown argument '%s'", option.data()); }
     }
 
@@ -223,15 +231,26 @@ class DexoptAnalyzer FINAL {
     }
     std::unique_ptr<Runtime> runtime(Runtime::Current());
 
-    OatFileAssistant oat_file_assistant(dex_file_.c_str(), isa_, /*load_executable*/ false);
+    std::unique_ptr<OatFileAssistant> oat_file_assistant;
+    if (oat_fd_ != -1 && vdex_fd_ != -1) {
+      oat_file_assistant = std::make_unique<OatFileAssistant>(dex_file_.c_str(),
+                                                              isa_,
+                                                              false /*load_executable*/,
+                                                              oat_fd_,
+                                                              vdex_fd_);
+    } else {
+      oat_file_assistant = std::make_unique<OatFileAssistant>(dex_file_.c_str(),
+                                                              isa_,
+                                                              false /*load_executable*/);
+    }
     // Always treat elements of the bootclasspath as up-to-date.
     // TODO(calin): this check should be in OatFileAssistant.
-    if (oat_file_assistant.IsInBootClassPath()) {
+    if (oat_file_assistant->IsInBootClassPath()) {
       return kNoDexOptNeeded;
     }
 
     // TODO(calin): Pass the class loader context as an argument to dexoptanalyzer. b/62269291.
-    int dexoptNeeded = oat_file_assistant.GetDexOptNeeded(
+    int dexoptNeeded = oat_file_assistant->GetDexOptNeeded(
         compiler_filter_, assume_profile_changed_, downgrade_);
 
     // Convert OatFileAssitant codes to dexoptanalyzer codes.
@@ -258,6 +277,8 @@ class DexoptAnalyzer FINAL {
   bool assume_profile_changed_;
   bool downgrade_;
   std::string image_;
+  int oat_fd_ = -1;
+  int vdex_fd_ = -1;
 };
 
 static int dexoptAnalyze(int argc, char** argv) {
