@@ -63,6 +63,30 @@
       "revId": "2595d0c5dd771a730cc8f0947ca33b0fcf1f5f44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5649a654_1aa5c71e",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-06T20:31:14Z",
+      "side": 1,
+      "message": "I guess it\u0027s fine since it\u0027s doing composition, I was just thinking of the same-pattern for runtime_options.h but it doesn\u0027t work here.",
+      "parentUuid": "b7dacd52_1154be82",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 30
+      },
+      "revId": "2595d0c5dd771a730cc8f0947ca33b0fcf1f5f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
