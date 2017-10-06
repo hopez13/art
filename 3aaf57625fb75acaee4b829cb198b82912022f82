@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "813d7b25_64d89d24",
+        "filename": "runtime/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T20:41:06Z",
+      "side": 1,
+      "message": "I\u0027m not doubting the necessity of the union, it\u0027s just strange to look at: \"Hey, I\u0027m defining a struct, but it\u0027s really a union, this is OK, don\u0027t worry...\" :-)",
+      "parentUuid": "f92b5b1c_10213cc7",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "3aaf57625fb75acaee4b829cb198b82912022f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a2b0eab_c81aef1d",
         "filename": "runtime/base/bit_struct.h",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Yes, should I update the docs to make this more obvious?\n\n--------\n\nIt has to fit into uintmax_t, I didn\u0027t make it generic enough to work on any array (but I could, and there\u0027s a \u0027future work\u0027 note similar to this). At that point I would just expect any user to make a regular struct and shove several bit structs into it.\n\nIf something exceeds uintmax_t it will just be a compilation failure.",
       "parentUuid": "7a2b0eab_c81aef1d",
+      "range": {
+        "startLine": 73,
+        "startChar": 55,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "3aaf57625fb75acaee4b829cb198b82912022f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d45d991b_a88aa189",
+        "filename": "runtime/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T20:41:06Z",
+      "side": 1,
+      "message": "I expected as much not seeing arrays etc. Not sure whether it requires a comment, but sometimes being explicit is good.",
+      "parentUuid": "702986c4_6c390214",
       "range": {
         "startLine": 73,
         "startChar": 55,
