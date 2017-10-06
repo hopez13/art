@@ -39,6 +39,30 @@
       "revId": "2595d0c5dd771a730cc8f0947ca33b0fcf1f5f44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7dacd52_1154be82",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T20:18:11Z",
+      "side": 1,
+      "message": "Considering this is dex2oat_options.cc, does it really make sense to outline it into a header file?",
+      "parentUuid": "cbdd0a61_e0074242",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 30
+      },
+      "revId": "2595d0c5dd771a730cc8f0947ca33b0fcf1f5f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
