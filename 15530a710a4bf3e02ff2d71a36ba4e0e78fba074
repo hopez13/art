@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc9efc70_ce4867ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T15:42:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7df538a5_22de3f44",
+      "range": {
+        "startLine": 10,
+        "startChar": 48,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "15530a710a4bf3e02ff2d71a36ba4e0e78fba074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "410bed42_cdf59198",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-10-06T14:41:03Z",
       "side": 1,
       "message": "nit: why do we need these 2 branches instead of 1? The branch is virtually free anyway, this code isn\u0027t very hot.\n\n(I\u0027m ok if the answer is \"for consistency\", I was just curious)",
+      "revId": "15530a710a4bf3e02ff2d71a36ba4e0e78fba074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0dc9c29_7201dbdf",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T15:42:17Z",
+      "side": 1,
+      "message": "Yeah, I wanted to be consistent with similar code in the Optimizing compiler\u0027s code generators.",
+      "parentUuid": "410bed42_cdf59198",
       "revId": "15530a710a4bf3e02ff2d71a36ba4e0e78fba074",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
