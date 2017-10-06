@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fca73da5_81462846",
+        "filename": "runtime/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T20:01:56Z",
+      "side": 1,
+      "message": "It looks really weird to have a union define a struct. Can you hide this, even if it\u0027s just\n\n  #define BITSTRUCT union",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "3aaf57625fb75acaee4b829cb198b82912022f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a2b0eab_c81aef1d",
+        "filename": "runtime/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T20:01:56Z",
+      "side": 1,
+      "message": "Sounds like there\u0027s a size restriction, then?",
+      "range": {
+        "startLine": 73,
+        "startChar": 55,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "3aaf57625fb75acaee4b829cb198b82912022f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03d02ecc_6727a2f2",
+        "filename": "runtime/base/bit_struct_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T20:01:56Z",
+      "side": 1,
+      "message": "Should be 4-space?",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "3aaf57625fb75acaee4b829cb198b82912022f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2469113_b3295ba7",
+        "filename": "runtime/base/bit_struct_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T20:01:56Z",
+      "side": 1,
+      "message": "Should be 4-space?",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "3aaf57625fb75acaee4b829cb198b82912022f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
