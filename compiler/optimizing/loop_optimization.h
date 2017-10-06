@@ -183,8 +183,13 @@ class HLoopOptimization : public HOptimization {
                          uint64_t restrictions);
 
   // Vectorization heuristics.
+  Alignment ComputeAlignment(HInstruction* offset,
+                             DataType::Type type,
+                             uint32_t peeling = 0);
+  void SetAlignmentStrategy(uint32_t peeling_votes[],
+                            const ArrayReference* peeling_candidate);
+  uint32_t MaxNumberPeeled();
   bool IsVectorizationProfitable(int64_t trip_count);
-  void SetPeelingCandidate(const ArrayReference* candidate, int64_t trip_count);
   uint32_t GetUnrollingFactor(HBasicBlock* block, int64_t trip_count);
 
   //
@@ -254,8 +259,9 @@ class HLoopOptimization : public HOptimization {
   // Contents reside in phase-local heap memory.
   ScopedArenaSet<ArrayReference>* vector_refs_;
 
-  // Dynamic loop peeling candidate for alignment.
-  const ArrayReference* vector_peeling_candidate_;
+  // Static or dynamic loop peeling for alignment.
+  uint32_t vector_static_peeling_count_;
+  const ArrayReference* vector_dynamic_peeling_candidate_;
 
   // Dynamic data dependence test of the form a != b.
   HInstruction* vector_runtime_test_a_;

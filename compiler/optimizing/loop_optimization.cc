@@ -71,7 +71,13 @@ static inline void NormalizePackedType(/* inout */ DataType::Type* type,
 // Enables vectorization (SIMDization) in the loop optimizer.
 static constexpr bool kEnableVectorization = true;
 
-// All current SIMD targets want 16-byte alignment.
+// Most current SIMD targets prefer 16-byte alignment and the Android runtime
+// guarantees this base alignment for any "vectorizable" string or array.
+//
+// TODO: for uniformity, we optimize for 16-byte alignment on 32-bit
+//       arm as well; however, 8-byte alignment would suffice here;
+//       we may refine this later to avoid peeling more than needed.
+//
 static constexpr size_t kAlignedBase = 16;
 
 // No loop unrolling factor (just one copy of the loop-body).
@@ -461,7 +467,8 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       simplified_(false),
       vector_length_(0),
       vector_refs_(nullptr),
-      vector_peeling_candidate_(nullptr),
+      vector_static_peeling_count_(0),
+      vector_dynamic_peeling_candidate_(nullptr),
       vector_runtime_test_a_(nullptr),
       vector_runtime_test_b_(nullptr),
       vector_map_(nullptr),
@@ -761,7 +768,8 @@ bool HLoopOptimization::ShouldVectorize(LoopNode* node, HBasicBlock* block, int6
   // Reset vector bookkeeping.
   vector_length_ = 0;
   vector_refs_->clear();
-  vector_peeling_candidate_ = nullptr;
+  vector_static_peeling_count_ = 0;
+  vector_dynamic_peeling_candidate_ = nullptr;
   vector_runtime_test_a_ =
   vector_runtime_test_b_= nullptr;
 
@@ -778,20 +786,19 @@ bool HLoopOptimization::ShouldVectorize(LoopNode* node, HBasicBlock* block, int6
     }
   }
 
-  // Does vectorization seem profitable?
-  if (!IsVectorizationProfitable(trip_count)) {
-    return false;
-  }
-
   // Data dependence analysis. Find each pair of references with same type, where
   // at least one is a write. Each such pair denotes a possible data dependence.
   // This analysis exploits the property that differently typed arrays cannot be
   // aliased, as well as the property that references either point to the same
   // array or to two completely disjoint arrays, i.e., no partial aliasing.
   // Other than a few simply heuristics, no detailed subscript analysis is done.
-  // The scan over references also finds a suitable dynamic loop peeling candidate.
-  const ArrayReference* candidate = nullptr;
+  // The scan over references also prepares finding a suitable alignment strategy.
+  uint32_t max_num_same_alignment = 0;
+  uint32_t peeling_votes[kAlignedBase] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+  const ArrayReference* peeling_candidate = nullptr;
   for (auto i = vector_refs_->begin(); i != vector_refs_->end(); ++i) {
+    uint32_t num_same_alignment = 0;
+    // Scan over all next references.
     for (auto j = i; ++j != vector_refs_->end(); ) {
       if (i->type == j->type && (i->lhs || j->lhs)) {
         // Found same-typed a[i+x] vs. b[i+y], where at least one is a write.
@@ -805,6 +812,8 @@ bool HLoopOptimization::ShouldVectorize(LoopNode* node, HBasicBlock* block, int6
           if (x != y) {
             return false;
           }
+          // Count references with same alignment, with at least one a write.
+          num_same_alignment++;
         } else {
           // Found a[i+x] vs. b[i+y]. Accept if x == y (at worst loop-independent data dependence).
           // Conservatively assume a potential loop-carried data dependence otherwise, avoided by
@@ -823,10 +832,31 @@ bool HLoopOptimization::ShouldVectorize(LoopNode* node, HBasicBlock* block, int6
         }
       }
     }
-  }
+    // Update information for finding suitable alignment strategy:
+    // (1) update votes for static loop peeling,
+    // (2) update best candidate for dynamic loop peeling.
+    Alignment alignment = ComputeAlignment(i->offset, i->type);
+    if (alignment.Base() >= kAlignedBase) {
+      // Compute peeling vote statically under the assumption that
+      // elements have at least natural alignment.
+      uint32_t offset = alignment.Offset() & (kAlignedBase - 1u);
+      uint32_t vote = offset == 0 ? 0 : ((kAlignedBase - offset) >> DataType::SizeShift(i->type));
+      DCHECK_LT(vote, 16u);
+      ++peeling_votes[vote];
+    }
+    if (num_same_alignment > max_num_same_alignment) {
+      max_num_same_alignment = num_same_alignment;
+      peeling_candidate = &(*i);
+    }
+  }  // for i
 
-  // Consider dynamic loop peeling for alignment.
-  SetPeelingCandidate(candidate, trip_count);
+  // Find a suitable alignment strategy.
+  SetAlignmentStrategy(peeling_votes, peeling_candidate);
+
+  // Does vectorization seem profitable?
+  if (!IsVectorizationProfitable(trip_count)) {
+    return false;
+  }
 
   // Success!
   return true;
@@ -843,9 +873,12 @@ void HLoopOptimization::Vectorize(LoopNode* node,
   uint32_t unroll = GetUnrollingFactor(block, trip_count);
   uint32_t chunk = vector_length_ * unroll;
 
+  DCHECK(trip_count == 0 || (trip_count >= MaxNumberPeeled() + chunk));
+
   // A cleanup loop is needed, at least, for any unknown trip count or
   // for a known trip count with remainder iterations after vectorization.
-  bool needs_cleanup = trip_count == 0 || (trip_count % chunk) != 0;
+  bool needs_cleanup = trip_count == 0 ||
+      ((trip_count - vector_static_peeling_count_) % chunk) != 0;
 
   // Adjust vector bookkeeping.
   HPhi* main_phi = nullptr;
@@ -859,17 +892,33 @@ void HLoopOptimization::Vectorize(LoopNode* node,
   DCHECK(induc_type == DataType::Type::kInt32 || induc_type == DataType::Type::kInt64)
       << induc_type;
 
-  // Generate dynamic loop peeling trip count, if needed, under the assumption
-  // that the Android runtime guarantees at least "component size" alignment:
-  // ptc = (ALIGN - (&a[initial] % ALIGN)) / type-size
+  // Generate the trip count for static or dynamic loop peeling for SIMD alignment, if needed:
   HInstruction* ptc = nullptr;
-  if (vector_peeling_candidate_ != nullptr) {
-    DCHECK_LT(vector_length_, trip_count) << "dynamic peeling currently requires known trip count";
-    //
-    // TODO: Implement this. Compute address of first access memory location and
-    //       compute peeling factor to obtain kAlignedBase alignment.
-    //
-    needs_cleanup = true;
+  if (vector_static_peeling_count_ != 0) {
+    // Static loop peeling for SIMD alignment. The proper peeling count
+    // was already selected during alignment analysis.
+    DCHECK(vector_dynamic_peeling_candidate_ == nullptr);
+    ptc = graph_->GetConstant(induc_type, vector_static_peeling_count_);
+  } else if (vector_dynamic_peeling_candidate_ != nullptr) {
+    // Dynamic loop peeling for SIMD alignment, under the assumption that elements have at
+    // least natural alignment (otherwise nothing can make them SIMD aligned).
+    // rem = offset % ALIGN;
+    // ptc = rem == 0 ? 0 : (ALIGN - rem) >> shift;
+    HInstruction* offset = vector_dynamic_peeling_candidate_->offset;
+    HInstruction* rem = Insert(preheader, new (global_allocator_) HAnd(
+        induc_type, offset, graph_->GetConstant(induc_type, kAlignedBase - 1u)));
+    HInstruction* sub = Insert(preheader, new (global_allocator_) HSub(
+        induc_type, graph_->GetConstant(induc_type, kAlignedBase), rem));
+    size_t shift = DataType::SizeShift(vector_dynamic_peeling_candidate_->type);
+    if (shift != 0) {
+      sub = Insert(preheader, new (global_allocator_) HUShr(
+          induc_type, sub, graph_->GetConstant(induc_type, shift)));
+    }
+    HInstruction* cond = Insert(preheader, new (global_allocator_) HEqual(
+        rem, graph_->GetConstant(induc_type, 0)));
+    ptc = Insert(preheader, new (global_allocator_) HSelect(
+        cond, graph_->GetConstant(induc_type, 0), sub, kNoDexPc));
+    needs_cleanup = true;  // don't know the exact amount
   }
 
   // Generate loop control:
@@ -882,6 +931,10 @@ void HLoopOptimization::Vectorize(LoopNode* node,
     DCHECK(IsPowerOfTwo(chunk));
     HInstruction* diff = stc;
     if (ptc != nullptr) {
+      if (trip_count == 0) {
+        HInstruction* cond = Insert(preheader, new (global_allocator_) HAboveOrEqual(stc, ptc));
+        ptc = Insert(preheader, new (global_allocator_) HSelect(cond, ptc, stc, kNoDexPc));
+      }
       diff = Insert(preheader, new (global_allocator_) HSub(induc_type, stc, ptc));
     }
     HInstruction* rem = Insert(
@@ -904,9 +957,14 @@ void HLoopOptimization::Vectorize(LoopNode* node,
     needs_cleanup = true;
   }
 
-  // Generate dynamic peeling loop for alignment, if needed:
+  // Generate alignment peeling loop, if needed:
   // for ( ; i < ptc; i += 1)
   //    <loop-body>
+  //
+  // NOTE: The alignment forced by this peeling loop is preserved for all vectors even if
+  //       the garbage collector moves data around during the suspend checks, since the Android
+  //       runtime guarantees the same base alignment for any "vectorizable" string or array.
+  //
   if (ptc != nullptr) {
     vector_mode_ = kSequential;
     GenerateNewLoop(node,
@@ -1568,22 +1626,31 @@ void HLoopOptimization::GenerateVecMem(HInstruction* org,
                                                 is_string_char_at,
                                                 dex_pc);
     }
-    // Known dynamically enforced alignment?
-    if (vector_peeling_candidate_ != nullptr &&
-        vector_peeling_candidate_->base == base &&
-        vector_peeling_candidate_->offset == offset) {
-      vector->AsVecMemoryOperation()->SetAlignment(Alignment(kAlignedBase, 0));
+    // Known (forced/adjusted) alignment?
+    if (vector_dynamic_peeling_candidate_ != nullptr) {
+      // TODO: could compute difference between offsets.
+      if (vector_dynamic_peeling_candidate_->offset == offset) {
+        // Currently, all unit strides have same sized data types, so that anything with same
+        // offset becomes aligned. This DCHECK guards against future improvements that
+        // may introduce idiomatic different sized data types unit strides.
+        DCHECK_EQ(DataType::Size(vector_dynamic_peeling_candidate_->type), DataType::Size(type));
+        vector->AsVecMemoryOperation()->SetAlignment(Alignment(kAlignedBase, 0));  // forced
+      }
+    } else {
+      Alignment alignment = ComputeAlignment(offset, type, vector_static_peeling_count_);
+      vector->AsVecMemoryOperation()->SetAlignment(alignment);  // adjusted
     }
   } else {
     // Scalar store or load.
     DCHECK(vector_mode_ == kSequential);
     if (opb != nullptr) {
+      DataType::Type component_type = org->AsArraySet()->GetComponentType();
       vector = new (global_allocator_) HArraySet(
-          org->InputAt(0), opa, opb, type, org->GetSideEffects(), dex_pc);
+          org->InputAt(0), opa, opb, component_type, org->GetSideEffects(), dex_pc);
     } else  {
       bool is_string_char_at = org->AsArrayGet()->IsStringCharAt();
       vector = new (global_allocator_) HArrayGet(
-          org->InputAt(0), opa, type, org->GetSideEffects(), dex_pc, is_string_char_at);
+          org->InputAt(0), opa, org->GetType(), org->GetSideEffects(), dex_pc, is_string_char_at);
     }
   }
   vector_map_->Put(org, vector);
@@ -1695,8 +1762,8 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
                                       DataType::Type type,
                                       bool is_unsigned) {
   uint32_t dex_pc = org->GetDexPc();
-  HInstruction* vector = nullptr;
   DataType::Type org_type = org->GetType();
+  HInstruction* vector = nullptr;
   switch (org->GetKind()) {
     case HInstruction::kNeg:
       DCHECK(opb == nullptr);
@@ -2020,35 +2087,80 @@ bool HLoopOptimization::VectorizeSADIdiom(LoopNode* node,
 // Vectorization heuristics.
 //
 
+Alignment HLoopOptimization::ComputeAlignment(HInstruction* offset,
+                                              DataType::Type type,
+                                              uint32_t peeling) {
+  // The Android runtime guarantees that for any "vectorizable" string or array
+  // (viz. TOTAL-DATA-SIZE >= VECTOR-SIZE), the BASE + HIDDEN-DATA-OFFSET part
+  // of the address is always VECTOR-SIZE aligned. As such, the visible starting
+  // offset with respect to a normalized loop index determines if the reference
+  // has a statically known initial ALIGN(VECTOR-SIZE, offset) alignment.
+  uint32_t element_size = DataType::Size(type);
+  int64_t value = 0;
+  if (IsInt64AndGet(offset, /*out*/ &value)) {
+    uint32_t start_offset = (value + peeling) * element_size;
+    return Alignment(kAlignedBase, start_offset & (kAlignedBase - 1u));
+  }
+  // Elements have at least natural alignment.
+  return Alignment(element_size, 0);
+}
+
+void HLoopOptimization::SetAlignmentStrategy(uint32_t peeling_votes[],
+                                             const ArrayReference* peeling_candidate) {
+  // Current heuristic: pick the best static loop peeling factor, if any,
+  // or otherwise use dynamic loop peeling on suggested peeling candidate.
+  size_t max = 0;
+  for (size_t i = 0; i < 16; i++) {
+    if (peeling_votes[i] > max) {
+      max = peeling_votes[i];
+      vector_static_peeling_count_ = i;
+    }
+  }
+  if (max == 0) {
+    vector_dynamic_peeling_candidate_ = peeling_candidate;
+  }
+}
+
+uint32_t HLoopOptimization::MaxNumberPeeled() {
+  if (vector_dynamic_peeling_candidate_ != nullptr) {
+    switch (compiler_driver_->GetInstructionSet()) {
+      case kArm:
+      case kThumb2:
+        return (vector_length_ << 1) - 1u;  // worst-case: 8-byte vector, 2*vl - 1
+      default:
+        return vector_length_ - 1u;  // worst-case: 16-byte vector, vl - 1 worst-case
+    }
+  }
+  return vector_static_peeling_count_;  // known exactly
+}
+
 bool HLoopOptimization::IsVectorizationProfitable(int64_t trip_count) {
-  // Current heuristic: non-empty body with sufficient number
-  // of iterations (if known).
+  // Current heuristic: non-empty body with sufficient number of iterations (if known).
   // TODO: refine by looking at e.g. operation count, alignment, etc.
+  // TODO: trip count is really unsigned entity, provided the guarding test
+  //       is satisfied; deal with this more carefully later
+  uint32_t max_peel = MaxNumberPeeled();
   if (vector_length_ == 0) {
     return false;  // nothing found
-  } else if (0 < trip_count && trip_count < vector_length_) {
+  } else if (trip_count < 0) {
+    return false;  // guard against non-taken/large
+  } else if ((0 < trip_count) && (trip_count < (vector_length_ + max_peel))) {
     return false;  // insufficient iterations
   }
   return true;
-}
-
-void HLoopOptimization::SetPeelingCandidate(const ArrayReference* candidate,
-                                            int64_t trip_count ATTRIBUTE_UNUSED) {
-  // Current heuristic: none.
-  // TODO: implement
-  vector_peeling_candidate_ = candidate;
 }
 
 static constexpr uint32_t ARM64_SIMD_MAXIMUM_UNROLL_FACTOR = 8;
 static constexpr uint32_t ARM64_SIMD_HEURISTIC_MAX_BODY_SIZE = 50;
 
 uint32_t HLoopOptimization::GetUnrollingFactor(HBasicBlock* block, int64_t trip_count) {
+  uint32_t max_peel = MaxNumberPeeled();
   switch (compiler_driver_->GetInstructionSet()) {
     case kArm64: {
       // Don't unroll with insufficient iterations.
       // TODO: Unroll loops with unknown trip count.
       DCHECK_NE(vector_length_, 0u);
-      if (trip_count < 2 * vector_length_) {
+      if (trip_count < (2 * vector_length_ + max_peel)) {
         return kNoUnrollingFactor;
       }
       // Don't unroll for large loop body size.
@@ -2060,7 +2172,7 @@ uint32_t HLoopOptimization::GetUnrollingFactor(HBasicBlock* block, int64_t trip_
       //  - At least one iteration of the transformed loop should be executed.
       //  - The loop body shouldn't be "too big" (heuristic).
       uint32_t uf1 = ARM64_SIMD_HEURISTIC_MAX_BODY_SIZE / instruction_count;
-      uint32_t uf2 = trip_count / vector_length_;
+      uint32_t uf2 = (trip_count - max_peel) / vector_length_;
       uint32_t unroll_factor =
           TruncToPowerOfTwo(std::min({uf1, uf2, ARM64_SIMD_MAXIMUM_UNROLL_FACTOR}));
       DCHECK_GE(unroll_factor, 1u);
