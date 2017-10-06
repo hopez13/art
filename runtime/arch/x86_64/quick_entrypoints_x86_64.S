@@ -1198,12 +1198,6 @@ MACRO0(COMPUTE_ARRAY_SIZE_UNKNOWN)
     salq %cl, %r9                                              // Calculate array count shifted.
     // Add array header + alignment rounding.
     addq MACRO_LITERAL(MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK), %r9
-    // Add 4 extra bytes if we are doing a long array.
-    addq MACRO_LITERAL(1), %rcx
-    andq MACRO_LITERAL(4), %rcx
-#if MIRROR_LONG_ARRAY_DATA_OFFSET != MIRROR_INT_ARRAY_DATA_OFFSET + 4
-#error Long array data offset must be 4 greater than int array data offset.
-#endif
     addq %rcx, %r9
 END_MACRO
 

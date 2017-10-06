@@ -1959,15 +1959,6 @@ END \name
     lsl    \xTemp1, \xCount, \xTemp0                          // Calculate data size
     // Add array data offset and alignment.
     add    \xTemp1, \xTemp1, #(MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
-#if MIRROR_LONG_ARRAY_DATA_OFFSET != MIRROR_INT_ARRAY_DATA_OFFSET + 4
-#error Long array data offset must be 4 greater than int array data offset.
-#endif
-
-    add    \xTemp0, \xTemp0, #1                               // Add 4 to the length only if the
-                                                              // component size shift is 3
-                                                              // (for 64 bit alignment).
-    and    \xTemp0, \xTemp0, #4
-    add    \xTemp1, \xTemp1, \xTemp0
 .endm
 
 .macro COMPUTE_ARRAY_SIZE_8 xClass, wClass, xCount, wCount, xTemp0, wTemp0, xTemp1, wTemp1, xTemp2, wTemp2

@@ -1457,15 +1457,6 @@ END \name
     lsl    r2, r1, r3                                       // Calculate data size
                                                             // Add array data offset and alignment.
     add    r2, r2, #(MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
-#if MIRROR_WIDE_ARRAY_DATA_OFFSET != MIRROR_INT_ARRAY_DATA_OFFSET + 4
-#error Long array data offset must be 4 greater than int array data offset.
-#endif
-
-    add    r3, r3, #1                                       // Add 4 to the length only if the
-                                                            // component size shift is 3
-                                                            // (for 64 bit alignment).
-    and    r3, r3, #4
-    add    r2, r2, r3
 .endm
 
 .macro COMPUTE_ARRAY_SIZE_8 slow_path
