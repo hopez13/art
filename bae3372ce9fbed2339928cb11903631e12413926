@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b4cf1ac_82613fd9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 6617,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T15:10:49Z",
+      "side": 1,
+      "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 6617,
+        "startChar": 0,
+        "endLine": 6617,
+        "endChar": 68
+      },
+      "revId": "bae3372ce9fbed2339928cb11903631e12413926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afed1975_aa049bd1",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T15:10:49Z",
+      "side": 1,
+      "message": "Nit: Missing space between `new` and `(` (here and below).",
+      "range": {
+        "startLine": 902,
+        "startChar": 27,
+        "endLine": 902,
+        "endChar": 31
+      },
+      "revId": "bae3372ce9fbed2339928cb11903631e12413926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e1b6bc5_1053ee97",
+        "filename": "compiler/utils/assembler.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T15:10:49Z",
+      "side": 1,
+      "message": "allocator?",
+      "range": {
+        "startLine": 28,
+        "startChar": 49,
+        "endLine": 28,
+        "endChar": 54
+      },
+      "revId": "bae3372ce9fbed2339928cb11903631e12413926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93db904d_c9c15dc1",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T15:10:49Z",
+      "side": 1,
+      "message": "allocator?",
+      "revId": "bae3372ce9fbed2339928cb11903631e12413926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "befb036e_5b17b0f1",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T15:10:49Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 404,
+        "startChar": 37,
+        "endLine": 404,
+        "endChar": 42
+      },
+      "revId": "bae3372ce9fbed2339928cb11903631e12413926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
