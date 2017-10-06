@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f916e8e7_c69fd2cd",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-10-06T21:16:23Z",
+      "side": 1,
+      "message": "Can you document ranges are inclusive on both ends?",
+      "range": {
+        "startLine": 25,
+        "startChar": 23,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e16ec17_963eb060",
         "filename": "compiler/optimizing/load_store_analysis.cc",
         "patchSetId": 1
@@ -47,6 +70,23 @@
       "writtenOn": "2017-10-06T18:51:01Z",
       "side": 1,
       "message": "_GE",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "550839fe_83aa10fc",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-10-06T21:16:23Z",
+      "side": 1,
+      "message": "Means length of elements? please comment.",
       "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
