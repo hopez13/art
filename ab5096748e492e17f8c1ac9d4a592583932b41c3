@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8421ae31_34cc4f88",
+        "filename": "test/597-deopt-invoke-stub/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-06T08:23:15Z",
+      "side": 1,
+      "message": "This looks low too. How about making it 10000 and then use ensureJitCompiled?",
+      "range": {
+        "startLine": 19,
+        "startChar": 39,
+        "endLine": 19,
+        "endChar": 41
+      },
+      "revId": "ab5096748e492e17f8c1ac9d4a592583932b41c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "815d9885_b6fdfe56",
+        "filename": "test/597-deopt-invoke-stub/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-06T08:23:15Z",
+      "side": 1,
+      "message": "This means you don\u0027t need to blacklist \u0027optimizing\u0027, \u0027speed-profile\u0027, as debuggable will force use of jit.",
+      "range": {
+        "startLine": 21,
+        "startChar": 53,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "ab5096748e492e17f8c1ac9d4a592583932b41c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
