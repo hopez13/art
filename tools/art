@@ -234,6 +234,7 @@ function run_art() {
               LD_LIBRARY_PATH=$LD_LIBRARY_PATH         \
               PATH=$ANDROID_ROOT/bin:$PATH             \
               LD_USE_LOAD_BIAS=1                       \
+              ANDROID_LOG_TAGS='*:e'                   \
               $LAUNCH_WRAPPER $ART_BINARY_PATH $lib    \
               -XXlib:$LIBART                           \
               -Xnorelocate                             \
