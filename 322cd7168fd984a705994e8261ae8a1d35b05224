@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "dea7b113_4ef008aa",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T15:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9a54316_34099cc0",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85ff7f81_0e43f70a",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 4
@@ -367,6 +385,24 @@
       "side": 1,
       "message": "It\u0027s not a bad idea, but maybe put comments there instead?\n\nOr at least\n\n  // -------------------------------\n\nTo make it more obvious that it\u0027s separated intentionally.",
       "parentUuid": "22f9fad5_bd01a7b1",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdcb77d_582222dd",
+        "filename": "compiler/driver/compiler_options_map.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T15:52:34Z",
+      "side": 1,
+      "message": "I just left it without newlines.",
+      "parentUuid": "9cd026c3_fe11f0d6",
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -737,6 +773,24 @@
       "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b546733_078ecaaf",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T15:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82ef0c26_9cbb5621",
+      "revId": "322cd7168fd984a705994e8261ae8a1d35b05224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
