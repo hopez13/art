@@ -91,6 +91,23 @@
       "revId": "ab677b13f387dffb73d83793918c66d5dc93ac98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "537a4b24_b75a01bd",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-06T16:50:08Z",
+      "side": 1,
+      "message": "please leave the comment \"phase-local allocator\" at least, even though the rest can go; I make references to this in the header file too",
+      "revId": "ab677b13f387dffb73d83793918c66d5dc93ac98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
