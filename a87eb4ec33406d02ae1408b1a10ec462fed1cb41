@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e16ec17_963eb060",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-06T18:51:01Z",
+      "side": 1,
+      "message": "period at end, here and several other comments too",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c1b71d1_3e6a0b50",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-06T18:51:01Z",
+      "side": 1,
+      "message": "_GE",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc4f841c_4c350cf3",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-06T18:51:01Z",
+      "side": 1,
+      "message": "_GE",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc6aadf9_88c6bed7",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-06T18:51:01Z",
+      "side": 1,
+      "message": "why invalid, why not just 1?",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e07d96f7_a71624b2",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-06T18:51:01Z",
+      "side": 1,
+      "message": "DCHECK_GE",
+      "range": {
+        "startLine": 246,
+        "startChar": 8,
+        "endLine": 246,
+        "endChar": 9
+      },
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56fcbd50_58f13538",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-06T18:51:01Z",
+      "side": 1,
+      "message": "is the fact that this does not find partially overlapping locations okay?",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c010cfbc_38f74468",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-06T18:51:01Z",
+      "side": 1,
+      "message": "spell out vector length, here and elsewhere",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
