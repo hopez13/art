@@ -46,6 +46,30 @@
       "revId": "6670e7b157d3dfb131ccf25f45e7bbc3b1937628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a24d423_e4d89ff0",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-06T16:53:59Z",
+      "side": 1,
+      "message": "This doesn\u0027t much matter to me, but since you asked:\n \n\n    int originalFd \u003d javaFd;\n\nwould be slightly more pleasing since then the compiler, clang-tidy, etc can do the warnings if the types don\u0027t match. static_cast suppresses that.\n\nI think dchecked_integral_cast is not bad either, but I would expect that in a place where we know for sure types are narrowing (e.g. cast int to short). In this case we expect \n\n  (a) jint\u003d\u003dint on any sane platform we expect ART to run on.\n  (b) fd is underlying int anyway, even if it gets promoted to jint temporarily\n\nSo I would be OK with dchecked_integral_cast as well, just not something I would reach for first.",
+      "parentUuid": "79a68c9a_a87af278",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "6670e7b157d3dfb131ccf25f45e7bbc3b1937628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
