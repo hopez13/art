@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17e7e4e3_dcbc9667",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T17:04:45Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 1245,
+        "startChar": 0,
+        "endLine": 1246,
+        "endChar": 57
+      },
+      "revId": "cd59e842ad75850d6beda00b5314bb4f94d309c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb97232_3c0325c7",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T17:04:45Z",
+      "side": 1,
+      "message": "Nit: Sort #include\u0027s by filename.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "cd59e842ad75850d6beda00b5314bb4f94d309c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1814af7_b6b8e4eb",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T17:04:45Z",
+      "side": 1,
+      "message": "Nit: Add space between `out` and `*`.",
+      "range": {
+        "startLine": 145,
+        "startChar": 63,
+        "endLine": 145,
+        "endChar": 67
+      },
+      "revId": "cd59e842ad75850d6beda00b5314bb4f94d309c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c356b17_37682828",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T17:04:45Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 63
+      },
+      "revId": "cd59e842ad75850d6beda00b5314bb4f94d309c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29e1c5ad_ccecf555",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-06T17:04:45Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 57
+      },
+      "revId": "cd59e842ad75850d6beda00b5314bb4f94d309c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
