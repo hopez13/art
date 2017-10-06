@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40a54f3e_3cbaef22",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-10-06T17:53:31Z",
+      "side": 1,
+      "message": "If the method is not invokable, can we add an assert that it\u0027s entrypoint not in the code cache?",
+      "revId": "abbc4bc8a6716a6e524ec2572834fa34604519c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
