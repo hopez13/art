@@ -2309,11 +2309,11 @@ class Dex2Oat FINAL {
   }
 
   bool DoDexLayoutOptimizations() const {
-    return DoProfileGuidedOptimizations();
+    return DoProfileGuidedOptimizations() && (false);
   }
 
   bool DoOatLayoutOptimizations() const {
-    return DoProfileGuidedOptimizations();
+    return DoProfileGuidedOptimizations() && (false);
   }
 
   bool DoEagerUnquickeningOfVdex() const {
