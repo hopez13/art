@@ -22,6 +22,30 @@
       "revId": "6670e7b157d3dfb131ccf25f45e7bbc3b1937628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79a68c9a_a87af278",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-06T15:47:08Z",
+      "side": 1,
+      "message": "I wanted to be explicit (and have a small CL) :-) Would you be happier with dchecked_integral_cast? Or originalFd \u003d javaFd? Or s/originalFd/javaFd?",
+      "parentUuid": "914228f2_815703c4",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "6670e7b157d3dfb131ccf25f45e7bbc3b1937628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
