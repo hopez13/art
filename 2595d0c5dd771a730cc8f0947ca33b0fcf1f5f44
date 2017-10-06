@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c655fae_da017a1c",
+        "filename": "compiler/driver/compiler_options_map-storage.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-06T18:00:17Z",
+      "side": 1,
+      "message": "nit: I typically recommend to #undef anything #defined in these x-macros to make it less verbose at the call site.",
+      "revId": "2595d0c5dd771a730cc8f0947ca33b0fcf1f5f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbdd0a61_e0074242",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-06T18:00:17Z",
+      "side": 1,
+      "message": "What about this one?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 30
+      },
+      "revId": "2595d0c5dd771a730cc8f0947ca33b0fcf1f5f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
