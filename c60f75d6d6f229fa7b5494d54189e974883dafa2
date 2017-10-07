@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "953477ec_04d067b5",
+        "filename": "runtime/base/bit_struct_detail.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-07T16:47:36Z",
+      "side": 1,
+      "message": "Note to self, I should also add a static_assert standard-layout here.",
+      "revId": "c60f75d6d6f229fa7b5494d54189e974883dafa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "481daf3a_e3dba804",
         "filename": "runtime/base/bit_utils.h",
         "patchSetId": 4
