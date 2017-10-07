@@ -81,6 +81,24 @@
       "revId": "c60f75d6d6f229fa7b5494d54189e974883dafa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49a5dc62_ccfe929f",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-07T03:19:53Z",
+      "side": 1,
+      "message": "I think that could work just fine, although I\u0027d probably do \"- 1u\" since I\u0027m not thrilled about relying on the fact that unsigned has greater rank than signed.\n\nSo probably something like:\n\n\n   return static_cast\u003cunsigned_T\u003e((static_cast\u003cunsigned_T\u003e(1u) \u003c\u003c bits) - 1u);",
+      "parentUuid": "471a8464_c9d8a63a",
+      "revId": "c60f75d6d6f229fa7b5494d54189e974883dafa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
