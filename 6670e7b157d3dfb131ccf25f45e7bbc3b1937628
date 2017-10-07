@@ -70,6 +70,30 @@
       "revId": "6670e7b157d3dfb131ccf25f45e7bbc3b1937628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cf644fb_4c97fc01",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-07T01:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a24d423_e4d89ff0",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "6670e7b157d3dfb131ccf25f45e7bbc3b1937628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
