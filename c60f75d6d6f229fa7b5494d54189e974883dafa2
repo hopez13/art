@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "63a2de24_45e23624",
+        "filename": "runtime/base/bit_struct.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-07T03:10:32Z",
+      "side": 1,
+      "message": "It gets quite messy, I\u0027d have to introduce new BitStructFieldBase type and move most of the logic there.\n\nSince I\u0027m not trying to go out of my way here to leverage templates, this seemed like the simpler approach.",
+      "parentUuid": "0828779a_29bc0262",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 46
+      },
+      "revId": "c60f75d6d6f229fa7b5494d54189e974883dafa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "481daf3a_e3dba804",
         "filename": "runtime/base/bit_utils.h",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2017-10-07T00:48:44Z",
       "side": 1,
       "message": "Isn\u0027t this cast too late? I think you need (static_cast\u003cunsigned T\u003e(1) \u003c\u003c bits) - 1)",
+      "revId": "c60f75d6d6f229fa7b5494d54189e974883dafa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "471a8464_c9d8a63a",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-07T03:10:32Z",
+      "side": 1,
+      "message": "Yeah, I guess it doesn\u0027t quite work for sizeof(T) \u003e sizeof(size_t), breaking this in practice for 32-bit platforms and e.g. T\u003duint64_t.\n\nI\u0027ll add a test and fix for this in a follow up CL.\n\n   return static_cast\u003cunsigned_T\u003e((static_cast\u003cunsigned_T\u003e(1) \u003c\u003c bits) - 1);\n\nSeems like it\u0027s a step closer to fixing it, I\u0027ll have to think some more about the -1 there.",
+      "parentUuid": "481daf3a_e3dba804",
       "revId": "c60f75d6d6f229fa7b5494d54189e974883dafa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
