@@ -144,7 +144,8 @@ class VdexFile {
 
   // In-place unquicken the given `dex_files` based on `quickening_info`.
   static void Unquicken(const std::vector<const DexFile*>& dex_files,
-                        const ArrayRef<const uint8_t>& quickening_info);
+                        const ArrayRef<const uint8_t>& quickening_info,
+                        bool decompile_return_instruction);
 
   // Fully unquicken `target_dex_file` based on quickening info stored
   // in this vdex file for `original_dex_file`.
