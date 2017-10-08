@@ -563,14 +563,49 @@ class OatDumper {
       for (size_t i = 0; i < oat_dex_files_.size(); i++) {
         const OatFile::OatDexFile* oat_dex_file = oat_dex_files_[i];
         CHECK(oat_dex_file != nullptr);
+        if (!DumpOatDexFile(os, *oat_dex_file)) {
+          success = false;
+        }
+      }
+    }
 
-        // If file export selected skip file analysis
-        if (options_.export_dex_location_) {
-          if (!ExportDexFile(os, *oat_dex_file)) {
+    if (options_.export_dex_location_) {
+      if (kIsVdexEnabled) {
+        std::string error_msg;
+        std::string vdex_filename = GetVdexFilename(oat_file_.GetLocation());
+        if (!OS::FileExists(vdex_filename.c_str())) {
+          os << "File " << vdex_filename.c_str() << " does not exist\n";
+          return false;
+        }
+
+        std::vector<std::unique_ptr<const DexFile>> unique_ptr_dex_files;
+        std::unique_ptr<VdexFile> vdex = OpenVdexUnquicken(vdex_filename,
+                                                           &unique_ptr_dex_files,
+                                                           &error_msg);
+        if (vdex.get() == nullptr) {
+          os << "Failed to open vdex file: " << error_msg << "\n";
+          return false;
+        }
+        if (oat_dex_files_.size() != unique_ptr_dex_files.size()) {
+          os << "Unexpected number of dex files\n";
+          return false;
+        }
+
+        size_t i = 0;
+        for (const auto& dex_file : unique_ptr_dex_files) {
+          const OatFile::OatDexFile* oat_dex_file = oat_dex_files_[i];
+          CHECK(oat_dex_file != nullptr);
+          CHECK(dex_file != nullptr);
+          if (!ExportDexFile(os, *oat_dex_file, dex_file.get())) {
             success = false;
           }
-        } else {
-          if (!DumpOatDexFile(os, *oat_dex_file)) {
+          i++;
+        }
+      } else {
+        for (size_t i = 0; i < oat_dex_files_.size(); i++) {
+          const OatFile::OatDexFile* oat_dex_file = oat_dex_files_[i];
+          CHECK(oat_dex_file != nullptr);
+          if (!ExportDexFile(os, *oat_dex_file, nullptr)) {
             success = false;
           }
         }
@@ -626,6 +661,56 @@ class OatDumper {
       }
     }
     return nullptr;
+  }
+
+  std::unique_ptr<VdexFile> OpenVdexUnquicken(const std::string& vdex_filename,
+                                             std::vector<std::unique_ptr<const DexFile>>* dex_files,
+                                             std::string* error_msg) {
+    std::unique_ptr<File> vdex_file;
+    vdex_file.reset(OS::OpenFileForReading(vdex_filename.c_str()));
+    if (vdex_file == nullptr) {
+      *error_msg = "Could not open file " + vdex_filename + " for reading.";
+      return nullptr;
+    }
+
+    int64_t vdex_length = vdex_file->GetLength();
+    if (vdex_length == -1) {
+      *error_msg = "Could not read the length of file " + vdex_filename;
+      return nullptr;
+    }
+
+    std::unique_ptr<MemMap> mmap(MemMap::MapFile(
+        vdex_file->GetLength(),
+        PROT_READ | PROT_WRITE,
+        MAP_PRIVATE,
+        vdex_file->Fd(),
+        /* start offset */ 0,
+        /* low_4gb */ false,
+        vdex_filename.c_str(),
+        error_msg));
+    if (mmap == nullptr) {
+      *error_msg = "Failed to mmap file " + vdex_filename + " : " + *error_msg;
+      return nullptr;
+    }
+
+    std::unique_ptr<VdexFile> vdex(new VdexFile(mmap.release()));
+    if (!vdex->IsValid()) {
+      *error_msg = "Vdex file is not valid";
+      return nullptr;
+    }
+
+    std::vector<std::unique_ptr<const DexFile>> tmp_dex_files;
+    if (!vdex->OpenAllDexFiles(&tmp_dex_files, error_msg)) {
+      *error_msg = "Failed to open dex files from vdex:  " + *error_msg;
+      return nullptr;
+    }
+
+    vdex->Unquicken(MakeNonOwningPointerVector(tmp_dex_files),
+                    vdex->GetQuickeningInfo(),
+                    /* decompile_return_instruction */ true);
+
+    *dex_files = std::move(tmp_dex_files);
+    return vdex;
   }
 
   struct Stats {
@@ -1024,21 +1109,35 @@ class OatDumper {
     return success;
   }
 
-  bool ExportDexFile(std::ostream& os, const OatFile::OatDexFile& oat_dex_file) {
+  bool ExportDexFile(std::ostream& os, const OatFile::OatDexFile& oat_dex_file, const DexFile* dex_file) {
     std::string error_msg;
     std::string dex_file_location = oat_dex_file.GetDexFileLocation();
-
-    const DexFile* const dex_file = OpenDexFile(&oat_dex_file, &error_msg);
-    if (dex_file == nullptr) {
-      os << "Failed to open dex file '" << dex_file_location << "': " << error_msg;
-      return false;
-    }
     size_t fsize = oat_dex_file.FileSize();
 
     // Some quick checks just in case
     if (fsize == 0 || fsize < sizeof(DexFile::Header)) {
       os << "Invalid dex file\n";
       return false;
+    }
+
+    if (dex_file == nullptr) {
+      // Exported bytecode is quickened (dex-to-dex transformations present)
+      dex_file = OpenDexFile(&oat_dex_file, &error_msg);
+      if (dex_file == nullptr) {
+        os << "Failed to open dex file '" << dex_file_location << "': " << error_msg;
+        return false;
+      }
+
+      // Recompute checksum
+      reinterpret_cast<art::DexFile::Header*>(const_cast<uint8_t*>(dex_file->Begin()))->checksum_ =
+          dex_file->CalculateChecksum();
+    } else {
+      // Vdex unquicken output should match original input bytecode
+      uint32_t orig_checksum = reinterpret_cast<art::DexFile::Header*>(const_cast<uint8_t*>(dex_file->Begin()))->checksum_;
+      if (orig_checksum != dex_file->CalculateChecksum()) {
+        os << "Unexpected checksum from unquicken dex file '" << dex_file_location << "'\n";
+        return false;
+      }
     }
 
     // Verify output directory exists
