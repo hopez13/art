@@ -118,12 +118,64 @@ std::unique_ptr<VdexFile> VdexFile::Open(int file_fd,
     if (!vdex->OpenAllDexFiles(&unique_ptr_dex_files, error_msg)) {
       return nullptr;
     }
-    Unquicken(MakeNonOwningPointerVector(unique_ptr_dex_files), vdex->GetQuickeningInfo());
+    Unquicken(MakeNonOwningPointerVector(unique_ptr_dex_files),
+              vdex->GetQuickeningInfo(),
+              /* decompile_return_instruction */ false);
     // Update the quickening info size to pretend there isn't any.
     reinterpret_cast<Header*>(vdex->mmap_->Begin())->quickening_info_size_ = 0;
   }
 
   *error_msg = "Success";
+  return vdex;
+}
+
+std::unique_ptr<VdexFile> VdexFile::OpenUnquicken(const std::string& vdex_filename,
+                                                  std::vector<std::unique_ptr<const DexFile>>* dex_files,
+                                                  std::string* error_msg) {
+  std::unique_ptr<File> vdex_file;
+  vdex_file.reset(OS::OpenFileForReading(vdex_filename.c_str()));
+  if (vdex_file == nullptr) {
+    *error_msg = "Could not open file " + vdex_filename + " for reading.";
+    return nullptr;
+  }
+
+  int64_t vdex_length = vdex_file->GetLength();
+  if (vdex_length == -1) {
+    *error_msg = "Could not read the length of file " + vdex_filename;
+    return nullptr;
+  }
+
+  std::unique_ptr<MemMap> mmap(MemMap::MapFile(
+      vdex_file->GetLength(),
+      PROT_READ | PROT_WRITE,
+      MAP_PRIVATE,
+      vdex_file->Fd(),
+      /* start offset */ 0,
+      /* low_4gb */ false,
+      vdex_filename.c_str(),
+      error_msg));
+  if (mmap == nullptr) {
+    *error_msg = "Failed to mmap file " + vdex_filename + " : " + *error_msg;
+    return nullptr;
+  }
+
+  std::unique_ptr<VdexFile> vdex(new VdexFile(mmap.release()));
+  if (!vdex->IsValid()) {
+    *error_msg = "Vdex file is not valid";
+    return nullptr;
+  }
+
+  std::vector<std::unique_ptr<const DexFile>> tmp_dex_files;
+  if (!vdex->OpenAllDexFiles(&tmp_dex_files, error_msg)) {
+    *error_msg = "Failed to open dex files from vdex:  " + *error_msg;
+    return nullptr;
+  }
+
+  vdex->Unquicken(MakeNonOwningPointerVector(tmp_dex_files),
+                  vdex->GetQuickeningInfo(),
+                  /* decompile_return_instruction */ true);
+
+  *dex_files = std::move(tmp_dex_files);
   return vdex;
 }
 
@@ -217,23 +269,38 @@ class QuickeningInfoIterator {
 };
 
 void VdexFile::Unquicken(const std::vector<const DexFile*>& dex_files,
-                         const ArrayRef<const uint8_t>& quickening_info) {
-  if (quickening_info.size() == 0) {
+                         const ArrayRef<const uint8_t>& quickening_info,
+                         bool decompile_return_instruction) {
+  if (quickening_info.size() == 0 && !decompile_return_instruction) {
     // Bail early if there is no quickening info.
     return;
   }
-  // We do not decompile a RETURN_VOID_NO_BARRIER into a RETURN_VOID, as the quickening
-  // optimization does not depend on the boot image (the optimization relies on not
-  // having final fields in a class, which does not change for an app).
-  constexpr bool kDecompileReturnInstruction = false;
+
   for (uint32_t i = 0; i < dex_files.size(); ++i) {
-    for (QuickeningInfoIterator it(i, dex_files.size(), quickening_info);
-         !it.Done();
-         it.Advance()) {
-      optimizer::ArtDecompileDEX(
-          *dex_files[i]->GetCodeItem(it.GetCurrentCodeItemOffset()),
-          it.GetCurrentQuickeningInfo(),
-          kDecompileReturnInstruction);
+    QuickeningInfoIterator it(i, dex_files.size(), quickening_info);
+    for (uint32_t j = 0; j < dex_files[i]->NumClassDefs(); ++j) {
+      const DexFile::ClassDef& class_def = dex_files[i]->GetClassDef(j);
+      const uint8_t* class_data = dex_files[i]->GetClassData(class_def);
+      if (class_data != nullptr) {
+        for (ClassDataItemIterator class_it(*dex_files[i], class_data);
+             class_it.HasNext();
+             class_it.Next()) {
+          if (class_it.IsAtMethod() && class_it.GetMethodCodeItem() != nullptr) {
+            uint32_t offset = class_it.GetMethodCodeItemOffset();
+            if (!it.Done() && offset == it.GetCurrentCodeItemOffset()) {
+              optimizer::ArtDecompileDEX(
+                  *class_it.GetMethodCodeItem(),
+                  it.GetCurrentQuickeningInfo(),
+                  decompile_return_instruction);
+              it.Advance();
+            } else {
+              optimizer::ArtDecompileDEX(*class_it.GetMethodCodeItem(),
+                                         ArrayRef<const uint8_t>(nullptr, 0),
+                                         decompile_return_instruction);
+            }
+          }
+        }
+      }
     }
   }
 }

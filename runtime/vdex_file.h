@@ -103,6 +103,11 @@ class VdexFile {
                                         bool unquicken,
                                         std::string* error_msg);
 
+  // Returns nullptr if the vdex file cannot be opened or is not valid.
+  static std::unique_ptr<VdexFile> OpenUnquicken(const std::string& vdex_filename,
+                                                 std::vector<std::unique_ptr<const DexFile>>* dex_files,
+                                                 std::string* error_msg);
+
   const uint8_t* Begin() const { return mmap_->Begin(); }
   const uint8_t* End() const { return mmap_->End(); }
   size_t Size() const { return mmap_->Size(); }
@@ -144,7 +149,8 @@ class VdexFile {
 
   // In-place unquicken the given `dex_files` based on `quickening_info`.
   static void Unquicken(const std::vector<const DexFile*>& dex_files,
-                        const ArrayRef<const uint8_t>& quickening_info);
+                        const ArrayRef<const uint8_t>& quickening_info,
+                        bool decompile_return_instruction);
 
   // Fully unquicken `target_dex_file` based on quickening info stored
   // in this vdex file for `original_dex_file`.
