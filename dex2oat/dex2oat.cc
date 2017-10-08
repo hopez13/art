@@ -1287,6 +1287,7 @@ class Dex2Oat FINAL {
                                             /* writable */ false,
                                             /* low_4gb */ false,
                                             DoEagerUnquickeningOfVdex(),
+                                            /* decompile_return_instruction */ false,
                                             &error_msg);
         }
 
@@ -1339,6 +1340,7 @@ class Dex2Oat FINAL {
                                             /* writable */ false,
                                             /* low_4gb */ false,
                                             DoEagerUnquickeningOfVdex(),
+                                            /* decompile_return_instruction */ false,
                                             &error_msg);
           // If there's any problem with the passed vdex, just warn and proceed
           // without it.
@@ -1809,7 +1811,11 @@ class Dex2Oat FINAL {
       // if the boot image has changed. How exactly we'll know is under
       // experimentation.
       TimingLogger::ScopedTiming time_unquicken("Unquicken", timings_);
-      VdexFile::Unquicken(dex_files_, input_vdex_file_->GetQuickeningInfo());
+
+      // We do not decompile a RETURN_VOID_NO_BARRIER into a RETURN_VOID, as the quickening
+      // optimization does not depend on the boot image (the optimization relies on not
+      // having final fields in a class, which does not change for an app).
+      VdexFile::Unquicken(dex_files_, input_vdex_file_->GetQuickeningInfo(), /* decompile_return_instruction */ false);
     } else {
       // Create the main VerifierDeps, here instead of in the compiler since we want to aggregate
       // the results for all the dex files, not just the results for the current dex file.
