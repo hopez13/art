@@ -22,6 +22,30 @@
       "revId": "70619fb105396b5009852111de126d76f3325245",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f00c254b_513d197e",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1237211
+      },
+      "writtenOn": "2017-10-09T14:33:03Z",
+      "side": 1,
+      "message": "Igor is right, also it\u0027s the right thing to do with respect to spacing. In fact, everything here should be wrapped in double quotes, especially things like PATH, LD_LIBRARY_PATH, etc.",
+      "parentUuid": "bc912669_ab3cfc56",
+      "range": {
+        "startLine": 241,
+        "startChar": 31,
+        "endLine": 241,
+        "endChar": 48
+      },
+      "revId": "70619fb105396b5009852111de126d76f3325245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
