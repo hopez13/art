@@ -201,7 +201,7 @@ class RegTypeCache {
   const bool can_load_classes_;
 
   // Arena allocator.
-  ScopedArenaAllocator& arena_;
+  ScopedArenaAllocator& allocator_;
 
   DISALLOW_COPY_AND_ASSIGN(RegTypeCache);
 };
