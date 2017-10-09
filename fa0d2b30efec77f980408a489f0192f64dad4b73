@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b49780f5_68cd29e4",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea9478c_c90cc732",
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bdb4874_93f3785d",
         "filename": "compiler/optimizing/cloner_test.cc",
         "patchSetId": 8
@@ -30,6 +48,30 @@
       "writtenOn": "2017-09-22T12:19:18Z",
       "side": 1,
       "message": "/* out */ HBasicBlock** header_p, /* out */ HBasicBlock** body_p",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 78
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd8b1f09_9a7188cb",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bdb4874_93f3785d",
       "range": {
         "startLine": 32,
         "startChar": 34,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "07f4b663_c1d4adc6",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ec26adf_6b63114b",
+      "range": {
+        "startLine": 71,
+        "startChar": 31,
+        "endLine": 71,
+        "endChar": 55
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd0da762_282ec9a4",
         "filename": "compiler/optimizing/cloner_test.cc",
         "patchSetId": 8
@@ -76,6 +142,30 @@
       "writtenOn": "2017-09-22T12:19:18Z",
       "side": 1,
       "message": "Suggestion: Add syntactic sugar to HBasicBlock to add several instructions at once:\n\n  AddInstructions(std::initializer_list\u003cHInstruction*\u003e instructions);",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 65
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3174dce_ea27d320",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Currently a lot of *_test files use this boiler-plate approach (e.g. bounds_check_elimination_test). So a proper fix would mean a separate patch which fixes all the occasions.",
+      "parentUuid": "bd0da762_282ec9a4",
       "range": {
         "startLine": 84,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "d9037ee1_a1a86b9b",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3e58a4c_fe43bdcc",
+      "range": {
+        "startLine": 113,
+        "startChar": 31,
+        "endLine": 113,
+        "endChar": 34
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d9f90eb_415394bb",
         "filename": "compiler/optimizing/cloner_test.cc",
         "patchSetId": 8
@@ -122,6 +236,30 @@
       "writtenOn": "2017-09-22T12:19:18Z",
       "side": 1,
       "message": "You could also used the shorter:\n\n    ArenaVector\u003cHInstruction*\u003e current_locals({phi, const_128, parameter_},\n                                              allocator_.Adapter(kArenaAllocInstruction));\n\nhere.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50bdab49_47706ca4",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d9f90eb_415394bb",
       "range": {
         "startLine": 114,
         "startChar": 0,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "7b06feeb_eb2ddfb4",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95ed9a24_0750aa21",
+      "range": {
+        "startLine": 169,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 5
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54357d57_6224169d",
         "filename": "compiler/optimizing/cloner_test.cc",
         "patchSetId": 8
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "ae7544fc_cd413212",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54357d57_6224169d",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 5
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4170b148_57a124e0",
         "filename": "compiler/optimizing/cloner_test.cc",
         "patchSetId": 8
@@ -191,6 +377,24 @@
       "writtenOn": "2017-09-22T16:55:33Z",
       "side": 1,
       "message": "nit: ASSERT is typically used if running the rest of the test depends on the value. So a last one by definition should be an EXPECT_TRUE (although I can see you want symmetry with L167). Likewise, is L189 really an ASSERT or an EXPECT?",
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "649a490d_c78ee9fd",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4170b148_57a124e0",
       "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -268,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "bea8745d_5433cf7e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3cf726a_eb869fdf",
+      "range": {
+        "startLine": 133,
+        "startChar": 75,
+        "endLine": 133,
+        "endChar": 85
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "023fdaba_f78c454f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -279,6 +507,30 @@
       "writtenOn": "2017-09-22T12:19:18Z",
       "side": 1,
       "message": "Maybe refactor this into a ReplaceAndRemovePhiWith method?",
+      "range": {
+        "startLine": 2852,
+        "startChar": 0,
+        "endLine": 2856,
+        "endChar": 26
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9394416e_5b7af1bb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2856,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "023fdaba_f78c454f",
       "range": {
         "startLine": 2852,
         "startChar": 0,
@@ -314,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "2cefe560_b7e3023c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2863,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a878419_1fe840d1",
+      "range": {
+        "startLine": 2863,
+        "startChar": 8,
+        "endLine": 2863,
+        "endChar": 60
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7af0ece9_664f938e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -325,6 +601,30 @@
       "writtenOn": "2017-09-22T12:19:18Z",
       "side": 1,
       "message": "This macro is only used in other macro definitions; I would replace its uses with its definition, and remove it.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "400343d4_952b772e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7af0ece9_664f938e",
       "range": {
         "startLine": 48,
         "startChar": 0,
@@ -360,6 +660,30 @@
     },
     {
       "key": {
+        "uuid": "694a615f_89e305ec",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "As it resides in a macro LINT doesn\u0027t recognize it as qualifier (Weird number of spaces at line-start.  Are you using a 2-space indent?) I suggest we keep is as it is.",
+      "parentUuid": "1fb7cb6e_c03d9793",
+      "range": {
+        "startLine": 1475,
+        "startChar": 0,
+        "endLine": 1475,
+        "endChar": 2
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97b21f7e_8df939ee",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -371,6 +695,30 @@
       "writtenOn": "2017-09-22T12:19:18Z",
       "side": 1,
       "message": "I\u0027d put the HIR instruction type (and its id) at the end of the error message, to mimic what we do in other places of the compiler:\n\n  LOG(FATAL) \u003c\u003c \"Clonning is not implemented for the instruction \" \u003c\u003c DebugName() \u003c\u003c \" \" \u003c\u003c GetId();",
+      "range": {
+        "startLine": 2184,
+        "startChar": 4,
+        "endLine": 2184,
+        "endChar": 85
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666b334c_c32bded2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97b21f7e_8df939ee",
       "range": {
         "startLine": 2184,
         "startChar": 4,
@@ -406,6 +754,30 @@
     },
     {
       "key": {
+        "uuid": "ea2e89d9_637d1eb9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f03c2f08_86243455",
+      "range": {
+        "startLine": 2515,
+        "startChar": 2,
+        "endLine": 2515,
+        "endChar": 95
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62b9693c_320ef0a3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -417,6 +789,30 @@
       "writtenOn": "2017-09-22T12:19:18Z",
       "side": 1,
       "message": "Please document this new function (or just move the corresponding comment from compiler/optimizing/nodes.cc to this file.)",
+      "range": {
+        "startLine": 7253,
+        "startChar": 14,
+        "endLine": 7253,
+        "endChar": 38
+      },
+      "revId": "fa0d2b30efec77f980408a489f0192f64dad4b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec1461ef_5b7d07c5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 7253,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-09T19:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62b9693c_320ef0a3",
       "range": {
         "startLine": 7253,
         "startChar": 14,
