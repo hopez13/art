@@ -16,6 +16,24 @@
       "revId": "abbc4bc8a6716a6e524ec2572834fa34604519c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "250001b8_3f85447a",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-09T18:04:44Z",
+      "side": 1,
+      "message": "seems like something for another cl maybe?\n\nReally I don\u0027t think we should be seeing any non-invokable methods in the JIT at all.",
+      "parentUuid": "40a54f3e_3cbaef22",
+      "revId": "abbc4bc8a6716a6e524ec2572834fa34604519c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
