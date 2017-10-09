@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc912669_ab3cfc56",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-09T14:29:52Z",
+      "side": 1,
+      "message": "I think this needs to be wrapped in \"\", otherwise the * will sometimes get expanded\n\n  ANDROID_LOG_TAGS\u003d\"$ANDROID_LOG_TAGS\"\n\nNow on most shells the default glob behavior is to turn *:v back into a literal * followed by \u0027:v\u0027, but supposing someone had a file called ???:v it would actually expand to the file name.",
+      "range": {
+        "startLine": 241,
+        "startChar": 31,
+        "endLine": 241,
+        "endChar": 48
+      },
+      "revId": "70619fb105396b5009852111de126d76f3325245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
