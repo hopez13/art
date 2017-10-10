@@ -39,6 +39,7 @@
 #include "boot_image_profile.h"
 #include "bytecode_utils.h"
 #include "dex_file.h"
+#include "dex_file_loader.h"
 #include "dex_file_types.h"
 #include "jit/profile_compilation_info.h"
 #include "profile_assistant.h"
@@ -328,21 +329,21 @@ class ProfMan FINAL {
       std::string error_msg;
       std::vector<std::unique_ptr<const DexFile>> dex_files_for_location;
       if (use_apk_fd_list) {
-        if (DexFile::OpenZip(apks_fd_[i],
-                             dex_locations_[i],
-                             kVerifyChecksum,
-                             &error_msg,
-                             &dex_files_for_location)) {
+        if (DexFileLoader::OpenZip(apks_fd_[i],
+                                   dex_locations_[i],
+                                   kVerifyChecksum,
+                                   &error_msg,
+                                   &dex_files_for_location)) {
         } else {
           LOG(WARNING) << "OpenZip failed for '" << dex_locations_[i] << "' " << error_msg;
           continue;
         }
       } else {
-        if (DexFile::Open(apk_files_[i].c_str(),
-                          dex_locations_[i],
-                          kVerifyChecksum,
-                          &error_msg,
-                          &dex_files_for_location)) {
+        if (DexFileLoader::Open(apk_files_[i].c_str(),
+                                dex_locations_[i],
+                                kVerifyChecksum,
+                                &error_msg,
+                                &dex_files_for_location)) {
         } else {
           LOG(WARNING) << "Open failed for '" << dex_locations_[i] << "' " << error_msg;
           continue;

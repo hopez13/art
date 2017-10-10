@@ -105,7 +105,7 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
           realpath(expected_location.c_str(), nullptr));
       ASSERT_TRUE(expected_real_location != nullptr) << expected_location;
       expected_location.assign(expected_real_location.get());
-      expected_location += DexFile::GetMultiDexSuffix(expected_dex_file->GetLocation());
+      expected_location += DexFileLoader::GetMultiDexSuffix(expected_dex_file->GetLocation());
 
       ASSERT_EQ(expected_location, opened_dex_file->GetLocation());
       ASSERT_EQ(expected_dex_file->GetLocationChecksum(), opened_dex_file->GetLocationChecksum());
