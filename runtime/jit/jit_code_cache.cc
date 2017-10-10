@@ -52,6 +52,54 @@ static constexpr int kProtCode = PROT_READ | PROT_EXEC;
 static constexpr size_t kCodeSizeLogThreshold = 50 * KB;
 static constexpr size_t kStackMapSizeLogThreshold = 50 * KB;
 
+#if defined __aarch64__
+
+// Closure for checkpoint on ARM64 after code is added to the JIT
+// cache. This issues an instruction synchronization barrier on all
+// threads. If a thread switches core whilst this is running, that's
+// okay as it'll have been done by the kernel and the migrating thread
+// will have returned to userland via ERET which is also a
+// synchronizing instruction.
+//
+// This is only necessary on ARM64 because changing the JIT cache page
+// permissions does not entail an IPI as it does on other platforms. A
+// side-effect of the IPI is synchronizing the instruction pipelines
+// on other cores.
+class IsbClosure FINAL : public Closure {
+ public:
+  explicit IsbClosure(Barrier* barrier) : barrier_(barrier) {}
+
+  void Run(Thread* thread) OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(thread == Thread::Current());
+    __asm __volatile("isb");
+    barrier_->Pass(thread);
+  }
+
+ private:
+  Barrier* const barrier_;
+
+  IsbClosure() = delete;
+  DISALLOW_COPY_AND_ASSIGN(IsbClosure);
+};
+
+void JitCodeCache::SynchronizePipelines(Thread* self) {
+  Barrier barrier(0);
+  IsbClosure closure(&barrier);
+  size_t count = Runtime::Current()->GetThreadList()->RunCheckpointOnRunnableThreads(&closure);
+  if (count != 0) {
+    // Wait for runnable threads to execute IsbClosure::Run().
+    barrier.Increment(self, count);
+  }
+}
+
+#else  // __aarch64__
+
+void JitCodeCache::SynchronizePipelines(Thread* self ATTRIBUTE_UNUSED) {
+  // Only required on ARM64, see comment for IsbClosure.
+}
+
+#endif  // __aarch64__
+
 JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
                                    size_t max_capacity,
                                    bool generate_debug_info,
@@ -198,15 +246,14 @@ bool JitCodeCache::ContainsMethod(ArtMethod* method) {
 
 class ScopedCodeCacheWrite : ScopedTrace {
  public:
-  explicit ScopedCodeCacheWrite(MemMap* code_map, bool only_for_tlb_shootdown = false)
+  explicit ScopedCodeCacheWrite(MemMap* code_map)
       : ScopedTrace("ScopedCodeCacheWrite"),
-        code_map_(code_map),
-        only_for_tlb_shootdown_(only_for_tlb_shootdown) {
+        code_map_(code_map) {
     ScopedTrace trace("mprotect all");
     CheckedCall(mprotect,
                 "make code writable",
                 code_map_->Begin(),
-                only_for_tlb_shootdown_ ? kPageSize : code_map_->Size(),
+                code_map_->Size(),
                 kProtAll);
   }
   ~ScopedCodeCacheWrite() {
@@ -214,16 +261,12 @@ class ScopedCodeCacheWrite : ScopedTrace {
     CheckedCall(mprotect,
                 "make code protected",
                 code_map_->Begin(),
-                only_for_tlb_shootdown_ ? kPageSize : code_map_->Size(),
+                code_map_->Size(),
                 kProtCode);
   }
 
  private:
   MemMap* const code_map_;
-
-  // If we're using ScopedCacheWrite only for TLB shootdown, we limit the scope of mprotect to
-  // one page.
-  const bool only_for_tlb_shootdown_;
 
   DISALLOW_COPY_AND_ASSIGN(ScopedCodeCacheWrite);
 };
@@ -238,7 +281,6 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   size_t fp_spill_mask,
                                   const uint8_t* code,
                                   size_t code_size,
-                                  size_t data_size,
                                   bool osr,
                                   Handle<mirror::ObjectArray<mirror::Object>> roots,
                                   bool has_should_deoptimize_flag,
@@ -253,7 +295,6 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                        fp_spill_mask,
                                        code,
                                        code_size,
-                                       data_size,
                                        osr,
                                        roots,
                                        has_should_deoptimize_flag,
@@ -271,7 +312,6 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                 fp_spill_mask,
                                 code,
                                 code_size,
-                                data_size,
                                 osr,
                                 roots,
                                 has_should_deoptimize_flag,
@@ -561,7 +601,6 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           size_t fp_spill_mask,
                                           const uint8_t* code,
                                           size_t code_size,
-                                          size_t data_size,
                                           bool osr,
                                           Handle<mirror::ObjectArray<mirror::Object>> roots,
                                           bool has_should_deoptimize_flag,
@@ -606,6 +645,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       // https://android.googlesource.com/kernel/msm/+/3fbe6bc28a6b9939d0650f2f17eb5216c719950c
       FlushInstructionCache(reinterpret_cast<char*>(code_ptr),
                             reinterpret_cast<char*>(code_ptr + code_size));
+      SynchronizePipelines(self);
       DCHECK(!Runtime::Current()->IsAotCompiler());
       if (has_should_deoptimize_flag) {
         method_header->SetHasShouldDeoptimizeFlag();
@@ -614,6 +654,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
 
     number_of_compilations_++;
   }
+
   // We need to update the entry point in the runnable state for the instrumentation.
   {
     // Need cha_lock_ for checking all single-implementation flags and register
@@ -651,13 +692,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     DCHECK_EQ(FromStackMapToRoots(stack_map), roots_data);
     DCHECK_LE(roots_data, stack_map);
     FillRootTable(roots_data, roots);
-    {
-      // Flush data cache, as compiled code references literals in it.
-      // We also need a TLB shootdown to act as memory barrier across cores.
-      ScopedCodeCacheWrite ccw(code_map_.get(), /* only_for_tlb_shootdown */ true);
-      FlushDataCache(reinterpret_cast<char*>(roots_data),
-                     reinterpret_cast<char*>(roots_data + data_size));
-    }
+    QuasiAtomic::ThreadFenceSequentiallyConsistent();
     method_code_map_.Put(code_ptr, method);
     if (osr) {
       number_of_osr_compilations_++;

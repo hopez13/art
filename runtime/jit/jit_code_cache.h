@@ -113,7 +113,6 @@ class JitCodeCache {
                       size_t fp_spill_mask,
                       const uint8_t* code,
                       size_t code_size,
-                      size_t data_size,
                       bool osr,
                       Handle<mirror::ObjectArray<mirror::Object>> roots,
                       bool has_should_deoptimize_flag,
@@ -267,13 +266,14 @@ class JitCodeCache {
                               size_t fp_spill_mask,
                               const uint8_t* code,
                               size_t code_size,
-                              size_t data_size,
                               bool osr,
                               Handle<mirror::ObjectArray<mirror::Object>> roots,
                               bool has_should_deoptimize_flag,
                               const ArenaSet<ArtMethod*>& cha_single_implementation_list)
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void SynchronizePipelines(Thread* self) REQUIRES(!Locks::mutator_lock_);
 
   ProfilingInfo* AddProfilingInfoInternal(Thread* self,
                                           ArtMethod* method,
