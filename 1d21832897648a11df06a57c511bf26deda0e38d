@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d2e5826_101550ef",
+        "filename": "runtime/cdex/cdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-10T22:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eed72071_c95ac412",
+      "range": {
+        "startLine": 22,
+        "startChar": 57,
+        "endLine": 22,
+        "endChar": 58
+      },
+      "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ba5413b_0b8d3c5f",
         "filename": "runtime/cdex/cdex_file.h",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2017-10-10T16:29:44Z",
       "side": 1,
       "message": "we are introducing yet another format in our already confusing ecosystem. how about documenting at least a little bit what this new format is indented for and how it would fit in our flow as a top-level class comment here?\n\n(don\u0027t expect a design doc, but some pointers for the future readers)",
+      "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0435720_6dcb0897",
+        "filename": "runtime/cdex/cdex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-10T22:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ba5413b_0b8d3c5f",
       "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "fd7121aa_6fe71f6c",
+        "filename": "runtime/cdex/cdex_file_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-10T22:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c3a24a2_88e3bab1",
+      "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24fe0f6f_9402e69a",
         "filename": "runtime/dex_file.h",
         "patchSetId": 4
@@ -70,6 +130,24 @@
       "writtenOn": "2017-10-10T16:29:44Z",
       "side": 1,
       "message": "here too perhaps a bit more comments (e.g you explain \"native dex\" as \"normal dex\", I would find e.g. \"ordinary\" or \"traditional\"? vs. \"compact\" a bit more clear), perhaps as simple as just stating the history, as in, we are moving from the traditional dex to an even more compact format?",
+      "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b4288f_ddea7c92",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-10T22:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24fe0f6f_9402e69a",
       "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +189,30 @@
       "side": 1,
       "message": "I second this.\n\nWhy don\u0027t you add a helper in the oat writer?",
       "parentUuid": "94ba17bf_913924a2",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 53
+      },
+      "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abc134df_578f61df",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-10T22:19:13Z",
+      "side": 1,
+      "message": "I\u0027ll move this to DexFileLoader in a follow up CL.",
+      "parentUuid": "233eb70d_1b43381d",
       "range": {
         "startLine": 548,
         "startChar": 0,
