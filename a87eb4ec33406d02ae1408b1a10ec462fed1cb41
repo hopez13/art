@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "15efe5c7_300db61f",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f916e8e7_c69fd2cd",
+      "range": {
+        "startLine": 25,
+        "startChar": 23,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e16ec17_963eb060",
         "filename": "compiler/optimizing/load_store_analysis.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-10-06T18:51:01Z",
       "side": 1,
       "message": "period at end, here and several other comments too",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "450f80d1_1600f091",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e16ec17_963eb060",
       "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "93fcbe54_c0ee724c",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c1b71d1_3e6a0b50",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc4f841c_4c350cf3",
         "filename": "compiler/optimizing/load_store_analysis.cc",
         "patchSetId": 1
@@ -70,6 +130,24 @@
       "writtenOn": "2017-10-06T18:51:01Z",
       "side": 1,
       "message": "_GE",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c0654f_cbb91d79",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc4f841c_4c350cf3",
       "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "b2d7be4a_3b448dc2",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "OK, I\u0027ve added comment here in the new PS.\nFor non-vector heap locations like array or field access, their vector_length_ value is kScalar.",
+      "parentUuid": "550839fe_83aa10fc",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc6aadf9_88c6bed7",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 1
@@ -104,6 +200,24 @@
       "writtenOn": "2017-10-06T18:51:01Z",
       "side": 1,
       "message": "why invalid, why not just 1?",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b22fdd1_e6f06b83",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "Yes, the comment will be changed in the new PS. When the HeapLocation is not vector data, the value of vector_length_ is HeapLocation::kScalar.",
+      "parentUuid": "fc6aadf9_88c6bed7",
       "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -133,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "5fbe4ca9_72ce25c6",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e07d96f7_a71624b2",
+      "range": {
+        "startLine": 246,
+        "startChar": 8,
+        "endLine": 246,
+        "endChar": 9
+      },
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56fcbd50_58f13538",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 1
@@ -150,6 +288,24 @@
     },
     {
       "key": {
+        "uuid": "92df4932_f68d57ec",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "Yes, it is OK.\n\nIn my opinion, this case is just like \u0027array[i+0]\u0027 and \u0027array[i]\u0027 having two different heap location indexes; and query using (ref\u003d\u0027array\u0027, index\u003d\u0027i+0\u0027) should not return the index of array[i], no matter how close they are.\n\nWe have ComputeAlias() and MayAlias() to further tell whether these two indexes may or may not alias.",
+      "parentUuid": "56fcbd50_58f13538",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c010cfbc_38f74468",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 1
@@ -161,6 +317,24 @@
       "writtenOn": "2017-10-06T18:51:01Z",
       "side": 1,
       "message": "spell out vector length, here and elsewhere",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "321c7852_5fe24df3",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-10T15:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c010cfbc_38f74468",
       "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
