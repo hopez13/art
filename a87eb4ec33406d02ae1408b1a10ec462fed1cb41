@@ -306,6 +306,24 @@
     },
     {
       "key": {
+        "uuid": "f1625d18_cd71a553",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-10T16:52:52Z",
+      "side": 1,
+      "message": "Ok, but would you mind adding this as a comment in the code, so that future readers know it is okay to have different heap locations that still overlap? The current comment is rather non-descript.",
+      "parentUuid": "92df4932_f68d57ec",
+      "revId": "a87eb4ec33406d02ae1408b1a10ec462fed1cb41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c010cfbc_38f74468",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 1
