@@ -35,6 +35,8 @@ bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
                           uint16_t inst_data,
                           JValue* result_register);
 
+void InitializeSignaturePolymorphicIntrinsics();
+
 }  // namespace interpreter
 }  // namespace art
 

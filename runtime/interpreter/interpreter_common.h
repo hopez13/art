@@ -222,7 +222,205 @@ static inline mirror::MethodType* ResolveMethodType(Thread* self,
   return class_linker->ResolveMethodType(self, method_type_index, referrer);
 }
 
-// Performs a signature polymorphic invoke (invoke-polymorphic/invoke-polymorphic-range).
+bool DoMethodHandleInvokeExact(Thread* self,
+                               ShadowFrame& shadow_frame,
+                               const Instruction* inst,
+                               uint16_t inst_data,
+                               JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoMethodHandleInvoke(Thread* self,
+                          ShadowFrame& shadow_frame,
+                          const Instruction* inst,
+                          uint16_t inst_data,
+                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleCompareAndExchange(Thread* self,
+                                   ShadowFrame& shadow_frame,
+                                   const Instruction* inst,
+                                   uint16_t inst_data,
+                                   JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleCompareAndExchangeAcquire(Thread* self,
+                                          ShadowFrame& shadow_frame,
+                                          const Instruction* inst,
+                                          uint16_t inst_data,
+                                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleCompareAndExchangeRelease(Thread* self,
+                                          ShadowFrame& shadow_frame,
+                                          const Instruction* inst,
+                                          uint16_t inst_data,
+                                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleCompareAndSet(Thread* self,
+                              ShadowFrame& shadow_frame,
+                              const Instruction* inst,
+                              uint16_t inst_data,
+                              JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGet(Thread* self,
+                    ShadowFrame& shadow_frame,
+                    const Instruction* inst,
+                    uint16_t inst_data,
+                    JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAcquire(Thread* self,
+                           ShadowFrame& shadow_frame,
+                           const Instruction* inst,
+                           uint16_t inst_data,
+                           JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndAdd(Thread* self,
+                          ShadowFrame& shadow_frame,
+                          const Instruction* inst,
+                          uint16_t inst_data,
+                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndAddAcquire(Thread* self,
+                                 ShadowFrame& shadow_frame,
+                                 const Instruction* inst,
+                                 uint16_t inst_data,
+                                 JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndAddRelease(Thread* self,
+                                 ShadowFrame& shadow_frame,
+                                 const Instruction* inst,
+                                 uint16_t inst_data,
+                                 JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseAnd(Thread* self,
+                                 ShadowFrame& shadow_frame,
+                                 const Instruction* inst,
+                                 uint16_t inst_data,
+                                 JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseAndAcquire(Thread* self,
+                                        ShadowFrame& shadow_frame,
+                                        const Instruction* inst,
+                                        uint16_t inst_data,
+                                        JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseAndRelease(Thread* self,
+                                        ShadowFrame& shadow_frame,
+                                        const Instruction* inst,
+                                        uint16_t inst_data,
+                                        JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseOr(Thread* self,
+                                ShadowFrame& shadow_frame,
+                                const Instruction* inst,
+                                uint16_t inst_data,
+                                JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseOrAcquire(Thread* self,
+                                       ShadowFrame& shadow_frame,
+                                       const Instruction* inst,
+                                       uint16_t inst_data,
+                                       JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseOrRelease(Thread* self,
+                                       ShadowFrame& shadow_frame,
+                                       const Instruction* inst,
+                                       uint16_t inst_data,
+                                       JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseXor(Thread* self,
+                                 ShadowFrame& shadow_frame,
+                                 const Instruction* inst,
+                                 uint16_t inst_data,
+                                 JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseXorAcquire(Thread* self,
+                                        ShadowFrame& shadow_frame,
+                                        const Instruction* inst,
+                                        uint16_t inst_data,
+                                        JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndBitwiseXorRelease(Thread* self,
+                                        ShadowFrame& shadow_frame,
+                                        const Instruction* inst,
+                                        uint16_t inst_data,
+                                        JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndSet(Thread* self,
+                          ShadowFrame& shadow_frame,
+                          const Instruction* inst,
+                          uint16_t inst_data,
+                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndSetAcquire(Thread* self,
+                                 ShadowFrame& shadow_frame,
+                                 const Instruction* inst,
+                                 uint16_t inst_data,
+                                 JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetAndSetRelease(Thread* self,
+                                 ShadowFrame& shadow_frame,
+                                 const Instruction* inst,
+                                 uint16_t inst_data,
+                                 JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetOpaque(Thread* self,
+                          ShadowFrame& shadow_frame,
+                          const Instruction* inst,
+                          uint16_t inst_data,
+                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleGetVolatile(Thread* self,
+                            ShadowFrame& shadow_frame,
+                            const Instruction* inst,
+                            uint16_t inst_data,
+                            JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleSet(Thread* self,
+                    ShadowFrame& shadow_frame,
+                    const Instruction* inst,
+                    uint16_t inst_data,
+                    JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleSetOpaque(Thread* self,
+                          ShadowFrame& shadow_frame,
+                          const Instruction* inst,
+                          uint16_t inst_data,
+                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleSetRelease(Thread* self,
+                           ShadowFrame& shadow_frame,
+                           const Instruction* inst,
+                           uint16_t inst_data,
+                           JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleSetVolatile(Thread* self,
+                            ShadowFrame& shadow_frame,
+                            const Instruction* inst,
+                            uint16_t inst_data,
+                            JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleWeakCompareAndSet(Thread* self,
+                                  ShadowFrame& shadow_frame,
+                                  const Instruction* inst,
+                                  uint16_t inst_data,
+                                  JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleWeakCompareAndSetAcquire(Thread* self,
+                                         ShadowFrame& shadow_frame,
+                                         const Instruction* inst,
+                                         uint16_t inst_data,
+                                         JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleWeakCompareAndSetPlain(Thread* self,
+                                       ShadowFrame& shadow_frame,
+                                       const Instruction* inst,
+                                       uint16_t inst_data,
+                                       JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool DoVarHandleWeakCompareAndSetRelease(Thread* self,
+                                         ShadowFrame& shadow_frame,
+                                         const Instruction* inst,
+                                         uint16_t inst_data,
+                                         JValue* result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+// Performs a invoke-polymorphic or invoke-polymorphic-range.
 template<bool is_range>
 bool DoInvokePolymorphic(Thread* self,
                          ShadowFrame& shadow_frame,

@@ -316,6 +316,10 @@ class ArtMethod FINAL {
   // -- Unrelated to the GC notion of "critical".
   bool IsAnnotatedWithCriticalNative();
 
+  // Checks to see if the method was annotated with
+  // @java.lang.invoke.MethodHandle.PolymorphicSignature.
+  bool IsAnnotatedWithPolymorphicSignature();
+
   // Returns true if this method could be overridden by a default method.
   bool IsOverridableByDefaultMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 

@@ -2613,10 +2613,6 @@ extern "C" uintptr_t artInvokePolymorphic(
   ClassLinker* linker = Runtime::Current()->GetClassLinker();
   ArtMethod* resolved_method = linker->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
       self, inst.VRegB(), caller_method, kVirtual);
-  DCHECK((resolved_method ==
-          jni::DecodeArtMethod(WellKnownClasses::java_lang_invoke_MethodHandle_invokeExact)) ||
-         (resolved_method ==
-          jni::DecodeArtMethod(WellKnownClasses::java_lang_invoke_MethodHandle_invoke)));
   if (UNLIKELY(method_handle.IsNull())) {
     ThrowNullPointerExceptionForMethodAccess(resolved_method, InvokeType::kVirtual);
     return static_cast<uintptr_t>('V');
@@ -2662,16 +2658,28 @@ extern "C" uintptr_t artInvokePolymorphic(
   // consecutive order.
   uint32_t unused_args[Instruction::kMaxVarArgRegs] = {};
   uint32_t first_callee_arg = first_arg + 1;
-  if (!DoInvokePolymorphic<true /* is_range */>(self,
-                                                resolved_method,
-                                                *shadow_frame,
-                                                method_handle,
-                                                method_type,
-                                                unused_args,
-                                                first_callee_arg,
-                                                result)) {
-    DCHECK(self->IsExceptionPending());
+
+  bool isExact = (jni::EncodeArtMethod(resolved_method) ==
+                  WellKnownClasses::java_lang_invoke_MethodHandle_invokeExact);
+  bool success = false;
+  if (isExact) {
+    success = MethodHandleInvokeExact<true/*is_range*/>(self,
+                                                        *shadow_frame,
+                                                        method_handle,
+                                                        method_type,
+                                                        unused_args,
+                                                        first_callee_arg,
+                                                        result);
+  } else {
+    success = MethodHandleInvoke<true/*is_range*/>(self,
+                                                   *shadow_frame,
+                                                   method_handle,
+                                                   method_type,
+                                                   unused_args,
+                                                   first_callee_arg,
+                                                   result);
   }
+  DCHECK(success || self->IsExceptionPending());
 
   // Pop transition record.
   self->PopManagedStackFragment(fragment);
