@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b2c8bd0_9f5aae22",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-10T16:46:30Z",
+      "side": 1,
+      "message": "Document this as well?",
+      "range": {
+        "startLine": 75,
+        "startChar": 34,
+        "endLine": 75,
+        "endChar": 57
+      },
+      "revId": "925627626165b31928036017364a7e9574c8c033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64596d2_4feb5856",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-10T16:46:30Z",
+      "side": 1,
+      "message": "Remove this, as it is already included by driver/compiler_driver-inl.h?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "925627626165b31928036017364a7e9574c8c033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0cf23fa_35cf58ba",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-10T16:46:30Z",
+      "side": 1,
+      "message": "/* expandable */ false",
+      "range": {
+        "startLine": 379,
+        "startChar": 65,
+        "endLine": 379,
+        "endChar": 70
+      },
+      "revId": "925627626165b31928036017364a7e9574c8c033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc84c72_10318e3a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-10T16:46:30Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 61,
+        "startChar": 54,
+        "endLine": 61,
+        "endChar": 59
+      },
+      "revId": "925627626165b31928036017364a7e9574c8c033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db8527bc_5e26ff2c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-10T16:46:30Z",
+      "side": 1,
+      "message": "I think we should really refactor this pattern in a method (maybe ArenaBitVector\u0027s ctor, with an optional argument; or perhaps in a ArenaBitVector::CreateAndZero function), possibly in another CL.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 25
+      },
+      "revId": "925627626165b31928036017364a7e9574c8c033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
