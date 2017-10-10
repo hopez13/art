@@ -25,6 +25,57 @@
     },
     {
       "key": {
+        "uuid": "3ba5413b_0b8d3c5f",
+        "filename": "runtime/cdex/cdex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-10T16:29:44Z",
+      "side": 1,
+      "message": "we are introducing yet another format in our already confusing ecosystem. how about documenting at least a little bit what this new format is indented for and how it would fit in our flow as a top-level class comment here?\n\n(don\u0027t expect a design doc, but some pointers for the future readers)",
+      "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3a24a2_88e3bab1",
+        "filename": "runtime/cdex/cdex_file_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-10T16:29:44Z",
+      "side": 1,
+      "message": "also test with magic valid, but version invalid just so we know that combi works too",
+      "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24fe0f6f_9402e69a",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-10T16:29:44Z",
+      "side": 1,
+      "message": "here too perhaps a bit more comments (e.g you explain \"native dex\" as \"normal dex\", I would find e.g. \"ordinary\" or \"traditional\"? vs. \"compact\" a bit more clear), perhaps as simple as just stating the history, as in, we are moving from the traditional dex to an even more compact format?",
+      "revId": "1d21832897648a11df06a57c511bf26deda0e38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94ba17bf_913924a2",
         "filename": "runtime/dex_file.h",
         "patchSetId": 4
