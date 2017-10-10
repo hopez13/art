@@ -201,8 +201,8 @@ static jstring VMRuntime_vmInstructionSet(JNIEnv* env, jobject) {
 }
 
 static jboolean VMRuntime_is64Bit(JNIEnv*, jobject) {
-  bool is64BitMode = (sizeof(void*) == sizeof(uint64_t));
-  return is64BitMode ? JNI_TRUE : JNI_FALSE;
+  PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  return (pointer_size == PointerSize::k64) ? JNI_TRUE : JNI_FALSE;
 }
 
 static jboolean VMRuntime_isCheckJniEnabled(JNIEnv* env, jobject) {
