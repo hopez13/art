@@ -842,6 +842,10 @@ void EventHandler::HandleLocalAccessCapabilityAdded() {
 
     bool operator()(art::ObjPtr<art::mirror::Class> klass)
         OVERRIDE REQUIRES(art::Locks::mutator_lock_) {
+      if (!klass->IsLoaded()) {
+        // Skip classes that aren't loaded since they might not have fully setup methods.
+        return true;
+      }
       for (auto& m : klass->GetMethods(art::kRuntimePointerSize)) {
         const void* code = m.GetEntryPointFromQuickCompiledCode();
         if (m.IsNative() || m.IsProxyMethod()) {
