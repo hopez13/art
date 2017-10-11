@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7e9ea78_6e5fac4c",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-11T22:02:02Z",
+      "side": 1,
+      "message": "I think this isn\u0027t cheap. Could you have one version like before when decompile_return_instruction is false, and then your version when true?",
+      "range": {
+        "startLine": 285,
+        "startChar": 13,
+        "endLine": 287,
+        "endChar": 31
+      },
+      "revId": "0dd5a4fe5e545c52ef2e43814ed91b4cf76fa222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dd46274_03551bd1",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-11T22:02:02Z",
+      "side": 1,
+      "message": "No need if decompile_return_instruction is false.",
+      "range": {
+        "startLine": 297,
+        "startChar": 13,
+        "endLine": 299,
+        "endChar": 71
+      },
+      "revId": "0dd5a4fe5e545c52ef2e43814ed91b4cf76fa222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "549dc018_d2bab041",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-11T22:02:02Z",
+      "side": 1,
+      "message": "I\u0027d prefer having this helper in oatdump.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 73
+      },
+      "revId": "0dd5a4fe5e545c52ef2e43814ed91b4cf76fa222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
