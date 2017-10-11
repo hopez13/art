@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2585538_3c07db0c",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-11T18:23:13Z",
+      "side": 1,
+      "message": "thanks for adding a bit more context to the class comment",
+      "revId": "fefe6152abb3ac0f1f558787764c6496e25f0517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02923e1f_686ee633",
+        "filename": "runtime/native_dex_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-11T18:23:13Z",
+      "side": 1,
+      "message": "it would be more consistent to use (ordinary) in between brackets. Perhaps say a bit more, as in, this is the file format used since the beginning;",
+      "revId": "fefe6152abb3ac0f1f558787764c6496e25f0517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
