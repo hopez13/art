@@ -129,6 +129,30 @@
       "revId": "d444537416fdce1390aa645cfc8c2b3718a1e9b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b91fd384_73178bb7",
+        "filename": "runtime/native_dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-11T19:01:40Z",
+      "side": 1,
+      "message": "The plan is to submit this, submit the DexFileLoader  CL, then rename DexFile -\u003e IDexFile in a CL, then rename NativeDexFile -\u003e DexFile in a CL, then add CDexFile all in different CLs.",
+      "parentUuid": "4c601370_b1eecf93",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "d444537416fdce1390aa645cfc8c2b3718a1e9b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
