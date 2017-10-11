@@ -22,6 +22,30 @@
       "revId": "3dea2121a90cc95c215736ef84d093e396f5525f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "520e16c0_a0e6866b",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-11T19:49:49Z",
+      "side": 1,
+      "message": "I did and wasn\u0027t able to find anything. mathieuc@ thinks it might be a gc bug.\n\nI also was never able to get it to repro on anything but gcstress-64bit so I don\u0027t think it\u0027s too big a deal to push this in. Also this is being tested by our jdwp tests and I don\u0027t recall ever seeing a failure due to this bug there.",
+      "parentUuid": "4ac4c67d_a9ab8b8a",
+      "range": {
+        "startLine": 4,
+        "startChar": 44,
+        "endLine": 4,
+        "endChar": 73
+      },
+      "revId": "3dea2121a90cc95c215736ef84d093e396f5525f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
