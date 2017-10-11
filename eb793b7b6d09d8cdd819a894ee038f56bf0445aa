@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f537a1a1_6ecd3c41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-11T20:51:59Z",
+      "side": 1,
+      "message": "Not clear, agampe preferred DexFileLoader. We can discuss offline to come to an agreement and rename later if required.",
+      "parentUuid": "f950fc91_3d41aa7b",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "eb793b7b6d09d8cdd819a894ee038f56bf0445aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d2c69ed_975056bd",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-11T15:04:51Z",
       "side": 1,
       "message": "Similarly to Andreas\u0027 comment: why do we need this pass-through?",
+      "range": {
+        "startLine": 879,
+        "startChar": 0,
+        "endLine": 881,
+        "endChar": 1
+      },
+      "revId": "eb793b7b6d09d8cdd819a894ee038f56bf0445aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa709d8b_7620cd9a",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-11T20:51:59Z",
+      "side": 1,
+      "message": "I\u0027ll just fix up the callers.",
+      "parentUuid": "3d2c69ed_975056bd",
       "range": {
         "startLine": 879,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "f42af89c_cd42ed06",
+        "filename": "runtime/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-11T20:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50b475aa_d1dd5215",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "eb793b7b6d09d8cdd819a894ee038f56bf0445aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95dd2469_392e83c2",
         "filename": "runtime/dex_file_loader.h",
         "patchSetId": 1
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "3f752ae5_e843857d",
+        "filename": "runtime/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-11T20:51:59Z",
+      "side": 1,
+      "message": "Probably not, will make private.",
+      "parentUuid": "95dd2469_392e83c2",
+      "range": {
+        "startLine": 138,
+        "startChar": 1,
+        "endLine": 138,
+        "endChar": 11
+      },
+      "revId": "eb793b7b6d09d8cdd819a894ee038f56bf0445aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd669cd3_51af25e0",
         "filename": "runtime/dex_file_loader.h",
         "patchSetId": 1
@@ -128,6 +224,30 @@
       "writtenOn": "2017-10-11T15:04:51Z",
       "side": 1,
       "message": "protected?",
+      "range": {
+        "startLine": 145,
+        "startChar": 38,
+        "endLine": 145,
+        "endChar": 45
+      },
+      "revId": "eb793b7b6d09d8cdd819a894ee038f56bf0445aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bb08e23_fe04c8c3",
+        "filename": "runtime/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-11T20:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd669cd3_51af25e0",
       "range": {
         "startLine": 145,
         "startChar": 38,
