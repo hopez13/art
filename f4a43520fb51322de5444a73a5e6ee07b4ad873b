@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7daf4ac7_2122d3e4",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-11T13:54:38Z",
+      "side": 1,
+      "message": "Need to update this.\n\nIIRC, the reason for the is_dirty was to save the ClearAll/memset call which was hot. Why can you now remove that optimization?",
+      "range": {
+        "startLine": 164,
+        "startChar": 3,
+        "endLine": 165,
+        "endChar": 79
+      },
+      "revId": "f4a43520fb51322de5444a73a5e6ee07b4ad873b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
