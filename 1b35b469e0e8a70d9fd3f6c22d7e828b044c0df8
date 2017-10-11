@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaa19e50_29d18204",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-10-11T18:51:58Z",
+      "side": 1,
+      "message": "This should either be false, or we need a comment someplace to explain ...",
+      "range": {
+        "startLine": 620,
+        "startChar": 6,
+        "endLine": 620,
+        "endChar": 42
+      },
+      "revId": "1b35b469e0e8a70d9fd3f6c22d7e828b044c0df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
