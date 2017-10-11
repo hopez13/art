@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "469fec5d_2c23a799",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-11T21:45:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65a2945b_ce7d1750",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 38
+      },
+      "revId": "eb793b7b6d09d8cdd819a894ee038f56bf0445aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6904d3b2_525e1f2f",
         "filename": "runtime/dex_file_loader.h",
         "patchSetId": 1
