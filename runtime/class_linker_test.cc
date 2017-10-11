@@ -1476,14 +1476,13 @@ TEST_F(ClassLinkerTest, RegisterDexFileName) {
 
 TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   ScopedObjectAccess soa(Thread::Current());
-
-  StackHandleScope<7> hs(soa.Self());
+  StackHandleScope<7> hs(Thread::Current());
 
   Handle<mirror::ClassLoader> class_loader(
       hs.NewHandle(soa.Decode<mirror::ClassLoader>(LoadDex("MethodTypes"))));
   Handle<mirror::Class> method_types(
-      hs.NewHandle(class_linker_->FindClass(soa.Self(), "LMethodTypes;", class_loader)));
-  class_linker_->EnsureInitialized(soa.Self(), method_types, true, true);
+      hs.NewHandle(class_linker_->FindClass(Thread::Current(), "LMethodTypes;", class_loader)));
+  class_linker_->EnsureInitialized(Thread::Current(), method_types, true, true);
 
   ArtMethod* method1 = method_types->FindClassMethod(
       "method1",
@@ -1503,20 +1502,29 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   // Its RType = Ljava/lang/String;
   // Its PTypes = { Ljava/lang/String; }
   Handle<mirror::MethodType> method1_type = hs.NewHandle(
-      class_linker_->ResolveMethodType(dex_file, method1_id.proto_idx_, dex_cache, class_loader));
+      class_linker_->ResolveMethodType(Thread::Current(),
+                                       dex_file,
+                                       method1_id.proto_idx_,
+                                       dex_cache,
+                                       class_loader));
 
   // Assert that the method type was resolved successfully.
   ASSERT_TRUE(method1_type != nullptr);
 
   // Assert that the return type and the method arguments are as we expect.
-  Handle<mirror::Class> string_class(
-      hs.NewHandle(class_linker_->FindClass(soa.Self(), "Ljava/lang/String;", class_loader)));
+  Handle<mirror::Class> string_class(hs.NewHandle(class_linker_->FindClass(Thread::Current(),
+                                                                           "Ljava/lang/String;",
+                                                                           class_loader)));
   ASSERT_EQ(string_class.Get(), method1_type->GetRType());
   ASSERT_EQ(string_class.Get(), method1_type->GetPTypes()->Get(0));
 
   // Resolve the method type again and assert that we get back the same value.
   Handle<mirror::MethodType> method1_type2 = hs.NewHandle(
-      class_linker_->ResolveMethodType(dex_file, method1_id.proto_idx_, dex_cache, class_loader));
+      class_linker_->ResolveMethodType(Thread::Current(),
+                                       dex_file,
+                                       method1_id.proto_idx_,
+                                       dex_cache,
+                                       class_loader));
   ASSERT_EQ(method1_type.Get(), method1_type2.Get());
 
   // Resolve the MethodType associated with a different method signature
@@ -1529,8 +1537,11 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   ASSERT_FALSE(method2->IsDirect());
   const DexFile::MethodId& method2_id = dex_file.GetMethodId(method2->GetDexMethodIndex());
   Handle<mirror::MethodType> method2_type = hs.NewHandle(
-      class_linker_->ResolveMethodType(dex_file, method2_id.proto_idx_, dex_cache, class_loader));
-
+      class_linker_->ResolveMethodType(Thread::Current(),
+                                       dex_file,
+                                       method2_id.proto_idx_,
+                                       dex_cache,
+                                       class_loader));
   ASSERT_TRUE(method1_type.Get() != method2_type.Get());
 }
 

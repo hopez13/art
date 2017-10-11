@@ -7106,48 +7106,118 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_polymorphic: /* 0xfa */
-/* Transfer stub to alternate interpreter */
-    b       MterpFallback
+/* File: mips64/op_invoke_polymorphic.S */
+/* File: mips64/invoke_polymorphic.S */
+    /*
+     * invoke_polymorhic handler wrapper.
+     */
+    /* op {vC, vD, vE, vF, vG}, meth@BBBB, proto@HHHH */
+    /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB, proto@HHHH */
+    .extern MterpInvokePolymorphic
+    .extern MterpShouldSwitchInterpreters
+    EXPORT_PC
+    move    a0, rSELF
+    daddu   a1, rFP, OFF_FP_SHADOWFRAME
+    move    a2, rPC
+    move    a3, rINST
+    jal     MterpInvokePolymorphic
+    beqzc   v0, MterpException
+    FETCH_ADVANCE_INST 4
+    jal     MterpShouldSwitchInterpreters
+    bnezc   v0, MterpFallback
+    GET_INST_OPCODE v0
+    GOTO_OPCODE v0
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_polymorphic_range: /* 0xfb */
-/* Transfer stub to alternate interpreter */
-    b       MterpFallback
+/* File: mips64/op_invoke_polymorphic_range.S */
+/* File: mips64/invoke_polymorphic.S */
+    /*
+     * invoke_polymorhic handler wrapper.
+     */
+    /* op {vC, vD, vE, vF, vG}, meth@BBBB, proto@HHHH */
+    /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB, proto@HHHH */
+    .extern MterpInvokePolymorphicRange
+    .extern MterpShouldSwitchInterpreters
+    EXPORT_PC
+    move    a0, rSELF
+    daddu   a1, rFP, OFF_FP_SHADOWFRAME
+    move    a2, rPC
+    move    a3, rINST
+    jal     MterpInvokePolymorphicRange
+    beqzc   v0, MterpException
+    FETCH_ADVANCE_INST 4
+    jal     MterpShouldSwitchInterpreters
+    bnezc   v0, MterpFallback
+    GET_INST_OPCODE v0
+    GOTO_OPCODE v0
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_custom: /* 0xfc */
-/* Transfer stub to alternate interpreter */
-    b       MterpFallback
+/* File: mips64/op_invoke_custom.S */
+/* File: mips64/invoke.S */
+    /*
+     * Generic invoke handler wrapper.
+     */
+    /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
+    /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
+    .extern MterpInvokeCustom
+    .extern MterpShouldSwitchInterpreters
+    EXPORT_PC
+    move    a0, rSELF
+    daddu   a1, rFP, OFF_FP_SHADOWFRAME
+    move    a2, rPC
+    move    a3, rINST
+    jal     MterpInvokeCustom
+    beqzc   v0, MterpException
+    FETCH_ADVANCE_INST 3
+    jal     MterpShouldSwitchInterpreters
+    bnezc   v0, MterpFallback
+    GET_INST_OPCODE v0
+    GOTO_OPCODE v0
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_custom_range: /* 0xfd */
+/* File: mips64/op_invoke_custom_range.S */
+/* File: mips64/invoke.S */
+    /*
+     * Generic invoke handler wrapper.
+     */
+    /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
+    /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
+    .extern MterpInvokeCustomRange
+    .extern MterpShouldSwitchInterpreters
+    EXPORT_PC
+    move    a0, rSELF
+    daddu   a1, rFP, OFF_FP_SHADOWFRAME
+    move    a2, rPC
+    move    a3, rINST
+    jal     MterpInvokeCustomRange
+    beqzc   v0, MterpException
+    FETCH_ADVANCE_INST 3
+    jal     MterpShouldSwitchInterpreters
+    bnezc   v0, MterpFallback
+    GET_INST_OPCODE v0
+    GOTO_OPCODE v0
+
+
+/* ------------------------------ */
+    .balign 128
+.L_op_const_method_handle: /* 0xfe */
 /* Transfer stub to alternate interpreter */
     b       MterpFallback
 
 /* ------------------------------ */
     .balign 128
-.L_op_unused_fe: /* 0xfe */
-/* File: mips64/op_unused_fe.S */
-/* File: mips64/unused.S */
-/*
- * Bail to reference interpreter to throw.
- */
+.L_op_const_method_type: /* 0xff */
+/* Transfer stub to alternate interpreter */
     b       MterpFallback
-
-
-/* ------------------------------ */
-    .balign 128
-.L_op_unused_ff: /* 0xff */
-/* File: mips64/op_unused_ff.S */
-/* File: mips64/unused.S */
-/*
- * Bail to reference interpreter to throw.
- */
-    b       MterpFallback
-
 
     .balign 128
     .size   artMterpAsmInstructionStart, .-artMterpAsmInstructionStart
@@ -12003,7 +12073,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 
 /* ------------------------------ */
     .balign 128
-.L_ALT_op_unused_fe: /* 0xfe */
+.L_ALT_op_const_method_handle: /* 0xfe */
 /* File: mips64/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
@@ -12022,7 +12092,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 
 /* ------------------------------ */
     .balign 128
-.L_ALT_op_unused_ff: /* 0xff */
+.L_ALT_op_const_method_type: /* 0xff */
 /* File: mips64/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
