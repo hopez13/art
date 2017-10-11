@@ -46,6 +46,30 @@
       "revId": "f4a43520fb51322de5444a73a5e6ee07b4ad873b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60d832a8_7524f30c",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-11T14:10:16Z",
+      "side": 1,
+      "message": "Can you track the time at which the optimization landed, with rationale (IIRC dbrazdil implemented it).",
+      "parentUuid": "4afd99e0_e4fb690f",
+      "range": {
+        "startLine": 164,
+        "startChar": 3,
+        "endLine": 165,
+        "endChar": 79
+      },
+      "revId": "f4a43520fb51322de5444a73a5e6ee07b4ad873b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
