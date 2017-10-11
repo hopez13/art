@@ -16,6 +16,24 @@
       "revId": "0b7237f38b601cd3cfe61e89e6092e4d799777e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11df45e5_22cf0389",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-11T14:16:18Z",
+      "side": 1,
+      "message": "Currently VdexFile::Unquicken() is hardcoded to disable RETURN_VOID_NO_BARRIER decompilation back into a RETURN_VOID. If the additional decompile_return_instruction flag is not added the unquickened DEX files will not be identical to original input.\n\nAFAIA functionally it doesn\u0027t make any real difference, although it would be nice if we can get the original DEX files and use the original checksum to verify that unquicken has been successfully completed.\n\nIt is indeed a lot of api changes for such a minor functionality, although I couldn\u0027t figure out a smaller path.",
+      "parentUuid": "dee065de_d8faed18",
+      "revId": "0b7237f38b601cd3cfe61e89e6092e4d799777e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
