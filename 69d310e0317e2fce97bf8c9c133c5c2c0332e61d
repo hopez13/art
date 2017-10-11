@@ -22,6 +22,30 @@
       "revId": "69d310e0317e2fce97bf8c9c133c5c2c0332e61d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b8b491b_ca9e5d1c",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-11T09:23:10Z",
+      "side": 1,
+      "message": "To reduce the number of members that the HGraphBuilder needs to hold just because of tests now that it constructs the block_builder, ssa_builder and instruction_builder lazily in BuildGraph(). The OptimizingCompilerTest::CreateCFG() now allocates a dummy dex_compilation_unit and fills it with some of that data but the outer_compilation_unit still remains null.",
+      "parentUuid": "25b7f36f_0e9a68cd",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 456,
+        "endChar": 11
+      },
+      "revId": "69d310e0317e2fce97bf8c9c133c5c2c0332e61d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
