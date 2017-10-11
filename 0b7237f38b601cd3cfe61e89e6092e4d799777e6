@@ -88,6 +88,24 @@
       "revId": "0b7237f38b601cd3cfe61e89e6092e4d799777e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc46825e_fb0fe4fc",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-11T15:36:08Z",
+      "side": 1,
+      "message": "Ok gotcha. Open files as writable and invoke later the unquicken() to minimize the api changes only to VdeFile::Unquicken() definition. Ok will do.",
+      "parentUuid": "5be44179_c9ee73a0",
+      "revId": "0b7237f38b601cd3cfe61e89e6092e4d799777e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
