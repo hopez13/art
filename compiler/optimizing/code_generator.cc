@@ -935,7 +935,7 @@ void CodeGenerator::RecordCatchBlockInfo() {
       if (current_phi == nullptr || current_phi->AsPhi()->GetRegNumber() != vreg) {
         stack_map_stream_.AddDexRegisterEntry(DexRegisterLocation::Kind::kNone, 0);
       } else {
-        Location location = current_phi->GetLiveInterval()->ToLocation();
+        Location location = current_phi->GetLocations()->Out();
         switch (location.GetKind()) {
           case Location::kStackSlot: {
             stack_map_stream_.AddDexRegisterEntry(
@@ -1202,22 +1202,21 @@ void CodeGenerator::GenerateNullCheck(HNullCheck* instruction) {
   }
 }
 
-void CodeGenerator::ClearSpillSlotsFromLoopPhisInStackMap(HSuspendCheck* suspend_check) const {
+void CodeGenerator::ClearSpillSlotsFromLoopPhisInStackMap(HSuspendCheck* suspend_check,
+                                                          HParallelMove* parallel_move) const {
   LocationSummary* locations = suspend_check->GetLocations();
   HBasicBlock* block = suspend_check->GetBlock();
   DCHECK(block->GetLoopInformation()->GetSuspendCheck() == suspend_check);
   DCHECK(block->IsLoopHeader());
+  DCHECK(block->GetFirstInstruction() == parallel_move);
 
-  for (HInstructionIterator it(block->GetPhis()); !it.Done(); it.Advance()) {
-    HInstruction* current = it.Current();
-    LiveInterval* interval = current->GetLiveInterval();
-    // We only need to clear bits of loop phis containing objects and allocated in register.
-    // Loop phis allocated on stack already have the object in the stack.
-    if (current->GetType() == DataType::Type::kReference
-        && interval->HasRegister()
-        && interval->HasSpillSlot()) {
-      locations->ClearStackBit(interval->GetSpillSlot() / kVRegSize);
-    }
+  for (size_t i = 0, num_moves = parallel_move->NumMoves(); i != num_moves; ++i) {
+    Location dest = parallel_move->MoveOperandsAt(i)->GetDestination();
+    // All parallel moves in loop headers are spills.
+    DCHECK(dest.IsStackSlot() || dest.IsDoubleStackSlot() || dest.IsSIMDStackSlot());
+    // Clear the stack bit marking a reference. Do not bother to check if the spill is
+    // actually a reference spill, clearing bits that are already zero is harmless.
+    locations->ClearStackBit(dest.GetStackIndex() / kVRegSize);
   }
 }
 
