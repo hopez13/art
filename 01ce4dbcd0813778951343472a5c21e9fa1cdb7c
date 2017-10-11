@@ -93,6 +93,30 @@
       "revId": "01ce4dbcd0813778951343472a5c21e9fa1cdb7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73d2129c_b08cf46f",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-11T23:37:39Z",
+      "side": 1,
+      "message": "Duhh, I forgot where the checksums are...\n\nPlease add a comment. \n\"  // Even though the vdex file is up to date, because we don\u0027t have the oat\n   // file, we can\u0027t know that the vdex depends on the boot image and is up to\n   // date with respect to the boot image. Instead we must assume the vdex file\n   // depends on the boot image and is out of date with respect to the boot\n   // image.\n\"",
+      "parentUuid": "8f7b10fe_1de26845",
+      "range": {
+        "startLine": 316,
+        "startChar": 31,
+        "endLine": 316,
+        "endChar": 51
+      },
+      "revId": "01ce4dbcd0813778951343472a5c21e9fa1cdb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
