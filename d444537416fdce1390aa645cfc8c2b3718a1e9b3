@@ -81,6 +81,30 @@
       "revId": "d444537416fdce1390aa645cfc8c2b3718a1e9b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d782c3b3_b1b6ea25",
+        "filename": "runtime/native_dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-11T18:34:21Z",
+      "side": 1,
+      "message": "I\u0027d prefer either changing DexFile-\u003eIDexFile or leaving the base as DexFile. Am OK with both.",
+      "parentUuid": "f7fc8d3a_5a4090ac",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "d444537416fdce1390aa645cfc8c2b3718a1e9b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
