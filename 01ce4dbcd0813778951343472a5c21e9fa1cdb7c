@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77c67b1b_d6363e25",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-11T19:17:02Z",
+      "side": 1,
+      "message": "add a test for -1,-1.",
+      "range": {
+        "startLine": 285,
+        "startChar": 38,
+        "endLine": 286,
+        "endChar": 53
+      },
+      "revId": "01ce4dbcd0813778951343472a5c21e9fa1cdb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89a98098_c9666b31",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-11T19:17:02Z",
+      "side": 1,
+      "message": "why? we have the vdex which is uptodate. this doesn\u0027t look right",
+      "range": {
+        "startLine": 316,
+        "startChar": 31,
+        "endLine": 316,
+        "endChar": 51
+      },
+      "revId": "01ce4dbcd0813778951343472a5c21e9fa1cdb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
