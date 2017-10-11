@@ -70,6 +70,30 @@
       "revId": "f4a43520fb51322de5444a73a5e6ee07b4ad873b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ae1d798_f029dc77",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-11T14:27:54Z",
+      "side": 1,
+      "message": "This was done in https://android-review.googlesource.com/217413 .\n\nThere does not seem to be any discussion of the `is_dirty` optimization. Note the \"compile time seems unaffected\" in the commit message.",
+      "parentUuid": "60d832a8_7524f30c",
+      "range": {
+        "startLine": 164,
+        "startChar": 3,
+        "endLine": 165,
+        "endChar": 79
+      },
+      "revId": "f4a43520fb51322de5444a73a5e6ee07b4ad873b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
