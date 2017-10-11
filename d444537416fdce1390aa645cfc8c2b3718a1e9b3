@@ -57,6 +57,30 @@
       "revId": "d444537416fdce1390aa645cfc8c2b3718a1e9b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7fc8d3a_5a4090ac",
+        "filename": "runtime/native_dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-11T18:25:09Z",
+      "side": 1,
+      "message": "I don\u0027t see a good name, though. Yeah, would be nice to have *Dalvik* Executable and ART(?) Executable file, but what\u0027s a common super name?",
+      "parentUuid": "5011c46c_89fc90a4",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "d444537416fdce1390aa645cfc8c2b3718a1e9b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
