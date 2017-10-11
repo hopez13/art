@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61c5a961_432c4a24",
+        "filename": "runtime/cdex/cdex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-11T14:08:41Z",
+      "side": 1,
+      "message": "I still think this should be in its own CL for better trackability of cdex changes and progress.",
+      "revId": "d444537416fdce1390aa645cfc8c2b3718a1e9b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5011c46c_89fc90a4",
+        "filename": "runtime/native_dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-11T14:08:41Z",
+      "side": 1,
+      "message": "I\u0027d prefer keeping the DexFile class as it is, and have something like commonDexAndCdexFile as shared super class.\n\nThe \"Native\" in the name here is confusing to me.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "d444537416fdce1390aa645cfc8c2b3718a1e9b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
