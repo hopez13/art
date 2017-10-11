@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f950fc91_3d41aa7b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-11T14:13:04Z",
+      "side": 1,
+      "message": "Not a big fan of the name. Sounds too close to ClassLoader.... \n\nHow about DexFileUtils?",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "eb793b7b6d09d8cdd819a894ee038f56bf0445aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c552987_3cf404f2",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
