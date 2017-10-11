@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7bacc2e9_29b612a2",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-11T18:11:18Z",
+      "side": 1,
+      "message": "Why is it 24 (instead of 12) now? Are we replacing more instructions with patch set 9?",
+      "range": {
+        "startLine": 175,
+        "startChar": 44,
+        "endLine": 175,
+        "endChar": 47
+      },
+      "revId": "bb9b2d8a9ee597cd70ea88e5a4711b560fd8f886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc79e5c4_bd8ecd4d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
