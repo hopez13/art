@@ -6902,52 +6902,138 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_polymorphic: /* 0xfa */
-/* Transfer stub to alternate interpreter */
-    b    MterpFallback
+/* File: arm64/op_invoke_polymorphic.S */
+/* File: arm64/invoke_polymorphic.S */
+    /*
+     * invoke_polymorhic handler wrapper.
+     */
+    /* op {vC, vD, vE, vF, vG}, meth@BBBB, proto@HHHH */
+    /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB, proto@HHHH */
+    .extern MterpInvokePolymorphic
+    EXPORT_PC
+    mov     x0, xSELF
+    add     x1, xFP, #OFF_FP_SHADOWFRAME
+    mov     x2, xPC
+    mov     x3, xINST
+    bl      MterpInvokePolymorphic
+    cbz     w0, MterpException
+    FETCH_ADVANCE_INST 4
+    bl      MterpShouldSwitchInterpreters
+    cbnz    w0, MterpFallback
+    GET_INST_OPCODE ip
+    GOTO_OPCODE ip
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_polymorphic_range: /* 0xfb */
-/* Transfer stub to alternate interpreter */
-    b    MterpFallback
+/* File: arm64/op_invoke_polymorphic_range.S */
+/* File: arm64/invoke_polymorphic.S */
+    /*
+     * invoke_polymorhic handler wrapper.
+     */
+    /* op {vC, vD, vE, vF, vG}, meth@BBBB, proto@HHHH */
+    /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB, proto@HHHH */
+    .extern MterpInvokePolymorphicRange
+    EXPORT_PC
+    mov     x0, xSELF
+    add     x1, xFP, #OFF_FP_SHADOWFRAME
+    mov     x2, xPC
+    mov     x3, xINST
+    bl      MterpInvokePolymorphicRange
+    cbz     w0, MterpException
+    FETCH_ADVANCE_INST 4
+    bl      MterpShouldSwitchInterpreters
+    cbnz    w0, MterpFallback
+    GET_INST_OPCODE ip
+    GOTO_OPCODE ip
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_custom: /* 0xfc */
-/* Transfer stub to alternate interpreter */
-    b    MterpFallback
+/* File: arm64/op_invoke_custom.S */
+/* File: arm64/invoke.S */
+    /*
+     * Generic invoke handler wrapper.
+     */
+    /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
+    /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
+    .extern MterpInvokeCustom
+    EXPORT_PC
+    mov     x0, xSELF
+    add     x1, xFP, #OFF_FP_SHADOWFRAME
+    mov     x2, xPC
+    mov     x3, xINST
+    bl      MterpInvokeCustom
+    cbz     w0, MterpException
+    FETCH_ADVANCE_INST 3
+    bl      MterpShouldSwitchInterpreters
+    cbnz    w0, MterpFallback
+    GET_INST_OPCODE ip
+    GOTO_OPCODE ip
+
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_custom_range: /* 0xfd */
-/* Transfer stub to alternate interpreter */
-    b    MterpFallback
+/* File: arm64/op_invoke_custom_range.S */
+/* File: arm64/invoke.S */
+    /*
+     * Generic invoke handler wrapper.
+     */
+    /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
+    /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
+    .extern MterpInvokeCustomRange
+    EXPORT_PC
+    mov     x0, xSELF
+    add     x1, xFP, #OFF_FP_SHADOWFRAME
+    mov     x2, xPC
+    mov     x3, xINST
+    bl      MterpInvokeCustomRange
+    cbz     w0, MterpException
+    FETCH_ADVANCE_INST 3
+    bl      MterpShouldSwitchInterpreters
+    cbnz    w0, MterpFallback
+    GET_INST_OPCODE ip
+    GOTO_OPCODE ip
+
 
 
 /* ------------------------------ */
     .balign 128
-.L_op_unused_fe: /* 0xfe */
-/* File: arm64/op_unused_fe.S */
-/* File: arm64/unused.S */
-/*
- * Bail to reference interpreter to throw.
- */
-  b MterpFallback
-
+.L_op_const_method_handle: /* 0xfe */
+/* File: arm64/op_const_method_handle.S */
+    /* const/method-handle vAA, method_handle@BBBB */
+    EXPORT_PC
+    FETCH w0, 1                         // w0<- BBBB
+    lsr     w1, wINST, #8               // w1<- AA
+    add     x2, xFP, #OFF_FP_SHADOWFRAME
+    mov     x3, xSELF
+    bl      MterpConstMethodHandle      // (index, tgt_reg, shadow_frame, self)
+    PREFETCH_INST 2                     // load rINST
+    cbnz    w0, MterpPossibleException  // let reference interpreter deal with it.
+    ADVANCE 2                           // advance rPC
+    GET_INST_OPCODE ip                  // extract opcode from rINST
+    GOTO_OPCODE ip                      // jump to next instruction
 
 /* ------------------------------ */
     .balign 128
-.L_op_unused_ff: /* 0xff */
-/* File: arm64/op_unused_ff.S */
-/* File: arm64/unused.S */
-/*
- * Bail to reference interpreter to throw.
- */
-  b MterpFallback
-
+.L_op_const_method_type: /* 0xff */
+/* File: arm64/op_const_method_type.S */
+    /* const/method-type vAA, proto@BBBB */
+    EXPORT_PC
+    FETCH w0, 1                         // w0<- BBBB
+    lsr     w1, wINST, #8               // w1<- AA
+    add     x2, xFP, #OFF_FP_SHADOWFRAME
+    mov     x3, xSELF
+    bl      MterpConstMethodType        // (index, tgt_reg, shadow_frame, self)
+    PREFETCH_INST 2                     // load rINST
+    cbnz    w0, MterpPossibleException  // let reference interpreter deal with it.
+    ADVANCE 2                           // advance rPC
+    GET_INST_OPCODE ip                  // extract opcode from rINST
+    GOTO_OPCODE ip                      // jump to next instruction
 
     .balign 128
     .size   artMterpAsmInstructionStart, .-artMterpAsmInstructionStart
@@ -11607,7 +11693,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 
 /* ------------------------------ */
     .balign 128
-.L_ALT_op_unused_fe: /* 0xfe */
+.L_ALT_op_const_method_handle: /* 0xfe */
 /* File: arm64/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
@@ -11624,7 +11710,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 
 /* ------------------------------ */
     .balign 128
-.L_ALT_op_unused_ff: /* 0xff */
+.L_ALT_op_const_method_type: /* 0xff */
 /* File: arm64/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
