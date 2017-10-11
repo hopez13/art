@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "65a2945b_ce7d1750",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-11T21:39:46Z",
+      "side": 1,
+      "message": "+1, keeps thing together.",
+      "parentUuid": "8c552987_3cf404f2",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 38
+      },
+      "revId": "eb793b7b6d09d8cdd819a894ee038f56bf0445aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6904d3b2_525e1f2f",
         "filename": "runtime/dex_file_loader.h",
         "patchSetId": 1
