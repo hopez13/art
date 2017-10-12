@@ -31,6 +31,7 @@
 #include "mirror/array-inl.h"
 #include "mirror/class-inl.h"
 #include "offsets.h"
+#include "stack_map_stream.h"
 #include "thread.h"
 #include "utils/assembler.h"
 #include "utils/mips64/assembler_mips64.h"
@@ -1072,12 +1073,13 @@ void CodeGeneratorMIPS64::Finalize(CodeAllocator* allocator) {
   __ FinalizeCode();
 
   // Adjust native pc offsets in stack maps.
-  for (size_t i = 0, num = stack_map_stream_.GetNumberOfStackMaps(); i != num; ++i) {
+  StackMapStream* stack_map_stream = GetStackMapStream();
+  for (size_t i = 0, num = stack_map_stream->GetNumberOfStackMaps(); i != num; ++i) {
     uint32_t old_position =
-        stack_map_stream_.GetStackMap(i).native_pc_code_offset.Uint32Value(kMips64);
+        stack_map_stream->GetStackMap(i).native_pc_code_offset.Uint32Value(kMips64);
     uint32_t new_position = __ GetAdjustedPosition(old_position);
     DCHECK_GE(new_position, old_position);
-    stack_map_stream_.SetStackMapNativePcOffset(i, new_position);
+    stack_map_stream->SetStackMapNativePcOffset(i, new_position);
   }
 
   // Adjust pc offsets for the disassembly information.
@@ -1681,8 +1683,7 @@ void CodeGeneratorMIPS64::EmitPcRelativeAddressPlaceholderHigh(PcRelativePatchIn
 Literal* CodeGeneratorMIPS64::DeduplicateJitStringLiteral(const DexFile& dex_file,
                                                           dex::StringIndex string_index,
                                                           Handle<mirror::String> handle) {
-  jit_string_roots_.Overwrite(StringReference(&dex_file, string_index),
-                              reinterpret_cast64<uint64_t>(handle.GetReference()));
+  ReserveJitStringRoot(StringReference(&dex_file, string_index), handle);
   return jit_string_patches_.GetOrCreate(
       StringReference(&dex_file, string_index),
       [this]() { return __ NewLiteral<uint32_t>(/* placeholder */ 0u); });
@@ -1691,8 +1692,7 @@ Literal* CodeGeneratorMIPS64::DeduplicateJitStringLiteral(const DexFile& dex_fil
 Literal* CodeGeneratorMIPS64::DeduplicateJitClassLiteral(const DexFile& dex_file,
                                                          dex::TypeIndex type_index,
                                                          Handle<mirror::Class> handle) {
-  jit_class_roots_.Overwrite(TypeReference(&dex_file, type_index),
-                             reinterpret_cast64<uint64_t>(handle.GetReference()));
+  ReserveJitClassRoot(TypeReference(&dex_file, type_index), handle);
   return jit_class_patches_.GetOrCreate(
       TypeReference(&dex_file, type_index),
       [this]() { return __ NewLiteral<uint32_t>(/* placeholder */ 0u); });
@@ -1712,17 +1712,13 @@ void CodeGeneratorMIPS64::EmitJitRootPatches(uint8_t* code, const uint8_t* roots
   for (const auto& entry : jit_string_patches_) {
     const StringReference& string_reference = entry.first;
     Literal* table_entry_literal = entry.second;
-    const auto it = jit_string_roots_.find(string_reference);
-    DCHECK(it != jit_string_roots_.end());
-    uint64_t index_in_table = it->second;
+    uint64_t index_in_table = GetJitStringRootIndex(string_reference);
     PatchJitRootUse(code, roots_data, table_entry_literal, index_in_table);
   }
   for (const auto& entry : jit_class_patches_) {
     const TypeReference& type_reference = entry.first;
     Literal* table_entry_literal = entry.second;
-    const auto it = jit_class_roots_.find(type_reference);
-    DCHECK(it != jit_class_roots_.end());
-    uint64_t index_in_table = it->second;
+    uint64_t index_in_table = GetJitClassRootIndex(type_reference);
     PatchJitRootUse(code, roots_data, table_entry_literal, index_in_table);
   }
 }

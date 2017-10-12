@@ -9108,8 +9108,7 @@ VIXLUInt32Literal* CodeGeneratorARMVIXL::DeduplicateJitStringLiteral(
     const DexFile& dex_file,
     dex::StringIndex string_index,
     Handle<mirror::String> handle) {
-  jit_string_roots_.Overwrite(StringReference(&dex_file, string_index),
-                              reinterpret_cast64<uint64_t>(handle.GetReference()));
+  ReserveJitStringRoot(StringReference(&dex_file, string_index), handle);
   return jit_string_patches_.GetOrCreate(
       StringReference(&dex_file, string_index),
       [this]() {
@@ -9120,8 +9119,7 @@ VIXLUInt32Literal* CodeGeneratorARMVIXL::DeduplicateJitStringLiteral(
 VIXLUInt32Literal* CodeGeneratorARMVIXL::DeduplicateJitClassLiteral(const DexFile& dex_file,
                                                       dex::TypeIndex type_index,
                                                       Handle<mirror::Class> handle) {
-  jit_class_roots_.Overwrite(TypeReference(&dex_file, type_index),
-                             reinterpret_cast64<uint64_t>(handle.GetReference()));
+  ReserveJitClassRoot(TypeReference(&dex_file, type_index), handle);
   return jit_class_patches_.GetOrCreate(
       TypeReference(&dex_file, type_index),
       [this]() {
@@ -9401,17 +9399,13 @@ void CodeGeneratorARMVIXL::EmitJitRootPatches(uint8_t* code, const uint8_t* root
   for (const auto& entry : jit_string_patches_) {
     const StringReference& string_reference = entry.first;
     VIXLUInt32Literal* table_entry_literal = entry.second;
-    const auto it = jit_string_roots_.find(string_reference);
-    DCHECK(it != jit_string_roots_.end());
-    uint64_t index_in_table = it->second;
+    uint64_t index_in_table = GetJitStringRootIndex(string_reference);
     PatchJitRootUse(code, roots_data, table_entry_literal, index_in_table);
   }
   for (const auto& entry : jit_class_patches_) {
     const TypeReference& type_reference = entry.first;
     VIXLUInt32Literal* table_entry_literal = entry.second;
-    const auto it = jit_class_roots_.find(type_reference);
-    DCHECK(it != jit_class_roots_.end());
-    uint64_t index_in_table = it->second;
+    uint64_t index_in_table = GetJitClassRootIndex(type_reference);
     PatchJitRootUse(code, roots_data, table_entry_literal, index_in_table);
   }
 }

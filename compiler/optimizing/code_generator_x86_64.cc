@@ -5468,12 +5468,11 @@ void LocationsBuilderX86_64::VisitLoadClass(HLoadClass* cls) {
 }
 
 Label* CodeGeneratorX86_64::NewJitRootClassPatch(const DexFile& dex_file,
-                                                 dex::TypeIndex dex_index,
+                                                 dex::TypeIndex type_index,
                                                  Handle<mirror::Class> handle) {
-  jit_class_roots_.Overwrite(
-      TypeReference(&dex_file, dex_index), reinterpret_cast64<uint64_t>(handle.GetReference()));
+  ReserveJitClassRoot(TypeReference(&dex_file, type_index), handle);
   // Add a patch entry and return the label.
-  jit_class_patches_.emplace_back(dex_file, dex_index.index_);
+  jit_class_patches_.emplace_back(dex_file, type_index.index_);
   PatchInfo<Label>* info = &jit_class_patches_.back();
   return &info->label;
 }
@@ -5634,12 +5633,11 @@ void LocationsBuilderX86_64::VisitLoadString(HLoadString* load) {
 }
 
 Label* CodeGeneratorX86_64::NewJitRootStringPatch(const DexFile& dex_file,
-                                                  dex::StringIndex dex_index,
+                                                  dex::StringIndex string_index,
                                                   Handle<mirror::String> handle) {
-  jit_string_roots_.Overwrite(
-      StringReference(&dex_file, dex_index), reinterpret_cast64<uint64_t>(handle.GetReference()));
+  ReserveJitStringRoot(StringReference(&dex_file, string_index), handle);
   // Add a patch entry and return the label.
-  jit_string_patches_.emplace_back(dex_file, dex_index.index_);
+  jit_string_patches_.emplace_back(dex_file, string_index.index_);
   PatchInfo<Label>* info = &jit_string_patches_.back();
   return &info->label;
 }
@@ -7113,18 +7111,14 @@ void CodeGeneratorX86_64::PatchJitRootUse(uint8_t* code,
 
 void CodeGeneratorX86_64::EmitJitRootPatches(uint8_t* code, const uint8_t* roots_data) {
   for (const PatchInfo<Label>& info : jit_string_patches_) {
-    const auto it = jit_string_roots_.find(
-        StringReference(&info.dex_file, dex::StringIndex(info.index)));
-    DCHECK(it != jit_string_roots_.end());
-    uint64_t index_in_table = it->second;
+    StringReference string_reference(&info.dex_file, dex::StringIndex(info.index));
+    uint64_t index_in_table = GetJitStringRootIndex(string_reference);
     PatchJitRootUse(code, roots_data, info, index_in_table);
   }
 
   for (const PatchInfo<Label>& info : jit_class_patches_) {
-    const auto it = jit_class_roots_.find(
-        TypeReference(&info.dex_file, dex::TypeIndex(info.index)));
-    DCHECK(it != jit_class_roots_.end());
-    uint64_t index_in_table = it->second;
+    TypeReference type_reference(&info.dex_file, dex::TypeIndex(info.index));
+    uint64_t index_in_table = GetJitClassRootIndex(type_reference);
     PatchJitRootUse(code, roots_data, info, index_in_table);
   }
 }
