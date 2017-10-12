@@ -88,6 +88,7 @@ static constexpr const char* kProperties[][2] = {
 static constexpr size_t kPropertiesSize = arraysize(kProperties);
 static constexpr const char* kPropertyLibraryPath = "java.library.path";
 static constexpr const char* kPropertyClassPath = "java.class.path";
+static constexpr const char* kPropertyBootClassPath = "java.boot.class.path";
 
 jvmtiError PropertiesUtil::GetSystemProperties(jvmtiEnv* env,
                                                jint* count_ptr,
@@ -97,7 +98,7 @@ jvmtiError PropertiesUtil::GetSystemProperties(jvmtiEnv* env,
   }
   jvmtiError array_alloc_result;
   JvmtiUniquePtr<char*[]> array_data_ptr = AllocJvmtiUniquePtr<char*[]>(env,
-                                                                        kPropertiesSize + 2,
+                                                                        kPropertiesSize + 3,
                                                                         &array_alloc_result);
   if (array_data_ptr == nullptr) {
     return array_alloc_result;
@@ -116,12 +117,23 @@ jvmtiError PropertiesUtil::GetSystemProperties(jvmtiEnv* env,
   }
 
   {
+    jvmtiError boot_classpath_result;
+    JvmtiUniquePtr<char[]> boot_classpath_data =
+        CopyString(env, kPropertyBootClassPath, &boot_classpath_result);
+    if (boot_classpath_data == nullptr) {
+      return boot_classpath_result;
+    }
+    array_data_ptr.get()[1] = boot_classpath_data.get();
+    property_copies.push_back(std::move(boot_classpath_data));
+  }
+
+  {
     jvmtiError classpath_result;
     JvmtiUniquePtr<char[]> classpath_data = CopyString(env, kPropertyClassPath, &classpath_result);
     if (classpath_data == nullptr) {
       return classpath_result;
     }
-    array_data_ptr.get()[1] = classpath_data.get();
+    array_data_ptr.get()[2] = classpath_data.get();
     property_copies.push_back(std::move(classpath_data));
   }
 
@@ -131,12 +143,12 @@ jvmtiError PropertiesUtil::GetSystemProperties(jvmtiEnv* env,
     if (data == nullptr) {
       return data_result;
     }
-    array_data_ptr.get()[i + 2] = data.get();
+    array_data_ptr.get()[i + 3] = data.get();
     property_copies.push_back(std::move(data));
   }
 
   // Everything is OK, release the data.
-  *count_ptr = kPropertiesSize + 2;
+  *count_ptr = kPropertiesSize + 3;
   *property_ptr = array_data_ptr.release();
   for (auto& uptr : property_copies) {
     uptr.release();
@@ -211,6 +223,10 @@ jvmtiError PropertiesUtil::GetSystemProperty(jvmtiEnv* env,
 
   if (strcmp(property, kPropertyLibraryPath) == 0) {
     return GetLibraryPath(env, value_ptr);
+  }
+
+  if (strcmp(property, kPropertyBootClassPath) == 0) {
+    return Copy(env, DefaultToDot(art::Runtime::Current()->GetBootClassPathString()), value_ptr);
   }
 
   if (strcmp(property, kPropertyClassPath) == 0) {

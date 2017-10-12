@@ -17,6 +17,8 @@ Other properties:
   Setting value to "abc": !!!JVMTI_ERROR_NOT_AVAILABLE
  "file.separator": OK
   Setting value to "abc": !!!JVMTI_ERROR_NOT_AVAILABLE
+ "java.boot.class.path": OK
+  Setting value to "abc": !!!JVMTI_ERROR_NOT_AVAILABLE
  "java.class.version": OK
   Setting value to "abc": !!!JVMTI_ERROR_NOT_AVAILABLE
  "java.compiler": OK
@@ -52,7 +54,7 @@ Other properties:
  "path.separator": OK
   Setting value to "abc": !!!JVMTI_ERROR_NOT_AVAILABLE
 Non-specified property:
- "java.boot.class.path": ERROR !!!JVMTI_ERROR_NOT_AVAILABLE
+ "java.home": ERROR !!!JVMTI_ERROR_NOT_AVAILABLE
   Setting value to "abc": !!!JVMTI_ERROR_NOT_AVAILABLE
 Non-specified property (2):
  "a": OK !!!JVMTI_ERROR_NOT_AVAILABLE
