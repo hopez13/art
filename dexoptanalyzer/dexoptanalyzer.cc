@@ -40,9 +40,32 @@ enum ReturnCodes {
   kDex2OatForFilterOdex = 6,
   kDex2OatForRelocationOdex = 7,
 
+  kAssumeVerifiedUpTodate = 51,
+  kExtractUpTodate = 52,
+  kVerifyUpTodate = 53,
+  kQuickenUpTodate = 54,
+  kSpaceProfileUpTodate = 55,
+  kSpaceUpTodate = 56,
+  kSpeedProfileUpTodate = 57,
+  kSpeedUpTodate = 58,
+  kEverythingProfileUpTodate = 59,
+  kEverythingUpTodate = 60,
+
+  kAssumeVerifiedOutOfdate = 71,
+  kExtractOutOfdate = 72,
+  kVerifyOutOfdate = 73,
+  kQuickenOutOfdate = 74,
+  kSpaceProfileOutOfdate = 75,
+  kSpaceOutOfdate = 76,
+  kSpeedProfileOutOfdate = 77,
+  kSpeedOutOfdate = 78,
+  kEverythingProfileOutOfdate = 79,
+  kEverythingOutOfdate = 80,
+
   kErrorInvalidArguments = 101,
   kErrorCannotCreateRuntime = 102,
-  kErrorUnknownDexOptNeeded = 103
+  kErrorUnknownDexOptNeeded = 103,
+  kErrorUnknownDexOptStatus = 104,
 };
 
 static int original_argc;
@@ -104,6 +127,11 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("  --downgrade: optional, if the purpose of dexopt is to downgrade the dex file");
   UsageError("       By default, dexopt considers upgrade case.");
   UsageError("");
+  UsageError("  --dexoptstate: optional, returns the compiler filter code for the given dex file");
+  UsageError("       If the file is out of date, the exit status will be negative.");
+  UsageError("");
+  UsageError("       By default, dexopt considers upgrade case.");
+  UsageError("");
   UsageError("Return code:");
   UsageError("  To make it easier to integrate with the internal tools this command will make");
   UsageError("    available its result (dexoptNeeded) as the exit/return code. i.e. it will not");
@@ -118,9 +146,31 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("        kDex2OatForFilterOdex = 6");
   UsageError("        kDex2OatForRelocationOdex = 7");
 
+  UsageError("        kAssumeVerifiedUpToDate = 51");
+  UsageError("        kExtractUpToDate = 52");
+  UsageError("        kVerifyUpToDate = 53");
+  UsageError("        kQuickenUpToDate = 54");
+  UsageError("        kSpaceProfileUpToDate = 55");
+  UsageError("        kSpaceUpToDate = 56");
+  UsageError("        kSpeedProfileUpToDate = 57");
+  UsageError("        kSpeedUpToDate = 58");
+  UsageError("        kEverythingProfileUpToDate = 59");
+  UsageError("        kEverythingUpToDate = 60");
+  UsageError("        kAssumeVerifiedOutOfDate = 71");
+  UsageError("        kExtractOutOfDate = 72");
+  UsageError("        kVerifyOutOfDate = 73");
+  UsageError("        kQuickenOutOfDate = 74");
+  UsageError("        kSpaceProfileOutOfDate = 75");
+  UsageError("        kSpaceOutOfDate = 76");
+  UsageError("        kSpeedProfileOutOfDate = 77");
+  UsageError("        kSpeedOutOfDate = 78");
+  UsageError("        kEverythingProfileOutOfDate = 79");
+  UsageError("        kEverythingOutOfDate = 80");
+
   UsageError("        kErrorInvalidArguments = 101");
   UsageError("        kErrorCannotCreateRuntime = 102");
   UsageError("        kErrorUnknownDexOptNeeded = 103");
+  UsageError("        kErrorUnknownDexOptStatus = 104");
   UsageError("");
 
   exit(kErrorInvalidArguments);
@@ -175,6 +225,8 @@ class DexoptAnalyzer FINAL {
         oat_fd_ = std::stoi(option.substr(strlen("--oat-fd=")).ToString(), nullptr, 0);
       } else if (option.starts_with("--vdex-fd")) {
         vdex_fd_ = std::stoi(option.substr(strlen("--vdex-fd=")).ToString(), nullptr, 0);
+      } else if (option.starts_with("--dexoptstate")) {
+        get_dexopt_status_ = true;
       } else { Usage("Unknown argument '%s'", option.data()); }
     }
 
@@ -235,7 +287,6 @@ class DexoptAnalyzer FINAL {
     if (!CreateRuntime()) {
       return kErrorCannotCreateRuntime;
     }
-    std::unique_ptr<Runtime> runtime(Runtime::Current());
 
     std::unique_ptr<OatFileAssistant> oat_file_assistant;
     if (oat_fd_ != -1 && vdex_fd_ != -1) {
@@ -276,6 +327,75 @@ class DexoptAnalyzer FINAL {
     }
   }
 
+  int GetDexOptStatus() {
+    // If the file does not exist there's nothing to do.
+    // This is a fast path to avoid creating the runtime (b/34385298).
+    if (!OS::FileExists(dex_file_.c_str())) {
+      return kErrorUnknownDexOptStatus;
+    }
+
+    if (!CreateRuntime()) {
+      return kErrorCannotCreateRuntime;
+    }
+    std::unique_ptr<OatFileAssistant> oat_file_assistant;
+    if (oat_fd_ != -1 && vdex_fd_ != -1) {
+      oat_file_assistant = std::make_unique<OatFileAssistant>(dex_file_.c_str(),
+                                                              isa_,
+                                                              false /*load_executable*/,
+                                                              vdex_fd_,
+                                                              oat_fd_);
+    } else {
+      oat_file_assistant = std::make_unique<OatFileAssistant>(dex_file_.c_str(),
+                                                              isa_,
+                                                              false /*load_executable*/);
+    }
+
+    CompilerFilter::Filter current_compiler_filter;
+    if (!oat_file_assistant->GetCompilerFilter(&current_compiler_filter)) {
+      return kErrorUnknownDexOptStatus;
+    }
+
+    int dexoptNeeded;
+    // Always treat elements of the bootclasspath as up-to-date.
+    if (oat_file_assistant->IsInBootClassPath()) {
+      dexoptNeeded = kNoDexOptNeeded;
+    } else {
+      dexoptNeeded = oat_file_assistant->GetDexOptNeeded(current_compiler_filter,
+                                                         assume_profile_changed_,
+                                                         false /* true */);
+    }
+
+    int dexoptStatus;
+    // Convert CompilerFilter codes to dexoptanalyzer codes.
+    switch (current_compiler_filter) {
+      case CompilerFilter::kAssumeVerified:
+        return dexoptStatus = dexoptNeeded ? kAssumeVerifiedOutOfdate : kAssumeVerifiedUpTodate;
+      case CompilerFilter::kExtract:
+        return dexoptStatus = dexoptNeeded ? kExtractOutOfdate : kExtractUpTodate;
+      case CompilerFilter::kVerify:
+        return dexoptStatus = dexoptNeeded ? kVerifyOutOfdate : kVerifyUpTodate;
+      case CompilerFilter::kQuicken:
+        return dexoptStatus = dexoptNeeded ? kQuickenOutOfdate : kQuickenUpTodate;
+      case CompilerFilter::kSpaceProfile:
+        return dexoptStatus = dexoptNeeded ? kSpaceProfileOutOfdate : kSpaceProfileUpTodate;
+      case CompilerFilter::kSpace:
+        return dexoptStatus = dexoptNeeded ? kSpaceOutOfdate : kSpaceUpTodate;
+      case CompilerFilter::kSpeedProfile:
+        return dexoptStatus = dexoptNeeded ? kSpeedProfileOutOfdate : kSpeedProfileUpTodate;
+      case CompilerFilter::kSpeed:
+        return dexoptStatus = dexoptNeeded ? kSpeedOutOfdate : kSpeedUpTodate;
+      case CompilerFilter::kEverythingProfile:
+        return dexoptStatus = dexoptNeeded ? kEverythingProfileOutOfdate :
+                              kEverythingProfileUpTodate;
+      case CompilerFilter::kEverything:
+        return dexoptStatus = dexoptNeeded ? kEverythingOutOfdate : kEverythingUpTodate;
+      default:
+        return kErrorUnknownDexOptStatus;
+    }
+  }
+
+  bool get_dexopt_status_;
+
  private:
   std::string dex_file_;
   InstructionSet isa_;
@@ -292,7 +412,8 @@ static int dexoptAnalyze(int argc, char** argv) {
 
   // Parse arguments. Argument mistakes will lead to exit(kErrorInvalidArguments) in UsageError.
   analyzer.ParseArgs(argc, argv);
-  return analyzer.GetDexOptNeeded();
+
+  return analyzer.get_dexopt_status_ ? analyzer.GetDexOptStatus() : analyzer.GetDexOptNeeded();
 }
 
 }  // namespace art
