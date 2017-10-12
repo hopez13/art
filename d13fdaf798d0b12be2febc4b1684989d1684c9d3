@@ -2,6 +2,483 @@
   "comments": [
     {
       "key": {
+        "uuid": "0e06b018_78252012",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Would you mind extending oatdump/oatdump_test.h to exercise the new code paths and verify the unquickening in oatdump is working as expected?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78d4c099_1c03ca7b",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "vdex_dex_files",
+      "range": {
+        "startLine": 581,
+        "startChar": 52,
+        "endLine": 581,
+        "endChar": 72
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88c9a1d7_2ba6af13",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "vdex_file",
+      "range": {
+        "startLine": 582,
+        "startChar": 34,
+        "endLine": 582,
+        "endChar": 38
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "165feee8_4242486c",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "I\u0027d be more specific here:\n\n  os \u003c\u003c \"Dex files number in Vdex file does not match Dex files number in Oat file: \"\n     \u003c\u003c unique_ptr_dex_files.size() \u003c\u003c \" vs \" \u003c\u003c oat_dex_files_.size() \u003c\u003c \u0027\\n\u0027;",
+      "range": {
+        "startLine": 590,
+        "startChar": 10,
+        "endLine": 590,
+        "endChar": 51
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ffee6c2_9aba2524",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "vdex_dex_file",
+      "range": {
+        "startLine": 595,
+        "startChar": 25,
+        "endLine": 595,
+        "endChar": 33
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "538b5122_a15f8a99",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "/* vdex_dex_file */ nullptr",
+      "range": {
+        "startLine": 608,
+        "startChar": 48,
+        "endLine": 608,
+        "endChar": 55
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb5a765b_68609948",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Could we make this `const VdexFile`?",
+      "range": {
+        "startLine": 666,
+        "startChar": 18,
+        "endLine": 666,
+        "endChar": 26
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bece738_af5565dd",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Add a bit of documentation; in particular, mention that this method returns a (wrapped) null pointer in case of failure, and writes something into `*error_msg` in that case.",
+      "range": {
+        "startLine": 666,
+        "startChar": 28,
+        "endLine": 666,
+        "endChar": 45
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fb9198d_e9a28caf",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 45
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a333d95_b9c7f352",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "/* out */ std::vector\u003cstd::unique_ptr\u003cconst DexFile\u003e\u003e* vdex_dex_files",
+      "range": {
+        "startLine": 667,
+        "startChar": 45,
+        "endLine": 667,
+        "endChar": 99
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ed2fde6_ed831d06",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "/* out */ std::string* error_msg",
+      "range": {
+        "startLine": 668,
+        "startChar": 45,
+        "endLine": 668,
+        "endChar": 67
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "053764c5_ee210c1b",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Why not:\n\n  std::unique_ptr\u003cFile\u003e vdex_file(OS::OpenFileForReading(vdex_filename.c_str()));\n\n?\n\nAlso, could the `File` parameter be made `const`?\n\nAlso, I\u0027d rename `vdex_file` as `file` here, and rename `vdex` below (line 696) as `vdex_file`.",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 670,
+        "endChar": 67
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adabbba8_e31878d2",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Nit: Remove leading space.",
+      "range": {
+        "startLine": 692,
+        "startChar": 61,
+        "endLine": 692,
+        "endChar": 62
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b5f8142_e0319ea3",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 1112,
+        "startChar": 0,
+        "endLine": 1112,
+        "endChar": 106
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d313d422_0890178c",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "vdex_dex_file\n\nAlso, I\u0027d document this new argument.",
+      "range": {
+        "startLine": 1112,
+        "startChar": 95,
+        "endLine": 1112,
+        "endChar": 103
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0251051a_05e04440",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 1136,
+        "startChar": 0,
+        "endLine": 1136,
+        "endChar": 123
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b26a2659_b0aedb6c",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "and no need to decompile RETURN_VOID_NO_BARRIER instructions as RETURN_VOID instructions.",
+      "range": {
+        "startLine": 225,
+        "startChar": 48,
+        "endLine": 225,
+        "endChar": 49
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ab6c9c8_8e3a28af",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Rename as something easier to grep and distinguish from the other iterator (`class_it`); perhaps `quick_it` or `qi_it`?",
+      "range": {
+        "startLine": 244,
+        "startChar": 29,
+        "endLine": 244,
+        "endChar": 31
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c91147c6_2ae1a301",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "I think you should be able to used something like:\n\n  /* quickened_data*/ {}\n\nhere.",
+      "range": {
+        "startLine": 262,
+        "startChar": 43,
+        "endLine": 262,
+        "endChar": 78
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ae8a5e6_aeb80fff",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Should we add\n\n  DCHECK(it.Done());\n\nat the end of the outer-most loop?",
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a7a1d09_4ae32e7b",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T12:01:44Z",
+      "side": 1,
+      "message": "Please document this in this method\u0027s documentation.",
+      "range": {
+        "startLine": 148,
+        "startChar": 29,
+        "endLine": 148,
+        "endChar": 57
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88fe8607_678ac5ec",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 5
