@@ -895,6 +895,7 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
                                               ArtMethod* method,
                                               bool osr,
                                               VariableSizedHandleScope* handles) const {
+  osr = true;
   MaybeRecordStat(compilation_stats_.get(),
                   MethodCompilationStat::kAttemptCompilation);
   CompilerDriver* compiler_driver = GetCompilerDriver();
