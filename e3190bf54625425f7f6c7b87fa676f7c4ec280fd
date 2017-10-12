@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "129ac966_d28a9c12",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-12T22:01:47Z",
+      "side": 1,
+      "message": "irh, these don\u0027t cover all the cases and it looks worse then expected. Let\u0027s do a mask between filter codes and dexoptneeded status.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 28
+      },
+      "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c904d6f_779a7420",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-12T22:01:47Z",
+      "side": 1,
+      "message": "this means we have no vdex file. it should have its own \"invalid-filter\" code.",
+      "range": {
+        "startLine": 355,
+        "startChar": 13,
+        "endLine": 355,
+        "endChar": 38
+      },
+      "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05d29c4f_a9c1852b",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-12T22:01:47Z",
+      "side": 1,
+      "message": "this not right.\n\nWe need the dexoptneeded status that was computed before + the compiler filter of the actual file.",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 3
+      },
+      "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "443a3ad5_2e50e5e1",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-12T22:01:47Z",
+      "side": 1,
+      "message": "new line before.",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 4
+      },
+      "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "695582a9_4d749e4d",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-12T22:01:47Z",
+      "side": 1,
+      "message": "document",
+      "range": {
+        "startLine": 173,
+        "startChar": 7,
+        "endLine": 173,
+        "endChar": 24
+      },
+      "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
