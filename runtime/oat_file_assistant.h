@@ -170,6 +170,8 @@ class OatFileAssistant {
                       bool downgrade = false,
                       ClassLoaderContext* context = nullptr);
 
+  bool GetCompilerFilter(CompilerFilter::Filter* compiler_filter);
+
   // Returns true if there is up-to-date code for this dex location,
   // irrespective of the compiler filter of the up-to-date code.
   bool IsUpToDate();
@@ -336,6 +338,9 @@ class OatFileAssistant {
                                  bool profile_changed,
                                  bool downgrade,
                                  ClassLoaderContext* context);
+
+    // Returns the compiler filter for this oat file.
+    bool GetCompilerFilter(CompilerFilter::Filter* compiler_filter);
 
     // Returns the loaded file.
     // Loads the file if needed. Returns null if the file failed to load.
