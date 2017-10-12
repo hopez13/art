@@ -22,6 +22,30 @@
       "revId": "6e9b137f0439b3ceedb8114bd93fa9fb746e42fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "062d7812_b5159c5b",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-12T17:29:31Z",
+      "side": 1,
+      "message": "Artem was really following the style used anywhere else. I will make one follow up cl that does this everywhere in the vectorizer code consistently....",
+      "parentUuid": "8a02949c_30c862da",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 44
+      },
+      "revId": "6e9b137f0439b3ceedb8114bd93fa9fb746e42fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
