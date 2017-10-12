@@ -980,21 +980,27 @@ int32_t DexFile::FindCatchHandlerOffset(const CodeItem &code_item, uint32_t addr
   }
 }
 
-bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, uint32_t method_idx,
-                                   DexDebugNewLocalCb local_cb, void* context) const {
-  DCHECK(local_cb != nullptr);
-  if (code_item == nullptr) {
-    return false;
-  }
-  const uint8_t* stream = GetDebugInfoStream(code_item);
+bool DexFile::DecodeDebugLocalInfo(const uint8_t* stream,
+                                   const std::string& location,
+                                   const char* declaring_class_descriptor,
+                                   const std::vector<const char*>& arg_descriptors,
+                                   const std::string& method_name,
+                                   bool is_static,
+                                   uint16_t registers_size,
+                                   uint16_t ins_size,
+                                   uint16_t insns_size_in_code_units,
+                                   std::function<const char*(uint32_t)> string_data_by_idx,
+                                   std::function<const char*(uint32_t)> string_data_by_type_idx,
+                                   DexDebugNewLocalCb local_cb,
+                                   void* context) {
   if (stream == nullptr) {
     return false;
   }
-  std::vector<LocalInfo> local_in_reg(code_item->registers_size_);
+  std::vector<LocalInfo> local_in_reg(registers_size);
 
-  uint16_t arg_reg = code_item->registers_size_ - code_item->ins_size_;
+  uint16_t arg_reg = registers_size - ins_size;
   if (!is_static) {
-    const char* descriptor = GetMethodDeclaringClassDescriptor(GetMethodId(method_idx));
+    const char* descriptor = declaring_class_descriptor;
     local_in_reg[arg_reg].name_ = "this";
     local_in_reg[arg_reg].descriptor_ = descriptor;
     local_in_reg[arg_reg].signature_ = nullptr;
@@ -1004,19 +1010,18 @@ bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, ui
     arg_reg++;
   }
 
-  DexFileParameterIterator it(*this, GetMethodPrototype(GetMethodId(method_idx)));
   DecodeUnsignedLeb128(&stream);  // Line.
   uint32_t parameters_size = DecodeUnsignedLeb128(&stream);
   uint32_t i;
-  for (i = 0; i < parameters_size && it.HasNext(); ++i, it.Next()) {
-    if (arg_reg >= code_item->registers_size_) {
+  for (i = 0; i < parameters_size && i < arg_descriptors.size(); ++i) {
+    if (arg_reg >= registers_size) {
       LOG(ERROR) << "invalid stream - arg reg >= reg size (" << arg_reg
-                 << " >= " << code_item->registers_size_ << ") in " << GetLocation();
+                 << " >= " << registers_size << ") in " << location;
       return false;
     }
     uint32_t name_idx = DecodeUnsignedLeb128P1(&stream);
-    const char* descriptor = it.GetDescriptor();
-    local_in_reg[arg_reg].name_ = StringDataByIdx(dex::StringIndex(name_idx));
+    const char* descriptor = arg_descriptors[i];
+    local_in_reg[arg_reg].name_ = string_data_by_idx(name_idx);
     local_in_reg[arg_reg].descriptor_ = descriptor;
     local_in_reg[arg_reg].signature_ = nullptr;
     local_in_reg[arg_reg].start_address_ = 0;
@@ -1032,9 +1037,9 @@ bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, ui
         break;
     }
   }
-  if (i != parameters_size || it.HasNext()) {
-    LOG(ERROR) << "invalid stream - problem with parameter iterator in " << GetLocation()
-               << " for method " << this->PrettyMethod(method_idx);
+  if (i != parameters_size || i != arg_descriptors.size()) {
+    LOG(ERROR) << "invalid stream - problem with parameter iterator in " << location
+               << " for method " << method_name;
     return false;
   }
 
@@ -1044,9 +1049,9 @@ bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, ui
     switch (opcode) {
       case DBG_END_SEQUENCE:
         // Emit all variables which are still alive at the end of the method.
-        for (uint16_t reg = 0; reg < code_item->registers_size_; reg++) {
+        for (uint16_t reg = 0; reg < registers_size; reg++) {
           if (local_in_reg[reg].is_live_) {
-            local_in_reg[reg].end_address_ = code_item->insns_size_in_code_units_;
+            local_in_reg[reg].end_address_ = insns_size_in_code_units;
             local_cb(context, local_in_reg[reg]);
           }
         }
@@ -1060,9 +1065,9 @@ bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, ui
       case DBG_START_LOCAL:
       case DBG_START_LOCAL_EXTENDED: {
         uint16_t reg = DecodeUnsignedLeb128(&stream);
-        if (reg >= code_item->registers_size_) {
+        if (reg >= registers_size) {
           LOG(ERROR) << "invalid stream - reg >= reg size (" << reg << " >= "
-                     << code_item->registers_size_ << ") in " << GetLocation();
+                     << registers_size << ") in " << location;
           return false;
         }
 
@@ -1079,10 +1084,9 @@ bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, ui
           local_cb(context, local_in_reg[reg]);
         }
 
-        local_in_reg[reg].name_ = StringDataByIdx(dex::StringIndex(name_idx));
-        local_in_reg[reg].descriptor_ =
-            StringByTypeIdx(dex::TypeIndex(dchecked_integral_cast<uint16_t>(descriptor_idx)));;
-        local_in_reg[reg].signature_ = StringDataByIdx(dex::StringIndex(signature_idx));
+        local_in_reg[reg].name_ = string_data_by_idx(name_idx);
+        local_in_reg[reg].descriptor_ = string_data_by_type_idx(descriptor_idx);;
+        local_in_reg[reg].signature_ = string_data_by_idx(signature_idx);
         local_in_reg[reg].start_address_ = address;
         local_in_reg[reg].reg_ = reg;
         local_in_reg[reg].is_live_ = true;
@@ -1090,9 +1094,9 @@ bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, ui
       }
       case DBG_END_LOCAL: {
         uint16_t reg = DecodeUnsignedLeb128(&stream);
-        if (reg >= code_item->registers_size_) {
+        if (reg >= registers_size) {
           LOG(ERROR) << "invalid stream - reg >= reg size (" << reg << " >= "
-                     << code_item->registers_size_ << ") in " << GetLocation();
+                     << registers_size << ") in " << location;
           return false;
         }
         // If the register is live, close it properly. Otherwise, closing an already
@@ -1106,9 +1110,9 @@ bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, ui
       }
       case DBG_RESTART_LOCAL: {
         uint16_t reg = DecodeUnsignedLeb128(&stream);
-        if (reg >= code_item->registers_size_) {
+        if (reg >= registers_size) {
           LOG(ERROR) << "invalid stream - reg >= reg size (" << reg << " >= "
-                     << code_item->registers_size_ << ") in " << GetLocation();
+                     << registers_size << ") in " << location;
           return false;
         }
         // If the register is live, the "restart" is superfluous,
@@ -1132,13 +1136,44 @@ bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, ui
   }
 }
 
-bool DexFile::DecodeDebugPositionInfo(const CodeItem* code_item, DexDebugNewPositionCb position_cb,
-                                      void* context) const {
-  DCHECK(position_cb != nullptr);
+bool DexFile::DecodeDebugLocalInfo(const CodeItem* code_item,
+                                   bool is_static,
+                                   uint32_t method_idx,
+                                   DexDebugNewLocalCb local_cb,
+                                   void* context) const {
+  DCHECK(local_cb != nullptr);
   if (code_item == nullptr) {
     return false;
   }
-  const uint8_t* stream = GetDebugInfoStream(code_item);
+  std::vector<const char*> arg_descriptors;
+  DexFileParameterIterator it(*this, GetMethodPrototype(GetMethodId(method_idx)));
+  for (; it.HasNext(); it.Next()) {
+    arg_descriptors.push_back(it.GetDescriptor());
+  }
+  return DecodeDebugLocalInfo(GetDebugInfoStream(code_item),
+                              GetLocation(),
+                              GetMethodDeclaringClassDescriptor(GetMethodId(method_idx)),
+                              arg_descriptors,
+                              this->PrettyMethod(method_idx),
+                              is_static,
+                              code_item->registers_size_,
+                              code_item->ins_size_,
+                              code_item->insns_size_in_code_units_,
+                              [this](uint32_t idx) {
+                                return StringDataByIdx(dex::StringIndex(idx));
+                              },
+                              [this](uint32_t idx) {
+                                return StringByTypeIdx(dex::TypeIndex(
+                                    dchecked_integral_cast<uint16_t>(idx)));
+                              },
+                              local_cb,
+                              context);
+}
+
+bool DexFile::DecodeDebugPositionInfo(const uint8_t* stream,
+                                      std::function<const char*(uint32_t)> string_data_by_idx,
+                                      DexDebugNewPositionCb position_cb,
+                                      void* context) {
   if (stream == nullptr) {
     return false;
   }
@@ -1184,7 +1219,7 @@ bool DexFile::DecodeDebugPositionInfo(const CodeItem* code_item, DexDebugNewPosi
         break;
       case DBG_SET_FILE: {
         uint32_t name_idx = DecodeUnsignedLeb128P1(&stream);
-        entry.source_file_ = StringDataByIdx(dex::StringIndex(name_idx));
+        entry.source_file_ = string_data_by_idx(name_idx);
         break;
       }
       default: {
@@ -1200,6 +1235,21 @@ bool DexFile::DecodeDebugPositionInfo(const CodeItem* code_item, DexDebugNewPosi
       }
     }
   }
+}
+
+bool DexFile::DecodeDebugPositionInfo(const CodeItem* code_item,
+                                      DexDebugNewPositionCb position_cb,
+                                      void* context) const {
+  DCHECK(position_cb != nullptr);
+  if (code_item == nullptr) {
+    return false;
+  }
+  return DecodeDebugPositionInfo(GetDebugInfoStream(code_item),
+                                 [this](uint32_t idx) {
+                                   return StringDataByIdx(dex::StringIndex(idx));
+                                 },
+                                 position_cb,
+                                 context);
 }
 
 bool DexFile::LineNumForPcCb(void* raw_context, const PositionInfo& entry) {

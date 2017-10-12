@@ -980,11 +980,32 @@ class DexFile {
   };
 
   // Returns false if there is no debugging information or if it cannot be decoded.
-  bool DecodeDebugLocalInfo(const CodeItem* code_item, bool is_static, uint32_t method_idx,
-                            DexDebugNewLocalCb local_cb, void* context) const;
+  static bool DecodeDebugLocalInfo(const uint8_t* stream,
+                                   const std::string& location,
+                                   const char* declaring_class_descriptor,
+                                   const std::vector<const char*>& arg_descriptors,
+                                   const std::string& method_name,
+                                   bool is_static,
+                                   uint16_t registers_size,
+                                   uint16_t ins_size,
+                                   uint16_t insns_size_in_code_units,
+                                   std::function<const char*(uint32_t)> string_data_by_idx,
+                                   std::function<const char*(uint32_t)> string_data_by_type_idx,
+                                   DexDebugNewLocalCb local_cb,
+                                   void* context);
+  bool DecodeDebugLocalInfo(const CodeItem* code_item,
+                            bool is_static,
+                            uint32_t method_idx,
+                            DexDebugNewLocalCb local_cb,
+                            void* context) const;
 
   // Returns false if there is no debugging information or if it cannot be decoded.
-  bool DecodeDebugPositionInfo(const CodeItem* code_item, DexDebugNewPositionCb position_cb,
+  static bool DecodeDebugPositionInfo(const uint8_t* stream,
+                                      std::function<const char*(uint32_t)> string_data_by_idx,
+                                      DexDebugNewPositionCb position_cb,
+                                      void* context);
+  bool DecodeDebugPositionInfo(const CodeItem* code_item,
+                               DexDebugNewPositionCb position_cb,
                                void* context) const;
 
   const char* GetSourceFile(const ClassDef& class_def) const {
