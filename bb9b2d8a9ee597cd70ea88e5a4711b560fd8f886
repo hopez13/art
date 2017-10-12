@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "54f55a2d_00a34da7",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T17:13:03Z",
+      "side": 1,
+      "message": "I see. Could you separate these two use cases?\n\n  // Do instruction cloning and replacement twice with different visiting orders.\n  visitor.VisitInsertionOrder();\n  size_t instr_replaced_by_clones_count \u003d visitor.GetInstrReplacedByClonesCount();\n  EXPECT_EQ(instr_replaced_by_clones_count, 12u);\n  EXPECT_TRUE(CheckGraph());\n  \n  visitor.VisitReversePostOrder();\n  instr_replaced_by_clones_count \u003d visitor.GetInstrReplacedByClonesCount();\n  EXPECT_EQ(instr_replaced_by_clones_count, 24u);\n  EXPECT_TRUE(CheckGraph());",
+      "parentUuid": "7f840fbd_e40c3a86",
+      "range": {
+        "startLine": 175,
+        "startChar": 44,
+        "endLine": 175,
+        "endChar": 47
+      },
+      "revId": "bb9b2d8a9ee597cd70ea88e5a4711b560fd8f886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc79e5c4_bd8ecd4d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
