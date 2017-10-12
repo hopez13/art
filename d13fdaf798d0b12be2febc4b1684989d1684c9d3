@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88fe8607_678ac5ec",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-12T08:51:30Z",
+      "side": 1,
+      "message": "If htat\u0027s only about the VdexFile(MemMap) constructor, I\u0027m ok just making that consutrctor public.",
+      "range": {
+        "startLine": 181,
+        "startChar": 2,
+        "endLine": 181,
+        "endChar": 25
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
