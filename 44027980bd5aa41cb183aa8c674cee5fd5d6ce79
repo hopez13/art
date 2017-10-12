@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65e59e84_0aeb3255",
+        "filename": "oatdump/oatdump_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-12T19:03:27Z",
+      "side": 1,
+      "message": "/dev/null is not suitable for this case since the output directory checks are failing. Will update to use ANDROID_DATA. If there is a more suitable place please let me know.",
+      "revId": "44027980bd5aa41cb183aa8c674cee5fd5d6ce79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
