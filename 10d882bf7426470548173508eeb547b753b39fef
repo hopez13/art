@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fec5d972_f6bd44bb",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-12T00:10:53Z",
+      "side": 1,
+      "message": "Please note, the current Android runtime does not make that guarantee, but Mathieu kindly provided the prototype CL https://android-review.googlesource.com/#/c/platform/art/+/501462/ that makes this work in a quick way. I am sending this out for early review, but obviously we can only check this in fully after the runtime guarantee is made solidly.",
+      "revId": "10d882bf7426470548173508eeb547b753b39fef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
