@@ -205,6 +205,10 @@ int OatFileAssistant::GetDexOptNeeded(CompilerFilter::Filter target,
   }
   return -dexopt_needed;
 }
+bool OatFileAssistant::GetCompilerFilter(CompilerFilter::Filter* compiler_filter) {
+  OatFileInfo& info = GetBestInfo();
+  return info.GetCompilerFilter(compiler_filter);
+}
 
 // Figure out the currently specified compile filter option in the runtime.
 // Returns true on success, false if the compiler filter is invalid, in which
@@ -1107,6 +1111,16 @@ OatFileAssistant::DexOptNeeded OatFileAssistant::OatFileInfo::GetDexOptNeeded(
     // Otherwise there is nothing we can do, even if we want to.
     return kNoDexOptNeeded;
   }
+}
+
+bool OatFileAssistant::OatFileInfo::GetCompilerFilter(CompilerFilter::Filter* compiler_filter) {
+  const OatFile* file = GetFile();
+  if (file == nullptr) {
+    return false;
+  }
+
+  *compiler_filter = file->GetCompilerFilter();
+  return true;
 }
 
 const OatFile* OatFileAssistant::OatFileInfo::GetFile() {
