@@ -30,7 +30,7 @@
 namespace art {
 
 // See OatFileAssistant docs for the meaning of the valid return codes.
-enum ReturnCodes {
+enum DexOptNeeded {
   kNoDexOptNeeded = 0,
   kDex2OatFromScratch = 1,
   kDex2OatForBootImageOat = 2,
@@ -39,10 +39,13 @@ enum ReturnCodes {
   kDex2OatForBootImageOdex = 5,
   kDex2OatForFilterOdex = 6,
   kDex2OatForRelocationOdex = 7,
+};
 
-  kErrorInvalidArguments = 101,
-  kErrorCannotCreateRuntime = 102,
-  kErrorUnknownDexOptNeeded = 103
+enum ErrorCodes {
+    kErrorInvalidArguments = 129,
+    kErrorCannotCreateRuntime = 130,
+    kErrorUnknownDexOptNeeded = 131,
+    kErrorUnknownDexOptStatus = 132
 };
 
 static int original_argc;
@@ -104,24 +107,47 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("  --downgrade: optional, if the purpose of dexopt is to downgrade the dex file");
   UsageError("       By default, dexopt considers upgrade case.");
   UsageError("");
+  UsageError("  --dexoptstate: optional, returns the dexopt status for the given dex file");
+  UsageError("");
   UsageError("Return code:");
   UsageError("  To make it easier to integrate with the internal tools this command will make");
   UsageError("    available its result (dexoptNeeded) as the exit/return code. i.e. it will not");
   UsageError("    return 0 for success and a non zero values for errors as the conventional");
   UsageError("    commands. The following return codes are possible:");
-  UsageError("        kNoDexOptNeeded = 0");
-  UsageError("        kDex2OatFromScratch = 1");
-  UsageError("        kDex2OatForBootImageOat = 2");
-  UsageError("        kDex2OatForFilterOat = 3");
-  UsageError("        kDex2OatForRelocationOat = 4");
-  UsageError("        kDex2OatForBootImageOdex = 5");
-  UsageError("        kDex2OatForFilterOdex = 6");
-  UsageError("        kDex2OatForRelocationOdex = 7");
-
-  UsageError("        kErrorInvalidArguments = 101");
-  UsageError("        kErrorCannotCreateRuntime = 102");
-  UsageError("        kErrorUnknownDexOptNeeded = 103");
-  UsageError("");
+  UsageError("  To accompany both compiler filter and dex opt status, rightmost 3 bits will hold");
+  UsageError("    dex opt status and next 4 bits will hold compiler filter information.");
+  UsageError("    Their individual values are:");
+  UsageError("       Dexopt Needed Value");
+  UsageError("          kNoDexOptNeeded = 0");
+  UsageError("          kDex2OatFromScratch = 1");
+  UsageError("          kDex2OatForBootImageOat = 2");
+  UsageError("          kDex2OatForFilterOat = 3");
+  UsageError("          kDex2OatForRelocationOat = 4");
+  UsageError("          kDex2OatForBootImageOdex = 5");
+  UsageError("          kDex2OatForFilterOdex = 6");
+  UsageError("          kDex2OatForRelocationOdex = 7");
+  UsageError("       Dexopt Needed Value");
+  UsageError("          kOatCannotOpen = 0");
+  UsageError("          kOatDexOutOfDate = 1");
+  UsageError("          kOatBootImageOutOfDate = 2");
+  UsageError("          kOatRelocationOutOfDate = 3");
+  UsageError("          kOutOfDate = 4");
+  UsageError("       Compiler filter");
+  UsageError("          kAssumeVerified = 0");
+  UsageError("          kExtract = 1");
+  UsageError("          kVerify = 2");
+  UsageError("          kQuicken = 3");
+  UsageError("          kSpaceProfile = 4");
+  UsageError("          kSpace = 5");
+  UsageError("          kSpeedProfile = 6");
+  UsageError("          kSpeed = 7");
+  UsageError("          kEverythingProfile = 8");
+  UsageError("          kEverything = 9");
+  UsageError("       Error codes");
+  UsageError("          kErrorInvalidArguments = 129");
+  UsageError("          kErrorCannotCreateRuntime = 130");
+  UsageError("          kErrorUnknownDexOptNeeded = 131");
+  UsageError("          kErrorUnknownDexOptStatus = 132");
 
   exit(kErrorInvalidArguments);
 }
@@ -175,6 +201,8 @@ class DexoptAnalyzer FINAL {
         oat_fd_ = std::stoi(option.substr(strlen("--oat-fd=")).ToString(), nullptr, 0);
       } else if (option.starts_with("--vdex-fd")) {
         vdex_fd_ = std::stoi(option.substr(strlen("--vdex-fd=")).ToString(), nullptr, 0);
+      } else if (option.starts_with("--dexoptstate")) {
+        get_dexopt_status_ = true;
       } else { Usage("Unknown argument '%s'", option.data()); }
     }
 
@@ -235,7 +263,6 @@ class DexoptAnalyzer FINAL {
     if (!CreateRuntime()) {
       return kErrorCannotCreateRuntime;
     }
-    std::unique_ptr<Runtime> runtime(Runtime::Current());
 
     std::unique_ptr<OatFileAssistant> oat_file_assistant;
     if (oat_fd_ != -1 && vdex_fd_ != -1) {
@@ -276,6 +303,63 @@ class DexoptAnalyzer FINAL {
     }
   }
 
+  // Format of status code: right most 3 bits will hold dexopt status, and
+  // following 4 bits will hold compiler filter.
+  static int PrepareDexOptStatus(int filter, int dexopt_needed) {
+    dexopt_needed = abs(dexopt_needed);
+    if (dexopt_needed > 7) {
+      LOG(ERROR) << "DexOptNeeded status overflow: Maximum 8 values are allowed.";
+      return kErrorUnknownDexOptStatus;
+    }
+    int status = dexopt_needed;
+    status |= filter << 3;
+
+    // The value of status shouldn't collide with error codes. Error codes have
+    // their highest bit set to 1.
+    DCHECK_EQ(((1 << 7) & status), 0);
+    return status;
+  }
+
+  int GetDexOptStatus() {
+    // If the file does not exist there's nothing to do.
+    // This is a fast path to avoid creating the runtime (b/34385298).
+    if (!OS::FileExists(dex_file_.c_str())) {
+      return kErrorUnknownDexOptStatus;
+    }
+
+    if (!CreateRuntime()) {
+      return kErrorCannotCreateRuntime;
+    }
+    std::unique_ptr<OatFileAssistant> oat_file_assistant;
+    if (access(dex_file_.c_str(), F_OK) != 0) {
+      return kErrorUnknownDexOptStatus;
+    }
+    if (oat_fd_ != -1 && vdex_fd_ != -1) {
+      oat_file_assistant = std::make_unique<OatFileAssistant>(dex_file_.c_str(),
+                                                              isa_,
+                                                              false /*load_executable*/,
+                                                              vdex_fd_,
+                                                              oat_fd_);
+    } else {
+      oat_file_assistant = std::make_unique<OatFileAssistant>(dex_file_.c_str(),
+                                                              isa_,
+                                                              false /*load_executable*/);
+    }
+
+    CompilerFilter::Filter current_compiler_filter;
+    const int invalid_compiler_filter = 0b1111;
+    if (!oat_file_assistant->GetCompilerFilter(&current_compiler_filter)) {
+      return PrepareDexOptStatus(invalid_compiler_filter, kDex2OatFromScratch);
+    }
+    DCHECK_NE(invalid_compiler_filter, current_compiler_filter);
+
+    int dexopt_status = oat_file_assistant->GetBestInfo().Status();
+    LOG(ERROR) << dexopt_status;
+    return PrepareDexOptStatus(current_compiler_filter, dexopt_status);
+  }
+
+  bool get_dexopt_status_;
+
  private:
   std::string dex_file_;
   InstructionSet isa_;
@@ -292,7 +376,8 @@ static int dexoptAnalyze(int argc, char** argv) {
 
   // Parse arguments. Argument mistakes will lead to exit(kErrorInvalidArguments) in UsageError.
   analyzer.ParseArgs(argc, argv);
-  return analyzer.GetDexOptNeeded();
+
+  return analyzer.get_dexopt_status_ ? analyzer.GetDexOptStatus() : analyzer.GetDexOptNeeded();
 }
 
 }  // namespace art
