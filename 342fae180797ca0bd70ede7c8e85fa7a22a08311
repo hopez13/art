@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d4580b6e_220ac9e0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 7341,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-12T16:24:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eaa1f72_36416e06",
+      "range": {
+        "startLine": 7341,
+        "startChar": 6,
+        "endLine": 7341,
+        "endChar": 39
+      },
+      "revId": "342fae180797ca0bd70ede7c8e85fa7a22a08311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e4b97bd_8a857174",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
@@ -36,6 +60,24 @@
       "writtenOn": "2017-10-11T18:11:18Z",
       "side": 1,
       "message": "Please also add:\n\n  DISALLOW_COPY_AND_ASSIGN(CloneAndReplaceInstructionVisitor);\n\nhere.",
+      "revId": "342fae180797ca0bd70ede7c8e85fa7a22a08311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "188bb4c8_cef91181",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 7356,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-12T16:24:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e4b97bd_8a857174",
       "revId": "342fae180797ca0bd70ede7c8e85fa7a22a08311",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

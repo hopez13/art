@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f840fbd_e40c3a86",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-12T16:24:22Z",
+      "side": 1,
+      "message": "Because instructions are cloned twice (during inn-order and RP-order).",
+      "parentUuid": "7bacc2e9_29b612a2",
+      "range": {
+        "startLine": 175,
+        "startChar": 44,
+        "endLine": 175,
+        "endChar": 47
+      },
+      "revId": "bb9b2d8a9ee597cd70ea88e5a4711b560fd8f886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc79e5c4_bd8ecd4d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
