@@ -285,6 +285,7 @@ bool OatFileBase::LoadVdex(int vdex_fd,
     int rc = TEMP_FAILURE_RETRY(fstat(vdex_fd, &s));
     if (rc == -1) {
       PLOG(WARNING) << "Failed getting length of vdex file";
+      return false;
     } else {
       vdex_ = VdexFile::Open(vdex_fd,
                              s.st_size,
