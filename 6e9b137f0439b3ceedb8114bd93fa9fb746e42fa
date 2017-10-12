@@ -46,6 +46,30 @@
       "revId": "6e9b137f0439b3ceedb8114bd93fa9fb746e42fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e182c01_0dc2dfe9",
+        "filename": "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-12T17:36:39Z",
+      "side": 1,
+      "message": "I see; this looks good to me then.",
+      "parentUuid": "062d7812_b5159c5b",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 44
+      },
+      "revId": "6e9b137f0439b3ceedb8114bd93fa9fb746e42fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
