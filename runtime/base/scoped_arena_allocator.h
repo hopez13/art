@@ -142,6 +142,7 @@ class ScopedArenaAllocator
     return allocator;
   }
 
+  ScopedArenaAllocator(ScopedArenaAllocator&& other);
   explicit ScopedArenaAllocator(ArenaStack* arena_stack);
   ~ScopedArenaAllocator();
 
@@ -173,7 +174,7 @@ class ScopedArenaAllocator
   static void operator delete(void* ptr ATTRIBUTE_UNUSED) {}
 
  private:
-  ArenaStack* const arena_stack_;
+  ArenaStack* arena_stack_;
   Arena* mark_arena_;
   uint8_t* mark_ptr_;
   uint8_t* mark_end_;

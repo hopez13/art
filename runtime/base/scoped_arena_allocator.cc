@@ -107,18 +107,32 @@ void* ArenaStack::AllocWithMemoryTool(size_t bytes, ArenaAllocKind kind) {
   return ptr;
 }
 
+ScopedArenaAllocator::ScopedArenaAllocator(ScopedArenaAllocator&& other)
+    : DebugStackReference(std::move(other)),
+      DebugStackRefCounter(),
+      ArenaAllocatorStats(other),
+      arena_stack_(other.arena_stack_),
+      mark_arena_(other.mark_arena_),
+      mark_ptr_(other.mark_ptr_),
+      mark_end_(other.mark_end_) {
+  other.DebugStackRefCounter::CheckNoRefs();
+  other.arena_stack_ = nullptr;
+}
+
 ScopedArenaAllocator::ScopedArenaAllocator(ArenaStack* arena_stack)
-  : DebugStackReference(arena_stack),
-    DebugStackRefCounter(),
-    ArenaAllocatorStats(*arena_stack->CurrentStats()),
-    arena_stack_(arena_stack),
-    mark_arena_(arena_stack->top_arena_),
-    mark_ptr_(arena_stack->top_ptr_),
-    mark_end_(arena_stack->top_end_) {
+    : DebugStackReference(arena_stack),
+      DebugStackRefCounter(),
+      ArenaAllocatorStats(*arena_stack->CurrentStats()),
+      arena_stack_(arena_stack),
+      mark_arena_(arena_stack->top_arena_),
+      mark_ptr_(arena_stack->top_ptr_),
+      mark_end_(arena_stack->top_end_) {
 }
 
 ScopedArenaAllocator::~ScopedArenaAllocator() {
-  DoReset();
+  if (arena_stack_ != nullptr) {
+    DoReset();
+  }
 }
 
 void ScopedArenaAllocator::Reset() {
