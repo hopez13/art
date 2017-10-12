@@ -22,6 +22,30 @@
       "revId": "bd752123ecda13e4c474b532edb06d88db3ce9cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5df7d8b_33b175a5",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-12T05:00:28Z",
+      "side": 1,
+      "message": "It was complaining that I couldn\u0027t access mirror::Class instantiation\u0027s reference_ directly in the mirror::Object one. I would take that to mean the same for RawReference.\n\nYou were just too fast. I wanted to comment here that the alternative would be to make all instantiations friends?",
+      "parentUuid": "c36506de_969837b2",
+      "range": {
+        "startLine": 159,
+        "startChar": 26,
+        "endLine": 159,
+        "endChar": 38
+      },
+      "revId": "bd752123ecda13e4c474b532edb06d88db3ce9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
