@@ -28,6 +28,10 @@ namespace art {
 
 constexpr bool kObjPtrPoisoning = kIsDebugBuild;
 
+// It turns out that most of the overhead comes from copying. Don't validate for now. This defers
+// finding stale ObjPtr objects until they are used.
+constexpr bool kObjPtrPoisoningValidateOnCopy = false;
+
 // Value type representing a pointer to a mirror::Object of type MirrorType
 // Since the cookie is thread based, it is not safe to share an ObjPtr between threads.
 template<class MirrorType>
@@ -63,14 +67,18 @@ class ObjPtr {
             typename = typename std::enable_if<std::is_base_of<MirrorType, Type>::value>::type>
   ALWAYS_INLINE ObjPtr(const ObjPtr<Type>& other)  // NOLINT
       REQUIRES_SHARED(Locks::mutator_lock_)
-      : reference_(Encode(static_cast<MirrorType*>(other.Ptr()))) {
+      : reference_(kObjPtrPoisoningValidateOnCopy
+                       ? Encode(static_cast<MirrorType*>(other.Ptr()))
+                       : other.RawReference()) {
   }
 
   template <typename Type,
             typename = typename std::enable_if<std::is_base_of<MirrorType, Type>::value>::type>
   ALWAYS_INLINE ObjPtr& operator=(const ObjPtr<Type>& other)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    reference_ = Encode(static_cast<MirrorType*>(other.Ptr()));
+    reference_ = kObjPtrPoisoningValidateOnCopy
+                     ? Encode(static_cast<MirrorType*>(other.Ptr()))
+                     : other.RawReference();
     return *this;
   }
 
@@ -145,6 +153,11 @@ class ObjPtr {
     static_assert(std::is_base_of<SourceType, MirrorType>::value,
                   "Target type must be a subtype of source type");
     return static_cast<MirrorType*>(ptr.Ptr());
+  }
+
+  // Raw access for copying. Do not use manually.
+  ALWAYS_INLINE uintptr_t RawReference() const {
+    return reference_;
   }
 
  private:
