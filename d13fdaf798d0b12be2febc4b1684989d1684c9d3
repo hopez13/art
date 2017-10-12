@@ -22,6 +22,30 @@
       "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f42b37fb_daa831ad",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-12T09:18:10Z",
+      "side": 1,
+      "message": "Yes it was just that private constructor requiring the friendship. Ok will change to public.",
+      "parentUuid": "88fe8607_678ac5ec",
+      "range": {
+        "startLine": 181,
+        "startChar": 2,
+        "endLine": 181,
+        "endChar": 25
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
