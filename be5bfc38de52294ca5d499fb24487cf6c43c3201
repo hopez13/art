@@ -73,6 +73,54 @@
     },
     {
       "key": {
+        "uuid": "3de688f8_838c6eb5",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-13T21:55:30Z",
+      "side": 1,
+      "message": "I though he was (didn\u0027t check).\n\nI don\u0027t think there are so many options here, but maybe I\u0027m missing some options.\n\nDo you have opinions?",
+      "parentUuid": "1b07324b_f5bbee29",
+      "range": {
+        "startLine": 111,
+        "startChar": 49,
+        "endLine": 111,
+        "endChar": 81
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86a68068_17477eb4",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-13T21:55:30Z",
+      "side": 1,
+      "message": "That\u0027s not true in the current implementation\n\n`dexopt_needed \u003d oat_file_assistant-\u003eGetDexOptNeeded(...)`\n\ncan be negative.",
+      "parentUuid": "1c270999_020f8a17",
+      "range": {
+        "startLine": 111,
+        "startChar": 49,
+        "endLine": 111,
+        "endChar": 81
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6698c95b_8d15fe07",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "30fab3da_e3c6f41a",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-13T21:55:30Z",
+      "side": 1,
+      "message": "like a dcheck that the status is not any of the error codes.\n\nIt\u0027a not obvious since you shift an or things.",
+      "parentUuid": "c981b854_cd3a0eac",
+      "range": {
+        "startLine": 315,
+        "startChar": 11,
+        "endLine": 315,
+        "endChar": 17
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "551d8a27_273540f8",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
@@ -201,6 +273,30 @@
       "side": 1,
       "message": "What if one wants to check if dexopt needed or not? Are you suggesting to move that logic to installd?",
       "parentUuid": "c909602d_b4f5ba9e",
+      "range": {
+        "startLine": 358,
+        "startChar": 7,
+        "endLine": 358,
+        "endChar": 25
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c7c098f_72b4469a",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-13T21:55:30Z",
+      "side": 1,
+      "message": "yes, you can update the logic in installd as well.",
+      "parentUuid": "af988ec6_03768d0f",
       "range": {
         "startLine": 358,
         "startChar": 7,
