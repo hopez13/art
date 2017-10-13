@@ -479,15 +479,23 @@ static const MipsInstruction gMipsInstructions[] = {
   { kMsaMask | (0x7 << 23), kMsa | (0x2 << 23) | 0x9, "srli", "kmW" },
   { kMsaMask | (0x3ff << 16), kMsa | (0xbe << 16) | 0x19, "move.v", "km" },
   { kMsaMask | (0xf << 22), kMsa | (0x1 << 22) | 0x19, "splati", "kX" },
+  { kMsaMask | (0xf << 22), kMsa | (0x2 << 22) | 0x19, "copy_s", "kX" },
+  { kMsaMask | (0xf << 22), kMsa | (0x3 << 22) | 0x19, "copy_u", "kX" },
+  { kMsaMask | (0xf << 22), kMsa | (0x4 << 22) | 0x19, "insert", "kX" },
   { kMsaMask | (0xff << 18), kMsa | (0xc0 << 18) | 0x1e, "fill", "vkD" },
   { kMsaMask | (0x7 << 23), kMsa | (0x6 << 23) | 0x7, "ldi", "kx" },
   { kMsaSpecialMask | (0xf << 2), kMsa | (0x8 << 2), "ld", "kw" },
   { kMsaSpecialMask | (0xf << 2), kMsa | (0x9 << 2), "st", "kw" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x4 << 23) | 0x14, "ilvl", "Vkmn" },
   { kMsaMask | (0x7 << 23), kMsa | (0x5 << 23) | 0x14, "ilvr", "Vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x6 << 23) | 0x14, "ilvev", "Vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x7 << 23) | 0x14, "ilvod", "Vkmn" },
   { kMsaMask | (0x7 << 23), kMsa | (0x1 << 23) | 0x12, "maddv", "Vkmn" },
   { kMsaMask | (0x7 << 23), kMsa | (0x2 << 23) | 0x12, "msubv", "Vkmn" },
   { kMsaMask | (0xf << 22), kMsa | (0x4 << 22) | 0x1b, "fmadd", "Ukmn" },
   { kMsaMask | (0xf << 22), kMsa | (0x5 << 22) | 0x1b, "fmsub", "Ukmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x4 << 23) | 0x15, "hadd_s", "Vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x5 << 23) | 0x15, "hadd_u", "Vkmn" },
 };
 
 static uint32_t ReadU32(const uint8_t* ptr) {
