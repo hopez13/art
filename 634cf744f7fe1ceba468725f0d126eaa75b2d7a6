@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13b81f6f_53639844",
+        "filename": "test/1934-jvmti-signal-thread/src/art/Test1934.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-13T17:03:03Z",
+      "side": 1,
+      "message": "Should you have an \"else busy-wait\" here?",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 19
+      },
+      "revId": "634cf744f7fe1ceba468725f0d126eaa75b2d7a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
