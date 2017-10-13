@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1c270999_020f8a17",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-13T21:52:46Z",
+      "side": 1,
+      "message": "@andreas - done.\nSeems like I forgot to update the documentation. We are not returning negative exit codes. Will update the docs.",
+      "parentUuid": "1b07324b_f5bbee29",
+      "range": {
+        "startLine": 111,
+        "startChar": 49,
+        "endLine": 111,
+        "endChar": 81
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6698c95b_8d15fe07",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
