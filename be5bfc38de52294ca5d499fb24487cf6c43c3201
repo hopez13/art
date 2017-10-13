@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b07324b_f5bbee29",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-13T21:46:09Z",
+      "side": 1,
+      "message": "Why is Richard not CC-ed? He has strong opinions on what the result should look like (actually a struct packed into the exit code), and how that should be unified with GetDexoptNeeded return.",
+      "parentUuid": "404be9fe_706c4b8f",
+      "range": {
+        "startLine": 111,
+        "startChar": 49,
+        "endLine": 111,
+        "endChar": 81
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6698c95b_8d15fe07",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
