@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a80cbb00_30a41ebd",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-13T01:00:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "129ac966_d28a9c12",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 28
+      },
+      "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c904d6f_779a7420",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-12T22:01:47Z",
       "side": 1,
       "message": "this means we have no vdex file. it should have its own \"invalid-filter\" code.",
+      "range": {
+        "startLine": 355,
+        "startChar": 13,
+        "endLine": 355,
+        "endChar": 38
+      },
+      "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85935d48_1f9c55c3",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-13T01:00:26Z",
+      "side": 1,
+      "message": "kErrorUnknownDexOptStatus is an umbrella error code which includes all the errors.\nThis could be because of various reasons - invalid oat file, invalid vdex file or both.",
+      "parentUuid": "1c904d6f_779a7420",
       "range": {
         "startLine": 355,
         "startChar": 13,
@@ -68,6 +116,30 @@
       "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "722d5108_fb246ded",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-13T01:00:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05d29c4f_a9c1852b",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 3
+      },
+      "revId": "e3190bf54625425f7f6c7b87fa676f7c4ec280fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
