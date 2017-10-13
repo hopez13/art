@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "7af318d5_64f0294d",
+        "filename": "test/1934-jvmti-signal-thread/src/art/Test1934.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-13T17:46:37Z",
+      "side": 1,
+      "message": "A busy-loop in the 50th frame (checking a volatile) would guarantee you\u0027re in a recursion. :-)\n\nAnyways, I\u0027ll leave this up to you.",
+      "parentUuid": "0f1e88e1_5c3a5811",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 19
+      },
+      "revId": "634cf744f7fe1ceba468725f0d126eaa75b2d7a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebed4e40_9ec8ee89",
         "filename": "test/1934-jvmti-signal-thread/src/art/Test1934.java",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I could. That one doesn\u0027t have any problems since the SOE cannot be thrown concurrently with the other Error though.",
       "parentUuid": "ebed4e40_9ec8ee89",
+      "range": {
+        "startLine": 220,
+        "startChar": 10,
+        "endLine": 220,
+        "endChar": 38
+      },
+      "revId": "634cf744f7fe1ceba468725f0d126eaa75b2d7a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54df48e0_6bc3e4b8",
+        "filename": "test/1934-jvmti-signal-thread/src/art/Test1934.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-13T17:46:37Z",
+      "side": 1,
+      "message": "Unless the scheduler screws you and the thread runs away before the interrupt can be sent. Plus: readability/maintainability.",
+      "parentUuid": "3cf4f572_d4f649ef",
       "range": {
         "startLine": 220,
         "startChar": 10,
