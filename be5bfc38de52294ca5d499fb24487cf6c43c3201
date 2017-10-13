@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "c981b854_cd3a0eac",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-13T21:50:33Z",
+      "side": 1,
+      "message": "Error codes have 8th bit set to 1, while others have that set to 0.\nI have added documentation of this in the help and method doc.\nWhat kind of checks are you suggesting?",
+      "parentUuid": "de508ed0_1d484e85",
+      "range": {
+        "startLine": 315,
+        "startChar": 11,
+        "endLine": 315,
+        "endChar": 17
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "551d8a27_273540f8",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
@@ -129,6 +153,30 @@
       "writtenOn": "2017-10-13T21:43:57Z",
       "side": 1,
       "message": "I propose we always return the status. it will unify and simplify the code paths here and in installd.",
+      "range": {
+        "startLine": 358,
+        "startChar": 7,
+        "endLine": 358,
+        "endChar": 25
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af988ec6_03768d0f",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-13T21:50:33Z",
+      "side": 1,
+      "message": "What if one wants to check if dexopt needed or not? Are you suggesting to move that logic to installd?",
+      "parentUuid": "c909602d_b4f5ba9e",
       "range": {
         "startLine": 358,
         "startChar": 7,
