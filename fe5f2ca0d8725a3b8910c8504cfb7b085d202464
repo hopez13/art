@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efc8f4b7_2a6ddb61",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:13:21Z",
+      "side": 1,
+      "message": "This assumption seems to be stronger than what we require in some of our use cases (e.g. on our continuous integration infrastructure for ART). Andreas, what do you think of this?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 66
+      },
+      "revId": "fe5f2ca0d8725a3b8910c8504cfb7b085d202464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
