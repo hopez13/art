@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "01dd034a_38c0a6ba",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7991,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "This seems like a suggestion for a follow-on CL. There do seem to be any checks in this file along those lines today and there is nothing special about the handlers the request is being made for.",
+      "parentUuid": "972e02ba_9fe3e308",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f7916b2_8b512156",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2017-10-16T17:58:44Z",
       "side": 1,
       "message": "2",
+      "range": {
+        "startLine": 2606,
+        "startChar": 19,
+        "endLine": 2606,
+        "endChar": 20
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "909ac3a2_c304a885",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f7916b2_8b512156",
       "range": {
         "startLine": 2606,
         "startChar": 19,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "8ea91bb2_311eac60",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc1f33f0_8707774c",
+      "range": {
+        "startLine": 613,
+        "startChar": 19,
+        "endLine": 613,
+        "endChar": 20
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c4f32c8_11e932b3",
         "filename": "runtime/interpreter/mterp/arm/invoke_polymorphic.S",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2017-10-16T17:58:44Z",
       "side": 1,
       "message": "invoke-polymorphic (Here and in other architectures.)",
+      "range": {
+        "startLine": 3,
+        "startChar": 7,
+        "endLine": 3,
+        "endChar": 24
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec18bbb4_a3a5afb6",
+        "filename": "runtime/interpreter/mterp/arm/invoke_polymorphic.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c4f32c8_11e932b3",
       "range": {
         "startLine": 3,
         "startChar": 7,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "35a3da5b_d9dac031",
+        "filename": "runtime/interpreter/mterp/arm/op_const_method_handle.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff5a14ec_3435e21b",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "186fe834_1c7fb529",
         "filename": "runtime/interpreter/mterp/arm/op_const_method_handle.S",
         "patchSetId": 4
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "5bc7001a_953dfc5f",
+        "filename": "runtime/interpreter/mterp/arm/op_const_method_handle.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "We have revised the documentation after the feature is present for other bytecodes, it provides some scope for refinement before shipping. There is a bug to update the public documentation: b/64972090.",
+      "parentUuid": "186fe834_1c7fb529",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9eb4f408_516b43cb",
         "filename": "runtime/interpreter/mterp/arm/op_const_method_type.S",
         "patchSetId": 4
@@ -139,6 +271,30 @@
       "writtenOn": "2017-10-16T17:58:44Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 24
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5f0a5b0_6fadabb7",
+        "filename": "runtime/interpreter/mterp/arm/op_const_method_type.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9eb4f408_516b43cb",
       "range": {
         "startLine": 1,
         "startChar": 7,
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "9fe8acee_1ee623c3",
+        "filename": "runtime/interpreter/mterp/arm/op_invoke_custom.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "This follows the pattern of op_invoke_{interface,static,virtual}.S. As I\u0027ve tried to convey earlier in the review I\u0027d prefer not to introduce inconsistencies between the changes here and existing code. There are merits to the suggestion, but the ripple effect is best left to a different CL (?).",
+      "parentUuid": "906c64ad_8f01eef3",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 55
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b2a882f_e88444b3",
         "filename": "runtime/interpreter/mterp/mips/invoke_polymorphic.S",
         "patchSetId": 4
@@ -188,6 +368,24 @@
       "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "693f07bc_d12336ce",
+        "filename": "runtime/interpreter/mterp/mips/invoke_polymorphic.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "All the code here is a minor fork of existing code. There are very few instances of declaring externs, which the assembler is likely assuming by default. As already mentioned, I\u0027d prefer to be consistent with the existing code in this CL than start introducing new patterns.",
+      "parentUuid": "1b2a882f_e88444b3",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -208,6 +406,24 @@
     },
     {
       "key": {
+        "uuid": "b5d91f79_4a33d1a8",
+        "filename": "runtime/interpreter/mterp/mips/op_const_method_handle.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "See earlier comment. Implemented in const.S.",
+      "parentUuid": "e3b7bbed_09e1079e",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf79f27b_c9a203b3",
         "filename": "runtime/interpreter/mterp/mips/op_const_method_type.S",
         "patchSetId": 4
@@ -219,6 +435,24 @@
       "writtenOn": "2017-10-16T17:58:44Z",
       "side": 1,
       "message": "Ditto?",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66226a49_ff6a3b3c",
+        "filename": "runtime/interpreter/mterp/mips/op_const_method_type.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T20:23:35Z",
+      "side": 1,
+      "message": "See earlier comment.",
+      "parentUuid": "bf79f27b_c9a203b3",
       "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
