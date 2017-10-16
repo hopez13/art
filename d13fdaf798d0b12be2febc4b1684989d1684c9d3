@@ -777,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "7c140011_4dbd1711",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-16T20:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b26a2659_b0aedb6c",
+      "range": {
+        "startLine": 225,
+        "startChar": 48,
+        "endLine": 225,
+        "endChar": 49
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ab6c9c8_8e3a28af",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 5
@@ -788,6 +812,30 @@
       "writtenOn": "2017-10-12T12:01:44Z",
       "side": 1,
       "message": "Rename as something easier to grep and distinguish from the other iterator (`class_it`); perhaps `quick_it` or `qi_it`?",
+      "range": {
+        "startLine": 244,
+        "startChar": 29,
+        "endLine": 244,
+        "endChar": 31
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bdb6f5d_efe8076c",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-16T20:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ab6c9c8_8e3a28af",
       "range": {
         "startLine": 244,
         "startChar": 29,
@@ -823,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "fd8b0cc4_b994242b",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-16T20:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c91147c6_2ae1a301",
+      "range": {
+        "startLine": 262,
+        "startChar": 43,
+        "endLine": 262,
+        "endChar": 78
+      },
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ae8a5e6_aeb80fff",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 5
@@ -834,6 +906,24 @@
       "writtenOn": "2017-10-12T12:01:44Z",
       "side": 1,
       "message": "Should we add\n\n  DCHECK(it.Done());\n\nat the end of the outer-most loop?",
+      "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01c880ab_8c401e68",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-16T20:50:45Z",
+      "side": 1,
+      "message": "Indeed it is expected that all quickening info data is consumed when the ClassDataItemIterator is done. Added a debug check with a matching message.",
+      "parentUuid": "6ae8a5e6_aeb80fff",
       "revId": "d13fdaf798d0b12be2febc4b1684989d1684c9d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

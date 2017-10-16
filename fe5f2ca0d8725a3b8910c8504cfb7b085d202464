@@ -22,6 +22,30 @@
       "revId": "fe5f2ca0d8725a3b8910c8504cfb7b085d202464",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "416f3afc_834e2dea",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2017-10-16T20:50:45Z",
+      "side": 1,
+      "message": "If it helps I used the same philosophy as scratch_dir_ used from dex2oat test cases. android_data_ is expected to be set there too based on CommonRuntimeTestImpl::SetUpAndroidData() which also setenvs ANDROID_DATA.\n\nAt any case oatdump --export-dex-to just needs a writable temp directory to store unquicken bytecode. No further checks need to be applied against the output Dex files since the built-in checksum check will fail in case the files were not properly decompiled from oatdump.",
+      "parentUuid": "efc8f4b7_2a6ddb61",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 66
+      },
+      "revId": "fe5f2ca0d8725a3b8910c8504cfb7b085d202464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
