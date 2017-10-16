@@ -1,0 +1,227 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "972e02ba_9fe3e308",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7991,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK_EQ(self, Thread::Current());\n\nhere and in other methods below?",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f7916b2_8b512156",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 2606,
+        "startChar": 19,
+        "endLine": 2606,
+        "endChar": 20
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc1f33f0_8707774c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 613,
+        "startChar": 19,
+        "endLine": 613,
+        "endChar": 20
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c4f32c8_11e932b3",
+        "filename": "runtime/interpreter/mterp/arm/invoke_polymorphic.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "invoke-polymorphic (Here and in other architectures.)",
+      "range": {
+        "startLine": 3,
+        "startChar": 7,
+        "endLine": 3,
+        "endChar": 24
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5a14ec_3435e21b",
+        "filename": "runtime/interpreter/mterp/arm/op_const_method_handle.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "Refactor this file and runtime/interpreter/mterp/arm/op_const_method_type.S using Mterp\u0027s macro facilities (see e.g. runtime/interpreter/mterp/arm/bincmp.S and its users: runtime/interpreter/mterp/arm/op_if_eq.S, runtime/interpreter/mterp/arm/op_if_ne.S, etc.)? (Here and in other architectures.)",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "186fe834_1c7fb529",
+        "filename": "runtime/interpreter/mterp/arm/op_const_method_handle.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "This opcode is not documented (yet) on https://source.android.com/devices/tech/dalvik/dalvik-bytecode; is this normal?",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eb4f408_516b43cb",
+        "filename": "runtime/interpreter/mterp/arm/op_const_method_type.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 24
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "906c64ad_8f01eef3",
+        "filename": "runtime/interpreter/mterp/arm/op_invoke_custom.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "Split this comment between this file and runtime/interpreter/mterp/arm/op_invoke_custom_range.S.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 55
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b2a882f_e88444b3",
+        "filename": "runtime/interpreter/mterp/mips/invoke_polymorphic.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "Add\n\n  .extern MterpShouldSwitchInterpreters\n\nhere?",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3b7bbed_09e1079e",
+        "filename": "runtime/interpreter/mterp/mips/op_const_method_handle.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "Add\n\n  .extern MterpConstMethodHandle\n\nhere?",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf79f27b_c9a203b3",
+        "filename": "runtime/interpreter/mterp/mips/op_const_method_type.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-16T17:58:44Z",
+      "side": 1,
+      "message": "Ditto?",
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
