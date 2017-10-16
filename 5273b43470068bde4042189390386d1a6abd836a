@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d88ed20_6cdcbe7b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8046,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-16T14:02:31Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 8046,
+        "startChar": 0,
+        "endLine": 8046,
+        "endChar": 107
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24b87305_9d2ee4a8",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-16T14:02:31Z",
+      "side": 1,
+      "message": "why this change?",
+      "range": {
+        "startLine": 1479,
+        "startChar": 25,
+        "endLine": 1479,
+        "endChar": 42
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb0d7f99_1007d4b8",
+        "filename": "runtime/interpreter/mterp/arm/invoke_polymorphic.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-16T14:02:31Z",
+      "side": 1,
+      "message": "Add some comments?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c39bb204_ccb192d6",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-16T14:02:31Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 60
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82051780_0cad03d9",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-16T14:02:31Z",
+      "side": 1,
+      "message": "Not sure how handlers are consistent in mterp, but it reads odd to have \"shadow_frame, self\" at the end here, and have he reverse in other helpers.",
+      "range": {
+        "startLine": 385,
+        "startChar": 41,
+        "endLine": 388,
+        "endChar": 53
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
