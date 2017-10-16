@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c11a9e33_54642d1f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8046,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T15:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d88ed20_6cdcbe7b",
+      "range": {
+        "startLine": 8046,
+        "startChar": 0,
+        "endLine": 8046,
+        "endChar": 107
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24b87305_9d2ee4a8",
         "filename": "runtime/class_linker_test.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-16T14:02:31Z",
       "side": 1,
       "message": "why this change?",
+      "range": {
+        "startLine": 1479,
+        "startChar": 25,
+        "endLine": 1479,
+        "endChar": 42
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d693b24_a2077427",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T15:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24b87305_9d2ee4a8",
       "range": {
         "startLine": 1479,
         "startChar": 25,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c85c828b_a0ee3c9b",
+        "filename": "runtime/interpreter/mterp/arm/invoke_polymorphic.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T15:59:11Z",
+      "side": 1,
+      "message": "3 words \u003d\u003d changes to 6 files :-)\n\nThis code is a tiny variation (s/ 3/ 4/) on existing code in $arch/invoke.S. My preference would be not to deviate from the existing style and not to change the $arch/invoke.S either here.",
+      "parentUuid": "bb0d7f99_1007d4b8",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c39bb204_ccb192d6",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "49a00637_fc6c35fa",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T15:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c39bb204_ccb192d6",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 60
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82051780_0cad03d9",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2017-10-16T14:02:31Z",
       "side": 1,
       "message": "Not sure how handlers are consistent in mterp, but it reads odd to have \"shadow_frame, self\" at the end here, and have he reverse in other helpers.",
+      "range": {
+        "startLine": 385,
+        "startChar": 41,
+        "endLine": 388,
+        "endChar": 53
+      },
+      "revId": "5273b43470068bde4042189390386d1a6abd836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18fd327_b19ab9f2",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-16T15:59:11Z",
+      "side": 1,
+      "message": "This CL does not have any new patterns in it.\n\nThe handlers for ConstMethodHandle and ConstMethodType are minimal variations on the handlers for ConstString and ConstClass which are immediately above.\n\nAs mentioned in the original comment, the assembly for these files can be factored to use a common include file which would then make any change around parameter ordering much less work for this group of bytecodes.",
+      "parentUuid": "82051780_0cad03d9",
       "range": {
         "startLine": 385,
         "startChar": 41,
