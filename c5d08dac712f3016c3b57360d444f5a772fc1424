@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4521b2ff_db394d9a",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2848,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-17T02:05:34Z",
+      "side": 1,
+      "message": "Insert\u0027s wd register is both in and out because it\u0027s modified partially.\n\nYou can use\n\n    DsFsmInstrFffr(EmitMsaELM(...),\n                   static_cast\u003cFRegister\u003e(wd),\n                   static_cast\u003cFRegister\u003e(wd),\n                   rs);",
+      "range": {
+        "startLine": 2846,
+        "startChar": 0,
+        "endLine": 2848,
+        "endChar": 19
+      },
+      "revId": "c5d08dac712f3016c3b57360d444f5a772fc1424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e5144c_09f4790e",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2856,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-17T02:05:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2854,
+        "startChar": 0,
+        "endLine": 2856,
+        "endChar": 19
+      },
+      "revId": "c5d08dac712f3016c3b57360d444f5a772fc1424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4091aba7_8531b87a",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2864,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-17T02:05:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2862,
+        "startChar": 0,
+        "endLine": 2864,
+        "endChar": 19
+      },
+      "revId": "c5d08dac712f3016c3b57360d444f5a772fc1424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab6d28a_1b731a4b",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-17T02:05:34Z",
+      "side": 1,
+      "message": "Insert an empty line like you did for MIPS64.",
+      "revId": "c5d08dac712f3016c3b57360d444f5a772fc1424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e3216e_b4977f49",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-17T02:05:34Z",
+      "side": 1,
+      "message": "k -\u003e y",
+      "range": {
+        "startLine": 482,
+        "startChar": 66,
+        "endLine": 482,
+        "endChar": 67
+      },
+      "revId": "c5d08dac712f3016c3b57360d444f5a772fc1424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e129ff1f_6c075a83",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-17T02:05:34Z",
+      "side": 1,
+      "message": "k -\u003e y",
+      "range": {
+        "startLine": 483,
+        "startChar": 66,
+        "endLine": 483,
+        "endChar": 67
+      },
+      "revId": "c5d08dac712f3016c3b57360d444f5a772fc1424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10649e85_129d3949",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-17T02:05:34Z",
+      "side": 1,
+      "message": "kX -\u003e YD",
+      "range": {
+        "startLine": 484,
+        "startChar": 66,
+        "endLine": 484,
+        "endChar": 68
+      },
+      "revId": "c5d08dac712f3016c3b57360d444f5a772fc1424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93564a07_18a84ea8",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-10-17T02:05:34Z",
+      "side": 1,
+      "message": "Introduce case \u0027Y\u0027 similar to case \u0027X\u0027 but with the register number from `sa`.\n\nIntroduce case \u0027y\u0027 similar to case \u0027D\u0027 but with the register number from `sa`.",
+      "revId": "c5d08dac712f3016c3b57360d444f5a772fc1424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
