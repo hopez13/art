@@ -260,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "c59cb742_d55b4fdb",
+        "filename": "runtime/interpreter/mterp/arm/op_const_method_handle.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-17T10:13:09Z",
+      "side": 1,
+      "message": "I see; thanks for the information.",
+      "parentUuid": "5bc7001a_953dfc5f",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "88b4347baeccff0c6a4c38f794885b715d5e6ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9eb4f408_516b43cb",
         "filename": "runtime/interpreter/mterp/arm/op_const_method_type.S",
         "patchSetId": 4
