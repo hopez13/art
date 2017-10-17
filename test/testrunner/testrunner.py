@@ -116,6 +116,9 @@ stop_testrunner = False
 dex2oat_jobs = -1   # -1 corresponds to default threads for dex2oat
 run_all_configs = False
 
+# extra options to pass to run-test
+extra_options = []
+
 # Dict to store user requested test variants.
 # key: variant_type.
 # value: set of variants user wants to run of type <key>.
@@ -434,7 +437,7 @@ def run_tests(tests):
           tempfile.mkdtemp(dir=env.ART_HOST_TEST_DIR)) + options_test
 
       run_test_sh = env.ANDROID_BUILD_TOP + '/art/test/run-test'
-      command = run_test_sh + ' ' + options_test + ' ' + test
+      command = run_test_sh + ' ' + options_test + ' ' + ' '.join(extra_options) + ' ' + test
 
       semaphore.acquire()
       worker = threading.Thread(target=run_test, args=(command, test, variant_set, test_name))
@@ -837,6 +840,7 @@ def parse_option():
   global timeout
   global dex2oat_jobs
   global run_all_configs
+  global extra_options
 
   parser = argparse.ArgumentParser(description="Runs all or a subset of the ART test suite.")
   parser.add_argument('-t', '--test', dest='test', help='name of the test')
@@ -865,8 +869,17 @@ def parse_option():
                       help='Number of dex2oat jobs')
   parser.add_argument('-a', '--all', action='store_true', dest='run_all',
                       help="Run all the possible configurations for the input test set")
+  subparsers = parser.add_subparsers(help = "Extraneous options")
+  run_test_ops = subparsers.add_parser(
+      "run-test-args", description="Arguments to pass directly to run-test unaltered.")
+  # Make this parser take in even flag looking things.
+  run_test_ops.prefix_chars = ''
+  run_test_ops.add_argument('run-test-args', nargs="*", help="options to send to run-test")
 
   options = vars(parser.parse_args())
+  if 'run-test-args' in options and options['run-test-args']:
+    extra_options = options['run-test-args']
+
   if options['build_target']:
     options = setup_env_for_build_target(target_config[options['build_target']],
                                          parser, options)
