@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "74daa4f6_e3e17956",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-10-17T21:55:02Z",
+      "side": 1,
+      "message": "I would probably vote for adding a second version that does allow a release, along the lines of lock_guard/unique_lock.",
+      "parentUuid": "668f9db1_243c09eb",
+      "range": {
+        "startLine": 268,
+        "startChar": 7,
+        "endLine": 268,
+        "endChar": 35
+      },
+      "revId": "c7174a17025fcdd7de77ef3ef166a376877050ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26f411e7_5880a04d",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -106,6 +130,30 @@
       "writtenOn": "2017-10-05T18:14:40Z",
       "side": 1,
       "message": "I believe UNLOCK_FUNCTION is more common for this?",
+      "range": {
+        "startLine": 270,
+        "startChar": 6,
+        "endLine": 270,
+        "endChar": 13
+      },
+      "revId": "c7174a17025fcdd7de77ef3ef166a376877050ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25acbea1_1fb4d53b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-10-17T21:55:02Z",
+      "side": 1,
+      "message": "The documentation seems to say that RELEASE() is the way of the future... (https://clang.llvm.org/docs/ThreadSafetyAnalysis.html)",
+      "parentUuid": "26f411e7_5880a04d",
       "range": {
         "startLine": 270,
         "startChar": 6,
