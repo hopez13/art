@@ -1,0 +1,158 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3984d6d9_e53b90a0",
+        "filename": "compiler/compiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-17T18:01:05Z",
+      "side": 1,
+      "message": "Is this required or is it a refactoring?\n\nIf it\u0027s a refactoring, aren\u0027t the other parameters redundant now?",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "108eb855_7db37eba",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-17T18:01:05Z",
+      "side": 1,
+      "message": "What does it mean for JNI?",
+      "range": {
+        "startLine": 1254,
+        "startChar": 8,
+        "endLine": 1254,
+        "endChar": 11
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50e72588_cbff76f9",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-17T18:01:05Z",
+      "side": 1,
+      "message": "What is roots ?",
+      "range": {
+        "startLine": 1255,
+        "startChar": 8,
+        "endLine": 1255,
+        "endChar": 13
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87015619_bf07e451",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-17T18:01:05Z",
+      "side": 1,
+      "message": "What does it mean for JNI?",
+      "range": {
+        "startLine": 1257,
+        "startChar": 8,
+        "endLine": 1257,
+        "endChar": 38
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37be605d_a138299f",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-17T18:01:05Z",
+      "side": 1,
+      "message": "?",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791eccb8_0c966e01",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-17T18:01:05Z",
+      "side": 1,
+      "message": "Why don\u0027t we need a code cache shootdown for JNI? This seems like a race.",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cbd205c_c9b2c910",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1489,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-17T18:01:05Z",
+      "side": 1,
+      "message": "?",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48d7233d_bc5ce37b",
+        "filename": "test/667-jit-jni-stub/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-17T18:01:05Z",
+      "side": 1,
+      "message": "Wouldn\u0027t --compiler-filter\u003dquicken be more appropriate?",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
