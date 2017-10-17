@@ -46,6 +46,53 @@
       "revId": "a43204958ab3c0e64ad7f67d565e6cc7c91ab68e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb18fa1_6cd7ee1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-17T20:58:39Z",
+      "side": 1,
+      "message": "I agree with Igor having testunner understand --runtime-option seems like the more scalable solution.",
+      "parentUuid": "525f0c89_026c8475",
+      "range": {
+        "startLine": 14,
+        "startChar": 35,
+        "endLine": 14,
+        "endChar": 45
+      },
+      "revId": "a43204958ab3c0e64ad7f67d565e6cc7c91ab68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caaa1cfd_bb7a64db",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-17T20:58:39Z",
+      "side": 1,
+      "message": "I\u0027d prefer if we continued moving away from env variables (like in the testrunner).",
+      "range": {
+        "startLine": 164,
+        "startChar": 12,
+        "endLine": 164,
+        "endChar": 43
+      },
+      "revId": "a43204958ab3c0e64ad7f67d565e6cc7c91ab68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
