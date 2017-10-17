@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "8d09d3c7_7b0854db",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-17T21:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37db26c7_b561e8d8",
+      "range": {
+        "startLine": 111,
+        "startChar": 49,
+        "endLine": 111,
+        "endChar": 81
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6698c95b_8d15fe07",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
@@ -165,6 +189,30 @@
       "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "740907be_208cb52b",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-17T21:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6698c95b_8d15fe07",
+      "range": {
+        "startLine": 304,
+        "startChar": 62,
+        "endLine": 304,
+        "endChar": 63
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -263,6 +311,30 @@
     },
     {
       "key": {
+        "uuid": "d2174109_bacd1986",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-17T21:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cbc8b98_3c763e64",
+      "range": {
+        "startLine": 315,
+        "startChar": 11,
+        "endLine": 315,
+        "endChar": 17
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "551d8a27_273540f8",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
@@ -283,6 +355,30 @@
       "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d211337_c95e7c45",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-17T21:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "551d8a27_273540f8",
+      "range": {
+        "startLine": 343,
+        "startChar": 13,
+        "endLine": 343,
+        "endChar": 38
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -393,6 +489,30 @@
       "side": 1,
       "message": "It looks like you have enough reviewers in MTV, and they have better context for what you are trying to do. I\u0027ll trust your MTV reviewers to provide good advice. No need to be blocked cross time zone for my opinions.",
       "parentUuid": "6f0637f1_de2bf79c",
+      "range": {
+        "startLine": 358,
+        "startChar": 7,
+        "endLine": 358,
+        "endChar": 25
+      },
+      "revId": "be5bfc38de52294ca5d499fb24487cf6c43c3201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e447ccad_763e28f3",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-17T21:26:05Z",
+      "side": 1,
+      "message": "Calin and I discussed this offline and concluded to keep it the same as it is now.",
+      "parentUuid": "84e59334_4545594b",
       "range": {
         "startLine": 358,
         "startChar": 7,
