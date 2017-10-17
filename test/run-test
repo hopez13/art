@@ -161,6 +161,7 @@ suspend_timeout="500000"
 # By default we will use optimizing.
 image_args=""
 image_suffix=""
+max_heap="${ART_TEST_RUN_TEST_MAX_HEAP_SIZE}"
 
 while true; do
     if [ "x$1" = "x--host" ]; then
@@ -195,6 +196,10 @@ while true; do
         lib="libart.so"
         testlib="arttest"
         run_args="${run_args} -O"
+        shift
+    elif [ "x$1" = "x--max-heap" ]; then
+        shift
+        max_heap="$1"
         shift
     elif [ "x$1" = "x--dalvik" ]; then
         lib="libdvm.so"
@@ -472,6 +477,9 @@ if [ "$gc_verify" = "true" ]; then
 fi
 if [ "$gc_stress" = "true" ]; then
   run_args="${run_args} --gc-stress --runtime-option -Xgc:gcstress --runtime-option -Xms2m --runtime-option -Xmx16m"
+elif [ "x$max_heap" != "x" ]; then
+  # Only set -Xmx if gc_stress isn't set since that changes xmx too.
+  run_args="${run_args} --runtime-option -Xmx${max_heap}"
 fi
 if [ "$jvmti_redefine_stress" = "true" ]; then
     run_args="${run_args} --no-app-image --jvmti-redefine-stress"
@@ -712,6 +720,9 @@ if [ "$usage" = "yes" ]; then
         echo "    --vdex                Test using vdex as in input to dex2oat. Only works with --prebuild."
         echo "    --suspend-timeout     Change thread suspend timeout ms (default 500000)."
         echo "    --dex2oat-jobs        Number of dex2oat jobs."
+        echo "    --max-heap <heap>     Maximum size of the heap. Same format as -Xmx. Overrides "
+        echo "                          value set through the ART_TEST_RUN_TEST_MAX_HEAP_SIZE"
+        echo "                          environment variable."
     ) 1>&2  # Direct to stderr so usage is not printed if --quiet is set.
     exit 1
 fi
