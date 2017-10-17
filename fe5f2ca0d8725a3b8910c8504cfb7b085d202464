@@ -46,6 +46,30 @@
       "revId": "fe5f2ca0d8725a3b8910c8504cfb7b085d202464",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1070f99_138d9f73",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-17T13:46:31Z",
+      "side": 1,
+      "message": "Right, I forgot about CommonRuntimeTestImpl::SetUpAndroidData. This seems fine.",
+      "parentUuid": "416f3afc_834e2dea",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 66
+      },
+      "revId": "fe5f2ca0d8725a3b8910c8504cfb7b085d202464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
