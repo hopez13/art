@@ -46,6 +46,53 @@
       "revId": "79d65ff23addde925e86cd81e5c169c017975a2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "841377fd_9c446261",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-18T17:30:23Z",
+      "side": 1,
+      "message": "Not sure if that\u0027s ok, but with the current approach we need to place the runtime option at the end. But anyway, I can\u0027t think of any alternative for this.",
+      "parentUuid": "a37828e4_c364291c",
+      "range": {
+        "startLine": 874,
+        "startChar": 6,
+        "endLine": 874,
+        "endChar": 7
+      },
+      "revId": "79d65ff23addde925e86cd81e5c169c017975a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e6202f8_1d75043f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-10-18T17:30:23Z",
+      "side": 1,
+      "message": "space",
+      "range": {
+        "startLine": 876,
+        "startChar": 27,
+        "endLine": 876,
+        "endChar": 28
+      },
+      "revId": "79d65ff23addde925e86cd81e5c169c017975a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
