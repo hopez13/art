@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dd06486c_732b24a3",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-18T20:53:42Z",
+      "side": 1,
+      "message": "_user_input_variants[\u0027target\u0027] is a list containing at least one of \"host\" \u0026 \"target\".",
+      "parentUuid": "a7c23021_f79bd85f",
+      "revId": "8618f18bfbc51a17e15dc9a71804cc92a4bb438a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e14ec956_bf1a4848",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "0a32ef53_413e6244",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-18T20:53:42Z",
+      "side": 1,
+      "message": "no other prints in this program do that, including ones that send error messages.",
+      "parentUuid": "e14ec956_bf1a4848",
+      "range": {
+        "startLine": 287,
+        "startChar": 4,
+        "endLine": 287,
+        "endChar": 9
+      },
+      "revId": "8618f18bfbc51a17e15dc9a71804cc92a4bb438a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2423b16_31ffd2c5",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2017-10-18T20:45:11Z",
       "side": 1,
       "message": "to sys.stderr",
+      "revId": "8618f18bfbc51a17e15dc9a71804cc92a4bb438a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49e2307a_66d87335",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-18T20:53:42Z",
+      "side": 1,
+      "message": "see above.",
+      "parentUuid": "b2423b16_31ffd2c5",
       "revId": "8618f18bfbc51a17e15dc9a71804cc92a4bb438a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
