@@ -494,6 +494,24 @@
       "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47e453fd_b3cdeaaa",
+        "filename": "test/667-jit-jni-stub/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-18T17:00:26Z",
+      "side": 1,
+      "message": "It will only jit if it goes through genericJNI? That is exceedingly infrequent today.\n\nNicolas, wouldn\u0027t you rather make the JNI JIT consistent with the Optimizing JIT for when it\u0027s used?",
+      "parentUuid": "5ab0ea60_28aad6b8",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
