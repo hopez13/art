@@ -16,6 +16,24 @@
       "revId": "883bf3cd1542db3784fd727204526a993441eadd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00cbfb55_e479c41e",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-10-18T23:46:28Z",
+      "side": 1,
+      "message": "I am not sure myself. Could be this is always truth because of the visiting order of the graph printer?",
+      "parentUuid": "db616a5b_54be2a1b",
+      "revId": "883bf3cd1542db3784fd727204526a993441eadd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
