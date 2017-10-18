@@ -22,6 +22,30 @@
       "revId": "d6947136eab2fcefb1a9195110b9195aabaf469e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8f90bc4_67d95588",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-18T20:50:23Z",
+      "side": 0,
+      "message": "oatdump simply doesn\u0027t use ScopedLocalRef.",
+      "parentUuid": "f4450142_051f8c50",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 40
+      },
+      "revId": "d6947136eab2fcefb1a9195110b9195aabaf469e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
