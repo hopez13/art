@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "29eb398a_5b1b3369",
+        "filename": "compiler/compiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T08:54:05Z",
+      "side": 1,
+      "message": "This is a refactoring to avoid duplicating the JniOptimizationFlags determination.\n\nThe `method` can be null, so the other parameters are still needed.",
+      "parentUuid": "3984d6d9_e53b90a0",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "108eb855_7db37eba",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-10-17T18:01:05Z",
       "side": 1,
       "message": "What does it mean for JNI?",
+      "range": {
+        "startLine": 1254,
+        "startChar": 8,
+        "endLine": 1254,
+        "endChar": 11
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7070dd4_918e949a",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T08:54:05Z",
+      "side": 1,
+      "message": "Nothing.",
+      "parentUuid": "108eb855_7db37eba",
       "range": {
         "startLine": 1254,
         "startChar": 8,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "fa10fe8e_908f09c4",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T08:54:05Z",
+      "side": 1,
+      "message": "null, see above.",
+      "parentUuid": "50e72588_cbff76f9",
+      "range": {
+        "startLine": 1255,
+        "startChar": 8,
+        "endLine": 1255,
+        "endChar": 13
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87015619_bf07e451",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2017-10-17T18:01:05Z",
       "side": 1,
       "message": "What does it mean for JNI?",
+      "range": {
+        "startLine": 1257,
+        "startChar": 8,
+        "endLine": 1257,
+        "endChar": 38
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "972c05ba_f2f5aa05",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T08:54:05Z",
+      "side": 1,
+      "message": "This empty, see above.",
+      "parentUuid": "87015619_bf07e451",
       "range": {
         "startLine": 1257,
         "startChar": 8,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "ba45bce3_98376767",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T08:54:05Z",
+      "side": 1,
+      "message": "We do not create profiling info for native methods.",
+      "parentUuid": "37be605d_a138299f",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "791eccb8_0c966e01",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -116,6 +224,24 @@
       "writtenOn": "2017-10-17T18:01:05Z",
       "side": 1,
       "message": "Why don\u0027t we need a code cache shootdown for JNI? This seems like a race.",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "135fab8d_44ca4375",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T08:54:05Z",
+      "side": 1,
+      "message": "This is for the _data_ (as the comment makes clear) and we have no data for native methods.\n\n(See the ScopedCodeCacheWrite at line 584 for commmitting the code.)",
+      "parentUuid": "791eccb8_0c966e01",
       "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -139,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "0f0bbe06_9543c081",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1489,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T08:54:05Z",
+      "side": 1,
+      "message": "Native methods have no profiling info.",
+      "parentUuid": "3cbd205c_c9b2c910",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48d7233d_bc5ce37b",
         "filename": "test/667-jit-jni-stub/run",
         "patchSetId": 1
@@ -150,6 +294,24 @@
       "writtenOn": "2017-10-17T18:01:05Z",
       "side": 1,
       "message": "Wouldn\u0027t --compiler-filter\u003dquicken be more appropriate?",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2f30f9c_cb1f3ee2",
+        "filename": "test/667-jit-jni-stub/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T08:54:05Z",
+      "side": 1,
+      "message": "Absolutely not, quicken compiles native stubs.",
+      "parentUuid": "48d7233d_bc5ce37b",
       "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
