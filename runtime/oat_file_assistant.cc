@@ -667,6 +667,7 @@ OatFileAssistant::ResultOfAttemptToUpdate OatFileAssistant::GenerateOatFileNoChe
     *error_msg = "Generation of oat file " + oat_file_name
       + " not attempted because the vdex file " + vdex_file_name
       + " could not be made world readable.";
+    vdex_file->Erase();
     return kUpdateNotAttempted;
   }
 
@@ -674,12 +675,14 @@ OatFileAssistant::ResultOfAttemptToUpdate OatFileAssistant::GenerateOatFileNoChe
   if (oat_file.get() == nullptr) {
     *error_msg = "Generation of oat file " + oat_file_name
       + " not attempted because the oat file could not be created.";
+    vdex_file->Erase();
     return kUpdateNotAttempted;
   }
 
   if (fchmod(oat_file->Fd(), file_mode) != 0) {
     *error_msg = "Generation of oat file " + oat_file_name
       + " not attempted because the oat file could not be made world readable.";
+    vdex_file->Erase();
     oat_file->Erase();
     return kUpdateNotAttempted;
   }
