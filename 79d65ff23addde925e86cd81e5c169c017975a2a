@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c812b72a_46da72d0",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-18T20:34:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "841377fd_9c446261",
+      "range": {
+        "startLine": 874,
+        "startChar": 6,
+        "endLine": 874,
+        "endChar": 7
+      },
+      "revId": "79d65ff23addde925e86cd81e5c169c017975a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e6202f8_1d75043f",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2017-10-18T17:30:23Z",
       "side": 1,
       "message": "space",
+      "range": {
+        "startLine": 876,
+        "startChar": 27,
+        "endLine": 876,
+        "endChar": 28
+      },
+      "revId": "79d65ff23addde925e86cd81e5c169c017975a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea18fa7c_3e6f72b7",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-18T20:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e6202f8_1d75043f",
       "range": {
         "startLine": 876,
         "startChar": 27,
