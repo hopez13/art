@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "2565d0b0_599b5fc0",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T14:10:42Z",
+      "side": 1,
+      "message": "What is the \"saved entrypoint\"?",
+      "parentUuid": "b3e9c2d9_392a8b48",
+      "range": {
+        "startLine": 1242,
+        "startChar": 35,
+        "endLine": 1242,
+        "endChar": 45
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "108eb855_7db37eba",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
