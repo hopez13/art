@@ -476,6 +476,24 @@
       "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ab0ea60_28aad6b8",
+        "filename": "test/667-jit-jni-stub/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T15:23:01Z",
+      "side": 1,
+      "message": "No AOT compilation at all, i.e. running out of the APK. Then we\u0027re going through the GenericJNI.",
+      "parentUuid": "f7e9c5bc_92abf4c9",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
