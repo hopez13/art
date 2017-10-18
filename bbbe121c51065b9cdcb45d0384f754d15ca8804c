@@ -512,6 +512,24 @@
       "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fa19b0c_99e95166",
+        "filename": "test/667-jit-jni-stub/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-18T17:11:44Z",
+      "side": 1,
+      "message": "What does that mean?\n\nTo answer your first question: the \"verify\" filter used after OTA doesn\u0027t compile JNI stubs.",
+      "parentUuid": "47e453fd_b3cdeaaa",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
