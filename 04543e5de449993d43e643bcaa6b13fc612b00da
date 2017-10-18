@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7674028_9fb4cdb8",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-18T21:35:24Z",
+      "side": 1,
+      "message": "1 line fix:\n\n     (\\cd \"$(gettop)\"; env $extras build/soong/soong_ui.bash --dumpvar-mode $varname)\n\n     ----\u003e starts here ^",
+      "revId": "04543e5de449993d43e643bcaa6b13fc612b00da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
