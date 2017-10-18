@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "b3e9c2d9_392a8b48",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-18T13:43:51Z",
+      "side": 1,
+      "message": "We\u0027re using ProfilingInfo to store the \"saved\" entrypoint. Do you plan to store it somewhere else?",
+      "parentUuid": "c348c51c_739913e3",
+      "range": {
+        "startLine": 1242,
+        "startChar": 35,
+        "endLine": 1242,
+        "endChar": 45
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "108eb855_7db37eba",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
