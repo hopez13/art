@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "454d6bc5_87931262",
+        "filename": "runtime/cdex/compact_dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-18T21:08:05Z",
+      "side": 1,
+      "message": "const -\u003e constexpr?",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "e3eaed9d5111f2ed1b8d04620be289c553e57ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86446c8e_138b4f6a",
+        "filename": "runtime/cdex/compact_dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-18T21:08:05Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 14
+      },
+      "revId": "e3eaed9d5111f2ed1b8d04620be289c553e57ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaeee277_b3d4914f",
+        "filename": "runtime/cdex/compact_dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-18T21:08:05Z",
+      "side": 1,
+      "message": "nit: Please document how to construct an instance of CompactDexFile ?",
+      "revId": "e3eaed9d5111f2ed1b8d04620be289c553e57ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "875ac174_df36bfdc",
         "filename": "runtime/dex_file_loader.h",
         "patchSetId": 1
