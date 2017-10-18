@@ -37,6 +37,29 @@
     },
     {
       "key": {
+        "uuid": "e24e4448_7485cbff",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-18T13:28:17Z",
+      "side": 1,
+      "message": "We should add a new space to JIT to allocate native methods there. JIT code cache collection assumes a compiled code has a ProfilingInfo, but we cannot have that for native methods. Most probably your current CL would crash if we ever do a JIT GC with native methods compiled?\n\nSo with a new space, the JIT GC will just not look at it. And given we talked about sharing stubs between native methods we probably won\u0027t want to GC anyway.",
+      "range": {
+        "startLine": 1242,
+        "startChar": 35,
+        "endLine": 1242,
+        "endChar": 45
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "108eb855_7db37eba",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
