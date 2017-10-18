@@ -530,6 +530,24 @@
       "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e212a7_f3e2f96d",
+        "filename": "test/667-jit-jni-stub/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-18T18:53:17Z",
+      "side": 1,
+      "message": "What I mean is wouldn\u0027t you rather it be consistent, as the following?\n\nif --compiler-filter\u003dx causes an optimizing JIT, it also has JNI JIT\n\nif --compiler-filter\u003dy does *not* have an optimizing JIT, it does not JNI JIT",
+      "parentUuid": "6fa19b0c_99e95166",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
