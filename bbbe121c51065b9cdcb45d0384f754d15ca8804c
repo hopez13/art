@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "c348c51c_739913e3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-18T13:42:09Z",
+      "side": 1,
+      "message": "I\u0027m working on sharing the code and allowing a GC as we do for all other methods.",
+      "parentUuid": "e24e4448_7485cbff",
+      "range": {
+        "startLine": 1242,
+        "startChar": 35,
+        "endLine": 1242,
+        "endChar": 45
+      },
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "108eb855_7db37eba",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
