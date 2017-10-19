@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b39ad1d_4f3ed220",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3459,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-19T16:11:31Z",
+      "side": 1,
+      "message": "The +3.0 is a test change that probably isn\u0027t good to submit. It will cause the heap to grow much more than it currently does.\n\nIt will cause GC to occur less frequently and may cause benchmarks to be faster.",
+      "range": {
+        "startLine": 3459,
+        "startChar": 53,
+        "endLine": 3459,
+        "endChar": 56
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e5011ea_4c5aacdb",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-19T16:11:31Z",
+      "side": 1,
+      "message": "Note that this optimization is disabled for generational CC since we need to preserve the live bits to scan the dirty cards.",
+      "range": {
+        "startLine": 346,
+        "startChar": 12,
+        "endLine": 346,
+        "endChar": 19
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
