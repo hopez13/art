@@ -548,6 +548,24 @@
       "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "481015e2_1fa7e24f",
+        "filename": "test/667-jit-jni-stub/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-19T08:44:37Z",
+      "side": 1,
+      "message": "compiler-filter is per .odex, not per runtime.\n\nThe idea is that as soon as you have to execute a generic JNI method, and that method becomes \"hot\", we\u0027ll JIT it.",
+      "parentUuid": "96e212a7_f3e2f96d",
+      "revId": "bbbe121c51065b9cdcb45d0384f754d15ca8804c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
