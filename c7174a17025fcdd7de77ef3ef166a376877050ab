@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "2f6c5c7f_f2980c84",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-10-19T22:33:27Z",
+      "side": 1,
+      "message": "Indeed, http://lists.llvm.org/pipermail/cfe-dev/2016-November/051480.html and the preceding messages suggest std::unique_lock doesn\u0027t work either :-(",
+      "parentUuid": "7bf0cf03_96ecfc95",
+      "range": {
+        "startLine": 268,
+        "startChar": 7,
+        "endLine": 268,
+        "endChar": 35
+      },
+      "revId": "c7174a17025fcdd7de77ef3ef166a376877050ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26f411e7_5880a04d",
         "filename": "runtime/thread.h",
         "patchSetId": 3
