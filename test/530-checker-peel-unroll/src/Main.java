@@ -318,6 +318,216 @@ public class Main {
     }
   }
 
+  /// CHECK-START: void Main.peelingSimple(int[], boolean) loop_optimization (before)
+  /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                            loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                             loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                          loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<Const0>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,<<Limit>>]    loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Param>>]                            loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet                                  loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<IndAdd:i\d+>>    Add [<<Phi>>,<<Const1>>]                  loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If
+  /// CHECK-NOT:                    ArraySet
+
+  /// CHECK-START-ARM64: void Main.peelingSimple(int[], boolean) loop_optimization (after)
+  /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                            loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                             loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                          loop:none
+  /// CHECK-DAG: <<CheckA:z\d+>>    GreaterThanOrEqual [<<Const0>>,<<Limit>>] loop:none
+  /// CHECK-DAG:                    If [<<CheckA>>]                           loop:none
+  /// CHECK-DAG:                    If [<<Param>>]                            loop:none
+  /// CHECK-DAG:                    ArraySet                                  loop:none
+  /// CHECK-DAG: <<IndAddA:i\d+>>   Add [<<Const0>>,<<Const1>>]               loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<IndAddA>>,{{i\d+}}]                loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,<<Limit>>]    loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Param>>]                            loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet                                  loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<IndAdd:i\d+>>    Add [<<Phi>>,<<Const1>>]                  loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If
+  /// CHECK-NOT:                    ArraySet
+
+  /// CHECK-START-ARM64: void Main.peelingSimple(int[], boolean) dead_code_elimination$final (after)
+  /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                            loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                             loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                          loop:none
+  /// CHECK-DAG:                    If [<<Param>>]                            loop:none
+  /// CHECK-DAG:                    ArraySet                                  loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<Const1>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,<<Limit>>]    loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet                                  loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<IndAdd:i\d+>>    Add [<<Phi>>,<<Const1>>]                  loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    GreaterThanOrEqual
+  /// CHECK-NOT:                    If
+  /// CHECK-NOT:                    ArraySet
+  private static void peelingSimple(int[] a, boolean f) {
+    for (int i = 0; i < LENGTH; i++) {
+      if (f) {
+        break;
+      }
+      a[i] = 1;
+   }
+  }
+
+  // Often used idiom that, when not hoisted, prevents BCE and vectorization.
+  //
+  /// CHECK-START: void Main.peelingAddInts(int[]) loop_optimization (before)
+  /// CHECK-DAG: <<Param:l\d+>>     ParameterValue                        loop:none
+  /// CHECK-DAG: <<ConstNull:l\d+>> NullConstant                          loop:none
+  /// CHECK-DAG: <<Eq:z\d+>>        Equal [<<Param>>,<<ConstNull>>]       loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi                                   loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:                    If [<<Eq>>]                           loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,{{i\d+}}] loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                        loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet                              loop:<<Loop>>      outer_loop:none
+
+  /// CHECK-START-ARM64: void Main.peelingAddInts(int[]) dead_code_elimination$final (after)
+  /// CHECK-DAG: <<Param:l\d+>>     ParameterValue                        loop:none
+  /// CHECK-DAG: <<ConstNull:l\d+>> NullConstant                          loop:none
+  /// CHECK-DAG: <<Eq:z\d+>>        Equal [<<Param>>,<<ConstNull>>]       loop:none
+  /// CHECK-DAG:                    If [<<Eq>>]                           loop:none
+  /// CHECK-DAG:                    ArraySet                              loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi                                   loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,{{i\d+}}] loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                        loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet                              loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If [<<Eq>>]                           loop:<<Loop>>      outer_loop:none
+  private static void peelingAddInts(int[] a) {
+    for (int i = 0; a != null && i < a.length; i++) {
+      a[i] += 1;
+    }
+  }
+
+  /// CHECK-START: void Main.peelingBreakFromNest(int[], boolean) loop_optimization (before)
+  /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                          loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                           loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                           loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                        loop:none
+  /// CHECK-DAG: <<Phi0:i\d+>>      Phi [<<Const1>>,{{i\d+}}]               loop:<<Loop0:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Phi1:i\d+>>      Phi [<<Const0>>,{{i\d+}}]               loop:<<Loop1:B\d+>> outer_loop:<<Loop0>>
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi1>>,<<Limit>>] loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    If [<<Check>>]                          loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    If [<<Param>>]                          loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    ArraySet                                loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG: <<IndAdd1:i\d+>>   Add [<<Phi1>>,<<Const1>>]               loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG: <<IndAdd0:i\d+>>   Add [<<Phi0>>,<<Const1>>]               loop:<<Loop0>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If
+  /// CHECK-NOT:                    ArraySet
+
+  /// CHECK-START-ARM64: void Main.peelingBreakFromNest(int[], boolean) dead_code_elimination$final (after)
+  /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                          loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                           loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                           loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                        loop:none
+  /// CHECK-DAG: <<Phi0:i\d+>>      Phi [<<Const1>>,{{i\d+}}]               loop:<<Loop0:B\d+>> outer_loop:none
+  /// CHECK-DAG:                    If [<<Param>>]                          loop:<<Loop0>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet                                loop:<<Loop0>>      outer_loop:none
+  /// CHECK-DAG: <<Phi1:i\d+>>      Phi [<<Const1>>,{{i\d+}}]               loop:<<Loop1:B\d+>> outer_loop:<<Loop0>>
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi1>>,<<Limit>>] loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    If [<<Check>>]                          loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    ArraySet                                loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG: <<IndAdd1:i\d+>>   Add [<<Phi1>>,<<Const1>>]               loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG: <<IndAdd0:i\d+>>   Add [<<Phi0>>,<<Const1>>]               loop:<<Loop0>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If
+  /// CHECK-NOT:                    ArraySet
+  private static void peelingBreakFromNest(int[] a, boolean f) {
+    outer:
+    for (int i = 1; i < 32; i++) {
+      for (int j = 0; j < LENGTH; j++) {
+        if (f) {
+          break outer;
+        }
+        a[j] = 1;
+      }
+    }
+  }
+
+  /// CHECK-START: int Main.peelingHoistOneControl(int) loop_optimization (before)
+  /// CHECK-DAG: <<Param:i\d+>>     ParameterValue                            loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                             loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     NotEqual [<<Param>>,<<Const0>>]           loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<Const0>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<IndAdd:i\d+>>    Add [<<Phi>>,<<Const1>>]                  loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If
+
+  /// CHECK-START-ARM64: int Main.peelingHoistOneControl(int) dead_code_elimination$final (after)
+  /// CHECK-DAG: <<Param:i\d+>>     ParameterValue                            loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     NotEqual [<<Param>>,<<Const0>>]           loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                            loop:none
+  /// CHECK-DAG:                    SuspendCheck                              loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:                    Goto                                      loop:<<Loop>>      outer_loop:none
+  //
+  //  Check that the loop has no instruction except SuspendCheck and Goto (indefinite loop).
+  /// CHECK-NOT:                                                              loop:<<Loop>>      outer_loop:none
+  /// CHECK-NOT:                    If
+  /// CHECK-NOT:                    Phi
+  /// CHECK-NOT:                    Add
+  private static int peelingHoistOneControl(int x) {
+    int i = 0;
+    while (true) {
+      if (x == 0)
+        return 1;
+      i++;
+    }
+  }
+
+  /// CHECK-START: int Main.peelingHoistOneControl(int, int) loop_optimization (before)
+  /// CHECK-DAG: <<Phi:i\d+>> Phi  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:              If   loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:              If   loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-START-ARM64: int Main.peelingHoistOneControl(int, int) dead_code_elimination$final (after)
+  /// CHECK-DAG: <<Phi:i\d+>> Phi  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:              If   loop:<<Loop>>      outer_loop:none
+  /// CHECK-NOT:              If   loop:<<Loop>>      outer_loop:none
+  private static int peelingHoistOneControl(int x, int y) {
+    while (true) {
+      if (x == 0)
+        return 1;
+      if (y == 0)  // no longer invariant
+        return 2;
+      y--;
+    }
+  }
+
+  /// CHECK-START: int Main.peelingHoistTwoControl(int, int, int) loop_optimization (before)
+  /// CHECK-DAG: <<Phi:i\d+>> Phi  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:              If   loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:              If   loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:              If   loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-START-ARM64: int Main.peelingHoistTwoControl(int, int, int) dead_code_elimination$final (after)
+  /// CHECK-DAG: <<Phi:i\d+>> Phi  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:              If   loop:<<Loop>>      outer_loop:none
+  /// CHECK-NOT:              If   loop:<<Loop>>      outer_loop:none
+  private static int peelingHoistTwoControl(int x, int y, int z) {
+    while (true) {
+      if (x == 0)
+        return 1;
+      if (y == 0)
+        return 2;
+      if (z == 0)  // no longer invariant
+        return 3;
+      z--;
+    }
+  }
+
   //------------------------------------------------------------------------------------------------
   // The following section contains compiler test for kForceLoopUnrolling.
   //------------------------------------------------------------------------------------------------
@@ -598,7 +808,13 @@ public class Main {
   }
   //------------------------------------------------------------------------------------------------
 
-  public boolean verifyUnrolling() {
+  private static void expectEquals(int expected, int result) {
+    if (expected != result) {
+      throw new Error("Expected: " + expected + ", found: " + result);
+    }
+  }
+
+  public void verifyUnrolling() {
     initIntArray(a);
     int expected = 2363604;
     int found = 0;
@@ -612,18 +828,39 @@ public class Main {
     }
     found += (int)mC[RESULT_POS][RESULT_POS];
 
-    if (found != expected) {
-      System.out.println("ERROR: Expected " + expected + " but found " + found);
-      return false;
-    }
+    expectEquals(found, expected);
+  }
 
-    return true;
+
+  public void verifyPeeling() {
+    expectEquals(1, peelingHoistOneControl(0));  // anything else loops
+    expectEquals(1, peelingHoistOneControl(0, 0));
+    expectEquals(1, peelingHoistOneControl(0, 1));
+    expectEquals(2, peelingHoistOneControl(1, 0));
+    expectEquals(2, peelingHoistOneControl(1, 1));
+    expectEquals(1, peelingHoistTwoControl(0, 0, 0));
+    expectEquals(1, peelingHoistTwoControl(0, 0, 1));
+    expectEquals(1, peelingHoistTwoControl(0, 1, 0));
+    expectEquals(1, peelingHoistTwoControl(0, 1, 1));
+    expectEquals(2, peelingHoistTwoControl(1, 0, 0));
+    expectEquals(2, peelingHoistTwoControl(1, 0, 1));
+    expectEquals(3, peelingHoistTwoControl(1, 1, 0));
+    expectEquals(3, peelingHoistTwoControl(1, 1, 1));
+
+    int[] a = new int[256];
+    peelingAddInts(a);
+    for (int i = 0; i < a.length; i++) {
+      expectEquals(1, a[i]);
+    }
+    peelingAddInts(null);  // okay
   }
 
   public static void main(String[] args) {
     Main obj = new Main();
-    if (obj.verifyUnrolling()) {
-      System.out.println("passed");
-    }
+
+    obj.verifyUnrolling();
+    obj.verifyPeeling();
+
+    System.out.println("passed");
   }
 }
