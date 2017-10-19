@@ -30,12 +30,16 @@ class LoopAnalysisInfo : public ValueObject {
       : bb_num_(0),
         instr_num_(0),
         exits_num_(0),
+        has_instructions_preventing_scalar_peeling_(false),
         has_instructions_preventing_scalar_unrolling_(false),
         loop_info_(loop_info) {}
 
   size_t GetNumberOfBasicBlocks() const { return bb_num_; }
   size_t GetNumberOfInstructions() const { return instr_num_; }
   size_t GetNumberOfExits() const { return exits_num_; }
+  bool HasInstructionsPreventingScalarPeeling() const {
+    return has_instructions_preventing_scalar_peeling_;
+  }
   bool HasInstructionsPreventingScalarUnrolling() const {
     return has_instructions_preventing_scalar_unrolling_;
   }
@@ -48,6 +52,8 @@ class LoopAnalysisInfo : public ValueObject {
   size_t instr_num_;
   // Number of loop's exits.
   size_t exits_num_;
+  // Whether the loop has instructions which make scalar loop peeling non-beneficial.
+  bool has_instructions_preventing_scalar_peeling_;
   // Whether the loop has instructions which make scalar loop unrolling non-beneficial.
   bool has_instructions_preventing_scalar_unrolling_;
 
@@ -72,7 +78,7 @@ class LoopAnalysis : public ValueObject {
   // If in the loop body we have a dex/runtime call then its contribution to the whole
   // loop performance will probably prevail. So unrolling optimization will not bring
   // any noticeable performance improvement however will increase the code size.
-  static bool MakesScalarUnrollingNonBeneficial(HInstruction* instruction) {
+  static bool MakesScalarPeelingUnrollingNonBeneficial(HInstruction* instruction) {
     return (instruction->IsNewArray() ||
         instruction->IsNewInstance() ||
         instruction->IsUnresolvedInstanceFieldGet() ||
@@ -80,9 +86,7 @@ class LoopAnalysis : public ValueObject {
         instruction->IsUnresolvedStaticFieldGet() ||
         instruction->IsUnresolvedStaticFieldSet() ||
         // TODO: Unroll loops with intrinsified invokes.
-        instruction->IsInvoke() ||
-        // TODO: Unroll loops with ClinitChecks.
-        instruction->IsClinitCheck());
+        instruction->IsInvoke());
   }
 };
 
