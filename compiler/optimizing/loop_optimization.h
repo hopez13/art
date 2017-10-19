@@ -158,6 +158,10 @@ class HLoopOptimization : public HOptimization {
   // opportunities. Returns whether transformation happened.
   bool TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node);
 
+  // Tries to apply loop peeling for loop invariant exits elimination. Returns whether
+  // transformation happened.
+  bool TryPeelingForLoopInvariantExitsElimination(LoopNode* loop_node);
+
   //
   // Vectorization analysis and synthesis.
   //
