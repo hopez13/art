@@ -28,8 +28,6 @@ using HInstructionMap = SuperblockCloner::HInstructionMap;
 using HBasicBlockSet = SuperblockCloner::HBasicBlockSet;
 using HEdgeSet = SuperblockCloner::HEdgeSet;
 
-static const bool kPeelUnrollPreserveHeader = true;
-
 void HEdge::Dump(std::ostream& stream) const {
   stream << "(" << from_ << "->" << to_ << ")";
 }
@@ -923,7 +921,7 @@ void CollectRemappingInfoForPeelUnroll(bool to_unroll,
       remap_orig_internal->Insert(e);
       remap_copy_internal->Insert(e);
     } else {
-      if (kPeelUnrollPreserveHeader) {
+      if (kSuperblockClonerPreserveLoopHeaders) {
         remap_copy_internal->Insert(e);
       } else {
         remap_orig_internal->Insert(e);
@@ -932,7 +930,7 @@ void CollectRemappingInfoForPeelUnroll(bool to_unroll,
   }
 
   // Set up remap_incoming edges set.
-  if (to_unroll != kPeelUnrollPreserveHeader) {
+  if (to_unroll != kSuperblockClonerPreserveLoopHeaders) {
     remap_incoming->Insert(HEdge(loop_info->GetPreHeader(), loop_header));
   }
 }
@@ -1006,7 +1004,7 @@ HBasicBlock* PeelUnrollHelper::DoPeelUnrollImpl(bool to_unroll) {
   cloner_.Run();
   cloner_.CleanUp();
 
-  return kPeelUnrollPreserveHeader ? loop_header : cloner_.GetBlockCopy(loop_header);
+  return kSuperblockClonerPreserveLoopHeaders ? loop_header : cloner_.GetBlockCopy(loop_header);
 }
 
 PeelUnrollSimpleHelper::PeelUnrollSimpleHelper(HLoopInformation* info)
