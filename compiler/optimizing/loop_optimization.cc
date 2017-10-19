@@ -73,11 +73,17 @@ static inline void NormalizePackedType(/* inout */ DataType::Type* type,
 // Enables vectorization (SIMDization) in the loop optimizer.
 static constexpr bool kEnableVectorization = true;
 
-// Enables scalar loop unrolling in the loop optimizer.
-static constexpr bool kEnableLoopUnrolling = true;
-
 // No loop unrolling factor (just one copy of the loop-body).
 static constexpr uint32_t kNoUnrollingFactor = 1;
+
+// Scalar loop peeling/unrolling parameters and heuristics for arm64 backend.
+//
+// Maximum possible unrolling factor.
+static constexpr uint32_t kArm64ScalarMaxUnrollFactor = 2;
+// Loop's maximum instruction count. Loops with higher count will not be peeled/unrolled.
+static constexpr uint32_t kArm64ScalarHeuristicMaxBodySizeInstr = 40;
+// Loop's maximum basic block count. Loops with higher count will not be peeled/unrolled.
+static constexpr uint32_t kArm64ScalarHeuristicMaxBodySizeBlocks = 8;
 
 //
 // Static helpers.
@@ -500,6 +506,103 @@ void HLoopOptimization::Run() {
   last_loop_ = top_loop_ = nullptr;
 }
 
+// Check whether the loop has instructions which make peeling/unrolling not beneficial.
+static bool HasUnwantedInstructionForPeelingUnrolling(HLoopInformation* loop_info) {
+  for (HBlocksInLoopIterator block_it(*loop_info);
+       !block_it.Done();
+       block_it.Advance()) {
+    HBasicBlock* block = block_it.Current();
+
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      HInstruction* instruction = it.Current();
+      // If in the loop body we have a dex/runtime call then its contribution to the whole
+      // loop performance will probably prevail. So the performance effect of the peeling/unrolling
+      // optimization will be negligible however increasing the code size.
+      if (instruction->IsNewArray() ||
+          instruction->IsNewInstance() ||
+          instruction->IsUnresolvedInstanceFieldGet() ||
+          instruction->IsUnresolvedInstanceFieldSet() ||
+          instruction->IsUnresolvedStaticFieldGet() ||
+          instruction->IsUnresolvedStaticFieldSet() ||
+          // TODO: Peel/unroll loops with intrinsified invokes.
+          instruction->IsInvoke() ||
+          // TODO: Peel/unroll loops with ClinitChecks.
+          instruction->IsClinitCheck()) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// Return whether the loop is too big for loop peeling/unrolling by counting the total number of
+// basic blocks and instruction.
+//
+// If the loop body has too many instructions then the performance effect of the peeling/unrolling
+// optimization will be negligible however increasing the code size.
+static bool IsLoopTooBigForPeelingUnrolling(HLoopInformation* loop_info) {
+  size_t bb_num = 0;
+  size_t instr_num = 0;
+  for (HBlocksInLoopIterator block_it(*loop_info);
+       !block_it.Done();
+       block_it.Advance()) {
+    instr_num += block_it.Current()->GetInstructions().CountSize();
+    bb_num++;
+  }
+
+  return (instr_num >= kArm64ScalarHeuristicMaxBodySizeInstr ||
+          bb_num >= kArm64ScalarHeuristicMaxBodySizeBlocks);
+}
+
+// Return whether scalar loop peeling is enabled for the instruction set.
+static bool IsLoopPeelingEnabled(InstructionSet isa) {
+  switch (isa) {
+    case InstructionSet::kArm64: {
+      return true;
+    }
+    default:
+      // TODO: consider loop peeling for other architectures (register pressure issue).
+      return false;
+  }
+}
+
+// Return whether scalar loop unrolling is enabled for the instruction set.
+static bool IsLoopUnrollingEnabled(InstructionSet isa) {
+  switch (isa) {
+    case InstructionSet::kArm64: {
+      return true;
+    }
+    default:
+      // TODO: consider loop unrolling for other architectures (register pressure issue).
+      return false;
+  }
+}
+
+// Return whether HIf's true or false successor is outside the loop.
+static bool IsLoopExit(HLoopInformation* loop_info, const HIf* hif) {
+  DCHECK(loop_info->Contains(*hif->GetBlock()));
+  HBasicBlock* true_succ = hif->IfTrueSuccessor();
+  HBasicBlock* false_succ = hif->IfFalseSuccessor();
+  return (!loop_info->Contains(*true_succ) || !loop_info->Contains(*false_succ));
+}
+
+// Return whether the loop has at least one loop invariant exit.
+static bool HasLoopAtLeastOneInvariantExit(HLoopInformation* loop_info, HGraph* graph) {
+  for (uint32_t block_id : loop_info->GetBlocks().Indexes()) {
+    HBasicBlock* block = graph->GetBlocks()[block_id];
+    DCHECK(block != nullptr);
+    if (block->EndsWithIf()) {
+      HIf* hif = block->GetLastInstruction()->AsIf();
+      HInstruction* input = hif->InputAt(0);
+
+      if (IsLoopExit(loop_info, hif) && !loop_info->Contains(*input->GetBlock())) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 //
 // Loop setup and traversal.
 //
@@ -612,20 +715,8 @@ void HLoopOptimization::PeelOrUnrollOnce(LoopNode* loop_node,
   DCHECK(loop_info == new_header->GetLoopInformation());
 }
 
-
-// Scalar loop unrolling parameters and heuristics for arm64 backend.
-//
-// Maximum possible unrolling factor.
-static constexpr uint32_t kArm64ScalarMaxUnrollFactor = 2;
-// Loop's maximum instruction count. Loops with higher count will not be unrolled.
-static constexpr uint32_t kArm64ScalarHeuristicMaxBodySizeInstr = 40;
-// Loop's maximum basic block count. Loops with higher count will not be unrolled.
-static constexpr uint32_t kArm64ScalarHeuristicMaxModySizeBlocks = 8;
-
 uint32_t HLoopOptimization::GetScalarUnrollingFactor(HLoopInformation* loop_info ATTRIBUTE_UNUSED,
-                                                     uint64_t trip_count,
-                                                     uint64_t bb_count,
-                                                     uint64_t instr_count) {
+                                                     uint64_t trip_count) {
   switch (compiler_driver_->GetInstructionSet()) {
     case InstructionSet::kArm64: {
       uint32_t desired_unrolling_factor = kArm64ScalarMaxUnrollFactor;
@@ -633,11 +724,6 @@ uint32_t HLoopOptimization::GetScalarUnrollingFactor(HLoopInformation* loop_info
         return kNoUnrollingFactor;
       }
 
-      // Don't unroll loops with large body size.
-      if (instr_count >= kArm64ScalarHeuristicMaxBodySizeInstr ||
-          bb_count >= kArm64ScalarHeuristicMaxModySizeBlocks) {
-        return kNoUnrollingFactor;
-      }
       return desired_unrolling_factor;
     }
     default:
@@ -648,7 +734,10 @@ uint32_t HLoopOptimization::GetScalarUnrollingFactor(HLoopInformation* loop_info
 bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node) {
   HLoopInformation* loop_info = loop_node->loop_info;
 
-  if (!kEnableLoopUnrolling || !PeelUnrollHelper::IsLoopCopyable(loop_info)) {
+  if (!IsLoopUnrollingEnabled(compiler_driver_->GetInstructionSet()) ||
+      !PeelUnrollHelper::IsLoopCopyable(loop_info) ||
+      HasUnwantedInstructionForPeelingUnrolling(loop_info) ||
+      IsLoopTooBigForPeelingUnrolling(loop_info)) {
     return false;
   }
 
@@ -658,38 +747,8 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopNode* loop_nod
     return false;
   }
 
-  // Calculate the size of the loop and check for instructions which make unrolling not
-  // beneficial.
-  uint64_t bb_count = 0;
-  uint64_t instr_count = 0;
-  for (HBlocksInLoopIterator block_it(*loop_info);
-       !block_it.Done();
-       block_it.Advance()) {
-    HBasicBlock* block = block_it.Current();
+  uint32_t unrolling_factor = GetScalarUnrollingFactor(loop_info, trip_count);
 
-    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
-      HInstruction* instruction = it.Current();
-      // Unrolling for branch penalty reduction is only beneficial for loops with plain
-      // instructions (no invokes or unconditional calls to runtime).
-      if (instruction->IsNewArray() ||
-          instruction->IsNewInstance() ||
-          instruction->IsUnresolvedInstanceFieldGet() ||
-          instruction->IsUnresolvedInstanceFieldSet() ||
-          instruction->IsUnresolvedStaticFieldGet() ||
-          instruction->IsUnresolvedStaticFieldSet() ||
-          // TODO: Unroll loops with intrinsified invokes.
-          instruction->IsInvoke() ||
-          // TODO: Unroll loops with ClinitChecks.
-          instruction->IsClinitCheck()) {
-        return false;
-      }
-      instr_count++;
-    }
-    bb_count++;
-  }
-
-  uint32_t unrolling_factor =
-      GetScalarUnrollingFactor(loop_info, trip_count, bb_count, instr_count);
   if (unrolling_factor == kNoUnrollingFactor) {
     return false;
   }
@@ -713,6 +772,27 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopNode* loop_nod
   return true;
 }
 
+bool HLoopOptimization::TryPeelingForLoopInvariantExitsElimination(LoopNode* loop_node) {
+  HLoopInformation* loop_info = loop_node->loop_info;
+
+  if (!IsLoopPeelingEnabled(compiler_driver_->GetInstructionSet()) ||
+      !PeelUnrollHelper::IsLoopCopyable(loop_info) ||
+      HasUnwantedInstructionForPeelingUnrolling(loop_info) ||
+      IsLoopTooBigForPeelingUnrolling(loop_info) ||
+      !HasLoopAtLeastOneInvariantExit(loop_info, graph_)) {
+    return false;
+  }
+
+  // Perform peeling.
+  ArenaAllocator* arena = loop_info->GetHeader()->GetGraph()->GetAllocator();
+  SuperblockCloner::HBasicBlockMap bb_map(
+      std::less<HBasicBlock*>(), arena->Adapter(kArenaAllocSuperblockCloner));
+  SuperblockCloner::HInstructionMap hir_map(
+      std::less<HInstruction*>(), arena->Adapter(kArenaAllocSuperblockCloner));
+  PeelOrUnrollOnce(loop_node, /* unrolling */ false, &bb_map, &hir_map);
+  return true;
+}
+
 bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
   bool changed = false;
   for ( ; node != nullptr; node = node->next) {
@@ -733,8 +813,14 @@ bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
     // Optimize inner loop.
     if (node->inner == nullptr) {
       bool inner_loop_optimized = OptimizeInnerLoop(node);
-      if (!inner_loop_optimized && node->inner == nullptr) {
-        inner_loop_optimized |= TryUnrollingForBranchPenaltyReduction(node);
+      // Don't run peeling/unrolling if compiler_driver_ is nullptr (i.e., running under tests)
+      // as InstructionSet is needed.
+      if (!inner_loop_optimized && node->inner == nullptr && compiler_driver_ != nullptr) {
+        // TODO: make it possible to run both peeling and unrolling at the same time.
+        inner_loop_optimized |= TryPeelingForLoopInvariantExitsElimination(node);
+        if (!inner_loop_optimized) {
+          inner_loop_optimized |= TryUnrollingForBranchPenaltyReduction(node);
+        }
       }
       changed = inner_loop_optimized || changed;
     }
