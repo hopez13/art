@@ -20,6 +20,7 @@ namespace art {
 
 void LoopAnalysis::CalculateLoopBasicProperties(HLoopInformation* loop_info,
                                                 LoopAnalysisInfo* analysis_results) {
+  bool has_instructions_preventing_scalar_peeling = false;
   bool has_instructions_preventing_scalar_unrolling = false;
   size_t bb_num = 0;
   size_t instr_num = 0;
@@ -38,7 +39,11 @@ void LoopAnalysis::CalculateLoopBasicProperties(HLoopInformation* loop_info,
 
     for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
       HInstruction* instruction = it.Current();
-      if (MakesScalarUnrollingNonBeneficial(instruction)) {
+      if (MakesScalarPeelingUnrollingNonBeneficial(instruction)) {
+        has_instructions_preventing_scalar_peeling = true;
+        has_instructions_preventing_scalar_unrolling = true;
+      } else if (instruction->IsClinitCheck()) {
+        // TODO: Unroll loops with ClinitChecks.
         has_instructions_preventing_scalar_unrolling = true;
       }
       instr_num++;
@@ -49,6 +54,8 @@ void LoopAnalysis::CalculateLoopBasicProperties(HLoopInformation* loop_info,
   analysis_results->bb_num_ = bb_num;
   analysis_results->instr_num_ = instr_num;
   analysis_results->exits_num_ = exits_num;
+  analysis_results->has_instructions_preventing_scalar_peeling_ =
+      has_instructions_preventing_scalar_peeling;
   analysis_results->has_instructions_preventing_scalar_unrolling_ =
       has_instructions_preventing_scalar_unrolling;
 }

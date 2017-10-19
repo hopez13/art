@@ -161,11 +161,18 @@ class HLoopOptimization : public HOptimization {
   //
   // If the loop body has too many instructions then unrolling optimization will not bring
   // any noticeable performance improvement however will increase the code size.
-  bool IsLoopTooBigForUnrolling(LoopAnalysisInfo* loop_analysis_info) const;
+  bool IsLoopTooBigForPeelingUnrolling(LoopAnalysisInfo* loop_analysis_info) const;
+
+  // Returns whether scalar loop peeling is enabled for the instruction set.
+  bool IsLoopPeelingEnabled() const;
 
   // Tries to apply loop unrolling for branch penalty reduction and better instruction scheduling
   // opportunities. Returns whether transformation happened.
   bool TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node);
+
+  // Tries to apply loop peeling for loop invariant exits elimination. Returns whether
+  // transformation happened.
+  bool TryPeelingForLoopInvariantExitsElimination(LoopNode* loop_node);
 
   //
   // Vectorization analysis and synthesis.
