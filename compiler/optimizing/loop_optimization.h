@@ -157,9 +157,16 @@ class HLoopOptimization : public HOptimization {
   uint32_t GetScalarUnrollingFactor(HLoopInformation* loop_info,
                                     uint64_t trip_count) const;
 
+  // Returns whether scalar loop peeling is enabled for the instruction set.
+  bool IsLoopPeelingEnabled() const;
+
   // Tries to apply loop unrolling for branch penalty reduction and better instruction scheduling
   // opportunities. Returns whether transformation happened.
   bool TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node);
+
+  // Tries to apply loop peeling for loop invariant exits elimination. Returns whether
+  // transformation happened.
+  bool TryPeelingForLoopInvariantExitsElimination(LoopNode* loop_node);
 
   //
   // Vectorization analysis and synthesis.

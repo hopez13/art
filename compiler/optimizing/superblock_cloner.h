@@ -27,6 +27,11 @@ namespace art {
 static const bool kSuperblockClonerLogging = false;
 static const bool kSuperblockClonerVerify = true;
 
+// When doing peeling we can choose whether to keep original loop (made of original basic blocks)
+// and form a peeled iteration of the copy blocks (preserve the header) or transfer original loop
+// blocks to the peeled iteration and create new loop from the copy blocks. Similar for unrolling.
+static const bool kSuperblockClonerPreserveLoopHeaders = true;
+
 // Represents an edge between two HBasicBlocks.
 //
 // Note: objects of this class are small - pass them by value.

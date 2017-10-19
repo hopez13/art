@@ -34,7 +34,7 @@ namespace art {
 static constexpr bool kEnableVectorization = true;
 
 // Enables scalar loop unrolling in the loop optimizer.
-static constexpr bool kEnableScalarUnrolling = false;
+static constexpr bool kEnableScalarPeelingUnrolling = false;
 
 // No loop unrolling factor (just one copy of the loop-body).
 static constexpr uint32_t kNoUnrollingFactor = 1;
@@ -45,7 +45,7 @@ static constexpr int64_t kNoHi = std::numeric_limits<int64_t>::max();
 
 // Heuristic values for arm64 backend.
 
-// Scalar loop unrolling parameters and heuristics.
+// Scalar loop peeling/unrolling parameters and heuristics.
 //
 // Maximum possible unrolling factor.
 static constexpr uint32_t kArm64ScalarMaxUnrollFactor = 2;
@@ -479,12 +479,12 @@ static bool CheckInductionSetFullyRemoved(ScopedArenaSet<HInstruction*>* iset) {
   return true;
 }
 
-// Returns whether the loop is too big for loop unrolling by checking its total number of
+// Returns whether the loop is too big for loop peeling/unrolling by checking its total number of
 // basic blocks and instructions (the decision depends on the target isa).
 //
-// If the loop body has too many instructions then unrolling optimization will not bring
+// If the loop body has too many instructions then peeling/unrolling optimization will not bring
 // any noticeable performance improvement however will increase the code size.
-static bool IsLoopTooBigForUnrolling(LoopAnalysisInfo* loop_analysis_info, InstructionSet isa) {
+static bool IsLoopTooBigForPeelingUnrolling(LoopAnalysisInfo* loop_analysis_info, InstructionSet isa) {
   switch (isa) {
     case InstructionSet::kArm64: {
       size_t instr_num = loop_analysis_info->GetNumberOfInstructions();
@@ -494,6 +494,43 @@ static bool IsLoopTooBigForUnrolling(LoopAnalysisInfo* loop_analysis_info, Instr
     }
     default:
       return true;
+  }
+}
+
+// Tries to statically evaluate condition of the specified "HIf" for other condition checks.
+static void TryToEvaluateIfCondition(HIf* instruction, HGraph* graph) {
+  HInstruction* cond = instruction->InputAt(0);
+
+  // If a condition 'cond' is evaluated in an HIf instruction then in the successors of the
+  // IF_BLOCK we statically know the value of the condition 'cond' (TRUE in TRUE_SUCC, FALSE in
+  // FALSE_SUCC). Using that we can replace another evaluation (use) EVAL of the same 'cond'
+  // with TRUE value (FALSE value) if every path from the ENTRY_BLOCK to EVAL_BLOCK contains the
+  // edge HIF_BLOCK->TRUE_SUCC (HIF_BLOCK->FALSE_SUCC).
+  //     if (cond) {               if(cond) {
+  //       if (cond) {}              if (1) {}
+  //     } else {        =======>  } else {
+  //       if (cond) {}              if (0) {}
+  //     }                         }
+  if (!cond->IsConstant()) {
+    HBasicBlock* true_succ = instruction->IfTrueSuccessor();
+    HBasicBlock* false_succ = instruction->IfFalseSuccessor();
+
+    DCHECK_EQ(true_succ->GetPredecessors().size(), 1u);
+    DCHECK_EQ(false_succ->GetPredecessors().size(), 1u);
+
+    const HUseList<HInstruction*>& uses = cond->GetUses();
+    for (auto it = uses.begin(), end = uses.end(); it != end; /* ++it below */) {
+      HInstruction* user = it->GetUser();
+      size_t index = it->GetIndex();
+      HBasicBlock* user_block = user->GetBlock();
+      // Increment `it` now because `*it` may disappear thanks to user->ReplaceInput().
+      ++it;
+      if (true_succ->Dominates(user_block)) {
+        user->ReplaceInput(graph->GetIntConstant(1), index);
+     } else if (false_succ->Dominates(user_block)) {
+        user->ReplaceInput(graph->GetIntConstant(0), index);
+      }
+    }
   }
 }
 
@@ -681,13 +718,27 @@ uint32_t HLoopOptimization::GetScalarUnrollingFactor(HLoopInformation* loop_info
   }
 }
 
+// Returns whether scalar loop peeling is enabled for the instruction set.
+bool HLoopOptimization::IsLoopPeelingEnabled() const {
+  switch (compiler_driver_->GetInstructionSet()) {
+    case InstructionSet::kArm64: {
+      return true;
+    }
+    default:
+      // TODO: consider loop peeling for other architectures (however register pressure should be
+      // taken into account).
+      return false;
+  }
+}
+
 bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node) {
   // Don't run peeling/unrolling if compiler_driver_ is nullptr (i.e., running under tests)
   // as InstructionSet is needed.
-  if (!kEnableScalarUnrolling || compiler_driver_ == nullptr) {
+  if (!kEnableScalarPeelingUnrolling || compiler_driver_ == nullptr) {
     return false;
   }
 
+  InstructionSet isa = compiler_driver_->GetInstructionSet();
   HLoopInformation* loop_info = loop_node->loop_info;
   int64_t trip_count = 0;
   // Only unroll loops with a known tripcount.
@@ -704,7 +755,7 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopNode* loop_nod
   LoopAnalysis::CalculateLoopBasicProperties(loop_info, &loop_analysis_info);
 
   // Check "IsLoopClonable" last as it can be time-consuming.
-  if (IsLoopTooBigForUnrolling(&loop_analysis_info, compiler_driver_->GetInstructionSet()) ||
+  if (IsLoopTooBigForPeelingUnrolling(&loop_analysis_info, isa) ||
       (loop_analysis_info.GetNumberOfExits() > 1) ||
       loop_analysis_info.HasInstructionsPreventingScalarUnrolling() ||
       !PeelUnrollHelper::IsLoopClonable(loop_info)) {
@@ -726,6 +777,51 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopNode* loop_nod
   HIf* copy_hif = bb_map.Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
   int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
   copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+
+  return true;
+}
+
+bool HLoopOptimization::TryPeelingForLoopInvariantExitsElimination(LoopNode* loop_node) {
+  // Don't run peeling/unrolling if compiler_driver_ is nullptr (i.e., running under tests)
+  // as InstructionSet is needed.
+  if (!kEnableScalarPeelingUnrolling || compiler_driver_ == nullptr) {
+    return false;
+  }
+
+  InstructionSet isa = compiler_driver_->GetInstructionSet();
+  HLoopInformation* loop_info = loop_node->loop_info;
+  // Check 'IsLoopClonable' the last as it might be time-consuming.
+  if (!IsLoopPeelingEnabled()) {
+    return false;
+  }
+
+  LoopAnalysisInfo loop_analysis_info(loop_info);
+  LoopAnalysis::CalculateLoopBasicProperties(loop_info, &loop_analysis_info);
+
+  // Check "IsLoopClonable" last as it can be time-consuming.
+  if (IsLoopTooBigForPeelingUnrolling(&loop_analysis_info, isa) ||
+      loop_analysis_info.HasInstructionsPreventingScalarPeeling() ||
+      !LoopAnalysis::HasLoopAtLeastOneInvariantExit(loop_info) ||
+      !PeelUnrollHelper::IsLoopClonable(loop_info)) {
+    return false;
+  }
+
+  // Perform peeling.
+  ArenaAllocator* arena = loop_info->GetHeader()->GetGraph()->GetAllocator();
+  SuperblockCloner::HBasicBlockMap bb_map(
+      std::less<HBasicBlock*>(), arena->Adapter(kArenaAllocSuperblockCloner));
+  SuperblockCloner::HInstructionMap hir_map(
+      std::less<HInstruction*>(), arena->Adapter(kArenaAllocSuperblockCloner));
+  PeelOrUnrollOnce(loop_node, /* unrolling */ false, &bb_map, &hir_map);
+
+  // We assume here that the peeled iteration contains instruction copies.
+  DCHECK(kSuperblockClonerPreserveLoopHeaders);
+  for (auto entry : hir_map) {
+    HInstruction* copy = entry.second;
+    if (copy->IsIf()) {
+      TryToEvaluateIfCondition(copy->AsIf(), graph_);
+    }
+  }
 
   return true;
 }
@@ -895,6 +991,7 @@ bool HLoopOptimization::TryOptimizeInnerLoopFinite(LoopNode* node) {
 
 bool HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
   return TryOptimizeInnerLoopFinite(node) ||
+         TryPeelingForLoopInvariantExitsElimination(node) ||
          TryUnrollingForBranchPenaltyReduction(node);
 }
 
