@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bf2f90a_0e48bd05",
+        "filename": "runtime/dex_file_loader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-10-19T20:06:52Z",
+      "side": 1,
+      "message": "What\u0027s the reason of ignoring \"Zip open failed\"? I mean if there\u0027s .apk corruption, why not to return false (after logging the error message).",
+      "revId": "79c87da9d4698ec58ece65af0065eebd55a1cfe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
