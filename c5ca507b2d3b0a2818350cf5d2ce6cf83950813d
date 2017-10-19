@@ -139,6 +139,30 @@
       "revId": "c5ca507b2d3b0a2818350cf5d2ce6cf83950813d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ffb9e5a_b64094ef",
+        "filename": "runtime/compiler_filter.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-19T22:12:33Z",
+      "side": 1,
+      "message": "you can map it to the first invalid value or anything else right? I don\u0027t find a compelling reason to make this 1 just because we want to pick 0 to be an invalid value.",
+      "parentUuid": "d5e1f22d_f58ca6fa",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "c5ca507b2d3b0a2818350cf5d2ce6cf83950813d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
