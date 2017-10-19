@@ -153,20 +153,27 @@ class HLoopOptimization : public HOptimization {
                         SuperblockCloner::HBasicBlockMap* bb_map,
                         SuperblockCloner::HInstructionMap* hir_map);
 
-  // Returns whether the loop is too big for loop unrolling by checking its total number of
+  // Returns whether the loop is too big for loop peeling/unrolling by checking its total number of
   // basic blocks and instructions (the decision depends on the target isa).
   //
-  // If the loop body has too many instructions then unrolling optimization will not bring
+  // If the loop body has too many instructions then peeling/unrolling optimization will not bring
   // any noticeable performance improvement however will increase the code size.
-  bool IsLoopTooBigForUnrolling(LoopAnalysisInfo* loop_analysis_info) const;
+  bool IsLoopTooBigForPeelingUnrolling(LoopAnalysisInfo* loop_analysis_info) const;
 
   // Returns optimal scalar unrolling factor for the loop.
   uint32_t GetScalarUnrollingFactor(HLoopInformation* loop_info,
                                     uint64_t trip_count) const;
 
+  // Returns whether scalar loop peeling is enabled for the instruction set.
+  bool IsLoopPeelingEnabled() const;
+
   // Tries to apply loop unrolling for branch penalty reduction and better instruction scheduling
   // opportunities. Returns whether transformation happened.
   bool TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node);
+
+  // Tries to apply loop peeling for loop invariant exits elimination. Returns whether
+  // transformation happened.
+  bool TryPeelingForLoopInvariantExitsElimination(LoopNode* loop_node);
 
   //
   // Vectorization analysis and synthesis.

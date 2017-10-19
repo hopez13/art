@@ -16,6 +16,8 @@
 
 #include "loop_analysis.h"
 
+#include "base/bit_vector-inl.h"
+
 namespace art {
 
 void LoopAnalysis::CalculateLoopBasicProperties(HLoopInformation* loop_info,
@@ -33,13 +35,31 @@ void LoopAnalysis::CalculateLoopBasicProperties(HLoopInformation* loop_info,
 
     for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
       HInstruction* instruction = it.Current();
-      if (MakesScalarUnrollingNonBeneficial(instruction)) {
+      if (MakesScalarPeelingUnrollingNonBeneficial(instruction)) {
+        analysis_results->has_instructions_preventing_scalar_peeling_ = true;
         analysis_results->has_instructions_preventing_scalar_unrolling_ = true;
       }
       analysis_results->instr_num_++;
     }
     analysis_results->bb_num_++;
   }
+}
+
+bool LoopAnalysis::HasLoopAtLeastOneInvariantExit(HLoopInformation* loop_info) {
+  HGraph* graph = loop_info->GetHeader()->GetGraph();
+  for (uint32_t block_id : loop_info->GetBlocks().Indexes()) {
+    HBasicBlock* block = graph->GetBlocks()[block_id];
+    DCHECK(block != nullptr);
+    if (block->EndsWithIf()) {
+      HIf* hif = block->GetLastInstruction()->AsIf();
+      HInstruction* input = hif->InputAt(0);
+
+      if (IsLoopExit(loop_info, hif) && !loop_info->Contains(*input->GetBlock())) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 }  // namespace art
