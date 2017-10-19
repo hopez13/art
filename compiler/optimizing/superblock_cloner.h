@@ -27,6 +27,10 @@ namespace art {
 static const bool kSuperblockClonerLogging = false;
 static const bool kSuperblockClonerVerify = true;
 
+// Whether loop peeling should preserve the loop header instead of making a new loop with copy
+// instruction as a new header.
+static const bool kSuperblockClonerPreserveLoopHeaders = true;
+
 // Represents an edge between two HBasicBlocks.
 //
 // Note: objects of this class are small - pass them by value.
