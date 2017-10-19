@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e4f2491_093fd36c",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-19T21:49:47Z",
+      "side": 1,
+      "message": "8? so then you need 4 bits.",
+      "range": {
+        "startLine": 129,
+        "startChar": 49,
+        "endLine": 129,
+        "endChar": 50
+      },
+      "revId": "c5ca507b2d3b0a2818350cf5d2ce6cf83950813d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ad66547_ec695922",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-19T21:49:47Z",
+      "side": 1,
+      "message": "dup?",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 202,
+        "endChar": 34
+      },
+      "revId": "c5ca507b2d3b0a2818350cf5d2ce6cf83950813d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7b06d24_c9e090d4",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-19T21:49:47Z",
+      "side": 1,
+      "message": "Sorry if I wasn\u0027t clear in the last discussion.\nWe should return the oat file status in the same way with DexFile_getDexFileStatus. And I realized that we don\u0027t need the currrent_compiler_filter to get that.\n\ni.e. \n\noat \u003d oat_file_assistant-\u003eGetBestOatFile();\nreturn oat-\u003eGetStatus() \u003c\u003c BIT_MASK | oat-\u003egetCompilerFilter().",
+      "range": {
+        "startLine": 356,
+        "startChar": 42,
+        "endLine": 356,
+        "endChar": 57
+      },
+      "revId": "c5ca507b2d3b0a2818350cf5d2ce6cf83950813d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36bfc215_3e2fc620",
+        "filename": "runtime/compiler_filter.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-19T21:49:47Z",
+      "side": 1,
+      "message": "why 1? and not 0? By default is 0 so you should not need it.",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "c5ca507b2d3b0a2818350cf5d2ce6cf83950813d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
