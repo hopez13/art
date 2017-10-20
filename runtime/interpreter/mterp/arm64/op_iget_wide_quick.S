@@ -1,4 +1,5 @@
     /* iget-wide-quick vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w4, 1                         // w4<- field byte offset
     GET_VREG w3, w2                     // w3<- object we're operating on

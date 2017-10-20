@@ -1,4 +1,5 @@
     .extern MterpThreadFenceForConstructor
+    RESET_CFI
     bl      MterpThreadFenceForConstructor
     ldr     w7, [xSELF, #THREAD_FLAGS_OFFSET]
     mov     x0, xSELF

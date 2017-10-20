@@ -13,6 +13,7 @@
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE $r1, w1               // x1<- vB

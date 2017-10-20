@@ -1,6 +1,7 @@
     /*
      * Return the length of an array.
      */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG w0, w1                     // w0<- vB (object ref)

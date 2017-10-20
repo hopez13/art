@@ -4,6 +4,7 @@
      */
     /* sput-wide vAA, field//BBBB */
     .extern MterpSet64Static
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // w0<- field ref BBBB
     lsr     w1, wINST, #8               // w1<- AA

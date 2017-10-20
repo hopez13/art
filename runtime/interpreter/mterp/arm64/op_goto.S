@@ -5,5 +5,6 @@
      * double to get a byte offset.
      */
     /* goto +AA */
+    RESET_CFI
     sbfx    wINST, wINST, #8, #8           // wINST<- ssssssAA (sign-extended)
     b       MterpCommonTakenBranchNoFlags

@@ -1,4 +1,5 @@
     /* const-wide/32 vAA, #+BBBBbbbb */
+    RESET_CFI
     FETCH   w0, 1                       // x0<- 000000000000bbbb (low)
     lsr     w3, wINST, #8               // w3<- AA
     FETCH_S x2, 2                       // x2<- ssssssssssssBBBB (high)

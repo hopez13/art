@@ -1,4 +1,5 @@
     /* iput-wide-quick vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w3, 1                         // w3<- field byte offset
     GET_VREG w2, w2                     // w2<- fp[B], the object pointer

@@ -10,6 +10,7 @@
      * offset to byte offset.
      */
     /* goto/32 +AAAAAAAA */
+    RESET_CFI
     FETCH w0, 1                         // w0<- aaaa (lo)
     FETCH w1, 2                         // w1<- AAAA (hi)
     orr     wINST, w0, w1, lsl #16      // wINST<- AAAAaaaa

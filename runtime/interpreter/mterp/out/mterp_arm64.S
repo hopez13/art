@@ -94,6 +94,7 @@ codes.
  * to expand the macros into assembler assignment statements.
  */
 #include "asm_support.h"
+#include "interpreter/mterp/mterp_cfi.h"
 
 #define MTERP_PROFILE_BRANCHES 1
 #define MTERP_LOGGING 0
@@ -101,6 +102,7 @@ codes.
 /* During bringup, we'll use the shadow frame model instead of xFP */
 /* single-purpose registers, given names for clarity */
 #define xPC      x20
+#define DPC      20
 #define xFP      x21
 #define xSELF    x22
 #define xINST    x23
@@ -163,6 +165,7 @@ codes.
  */
 .macro FETCH_ADVANCE_INST count
     ldrh    wINST, [xPC, #((\count)*2)]!
+    .cfi_escape ART_FRAME,ADJUST_DEX_PC,((\count)*2)
 .endm
 
 /*
@@ -171,6 +174,7 @@ codes.
  */
 .macro PREFETCH_ADVANCE_INST dreg, sreg, count
     ldrh    \dreg, [\sreg, #((\count)*2)]!
+    .cfi_escape ART_FRAME,ADJUST_DEX_PC,((\count)*2)
 .endm
 
 /*
@@ -185,6 +189,7 @@ codes.
 /* Advance xPC by some number of code units. */
 .macro ADVANCE count
   add  xPC, xPC, #((\count)*2)
+  .cfi_escape ART_FRAME,ADJUST_DEX_PC,((\count)*2)
 .endm
 
 /*
@@ -339,6 +344,7 @@ codes.
 .endm
 
 /*
+<<<<<<< HEAD
  * cfi support macros.
  */
 .macro ENTRY name
@@ -353,6 +359,13 @@ codes.
 .macro END name
     .cfi_endproc
     .size \name, .-\name
+.endm
+
+/*
+ * Reset cfi info for an instruction handler.  Assumes xPC points to current dex instruction.
+ */
+.macro RESET_CFI
+    .cfi_escape ART_FRAME,DEF_DEX_PC_REG,DPC
 .endm
 
 /* File: arm64/entry.S */
@@ -405,6 +418,7 @@ ENTRY ExecuteMterpImpl
     ldr     w0, [x2, #SHADOWFRAME_DEX_PC_OFFSET]   // Get starting dex_pc.
     add     xPC, x1, #CODEITEM_INSNS_OFFSET        // Point to base of insns[]
     add     xPC, xPC, w0, lsl #1                   // Create direct pointer to 1st dex opcode
+    .cfi_escape ART_FRAME,DEF_DEX_PC_REG,DPC
     EXPORT_PC
 
     /* Starting ibase */
@@ -432,6 +446,7 @@ artMterpAsmInstructionStart = .L_op_nop
     .balign 128
 .L_op_nop: /* 0x00 */
 /* File: arm64/op_nop.S */
+    RESET_CFI
     FETCH_ADVANCE_INST 1                // advance to next instr, load rINST
     GET_INST_OPCODE ip                  // ip<- opcode from rINST
     GOTO_OPCODE ip                      // execute it
@@ -442,6 +457,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // x1<- B from 15:12
     ubfx    w0, wINST, #8, #4           // x0<- A from 11:8
     FETCH_ADVANCE_INST 1                // advance rPC, load wINST
@@ -460,6 +476,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_from16.S */
     /* for: move/from16, move-object/from16 */
     /* op vAA, vBBBB */
+    RESET_CFI
     FETCH w1, 1                         // r1<- BBBB
     lsr     w0, wINST, #8               // r0<- AA
     FETCH_ADVANCE_INST 2                // advance rPC, load wINST
@@ -478,6 +495,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_16.S */
     /* for: move/16, move-object/16 */
     /* op vAAAA, vBBBB */
+    RESET_CFI
     FETCH w1, 2                         // w1<- BBBB
     FETCH w0, 1                         // w0<- AAAA
     FETCH_ADVANCE_INST 3                // advance xPC, load xINST
@@ -496,6 +514,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_wide.S */
     /* move-wide vA, vB */
     /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE  x3, w3
@@ -510,6 +529,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_wide_from16.S */
     /* move-wide/from16 vAA, vBBBB */
     /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
+    RESET_CFI
     FETCH w3, 1                         // w3<- BBBB
     lsr     w2, wINST, #8               // w2<- AA
     GET_VREG_WIDE x3, w3
@@ -524,6 +544,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_wide_16.S */
     /* move-wide/16 vAAAA, vBBBB */
     /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
+    RESET_CFI
     FETCH w3, 2                         // w3<- BBBB
     FETCH w2, 1                         // w2<- AAAA
     GET_VREG_WIDE x3, w3
@@ -539,6 +560,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // x1<- B from 15:12
     ubfx    w0, wINST, #8, #4           // x0<- A from 11:8
     FETCH_ADVANCE_INST 1                // advance rPC, load wINST
@@ -559,6 +581,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_from16.S */
     /* for: move/from16, move-object/from16 */
     /* op vAA, vBBBB */
+    RESET_CFI
     FETCH w1, 1                         // r1<- BBBB
     lsr     w0, wINST, #8               // r0<- AA
     FETCH_ADVANCE_INST 2                // advance rPC, load wINST
@@ -579,6 +602,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_16.S */
     /* for: move/16, move-object/16 */
     /* op vAAAA, vBBBB */
+    RESET_CFI
     FETCH w1, 2                         // w1<- BBBB
     FETCH w0, 1                         // w0<- AAAA
     FETCH_ADVANCE_INST 3                // advance xPC, load xINST
@@ -598,6 +622,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_result.S */
     /* for: move-result, move-result-object */
     /* op vAA */
+    RESET_CFI
     lsr     w2, wINST, #8               // r2<- AA
     FETCH_ADVANCE_INST 1                // advance rPC, load wINST
     ldr     x0, [xFP, #OFF_FP_RESULT_REGISTER]  // get pointer to result JType.
@@ -616,6 +641,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_result_wide.S */
     /* for: move-result-wide */
     /* op vAA */
+    RESET_CFI
     lsr     w2, wINST, #8               // r2<- AA
     FETCH_ADVANCE_INST 1                // advance rPC, load wINST
     ldr     x0, [xFP, #OFF_FP_RESULT_REGISTER]  // get pointer to result JType.
@@ -631,6 +657,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move_result.S */
     /* for: move-result, move-result-object */
     /* op vAA */
+    RESET_CFI
     lsr     w2, wINST, #8               // r2<- AA
     FETCH_ADVANCE_INST 1                // advance rPC, load wINST
     ldr     x0, [xFP, #OFF_FP_RESULT_REGISTER]  // get pointer to result JType.
@@ -649,6 +676,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_move_exception: /* 0x0d */
 /* File: arm64/op_move_exception.S */
     /* move-exception vAA */
+    RESET_CFI
     lsr     w2, wINST, #8               // w2<- AA
     ldr     x3, [xSELF, #THREAD_EXCEPTION_OFFSET]
     mov     x1, #0                      // w1<- 0
@@ -663,6 +691,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_return_void: /* 0x0e */
 /* File: arm64/op_return_void.S */
     .extern MterpThreadFenceForConstructor
+    RESET_CFI
     bl      MterpThreadFenceForConstructor
     ldr     w7, [xSELF, #THREAD_FLAGS_OFFSET]
     mov     x0, xSELF
@@ -686,6 +715,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* op vAA */
     .extern MterpThreadFenceForConstructor
+    RESET_CFI
     bl      MterpThreadFenceForConstructor
     ldr     w7, [xSELF, #THREAD_FLAGS_OFFSET]
     mov     x0, xSELF
@@ -709,6 +739,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* return-wide vAA */
     /* op vAA */
     .extern MterpThreadFenceForConstructor
+    RESET_CFI
     bl      MterpThreadFenceForConstructor
     ldr     w7, [xSELF, #THREAD_FLAGS_OFFSET]
     mov     x0, xSELF
@@ -734,6 +765,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* op vAA */
     .extern MterpThreadFenceForConstructor
+    RESET_CFI
     bl      MterpThreadFenceForConstructor
     ldr     w7, [xSELF, #THREAD_FLAGS_OFFSET]
     mov     x0, xSELF
@@ -753,6 +785,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const_4: /* 0x12 */
 /* File: arm64/op_const_4.S */
     /* const/4 vA, #+B */
+    RESET_CFI
     sbfx    w1, wINST, #12, #4          // w1<- sssssssB
     ubfx    w0, wINST, #8, #4           // w0<- A
     FETCH_ADVANCE_INST 1                // advance xPC, load wINST
@@ -765,6 +798,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const_16: /* 0x13 */
 /* File: arm64/op_const_16.S */
     /* const/16 vAA, #+BBBB */
+    RESET_CFI
     FETCH_S w0, 1                       // w0<- ssssBBBB (sign-extended)
     lsr     w3, wINST, #8               // w3<- AA
     FETCH_ADVANCE_INST 2                // advance xPC, load wINST
@@ -777,6 +811,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const: /* 0x14 */
 /* File: arm64/op_const.S */
     /* const vAA, #+BBBBbbbb */
+    RESET_CFI
     lsr     w3, wINST, #8               // w3<- AA
     FETCH w0, 1                         // w0<- bbbb (low
     FETCH w1, 2                         // w1<- BBBB (high
@@ -791,6 +826,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const_high16: /* 0x15 */
 /* File: arm64/op_const_high16.S */
     /* const/high16 vAA, #+BBBB0000 */
+    RESET_CFI
     FETCH   w0, 1                       // r0<- 0000BBBB (zero-extended)
     lsr     w3, wINST, #8               // r3<- AA
     lsl     w0, w0, #16                 // r0<- BBBB0000
@@ -804,6 +840,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const_wide_16: /* 0x16 */
 /* File: arm64/op_const_wide_16.S */
     /* const-wide/16 vAA, #+BBBB */
+    RESET_CFI
     FETCH_S x0, 1                       // x0<- ssssssssssssBBBB (sign-extended)
     lsr     w3, wINST, #8               // w3<- AA
     FETCH_ADVANCE_INST 2                // advance rPC, load rINST
@@ -816,6 +853,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const_wide_32: /* 0x17 */
 /* File: arm64/op_const_wide_32.S */
     /* const-wide/32 vAA, #+BBBBbbbb */
+    RESET_CFI
     FETCH   w0, 1                       // x0<- 000000000000bbbb (low)
     lsr     w3, wINST, #8               // w3<- AA
     FETCH_S x2, 2                       // x2<- ssssssssssssBBBB (high)
@@ -830,6 +868,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const_wide: /* 0x18 */
 /* File: arm64/op_const_wide.S */
     /* const-wide vAA, #+HHHHhhhhBBBBbbbb */
+    RESET_CFI
     FETCH w0, 1                         // w0<- bbbb (low)
     FETCH w1, 2                         // w1<- BBBB (low middle)
     FETCH w2, 3                         // w2<- hhhh (high middle)
@@ -848,6 +887,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const_wide_high16: /* 0x19 */
 /* File: arm64/op_const_wide_high16.S */
     /* const-wide/high16 vAA, #+BBBB000000000000 */
+    RESET_CFI
     FETCH w0, 1                         // w0<- 0000BBBB (zero-extended)
     lsr     w1, wINST, #8               // w1<- AA
     FETCH_ADVANCE_INST 2                // advance rPC, load wINST
@@ -866,6 +906,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* const/method-type vAA, proto@BBBB */
     /* const/string vAA, string@@BBBB */
     .extern MterpConstString
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- BBBB
     lsr     w1, wINST, #8               // w1<- AA
@@ -884,6 +925,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_const_string_jumbo: /* 0x1b */
 /* File: arm64/op_const_string_jumbo.S */
     /* const/string vAA, String//BBBBBBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- bbbb (low
     FETCH w2, 2                         // w2<- BBBB (high
@@ -908,6 +950,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* const/method-type vAA, proto@BBBB */
     /* const/string vAA, string@@BBBB */
     .extern MterpConstClass
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- BBBB
     lsr     w1, wINST, #8               // w1<- AA
@@ -929,6 +972,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * Synchronize on an object.
      */
     /* monitor-enter vAA */
+    RESET_CFI
     EXPORT_PC
     lsr      w2, wINST, #8               // w2<- AA
     GET_VREG w0, w2                      // w0<- vAA (object)
@@ -951,6 +995,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * instruction spec.
      */
     /* monitor-exit vAA */
+    RESET_CFI
     EXPORT_PC
     lsr      w2, wINST, #8              // w2<- AA
     GET_VREG w0, w2                     // w0<- vAA (object)
@@ -969,6 +1014,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * Check to see if a cast from one class to another is allowed.
      */
     /* check-cast vAA, class//BBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                      // w0<- BBBB
     lsr      w1, wINST, #8              // w1<- AA
@@ -993,6 +1039,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * an already-resolved class.
      */
     /* instance-of vA, vB, class//CCCC */
+    RESET_CFI
     EXPORT_PC
     FETCH     w0, 1                     // w0<- CCCC
     lsr       w1, wINST, #12            // w1<- B
@@ -1016,6 +1063,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /*
      * Return the length of an array.
      */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG w0, w1                     // w0<- vB (object ref)
@@ -1034,6 +1082,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * Create a new instance of a class.
      */
     /* new-instance vAA, class//BBBB */
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xSELF
@@ -1056,6 +1105,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * check for it here.
      */
     /* new-array vA, vB, class//CCCC */
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xPC
@@ -1079,6 +1129,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class//CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, type//BBBB */
     .extern MterpFilledNewArray
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xPC
@@ -1102,6 +1153,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class//CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, type//BBBB */
     .extern MterpFilledNewArrayRange
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xPC
@@ -1118,6 +1170,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_fill_array_data: /* 0x26 */
 /* File: arm64/op_fill_array_data.S */
     /* fill-array-data vAA, +BBBBBBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // x0<- 000000000000bbbb (lo)
     FETCH_S x1, 2                       // x1<- ssssssssssssBBBB (hi)
@@ -1139,6 +1192,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * Throw an exception object in the current thread.
      */
     /* throw vAA */
+    RESET_CFI
     EXPORT_PC
     lsr      w2, wINST, #8               // r2<- AA
     GET_VREG w1, w2                      // r1<- vAA (exception object)
@@ -1157,6 +1211,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * double to get a byte offset.
      */
     /* goto +AA */
+    RESET_CFI
     sbfx    wINST, wINST, #8, #8           // wINST<- ssssssAA (sign-extended)
     b       MterpCommonTakenBranchNoFlags
 
@@ -1171,6 +1226,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * double to get a byte offset.
      */
     /* goto/16 +AAAA */
+    RESET_CFI
     FETCH_S wINST, 1                    // wINST<- ssssAAAA (sign-extended)
     b       MterpCommonTakenBranchNoFlags
 
@@ -1190,6 +1246,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * offset to byte offset.
      */
     /* goto/32 +AAAAAAAA */
+    RESET_CFI
     FETCH w0, 1                         // w0<- aaaa (lo)
     FETCH w1, 2                         // w1<- AAAA (hi)
     orr     wINST, w0, w1, lsl #16      // wINST<- AAAAaaaa
@@ -1209,6 +1266,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: packed-switch, sparse-switch
      */
     /* op vAA, +BBBB */
+    RESET_CFI
     FETCH   w0, 1                       // x0<- 000000000000bbbb (lo)
     FETCH_S x1, 2                       // x1<- ssssssssssssBBBB (hi)
     lsr     w3, wINST, #8               // w3<- AA
@@ -1234,6 +1292,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: packed-switch, sparse-switch
      */
     /* op vAA, +BBBB */
+    RESET_CFI
     FETCH   w0, 1                       // x0<- 000000000000bbbb (lo)
     FETCH_S x1, 2                       // x1<- ssssssssssssBBBB (hi)
     lsr     w3, wINST, #8               // w3<- AA
@@ -1255,6 +1314,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * destination register based on the results of the comparison.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     and     w2, w0, #255                // w2<- BB
@@ -1280,6 +1340,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * destination register based on the results of the comparison.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     and     w2, w0, #255                // w2<- BB
@@ -1305,6 +1366,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * destination register based on the results of the comparison.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     and     w2, w0, #255                // w2<- BB
@@ -1330,6 +1392,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * destination register based on the results of the comparison.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     and     w2, w0, #255                // w2<- BB
@@ -1349,6 +1412,7 @@ artMterpAsmInstructionStart = .L_op_nop
     .balign 128
 .L_op_cmp_long: /* 0x31 */
 /* File: arm64/op_cmp_long.S */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     and     w2, w0, #255                // w2<- BB
@@ -1375,6 +1439,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: if-eq, if-ne, if-lt, if-ge, if-gt, if-le
      */
     /* if-cmp vA, vB, +CCCC */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w0, wINST, #8, #4           // w0<- A
     GET_VREG w3, w1                     // w3<- vB
@@ -1401,6 +1466,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: if-eq, if-ne, if-lt, if-ge, if-gt, if-le
      */
     /* if-cmp vA, vB, +CCCC */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w0, wINST, #8, #4           // w0<- A
     GET_VREG w3, w1                     // w3<- vB
@@ -1427,6 +1493,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: if-eq, if-ne, if-lt, if-ge, if-gt, if-le
      */
     /* if-cmp vA, vB, +CCCC */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w0, wINST, #8, #4           // w0<- A
     GET_VREG w3, w1                     // w3<- vB
@@ -1453,6 +1520,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: if-eq, if-ne, if-lt, if-ge, if-gt, if-le
      */
     /* if-cmp vA, vB, +CCCC */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w0, wINST, #8, #4           // w0<- A
     GET_VREG w3, w1                     // w3<- vB
@@ -1479,6 +1547,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: if-eq, if-ne, if-lt, if-ge, if-gt, if-le
      */
     /* if-cmp vA, vB, +CCCC */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w0, wINST, #8, #4           // w0<- A
     GET_VREG w3, w1                     // w3<- vB
@@ -1505,6 +1574,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: if-eq, if-ne, if-lt, if-ge, if-gt, if-le
      */
     /* if-cmp vA, vB, +CCCC */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w0, wINST, #8, #4           // w0<- A
     GET_VREG w3, w1                     // w3<- vB
@@ -1531,6 +1601,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez
      */
     /* if-cmp vAA, +BBBB */
+    RESET_CFI
     lsr     w0, wINST, #8               // w0<- AA
     GET_VREG w2, w0                     // w2<- vAA
     FETCH_S wINST, 1                    // w1<- branch offset, in code units
@@ -1557,6 +1628,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez
      */
     /* if-cmp vAA, +BBBB */
+    RESET_CFI
     lsr     w0, wINST, #8               // w0<- AA
     GET_VREG w2, w0                     // w2<- vAA
     FETCH_S wINST, 1                    // w1<- branch offset, in code units
@@ -1583,6 +1655,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez
      */
     /* if-cmp vAA, +BBBB */
+    RESET_CFI
     lsr     w0, wINST, #8               // w0<- AA
     GET_VREG w2, w0                     // w2<- vAA
     FETCH_S wINST, 1                    // w1<- branch offset, in code units
@@ -1609,6 +1682,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez
      */
     /* if-cmp vAA, +BBBB */
+    RESET_CFI
     lsr     w0, wINST, #8               // w0<- AA
     GET_VREG w2, w0                     // w2<- vAA
     FETCH_S wINST, 1                    // w1<- branch offset, in code units
@@ -1635,6 +1709,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez
      */
     /* if-cmp vAA, +BBBB */
+    RESET_CFI
     lsr     w0, wINST, #8               // w0<- AA
     GET_VREG w2, w0                     // w2<- vAA
     FETCH_S wINST, 1                    // w1<- branch offset, in code units
@@ -1661,6 +1736,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez
      */
     /* if-cmp vAA, +BBBB */
+    RESET_CFI
     lsr     w0, wINST, #8               // w0<- AA
     GET_VREG w2, w0                     // w2<- vAA
     FETCH_S wINST, 1                    // w1<- branch offset, in code units
@@ -1757,6 +1833,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -1782,6 +1859,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      */
     /* aget-wide vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     and     w2, w0, #255                // w2<- BB
@@ -1809,6 +1887,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: aget-object
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     FETCH_B w3, 1, 1                    // w3<- CC
     EXPORT_PC
@@ -1841,6 +1920,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -1875,6 +1955,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -1909,6 +1990,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -1943,6 +2025,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -1976,6 +2059,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -2001,6 +2085,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      */
     /* aput-wide vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     and     w2, w0, #255                // w2<- BB
@@ -2026,6 +2111,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * Store an object into an array.  vBB[vCC] <- vAA.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xPC
@@ -2053,6 +2139,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -2087,6 +2174,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -2121,6 +2209,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -2155,6 +2244,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC
@@ -2181,6 +2271,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short
      */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                         // w0<- field ref CCCC
     lsr      w1, wINST, #12                // w1<- B
@@ -2211,6 +2302,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      * for: iget-wide
      */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                         // w0<- field ref CCCC
     lsr      w1, wINST, #12                // w1<- B
@@ -2238,6 +2330,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short
      */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                         // w0<- field ref CCCC
     lsr      w1, wINST, #12                // w1<- B
@@ -2270,6 +2363,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short
      */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                         // w0<- field ref CCCC
     lsr      w1, wINST, #12                // w1<- B
@@ -2302,6 +2396,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short
      */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                         // w0<- field ref CCCC
     lsr      w1, wINST, #12                // w1<- B
@@ -2334,6 +2429,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short
      */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                         // w0<- field ref CCCC
     lsr      w1, wINST, #12                // w1<- B
@@ -2366,6 +2462,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *
      * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short
      */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                         // w0<- field ref CCCC
     lsr      w1, wINST, #12                // w1<- B
@@ -2399,6 +2496,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* op vA, vB, field//CCCC */
     .extern artSet32InstanceFromMterp
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                      // w0<- field ref CCCC
     lsr      w1, wINST, #12             // w1<- B
@@ -2419,6 +2517,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iput_wide.S */
     /* iput-wide vA, vB, field//CCCC */
     .extern artSet64InstanceFromMterp
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                      // w0<- field ref CCCC
     lsr      w1, wINST, #12             // w1<- B
@@ -2437,6 +2536,7 @@ artMterpAsmInstructionStart = .L_op_nop
     .balign 128
 .L_op_iput_object: /* 0x5b */
 /* File: arm64/op_iput_object.S */
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xPC
@@ -2460,6 +2560,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* op vA, vB, field//CCCC */
     .extern artSet8InstanceFromMterp
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                      // w0<- field ref CCCC
     lsr      w1, wINST, #12             // w1<- B
@@ -2487,6 +2588,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* op vA, vB, field//CCCC */
     .extern artSet8InstanceFromMterp
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                      // w0<- field ref CCCC
     lsr      w1, wINST, #12             // w1<- B
@@ -2514,6 +2616,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* op vA, vB, field//CCCC */
     .extern artSet16InstanceFromMterp
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                      // w0<- field ref CCCC
     lsr      w1, wINST, #12             // w1<- B
@@ -2541,6 +2644,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* op vA, vB, field//CCCC */
     .extern artSet16InstanceFromMterp
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                      // w0<- field ref CCCC
     lsr      w1, wINST, #12             // w1<- B
@@ -2568,6 +2672,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vAA, field//BBBB */
 
     .extern MterpGet32Static
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]
@@ -2598,6 +2703,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* sget-wide vAA, field//BBBB */
 
     .extern MterpGet64StaticFromCode
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]
@@ -2624,6 +2730,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vAA, field//BBBB */
 
     .extern MterpGetObjStatic
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]
@@ -2657,6 +2764,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vAA, field//BBBB */
 
     .extern MterpGetBooleanStatic
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]
@@ -2690,6 +2798,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vAA, field//BBBB */
 
     .extern MterpGetByteStatic
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]
@@ -2723,6 +2832,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vAA, field//BBBB */
 
     .extern MterpGetCharStatic
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]
@@ -2756,6 +2866,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vAA, field//BBBB */
 
     .extern MterpGetShortStatic
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]
@@ -2786,6 +2897,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: sput, sput-boolean, sput-byte, sput-char, sput-short
      */
     /* op vAA, field//BBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // r0<- field ref BBBB
     lsr     w3, wINST, #8               // r3<- AA
@@ -2809,6 +2921,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* sput-wide vAA, field//BBBB */
     .extern MterpSet64Static
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // w0<- field ref BBBB
     lsr     w1, wINST, #8               // w1<- AA
@@ -2826,6 +2939,7 @@ artMterpAsmInstructionStart = .L_op_nop
     .balign 128
 .L_op_sput_object: /* 0x69 */
 /* File: arm64/op_sput_object.S */
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xPC
@@ -2848,6 +2962,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: sput, sput-boolean, sput-byte, sput-char, sput-short
      */
     /* op vAA, field//BBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // r0<- field ref BBBB
     lsr     w3, wINST, #8               // r3<- AA
@@ -2873,6 +2988,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: sput, sput-boolean, sput-byte, sput-char, sput-short
      */
     /* op vAA, field//BBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // r0<- field ref BBBB
     lsr     w3, wINST, #8               // r3<- AA
@@ -2898,6 +3014,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: sput, sput-boolean, sput-byte, sput-char, sput-short
      */
     /* op vAA, field//BBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // r0<- field ref BBBB
     lsr     w3, wINST, #8               // r3<- AA
@@ -2923,6 +3040,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * for: sput, sput-boolean, sput-byte, sput-char, sput-short
      */
     /* op vAA, field//BBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // r0<- field ref BBBB
     lsr     w3, wINST, #8               // r3<- AA
@@ -2948,6 +3066,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeVirtual
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -2981,6 +3100,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeSuper
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3014,6 +3134,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeDirect
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3040,6 +3161,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeStatic
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3067,6 +3189,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeInterface
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3093,6 +3216,7 @@ artMterpAsmInstructionStart = .L_op_nop
     .balign 128
 .L_op_return_void_no_barrier: /* 0x73 */
 /* File: arm64/op_return_void_no_barrier.S */
+    RESET_CFI
     ldr     w7, [xSELF, #THREAD_FLAGS_OFFSET]
     mov     x0, xSELF
     ands    w7, w7, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
@@ -3115,6 +3239,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeVirtualRange
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3141,6 +3266,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeSuperRange
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3167,6 +3293,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeDirectRange
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3193,6 +3320,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeStaticRange
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3219,6 +3347,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeInterfaceRange
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -3270,6 +3399,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      int-to-byte, int-to-char, int-to-short
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     GET_VREG w0, w3                     // w0<- vB
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -3295,6 +3425,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      int-to-byte, int-to-char, int-to-short
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     GET_VREG w0, w3                     // w0<- vB
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -3318,6 +3449,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: neg-long, not-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_WIDE x0, w3
@@ -3341,6 +3473,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: neg-long, not-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_WIDE x0, w3
@@ -3366,6 +3499,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      int-to-byte, int-to-char, int-to-short
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     GET_VREG w0, w3                     // w0<- vB
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -3389,6 +3523,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: neg-long, not-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_WIDE x0, w3
@@ -3405,6 +3540,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_int_to_long: /* 0x81 */
 /* File: arm64/op_int_to_long.S */
     /* int-to-long vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_S x0, w3                   // x0<- sign_extend(fp[B])
@@ -3426,6 +3562,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * TODO: refactor all of the conversions - parameterize width and use same template.
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG w0, w3
@@ -3448,6 +3585,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: int-to-double, float-to-double, float-to-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG w0, w3
@@ -3466,6 +3604,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // x1<- B from 15:12
     ubfx    w0, wINST, #8, #4           // x0<- A from 11:8
     FETCH_ADVANCE_INST 1                // advance rPC, load wINST
@@ -3491,6 +3630,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: int-to-double, float-to-double, float-to-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_WIDE x0, w3
@@ -3513,6 +3653,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: long-to-double, double-to-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_WIDE x0, w3
@@ -3536,6 +3677,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * TODO: refactor all of the conversions - parameterize width and use same template.
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG s0, w3
@@ -3558,6 +3700,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: int-to-double, float-to-double, float-to-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG s0, w3
@@ -3580,6 +3723,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: int-to-double, float-to-double, float-to-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG s0, w3
@@ -3602,6 +3746,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: int-to-double, float-to-double, float-to-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_WIDE d0, w3
@@ -3624,6 +3769,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: long-to-double, double-to-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_WIDE d0, w3
@@ -3646,6 +3792,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: int-to-double, float-to-double, float-to-long
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w4, wINST, #8, #4           // w4<- A
     GET_VREG_WIDE d0, w3
@@ -3670,6 +3817,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      int-to-byte, int-to-char, int-to-short
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     GET_VREG w0, w3                     // w0<- vB
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -3695,6 +3843,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      int-to-byte, int-to-char, int-to-short
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     GET_VREG w0, w3                     // w0<- vB
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -3720,6 +3869,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      int-to-byte, int-to-char, int-to-short
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     GET_VREG w0, w3                     // w0<- vB
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -3752,6 +3902,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -3791,6 +3942,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -3831,6 +3983,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -3870,6 +4023,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -3909,6 +4063,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -3948,6 +4103,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -3987,6 +4143,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -4026,6 +4183,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -4065,6 +4223,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -4104,6 +4263,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -4143,6 +4303,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC
@@ -4179,6 +4340,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4215,6 +4377,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4251,6 +4414,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4287,6 +4451,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4323,6 +4488,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4359,6 +4525,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4395,6 +4562,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4431,6 +4599,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4460,6 +4629,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: shl-long, shr-long, ushr-long
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr      w3, wINST, #8               // w3<- AA
     lsr      w2, w0, #8                  // w2<- CC
@@ -4485,6 +4655,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: shl-long, shr-long, ushr-long
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr      w3, wINST, #8               // w3<- AA
     lsr      w2, w0, #8                  // w2<- CC
@@ -4510,6 +4681,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: shl-long, shr-long, ushr-long
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr      w3, wINST, #8               // w3<- AA
     lsr      w2, w0, #8                  // w2<- CC
@@ -4536,6 +4708,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * form: <op> s0, s0, s1
      */
     /* floatop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // r0<- CCBB
     lsr     w1, w0, #8                  // r2<- CC
     and     w0, w0, #255                // r1<- BB
@@ -4561,6 +4734,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * form: <op> s0, s0, s1
      */
     /* floatop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // r0<- CCBB
     lsr     w1, w0, #8                  // r2<- CC
     and     w0, w0, #255                // r1<- BB
@@ -4586,6 +4760,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * form: <op> s0, s0, s1
      */
     /* floatop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // r0<- CCBB
     lsr     w1, w0, #8                  // r2<- CC
     and     w0, w0, #255                // r1<- BB
@@ -4611,6 +4786,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * form: <op> s0, s0, s1
      */
     /* floatop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // r0<- CCBB
     lsr     w1, w0, #8                  // r2<- CC
     and     w0, w0, #255                // r1<- BB
@@ -4637,6 +4813,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * form: <op> s0, s0, s1
      */
     /* floatop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // r0<- CCBB
     lsr     w1, w0, #8                  // r2<- CC
     and     w0, w0, #255                // r1<- BB
@@ -4668,6 +4845,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4704,6 +4882,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4740,6 +4919,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4776,6 +4956,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC
@@ -4799,6 +4980,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_rem_double: /* 0xaf */
 /* File: arm64/op_rem_double.S */
     /* rem vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w2, w0, #8                  // w2<- CC
     and     w1, w0, #255                // w1<- BB
@@ -4832,6 +5014,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -4868,6 +5051,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -4905,6 +5089,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -4941,6 +5126,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -4977,6 +5163,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -5013,6 +5200,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -5049,6 +5237,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -5085,6 +5274,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -5121,6 +5311,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -5157,6 +5348,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -5193,6 +5385,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB
@@ -5228,6 +5421,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE x1, w1               // x1<- vB
@@ -5263,6 +5457,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE x1, w1               // x1<- vB
@@ -5298,6 +5493,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE x1, w1               // x1<- vB
@@ -5333,6 +5529,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE x1, w1               // x1<- vB
@@ -5368,6 +5565,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE x1, w1               // x1<- vB
@@ -5403,6 +5601,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE x1, w1               // x1<- vB
@@ -5438,6 +5637,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE x1, w1               // x1<- vB
@@ -5473,6 +5673,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE x1, w1               // x1<- vB
@@ -5498,6 +5699,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * Generic 64-bit shift operation.
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG w1, w1                     // x1<- vB
@@ -5519,6 +5721,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * Generic 64-bit shift operation.
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG w1, w1                     // x1<- vB
@@ -5540,6 +5743,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * Generic 64-bit shift operation.
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG w1, w1                     // x1<- vB
@@ -5565,6 +5769,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: add-float/2addr, sub-float/2addr, mul-float/2addr, div-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG s1, w3
@@ -5589,6 +5794,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: add-float/2addr, sub-float/2addr, mul-float/2addr, div-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG s1, w3
@@ -5613,6 +5819,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: add-float/2addr, sub-float/2addr, mul-float/2addr, div-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG s1, w3
@@ -5637,6 +5844,7 @@ artMterpAsmInstructionStart = .L_op_nop
      * For: add-float/2addr, sub-float/2addr, mul-float/2addr, div-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG s1, w3
@@ -5653,6 +5861,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_rem_float_2addr: /* 0xca */
 /* File: arm64/op_rem_float_2addr.S */
     /* rem vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG s1, w3
@@ -5683,6 +5892,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE d1, w1               // x1<- vB
@@ -5718,6 +5928,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE d1, w1               // x1<- vB
@@ -5753,6 +5964,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE d1, w1               // x1<- vB
@@ -5788,6 +6000,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      sub-double/2addr, mul-double/2addr, div-double/2addr, rem-double/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE d1, w1               // x1<- vB
@@ -5809,6 +6022,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_rem_double_2addr: /* 0xcf */
 /* File: arm64/op_rem_double_2addr.S */
     /* rem vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE d1, w1                // d1<- vB
@@ -5839,6 +6053,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -5874,6 +6089,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -5909,6 +6125,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -5943,6 +6160,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -5977,6 +6195,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -6011,6 +6230,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -6045,6 +6265,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -6079,6 +6300,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
@@ -6118,6 +6340,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6158,6 +6381,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6199,6 +6423,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6239,6 +6464,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6279,6 +6505,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6319,6 +6546,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6359,6 +6587,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6399,6 +6628,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6439,6 +6669,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6479,6 +6710,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6519,6 +6751,7 @@ artMterpAsmInstructionStart = .L_op_nop
      *      shl-int/lit8, shr-int/lit8, ushr-int/lit8
      */
     /* binop/lit8 vAA, vBB, #+CC */
+    RESET_CFI
     FETCH_S w3, 1                       // w3<- ssssCCBB (sign-extended for CC)
     lsr     w9, wINST, #8               // w9<- AA
     and     w2, w3, #255                // w2<- BB
@@ -6542,6 +6775,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- object we're operating on
@@ -6559,6 +6793,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_iget_wide_quick: /* 0xe4 */
 /* File: arm64/op_iget_wide_quick.S */
     /* iget-wide-quick vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w4, 1                         // w4<- field byte offset
     GET_VREG w3, w2                     // w3<- object we're operating on
@@ -6576,6 +6811,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iget_object_quick.S */
     /* For: iget-object-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     EXPORT_PC
@@ -6596,6 +6832,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- fp[B], the object pointer
@@ -6612,6 +6849,7 @@ artMterpAsmInstructionStart = .L_op_nop
 .L_op_iput_wide_quick: /* 0xe7 */
 /* File: arm64/op_iput_wide_quick.S */
     /* iput-wide-quick vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w3, 1                         // w3<- field byte offset
     GET_VREG w2, w2                     // w2<- fp[B], the object pointer
@@ -6627,6 +6865,7 @@ artMterpAsmInstructionStart = .L_op_nop
     .balign 128
 .L_op_iput_object_quick: /* 0xe8 */
 /* File: arm64/op_iput_object_quick.S */
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xPC
@@ -6648,6 +6887,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeVirtualQuick
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -6674,6 +6914,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeVirtualQuickRange
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -6696,6 +6937,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- fp[B], the object pointer
@@ -6715,6 +6957,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- fp[B], the object pointer
@@ -6734,6 +6977,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- fp[B], the object pointer
@@ -6753,6 +6997,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- fp[B], the object pointer
@@ -6772,6 +7017,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- object we're operating on
@@ -6792,6 +7038,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- object we're operating on
@@ -6812,6 +7059,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- object we're operating on
@@ -6832,6 +7080,7 @@ artMterpAsmInstructionStart = .L_op_nop
 /* File: arm64/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- object we're operating on
@@ -6933,6 +7182,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op {vC, vD, vE, vF, vG}, meth@BBBB, proto@HHHH */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB, proto@HHHH */
     .extern MterpInvokePolymorphic
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -6958,6 +7208,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op {vC, vD, vE, vF, vG}, meth@BBBB, proto@HHHH */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB, proto@HHHH */
     .extern MterpInvokePolymorphicRange
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -6983,6 +7234,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeCustom
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -7009,6 +7261,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* op vB, {vD, vE, vF, vG, vA}, class@CCCC */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB */
     .extern MterpInvokeCustomRange
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME
@@ -7034,6 +7287,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* const/method-type vAA, proto@BBBB */
     /* const/string vAA, string@@BBBB */
     .extern MterpConstMethodHandle
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- BBBB
     lsr     w1, wINST, #8               // w1<- AA
@@ -7057,6 +7311,7 @@ artMterpAsmInstructionStart = .L_op_nop
     /* const/method-type vAA, proto@BBBB */
     /* const/string vAA, string@@BBBB */
     .extern MterpConstMethodType
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- BBBB
     lsr     w1, wINST, #8               // w1<- AA
@@ -7229,6 +7484,7 @@ MterpCommonTakenBranchNoFlags:
     ldr     lr, [xSELF, #THREAD_FLAGS_OFFSET]
     add     w2, wINST, wINST            // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update rPC, load wINST
+    .cfi_escape ART_FRAME,ADJUST_DEX_PC_REG,2
     REFRESH_IBASE
     ands    lr, lr, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
     b.ne    .L_suspend_request_pending
@@ -7261,6 +7517,7 @@ MterpCommonTakenBranchNoFlags:
 .L_resume_forward_branch:
     add     w2, wINST, wINST            // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update rPC, load wINST
+    .cfi_escape ART_FRAME,ADJUST_DEX_PC_REG,2
     GET_INST_OPCODE ip                  // extract opcode from wINST
     GOTO_OPCODE ip                      // jump to next instruction
 
@@ -7409,6 +7666,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (0 * 128)       // Addr of primary handler.
@@ -7426,6 +7684,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (1 * 128)       // Addr of primary handler.
@@ -7443,6 +7702,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (2 * 128)       // Addr of primary handler.
@@ -7460,6 +7720,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (3 * 128)       // Addr of primary handler.
@@ -7477,6 +7738,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (4 * 128)       // Addr of primary handler.
@@ -7494,6 +7756,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (5 * 128)       // Addr of primary handler.
@@ -7511,6 +7774,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (6 * 128)       // Addr of primary handler.
@@ -7528,6 +7792,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (7 * 128)       // Addr of primary handler.
@@ -7545,6 +7810,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (8 * 128)       // Addr of primary handler.
@@ -7562,6 +7828,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (9 * 128)       // Addr of primary handler.
@@ -7579,6 +7846,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (10 * 128)       // Addr of primary handler.
@@ -7596,6 +7864,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (11 * 128)       // Addr of primary handler.
@@ -7613,6 +7882,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (12 * 128)       // Addr of primary handler.
@@ -7630,6 +7900,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (13 * 128)       // Addr of primary handler.
@@ -7647,6 +7918,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (14 * 128)       // Addr of primary handler.
@@ -7664,6 +7936,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (15 * 128)       // Addr of primary handler.
@@ -7681,6 +7954,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (16 * 128)       // Addr of primary handler.
@@ -7698,6 +7972,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (17 * 128)       // Addr of primary handler.
@@ -7715,6 +7990,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (18 * 128)       // Addr of primary handler.
@@ -7732,6 +8008,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (19 * 128)       // Addr of primary handler.
@@ -7749,6 +8026,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (20 * 128)       // Addr of primary handler.
@@ -7766,6 +8044,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (21 * 128)       // Addr of primary handler.
@@ -7783,6 +8062,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (22 * 128)       // Addr of primary handler.
@@ -7800,6 +8080,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (23 * 128)       // Addr of primary handler.
@@ -7817,6 +8098,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (24 * 128)       // Addr of primary handler.
@@ -7834,6 +8116,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (25 * 128)       // Addr of primary handler.
@@ -7851,6 +8134,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (26 * 128)       // Addr of primary handler.
@@ -7868,6 +8152,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (27 * 128)       // Addr of primary handler.
@@ -7885,6 +8170,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (28 * 128)       // Addr of primary handler.
@@ -7902,6 +8188,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (29 * 128)       // Addr of primary handler.
@@ -7919,6 +8206,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (30 * 128)       // Addr of primary handler.
@@ -7936,6 +8224,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (31 * 128)       // Addr of primary handler.
@@ -7953,6 +8242,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (32 * 128)       // Addr of primary handler.
@@ -7970,6 +8260,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (33 * 128)       // Addr of primary handler.
@@ -7987,6 +8278,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (34 * 128)       // Addr of primary handler.
@@ -8004,6 +8296,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (35 * 128)       // Addr of primary handler.
@@ -8021,6 +8314,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (36 * 128)       // Addr of primary handler.
@@ -8038,6 +8332,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (37 * 128)       // Addr of primary handler.
@@ -8055,6 +8350,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (38 * 128)       // Addr of primary handler.
@@ -8072,6 +8368,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (39 * 128)       // Addr of primary handler.
@@ -8089,6 +8386,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (40 * 128)       // Addr of primary handler.
@@ -8106,6 +8404,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (41 * 128)       // Addr of primary handler.
@@ -8123,6 +8422,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (42 * 128)       // Addr of primary handler.
@@ -8140,6 +8440,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (43 * 128)       // Addr of primary handler.
@@ -8157,6 +8458,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (44 * 128)       // Addr of primary handler.
@@ -8174,6 +8476,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (45 * 128)       // Addr of primary handler.
@@ -8191,6 +8494,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (46 * 128)       // Addr of primary handler.
@@ -8208,6 +8512,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (47 * 128)       // Addr of primary handler.
@@ -8225,6 +8530,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (48 * 128)       // Addr of primary handler.
@@ -8242,6 +8548,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (49 * 128)       // Addr of primary handler.
@@ -8259,6 +8566,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (50 * 128)       // Addr of primary handler.
@@ -8276,6 +8584,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (51 * 128)       // Addr of primary handler.
@@ -8293,6 +8602,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (52 * 128)       // Addr of primary handler.
@@ -8310,6 +8620,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (53 * 128)       // Addr of primary handler.
@@ -8327,6 +8638,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (54 * 128)       // Addr of primary handler.
@@ -8344,6 +8656,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (55 * 128)       // Addr of primary handler.
@@ -8361,6 +8674,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (56 * 128)       // Addr of primary handler.
@@ -8378,6 +8692,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (57 * 128)       // Addr of primary handler.
@@ -8395,6 +8710,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (58 * 128)       // Addr of primary handler.
@@ -8412,6 +8728,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (59 * 128)       // Addr of primary handler.
@@ -8429,6 +8746,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (60 * 128)       // Addr of primary handler.
@@ -8446,6 +8764,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (61 * 128)       // Addr of primary handler.
@@ -8463,6 +8782,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (62 * 128)       // Addr of primary handler.
@@ -8480,6 +8800,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (63 * 128)       // Addr of primary handler.
@@ -8497,6 +8818,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (64 * 128)       // Addr of primary handler.
@@ -8514,6 +8836,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (65 * 128)       // Addr of primary handler.
@@ -8531,6 +8854,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (66 * 128)       // Addr of primary handler.
@@ -8548,6 +8872,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (67 * 128)       // Addr of primary handler.
@@ -8565,6 +8890,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (68 * 128)       // Addr of primary handler.
@@ -8582,6 +8908,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (69 * 128)       // Addr of primary handler.
@@ -8599,6 +8926,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (70 * 128)       // Addr of primary handler.
@@ -8616,6 +8944,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (71 * 128)       // Addr of primary handler.
@@ -8633,6 +8962,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (72 * 128)       // Addr of primary handler.
@@ -8650,6 +8980,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (73 * 128)       // Addr of primary handler.
@@ -8667,6 +8998,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (74 * 128)       // Addr of primary handler.
@@ -8684,6 +9016,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (75 * 128)       // Addr of primary handler.
@@ -8701,6 +9034,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (76 * 128)       // Addr of primary handler.
@@ -8718,6 +9052,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (77 * 128)       // Addr of primary handler.
@@ -8735,6 +9070,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (78 * 128)       // Addr of primary handler.
@@ -8752,6 +9088,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (79 * 128)       // Addr of primary handler.
@@ -8769,6 +9106,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (80 * 128)       // Addr of primary handler.
@@ -8786,6 +9124,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (81 * 128)       // Addr of primary handler.
@@ -8803,6 +9142,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (82 * 128)       // Addr of primary handler.
@@ -8820,6 +9160,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (83 * 128)       // Addr of primary handler.
@@ -8837,6 +9178,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (84 * 128)       // Addr of primary handler.
@@ -8854,6 +9196,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (85 * 128)       // Addr of primary handler.
@@ -8871,6 +9214,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (86 * 128)       // Addr of primary handler.
@@ -8888,6 +9232,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (87 * 128)       // Addr of primary handler.
@@ -8905,6 +9250,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (88 * 128)       // Addr of primary handler.
@@ -8922,6 +9268,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (89 * 128)       // Addr of primary handler.
@@ -8939,6 +9286,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (90 * 128)       // Addr of primary handler.
@@ -8956,6 +9304,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (91 * 128)       // Addr of primary handler.
@@ -8973,6 +9322,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (92 * 128)       // Addr of primary handler.
@@ -8990,6 +9340,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (93 * 128)       // Addr of primary handler.
@@ -9007,6 +9358,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (94 * 128)       // Addr of primary handler.
@@ -9024,6 +9376,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (95 * 128)       // Addr of primary handler.
@@ -9041,6 +9394,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (96 * 128)       // Addr of primary handler.
@@ -9058,6 +9412,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (97 * 128)       // Addr of primary handler.
@@ -9075,6 +9430,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (98 * 128)       // Addr of primary handler.
@@ -9092,6 +9448,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (99 * 128)       // Addr of primary handler.
@@ -9109,6 +9466,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (100 * 128)       // Addr of primary handler.
@@ -9126,6 +9484,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (101 * 128)       // Addr of primary handler.
@@ -9143,6 +9502,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (102 * 128)       // Addr of primary handler.
@@ -9160,6 +9520,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (103 * 128)       // Addr of primary handler.
@@ -9177,6 +9538,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (104 * 128)       // Addr of primary handler.
@@ -9194,6 +9556,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (105 * 128)       // Addr of primary handler.
@@ -9211,6 +9574,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (106 * 128)       // Addr of primary handler.
@@ -9228,6 +9592,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (107 * 128)       // Addr of primary handler.
@@ -9245,6 +9610,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (108 * 128)       // Addr of primary handler.
@@ -9262,6 +9628,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (109 * 128)       // Addr of primary handler.
@@ -9279,6 +9646,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (110 * 128)       // Addr of primary handler.
@@ -9296,6 +9664,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (111 * 128)       // Addr of primary handler.
@@ -9313,6 +9682,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (112 * 128)       // Addr of primary handler.
@@ -9330,6 +9700,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (113 * 128)       // Addr of primary handler.
@@ -9347,6 +9718,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (114 * 128)       // Addr of primary handler.
@@ -9364,6 +9736,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (115 * 128)       // Addr of primary handler.
@@ -9381,6 +9754,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (116 * 128)       // Addr of primary handler.
@@ -9398,6 +9772,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (117 * 128)       // Addr of primary handler.
@@ -9415,6 +9790,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (118 * 128)       // Addr of primary handler.
@@ -9432,6 +9808,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (119 * 128)       // Addr of primary handler.
@@ -9449,6 +9826,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (120 * 128)       // Addr of primary handler.
@@ -9466,6 +9844,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (121 * 128)       // Addr of primary handler.
@@ -9483,6 +9862,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (122 * 128)       // Addr of primary handler.
@@ -9500,6 +9880,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (123 * 128)       // Addr of primary handler.
@@ -9517,6 +9898,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (124 * 128)       // Addr of primary handler.
@@ -9534,6 +9916,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (125 * 128)       // Addr of primary handler.
@@ -9551,6 +9934,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (126 * 128)       // Addr of primary handler.
@@ -9568,6 +9952,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (127 * 128)       // Addr of primary handler.
@@ -9585,6 +9970,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (128 * 128)       // Addr of primary handler.
@@ -9602,6 +9988,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (129 * 128)       // Addr of primary handler.
@@ -9619,6 +10006,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (130 * 128)       // Addr of primary handler.
@@ -9636,6 +10024,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (131 * 128)       // Addr of primary handler.
@@ -9653,6 +10042,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (132 * 128)       // Addr of primary handler.
@@ -9670,6 +10060,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (133 * 128)       // Addr of primary handler.
@@ -9687,6 +10078,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (134 * 128)       // Addr of primary handler.
@@ -9704,6 +10096,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (135 * 128)       // Addr of primary handler.
@@ -9721,6 +10114,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (136 * 128)       // Addr of primary handler.
@@ -9738,6 +10132,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (137 * 128)       // Addr of primary handler.
@@ -9755,6 +10150,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (138 * 128)       // Addr of primary handler.
@@ -9772,6 +10168,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (139 * 128)       // Addr of primary handler.
@@ -9789,6 +10186,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (140 * 128)       // Addr of primary handler.
@@ -9806,6 +10204,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (141 * 128)       // Addr of primary handler.
@@ -9823,6 +10222,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (142 * 128)       // Addr of primary handler.
@@ -9840,6 +10240,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (143 * 128)       // Addr of primary handler.
@@ -9857,6 +10258,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (144 * 128)       // Addr of primary handler.
@@ -9874,6 +10276,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (145 * 128)       // Addr of primary handler.
@@ -9891,6 +10294,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (146 * 128)       // Addr of primary handler.
@@ -9908,6 +10312,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (147 * 128)       // Addr of primary handler.
@@ -9925,6 +10330,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (148 * 128)       // Addr of primary handler.
@@ -9942,6 +10348,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (149 * 128)       // Addr of primary handler.
@@ -9959,6 +10366,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (150 * 128)       // Addr of primary handler.
@@ -9976,6 +10384,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (151 * 128)       // Addr of primary handler.
@@ -9993,6 +10402,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (152 * 128)       // Addr of primary handler.
@@ -10010,6 +10420,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (153 * 128)       // Addr of primary handler.
@@ -10027,6 +10438,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (154 * 128)       // Addr of primary handler.
@@ -10044,6 +10456,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (155 * 128)       // Addr of primary handler.
@@ -10061,6 +10474,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (156 * 128)       // Addr of primary handler.
@@ -10078,6 +10492,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (157 * 128)       // Addr of primary handler.
@@ -10095,6 +10510,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (158 * 128)       // Addr of primary handler.
@@ -10112,6 +10528,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (159 * 128)       // Addr of primary handler.
@@ -10129,6 +10546,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (160 * 128)       // Addr of primary handler.
@@ -10146,6 +10564,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (161 * 128)       // Addr of primary handler.
@@ -10163,6 +10582,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (162 * 128)       // Addr of primary handler.
@@ -10180,6 +10600,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (163 * 128)       // Addr of primary handler.
@@ -10197,6 +10618,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (164 * 128)       // Addr of primary handler.
@@ -10214,6 +10636,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (165 * 128)       // Addr of primary handler.
@@ -10231,6 +10654,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (166 * 128)       // Addr of primary handler.
@@ -10248,6 +10672,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (167 * 128)       // Addr of primary handler.
@@ -10265,6 +10690,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (168 * 128)       // Addr of primary handler.
@@ -10282,6 +10708,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (169 * 128)       // Addr of primary handler.
@@ -10299,6 +10726,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (170 * 128)       // Addr of primary handler.
@@ -10316,6 +10744,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (171 * 128)       // Addr of primary handler.
@@ -10333,6 +10762,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (172 * 128)       // Addr of primary handler.
@@ -10350,6 +10780,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (173 * 128)       // Addr of primary handler.
@@ -10367,6 +10798,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (174 * 128)       // Addr of primary handler.
@@ -10384,6 +10816,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (175 * 128)       // Addr of primary handler.
@@ -10401,6 +10834,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (176 * 128)       // Addr of primary handler.
@@ -10418,6 +10852,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (177 * 128)       // Addr of primary handler.
@@ -10435,6 +10870,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (178 * 128)       // Addr of primary handler.
@@ -10452,6 +10888,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (179 * 128)       // Addr of primary handler.
@@ -10469,6 +10906,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (180 * 128)       // Addr of primary handler.
@@ -10486,6 +10924,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (181 * 128)       // Addr of primary handler.
@@ -10503,6 +10942,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (182 * 128)       // Addr of primary handler.
@@ -10520,6 +10960,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (183 * 128)       // Addr of primary handler.
@@ -10537,6 +10978,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (184 * 128)       // Addr of primary handler.
@@ -10554,6 +10996,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (185 * 128)       // Addr of primary handler.
@@ -10571,6 +11014,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (186 * 128)       // Addr of primary handler.
@@ -10588,6 +11032,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (187 * 128)       // Addr of primary handler.
@@ -10605,6 +11050,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (188 * 128)       // Addr of primary handler.
@@ -10622,6 +11068,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (189 * 128)       // Addr of primary handler.
@@ -10639,6 +11086,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (190 * 128)       // Addr of primary handler.
@@ -10656,6 +11104,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (191 * 128)       // Addr of primary handler.
@@ -10673,6 +11122,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (192 * 128)       // Addr of primary handler.
@@ -10690,6 +11140,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (193 * 128)       // Addr of primary handler.
@@ -10707,6 +11158,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (194 * 128)       // Addr of primary handler.
@@ -10724,6 +11176,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (195 * 128)       // Addr of primary handler.
@@ -10741,6 +11194,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (196 * 128)       // Addr of primary handler.
@@ -10758,6 +11212,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (197 * 128)       // Addr of primary handler.
@@ -10775,6 +11230,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (198 * 128)       // Addr of primary handler.
@@ -10792,6 +11248,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (199 * 128)       // Addr of primary handler.
@@ -10809,6 +11266,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (200 * 128)       // Addr of primary handler.
@@ -10826,6 +11284,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (201 * 128)       // Addr of primary handler.
@@ -10843,6 +11302,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (202 * 128)       // Addr of primary handler.
@@ -10860,6 +11320,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (203 * 128)       // Addr of primary handler.
@@ -10877,6 +11338,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (204 * 128)       // Addr of primary handler.
@@ -10894,6 +11356,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (205 * 128)       // Addr of primary handler.
@@ -10911,6 +11374,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (206 * 128)       // Addr of primary handler.
@@ -10928,6 +11392,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (207 * 128)       // Addr of primary handler.
@@ -10945,6 +11410,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (208 * 128)       // Addr of primary handler.
@@ -10962,6 +11428,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (209 * 128)       // Addr of primary handler.
@@ -10979,6 +11446,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (210 * 128)       // Addr of primary handler.
@@ -10996,6 +11464,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (211 * 128)       // Addr of primary handler.
@@ -11013,6 +11482,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (212 * 128)       // Addr of primary handler.
@@ -11030,6 +11500,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (213 * 128)       // Addr of primary handler.
@@ -11047,6 +11518,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (214 * 128)       // Addr of primary handler.
@@ -11064,6 +11536,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (215 * 128)       // Addr of primary handler.
@@ -11081,6 +11554,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (216 * 128)       // Addr of primary handler.
@@ -11098,6 +11572,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (217 * 128)       // Addr of primary handler.
@@ -11115,6 +11590,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (218 * 128)       // Addr of primary handler.
@@ -11132,6 +11608,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (219 * 128)       // Addr of primary handler.
@@ -11149,6 +11626,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (220 * 128)       // Addr of primary handler.
@@ -11166,6 +11644,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (221 * 128)       // Addr of primary handler.
@@ -11183,6 +11662,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (222 * 128)       // Addr of primary handler.
@@ -11200,6 +11680,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (223 * 128)       // Addr of primary handler.
@@ -11217,6 +11698,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (224 * 128)       // Addr of primary handler.
@@ -11234,6 +11716,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (225 * 128)       // Addr of primary handler.
@@ -11251,6 +11734,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (226 * 128)       // Addr of primary handler.
@@ -11268,6 +11752,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (227 * 128)       // Addr of primary handler.
@@ -11285,6 +11770,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (228 * 128)       // Addr of primary handler.
@@ -11302,6 +11788,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (229 * 128)       // Addr of primary handler.
@@ -11319,6 +11806,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (230 * 128)       // Addr of primary handler.
@@ -11336,6 +11824,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (231 * 128)       // Addr of primary handler.
@@ -11353,6 +11842,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (232 * 128)       // Addr of primary handler.
@@ -11370,6 +11860,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (233 * 128)       // Addr of primary handler.
@@ -11387,6 +11878,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (234 * 128)       // Addr of primary handler.
@@ -11404,6 +11896,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (235 * 128)       // Addr of primary handler.
@@ -11421,6 +11914,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (236 * 128)       // Addr of primary handler.
@@ -11438,6 +11932,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (237 * 128)       // Addr of primary handler.
@@ -11455,6 +11950,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (238 * 128)       // Addr of primary handler.
@@ -11472,6 +11968,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (239 * 128)       // Addr of primary handler.
@@ -11489,6 +11986,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (240 * 128)       // Addr of primary handler.
@@ -11506,6 +12004,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (241 * 128)       // Addr of primary handler.
@@ -11523,6 +12022,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (242 * 128)       // Addr of primary handler.
@@ -11540,6 +12040,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (243 * 128)       // Addr of primary handler.
@@ -11557,6 +12058,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (244 * 128)       // Addr of primary handler.
@@ -11574,6 +12076,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (245 * 128)       // Addr of primary handler.
@@ -11591,6 +12094,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (246 * 128)       // Addr of primary handler.
@@ -11608,6 +12112,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (247 * 128)       // Addr of primary handler.
@@ -11625,6 +12130,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (248 * 128)       // Addr of primary handler.
@@ -11642,6 +12148,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (249 * 128)       // Addr of primary handler.
@@ -11659,6 +12166,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (250 * 128)       // Addr of primary handler.
@@ -11676,6 +12184,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (251 * 128)       // Addr of primary handler.
@@ -11693,6 +12202,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (252 * 128)       // Addr of primary handler.
@@ -11710,6 +12220,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (253 * 128)       // Addr of primary handler.
@@ -11727,6 +12238,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (254 * 128)       // Addr of primary handler.
@@ -11744,6 +12256,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (255 * 128)       // Addr of primary handler.

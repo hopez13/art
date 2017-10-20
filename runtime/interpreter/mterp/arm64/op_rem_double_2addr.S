@@ -1,4 +1,5 @@
     /* rem vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE d1, w1                // d1<- vB

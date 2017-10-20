@@ -5,6 +5,7 @@
      * an already-resolved class.
      */
     /* instance-of vA, vB, class//CCCC */
+    RESET_CFI
     EXPORT_PC
     FETCH     w0, 1                     // w0<- CCCC
     lsr       w1, wINST, #12            // w1<- B

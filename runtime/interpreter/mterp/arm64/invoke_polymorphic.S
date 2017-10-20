@@ -5,6 +5,7 @@
     /* op {vC, vD, vE, vF, vG}, meth@BBBB, proto@HHHH */
     /* op {vCCCC..v(CCCC+AA-1)}, meth@BBBB, proto@HHHH */
     .extern $helper
+    RESET_CFI
     EXPORT_PC
     mov     x0, xSELF
     add     x1, xFP, #OFF_FP_SHADOWFRAME

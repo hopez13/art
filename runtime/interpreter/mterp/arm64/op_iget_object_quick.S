@@ -1,5 +1,6 @@
     /* For: iget-object-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     EXPORT_PC

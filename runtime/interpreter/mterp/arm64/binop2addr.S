@@ -14,6 +14,7 @@
      *      sub-float/2addr, mul-float/2addr, div-float/2addr, rem-float/2addr
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w9, wINST, #8, #4           // w9<- A
     GET_VREG w1, w3                     // w1<- vB

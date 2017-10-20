@@ -1,4 +1,5 @@
     /* fill-array-data vAA, +BBBBBBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // x0<- 000000000000bbbb (lo)
     FETCH_S x1, 2                       // x1<- ssssssssssssBBBB (hi)

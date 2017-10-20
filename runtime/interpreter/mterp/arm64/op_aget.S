@@ -11,6 +11,7 @@
      * If this changes, specialize.
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     lsr     w9, wINST, #8               // w9<- AA
     FETCH_B w3, 1, 1                    // w3<- CC

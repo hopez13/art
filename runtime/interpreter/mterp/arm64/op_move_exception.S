@@ -1,4 +1,5 @@
     /* move-exception vAA */
+    RESET_CFI
     lsr     w2, wINST, #8               // w2<- AA
     ldr     x3, [xSELF, #THREAD_EXCEPTION_OFFSET]
     mov     x1, #0                      // w1<- 0

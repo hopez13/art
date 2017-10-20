@@ -1,6 +1,7 @@
 %default { "store":"str" }
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset//CCCC */
+    RESET_CFI
     lsr     w2, wINST, #12              // w2<- B
     FETCH w1, 1                         // w1<- field byte offset
     GET_VREG w3, w2                     // w3<- fp[B], the object pointer

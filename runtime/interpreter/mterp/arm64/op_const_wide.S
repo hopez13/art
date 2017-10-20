@@ -1,4 +1,5 @@
     /* const-wide vAA, #+HHHHhhhhBBBBbbbb */
+    RESET_CFI
     FETCH w0, 1                         // w0<- bbbb (low)
     FETCH w1, 2                         // w1<- BBBB (low middle)
     FETCH w2, 3                         // w2<- hhhh (high middle)

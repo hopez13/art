@@ -12,6 +12,7 @@
      *      rem-int/lit16, and-int/lit16, or-int/lit16, xor-int/lit16
      */
     /* binop/lit16 vA, vB, #+CCCC */
+    RESET_CFI
     FETCH_S w1, 1                       // w1<- ssssCCCC (sign-extended)
     lsr     w2, wINST, #12              // w2<- B
     ubfx    w9, wINST, #8, #4           // w9<- A

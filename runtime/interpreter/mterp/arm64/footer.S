@@ -140,6 +140,7 @@ MterpCommonTakenBranchNoFlags:
     ldr     lr, [xSELF, #THREAD_FLAGS_OFFSET]
     add     w2, wINST, wINST            // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update rPC, load wINST
+    .cfi_escape ART_FRAME,ADJUST_DEX_PC_REG,2
     REFRESH_IBASE
     ands    lr, lr, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
     b.ne    .L_suspend_request_pending
@@ -172,6 +173,7 @@ MterpCommonTakenBranchNoFlags:
 .L_resume_forward_branch:
     add     w2, wINST, wINST            // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update rPC, load wINST
+    .cfi_escape ART_FRAME,ADJUST_DEX_PC_REG,2
     GET_INST_OPCODE ip                  // extract opcode from wINST
     GOTO_OPCODE ip                      // jump to next instruction
 

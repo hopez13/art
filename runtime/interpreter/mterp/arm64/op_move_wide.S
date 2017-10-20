@@ -1,5 +1,6 @@
     /* move-wide vA, vB */
     /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG_WIDE  x3, w3

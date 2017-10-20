@@ -1,6 +1,7 @@
 %default { "is_object":"0" }
     /* for move, move-object, long-to-int */
     /* op vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // x1<- B from 15:12
     ubfx    w0, wINST, #8, #4           // x0<- A from 11:8
     FETCH_ADVANCE_INST 1                // advance rPC, load wINST
