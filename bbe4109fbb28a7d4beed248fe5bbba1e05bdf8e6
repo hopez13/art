@@ -34,6 +34,24 @@
       "revId": "bbe4109fbb28a7d4beed248fe5bbba1e05bdf8e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baaa2076_a4d2cb5c",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-20T17:25:04Z",
+      "side": 1,
+      "message": "My point is that if you keep this DCHECK(), the following line can be simply changed to \"return true;\", so the DCHECK() in caller can not trigger anyway. You could as well rename this function to \"MaybeCheckConsistentPackedType()\" and add a DCHECK() also to the branch for Phis.",
+      "parentUuid": "72af4ff2_ecded6df",
+      "revId": "bbe4109fbb28a7d4beed248fe5bbba1e05bdf8e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
