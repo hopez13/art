@@ -3,6 +3,7 @@
  * any interesting requests and then jump to the real instruction
  * handler.  Note that the call to MterpCheckBefore is done as a tail call.
  */
+    RESET_CFI
     .extern MterpCheckBefore
     ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
     adr    lr, artMterpAsmInstructionStart + (${opnum} * 128)       // Addr of primary handler.

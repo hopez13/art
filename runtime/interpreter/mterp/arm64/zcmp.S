@@ -6,6 +6,7 @@
      * for: if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez
      */
     /* if-cmp vAA, +BBBB */
+    RESET_CFI
     lsr     w0, wINST, #8               // w0<- AA
     GET_VREG w2, w0                     // w2<- vAA
     FETCH_S wINST, 1                    // w1<- branch offset, in code units

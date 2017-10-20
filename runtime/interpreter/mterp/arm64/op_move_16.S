@@ -1,6 +1,7 @@
 %default { "is_object":"0" }
     /* for: move/16, move-object/16 */
     /* op vAAAA, vBBBB */
+    RESET_CFI
     FETCH w1, 2                         // w1<- BBBB
     FETCH w0, 1                         // w0<- AAAA
     FETCH_ADVANCE_INST 3                // advance xPC, load xINST

@@ -1,4 +1,5 @@
     /* const-wide/high16 vAA, #+BBBB000000000000 */
+    RESET_CFI
     FETCH w0, 1                         // w0<- 0000BBBB (zero-extended)
     lsr     w1, wINST, #8               // w1<- AA
     FETCH_ADVANCE_INST 2                // advance rPC, load wINST

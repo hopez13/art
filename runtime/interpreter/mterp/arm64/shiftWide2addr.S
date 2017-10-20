@@ -3,6 +3,7 @@
      * Generic 64-bit shift operation.
      */
     /* binop/2addr vA, vB */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w2, wINST, #8, #4           // w2<- A
     GET_VREG w1, w1                     // x1<- vB

@@ -6,6 +6,7 @@
      * form: <op> s0, s0, s1
      */
     /* floatop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // r0<- CCBB
     lsr     w1, w0, #8                  // r2<- CC
     and     w0, w0, #255                // r1<- BB

@@ -12,6 +12,7 @@
      *      xor-long, add-double, sub-double, mul-double, div-double, rem-double
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w4, wINST, #8               // w4<- AA
     lsr     w2, w0, #8                  // w2<- CC

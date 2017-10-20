@@ -5,6 +5,7 @@
     /* sget-wide vAA, field//BBBB */
 
     .extern MterpGet64StaticFromCode
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]

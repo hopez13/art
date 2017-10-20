@@ -15,6 +15,7 @@
      *      mul-float, div-float, rem-float
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr     w9, wINST, #8               // w9<- AA
     lsr     w3, w0, #8                  // w3<- CC

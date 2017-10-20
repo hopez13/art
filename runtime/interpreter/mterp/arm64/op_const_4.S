@@ -1,4 +1,5 @@
     /* const/4 vA, #+B */
+    RESET_CFI
     sbfx    w1, wINST, #12, #4          // w1<- sssssssB
     ubfx    w0, wINST, #8, #4           // w0<- A
     FETCH_ADVANCE_INST 1                // advance xPC, load wINST

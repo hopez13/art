@@ -9,6 +9,7 @@
      * for: packed-switch, sparse-switch
      */
     /* op vAA, +BBBB */
+    RESET_CFI
     FETCH   w0, 1                       // x0<- 000000000000bbbb (lo)
     FETCH_S x1, 2                       // x1<- ssssssssssssBBBB (hi)
     lsr     w3, wINST, #8               // w3<- AA

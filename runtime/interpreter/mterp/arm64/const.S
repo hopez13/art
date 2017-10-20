@@ -4,6 +4,7 @@
     /* const/method-type vAA, proto@BBBB */
     /* const/string vAA, string@@BBBB */
     .extern $helper
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- BBBB
     lsr     w1, wINST, #8               // w1<- AA

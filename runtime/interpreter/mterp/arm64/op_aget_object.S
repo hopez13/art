@@ -4,6 +4,7 @@
      * for: aget-object
      */
     /* op vAA, vBB, vCC */
+    RESET_CFI
     FETCH_B w2, 1, 0                    // w2<- BB
     FETCH_B w3, 1, 1                    // w3<- CC
     EXPORT_PC

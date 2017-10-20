@@ -7,6 +7,7 @@
      *      int-to-byte, int-to-char, int-to-short
      */
     /* unop vA, vB */
+    RESET_CFI
     lsr     w3, wINST, #12              // w3<- B
     GET_VREG w0, w3                     // w0<- vB
     ubfx    w9, wINST, #8, #4           // w9<- A

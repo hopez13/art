@@ -5,6 +5,7 @@
      * for: sput, sput-boolean, sput-byte, sput-char, sput-short
      */
     /* op vAA, field//BBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH   w0, 1                       // r0<- field ref BBBB
     lsr     w3, wINST, #8               // r3<- AA

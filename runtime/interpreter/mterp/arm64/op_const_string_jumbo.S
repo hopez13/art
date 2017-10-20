@@ -1,4 +1,5 @@
     /* const/string vAA, String//BBBBBBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH w0, 1                         // w0<- bbbb (low
     FETCH w2, 2                         // w2<- BBBB (high

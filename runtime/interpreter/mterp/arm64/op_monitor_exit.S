@@ -6,6 +6,7 @@
      * instruction spec.
      */
     /* monitor-exit vAA */
+    RESET_CFI
     EXPORT_PC
     lsr      w2, wINST, #8              // w2<- AA
     GET_VREG w0, w2                     // w0<- vAA (object)

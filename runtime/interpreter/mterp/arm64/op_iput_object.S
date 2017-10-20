@@ -1,3 +1,4 @@
+    RESET_CFI
     EXPORT_PC
     add     x0, xFP, #OFF_FP_SHADOWFRAME
     mov     x1, xPC

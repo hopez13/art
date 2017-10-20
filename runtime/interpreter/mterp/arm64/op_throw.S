@@ -2,6 +2,7 @@
      * Throw an exception object in the current thread.
      */
     /* throw vAA */
+    RESET_CFI
     EXPORT_PC
     lsr      w2, wINST, #8               // r2<- AA
     GET_VREG w1, w2                      // r1<- vAA (exception object)

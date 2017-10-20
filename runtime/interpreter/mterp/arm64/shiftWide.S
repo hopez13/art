@@ -5,6 +5,7 @@
      * For: shl-long, shr-long, ushr-long
      */
     /* binop vAA, vBB, vCC */
+    RESET_CFI
     FETCH w0, 1                         // w0<- CCBB
     lsr      w3, wINST, #8               // w3<- AA
     lsr      w2, w0, #8                  // w2<- CC

@@ -1,5 +1,6 @@
     /* for: move-result-wide */
     /* op vAA */
+    RESET_CFI
     lsr     w2, wINST, #8               // r2<- AA
     FETCH_ADVANCE_INST 1                // advance rPC, load wINST
     ldr     x0, [xFP, #OFF_FP_RESULT_REGISTER]  // get pointer to result JType.

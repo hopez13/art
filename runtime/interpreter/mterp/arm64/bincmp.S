@@ -5,6 +5,7 @@
      * For: if-eq, if-ne, if-lt, if-ge, if-gt, if-le
      */
     /* if-cmp vA, vB, +CCCC */
+    RESET_CFI
     lsr     w1, wINST, #12              // w1<- B
     ubfx    w0, wINST, #8, #4           // w0<- A
     GET_VREG w3, w1                     // w3<- vB

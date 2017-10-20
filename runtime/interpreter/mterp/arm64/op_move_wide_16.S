@@ -1,5 +1,6 @@
     /* move-wide/16 vAAAA, vBBBB */
     /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
+    RESET_CFI
     FETCH w3, 2                         // w3<- BBBB
     FETCH w2, 1                         // w2<- AAAA
     GET_VREG_WIDE x3, w3

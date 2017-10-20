@@ -47,6 +47,7 @@ ENTRY ExecuteMterpImpl
     ldr     w0, [x2, #SHADOWFRAME_DEX_PC_OFFSET]   // Get starting dex_pc.
     add     xPC, x1, #CODEITEM_INSNS_OFFSET        // Point to base of insns[]
     add     xPC, xPC, w0, lsl #1                   // Create direct pointer to 1st dex opcode
+    .cfi_register DPC_PSEUDO_REG, DPC_REG
     EXPORT_PC
 
     /* Starting ibase */

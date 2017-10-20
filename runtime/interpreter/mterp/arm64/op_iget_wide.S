@@ -3,6 +3,7 @@
      *
      * for: iget-wide
      */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                         // w0<- field ref CCCC
     lsr      w1, wINST, #12                // w1<- B

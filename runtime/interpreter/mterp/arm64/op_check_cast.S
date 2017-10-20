@@ -2,6 +2,7 @@
      * Check to see if a cast from one class to another is allowed.
      */
     /* check-cast vAA, class//BBBB */
+    RESET_CFI
     EXPORT_PC
     FETCH    w0, 1                      // w0<- BBBB
     lsr      w1, wINST, #8              // w1<- AA

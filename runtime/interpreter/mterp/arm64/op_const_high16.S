@@ -1,4 +1,5 @@
     /* const/high16 vAA, #+BBBB0000 */
+    RESET_CFI
     FETCH   w0, 1                       // r0<- 0000BBBB (zero-extended)
     lsr     w3, wINST, #8               // r3<- AA
     lsl     w0, w0, #16                 // r0<- BBBB0000
