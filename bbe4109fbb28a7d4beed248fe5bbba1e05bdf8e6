@@ -52,6 +52,24 @@
       "revId": "bbe4109fbb28a7d4beed248fe5bbba1e05bdf8e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e7ff3db_2aa4e0e8",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-20T17:30:16Z",
+      "side": 1,
+      "message": "Ah, I see your objection. I added the IsUnsigned in addition to the IsSigned just to make sure I had implemented them consistently (to catch the unlikely case only of the pairs would fail :-). But if I remove L271 you are okay again, right?",
+      "parentUuid": "baaa2076_a4d2cb5c",
+      "revId": "bbe4109fbb28a7d4beed248fe5bbba1e05bdf8e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
