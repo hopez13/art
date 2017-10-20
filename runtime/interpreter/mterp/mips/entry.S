@@ -54,6 +54,7 @@ ExecuteMterpImpl:
     lw      a0, SHADOWFRAME_DEX_PC_OFFSET(a2)     # Get starting dex_pc
     addu    rPC, a1, CODEITEM_INSNS_OFFSET        # Point to base of insns[]
     EAS1(rPC, rPC, a0)                            # Create direct pointer to 1st dex opcode
+    .cfi_register DPC_PSEUDO_REG, rPC
 
     EXPORT_PC()
 

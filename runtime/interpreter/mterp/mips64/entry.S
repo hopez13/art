@@ -74,6 +74,7 @@ ExecuteMterpImpl:
     daddu   rPC, a1, CODEITEM_INSNS_OFFSET
     lw      v0, SHADOWFRAME_DEX_PC_OFFSET(a2)
     dlsa    rPC, v0, rPC, 1
+    .cfi_register DPC_PSEUDO_REG, rPC
     EXPORT_PC
 
     /* Starting ibase */

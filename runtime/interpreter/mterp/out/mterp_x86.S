@@ -95,6 +95,7 @@ unspecified registers or condition codes.
  * to expand the macros into assembler assignment statements.
  */
 #include "asm_support.h"
+#include "interpreter/mterp/cfi_asm_support.h"
 
 /*
  * Handle mac compiler specific
@@ -380,6 +381,7 @@ SYMBOL(ExecuteMterpImpl):
     movl    SHADOWFRAME_DEX_PC_OFFSET(%edx), %eax
     lea     CODEITEM_INSNS_OFFSET(%ecx), rPC
     lea     (rPC, %eax, 2), rPC
+    .cfi_register DPC_PSEUDO_REG, rPC
     EXPORT_PC
 
     /* Set up for backwards branches & osr profiling */

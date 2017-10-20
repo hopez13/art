@@ -62,6 +62,7 @@ SYMBOL(ExecuteMterpImpl):
     movl    SHADOWFRAME_DEX_PC_OFFSET(%edx), %eax
     lea     CODEITEM_INSNS_OFFSET(%ecx), rPC
     lea     (rPC, %eax, 2), rPC
+    .cfi_register DPC_PSEUDO_REG, rPC
     EXPORT_PC
 
     /* Set up for backwards branches & osr profiling */

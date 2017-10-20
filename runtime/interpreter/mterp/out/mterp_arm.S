@@ -92,6 +92,7 @@ unspecified registers or condition codes.
  * to expand the macros into assembler assignment statements.
  */
 #include "asm_support.h"
+#include "interpreter/mterp/cfi_asm_support.h"
 
 #define MTERP_PROFILE_BRANCHES 1
 #define MTERP_LOGGING 0
@@ -376,6 +377,7 @@ ENTRY ExecuteMterpImpl
     ldr     r0, [r2, #SHADOWFRAME_DEX_PC_OFFSET]   @ Get starting dex_pc.
     add     rPC, r1, #CODEITEM_INSNS_OFFSET        @ Point to base of insns[]
     add     rPC, rPC, r0, lsl #1                   @ Create direct pointer to 1st dex opcode
+    .cfi_register DPC_PSEUDO_REG, rPC
     EXPORT_PC
 
     /* Starting ibase */

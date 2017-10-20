@@ -59,6 +59,7 @@ SYMBOL(ExecuteMterpImpl):
     movl    SHADOWFRAME_DEX_PC_OFFSET(IN_ARG2), %eax
     leaq    CODEITEM_INSNS_OFFSET(IN_ARG1), rPC
     leaq    (rPC, %rax, 2), rPC
+    .cfi_register DPC_PSEUDO_REG, rPC
     EXPORT_PC
 
     /* Starting ibase */
