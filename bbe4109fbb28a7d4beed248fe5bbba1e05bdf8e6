@@ -16,6 +16,24 @@
       "revId": "bbe4109fbb28a7d4beed248fe5bbba1e05bdf8e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4ff2_ecded6df",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-20T17:06:46Z",
+      "side": 1,
+      "message": "I don\u0027t disagree, but this way the function can be used at the caller with a DCHECK as\n\nDCHECK(HasConsistentPackedTypes(input, packed_type));\n\nso it won\u0027t even be seen by ndebug code. Over time, I added more dchecks inside the method.\n\nWould you prefer something else (I would prefer not using #ifdefs at caller)?",
+      "parentUuid": "89ab9b25_b774ea4b",
+      "revId": "bbe4109fbb28a7d4beed248fe5bbba1e05bdf8e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
