@@ -22,6 +22,7 @@
 #include <bitset>
 #include <deque>
 #include <iosfwd>
+#include <functional>
 #include <list>
 #include <memory>
 #include <string>
@@ -169,8 +170,25 @@ class Thread {
   // Used to implement JNI AttachCurrentThread and AttachCurrentThreadAsDaemon calls.
   static Thread* Attach(const char* thread_name, bool as_daemon, jobject thread_group,
                         bool create_peer);
+
   // Attaches the calling native thread to the runtime, returning the new native peer.
-  static Thread* Attach(const char* thread_name, bool as_daemon, jobject thread_peer);
+  static Thread* Attach(const char* thread_name, bool as_daemon, jobject thread_peer) {
+    std::function<bool(Thread*)> notify = [] (Thread* self ATTRIBUTE_UNUSED) {
+      return true;
+    };
+    return Attach(thread_name, as_daemon, thread_peer, notify);
+  }
+
+  // Attaches the calling native thread to the runtime, returning the native peer and calling the
+  // notify_success function with the native peer before any other threads are notified (i.e. by
+  // ThreadStart callback) if the attach succeeds. If notify_success returns false the thread will
+  // be destroyed. This can be used if one needs to execute code prior to *any* potentially
+  // user-controlled or other runtime code executing but after the thread has been completely
+  // initialized and attached.
+  static Thread* Attach(const char* thread_name,
+                        bool as_daemon,
+                        jobject thread_peer,
+                        std::function<bool(Thread*)> const& notify_success);
 
   // Reset internal state of child thread after fork.
   void InitAfterFork();

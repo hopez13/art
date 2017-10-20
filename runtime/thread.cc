@@ -29,6 +29,7 @@
 #include <bitset>
 #include <cerrno>
 #include <iostream>
+#include <functional>
 #include <list>
 #include <sstream>
 
@@ -858,7 +859,10 @@ Thread* Thread::Attach(const char* thread_name,
   return Attach(thread_name, as_daemon, create_peer_action);
 }
 
-Thread* Thread::Attach(const char* thread_name, bool as_daemon, jobject thread_peer) {
+Thread* Thread::Attach(const char* thread_name,
+                       bool as_daemon,
+                       jobject thread_peer,
+                       std::function<bool(Thread*)> const& notify) {
   auto set_peer_action = [&](Thread* self) {
     // Install the given peer.
     {
@@ -869,7 +873,7 @@ Thread* Thread::Attach(const char* thread_name, bool as_daemon, jobject thread_p
     self->GetJniEnv()->SetLongField(thread_peer,
                                     WellKnownClasses::java_lang_Thread_nativePeer,
                                     reinterpret_cast<jlong>(self));
-    return true;
+    return notify(self);
   };
   return Attach(thread_name, as_daemon, set_peer_action);
 }

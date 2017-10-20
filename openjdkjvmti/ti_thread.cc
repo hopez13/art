@@ -29,11 +29,14 @@
  * questions.
  */
 
+#include <functional>
+
 #include "ti_thread.h"
 
 #include "android-base/strings.h"
 #include "art_field-inl.h"
 #include "art_jvmti.h"
+#include "barrier.h"
 #include "base/logging.h"
 #include "base/mutex.h"
 #include "events-inl.h"
@@ -691,22 +694,88 @@ jvmtiError ThreadUtil::GetThreadLocalStorage(jvmtiEnv* env,
   return ERR(NONE);
 }
 
+enum class AgentThreadState {
+  kSuccess, kInternalFailure, kShuttingDown, kUninitialized,
+};
+
 struct AgentData {
-  const void* arg;
-  jvmtiStartFunction proc;
-  jthread thread;
-  JavaVM* java_vm;
-  jvmtiEnv* jvmti_env;
-  jint priority;
+ public:
+  AgentData(const void* arg,
+            jvmtiStartFunction proc,
+            jthread thread,
+            JavaVM* java_vm,
+            jvmtiEnv* jvmti_env,
+            jint priority)
+      : arg_(arg),
+        proc_(proc),
+        thread_(thread),
+        java_vm_(java_vm),
+        jvmti_env_(jvmti_env),
+        priority_(priority),
+        thread_state_(AgentThreadState::kUninitialized),
+        barrier_(0) {}
+
+  void NotifyCaller(AgentThreadState state) {
+    DCHECK(thread_state_ == AgentThreadState::kUninitialized) << "We already notified the caller!";
+    DCHECK(state != AgentThreadState::kUninitialized) << "Invalid state";
+    thread_state_ = state;
+    // If we failed then we haven't attached a thread so self is nullptr.
+    barrier_.Pass(state == AgentThreadState::kSuccess ? art::Thread::Current() : nullptr);
+  }
+
+  AgentThreadState WaitForAgentThread() {
+    barrier_.Increment(art::Thread::Current(), 1);
+    return thread_state_;
+  }
+
+  const void* arg_;
+  jvmtiStartFunction proc_;
+  jthread thread_;
+  JavaVM* java_vm_;
+  jvmtiEnv* jvmti_env_;
+  jint priority_;
+  AgentThreadState thread_state_;
+  art::Barrier barrier_;
 };
 
 static void* AgentCallback(void* arg) {
-  std::unique_ptr<AgentData> data(reinterpret_cast<AgentData*>(arg));
-  CHECK(data->thread != nullptr);
+  AgentData* data = reinterpret_cast<AgentData*>(arg);
+  CHECK(data->thread_ != nullptr);
 
+  // After we attach point the caller is free to delete the 'data' argument so make sure to copy
+  // everything we need first.
+  jvmtiStartFunction proc = data->proc_;
+  jvmtiEnv* jvmti_env = data->jvmti_env_;
+  const void* jvmti_arg = data->arg_;
+  JavaVM* java_vm = data->java_vm_;
+  jthread thread = data->thread_;
+
+  auto notify_success = [&](art::Thread* self ATTRIBUTE_UNUSED) {
+    data->NotifyCaller(AgentThreadState::kSuccess);
+    return true;
+  };
   // We already have a peer. So call our special Attach function.
-  art::Thread* self = art::Thread::Attach("JVMTI Agent thread", true, data->thread);
-  CHECK(self != nullptr);
+  art::Thread* self = art::Thread::Attach("JVMTI Agent thread",
+                                          true,
+                                          thread,
+                                          notify_success);
+  // If we are currently shutting down or something goes *very* wrong we will get nullptr.
+  if (UNLIKELY(self == nullptr)) {
+    if (art::Runtime::Current()->IsShuttingDown(nullptr)) {
+      // We raced with runtime destructor and lost. Since we are shutting down we cannot actually do
+      // anything and instead just return. The calling thread will deal with it (somehow).
+      LOG(WARNING) << "Unable to create thread during runtime shutdown.";
+      data->NotifyCaller(AgentThreadState::kShuttingDown);
+    } else {
+      // TODO It would be nice to give more information than this.
+      LOG(WARNING) << "Error occurred while starting up agent thread. Thread creation failed.";
+      data->NotifyCaller(AgentThreadState::kInternalFailure);
+    }
+    return nullptr;
+  }
+
+  data = nullptr;
+
   // The name in Attach() is only for logging. Set the thread name. This is important so
   // that the thread is no longer seen as starting up.
   {
@@ -716,14 +785,14 @@ static void* AgentCallback(void* arg) {
 
   // Release the peer.
   JNIEnv* env = self->GetJniEnv();
-  env->DeleteGlobalRef(data->thread);
-  data->thread = nullptr;
+  env->DeleteGlobalRef(thread);
+  thread = nullptr;
 
   // Run the agent code.
-  data->proc(data->jvmti_env, env, const_cast<void*>(data->arg));
+  proc(jvmti_env, env, const_cast<void*>(jvmti_arg));
 
   // Detach the thread.
-  int detach_result = data->java_vm->DetachCurrentThread();
+  int detach_result = java_vm->DetachCurrentThread();
   CHECK_EQ(detach_result, 0);
 
   return nullptr;
@@ -748,15 +817,14 @@ jvmtiError ThreadUtil::RunAgentThread(jvmtiEnv* jvmti_env,
     return ERR(NULL_POINTER);
   }
 
-  std::unique_ptr<AgentData> data(new AgentData);
-  data->arg = arg;
-  data->proc = proc;
-  // We need a global ref for Java objects, as local refs will be invalid.
-  data->thread = env->NewGlobalRef(thread);
-  data->java_vm = art::Runtime::Current()->GetJavaVM();
-  data->jvmti_env = jvmti_env;
-  data->priority = priority;
-
+  std::unique_ptr<AgentData> data(new AgentData(arg,
+                                                proc,
+                                                // We need a global ref for Java objects, as local
+                                                // refs will be invalid.
+                                                env->NewGlobalRef(thread),
+                                                art::Runtime::Current()->GetJavaVM(),
+                                                jvmti_env,
+                                                priority));
   pthread_t pthread;
   int pthread_create_result = pthread_create(&pthread,
                                              nullptr,
@@ -765,9 +833,25 @@ jvmtiError ThreadUtil::RunAgentThread(jvmtiEnv* jvmti_env,
   if (pthread_create_result != 0) {
     return ERR(INTERNAL);
   }
-  data.release();
 
-  return ERR(NONE);
+  switch (data->WaitForAgentThread()) {
+    case AgentThreadState::kSuccess:
+      return OK;
+    case AgentThreadState::kShuttingDown:
+      // TODO It's not fully clear from the spec what we should do here. We aren't yet in
+      // JVMTI_PHASE_DEAD so we cannot return ERR(WRONG_PHASE) but creating new threads is now
+      // impossible. Existing agents don't seem to generally do anything with this return value so
+      // it doesn't matter too much but we could do something like sending a fake ThreadStart event
+      // even though code is never actually run.
+      return ERR(INTERNAL);
+    case AgentThreadState::kInternalFailure:
+      // Something went wrong.
+      // TODO It would be good to give a more descriptive error.
+      return ERR(INTERNAL);
+    case AgentThreadState::kUninitialized:
+      LOG(FATAL) << "Unexpected thread-state uninitialized.";
+      UNREACHABLE();
+  }
 }
 
 jvmtiError ThreadUtil::SuspendOther(art::Thread* self,
