@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9baa907_bcb23ed6",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-20T17:59:11Z",
+      "side": 1,
+      "message": "maybe call it --dexoptstatus to be consistent.",
+      "range": {
+        "startLine": 110,
+        "startChar": 18,
+        "endLine": 110,
+        "endChar": 29
+      },
+      "revId": "8837718e721657ac86ad5d4874bf6449f9a892ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c543e59_bbfe46b3",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-20T17:59:11Z",
+      "side": 1,
+      "message": "explain that this is only return when --dexoptstatus is passed. Otherwise dexopt needed is returned.",
+      "range": {
+        "startLine": 117,
+        "startChar": 16,
+        "endLine": 118,
+        "endChar": 87
+      },
+      "revId": "8837718e721657ac86ad5d4874bf6449f9a892ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec03fda6_8d4c033e",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-20T17:59:11Z",
+      "side": 1,
+      "message": "status",
+      "range": {
+        "startLine": 129,
+        "startChar": 28,
+        "endLine": 129,
+        "endChar": 34
+      },
+      "revId": "8837718e721657ac86ad5d4874bf6449f9a892ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80c6fc62_a5d4b6f7",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-20T17:59:11Z",
+      "side": 1,
+      "message": "you will need an invalid value.",
+      "range": {
+        "startLine": 135,
+        "startChar": 21,
+        "endLine": 135,
+        "endChar": 29
+      },
+      "revId": "8837718e721657ac86ad5d4874bf6449f9a892ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3403836_c86de514",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-20T17:59:11Z",
+      "side": 1,
+      "message": "this is the status.",
+      "range": {
+        "startLine": 308,
+        "startChar": 49,
+        "endLine": 308,
+        "endChar": 62
+      },
+      "revId": "8837718e721657ac86ad5d4874bf6449f9a892ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "478d6e65_e0c54a56",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-20T17:59:11Z",
+      "side": 1,
+      "message": "and you shouldn\u0027t need this one.",
+      "range": {
+        "startLine": 309,
+        "startChar": 20,
+        "endLine": 309,
+        "endChar": 23
+      },
+      "revId": "8837718e721657ac86ad5d4874bf6449f9a892ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ccf6d04_02cc217c",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-10-20T17:59:11Z",
+      "side": 1,
+      "message": "you don\u0027t need to add this method. you can call GetCompilerFilter directly on the GetBestInfo().GetFile(). Note though that the file might be null",
+      "range": {
+        "startLine": 351,
+        "startChar": 29,
+        "endLine": 351,
+        "endChar": 46
+      },
+      "revId": "8837718e721657ac86ad5d4874bf6449f9a892ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
