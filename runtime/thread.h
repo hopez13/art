@@ -271,7 +271,7 @@ class Thread {
   // execute the checkpoint for us if it is Runnable.
   bool RequestSynchronousCheckpoint(Closure* function)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      RELEASE(Locks::thread_list_lock_)
+      UNLOCK_FUNCTION(Locks::thread_list_lock_)
       REQUIRES(!Locks::thread_suspend_count_lock_);
   bool RequestEmptyCheckpoint()
       REQUIRES(Locks::thread_suspend_count_lock_);
