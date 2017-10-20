@@ -87,6 +87,7 @@ codes.
  * to expand the macros into assembler assignment statements.
  */
 #include "asm_support.h"
+#include "interpreter/mterp/cfi_asm_support.h"
 
 #define MTERP_PROFILE_BRANCHES 1
 #define MTERP_LOGGING 0
@@ -94,6 +95,7 @@ codes.
 /* During bringup, we'll use the shadow frame model instead of xFP */
 /* single-purpose registers, given names for clarity */
 #define xPC      x20
+#define DPC_REG   20
 #define xFP      x21
 #define xSELF    x22
 #define xINST    x23
@@ -156,6 +158,7 @@ codes.
  */
 .macro FETCH_ADVANCE_INST count
     ldrh    wINST, [xPC, #((\count)*2)]!
+    CFI_VAL_OFFSET DPC_PSEUDO_REG, ((\count)*2)
 .endm
 
 /*
@@ -164,6 +167,7 @@ codes.
  */
 .macro PREFETCH_ADVANCE_INST dreg, sreg, count
     ldrh    \dreg, [\sreg, #((\count)*2)]!
+    CFI_VAL_OFFEST DPC_PSEUDO_REG, ((\count)*2)
 .endm
 
 /*
@@ -178,6 +182,7 @@ codes.
 /* Advance xPC by some number of code units. */
 .macro ADVANCE count
   add  xPC, xPC, #((\count)*2)
+  CFI_VAL_OFFSET DPC_PSEUDO_REG, ((\count)*2)
 .endm
 
 /*
@@ -332,6 +337,7 @@ codes.
 .endm
 
 /*
+<<<<<<< HEAD
  * cfi support macros.
  */
 .macro ENTRY name

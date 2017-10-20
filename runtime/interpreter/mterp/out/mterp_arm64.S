@@ -94,6 +94,7 @@ codes.
  * to expand the macros into assembler assignment statements.
  */
 #include "asm_support.h"
+#include "interpreter/mterp/cfi_asm_support.h"
 
 #define MTERP_PROFILE_BRANCHES 1
 #define MTERP_LOGGING 0
@@ -101,6 +102,7 @@ codes.
 /* During bringup, we'll use the shadow frame model instead of xFP */
 /* single-purpose registers, given names for clarity */
 #define xPC      x20
+#define DPC_REG   20
 #define xFP      x21
 #define xSELF    x22
 #define xINST    x23
@@ -163,6 +165,7 @@ codes.
  */
 .macro FETCH_ADVANCE_INST count
     ldrh    wINST, [xPC, #((\count)*2)]!
+    CFI_VAL_OFFSET DPC_PSEUDO_REG, ((\count)*2)
 .endm
 
 /*
@@ -171,6 +174,7 @@ codes.
  */
 .macro PREFETCH_ADVANCE_INST dreg, sreg, count
     ldrh    \dreg, [\sreg, #((\count)*2)]!
+    CFI_VAL_OFFEST DPC_PSEUDO_REG, ((\count)*2)
 .endm
 
 /*
@@ -185,6 +189,7 @@ codes.
 /* Advance xPC by some number of code units. */
 .macro ADVANCE count
   add  xPC, xPC, #((\count)*2)
+  CFI_VAL_OFFSET DPC_PSEUDO_REG, ((\count)*2)
 .endm
 
 /*
@@ -339,6 +344,7 @@ codes.
 .endm
 
 /*
+<<<<<<< HEAD
  * cfi support macros.
  */
 .macro ENTRY name
@@ -378,7 +384,7 @@ codes.
  * Interpreter entry point.
  * On entry:
  *  x0  Thread* self/
- *  x1  code_item
+ *  x1  insns_
  *  x2  ShadowFrame
  *  x3  JValue* result_register
  *
@@ -404,6 +410,7 @@ ENTRY ExecuteMterpImpl
     add     xREFS, xFP, w0, lsl #2                 // point to reference array in shadow frame
     ldr     w0, [x2, #SHADOWFRAME_DEX_PC_OFFSET]   // Get starting dex_pc.
     add     xPC, x1, w0, lsl #1                    // Create direct pointer to 1st dex opcode
+    .cfi_register DPC_PSEUDO_REG, DPC_REG
     EXPORT_PC
 
     /* Starting ibase */
@@ -7227,6 +7234,7 @@ MterpCommonTakenBranchNoFlags:
     ldr     lr, [xSELF, #THREAD_FLAGS_OFFSET]
     add     w2, wINST, wINST            // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update rPC, load wINST
+    CFI_VAL_OFFSET DPC_PSEUDO_REG,2
     REFRESH_IBASE
     ands    lr, lr, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
     b.ne    .L_suspend_request_pending
@@ -7259,6 +7267,7 @@ MterpCommonTakenBranchNoFlags:
 .L_resume_forward_branch:
     add     w2, wINST, wINST            // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update rPC, load wINST
+    CFI_VAL_OFFSET DPC_PSEUDO_REG,2
     GET_INST_OPCODE ip                  // extract opcode from wINST
     GOTO_OPCODE ip                      // jump to next instruction
 
