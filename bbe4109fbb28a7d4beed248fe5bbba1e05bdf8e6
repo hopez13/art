@@ -70,6 +70,24 @@
       "revId": "bbe4109fbb28a7d4beed248fe5bbba1e05bdf8e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aca9ca17_8aa2a818",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-20T17:35:10Z",
+      "side": 1,
+      "message": "Yes. Or you can\n\n  DCHECK_EQ(HVecOperation::ToUnsignedType(input_type) \u003d\u003d HVecOperation::ToUnsignedType(type),\n            HVecOperation::ToSignedType(input_type) \u003d\u003d HVecOperation::ToSignedType(type));\n\nif you want.",
+      "parentUuid": "1e7ff3db_2aa4e0e8",
+      "revId": "bbe4109fbb28a7d4beed248fe5bbba1e05bdf8e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
