@@ -150,6 +150,12 @@ class HVecOperation : public HVariableInputSizeInstruction {
     }
   }
 
+  // Maps an integral type to the same-size (un)signed type and fails for all other types.
+  static DataType::Type ToProperType(DataType::Type type, bool is_unsigned) {
+    DCHECK(DataType::IsIntegralType(type));
+    return is_unsigned ? ToUnsignedType(type) : ToSignedType(type);
+  }
+
   DECLARE_ABSTRACT_INSTRUCTION(VecOperation);
 
  protected:
