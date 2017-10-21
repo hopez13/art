@@ -1837,7 +1837,10 @@ bool DexFileVerifier::CheckIntraDataSection(size_t offset,
 
   size_t next_offset = ptr_ - begin_;
   if (next_offset > data_end) {
-    ErrorStringPrintf("Out-of-bounds end of data subsection: %zx", next_offset);
+    ErrorStringPrintf("Out-of-bounds end of data subsection: %zu data_off=%u data_size=%u",
+                      next_offset,
+                      header_->data_off_,
+                      header_->data_size_);
     return false;
   }
 
