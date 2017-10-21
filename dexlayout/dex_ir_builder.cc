@@ -24,6 +24,7 @@
 namespace art {
 namespace dex_ir {
 
+// Returns the size of the map item list in bytes.
 static void CheckAndSetRemainingOffsets(const DexFile& dex_file, Collections* collections);
 
 Header* DexIrBuilder(const DexFile& dex_file) {
@@ -72,6 +73,7 @@ Header* DexIrBuilder(const DexFile& dex_file) {
   }
   // MapItem.
   collections.SetMapListOffset(disk_header.map_off_);
+
   // CallSiteIds and MethodHandleItems.
   collections.CreateCallSitesAndMethodHandles(dex_file);
 
