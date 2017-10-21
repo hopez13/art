@@ -24,7 +24,8 @@
 namespace art {
 namespace dex_ir {
 
-static void CheckAndSetRemainingOffsets(const DexFile& dex_file, Collections* collections);
+// Returns the size of the map item list in bytes.
+static size_t CheckAndSetRemainingOffsets(const DexFile& dex_file, Collections* collections);
 
 Header* DexIrBuilder(const DexFile& dex_file) {
   const DexFile::Header& disk_header = dex_file.GetHeader();
@@ -72,15 +73,16 @@ Header* DexIrBuilder(const DexFile& dex_file) {
   }
   // MapItem.
   collections.SetMapListOffset(disk_header.map_off_);
+
   // CallSiteIds and MethodHandleItems.
   collections.CreateCallSitesAndMethodHandles(dex_file);
 
-  CheckAndSetRemainingOffsets(dex_file, &collections);
+  collections.SetMapListSize(CheckAndSetRemainingOffsets(dex_file, &collections));
 
   return header;
 }
 
-static void CheckAndSetRemainingOffsets(const DexFile& dex_file, Collections* collections) {
+static size_t CheckAndSetRemainingOffsets(const DexFile& dex_file, Collections* collections) {
   const DexFile::Header& disk_header = dex_file.GetHeader();
   // Read MapItems and validate/set remaining offsets.
   const DexFile::MapList* map =
@@ -163,6 +165,7 @@ static void CheckAndSetRemainingOffsets(const DexFile& dex_file, Collections* co
         LOG(ERROR) << "Unknown map list item type.";
     }
   }
+  return count * sizeof(DexFile::MapItem);
 }
 
 }  // namespace dex_ir

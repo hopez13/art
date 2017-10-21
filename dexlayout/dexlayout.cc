@@ -52,6 +52,7 @@ namespace art {
 
 using android::base::StringPrintf;
 
+static constexpr bool kChangeClassDefOrder = false;
 static constexpr uint32_t kDexCodeItemAlignment = 4;
 
 /*
@@ -1581,9 +1582,13 @@ std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const Dex
   std::vector<dex_ir::ClassData*> new_class_data_order;
   for (uint32_t i = 0; i < new_class_def_order.size(); ++i) {
     dex_ir::ClassDef* class_def = new_class_def_order[i];
-    class_def->SetIndex(i);
-    class_def->SetOffset(class_defs_offset);
-    class_defs_offset += dex_ir::ClassDef::ItemSize();
+    if (kChangeClassDefOrder) {
+      // This produces dex files that violate the spec since the super class class_def is supposed
+      // to occur before any subclasses.
+      class_def->SetIndex(i);
+      class_def->SetOffset(class_defs_offset);
+      class_defs_offset += dex_ir::ClassDef::ItemSize();
+    }
     dex_ir::ClassData* class_data = class_def->GetClassData();
     if (class_data != nullptr && visited_class_data.find(class_data) == visited_class_data.end()) {
       class_data->SetOffset(class_data_offset);
@@ -1936,6 +1941,9 @@ void DexLayout::FixupSections(uint32_t offset, uint32_t diff) {
     collections.SetAnnotationsDirectoryItemsOffset(annotations_directory_items_offset + diff);
     FixupSection(collections.AnnotationsDirectoryItems(), diff);
   }
+
+  // Recalculate the data section since the dex file may have grown in size.
+  header_->UpdateDataSectionOffsetAndSize();
 }
 
 void DexLayout::LayoutOutputFile(const DexFile* dex_file) {
@@ -2002,7 +2010,7 @@ void DexLayout::OutputDexFile(const DexFile* dex_file) {
                                                                        /*verify_checksum*/ false,
                                                                        &error_msg));
     // Disabled since it is currently failing for dex2oat_image_test.
-    // DCHECK(output_dex_file != nullptr) << "Failed to re-open output file:" << error_msg;
+    DCHECK(output_dex_file != nullptr) << "Failed to re-open output file:" << error_msg;
   }
   // Do IR-level comparison between input and output. This check ignores potential differences
   // due to layout, so offsets are not checked. Instead, it checks the data contents of each item.

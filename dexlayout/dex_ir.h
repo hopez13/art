@@ -278,6 +278,8 @@ class Collections {
   uint32_t ClassDatasOffset() const { return class_datas_.GetOffset(); }
   uint32_t MapListOffset() const { return map_list_offset_; }
 
+  uint32_t MapListSize() const { return map_list_size_; }
+
   void SetStringIdsOffset(uint32_t new_offset) { string_ids_.SetOffset(new_offset); }
   void SetTypeIdsOffset(uint32_t new_offset) { type_ids_.SetOffset(new_offset); }
   void SetProtoIdsOffset(uint32_t new_offset) { proto_ids_.SetOffset(new_offset); }
@@ -302,6 +304,8 @@ class Collections {
   void SetCodeItemsOffset(uint32_t new_offset) { code_items_.SetOffset(new_offset); }
   void SetClassDatasOffset(uint32_t new_offset) { class_datas_.SetOffset(new_offset); }
   void SetMapListOffset(uint32_t new_offset) { map_list_offset_ = new_offset; }
+
+  void SetMapListSize(uint32_t new_size) { map_list_size_ = new_size; }
 
   uint32_t StringIdsSize() const { return string_ids_.Size(); }
   uint32_t TypeIdsSize() const { return type_ids_.Size(); }
@@ -352,6 +356,7 @@ class Collections {
   CollectionMap<ClassData> class_datas_;
 
   uint32_t map_list_offset_ = 0;
+  uint32_t map_list_size_ = 0;
 
   DISALLOW_COPY_AND_ASSIGN(Collections);
 };
@@ -441,6 +446,9 @@ class Header : public Item {
   Collections& GetCollections() { return collections_; }
 
   void Accept(AbstractDispatcher* dispatch) { dispatch->Dispatch(this); }
+
+  // Update data size and offset based on the sections in the collection.
+  void UpdateDataSectionOffsetAndSize();
 
  private:
   uint8_t magic_[8];

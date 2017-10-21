@@ -179,6 +179,27 @@ static bool GetIdsFromByteCode(Collections& collections,
   return has_id;
 }
 
+void Header::UpdateDataSectionOffsetAndSize() {
+  // Data section contains:
+  // map_list, string_data_item, call_site_item, class_data_item, type_list, code_item, and
+  // debug_info_item.
+  uint32_t data_start = collections_.MapListOffset();
+  uint32_t data_end = data_start + collections_.MapListSize();
+  auto add_section = [&](uint32_t offset, uint32_t size) {
+    data_start = std::min(offset, data_start);
+    data_end = std::max(offset + size, data_end);
+  };
+  add_section(collections_.StringDatasOffset(), collections_.StringDatasSize());
+  add_section(collections_.CallSiteIdsOffset(), collections_.CallSiteIdsSize());
+  add_section(collections_.ClassDatasOffset(), collections_.ClassDatasSize());
+  add_section(collections_.TypeListsOffset(), collections_.TypeListsSize());
+  add_section(collections_.CodeItemsOffset(), collections_.CodeItemsSize());
+  add_section(collections_.DebugInfoItemsOffset(), collections_.DebugInfoItemsSize());
+  data_offset_ = data_start;
+  // Must be even multiple of sizeof(uint).
+  data_size_ = RoundUp(data_end - data_start, sizeof(uint32_t) * 2);
+}
+
 EncodedValue* Collections::ReadEncodedValue(const uint8_t** data) {
   const uint8_t encoded_value = *(*data)++;
   const uint8_t type = encoded_value & 0x1f;
