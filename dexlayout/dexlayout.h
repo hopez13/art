@@ -23,12 +23,14 @@
 #ifndef ART_DEXLAYOUT_DEXLAYOUT_H_
 #define ART_DEXLAYOUT_DEXLAYOUT_H_
 
+#include <memory>
 #include <stdint.h>
 #include <stdio.h>
 
 #include "dex_file_layout.h"
 #include "dex_ir.h"
 #include "mem_map.h"
+#include "os.h"
 
 namespace art {
 
@@ -59,7 +61,7 @@ class Options {
   bool show_section_headers_ = false;
   bool show_section_statistics_ = false;
   bool verbose_ = false;
-  bool verify_output_ = false;
+  bool verify_output_ = kIsDebugBuild;
   bool visualize_pattern_ = false;
   OutputFormat output_format_ = kOutputPlain;
   const char* output_dex_directory_ = nullptr;
@@ -129,7 +131,7 @@ class DexLayout {
   // Creates a new layout for the dex file based on profile info.
   // Currently reorders ClassDefs, ClassDataItems, and CodeItems.
   void LayoutOutputFile(const DexFile* dex_file);
-  void OutputDexFile(const DexFile* dex_file);
+  void OutputDexFile(const DexFile* dex_file, std::unique_ptr<File>* out_file);
 
   void DumpCFG(const DexFile* dex_file, int idx);
   void DumpCFG(const DexFile* dex_file, uint32_t dex_method_idx, const DexFile::CodeItem* code);

@@ -1948,10 +1948,10 @@ void DexLayout::LayoutOutputFile(const DexFile* dex_file) {
   header_->SetFileSize(header_->FileSize() + diff);
 }
 
-void DexLayout::OutputDexFile(const DexFile* dex_file) {
+void DexLayout::OutputDexFile(const DexFile* dex_file, std::unique_ptr<File>* out_file) {
   const std::string& dex_file_location = dex_file->GetLocation();
   std::string error_msg;
-  std::unique_ptr<File> new_file;
+
   if (!options_.output_to_memmap_) {
     std::string output_location(options_.output_dex_directory_);
     size_t last_slash = dex_file_location.rfind('/');
@@ -1963,51 +1963,38 @@ void DexLayout::OutputDexFile(const DexFile* dex_file) {
     } else {
       output_location += "/" + dex_file_location + ".new";
     }
-    new_file.reset(OS::CreateEmptyFile(output_location.c_str()));
-    if (new_file == nullptr) {
+    DCHECK(out_file != nullptr);
+    out_file->reset(OS::CreateEmptyFile(output_location.c_str()));
+    if (*out_file == nullptr) {
       LOG(ERROR) << "Could not create dex writer output file: " << output_location;
       return;
     }
-    if (ftruncate(new_file->Fd(), header_->FileSize()) != 0) {
+    if (ftruncate((*out_file)->Fd(), header_->FileSize()) != 0) {
       LOG(ERROR) << "Could not grow dex writer output file: " << output_location;;
-      new_file->Erase();
+      (*out_file)->Erase();
       return;
     }
-    mem_map_.reset(MemMap::MapFile(header_->FileSize(), PROT_READ | PROT_WRITE, MAP_SHARED,
-        new_file->Fd(), 0, /*low_4gb*/ false, output_location.c_str(), &error_msg));
+    mem_map_.reset(MemMap::MapFile(header_->FileSize(),
+                                   PROT_READ | PROT_WRITE, MAP_SHARED,
+                                   (*out_file)->Fd(),
+                                   0,
+                                   /*low_4gb*/ false,
+                                   output_location.c_str(),
+                                   &error_msg));
   } else {
     mem_map_.reset(MemMap::MapAnonymous("layout dex", nullptr, header_->FileSize(),
         PROT_READ | PROT_WRITE, /* low_4gb */ false, /* reuse */ false, &error_msg));
   }
   if (mem_map_ == nullptr) {
     LOG(ERROR) << "Could not create mem map for dex writer output: " << error_msg;
-    if (new_file != nullptr) {
-      new_file->Erase();
+    if (*out_file != nullptr) {
+      (*out_file)->Erase();
     }
     return;
   }
   DexWriter::Output(header_, mem_map_.get());
-  if (new_file != nullptr) {
-    UNUSED(new_file->FlushCloseOrErase());
-  }
-  // Verify the output dex file's structure for debug builds.
-  if (kIsDebugBuild) {
-    std::string location = "memory mapped file for " + dex_file_location;
-    std::unique_ptr<const DexFile> output_dex_file(DexFileLoader::Open(mem_map_->Begin(),
-                                                                       mem_map_->Size(),
-                                                                       location,
-                                                                       header_->Checksum(),
-                                                                       /*oat_dex_file*/ nullptr,
-                                                                       /*verify*/ true,
-                                                                       /*verify_checksum*/ false,
-                                                                       &error_msg));
-    DCHECK(output_dex_file != nullptr) << "Failed to re-open output file:" << error_msg;
-  }
-  // Do IR-level comparison between input and output. This check ignores potential differences
-  // due to layout, so offsets are not checked. Instead, it checks the data contents of each item.
-  if (kIsDebugBuild || options_.verify_output_) {
-    std::unique_ptr<dex_ir::Header> orig_header(dex_ir::DexIrBuilder(*dex_file));
-    CHECK(VerifyOutputDexFile(orig_header.get(), header_, &error_msg)) << error_msg;
+  if (*out_file != nullptr) {
+    UNUSED((*out_file)->FlushCloseOrErase());
   }
 }
 
@@ -2041,11 +2028,39 @@ void DexLayout::ProcessDexFile(const char* file_name,
   }
 
   // Output dex file as file or memmap.
+  std::unique_ptr<File> out_file;
+  // In case we are outputting to a file, keep it open so we can verify.
   if (options_.output_dex_directory_ != nullptr || options_.output_to_memmap_) {
     if (info_ != nullptr) {
       LayoutOutputFile(dex_file);
     }
-    OutputDexFile(dex_file);
+    OutputDexFile(dex_file, &out_file);
+
+    // Clear header before verifying to reduce peak RAM usage.
+    header.reset();
+
+    // Verify the output dex file's structure, only enabled by default for debug builds.
+    if (options_.verify_output_) {
+      std::string error_msg;
+      std::string location = "memory mapped file for " + std::string(file_name);
+      std::unique_ptr<const DexFile> output_dex_file(DexFileLoader::Open(mem_map_->Begin(),
+                                                                         mem_map_->Size(),
+                                                                         location,
+                                                                         /* checksum */ 0,
+                                                                         /*oat_dex_file*/ nullptr,
+                                                                         /*verify*/ true,
+                                                                         /*verify_checksum*/ false,
+                                                                         &error_msg));
+      CHECK(output_dex_file != nullptr) << "Failed to re-open output file:" << error_msg;
+
+      // Do IR-level comparison between input and output. This check ignores potential differences
+      // due to layout, so offsets are not checked. Instead, it checks the data contents of each item.
+      //
+      // Regenerate output IR to catch any bugs that might happen during writing.
+      std::unique_ptr<dex_ir::Header> output_header(dex_ir::DexIrBuilder(*output_dex_file));
+      std::unique_ptr<dex_ir::Header> orig_header(dex_ir::DexIrBuilder(*dex_file));
+      CHECK(VerifyOutputDexFile(output_header.get(), orig_header.get(), &error_msg)) << error_msg;
+    }
   }
 }
 
