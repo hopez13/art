@@ -52,6 +52,8 @@ namespace art {
 
 using android::base::StringPrintf;
 
+static constexpr bool kChangeClassDefOrder = false;
+static constexpr uint32_t kDataSectionAlignment = sizeof(uint32_t) * 2;
 static constexpr uint32_t kDexCodeItemAlignment = 4;
 
 /*
@@ -1581,9 +1583,13 @@ std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const Dex
   std::vector<dex_ir::ClassData*> new_class_data_order;
   for (uint32_t i = 0; i < new_class_def_order.size(); ++i) {
     dex_ir::ClassDef* class_def = new_class_def_order[i];
-    class_def->SetIndex(i);
-    class_def->SetOffset(class_defs_offset);
-    class_defs_offset += dex_ir::ClassDef::ItemSize();
+    if (kChangeClassDefOrder) {
+      // This produces dex files that violate the spec since the super class class_def is supposed
+      // to occur before any subclasses.
+      class_def->SetIndex(i);
+      class_def->SetOffset(class_defs_offset);
+      class_defs_offset += dex_ir::ClassDef::ItemSize();
+    }
     dex_ir::ClassData* class_data = class_def->GetClassData();
     if (class_data != nullptr && visited_class_data.find(class_data) == visited_class_data.end()) {
       class_data->SetOffset(class_data_offset);
@@ -1595,7 +1601,7 @@ std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const Dex
   return new_class_data_order;
 }
 
-void DexLayout::LayoutStringData(const DexFile* dex_file) {
+int32_t DexLayout::LayoutStringData(const DexFile* dex_file) {
   const size_t num_strings = header_->GetCollections().StringIds().size();
   std::vector<bool> is_shorty(num_strings, false);
   std::vector<bool> from_hot_method(num_strings, false);
@@ -1708,13 +1714,11 @@ void DexLayout::LayoutStringData(const DexFile* dex_file) {
     offset += data->GetSize() + 1;  // Add one extra for null.
   }
   if (offset > max_offset) {
-    const uint32_t diff = offset - max_offset;
+    return offset - max_offset;
     // If we expanded the string data section, we need to update the offsets or else we will
     // corrupt the next section when writing out.
-    FixupSections(header_->GetCollections().StringDatasOffset(), diff);
-    // Update file size.
-    header_->SetFileSize(header_->FileSize() + diff);
   }
+  return 0;
 }
 
 // Orders code items according to specified class data ordering.
@@ -1954,19 +1958,42 @@ void DexLayout::FixupSections(uint32_t offset, uint32_t diff) {
 }
 
 void DexLayout::LayoutOutputFile(const DexFile* dex_file) {
-  LayoutStringData(dex_file);
-  std::vector<dex_ir::ClassData*> new_class_data_order = LayoutClassDefsAndClassData(dex_file);
-  int32_t diff = LayoutCodeItems(dex_file, new_class_data_order);
-  // Move sections after ClassData by diff bytes.
-  FixupSections(header_->GetCollections().ClassDatasOffset(), diff);
+  const int32_t string_diff = LayoutStringData(dex_file);
+  // If we expanded the string data section, we need to update the offsets or else we will
+  // corrupt the next section when writing out.
+  FixupSections(header_->GetCollections().StringDatasOffset(), string_diff);
   // Update file size.
-  header_->SetFileSize(header_->FileSize() + diff);
+  header_->SetFileSize(header_->FileSize() + string_diff);
+
+  std::vector<dex_ir::ClassData*> new_class_data_order = LayoutClassDefsAndClassData(dex_file);
+  const int32_t code_item_diff = LayoutCodeItems(dex_file, new_class_data_order);
+  // Move sections after ClassData by diff bytes.
+  FixupSections(header_->GetCollections().ClassDatasOffset(), code_item_diff);
+
+  // Update file and data size.
+  // The data size must be aligned to kDataSectionAlignment.
+  const int32_t total_diff = code_item_diff + string_diff;
+  header_->SetDataSize(RoundUp(header_->DataSize() + total_diff, kDataSectionAlignment));
+  header_->SetFileSize(header_->FileSize() + total_diff);
 }
 
 void DexLayout::OutputDexFile(const DexFile* dex_file) {
   const std::string& dex_file_location = dex_file->GetLocation();
   std::string error_msg;
   std::unique_ptr<File> new_file;
+  // Verify the output dex file's structure for debug builds.
+  if (kIsDebugBuild) {
+    std::string location = "memory mapped file for " + dex_file_location;
+    std::unique_ptr<const DexFile> output_dex_file(DexFileLoader::Open(dex_file->Begin(),
+                                                                       dex_file->Size(),
+                                                                       location,
+                                                                       header_->Checksum(),
+                                                                       /*oat_dex_file*/ nullptr,
+                                                                       /*verify*/ true,
+                                                                       /*verify_checksum*/ false,
+                                                                       &error_msg));
+    DCHECK(output_dex_file != nullptr) << "Failed to verify input file:" << error_msg;
+  }
   if (!options_.output_to_memmap_) {
     std::string output_location(options_.output_dex_directory_);
     size_t last_slash = dex_file_location.rfind('/');
@@ -2016,8 +2043,7 @@ void DexLayout::OutputDexFile(const DexFile* dex_file) {
                                                                        /*verify*/ true,
                                                                        /*verify_checksum*/ false,
                                                                        &error_msg));
-    // Disabled since it is currently failing for dex2oat_image_test.
-    // DCHECK(output_dex_file != nullptr) << "Failed to re-open output file:" << error_msg;
+    DCHECK(output_dex_file != nullptr) << options_.output_to_memmap_ << " Failed to re-open output file:" << error_msg;
   }
   // Do IR-level comparison between input and output. This check ignores potential differences
   // due to layout, so offsets are not checked. Instead, it checks the data contents of each item.
