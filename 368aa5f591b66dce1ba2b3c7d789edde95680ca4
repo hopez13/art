@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70f7726e_080b23fb",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-23T17:46:26Z",
+      "side": 1,
+      "message": "mips32 too? I am not too happy with duplicating the tests for all arch (I still have a feature request on CHECK-START-{SET} open), but let\u0027s test at least one case since you added 32-bit the the vectorizer\u0027s code as well.",
+      "revId": "368aa5f591b66dce1ba2b3c7d789edde95680ca4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
