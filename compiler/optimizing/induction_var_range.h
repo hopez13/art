@@ -161,9 +161,16 @@ class InductionVarRange {
   }
 
   /**
-   * Checks if header logic of a loop terminates. Sets trip-count tc if known.
+   * Checks if header logic of a loop terminates. If trip count is known sets 'trip_count' to its
+   * value.
    */
-  bool IsFinite(HLoopInformation* loop, /*out*/ int64_t* tc) const;
+  bool IsFinite(HLoopInformation* loop, /*out*/ int64_t* trip_count) const;
+
+  /**
+   * Checks if a trip count is known statically for the loop and sets 'trip_count' to its value
+   * in this case.
+   */
+  bool HasKnownTripCount(HLoopInformation* loop, /*out*/ int64_t* trip_count) const;
 
   /**
    * Checks if the given instruction is a unit stride induction inside the closest enveloping
@@ -184,6 +191,13 @@ class InductionVarRange {
   HInstruction* GenerateTripCount(HLoopInformation* loop, HGraph* graph, HBasicBlock* block);
 
  private:
+  /**
+   * Checks if header logic of a loop terminates. If trip count is known (constant) sets
+   * 'is_constant' to true and 'trip_count' to the trip count value.
+   */
+  bool CheckForFiniteAndConstantProps(HLoopInformation* loop,
+                                      /*out*/ bool* is_constant,
+                                      /*out*/ int64_t* trip_count) const;
   /*
    * Enum used in IsConstant() request.
    */
