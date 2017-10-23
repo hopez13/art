@@ -17,9 +17,12 @@
 #ifndef ART_RUNTIME_COMMON_DEX_OPERATIONS_H_
 #define ART_RUNTIME_COMMON_DEX_OPERATIONS_H_
 
+#include "android-base/logging.h"
 #include "art_field.h"
 #include "art_method.h"
+#include "base/mutex.h"
 #include "class_linker.h"
+#include "interpreter/shadow_frame.h"
 #include "interpreter/unstarted_runtime.h"
 #include "runtime.h"
 #include "stack.h"
