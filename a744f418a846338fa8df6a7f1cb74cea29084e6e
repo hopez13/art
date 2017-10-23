@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7922b5c_35a9fee9",
+        "filename": "runtime/arch/mips/context_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-23T13:02:37Z",
+      "side": 1,
+      "message": "core_reg !\u003d 0u",
+      "range": {
+        "startLine": 52,
+        "startChar": 8,
+        "endLine": 52,
+        "endChar": 16
+      },
+      "revId": "a744f418a846338fa8df6a7f1cb74cea29084e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "623e96d8_28f394ea",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-23T13:02:37Z",
+      "side": 1,
+      "message": "Maybe add a comment about the padding here (12 bytes).",
+      "revId": "a744f418a846338fa8df6a7f1cb74cea29084e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
