@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e9a5c710_0d7fbff1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-23T15:29:41Z",
+      "side": 1,
+      "message": "We do, but only for Dex file with a version number \u003e\u003d 37 (https://android-review.googlesource.com/#/c/platform/art/+/230314/).",
+      "parentUuid": "1a26c352_b159ea0d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "76da9d36b157cca84dac82cd6a6dd342cd50b345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "74b35fba_24856341",
         "filename": "dex2oat/dex2oat_test.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-23T08:22:33Z",
       "side": 1,
       "message": "Why not removing this code?",
+      "range": {
+        "startLine": 826,
+        "startChar": 5,
+        "endLine": 836,
+        "endChar": 5
+      },
+      "revId": "76da9d36b157cca84dac82cd6a6dd342cd50b345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54b10f26_61759225",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-10-23T15:29:41Z",
+      "side": 1,
+      "message": "Should now we check that \n\n  EXPECT_EQ(old_class0, new_class0);\n  EXPECT_EQ(old_class1, new_class1);\n\ninstead?",
+      "parentUuid": "74b35fba_24856341",
       "range": {
         "startLine": 826,
         "startChar": 5,
