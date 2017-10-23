@@ -22,6 +22,7 @@
 #include "induction_var_range.h"
 #include "nodes.h"
 #include "optimization.h"
+#include "superblock_cloner.h"
 
 namespace art {
 
@@ -133,6 +134,36 @@ class HLoopOptimization : public HOptimization {
   // unrolling, vectorization). Returns true if anything changed.
   bool OptimizeInnerLoop(LoopNode* node);
 
+  // Check that the loop hierarchy info is preserved after loop peeling/unrolling.
+  void CheckLoopNestLoopInfoRecursively(LoopNode* loop_node);
+
+  // Perform loop peeling/unrolling by 2 (depends on the 'do_unrolling'); the transformation
+  // preserves the header and the loop info.
+  //
+  // Note: the overloaded version record copying information about blocks and instructions.
+  void PeelOrUnrollByTwo(LoopNode* loop_node, bool do_unrolling);
+  void PeelOrUnrollByTwo(LoopNode* loop_node,
+                         bool do_unrolling,
+                         SuperblockCloner::HBasicBlockMap* bb_map,
+                         SuperblockCloner::HInstructionMap* hir_map);
+
+
+  // Try to apply loop unrolling for branch penalty reduction and better instruction scheduling
+  // opportunities.
+  //
+  // Return whether transformation happened.
+  bool TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node);
+
+  // Try to apply loop unrolling for different purposes.
+  //
+  // Return whether loop unrolling was applied.
+  bool MaybeDoUnrolling(LoopNode* loop_node);
+
+  // Return optimal scalar unrolling factor for the loop.
+  uint32_t GetScalarUnrollingFactor(HLoopInformation* loop_info,
+                                    uint64_t trip_count,
+                                    size_t bb_count,
+                                    size_t instr_count);
   //
   // Vectorization analysis and synthesis.
   //
@@ -185,7 +216,7 @@ class HLoopOptimization : public HOptimization {
   // Vectorization heuristics.
   bool IsVectorizationProfitable(int64_t trip_count);
   void SetPeelingCandidate(const ArrayReference* candidate, int64_t trip_count);
-  uint32_t GetUnrollingFactor(HBasicBlock* block, int64_t trip_count);
+  uint32_t GetSIMDUnrollingFactor(HBasicBlock* block, int64_t trip_count);
 
   //
   // Helpers.

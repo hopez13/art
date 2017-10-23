@@ -375,6 +375,15 @@ bool InductionVarRange::IsFinite(HLoopInformation* loop, /*out*/ int64_t* tc) co
   return false;
 }
 
+bool InductionVarRange::HasKnownTripCount(HLoopInformation* loop, /*out*/ int64_t* tc) const {
+  HInductionVarAnalysis::InductionInfo* trip =
+      induction_analysis_->LookupInfo(loop, GetLoopControl(loop));
+  if (trip != nullptr && !IsUnsafeTripCount(trip)) {
+    return IsConstant(trip->op_a, kExact, tc);
+  }
+  return false;
+}
+
 bool InductionVarRange::IsUnitStride(HInstruction* context,
                                      HInstruction* instruction,
                                      HGraph* graph,
