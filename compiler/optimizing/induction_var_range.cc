@@ -365,14 +365,27 @@ void InductionVarRange::Replace(HInstruction* instruction,
   }
 }
 
-bool InductionVarRange::IsFinite(HLoopInformation* loop, /*out*/ int64_t* tc) const {
+bool InductionVarRange::CheckForFiniteAndConstantProps(HLoopInformation* loop,
+                                                       /*out*/ bool* is_constant,
+                                                       /*out*/ int64_t* tc) const {
   HInductionVarAnalysis::InductionInfo *trip =
       induction_analysis_->LookupInfo(loop, GetLoopControl(loop));
   if (trip != nullptr && !IsUnsafeTripCount(trip)) {
-    IsConstant(trip->op_a, kExact, tc);
+    *is_constant = IsConstant(trip->op_a, kExact, tc);
     return true;
   }
   return false;
+}
+
+bool InductionVarRange::IsFinite(HLoopInformation* loop, /*out*/ int64_t* tc) const {
+  bool is_constant = false;
+  return CheckForFiniteAndConstantProps(loop, &is_constant, tc);
+}
+
+bool InductionVarRange::HasKnownTripCount(HLoopInformation* loop, /*out*/ int64_t* tc) const {
+  bool is_constant = false;
+  CheckForFiniteAndConstantProps(loop, &is_constant, tc);
+  return is_constant;
 }
 
 bool InductionVarRange::IsUnitStride(HInstruction* context,
