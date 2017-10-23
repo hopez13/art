@@ -335,6 +335,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         current_instruction_id_(start_instruction_id),
         dex_file_(dex_file),
         method_idx_(method_idx),
+        code_item_override_(nullptr),
         invoke_type_(invoke_type),
         in_ssa_form_(false),
         number_of_cha_guards_(0),
@@ -545,6 +546,13 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
     return method_idx_;
   }
 
+  const DexFile::CodeItem* GetCodeItemOverride() const {
+    return code_item_override_;
+  }
+  void SetCodeItemOverride(DexFile::CodeItem* code_item_override) {
+    code_item_override_ = code_item_override;
+  }
+
   // Get the method name (without the signature), e.g. "<init>"
   const char* GetMethodName() const;
 
@@ -701,6 +709,8 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
 
   // The method index in the dex file.
   const uint32_t method_idx_;
+
+  DexFile::CodeItem* code_item_override_;
 
   // If inlined, this encodes how the callee is being invoked.
   const InvokeType invoke_type_;

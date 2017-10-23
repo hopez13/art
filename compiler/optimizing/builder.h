@@ -58,12 +58,13 @@ class HGraphBuilder : public ValueObject {
         handles_(handles),
         return_type_(return_type) {}
 
-  GraphAnalysisResult BuildGraph();
+  GraphAnalysisResult BuildGraph(bool attempt_boot_intrinsic = false);
 
   static constexpr const char* kBuilderPassName = "builder";
 
  private:
   bool SkipCompilation(size_t number_of_branches);
+  GraphAnalysisResult AttemptIntrinsicCallGraph();
 
   HGraph* const graph_;
   const DexFile* const dex_file_;

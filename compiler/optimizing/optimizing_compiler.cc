@@ -611,6 +611,9 @@ void OptimizingCompiler::MaybeRunInliner(HGraph* graph,
     return;
   }
   size_t number_of_dex_registers = dex_compilation_unit.GetCodeItem()->registers_size_;
+  if (graph->GetCodeItemOverride() != nullptr) {
+    number_of_dex_registers = graph->GetCodeItemOverride()->registers_size_;
+  }
   HInliner* inliner = new (graph->GetAllocator()) HInliner(
       graph,                   // outer_graph
       graph,                   // outermost_graph
@@ -1043,7 +1046,9 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
                           compilation_stats_.get(),
                           interpreter_metadata,
                           handles);
-    GraphAnalysisResult result = builder.BuildGraph();
+    bool attempt_boot_intrinsic =
+        compiler_options.IsBootImage() && (method != nullptr ? method->IsIntrinsic() : false);
+    GraphAnalysisResult result = builder.BuildGraph(attempt_boot_intrinsic);
     if (result != kAnalysisSuccess) {
       switch (result) {
         case kAnalysisSkipped: {
@@ -1139,7 +1144,13 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
     if (codegen.get() != nullptr) {
       MaybeRecordStat(compilation_stats_.get(),
                       MethodCompilationStat::kCompiled);
-      method = Emit(&allocator, &code_allocator, codegen.get(), compiler_driver, code_item);
+      method = Emit(&allocator,
+                    &code_allocator,
+                    codegen.get(),
+                    compiler_driver,
+                    codegen->GetGraph()->GetCodeItemOverride() != nullptr
+                        ? codegen->GetGraph()->GetCodeItemOverride()
+                        : code_item);
 
       if (kArenaAllocatorCountAllocations) {
         codegen.reset();  // Release codegen's ScopedArenaAllocator for memory accounting.
