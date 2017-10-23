@@ -368,14 +368,8 @@ class OptimizingCompiler FINAL : public Compiler {
   CodeGenerator* TryCompile(ArenaAllocator* allocator,
                             ArenaStack* arena_stack,
                             CodeVectorAllocator* code_allocator,
-                            const DexFile::CodeItem* code_item,
-                            uint32_t access_flags,
+                            DexCompilationUnit* dex_compilation_unit,
                             InvokeType invoke_type,
-                            uint16_t class_def_idx,
-                            uint32_t method_idx,
-                            Handle<mirror::ClassLoader> class_loader,
-                            const DexFile& dex_file,
-                            Handle<mirror::DexCache> dex_cache,
                             ArtMethod* method,
                             bool osr,
                             VariableSizedHandleScope* handles) const;
@@ -931,14 +925,8 @@ CompiledMethod* OptimizingCompiler::Emit(ArenaAllocator* allocator,
 CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
                                               ArenaStack* arena_stack,
                                               CodeVectorAllocator* code_allocator,
-                                              const DexFile::CodeItem* code_item,
-                                              uint32_t access_flags,
+                                              DexCompilationUnit* dex_compilation_unit,
                                               InvokeType invoke_type,
-                                              uint16_t class_def_idx,
-                                              uint32_t method_idx,
-                                              Handle<mirror::ClassLoader> class_loader,
-                                              const DexFile& dex_file,
-                                              Handle<mirror::DexCache> dex_cache,
                                               ArtMethod* method,
                                               bool osr,
                                               VariableSizedHandleScope* handles) const {
@@ -958,7 +946,9 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
     return nullptr;
   }
 
-  if (Compiler::IsPathologicalCase(*code_item, method_idx, dex_file)) {
+  if (Compiler::IsPathologicalCase(*dex_compilation_unit->GetCodeItem(),
+                                   dex_compilation_unit->GetDexMethodIndex(),
+                                   *dex_compilation_unit->GetDexFile())) {
     MaybeRecordStat(compilation_stats_.get(),
                     MethodCompilationStat::kNotCompiledPathological);
     return nullptr;
@@ -969,29 +959,20 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
   static constexpr size_t kSpaceFilterOptimizingThreshold = 128;
   const CompilerOptions& compiler_options = compiler_driver->GetCompilerOptions();
   if ((compiler_options.GetCompilerFilter() == CompilerFilter::kSpace)
-      && (code_item->insns_size_in_code_units_ > kSpaceFilterOptimizingThreshold)) {
+      && (dex_compilation_unit->GetCodeItem()->insns_size_in_code_units_ >
+              kSpaceFilterOptimizingThreshold)) {
     MaybeRecordStat(compilation_stats_.get(),
                     MethodCompilationStat::kNotCompiledSpaceFilter);
     return nullptr;
   }
 
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  DexCompilationUnit dex_compilation_unit(
-      class_loader,
-      class_linker,
-      dex_file,
-      code_item,
-      class_def_idx,
-      method_idx,
-      access_flags,
-      /* verified_method */ nullptr,
-      dex_cache);
 
   HGraph* graph = new (allocator) HGraph(
       allocator,
       arena_stack,
-      dex_file,
-      method_idx,
+      *dex_compilation_unit->GetDexFile(),
+      dex_compilation_unit->GetDexMethodIndex(),
       compiler_driver->GetInstructionSet(),
       kInvalidInvokeType,
       compiler_driver->GetCompilerOptions().GetDebuggable(),
@@ -1001,7 +982,12 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
   if (method == nullptr) {
     ScopedObjectAccess soa(Thread::Current());
     method = compiler_driver->ResolveMethod(
-        soa, dex_cache, class_loader, &dex_compilation_unit, method_idx, invoke_type);
+        soa,
+        dex_compilation_unit->GetDexCache(),
+        dex_compilation_unit->GetClassLoader(),
+        dex_compilation_unit,
+        dex_compilation_unit->GetDexMethodIndex(),
+        invoke_type);
   }
   // For AOT compilation, we may not get a method, for example if its class is erroneous.
   // JIT should always have a method.
@@ -1036,8 +1022,8 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
     VLOG(compiler) << "Building " << pass_observer.GetMethodName();
     PassScope scope(HGraphBuilder::kBuilderPassName, &pass_observer);
     HGraphBuilder builder(graph,
-                          &dex_compilation_unit,
-                          &dex_compilation_unit,
+                          dex_compilation_unit,
+                          dex_compilation_unit,
                           compiler_driver,
                           codegen.get(),
                           compilation_stats_.get(),
@@ -1077,7 +1063,7 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
   RunOptimizations(graph,
                    codegen.get(),
                    compiler_driver,
-                   dex_compilation_unit,
+                   *dex_compilation_unit,
                    &pass_observer,
                    handles);
 
@@ -1095,6 +1081,82 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
   return codegen.release();
 }
 
+static bool TryGenerateIntrinsicCodeItem(ArenaAllocator* allocator,
+                                         ArtMethod* method,
+                                         CompilerDriver* driver,
+                                         InvokeType invoke_type,
+                                         DexCompilationUnit* dex_compilation_unit) {
+  if (!driver->GetCompilerOptions().IsBootImage()) {
+    return false;
+  }
+  if (method == nullptr) {
+      ScopedObjectAccess soa(Thread::Current());
+      method = driver->ResolveMethod(
+          soa,
+          dex_compilation_unit->GetDexCache(),
+          dex_compilation_unit->GetClassLoader(),
+          dex_compilation_unit,
+          dex_compilation_unit->GetDexMethodIndex(),
+          invoke_type);
+  }
+  if (method == nullptr || !method->IsIntrinsic()) {
+    return false;
+  }
+
+  Intrinsics intrinsic = static_cast<Intrinsics>(method->GetIntrinsic());
+  switch (intrinsic) {
+    case Intrinsics::kStringEquals:
+      break;
+
+      // Unsupported/unknown intrinsics.
+    default:
+      return false;
+  }
+
+  // TODO: How to ensure ISA support?
+
+  // Right now only support methods that were Java before.
+  DCHECK(dex_compilation_unit->GetCodeItem() != nullptr);
+  const DexFile::CodeItem& orig_code_item = *dex_compilation_unit->GetCodeItem();
+
+  const char* descriptor = dex_compilation_unit->GetDexFile()->GetMethodShorty(
+      dex_compilation_unit->GetDexMethodIndex());
+  size_t number_of_arguments = strlen(descriptor);
+
+  // Emulation as:
+  // 0x00: invoke-virtual-range ...
+  // 0x03: move-result v0
+  // 0x04: return v0
+  // ---------------------------
+  //    5 dex bytecode units
+  //
+  // Add for complete code_item: 8 units data.
+
+  constexpr size_t header_units = 8u;
+  constexpr size_t code_units = 5u;
+  uint16_t* code_item_emu = allocator->AllocArray<uint16_t>(header_units + code_units);
+  DexFile::CodeItem* code_item = reinterpret_cast<DexFile::CodeItem*>(code_item_emu);
+
+  code_item->registers_size_ = orig_code_item.registers_size_;
+  code_item->ins_size_ = orig_code_item.ins_size_;
+  code_item->outs_size_ = orig_code_item.outs_size_;
+  code_item->tries_size_ = 0;
+  code_item->debug_info_off_ = 0;
+  code_item->insns_size_in_code_units_ = 5;
+
+  {
+    uint16_t* dex_emu = &code_item_emu[header_units];
+    dex_emu[0] = 0x0074 | (number_of_arguments << 8);                // invoke-range + arg-count
+    dex_emu[1] = dex_compilation_unit->GetDexMethodIndex();          //              + target
+    dex_emu[2] = code_item->registers_size_ - code_item->ins_size_;  //              + first arg
+    dex_emu[3] = 0x000a;                                             // move-result v0
+    dex_emu[4] = 0x000f;                                             // return v0
+  }
+
+  dex_compilation_unit->OverrideCodeItem(code_item);
+  return true;
+}
+
 CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
                                             uint32_t access_flags,
                                             InvokeType invoke_type,
@@ -1108,10 +1170,31 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
   DCHECK(Runtime::Current()->IsAotCompiler());
   const VerifiedMethod* verified_method = compiler_driver->GetVerifiedMethod(&dex_file, method_idx);
   DCHECK(!verified_method->HasRuntimeThrow());
+  DexCompilationUnit dex_compilation_unit(
+      jclass_loader,
+      Runtime::Current()->GetClassLinker(),
+      dex_file,
+      code_item,
+      class_def_idx,
+      method_idx,
+      access_flags,
+      verified_method,
+      dex_cache);
+
+  ArenaAllocator allocator(Runtime::Current()->GetArenaPool());
+  bool intrinsic_update = TryGenerateIntrinsicCodeItem(&allocator,
+                                                       nullptr,
+                                                       compiler_driver,
+                                                       invoke_type,
+                                                       &dex_compilation_unit);
+  if (code_item == nullptr && !intrinsic_update) {
+    // Native method wasn't an intrinsic and is unsupported.
+    return nullptr;
+  }
+
   if (compiler_driver->IsMethodVerifiedWithoutFailures(method_idx, class_def_idx, dex_file) ||
       verifier::CanCompilerHandleVerificationFailure(
           verified_method->GetEncounteredVerificationFailures())) {
-    ArenaAllocator allocator(Runtime::Current()->GetArenaPool());
     ArenaStack arena_stack(Runtime::Current()->GetArenaPool());
     CodeVectorAllocator code_allocator(&allocator);
     std::unique_ptr<CodeGenerator> codegen;
@@ -1124,14 +1207,8 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
           TryCompile(&allocator,
                      &arena_stack,
                      &code_allocator,
-                     code_item,
-                     access_flags,
+                     &dex_compilation_unit,
                      invoke_type,
-                     class_def_idx,
-                     method_idx,
-                     jclass_loader,
-                     dex_file,
-                     dex_cache,
                      nullptr,
                      /* osr */ false,
                      &handles));
@@ -1139,7 +1216,11 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
     if (codegen.get() != nullptr) {
       MaybeRecordStat(compilation_stats_.get(),
                       MethodCompilationStat::kCompiled);
-      method = Emit(&allocator, &code_allocator, codegen.get(), compiler_driver, code_item);
+      method = Emit(&allocator,
+                    &code_allocator,
+                    codegen.get(),
+                    compiler_driver,
+                    dex_compilation_unit.GetCodeItem());
 
       if (kArenaAllocatorCountAllocations) {
         codegen.reset();  // Release codegen's ScopedArenaAllocator for memory accounting.
@@ -1232,20 +1313,25 @@ bool OptimizingCompiler::JitCompile(Thread* self,
 
   std::unique_ptr<CodeGenerator> codegen;
   {
+    DexCompilationUnit dex_compilation_unit(
+          class_loader,
+          Runtime::Current()->GetClassLinker(),
+          *dex_file,
+          code_item,
+          class_def_idx,
+          method_idx,
+          access_flags,
+          nullptr /* verified_method */,
+          dex_cache);
+
     // Go to native so that we don't block GC during compilation.
     ScopedThreadSuspension sts(self, kNative);
     codegen.reset(
         TryCompile(&allocator,
                    &arena_stack,
                    &code_allocator,
-                   code_item,
-                   access_flags,
+                   &dex_compilation_unit,
                    invoke_type,
-                   class_def_idx,
-                   method_idx,
-                   class_loader,
-                   *dex_file,
-                   dex_cache,
                    method,
                    osr,
                    &handles));

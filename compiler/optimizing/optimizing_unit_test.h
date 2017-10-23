@@ -134,7 +134,7 @@ class OptimizingUnitTest : public CommonCompilerTest {
         handles_.reset(new VariableSizedHandleScope(soa.Self()));
       }
       const DexFile* dex_file = graph->GetAllocator()->Alloc<DexFile>();
-      const DexCompilationUnit* dex_compilation_unit =
+      DexCompilationUnit* dex_compilation_unit =
           new (graph->GetAllocator()) DexCompilationUnit(
               handles_->NewHandle<mirror::ClassLoader>(nullptr),
               /* class_linker */ nullptr,

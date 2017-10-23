@@ -67,6 +67,9 @@ class DexCompilationUnit : public DeletableArenaObject<kArenaAllocMisc> {
   const DexFile::CodeItem* GetCodeItem() const {
     return code_item_;
   }
+  void OverrideCodeItem(const DexFile::CodeItem* new_code_item) {
+    code_item_ = new_code_item;
+  }
 
   const char* GetShorty() const {
     const DexFile::MethodId& method_id = dex_file_->GetMethodId(dex_method_idx_);
@@ -119,7 +122,7 @@ class DexCompilationUnit : public DeletableArenaObject<kArenaAllocMisc> {
 
   const DexFile* const dex_file_;
 
-  const DexFile::CodeItem* const code_item_;
+  DexFile::CodeItem const* code_item_;
   const uint16_t class_def_idx_;
   const uint32_t dex_method_idx_;
   const uint32_t access_flags_;
