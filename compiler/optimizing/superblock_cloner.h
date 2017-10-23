@@ -25,7 +25,7 @@
 namespace art {
 
 static const bool kSuperblockClonerLogging = false;
-static const bool kSuperblockClonerVerify = false;
+static const bool kSuperblockClonerVerify = true;
 
 // Represents an edge between two HBasicBlocks.
 //

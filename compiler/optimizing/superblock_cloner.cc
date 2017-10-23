@@ -861,7 +861,7 @@ void SuperblockCloner::CleanUp() {
     }
   }
 
-  if (kSuperblockClonerVerify) {
+  if (kIsDebugBuild && kSuperblockClonerVerify) {
     VerifyGraph();
   }
 }
