@@ -20,8 +20,10 @@
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
 #include "induction_var_range.h"
+#include "loop_analysis.h"
 #include "nodes.h"
 #include "optimization.h"
+#include "superblock_cloner.h"
 
 namespace art {
 
@@ -135,9 +137,36 @@ class HLoopOptimization : public HOptimization {
   void SimplifyInduction(LoopNode* node);
   void SimplifyBlocks(LoopNode* node);
 
-  // Performs optimizations specific to inner loop (empty loop removal,
+  // Performs optimizations specific to inner loop with finite header logic (empty loop removal,
   // unrolling, vectorization). Returns true if anything changed.
+  bool TryOptimizeInnerLoopFinite(LoopNode* node);
+
+  // Performs optimizations specific to inner loop. Returns true if anything changed.
   bool OptimizeInnerLoop(LoopNode* node);
+
+  // Performs loop peeling/unrolling once (depends on the 'do_unrolling'); the transformation
+  // preserves the header and the loop info.
+  //
+  // Note: the function records copying information about blocks and instructions.
+  void PeelOrUnrollOnce(LoopNode* loop_node,
+                        bool do_unrolling,
+                        SuperblockCloner::HBasicBlockMap* bb_map,
+                        SuperblockCloner::HInstructionMap* hir_map);
+
+  // Returns whether the loop is too big for loop unrolling by checking its total number of
+  // basic blocks and instructions (the decision depends on the target isa).
+  //
+  // If the loop body has too many instructions then unrolling optimization will not bring
+  // any noticeable performance improvement however will increase the code size.
+  bool IsLoopTooBigForUnrolling(LoopAnalysisInfo* loop_analysis_info) const;
+
+  // Returns optimal scalar unrolling factor for the loop.
+  uint32_t GetScalarUnrollingFactor(HLoopInformation* loop_info,
+                                    uint64_t trip_count) const;
+
+  // Tries to apply loop unrolling for branch penalty reduction and better instruction scheduling
+  // opportunities. Returns whether transformation happened.
+  bool TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node);
 
   //
   // Vectorization analysis and synthesis.
@@ -203,7 +232,7 @@ class HLoopOptimization : public HOptimization {
                             const ArrayReference* peeling_candidate);
   uint32_t MaxNumberPeeled();
   bool IsVectorizationProfitable(int64_t trip_count);
-  uint32_t GetUnrollingFactor(HBasicBlock* block, int64_t trip_count);
+  uint32_t GetSIMDUnrollingFactor(HBasicBlock* block, int64_t trip_count);
 
   //
   // Helpers.

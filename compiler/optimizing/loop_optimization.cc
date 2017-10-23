@@ -33,6 +33,9 @@ namespace art {
 // Enables vectorization (SIMDization) in the loop optimizer.
 static constexpr bool kEnableVectorization = true;
 
+// Enables scalar loop unrolling in the loop optimizer.
+static constexpr bool kEnableScalarUnrolling = false;
+
 // No loop unrolling factor (just one copy of the loop-body).
 static constexpr uint32_t kNoUnrollingFactor = 1;
 
@@ -691,7 +694,7 @@ void HLoopOptimization::SimplifyBlocks(LoopNode* node) {
   }
 }
 
-bool HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
+bool HLoopOptimization::TryOptimizeInnerLoopFinite(LoopNode* node) {
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
   // Ensure loop header logic is finite.
@@ -759,6 +762,137 @@ bool HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
     return true;
   }
   return false;
+}
+
+bool HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
+  return TryOptimizeInnerLoopFinite(node) ||
+         TryUnrollingForBranchPenaltyReduction(node);
+}
+
+void HLoopOptimization::PeelOrUnrollOnce(LoopNode* loop_node,
+                                         bool do_unrolling,
+                                         SuperblockCloner::HBasicBlockMap* bb_map,
+                                         SuperblockCloner::HInstructionMap* hir_map) {
+  // TODO: peel loop nests.
+  DCHECK(loop_node->inner == nullptr);
+
+  // Check that loop info is up-to-date.
+  HLoopInformation* loop_info = loop_node->loop_info;
+  HBasicBlock* header = loop_info->GetHeader();
+  DCHECK(loop_info == header->GetLoopInformation());
+
+  PeelUnrollHelper helper(loop_info, bb_map, hir_map);
+  DCHECK(helper.IsLoopClonable());
+  HBasicBlock* new_header = do_unrolling ? helper.DoUnrolling() : helper.DoPeeling();
+  DCHECK(header == new_header);
+  DCHECK(loop_info == new_header->GetLoopInformation());
+}
+
+//
+// Loop unrolling: target-dependent methods and constants.
+//
+// To support unrolling for a new architecture one needs to add implementation for it in the
+// following methods.
+//
+
+// Heuristic values for arm64 backend.
+
+// Scalar loop unrolling parameters and heuristics.
+//
+// Maximum possible unrolling factor.
+static constexpr uint32_t kArm64ScalarMaxUnrollFactor = 2;
+// Loop's maximum instruction count. Loops with higher count will not be peeled/unrolled.
+static constexpr uint32_t kArm64ScalarHeuristicMaxBodySizeInstr = 40;
+// Loop's maximum basic block count. Loops with higher count will not be peeled/unrolled.
+static constexpr uint32_t kArm64ScalarHeuristicMaxBodySizeBlocks = 8;
+
+// SIMD loop unrolling parameters and heuristics.
+//
+// Maximum possible unrolling factor.
+static constexpr uint32_t kArm64SimdMaxUnrollFactor = 8;
+// Loop's maximum instruction count. Loops with higher count will not be unrolled.
+static constexpr uint32_t kArm64SimdHeuristicMaxBodySizeInstr = 50;
+
+bool HLoopOptimization::IsLoopTooBigForUnrolling(LoopAnalysisInfo* loop_analysis_info) const {
+  switch (compiler_driver_->GetInstructionSet()) {
+    case InstructionSet::kArm64: {
+      size_t instr_num = loop_analysis_info->GetNumberOfInstructions();
+      size_t bb_num = loop_analysis_info->GetNumberOfBasicBlocks();
+      return (instr_num >= kArm64ScalarHeuristicMaxBodySizeInstr ||
+              bb_num >= kArm64ScalarHeuristicMaxBodySizeBlocks);
+    }
+    default:
+      return true;
+  }
+}
+
+uint32_t HLoopOptimization::GetScalarUnrollingFactor(HLoopInformation* loop_info ATTRIBUTE_UNUSED,
+                                                     uint64_t trip_count) const {
+  switch (compiler_driver_->GetInstructionSet()) {
+    case InstructionSet::kArm64: {
+      uint32_t desired_unrolling_factor = kArm64ScalarMaxUnrollFactor;
+      if (trip_count < desired_unrolling_factor || trip_count % desired_unrolling_factor != 0) {
+        return kNoUnrollingFactor;
+      }
+
+      return desired_unrolling_factor;
+    }
+    default:
+      return kNoUnrollingFactor;
+  }
+}
+
+//
+// Loop unrolling: generic part methods.
+//
+
+bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node) {
+  // Don't run peeling/unrolling if compiler_driver_ is nullptr (i.e., running under tests)
+  // as InstructionSet is needed.
+  if (!kEnableScalarUnrolling || compiler_driver_ == nullptr) {
+    return false;
+  }
+
+  HLoopInformation* loop_info = loop_node->loop_info;
+  int64_t trip_count = 0;
+  // Only unroll loops with a known tripcount.
+  if (!induction_range_.HasKnownTripCount(loop_info, &trip_count)) {
+    return false;
+  }
+
+  uint32_t unrolling_factor = GetScalarUnrollingFactor(loop_info, trip_count);
+  if (unrolling_factor == kNoUnrollingFactor) {
+    return false;
+  }
+
+  LoopAnalysisInfo loop_analysis_info(loop_info);
+  LoopAnalysis::CalculateLoopBasicProperties(loop_info, &loop_analysis_info);
+
+  // Check "IsLoopClonable" last as it can be time-consuming.
+  if (IsLoopTooBigForUnrolling(&loop_analysis_info) ||
+      (loop_analysis_info.GetNumberOfExits() > 1) ||
+      loop_analysis_info.HasInstructionsPreventingScalarUnrolling() ||
+      !PeelUnrollHelper::IsLoopClonable(loop_info)) {
+    return false;
+  }
+
+  // TODO: support other unrolling factors.
+  DCHECK_EQ(unrolling_factor, 2u);
+
+  // Perform unrolling.
+  ArenaAllocator* arena = loop_info->GetHeader()->GetGraph()->GetAllocator();
+  SuperblockCloner::HBasicBlockMap bb_map(
+      std::less<HBasicBlock*>(), arena->Adapter(kArenaAllocSuperblockCloner));
+  SuperblockCloner::HInstructionMap hir_map(
+      std::less<HInstruction*>(), arena->Adapter(kArenaAllocSuperblockCloner));
+  PeelOrUnrollOnce(loop_node, /* unrolling */ true, &bb_map, &hir_map);
+
+  // Remove the redundant loop check after unrolling.
+  HIf* copy_hif = bb_map.Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
+  int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
+  copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+
+  return true;
 }
 
 //
@@ -891,7 +1025,7 @@ void HLoopOptimization::Vectorize(LoopNode* node,
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
 
   // Pick a loop unrolling factor for the vector loop.
-  uint32_t unroll = GetUnrollingFactor(block, trip_count);
+  uint32_t unroll = GetSIMDUnrollingFactor(block, trip_count);
   uint32_t chunk = vector_length_ * unroll;
 
   DCHECK(trip_count == 0 || (trip_count >= MaxNumberPeeled() + chunk));
@@ -2174,10 +2308,7 @@ bool HLoopOptimization::IsVectorizationProfitable(int64_t trip_count) {
   return true;
 }
 
-static constexpr uint32_t ARM64_SIMD_MAXIMUM_UNROLL_FACTOR = 8;
-static constexpr uint32_t ARM64_SIMD_HEURISTIC_MAX_BODY_SIZE = 50;
-
-uint32_t HLoopOptimization::GetUnrollingFactor(HBasicBlock* block, int64_t trip_count) {
+uint32_t HLoopOptimization::GetSIMDUnrollingFactor(HBasicBlock* block, int64_t trip_count) {
   uint32_t max_peel = MaxNumberPeeled();
   switch (compiler_driver_->GetInstructionSet()) {
     case InstructionSet::kArm64: {
@@ -2189,16 +2320,17 @@ uint32_t HLoopOptimization::GetUnrollingFactor(HBasicBlock* block, int64_t trip_
       }
       // Don't unroll for large loop body size.
       uint32_t instruction_count = block->GetInstructions().CountSize();
-      if (instruction_count >= ARM64_SIMD_HEURISTIC_MAX_BODY_SIZE) {
+      if (instruction_count >= kArm64SimdHeuristicMaxBodySizeInstr) {
         return kNoUnrollingFactor;
       }
       // Find a beneficial unroll factor with the following restrictions:
       //  - At least one iteration of the transformed loop should be executed.
       //  - The loop body shouldn't be "too big" (heuristic).
-      uint32_t uf1 = ARM64_SIMD_HEURISTIC_MAX_BODY_SIZE / instruction_count;
+
+      uint32_t uf1 = kArm64SimdHeuristicMaxBodySizeInstr / instruction_count;
       uint32_t uf2 = (trip_count - max_peel) / vector_length_;
       uint32_t unroll_factor =
-          TruncToPowerOfTwo(std::min({uf1, uf2, ARM64_SIMD_MAXIMUM_UNROLL_FACTOR}));
+          TruncToPowerOfTwo(std::min({uf1, uf2, kArm64SimdMaxUnrollFactor}));
       DCHECK_GE(unroll_factor, 1u);
       return unroll_factor;
     }
