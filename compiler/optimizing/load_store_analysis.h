@@ -196,8 +196,19 @@ class HeapLocationCollector : public HGraphVisitor {
   }
 
   HInstruction* HuntForOriginalReference(HInstruction* ref) const {
+    // An original reference can be transformed by instructions like:
+    //   i0 NewArray
+    //   i1 HInstruction(i0)  <-- NullCheck, BoundType, etc.
+    //   i2 ArrayGet(i1, index)
+    // NOTE: LSA can be used in arch optimizations, so it must understand
+    // backend-specific instructions which can transform original reference.
     DCHECK(ref != nullptr);
-    while (ref->IsNullCheck() || ref->IsBoundType()) {
+    while (ref->IsNullCheck() || ref->IsBoundType()
+#if defined(ART_ENABLE_CODEGEN_arm64) || defined(ART_ENABLE_CODEGEN_arm)
+           || ref->IsIntermediateAddress()) {
+#else
+           ) {
+#endif
       ref = ref->InputAt(0);
     }
     return ref;
