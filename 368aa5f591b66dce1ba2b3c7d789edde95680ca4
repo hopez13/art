@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b1120da1_2635d302",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-10-24T09:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de2992d6_8b476de8",
+      "revId": "368aa5f591b66dce1ba2b3c7d789edde95680ca4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42560650_ebf24c0f",
         "filename": "compiler/optimizing/code_generator_vector_mips.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-23T22:16:05Z",
       "side": 1,
       "message": "kUint8 is missing",
+      "revId": "368aa5f591b66dce1ba2b3c7d789edde95680ca4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aa32d39_b162747c",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-10-24T09:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42560650_ebf24c0f",
       "revId": "368aa5f591b66dce1ba2b3c7d789edde95680ca4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "efdd14c5_74979228",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-10-24T09:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7221549_386723eb",
+      "revId": "368aa5f591b66dce1ba2b3c7d789edde95680ca4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8cee674_40c75354",
         "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "2861bf43_6050d521",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-10-24T09:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8cee674_40c75354",
+      "revId": "368aa5f591b66dce1ba2b3c7d789edde95680ca4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70f7726e_080b23fb",
         "filename": "test/661-checker-simd-reduc/src/Main.java",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2017-10-23T17:46:26Z",
       "side": 1,
       "message": "mips32 too? I am not too happy with duplicating the tests for all arch (I still have a feature request on CHECK-START-{SET} open), but let\u0027s test at least one case since you added 32-bit the the vectorizer\u0027s code as well.",
+      "revId": "368aa5f591b66dce1ba2b3c7d789edde95680ca4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98be45ff_e35a6fc1",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1173143
+      },
+      "writtenOn": "2017-10-24T09:51:39Z",
+      "side": 1,
+      "message": "We\u0027ve done testing with checker parts for MIPS32 locally but these changes can\u0027t be included in this patch since MSA is not a default option.",
+      "parentUuid": "70f7726e_080b23fb",
       "revId": "368aa5f591b66dce1ba2b3c7d789edde95680ca4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
