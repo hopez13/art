@@ -92,6 +92,30 @@
       "revId": "4541161e2b9af84ebaa8061e171b2bd8fb4ea481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ba338b_3f3e6eec",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-24T15:34:58Z",
+      "side": 1,
+      "message": "I didn\u0027t find this nearly as straightforward or easy as you\u0027re making this out to be. The builder is running a lot of code that isn\u0027t clear to me should be elided. It seemed way more elegant to simply reuse things as much as possible. I personally find this code pretty readable...\n\nAnd then there\u0027s the problem that you\u0027re passing the code item around after the builder - which means you\u0027re accessing at least *something* out of it (or you should be cleaning up that code). And at least for native code you won\u0027t have an original that magically agrees (as here with lines 135ff).",
+      "parentUuid": "350a3bbf_bc9b9cee",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 149,
+        "endChar": 3
+      },
+      "revId": "4541161e2b9af84ebaa8061e171b2bd8fb4ea481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
