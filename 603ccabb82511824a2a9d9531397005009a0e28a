@@ -46,6 +46,30 @@
       "revId": "603ccabb82511824a2a9d9531397005009a0e28a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "949a9e82_bbe1c126",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-24T03:13:51Z",
+      "side": 1,
+      "message": "Fix is included in this CL:\nhttps://android-review.googlesource.com/c/platform/art/+/517622",
+      "parentUuid": "b47415a5_72ac0bed",
+      "range": {
+        "startLine": 452,
+        "startChar": 47,
+        "endLine": 452,
+        "endChar": 51
+      },
+      "revId": "603ccabb82511824a2a9d9531397005009a0e28a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
