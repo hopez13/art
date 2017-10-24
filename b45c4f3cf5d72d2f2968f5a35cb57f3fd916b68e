@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89b573a8_3809d56c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "There\u0027s no precedent for what I\u0027m asking, but could you put a comment about the choice of visitor?",
+      "range": {
+        "startLine": 42,
+        "startChar": 19,
+        "endLine": 42,
+        "endChar": 47
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf9b85ca_1e8b94d3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "Is that a compile time optimization, or does it open up more load store eliminations?",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 51
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bc0b36a_b7315cfb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "Add a comment about unresolved stores.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 3
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59a1c7dc_dbb030ca",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "GetHeapValue... ?",
+      "range": {
+        "startLine": 143,
+        "startChar": 16,
+        "endLine": 143,
+        "endChar": 40
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d1a55b4_66e20a86",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "Is there a test for this?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 44
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fba482b2_aee1a678",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 58
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf24563a_225fc536",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "Add a comment what this is for.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 61
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98761694_e6c3aa91",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "Not really just skipping anymore.",
+      "range": {
+        "startLine": 244,
+        "startChar": 60,
+        "endLine": 244,
+        "endChar": 64
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "084e9186_dcb6dfea",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "Add a \"\u003c\u003c\" or a comment for why this DCHECK.",
+      "range": {
+        "startLine": 420,
+        "startChar": 4,
+        "endLine": 420,
+        "endChar": 28
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6107f436_14f8edaa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-24T12:46:13Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 670,
+        "startChar": 5,
+        "endLine": 671,
+        "endChar": 39
+      },
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
