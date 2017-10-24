@@ -229,6 +229,23 @@
       "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5806a131_99d90159",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-24T17:58:20Z",
+      "side": 1,
+      "message": "wasn\u0027t this test here to verify same field store? if you need the other case, just add a new test?",
+      "revId": "b45c4f3cf5d72d2f2968f5a35cb57f3fd916b68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
