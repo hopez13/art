@@ -89,6 +89,5 @@ template<> struct hash<openjdkjvmti::Breakpoint> {
     return b.hash();
   }
 };
-
 }  // namespace std
 #endif  // ART_OPENJDKJVMTI_TI_BREAKPOINT_H_
