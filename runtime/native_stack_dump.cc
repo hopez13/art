@@ -295,6 +295,7 @@ void DumpNativeStack(std::ostream& os,
   if (map == nullptr) {
     tmp_map.reset(BacktraceMap::Create(getpid()));
     map = tmp_map.get();
+    map->SetSuffixesToIgnore(std::vector<std::string> { "oat", "odex" });
   }
   std::unique_ptr<Backtrace> backtrace(Backtrace::Create(BACKTRACE_CURRENT_PROCESS, tid, map));
   if (!backtrace->Unwind(0, reinterpret_cast<ucontext*>(ucontext_ptr))) {
