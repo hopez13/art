@@ -22,6 +22,30 @@
       "revId": "580667b8d9cf6943596efff4df64f5879c1529e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f4fba29_5a47d080",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-24T00:21:46Z",
+      "side": 1,
+      "message": "This is a weaker check. The stronger one is wrong and doesn\u0027t hold, yes, but the relation between them is still correctly stated. :-)",
+      "parentUuid": "031ec5a4_2505d4ec",
+      "range": {
+        "startLine": 12,
+        "startChar": 40,
+        "endLine": 12,
+        "endChar": 46
+      },
+      "revId": "580667b8d9cf6943596efff4df64f5879c1529e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
