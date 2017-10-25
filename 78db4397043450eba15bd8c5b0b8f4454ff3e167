@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f9265e7_c3526b36",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-25T22:04:02Z",
+      "side": 1,
+      "message": "Same here. I\u0027d rather get complete stacks on the host when crashing...",
+      "range": {
+        "startLine": 298,
+        "startChar": 4,
+        "endLine": 298,
+        "endChar": 73
+      },
+      "revId": "78db4397043450eba15bd8c5b0b8f4454ff3e167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e26f1760_21eec63f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-25T22:04:02Z",
+      "side": 1,
+      "message": "Isn\u0027t this global for everything? Not restricted to ANR dumps? We *want* a full dump when we abort and print state, etc.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 5
+      },
+      "revId": "78db4397043450eba15bd8c5b0b8f4454ff3e167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
