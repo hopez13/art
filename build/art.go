@@ -27,14 +27,14 @@ func globalFlags(ctx android.BaseContext) ([]string, []string) {
 	var cflags []string
 	var asflags []string
 
-	opt := envDefault(ctx, "ART_NDEBUG_OPT_FLAG", "-O3")
+	opt := cc.EnvDefault(ctx, "ART_NDEBUG_OPT_FLAG", "-O3")
 	cflags = append(cflags, opt)
 
 	tlab := false
 
-	gcType := envDefault(ctx, "ART_DEFAULT_GC_TYPE", "CMS")
+	gcType := cc.EnvDefault(ctx, "ART_DEFAULT_GC_TYPE", "CMS")
 
-	if envTrue(ctx, "ART_TEST_DEBUG_GC") {
+	if cc.EnvTrue(ctx, "ART_TEST_DEBUG_GC") {
 		gcType = "SS"
 		tlab = true
 	}
@@ -44,22 +44,22 @@ func globalFlags(ctx android.BaseContext) ([]string, []string) {
 		cflags = append(cflags, "-DART_USE_TLAB=1")
 	}
 
-	if !envFalse(ctx, "ART_ENABLE_VDEX") {
+	if !cc.EnvFalse(ctx, "ART_ENABLE_VDEX") {
 		cflags = append(cflags, "-DART_ENABLE_VDEX")
 	}
 
-	imtSize := envDefault(ctx, "ART_IMT_SIZE", "43")
+	imtSize := cc.EnvDefault(ctx, "ART_IMT_SIZE", "43")
 	cflags = append(cflags, "-DIMT_SIZE="+imtSize)
 
-	if envTrue(ctx, "ART_HEAP_POISONING") {
+	if cc.EnvTrue(ctx, "ART_HEAP_POISONING") {
 		cflags = append(cflags, "-DART_HEAP_POISONING=1")
 		asflags = append(asflags, "-DART_HEAP_POISONING=1")
 	}
 
-	if !envFalse(ctx, "ART_USE_READ_BARRIER") && ctx.AConfig().ArtUseReadBarrier() {
+	if !cc.EnvFalse(ctx, "ART_USE_READ_BARRIER") && ctx.AConfig().ArtUseReadBarrier() {
 		// Used to change the read barrier type. Valid values are BAKER, BROOKS,
 		// TABLELOOKUP. The default is BAKER.
-		barrierType := envDefault(ctx, "ART_READ_BARRIER_TYPE", "BAKER")
+		barrierType := cc.EnvDefault(ctx, "ART_READ_BARRIER_TYPE", "BAKER")
 		cflags = append(cflags,
 			"-DART_USE_READ_BARRIER=1",
 			"-DART_READ_BARRIER_TYPE_IS_"+barrierType+"=1")
@@ -91,13 +91,13 @@ func globalFlags(ctx android.BaseContext) ([]string, []string) {
 			"-DART_STACK_OVERFLOW_GAP_x86_64=8192")
 	}
 
-	if envTrue(ctx, "ART_ENABLE_ADDRESS_SANITIZER") {
+	if cc.EnvTrue(ctx, "ART_ENABLE_ADDRESS_SANITIZER") {
 		// Used to enable full sanitization, i.e., user poisoning, under ASAN.
 		cflags = append(cflags, "-DART_ENABLE_ADDRESS_SANITIZER=1")
 		asflags = append(asflags, "-DART_ENABLE_ADDRESS_SANITIZER=1")
 	}
 
-	if envTrue(ctx, "ART_MIPS32_CHECK_ALIGNMENT") {
+	if cc.EnvTrue(ctx, "ART_MIPS32_CHECK_ALIGNMENT") {
 		// Enable the use of MIPS32 CHECK_ALIGNMENT macro for debugging purposes
 		asflags = append(asflags, "-DART_MIPS32_CHECK_ALIGNMENT")
 	}
@@ -108,7 +108,7 @@ func globalFlags(ctx android.BaseContext) ([]string, []string) {
 func debugFlags(ctx android.BaseContext) []string {
 	var cflags []string
 
-	opt := envDefault(ctx, "ART_DEBUG_OPT_FLAG", "-O2")
+	opt := cc.EnvDefault(ctx, "ART_DEBUG_OPT_FLAG", "-O2")
 	cflags = append(cflags, opt)
 
 	return cflags
@@ -126,13 +126,13 @@ func deviceFlags(ctx android.BaseContext) []string {
 	)
 
 	cflags = append(cflags, "-DART_BASE_ADDRESS="+ctx.AConfig().LibartImgDeviceBaseAddress())
-	if envTrue(ctx, "ART_TARGET_LINUX") {
+	if cc.EnvTrue(ctx, "ART_TARGET_LINUX") {
 		cflags = append(cflags, "-DART_TARGET_LINUX")
 	} else {
 		cflags = append(cflags, "-DART_TARGET_ANDROID")
 	}
-	minDelta := envDefault(ctx, "LIBART_IMG_TARGET_MIN_BASE_ADDRESS_DELTA", "-0x1000000")
-	maxDelta := envDefault(ctx, "LIBART_IMG_TARGET_MAX_BASE_ADDRESS_DELTA", "0x1000000")
+	minDelta := cc.EnvDefault(ctx, "LIBART_IMG_TARGET_MIN_BASE_ADDRESS_DELTA", "-0x1000000")
+	maxDelta := cc.EnvDefault(ctx, "LIBART_IMG_TARGET_MAX_BASE_ADDRESS_DELTA", "0x1000000")
 	cflags = append(cflags, "-DART_BASE_ADDRESS_MIN_DELTA="+minDelta)
 	cflags = append(cflags, "-DART_BASE_ADDRESS_MAX_DELTA="+maxDelta)
 
@@ -153,12 +153,13 @@ func hostFlags(ctx android.BaseContext) []string {
 	)
 
 	cflags = append(cflags, "-DART_BASE_ADDRESS="+ctx.AConfig().LibartImgHostBaseAddress())
-	minDelta := envDefault(ctx, "LIBART_IMG_HOST_MIN_BASE_ADDRESS_DELTA", "-0x1000000")
-	maxDelta := envDefault(ctx, "LIBART_IMG_HOST_MAX_BASE_ADDRESS_DELTA", "0x1000000")
+	minDelta := cc.EnvDefault(ctx, "LIBART_IMG_HOST_MIN_BASE_ADDRESS_DELTA", "-0x1000000")
+	maxDelta := cc.EnvDefault(ctx, "LIBART_IMG_HOST_MAX_BASE_ADDRESS_DELTA", "0x1000000")
 	cflags = append(cflags, "-DART_BASE_ADDRESS_MIN_DELTA="+minDelta)
 	cflags = append(cflags, "-DART_BASE_ADDRESS_MAX_DELTA="+maxDelta)
 
-	if len(ctx.AConfig().SanitizeHost()) > 0 && !envFalse(ctx, "ART_ENABLE_ADDRESS_SANITIZER") {
+	if len(ctx.AConfig().SanitizeHost()) > 0 &&
+		!cc.EnvFalse(ctx, "ART_ENABLE_ADDRESS_SANITIZER") {
 		// We enable full sanitization on the host by default.
 		cflags = append(cflags, "-DART_ENABLE_ADDRESS_SANITIZER=1")
 	}
@@ -188,7 +189,7 @@ func globalDefaults(ctx android.LoadHookContext) {
 	p.Target.Android.Cflags = deviceFlags(ctx)
 	p.Target.Host.Cflags = hostFlags(ctx)
 
-	if envTrue(ctx, "ART_DEX_FILE_ACCESS_TRACKING") {
+	if cc.EnvTrue(ctx, "ART_DEX_FILE_ACCESS_TRACKING") {
 		p.Cflags = append(p.Cflags, "-DART_DEX_FILE_ACCESS_TRACKING")
 		p.Sanitize.Recover = []string{
 			"address",
@@ -206,35 +207,6 @@ func debugDefaults(ctx android.LoadHookContext) {
 	p := &props{}
 	p.Cflags = debugFlags(ctx)
 	ctx.AppendProperties(p)
-}
-
-func customLinker(ctx android.LoadHookContext) {
-	linker := envDefault(ctx, "CUSTOM_TARGET_LINKER", "")
-	if linker != "" {
-		type props struct {
-			DynamicLinker string
-		}
-
-		p := &props{}
-		p.DynamicLinker = linker
-		ctx.AppendProperties(p)
-	}
-}
-
-func prefer32Bit(ctx android.LoadHookContext) {
-	if envTrue(ctx, "HOST_PREFER_32_BIT") {
-		type props struct {
-			Target struct {
-				Host struct {
-					Compile_multilib string
-				}
-			}
-		}
-
-		p := &props{}
-		p.Target.Host.Compile_multilib = "prefer32"
-		ctx.AppendProperties(p)
-	}
 }
 
 func testMap(config android.Config) map[string][]string {
@@ -320,8 +292,10 @@ func artBinary() android.Module {
 	binary, _ := cc.NewBinary(android.HostAndDeviceSupported)
 	module := binary.Init()
 
-	android.AddLoadHook(module, customLinker)
-	android.AddLoadHook(module, prefer32Bit)
+	// Honor CUSTOM_TARGET_LINKER.
+	android.AddLoadHook(module, cc.CustomLinker)
+	// Honor HOST_PREFER_32_BIT.
+	android.AddLoadHook(module, cc.Prefer32Bit)
 	return module
 }
 
@@ -331,8 +305,8 @@ func artTest() android.Module {
 
 	installCodegenCustomizer(module, false)
 
-	android.AddLoadHook(module, customLinker)
-	android.AddLoadHook(module, prefer32Bit)
+	android.AddLoadHook(module, cc.CustomLinker)
+	android.AddLoadHook(module, cc.Prefer32Bit)
 	android.AddInstallHook(module, testInstall)
 	return module
 }
@@ -343,23 +317,7 @@ func artTestLibrary() android.Module {
 
 	installCodegenCustomizer(module, false)
 
-	android.AddLoadHook(module, prefer32Bit)
+	android.AddLoadHook(module, cc.Prefer32Bit)
 	android.AddInstallHook(module, testInstall)
 	return module
-}
-
-func envDefault(ctx android.BaseContext, key string, defaultValue string) string {
-	ret := ctx.AConfig().Getenv(key)
-	if ret == "" {
-		return defaultValue
-	}
-	return ret
-}
-
-func envTrue(ctx android.BaseContext, key string) bool {
-	return ctx.AConfig().Getenv(key) == "true"
-}
-
-func envFalse(ctx android.BaseContext, key string) bool {
-	return ctx.AConfig().Getenv(key) == "false"
 }

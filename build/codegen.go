@@ -20,6 +20,7 @@ package art
 
 import (
 	"android/soong/android"
+	"android/soong/cc"
 	"sort"
 	"strings"
 )
@@ -27,14 +28,14 @@ import (
 func codegen(ctx android.LoadHookContext, c *codegenProperties, library bool) {
 	var hostArches, deviceArches []string
 
-	e := envDefault(ctx, "ART_HOST_CODEGEN_ARCHS", "")
+	e := cc.EnvDefault(ctx, "ART_HOST_CODEGEN_ARCHS", "")
 	if e == "" {
 		hostArches = supportedArches
 	} else {
 		hostArches = strings.Split(e, " ")
 	}
 
-	e = envDefault(ctx, "ART_TARGET_CODEGEN_ARCHS", "")
+	e = cc.EnvDefault(ctx, "ART_TARGET_CODEGEN_ARCHS", "")
 	if e == "" {
 		deviceArches = defaultDeviceCodegenArches(ctx)
 	} else {
