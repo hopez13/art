@@ -73,6 +73,29 @@
     },
     {
       "key": {
+        "uuid": "d7870635_40d85f91",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-25T20:09:11Z",
+      "side": 1,
+      "message": "nit: not ART style\n\n    breakpoint_logger",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b06e9687_9c8cf27a",
         "filename": "tools/breakpoint-logger/breakpointlogger.cc",
         "patchSetId": 2
@@ -117,6 +140,30 @@
       "revId": "f000694b355889f734860503064273c289fd4ac7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0c94a23_4fcc804f",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-25T20:09:11Z",
+      "side": 1,
+      "message": "Does jlocation get used *only* for code units [within the Tooling Interface] or is there any other uses?",
+      "parentUuid": "3fb6023c_d9e94b58",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -258,6 +305,30 @@
       "revId": "f000694b355889f734860503064273c289fd4ac7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b0e0911_d1c50807",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-25T20:09:11Z",
+      "side": 1,
+      "message": "What about \u0027ABC\u003cT,X\u003e\u0027 or ABC\u003c?\u003e\u0027 or \u0027ABC\u003cT extends Foo\u003e\u0027 ?",
+      "parentUuid": "1b3b80d6_6b1c8c42",
+      "range": {
+        "startLine": 145,
+        "startChar": 14,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
