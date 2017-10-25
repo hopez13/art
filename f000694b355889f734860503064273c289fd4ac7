@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b245afb_5774dfcf",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-25T18:30:23Z",
+      "side": 1,
+      "message": "(Including that this won\u0027t wait for classes to be loaded, which isn\u0027t what a \"regular\" debugger would do.)",
+      "parentUuid": "af042d19_2184ee7b",
+      "range": {
+        "startLine": 15,
+        "startChar": 62,
+        "endLine": 15,
+        "endChar": 127
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14ce3774_a22ece7b",
         "filename": "tools/breakpoint-logger/breakpointlogger.cc",
         "patchSetId": 2
