@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "23a66f87_fa76fdf7",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b245afb_5774dfcf",
+      "range": {
+        "startLine": 15,
+        "startChar": 62,
+        "endLine": 15,
+        "endChar": 127
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b06e9687_9c8cf27a",
         "filename": "tools/breakpoint-logger/breakpointlogger.cc",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "writtenOn": "2017-10-25T18:30:53Z",
       "side": 1,
       "message": "What are the units?",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fb6023c_d9e94b58",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Code units normally but it\u0027s implementation defined.\n\nI\u0027ll change it to a jlocation since that\u0027s the typedef it\u0027s supposed to really be (although that\u0027s defined as a jlong).",
+      "parentUuid": "b06e9687_9c8cf27a",
       "range": {
         "startLine": 32,
         "startChar": 8,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "1fe24dbe_b92d94d6",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14ce3774_a22ece7b",
+      "range": {
+        "startLine": 39,
+        "startChar": 12,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595f71a7_f3353bb4",
         "filename": "tools/breakpoint-logger/breakpointlogger.cc",
         "patchSetId": 2
@@ -106,6 +178,30 @@
       "writtenOn": "2017-10-25T18:30:53Z",
       "side": 1,
       "message": "nit: jvmti_env",
+      "range": {
+        "startLine": 73,
+        "startChar": 29,
+        "endLine": 73,
+        "endChar": 37
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f10b5fd_0e657771",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595f71a7_f3353bb4",
       "range": {
         "startLine": 73,
         "startChar": 29,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "1b3b80d6_6b1c8c42",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "GetClassSignature has a \u0027generic\u0027 field.\n\nfor class ABC\u003cT\u003e {} it will be \u0027T\u0027.",
+      "parentUuid": "44371353_705fb2b8",
+      "range": {
+        "startLine": 145,
+        "startChar": 14,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "525f7eff_5b04879a",
         "filename": "tools/breakpoint-logger/breakpointlogger.cc",
         "patchSetId": 2
@@ -152,6 +272,30 @@
       "writtenOn": "2017-10-25T18:30:53Z",
       "side": 1,
       "message": "nit: method",
+      "range": {
+        "startLine": 174,
+        "startChar": 62,
+        "endLine": 174,
+        "endChar": 63
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e75251aa_a9016280",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "525f7eff_5b04879a",
       "range": {
         "startLine": 174,
         "startChar": 62,
@@ -181,6 +325,24 @@
     },
     {
       "key": {
+        "uuid": "3bf479e9_cd1fea57",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd8f06ac_e881250f",
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee1b7d3c_f7d9b3bd",
         "filename": "tools/breakpoint-logger/breakpointlogger.cc",
         "patchSetId": 2
@@ -192,6 +354,24 @@
       "writtenOn": "2017-10-25T18:30:53Z",
       "side": 1,
       "message": "nit: bind \u0026 to left here",
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54cd721_18fd2501",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee1b7d3c_f7d9b3bd",
       "revId": "f000694b355889f734860503064273c289fd4ac7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -221,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "2e3fc8f3_d6e1f3e1",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40808bd3_f0680e8e",
+      "range": {
+        "startLine": 255,
+        "startChar": 37,
+        "endLine": 255,
+        "endChar": 39
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaf24f22_01b48199",
         "filename": "tools/breakpoint-logger/breakpointlogger.cc",
         "patchSetId": 2
@@ -232,6 +436,30 @@
       "writtenOn": "2017-10-25T18:30:53Z",
       "side": 1,
       "message": "nit:  not art style",
+      "range": {
+        "startLine": 318,
+        "startChar": 19,
+        "endLine": 318,
+        "endChar": 35
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee2e5183_12c42d26",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaf24f22_01b48199",
       "range": {
         "startLine": 318,
         "startChar": 19,

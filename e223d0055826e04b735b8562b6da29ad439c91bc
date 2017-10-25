@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "489388d2_91c66208",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "It also ensures that the -Xplugin is passed and is passed only once. You can use it with jvmti tests without needing to do any extra work or know which they are.",
+      "parentUuid": "1bb57ade_627dbdf5",
+      "revId": "e223d0055826e04b735b8562b6da29ad439c91bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce44e438_3c7321b9",
         "filename": "tools/breakpoint-logger/README.md",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-25T18:31:26Z",
       "side": 1,
       "message": "example with JVM?",
+      "revId": "e223d0055826e04b735b8562b6da29ad439c91bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d600bda_55952c6f",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T18:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce44e438_3c7321b9",
       "revId": "e223d0055826e04b735b8562b6da29ad439c91bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
