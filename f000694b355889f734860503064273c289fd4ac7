@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "09e909c7_8a78be3b",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T20:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7870635_40d85f91",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b06e9687_9c8cf27a",
         "filename": "tools/breakpoint-logger/breakpointlogger.cc",
         "patchSetId": 2
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "Does jlocation get used *only* for code units [within the Tooling Interface] or is there any other uses?",
       "parentUuid": "3fb6023c_d9e94b58",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2cd97a8_450cde53",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T20:56:01Z",
+      "side": 1,
+      "message": "as i said exactly what it refers to is implementation defined. It is only ever used for specifying the a location in a method.",
+      "parentUuid": "a0c94a23_4fcc804f",
       "range": {
         "startLine": 32,
         "startChar": 8,
@@ -320,6 +368,30 @@
       "side": 1,
       "message": "What about \u0027ABC\u003cT,X\u003e\u0027 or ABC\u003c?\u003e\u0027 or \u0027ABC\u003cT extends Foo\u003e\u0027 ?",
       "parentUuid": "1b3b80d6_6b1c8c42",
+      "range": {
+        "startLine": 145,
+        "startChar": 14,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "f000694b355889f734860503064273c289fd4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c431ade3_62dca92c",
+        "filename": "tools/breakpoint-logger/breakpointlogger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-25T20:56:01Z",
+      "side": 1,
+      "message": "AFAIK it\u0027s always whatever is in the \"\u003c\u003e\".\n\nIt just gets it from some random method annotation.",
+      "parentUuid": "0b0e0911_d1c50807",
       "range": {
         "startLine": 145,
         "startChar": 14,
