@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb0390eb_ea0892fb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-25T16:56:24Z",
+      "side": 1,
+      "message": "As I previously replied to Roland: \"As it resides in a macro LINT doesn\u0027t recognize it as qualifier (Weird number of spaces at line-start.  Are you using a 2-space indent?) I suggest we keep is as it is.\"",
+      "parentUuid": "4f45cf0a_a16f59c8",
+      "range": {
+        "startLine": 1484,
+        "startChar": 0,
+        "endLine": 1484,
+        "endChar": 2
+      },
+      "revId": "342fae180797ca0bd70ede7c8e85fa7a22a08311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1464e1ec_7a023ca6",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-25T13:30:16Z",
       "side": 1,
       "message": "codegen",
+      "range": {
+        "startLine": 2204,
+        "startChar": 69,
+        "endLine": 2204,
+        "endChar": 77
+      },
+      "revId": "342fae180797ca0bd70ede7c8e85fa7a22a08311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5451122_7678dbb2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 2204,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-10-25T16:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1464e1ec_7a023ca6",
       "range": {
         "startLine": 2204,
         "startChar": 69,
