@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24446302_ee10c054",
+        "filename": "dexlayout/dex_ir_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-10-26T14:36:40Z",
+      "side": 1,
+      "message": "In front of a void method this seems misleading.  Remove it.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 50
+      },
+      "revId": "dbc4b447f066ea89428d03574f1066a8b18932c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
