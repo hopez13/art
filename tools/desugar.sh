@@ -50,8 +50,12 @@ showcommands=n
 while true; do
   case $1 in
     --help)
-      echo "Usage: $0 [--mode=host|target] [--core-only] [--show-commands] <desugar args>"
+      echo "Usage: $0 [--envsetup-script script] [--mode=host|target] [--core-only] [--show-commands] <desugar args>"
       exit 0
+      ;;
+    --envsetup-script)
+      shift
+      bootjars_args="$bootjars_args --envsetup-script $1"
       ;;
     --mode=host)
       bootjars_args="$bootjars_args --host"

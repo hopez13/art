@@ -112,6 +112,7 @@ verbose = False
 dry_run = False
 build = False
 gdb = False
+use_fake_envsetup = True
 gdb_arg = ''
 stop_testrunner = False
 dex2oat_jobs = -1   # -1 corresponds to default threads for dex2oat
@@ -119,6 +120,9 @@ run_all_configs = False
 
 # Dict containing extra arguments
 extra_arguments = { "host" : [], "target" : [] }
+
+fake_envsetup = None
+envsetup_args = []
 
 # Dict to store user requested test variants.
 # key: variant_type.
@@ -469,7 +473,11 @@ def run_tests(tests):
           tempfile.mkdtemp(dir=env.ART_HOST_TEST_DIR)) + options_test
 
       run_test_sh = env.ANDROID_BUILD_TOP + '/art/test/run-test'
-      command = ' '.join((run_test_sh, options_test, ' '.join(extra_arguments[target]), test))
+      command = ' '.join((run_test_sh,
+                          options_test,
+                          ' '.join(extra_arguments[target]),
+                          ' '.join(envsetup_args),
+                          test))
 
       semaphore.acquire()
       worker = threading.Thread(target=run_test, args=(command, test, variant_set, test_name))
@@ -872,6 +880,7 @@ def parse_option():
   global timeout
   global dex2oat_jobs
   global run_all_configs
+  global use_fake_envsetup
 
   parser = argparse.ArgumentParser(description="Runs all or a subset of the ART test suite.")
   parser.add_argument('-t', '--test', dest='test', help='name of the test')
@@ -880,6 +889,7 @@ def parse_option():
   for variant in TOTAL_VARIANTS_SET:
     flag = '--' + variant
     parser.add_argument(flag, action='store_true', dest=variant)
+  parser.add_argument('--no-fake-envsetup', action='store_true', dest='no_fake_envsetup')
   parser.add_argument('--verbose', '-v', action='store_true', dest='verbose')
   parser.add_argument('--dry-run', action='store_true', dest='dry_run')
   parser.add_argument("--skip", action="append", dest="skips", default=[],
@@ -916,6 +926,10 @@ def parse_option():
       if options.get(variant):
         _user_input_variants[variant_type].add(variant)
 
+  if options['no_fake_envsetup']:
+    use_fake_envsetup = False
+  else:
+    use_fake_envsetup = True
   if options['verbose']:
     verbose = True
   if options['n_thread']:
@@ -937,10 +951,35 @@ def parse_option():
 
   return test
 
+def setup_fake_envsetup():
+  global envsetup_args
+  global fake_envsetup
+  _, fake_envsetup = tempfile.mkstemp(dir=env.ART_HOST_TEST_DIR, suffix=".sh", prefix="fake_envsetup_")
+  with open(fake_envsetup, 'w') as fd:
+    fd.write("""
+function get_build_var() {{
+  case $1 in
+    TARGET_CORE_JARS) echo {} ;;
+    PRODUCT_BOOT_JARS) echo {} ;;
+    TARGET_OUT_COMMON_INTERMEDIATES) echo {} ;;
+    HOST_CORE_JARS) echo {} ;;
+    HOST_OUT_COMMON_INTERMEDIATES) echo {} ;;
+    *) echo ""; exit 1 ;;
+  esac
+}}
+           """.format(env.TARGET_CORE_JARS,
+                      env.PRODUCT_BOOT_JARS,
+                      env.TARGET_OUT_COMMON_INTERMEDIATES,
+                      env.HOST_CORE_JARS,
+                      env.HOST_OUT_COMMON_INTERMEDIATES))
+  envsetup_args = [ "--build-option" , "--envsetup-script" , "--build-option", fake_envsetup ]
+
 def main():
   gather_test_info()
   user_requested_test = parse_option()
   setup_test_env()
+  if use_fake_envsetup:
+    setup_fake_envsetup()
   if build:
     build_targets = ''
     if 'host' in _user_input_variants['target']:
@@ -972,6 +1011,8 @@ def main():
     sys.exit(1)
   if failed_tests:
     sys.exit(1)
+  if fake_envsetup:
+    os.unlink(fake_envsetup)
   sys.exit(0)
 
 if __name__ == '__main__':

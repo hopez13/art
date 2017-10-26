@@ -41,7 +41,7 @@ showcommands=n
 while true; do
   case $1 in
     --help)
-      echo "Usage: $0 [--mode=host|target] [--core-only] [--show-commands] <javac args>"
+      echo "Usage: $0 [--mode=host|target] [--core-only] [--show-commands] [--envsetup-script script] <javac args>"
       exit 0
       ;;
     --mode=host)
@@ -52,6 +52,10 @@ while true; do
       ;;
     --core-only)
       bootjars_args="$bootjars_args --core"
+      ;;
+    --envsetup-script)
+      shift
+      bootjars_args="$bootjars_args --envsetup-script $1"
       ;;
     --show-commands)
       showcommands=y

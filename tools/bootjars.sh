@@ -21,17 +21,20 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TOP="$DIR/../.."
 
-source "${TOP}/build/envsetup.sh" >&/dev/null # import get_build_var
-
 selected_env_var=
 core_jars_only=n
 print_file_path=n
 mode=target
+envsetup_script="${TOP}/build/envsetup.sh"
 while true; do
   case $1 in
     --help)
-      echo "Usage: $0 [--core] [--path] [--host|--target] [--help]"
+      echo "Usage: $0 [--envsetup-script script] [--core] [--path] [--host|--target] [--help]"
       exit 0
+      ;;
+    --envsetup-script)
+      shift
+      envsetup_script="$1"
       ;;
     --core)
       core_jars_only=y
@@ -51,6 +54,8 @@ while true; do
   esac
   shift
 done
+
+source "$envsetup_script" >&/dev/null # import get_build_var
 
 if [[ $mode == target ]]; then
   if [[ $core_jars_only == y ]]; then
