@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72c679ac_fa215c91",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T16:43:16Z",
+      "side": 1,
+      "message": "Consider perhaps maybe to call it tibreakpointlogger, kind of like how titrace?\n\nti for tooling interface.",
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13eca1e4_342bd8c9",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T16:43:16Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38c98fa7_248cb482",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T16:43:16Z",
+      "side": 1,
+      "message": "dex pc, .class pc, ...? what is it? specify in readme",
+      "range": {
+        "startLine": 17,
+        "startChar": 53,
+        "endLine": 17,
+        "endChar": 72
+      },
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cbc2779_c0a15b11",
+        "filename": "tools/breakpoint-logger/breakpoint_logger.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T16:43:16Z",
+      "side": 1,
+      "message": "nit: GetGenericTypeParameters , thats what they are called in JLS (type parameter)",
+      "range": {
+        "startLine": 145,
+        "startChar": 14,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
