@@ -93,6 +93,30 @@
       "revId": "78db4397043450eba15bd8c5b0b8f4454ff3e167",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bd79efa_efbccfcc",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-26T22:12:42Z",
+      "side": 1,
+      "message": "art/runtime/native/dalvik_system_DexFile.cc, DexFile_openDexFileNative\n\nAdd a \u0027LOG(FATAL) \u003c\u003c \"Test\";\u0027 at the start. This should mean that there are managed frames on the stack. We would want full stacks here, if possible. (In fact, we\u0027d like full stacks here on device, which was why I was never really happy turning in-process zip support off opaquely in libbacktrace)",
+      "parentUuid": "868233e6_4c02d086",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 5
+      },
+      "revId": "78db4397043450eba15bd8c5b0b8f4454ff3e167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
