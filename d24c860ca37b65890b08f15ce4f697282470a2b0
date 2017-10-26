@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6dfe02da_56df4f1d",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T18:15:05Z",
+      "side": 1,
+      "message": "Great, this is quite unambiguous now, thanks!",
+      "revId": "d24c860ca37b65890b08f15ce4f697282470a2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32bc53c3_760caf7d",
+        "filename": "tools/breakpoint-logger/breakpoint_logger.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T18:15:05Z",
+      "side": 1,
+      "message": "nit: not ART style (as Andreas pointed out)",
+      "range": {
+        "startLine": 39,
+        "startChar": 12,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "d24c860ca37b65890b08f15ce4f697282470a2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24fd62ce_3d7f7726",
+        "filename": "tools/breakpoint-logger/breakpoint_logger.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T18:15:05Z",
+      "side": 1,
+      "message": "nit: not ART style",
+      "revId": "d24c860ca37b65890b08f15ce4f697282470a2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
