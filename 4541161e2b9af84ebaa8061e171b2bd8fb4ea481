@@ -116,6 +116,40 @@
       "revId": "4541161e2b9af84ebaa8061e171b2bd8fb4ea481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ec948f_945318c3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-26T00:17:29Z",
+      "side": 1,
+      "message": "perhaps add a comment here:\n\nIf analysis was not successful, we proceed with the regular build. The graph should still be initially empty at this point.",
+      "revId": "4541161e2b9af84ebaa8061e171b2bd8fb4ea481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8f660a3_8253d2c0",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-26T00:17:29Z",
+      "side": 1,
+      "message": "Even though it is clear in the context of the CL, for the future I would prefer that you document the new parameter and say what it will do differently.",
+      "revId": "4541161e2b9af84ebaa8061e171b2bd8fb4ea481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
