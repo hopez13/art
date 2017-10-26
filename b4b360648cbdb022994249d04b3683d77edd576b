@@ -16,6 +16,24 @@
       "revId": "b4b360648cbdb022994249d04b3683d77edd576b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fb08ec2_e88a5f66",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-26T17:58:31Z",
+      "side": 1,
+      "message": "No it is the dex-pc (which I say below) which can be found with tools like dexdump and is the byte offset. Your problem was that your tool was using code-units which are 2 bytes.\n\nAnyway was even more explicit.",
+      "parentUuid": "6b23a50f_90daf8a5",
+      "revId": "b4b360648cbdb022994249d04b3683d77edd576b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
