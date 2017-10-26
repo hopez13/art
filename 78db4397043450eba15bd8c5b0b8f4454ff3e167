@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eab3e92d_256db428",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2017-10-26T21:51:55Z",
+      "side": 1,
+      "message": "Removing this so that you can get the full stacks in the case that the map is null.",
+      "parentUuid": "7f9265e7_c3526b36",
+      "range": {
+        "startLine": 298,
+        "startChar": 4,
+        "endLine": 298,
+        "endChar": 73
+      },
+      "revId": "78db4397043450eba15bd8c5b0b8f4454ff3e167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e26f1760_21eec63f",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-25T22:04:02Z",
       "side": 1,
       "message": "Isn\u0027t this global for everything? Not restricted to ANR dumps? We *want* a full dump when we abort and print state, etc.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 5
+      },
+      "revId": "78db4397043450eba15bd8c5b0b8f4454ff3e167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "868233e6_4c02d086",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2017-10-26T21:51:55Z",
+      "side": 1,
+      "message": "I\u0027m having a difficult time finding all of the dumping paths through the code.\n\nHowever, it looks like setting this here always results in a call to Thread::DumpStack, which will always attempt to dump the java stack as well as the native stack. So in that case, you always want to ignore when you hit a map that ends in oat or odex.\n\nIs there a way to easily trigger an abort on the host so I can verify if you get a full stack in that case?",
+      "parentUuid": "e26f1760_21eec63f",
       "range": {
         "startLine": 209,
         "startChar": 0,
