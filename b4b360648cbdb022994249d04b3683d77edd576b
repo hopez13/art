@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b23a50f_90daf8a5",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T17:43:55Z",
+      "side": 1,
+      "message": "Just assume whoever is reading this has no idea what\u0027s a valid jlocation, because if anyone other than you wanted to ever use it they probably wouldn\u0027t know :). And looking at TI specification doesn\u0027t help because it doesn\u0027t explain it [for ART].\n\nI remember I had to do some magic *2 multiplication when implementing titrace and I\u0027m not sure if that still applies here?\n\nLogically the jlocation is the byte-offset for RI and code units offset (bytes*2) for ART? Is that correct? \n\nThe README should say something like  that ^",
+      "revId": "b4b360648cbdb022994249d04b3683d77edd576b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

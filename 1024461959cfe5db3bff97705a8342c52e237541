@@ -175,6 +175,30 @@
       "revId": "1024461959cfe5db3bff97705a8342c52e237541",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86441468_72cf202b",
+        "filename": "tools/breakpoint-logger/breakpoint_logger.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T17:43:55Z",
+      "side": 1,
+      "message": "Sure, that makes sense.\n\nCan you put in\n\n   // Generic type parameters, whatever is in the \u003c\u003e for a method\n\nor similar in the comments to explain?",
+      "parentUuid": "e516d71f_5f142374",
+      "range": {
+        "startLine": 145,
+        "startChar": 14,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
