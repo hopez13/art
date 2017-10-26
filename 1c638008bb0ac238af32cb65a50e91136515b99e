@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd8c5769_588a7372",
+        "filename": "runtime/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T23:49:05Z",
+      "side": 1,
+      "message": "Need to delete this line of code before checking in.",
+      "revId": "1c638008bb0ac238af32cb65a50e91136515b99e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d1fc21f_cedaba3c",
+        "filename": "runtime/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T23:49:05Z",
+      "side": 1,
+      "message": "Move inside, it\u0027s implementation detail.",
+      "revId": "1c638008bb0ac238af32cb65a50e91136515b99e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa125b17_99d078d4",
+        "filename": "runtime/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-26T23:49:05Z",
+      "side": 1,
+      "message": "Good call (jmgao, agampe) on using a macro to define bitstructs.",
+      "revId": "1c638008bb0ac238af32cb65a50e91136515b99e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
