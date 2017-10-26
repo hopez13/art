@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "044a16ad_bb541a42",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-26T10:25:27Z",
+      "side": 1,
+      "message": "Could you expand on what a vote means?",
+      "range": {
+        "startLine": 785,
+        "startChar": 26,
+        "endLine": 785,
+        "endChar": 45
+      },
+      "revId": "17c814023f7529aeb8c80b22a19e103cb5d97426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d127873d_e682d0e3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-26T10:25:27Z",
+      "side": 1,
+      "message": "references?",
+      "range": {
+        "startLine": 786,
+        "startChar": 37,
+        "endLine": 786,
+        "endChar": 46
+      },
+      "revId": "17c814023f7529aeb8c80b22a19e103cb5d97426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fa46306_a445948a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-26T10:25:27Z",
+      "side": 1,
+      "message": "of",
+      "range": {
+        "startLine": 817,
+        "startChar": 29,
+        "endLine": 817,
+        "endChar": 30
+      },
+      "revId": "17c814023f7529aeb8c80b22a19e103cb5d97426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1545a66_ca6c0104",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-26T10:25:27Z",
+      "side": 1,
+      "message": "what does it mean to have a reference be a write? Is that eg, a HArraySet?",
+      "range": {
+        "startLine": 818,
+        "startChar": 59,
+        "endLine": 818,
+        "endChar": 62
+      },
+      "revId": "17c814023f7529aeb8c80b22a19e103cb5d97426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d10ac0db_fd8df9f8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-26T10:25:27Z",
+      "side": 1,
+      "message": "I assume this is what the new test is testing?",
+      "range": {
+        "startLine": 1749,
+        "startChar": 32,
+        "endLine": 1749,
+        "endChar": 63
+      },
+      "revId": "17c814023f7529aeb8c80b22a19e103cb5d97426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
