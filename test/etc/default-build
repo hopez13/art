@@ -99,6 +99,8 @@ EXPERIMENTAL=""
 BUILD_MODE="target"
 DEV_MODE="no"
 
+ENVSETUP_SCRIPT=""
+
 # The key for default arguments if no experimental things are enabled.
 DEFAULT_EXPERIMENT="no-experiment"
 
@@ -183,6 +185,10 @@ while true; do
   elif [ "x$1" = "x--dev" ]; then
     DEV_MODE="yes"
     shift
+  elif [ "x$1" = "x--envsetup-script" ]; then
+    shift
+    ENVSETUP_SCRIPT="$1"
+    shift
   elif expr "x$1" : "x--" >/dev/null 2>&1; then
     echo "unknown $0 option: $1" 1>&2
     exit 1
@@ -253,6 +259,10 @@ function desugar() {
     desugar_args=--mode=target
   fi
 
+  if [[ "x$ENVSETUP_SCRIPT" != "" ]]; then
+    desugar_args="$desugar_args --envsetup-script $ENVSETUP_SCRIPT"
+  fi
+
   if [[ $DEV_MODE == yes ]]; then
     desugar_args="$desugar_args --show-commands"
   fi
@@ -265,6 +275,10 @@ function javac_with_bootclasspath {
   local javac_args=--mode=host
   if [[ $BUILD_MODE == target ]]; then
     javac_args=--mode=target
+  fi
+
+  if [[ "x$ENVSETUP_SCRIPT" != "" ]]; then
+    javac_args="$desugar_args --envsetup-script $ENVSETUP_SCRIPT"
   fi
 
   if [[ $DEV_MODE == yes ]]; then

@@ -35,7 +35,12 @@ _DUMP_MANY_VARS_LIST = ['HOST_2ND_ARCH_PREFIX',
                         'HOST_OUT_EXECUTABLES',
                         'ANDROID_JAVA_TOOLCHAIN',
                         'ANDROID_COMPILE_WITH_JACK',
-                        'USE_D8_BY_DEFAULT']
+                        'USE_D8_BY_DEFAULT',
+                        'TARGET_CORE_JARS',
+                        'PRODUCT_BOOT_JARS',
+                        'TARGET_OUT_COMMON_INTERMEDIATES',
+                        'HOST_CORE_JARS',
+                        'HOST_OUT_COMMON_INTERMEDIATES' ]
 _DUMP_MANY_VARS = None  # To be set to a dictionary with above list being the keys,
                         # and the build variable being the value.
 def _dump_many_vars(var_name):
@@ -141,6 +146,13 @@ ART_TEST_RUN_TEST_BUILD = _getEnvBoolean('ART_TEST_RUN_TEST_BUILD', False)
 
 TARGET_2ND_ARCH = _get_build_var('TARGET_2ND_ARCH')
 TARGET_ARCH = _get_build_var('TARGET_ARCH')
+
+TARGET_CORE_JARS = _get_build_var('TARGET_CORE_JARS')
+PRODUCT_BOOT_JARS = _get_build_var("PRODUCT_BOOT_JARS")
+TARGET_OUT_COMMON_INTERMEDIATES = _get_build_var("TARGET_OUT_COMMON_INTERMEDIATES")
+
+HOST_CORE_JARS = _get_build_var("HOST_CORE_JARS")
+HOST_OUT_COMMON_INTERMEDIATES = _get_build_var("HOST_OUT_COMMON_INTERMEDIATES")
 
 # Note: ART_2ND_PHONY_TEST_TARGET_SUFFIX is 2ND_ART_PHONY_TEST_TARGET_SUFFIX in .mk files
 # Note: ART_2ND_PHONY_TEST_HOST_SUFFIX is 2ND_ART_PHONY_HOST_TARGET_SUFFIX in .mk files
