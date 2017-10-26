@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a10c8332_62073c7b",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-26T16:57:55Z",
+      "side": 1,
+      "message": "I\u0027d rather not. It\u0027s not a super obvious initialism and I feel that the current name is descriptive enough.",
+      "parentUuid": "72c679ac_fa215c91",
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13eca1e4_342bd8c9",
         "filename": "tools/breakpoint-logger/README.md",
         "patchSetId": 8
@@ -30,6 +48,30 @@
       "writtenOn": "2017-10-26T16:43:16Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f295b71_4a6975f2",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-26T16:57:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13eca1e4_342bd8c9",
       "range": {
         "startLine": 15,
         "startChar": 27,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "1bcfba10_ab7d8aa1",
+        "filename": "tools/breakpoint-logger/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-26T16:57:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38c98fa7_248cb482",
+      "range": {
+        "startLine": 17,
+        "startChar": 53,
+        "endLine": 17,
+        "endChar": 72
+      },
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cbc2779_c0a15b11",
         "filename": "tools/breakpoint-logger/breakpoint_logger.cc",
         "patchSetId": 8
@@ -76,6 +142,30 @@
       "writtenOn": "2017-10-26T16:43:16Z",
       "side": 1,
       "message": "nit: GetGenericTypeParameters , thats what they are called in JLS (type parameter)",
+      "range": {
+        "startLine": 145,
+        "startChar": 14,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "1024461959cfe5db3bff97705a8342c52e237541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e516d71f_5f142374",
+        "filename": "tools/breakpoint-logger/breakpoint_logger.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-26T16:57:55Z",
+      "side": 1,
+      "message": "\u0027generic\u0027 is what it is called in the jvmti spec so I\u0027m going to keep it in line with that.",
+      "parentUuid": "3cbc2779_c0a15b11",
       "range": {
         "startLine": 145,
         "startChar": 14,
