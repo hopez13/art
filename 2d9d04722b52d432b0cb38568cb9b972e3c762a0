@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ca3479f_fcb8d65d",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-27T16:38:13Z",
+      "side": 1,
+      "message": "not sure if we have a style guideline or precedent for this (Nicolas?), but I prefer to keep the ) { outside the #if construct (not duplicate it in if and else). Some older school editors get confused by the parenthesis matching otherwise.",
+      "revId": "2d9d04722b52d432b0cb38568cb9b972e3c762a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
