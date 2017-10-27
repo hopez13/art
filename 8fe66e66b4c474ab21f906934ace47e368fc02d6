@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7427262b_bba68283",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-27T10:27:49Z",
+      "side": 1,
+      "message": "Why? (the method called below isn\u0027t annotated with REQUIRES_SHARED).",
+      "range": {
+        "startLine": 419,
+        "startChar": 3,
+        "endLine": 419,
+        "endChar": 44
+      },
+      "revId": "8fe66e66b4c474ab21f906934ace47e368fc02d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be76c7bf_cfe4899a",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-27T10:27:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 44
+      },
+      "revId": "8fe66e66b4c474ab21f906934ace47e368fc02d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef75f716_02277ebd",
+        "filename": "runtime/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-10-27T10:27:49Z",
+      "side": 1,
+      "message": "You don\u0027t need it in this CL?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 95
+      },
+      "revId": "8fe66e66b4c474ab21f906934ace47e368fc02d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
