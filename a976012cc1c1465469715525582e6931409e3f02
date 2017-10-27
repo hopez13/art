@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a1bb7800_3b67df20",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "This file now separates out the signature polymorphic instrinsics to simplify the declarations in interpreter_common.h. To make things work out, this file has been moved. WDYT?",
+      "parentUuid": "0f289b23_0cd664ec",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 129
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc37b171_481f05d4",
         "filename": "runtime/art_method.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-25T13:27:26Z",
       "side": 1,
       "message": "This looks odd. Is that a requirement of a polymorphic method?",
+      "range": {
+        "startLine": 169,
+        "startChar": 13,
+        "endLine": 169,
+        "endChar": 36
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08e05974_72475a08",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "Done. Replaced this awkward triplet of checks with IsPolymorphicSignature(). This does similar fast checks and before calling the potentially more expensive IsAnnotatedWithPolymorphicSignature().",
+      "parentUuid": "cc37b171_481f05d4",
       "range": {
         "startLine": 169,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "78523db5_fa8cb167",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "Took another look, not needed with a small tweak by the callers of this method.",
+      "parentUuid": "7f6a16ee_45e5dbd7",
+      "range": {
+        "startLine": 643,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 68
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3af73a87_a4546aca",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-10-25T13:27:26Z",
       "side": 1,
       "message": "This could also be generated from the intrinsics macro (with one dedicated to polymorphic intrinsics).",
+      "range": {
+        "startLine": 1020,
+        "startChar": 4,
+        "endLine": 1024,
+        "endChar": 12
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b451961_9cd412da",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3af73a87_a4546aca",
       "range": {
         "startLine": 1020,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "06f3b5ce_86fb302e",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6defe150_22fca87a",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 421,
+        "endChar": 94
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aa8af70_4c7071ef",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-10-25T13:27:26Z",
       "side": 1,
       "message": "Why don\u0027t you initialize all intrinsics and share the code with compiler_driver.cc?",
+      "range": {
+        "startLine": 595,
+        "startChar": 0,
+        "endLine": 607,
+        "endChar": 78
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f33e769_b9cdea47",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "Done. Common code in runtime_intrinsics.cc.",
+      "parentUuid": "1aa8af70_4c7071ef",
       "range": {
         "startLine": 595,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d8cf9e16_25899539",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1639,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "777f856b_4d564a50",
+      "range": {
+        "startLine": 1639,
+        "startChar": 23,
+        "endLine": 1639,
+        "endChar": 51
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a11ea0ba_b43012d5",
         "filename": "runtime/method_handles.cc",
         "patchSetId": 2
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "989fa9c9_1006465e",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a11ea0ba_b43012d5",
+      "range": {
+        "startLine": 975,
+        "startChar": 19,
+        "endLine": 975,
+        "endChar": 38
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c386e2e0_78a614d1",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2017-10-25T13:27:26Z",
       "side": 1,
       "message": "Why this change? The JNI method will still only be called at runtime (and not dex2oat time), right?",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 1
+      },
+      "revId": "a976012cc1c1465469715525582e6931409e3f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1063eb7_81c6dff0",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T12:13:39Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "c386e2e0_78a614d1",
       "range": {
         "startLine": 203,
         "startChar": 0,
