@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1a0b182_a196beaa",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-27T18:22:15Z",
+      "side": 1,
+      "message": "I don\u0027t know what you guys wanted, but this AdvanceSafe thing to me doesn\u0027t quite sit right with the notion of an \"iterator\" ?\n\nIs this what you had intended?",
+      "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
