@@ -133,6 +133,30 @@
       "revId": "d6e908f1246d332b0af84192e2db188958479c48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f82d4eb8_8cfbb7e2",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-27T17:15:05Z",
+      "side": 1,
+      "message": "Guess the eng specs made clear we\u0027re happy with native crashes if we skip verification...",
+      "parentUuid": "6daad144_35d67159",
+      "range": {
+        "startLine": 989,
+        "startChar": 0,
+        "endLine": 991,
+        "endChar": 46
+      },
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
