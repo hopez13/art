@@ -117,7 +117,7 @@ inline std::ostream& operator<<(std::ostream& os, const BitStringChar& bc) {
  *
  * Stores up to "N+1" characters in a subset of a machine word. Each character has a different
  * bitlength, as defined by len[pos]. This BitString can be nested inside of a BitStruct
- * (see e.g. InstanceOfAndStatus).
+ * (see e.g. runtime/subtype_check_bits_and_status.h).
  *
  * Definitions:
  *
@@ -127,7 +127,7 @@ inline std::ostream& operator<<(std::ostream& os, const BitStringChar& bc) {
  *  Bitstring[N]      := CharN
  *  Bitstring[I..N)   := [CharI, CharI+1, ... CharN-1]
  *
- * (These are used by the InstanceOf definitions and invariants, see instanceof.h)
+ * (These are used by the SubtypeCheckInfo definitions and invariants, see runtime/subtype_check_info.h)
  */
 struct BitString {
   using StorageType = BitStringChar::StorageType;
