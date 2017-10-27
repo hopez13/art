@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7417416_03a9e47c",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-27T16:30:32Z",
+      "side": 1,
+      "message": "Is this supposed to be inclusive? Please document.",
+      "range": {
+        "startLine": 39,
+        "startChar": 43,
+        "endLine": 39,
+        "endChar": 53
+      },
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2133f86_0d833206",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-27T16:30:32Z",
+      "side": 1,
+      "message": "Went?",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 13
+      },
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b61aa1a_5527032b",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-27T16:30:32Z",
+      "side": 1,
+      "message": "Why can\u0027t you just put the check \"dex_pc_ \u003e\u003d max_dex_pc_)\" here and use it for comparison?\n\n  operator\u003d\u003d(a, b)\n      a.pc \u003d\u003d b.pc || (a.IsEndIterator() \u0026\u0026 b.IsEndIterator())\n  operator!\u003d(a,b)\n      (a.IsEndIterator() !\u003d b.IsEndIterator()) \u0026\u0026 (a.pc !\u003d b.pc)\n\nThe overlap with kEndIteratorDexPc is a bit concerning.\n\nMaybe put \"DCHECK_NE(max_dex_pc, kEndIteratorDexPc)\" in the constructor to flag it as an illegal value?",
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2e9919a_13e7aedc",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 2
