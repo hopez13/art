@@ -68,6 +68,24 @@
       "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8060ff85_ec2735e3",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-27T18:31:46Z",
+      "side": 1,
+      "message": "Perhaps another alternative would be to have a \"SafeDexInstructionIterator\" which inherits from DexInstructionIterator but does the safe thing as in your original CL?\n\nThen the places that can\u0027t rely on verified dex can use \"SafeDexInstructionIterator\" and everything else can use \"DexInstructionIterator\" ?\n\nThat seems like it would satisfy Andreas\u0027s and Vladimir\u0027s suggestions as well as staying true to the spirit of an iterator?",
+      "parentUuid": "26339c05_7e65730b",
+      "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
