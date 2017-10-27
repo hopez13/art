@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "7390f50c_d95e2c40",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-27T18:29:13Z",
+      "side": 1,
+      "message": "typo: are",
+      "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "855b0744_5cb63dab",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-10-27T18:29:13Z",
+      "side": 1,
+      "message": "I would move the comment here, since the top iteration is business as usual, except not having the advance",
+      "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1a0b182_a196beaa",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 3
