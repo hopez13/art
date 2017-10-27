@@ -69,7 +69,7 @@ class DexInstructionIterator : public std::iterator<std::forward_iterator_tag, I
     return inst_;
   }
 
- private:
+ protected:
   const value_type* inst_ = nullptr;
 };
 
@@ -102,6 +102,62 @@ static inline bool operator>=(const DexInstructionIterator& lhs,
                               const DexInstructionIterator& rhs) {
   return !(lhs < rhs);
 }
+
+class SafeDexInstructionIterator : public DexInstructionIterator {
+ public:
+  SafeDexInstructionIterator() = default;
+  SafeDexInstructionIterator(const SafeDexInstructionIterator&) = default;
+  SafeDexInstructionIterator(SafeDexInstructionIterator&&) = default;
+  SafeDexInstructionIterator& operator=(const SafeDexInstructionIterator&) = default;
+  SafeDexInstructionIterator& operator=(SafeDexInstructionIterator&&) = default;
+
+  explicit SafeDexInstructionIterator(const DexInstructionIterator& start,
+                                      const DexInstructionIterator& end)
+      : DexInstructionIterator(start.Inst())
+      , end_(end.Inst()) {}
+
+  // Value after modification.
+  SafeDexInstructionIterator& operator++() {
+    const size_t size_code_units = Inst()->CodeUnitsRequiredForSizeComputation();
+    if (reinterpret_cast<const uint16_t*>(Inst()) + size_code_units >
+            reinterpret_cast<const uint16_t*>(end_)) {
+      error_state_ = true;
+      return *this;
+    }
+    inst_ = inst_->Next();
+    return *this;
+  }
+
+  // Value before modification.
+  DexInstructionIterator operator++(int) {
+    DexInstructionIterator temp = *this;
+    ++*this;
+    return temp;
+  }
+
+  const value_type& operator*() const {
+    AssertValid();
+    return *inst_;
+  }
+
+  const value_type* operator->() const {
+    return &**this;
+  }
+
+  bool IsErrorState() const {
+    return error_state_;
+  }
+
+ private:
+  ALWAYS_INLINE void AssertValid() const {
+    DCHECK(!IsErrorState());
+    DCHECK_LT(Inst(), end_);
+  }
+
+  const value_type* end_ = nullptr;
+  bool error_state_ = false;
+};
+
 
 }  // namespace art
 

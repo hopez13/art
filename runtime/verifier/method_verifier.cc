@@ -987,7 +987,9 @@ bool MethodVerifier::ComputeWidthsAndCountOps() {
   size_t monitor_enter_count = 0;
 
   IterationRange<DexInstructionIterator> instructions = code_item_->Instructions();
-  DexInstructionIterator inst = instructions.begin();
+  // We can't assume the instruction is well formed, handle the case where calculating the size
+  // goes past the end of the code item.
+  SafeDexInstructionIterator inst(instructions.begin(), instructions.end());
   for ( ; inst < instructions.end(); ++inst) {
     Instruction::Code opcode = inst->Opcode();
     switch (opcode) {
