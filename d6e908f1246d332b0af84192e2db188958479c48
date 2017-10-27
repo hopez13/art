@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39cd3c2c_fa100fd9",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-27T18:05:05Z",
+      "side": 1,
+      "message": "Obsolete",
+      "parentUuid": "b7417416_03a9e47c",
+      "range": {
+        "startLine": 39,
+        "startChar": 43,
+        "endLine": 39,
+        "endChar": 53
+      },
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2133f86_0d833206",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "09cb852d_48346e39",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-27T18:05:05Z",
+      "side": 1,
+      "message": "Obsolete",
+      "parentUuid": "d2133f86_0d833206",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 13
+      },
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b61aa1a_5527032b",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 2
@@ -59,6 +107,24 @@
       "writtenOn": "2017-10-27T16:30:32Z",
       "side": 1,
       "message": "Why can\u0027t you just put the check \"dex_pc_ \u003e\u003d max_dex_pc_)\" here and use it for comparison?\n\n  operator\u003d\u003d(a, b)\n      a.pc \u003d\u003d b.pc || (a.IsEndIterator() \u0026\u0026 b.IsEndIterator())\n  operator!\u003d(a,b)\n      (a.IsEndIterator() !\u003d b.IsEndIterator()) \u0026\u0026 (a.pc !\u003d b.pc)\n\nThe overlap with kEndIteratorDexPc is a bit concerning.\n\nMaybe put \"DCHECK_NE(max_dex_pc, kEndIteratorDexPc)\" in the constructor to flag it as an illegal value?",
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80e5abf2_d96cc195",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-27T18:05:05Z",
+      "side": 1,
+      "message": "Obsolete",
+      "parentUuid": "5b61aa1a_5527032b",
       "revId": "d6e908f1246d332b0af84192e2db188958479c48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -148,6 +214,30 @@
       "side": 1,
       "message": "Guess the eng specs made clear we\u0027re happy with native crashes if we skip verification...",
       "parentUuid": "6daad144_35d67159",
+      "range": {
+        "startLine": 989,
+        "startChar": 0,
+        "endLine": 991,
+        "endChar": 46
+      },
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67978cce_385a387f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-27T18:05:05Z",
+      "side": 1,
+      "message": "Agree we should check here, that\u0027s for a follow up CL.",
+      "parentUuid": "f2e9919a_13e7aedc",
       "range": {
         "startLine": 989,
         "startChar": 0,
