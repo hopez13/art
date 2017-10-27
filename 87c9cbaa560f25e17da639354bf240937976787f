@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0fc74146_3582fcf2",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T15:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05a2a68f_fd8ca1b6",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "87c9cbaa560f25e17da639354bf240937976787f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a461522_3a56da3f",
         "filename": "runtime/mirror/var_handle.cc",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2017-10-27T14:15:05Z",
       "side": 1,
       "message": "UNREACHABLE?",
+      "revId": "87c9cbaa560f25e17da639354bf240937976787f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76e7f986_61c39144",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T15:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a461522_3a56da3f",
       "revId": "87c9cbaa560f25e17da639354bf240937976787f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "f3f8c864_74f49975",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T15:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1693a32_19a587b1",
+      "revId": "87c9cbaa560f25e17da639354bf240937976787f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f11e442_1b1c6c6b",
         "filename": "runtime/mirror/var_handle.cc",
         "patchSetId": 4
@@ -70,6 +130,30 @@
       "writtenOn": "2017-10-27T14:15:05Z",
       "side": 1,
       "message": "I\u0027ve always found this a bit edgy. Could we have a static method taking a handle instead?",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 75
+      },
+      "revId": "87c9cbaa560f25e17da639354bf240937976787f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30a55efa_0a449018",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T15:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f11e442_1b1c6c6b",
       "range": {
         "startLine": 244,
         "startChar": 0,
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "8f80bd3c_58083af7",
+        "filename": "runtime/mirror/var_handle.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T15:18:51Z",
+      "side": 1,
+      "message": "Changed the wording to reflect change from \"change_byte_order_\" to \"native_byte_order_\".",
+      "parentUuid": "6973c43e_3339d76e",
+      "range": {
+        "startLine": 206,
+        "startChar": 44,
+        "endLine": 206,
+        "endChar": 51
+      },
+      "revId": "87c9cbaa560f25e17da639354bf240937976787f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d74e135d_505c50ca",
         "filename": "runtime/mirror/var_handle.h",
         "patchSetId": 4
@@ -116,6 +224,30 @@
       "writtenOn": "2017-10-27T14:15:05Z",
       "side": 1,
       "message": "be",
+      "range": {
+        "startLine": 236,
+        "startChar": 43,
+        "endLine": 236,
+        "endChar": 44
+      },
+      "revId": "87c9cbaa560f25e17da639354bf240937976787f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7de937f6_d42e4c22",
+        "filename": "runtime/mirror/var_handle.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-10-27T15:18:51Z",
+      "side": 1,
+      "message": "Same wording change. Avoids issue.",
+      "parentUuid": "d74e135d_505c50ca",
       "range": {
         "startLine": 236,
         "startChar": 43,
