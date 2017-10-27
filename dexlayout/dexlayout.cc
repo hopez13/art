@@ -1056,7 +1056,7 @@ void DexLayout::DumpBytecodes(uint32_t idx, const dex_ir::CodeItem* code, uint32
   // Iterate over all instructions.
   IterationRange<DexInstructionIterator> instructions = code->Instructions();
   for (auto inst = instructions.begin(); inst != instructions.end(); ++inst) {
-    const uint32_t dex_pc = inst.GetDexPC(instructions.begin());
+    const uint32_t dex_pc = inst.GetDexPC();
     const uint32_t insn_width = inst->SizeInCodeUnits();
     if (insn_width == 0) {
       fprintf(stderr, "GLITCH: zero-width instruction at idx=0x%04x\n", dex_pc);

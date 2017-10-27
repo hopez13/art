@@ -74,7 +74,7 @@ TEST(Instruction, PropertiesOf45cc) {
   Build45cc(4u /* num_vregs */, 16u /* method_idx */, 32u /* proto_idx */,
             0xcafe /* arg_regs */, instruction);
 
-  DexInstructionIterator ins(instruction);
+  DexInstructionIterator ins(instruction, sizeof(instruction));
   ASSERT_EQ(4u, ins->SizeInCodeUnits());
 
   ASSERT_TRUE(ins->HasVRegA());
@@ -109,7 +109,7 @@ TEST(Instruction, PropertiesOf4rcc) {
   Build4rcc(4u /* num_vregs */, 16u /* method_idx */, 32u /* proto_idx */,
             0xcafe /* arg_regs */, instruction);
 
-  DexInstructionIterator ins(instruction);
+  DexInstructionIterator ins(instruction, sizeof(instruction));
   ASSERT_EQ(4u, ins->SizeInCodeUnits());
 
   ASSERT_TRUE(ins->HasVRegA());
@@ -155,7 +155,7 @@ static std::string DumpInst35c(Instruction::Code code,
                                std::vector<uint16_t> args) {
   uint16_t inst[6] = {};
   Build35c(inst, code, method_idx, args);
-  return DexInstructionIterator(inst)->DumpString(nullptr);
+  return Instruction::At(inst)->DumpString(nullptr);
 }
 
 TEST(Instruction, DumpString) {
@@ -167,6 +167,15 @@ TEST(Instruction, DumpString) {
             "invoke-virtual-quick {v3, v2, v1, v5}, thing@1234");
   EXPECT_EQ(DumpInst35c(Instruction::INVOKE_CUSTOM, 1234, {3, 2, 1}),
             "invoke-custom {v3, v2, v1}, thing@1234");
+}
+
+TEST(Instruction, DexInstructionIteratorOverrun) {
+  uint16_t inst[6] = {};
+  Build35c(inst, Instruction::FILLED_NEW_ARRAY, 12345, {1, 2, 3, 4, 5});
+  // Mark the code item as "done" before the end of the instruction.
+  DexInstructionIterator it(inst, Instruction::At(inst)->SizeInCodeUnits() - 2);
+  ++it;
+  EXPECT_TRUE(it == DexInstructionIterator::MakeEndIterator(inst));
 }
 
 }  // namespace art

@@ -35,12 +35,36 @@ class DexInstructionIterator : public std::iterator<std::forward_iterator_tag, I
   DexInstructionIterator& operator=(const DexInstructionIterator&) = default;
   DexInstructionIterator& operator=(DexInstructionIterator&&) = default;
 
-  explicit DexInstructionIterator(const value_type* inst) : inst_(inst) {}
-  explicit DexInstructionIterator(const uint16_t* inst) : inst_(value_type::At(inst)) {}
+  explicit DexInstructionIterator(const uint16_t* instructions,
+                                  uint32_t max_dex_pc,
+                                  uint32_t dex_pc = 0)
+      : instructions_(instructions),
+        max_dex_pc_(max_dex_pc),
+        dex_pc_(dex_pc) {
+    if (dex_pc_ >= max_dex_pc_) {
+      // Went are at the end, mark as the special end iterator.
+      MarkAsEndIterator();
+    }
+  }
+  explicit DexInstructionIterator(const value_type* instructions,
+                                  uint32_t max_dex_pc,
+                                  uint32_t dex_pc = 0)
+      : DexInstructionIterator(reinterpret_cast<const uint16_t*>(instructions),
+                               max_dex_pc,
+                               dex_pc) {}
+
+  static DexInstructionIterator MakeEndIterator(const uint16_t* instructions) {
+    return DexInstructionIterator(instructions, kEndIteratorDexPC, kEndIteratorDexPC);
+  }
 
   // Value after modification.
   DexInstructionIterator& operator++() {
-    inst_ = inst_->Next();
+    DCHECK(!IsEndIterator());
+    dex_pc_ += Inst()->SizeInCodeUnits();
+    if (dex_pc_ >= max_dex_pc_) {
+      // Went are at the end, mark as the special end iterator.
+      MarkAsEndIterator();
+    }
     return *this;
   }
 
@@ -52,30 +76,48 @@ class DexInstructionIterator : public std::iterator<std::forward_iterator_tag, I
   }
 
   const value_type& operator*() const {
-    return *inst_;
+    return *Inst();
   }
 
   const value_type* operator->() const {
     return &**this;
   }
 
-  // Return the dex pc for an iterator compared to the code item begin.
-  uint32_t GetDexPC(const DexInstructionIterator& code_item_begin) {
-    return reinterpret_cast<const uint16_t*>(inst_) -
-        reinterpret_cast<const uint16_t*>(code_item_begin.inst_);
+  // Return the dex pc for the iterator.
+  ALWAYS_INLINE uint32_t GetDexPC() const {
+    return dex_pc_;
   }
 
-  const value_type* Inst() const {
-    return inst_;
+  ALWAYS_INLINE const value_type* Inst() const {
+    DCHECK(!IsEndIterator());
+    return Instruction::At(instructions_ + GetDexPC());
+  }
+
+  const uint16_t* InstructionBase() const {
+    return instructions_;
   }
 
  private:
-  const value_type* inst_ = nullptr;
+  static constexpr uint32_t kEndIteratorDexPC = std::numeric_limits<uint32_t>::max();
+
+  const uint16_t* instructions_ = nullptr;
+  uint32_t max_dex_pc_ = kEndIteratorDexPC;
+  uint32_t dex_pc_ = kEndIteratorDexPC;
+
+  void MarkAsEndIterator() {
+    dex_pc_ = kEndIteratorDexPC;
+  }
+
+  bool IsEndIterator() const {
+    return dex_pc_ == kEndIteratorDexPC;
+  }
 };
 
 static ALWAYS_INLINE inline bool operator==(const DexInstructionIterator& lhs,
                                             const DexInstructionIterator& rhs) {
-  return lhs.Inst() == rhs.Inst();
+  DCHECK_EQ(lhs.InstructionBase(), rhs.InstructionBase())
+      << "Comparing iterators from different code items";
+  return lhs.GetDexPC() == rhs.GetDexPC();
 }
 
 static inline bool operator!=(const DexInstructionIterator& lhs,
@@ -85,7 +127,9 @@ static inline bool operator!=(const DexInstructionIterator& lhs,
 
 static inline bool operator<(const DexInstructionIterator& lhs,
                              const DexInstructionIterator& rhs) {
-  return lhs.Inst() < rhs.Inst();
+  DCHECK_EQ(lhs.InstructionBase(), rhs.InstructionBase())
+      << "Comparing iterators from different code items";
+  return lhs.GetDexPC() < rhs.GetDexPC();
 }
 
 static inline bool operator>(const DexInstructionIterator& lhs,

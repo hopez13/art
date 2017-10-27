@@ -1010,13 +1010,13 @@ bool MethodVerifier::ComputeWidthsAndCountOps() {
       default:
         break;
     }
-    GetInstructionFlags(inst.GetDexPC(instructions.begin())).SetIsOpcode();
+    GetInstructionFlags(inst.GetDexPC()).SetIsOpcode();
   }
 
   if (inst != instructions.end()) {
     const size_t insns_size = code_item_->insns_size_in_code_units_;
     Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "code did not end where expected ("
-                                      << inst.GetDexPC(instructions.begin()) << " vs. "
+                                      << inst.GetDexPC() << " vs. "
                                       << insns_size << ")";
     return false;
   }
@@ -1100,7 +1100,7 @@ bool MethodVerifier::VerifyInstructions() {
   GetInstructionFlags(0).SetCompileTimeInfoPoint();
   IterationRange<DexInstructionIterator> instructions = code_item_->Instructions();
   for (auto inst = instructions.begin(); inst != instructions.end(); ++inst) {
-    const uint32_t dex_pc = inst.GetDexPC(instructions.begin());
+    const uint32_t dex_pc = inst.GetDexPC();
     if (!VerifyInstruction<kAllowRuntimeOnlyInstructions>(&*inst, dex_pc)) {
       DCHECK_NE(failures_.size(), 0U);
       return false;
@@ -1689,7 +1689,7 @@ void MethodVerifier::Dump(VariableIndentationOutputStream* vios) {
 
   IterationRange<DexInstructionIterator> instructions = code_item_->Instructions();
   for (auto inst = instructions.begin(); inst != instructions.end(); ++inst) {
-    const size_t dex_pc = inst.GetDexPC(instructions.begin());
+    const size_t dex_pc = inst.GetDexPC();
     RegisterLine* reg_line = reg_table_.GetLine(dex_pc);
     if (reg_line != nullptr) {
       vios->Stream() << reg_line->Dump(this) << "\n";
@@ -1957,7 +1957,7 @@ bool MethodVerifier::CodeFlowVerifyMethod() {
 
     IterationRange<DexInstructionIterator> instructions = code_item_->Instructions();
     for (auto inst = instructions.begin(); inst != instructions.end(); ++inst) {
-      const uint32_t insn_idx = inst.GetDexPC(instructions.begin());
+      const uint32_t insn_idx = inst.GetDexPC();
       /*
        * Switch-statement data doesn't get "visited" by scanner. It
        * may or may not be preceded by a padding NOP (for alignment).
@@ -1985,7 +1985,7 @@ bool MethodVerifier::CodeFlowVerifyMethod() {
     if (dead_start >= 0) {
       LogVerifyInfo()
           << "dead code " << reinterpret_cast<void*>(dead_start)
-          << "-" << reinterpret_cast<void*>(instructions.end().GetDexPC(instructions.begin()) - 1);
+          << "-" << reinterpret_cast<void*>(code_item_->insns_size_in_code_units_ - 1);
     }
     // To dump the state of the verify after a method, do something like:
     // if (dex_file_->PrettyMethod(dex_method_idx_) ==
