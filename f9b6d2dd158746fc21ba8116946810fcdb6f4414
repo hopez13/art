@@ -16,6 +16,24 @@
       "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26339c05_7e65730b",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-27T18:24:43Z",
+      "side": 1,
+      "message": "Its either that or just not use the iterator.",
+      "parentUuid": "e1a0b182_a196beaa",
+      "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
