@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "727bccc6_b8eb6fbc",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-27T21:55:24Z",
+      "side": 1,
+      "message": "Doesn\u0027t this seem like a flawed API, it shouldn\u0027t need to get \"end\" passed in? Isn\u0027t it easy to misuse if another (non-end) iterator is passed in?",
+      "range": {
+        "startLine": 73,
+        "startChar": 18,
+        "endLine": 73,
+        "endChar": 52
+      },
+      "revId": "5069d974a4abb074e2f38254d1e3bc2227af7e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
