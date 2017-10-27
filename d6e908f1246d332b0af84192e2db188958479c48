@@ -109,6 +109,30 @@
       "revId": "d6e908f1246d332b0af84192e2db188958479c48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6daad144_35d67159",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-27T17:09:16Z",
+      "side": 1,
+      "message": "Agreed on \"read the instruction length very carefully here\" [in method_verifier]\n\nW.r.t. to usage elsewhere, what if the verification was skipped?",
+      "parentUuid": "308ee2ea_7e7d4a55",
+      "range": {
+        "startLine": 989,
+        "startChar": 0,
+        "endLine": 991,
+        "endChar": 46
+      },
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
