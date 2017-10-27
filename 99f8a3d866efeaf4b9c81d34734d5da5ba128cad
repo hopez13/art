@@ -69,6 +69,30 @@
       "revId": "99f8a3d866efeaf4b9c81d34734d5da5ba128cad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e0a18ae_6e835620",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-27T18:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2aaf9ce6_52a3cd62",
+      "range": {
+        "startLine": 279,
+        "startChar": 48,
+        "endLine": 279,
+        "endChar": 61
+      },
+      "revId": "99f8a3d866efeaf4b9c81d34734d5da5ba128cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
