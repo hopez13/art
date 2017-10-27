@@ -86,6 +86,24 @@
       "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93a12e17_2d605d1f",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-27T21:06:30Z",
+      "side": 1,
+      "message": "SafeDexInstructionIterator is an idea, I don\u0027t think its required yet. We can add in a follow up.",
+      "parentUuid": "8060ff85_ec2735e3",
+      "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
