@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ea539d40_41a1db4f",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-27T21:22:59Z",
+      "side": 1,
+      "message": "Obsolete",
+      "parentUuid": "7390f50c_d95e2c40",
+      "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "855b0744_5cb63dab",
         "filename": "dexlayout/dex_ir.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-27T18:29:13Z",
       "side": 1,
       "message": "I would move the comment here, since the top iteration is business as usual, except not having the advance",
+      "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7a89d9b_707ec7ad",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-27T21:22:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "855b0744_5cb63dab",
       "revId": "f9b6d2dd158746fc21ba8116946810fcdb6f4414",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
