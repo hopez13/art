@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2e9919a_13e7aedc",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-27T16:21:34Z",
+      "side": 1,
+      "message": "My preferred solution would be to\n\n  - keep DexInstructionVerifier to have the old semantics,\n  - do not use the DexInstructionVerifier here,\n  - read the instruction length very carefully here.\n\nThis particular piece of code is not well suited for abstracting away the iteration.",
+      "range": {
+        "startLine": 989,
+        "startChar": 0,
+        "endLine": 991,
+        "endChar": 46
+      },
+      "revId": "d6e908f1246d332b0af84192e2db188958479c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
