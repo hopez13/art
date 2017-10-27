@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "584ff663_c27e196d",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-10-27T15:54:44Z",
+      "side": 1,
+      "message": "We could. It has the advantage of being implemented without locks so can be run more quickly (this is the same reason the MethodHasBreakpoints is only called after IsDebuggerActive in the old code).",
+      "parentUuid": "fa82ec2b_0a2daec8",
+      "range": {
+        "startLine": 277,
+        "startChar": 6,
+        "endLine": 277,
+        "endChar": 43
+      },
+      "revId": "99f8a3d866efeaf4b9c81d34734d5da5ba128cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2aaf9ce6_52a3cd62",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 4
