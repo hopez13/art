@@ -69,6 +69,17 @@ class DexInstructionIterator : public std::iterator<std::forward_iterator_tag, I
     return inst_;
   }
 
+  // Try to safely advance to the next instruction without reading past the end iterator. This
+  // handles cases where computing the instruction size reads multiple code units.
+  bool AdvanceSafe(const DexInstructionIterator& end) {
+    const size_t size_code_units = Inst()->CodeUnitsRequiredForSizeComputation();
+    if (Inst() + size_code_units > end.Inst()) {
+      return false;
+    }
+    ++*this;
+    return true;
+  }
+
  private:
   const value_type* inst_ = nullptr;
 };
