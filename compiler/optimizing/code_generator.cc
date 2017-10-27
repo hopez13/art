@@ -917,7 +917,7 @@ static void CheckLoopEntriesCanBeUsedForOsr(const HGraph& graph,
       loop_headers.size(), 0, graph.GetAllocator()->Adapter(kArenaAllocMisc));
   IterationRange<DexInstructionIterator> instructions = code_item.Instructions();
   for (auto it = instructions.begin(); it != instructions.end(); ++it) {
-    const uint32_t dex_pc = it.GetDexPC(instructions.begin());
+    const uint32_t dex_pc = it.GetDexPC();
     const Instruction& instruction = *it;
     if (instruction.IsBranch()) {
       uint32_t target = dex_pc + instruction.GetTargetOffset();

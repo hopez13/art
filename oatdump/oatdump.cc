@@ -1626,7 +1626,7 @@ class OatDumper {
     if (code_item != nullptr) {
       IterationRange<DexInstructionIterator> instructions = code_item->Instructions();
       for (auto it = instructions.begin(); it != instructions.end(); ++it) {
-        const size_t dex_pc = it.GetDexPC(instructions.begin());
+        const size_t dex_pc = it.GetDexPC();
         os << StringPrintf("0x%04zx: ", dex_pc) << it->DumpHexLE(5)
            << StringPrintf("\t| %s\n", it->DumpString(&dex_file).c_str());
       }
