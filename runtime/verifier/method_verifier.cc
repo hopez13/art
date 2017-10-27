@@ -988,7 +988,7 @@ bool MethodVerifier::ComputeWidthsAndCountOps() {
 
   IterationRange<DexInstructionIterator> instructions = code_item_->Instructions();
   DexInstructionIterator inst = instructions.begin();
-  for ( ; inst < instructions.end(); ++inst) {
+  for ( ; inst < instructions.end(); ) {
     Instruction::Code opcode = inst->Opcode();
     switch (opcode) {
       case Instruction::APUT_OBJECT:
@@ -1011,6 +1011,12 @@ bool MethodVerifier::ComputeWidthsAndCountOps() {
         break;
     }
     GetInstructionFlags(inst.GetDexPC(instructions.begin())).SetIsOpcode();
+
+    // We can't assume the instruction is well formed, handle the case where calculating the size
+    // goes past the end of the code item.
+    if (!inst.AdvanceSafe(instructions.end())) {
+      break;
+    }
   }
 
   if (inst != instructions.end()) {

@@ -69,6 +69,17 @@ class DexInstructionIterator : public std::iterator<std::forward_iterator_tag, I
     return inst_;
   }
 
+  // Returns false if we can't advance the iterator without reading past the end of the code item.
+  bool AdvanceSafe(const DexInstructionIterator& end) {
+    const size_t size_code_units = Inst()->CodeUnitsRequiredForSizeComputation();
+    if (reinterpret_cast<const uint16_t*>(Inst()) + size_code_units >
+            reinterpret_cast<const uint16_t*>(end.Inst())) {
+      return false;
+    }
+    ++*this;
+    return true;
+  }
+
  private:
   const value_type* inst_ = nullptr;
 };
