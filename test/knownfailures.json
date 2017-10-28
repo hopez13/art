@@ -636,5 +636,10 @@
         "tests": "661-oat-writer-layout",
         "variant": "interp-ac | interpreter | jit | no-dex2oat | no-prebuild | no-image | trace",
         "description": ["Test is designed to only check --compiler-filter=speed"]
+    },
+    {
+        "tests": "910-methods",
+        "description": ["We can't determine if we are using D8 or not at the moment."],
+        "bug": "b/68406220"
     }
 ]
