@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "839c4b81_a524f59b",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-30T23:13:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba9c18de_640d6685",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1ecd929_0dbdd523",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 7
@@ -71,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "efdf7e27_64211c5a",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-30T23:13:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b8887a6_9bdc3c17",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ca55964_995c8280",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 7
@@ -82,6 +118,24 @@
       "writtenOn": "2017-10-30T21:29:22Z",
       "side": 1,
       "message": "These parameters doesn\u0027t seem safe. If it was in the unsafe one, this would be ok. In the safe one, I expect only to be able to take do this from other safe iterators.",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8dfc75e_bb77d83a",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-30T23:13:13Z",
+      "side": 1,
+      "message": "Changed it to DexInstructionIteratorBase, I think its fine currently since you pass in two iterators.",
+      "parentUuid": "7ca55964_995c8280",
       "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -105,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "63b1ca07_b6dd498f",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-30T23:13:13Z",
+      "side": 1,
+      "message": "Put that comment below.",
+      "parentUuid": "436b6cc9_3cb0f7f6",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd2bd65a_450aca94",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 7
@@ -119,6 +191,24 @@
       "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1954560_fe2dd054",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-30T23:13:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2bd65a_450aca94",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
