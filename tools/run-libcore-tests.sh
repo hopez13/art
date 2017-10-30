@@ -106,10 +106,12 @@ vogar_args=$@
 gcstress=false
 debug=false
 
+device_mode=false
+use_chroot=false
+
 while true; do
   if [[ "$1" == "--mode=device" ]]; then
-    vogar_args="$vogar_args --device-dir=/data/local/tmp"
-    vogar_args="$vogar_args --vm-command=/data/local/tmp/system/bin/art"
+    device_mode=true
     vogar_args="$vogar_args --vm-arg -Ximage:/data/art-test/core.art"
     shift
   elif [[ "$1" == "--mode=host" ]]; then
@@ -133,12 +135,28 @@ while true; do
   elif [[ "$1" == "-Xgc:gcstress" ]]; then
     gcstress=true
     shift
+  elif [[ "$1" == "--chroot" ]]; then
+    use_chroot=true
+    # Shift the "--chroot" flag and its argument.
+    shift 2
   elif [[ "$1" == "" ]]; then
     break
   else
     shift
   fi
 done
+
+if $device_mode; then
+  if $use_chroot; then
+    vogar_args="$vogar_args --device-dir=/tmp"
+    vogar_args="$vogar_args --vm-command=/system/bin/art"
+  else
+    vogar_args="$vogar_args --device-dir=/data/local/tmp"
+    # TODO: The "/data/local/tmp/system" prefix should be configured
+    # from ART_TEST_ANDROID_ROOT, if defined.
+    vogar_args="$vogar_args --vm-command=/data/local/tmp/system/bin/art"
+  fi
+fi
 
 # Increase the timeout, as vogar cannot set individual test
 # timeout when being asked to run packages, and some tests go above
