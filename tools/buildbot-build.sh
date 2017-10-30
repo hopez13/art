@@ -79,6 +79,8 @@ elif [[ $mode == "target" ]]; then
   make_command+=" libjavacrypto libjavacoretests libnetd_client linker toybox toolbox sh"
   make_command+=" ${out_dir}/host/linux-x86/bin/adb libstdc++ "
   make_command+=" ${out_dir}/target/product/${TARGET_PRODUCT}/system/etc/public.libraries.txt"
+  # These targets are needed for the chroot environment.
+  make_command+=" crash_dump event-log-tags"
 fi
 
 echo "Executing $make_command"

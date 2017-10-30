@@ -32,6 +32,8 @@ java_lib_location="${ANDROID_HOST_OUT}/../common/obj/JAVA_LIBRARIES"
 make_target_name="apache-harmony-jdwp-tests-hostdex"
 
 vm_args=""
+# TODO: The "/data/local/tmp/system" prefix should be configured
+# from ART_TEST_ANDROID_ROOT, if defined.
 art="/data/local/tmp/system/bin/art"
 art_debugee="sh /data/local/tmp/system/bin/art"
 args=$@
@@ -96,6 +98,14 @@ while true; do
     # We don't care about jit with the RI
     use_jit=false
     shift
+  elif [[ "$1" == "--chroot" ]]; then
+    # Adjust settings for chroot environment.
+    art="/system/bin/art"
+    art_debugee="sh /system/bin/art"
+    vm_command="--vm-command=$art"
+    device_dir="--device-dir=/tmp"
+    # Shift the "--chroot" flag and its argument.
+    shift 2
   elif [[ $1 == --agent-wrapper ]]; then
     # Remove the --agent-wrapper from the arguments.
     args=${args/$1}
