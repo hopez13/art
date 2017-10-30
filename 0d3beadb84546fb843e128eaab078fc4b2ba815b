@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e1d79104_6e070ef3",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-30T21:05:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01718ef1_351bf359",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 64
+      },
+      "revId": "0d3beadb84546fb843e128eaab078fc4b2ba815b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1e8dc90_c718a4d6",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 6
@@ -59,6 +83,30 @@
       "writtenOn": "2017-10-30T17:03:22Z",
       "side": 1,
       "message": "To avoid overflow on the lhs, change this to \"size_code_units \u003e end_ - Inst()\":\n\n  size_t available \u003d reinterpret_cast\u003cconst uint16_t*\u003e(end_) -\n                     reinterpret_cast\u003cconst uint16_t*\u003e(Inst());\n  if (Inst()-\u003eCodeUnitsRequiredForSizeComputation() \u003e available ||\n\nand we also need to check for overflow in the inst_-\u003eNext() that follows:\n\n      Inst()-\u003eSizeInCodeUnits() \u003e available) {",
+      "range": {
+        "startLine": 122,
+        "startChar": 8,
+        "endLine": 123,
+        "endChar": 51
+      },
+      "revId": "0d3beadb84546fb843e128eaab078fc4b2ba815b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "831563e7_19afa1d1",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-30T21:05:31Z",
+      "side": 1,
+      "message": "Done, not sure checking is necessary in Next()? If next goes past the end we should still compare the iterators.",
+      "parentUuid": "a1e8dc90_c718a4d6",
       "range": {
         "startLine": 122,
         "startChar": 8,
