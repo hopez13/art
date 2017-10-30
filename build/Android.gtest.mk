@@ -357,39 +357,85 @@ define define-art-gtest-rule-target
 $$(gtest_rule) valgrind-$$(gtest_rule): PRIVATE_TARGET_EXE := $$(gtest_target_exe)
 
 .PHONY: $$(gtest_rule)
+ifeq ($(ART_TEST_CHROOT),)
 $$(gtest_rule): test-art-target-sync
 	$(hide) adb shell touch $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID
 	$(hide) adb shell rm $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID
 	$(hide) adb shell chmod 755 $$(PRIVATE_TARGET_EXE)
 	$(hide) $$(call ART_TEST_SKIP,$$@) && \
-	  (adb shell "$(GCOV_ENV) LD_LIBRARY_PATH=$(4) ANDROID_ROOT=$(ART_GTEST_TARGET_ANDROID_ROOT) \
-	    $$(PRIVATE_TARGET_EXE) && touch $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID" \
-	  && (adb pull $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID /tmp/ \
+	  (adb shell "env $(GCOV_ENV) LD_LIBRARY_PATH=$(4) \
+	       ANDROID_ROOT=$(ART_GTEST_TARGET_ANDROID_ROOT) $$(PRIVATE_TARGET_EXE) \
+	     && touch $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID" \
+	   && (adb pull $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID /tmp/ \
+	       && $$(call ART_TEST_PASSED,$$@)) \
+	   || $$(call ART_TEST_FAILED,$$@))
+	$(hide) rm -f /tmp/$$@-$$$$PPID
+else
+# Chroot configuration.
+$$(gtest_rule): test-art-target-sync
+	$(hide) adb shell \
+	  touch $(ART_TEST_CHROOT)/$(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID
+	$(hide) adb shell \
+	  rm $(ART_TEST_CHROOT)/$(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID
+	$(hide) adb shell chmod 755 $(ART_TEST_CHROOT)/$$(PRIVATE_TARGET_EXE)
+	$(hide) $$(call ART_TEST_SKIP,$$@) && \
+	  (adb shell "chroot $(ART_TEST_CHROOT) env $(GCOV_ENV) LD_LIBRARY_PATH=$(4) \
+	       ANDROID_ROOT=$(ART_GTEST_TARGET_ANDROID_ROOT) $$(PRIVATE_TARGET_EXE) \
+	     && touch $(ART_TEST_CHROOT)/$(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID" \
+	   && (adb pull \
+	        $(ART_TEST_CHROOT)/$(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID /tmp/ \
 	      && $$(call ART_TEST_PASSED,$$@)) \
 	  || $$(call ART_TEST_FAILED,$$@))
 	$(hide) rm -f /tmp/$$@-$$$$PPID
+endif
 
   ART_TEST_TARGET_GTEST$($(3)ART_PHONY_TEST_TARGET_SUFFIX)_RULES += $$(gtest_rule)
   ART_TEST_TARGET_GTEST_RULES += $$(gtest_rule)
   ART_TEST_TARGET_GTEST_$(1)_RULES += $$(gtest_rule)
 
 .PHONY: valgrind-$$(gtest_rule)
+ifeq ($(ART_TEST_CHROOT),)
 valgrind-$$(gtest_rule): $(ART_VALGRIND_TARGET_DEPENDENCIES) test-art-target-sync
 	$(hide) adb shell touch $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID
 	$(hide) adb shell rm $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID
 	$(hide) adb shell chmod 755 $$(PRIVATE_TARGET_EXE)
 	$(hide) $$(call ART_TEST_SKIP,$$@) && \
-	  (adb shell "$(GCOV_ENV) LD_LIBRARY_PATH=$(4) ANDROID_ROOT=$(ART_GTEST_TARGET_ANDROID_ROOT) \
-	    valgrind --leak-check=full --error-exitcode=1 --workaround-gcc296-bugs=yes \
-	    --suppressions=$(ART_TARGET_TEST_DIR)/valgrind-target-suppressions.txt \
-	    --num-callers=50 --show-mismatched-frees=no \
-	    $$(PRIVATE_TARGET_EXE) && touch $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID" \
-	  && (adb pull $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID /tmp/ \
-	      && $$(call ART_TEST_PASSED,$$@)) \
-	  || $$(call ART_TEST_FAILED,$$@))
+	  (adb shell "env $(GCOV_ENV) LD_LIBRARY_PATH=$(4) \
+	       ANDROID_ROOT=$(ART_GTEST_TARGET_ANDROID_ROOT) \
+	       $$$$ANDROID_ROOT/bin/valgrind \
+	       --leak-check=full --error-exitcode=1 --workaround-gcc296-bugs=yes \
+	       --suppressions=$(ART_TARGET_TEST_DIR)/valgrind-target-suppressions.txt \
+	       --num-callers=50 --show-mismatched-frees=no $$(PRIVATE_TARGET_EXE) \
+	     && touch $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID" \
+	   && (adb pull $(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID /tmp/ \
+	       && $$(call ART_TEST_PASSED,$$@)) \
+	   || $$(call ART_TEST_FAILED,$$@))
 	$(hide) rm -f /tmp/$$@-$$$$PPID
+else
+# Chroot configuration.
+valgrind-$$(gtest_rule): $(ART_VALGRIND_TARGET_DEPENDENCIES) test-art-target-sync
+	$(hide) adb shell \
+	  touch $(ART_TEST_CHROOT)/$(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID
+	$(hide) adb shell \
+	  rm $(ART_TEST_CHROOT)/$(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID
+	$(hide) adb shell chmod 755 $(ART_TEST_CHROOT)/$$(PRIVATE_TARGET_EXE)
+	$(hide) $$(call ART_TEST_SKIP,$$@) && \
+	  (adb shell "chroot $(ART_TEST_CHROOT) env $(GCOV_ENV) LD_LIBRARY_PATH=$(4) \
+	       ANDROID_ROOT=$(ART_GTEST_TARGET_ANDROID_ROOT) \
+	       $$$$ANDROID_ROOT/bin/valgrind \
+	       --leak-check=full --error-exitcode=1 --workaround-gcc296-bugs=yes \
+	       --suppressions=$(ART_TARGET_TEST_DIR)/valgrind-target-suppressions.txt \
+	       --num-callers=50 --show-mismatched-frees=no $$(PRIVATE_TARGET_EXE) \
+	     && touch $(ART_TEST_CHROOT)/$(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID" \
+	   && (adb pull \
+	         $(ART_TEST_CHROOT)/$(ART_TARGET_TEST_DIR)/$(TARGET_$(3)ARCH)/$$@-$$$$PPID /tmp/ \
+	       && $$(call ART_TEST_PASSED,$$@)) \
+	   || $$(call ART_TEST_FAILED,$$@))
+	$(hide) rm -f /tmp/$$@-$$$$PPID
+endif
 
-  ART_TEST_TARGET_VALGRIND_GTEST$$($(3)ART_PHONY_TEST_TARGET_SUFFIX)_RULES += valgrind-$$(gtest_rule)
+  ART_TEST_TARGET_VALGRIND_GTEST$$($(3)ART_PHONY_TEST_TARGET_SUFFIX)_RULES += \
+    valgrind-$$(gtest_rule)
   ART_TEST_TARGET_VALGRIND_GTEST_RULES += valgrind-$$(gtest_rule)
   ART_TEST_TARGET_VALGRIND_GTEST_$(1)_RULES += valgrind-$$(gtest_rule)
 
