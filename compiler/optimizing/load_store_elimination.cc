@@ -575,9 +575,8 @@ class LSEVisitor : public HGraphDelegateVisitor {
       // new_instance isn't used for field accesses. No need to process it.
       return;
     }
-    if (ref_info->IsSingletonAndRemovable() &&
-        !new_instance->IsFinalizable() &&
-        !new_instance->NeedsChecks()) {
+    if (ref_info->IsSingletonAndRemovable() && !new_instance->NeedsChecks()) {
+      DCHECK(!new_instance->IsFinalizable());
       singleton_new_instances_.push_back(new_instance);
     }
     ScopedArenaVector<HInstruction*>& heap_values =
