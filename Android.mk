@@ -110,15 +110,20 @@ TEST_ART_ADB_ROOT_AND_REMOUNT := \
 
 # Sync test files to the target, depends upon all things that must be pushed to the target.
 .PHONY: test-art-target-sync
+# TODO: Remove support for ART_TEST_ANDROID_ROOT when it is no longer needed.
 # Check if we need to sync. In case ART_TEST_ANDROID_ROOT is not empty,
 # the code below uses 'adb push' instead of 'adb sync', which does not
 # check if the files on the device have changed.
 ifneq ($(ART_TEST_NO_SYNC),true)
+# Sync system and data partitions.
+ifeq ($(ART_TEST_CHROOT),)
 ifeq ($(ART_TEST_ANDROID_ROOT),)
+# ART_TEST_CHROOT empty and ART_TEST_ANDROID_ROOT empty
 test-art-target-sync: $(TEST_ART_TARGET_SYNC_DEPS)
 	$(TEST_ART_ADB_ROOT_AND_REMOUNT)
 	adb sync system && adb sync data
 else
+# ART_TEST_CHROOT empty and ART_TEST_ANDROID_ROOT non-empty
 test-art-target-sync: $(TEST_ART_TARGET_SYNC_DEPS)
 	$(TEST_ART_ADB_ROOT_AND_REMOUNT)
 	adb wait-for-device push $(PRODUCT_OUT)/system $(ART_TEST_ANDROID_ROOT)
@@ -126,6 +131,26 @@ test-art-target-sync: $(TEST_ART_TARGET_SYNC_DEPS)
 # `/data` already exists on the device, it is not overwritten, but its
 # contents are updated.
 	adb push $(PRODUCT_OUT)/data /
+endif
+else
+ifeq ($(ART_TEST_ANDROID_ROOT),)
+# ART_TEST_CHROOT non-empty and ART_TEST_ANDROID_ROOT empty
+test-art-target-sync: $(TEST_ART_TARGET_SYNC_DEPS)
+	$(TEST_ART_ADB_ROOT_AND_REMOUNT)
+	adb wait-for-device
+	adb push $(PRODUCT_OUT)/system $(ART_TEST_CHROOT)/
+	adb push $(PRODUCT_OUT)/data $(ART_TEST_CHROOT)/
+else
+# ART_TEST_CHROOT non-empty and ART_TEST_ANDROID_ROOT non-empty
+test-art-target-sync: $(TEST_ART_TARGET_SYNC_DEPS)
+	$(TEST_ART_ADB_ROOT_AND_REMOUNT)
+	adb wait-for-device
+	adb push $(PRODUCT_OUT)/system $(ART_TEST_CHROOT)$(ART_TEST_ANDROID_ROOT)
+# Push the contents of the `data` dir into `$(ART_TEST_CHROOT)/data` on the device.  If
+# `$(ART_TEST_CHROOT)/data` already exists on the device, it is not overwritten, but its
+# contents are updated.
+	adb push $(PRODUCT_OUT)/data $(ART_TEST_CHROOT)/
+endif
 endif
 endif
 
