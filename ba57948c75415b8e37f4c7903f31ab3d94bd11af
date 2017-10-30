@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bd881fe_9f5230ac",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-30T23:03:03Z",
+      "side": 1,
+      "message": "Add a comment that this may block but is safe since we release the thread list lock before calling the callback?",
+      "range": {
+        "startLine": 1095,
+        "startChar": 13,
+        "endLine": 1095,
+        "endChar": 36
+      },
+      "revId": "ba57948c75415b8e37f4c7903f31ab3d94bd11af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
