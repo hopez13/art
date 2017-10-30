@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "9c8060b8_bb9a0604",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-30T23:28:31Z",
+      "side": 1,
+      "message": "With:\n\n  DexInstructionIterator start, end;\n  end \u003d some-illegal-instruction; // e.g. end exceeds code size by a single byte\n\n  SafeDexIntructionIterator safe_start(start, end);\n  SafeDexIntructionIterator safe_end(end, end); // ? not sure how to make end\n\nDoes it still do the right thing and detect that the \u0027end\u0027 passed in was bad?\nI didn\u0027t see any checking in the constructor so this interface seemed non-obvious.",
+      "parentUuid": "a8dfc75e_bb77d83a",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "436b6cc9_3cb0f7f6",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 7
