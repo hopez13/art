@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "da232354_e2fb9624",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-30T21:30:27Z",
+      "side": 1,
+      "message": "Oops, ignore this, base class only has user-defined 1 constructor. I forgot to delete draft.",
+      "parentUuid": "c1ecd929_0dbdd523",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b8887a6_9bdc3c17",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 7
