@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba9c18de_640d6685",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-30T21:29:22Z",
+      "side": 1,
+      "message": "Can be replaced with\n\n    using DexInstructionIteratorBase::DexInstructionIteratorBase;\n\nwhich will \"inherit\" all the constructors.",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1ecd929_0dbdd523",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-30T21:29:22Z",
+      "side": 1,
+      "message": "Delete both of these, replace with\n\n    using DexInstructionIteratorBase::DexInstructionIteratorBase;\n\nwhich will \"inherit\" all the constructors.",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b8887a6_9bdc3c17",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-30T21:29:22Z",
+      "side": 1,
+      "message": "IIRC all you need is to put \"DexInstructionIteratorBase() \u003d default\" into the base class. All the other defaults can be deleted.",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ca55964_995c8280",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-30T21:29:22Z",
+      "side": 1,
+      "message": "These parameters doesn\u0027t seem safe. If it was in the unsafe one, this would be ok. In the safe one, I expect only to be able to take do this from other safe iterators.",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "436b6cc9_3cb0f7f6",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-30T21:29:22Z",
+      "side": 1,
+      "message": "Consider mentioning how one can end up in the error state and when to use IsErrorState?",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2bd65a_450aca94",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-30T21:29:22Z",
+      "side": 1,
+      "message": "Consider mentioning how one can end up in the error state?",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
