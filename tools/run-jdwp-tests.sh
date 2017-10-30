@@ -32,6 +32,8 @@ java_lib_location="${ANDROID_HOST_OUT}/../common/obj/JAVA_LIBRARIES"
 make_target_name="apache-harmony-jdwp-tests-hostdex"
 
 vm_args=""
+# TODO: The "/data/local/tmp/system" prefix should be configured
+# from ART_TEST_ANDROID_ROOT, if defined.
 art="/data/local/tmp/system/bin/art"
 art_debugee="sh /data/local/tmp/system/bin/art"
 args=$@
@@ -55,6 +57,8 @@ test="org.apache.harmony.jpda.tests.share.AllTests"
 mode="target"
 # Use JIT compiling by default.
 use_jit=true
+# Don't use chroot by default.
+use_chroot=false
 variant_cmdline_parameter="--variant=X32"
 # Timeout of JDWP test in ms.
 #
@@ -96,6 +100,15 @@ while true; do
     # We don't care about jit with the RI
     use_jit=false
     shift
+  elif [[ "$1" == "--chroot" ]]; then
+    use_chroot=true
+    # Adjust settings for chroot environment.
+    art="/system/bin/art"
+    art_debugee="sh /system/bin/art"
+    vm_command="--vm-command=$art"
+    device_dir="--device-dir=/tmp"
+    # Shift the "--chroot" flag and its argument.
+    shift 2
   elif [[ $1 == --agent-wrapper ]]; then
     # Remove the --agent-wrapper from the arguments.
     args=${args/$1}
@@ -168,6 +181,12 @@ while true; do
     shift
   fi
 done
+
+if $use_chroot && [[ $mode == "host" ]]; then
+  # Chroot-based testing is not supported on host.
+  echo "Cannot use --chroot with --mode=host"
+  exit 1
+fi
 
 if [[ $has_gdb = "yes" ]]; then
   if [[ $explicit_debug = "no" ]]; then
