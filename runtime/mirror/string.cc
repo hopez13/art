@@ -19,6 +19,7 @@
 #include "arch/memcmp16.h"
 #include "array-alloc-inl.h"
 #include "base/array_ref.h"
+#include "base/casts.h"
 #include "base/stl_util.h"
 #include "class-inl.h"
 #include "dex/descriptors_names.h"
