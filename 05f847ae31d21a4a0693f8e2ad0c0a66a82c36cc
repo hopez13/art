@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cd3cc6c5_3fb80762",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-31T22:12:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff69bd8f_602d3db0",
+      "revId": "05f847ae31d21a4a0693f8e2ad0c0a66a82c36cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c9af90a_bb22d603",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 2
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "dbfc064d_eb2a7dd2",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-31T22:12:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bab8f659_e7d7ed10",
+      "revId": "05f847ae31d21a4a0693f8e2ad0c0a66a82c36cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "836134e9_4cdbd0ab",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 2
@@ -64,6 +100,24 @@
       "writtenOn": "2017-10-30T15:28:25Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "05f847ae31d21a4a0693f8e2ad0c0a66a82c36cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e73ea789_0a1f647c",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-31T22:12:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "836134e9_4cdbd0ab",
       "revId": "05f847ae31d21a4a0693f8e2ad0c0a66a82c36cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -90,6 +144,30 @@
       "revId": "05f847ae31d21a4a0693f8e2ad0c0a66a82c36cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6077c182_bbfcac3a",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-31T22:12:43Z",
+      "side": 1,
+      "message": "I fixed it to use a single BitFieldClear.\n\nWith regards to the loop, I would need to precompute the total bitwidth for the clear. While this is quite straightforward, it involves an extra \"CreateArray(Func)\" utility function which involves template metaprogramming and I would rather do that in a separate CL  (https://android-review.googlesource.com/c/platform/art/+/523798/1/runtime/base/bit_string.h#326 already does this). Does that sound ok?",
+      "parentUuid": "4acf4b9a_35759c56",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "05f847ae31d21a4a0693f8e2ad0c0a66a82c36cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -127,6 +205,30 @@
       "writtenOn": "2017-10-30T15:28:25Z",
       "side": 1,
       "message": "I prefer \"if (i !\u003d 0) { os \u003c\u003c \u0027,\u0027 }\" before the other output. That way we don\u0027t need to use the loop invariant \"bit_string.Length()\".",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 5
+      },
+      "revId": "05f847ae31d21a4a0693f8e2ad0c0a66a82c36cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11174c4c_60bccc59",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-31T22:12:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dba1583_f606a6ca",
       "range": {
         "startLine": 279,
         "startChar": 0,
