@@ -36,6 +36,7 @@
 namespace art {
 
 HGraphBuilder::HGraphBuilder(HGraph* graph,
+                             const DexFile::CodeItem& code_item,
                              const DexCompilationUnit* dex_compilation_unit,
                              const DexCompilationUnit* outer_compilation_unit,
                              CompilerDriver* driver,
@@ -45,7 +46,7 @@ HGraphBuilder::HGraphBuilder(HGraph* graph,
                              VariableSizedHandleScope* handles)
     : graph_(graph),
       dex_file_(&graph->GetDexFile()),
-      code_item_(*dex_compilation_unit->GetCodeItem()),
+      code_item_(code_item),
       dex_compilation_unit_(dex_compilation_unit),
       outer_compilation_unit_(outer_compilation_unit),
       compiler_driver_(driver),
