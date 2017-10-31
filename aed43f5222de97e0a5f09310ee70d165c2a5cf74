@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bacafd8_ee9ac652",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-10-31T17:57:51Z",
+      "side": 1,
+      "message": "The original code item is passed on here. I think this isn\u0027t great, as it requires insight knowledge about what Emit is gonna touch (that should be consistent with w/e TryCompileIntrinsic does), and should have at least a strong comment.\n\n(That\u0027s the reason I changed DexCompilationUnit...)",
+      "range": {
+        "startLine": 1302,
+        "startChar": 76,
+        "endLine": 1302,
+        "endChar": 85
+      },
+      "revId": "aed43f5222de97e0a5f09310ee70d165c2a5cf74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
