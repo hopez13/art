@@ -568,8 +568,12 @@ static void CompileMethod(Thread* self,
       }
 
       compiled_method = driver->GetCompiler()->JniCompile(access_flags,
+                                                          invoke_type,
+                                                          class_def_idx,
                                                           method_idx,
+                                                          class_loader,
                                                           dex_file,
+                                                          dex_cache,
                                                           optimization_flags);
       CHECK(compiled_method != nullptr);
     }

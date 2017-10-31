@@ -1161,7 +1161,9 @@ class OatWriter::LayoutReserveOffsetCodeMethodVisitor : public OrderedMethodVisi
     uint16_t method_offsets_index_ = method_data.method_offsets_index;
     size_t class_def_index = method_data.class_def_index;
     uint32_t access_flags = method_data.access_flags;
-    const DexFile::CodeItem* code_item = method_data.code_item;
+    // For intrinsics emitted by codegen, the code has no relation to the original code item.
+    const DexFile::CodeItem* code_item =
+        compiled_method->IsIntrinsic() ? nullptr : method_data.code_item;
     bool has_debug_info = method_data.HasDebugInfo();
     size_t debug_info_idx = method_data.debug_info_idx;
 
@@ -1338,6 +1340,9 @@ class OatWriter::LayoutReserveOffsetCodeMethodVisitor : public OrderedMethodVisi
       }
       if (UNLIKELY(lhs->GetPatches().data() != rhs->GetPatches().data())) {
         return lhs->GetPatches().data() < rhs->GetPatches().data();
+      }
+      if (UNLIKELY(lhs->IsIntrinsic() != rhs->IsIntrinsic())) {
+        return rhs->IsIntrinsic();
       }
       return false;
     }

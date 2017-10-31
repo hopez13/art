@@ -32,6 +32,7 @@ class OptimizingCompilerStats;
 class HGraphBuilder : public ValueObject {
  public:
   HGraphBuilder(HGraph* graph,
+                const DexFile::CodeItem& code_item,
                 const DexCompilationUnit* dex_compilation_unit,
                 const DexCompilationUnit* outer_compilation_unit,
                 CompilerDriver* driver,
