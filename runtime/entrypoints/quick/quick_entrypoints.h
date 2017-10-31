@@ -78,6 +78,9 @@ extern mirror::Object* JniMethodEndWithReferenceSynchronized(jobject result,
                                                              jobject locked, Thread* self)
     NO_THREAD_SAFETY_ANALYSIS HOT_ATTR;
 
+extern "C" void* artStringBuilderAppend(uint32_t format, const uint32_t* args, Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_) HOT_ATTR;
+
 extern void ReadBarrierJni(mirror::CompressedReference<mirror::Object>* handle_on_stack,
                            Thread* self)
     NO_THREAD_SAFETY_ANALYSIS HOT_ATTR;
