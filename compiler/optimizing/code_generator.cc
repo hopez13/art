@@ -600,6 +600,57 @@ void CodeGenerator::GenerateInvokeCustomCall(HInvokeCustom* invoke) {
   InvokeRuntime(entrypoint, invoke, invoke->GetDexPc(), nullptr);
 }
 
+void CodeGenerator::CreateStringBuilderAppendLocations(HStringBuilderAppend* instruction,
+                                                       Location out) {
+  ArenaAllocator* allocator = GetGraph()->GetAllocator();
+  LocationSummary* locations =
+      new (allocator) LocationSummary(instruction, LocationSummary::kCallOnMainOnly);
+  locations->SetOut(out);
+  instruction->GetLocations()->SetInAt(instruction->FormatIndex(),
+                                       Location::ConstantLocation(instruction->GetFormat()));
+
+  uint32_t format = static_cast<uint32_t>(instruction->GetFormat()->GetValue());
+  uint32_t f = format;
+  PointerSize pointer_size = InstructionSetPointerSize(GetInstructionSet());
+  size_t stack_offset = static_cast<size_t>(pointer_size);
+  for (size_t i = 0, num_args = instruction->GetNumberOfArguments(); i != num_args; ++i) {
+    mirror::String::StringAppendArgument arg_type =
+        static_cast<mirror::String::StringAppendArgument>(f & mirror::String::kStringAppendArgMask);
+    switch (arg_type) {
+      case mirror::String::StringAppendArgument::kStringBuilder:
+      case mirror::String::StringAppendArgument::kString:
+      case mirror::String::StringAppendArgument::kCharArray:
+        static_assert(sizeof(StackReference<mirror::Object>) == sizeof(uint32_t), "Size check.");
+        FALLTHROUGH_INTENDED;
+      case mirror::String::StringAppendArgument::kBoolean:
+      case mirror::String::StringAppendArgument::kChar:
+      case mirror::String::StringAppendArgument::kInt:
+      case mirror::String::StringAppendArgument::kFloat:
+        locations->SetInAt(i, Location::StackSlot(stack_offset));
+        break;
+      case mirror::String::StringAppendArgument::kLong:
+      case mirror::String::StringAppendArgument::kDouble:
+        stack_offset = RoundUp(stack_offset, sizeof(uint64_t));
+        locations->SetInAt(i, Location::DoubleStackSlot(stack_offset));
+        // Skip the low word, let the common code skip the high word.
+        stack_offset += sizeof(uint32_t);
+        break;
+      default:
+        LOG(FATAL) << "Unexpected arg format: 0x" << std::hex
+            << (f & mirror::String::kStringAppendArgMask) << " full format: 0x" << format;
+        UNREACHABLE();
+    }
+    f >>= mirror::String::kStringAppendBitsPerArg;
+    stack_offset += sizeof(uint32_t);
+  }
+  DCHECK_EQ(f, 0u);
+
+  size_t param_size = stack_offset - static_cast<size_t>(pointer_size);
+  DCHECK_ALIGNED(param_size, kVRegSize);
+  size_t num_vregs = param_size / kVRegSize;
+  graph_->UpdateMaximumNumberOfOutVRegs(num_vregs);
+}
+
 void CodeGenerator::CreateUnresolvedFieldLocationSummary(
     HInstruction* field_access,
     DataType::Type field_type,

@@ -217,7 +217,34 @@ class MANAGED String final : public Object {
   std::string PrettyStringDescriptor()
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  enum class StringAppendArgument : uint8_t {
+    kEnd = 0u,
+    kObject,
+    kStringBuilder,
+    kString,
+    kCharArray,
+    kBoolean,
+    kChar,
+    kInt,
+    kLong,
+    kFloat,
+    kDouble,
+    kLast = kDouble
+  };
+
+  static constexpr size_t kStringAppendBitsPerArg =
+      MinimumBitsToStore(static_cast<size_t>(StringAppendArgument::kLast));
+  static constexpr size_t kStringAppendMaxArgs = BitSizeOf<uint32_t>() / kStringAppendBitsPerArg;
+  static_assert(kStringAppendMaxArgs * kStringAppendBitsPerArg == BitSizeOf<uint32_t>(),
+                "Expecting no extra bits.");
+  static constexpr uint32_t kStringAppendArgMask = MaxInt<uint32_t>(kStringAppendBitsPerArg);
+
+  static String* AppendF(uint32_t format, const uint32_t* args, Thread* self)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
+  class AppendBuilder;
+
   static constexpr bool IsASCII(uint16_t c) {
     // Valid ASCII characters are in range 1..0x7f. Zero is not considered ASCII
     // because it would complicate the detection of ASCII strings in Modified-UTF8.
