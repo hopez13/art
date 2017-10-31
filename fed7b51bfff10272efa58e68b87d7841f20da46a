@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "569b7663_384d8093",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-10-31T00:13:30Z",
+      "side": 1,
+      "message": "Ok, never mind, the safety is in operator++.",
+      "parentUuid": "4e9dc764_f9f64e19",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "436b6cc9_3cb0f7f6",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 7
