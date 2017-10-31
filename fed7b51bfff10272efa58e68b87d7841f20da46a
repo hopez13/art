@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "4e9dc764_f9f64e19",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-10-31T00:02:31Z",
+      "side": 1,
+      "message": "Well, I don\u0027t see a way to guard against all bad inputs, unless we make the constructor private and only allow dex file to call it or something. Doesn\u0027t seem worth it imo.",
+      "parentUuid": "9c8060b8_bb9a0604",
+      "revId": "fed7b51bfff10272efa58e68b87d7841f20da46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "436b6cc9_3cb0f7f6",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 7
