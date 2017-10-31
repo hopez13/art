@@ -32,7 +32,7 @@ void StackMapStream::BeginStackMapEntry(uint32_t dex_pc,
                                         uint32_t num_dex_registers,
                                         uint8_t inlining_depth) {
   DCHECK_EQ(0u, current_entry_.dex_pc) << "EndStackMapEntry not called after BeginStackMapEntry";
-  DCHECK_NE(dex_pc, static_cast<uint32_t>(-1)) << "invalid dex_pc";
+  // Note: dex_pc can be kNoDexPc for native method intrinsics.
   current_entry_.dex_pc = dex_pc;
   current_entry_.native_pc_code_offset = CodeOffset::FromOffset(native_pc_offset, instruction_set_);
   current_entry_.register_mask = register_mask;
@@ -56,7 +56,9 @@ void StackMapStream::BeginStackMapEntry(uint32_t dex_pc,
     number_of_stack_maps_with_inline_info_++;
   }
 
-  dex_pc_max_ = std::max(dex_pc_max_, dex_pc);
+  if (dex_pc != dex::kDexNoIndex && (dex_pc_max_ == dex::kDexNoIndex || dex_pc_max_ < dex_pc)) {
+    dex_pc_max_ = dex_pc;
+  }
   register_mask_max_ = std::max(register_mask_max_, register_mask);
   current_dex_register_ = 0;
 }

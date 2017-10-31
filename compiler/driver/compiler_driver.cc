@@ -542,6 +542,7 @@ static void CompileMethod(Thread* self,
       compiled_method = driver->GetCompiler()->JniCompile(access_flags,
                                                           method_idx,
                                                           dex_file,
+                                                          dex_cache,
                                                           optimization_flags);
       CHECK(compiled_method != nullptr);
     }
