@@ -72,6 +72,7 @@ class Compiler {
   virtual CompiledMethod* JniCompile(uint32_t access_flags,
                                      uint32_t method_idx,
                                      const DexFile& dex_file,
+                                     Handle<mirror::DexCache> dex_cache,
                                      JniOptimizationFlags optimization_flags) const = 0;
 
   virtual bool JitCompile(Thread* self ATTRIBUTE_UNUSED,
