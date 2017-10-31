@@ -22,6 +22,30 @@
       "revId": "84fc2cf1b798c4bee13c40e18ebf1ae8f287bab8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6be375da_f65c51de",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-10-31T14:44:12Z",
+      "side": 1,
+      "message": "I\u0027ve tried locally. If we move HIntermediateAddress to nodes.h, it will be added in FOR_EACH_CONCRETE_INSTRUCTION_COMMON list,\nwhich means for those backends that don\u0027t need HIntermediateAddress, they will have to implement the following unreachable functions.\nI think that\u0027s OK, but shall we ask for more opinion on this?\n\nFor example, for x86/x86_64 backends, HIntermediateAddress is not needed, because the ISA allows encoding [base + index*scale + displacement] in one single MOV instruction.\n\n  void LocationsBuilderX86_64::VisitIntermediateAddress(HIntermediateAddress* instruction\n                                                        ATTRIBUTE_UNUSED) {\n    LOG(FATAL) \u003c\u003c \"Unreachable\";\n  }\n  \n  void InstructionCodeGeneratorX86_64::VisitIntermediateAddress(HIntermediateAddress* instruction\n                                                                ATTRIBUTE_UNUSED) {\n    LOG(FATAL) \u003c\u003c \"Unreachable\";\n  }",
+      "parentUuid": "926a95c6_f6c7f7b1",
+      "range": {
+        "startLine": 208,
+        "startChar": 19,
+        "endLine": 208,
+        "endChar": 40
+      },
+      "revId": "84fc2cf1b798c4bee13c40e18ebf1ae8f287bab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
