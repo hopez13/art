@@ -116,6 +116,30 @@
       "revId": "0d3beadb84546fb843e128eaab078fc4b2ba815b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff8da21_8d3e480e",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-10-31T10:42:24Z",
+      "side": 1,
+      "message": "Call me paranoid but it\u0027s really needed. Construct a fill-array-data-payload with element_width\u003d1 and size\u003d0xfffffff8 and the SizeInCodeUnits() shall be 0x80000000. On 32-bit targets, the inst_-\u003eNext() shall overflow and return inst_, so this shall cause an infinite loop. (Backward iteration is also possible on 32-bit targets with other element_width/size values, and we can also get SIGSEGV if we hit some unmapped region before the dex file. Overflow on 64-bit targets would also be possible if the dex file is mapped at the top of the address range.)",
+      "parentUuid": "831563e7_19afa1d1",
+      "range": {
+        "startLine": 122,
+        "startChar": 8,
+        "endLine": 123,
+        "endChar": 51
+      },
+      "revId": "0d3beadb84546fb843e128eaab078fc4b2ba815b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
