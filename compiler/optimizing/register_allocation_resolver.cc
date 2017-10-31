@@ -290,6 +290,17 @@ size_t RegisterAllocationResolver::CalculateMaximumSafepointSpillSize(
       // Nothing to spill on the slow path if the main path already clobbers caller-saves.
       DCHECK_EQ(0u, codegen_->GetNumberOfSlowPathSpills(locations, /* core_registers */ true));
       DCHECK_EQ(0u, codegen_->GetNumberOfSlowPathSpills(locations, /* core_registers */ false));
+    } else if (instruction->IsStringBuilderAppend()) {
+      // TODO: Generalize this.
+      HStringBuilderAppend* append = instruction->AsStringBuilderAppend();
+      if (append->GetNumberOfArguments() != 0u) {
+        Location last_arg_location = locations->InAt(append->GetNumberOfArguments() - 1u);
+        size_t spill_size =
+            last_arg_location.GetStackIndex() +
+            (last_arg_location.IsDoubleStackSlot() ? 8u : 4u) -
+            /* ArtMethod* */ core_register_spill_size;
+        maximum_safepoint_spill_size = std::max(maximum_safepoint_spill_size, spill_size);
+      }
     }
   }
   return maximum_safepoint_spill_size;
