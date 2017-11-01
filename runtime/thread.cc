@@ -1367,7 +1367,9 @@ void Thread::RunCheckpointFunction() {
           done = true;
         }
       } else {
-        LOG(FATAL) << "Checkpoint flag set without pending checkpoint";
+        // We expected a checkpoint but one wasn't there. Do the log fatal after releasing the
+        // suspend_count_lock or we will deadlock.
+        break;
       }
     }
 
@@ -1375,7 +1377,12 @@ void Thread::RunCheckpointFunction() {
     ScopedTrace trace("Run checkpoint function");
     DCHECK(checkpoint != nullptr);
     checkpoint->Run(this);
-  } while (!done);
+    if (done) {
+      return;
+    }
+  } while (true);
+  // This was actually triggered above but only sent here to avoid a deadlock when dumping threads.
+  LOG(FATAL) << "Checkpoint flag set without pending checkpoint";
 }
 
 void Thread::RunEmptyCheckpoint() {
