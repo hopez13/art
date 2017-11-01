@@ -25,7 +25,10 @@ art_cc_defaults {
         "disassembler_mips.cc",
         "disassembler_x86.cc",
     ],
-    include_dirs: ["art/runtime"],
+    include_dirs: [
+        "art/runtime",
+        "external/vixl/src",
+    ],
 
     shared_libs: [
         "libbase",

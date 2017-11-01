@@ -34,6 +34,9 @@ cc_defaults {
         "libbase",
         "liblog",
     ],
+    include_dirs: [
+        "external/vixl/src",
+    ],
     cflags: ["-DVIXL_INCLUDE_SIMULATOR_AARCH64"],
 
     header_libs: ["libart_simulator_headers"],

@@ -114,6 +114,9 @@ art_cc_defaults {
                 "utils/arm/jni_macro_assembler_arm_vixl.cc",
                 "utils/arm/managed_register_arm.cc",
             ],
+            include_dirs: [
+                "external/vixl/src",
+            ],
         },
         arm64: {
             srcs: [
@@ -127,6 +130,9 @@ art_cc_defaults {
                 "utils/arm64/assembler_arm64.cc",
                 "utils/arm64/jni_macro_assembler_arm64.cc",
                 "utils/arm64/managed_register_arm64.cc",
+            ],
+            include_dirs: [
+                "external/vixl/src",
             ],
         },
         mips: {
@@ -365,11 +371,17 @@ art_cc_test {
                 "linker/arm/relative_patcher_thumb2_test.cc",
                 "utils/arm/managed_register_arm_test.cc",
             ],
+            include_dirs: [
+                "external/vixl/src",
+            ],
         },
         arm64: {
             srcs: [
                 "linker/arm64/relative_patcher_arm64_test.cc",
                 "utils/arm64/managed_register_arm64_test.cc",
+            ],
+            include_dirs: [
+                "external/vixl/src",
             ],
         },
         mips: {
@@ -422,6 +434,11 @@ art_cc_test {
         "libnativeloader",
     ],
 
+    // TODO: Fix tests to not rely on this when unnecessary.
+    include_dirs: [
+        "external/vixl/src",
+    ],
+
     target: {
         host: {
             shared_libs: [
@@ -441,6 +458,9 @@ art_cc_test {
         arm: {
             srcs: [
                 "utils/assembler_thumb_test.cc",
+            ],
+            include_dirs: [
+                "external/vixl/src",
             ],
         },
         mips: {
