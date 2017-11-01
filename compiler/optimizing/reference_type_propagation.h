@@ -96,6 +96,10 @@ class ReferenceTypePropagation : public HOptimization {
 
   void ValidateTypes();
 
+  // Process the fill-array-data case for char and boolean arrays: make IntConstant values
+  // compliant with the type value range and fix the type of ArraySet.
+  void FixAmbiguousArraySetsFromFillArrayData();
+
   Handle<mirror::ClassLoader> class_loader_;
 
   // Note: hint_dex_cache_ is usually, but not necessarily, the dex cache associated with

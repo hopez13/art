@@ -22,6 +22,7 @@
 #include "base/scoped_arena_containers.h"
 #include "base/enums.h"
 #include "class_linker-inl.h"
+#include "data_type-inl.h"
 #include "handle_scope-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache.h"
@@ -170,6 +171,54 @@ void ReferenceTypePropagation::ValidateTypes() {
             DCHECK(instr->GetReferenceTypeInfo().IsEqual(instr->InputAt(0)->GetReferenceTypeInfo()))
                 << "NullCheck " << instr->GetReferenceTypeInfo()
                 << "Input(0) " << instr->InputAt(0)->GetReferenceTypeInfo();
+          }
+        }
+      }
+    }
+  }
+}
+
+void ReferenceTypePropagation::FixAmbiguousArraySetsFromFillArrayData() {
+  // During instruction building for the fill-array-data dex bytecode only the size of the array
+  // element is known, not the particular type, thus there is an ambiguity between char and short
+  // arrays. So for a char array the builder creates ArraySets with DataType::Type::kInt16 and
+  // uses a signed IntConstant (-1 instead of 65535 for example) which is incorrect and might
+  // cause issues during the further compiler stages (like LSE). The same issue happens with
+  // booleans (kInt8 vs kUint8).
+  //
+  // Without this fix LSE might replace array access with the signed IntConstant without type
+  // conversion.
+  for (HBasicBlock* block : graph_->GetReversePostOrder()) {
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      HInstruction* instr = it.Current();
+      if (instr->IsArraySet()) {
+        HArraySet* array_set = instr->AsArraySet();
+        ReferenceTypeInfo info = array_set->GetArray()->GetReferenceTypeInfo();
+        ScopedObjectAccess soa(Thread::Current());
+        DCHECK(info.IsValid());
+
+        if (info.IsPrimitiveArrayClass()) {
+          DataType::Type array_type =
+              DataTypeFromPrimitive(info.GetTypeHandle()->GetComponentType()->GetPrimitiveType());
+          DataType::Type aset_component_type = array_set->GetComponentType();
+
+          if (DataType::IsIntegralType(array_type) && array_type != aset_component_type) {
+            HInstruction* value = array_set->GetValue();
+            DCHECK(value->IsIntConstant());
+            DCHECK((array_type == DataType::Type::kBool &&
+                    aset_component_type ==  DataType::Type::kInt8) ||
+                   (array_type == DataType::Type::kUint16 &&
+                    aset_component_type ==  DataType::Type::kInt16));
+            int32_t int_value = value->AsIntConstant()->GetValue();
+            int32_t unsigned_value = (array_type == DataType::Type::kBool)
+                ? static_cast<uint8_t>(int_value) : static_cast<uint16_t>(int_value);
+
+            if (int_value != unsigned_value) {
+              // Original signed IntConstant doesn't fit type value range.
+              array_set->ReplaceInput(graph_->GetIntConstant(unsigned_value), 2);
+            }
+            array_set->SetPackedField<HArraySet::ExpectedComponentTypeField>(array_type);
+            DCHECK(array_set->GetComponentType() == array_type);
           }
         }
       }
@@ -353,6 +402,9 @@ void ReferenceTypePropagation::Run() {
 
   visitor.ProcessWorklist();
   ValidateTypes();
+  if (graph_->HasAmbiguousFillArrayData()) {
+    FixAmbiguousArraySetsFromFillArrayData();
+  }
 }
 
 void ReferenceTypePropagation::RTPVisitor::VisitBasicBlock(HBasicBlock* block) {
