@@ -22,6 +22,7 @@
 #include "base/scoped_arena_containers.h"
 #include "base/enums.h"
 #include "class_linker-inl.h"
+#include "data_type-inl.h"
 #include "handle_scope-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache.h"
@@ -80,6 +81,7 @@ class ReferenceTypePropagation::RTPVisitor : public HGraphDelegateVisitor {
       handle_cache_(handle_cache),
       allocator_(graph->GetArenaStack()),
       worklist_(allocator_.Adapter(kArenaAllocReferenceTypePropagation)),
+      ambiguous_asets_(allocator_.Adapter(kArenaAllocReferenceTypePropagation)),
       is_first_run_(is_first_run) {
     worklist_.reserve(kDefaultWorklistSize);
   }
@@ -98,6 +100,7 @@ class ReferenceTypePropagation::RTPVisitor : public HGraphDelegateVisitor {
   void VisitUnresolvedStaticFieldGet(HUnresolvedStaticFieldGet* instr) OVERRIDE;
   void VisitInvoke(HInvoke* instr) OVERRIDE;
   void VisitArrayGet(HArrayGet* instr) OVERRIDE;
+  void VisitArraySet(HArraySet* instr) OVERRIDE;
   void VisitCheckCast(HCheckCast* instr) OVERRIDE;
   void VisitBoundType(HBoundType* instr) OVERRIDE;
   void VisitNullCheck(HNullCheck* instr) OVERRIDE;
@@ -105,6 +108,10 @@ class ReferenceTypePropagation::RTPVisitor : public HGraphDelegateVisitor {
 
   void VisitBasicBlock(HBasicBlock* block);
   void ProcessWorklist();
+
+  // Process the fill-array-data case for char and boolean arrays: make IntConstant values
+  // compliant with the type value range and fix the type of ArraySet.
+  void FixAmbiguousArraySetsFromFillArrayData();
 
  private:
   void UpdateFieldAccessTypeInfo(HInstruction* instr, const FieldInfo& info);
@@ -134,6 +141,8 @@ class ReferenceTypePropagation::RTPVisitor : public HGraphDelegateVisitor {
   // Use local allocator for allocating memory.
   ScopedArenaAllocator allocator_;
   ScopedArenaVector<HInstruction*> worklist_;
+  // Ambiguous ArraySets originated from fill-array-data dex bytecode.
+  ScopedArenaVector<HArraySet*> ambiguous_asets_;
   const bool is_first_run_;
 };
 
@@ -173,6 +182,45 @@ void ReferenceTypePropagation::ValidateTypes() {
           }
         }
       }
+    }
+  }
+}
+
+void ReferenceTypePropagation::RTPVisitor::FixAmbiguousArraySetsFromFillArrayData() {
+  // During instruction building for the fill-array-data dex bytecode only the size of the array
+  // element is known, not the particular type, thus there is an ambiguity between char and short
+  // arrays. So for a char array the builder creates ArraySets with DataType::Type::kInt16 and
+  // uses a signed IntConstant (-1 instead of 65535 for example) which is incorrect and might
+  // cause issues during the further compiler stages (like LSE). The same issue happens with
+  // booleans (kInt8 vs kUint8).
+  for (HArraySet* array_set : ambiguous_asets_) {
+    ReferenceTypeInfo info = array_set->GetArray()->GetReferenceTypeInfo();
+    ScopedObjectAccess soa(Thread::Current());
+    DCHECK(info.IsValid());
+    DCHECK(info.IsPrimitiveArrayClass());
+
+    DataType::Type array_type =
+        DataTypeFromPrimitive(info.GetTypeHandle()->GetComponentType()->GetPrimitiveType());
+    DataType::Type aset_component_type = array_set->GetComponentType();
+
+    DCHECK(DataType::IsIntegralType(array_type));
+    if (array_type != aset_component_type) {
+      HInstruction* value = array_set->GetValue();
+      DCHECK(value->IsIntConstant());
+      DCHECK((array_type == DataType::Type::kBool &&
+              aset_component_type ==  DataType::Type::kInt8) ||
+             (array_type == DataType::Type::kUint16 &&
+              aset_component_type ==  DataType::Type::kInt16));
+      int32_t int_value = value->AsIntConstant()->GetValue();
+      int32_t unsigned_value = (array_type == DataType::Type::kBool)
+          ? static_cast<uint8_t>(int_value) : static_cast<uint16_t>(int_value);
+
+      if (int_value != unsigned_value) {
+        // Original signed IntConstant doesn't fit type value range.
+        array_set->ReplaceInput(GetGraph()->GetIntConstant(unsigned_value), 2);
+      }
+      array_set->SetPackedField<HArraySet::ExpectedComponentTypeField>(array_type);
+      DCHECK(array_set->GetComponentType() == array_type);
     }
   }
 }
@@ -353,6 +401,9 @@ void ReferenceTypePropagation::Run() {
 
   visitor.ProcessWorklist();
   ValidateTypes();
+  if (graph_->HasAmbiguousFillArrayData()) {
+    visitor.FixAmbiguousArraySetsFromFillArrayData();
+  }
 }
 
 void ReferenceTypePropagation::RTPVisitor::VisitBasicBlock(HBasicBlock* block) {
@@ -893,6 +944,17 @@ void ReferenceTypePropagation::RTPVisitor::VisitArrayGet(HArrayGet* instr) {
   UpdateArrayGet(instr);
   if (!instr->GetReferenceTypeInfo().IsValid()) {
     worklist_.push_back(instr);
+  }
+}
+
+void ReferenceTypePropagation::RTPVisitor::VisitArraySet(HArraySet* instr) {
+  if (!GetGraph()->HasAmbiguousFillArrayData()) {
+    return;
+  }
+
+  DataType::Type type = instr->GetComponentType();
+  if (type == DataType::Type::kInt16 || type == DataType::Type::kInt8) {
+    ambiguous_asets_.push_back(instr);
   }
 }
 
