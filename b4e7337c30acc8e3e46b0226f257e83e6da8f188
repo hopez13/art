@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af7d02a5_3ff4b6b2",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T22:48:32Z",
+      "side": 1,
+      "message": "Is this true?",
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "298c7594_93901a56",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T22:48:32Z",
+      "side": 1,
+      "message": "What\u0027s special about this?",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 16
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8add04d9_c8168a1b",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T22:48:32Z",
+      "side": 1,
+      "message": "\u003e\u003d ?\nAlso in this implementation Next never wraps around to 0 for Assigned, which might be fine as long as it\u0027s never the same as all assigned bitstring char (which is never 0) to rule out the possibility that a parent is tested as a subtype of its child.\n\nIf we don\u0027t want Next to wrap around to 0 for Assigned, we should add an invariant to assert.",
+      "range": {
+        "startLine": 94,
+        "startChar": 28,
+        "endLine": 94,
+        "endChar": 29
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78ab96d0_0b1c2c39",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T22:48:32Z",
+      "side": 1,
+      "message": "This can overflow. I guess this should be ancester.TruncPath?",
+      "range": {
+        "startLine": 105,
+        "startChar": 38,
+        "endLine": 105,
+        "endChar": 57
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceba9607_ef14309b",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T22:48:32Z",
+      "side": 1,
+      "message": "Do you want to cover this case? This is not be true for initialized (but not assigned) siblings.",
+      "range": {
+        "startLine": 107,
+        "startChar": 36,
+        "endLine": 107,
+        "endChar": 47
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40bdb383_102c02c7",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T22:48:32Z",
+      "side": 1,
+      "message": "Is there a real need for this other than the test?",
+      "range": {
+        "startLine": 310,
+        "startChar": 19,
+        "endLine": 310,
+        "endChar": 30
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7138e78d_3b68d92b",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T22:48:32Z",
+      "side": 1,
+      "message": "need blank line.",
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
