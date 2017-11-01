@@ -96,6 +96,23 @@
     },
     {
       "key": {
+        "uuid": "78cd908b_340b7e50",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-01T14:46:30Z",
+      "side": 1,
+      "message": "Should we add some kind of tests (gtest, runtest, etc) to ensure these annotations correspond to a real class that\u0027s actually present?\n\nThe concern here is that in case the classes in libcore are renamed/deleted, this will still \"work\"?",
+      "revId": "8fe66e66b4c474ab21f906934ace47e368fc02d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef75f716_02277ebd",
         "filename": "runtime/image.cc",
         "patchSetId": 1

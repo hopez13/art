@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec80c1e9_070408c7",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-01T14:46:30Z",
+      "side": 0,
+      "message": "I\u0027m not sure if we should delete this from well-known-classes.\n\nWhat if the dex lookup code got the string from the well-known-class name? This gives us an additional safety that any refactorings in libcore would get caught up.",
+      "revId": "6291ac84088ba32888d6b7d714f9965eeb82d345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
