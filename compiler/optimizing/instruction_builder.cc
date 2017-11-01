@@ -1668,6 +1668,13 @@ void HInstructionBuilder::BuildFillArrayData(const Instruction& instruction, uin
                          dex_pc);
       break;
     case 2:
+      // The 'fill-array-data' dex instruction doesn't hold information about element exact type
+      // (kInt16 or kUint16), only element size. As type information is not fully available at this
+      // stage use kInt16, record the fact and process it later (for more details see
+      // ReferenceTypePropagation::FixCharArraySetsFromFillArrayData). Lack of treatment for
+      // this case would cause a bug when LSE might replace array access with the signed
+      // IntConstant without type conversion.
+      graph_->Set16BitFillArrayData(true);
       BuildFillArrayData(array,
                          reinterpret_cast<const int16_t*>(data),
                          element_count,
