@@ -1328,8 +1328,8 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
 bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrictions) {
   const InstructionSetFeatures* features = compiler_driver_->GetInstructionSetFeatures();
   switch (compiler_driver_->GetInstructionSet()) {
-    case kArm:
-    case kThumb2:
+    case InstructionSet::kArm:
+    case InstructionSet::kThumb2:
       // Allow vectorization for all ARM devices, because Android assumes that
       // ARM 32-bit always supports advanced SIMD (64-bit SIMD).
       switch (type) {
@@ -1349,7 +1349,7 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
           break;
       }
       return false;
-    case kArm64:
+    case InstructionSet::kArm64:
       // Allow vectorization for all ARM devices, because Android assumes that
       // ARMv8 AArch64 always supports advanced SIMD (128-bit SIMD).
       switch (type) {
@@ -1377,8 +1377,8 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
         default:
           return false;
       }
-    case kX86:
-    case kX86_64:
+    case InstructionSet::kX86:
+    case InstructionSet::kX86_64:
       // Allow vectorization for SSE4.1-enabled X86 devices only (128-bit SIMD).
       if (features->AsX86InstructionSetFeatures()->HasSSE4_1()) {
         switch (type) {
@@ -1409,7 +1409,7 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
         }  // switch type
       }
       return false;
-    case kMips:
+    case InstructionSet::kMips:
       if (features->AsMipsInstructionSetFeatures()->HasMsa()) {
         switch (type) {
           case DataType::Type::kBool:
@@ -1438,7 +1438,7 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
         }  // switch type
       }
       return false;
-    case kMips64:
+    case InstructionSet::kMips64:
       if (features->AsMips64InstructionSetFeatures()->HasMsa()) {
         switch (type) {
           case DataType::Type::kBool:
@@ -2029,7 +2029,7 @@ static constexpr uint32_t ARM64_SIMD_HEURISTIC_MAX_BODY_SIZE = 50;
 
 uint32_t HLoopOptimization::GetUnrollingFactor(HBasicBlock* block, int64_t trip_count) {
   switch (compiler_driver_->GetInstructionSet()) {
-    case kArm64: {
+    case InstructionSet::kArm64: {
       // Don't unroll with insufficient iterations.
       // TODO: Unroll loops with unknown trip count.
       DCHECK_NE(vector_length_, 0u);
@@ -2051,8 +2051,8 @@ uint32_t HLoopOptimization::GetUnrollingFactor(HBasicBlock* block, int64_t trip_
       DCHECK_GE(unroll_factor, 1u);
       return unroll_factor;
     }
-    case kX86:
-    case kX86_64:
+    case InstructionSet::kX86:
+    case InstructionSet::kX86_64:
     default:
       return kNoUnrollingFactor;
   }
