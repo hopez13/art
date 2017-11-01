@@ -470,7 +470,7 @@ static jint GetDexOptNeeded(JNIEnv* env,
   }
 
   const InstructionSet target_instruction_set = GetInstructionSetFromString(instruction_set);
-  if (target_instruction_set == kNone) {
+  if (target_instruction_set == InstructionSet::kNone) {
     ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
     std::string message(StringPrintf("Instruction set %s is invalid.", instruction_set));
     env->ThrowNew(iae.get(), message.c_str());
@@ -515,7 +515,7 @@ static jstring DexFile_getDexFileStatus(JNIEnv* env,
 
   const InstructionSet target_instruction_set = GetInstructionSetFromString(
       instruction_set.c_str());
-  if (target_instruction_set == kNone) {
+  if (target_instruction_set == InstructionSet::kNone) {
     ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
     std::string message(StringPrintf("Instruction set %s is invalid.", instruction_set.c_str()));
     env->ThrowNew(iae.get(), message.c_str());
@@ -681,7 +681,7 @@ static jobjectArray DexFile_getDexFileOutputPaths(JNIEnv* env,
 
   const InstructionSet target_instruction_set = GetInstructionSetFromString(
       instruction_set.c_str());
-  if (target_instruction_set == kNone) {
+  if (target_instruction_set == InstructionSet::kNone) {
     ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
     std::string message(StringPrintf("Instruction set %s is invalid.", instruction_set.c_str()));
     env->ThrowNew(iae.get(), message.c_str());
