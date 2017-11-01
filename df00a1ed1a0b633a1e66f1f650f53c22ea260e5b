@@ -22,6 +22,30 @@
       "revId": "df00a1ed1a0b633a1e66f1f650f53c22ea260e5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2741e6d_24cadcc2",
+        "filename": "test/203-multi-checkpoint/multi_checkpoint.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-01T18:53:22Z",
+      "side": 1,
+      "message": "line 58 initializes them to 0/false if I understand c++ correctly.",
+      "parentUuid": "3880bdf4_993fd06f",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "df00a1ed1a0b633a1e66f1f650f53c22ea260e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
