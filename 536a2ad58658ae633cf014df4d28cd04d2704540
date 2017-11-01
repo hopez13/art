@@ -22,6 +22,92 @@
       "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d02c5ca1_1293391e",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T21:07:46Z",
+      "side": 1,
+      "message": "const for both?",
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6eb8a69_c361386c",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T21:07:46Z",
+      "side": 1,
+      "message": "Kind of ambiguous. \"to N bitstring chars\"?",
+      "range": {
+        "startLine": 131,
+        "startChar": 56,
+        "endLine": 131,
+        "endChar": 71
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "712aba1f_bf809d43",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T21:07:46Z",
+      "side": 1,
+      "message": "rename.",
+      "range": {
+        "startLine": 138,
+        "startChar": 69,
+        "endLine": 138,
+        "endChar": 79
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb6285d2_854c0274",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-01T21:07:46Z",
+      "side": 1,
+      "message": "rename to num_of_trailing_zeros?",
+      "range": {
+        "startLine": 208,
+        "startChar": 11,
+        "endLine": 208,
+        "endChar": 15
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
