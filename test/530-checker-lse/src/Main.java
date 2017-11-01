@@ -1017,6 +1017,31 @@ public class Main {
 
   static Object[] sArray;
 
+  /// CHECK-START: void Main.$noinline$testFillArrayData() builder (after)
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1
+  /// CHECK-DAG: <<ConstPos0:i\d+>> IntConstant 40960
+  /// CHECK-DAG: <<ConstPos1:i\d+>> IntConstant 40961
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},<<Const0>>,<<ConstPos0>>]
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},<<Const1>>,<<ConstPos1>>]
+
+  /// CHECK-START: void Main.$noinline$testFillArrayData() load_store_elimination (after)
+  /// CHECK-DAG: <<ConstPos:i\d+>>  IntConstant 40960
+  /// CHECK-DAG: <<Conv:c\d+>>      TypeConversion [<<ConstPos>>]
+  /// CHECK-DAG:                    InvokeStaticOrDirect [<<Conv>>,<<ConstPos>>]
+  //
+  /// CHECK-NOT:                    IntConstant -24576
+  public static void $noinline$testFillArrayData() {
+    // Use an array initializer to hint the use of filled-new-array.
+    //
+    //  - During instruction building of fill-array-data the compiler only knows the array element
+    //    data size, not whether it is signed or unsigned. Thus for the char case ArraySets with
+    //    type kInt16 are created; 'IntConstant -24575' is used for initialization instead of
+    //    'IntConstant 40960'.
+    char[] a = { (char)0xa000, (char)0xa001 };
+    assertIntEquals(a[0], 0xa000);
+  }
+
   static void assertIntEquals(int result, int expected) {
     if (expected != result) {
       throw new Error("Expected: " + expected + ", found: " + result);
@@ -1115,6 +1140,8 @@ public class Main {
     assertIntEquals(iarray[0], 101);
     assertIntEquals(iarray[1], 102);
     assertIntEquals(ret, 108);
+
+    $noinline$testFillArrayData();
   }
 
   static boolean sFlag;
