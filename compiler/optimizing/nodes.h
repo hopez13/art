@@ -331,6 +331,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         has_simd_(false),
         has_loops_(false),
         has_irreducible_loops_(false),
+        has_16bit_fill_array_data_(false),
         debuggable_(debuggable),
         current_instruction_id_(start_instruction_id),
         dex_file_(dex_file),
@@ -585,6 +586,9 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   bool HasIrreducibleLoops() const { return has_irreducible_loops_; }
   void SetHasIrreducibleLoops(bool value) { has_irreducible_loops_ = value; }
 
+  bool Has16BitFillArrayData() const { return has_16bit_fill_array_data_; }
+  void Set16BitFillArrayData(bool value) { has_16bit_fill_array_data_ = value; }
+
   ArtMethod* GetArtMethod() const { return art_method_; }
   void SetArtMethod(ArtMethod* method) { art_method_ = method; }
 
@@ -687,6 +691,11 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // best effort to keep it up to date in the presence of code elimination
   // so there might be false positives.
   bool has_irreducible_loops_;
+
+  // Flag whether 'fill-array-data' dex instruction with 16-bit element size was met during
+  // instruction building; this case requires special treatment (more details in
+  // ReferenceTypePropagation::FixCharArraySetsFromFillArrayData).
+  bool has_16bit_fill_array_data_;
 
   // Indicates whether the graph should be compiled in a way that
   // ensures full debuggability. If false, we can apply more
@@ -5610,6 +5619,7 @@ class HArraySet FINAL : public HTemplateInstruction<3> {
   using ExpectedComponentTypeField =
       BitField<DataType::Type, kFieldExpectedComponentType, kFieldExpectedComponentTypeSize>;
 
+  friend class ReferenceTypePropagation;   // For processing fill-array-data case.
   DISALLOW_COPY_AND_ASSIGN(HArraySet);
 };
 

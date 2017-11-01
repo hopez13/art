@@ -1668,6 +1668,7 @@ void HInstructionBuilder::BuildFillArrayData(const Instruction& instruction, uin
                          dex_pc);
       break;
     case 2:
+      graph_->Set16BitFillArrayData(true);
       BuildFillArrayData(array,
                          reinterpret_cast<const int16_t*>(data),
                          element_count,
