@@ -5610,6 +5610,7 @@ class HArraySet FINAL : public HTemplateInstruction<3> {
   using ExpectedComponentTypeField =
       BitField<DataType::Type, kFieldExpectedComponentType, kFieldExpectedComponentTypeSize>;
 
+  friend class ReferenceTypePropagation;   // For processing fill-array-data case.
   DISALLOW_COPY_AND_ASSIGN(HArraySet);
 };
 

@@ -928,6 +928,31 @@ public class Main {
     return array[1] + array[i];
   }
 
+
+  /// CHECK-START: void Main.$opt$noinline$testFillArrayData() builder (after)
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1
+  /// CHECK-DAG: <<ConstPos0:i\d+>> IntConstant 40960
+  /// CHECK-DAG: <<ConstPos1:i\d+>> IntConstant 40961
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},<<Const0>>,<<ConstPos0>>]
+  /// CHECK-DAG:                    ArraySet [{{l\d+}},<<Const1>>,<<ConstPos1>>]
+
+  /// CHECK-START: void Main.$opt$noinline$testFillArrayData() load_store_elimination (after)
+  /// CHECK-DAG: <<ConstPos:i\d+>>  IntConstant 40960
+  /// CHECK-DAG:                    InvokeStaticOrDirect [<<ConstPos>>,<<ConstPos>>]
+  //
+  /// CHECK-NOT:                    IntConstant -24576
+  public static void $opt$noinline$testFillArrayData() {
+    // Use an array initializer to hint the use of filled-new-array.
+    //
+    //  - During instruction building of fill-array-data the compiler only knows the array element data size,
+    //    not whether it is signed or unsigned. Thus for the char case ArraySets with type kInt16 are created;
+    //    'IntConstant -24575' is used for initialization instead of 'IntConstant 40960'.
+    //  - LoadStoreElimination pass replaces uses of a[0] with negative IntConstant which is incorrect.
+    char[] a = { (char)0xa000, (char)0xa001 };
+    assertIntEquals(a[0], 0xa000);
+  }
+
   static void assertIntEquals(int result, int expected) {
     if (expected != result) {
       throw new Error("Expected: " + expected + ", found: " + result);
@@ -1017,6 +1042,8 @@ public class Main {
     assertIntEquals(testStoreStore().i, 41);
     assertIntEquals(testStoreStore().j, 43);
     assertIntEquals(testStoreStoreWithDeoptimize(new int[4]), 4);
+
+    $opt$noinline$testFillArrayData();
   }
 
   static boolean sFlag;
