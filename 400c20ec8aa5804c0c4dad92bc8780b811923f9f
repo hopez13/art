@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "18c8ccc5_8e376ea2",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:24:45Z",
+      "side": 1,
+      "message": "Dropping the template and just use mirror::Class.",
+      "parentUuid": "8d8dad40_72f28fd3",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c277c3c2_87d37a7e",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 3
