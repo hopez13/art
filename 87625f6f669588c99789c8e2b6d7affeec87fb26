@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e745b3b4_55feda2c",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-02T17:52:54Z",
+      "side": 1,
+      "message": "Right.",
+      "parentUuid": "88e6327a_24261eec",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 77
+      },
+      "revId": "87625f6f669588c99789c8e2b6d7affeec87fb26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b322db70_6e566bae",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-02T09:57:57Z",
       "side": 1,
       "message": "One line?",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 39
+      },
+      "revId": "87625f6f669588c99789c8e2b6d7affeec87fb26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c307d89_c7846e4b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-02T17:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b322db70_6e566bae",
       "range": {
         "startLine": 580,
         "startChar": 0,
