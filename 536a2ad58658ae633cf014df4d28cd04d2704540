@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "6abc0935_0bec883c",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T20:17:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb234e45_bc634fd2",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0c23db2_d06629bf",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 3
@@ -101,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "700d89df_477fe795",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T20:17:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e4df005_e1bf0f5f",
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d02c5ca1_1293391e",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 3
@@ -118,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "7aad4849_1b905ba1",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T20:17:06Z",
+      "side": 1,
+      "message": "This breaks assignment of bitchars\n\n  BitChar x;\n  BitChar y;\n  x \u003d y;\n\nwhich subsequently breaks this real code in subtype_check_info.h:\n\n  bool MaybeGetNext(BitChar* next) {\n    if (HasNext()) {\n      *next \u003d GetNext();\n      return true;\n    }\n    return false;\n  }\n\nThis seems like a limitation of C++ in how it defines operator\u003d.",
+      "parentUuid": "d02c5ca1_1293391e",
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6eb8a69_c361386c",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 3
@@ -129,6 +189,30 @@
       "writtenOn": "2017-11-01T21:07:46Z",
       "side": 1,
       "message": "Kind of ambiguous. \"to N bitstring chars\"?",
+      "range": {
+        "startLine": 131,
+        "startChar": 56,
+        "endLine": 131,
+        "endChar": 71
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8645150_9c6cf07e",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T20:17:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6eb8a69_c361386c",
       "range": {
         "startLine": 131,
         "startChar": 56,
@@ -164,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "eff6cee9_ac02985e",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T20:17:06Z",
+      "side": 1,
+      "message": "This rename slipped into another CL, thanks.",
+      "parentUuid": "712aba1f_bf809d43",
+      "range": {
+        "startLine": 138,
+        "startChar": 69,
+        "endLine": 138,
+        "endChar": 79
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bfc4e32_9a3c6f17",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 3
@@ -175,6 +283,30 @@
       "writtenOn": "2017-11-01T23:27:13Z",
       "side": 1,
       "message": "Is this still correct?",
+      "range": {
+        "startLine": 143,
+        "startChar": 44,
+        "endLine": 143,
+        "endChar": 54
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff95f71e_d7075e5f",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T20:17:06Z",
+      "side": 1,
+      "message": "This rename slipped into another CL, thanks.",
+      "parentUuid": "3bfc4e32_9a3c6f17",
       "range": {
         "startLine": 143,
         "startChar": 44,
@@ -234,6 +366,30 @@
     },
     {
       "key": {
+        "uuid": "0f11630a_f83f0f49",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T20:17:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1fad8e16_e20260fa",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 5
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb6285d2_854c0274",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 3
@@ -245,6 +401,30 @@
       "writtenOn": "2017-11-01T21:07:46Z",
       "side": 1,
       "message": "rename to num_of_trailing_zeros?",
+      "range": {
+        "startLine": 208,
+        "startChar": 11,
+        "endLine": 208,
+        "endChar": 15
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2e027fb_5c708b5c",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T20:17:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb6285d2_854c0274",
       "range": {
         "startLine": 208,
         "startChar": 11,
