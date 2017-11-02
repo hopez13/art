@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "4316dd4d_af933075",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T00:22:29Z",
+      "side": 1,
+      "message": "Sadly, it depends on how BitString is initialized.\n\n   BitString x;\n\nThe initial word is undefined.\n\n  BitString y;\n  y[0] \u003d....\n  y[1] \u003d ...\n  ...\n  y[kCapacity -1 ]\n\nthe rest of the bits are still undefined.\n\nThe constructor needs to be \"default\" for it to sensibly work within a bit struct union.\n\nShould I add some comments like \"unused bits are untouched\"?\n\n  BitString z{};\n  // now z is all 0s and all the unused bits are 0s.",
+      "parentUuid": "e0c23db2_d06629bf",
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d02c5ca1_1293391e",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 3
@@ -174,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "1fad8e16_e20260fa",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T00:22:29Z",
+      "side": 1,
+      "message": "To precompute I need a CreateArray helper, see https://android-review.googlesource.com/c/platform/art/+/523798/1/runtime/base/bit_string.h#326\n\nIs it ok if I fix it in the follow up CL which has this helper?",
+      "parentUuid": "a233245a_51da33da",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 5
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb6285d2_854c0274",
         "filename": "runtime/base/bit_string.h",
         "patchSetId": 3
@@ -208,6 +250,30 @@
       "writtenOn": "2017-11-01T23:27:13Z",
       "side": 1,
       "message": "Why not just clear to the end of storage, i.e. to bit 0? If the invariant here is that unused bits are zero, it doesn\u0027t matter.",
+      "range": {
+        "startLine": 255,
+        "startChar": 3,
+        "endLine": 257,
+        "endChar": 5
+      },
+      "revId": "536a2ad58658ae633cf014df4d28cd04d2704540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b074f32c_3e428199",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T00:22:29Z",
+      "side": 1,
+      "message": "Did you mean to write this on L263? \n\n   GetLsbForPosition(kCapacity) \u003d\u003d 0\n\nWe still need to know how many bits to clear-off which is what this loop is doing. I have a TODO to precompute it, it also needs CreateArray ( https://android-review.googlesource.com/c/platform/art/+/523798/1/runtime/base/bit_string.h#326 )",
+      "parentUuid": "cce558a6_077cc287",
       "range": {
         "startLine": 255,
         "startChar": 3,
