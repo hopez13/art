@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "558a1b2b_6d0105ff",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T14:19:12Z",
+      "side": 1,
+      "message": "The position where \"Next\" ends and (unused) bits begin is variable. It\u0027s determined by the Bitstring Length()\n\nIf I start writing that out it would look like BitString::GetBitLengthAtPosition(Bitstring.Length())\n\nWhat should it say here?",
+      "parentUuid": "b3d0bfb0_2597968b",
+      "range": {
+        "startLine": 27,
+        "startChar": 35,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9ad5c06_4d831a72",
         "filename": "runtime/subtype_check_bits.h",
         "patchSetId": 3
