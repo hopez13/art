@@ -271,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "4c42ef34_17bbf491",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T18:13:02Z",
+      "side": 1,
+      "message": "From a purely conceptual model, for depth\u003d0 the bitstring is [0,0,0] in Uninitialized and it would also be [0,0,0] if the last child to be assigned was MaxInt; this causes an ambiguity. I think for Depth\u003e0 its ok as long as \"initialized \u003d\u003d (bits !\u003d 0)\" as opposed to \"initialized \u003d\u003d (next \u003e 0)\"\n\n(For implementation it could be avoided by forcefully initializing it to [1,0,0] the first time around , but that relies on external order)",
+      "parentUuid": "03b492f6_9b05262d",
+      "range": {
+        "startLine": 94,
+        "startChar": 28,
+        "endLine": 94,
+        "endChar": 29
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78ab96d0_0b1c2c39",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
