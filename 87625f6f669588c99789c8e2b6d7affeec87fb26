@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88e6327a_24261eec",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T09:57:57Z",
+      "side": 1,
+      "message": "This is better handling of intrinsics, not related to finalization, right?",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 77
+      },
+      "revId": "87625f6f669588c99789c8e2b6d7affeec87fb26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b322db70_6e566bae",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T09:57:57Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 39
+      },
+      "revId": "87625f6f669588c99789c8e2b6d7affeec87fb26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
