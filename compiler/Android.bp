@@ -434,9 +434,9 @@ art_cc_test {
         "libnativeloader",
     ],
 
-    // TODO: Fix tests to not rely on this when unnecessary.
     include_dirs: [
-        "external/vixl/src",
+        "external/vixl/src",  // TODO: Fix tests to not rely on this when unnecessary.
+        "external/zlib",
     ],
 
     target: {
