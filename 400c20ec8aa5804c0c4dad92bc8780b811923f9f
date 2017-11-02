@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d8dad40_72f28fd3",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-02T14:23:12Z",
+      "side": 1,
+      "message": "I made every function static as you requested.\n\nOne alternative is to make every single function take a template parameter.\n\nWhat else do you want here?",
+      "parentUuid": "f6d33fda_97d5496d",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c277c3c2_87d37a7e",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 3
