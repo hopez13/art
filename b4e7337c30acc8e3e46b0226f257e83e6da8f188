@@ -247,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "03b492f6_9b05262d",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-02T18:02:14Z",
+      "side": 1,
+      "message": "That\u0027s ok. But I think it\u0027s also correct to allow [1, Maxint] for assigned, and leave 0 to signify running-out-of-next-values, as long as next field value can never overlap with values assigned out.",
+      "parentUuid": "7581d381_198c3f2b",
+      "range": {
+        "startLine": 94,
+        "startChar": 28,
+        "endLine": 94,
+        "endChar": 29
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78ab96d0_0b1c2c39",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -305,6 +329,30 @@
       "side": 1,
       "message": "Hmm I think we need this invariant for the IsSubtype operation to be correct right?\n\nMaybe I misunderstood something here?",
       "parentUuid": "ceba9607_ef14309b",
+      "range": {
+        "startLine": 107,
+        "startChar": 36,
+        "endLine": 107,
+        "endChar": 47
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f67195a7_e4da9431",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-02T18:02:14Z",
+      "side": 1,
+      "message": "Ok, I was thinking of unrelated as Target. You seem to think of unrelated as Source. Need to make those separate cases clear.",
+      "parentUuid": "5c9c3733_e420d47c",
       "range": {
         "startLine": 107,
         "startChar": 36,
