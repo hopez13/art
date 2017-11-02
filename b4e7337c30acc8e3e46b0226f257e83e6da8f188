@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "b3d0bfb0_2597968b",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "What is variable?",
+      "range": {
+        "startLine": 27,
+        "startChar": 35,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9ad5c06_4d831a72",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "Please describe in this doc what those are.",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89519091_d5ee8991",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "Needs update after renaming.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 71
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "246a1f1c_bef0a42b",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "j.l.Object",
+      "range": {
+        "startLine": 37,
+        "startChar": 54,
+        "endLine": 37,
+        "endChar": 60
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af7d02a5_3ff4b6b2",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -171,6 +263,201 @@
         "endLine": 107,
         "endChar": 47
       },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bcb0d95_b186a74a",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "GetSubtypeCheckBits",
+      "range": {
+        "startLine": 132,
+        "startChar": 19,
+        "endLine": 132,
+        "endChar": 24
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec01f380_80330c35",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "Create",
+      "range": {
+        "startLine": 139,
+        "startChar": 26,
+        "endLine": 139,
+        "endChar": 32
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6020ba86_97c50191",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbb8897_603478b4",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "CreateRoot",
+      "range": {
+        "startLine": 182,
+        "startChar": 26,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3810f0d9_f3406b06",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "static CreateFrom(SubtypeCheckInfo from, bool assign_next)",
+      "range": {
+        "startLine": 200,
+        "startChar": 19,
+        "endLine": 200,
+        "endChar": 30
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c4e2e2_0db52af1",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "I\u0027d prefer having a standalone \"ClearNext\" method and then a standalone \"SetNext\" method.",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 6
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d778ed_ea5df167",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "I\u0027d drop.",
+      "range": {
+        "startLine": 269,
+        "startChar": 7,
+        "endLine": 269,
+        "endChar": 12
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8192f4d0_2d5a33bb",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "Add a helper.",
+      "range": {
+        "startLine": 282,
+        "startChar": 22,
+        "endLine": 282,
+        "endChar": 37
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72b270e2_59bab47a",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T13:14:01Z",
+      "side": 1,
+      "message": "Extra line",
       "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
