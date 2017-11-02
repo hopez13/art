@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6d33fda_97d5496d",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:18:17Z",
+      "side": 1,
+      "message": "As discussed, I whish we can find a way to avoid this pattern.",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c277c3c2_87d37a7e",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:18:17Z",
+      "side": 1,
+      "message": "Drop the temp?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 25
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8b73311_a5130c18",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:18:17Z",
+      "side": 1,
+      "message": "You\u0027re only calling this once, you don\u0027t need \u0027func\u0027.",
+      "range": {
+        "startLine": 376,
+        "startChar": 28,
+        "endLine": 376,
+        "endChar": 34
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef7e43f4_2bc8e0e3",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:18:17Z",
+      "side": 1,
+      "message": "UpdateSelfAndParent is only called once, you don\u0027t need this.",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 6
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "840f0833_1fbdf5ca",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:18:17Z",
+      "side": 1,
+      "message": "You only use the first entry of the pair, so no need for a pair.",
+      "range": {
+        "startLine": 411,
+        "startChar": 26,
+        "endLine": 411,
+        "endChar": 45
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "265536ba_02f8552b",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:18:17Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 535,
+        "startChar": 47,
+        "endLine": 538,
+        "endChar": 59
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93d20f92_261937c6",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:18:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 564,
+        "startChar": 47,
+        "endLine": 567,
+        "endChar": 58
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adc9f65c_eb83f432",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-02T14:18:17Z",
+      "side": 1,
+      "message": "Lines too long.",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 106
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
