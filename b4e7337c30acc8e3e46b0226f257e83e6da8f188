@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "59a092da_3978f4ac",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4683d4a7_3937fafc",
+      "range": {
+        "startLine": 27,
+        "startChar": 35,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9ad5c06_4d831a72",
         "filename": "runtime/subtype_check_bits.h",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "writtenOn": "2017-11-02T13:14:01Z",
       "side": 1,
       "message": "Please describe in this doc what those are.",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f503364b_33c1427a",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9ad5c06_4d831a72",
       "range": {
         "startLine": 34,
         "startChar": 11,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "185a8af5_d20219ed",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89519091_d5ee8991",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 71
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "246a1f1c_bef0a42b",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -130,6 +202,30 @@
       "writtenOn": "2017-11-02T13:14:01Z",
       "side": 1,
       "message": "j.l.Object",
+      "range": {
+        "startLine": 37,
+        "startChar": 54,
+        "endLine": 37,
+        "endChar": 60
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d01f59_8f743391",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246a1f1c_bef0a42b",
       "range": {
         "startLine": 37,
         "startChar": 54,
@@ -188,6 +284,30 @@
       "writtenOn": "2017-11-01T22:48:32Z",
       "side": 1,
       "message": "What\u0027s special about this?",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 16
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d8380dc_09e722a8",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "In order to avoid locking for every IsSubtypeOf operation, we introduce extra thread-safety invariants. They wouldn\u0027t be needed otherwise, if we were to assume every SubtypeCheck operation is atomic.\n\nPerhaps I should add extra explanation in subtype_check.h ?",
+      "parentUuid": "298c7594_93901a56",
       "range": {
         "startLine": 70,
         "startChar": 3,
@@ -318,6 +438,30 @@
     },
     {
       "key": {
+        "uuid": "130d9bbc_e6c82515",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "This cannot overflow. PathToRoot is already defined to be truncated on line 82 via Safe(Depth).",
+      "parentUuid": "78ab96d0_0b1c2c39",
+      "range": {
+        "startLine": 105,
+        "startChar": 38,
+        "endLine": 105,
+        "endChar": 57
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceba9607_ef14309b",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -389,6 +533,30 @@
     },
     {
       "key": {
+        "uuid": "485dfb06_6bf4b1f5",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Ok, agreed. This does not need Initialized here. It\u0027s safe for \"source\" to alias.\n\nThe \"source\" should be covered by L103, the \u0027target\u0027 is covered by L107+L108. Just need to delete\" Initialized\" from L107.",
+      "parentUuid": "f67195a7_e4da9431",
+      "range": {
+        "startLine": 107,
+        "startChar": 36,
+        "endLine": 107,
+        "endChar": 47
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9bcb0d95_b186a74a",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -400,6 +568,30 @@
       "writtenOn": "2017-11-02T13:14:01Z",
       "side": 1,
       "message": "GetSubtypeCheckBits",
+      "range": {
+        "startLine": 132,
+        "startChar": 19,
+        "endLine": 132,
+        "endChar": 24
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1bfa5a5_50caff38",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bcb0d95_b186a74a",
       "range": {
         "startLine": 132,
         "startChar": 19,
@@ -435,6 +627,30 @@
     },
     {
       "key": {
+        "uuid": "5c000d19_101c8a1d",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec01f380_80330c35",
+      "range": {
+        "startLine": 139,
+        "startChar": 26,
+        "endLine": 139,
+        "endChar": 32
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6020ba86_97c50191",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -446,6 +662,24 @@
       "writtenOn": "2017-11-02T13:14:01Z",
       "side": 1,
       "message": "indentation is off.",
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "147b8bdf_7756681b",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6020ba86_97c50191",
       "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -498,6 +732,30 @@
     },
     {
       "key": {
+        "uuid": "46f9cde4_a5aed6a7",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "It doesn\u0027t make sense for this to be static, it\u0027s updating the \"Next\" value on this (L196). This function is also non-const which is another hint it\u0027s mutating *this.\n\nRenamed to \"CreateChild\", which is what I assume you intended?",
+      "parentUuid": "3810f0d9_f3406b06",
+      "range": {
+        "startLine": 200,
+        "startChar": 19,
+        "endLine": 200,
+        "endChar": 30
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90c4e2e2_0db52af1",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -509,6 +767,30 @@
       "writtenOn": "2017-11-02T13:14:01Z",
       "side": 1,
       "message": "I\u0027d prefer having a standalone \"ClearNext\" method and then a standalone \"SetNext\" method.",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 6
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0511c89_621e9e88",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "This manipulation has to be done carefully. The bitstring is in a transient \"bad\" state and calling other functions will trigger DCHECK errors.\n\nSo that\u0027s why its specially crafted here for this use-case.\n\nI removed the lambda which I assume is what your original intent was?",
+      "parentUuid": "90c4e2e2_0db52af1",
       "range": {
         "startLine": 214,
         "startChar": 0,
@@ -544,6 +826,30 @@
     },
     {
       "key": {
+        "uuid": "4d7e2082_39801728",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "There\u0027s another function called \"BitStringChar GetNext()\" so it\u0027s named differently to avoid collision with this one.\n\nI moved them closer to each other to make this more obvious.",
+      "parentUuid": "19d778ed_ea5df167",
+      "range": {
+        "startLine": 269,
+        "startChar": 7,
+        "endLine": 269,
+        "endChar": 12
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8192f4d0_2d5a33bb",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -555,6 +861,30 @@
       "writtenOn": "2017-11-02T13:14:01Z",
       "side": 1,
       "message": "Add a helper.",
+      "range": {
+        "startLine": 282,
+        "startChar": 22,
+        "endLine": 282,
+        "endChar": 37
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72851b3f_1cedbc7c",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "For what? This pattern \"BitString{}\" is only used in one place.",
+      "parentUuid": "8192f4d0_2d5a33bb",
       "range": {
         "startLine": 282,
         "startChar": 22,
@@ -584,6 +914,24 @@
     },
     {
       "key": {
+        "uuid": "46ec38aa_d1a8aec0",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72b270e2_59bab47a",
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40bdb383_102c02c7",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -607,6 +955,30 @@
     },
     {
       "key": {
+        "uuid": "d220e194_c1135709",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40bdb383_102c02c7",
+      "range": {
+        "startLine": 310,
+        "startChar": 19,
+        "endLine": 310,
+        "endChar": 30
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7138e78d_3b68d92b",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
@@ -618,6 +990,24 @@
       "writtenOn": "2017-11-01T22:48:32Z",
       "side": 1,
       "message": "need blank line.",
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cbe9830_1adfd419",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T18:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7138e78d_3b68d92b",
       "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
