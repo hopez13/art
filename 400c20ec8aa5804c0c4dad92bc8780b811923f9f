@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4fbc2353_26f3c57e",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T19:00:23Z",
+      "side": 1,
+      "message": "Discussed offline.",
+      "parentUuid": "18c8ccc5_8e376ea2",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c277c3c2_87d37a7e",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "writtenOn": "2017-11-02T14:18:17Z",
       "side": 1,
       "message": "Drop the temp?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 25
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d72845_61a57881",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T19:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c277c3c2_87d37a7e",
       "range": {
         "startLine": 250,
         "startChar": 0,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "df81be76_759a0c7f",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T19:00:23Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c8b73311_a5130c18",
+      "range": {
+        "startLine": 376,
+        "startChar": 28,
+        "endLine": 376,
+        "endChar": 34
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef7e43f4_2bc8e0e3",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 3
@@ -130,6 +202,30 @@
       "writtenOn": "2017-11-02T14:18:17Z",
       "side": 1,
       "message": "UpdateSelfAndParent is only called once, you don\u0027t need this.",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 6
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b697a39_6fb0401b",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T19:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef7e43f4_2bc8e0e3",
       "range": {
         "startLine": 393,
         "startChar": 0,
@@ -165,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "623841b9_0735f72e",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T19:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "840f0833_1fbdf5ca",
+      "range": {
+        "startLine": 411,
+        "startChar": 26,
+        "endLine": 411,
+        "endChar": 45
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "265536ba_02f8552b",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 3
@@ -176,6 +296,30 @@
       "writtenOn": "2017-11-02T14:18:17Z",
       "side": 1,
       "message": "indentation is off.",
+      "range": {
+        "startLine": 535,
+        "startChar": 47,
+        "endLine": 538,
+        "endChar": 59
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd755950_94749098",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T19:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "265536ba_02f8552b",
       "range": {
         "startLine": 535,
         "startChar": 47,
@@ -211,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "e3d86682_5115e6aa",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T19:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93d20f92_261937c6",
+      "range": {
+        "startLine": 564,
+        "startChar": 47,
+        "endLine": 567,
+        "endChar": 58
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adc9f65c_eb83f432",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 3
@@ -222,6 +390,30 @@
       "writtenOn": "2017-11-02T14:18:17Z",
       "side": 1,
       "message": "Lines too long.",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 106
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b5024e_5a1027f9",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T19:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adc9f65c_eb83f432",
       "range": {
         "startLine": 579,
         "startChar": 0,
