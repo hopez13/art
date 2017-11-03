@@ -34,6 +34,24 @@
       "revId": "bde51b09a5cf044186b4a28dfe839a0a537aa63c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ec15db_44de155b",
+        "filename": "tools/bootjars.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T22:05:08Z",
+      "side": 1,
+      "message": "The vision is that instead of \u0027source build/envsetup.sh\u0027 scripts call \u0027source art/tools/env/envsetup.sh\u0027 and everything else works the same by providing our own functions that export the build cache.",
+      "parentUuid": "b7bf7cd5_c49cdfd5",
+      "revId": "bde51b09a5cf044186b4a28dfe839a0a537aa63c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
