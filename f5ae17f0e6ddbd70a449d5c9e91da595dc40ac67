@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "49a71c6b_d770d1bc",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T22:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09f36f4c_79ff8460",
+      "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87c4fa2f_02757c18",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2017-11-03T21:44:19Z",
       "side": 1,
       "message": "Probably a good place to comment something like:\nFor a class that has an initialized bitstring, it\u0027s super class needs to have an assigned bitstring since if its super class\u0027s bitstring is not assigned yet, once it becomes assigned, we cannot update its children\u0027s bitstring to maintain all the tree invariants atomically.",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 2
+      },
+      "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "156f5b55_951cd6e0",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T22:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87c4fa2f_02757c18",
       "range": {
         "startLine": 71,
         "startChar": 1,
@@ -77,6 +119,30 @@
       "side": 1,
       "message": "This is saying that an Initialized-state SubtypeCheckInfo has exactly 1 bitstring.\n\nIt cannot transition from Initialized to Initialized (with different bitstrings).",
       "parentUuid": "418d37c2_487fec42",
+      "range": {
+        "startLine": 114,
+        "startChar": 5,
+        "endLine": 114,
+        "endChar": 16
+      },
+      "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "956f9cbc_e94264e3",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T22:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "339a536c_611623e3",
       "range": {
         "startLine": 114,
         "startChar": 5,
