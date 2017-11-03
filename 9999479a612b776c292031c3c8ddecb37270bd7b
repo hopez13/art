@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d934b26_550ba96b",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3221,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-11-03T19:27:00Z",
+      "side": 1,
+      "message": "Beqz() should expand to beqzc and beqz by itself without any help.",
+      "range": {
+        "startLine": 3219,
+        "startChar": 0,
+        "endLine": 3221,
+        "endChar": 10
+      },
+      "revId": "9999479a612b776c292031c3c8ddecb37270bd7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
