@@ -120,7 +120,8 @@ static void dumpMethod(const DexFile* pDexFile,
 
   // Find the first line.
   int firstLine = -1;
-  pDexFile->DecodeDebugPositionInfo(pCode, positionsCb, &firstLine);
+  DexFile::CodeItemHelper code_item_helper(*pDexFile, *pCode);
+  pDexFile->DecodeDebugPositionInfo(code_item_helper, positionsCb, &firstLine);
 
   // Method signature.
   const Signature signature = pDexFile->GetMethodSignature(pMethodId);

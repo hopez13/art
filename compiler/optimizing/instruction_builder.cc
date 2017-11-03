@@ -373,13 +373,14 @@ ArenaBitVector* HInstructionBuilder::FindNativeDebugInfoLocations() {
       return false;
     }
   };
+  DexFile::CodeItemHelper code_item_helper(*dex_file_, code_item_);
   const uint32_t num_instructions = code_item_.insns_size_in_code_units_;
   ArenaBitVector* locations = ArenaBitVector::Create(local_allocator_,
                                                      num_instructions,
                                                      /* expandable */ false,
                                                      kArenaAllocGraphBuilder);
   locations->ClearAllBits();
-  dex_file_->DecodeDebugPositionInfo(&code_item_, Callback::Position, locations);
+  dex_file_->DecodeDebugPositionInfo(code_item_helper, Callback::Position, locations);
   // Instruction-specific tweaks.
   IterationRange<DexInstructionIterator> instructions = code_item_.Instructions();
   for (const Instruction& inst : instructions) {

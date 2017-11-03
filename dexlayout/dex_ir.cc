@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2016 The Android Open Source Project
  *
@@ -563,7 +564,8 @@ CodeItem* Collections::CreateCodeItem(const DexFile& dex_file,
   uint32_t tries_size = disk_code_item.tries_size_;
 
   // TODO: Calculate the size of the debug info.
-  const uint8_t* debug_info_stream = dex_file.GetDebugInfoStream(&disk_code_item);
+  DexFile::CodeItemHelper code_item_helper(dex_file, disk_code_item);
+  const uint8_t* debug_info_stream = code_item_helper.DebugInfoStream();
   DebugInfoItem* debug_info = nullptr;
   if (debug_info_stream != nullptr) {
     debug_info = debug_info_items_.GetExistingObject(disk_code_item.debug_info_off_);

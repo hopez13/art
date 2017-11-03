@@ -1202,9 +1202,10 @@ static void dumpCode(const DexFile* pDexFile, u4 idx, u4 flags,
   // Positions and locals table in the debug info.
   bool is_static = (flags & kAccStatic) != 0;
   fprintf(gOutFile, "      positions     : \n");
-  pDexFile->DecodeDebugPositionInfo(pCode, dumpPositionsCb, nullptr);
+  DexFile::CodeItemHelper code_item_helper(*pDexFile, *pCode);
+  pDexFile->DecodeDebugPositionInfo(code_item_helper, dumpPositionsCb, nullptr);
   fprintf(gOutFile, "      locals        : \n");
-  pDexFile->DecodeDebugLocalInfo(pCode, is_static, idx, dumpLocalsCb, nullptr);
+  pDexFile->DecodeDebugLocalInfo(code_item_helper, is_static, idx, dumpLocalsCb, nullptr);
 }
 
 /*

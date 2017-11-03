@@ -1661,7 +1661,10 @@ void Dbg::OutputLineTable(JDWP::RefTypeId, JDWP::MethodId method_id, JDWP::Expan
   context.pReply = pReply;
 
   if (code_item != nullptr) {
-    m->GetDexFile()->DecodeDebugPositionInfo(code_item, DebugCallbackContext::Callback, &context);
+    DexFile::CodeItemHelper code_item_helper(*m->GetDexFile(), *m->GetCodeItem());
+    m->GetDexFile()->DecodeDebugPositionInfo(code_item_helper,
+                                             DebugCallbackContext::Callback,
+                                             &context);
   }
 
   JDWP::Set4BE(expandBufGetBuffer(pReply) + numLinesOffset, context.numItems);
@@ -1716,13 +1719,12 @@ void Dbg::OutputVariableTable(JDWP::RefTypeId, JDWP::MethodId method_id, bool wi
   context.variable_count = 0;
   context.with_generic = with_generic;
 
-  const DexFile::CodeItem* code_item = m->GetCodeItem();
-  if (code_item != nullptr) {
-    m->GetDexFile()->DecodeDebugLocalInfo(
-        code_item, m->IsStatic(), m->GetDexMethodIndex(), DebugCallbackContext::Callback,
-        &context);
-  }
-
+  DexFile::CodeItemHelper helper(*m->GetDexFile(), *m->GetCodeItem());
+  m->GetDexFile()->DecodeDebugLocalInfo(helper,
+                                        m->IsStatic(),
+                                        m->GetDexMethodIndex(),
+                                        DebugCallbackContext::Callback,
+                                        &context);
   JDWP::Set4BE(expandBufGetBuffer(pReply) + variable_count_offset, context.variable_count);
 }
 
@@ -3866,8 +3868,11 @@ JDWP::JdwpError Dbg::ConfigureStep(JDWP::ObjectId thread_id, JDWP::JdwpStepSize 
   // method on the stack (and no line number either).
   if (m != nullptr && !m->IsNative()) {
     const DexFile::CodeItem* const code_item = m->GetCodeItem();
+    DexFile::CodeItemHelper code_item_helper(*m->GetDexFile(), *m->GetCodeItem());
     DebugCallbackContext context(single_step_control, line_number, code_item);
-    m->GetDexFile()->DecodeDebugPositionInfo(code_item, DebugCallbackContext::Callback, &context);
+    m->GetDexFile()->DecodeDebugPositionInfo(code_item_helper,
+                                             DebugCallbackContext::Callback,
+                                             &context);
   }
 
   // Activate single-step in the thread.
