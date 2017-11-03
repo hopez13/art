@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a66536fa_06cb9f8e",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T23:22:03Z",
+      "side": 1,
+      "message": "Ok, will move this into a separate CL.",
+      "parentUuid": "76771af7_c1f0d417",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 77
+      },
+      "revId": "87625f6f669588c99789c8e2b6d7affeec87fb26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fecb8ae7_e3276c0e",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2017-11-03T20:46:39Z",
       "side": 1,
       "message": "is that part of your API? why not return true in that case?",
+      "range": {
+        "startLine": 332,
+        "startChar": 30,
+        "endLine": 333,
+        "endChar": 30
+      },
+      "revId": "87625f6f669588c99789c8e2b6d7affeec87fb26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4639d1d5_55792dfd",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T23:22:03Z",
+      "side": 1,
+      "message": "Not part of API. Since the aliasing matrix (a bit vector) doesn\u0027t have a bit for encoding (i,i) pair, I don\u0027t expect the same index to be passed in here. So it\u0027s an assert.",
+      "parentUuid": "fecb8ae7_e3276c0e",
       "range": {
         "startLine": 332,
         "startChar": 30,
