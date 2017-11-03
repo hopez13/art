@@ -152,6 +152,29 @@
       "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a8d020d_9a8f81ef",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-11-03T22:51:38Z",
+      "side": 1,
+      "message": "Are all of these comments necessary? Can\u0027t this function be entirely described by:\n\n// Set \"Next\" entry in child, if it exists, to value.\n\n?",
+      "range": {
+        "startLine": 437,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 84
+      },
+      "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

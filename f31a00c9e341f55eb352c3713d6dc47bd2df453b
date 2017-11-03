@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "176e53c1_6bf9e043",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-11-03T22:51:38Z",
+      "side": 1,
+      "message": "I would either not separate this out or explain in a comment what this has to do with thread-safety.",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 120,
+        "endChar": 58
+      },
+      "revId": "f31a00c9e341f55eb352c3713d6dc47bd2df453b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
