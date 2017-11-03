@@ -36,6 +36,7 @@ enum InvokeType : uint32_t;
 class MemMap;
 class OatDexFile;
 class Signature;
+class StandardDexFile;
 class StringPiece;
 class ZipArchive;
 
@@ -302,6 +303,8 @@ class DexFile {
     DISALLOW_COPY_AND_ASSIGN(CallSiteIdItem);
   };
 
+  class CodeItemHelper;
+
   // Raw code_item.
   struct CodeItem {
     IterationRange<DexInstructionIterator> Instructions() const {
@@ -322,12 +325,78 @@ class DexFile {
     uint16_t tries_size_;                // the number of try_items for this instance. If non-zero,
                                          //   then these appear as the tries array just after the
                                          //   insns in this instance.
+
+    // debug_info_off_ should be private so that we can move it to another data structure later.
+    // Can't make it private since offsetof needs a standard-layout type.
     uint32_t debug_info_off_;            // file offset to debug info stream
+
+   public:
     uint32_t insns_size_in_code_units_;  // size of the insns array, in 2 byte code units
     uint16_t insns_[1];                  // actual array of bytecode.
 
    private:
+    friend class CodeItemHelper;
     DISALLOW_COPY_AND_ASSIGN(CodeItem);
+  };
+
+  // Code item helper abstracts accesses to dex code item fields.
+  class CodeItemHelper {
+   public:
+    // Will change this API later.
+    CodeItemHelper(const DexFile& dex_file, const CodeItem& code_item)
+       : registers_size_(code_item.registers_size_),
+         ins_size_(code_item.ins_size_),
+         outs_size_(code_item.outs_size_),
+         tries_size_(code_item.tries_size_),
+         debug_info_stream_(dex_file.GetDebugInfoStream(code_item.debug_info_off_)),
+         insns_size_in_code_units_(code_item.insns_size_in_code_units_),
+         insns_(code_item.insns_) {}
+
+    uint16_t RegisterSize() const {
+      return registers_size_;
+    }
+
+    uint16_t InsSize() const {
+      return ins_size_;
+    }
+
+    uint16_t OutsSize() const {
+      return outs_size_;
+    }
+
+    uint16_t TriesSize() const {
+      return tries_size_;
+    }
+
+    const uint8_t* DebugInfoStream() const {
+      return debug_info_stream_;
+    }
+
+    uint32_t InsnsSizeInCodeUnits() const {
+      return insns_size_in_code_units_;
+    }
+
+    const uint16_t* Insns() const {
+      return insns_;
+    }
+
+   private:
+    uint16_t registers_size_;            // the number of registers used by this code
+                                         //   (locals + parameters)
+    uint16_t ins_size_;                  // the number of words of incoming arguments to the method
+                                         //   that this code is for
+    uint16_t outs_size_;                 // the number of words of outgoing argument space required
+                                         //   by this code for method invocation
+    uint16_t tries_size_;                // the number of try_items for this instance. If non-zero,
+                                         //   then these appear as the tries array just after the
+                                         //   insns in this instance.
+
+    // Pointer to the debug info stream.
+    const uint8_t* debug_info_stream_;
+
+    uint32_t insns_size_in_code_units_;  // size of the insns array, in 2 byte code units
+
+    const uint16_t* insns_;              // actual array of bytecode.
   };
 
   // Raw try_item.
@@ -769,11 +838,10 @@ class DexFile {
   static int32_t FindCatchHandlerOffset(const CodeItem &code_item, uint32_t address);
 
   // Get the pointer to the start of the debugging data
-  const uint8_t* GetDebugInfoStream(const CodeItem* code_item) const {
+  const uint8_t* GetDebugInfoStream(const uint32_t debug_info_off) const {
     // Check that the offset is in bounds.
     // Note that although the specification says that 0 should be used if there
     // is no debug information, some applications incorrectly use 0xFFFFFFFF.
-    const uint32_t debug_info_off = code_item->debug_info_off_;
     return (debug_info_off == 0 || debug_info_off >= size_) ? nullptr : begin_ + debug_info_off;
   }
 
@@ -929,7 +997,7 @@ class DexFile {
                                    NewLocalCallback new_local,
                                    void* context);
   template<typename NewLocalCallback>
-  bool DecodeDebugLocalInfo(const CodeItem* code_item,
+  bool DecodeDebugLocalInfo(const CodeItemHelper& code_item_helper,
                             bool is_static,
                             uint32_t method_idx,
                             NewLocalCallback new_local,
@@ -942,7 +1010,7 @@ class DexFile {
                                       DexDebugNewPosition position_functor,
                                       void* context);
   template<typename DexDebugNewPosition>
-  bool DecodeDebugPositionInfo(const CodeItem* code_item,
+  bool DecodeDebugPositionInfo(const CodeItemHelper& code_item_helper,
                                DexDebugNewPosition position_functor,
                                void* context) const;
 

@@ -157,8 +157,13 @@ class ElfDebugLineWriter {
 
       PositionInfos dex2line_map;
       DCHECK(mi->dex_file != nullptr);
+
+      if (mi->code_item == nullptr) {
+        continue;
+      }
       const DexFile* dex = mi->dex_file;
-      if (!dex->DecodeDebugPositionInfo(mi->code_item, PositionInfoCallback, &dex2line_map)) {
+      DexFile::CodeItemHelper helper(*dex, *mi->code_item);
+      if (!dex->DecodeDebugPositionInfo(helper, PositionInfoCallback, &dex2line_map)) {
         continue;
       }
 

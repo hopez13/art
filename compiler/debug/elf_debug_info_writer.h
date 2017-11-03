@@ -49,7 +49,8 @@ static std::vector<const char*> GetParamNames(const MethodDebugInfo* mi) {
   std::vector<const char*> names;
   if (mi->code_item != nullptr) {
     DCHECK(mi->dex_file != nullptr);
-    const uint8_t* stream = mi->dex_file->GetDebugInfoStream(mi->code_item);
+    DexFile::CodeItemHelper helper(*mi->dex_file, *mi->code_item);
+    const uint8_t* stream = helper.DebugInfoStream();
     if (stream != nullptr) {
       DecodeUnsignedLeb128(&stream);  // line.
       uint32_t parameters_size = DecodeUnsignedLeb128(&stream);
@@ -255,27 +256,30 @@ class ElfCompilationUnitWriter {
         }
       }
 
-      // Write local variables.
-      LocalInfos local_infos;
-      if (dex->DecodeDebugLocalInfo(dex_code,
-                                    is_static,
-                                    mi->dex_method_index,
-                                    LocalInfoCallback,
-                                    &local_infos)) {
-        for (const DexFile::LocalInfo& var : local_infos) {
-          if (var.reg_ < dex_code->registers_size_ - dex_code->ins_size_) {
-            info_.StartTag(DW_TAG_variable);
-            WriteName(var.name_);
-            WriteLazyType(var.descriptor_);
-            bool is64bitValue = var.descriptor_[0] == 'D' || var.descriptor_[0] == 'J';
-            WriteRegLocation(mi,
-                             dex_reg_maps,
-                             var.reg_,
-                             is64bitValue,
-                             compilation_unit.code_address,
-                             var.start_address_,
-                             var.end_address_);
-            info_.EndTag();
+      if (dex_code != nullptr) {
+        // Write local variables.
+        LocalInfos local_infos;
+        DexFile::CodeItemHelper helper(*dex, *dex_code);
+        if (dex->DecodeDebugLocalInfo(helper,
+                                      is_static,
+                                      mi->dex_method_index,
+                                      LocalInfoCallback,
+                                      &local_infos)) {
+          for (const DexFile::LocalInfo& var : local_infos) {
+            if (var.reg_ < dex_code->registers_size_ - dex_code->ins_size_) {
+              info_.StartTag(DW_TAG_variable);
+              WriteName(var.name_);
+              WriteLazyType(var.descriptor_);
+              bool is64bitValue = var.descriptor_[0] == 'D' || var.descriptor_[0] == 'J';
+              WriteRegLocation(mi,
+                               dex_reg_maps,
+                               var.reg_,
+                               is64bitValue,
+                               compilation_unit.code_address,
+                               var.start_address_,
+                               var.end_address_);
+              info_.EndTag();
+            }
           }
         }
       }

@@ -259,7 +259,8 @@ jvmtiError MethodUtil::GetLocalVariableTable(jvmtiEnv* env,
   };
 
   LocalVariableContext context(env);
-  if (!dex_file->DecodeDebugLocalInfo(code_item,
+  art::DexFile::CodeItemHelper code_info_helper(*dex_file, *code_item);
+  if (!dex_file->DecodeDebugLocalInfo(code_info_helper,
                                       art_method->IsStatic(),
                                       art_method->GetDexMethodIndex(),
                                       LocalVariableContext::Callback,
@@ -480,7 +481,8 @@ jvmtiError MethodUtil::GetLineNumberTable(jvmtiEnv* env,
   }
 
   LineNumberContext context;
-  bool success = dex_file->DecodeDebugPositionInfo(code_item, CollectLineNumbers, &context);
+  art::DexFile::CodeItemHelper code_item_helper(*dex_file, *code_item);
+  bool success = dex_file->DecodeDebugPositionInfo(code_item_helper, CollectLineNumbers, &context);
   if (!success) {
     return ERR(ABSENT_INFORMATION);
   }
@@ -648,7 +650,8 @@ class CommonLocalVariableClosure : public art::Closure {
     };
 
     GetLocalVariableInfoContext context(slot_, dex_pc, descriptor, type);
-    if (!dex_file->DecodeDebugLocalInfo(code_item,
+    art::DexFile::CodeItemHelper code_item_helper(*dex_file, *code_item);
+    if (!dex_file->DecodeDebugLocalInfo(code_item_helper,
                                         method->IsStatic(),
                                         method->GetDexMethodIndex(),
                                         GetLocalVariableInfoContext::Callback,
