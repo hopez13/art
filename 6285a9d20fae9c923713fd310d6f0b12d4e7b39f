@@ -19,6 +19,241 @@
     },
     {
       "key": {
+        "uuid": "71a17fef_b20edb61",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "Comment needs some update.",
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64d8b97e_3cd745f4",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "at least",
+      "range": {
+        "startLine": 239,
+        "startChar": 52,
+        "endLine": 239,
+        "endChar": 54
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284bd1a6_3affea1d",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "Overflowed.",
+      "range": {
+        "startLine": 240,
+        "startChar": 63,
+        "endLine": 240,
+        "endChar": 71
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f280c647_f85b71a9",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "rename.",
+      "range": {
+        "startLine": 368,
+        "startChar": 29,
+        "endLine": 368,
+        "endChar": 31
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d4cf0ce_8b34a7e8",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "Overflowed.",
+      "range": {
+        "startLine": 382,
+        "startChar": 41,
+        "endLine": 382,
+        "endChar": 49
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1813c759_2170f8bf",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "what\u0027s this?",
+      "range": {
+        "startLine": 466,
+        "startChar": 60,
+        "endLine": 466,
+        "endChar": 68
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b2ccbe_f6f2598d",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "just curious, what\u0027s the result of sizeof on a partial word? or is there a better way to compare old_bits and new_bits?",
+      "range": {
+        "startLine": 472,
+        "startChar": 41,
+        "endLine": 472,
+        "endChar": 47
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65c247ea_f9af82ba",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "use while (true) {} to be consistent with the above?",
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8219b72c_4451f6bc",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "rename.",
+      "range": {
+        "startLine": 565,
+        "startChar": 58,
+        "endLine": 565,
+        "endChar": 72
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3663017d_70f5d26e",
+        "filename": "runtime/subtype_check_bits_and_status.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "rename.",
+      "range": {
+        "startLine": 68,
+        "startChar": 63,
+        "endLine": 68,
+        "endChar": 75
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dc2ad9f_31b7df01",
+        "filename": "runtime/subtype_check_bits_and_status.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "Not needed anymore.",
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59d899c6_4fa99d14",
         "filename": "runtime/subtype_check_test.cc",
         "patchSetId": 4
@@ -30,6 +265,46 @@
       "writtenOn": "2017-11-03T20:44:48Z",
       "side": 1,
       "message": "extra line",
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffde3d7e_fef72435",
+        "filename": "runtime/subtype_check_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "please fix all line-too-wide.",
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49b845b0_999bbcb6",
+        "filename": "runtime/subtype_check_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-03T22:58:45Z",
+      "side": 1,
+      "message": "can you rename this?",
+      "range": {
+        "startLine": 342,
+        "startChar": 8,
+        "endLine": 342,
+        "endChar": 14
+      },
       "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
