@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fb4eb53_9da904c1",
+        "filename": "tools/bootjars.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T21:26:22Z",
+      "side": 1,
+      "message": "It sounds to me like we should have art/tools/env with envsetup.sh and envsetup.py there.\n\nThe interface should be similar to the build/envsetup.sh (call get_build_var or call setpaths) except that it will also cache those results (that we care about) by exporting e.g. ENVSETUP_CACHE\u003d(x\u003dbar z\u003dfoo j\u003dbaz) etc.",
+      "revId": "bde51b09a5cf044186b4a28dfe839a0a537aa63c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
