@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c14c7fd_ba0881ff",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-03T16:36:48Z",
+      "side": 1,
+      "message": "what is wrong with IsFinite defined above, does exactly this? (with extra tc !\u003d 0 test)",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db5ac45d_2d24e963",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-03T16:36:48Z",
+      "side": 1,
+      "message": "top comment no longer applies to others. either add more comments, or add vertical space",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c1c426a_607a7d76",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-03T16:36:48Z",
+      "side": 1,
+      "message": "I find the order of your methods a bit confusing. Typically I would expect a top driver to appear last or first, but not in the middle of the two other methods it calls.",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5151b54e_6fb0fc98",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-03T16:36:48Z",
+      "side": 1,
+      "message": "you have a lot of debug code here, which is a bit obscuring the core transformation. is this really needed? is it testing the new cloner?",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aab729f7_dddf30a3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-03T16:36:48Z",
+      "side": 1,
+      "message": "why can\u0027t we do this in optimize inner?",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
