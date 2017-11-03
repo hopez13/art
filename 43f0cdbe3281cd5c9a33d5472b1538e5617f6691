@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f544bfce_92c1c9b6",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-03T17:54:18Z",
+      "side": 1,
+      "message": "Why? (The combination of kDexVisibilityRuntime with the boot class path loader lookup seems wrong.)",
+      "range": {
+        "startLine": 434,
+        "startChar": 25,
+        "endLine": 435,
+        "endChar": 67
+      },
+      "revId": "43f0cdbe3281cd5c9a33d5472b1538e5617f6691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
