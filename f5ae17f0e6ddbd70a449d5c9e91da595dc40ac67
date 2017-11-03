@@ -175,6 +175,30 @@
       "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5f29790_6d0c74cf",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T22:57:46Z",
+      "side": 1,
+      "message": "It\u0027s a bit special because it\u0027s only meant to be used by CreateChild.\n\nIt probably made more sense back when it was a lambda inside of CreateChild, but I was requested to remove the lambda.\n\nI\u0027d like to have these comments *somewhere*, so maybe I should move them around?",
+      "parentUuid": "4a8d020d_9a8f81ef",
+      "range": {
+        "startLine": 437,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 84
+      },
+      "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

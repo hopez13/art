@@ -22,6 +22,30 @@
       "revId": "f31a00c9e341f55eb352c3713d6dc47bd2df453b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9708194a_d2ff4b50",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T22:57:46Z",
+      "side": 1,
+      "message": "Agreed, we had a discussion offline with Mingyao about this.\n\nBasically the SubtypeCheck::IsSubtypeOf is the only one not needing subtype_check_lock so if there were multiple bitstring values (For an initialized state) then there is a race between reading an (initialized) bitstring and another thread updating an initialized bitstring with an initialized2 bitstring.\n\nI\u0027ll upload a separate CL just for the extra comments I think since it deserves more explanation?",
+      "parentUuid": "176e53c1_6bf9e043",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 120,
+        "endChar": 58
+      },
+      "revId": "f31a00c9e341f55eb352c3713d6dc47bd2df453b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
