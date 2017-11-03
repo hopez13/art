@@ -62,6 +62,30 @@
       "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "339a536c_611623e3",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T22:20:10Z",
+      "side": 1,
+      "message": "This is saying that an Initialized-state SubtypeCheckInfo has exactly 1 bitstring.\n\nIt cannot transition from Initialized to Initialized (with different bitstrings).",
+      "parentUuid": "418d37c2_487fec42",
+      "range": {
+        "startLine": 114,
+        "startChar": 5,
+        "endLine": 114,
+        "endChar": 16
+      },
+      "revId": "f5ae17f0e6ddbd70a449d5c9e91da595dc40ac67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
