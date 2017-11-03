@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5c3787db_22c69f05",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T23:02:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5501817b_0b9ea640",
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71a17fef_b20edb61",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 4
@@ -56,6 +74,30 @@
       "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1ec958a_f70a4680",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T23:02:16Z",
+      "side": 1,
+      "message": "No need as-is, \"at least Assigned\" \u003d\u003d \"Assigned|Overflowed\" \n\nOr did you want me to replace the right side with the left side?",
+      "parentUuid": "64d8b97e_3cd745f4",
+      "range": {
+        "startLine": 239,
+        "startChar": 52,
+        "endLine": 239,
+        "endChar": 54
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -151,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "37542078_512bf321",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T23:02:16Z",
+      "side": 1,
+      "message": "bool CompareAndSwap(T* location, T old_value, T new_value)\n\nin std::atomic it looks like\n\n bool CompareAndSwap(T* location, T\u0026 old_value, T new_value)\n\nso the \"old_value\" \u003d\u003d \"expected\" is updated anyway.",
+      "parentUuid": "1813c759_2170f8bf",
+      "range": {
+        "startLine": 466,
+        "startChar": 60,
+        "endLine": 466,
+        "endChar": 68
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "59b2ccbe_f6f2598d",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 4
@@ -162,6 +228,30 @@
       "writtenOn": "2017-11-03T22:58:45Z",
       "side": 1,
       "message": "just curious, what\u0027s the result of sizeof on a partial word? or is there a better way to compare old_bits and new_bits?",
+      "range": {
+        "startLine": 472,
+        "startChar": 41,
+        "endLine": 472,
+        "endChar": 47
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfff90de_f88f2a72",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-03T23:02:16Z",
+      "side": 1,
+      "message": "sizeof(old_bits) -\u003e sizeof(decltype(old_bits)) -\u003e sizeof(SubtypeCheckBits)",
+      "parentUuid": "59b2ccbe_f6f2598d",
       "range": {
         "startLine": 472,
         "startChar": 41,
