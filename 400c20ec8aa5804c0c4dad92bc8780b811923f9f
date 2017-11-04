@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "ded4189a_cd635036",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-04T01:12:19Z",
+      "side": 1,
+      "message": "Upon thinking about this some more, it might be worth trying to experiment here how to remove this template. I\u0027m still not sold on going all out with a functional test that loads real class jars, but there might be an easier way to still get test coverage *and* remove this template.\n\nNicolas, is it ok if I leave this for now and create a follow up bug/CL to explore how we can remove this template here? It would be nice to check in the current state so we can unblock the compiler CL that depends on this. Refining it can be parallel?",
+      "parentUuid": "4fbc2353_26f3c57e",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "400c20ec8aa5804c0c4dad92bc8780b811923f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c277c3c2_87d37a7e",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 3
