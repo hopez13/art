@@ -897,6 +897,30 @@
     },
     {
       "key": {
+        "uuid": "94dd7eaf_3653e823",
+        "filename": "runtime/subtype_check_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-04T13:22:34Z",
+      "side": 1,
+      "message": "For checking if it\u0027s empty, ie IsEmptyBitString or IsUninitializedBitString.",
+      "parentUuid": "72851b3f_1cedbc7c",
+      "range": {
+        "startLine": 282,
+        "startChar": 22,
+        "endLine": 282,
+        "endChar": 37
+      },
+      "revId": "b4e7337c30acc8e3e46b0226f257e83e6da8f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72b270e2_59bab47a",
         "filename": "runtime/subtype_check_info.h",
         "patchSetId": 3
