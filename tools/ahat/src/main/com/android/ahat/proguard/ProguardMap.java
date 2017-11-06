@@ -89,7 +89,7 @@ public class ProguardMap {
       FrameData frame = mFrames.get(key);
       if (frame == null) {
         return new Frame(obfuscatedMethodName, clearSignature,
-            obfuscatedFilename, obfuscatedLine);
+            getFileName(clearClassName, ""), obfuscatedLine);
       }
       return new Frame(frame.clearMethodName, clearSignature,
           getFileName(clearClassName, frame.clearMethodName),

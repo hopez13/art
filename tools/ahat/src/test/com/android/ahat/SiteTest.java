@@ -23,6 +23,7 @@ import java.io.IOException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertSame;
 
 public class SiteTest {
@@ -38,10 +39,7 @@ public class SiteTest {
     Site s1a = obj1.getSite();
     Site s = s1a.getParent();
 
-    // TODO: The following commented out assertion fails due to a problem with
-    //       proguard deobfuscation. That bug should be fixed.
-    // assertEquals("Main.java", s.getFilename());
-
+    assertEquals("Main.java", s.getFilename());
     assertEquals("Main.java", s1a.getFilename());
     assertEquals("Main.java", s1b.getFilename());
     assertEquals("Main.java", s2.getFilename());
@@ -50,12 +48,7 @@ public class SiteTest {
     assertEquals("allocateObjectAtKnownSite1", s1b.getMethodName());
     assertEquals("allocateObjectAtKnownSite2", s2.getMethodName());
 
-    // TODO: The following commented out assertion fails due to a problem with
-    //       stack frame line numbers - we don't get different line numbers
-    //       for the different sites, so they are indistiguishable. The
-    //       problem with line numbers should be understood and fixed.
-    // assertNotSame(s1a, s1b);
-
+    assertNotSame(s1a, s1b);
     assertSame(s1a.getParent(), s1b.getParent());
 
     assertSame(s, snapshot.getSite(s.getId()));

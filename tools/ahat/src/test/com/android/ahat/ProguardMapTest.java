@@ -160,6 +160,12 @@ public class ProguardMapTest {
     assertEquals("Methods.java", frame.filename);
     assertEquals(13, frame.line);
 
+    // Some methods may not have been obfuscated. We should still be able
+    // to compute the filename properly.
+    frame = map.getFrame("class.with.Methods", "unObfuscatedMethodName",
+        "()V", "SourceFile.java", 0);
+    assertEquals("Methods.java", frame.filename);
+
     frame = map.getFrame("class.with.Methods", "q", "()V", "SourceFile.java", 120);
     // TODO: Should this be "supermethod", instead of
     // "method.from.a.Superclass.supermethod"?
