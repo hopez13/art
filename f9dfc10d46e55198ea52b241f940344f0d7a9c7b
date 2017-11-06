@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "78c9ec5d_e60aa343",
+        "filename": "runtime/subtype_check.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T21:46:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe84154_430144f0",
+      "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cd86c1c_7e7b5eeb",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2017-11-06T14:22:39Z",
       "side": 1,
       "message": "I do not see CRTP here. With CRTP you would do something like\n\n  class MockSubtypeCheck : public SubtypeCheck\u003cMockSubtypeCheck\u003e {\n    ...\n  }",
+      "range": {
+        "startLine": 222,
+        "startChar": 36,
+        "endLine": 222,
+        "endChar": 72
+      },
+      "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f62f632_ba2b2223",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T21:46:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cd86c1c_7e7b5eeb",
       "range": {
         "startLine": 222,
         "startChar": 36,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "e863b47a_96bc1abe",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T21:46:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9789fc75_c9d7fd03",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 453,
+        "endChar": 3
+      },
+      "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2c249a0_454a933b",
         "filename": "test/988-TooWideClassInstanceOf/info.txt",
         "patchSetId": 5
@@ -76,6 +142,24 @@
       "writtenOn": "2017-11-06T14:22:39Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e4391d6_a20004d1",
+        "filename": "test/988-TooWideClassInstanceOf/info.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T21:46:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2c249a0_454a933b",
       "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -147,6 +231,24 @@
       "side": 1,
       "message": "Yes, sorry, this test should probably go into 4/4. \n\nIt got shuffled around when I was rebasing things.",
       "parentUuid": "226f1a4e_35055252",
+      "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca8f76e2_797241cf",
+        "filename": "test/988-TooWideClassInstanceOf/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T21:46:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3268b008_e232d917",
       "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
