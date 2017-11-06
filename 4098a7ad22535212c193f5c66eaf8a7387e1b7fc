@@ -22,6 +22,30 @@
       "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77ddb9a6_ad63427a",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-06T18:06:56Z",
+      "side": 1,
+      "message": "But REQUIRES(Roles::uninterruptible_) would require adding the ScopedAssertNoThreadSuspension to all callers, right?",
+      "parentUuid": "78355524_ab0454bd",
+      "range": {
+        "startLine": 208,
+        "startChar": 37,
+        "endLine": 208,
+        "endChar": 75
+      },
+      "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
