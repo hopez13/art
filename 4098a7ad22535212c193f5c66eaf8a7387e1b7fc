@@ -94,6 +94,30 @@
       "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff68cb40_00c9a484",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-06T19:33:29Z",
+      "side": 1,
+      "message": "It\u0027s helpful overall to mark that a function does not have a suspend point. Right now it\u0027s a **** show of figuring out in your code where you might (unexpectedly) suspend and why you might have a stale pointer. See the whole synchronous checkpoint quagmire for a recent example.",
+      "parentUuid": "e27cf571_9ab81950",
+      "range": {
+        "startLine": 208,
+        "startChar": 37,
+        "endLine": 208,
+        "endChar": 75
+      },
+      "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
