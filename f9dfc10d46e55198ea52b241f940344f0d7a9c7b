@@ -132,6 +132,24 @@
       "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3268b008_e232d917",
+        "filename": "test/988-TooWideClassInstanceOf/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T15:45:15Z",
+      "side": 1,
+      "message": "Yes, sorry, this test should probably go into 4/4. \n\nIt got shuffled around when I was rebasing things.",
+      "parentUuid": "226f1a4e_35055252",
+      "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
