@@ -114,6 +114,24 @@
       "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "226f1a4e_35055252",
+        "filename": "test/988-TooWideClassInstanceOf/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-06T15:44:17Z",
+      "side": 1,
+      "message": "Don\u0027t we need to actually initialize those classes to force bitstrings being assigned? (Though that comes in the CL 4/4.)",
+      "parentUuid": "060e29af_851b3e57",
+      "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
