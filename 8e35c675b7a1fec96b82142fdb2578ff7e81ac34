@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cfb3441_530021a7",
+        "filename": "compiler/optimizing/block_builder.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-06T10:19:46Z",
+      "side": 1,
+      "message": "nit: comment",
+      "range": {
+        "startLine": 38,
+        "startChar": 24,
+        "endLine": 38,
+        "endChar": 88
+      },
+      "revId": "8e35c675b7a1fec96b82142fdb2578ff7e81ac34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddd8d2ae_b5f849ff",
+        "filename": "compiler/optimizing/block_builder.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-06T10:19:46Z",
+      "side": 1,
+      "message": "Can you add a comment why code_item can be null?",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 44
+      },
+      "revId": "8e35c675b7a1fec96b82142fdb2578ff7e81ac34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5e29138_e3a27647",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-06T10:19:46Z",
+      "side": 1,
+      "message": "Can you add a comment why we don\u0027t need to look at the return type?",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 68
+      },
+      "revId": "8e35c675b7a1fec96b82142fdb2578ff7e81ac34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c754864d_2c42685b",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-06T10:19:46Z",
+      "side": 1,
+      "message": "nit: Explain why",
+      "range": {
+        "startLine": 376,
+        "startChar": 27,
+        "endLine": 376,
+        "endChar": 52
+      },
+      "revId": "8e35c675b7a1fec96b82142fdb2578ff7e81ac34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99d799_ad0dfaa6",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-06T10:19:46Z",
+      "side": 1,
+      "message": "This is only called for AOT. Handle the JIT case as well?",
+      "range": {
+        "startLine": 1179,
+        "startChar": 36,
+        "endLine": 1179,
+        "endChar": 43
+      },
+      "revId": "8e35c675b7a1fec96b82142fdb2578ff7e81ac34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a74649b_65bbf06d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-06T10:19:46Z",
+      "side": 1,
+      "message": "Give this is only used line 1285, can you move it over there?",
+      "range": {
+        "startLine": 1164,
+        "startChar": 0,
+        "endLine": 1166,
+        "endChar": 73
+      },
+      "revId": "8e35c675b7a1fec96b82142fdb2578ff7e81ac34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
