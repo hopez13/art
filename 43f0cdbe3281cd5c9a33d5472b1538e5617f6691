@@ -22,6 +22,30 @@
       "revId": "43f0cdbe3281cd5c9a33d5472b1538e5617f6691",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "398230b3_37fff1e3",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-11-06T09:33:58Z",
+      "side": 1,
+      "message": "The annotation class PolymorphicSignature is in the bootclass path.\n\nThe annotation is visible at runtime:\n\n   @java.lang.annotation.Target({java.lang.annotation.ElementType.METHOD})                                                                                                                                                                                                       \n   @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)                                                                                                                                                                                                 \n   public @interface PolymorphicSignature {}\n\nIs there a better path here?\n\nThanks",
+      "parentUuid": "f544bfce_92c1c9b6",
+      "range": {
+        "startLine": 434,
+        "startChar": 25,
+        "endLine": 435,
+        "endChar": 67
+      },
+      "revId": "43f0cdbe3281cd5c9a33d5472b1538e5617f6691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
