@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "74519b12_78af47c2",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-06T19:40:44Z",
+      "side": 1,
+      "message": "Copied comment from other file, seems to not make too much sense there too. Can I delete in a follow up?",
+      "parentUuid": "cacf9893_5b824abf",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 59
+      },
+      "revId": "f3e5605258a9f3461536db5f1555f03258c44cf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4baa986_e45b7304",
         "filename": "dexlayout/compact_dex_writer.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-11-06T18:40:55Z",
       "side": 1,
       "message": "Is this intentionally identical code to the standard DexWriter minus the static_assert ?",
+      "revId": "f3e5605258a9f3461536db5f1555f03258c44cf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a8d4b82_d75e14b9",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-06T19:40:44Z",
+      "side": 1,
+      "message": "The header writing is different too, I plan on changing the code more in the future.",
+      "parentUuid": "c4baa986_e45b7304",
       "revId": "f3e5605258a9f3461536db5f1555f03258c44cf0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
