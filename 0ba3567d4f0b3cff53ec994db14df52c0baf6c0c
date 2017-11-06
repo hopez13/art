@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c74b23c_6d4a6df9",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T17:56:22Z",
+      "side": 1,
+      "message": "Does there need to be top level test for being in the root aosp directory or will it work from any directory?",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6a12a96_7c80b664",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T17:56:22Z",
+      "side": 1,
+      "message": "nit: write out on multiple lines instead of using || {}",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b79b38b3_b60be3a2",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T17:56:22Z",
+      "side": 1,
+      "message": "nit: Probably don\u0027t need the \"else\" here\n\n  MYLIST\u003d(var1 var2 var3)\n  echo ${MYLIST[@]/#/my_}\n\noutputs \"my_var1 my_var2 my_var3\" you could do the same thing with the directories above and make line 32-40 combined into one.",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b82a4e5_b2ee4540",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T17:56:22Z",
+      "side": 1,
+      "message": "nit: would be good to disallow this with --host",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f34457f_3511674f",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T17:56:22Z",
+      "side": 1,
+      "message": "nit: would be good to disallow this with --host",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
