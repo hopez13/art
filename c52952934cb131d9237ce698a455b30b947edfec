@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d974176d_524c4e83",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-06T18:15:06Z",
+      "side": 1,
+      "message": "I\u0027ve introduced this method to distinguish two cases:\n1. Loop with an unknown but finite tripcount.\n2. Loop with a known tripcount 0 (loop body never executes).",
+      "parentUuid": "7c14c7fd_ba0881ff",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db5ac45d_2d24e963",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-11-03T16:36:48Z",
       "side": 1,
       "message": "top comment no longer applies to others. either add more comments, or add vertical space",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dfa0216_ef621244",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-06T18:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db5ac45d_2d24e963",
       "revId": "c52952934cb131d9237ce698a455b30b947edfec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c36c102b_a5b39a3a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-06T18:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c1c426a_607a7d76",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5151b54e_6fb0fc98",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "ac523413_e4bfbf91",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-06T18:15:06Z",
+      "side": 1,
+      "message": "You are right, moreover this case is already tested in cloner_test gtest. Removed",
+      "parentUuid": "5151b54e_6fb0fc98",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aab729f7_dddf30a3",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2017-11-03T16:36:48Z",
       "side": 1,
       "message": "why can\u0027t we do this in optimize inner?",
+      "revId": "c52952934cb131d9237ce698a455b30b947edfec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c01ba97_6f4d1d7a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-06T18:15:06Z",
+      "side": 1,
+      "message": "Currently OptimzeInnerLoop does those assumptions for Vectorization and simple-patterned loops like:\n\n  if (header-\u003eGetSuccessors().size() !\u003d 2) {\n  if (!induction_range_.IsFinite(..) {\n\nShould I refactor it to something like:\nTryDetectEmptyLoop()\nTryVectorize()\nTryScalarLoopPeeling(), etc?",
+      "parentUuid": "aab729f7_dddf30a3",
       "revId": "c52952934cb131d9237ce698a455b30b947edfec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
