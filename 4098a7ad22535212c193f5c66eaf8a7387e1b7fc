@@ -46,6 +46,30 @@
       "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a2ce328_56203142",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-06T18:14:51Z",
+      "side": 1,
+      "message": "Yeah. Guess that\u0027s not too beneficial here, after all. (I think I wanted Mathieu to implement a dual to the forced REQUIRES that was \"just\" signalling)",
+      "parentUuid": "77ddb9a6_ad63427a",
+      "range": {
+        "startLine": 208,
+        "startChar": 37,
+        "endLine": 208,
+        "endChar": 75
+      },
+      "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
