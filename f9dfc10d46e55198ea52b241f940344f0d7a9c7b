@@ -96,6 +96,24 @@
       "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "060e29af_851b3e57",
+        "filename": "test/988-TooWideClassInstanceOf/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T15:32:00Z",
+      "side": 1,
+      "message": "F4 forces F3 to be assigned (F3 forces F2 to be assigned... etc). Generally speaking the intermediate classes are there to force a certain bitstring assignment to them. We want a wide variety of \"kAssigned\" and \u0027kOverflowed\u0027 bitstring state classes.",
+      "parentUuid": "fdb3c647_3ce3a9c5",
+      "revId": "f9dfc10d46e55198ea52b241f940344f0d7a9c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
