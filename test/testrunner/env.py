@@ -137,7 +137,7 @@ ART_TEST_WITH_STRACE = _getEnvBoolean('ART_TEST_DEBUG_GC', False)
 
 EXTRA_DISABLED_TESTS = set(_env.get("ART_TEST_RUN_TEST_SKIP", "").split())
 
-ART_TEST_RUN_TEST_BUILD = _getEnvBoolean('ART_TEST_RUN_TEST_BUILD', False)
+ART_TEST_RUN_TEST_BUILD = _getEnvBoolean('ART_TEST_RUN_TEST_BUILD', True)
 
 TARGET_2ND_ARCH = _get_build_var('TARGET_2ND_ARCH')
 TARGET_ARCH = _get_build_var('TARGET_ARCH')
