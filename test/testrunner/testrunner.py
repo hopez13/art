@@ -884,14 +884,14 @@ def parse_option():
   parser.add_argument('--dry-run', action='store_true', dest='dry_run')
   parser.add_argument("--skip", action="append", dest="skips", default=[],
                       help="Skip the given test in all circumstances.")
-  parser.add_argument('--no-build-dependencies',
+  parser.add_argument('-nb', '--no-build-dependencies',
                       action='store_false', dest='build',
                       help="Don't build dependencies under any circumstances. This is the " +
-                           "behavior if ART_TEST_RUN_TEST_ALWAYS_BUILD is not set to 'true'.")
+                           "default behavior only if ART_TEST_RUN_TEST_ALWAYS_BUILD=false.")
   parser.add_argument('-b', '--build-dependencies',
                       action='store_true', dest='build',
                       help="Build dependencies under all circumstances. By default we will " +
-                           "not build dependencies unless ART_TEST_RUN_TEST_BUILD=true.")
+                           "always build dependencies unless ART_TEST_RUN_TEST_BUILD=false.")
   parser.add_argument('--build-target', dest='build_target', help='master-art-host targets')
   parser.set_defaults(build = env.ART_TEST_RUN_TEST_BUILD)
   parser.add_argument('--gdb', action='store_true', dest='gdb')
