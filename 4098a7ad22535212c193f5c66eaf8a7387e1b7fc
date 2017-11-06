@@ -70,6 +70,30 @@
       "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e27cf571_9ab81950",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-06T19:30:21Z",
+      "side": 1,
+      "message": "What\u0027s the point?\n\nIf the implementation is uninterruptible, put the ScopedAssertNoThreadSuspension there. Which is what Vladimir has in his code.\n\nIf the API needs to be called from an uninterruptible context (???) then I suppose it would\u0027ve made more sense to use the REQUIRES instead.",
+      "parentUuid": "8a2ce328_56203142",
+      "range": {
+        "startLine": 208,
+        "startChar": 37,
+        "endLine": 208,
+        "endChar": 75
+      },
+      "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
