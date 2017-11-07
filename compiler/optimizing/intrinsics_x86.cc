@@ -1345,6 +1345,15 @@ void IntrinsicCodeGeneratorX86::VisitStringCompareTo(HInvoke* invoke) {
 }
 
 void IntrinsicLocationsBuilderX86::VisitStringEquals(HInvoke* invoke) {
+#if 0  // Disabled for developing regression test
+  if (kEmitCompilerReadBarrier &&
+      !StringEqualsOptimizations(invoke).GetArgumentIsString() &&
+      !StringEqualsOptimizations(invoke).GetNoReadBarrierForStringClass()) {
+    // No support for this odd case (String class is moveable, not in the boot image).
+    return;
+  }
+#endif
+
   LocationSummary* locations =
       new (allocator_) LocationSummary(invoke, LocationSummary::kNoCall, kIntrinsified);
   locations->SetInAt(0, Location::RequiresRegister());

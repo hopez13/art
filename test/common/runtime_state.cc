@@ -267,4 +267,14 @@ extern "C" JNIEXPORT void JNICALL Java_Main_fetchProfiles(JNIEnv*, jclass) {
   code_cache->GetProfiledMethods(unused_locations, unused_vector);
 }
 
+extern "C" JNIEXPORT jboolean JNICALL Java_Main_isStringClassMoveable(JNIEnv* env ATTRIBUTE_UNUSED,
+                                                                      jclass cls ATTRIBUTE_UNUSED) {
+  Runtime* runtime = Runtime::Current();
+  ScopedObjectAccess soa(Thread::Current());
+  ObjPtr<mirror::Class> string_class = runtime->GetClassLinker()->LookupClass(
+      Thread::Current(), "Ljava/lang/String;", /* class_loader */ nullptr);
+  CHECK(string_class != nullptr);
+  return runtime->GetHeap()->IsMovableObject(string_class);
+}
+
 }  // namespace art

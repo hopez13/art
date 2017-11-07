@@ -2024,6 +2024,23 @@ void InstructionSimplifierVisitor::SimplifyStringEquals(HInvoke* instruction) {
     ReferenceTypeInfo argument_rti = argument->GetReferenceTypeInfo();
     if (argument_rti.IsValid() && argument_rti.IsStringClass()) {
       optimizations.SetArgumentIsString();
+    } else if (kUseReadBarrier) {
+      Runtime* runtime = Runtime::Current();
+      if (runtime->IsAotCompiler()) {
+        // For AOT, we always assume that the boot image shall contain the String.class and
+        // we do not need a read barrier for image classes.
+        optimizations.SetNoReadBarrierForStringClass();
+      } else {
+        // We can run without boot image and still JIT and the "instanceof" check would
+        // actually require a read barrier. Check if the String class is moveable.
+        // TODO: Should we simply check if runtime->GetHeap()->HasBootImageSpace()?
+        DCHECK(instruction->GetResolvedMethod() != nullptr);
+        ObjPtr<mirror::Class> string_class = instruction->GetResolvedMethod()->GetDeclaringClass();
+        DCHECK(string_class->IsStringClass());
+        if (!runtime->GetHeap()->IsMovableObject(string_class)) {
+          optimizations.SetNoReadBarrierForStringClass();
+        }
+      }
     }
   }
 }
