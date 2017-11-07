@@ -694,7 +694,11 @@ bool OatFileBase::Setup(const char* abs_dex_location, std::string* error_msg) {
       const MethodBssMappingEntry* prev_entry = nullptr;
       for (const MethodBssMappingEntry& entry : *method_bss_mapping) {
         CHECK_ALIGNED_PARAM(entry.bss_offset, static_cast<size_t>(pointer_size));
-        CHECK_LT(entry.bss_offset, BssSize());
+        // When loading a non-executable ElfOatFile, .bss symbols are not even
+        // looked up, so we cannot verify the offset against BssSize().
+        if (IsExecutable()) {
+          CHECK_LT(entry.bss_offset, BssSize());
+        }
         CHECK_LE(POPCOUNT(entry.index_mask) * static_cast<size_t>(pointer_size),  entry.bss_offset);
         size_t index_mask_span = (entry.index_mask != 0u) ? 16u - CTZ(entry.index_mask) : 0u;
         CHECK_LE(index_mask_span, entry.method_index);
