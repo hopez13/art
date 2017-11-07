@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "454245fc_86ac0b96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-07T14:57:04Z",
+      "side": 1,
+      "message": "I\u0027m not a fan of this. testrunner.py\u0027s mission is to run tests, not to build stuff.\n\nMaybe we should conduct a survey on how people (and tools) are currently using testrunner.py. I would expect most users to prefer not building things by default (but maybe I\u0027m wrong).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "ed620619d0865b70539b3f6328bb02dfed587acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97aa246e_64e50e4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-07T14:57:04Z",
+      "side": 1,
+      "message": "I would not try to enforce that logic in a script. IMO, the right place to express dependencies is build system rules (Makefiles and Blueprint files).",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "ed620619d0865b70539b3f6328bb02dfed587acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
