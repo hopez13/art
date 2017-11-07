@@ -34,6 +34,24 @@
       "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f59609_6fb65f3e",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-07T22:15:32Z",
+      "side": 1,
+      "message": "Yeah, so long as there\u0027s no const-cast then there\u0027s no undefined behavior.",
+      "parentUuid": "93a84fea_137e1e68",
+      "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
