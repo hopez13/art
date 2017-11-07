@@ -39,6 +39,24 @@
       "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fe79fef_23174687",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-07T21:23:27Z",
+      "side": 1,
+      "message": "What is the reason to load the mapping? Just to check whether the oat file is somehow corrupted? I don\u0027t really understand the necessity for it when we will ignore it, anyways.",
+      "parentUuid": "4830f481_30f7c62b",
+      "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
