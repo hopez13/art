@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fa54bbd_f06b6e60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T00:56:24Z",
+      "side": 1,
+      "message": "typo: analysis",
+      "revId": "20c33205cf92ed45c6190c4160d61edefc14f5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf6110ae_70397c22",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T00:56:24Z",
+      "side": 1,
+      "message": "nit: array index is not aliased, but array reference due to same index",
+      "range": {
+        "startLine": 156,
+        "startChar": 65,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "revId": "20c33205cf92ed45c6190c4160d61edefc14f5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "560bdfbf_cda1cdca",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T00:56:24Z",
+      "side": 1,
+      "message": "nit: index is not aliased, but the reference through the index",
+      "revId": "20c33205cf92ed45c6190c4160d61edefc14f5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
