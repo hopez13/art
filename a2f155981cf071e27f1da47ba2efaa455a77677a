@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34a969fc_d8824150",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T00:26:09Z",
+      "side": 1,
+      "message": "since this is false for now, let\u0027s remove the code for these cases for the current CL, and just focus on the",
+      "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95421b62_d1b9b38a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T00:26:09Z",
+      "side": 1,
+      "message": "since this is false, let\u0027s remove that case from the current CL altogether for now",
+      "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47bff44e_c4388632",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T00:26:09Z",
+      "side": 1,
+      "message": "likewise, since we only do unrolling, let\u0027s remove this do_unrolling parameter in the current CL to get less code",
+      "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67f521eb_78171adb",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T00:26:09Z",
+      "side": 1,
+      "message": "with all the suggestions above, this method is not doing much for now, so push the few tests into TryUnrollingForBranchPenalty",
+      "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
