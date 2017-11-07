@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b80e27db_ded02500",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-07T21:19:08Z",
+      "side": 1,
+      "message": "I\u0027m worried about the const_cast here since that could cause undefined behavior.\n\n----\n\nCan we expose a method here that returns the non-const instruction?\n\nFor that matter, why doesn\u0027t the regular Inst() just return a non-const pointer? Is there some reason?",
+      "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
