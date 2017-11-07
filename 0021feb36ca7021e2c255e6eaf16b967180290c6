@@ -16,6 +16,24 @@
       "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93a84fea_137e1e68",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-07T21:20:34Z",
+      "side": 1,
+      "message": "Because its rare to want to modify the instructions. Does exposing a non const getter prevent the undefined behavior?",
+      "parentUuid": "b80e27db_ded02500",
+      "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
