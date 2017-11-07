@@ -426,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "2faf49c7_b51fd559",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-07T00:01:25Z",
+      "side": 1,
+      "message": "Maybe cleaner to do it just by if (old_bits \u003d\u003d new_bits) if we have an \u003d\u003d operator.",
+      "parentUuid": "b6751788_36abc04d",
+      "range": {
+        "startLine": 472,
+        "startChar": 41,
+        "endLine": 472,
+        "endChar": 47
+      },
+      "revId": "6285a9d20fae9c923713fd310d6f0b12d4e7b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c247ea_f9af82ba",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 4
