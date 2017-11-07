@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67b6d91a_6bdaaa09",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T23:38:27Z",
+      "side": 1,
+      "message": "document your magic numbers",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7ac135_52389bd9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T23:38:27Z",
+      "side": 1,
+      "message": "uint64_t is a bit more consistent with other counters in this file",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11df3a13_d0007fb2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T23:38:27Z",
+      "side": 1,
+      "message": "why this test? is that something that cloner should test or other reasons?",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49177472_545077cc",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T23:38:27Z",
+      "side": 1,
+      "message": "nit: peeling by two usually means taking two iterations of the loop, followed by the loop; unrolling by two means making one copy of the loop-body. In that sense I think PeelOrUnrollOnce would be a slightly better name",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b801837_13f67ba7",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-07T23:38:27Z",
+      "side": 1,
+      "message": "Put return on same line (L157) to avoid using so much space compared to others",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
