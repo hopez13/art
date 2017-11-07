@@ -1481,4 +1481,48 @@ TEST_F(Dex2oatVerifierAbort, SoftFail) {
   EXPECT_EQ(0, res_no_fail);
 }
 
+/*
+template <typename T>
+void GenerateOdexForTest(
+    const std::string& dex_location,
+    const std::string& odex_location,
+    CompilerFilter::Filter filter,
+    const std::vector<std::string>& extra_args,
+    bool expect_success,
+    bool use_fd,
+    T check_oat) {
+  */
+
+class Dex2oatDedupeCode : public Dex2oatTest {};
+
+TEST_F(Dex2oatDedupeCode, DedupeTest) {
+  // Use MyClassNatives. It has lots of native methods that will produce deduplicate-able code.
+  std::unique_ptr<const DexFile> dex(OpenTestDexFile("MyClassNatives"));
+  std::string out_dir = GetScratchDir();
+  const std::string base_oat_name = out_dir + "/base.oat";
+  size_t no_dedupe_size = 0;
+  GenerateOdexForTest(dex->GetLocation(),
+                      base_oat_name,
+                      CompilerFilter::Filter::kSpeed,
+                      { "--no-deduplicate-code" },
+                      true,  // expect_success
+                      false,  // use_fd
+                      [&no_dedupe_size](const OatFile& o) {
+                        no_dedupe_size = o.Size();
+                      });
+
+  size_t dedupe_size = 0;
+  GenerateOdexForTest(dex->GetLocation(),
+                      base_oat_name,
+                      CompilerFilter::Filter::kSpeed,
+                      { "--deduplicate-code" },
+                      true,  // expect_success
+                      false,  // use_fd
+                      [&dedupe_size](const OatFile& o) {
+                        dedupe_size = o.Size();
+                      });
+
+  EXPECT_LT(dedupe_size, no_dedupe_size);
+}
+
 }  // namespace art
