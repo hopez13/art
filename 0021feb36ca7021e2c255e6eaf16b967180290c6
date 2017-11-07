@@ -52,6 +52,24 @@
       "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ae1760_e0a20cff",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-07T22:25:27Z",
+      "side": 1,
+      "message": "Looks like this const_cast is from L116 so this isn\u0027t new. I guess it\u0027s fine to leave it as--is if the Instruction points to memory that is originally non-const.",
+      "parentUuid": "c9f59609_6fb65f3e",
+      "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
