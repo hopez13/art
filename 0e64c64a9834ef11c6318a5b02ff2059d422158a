@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "578c752a_98367082",
+        "filename": "test/669-moveable-string-class-equals/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-07T21:28:42Z",
+      "side": 1,
+      "message": "Mathieu, any ideas how to make this fail more predictably without the fix? We need one of the objects to be marked-through and the other to contain the String.class reference to the from-space.",
+      "revId": "0e64c64a9834ef11c6318a5b02ff2059d422158a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
