@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "367ca807_c3d04a0a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-07T21:10:56Z",
+      "side": 1,
+      "message": "The elf file setup looks odd. We mmap the whole file and ignore the program headers, then we set the begin_ and end_ to the .rodata. I\u0027d guess that the memory at the .bss offset would actually contain sections like .dynstr, .dynsym, etc.",
+      "range": {
+        "startLine": 671,
+        "startChar": 64,
+        "endLine": 671,
+        "endChar": 80
+      },
+      "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4830f481_30f7c62b",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-07T21:10:56Z",
+      "side": 1,
+      "message": "The above check validates that the mapping is contained in the .rodata section. This check is perfectly valid for non-executable ElfOatFile and it clearly passes.\n\nThe `!IsExecutable()` check should therefore be moved here and clear the method_bss_mapping. Only the code below tries to validate the mapping against the BssSize() which has not been initialized correctly for ElfOatFile (i.e. \"oatbss\", \"oatbsslastword\", etc. have not been processed).",
+      "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
