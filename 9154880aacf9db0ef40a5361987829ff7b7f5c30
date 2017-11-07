@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b91959a_3d45908b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-07T20:37:16Z",
+      "side": 1,
+      "message": "It did allow additional optimization. I just enhanced a testcase for it.",
+      "parentUuid": "d7c24d28_35c8af4f",
+      "range": {
+        "startLine": 11,
+        "startChar": 40,
+        "endLine": 11,
+        "endChar": 69
+      },
+      "revId": "9154880aacf9db0ef40a5361987829ff7b7f5c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38c11c8c_e31a639e",
         "filename": "compiler/optimizing/escape.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-11-07T01:01:01Z",
       "side": 1,
       "message": "move the comment up, or use empty line\n(because this no longer belongs to the \"Assume the best\" comment.\n\nAlso, this looks like more than a simplification like you had in the other file. Does this fix something (that can be tested)?",
+      "revId": "9154880aacf9db0ef40a5361987829ff7b7f5c30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aadbe78d_bbab3b4a",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-07T20:37:16Z",
+      "side": 1,
+      "message": "Added a blank like.\nThis did introduce additional optimization opportunities. I just enhanced a testcase for it.",
+      "parentUuid": "38c11c8c_e31a639e",
       "revId": "9154880aacf9db0ef40a5361987829ff7b7f5c30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
