@@ -22,6 +22,30 @@
       "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a7f03c2_296d603f",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-07T18:29:45Z",
+      "side": 1,
+      "message": "That doesn\u0027t retrieve the dex pc, as it\u0027s overhead for all other users. That\u0027s why I didn\u0027t reuse (or make it more complicated).",
+      "parentUuid": "54031c02_2d9d1d61",
+      "range": {
+        "startLine": 183,
+        "startChar": 13,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
