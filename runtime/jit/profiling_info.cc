@@ -17,6 +17,7 @@
 #include "profiling_info.h"
 
 #include "art_method-inl.h"
+#include "dex_helpers-inl.h"
 #include "dex_instruction.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
@@ -44,8 +45,7 @@ bool ProfilingInfo::Create(Thread* self, ArtMethod* method, bool retry_allocatio
   DCHECK(!method->IsNative());
 
   std::vector<uint32_t> entries;
-
-  for (const DexInstructionPcPair& inst : method->GetCodeItem()->Instructions()) {
+  for (const DexInstructionPcPair& inst : DexInstructionsHelper(method).Instructions()) {
     switch (inst->Opcode()) {
       case Instruction::INVOKE_VIRTUAL:
       case Instruction::INVOKE_VIRTUAL_RANGE:
