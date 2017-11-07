@@ -27,6 +27,7 @@
 #include "dex_file-inl.h"
 #include "dex_file_annotations.h"
 #include "dex_file_types.h"
+#include "dex_helpers-inl.h"
 #include "gc_root-inl.h"
 #include "invoke_type.h"
 #include "jit/profiling_info.h"
@@ -455,6 +456,14 @@ inline void ArtMethod::UpdateEntrypoints(const Visitor& visitor, PointerSize poi
   if (old_code != new_code) {
     SetEntryPointFromQuickCompiledCodePtrSize(new_code, pointer_size);
   }
+}
+
+inline IterationRange<DexInstructionIterator> ArtMethod::DexInstructions() {
+  return CodeItemInstructions(this).Instructions();
+}
+
+inline IterationRange<DexInstructionIterator> ArtMethod::NullableDexInstructions() {
+  return NullableCodeItemInstructions(this).Instructions();
 }
 
 }  // namespace art

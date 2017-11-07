@@ -20,6 +20,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "dex_file.h"
+#include "dex_helpers.h"
 #include "dex_instruction.h"
 #include "method_reference.h"
 
@@ -29,6 +30,8 @@
  */
 
 namespace art {
+
+class CodeItemData;
 
 namespace verifier {
 class MethodVerifier;
@@ -121,21 +124,21 @@ class InlineMethodAnalyser {
   static bool IsSyntheticAccessor(MethodReference ref);
 
  private:
-  static bool AnalyseMethodCode(const DexFile::CodeItem* code_item,
+  static bool AnalyseMethodCode(const CodeItemData* code_item,
                                 const MethodReference& method_ref,
                                 bool is_static,
                                 ArtMethod* method,
                                 InlineMethod* result)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  static bool AnalyseReturnMethod(const DexFile::CodeItem* code_item, InlineMethod* result);
-  static bool AnalyseConstMethod(const DexFile::CodeItem* code_item, InlineMethod* result);
-  static bool AnalyseIGetMethod(const DexFile::CodeItem* code_item,
+  static bool AnalyseReturnMethod(const CodeItemData* code_item, InlineMethod* result);
+  static bool AnalyseConstMethod(const CodeItemData* code_item, InlineMethod* result);
+  static bool AnalyseIGetMethod(const CodeItemData* code_item,
                                 const MethodReference& method_ref,
                                 bool is_static,
                                 ArtMethod* method,
                                 InlineMethod* result)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  static bool AnalyseIPutMethod(const DexFile::CodeItem* code_item,
+  static bool AnalyseIPutMethod(const CodeItemData* code_item,
                                 const MethodReference& method_ref,
                                 bool is_static,
                                 ArtMethod* method,
