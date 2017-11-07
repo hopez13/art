@@ -23,6 +23,7 @@
 #include "base/callee_save_type.h"
 #include "base/logging.h"
 #include "class_linker-inl.h"
+#include "code_item_accessors-inl.h"
 #include "common_throws.h"
 #include "dex_file-inl.h"
 #include "dex_file_annotations.h"
@@ -455,6 +456,14 @@ inline void ArtMethod::UpdateEntrypoints(const Visitor& visitor, PointerSize poi
   if (old_code != new_code) {
     SetEntryPointFromQuickCompiledCodePtrSize(new_code, pointer_size);
   }
+}
+
+inline IterationRange<DexInstructionIterator> ArtMethod::DexInstructions() {
+  return CodeItemInstructionsAccessor(this).Instructions();
+}
+
+inline IterationRange<DexInstructionIterator> ArtMethod::NullableDexInstructions() {
+  return CodeItemInstructionsAccessor::CreateNullable(this).Instructions();
 }
 
 }  // namespace art
