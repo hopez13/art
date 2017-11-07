@@ -2436,6 +2436,13 @@ void Heap::PreZygoteFork() {
         << "Failed to create post-zygote non-moving space remembered set";
     AddRememberedSet(post_zygote_non_moving_space_rem_set);
   }
+
+  // Reset the bytes allocated counter to reduce how many zygote bytes are counted in "heap alloc",
+  // this makes measuring app RAM usage easier since it removes noise from zygote allocaitons
+  // outside of the control of the app.
+  // Must be done after compacting zygote since we don't want to go negative if stuff gets freed
+  // during zygote compaction.
+  num_bytes_allocated_.StoreRelaxed(0);
 }
 
 void Heap::FlushAllocStack() {
