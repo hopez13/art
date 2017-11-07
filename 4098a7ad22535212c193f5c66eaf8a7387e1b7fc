@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f483c8c6_52d0f52d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-07T10:30:34Z",
+      "side": 1,
+      "message": "This is a cleanup I wanted to do since the DexCache types array change.",
+      "parentUuid": "6b47e615_86c90fe4",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 57
+      },
+      "revId": "4098a7ad22535212c193f5c66eaf8a7387e1b7fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78355524_ab0454bd",
         "filename": "runtime/art_field.h",
         "patchSetId": 2
