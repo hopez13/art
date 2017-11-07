@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fe966aea_4cb0dac4",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-07T21:04:33Z",
+      "side": 1,
+      "message": "There is a case where we skip an instructio in CHECK_CAST",
+      "parentUuid": "fe0600cd_ff006fee",
+      "revId": "05a0572699b0058996e252b6457e545f2749b254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e71f1fe7_4dac272a",
         "filename": "compiler/optimizing/block_builder.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-11-07T19:53:57Z",
       "side": 1,
       "message": "Why can\u0027t this use the same thing as L130?",
+      "revId": "05a0572699b0058996e252b6457e545f2749b254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbebf5e6_387993e2",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-07T21:04:33Z",
+      "side": 1,
+      "message": "We do need to compare against the end, I\u0027ll clean this up.",
+      "parentUuid": "e71f1fe7_4dac272a",
       "revId": "05a0572699b0058996e252b6457e545f2749b254",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "97824b61_c793f55d",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-07T21:04:33Z",
+      "side": 1,
+      "message": "I did not know that was a real thing, will do.",
+      "parentUuid": "d6b8d9a5_2a8bbe7d",
+      "revId": "05a0572699b0058996e252b6457e545f2749b254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ebaea7a9_812d43ab",
         "filename": "runtime/dex_instruction_iterator.h",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "05a0572699b0058996e252b6457e545f2749b254",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "156a43d2_57502f53",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-07T21:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebaea7a9_812d43ab",
+      "revId": "05a0572699b0058996e252b6457e545f2749b254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
