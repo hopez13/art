@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b609278_c385ecf3",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-07T09:16:19Z",
+      "side": 1,
+      "message": "\u0027Is\u0027 reads odd here, drop it?",
+      "range": {
+        "startLine": 257,
+        "startChar": 7,
+        "endLine": 257,
+        "endChar": 9
+      },
+      "revId": "0fe731a67ba8ee0ac596a0bbd736a524bca6d9d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47c9d1f9_04faef7c",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-07T09:16:19Z",
+      "side": 1,
+      "message": "I guess a description of the option with --help needs to be in dex2oat.cc? Would be great to have it next to where the option is defined.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 40
+      },
+      "revId": "0fe731a67ba8ee0ac596a0bbd736a524bca6d9d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
