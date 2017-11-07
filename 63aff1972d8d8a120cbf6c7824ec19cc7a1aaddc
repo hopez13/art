@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3df4fb_0dc3015f",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-11-07T09:32:11Z",
+      "side": 1,
+      "message": "Why the empty string and not, say, the obfuscatedMethodName?",
+      "range": {
+        "startLine": 92,
+        "startChar": 40,
+        "endLine": 92,
+        "endChar": 42
+      },
+      "revId": "63aff1972d8d8a120cbf6c7824ec19cc7a1aaddc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
