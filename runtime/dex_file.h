@@ -32,10 +32,12 @@
 
 namespace art {
 
+class CompactDexFile;
 enum InvokeType : uint32_t;
 class MemMap;
 class OatDexFile;
 class Signature;
+class StandardDexFile;
 class StringPiece;
 class ZipArchive;
 
@@ -751,17 +753,23 @@ class DexFile {
     return begin_ + call_site_id.data_off_;
   }
 
+  static const TryItem* GetTryItems(const DexInstructionIterator& code_item_end, uint32_t offset);
   static const TryItem* GetTryItems(const CodeItem& code_item, uint32_t offset);
 
   // Get the base of the encoded data for the given DexCode.
-  static const uint8_t* GetCatchHandlerData(const CodeItem& code_item, uint32_t offset) {
+  static const uint8_t* GetCatchHandlerData(const DexInstructionIterator& code_item_end,
+                                            uint32_t tries_size,
+                                            uint32_t offset) {
     const uint8_t* handler_data =
-        reinterpret_cast<const uint8_t*>(GetTryItems(code_item, code_item.tries_size_));
+        reinterpret_cast<const uint8_t*>(GetTryItems(code_item_end, tries_size));
     return handler_data + offset;
+  }
+  static const uint8_t* GetCatchHandlerData(const CodeItem& code_item, uint32_t offset) {
+    return GetCatchHandlerData(code_item.Instructions().end(), code_item.tries_size_, offset);
   }
 
   // Find which try region is associated with the given address (ie dex pc). Returns -1 if none.
-  static int32_t FindTryItem(const CodeItem &code_item, uint32_t address);
+  static int32_t FindTryItem(const TryItem* try_items, uint32_t tries_size, uint32_t address);
 
   // Find the handler offset associated with the given address (ie dex pc). Returns -1 if none.
   static int32_t FindCatchHandlerOffset(const CodeItem &code_item, uint32_t address);
@@ -993,13 +1001,15 @@ class DexFile {
   // Returns a human-readable form of the type at an index.
   std::string PrettyType(dex::TypeIndex type_idx) const;
 
-  // Helper functions.
-  virtual bool IsCompactDexFile() const {
-    return false;
+  // Not virtual for performance reasons.
+  ALWAYS_INLINE bool IsCompactDexFile() const {
+    return is_compact_dex_;
   }
-  virtual bool IsStandardDexFile() const {
-    return false;
+  ALWAYS_INLINE bool IsStandardDexFile() const {
+    return !is_compact_dex_;
   }
+  ALWAYS_INLINE const StandardDexFile* AsStandardDexFile() const;
+  ALWAYS_INLINE const CompactDexFile* AsCompactDexFile() const;
 
  protected:
   DexFile(const uint8_t* base,
@@ -1007,7 +1017,8 @@ class DexFile {
           const std::string& location,
           uint32_t location_checksum,
           const OatDexFile* oat_dex_file,
-          DexFileContainer* container);
+          DexFileContainer* container,
+          bool is_compact_dex);
 
   // Top-level initializer that calls other Init methods.
   bool Init(std::string* error_msg);
@@ -1072,6 +1083,9 @@ class DexFile {
 
   // Manages the underlying memory allocation.
   std::unique_ptr<DexFileContainer> container_;
+
+  // If the dex file is a compact dex file. If false then the dex file is a standard dex file.
+  const bool is_compact_dex_;
 
   friend class DexFileLoader;
   friend class DexFileVerifierTest;

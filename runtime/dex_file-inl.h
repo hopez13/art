@@ -21,9 +21,11 @@
 #include "base/casts.h"
 #include "base/logging.h"
 #include "base/stringpiece.h"
+#include "cdex/compact_dex_file.h"
 #include "dex_file.h"
 #include "invoke_type.h"
 #include "leb128.h"
+#include "standard_dex_file.h"
 
 namespace art {
 
@@ -133,9 +135,13 @@ inline const char* DexFile::GetShorty(uint32_t proto_idx) const {
 }
 
 inline const DexFile::TryItem* DexFile::GetTryItems(const CodeItem& code_item, uint32_t offset) {
-  const uint16_t* insns_end_ = &code_item.insns_[code_item.insns_size_in_code_units_];
+  return GetTryItems(code_item.Instructions().end(), offset);
+}
+
+inline const DexFile::TryItem* DexFile::GetTryItems(const DexInstructionIterator& code_item_end,
+                                                    uint32_t offset) {
   return reinterpret_cast<const TryItem*>
-      (RoundUp(reinterpret_cast<uintptr_t>(insns_end_), 4)) + offset;
+      (RoundUp(reinterpret_cast<uintptr_t>(&code_item_end.Inst()), 4)) + offset;
 }
 
 static inline bool DexFileStringEquals(const DexFile* df1, dex::StringIndex sidx1,
@@ -493,6 +499,16 @@ bool DexFile::DecodeDebugPositionInfo(const CodeItem* code_item,
                                  },
                                  position_functor,
                                  context);
+}
+
+inline const CompactDexFile* DexFile::AsCompactDexFile() const {
+  DCHECK(IsCompactDexFile());
+  return down_cast<const CompactDexFile*>(this);
+}
+
+inline const StandardDexFile* DexFile::AsStandardDexFile() const {
+  DCHECK(IsStandardDexFile());
+  return down_cast<const StandardDexFile*>(this);
 }
 
 }  // namespace art

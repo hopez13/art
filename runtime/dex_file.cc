@@ -77,7 +77,8 @@ DexFile::DexFile(const uint8_t* base,
                  const std::string& location,
                  uint32_t location_checksum,
                  const OatDexFile* oat_dex_file,
-                 DexFileContainer* container)
+                 DexFileContainer* container,
+                 bool is_compact_dex)
     : begin_(base),
       size_(size),
       location_(location),
@@ -94,7 +95,8 @@ DexFile::DexFile(const uint8_t* base,
       call_site_ids_(nullptr),
       num_call_site_ids_(0),
       oat_dex_file_(oat_dex_file),
-      container_(container) {
+      container_(container),
+      is_compact_dex_(is_compact_dex) {
   CHECK(begin_ != nullptr) << GetLocation();
   CHECK_GT(size_, 0U) << GetLocation();
   // Check base (=header) alignment.
@@ -484,20 +486,18 @@ const Signature DexFile::CreateSignature(const StringPiece& signature) const {
   return Signature(this, *proto_id);
 }
 
-int32_t DexFile::FindTryItem(const CodeItem &code_item, uint32_t address) {
-  // Note: Signed type is important for max and min.
-  int32_t min = 0;
-  int32_t max = code_item.tries_size_ - 1;
+int32_t DexFile::FindTryItem(const TryItem* try_items, uint32_t tries_size, uint32_t address) {
+  uint32_t min = 0;
+  uint32_t max = tries_size;
+  while (min < max) {
+    const uint32_t mid = (min + max) / 2;
 
-  while (min <= max) {
-    int32_t mid = min + ((max - min) / 2);
-
-    const art::DexFile::TryItem* ti = GetTryItems(code_item, mid);
-    uint32_t start = ti->start_addr_;
-    uint32_t end = start + ti->insn_count_;
+    const art::DexFile::TryItem& ti = try_items[mid];
+    const uint32_t start = ti.start_addr_;
+    const uint32_t end = start + ti.insn_count_;
 
     if (address < start) {
-      max = mid - 1;
+      max = mid;
     } else if (address >= end) {
       min = mid + 1;
     } else {  // We have a winner!
@@ -509,12 +509,8 @@ int32_t DexFile::FindTryItem(const CodeItem &code_item, uint32_t address) {
 }
 
 int32_t DexFile::FindCatchHandlerOffset(const CodeItem &code_item, uint32_t address) {
-  int32_t try_item = FindTryItem(code_item, address);
-  if (try_item == -1) {
-    return -1;
-  } else {
-    return DexFile::GetTryItems(code_item, try_item)->handler_off_;
-  }
+  int32_t try_item = FindTryItem(GetTryItems(code_item, 0), code_item.tries_size_, address);
+  return (try_item == -1) ? -1 : DexFile::GetTryItems(code_item, try_item)->handler_off_;
 }
 
 bool DexFile::LineNumForPcCb(void* raw_context, const PositionInfo& entry) {
