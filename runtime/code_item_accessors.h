@@ -50,6 +50,11 @@ class CodeItemInstructionAccessor {
     return insns_;
   }
 
+  // Return the instruction for a dex pc.
+  const Instruction& InstructionAt(uint32_t dex_pc) const {
+    return *Instruction::At(insns_ + dex_pc);
+  }
+
   // Return true if the accessor has a code item.
   bool HasCodeItem() const {
     return Insns() != nullptr;
@@ -98,8 +103,18 @@ class CodeItemDataAccessor : public CodeItemInstructionAccessor {
     return tries_size_;
   }
 
+  const DexFile::TryItem* GetTryItems(size_t offset = 0) const;
+
+  const uint8_t* GetCatchHandlerData(size_t offset = 0) const;
+
+  const DexFile::TryItem* FindTryItem(uint32_t try_dex_pc) const;
+
   // CreateNullable allows ArtMethods that have a null code item.
   ALWAYS_INLINE static CodeItemDataAccessor CreateNullable(ArtMethod* method)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ALWAYS_INLINE static CodeItemDataAccessor CreateNullable(const DexFile* dex_file,
+                                                           const DexFile::CodeItem* code_item)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
  protected:
