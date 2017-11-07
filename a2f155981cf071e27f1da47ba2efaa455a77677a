@@ -36,6 +36,42 @@
     },
     {
       "key": {
+        "uuid": "2b583b47_3ce7b2c5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-07T14:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95421b62_d1b9b38a",
+      "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cb5923f_a75f916b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-07T14:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34a969fc_d8824150",
+      "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47bff44e_c4388632",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0811c601_65b63a9e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-07T14:18:51Z",
+      "side": 1,
+      "message": "I would rather prefer to have this as it is so I will not have to change the same lines when the very next copying CL (which is coming this/next week) \"loop peeling to eliminate invariant exits\" arrives. Moreover it reflects the whole point of using SuperblockCloner: loop peeling and unrolling are very similar transformations.",
+      "parentUuid": "47bff44e_c4388632",
+      "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67f521eb_78171adb",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2017-11-07T00:26:09Z",
       "side": 1,
       "message": "with all the suggestions above, this method is not doing much for now, so push the few tests into TryUnrollingForBranchPenalty",
+      "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c9f6ac2_3f7aff1a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-07T14:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67f521eb_78171adb",
       "revId": "a2f155981cf071e27f1da47ba2efaa455a77677a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
