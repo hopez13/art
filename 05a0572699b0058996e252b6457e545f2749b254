@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe0600cd_ff006fee",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-07T19:53:57Z",
+      "side": 1,
+      "message": "Why can\u0027t this use the same thing as L366?",
+      "revId": "05a0572699b0058996e252b6457e545f2749b254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e71f1fe7_4dac272a",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-07T19:53:57Z",
+      "side": 1,
+      "message": "Why can\u0027t this use the same thing as L130?",
+      "revId": "05a0572699b0058996e252b6457e545f2749b254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6b8d9a5_2a8bbe7d",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-07T19:53:57Z",
+      "side": 1,
+      "message": "This looks ugly, can we just do\n\n   next \u003d std::next(it)\n\n?",
+      "revId": "05a0572699b0058996e252b6457e545f2749b254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebaea7a9_812d43ab",
+        "filename": "runtime/dex_instruction_iterator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-07T19:53:57Z",
+      "side": 1,
+      "message": "What if we use std::next instead? It shouldn\u0027t need any extra work since this is already an InputIterator.",
+      "revId": "05a0572699b0058996e252b6457e545f2749b254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
