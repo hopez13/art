@@ -667,6 +667,10 @@ bool OatFileBase::Setup(const char* abs_dex_location, std::string* error_msg) {
                                 dex_file_location.c_str());
       return false;
     }
+    if (!IsExecutable()) {
+      // If this file wasn't loaded executable, ignore the bss. It isn't mapped.
+      method_bss_mapping_offset = 0u;
+    }
     const bool readable_method_bss_mapping_size =
         method_bss_mapping_offset != 0u &&
         method_bss_mapping_offset <= Size() &&
