@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ad424835_e1b0685c",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-08T18:11:01Z",
+      "side": 1,
+      "message": "I am still not sure I like the heavy code dup. Since zero trip count loops are never interesting, let\u0027s at least make the body of this method\n\nreturn IsFinite(...) \u0026\u0026 tc \u003e 0;\n\nif you like the convenience of having the method.",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e63a97c1_a6a48f6d",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 4
@@ -13,6 +30,24 @@
       "writtenOn": "2017-11-08T14:08:13Z",
       "side": 1,
       "message": "There is a problem how ClinitCheck interacts with Unrolling, GVN and prepare_for_register_allocation; am going to look there in another CL.",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e92ce06c_beb9fd82",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-08T18:11:01Z",
+      "side": 1,
+      "message": "What problem? Should we worry about that?",
+      "parentUuid": "e63a97c1_a6a48f6d",
       "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
