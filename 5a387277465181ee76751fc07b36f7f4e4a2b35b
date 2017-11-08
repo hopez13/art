@@ -94,6 +94,30 @@
       "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47c30c7b_5fa6c85a",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-08T21:08:45Z",
+      "side": 1,
+      "message": "Obviously, a parameter/field is better, but I know you like templates. In the end, anything that avoids duplicating code is better.\n\nAlternatively, why can\u0027t you lazily compute the dex pc?",
+      "parentUuid": "9d14e145_6361dd86",
+      "range": {
+        "startLine": 183,
+        "startChar": 13,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
