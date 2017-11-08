@@ -93,6 +93,30 @@
       "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d442abd_8186c390",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-08T22:36:38Z",
+      "side": 1,
+      "message": "Will fix in followup:\nhttps://android-review.googlesource.com/c/platform/art/+/530179",
+      "parentUuid": "f19427df_af5b6013",
+      "range": {
+        "startLine": 944,
+        "startChar": 18,
+        "endLine": 944,
+        "endChar": 62
+      },
+      "revId": "0021feb36ca7021e2c255e6eaf16b967180290c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
