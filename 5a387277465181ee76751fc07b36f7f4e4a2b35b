@@ -46,6 +46,30 @@
       "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9697a6f9_d5660c69",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-08T09:49:28Z",
+      "side": 1,
+      "message": "What kind of overhead? and are the other users performance critical?\n\nI\u0027m surprised you haven\u0027t templatized NthCallerWithDexPcVisitor then :)",
+      "parentUuid": "7a7f03c2_296d603f",
+      "range": {
+        "startLine": 183,
+        "startChar": 13,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
