@@ -113,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "62837690_c4fe5188",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-08T14:56:43Z",
+      "side": 1,
+      "message": "Added DCheckNativeAnnotation().",
+      "parentUuid": "78cd908b_340b7e50",
+      "revId": "8fe66e66b4c474ab21f906934ace47e368fc02d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef75f716_02277ebd",
         "filename": "runtime/image.cc",
         "patchSetId": 1
