@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3a8c9f8b_dd7d7496",
+        "filename": "test/669-moveable-string-class-equals/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-08T11:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed2d423f_91503e5b",
+      "revId": "0e64c64a9834ef11c6318a5b02ff2059d422158a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "578c752a_98367082",
         "filename": "test/669-moveable-string-class-equals/src/Main.java",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "side": 1,
       "message": "Allocating a new string to compare against the array will ensure the string and the class are in the to-space. This should hopefully cause more failures than comparing array vs array?",
       "parentUuid": "578c752a_98367082",
+      "revId": "0e64c64a9834ef11c6318a5b02ff2059d422158a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a136aeb5_7ce9bccd",
+        "filename": "test/669-moveable-string-class-equals/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-08T11:56:32Z",
+      "side": 1,
+      "message": "Thanks, works like a charm, failing 100% without the fix.",
+      "parentUuid": "692f3b25_27180132",
       "revId": "0e64c64a9834ef11c6318a5b02ff2059d422158a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
