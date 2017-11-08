@@ -45,6 +45,29 @@
       "revId": "ed620619d0865b70539b3f6328bb02dfed587acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a919f873_e8c5ca4e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-08T22:01:00Z",
+      "side": 1,
+      "message": "Nit: I think just -n would be better.",
+      "range": {
+        "startLine": 887,
+        "startChar": 24,
+        "endLine": 887,
+        "endChar": 26
+      },
+      "revId": "ed620619d0865b70539b3f6328bb02dfed587acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
