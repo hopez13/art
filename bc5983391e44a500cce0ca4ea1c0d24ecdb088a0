@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e63a97c1_a6a48f6d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-08T14:08:13Z",
+      "side": 1,
+      "message": "There is a problem how ClinitCheck interacts with Unrolling, GVN and prepare_for_register_allocation; am going to look there in another CL.",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

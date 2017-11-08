@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e91dc395_5c5cfa2c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-08T14:08:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67b6d91a_6bdaaa09",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7ac135_52389bd9",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-11-07T23:38:27Z",
       "side": 1,
       "message": "uint64_t is a bit more consistent with other counters in this file",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb83ff32_a951544c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-08T14:08:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7ac135_52389bd9",
       "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f2548e67_51f453cf",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-08T14:08:13Z",
+      "side": 1,
+      "message": "Added a general comment.\nClinitCheck: For now unrolling is not applied to loops with this instruction due to a problem with GVN and prepare_for_register_allocation; am going to fix this in another CL.",
+      "parentUuid": "11df3a13_d0007fb2",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49177472_545077cc",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 3
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "722910bc_833a85d7",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-08T14:08:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49177472_545077cc",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b801837_13f67ba7",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 3
@@ -81,6 +153,24 @@
       "writtenOn": "2017-11-07T23:38:27Z",
       "side": 1,
       "message": "Put return on same line (L157) to avoid using so much space compared to others",
+      "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1cb7a2d_9e1951d2",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-08T14:08:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b801837_13f67ba7",
       "revId": "0ec214ece0406ea136d2b4746e788918eaa125ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
