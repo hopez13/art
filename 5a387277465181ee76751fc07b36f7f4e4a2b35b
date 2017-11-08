@@ -118,6 +118,30 @@
       "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a42e7b10_0ff994e0",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-08T21:12:27Z",
+      "side": 1,
+      "message": "It\u0027s the underlying StackVisitor that computes this, from the internal context. We give no guarantees that you can make any calls (\u003dfields have a meaning) outside of a VisitFrame call.\n\nI can look into modifying the NthCallerVisitor and deduplicating some visitors.",
+      "parentUuid": "47c30c7b_5fa6c85a",
+      "range": {
+        "startLine": 183,
+        "startChar": 13,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
