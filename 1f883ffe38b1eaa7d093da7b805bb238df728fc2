@@ -16,6 +16,29 @@
       "revId": "1f883ffe38b1eaa7d093da7b805bb238df728fc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c7746b2_96731763",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-08T18:49:25Z",
+      "side": 1,
+      "message": "Also add some comment that this type will be fixed later for char array.",
+      "range": {
+        "startLine": 1675,
+        "startChar": 25,
+        "endLine": 1675,
+        "endChar": 47
+      },
+      "revId": "1f883ffe38b1eaa7d093da7b805bb238df728fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
