@@ -70,6 +70,30 @@
       "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d14e145_6361dd86",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-08T16:16:06Z",
+      "side": 1,
+      "message": "The other users are sometimes critical. For example, looking up callers to find ClassLoader context for some classloading routines.\n\nGetting the dex PC requires potentially mapping a native PC to a dex PC, having to read CodeInfoItems. This has never been cheap.\n\nI thought it was better to not add a template, considering you don\u0027t like them (and I can keep the functionality very local). :-)",
+      "parentUuid": "9697a6f9_d5660c69",
+      "range": {
+        "startLine": 183,
+        "startChar": 13,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "5a387277465181ee76751fc07b36f7f4e4a2b35b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
