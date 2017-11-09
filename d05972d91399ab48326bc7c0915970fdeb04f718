@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42ce4a7f_0df1f37f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2511,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-11-09T23:19:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1e57e0d_ef83922e",
+      "range": {
+        "startLine": 2508,
+        "startChar": 0,
+        "endLine": 2511,
+        "endChar": 45
+      },
+      "revId": "d05972d91399ab48326bc7c0915970fdeb04f718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f688cc4_ac99dec6",
         "filename": "runtime/generated/asm_support_gen.h",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-11-09T22:48:19Z",
       "side": 1,
       "message": "I\u0027d guess changes in this file were included in error.",
+      "revId": "d05972d91399ab48326bc7c0915970fdeb04f718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6208efbb_1123a191",
+        "filename": "runtime/generated/asm_support_gen.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-11-09T23:19:30Z",
+      "side": 1,
+      "message": "The \"repo upload\" command wouldn\u0027t let me upload the patch without this set of changes.\n\nIs it an error that I should be required to modify this file as part of the patch. I had to run the generate-asm-support command and merge its output with the patch before I could upload.",
+      "parentUuid": "7f688cc4_ac99dec6",
       "revId": "d05972d91399ab48326bc7c0915970fdeb04f718",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
