@@ -65,8 +65,11 @@ public class Main {
             int count = totalOperations;
             while (count > 0) {
                 synchronized (lockObject) {
-                    inf.foo(10000 - count, 11000 - count, 12000 - count, 13000 - count,
-                          14000 - count, 15000 - count);
+                    try {
+                        inf.foo(10000 - count, 11000 - count, 12000 - count, 13000 - count,
+                                14000 - count, 15000 - count);
+                    } catch (OutOfMemoryError e) {
+                    }
               }
               count--;
             }
@@ -96,7 +99,10 @@ public class Main {
             while (!finish) {
                 // Some random allocations adding up to almost 2M.
                 for (int i = 0; i < 188; i++) {
-                    byte b[] = new byte[i * 100 + 10];
+                    try {
+                        byte b[] = new byte[i * 100 + 10];
+                    } catch (OutOfMemoryError e) {
+                    }
                 }
                 try {
                     Thread.sleep(10);
