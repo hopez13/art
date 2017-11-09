@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "23c14498_dc86358f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26f0d826_ecbcb9d1",
+      "range": {
+        "startLine": 13,
+        "startChar": 41,
+        "endLine": 13,
+        "endChar": 53
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74cd973b_8786f3f4",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-09T13:24:32Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 27
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4e01da6_425d1f1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74cd973b_8786f3f4",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "78a61fd9_750ab5ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f9419bb_a7adc741",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b62d48f_a9d45ac7",
         "filename": "compiler/dex/inline_method_analyser.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-11-09T13:24:32Z",
       "side": 1,
       "message": "This is unnecessary, the constructor initializes the code_item_.",
+      "range": {
+        "startLine": 72,
+        "startChar": 38,
+        "endLine": 72,
+        "endChar": 48
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ac95097_dd8dc8fa",
+        "filename": "compiler/dex/inline_method_analyser.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b62d48f_a9d45ac7",
       "range": {
         "startLine": 72,
         "startChar": 38,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5f0546de_4b21e426",
+        "filename": "compiler/dex/inline_method_analyser.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4e66be3_e60c02ff",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eabe987_5aa992e0",
         "filename": "runtime/dex_helpers-inl.h",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2017-11-09T13:24:32Z",
       "side": 1,
       "message": "Make them references. Or would it place too much burden on the callers to check?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38d06d22_42cde0f9",
+        "filename": "runtime/dex_helpers-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "If there is user error and nulls are passed in it will SIGSEGV without the checks, it might make it easier to debug to leave it as pointers?",
+      "parentUuid": "0eabe987_5aa992e0",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "4b6bf2b0_cf306470",
+        "filename": "runtime/dex_helpers-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Same comment.",
+      "parentUuid": "744ace08_197705b9",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 31
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81b25d07_14b71033",
         "filename": "runtime/dex_helpers.h",
         "patchSetId": 4
@@ -180,6 +348,24 @@
     },
     {
       "key": {
+        "uuid": "3a729e71_73233570",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Do you recommend putting the accessors somewhere else?",
+      "parentUuid": "81b25d07_14b71033",
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3d42f20_87d03a95",
         "filename": "runtime/dex_helpers.h",
         "patchSetId": 4
@@ -191,6 +377,30 @@
       "writtenOn": "2017-11-09T13:24:32Z",
       "side": 1,
       "message": "Remove. You\u0027re already #including dex_file.h to pull in DexFile::CodeItem.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 14
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e33a97b_db8c6a78",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d42f20_87d03a95",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "c716ed87_802882ba",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cd9ef67_2b90c51d",
+      "range": {
+        "startLine": 37,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4f5eee_09d3b0e3",
         "filename": "runtime/dex_helpers.h",
         "patchSetId": 4
@@ -237,6 +471,30 @@
       "writtenOn": "2017-11-09T13:24:32Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 84,
+        "startChar": 16,
+        "endLine": 84,
+        "endChar": 24
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "476fe030_e04818a2",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a4f5eee_09d3b0e3",
       "range": {
         "startLine": 84,
         "startChar": 16,

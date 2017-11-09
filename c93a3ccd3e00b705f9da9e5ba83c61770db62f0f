@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "9a89fc2b_43e24ac1",
+        "filename": "runtime/dex_helpers-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "I\u0027ll consider adding some virtual functions too if it makes stuff cleaner.",
+      "parentUuid": "e2e4f6d1_9f3620ca",
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "102788d6_f2296801",
         "filename": "runtime/dex_helpers.h",
         "patchSetId": 3
@@ -208,6 +226,30 @@
       "side": 1,
       "message": "We\u0027re not. but it looks to me you didn\u0027t need any of these includes.",
       "parentUuid": "85e08c8e_9cb6d843",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa5bad1d_3d08cbec",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08bc541c_3dbcff2a",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -373,6 +415,30 @@
       "side": 1,
       "message": "I find it more readable, but up to you.",
       "parentUuid": "24e46924_7f9a7a0e",
+      "range": {
+        "startLine": 41,
+        "startChar": 55,
+        "endLine": 41,
+        "endChar": 67
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42c9a1e_7aa1e1aa",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T19:42:08Z",
+      "side": 1,
+      "message": "I think I\u0027ll leave it the same as the current way to make usage a bit less code.",
+      "parentUuid": "3dfd74f0_ac050e39",
       "range": {
         "startLine": 41,
         "startChar": 55,
