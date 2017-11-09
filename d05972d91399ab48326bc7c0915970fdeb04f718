@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1e57e0d_ef83922e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2511,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T22:48:19Z",
+      "side": 1,
+      "message": "__ Sra(AT, dst_high, 31);\n__ Movn(dst_low, dst_high, TMP);\n__ Movn(dst_high, AT, TMP);",
+      "range": {
+        "startLine": 2508,
+        "startChar": 0,
+        "endLine": 2511,
+        "endChar": 45
+      },
+      "revId": "d05972d91399ab48326bc7c0915970fdeb04f718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f688cc4_ac99dec6",
+        "filename": "runtime/generated/asm_support_gen.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T22:48:19Z",
+      "side": 1,
+      "message": "I\u0027d guess changes in this file were included in error.",
+      "revId": "d05972d91399ab48326bc7c0915970fdeb04f718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
