@@ -22,6 +22,30 @@
       "revId": "4dab9c298247d0fcf153b56a16cc00e034fe217e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6f0f571_244faa62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-09T22:47:20Z",
+      "side": 1,
+      "message": "It\u0027s equivalent to a clean up for the current code base since we don\u0027t eliminate stores into non-singletons (except same-value-stores). The only case for a singleton-element location to be aliased is the index can be aliased. But for future store-elimination for non-singletons, location-based aliasing is more accurate/useful than just knowing index-aliasing info. Basically if we know a store\u0027s location is not aliased, the store doesn\u0027t need to happen since it can\u0027t be read with an alias. So this CL is a different way to provide aliasing info than the current index-aliasing way (which is more ad hoc) but will offer more value in the future more-store-elimination CL.",
+      "parentUuid": "58526a8b_62253b39",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "4dab9c298247d0fcf153b56a16cc00e034fe217e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
