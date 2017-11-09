@@ -48,70 +48,85 @@ namespace impl {
 
 // Infrastructure to achieve type safety for event dispatch.
 
-#define FORALL_EVENT_TYPES(fn)                                                       \
-  fn(VMInit,                  ArtJvmtiEvent::kVmInit)                                \
-  fn(VMDeath,                 ArtJvmtiEvent::kVmDeath)                               \
-  fn(ThreadStart,             ArtJvmtiEvent::kThreadStart)                           \
-  fn(ThreadEnd,               ArtJvmtiEvent::kThreadEnd)                             \
-  fn(ClassFileLoadHook,       ArtJvmtiEvent::kClassFileLoadHookRetransformable)      \
-  fn(ClassFileLoadHook,       ArtJvmtiEvent::kClassFileLoadHookNonRetransformable)   \
-  fn(ClassLoad,               ArtJvmtiEvent::kClassLoad)                             \
-  fn(ClassPrepare,            ArtJvmtiEvent::kClassPrepare)                          \
-  fn(VMStart,                 ArtJvmtiEvent::kVmStart)                               \
-  fn(Exception,               ArtJvmtiEvent::kException)                             \
-  fn(ExceptionCatch,          ArtJvmtiEvent::kExceptionCatch)                        \
-  fn(SingleStep,              ArtJvmtiEvent::kSingleStep)                            \
-  fn(FramePop,                ArtJvmtiEvent::kFramePop)                              \
-  fn(Breakpoint,              ArtJvmtiEvent::kBreakpoint)                            \
-  fn(FieldAccess,             ArtJvmtiEvent::kFieldAccess)                           \
-  fn(FieldModification,       ArtJvmtiEvent::kFieldModification)                     \
-  fn(MethodEntry,             ArtJvmtiEvent::kMethodEntry)                           \
-  fn(MethodExit,              ArtJvmtiEvent::kMethodExit)                            \
-  fn(NativeMethodBind,        ArtJvmtiEvent::kNativeMethodBind)                      \
-  fn(CompiledMethodLoad,      ArtJvmtiEvent::kCompiledMethodLoad)                    \
-  fn(CompiledMethodUnload,    ArtJvmtiEvent::kCompiledMethodUnload)                  \
-  fn(DynamicCodeGenerated,    ArtJvmtiEvent::kDynamicCodeGenerated)                  \
-  fn(DataDumpRequest,         ArtJvmtiEvent::kDataDumpRequest)                       \
-  fn(MonitorWait,             ArtJvmtiEvent::kMonitorWait)                           \
-  fn(MonitorWaited,           ArtJvmtiEvent::kMonitorWaited)                         \
-  fn(MonitorContendedEnter,   ArtJvmtiEvent::kMonitorContendedEnter)                 \
-  fn(MonitorContendedEntered, ArtJvmtiEvent::kMonitorContendedEntered)               \
-  fn(ResourceExhausted,       ArtJvmtiEvent::kResourceExhausted)                     \
-  fn(GarbageCollectionStart,  ArtJvmtiEvent::kGarbageCollectionStart)                \
-  fn(GarbageCollectionFinish, ArtJvmtiEvent::kGarbageCollectionFinish)               \
-  fn(ObjectFree,              ArtJvmtiEvent::kObjectFree)                            \
-  fn(VMObjectAlloc,           ArtJvmtiEvent::kVmObjectAlloc)
+#define FORALL_EVENT_TYPES(fn_normal, fn_extension)                                         \
+  fn_normal(VMInit,                  ArtJvmtiEvent::kVmInit)                                \
+  fn_normal(VMDeath,                 ArtJvmtiEvent::kVmDeath)                               \
+  fn_normal(ThreadStart,             ArtJvmtiEvent::kThreadStart)                           \
+  fn_normal(ThreadEnd,               ArtJvmtiEvent::kThreadEnd)                             \
+  fn_normal(ClassFileLoadHook,       ArtJvmtiEvent::kClassFileLoadHookRetransformable)      \
+  fn_normal(ClassFileLoadHook,       ArtJvmtiEvent::kClassFileLoadHookNonRetransformable)   \
+  fn_normal(ClassLoad,               ArtJvmtiEvent::kClassLoad)                             \
+  fn_normal(ClassPrepare,            ArtJvmtiEvent::kClassPrepare)                          \
+  fn_normal(VMStart,                 ArtJvmtiEvent::kVmStart)                               \
+  fn_normal(Exception,               ArtJvmtiEvent::kException)                             \
+  fn_normal(ExceptionCatch,          ArtJvmtiEvent::kExceptionCatch)                        \
+  fn_normal(SingleStep,              ArtJvmtiEvent::kSingleStep)                            \
+  fn_normal(FramePop,                ArtJvmtiEvent::kFramePop)                              \
+  fn_normal(Breakpoint,              ArtJvmtiEvent::kBreakpoint)                            \
+  fn_normal(FieldAccess,             ArtJvmtiEvent::kFieldAccess)                           \
+  fn_normal(FieldModification,       ArtJvmtiEvent::kFieldModification)                     \
+  fn_normal(MethodEntry,             ArtJvmtiEvent::kMethodEntry)                           \
+  fn_normal(MethodExit,              ArtJvmtiEvent::kMethodExit)                            \
+  fn_normal(NativeMethodBind,        ArtJvmtiEvent::kNativeMethodBind)                      \
+  fn_normal(CompiledMethodLoad,      ArtJvmtiEvent::kCompiledMethodLoad)                    \
+  fn_normal(CompiledMethodUnload,    ArtJvmtiEvent::kCompiledMethodUnload)                  \
+  fn_normal(DynamicCodeGenerated,    ArtJvmtiEvent::kDynamicCodeGenerated)                  \
+  fn_normal(DataDumpRequest,         ArtJvmtiEvent::kDataDumpRequest)                       \
+  fn_normal(MonitorWait,             ArtJvmtiEvent::kMonitorWait)                           \
+  fn_normal(MonitorWaited,           ArtJvmtiEvent::kMonitorWaited)                         \
+  fn_normal(MonitorContendedEnter,   ArtJvmtiEvent::kMonitorContendedEnter)                 \
+  fn_normal(MonitorContendedEntered, ArtJvmtiEvent::kMonitorContendedEntered)               \
+  fn_normal(ResourceExhausted,       ArtJvmtiEvent::kResourceExhausted)                     \
+  fn_normal(GarbageCollectionStart,  ArtJvmtiEvent::kGarbageCollectionStart)                \
+  fn_normal(GarbageCollectionFinish, ArtJvmtiEvent::kGarbageCollectionFinish)               \
+  fn_normal(ObjectFree,              ArtJvmtiEvent::kObjectFree)                            \
+  fn_normal(VMObjectAlloc,           ArtJvmtiEvent::kVmObjectAlloc)                         \
+  fn_extension(DdmPublishChunk,      ArtJvmtiEvent::kDdmPublishChunk)
 
 template <ArtJvmtiEvent kEvent>
 struct EventFnType {
 };
 
-#define EVENT_FN_TYPE(name, enum_name)               \
+#define EXTENSION_EVENT_FN_TYPE(name, enum_name)                   \
+template <>                                                        \
+struct EventFnType<enum_name> {                                    \
+  using type = decltype(ArtJvmtiExtensionEventCallbacks().name);    \
+};
+
+#define NORMAL_EVENT_FN_TYPE(name, enum_name)        \
 template <>                                          \
 struct EventFnType<enum_name> {                      \
   using type = decltype(jvmtiEventCallbacks().name); \
 };
 
-FORALL_EVENT_TYPES(EVENT_FN_TYPE)
+FORALL_EVENT_TYPES(NORMAL_EVENT_FN_TYPE, EXTENSION_EVENT_FN_TYPE)
 
-#undef EVENT_FN_TYPE
+#undef NORMAL_EVENT_FN_TYPE
+#undef EXTENSION_EVENT_FN_TYPE
 
 template <ArtJvmtiEvent kEvent>
 ALWAYS_INLINE inline typename EventFnType<kEvent>::type GetCallback(ArtJvmTiEnv* env);
 
-#define GET_CALLBACK(name, enum_name)                                     \
-template <>                                                               \
-ALWAYS_INLINE inline EventFnType<enum_name>::type GetCallback<enum_name>( \
-    ArtJvmTiEnv* env) {                                                   \
-  if (env->event_callbacks == nullptr) {                                  \
-    return nullptr;                                                       \
-  }                                                                       \
-  return env->event_callbacks->name;                                      \
+#define EXTENSION_GET_CALLBACK(name, enum_name)                                              \
+template <>                                                                                  \
+ALWAYS_INLINE inline EventFnType<enum_name>::type GetCallback<enum_name>(ArtJvmTiEnv* env) { \
+  return env->extension_event_callbacks.name;                                                \
 }
 
-FORALL_EVENT_TYPES(GET_CALLBACK)
+#define NORMAL_GET_CALLBACK(name, enum_name)                                     \
+template <>                                                                      \
+ALWAYS_INLINE inline EventFnType<enum_name>::type GetCallback<enum_name>(        \
+    ArtJvmTiEnv* env) {                                                          \
+  if (env->event_callbacks == nullptr) {                                         \
+    return nullptr;                                                              \
+  }                                                                              \
+  return env->event_callbacks->name;                                             \
+}
 
-#undef GET_CALLBACK
+FORALL_EVENT_TYPES(NORMAL_GET_CALLBACK, EXTENSION_GET_CALLBACK)
+
+#undef NORMAL_GET_CALLBACK
+#undef EXTENSION_GET_CALLBACK
 
 #undef FORALL_EVENT_TYPES
 
