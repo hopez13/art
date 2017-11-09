@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "610a11c7_226faa47",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-09T19:53:04Z",
+      "side": 1,
+      "message": "Agree. Have refactored that in the new PS: what do you think now?",
+      "parentUuid": "ad424835_e1b0685c",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e63a97c1_a6a48f6d",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 4
@@ -48,6 +66,24 @@
       "side": 1,
       "message": "What problem? Should we worry about that?",
       "parentUuid": "e63a97c1_a6a48f6d",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4355e059_c9352962",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-09T19:53:04Z",
+      "side": 1,
+      "message": "I need to investigate this more but here is an example sequence in the loop body to reproduce the issue (we need to enable HInvokes for unrolling):\n\nl112  LoadClass\nl113  ClinitCheck [l112]\nv114  InvokeStaticOrDirect [l108,l110,i129,l113]\n\nAfter unrolling GVN replaces the the copy-ClinitCheck by the original (which dominates the copy). Then PrepareForRegisterAllocation::CanMoveClinitCheck tries to check whether ClinitCheck and Invoke come from the same dex instruction (e.g. looking at the dex_pc). The copied instruction share the same DEX_PC with the original so it tries to pair up not an original ClinitCheck with an original Invoke but an original with a copy.",
+      "parentUuid": "e92ce06c_beb9fd82",
       "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
