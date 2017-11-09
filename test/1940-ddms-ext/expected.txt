@@ -1,0 +1,5 @@
+dex2oatd E 11-10 11:35:14 32322 32322 image_space.cc:1713] Could not create image space with image file '/fast/allight/android-build/marlin/aosp1/userdebug/host/linux-x86/framework/core.art'. Attempting to fall back to imageless running. Error was: Invalid image header in '/fast/allight/android-build/marlin/aosp1/userdebug/host/linux-x86/framework/x86/core.art'
+dex2oatd E 11-10 11:35:14 32322 32322 image_space.cc:1713] Attempted image: /fast/allight/android-build/marlin/aosp1/userdebug/host/linux-x86/framework/core.art
+dex2oatd E 11-10 11:35:14 32322 32322 runtime.cc:1215] Dex file fallback disabled, cannot continue without image.
+dex2oatd E 11-10 11:35:14 32322 32322 dex2oat.cc:2564] Failed to create runtime
+Dex2oat failed.
