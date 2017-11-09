@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83d37df7_05a507c0",
+        "filename": "runtime/cdex/compact_dex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdbc63f6_b276e41d",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 4
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad23f3f0_0c3b998f",
         "filename": "runtime/dex_helpers-inl.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-07T09:24:37Z",
       "side": 1,
       "message": "nit: premature and confusing. I\u0027d drop.",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de745b81_b229bd91",
+        "filename": "runtime/dex_helpers-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad23f3f0_0c3b998f",
       "range": {
         "startLine": 31,
         "startChar": 6,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "1ce163d9_a3403bf8",
+        "filename": "runtime/dex_helpers-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "Is that faster? You mean like having dex_file-\u003eGetDexInstructions(code_item) where GetDexInstructions is virtual?",
+      "parentUuid": "215ca403_1fe7ac97",
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "102788d6_f2296801",
         "filename": "runtime/dex_helpers.h",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2017-11-07T09:24:37Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85e08c8e_9cb6d843",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "I think we are not supposed to rely on transitive includes, thoughts agampe?",
+      "parentUuid": "102788d6_f2296801",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "b28e9a5f_fa8dfdb2",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69ac12ff_6a30e57e",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2be86f59_4be02325",
         "filename": "runtime/dex_helpers.h",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2017-11-07T09:24:37Z",
       "side": 1,
       "message": "Unused here.",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d75b0b_2bd6f653",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2be86f59_4be02325",
       "range": {
         "startLine": 31,
         "startChar": 6,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "24e46924_7f9a7a0e",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "What does the Get buy us here?",
+      "parentUuid": "b5daf827_322474cb",
+      "range": {
+        "startLine": 41,
+        "startChar": 55,
+        "endLine": 41,
+        "endChar": 67
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c57d7dfd_367eb1ab",
         "filename": "runtime/standard_dex_file.h",
         "patchSetId": 3
@@ -168,6 +330,30 @@
       "writtenOn": "2017-11-07T09:24:37Z",
       "side": 1,
       "message": "Why do you need this?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 4
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76aac9b4_181e113a",
+        "filename": "runtime/standard_dex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "Will move some fields over later.",
+      "parentUuid": "c57d7dfd_367eb1ab",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -200,6 +386,30 @@
       "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "294b2f57_515f2846",
+        "filename": "runtime/standard_dex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7dd4eb6_99bb157a",
+      "range": {
+        "startLine": 65,
+        "startChar": 35,
+        "endLine": 65,
+        "endChar": 39
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

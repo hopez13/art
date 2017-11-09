@@ -22,6 +22,30 @@
       "revId": "550c0aee52bf8981dfe1d22d3b661d61e80cc7ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b70af878_c63be03c",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-09T07:53:21Z",
+      "side": 0,
+      "message": "Yes this was just for testing the template worked. I\u0027ll add a getter to ArtMethod to do this.",
+      "parentUuid": "6c0bbb59_78926898",
+      "range": {
+        "startLine": 48,
+        "startChar": 42,
+        "endLine": 48,
+        "endChar": 63
+      },
+      "revId": "550c0aee52bf8981dfe1d22d3b661d61e80cc7ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
