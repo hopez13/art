@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6608d263_aeb21b79",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-09T21:39:51Z",
+      "side": 1,
+      "message": "Can you also add a comment why this doesn\u0027t apply to boolean / byte?",
+      "range": {
+        "startLine": 1671,
+        "startChar": 0,
+        "endLine": 1676,
+        "endChar": 45
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
