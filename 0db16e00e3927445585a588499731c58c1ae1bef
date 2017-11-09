@@ -81,6 +81,30 @@
       "revId": "0db16e00e3927445585a588499731c58c1ae1bef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a247321_bd3a2580",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-09T14:04:26Z",
+      "side": 1,
+      "message": "When I said \"inline\", I meant move the code and remove DCheckNativeAnnotation. My motivation was essentially making things simpler, as I think DCHECK (or CHECK) is a statement that stands out better than DCheckNativeAnnotation when reading code line 1262.\n\nThis is really nit-picking, I\u0027m fine with the current code. :)",
+      "parentUuid": "1f69f2f6_2d758abc",
+      "range": {
+        "startLine": 1237,
+        "startChar": 12,
+        "endLine": 1237,
+        "endChar": 34
+      },
+      "revId": "0db16e00e3927445585a588499731c58c1ae1bef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
