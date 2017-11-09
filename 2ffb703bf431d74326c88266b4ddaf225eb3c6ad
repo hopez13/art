@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cf072f0_bdaae56e",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T12:56:10Z",
+      "side": 1,
+      "message": "Remove 2 leading spaces from all members of JitLogger.",
+      "revId": "2ffb703bf431d74326c88266b4ddaf225eb3c6ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdfaa7af_b4a8d87e",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T12:56:10Z",
+      "side": 1,
+      "message": "It\u0027s odd to use struct and then have private members. We should use class.",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 8
+      },
+      "revId": "2ffb703bf431d74326c88266b4ddaf225eb3c6ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e19c4_c48ceca6",
+        "filename": "profman/profman.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T12:56:10Z",
+      "side": 1,
+      "message": "Any reason why these are std::string? I\u0027d prefer const char[].",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 80
+      },
+      "revId": "2ffb703bf431d74326c88266b4ddaf225eb3c6ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1182011_b8a13dad",
+        "filename": "runtime/base/bit_struct_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T12:56:10Z",
+      "side": 1,
+      "message": "This should be 4-space indent.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 4
+      },
+      "revId": "2ffb703bf431d74326c88266b4ddaf225eb3c6ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac1b2380_c9b30f9d",
+        "filename": "runtime/base/bit_struct_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T12:56:10Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 4
+      },
+      "revId": "2ffb703bf431d74326c88266b4ddaf225eb3c6ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "462ec361_8a0e8962",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T12:56:10Z",
+      "side": 1,
+      "message": "If lint doesn\u0027t like it, we can have a named temporary.",
+      "range": {
+        "startLine": 264,
+        "startChar": 4,
+        "endLine": 264,
+        "endChar": 42
+      },
+      "revId": "2ffb703bf431d74326c88266b4ddaf225eb3c6ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14b3aec0_867621d4",
+        "filename": "test/ti-agent/scoped_primitive_array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T12:56:10Z",
+      "side": 1,
+      "message": "Only 2-space indentation compared to the class keyword.",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "2ffb703bf431d74326c88266b4ddaf225eb3c6ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "626ff77f_6d525d89",
+        "filename": "test/ti-agent/scoped_primitive_array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T12:56:10Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 8
+      },
+      "revId": "2ffb703bf431d74326c88266b4ddaf225eb3c6ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
