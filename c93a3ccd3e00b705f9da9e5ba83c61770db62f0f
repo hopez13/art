@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "08bc541c_3dbcff2a",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-09T11:55:18Z",
+      "side": 1,
+      "message": "We\u0027re not. but it looks to me you didn\u0027t need any of these includes.",
+      "parentUuid": "85e08c8e_9cb6d843",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69ac12ff_6a30e57e",
         "filename": "runtime/dex_helpers.h",
         "patchSetId": 3
@@ -307,6 +331,30 @@
       "side": 1,
       "message": "What does the Get buy us here?",
       "parentUuid": "b5daf827_322474cb",
+      "range": {
+        "startLine": 41,
+        "startChar": 55,
+        "endLine": 41,
+        "endChar": 67
+      },
+      "revId": "c93a3ccd3e00b705f9da9e5ba83c61770db62f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dfd74f0_ac050e39",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-09T11:55:18Z",
+      "side": 1,
+      "message": "I find it more readable, but up to you.",
+      "parentUuid": "24e46924_7f9a7a0e",
       "range": {
         "startLine": 41,
         "startChar": 55,
