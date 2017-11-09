@@ -81,6 +81,24 @@
       "revId": "d05972d91399ab48326bc7c0915970fdeb04f718",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2d34f8_3a8f8739",
+        "filename": "runtime/generated/asm_support_gen.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T23:29:45Z",
+      "side": 1,
+      "message": "I\u0027d guess you rebased the change and didn\u0027t do a proper build. If you build again and re-run the generate-asm-support, you should see these changes disappear. This is very unintuitive.\n\nOr you can do \u0027repo upload --no-verify\u0027 if you don\u0027t want to build. This is actually the only option when you want to upload a series of changes when one of them, other than the first, affects this generated file as the verification would check all the changes against the same generated file which obviously cannot work.",
+      "parentUuid": "6208efbb_1123a191",
+      "revId": "d05972d91399ab48326bc7c0915970fdeb04f718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
