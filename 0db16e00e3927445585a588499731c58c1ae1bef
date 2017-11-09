@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c1de5c25_7dd6fd84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:38:08Z",
+      "side": 1,
+      "message": "Too late.\n\nFrom my perspective, this is a cleanup. However, some people disagree and I would have dropped this change but I found out that it\u0027s really needed: https://android-review.googlesource.com/#/c/platform/art/+/518395/15/runtime/dex_file_annotations.cc .",
+      "parentUuid": "9f869df0_8ae16a62",
+      "revId": "0db16e00e3927445585a588499731c58c1ae1bef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6d1a4d4_74afb6ec",
         "filename": "runtime/dex_file_annotations.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2017-11-09T13:20:37Z",
       "side": 1,
       "message": "Is this used elsewhere than in IsMethodBuildAnnotationPresent? If not, maybe inline it at that use site?",
+      "range": {
+        "startLine": 1237,
+        "startChar": 12,
+        "endLine": 1237,
+        "endChar": 34
+      },
+      "revId": "0db16e00e3927445585a588499731c58c1ae1bef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f69f2f6_2d758abc",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:38:08Z",
+      "side": 1,
+      "message": "Originally, I\u0027ve had two uses as the IsMethodBuildAnnotationPresent() was inlined but now there is only one. Anyway, I\u0027ll leave the inlining to the compiler, it\u0027s pretty good at inlining static linkage functions with a single use.",
+      "parentUuid": "a6d1a4d4_74afb6ec",
       "range": {
         "startLine": 1237,
         "startChar": 12,
