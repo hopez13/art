@@ -1077,8 +1077,10 @@ class JvmtiFunctions {
                                               jint extension_event_index,
                                               jvmtiExtensionEvent callback) {
     ENSURE_VALID_ENV(env);
-    // We do not have any extension events, so any call is illegal.
-    return ExtensionUtil::SetExtensionEventCallback(env, extension_event_index, callback);
+    return ExtensionUtil::SetExtensionEventCallback(env,
+                                                    extension_event_index,
+                                                    callback,
+                                                    &gEventHandler);
   }
 
   static jvmtiError GetPotentialCapabilities(jvmtiEnv* env, jvmtiCapabilities* capabilities_ptr) {
