@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f869df0_8ae16a62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-09T13:20:37Z",
+      "side": 1,
+      "message": "Add the motivation for this change in the commit message?",
+      "revId": "0db16e00e3927445585a588499731c58c1ae1bef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6d1a4d4_74afb6ec",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-09T13:20:37Z",
+      "side": 1,
+      "message": "Is this used elsewhere than in IsMethodBuildAnnotationPresent? If not, maybe inline it at that use site?",
+      "range": {
+        "startLine": 1237,
+        "startChar": 12,
+        "endLine": 1237,
+        "endChar": 34
+      },
+      "revId": "0db16e00e3927445585a588499731c58c1ae1bef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
