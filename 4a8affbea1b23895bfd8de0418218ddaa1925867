@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26f0d826_ecbcb9d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 13,
+        "startChar": 41,
+        "endLine": 13,
+        "endChar": 53
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74cd973b_8786f3f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 27
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9419bb_a7adc741",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b62d48f_a9d45ac7",
+        "filename": "compiler/dex/inline_method_analyser.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "This is unnecessary, the constructor initializes the code_item_.",
+      "range": {
+        "startLine": 72,
+        "startChar": 38,
+        "endLine": 72,
+        "endChar": 48
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e66be3_e60c02ff",
+        "filename": "compiler/dex/inline_method_analyser.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "Why do you need this #include? The forward declaration should be enough.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eabe987_5aa992e0",
+        "filename": "runtime/dex_helpers-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "Make them references. Or would it place too much burden on the callers to check?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "744ace08_197705b9",
+        "filename": "runtime/dex_helpers-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 31
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d42f20_87d03a95",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "Remove. You\u0027re already #including dex_file.h to pull in DexFile::CodeItem.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 14
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cd9ef67_2b90c51d",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "Remove. This constructor has 2 parameters.",
+      "range": {
+        "startLine": 37,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4f5eee_09d3b0e3",
+        "filename": "runtime/dex_helpers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T13:24:32Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 84,
+        "startChar": 16,
+        "endLine": 84,
+        "endChar": 24
+      },
+      "revId": "4a8affbea1b23895bfd8de0418218ddaa1925867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
