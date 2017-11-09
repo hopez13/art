@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "83245293_8a691c34",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T17:15:04Z",
+      "side": 1,
+      "message": "I didn\u0027t want to do that because it\u0027s only for DCHECK()s and guarding it with an explicit `klass \u003d kIsDebugBuild ? ... : nullptr;` is a bit odd.",
+      "parentUuid": "bd5d4df4_0dfb850e",
+      "revId": "da283050a1a3ddbb7cefae3f36e8c8c1a6acedb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a0c1b96_72331ca8",
         "filename": "test/669-moveable-string-class-equals/run",
         "patchSetId": 4
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "46f97ae8_5e7d56f6",
+        "filename": "test/669-moveable-string-class-equals/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T17:15:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a0c1b96_72331ca8",
+      "range": {
+        "startLine": 19,
+        "startChar": 18,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "da283050a1a3ddbb7cefae3f36e8c8c1a6acedb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4384a1b4_f6c1811f",
         "filename": "test/669-moveable-string-class-equals/src/Main.java",
         "patchSetId": 4
@@ -53,6 +95,24 @@
       "writtenOn": "2017-11-09T14:27:23Z",
       "side": 1,
       "message": "Add a comment like this here:\n\n  // Allocate some data to try to trigger garbage collection\n  // and have the String class move in memory (if applicable).\n\n?",
+      "revId": "da283050a1a3ddbb7cefae3f36e8c8c1a6acedb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "641929eb_99923426",
+        "filename": "test/669-moveable-string-class-equals/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-09T17:15:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4384a1b4_f6c1811f",
       "revId": "da283050a1a3ddbb7cefae3f36e8c8c1a6acedb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
