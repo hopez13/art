@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4d6a5fa8_cd280a87",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T17:17:46Z",
+      "side": 1,
+      "message": "Ok, got it, it returns 32-bit -1 (mov w0, 0xffffffff). As well as the following examples with regular aput/aget (so it is not only fill-array-data opcode now):\n\n.method public static booleanArraySet([Z)Z\n   .registers 3\n   const/4 v0, 0x1\n   const/4 v1, -1\n   aput-boolean v1, v2, v0\n   aget-boolean v1, v2, v0\n   return v1\n.end method\n\n.method public static charArraySet([C)C\n   .registers 3\n   const/4 v0, 0x1\n   const/4 v1, -1\n   aput-char v1, v2, v0\n   aget-char v1, v2, v0\n   return v1\n.end method\n\n\nThe most sane thing to do in this flawed situation I guess would be to properly type convert the constant to uint16 for char and uint8 for boolean for all ArraySets (if it is required).\n\nP.S. We still will have the situation when some parts of the compiler rely on boolean\u0027s being either 0 or 1.",
+      "parentUuid": "a2cdf144_473ff4c3",
+      "range": {
+        "startLine": 1671,
+        "startChar": 0,
+        "endLine": 1676,
+        "endChar": 45
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cffcbfdd_435db523",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 3
