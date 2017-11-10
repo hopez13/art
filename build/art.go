@@ -213,7 +213,7 @@ func debugDefaults(ctx android.LoadHookContext) {
 func customLinker(ctx android.LoadHookContext) {
 	linker := envDefault(ctx, "CUSTOM_TARGET_LINKER", "")
 	type props struct {
-		DynamicLinker string
+		DynamicLinker string `blueprint:"mutated"`
 	}
 
 	p := &props{}
