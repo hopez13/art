@@ -33,9 +33,11 @@
 #include "base/stl_util.h"
 #include "dex_file-inl.h"
 #include "leb128.h"
+#include "oat_file.h"
 #include "standard_dex_file.h"
 #include "utf-inl.h"
 #include "utils.h"
+#include "vdex_file.h"
 
 namespace art {
 
