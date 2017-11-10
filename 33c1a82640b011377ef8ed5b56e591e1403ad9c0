@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "0db17b60_bf22f46f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T18:06:23Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure that at least simplifier and vectorizer rely on booleans being 0 or 1.",
+      "parentUuid": "4d6a5fa8_cd280a87",
+      "range": {
+        "startLine": 1671,
+        "startChar": 0,
+        "endLine": 1676,
+        "endChar": 45
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cffcbfdd_435db523",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 3

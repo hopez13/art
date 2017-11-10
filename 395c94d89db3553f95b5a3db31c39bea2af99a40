@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2362f407_217a198b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T18:06:23Z",
+      "side": 1,
+      "message": "Does LSE fail to check if the stored value has the correct type?\n\n  int foo(byte[] p0, int p1) {\n    const/4 v1, #0\n    // Does the verifier reject the following aput-byte\n    // whithout int-to-byte on p1?\n    aput-byte p1, p0, v1\n    aget-byte v0, p0, v1  // If eliminated, we need TypeConversion\u003cInt8\u003e(p1).\n    return v0\n  }",
+      "revId": "395c94d89db3553f95b5a3db31c39bea2af99a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c57e8b73_7f7220ec",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T18:06:23Z",
+      "side": 1,
+      "message": "Should the test be written in smali?",
+      "range": {
+        "startLine": 966,
+        "startChar": 7,
+        "endLine": 966,
+        "endChar": 68
+      },
+      "revId": "395c94d89db3553f95b5a3db31c39bea2af99a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
