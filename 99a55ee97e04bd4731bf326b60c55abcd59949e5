@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "996c109c_ff80917d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-11-10T16:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e48756a9_e557a5bf",
+      "range": {
+        "startLine": 1269,
+        "startChar": 11,
+        "endLine": 1269,
+        "endChar": 16
+      },
+      "revId": "99a55ee97e04bd4731bf326b60c55abcd59949e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b777567a_fb1af008",
         "filename": "runtime/method_handles.cc",
         "patchSetId": 1
@@ -82,6 +106,30 @@
       "writtenOn": "2017-11-10T16:35:10Z",
       "side": 1,
       "message": "I think putting comments over these resets could be good. They seem easy to forget.",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 20
+      },
+      "revId": "99a55ee97e04bd4731bf326b60c55abcd59949e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "491b8d75_adc1f86e",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-11-10T16:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b777567a_fb1af008",
       "range": {
         "startLine": 307,
         "startChar": 0,
