@@ -320,7 +320,9 @@ class DexFile {
     uint16_t tries_size_;                // the number of try_items for this instance. If non-zero,
                                          //   then these appear as the tries array just after the
                                          //   insns in this instance.
-    uint32_t debug_info_off_;            // file offset to debug info stream
+    uint32_t debug_info_off_;            // file offset to debug info stream.
+                                         //   Not to be used directly, see
+                                         //   DexFile::GetDebugInfoOffset.
     uint32_t insns_size_in_code_units_;  // size of the insns array, in 2 byte code units
     uint16_t insns_[1];                  // actual array of bytecode.
 
@@ -766,12 +768,15 @@ class DexFile {
   // Find the handler offset associated with the given address (ie dex pc). Returns -1 if none.
   static int32_t FindCatchHandlerOffset(const CodeItem &code_item, uint32_t address);
 
+  // The maximum debug info offset we support due to quickening.
+  static constexpr uint32_t kMaxDebugInfoOffsetForQuickening = 0x80000000;
+
+  uint32_t GetDebugInfoOffset(const CodeItem* code_item) const;
+
   // Get the pointer to the start of the debugging data
   const uint8_t* GetDebugInfoStream(const CodeItem* code_item) const {
+    const uint32_t debug_info_off = GetDebugInfoOffset(code_item);
     // Check that the offset is in bounds.
-    // Note that although the specification says that 0 should be used if there
-    // is no debug information, some applications incorrectly use 0xFFFFFFFF.
-    const uint32_t debug_info_off = code_item->debug_info_off_;
     return (debug_info_off == 0 || debug_info_off >= size_) ? nullptr : begin_ + debug_info_off;
   }
 
