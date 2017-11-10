@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "884b4008_efcb52a6",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-10T00:03:11Z",
+      "side": 1,
+      "message": "nit: CompactDexFile ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 66,
+        "endLine": 32,
+        "endChar": 76
+      },
+      "revId": "edfbbe58b63c95aa6e02cb3491db3376cd91f318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30373c00_65a8ec3d",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-10T00:03:11Z",
+      "side": 1,
+      "message": "nit: CodeItemInstructionAccessor \n\ndelete the plural",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "edfbbe58b63c95aa6e02cb3491db3376cd91f318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cfaa656_da29a55c",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-10T00:03:11Z",
+      "side": 1,
+      "message": "why not just expose begin/end here directly? Is anything else besides instructions iterable?",
+      "revId": "edfbbe58b63c95aa6e02cb3491db3376cd91f318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05b25d20_a9d0abba",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-10T00:03:11Z",
+      "side": 1,
+      "message": "nit: delete newlines if there aren\u0027t any comments",
+      "revId": "edfbbe58b63c95aa6e02cb3491db3376cd91f318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "084e408c_27c7c033",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-10T00:03:11Z",
+      "side": 1,
+      "message": "nit: CompactDexFile ?",
+      "range": {
+        "startLine": 76,
+        "startChar": 68,
+        "endLine": 76,
+        "endChar": 78
+      },
+      "revId": "edfbbe58b63c95aa6e02cb3491db3376cd91f318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4100aa82_aa21a72d",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-10T00:03:11Z",
+      "side": 1,
+      "message": "nit: delete newlines if there aren\u0027t any comments",
+      "revId": "edfbbe58b63c95aa6e02cb3491db3376cd91f318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
