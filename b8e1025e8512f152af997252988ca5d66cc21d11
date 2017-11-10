@@ -46,6 +46,30 @@
       "revId": "b8e1025e8512f152af997252988ca5d66cc21d11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcd0d066_959d79ef",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T15:39:02Z",
+      "side": 1,
+      "message": "Change the name. Maybe something with \"cutoff\"?\n\nThe alternative would be to use the dex file size for these calculations and rewrite all the offset assertions.",
+      "parentUuid": "8bb37484_e58d8fa2",
+      "range": {
+        "startLine": 771,
+        "startChar": 28,
+        "endLine": 771,
+        "endChar": 60
+      },
+      "revId": "b8e1025e8512f152af997252988ca5d66cc21d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

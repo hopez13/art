@@ -128,6 +128,30 @@
       "revId": "b49aa2d656e0445d59a2db7ae54523d700b6f431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0b025b7_7ef8d667",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T15:39:02Z",
+      "side": 1,
+      "message": "Reference is essentially an unnecessary indirection and it inhibits optimization opportunities (cannot assume the referenced object is constant across function calls). Given that ArrayRef\u003c\u003e can be passed in 2 registers (arm/arm64, probably also x86-64), there is no reason to pass by reference.",
+      "parentUuid": "83b79883_8242e7c0",
+      "range": {
+        "startLine": 157,
+        "startChar": 31,
+        "endLine": 157,
+        "endChar": 61
+      },
+      "revId": "b49aa2d656e0445d59a2db7ae54523d700b6f431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
