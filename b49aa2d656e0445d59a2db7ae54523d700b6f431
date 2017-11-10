@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41ed3adf_587d17bb",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T15:17:43Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "b49aa2d656e0445d59a2db7ae54523d700b6f431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5cc0ca6_9cab1153",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T15:17:43Z",
+      "side": 1,
+      "message": "The sizeof(uint32_t) would be sufficient for GetDebugInfoOffsetInternal, here we need 2*sizeof(uint32_t). And to avoid arithmetic underflow, it should be moved to LHS.",
+      "range": {
+        "startLine": 211,
+        "startChar": 2,
+        "endLine": 211,
+        "endChar": 73
+      },
+      "revId": "b49aa2d656e0445d59a2db7ae54523d700b6f431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e6827cb_6ccb4876",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T15:17:43Z",
+      "side": 1,
+      "message": "I prefer passing ArrayRef\u003c\u003e by value.",
+      "range": {
+        "startLine": 157,
+        "startChar": 31,
+        "endLine": 157,
+        "endChar": 61
+      },
+      "revId": "b49aa2d656e0445d59a2db7ae54523d700b6f431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
