@@ -548,4 +548,50 @@ std::ostream& operator<<(std::ostream& os, const Instruction::Code& code) {
   return os << Instruction::Name(code);
 }
 
+uint32_t RangeOperandIterator::GetOperand() const {
+  DCHECK_LT(used_operands, num_operands);
+  return first_operand + used_operands;
+}
+
+bool RangeOperandIterator::HasNext() const {
+  return used_operands < num_operands;
+}
+
+void RangeOperandIterator::Next() {
+  DCHECK_LT(used_operands, num_operands);
+  used_operands += 1;
+}
+
+void RangeOperandIterator::NextWide() {
+  DCHECK_LT(used_operands, num_operands - 1);
+  used_operands += 2;
+}
+
+void RangeOperandIterator::Reset() {
+  used_operands = 0;
+}
+
+uint32_t VarArgsOperandIterator::GetOperand() const {
+  DCHECK_LT(used_operands, num_operands);
+  return operands[used_operands];
+}
+
+bool VarArgsOperandIterator::HasNext() const {
+  return used_operands < num_operands;
+}
+
+void VarArgsOperandIterator::Next() {
+  DCHECK_LT(used_operands, num_operands);
+  used_operands += 1;
+}
+
+void VarArgsOperandIterator::NextWide() {
+  DCHECK_LT(used_operands, num_operands - 1);
+  used_operands += 2;
+}
+
+void VarArgsOperandIterator::Reset() {
+  used_operands = 0;
+}
+
 }  // namespace art
