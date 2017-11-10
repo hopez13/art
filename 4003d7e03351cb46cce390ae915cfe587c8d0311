@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f9b3d5d_04cadb1f",
+        "filename": "openjdkjvmti/art_jvmti.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-10T22:19:15Z",
+      "side": 1,
+      "message": "Considering you use the same event enum, I\u0027d prefer to have ArtJvmtiEventCallbacks that extends jvmtiEventCallbacks. That would allow to move all your events.h special-casing/functions to be in ti_extension only, I think.",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 60
+      },
+      "revId": "4003d7e03351cb46cce390ae915cfe587c8d0311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
