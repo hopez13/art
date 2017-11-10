@@ -22,6 +22,30 @@
       "revId": "9fb5910e3386f4c8ef7830c73631baccb6fec294",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5027527e_dafa0364",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-10T17:58:03Z",
+      "side": 1,
+      "message": "Sure, can do.\n\nOverall, these things only worked because the target build already contains all the debug versions from other deps.",
+      "parentUuid": "9f9709b0_a922474a",
+      "range": {
+        "startLine": 256,
+        "startChar": 48,
+        "endLine": 256,
+        "endChar": 56
+      },
+      "revId": "9fb5910e3386f4c8ef7830c73631baccb6fec294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
