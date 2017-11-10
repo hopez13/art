@@ -87,6 +87,24 @@
       "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f30f6f0e_7a1237ec",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-10T11:36:10Z",
+      "side": 1,
+      "message": "Semantically, I think this would look fine though. What issues do you foresee?",
+      "parentUuid": "4355e059_c9352962",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
