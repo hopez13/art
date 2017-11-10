@@ -126,50 +126,35 @@ bool PerformConversions(Thread* self,
                         int32_t num_conversions) REQUIRES_SHARED(Locks::mutator_lock_);
 
 // A convenience class that allows for iteration through a list of
-// input argument registers |arg| for non-range invokes or a list of
-// consecutive registers starting with a given based for range
-// invokes.
-//
-// This is used to iterate over input arguments while performing standard
-// argument conversions.
-template <bool is_range>
+// input argument registers. This is used to iterate over input
+// arguments while performing standard argument conversions.
 class ShadowFrameGetter {
  public:
-  ShadowFrameGetter(size_t first_src_reg,
-                    const uint32_t (&arg)[Instruction::kMaxVarArgRegs],
-                    const ShadowFrame& shadow_frame) :
-      first_src_reg_(first_src_reg),
-      arg_(arg),
-      shadow_frame_(shadow_frame),
-      arg_index_(0) {
-  }
+  ShadowFrameGetter(const InstructionOperands* const operands, const ShadowFrame& shadow_frame)
+      : operands_(operands), index_(0), shadow_frame_(shadow_frame) {}
 
   ALWAYS_INLINE uint32_t Get() REQUIRES_SHARED(Locks::mutator_lock_) {
-    const uint32_t next = (is_range ? first_src_reg_ + arg_index_ : arg_[arg_index_]);
-    ++arg_index_;
-
+    const uint32_t next = operands_->GetOperand(index_);
+    index_ += 1;
     return shadow_frame_.GetVReg(next);
   }
 
   ALWAYS_INLINE int64_t GetLong() REQUIRES_SHARED(Locks::mutator_lock_) {
-    const uint32_t next = (is_range ? first_src_reg_ + arg_index_ : arg_[arg_index_]);
-    arg_index_ += 2;
-
+    const uint32_t next = operands_->GetOperand(index_);
+    index_ += 2;
     return shadow_frame_.GetVRegLong(next);
   }
 
   ALWAYS_INLINE ObjPtr<mirror::Object> GetReference() REQUIRES_SHARED(Locks::mutator_lock_) {
-    const uint32_t next = (is_range ? first_src_reg_ + arg_index_ : arg_[arg_index_]);
-    ++arg_index_;
-
+    const uint32_t next = operands_->GetOperand(index_);
+    index_ += 1;
     return shadow_frame_.GetVRegReference(next);
   }
 
  private:
-  const size_t first_src_reg_;
-  const uint32_t (&arg_)[Instruction::kMaxVarArgRegs];
+  const InstructionOperands* const operands_;
+  size_t index_;
   const ShadowFrame& shadow_frame_;
-  size_t arg_index_;
 };
 
 // A convenience class that allows values to be written to a given shadow frame,
@@ -201,23 +186,19 @@ class ShadowFrameSetter {
   size_t arg_index_;
 };
 
-template <bool is_range>
 bool MethodHandleInvoke(Thread* self,
                         ShadowFrame& shadow_frame,
                         Handle<mirror::MethodHandle> method_handle,
                         Handle<mirror::MethodType> callsite_type,
-                        const uint32_t (&args)[Instruction::kMaxVarArgRegs],
-                        uint32_t first_arg,
+                        const InstructionOperands* const args,
                         JValue* result)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
-template <bool is_range>
 bool MethodHandleInvokeExact(Thread* self,
                              ShadowFrame& shadow_frame,
                              Handle<mirror::MethodHandle> method_handle,
                              Handle<mirror::MethodType> callsite_type,
-                             const uint32_t (&args)[Instruction::kMaxVarArgRegs],
-                             uint32_t first_arg,
+                             const InstructionOperands* const args,
                              JValue* result)
     REQUIRES_SHARED(Locks::mutator_lock_);
 

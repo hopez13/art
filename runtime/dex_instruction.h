@@ -689,6 +689,46 @@ std::ostream& operator<<(std::ostream& os, const Instruction::Format& format);
 std::ostream& operator<<(std::ostream& os, const Instruction::Flags& flags);
 std::ostream& operator<<(std::ostream& os, const Instruction::VerifyFlag& vflags);
 
+class InstructionOperands {
+ public:
+  explicit InstructionOperands(size_t num_operands) : num_operands(num_operands) {}
+  virtual ~InstructionOperands() {}
+  virtual uint32_t GetOperand(size_t index) const = 0;
+  size_t GetNumberOfOperands() const { return num_operands; }
+
+ private:
+  size_t num_operands;
+
+  DISALLOW_IMPLICIT_CONSTRUCTORS(InstructionOperands);
+};
+
+class RangeInstructionOperands FINAL : public InstructionOperands {
+ public:
+  RangeInstructionOperands(uint32_t first_operand, size_t num_operands)
+      : InstructionOperands(num_operands), first_operand(first_operand) {}
+  ~RangeInstructionOperands() {}
+  virtual uint32_t GetOperand(size_t index) const;
+
+ private:
+  const uint32_t first_operand;
+
+  DISALLOW_IMPLICIT_CONSTRUCTORS(RangeInstructionOperands);
+};
+
+class VarArgsInstructionOperands FINAL : public InstructionOperands {
+ public:
+  VarArgsInstructionOperands(const uint32_t (&operands)[Instruction::kMaxVarArgRegs],
+                             size_t num_operands)
+      : InstructionOperands(num_operands), operands(operands) {}
+  ~VarArgsInstructionOperands() {}
+  virtual uint32_t GetOperand(size_t index) const;
+
+ private:
+  const uint32_t (&operands)[Instruction::kMaxVarArgRegs];
+
+  DISALLOW_IMPLICIT_CONSTRUCTORS(VarArgsInstructionOperands);
+};
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_DEX_INSTRUCTION_H_
