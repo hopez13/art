@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d21c8661_d458983a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T15:50:11Z",
+      "side": 1,
+      "message": "The situation for boolean is a little bit different.\n1. You can\u0027t compose a similar java source test as integer type can\u0027t be converted to boolean.\n2. boolean type\u0027s value range in the compiler is {0, 1} and it makes assumptions based on that however in dex bytecode doesn\u0027t strictly specify it. That\u0027s why the following example seems to be valid code (fill-array-data with values other than 0 and 1):\n\n.method public static booleanArrayNegLSE([Z)Z\n   .registers 2\n\n   fill-array-data v1, :ArrayData\n   const/4 v0, 0x1\n   aget-boolean v0, v1, v0\n   return v0\n\n:ArrayData\n    .array-data 1\n        0 -1 24\n    .end array-data\n\n.end method\n\n3. The similar case was discussed in https://android-review.googlesource.com/#/c/platform/art/+/306986/ ; the following example now is a valid bytecode and processed by the compiler well.\n\n.method public static booleanArraySet([Z)V\n   .registers 3\n\n   const/4 v0, 0x1\n   const/4 v1, 0x5\n   aput-boolean v1, v2, v0\n   return-void\n\n.end method\n\nIt seems terribly wrong however there was a point that some apps may rely on that. So what should we do here?",
+      "parentUuid": "6608d263_aeb21b79",
+      "range": {
+        "startLine": 1671,
+        "startChar": 0,
+        "endLine": 1676,
+        "endChar": 45
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cffcbfdd_435db523",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-10T09:08:02Z",
       "side": 1,
       "message": "This makes me think: as we are implementing optimizations that are more and more dependent on exact type checking, should we consider the introduction of other integer constant node types (e.g. CharConstant) in the HIR?",
+      "range": {
+        "startLine": 210,
+        "startChar": 46,
+        "endLine": 210,
+        "endChar": 72
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06e74b42_d57c978f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T15:50:11Z",
+      "side": 1,
+      "message": "Before it used to be a problem that the compiler lost information about boolean type due to \"typeless\" constants and phis and was not able to apply Select and BooleanNot optimizations.",
+      "parentUuid": "cffcbfdd_435db523",
       "range": {
         "startLine": 210,
         "startChar": 46,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bac52b90_c2f2a52e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T15:50:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89dd06fc_82cd4d2f",
+      "range": {
+        "startLine": 932,
+        "startChar": 29,
+        "endLine": 932,
+        "endChar": 34
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "742929b4_d8a1b4e3",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 3
@@ -82,6 +154,24 @@
       "writtenOn": "2017-11-10T09:08:02Z",
       "side": 1,
       "message": "Also check the ArraySet\u0027s component type after the ReferenceTypePropagation pass?",
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9650a651_9932344f",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T15:50:11Z",
+      "side": 1,
+      "message": "What do you mean? This info isn\u0027t dumped by GraphVisualizer.",
+      "parentUuid": "742929b4_d8a1b4e3",
       "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -125,6 +215,54 @@
       "range": {
         "startLine": 948,
         "startChar": 0,
+        "endLine": 951,
+        "endChar": 103
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e9d9b0_02fc1fd7",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T15:50:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62dfcf18_aa78fc2a",
+      "range": {
+        "startLine": 948,
+        "startChar": 0,
+        "endLine": 951,
+        "endChar": 103
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389e65a0_ac5443a3",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T15:50:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8975661_244c3de2",
+      "range": {
+        "startLine": 951,
+        "startChar": 10,
         "endLine": 951,
         "endChar": 103
       },
