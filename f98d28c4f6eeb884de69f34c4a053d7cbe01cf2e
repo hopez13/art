@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48212645_b7543cb2",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-10T21:56:13Z",
+      "side": 1,
+      "message": "Can you move this functionality somewhere else? I think there is a goal to not have dex file depend on ART specific functionality.",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 0
+      },
+      "revId": "f98d28c4f6eeb884de69f34c4a053d7cbe01cf2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c963cd0b_494dccdf",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-10T21:56:13Z",
+      "side": 1,
+      "message": "Make this private if it\u0027s not supposed to be accessed, and make DexFile a friend class?",
+      "range": {
+        "startLine": 323,
+        "startChar": 13,
+        "endLine": 323,
+        "endChar": 28
+      },
+      "revId": "f98d28c4f6eeb884de69f34c4a053d7cbe01cf2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
