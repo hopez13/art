@@ -33,9 +33,11 @@
 #include "base/stl_util.h"
 #include "dex_file-inl.h"
 #include "leb128.h"
+#include "oat_file.h"
 #include "standard_dex_file.h"
 #include "utf-inl.h"
 #include "utils.h"
+#include "vdex_file.h"
 
 namespace art {
 
@@ -880,6 +882,21 @@ void CatchHandlerIterator::Next() {
 
   // no more handler
   remaining_count_ = -1;
+}
+
+uint32_t DexFile::GetDebugInfoOffset(const CodeItem* code_item) const {
+  const uint32_t debug_info_off = code_item->debug_info_off_;
+  // Note that although the specification says that 0 should be used if there
+  // is no debug information, some applications incorrectly use 0xFFFFFFFF.
+  if (debug_info_off < kMaxDebugInfoOffsetForQuickening || debug_info_off == 0xFFFFFFFF) {
+    return debug_info_off;
+  }
+  const OatFile::OatDexFile* oat_dex_file = GetOatDexFile();
+  if (oat_dex_file == nullptr || (oat_dex_file->GetOatFile() == nullptr)) {
+    return debug_info_off;
+  }
+  return oat_dex_file->GetOatFile()->GetVdexFile()->GetDebugInfoOffset(
+      debug_info_off);
 }
 
 namespace dex {
