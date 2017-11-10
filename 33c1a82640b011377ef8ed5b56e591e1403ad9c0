@@ -22,6 +22,115 @@
       "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cffcbfdd_435db523",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-10T09:08:02Z",
+      "side": 1,
+      "message": "This makes me think: as we are implementing optimizations that are more and more dependent on exact type checking, should we consider the introduction of other integer constant node types (e.g. CharConstant) in the HIR?",
+      "range": {
+        "startLine": 210,
+        "startChar": 46,
+        "endLine": 210,
+        "endChar": 72
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89dd06fc_82cd4d2f",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-10T09:08:02Z",
+      "side": 1,
+      "message": "I think you should drop the $opt$ prefix, as the Optimizing compiler has been the only compiler in ART since Android 7.0 Nougat. :-)",
+      "range": {
+        "startLine": 932,
+        "startChar": 29,
+        "endLine": 932,
+        "endChar": 34
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "742929b4_d8a1b4e3",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-10T09:08:02Z",
+      "side": 1,
+      "message": "Also check the ArraySet\u0027s component type after the ReferenceTypePropagation pass?",
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8975661_244c3de2",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-10T09:08:02Z",
+      "side": 1,
+      "message": "What about:\n\n  LoadStoreElimination used to replace uses of a[0] with negative IntConstant which is be incorrect.\n\n+ documenting/describing the correct behavior (that you implemented in this CL)?",
+      "range": {
+        "startLine": 951,
+        "startChar": 10,
+        "endLine": 951,
+        "endChar": 103
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62dfcf18_aa78fc2a",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-10T09:08:02Z",
+      "side": 1,
+      "message": "Nit: long lines.",
+      "range": {
+        "startLine": 948,
+        "startChar": 0,
+        "endLine": 951,
+        "endChar": 103
+      },
+      "revId": "33c1a82640b011377ef8ed5b56e591e1403ad9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
