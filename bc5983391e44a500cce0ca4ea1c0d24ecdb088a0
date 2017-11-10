@@ -105,6 +105,24 @@
       "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33361b41_b398374d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T15:14:27Z",
+      "side": 1,
+      "message": "In PrepareForRegisterAllocation there is a DCHECK that will fire if we enable loop unrolling for loops with ClinitCheck:\n\n  // In debug mode, check that we have not inserted a throwing instruction\n  // or an instruction with side effects between input and user.\n  if (kIsDebugBuild) {\n    for (HInstruction* between \u003d input-\u003eGetNext(); between !\u003d user; between \u003d between-\u003eGetNext()) {\n      CHECK(between !\u003d nullptr);  // User must be after input in the same block.\n      CHECK(!between-\u003eCanThrow());  // THIS ONE FAILS\n      CHECK(!between-\u003eHasSideEffects());\n    }\n  }\n\nwhere between is an original HInvoke.",
+      "parentUuid": "f30f6f0e_7a1237ec",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
