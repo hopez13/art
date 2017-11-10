@@ -689,6 +689,54 @@ std::ostream& operator<<(std::ostream& os, const Instruction::Format& format);
 std::ostream& operator<<(std::ostream& os, const Instruction::Flags& flags);
 std::ostream& operator<<(std::ostream& os, const Instruction::VerifyFlag& vflags);
 
+class OperandIterator {
+ public:
+  virtual uint32_t GetOperand() const = 0;
+  virtual bool HasNext() const = 0;
+  virtual void Next() = 0;
+  virtual void NextWide() = 0;
+  virtual void Reset() = 0;
+};
+
+class RangeOperandIterator FINAL : public OperandIterator {
+ public:
+  RangeOperandIterator(uint32_t first_operand, size_t num_operands)
+      : first_operand(first_operand), num_operands(num_operands), used_operands(0) {}
+  uint32_t GetOperand() const;
+  bool HasNext() const;
+  void Next();
+  void NextWide();
+  void Reset();
+
+ private:
+  const uint32_t first_operand;
+  const size_t num_operands;
+  size_t used_operands;
+
+  RangeOperandIterator() = delete;
+  DISALLOW_COPY_AND_ASSIGN(RangeOperandIterator);
+};
+
+class VarArgsOperandIterator FINAL : public OperandIterator {
+ public:
+  VarArgsOperandIterator(const uint32_t (&operands)[Instruction::kMaxVarArgRegs],
+                         size_t num_operands)
+      : operands(operands), num_operands(num_operands), used_operands(0) {}
+  uint32_t GetOperand() const;
+  bool HasNext() const;
+  void Next();
+  void NextWide();
+  void Reset();
+
+ private:
+  const uint32_t (&operands)[Instruction::kMaxVarArgRegs];
+  const size_t num_operands;
+  size_t used_operands;
+
+  VarArgsOperandIterator() = delete;
+  DISALLOW_COPY_AND_ASSIGN(VarArgsOperandIterator);
+};
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_DEX_INSTRUCTION_H_
