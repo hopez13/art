@@ -311,6 +311,11 @@ class DexFile {
       return *Instruction::At(insns_ + dex_pc);
     }
 
+    // Used when quickening / unquickening.
+    void SetDebugInfoOffset(uint32_t new_offset) {
+      debug_info_off_ = new_offset;
+    }
+
     uint16_t registers_size_;            // the number of registers used by this code
                                          //   (locals + parameters)
     uint16_t ins_size_;                  // the number of words of incoming arguments to the method
@@ -320,7 +325,12 @@ class DexFile {
     uint16_t tries_size_;                // the number of try_items for this instance. If non-zero,
                                          //   then these appear as the tries array just after the
                                          //   insns in this instance.
-    uint32_t debug_info_off_;            // file offset to debug info stream
+    // Normally holds file offset to debug info stream. In case the method has been quickened
+    // holds an offset in the Vdex file containing both the actual debug_info_off and the
+    // quickening info offset.
+    // Don't use this field direclty, use DexFile::GetDebugInfoOffset instead.
+    uint32_t debug_info_off_;
+
     uint32_t insns_size_in_code_units_;  // size of the insns array, in 2 byte code units
     uint16_t insns_[1];                  // actual array of bytecode.
 
@@ -766,12 +776,12 @@ class DexFile {
   // Find the handler offset associated with the given address (ie dex pc). Returns -1 if none.
   static int32_t FindCatchHandlerOffset(const CodeItem &code_item, uint32_t address);
 
+  uint32_t GetDebugInfoOffset(const CodeItem* code_item) const;
+
   // Get the pointer to the start of the debugging data
   const uint8_t* GetDebugInfoStream(const CodeItem* code_item) const {
+    const uint32_t debug_info_off = GetDebugInfoOffset(code_item);
     // Check that the offset is in bounds.
-    // Note that although the specification says that 0 should be used if there
-    // is no debug information, some applications incorrectly use 0xFFFFFFFF.
-    const uint32_t debug_info_off = code_item->debug_info_off_;
     return (debug_info_off == 0 || debug_info_off >= size_) ? nullptr : begin_ + debug_info_off;
   }
 

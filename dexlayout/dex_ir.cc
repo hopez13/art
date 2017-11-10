@@ -566,13 +566,14 @@ CodeItem* Collections::CreateCodeItem(const DexFile& dex_file,
   const uint8_t* debug_info_stream = dex_file.GetDebugInfoStream(&disk_code_item);
   DebugInfoItem* debug_info = nullptr;
   if (debug_info_stream != nullptr) {
-    debug_info = debug_info_items_.GetExistingObject(disk_code_item.debug_info_off_);
+    uint32_t debug_info_off = dex_file.GetDebugInfoOffset(&disk_code_item);
+    debug_info = debug_info_items_.GetExistingObject(debug_info_off);
     if (debug_info == nullptr) {
       uint32_t debug_info_size = GetDebugInfoStreamSize(debug_info_stream);
       uint8_t* debug_info_buffer = new uint8_t[debug_info_size];
       memcpy(debug_info_buffer, debug_info_stream, debug_info_size);
       debug_info = new DebugInfoItem(debug_info_size, debug_info_buffer);
-      debug_info_items_.AddItem(debug_info, disk_code_item.debug_info_off_);
+      debug_info_items_.AddItem(debug_info, debug_info_off);
     }
   }
 
