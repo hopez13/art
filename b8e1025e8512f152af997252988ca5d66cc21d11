@@ -70,6 +70,30 @@
       "revId": "b8e1025e8512f152af997252988ca5d66cc21d11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8680390f_7b78cfdd",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-10T15:43:19Z",
+      "side": 1,
+      "message": "What do you think about only quickening if dex file size \u003c 2GB?",
+      "parentUuid": "fcd0d066_959d79ef",
+      "range": {
+        "startLine": 771,
+        "startChar": 28,
+        "endLine": 771,
+        "endChar": 60
+      },
+      "revId": "b8e1025e8512f152af997252988ca5d66cc21d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
