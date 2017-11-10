@@ -141,6 +141,24 @@
       "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf9d14de_f211b918",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-10T15:50:40Z",
+      "side": 1,
+      "message": "Yep; my intent was to process that in a separate CL and not to block Loop Unrolling.",
+      "parentUuid": "11d42311_157a2b10",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
