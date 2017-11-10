@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8cd8958c_cf3e0f24",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-11-10T22:06:32Z",
+      "side": 1,
+      "message": "Yes, please don\u0027t call OatFile, vdex, etc., methods from dex_file...",
+      "parentUuid": "48212645_b7543cb2",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 0
+      },
+      "revId": "f98d28c4f6eeb884de69f34c4a053d7cbe01cf2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c963cd0b_494dccdf",
         "filename": "runtime/dex_file.h",
         "patchSetId": 6
