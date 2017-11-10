@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2241b9e1_c662558d",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-10T13:09:21Z",
+      "side": 1,
+      "message": "See how this is checked against in oat_writer.cc.\n\nNote: we could still tolerate offsets that are larger than 2GB, but that will be interesting to test.",
+      "range": {
+        "startLine": 770,
+        "startChar": 2,
+        "endLine": 770,
+        "endChar": 64
+      },
+      "revId": "9c42110c8d95d7674656a13f5e2b3bc07930e41a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
