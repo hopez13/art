@@ -177,6 +177,24 @@
       "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01740fc_7adc03b8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-10T16:22:30Z",
+      "side": 1,
+      "message": "That function was not written to support multiple HInvokes generated from the same dex instruction. It would need more adjustments than fixing the DCHECK().\n\nYou\u0027d probably need to rewrite PrepareForRegisterAllocation::VisitClinitCheck().",
+      "parentUuid": "11d42311_157a2b10",
+      "revId": "bc5983391e44a500cce0ca4ea1c0d24ecdb088a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
