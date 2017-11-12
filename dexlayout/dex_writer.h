@@ -38,34 +38,41 @@ class DexWriter {
  protected:
   void WriteMemMap();
 
-  size_t Write(const void* buffer, size_t length, size_t offset);
-  size_t WriteSleb128(uint32_t value, size_t offset);
-  size_t WriteUleb128(uint32_t value, size_t offset);
-  size_t WriteEncodedValue(dex_ir::EncodedValue* encoded_value, size_t offset);
-  size_t WriteEncodedValueHeader(int8_t value_type, size_t value_arg, size_t offset);
-  size_t WriteEncodedArray(dex_ir::EncodedValueVector* values, size_t offset);
-  size_t WriteEncodedAnnotation(dex_ir::EncodedAnnotation* annotation, size_t offset);
-  size_t WriteEncodedFields(dex_ir::FieldItemVector* fields, size_t offset);
-  size_t WriteEncodedMethods(dex_ir::MethodItemVector* methods, size_t offset);
+  size_t Write(const void* buffer, size_t length, size_t offset) WARN_UNUSED;
+  size_t WriteSleb128(uint32_t value, size_t offset) WARN_UNUSED;
+  size_t WriteUleb128(uint32_t value, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedValue(dex_ir::EncodedValue* encoded_value, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedValueHeader(int8_t value_type, size_t value_arg, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedArray(dex_ir::EncodedValueVector* values, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedAnnotation(dex_ir::EncodedAnnotation* annotation, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedFields(dex_ir::FieldItemVector* fields, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedMethods(dex_ir::MethodItemVector* methods, size_t offset) WARN_UNUSED;
 
-  void WriteStrings();
-  void WriteTypes();
-  void WriteTypeLists();
-  void WriteProtos();
-  void WriteFields();
-  void WriteMethods();
-  void WriteEncodedArrays();
-  void WriteAnnotations();
-  void WriteAnnotationSets();
-  void WriteAnnotationSetRefs();
-  void WriteAnnotationsDirectories();
-  void WriteDebugInfoItems();
-  void WriteCodeItems();
-  void WriteClasses();
-  void WriteCallSites();
-  void WriteMethodHandles();
-  void WriteMapItem();
+  // Header and id section
   virtual void WriteHeader();
+  uint32_t WriteStringIds(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteTypeIds(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteProtoIds(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteFieldIds(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteMethodIds(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteClassDefs(uint32_t offset) WARN_UNUSED;
+
+  uint32_t WriteCallSiteIds(uint32_t offset) WARN_UNUSED;
+
+  uint32_t WriteEncodedArrays(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteAnnotations(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteAnnotationSets(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteAnnotationSetRefs(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteAnnotationsDirectories(uint32_t offset) WARN_UNUSED;
+
+  // Data section.
+  uint32_t WriteDebugInfoItems(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteCodeItems(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteTypeLists(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteStringDatas(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteClassDatas(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteMethodHandles(uint32_t offset) WARN_UNUSED;
+  uint32_t WriteMapItem(uint32_t offset) WARN_UNUSED;
 
   dex_ir::Header* const header_;
   MemMap* const mem_map_;

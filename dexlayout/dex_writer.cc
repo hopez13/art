@@ -29,6 +29,9 @@
 
 namespace art {
 
+static constexpr uint32_t kDataSectionAlignment = sizeof(uint32_t) * 2;
+static constexpr uint32_t kDexCodeItemAlignment = 4;
+
 size_t EncodeIntValue(int32_t value, uint8_t* buffer) {
   size_t length = 0;
   if (value >= 0) {
@@ -245,130 +248,142 @@ size_t DexWriter::WriteEncodedMethods(dex_ir::MethodItemVector* methods, size_t 
   return offset - original_offset;
 }
 
-void DexWriter::WriteStrings() {
+uint32_t DexWriter::WriteStringIds(uint32_t offset) {
   uint32_t string_data_off[1];
   for (std::unique_ptr<dex_ir::StringId>& string_id : header_->GetCollections().StringIds()) {
     string_data_off[0] = string_id->DataItem()->GetOffset();
-    Write(string_data_off, string_id->GetSize(), string_id->GetOffset());
+    offset += Write(string_data_off, string_id->GetSize(), string_id->GetOffset());
   }
-
-  for (auto& string_data_pair : header_->GetCollections().StringDatas()) {
-    std::unique_ptr<dex_ir::StringData>& string_data = string_data_pair.second;
-    uint32_t offset = string_data->GetOffset();
-    offset += WriteUleb128(CountModifiedUtf8Chars(string_data->Data()), offset);
-    Write(string_data->Data(), strlen(string_data->Data()), offset);
-  }
+  return offset;
 }
 
-void DexWriter::WriteTypes() {
+uint32_t DexWriter::WriteStringDatas(uint32_t offset) {
+  for (std::unique_ptr<dex_ir::StringData>& string_data : header_->GetCollections().StringDatas()) {
+    string_data->SetOffset(offset);
+    offset += WriteUleb128(CountModifiedUtf8Chars(string_data->Data()), offset);
+    offset += Write(string_data->Data(), strlen(string_data->Data()), offset);
+  }
+  return offset;
+}
+
+uint32_t DexWriter::WriteTypeIds(uint32_t offset) {
   uint32_t descriptor_idx[1];
+  uint32_t size = 0;
   for (std::unique_ptr<dex_ir::TypeId>& type_id : header_->GetCollections().TypeIds()) {
     descriptor_idx[0] = type_id->GetStringId()->GetIndex();
-    Write(descriptor_idx, type_id->GetSize(), type_id->GetOffset());
+    offset += Write(descriptor_idx, type_id->GetSize(), type_id->GetOffset());
   }
+  return size;
 }
 
-void DexWriter::WriteTypeLists() {
+uint32_t DexWriter::WriteTypeLists(uint32_t offset) {
   uint32_t size[1];
   uint16_t list[1];
-  for (auto& type_list_pair : header_->GetCollections().TypeLists()) {
-    std::unique_ptr<dex_ir::TypeList>& type_list = type_list_pair.second;
+  for (std::unique_ptr<dex_ir::TypeList>& type_list : header_->GetCollections().TypeLists()) {
     size[0] = type_list->GetTypeList()->size();
-    uint32_t offset = type_list->GetOffset();
+    type_list->SetOffset(offset);
     offset += Write(size, sizeof(uint32_t), offset);
     for (const dex_ir::TypeId* type_id : *type_list->GetTypeList()) {
       list[0] = type_id->GetIndex();
       offset += Write(list, sizeof(uint16_t), offset);
     }
   }
+  return offset;
 }
 
-void DexWriter::WriteProtos() {
+uint32_t DexWriter::WriteProtoIds(uint32_t offset) {
   uint32_t buffer[3];
   for (std::unique_ptr<dex_ir::ProtoId>& proto_id : header_->GetCollections().ProtoIds()) {
     buffer[0] = proto_id->Shorty()->GetIndex();
     buffer[1] = proto_id->ReturnType()->GetIndex();
     buffer[2] = proto_id->Parameters() == nullptr ? 0 : proto_id->Parameters()->GetOffset();
-    Write(buffer, proto_id->GetSize(), proto_id->GetOffset());
+    offset += Write(buffer, proto_id->GetSize(), proto_id->GetOffset());
   }
+  return offset;
 }
 
-void DexWriter::WriteFields() {
+uint32_t DexWriter::WriteFieldIds(uint32_t offset) {
   uint16_t buffer[4];
   for (std::unique_ptr<dex_ir::FieldId>& field_id : header_->GetCollections().FieldIds()) {
     buffer[0] = field_id->Class()->GetIndex();
     buffer[1] = field_id->Type()->GetIndex();
     buffer[2] = field_id->Name()->GetIndex();
     buffer[3] = field_id->Name()->GetIndex() >> 16;
-    Write(buffer, field_id->GetSize(), field_id->GetOffset());
+    offset += Write(buffer, field_id->GetSize(), field_id->GetOffset());
   }
+  return offset;
 }
 
-void DexWriter::WriteMethods() {
+uint32_t DexWriter::WriteMethodIds(uint32_t offset) {
   uint16_t buffer[4];
   for (std::unique_ptr<dex_ir::MethodId>& method_id : header_->GetCollections().MethodIds()) {
     buffer[0] = method_id->Class()->GetIndex();
     buffer[1] = method_id->Proto()->GetIndex();
     buffer[2] = method_id->Name()->GetIndex();
     buffer[3] = method_id->Name()->GetIndex() >> 16;
-    Write(buffer, method_id->GetSize(), method_id->GetOffset());
+    offset += Write(buffer, method_id->GetSize(), method_id->GetOffset());
   }
+  return offset;
 }
 
-void DexWriter::WriteEncodedArrays() {
-  for (auto& encoded_array_pair : header_->GetCollections().EncodedArrayItems()) {
-    std::unique_ptr<dex_ir::EncodedArrayItem>& encoded_array = encoded_array_pair.second;
-    WriteEncodedArray(encoded_array->GetEncodedValues(), encoded_array->GetOffset());
+uint32_t DexWriter::WriteEncodedArrays(uint32_t offset) {
+  for (std::unique_ptr<dex_ir::EncodedArrayItem>& encoded_array :
+      header_->GetCollections().EncodedArrayItems()) {
+    encoded_array->SetOffset(offset);
+    offset += WriteEncodedArray(encoded_array->GetEncodedValues(), offset);
   }
+  return offset;
 }
 
-void DexWriter::WriteAnnotations() {
+uint32_t DexWriter::WriteAnnotations(uint32_t offset) {
   uint8_t visibility[1];
-  for (auto& annotation_pair : header_->GetCollections().AnnotationItems()) {
-    std::unique_ptr<dex_ir::AnnotationItem>& annotation = annotation_pair.second;
+  for (std::unique_ptr<dex_ir::AnnotationItem>& annotation :
+      header_->GetCollections().AnnotationItems()) {
     visibility[0] = annotation->GetVisibility();
-    size_t offset = annotation->GetOffset();
+    annotation->SetOffset(offset);
     offset += Write(visibility, sizeof(uint8_t), offset);
-    WriteEncodedAnnotation(annotation->GetAnnotation(), offset);
+    offset += WriteEncodedAnnotation(annotation->GetAnnotation(), offset);
   }
+  return offset;
 }
 
-void DexWriter::WriteAnnotationSets() {
+uint32_t DexWriter::WriteAnnotationSets(uint32_t offset) {
   uint32_t size[1];
   uint32_t annotation_off[1];
-  for (auto& annotation_set_pair : header_->GetCollections().AnnotationSetItems()) {
-    std::unique_ptr<dex_ir::AnnotationSetItem>& annotation_set = annotation_set_pair.second;
+  for (std::unique_ptr<dex_ir::AnnotationSetItem>& annotation_set :
+      header_->GetCollections().AnnotationSetItems()) {
     size[0] = annotation_set->GetItems()->size();
-    size_t offset = annotation_set->GetOffset();
+    annotation_set->SetOffset(offset);;
     offset += Write(size, sizeof(uint32_t), offset);
     for (dex_ir::AnnotationItem* annotation : *annotation_set->GetItems()) {
       annotation_off[0] = annotation->GetOffset();
       offset += Write(annotation_off, sizeof(uint32_t), offset);
     }
   }
+  return offset;
 }
 
-void DexWriter::WriteAnnotationSetRefs() {
+uint32_t DexWriter::WriteAnnotationSetRefs(uint32_t offset) {
   uint32_t size[1];
   uint32_t annotations_off[1];
-  for (auto& anno_set_ref_pair : header_->GetCollections().AnnotationSetRefLists()) {
-    std::unique_ptr<dex_ir::AnnotationSetRefList>& annotation_set_ref = anno_set_ref_pair.second;
+  for (std::unique_ptr<dex_ir::AnnotationSetRefList>& annotation_set_ref :
+      header_->GetCollections().AnnotationSetRefLists()) {
     size[0] = annotation_set_ref->GetItems()->size();
-    size_t offset = annotation_set_ref->GetOffset();
+    annotation_set_ref->SetOffset(offset);
     offset += Write(size, sizeof(uint32_t), offset);
     for (dex_ir::AnnotationSetItem* annotation_set : *annotation_set_ref->GetItems()) {
       annotations_off[0] = annotation_set == nullptr ? 0 : annotation_set->GetOffset();
       offset += Write(annotations_off, sizeof(uint32_t), offset);
     }
   }
+  return offset;
 }
 
-void DexWriter::WriteAnnotationsDirectories() {
+uint32_t DexWriter::WriteAnnotationsDirectories(uint32_t offset) {
   uint32_t directory_buffer[4];
   uint32_t annotation_buffer[2];
-  for (auto& annotations_directory_pair : header_->GetCollections().AnnotationsDirectoryItems()) {
-    std::unique_ptr<dex_ir::AnnotationsDirectoryItem>& annotations_directory =
-        annotations_directory_pair.second;
+  for (std::unique_ptr<dex_ir::AnnotationsDirectoryItem>& annotations_directory :
+      header_->GetCollections().AnnotationsDirectoryItems()) {
     directory_buffer[0] = annotations_directory->GetClassAnnotation() == nullptr ? 0 :
         annotations_directory->GetClassAnnotation()->GetOffset();
     directory_buffer[1] = annotations_directory->GetFieldAnnotations() == nullptr ? 0 :
@@ -377,7 +392,7 @@ void DexWriter::WriteAnnotationsDirectories() {
         annotations_directory->GetMethodAnnotations()->size();
     directory_buffer[3] = annotations_directory->GetParameterAnnotations() == nullptr ? 0 :
         annotations_directory->GetParameterAnnotations()->size();
-    uint32_t offset = annotations_directory->GetOffset();
+    annotations_directory->SetOffset(offset);
     offset += Write(directory_buffer, 4 * sizeof(uint32_t), offset);
     if (annotations_directory->GetFieldAnnotations() != nullptr) {
       for (std::unique_ptr<dex_ir::FieldAnnotation>& field :
@@ -404,27 +419,30 @@ void DexWriter::WriteAnnotationsDirectories() {
       }
     }
   }
+  return offset;
 }
 
-void DexWriter::WriteDebugInfoItems() {
-  for (auto& debug_info_pair : header_->GetCollections().DebugInfoItems()) {
-    std::unique_ptr<dex_ir::DebugInfoItem>& debug_info = debug_info_pair.second;
-    Write(debug_info->GetDebugInfo(), debug_info->GetDebugInfoSize(), debug_info->GetOffset());
+uint32_t DexWriter::WriteDebugInfoItems(uint32_t offset) {
+  for (std::unique_ptr<dex_ir::DebugInfoItem>& debug_info :
+      header_->GetCollections().DebugInfoItems()) {
+    debug_info->SetOffset(offset);
+    offset += Write(debug_info->GetDebugInfo(), debug_info->GetDebugInfoSize(), offset);
   }
+  return offset;
 }
 
-void DexWriter::WriteCodeItems() {
+uint32_t DexWriter::WriteCodeItems(uint32_t offset) {
   uint16_t uint16_buffer[4];
   uint32_t uint32_buffer[2];
-  for (auto& code_item_pair : header_->GetCollections().CodeItems()) {
-    std::unique_ptr<dex_ir::CodeItem>& code_item = code_item_pair.second;
+  for (auto& code_item : header_->GetCollections().CodeItems()) {
     uint16_buffer[0] = code_item->RegistersSize();
     uint16_buffer[1] = code_item->InsSize();
     uint16_buffer[2] = code_item->OutsSize();
     uint16_buffer[3] = code_item->TriesSize();
     uint32_buffer[0] = code_item->DebugInfo() == nullptr ? 0 : code_item->DebugInfo()->GetOffset();
     uint32_buffer[1] = code_item->InsnsSize();
-    size_t offset = code_item->GetOffset();
+    offset = RoundUp(offset, kDexCodeItemAlignment);
+    code_item->SetOffset(offset);
     offset += Write(uint16_buffer, 4 * sizeof(uint16_t), offset);
     offset += Write(uint32_buffer, 2 * sizeof(uint32_t), offset);
     offset += Write(code_item->Insns(), code_item->InsnsSize() * sizeof(uint16_t), offset);
@@ -443,7 +461,7 @@ void DexWriter::WriteCodeItems() {
         offset += Write(insn_count_and_handler_off, 2 * sizeof(uint16_t), offset);
       }
       // Leave offset pointing to the end of the try items.
-      WriteUleb128(code_item->Handlers()->size(), offset);
+      UNUSED(WriteUleb128(code_item->Handlers()->size(), offset));
       for (std::unique_ptr<const dex_ir::CatchHandler>& handlers : *code_item->Handlers()) {
         size_t list_offset = offset + handlers->GetListOffset();
         uint32_t size = handlers->HasCatchAll() ? (handlers->GetHandlers()->size() - 1) * -1 :
@@ -457,10 +475,13 @@ void DexWriter::WriteCodeItems() {
         }
       }
     }
+    // TODO: Clean this up to properly calculate the size instead of assuming it doesn't change.
+    offset = code_item->GetOffset() + code_item->GetSize();
   }
+  return offset;
 }
 
-void DexWriter::WriteClasses() {
+uint32_t DexWriter::WriteClassDefs(uint32_t offset) {
   uint32_t class_def_buffer[8];
   for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
     class_def_buffer[0] = class_def->ClassType()->GetIndex();
@@ -476,13 +497,15 @@ void DexWriter::WriteClasses() {
         class_def->GetClassData()->GetOffset();
     class_def_buffer[7] = class_def->StaticValues() == nullptr ? 0 :
         class_def->StaticValues()->GetOffset();
-    size_t offset = class_def->GetOffset();
-    Write(class_def_buffer, class_def->GetSize(), offset);
+    offset += Write(class_def_buffer, class_def->GetSize(), offset);
   }
+  return offset;
+}
 
-  for (auto& class_data_pair : header_->GetCollections().ClassDatas()) {
-    std::unique_ptr<dex_ir::ClassData>& class_data = class_data_pair.second;
-    size_t offset = class_data->GetOffset();
+uint32_t DexWriter::WriteClassDatas(uint32_t offset) {
+  for (const std::unique_ptr<dex_ir::ClassData>& class_data :
+      header_->GetCollections().ClassDatas()) {
+    class_data->SetOffset(offset);
     offset += WriteUleb128(class_data->StaticFields()->size(), offset);
     offset += WriteUleb128(class_data->InstanceFields()->size(), offset);
     offset += WriteUleb128(class_data->DirectMethods()->size(), offset);
@@ -492,18 +515,20 @@ void DexWriter::WriteClasses() {
     offset += WriteEncodedMethods(class_data->DirectMethods(), offset);
     offset += WriteEncodedMethods(class_data->VirtualMethods(), offset);
   }
+  return offset;
 }
 
-void DexWriter::WriteCallSites() {
+uint32_t DexWriter::WriteCallSiteIds(uint32_t offset) {
   uint32_t call_site_off[1];
   for (std::unique_ptr<dex_ir::CallSiteId>& call_site_id :
       header_->GetCollections().CallSiteIds()) {
     call_site_off[0] = call_site_id->CallSiteItem()->GetOffset();
-    Write(call_site_off, call_site_id->GetSize(), call_site_id->GetOffset());
+    offset += Write(call_site_off, call_site_id->GetSize(), offset);
   }
+  return offset;
 }
 
-void DexWriter::WriteMethodHandles() {
+uint32_t DexWriter::WriteMethodHandles(uint32_t offset) {
   uint16_t method_handle_buff[4];
   for (std::unique_ptr<dex_ir::MethodHandleItem>& method_handle :
       header_->GetCollections().MethodHandleItems()) {
@@ -511,8 +536,9 @@ void DexWriter::WriteMethodHandles() {
     method_handle_buff[1] = 0;  // unused.
     method_handle_buff[2] = method_handle->GetFieldOrMethodId()->GetIndex();
     method_handle_buff[3] = 0;  // unused.
-    Write(method_handle_buff, method_handle->GetSize(), method_handle->GetOffset());
+    offset += Write(method_handle_buff, method_handle->GetSize(), offset);
   }
+  return offset;
 }
 
 struct MapItemContainer {
@@ -528,7 +554,7 @@ struct MapItemContainer {
   uint32_t offset_;
 };
 
-void DexWriter::WriteMapItem() {
+uint32_t DexWriter::WriteMapItem(uint32_t offset) {
   dex_ir::Collections& collection = header_->GetCollections();
   std::priority_queue<MapItemContainer> queue;
 
@@ -610,7 +636,7 @@ void DexWriter::WriteMapItem() {
         collection.AnnotationsDirectoryItemsSize(), collection.AnnotationsDirectoryItemsOffset()));
   }
 
-  uint32_t offset = collection.MapListOffset();
+  collection.SetMapListOffset(offset);
   uint16_t uint16_buffer[2];
   uint32_t uint32_buffer[2];
   uint16_buffer[1] = 0;
@@ -625,6 +651,7 @@ void DexWriter::WriteMapItem() {
     offset += Write(uint32_buffer, 2 * sizeof(uint32_t), offset);
     queue.pop();
   }
+  return offset;
 }
 
 void DexWriter::WriteHeader() {
@@ -657,27 +684,46 @@ void DexWriter::WriteHeader() {
   header.data_off_ = header_->DataOffset();
 
   static_assert(sizeof(header) == 0x70, "Size doesn't match dex spec");
-  Write(reinterpret_cast<uint8_t*>(&header), sizeof(header), 0u);
+  UNUSED(Write(reinterpret_cast<uint8_t*>(&header), sizeof(header), 0u));
 }
 
 void DexWriter::WriteMemMap() {
-  WriteStrings();
-  WriteTypes();
-  WriteTypeLists();
-  WriteProtos();
-  WriteFields();
-  WriteMethods();
-  WriteEncodedArrays();
-  WriteAnnotations();
-  WriteAnnotationSets();
-  WriteAnnotationSetRefs();
-  WriteAnnotationsDirectories();
-  WriteDebugInfoItems();
-  WriteCodeItems();
-  WriteClasses();
-  WriteCallSites();
-  WriteMethodHandles();
-  WriteMapItem();
+  // Starting offset is right after the header.
+  uint32_t offset = sizeof(StandardDexFile::Header);
+
+  // Based on: https://source.android.com/devices/tech/dalvik/dex-format
+  // Since the offsets may not be calculated already, the writing must be done in the correct order.
+  offset = WriteStringIds(offset);
+  offset = WriteTypeIds(offset);
+  offset = WriteProtoIds(offset);
+  offset = WriteFieldIds(offset);
+  offset = WriteMethodIds(offset);
+  offset = WriteClassDefs(offset);
+  offset = WriteCallSiteIds(offset);
+  offset = WriteMethodHandles(offset);
+
+  // Data section.
+  header_->SetDataOffset(offset);
+  // Write debug info first since code items depend on the offsets being assigned.
+  // This is slightly suboptimal since it will cause the encoded methods to be slightly larger
+  // from code item offset leb encoding.
+  offset = WriteDebugInfoItems(offset);
+  offset = WriteCodeItems(offset);
+  offset = WriteEncodedArrays(offset);
+  offset = WriteAnnotations(offset);
+  offset = WriteAnnotationSets(offset);
+  offset = WriteAnnotationSetRefs(offset);
+  offset = WriteAnnotationsDirectories(offset);
+  offset = WriteTypeLists(offset);
+  offset = WriteClassDatas(offset);
+  offset = RoundUp(offset, kDataSectionAlignment);
+  header_->SetDataSize(header_->DataOffset() - offset);
+
+  // TODO: Write link data?
+
+  // Write header last.
+  offset += WriteMapItem(offset);
+  header_->SetFileSize(offset);
   WriteHeader();
 }
 
