@@ -25,7 +25,30 @@
 #include "mem_map.h"
 #include "os.h"
 
+#include <queue>
+
 namespace art {
+
+struct MapItem {
+  // Not using DexFile::MapItemType since compact dex and standard dex file may have differnet
+  // sections.
+  MapItem() = default;
+  MapItem(uint32_t type, uint32_t size, uint32_t offset)
+      : type_(type), size_(size), offset_(offset) { }
+
+  bool operator<(const MapItem& other) const {
+    return offset_ > other.offset_;
+  }
+
+  uint32_t type_ = 0u;
+  uint32_t size_ = 0u;
+  uint32_t offset_ = 0u;
+};
+
+class MapItemQueue : public std::priority_queue<MapItem> {
+ public:
+  void AddIfNotEmpty(const MapItem& item);
+};
 
 class DexWriter {
  public:
@@ -38,34 +61,43 @@ class DexWriter {
  protected:
   void WriteMemMap();
 
-  size_t Write(const void* buffer, size_t length, size_t offset);
-  size_t WriteSleb128(uint32_t value, size_t offset);
-  size_t WriteUleb128(uint32_t value, size_t offset);
-  size_t WriteEncodedValue(dex_ir::EncodedValue* encoded_value, size_t offset);
-  size_t WriteEncodedValueHeader(int8_t value_type, size_t value_arg, size_t offset);
-  size_t WriteEncodedArray(dex_ir::EncodedValueVector* values, size_t offset);
-  size_t WriteEncodedAnnotation(dex_ir::EncodedAnnotation* annotation, size_t offset);
-  size_t WriteEncodedFields(dex_ir::FieldItemVector* fields, size_t offset);
-  size_t WriteEncodedMethods(dex_ir::MethodItemVector* methods, size_t offset);
+  size_t Write(const void* buffer, size_t length, size_t offset) WARN_UNUSED;
+  size_t WriteSleb128(uint32_t value, size_t offset) WARN_UNUSED;
+  size_t WriteUleb128(uint32_t value, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedValue(dex_ir::EncodedValue* encoded_value, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedValueHeader(int8_t value_type, size_t value_arg, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedArray(dex_ir::EncodedValueVector* values, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedAnnotation(dex_ir::EncodedAnnotation* annotation, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedFields(dex_ir::FieldItemVector* fields, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedMethods(dex_ir::MethodItemVector* methods, size_t offset) WARN_UNUSED;
 
-  void WriteStrings();
-  void WriteTypes();
-  void WriteTypeLists();
-  void WriteProtos();
-  void WriteFields();
-  void WriteMethods();
-  void WriteEncodedArrays();
-  void WriteAnnotations();
-  void WriteAnnotationSets();
-  void WriteAnnotationSetRefs();
-  void WriteAnnotationsDirectories();
-  void WriteDebugInfoItems();
-  void WriteCodeItems();
-  void WriteClasses();
-  void WriteCallSites();
-  void WriteMethodHandles();
-  void WriteMapItem();
+  // Header and id section
   virtual void WriteHeader();
+  // reserve_only means don't write, only reserve space. This is required since the string data
+  // offsets must be assigned.
+  MapItem WriteStringIds(uint32_t* const offset, bool reserve_only);
+  MapItem WriteTypeIds(uint32_t* const offset);
+  MapItem WriteProtoIds(uint32_t* const offset, bool reserve_only);
+  MapItem WriteFieldIds(uint32_t* const offset);
+  MapItem WriteMethodIds(uint32_t* const offset);
+  MapItem WriteClassDefs(uint32_t* const offset, bool reserve_only);
+
+  MapItem WriteCallSiteIds(uint32_t* const offset);
+
+  MapItem WriteEncodedArrays(uint32_t* const offset);
+  MapItem WriteAnnotations(uint32_t* const offset);
+  MapItem WriteAnnotationSets(uint32_t* const offset);
+  MapItem WriteAnnotationSetRefs(uint32_t* const offset);
+  MapItem WriteAnnotationsDirectories(uint32_t* const offset);
+
+  // Data section.
+  MapItem WriteDebugInfoItems(uint32_t* const offset);
+  MapItem WriteCodeItems(uint32_t* const offset);
+  MapItem WriteTypeLists(uint32_t* const offset);
+  MapItem WriteStringDatas(uint32_t* const offset);
+  MapItem WriteClassDatas(uint32_t* const offset);
+  MapItem WriteMethodHandles(uint32_t* const offset);
+  void WriteMapItems(uint32_t* const offset, MapItemQueue* queue);
 
   dex_ir::Header* const header_;
   MemMap* const mem_map_;

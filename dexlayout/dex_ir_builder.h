@@ -24,7 +24,7 @@
 namespace art {
 namespace dex_ir {
 
-dex_ir::Header* DexIrBuilder(const DexFile& dex_file);
+dex_ir::Header* DexIrBuilder(const DexFile& dex_file, bool eagerly_assign_offsets = true);
 
 }  // namespace dex_ir
 }  // namespace art

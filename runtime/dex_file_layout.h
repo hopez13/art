@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_DEX_FILE_LAYOUT_H_
 #define ART_RUNTIME_DEX_FILE_LAYOUT_H_
 
+#include <algorithm>
 #include <cstdint>
 #include <iosfwd>
 
@@ -25,14 +26,14 @@ namespace art {
 class DexFile;
 
 enum class LayoutType : uint8_t {
+  // Layout of things that are hot (commonly accessed), these should be pinned or madvised will
+  // need.
+  kLayoutTypeHot,
   // Layout of things that are randomly used. These should be advised to random access.
   // Without layout, this is the default mode when loading a dex file.
   kLayoutTypeSometimesUsed,
   // Layout of things that are only used during startup, these can be madvised after launch.
   kLayoutTypeStartupOnly,
-  // Layout of things that are hot (commonly accessed), these should be pinned or madvised will
-  // need.
-  kLayoutTypeHot,
   // Layout of things that are needed probably only once (class initializers). These can be
   // madvised during trim events.
   kLayoutTypeUsedOnce,
@@ -43,6 +44,11 @@ enum class LayoutType : uint8_t {
   kLayoutTypeCount,
 };
 std::ostream& operator<<(std::ostream& os, const LayoutType& collector_type);
+
+// Return the "best" layout option if the same item has multiple different layout
+static inline LayoutType MergeLayoutType(LayoutType a, LayoutType b) {
+  return std::min(a, b);
+}
 
 enum class MadviseState : uint8_t {
   // Madvise based on a file that was just loaded.
