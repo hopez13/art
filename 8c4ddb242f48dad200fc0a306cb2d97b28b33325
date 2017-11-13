@@ -16,6 +16,24 @@
       "revId": "8c4ddb242f48dad200fc0a306cb2d97b28b33325",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "182440e2_577b8b9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-13T22:18:42Z",
+      "side": 1,
+      "message": "I\u0027ve CC\u0027ed you on one of the failure. It\u0027s:\n\n#################### info\n# Test SIMD vectorization alignment optimizations.\n#################### diffs\n--- expected.txt\t2017-11-01 23:05:26.775783085 -0700\n+++ output.txt\t2017-11-12 13:53:39.733871681 -0800\n@@ -1 +1,4 @@\n-passed\n+Exception in thread \"main\" java.lang.Error: Expected: 1, found: 0\n+\tat Main.expectEquals(Main.java:334)\n+\tat Main.test5(Main.java:305)\n+\tat Main.main(Main.java:327)\n####################\n \n667-checker-simd-alignment files deleted from host \nand from target",
+      "parentUuid": "d315f55e_8fdd60f6",
+      "revId": "8c4ddb242f48dad200fc0a306cb2d97b28b33325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
