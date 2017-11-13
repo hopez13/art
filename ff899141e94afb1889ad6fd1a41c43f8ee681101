@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6a607d0_292b1b18",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-13T09:34:07Z",
+      "side": 1,
+      "message": "Nit: high-level comment (here and other classes below).",
+      "range": {
+        "startLine": 692,
+        "startChar": 0,
+        "endLine": 692,
+        "endChar": 27
+      },
+      "revId": "ff899141e94afb1889ad6fd1a41c43f8ee681101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e424caf_529362fd",
+        "filename": "runtime/method_handles.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-13T09:34:07Z",
+      "side": 1,
+      "message": "operand_index? (with a comment what that is).",
+      "range": {
+        "startLine": 156,
+        "startChar": 9,
+        "endLine": 156,
+        "endChar": 15
+      },
+      "revId": "ff899141e94afb1889ad6fd1a41c43f8ee681101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
