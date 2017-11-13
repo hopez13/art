@@ -93,6 +93,108 @@ static DataType::Type ImplicitConversion(DataType::Type type) {
   }
 }
 
+/**
+ * Returns true if loop is guarded by "a cmp b" on entry.
+ */
+static bool IsGuardedBy(HLoopInformation* loop,
+                        IfCondition cmp,
+                        HInstruction* a,
+                        HInstruction* b) {
+  // Chase back into single predecessor outside loop.
+  HBasicBlock* entry = loop->GetHeader();
+  HBasicBlock* guard = nullptr;
+  for (HBasicBlock* pred : entry->GetPredecessors()) {
+    if (pred->GetLoopInformation() != loop) {
+      if (guard != nullptr) {
+        return false;
+      }
+      guard = pred;
+    }
+  }
+  // Chase back through straightline code.
+  DCHECK(guard != nullptr);
+  for (; guard->GetPredecessors().size() == 1 && guard->GetSuccessors().size() == 1;
+       guard = guard->GetSinglePredecessor()) {
+    entry = guard;
+  }
+  // Find guard.
+  HInstruction* control = guard->GetLastInstruction();
+  if (!control->IsIf()) {
+    return false;
+  }
+  HIf* ifs = control->AsIf();
+  HInstruction* if_expr = ifs->InputAt(0);
+  if (if_expr->IsCondition()) {
+    IfCondition other_cmp = ifs->IfTrueSuccessor() == entry
+        ? if_expr->AsCondition()->GetCondition()
+        : if_expr->AsCondition()->GetOppositeCondition();
+    if (if_expr->InputAt(0) == a && if_expr->InputAt(1) == b) {
+      return cmp == other_cmp;
+    } else if (if_expr->InputAt(1) == a && if_expr->InputAt(0) == b) {
+      switch (cmp) {
+        case kCondLT: return other_cmp == kCondGT;
+        case kCondLE: return other_cmp == kCondGE;
+        case kCondGT: return other_cmp == kCondLT;
+        case kCondGE: return other_cmp == kCondLE;
+        default: break;
+      }
+    }
+  }
+  return false;
+}
+
+/* Finds phi use. */
+HInstruction* FindPhi(HLoopInformation* loop, HInstruction* instruction) {
+  for (const HUseListNode<HInstruction*>& use : instruction->GetUses()) {
+    if (use.GetUser()->GetBlock() == loop->GetHeader() &&
+        use.GetUser()->IsPhi() &&
+        use.GetUser()->InputAt(1) == instruction) {
+      return use.GetUser();
+    }
+  }
+  return nullptr;
+}
+
+/**
+ * Relinks the Phi structure after break-loop rewriting.
+ */
+bool FixOutsideUse(HLoopInformation* loop,
+                   HInstruction* instruction,
+                   HInstruction *replacement,
+                   bool replace) {
+  // Deal with regular uses.
+  const HUseList<HInstruction*>& uses = instruction->GetUses();
+  for (auto it = uses.begin(), end = uses.end(); it != end; ) {
+    HInstruction* user = it->GetUser();
+    size_t index = it->GetIndex();
+    ++it;  // increment prior to potential removal
+    if (user->GetBlock()->GetLoopInformation() != loop) {
+      if (replacement == nullptr) {
+        return false;
+      } else if (replace) {
+        user->ReplaceInput(replacement, index);
+      }
+    }
+  }
+  // Deal with environment uses.
+  const HUseList<HEnvironment*>& env_uses = instruction->GetEnvUses();
+  for (auto it = env_uses.begin(), end = env_uses.end(); it != end;) {
+    HEnvironment* user = it->GetUser();
+    size_t index = it->GetIndex();
+    ++it;  // increment prior to potential removal
+    if (user->GetHolder()->GetBlock()->GetLoopInformation() != loop) {
+      if (replacement == nullptr) {
+        return false;
+      } else if (replace) {
+        user->RemoveAsUserOfInput(index);
+        user->SetRawEnvAt(index, replacement);
+        replacement->AddEnvUseAt(user, index);
+      }
+    }
+  }
+  return true;
+}
+
 //
 // Class methods.
 //
@@ -754,6 +856,10 @@ HInductionVarAnalysis::InductionInfo* HInductionVarAnalysis::SolveConversion(
   return nullptr;
 }
 
+//
+// Loop trip count analysis methods.
+//
+
 void HInductionVarAnalysis::VisitControl(HLoopInformation* loop) {
   HInstruction* control = loop->GetHeader()->GetLastInstruction();
   if (control->IsIf()) {
@@ -774,15 +880,16 @@ void HInductionVarAnalysis::VisitControl(HLoopInformation* loop) {
       if (a == nullptr || b == nullptr) {
         return;  // Loop control is not a sequence.
       } else if (if_true->GetLoopInformation() != loop && if_false->GetLoopInformation() == loop) {
-        VisitCondition(loop, a, b, type, condition->GetOppositeCondition());
+        VisitCondition(loop, if_false, a, b, type, condition->GetOppositeCondition());
       } else if (if_true->GetLoopInformation() == loop && if_false->GetLoopInformation() != loop) {
-        VisitCondition(loop, a, b, type, condition->GetCondition());
+        VisitCondition(loop, if_true, a, b, type, condition->GetCondition());
       }
     }
   }
 }
 
 void HInductionVarAnalysis::VisitCondition(HLoopInformation* loop,
+                                           HBasicBlock* body,
                                            InductionInfo* a,
                                            InductionInfo* b,
                                            DataType::Type type,
@@ -790,11 +897,11 @@ void HInductionVarAnalysis::VisitCondition(HLoopInformation* loop,
   if (a->induction_class == kInvariant && b->induction_class == kLinear) {
     // Swap condition if induction is at right-hand-side (e.g. U > i is same as i < U).
     switch (cmp) {
-      case kCondLT: VisitCondition(loop, b, a, type, kCondGT); break;
-      case kCondLE: VisitCondition(loop, b, a, type, kCondGE); break;
-      case kCondGT: VisitCondition(loop, b, a, type, kCondLT); break;
-      case kCondGE: VisitCondition(loop, b, a, type, kCondLE); break;
-      case kCondNE: VisitCondition(loop, b, a, type, kCondNE); break;
+      case kCondLT: VisitCondition(loop, body, b, a, type, kCondGT); break;
+      case kCondLE: VisitCondition(loop, body, b, a, type, kCondGE); break;
+      case kCondGT: VisitCondition(loop, body, b, a, type, kCondLT); break;
+      case kCondGE: VisitCondition(loop, body, b, a, type, kCondLE); break;
+      case kCondNE: VisitCondition(loop, body, b, a, type, kCondNE); break;
       default: break;
     }
   } else if (a->induction_class == kLinear && b->induction_class == kInvariant) {
@@ -802,10 +909,17 @@ void HInductionVarAnalysis::VisitCondition(HLoopInformation* loop,
     InductionInfo* lower_expr = a->op_b;
     InductionInfo* upper_expr = b;
     InductionInfo* stride_expr = a->op_a;
-    // Constant stride?
+    // Test for constant stride and integral condition.
     int64_t stride_value = 0;
     if (!IsExact(stride_expr, &stride_value)) {
-      return;
+      return;  // unknown stride
+    } else if (type != DataType::Type::kInt32 && type != DataType::Type::kInt64) {
+      return;  // not integral
+    }
+    // First, try to rewrite a break loop with terminating condition i != U into an equivalent
+    // loop with non-strict end condition i <= U or i >= U if such a rewriting is possible and safe.
+    if (cmp == kCondNE && RewriteBreakLoop(loop, body, stride_value, type)) {
+      cmp = stride_value > 0 ? kCondLE : kCondGE;
     }
     // Rewrite condition i != U into strict end condition i < U or i > U if this end condition
     // is reached exactly (tested by verifying if the loop has a unit stride and the non-strict
@@ -814,12 +928,10 @@ void HInductionVarAnalysis::VisitCondition(HLoopInformation* loop,
                            (stride_value == -1 && IsTaken(lower_expr, upper_expr, kCondGE)))) {
       cmp = stride_value > 0 ? kCondLT : kCondGT;
     }
-    // Only accept integral condition. A mismatch between the type of condition and the induction
-    // is only allowed if the, necessarily narrower, induction range fits the narrower control.
-    if (type != DataType::Type::kInt32 && type != DataType::Type::kInt64) {
-      return;  // not integral
-    } else if (type != a->type &&
-               !FitsNarrowerControl(lower_expr, upper_expr, stride_value, a->type, cmp)) {
+    // A mismatch between the type of condition and the induction is only allowed if the,
+    // necessarily narrower, induction range fits the narrower control.
+    if (type != a->type &&
+        !FitsNarrowerControl(lower_expr, upper_expr, stride_value, a->type, cmp)) {
       return;  // mismatched type
     }
     // Normalize a linear loop control with a nonzero stride:
@@ -983,6 +1095,83 @@ bool HInductionVarAnalysis::FitsNarrowerControl(InductionInfo* lower_expr,
          IsAtLeast(upper_expr, &value) && value >= min &&
          IsAtMost(upper_expr, &value)  && value <= max;
 }
+
+bool HInductionVarAnalysis::RewriteBreakLoop(HLoopInformation* loop,
+                                             HBasicBlock* body,
+                                             int64_t stride_value,
+                                             DataType::Type type) {
+  // Only accept unit stride.
+  if (std::abs(stride_value) != 1) {
+    return false;
+  }
+  // Simple terminating i != U condition, used nowhere else.
+  HIf* ifs = loop->GetHeader()->GetLastInstruction()->AsIf();
+  HInstruction* cond = ifs->InputAt(0);
+  if (ifs->GetPrevious() != cond || !cond->HasOnlyOneNonEnvironmentUse()) {
+    return false;
+  }
+  int c = LookupInfo(loop, cond->InputAt(0))->induction_class == kLinear ? 0 : 1;
+  HInstruction* index = cond->InputAt(c);
+  HInstruction* upper = cond->InputAt(1 - c);
+  // Safe to rewrite into i <= U?
+  IfCondition cmp = stride_value > 0 ? kCondLE : kCondGE;
+  if (!index->IsPhi() || !IsFinite(LookupInfo(loop, upper), stride_value, type, cmp)) {
+    return false;
+  }
+  // Body consist of update to index i only, used nowhere else.
+  if (body->GetSuccessors().size() != 1 ||
+      body->GetSingleSuccessor() != loop->GetHeader() ||
+      !body->GetPhis().IsEmpty() ||
+      body->GetInstructions().IsEmpty() ||
+      body->GetFirstInstruction() != index->InputAt(1) ||
+      !body->GetFirstInstruction()->HasOnlyOneNonEnvironmentUse() ||
+      !body->GetFirstInstruction()->GetNext()->IsGoto()) {
+    return false;
+  }
+  // Always taken or guarded by enclosing condition.
+  if (!IsTaken(LookupInfo(loop, index)->op_b, LookupInfo(loop, upper), cmp) &&
+      !IsGuardedBy(loop, cmp, index->InputAt(0), upper)) {
+    return false;
+  }
+  // Push pre-test statements from header into the loop-body, fix phi structure.
+  for (uint32_t pass = 0; pass < 2; pass++) {
+    // Deal with Phis. Outside use prohibited, except for index (which gets exit value).
+    for (HInstructionIterator it(loop->GetHeader()->GetPhis()); !it.Done(); it.Advance()) {
+      HInstruction* exit_value = it.Current() == index ? upper : nullptr;
+      if (!FixOutsideUse(loop, it.Current(), exit_value, pass == 1)) {
+        return false;
+      }
+    }
+    // Deal with other statements in header.
+    for (HInstruction* m = cond->GetPrevious(), *p = nullptr; m && !m->IsSuspendCheck(); m = p) {
+      p = m->GetPrevious();
+      if (pass == 1) {
+        m->MoveBefore(body->GetFirstInstruction(), false);
+      }
+      if (!FixOutsideUse(loop, m, FindPhi(loop, m), pass == 1)) {
+        return false;
+      }
+    }
+  }
+  // Rewrite condition in HIR.
+  if (ifs->IfTrueSuccessor() != body) {
+    cmp = (cmp == kCondLE) ? kCondGT : kCondLT;
+  }
+  HInstruction* rep = nullptr;
+  switch (cmp) {
+    case kCondLT: rep = new (graph_->GetAllocator()) HLessThan(index, upper); break;
+    case kCondGT: rep = new (graph_->GetAllocator()) HGreaterThan(index, upper); break;
+    case kCondLE: rep = new (graph_->GetAllocator()) HLessThanOrEqual(index, upper); break;
+    case kCondGE: rep = new (graph_->GetAllocator()) HGreaterThanOrEqual(index, upper); break;
+    default: LOG(FATAL) << cmp; UNREACHABLE();
+  }
+  loop->GetHeader()->ReplaceAndRemoveInstructionWith(cond, rep);
+  return true;
+}
+
+//
+// Helper methods.
+//
 
 void HInductionVarAnalysis::AssignInfo(HLoopInformation* loop,
                                        HInstruction* instruction,
