@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d1346128_819fd2f5",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-13T10:38:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95371776_64328286",
+      "range": {
+        "startLine": 1082,
+        "startChar": 0,
+        "endLine": 1091,
+        "endChar": 61
+      },
+      "revId": "1e364cbd250a5586c03b6c3c398c608e2ac4924a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "663013a9_49108d18",
         "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-12T04:38:33Z",
       "side": 1,
       "message": "Fix indentation in this part.",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1089,
+        "endChar": 61
+      },
+      "revId": "1e364cbd250a5586c03b6c3c398c608e2ac4924a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b257086_8f946b23",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-13T10:38:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "663013a9_49108d18",
       "range": {
         "startLine": 1080,
         "startChar": 0,
