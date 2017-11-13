@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4a8f401f_fc8c3e1f",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-13T13:17:52Z",
+      "side": 1,
+      "message": "Any suggestion on where you would like to move this out?\n\nI see some methods have been templatized in dex_file-inl.h file to apparently accomodate this requirement?\n\nIs that the preferred way? Or a \"reader\" abstraction, or just passing a lambda? Note that will add another abstraction on top of DexFile::DecodeDebugLocalInfo.",
+      "parentUuid": "8cd8958c_cf3e0f24",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 0
+      },
+      "revId": "f98d28c4f6eeb884de69f34c4a053d7cbe01cf2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c963cd0b_494dccdf",
         "filename": "runtime/dex_file.h",
         "patchSetId": 6
@@ -60,6 +84,30 @@
       "writtenOn": "2017-11-10T21:56:13Z",
       "side": 1,
       "message": "Make this private if it\u0027s not supposed to be accessed, and make DexFile a friend class?",
+      "range": {
+        "startLine": 323,
+        "startChar": 13,
+        "endLine": 323,
+        "endChar": 28
+      },
+      "revId": "f98d28c4f6eeb884de69f34c4a053d7cbe01cf2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34ee73f8_87b765d8",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-13T13:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c963cd0b_494dccdf",
       "range": {
         "startLine": 323,
         "startChar": 13,
