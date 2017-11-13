@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f901259c_fd289dd6",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2579,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T15:52:57Z",
+      "side": 1,
+      "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 2578,
+        "startChar": 0,
+        "endLine": 2579,
+        "endChar": 39
+      },
+      "revId": "3939859c365e12d78a06caa41770c56bd9638b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62b9f48a_8fc88d0b",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T15:52:57Z",
+      "side": 1,
+      "message": "Should we enforce this in the next Dex version?",
+      "range": {
+        "startLine": 889,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 75
+      },
+      "revId": "3939859c365e12d78a06caa41770c56bd9638b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdccfd7c_f6cb9f8a",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T15:52:57Z",
+      "side": 1,
+      "message": "Maybe give some details about the new meaning of this offset, and the fact that it is now used either as:\n- the debug_info_offset itself (as it used to be); or\n- an indirection to an area past the Dex file containing both the actual debug_info_offset (indirection) and the quickening info offset.",
+      "range": {
+        "startLine": 330,
+        "startChar": 13,
+        "endLine": 330,
+        "endChar": 28
+      },
+      "revId": "3939859c365e12d78a06caa41770c56bd9638b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e7c750b_36091620",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T15:52:57Z",
+      "side": 1,
+      "message": "This comment does not seem to explain why we are checking that the Dex file size is smaller than the constant below.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 68
+      },
+      "revId": "3939859c365e12d78a06caa41770c56bd9638b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "371463f1_60800b60",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T15:52:57Z",
+      "side": 1,
+      "message": "This is equal to 2^16 - 1 B (\u003d 64 KiB - 1 B), which looks really small. Shouldn\u0027t this be 2^31 - 1 B (\u003d 2 GiB - 1 B)?",
+      "range": {
+        "startLine": 281,
+        "startChar": 27,
+        "endLine": 281,
+        "endChar": 63
+      },
+      "revId": "3939859c365e12d78a06caa41770c56bd9638b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
