@@ -22,6 +22,30 @@
       "revId": "27f5fefeb4a7e87e9537fbdd0ed392d5c1de59df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8827878c_fabd8b4b",
+        "filename": "runtime/dex_file_tracking_registrar.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-13T17:06:59Z",
+      "side": 0,
+      "message": "I believe so, I don\u0027t see why we would skip virtual methods otherwise.",
+      "parentUuid": "edbfb5cd_215eec62",
+      "range": {
+        "startLine": 161,
+        "startChar": 18,
+        "endLine": 161,
+        "endChar": 37
+      },
+      "revId": "27f5fefeb4a7e87e9537fbdd0ed392d5c1de59df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
