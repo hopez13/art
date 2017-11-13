@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e96b902c_c2d52a40",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T18:03:49Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 331,
+        "startChar": 13,
+        "endLine": 331,
+        "endChar": 16
+      },
+      "revId": "2849ef91d19ec5f8696f4950abddea60f18355da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "183fbe5a_f791aec9",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T18:03:49Z",
+      "side": 1,
+      "message": "I find this phrasing a bit ambiguous (it could interpreted at 16 bits or 31 bits).",
+      "range": {
+        "startLine": 281,
+        "startChar": 75,
+        "endLine": 282,
+        "endChar": 23
+      },
+      "revId": "2849ef91d19ec5f8696f4950abddea60f18355da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8ac7f36_32c371e6",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T18:03:49Z",
+      "side": 1,
+      "message": "Nit: Trailing whitespace.",
+      "range": {
+        "startLine": 284,
+        "startChar": 1,
+        "endLine": 284,
+        "endChar": 2
+      },
+      "revId": "2849ef91d19ec5f8696f4950abddea60f18355da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

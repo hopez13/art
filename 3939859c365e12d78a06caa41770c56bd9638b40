@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "6a86cfad_3b4db7f9",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T18:03:49Z",
+      "side": 1,
+      "message": "I think it is good practice to follow our own specification. Case in point: we wouldn\u0027t have to handle special cases like this very occurrence to deal with client code not respecting the Dex Executable format specification. :-)\n\nBy enforcing this in the next Dex version, we are not breaking current apps, but still make it mandatory for app targeting the next version to update their code to be compliant.",
+      "parentUuid": "7945eff7_9cb86c7d",
+      "range": {
+        "startLine": 889,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 75
+      },
+      "revId": "3939859c365e12d78a06caa41770c56bd9638b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdccfd7c_f6cb9f8a",
         "filename": "runtime/dex_file.h",
         "patchSetId": 7
