@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0675e31a_da9937c9",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-13T22:23:42Z",
+      "side": 1,
+      "message": "Ok",
+      "parentUuid": "6aaf953b_4b1460fe",
+      "range": {
+        "startLine": 106,
+        "startChar": 42,
+        "endLine": 106,
+        "endChar": 50
+      },
+      "revId": "3da1d0f0881e130ebab95e2d06abe7d2beff57f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e626f36_fbee2d76",
         "filename": "runtime/code_item_accessors.h",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Pointer to the catch data, its all leb encoded so there is no struct.",
       "parentUuid": "2e626f36_fbee2d76",
+      "range": {
+        "startLine": 108,
+        "startChar": 8,
+        "endLine": 108,
+        "endChar": 15
+      },
+      "revId": "3da1d0f0881e130ebab95e2d06abe7d2beff57f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3c30cc_8cc54f41",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-13T22:23:42Z",
+      "side": 1,
+      "message": "Not sure if it makes sense, it can still be a pointer to variable-length struct? For example:\n\n  struct LebEncoded {\n    uint8_t data[];\n\n    int32_t Decode() const {\n       ...\n    }\n  }\n\n\nMaybe it was uint8_t previously but is that a good reason to continue that mess?",
+      "parentUuid": "bd61ae44_1662b33f",
       "range": {
         "startLine": 108,
         "startChar": 8,
