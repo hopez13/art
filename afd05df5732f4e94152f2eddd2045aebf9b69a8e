@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef6bbdd_245fcb19",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-13T18:47:04Z",
+      "side": 1,
+      "message": "That\u0027s an invalid check. What if the java.lang.Thread\u0027s name is \"\"?",
+      "range": {
+        "startLine": 711,
+        "startChar": 2,
+        "endLine": 711,
+        "endChar": 28
+      },
+      "revId": "afd05df5732f4e94152f2eddd2045aebf9b69a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
