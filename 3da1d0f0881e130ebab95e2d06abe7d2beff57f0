@@ -141,6 +141,30 @@
       "revId": "3da1d0f0881e130ebab95e2d06abe7d2beff57f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8381c509_8f40e494",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-13T22:26:53Z",
+      "side": 1,
+      "message": "Can we just consider doing that in a follow up? Ideally we should just abstract away all the accesses to the direct data.",
+      "parentUuid": "9a3c30cc_8cc54f41",
+      "range": {
+        "startLine": 108,
+        "startChar": 8,
+        "endLine": 108,
+        "endChar": 15
+      },
+      "revId": "3da1d0f0881e130ebab95e2d06abe7d2beff57f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
