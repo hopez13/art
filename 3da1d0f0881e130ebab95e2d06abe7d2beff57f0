@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6aaf953b_4b1460fe",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-13T18:53:42Z",
+      "side": 1,
+      "message": "Why, we don\u0027t use Range anywhere else when using iteration range?",
+      "parentUuid": "3ca46aab_994d4ec4",
+      "range": {
+        "startLine": 106,
+        "startChar": 42,
+        "endLine": 106,
+        "endChar": 50
+      },
+      "revId": "3da1d0f0881e130ebab95e2d06abe7d2beff57f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e626f36_fbee2d76",
         "filename": "runtime/code_item_accessors.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-13T17:55:24Z",
       "side": 1,
       "message": "What is this uint8?",
+      "range": {
+        "startLine": 108,
+        "startChar": 8,
+        "endLine": 108,
+        "endChar": 15
+      },
+      "revId": "3da1d0f0881e130ebab95e2d06abe7d2beff57f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd61ae44_1662b33f",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-13T18:53:42Z",
+      "side": 1,
+      "message": "Pointer to the catch data, its all leb encoded so there is no struct.",
+      "parentUuid": "2e626f36_fbee2d76",
       "range": {
         "startLine": 108,
         "startChar": 8,
