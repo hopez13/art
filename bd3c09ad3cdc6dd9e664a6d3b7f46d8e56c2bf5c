@@ -22,6 +22,52 @@
       "revId": "bd3c09ad3cdc6dd9e664a6d3b7f46d8e56c2bf5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c3b0d2c_8e5d0889",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T18:16:52Z",
+      "side": 1,
+      "message": "Turn this comma into a period?",
+      "range": {
+        "startLine": 1199,
+        "startChar": 18,
+        "endLine": 1199,
+        "endChar": 19
+      },
+      "revId": "bd3c09ad3cdc6dd9e664a6d3b7f46d8e56c2bf5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "125a7729_d37ee038",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-13T18:16:52Z",
+      "side": 1,
+      "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 10
+      },
+      "revId": "bd3c09ad3cdc6dd9e664a6d3b7f46d8e56c2bf5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
