@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "65f1a33f_2f228f22",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-14T23:21:39Z",
+      "side": 1,
+      "message": "Other CPPLINT.cfg files didn\u0027t have it. I should add it here?",
+      "parentUuid": "4a65cfb1_c1e594a1",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51196085_04b4595a",
         "filename": "CPPLINT.cfg",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-11-14T23:18:16Z",
       "side": 1,
       "message": "CPPLINT.cfg can have blank lines, so you might want to add a few to break up unrelated options so it\u0027s easier to read",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5980e94e_be9e7f12",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-14T23:21:39Z",
+      "side": 1,
+      "message": "Like this?\n\n  filter\u003d-foo/x,-foo\u003dy,-foo/z\n  filter\u003d-bar/a,-bar/b",
+      "parentUuid": "51196085_04b4595a",
       "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1763d974_50f6ad89",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-14T23:21:39Z",
+      "side": 1,
+      "message": "Are there? $(TOP) seems to be . so it doesn\u0027t work. I think maybe just dropping \"$(LOCAL_PATH)/...\" could work but that seems to obscure meaning?",
+      "parentUuid": "38ee638f_df167113",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9b5dfd1a_bdebee09",
         "filename": "build/Android.cpplint.mk",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f692e08e_63eca56e",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-14T23:21:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9b5dfd1a_bdebee09",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
