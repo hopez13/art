@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a486da63_907be312",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-14T11:57:08Z",
+      "side": 1,
+      "message": "\"test 626-checker-arm64-scratch-register\" (for better grep-ability)",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "1a784f1c853ce18fec6e977f7b82c47fd5cb72cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5227c037_35283590",
+        "filename": "test/626-checker-arm64-scratch-register/smali/Smali.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-14T11:57:08Z",
+      "side": 1,
+      "message": "Please have Main.main() exercise call Smali.testDX() as well.\n\nAlso, what about renaming this method as just \"test\"? There would no confusion with Main.test(), as they live in two different classes.",
+      "range": {
+        "startLine": 123,
+        "startChar": 15,
+        "endLine": 123,
+        "endChar": 21
+      },
+      "revId": "1a784f1c853ce18fec6e977f7b82c47fd5cb72cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
