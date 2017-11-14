@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c2b65544_8e310a35",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-11-14T23:40:41Z",
+      "side": 1,
+      "message": "I would suggest that we want to make it a static method of runtime/oat_file.h.  Otherwise mostly the same.\n\nThe issue is that including oat/vdex files causes us to have to slurp in Runtime, which will be extremely difficult to make work on Windows.",
+      "parentUuid": "c587a2a0_448e572a",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 0
+      },
+      "revId": "f98d28c4f6eeb884de69f34c4a053d7cbe01cf2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c963cd0b_494dccdf",
         "filename": "runtime/dex_file.h",
         "patchSetId": 6
