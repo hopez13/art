@@ -52,6 +52,24 @@
       "revId": "8c4ddb242f48dad200fc0a306cb2d97b28b33325",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "268aabf1_cce550cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-11-14T16:56:05Z",
+      "side": 1,
+      "message": "I have reproduced the same failure with --gcstress option enabled. I already have some idea about the root cause.\n\nMy current observation is that I think the ConstructorFence for the NewArray in 667-checker-simd-alignment\u0027s test5() has been incorrectly removed during LSE. My original CL combined with gcstress exposed this issue.\n\nI\u0027ll do more debug and hope to give you more detailed updates very soon.",
+      "parentUuid": "f1e3ca75_714b0505",
+      "revId": "8c4ddb242f48dad200fc0a306cb2d97b28b33325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
