@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "745dc191_79ec292b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-14T18:39:22Z",
+      "side": 1,
+      "message": "Why would the DexFile need it? If there is a CodeItem, we can just get the value from there. We do the calculation from shorty because we want to apply this to native methods as well.",
+      "parentUuid": "1c338600_f3eda076",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 98
+      },
+      "revId": "271af2fdb5d1036202c76e41f31bb10734a54187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "281a0a21_7f9c0383",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-14T16:25:45Z",
       "side": 1,
       "message": "Could this be optimized? (Maybe add a TODO?)",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 82
+      },
+      "revId": "271af2fdb5d1036202c76e41f31bb10734a54187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fc01230_969161af",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-14T18:39:22Z",
+      "side": 1,
+      "message": "What do you mean by \"optimized\"? From my perspective, this is \"optimized\" for code simplicity.",
+      "parentUuid": "281a0a21_7f9c0383",
       "range": {
         "startLine": 164,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ff52df3f_0c7f8c53",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-14T18:39:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f681fcb4_de49fe11",
+      "range": {
+        "startLine": 73,
+        "startChar": 33,
+        "endLine": 73,
+        "endChar": 43
+      },
+      "revId": "271af2fdb5d1036202c76e41f31bb10734a54187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddff808e_2667ae72",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b31619ac_fa89e2e5",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-14T18:39:22Z",
+      "side": 1,
+      "message": "No, that would be exactly in_vregs, leading to number_of_arguments\u003d0. I\u0027m actually counting the number of wide arguments here. I could use an `std::count_if(., ., [](HInstruction* insn) { insn !\u003d nullptr; });` instead of the whole line if you find it more readable.",
+      "parentUuid": "ddff808e_2667ae72",
+      "range": {
+        "startLine": 391,
+        "startChar": 17,
+        "endLine": 391,
+        "endChar": 95
+      },
+      "revId": "271af2fdb5d1036202c76e41f31bb10734a54187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4c5d8b9_d1197d68",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2017-11-14T16:25:45Z",
       "side": 1,
       "message": "/* method_load_data */ 0u",
+      "range": {
+        "startLine": 397,
+        "startChar": 6,
+        "endLine": 397,
+        "endChar": 8
+      },
+      "revId": "271af2fdb5d1036202c76e41f31bb10734a54187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2a1e970_fea71bc2",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-14T18:39:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4c5d8b9_d1197d68",
       "range": {
         "startLine": 397,
         "startChar": 6,
