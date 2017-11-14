@@ -22,6 +22,30 @@
       "revId": "63aff1972d8d8a120cbf6c7824ec19cc7a1aaddc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c006366_f95f4dca",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-11-14T09:42:03Z",
+      "side": 1,
+      "message": "I think it is incorrect for getFileName to look at the method name at all. I\u0027ve removed that argument to the function.",
+      "parentUuid": "ba3df4fb_0dc3015f",
+      "range": {
+        "startLine": 92,
+        "startChar": 40,
+        "endLine": 92,
+        "endChar": 42
+      },
+      "revId": "63aff1972d8d8a120cbf6c7824ec19cc7a1aaddc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
