@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "23d2d6a6_d28df546",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-14T17:52:11Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "c9e8c26c_bbaa0fa8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "bd3c09ad3cdc6dd9e664a6d3b7f46d8e56c2bf5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c3b0d2c_8e5d0889",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 2
