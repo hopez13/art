@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "124b8b15_284751f5",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-14T09:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48f82473_33506e80",
+      "revId": "27453eae7b4beaa7433020439efa9b457c68d193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b84e118d_99aa9181",
         "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9d1df38d_8dad8ee6",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-14T09:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b84e118d_99aa9181",
+      "revId": "27453eae7b4beaa7433020439efa9b457c68d193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "583022ac_cd35d381",
         "filename": "test/660-checker-simd-sad-char/src/Main.java",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-11-13T22:50:06Z",
       "side": 1,
       "message": "why not the same change as above (i.e. test NOT for all arch)?",
+      "revId": "27453eae7b4beaa7433020439efa9b457c68d193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2806e32_4852f5c1",
+        "filename": "test/660-checker-simd-sad-char/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-14T09:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "583022ac_cd35d381",
       "revId": "27453eae7b4beaa7433020439efa9b457c68d193",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
