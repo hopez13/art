@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a65cfb1_c1e594a1",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040868
+      },
+      "writtenOn": "2017-11-14T23:18:16Z",
+      "side": 1,
+      "message": "i guess we don\u0027t do license/copyright notices at the top of files like this ?  i thought usually we were pretty strict.",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51196085_04b4595a",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1040868
+      },
+      "writtenOn": "2017-11-14T23:18:16Z",
+      "side": 1,
+      "message": "CPPLINT.cfg can have blank lines, so you might want to add a few to break up unrelated options so it\u0027s easier to read",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38ee638f_df167113",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1040868
+      },
+      "writtenOn": "2017-11-14T23:18:16Z",
+      "side": 1,
+      "message": "aren\u0027t there mk vars to the top of the repo checkout ?",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b5dfd1a_bdebee09",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1040868
+      },
+      "writtenOn": "2017-11-14T23:18:16Z",
+      "side": 1,
+      "message": "you have to be careful with inline comments in makefiles.  they don\u0027t always get processed how you might expect.  in this case it\u0027s not a problem (the var will be set to \" --quiet \"), but it\u0027s better practice to avoid this altogether.\n\n # No output when there are no errors.\n ART_CPPLINT_QUIET :\u003d --quiet",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
