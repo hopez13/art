@@ -22,6 +22,30 @@
       "revId": "680cc3cac7c0c5c8ad05e9206e488193e617ad60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41ec3fa4_78bfc1bb",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T14:21:47Z",
+      "side": 1,
+      "message": "I\u0027ll remove the private in this CL then. Mathieu, do you want to take care of making all fields private, or do you rather I follow-up with another CL?",
+      "parentUuid": "07128a32_8dca24d2",
+      "range": {
+        "startLine": 329,
+        "startChar": 3,
+        "endLine": 329,
+        "endChar": 10
+      },
+      "revId": "680cc3cac7c0c5c8ad05e9206e488193e617ad60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c587a2a0_448e572a",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T14:21:47Z",
+      "side": 1,
+      "message": "Mathieu, David, can you let me know?",
+      "parentUuid": "4a8f401f_fc8c3e1f",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 0
+      },
+      "revId": "f98d28c4f6eeb884de69f34c4a053d7cbe01cf2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c963cd0b_494dccdf",
         "filename": "runtime/dex_file.h",
         "patchSetId": 6
