@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8b864c52_070392b6",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-14T12:37:59Z",
+      "side": 1,
+      "message": "Yeah, I think this is better; thanks.",
+      "parentUuid": "70c19ccd_146f4d1a",
+      "range": {
+        "startLine": 281,
+        "startChar": 75,
+        "endLine": 282,
+        "endChar": 23
+      },
+      "revId": "2849ef91d19ec5f8696f4950abddea60f18355da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8ac7f36_32c371e6",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 8
