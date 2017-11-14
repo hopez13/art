@@ -70,6 +70,30 @@
       "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b99b55bc_5d362537",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-14T17:08:30Z",
+      "side": 1,
+      "message": "We also want to have negative checks in the SetEventNotificationMode.",
+      "parentUuid": "20f9c208_af7fe71e",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 39
+      },
+      "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
