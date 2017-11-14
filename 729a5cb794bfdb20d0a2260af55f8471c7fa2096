@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e6180ff7_0f6cce4f",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040868
+      },
+      "writtenOn": "2017-11-14T23:29:13Z",
+      "side": 1,
+      "message": "if that\u0027s how people have been approaching it, then OK.  i just thought the license enforcer would reject these files too much like they reject Android.mk files.",
+      "parentUuid": "65f1a33f_2f228f22",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51196085_04b4595a",
         "filename": "CPPLINT.cfg",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Like this?\n\n  filter\u003d-foo/x,-foo\u003dy,-foo/z\n  filter\u003d-bar/a,-bar/b",
       "parentUuid": "51196085_04b4595a",
+      "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c4127ac_7ee82b67",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1040868
+      },
+      "writtenOn": "2017-11-14T23:29:13Z",
+      "side": 1,
+      "message": "i mean like:\n\n # Don\u0027t search for additional CPPLINT.cfg in parent directories.\n set noparent\n\n # Use \u0027ART_\u0027 as the cpp header guard prefix (e.g. #ifndef ART_PATH_TO_FILE_H_).\n root\u003d..\n\n # Limit line length.\n linelength\u003d100\n\n # Ignore the following categories of errors, as specified by the filter:\n # (the filter settings are concatenated together)\n filter\u003d-build/include,-readability/function,-readability/streams,-readability/todo\n filter\u003d-runtime/references,-runtime/sizeof,-runtime/threadsafe_fn,-runtime/printf\n # TODO: this should be re-enabled.\n filter\u003d-whitespace/line_length\n\nthis is just a suggestion if you find it easier to manage",
+      "parentUuid": "5980e94e_be9e7f12",
       "revId": "729a5cb794bfdb20d0a2260af55f8471c7fa2096",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
