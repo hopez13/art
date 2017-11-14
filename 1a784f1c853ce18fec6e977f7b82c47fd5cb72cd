@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "10e19e8f_79dbc1af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2017-11-14T23:33:33Z",
+      "side": 1,
+      "message": "I can\u0027t fit all that in the line limit :(\n\nI added a line after.",
+      "parentUuid": "a486da63_907be312",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "1a784f1c853ce18fec6e977f7b82c47fd5cb72cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5227c037_35283590",
         "filename": "test/626-checker-arm64-scratch-register/smali/Smali.smali",
         "patchSetId": 1
