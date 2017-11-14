@@ -22,6 +22,30 @@
       "revId": "5552e535951f2feb10bfd492b8abb54bd41a9f4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3ffc2c1_a1cffc95",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T09:49:12Z",
+      "side": 0,
+      "message": "Yes, though it applies more to HasQuickeningInfo. Moved the comment there.",
+      "parentUuid": "0bd773ba_0533aea2",
+      "range": {
+        "startLine": 758,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 20
+      },
+      "revId": "5552e535951f2feb10bfd492b8abb54bd41a9f4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

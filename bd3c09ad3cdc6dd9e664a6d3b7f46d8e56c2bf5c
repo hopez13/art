@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c9e8c26c_bbaa0fa8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T09:49:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b094fc8a_7e6203a8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "bd3c09ad3cdc6dd9e664a6d3b7f46d8e56c2bf5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3c3b0d2c_8e5d0889",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1dfc101f_edf3b614",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T09:49:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c3b0d2c_8e5d0889",
+      "range": {
+        "startLine": 1199,
+        "startChar": 18,
+        "endLine": 1199,
+        "endChar": 19
+      },
+      "revId": "bd3c09ad3cdc6dd9e664a6d3b7f46d8e56c2bf5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "125a7729_d37ee038",
         "filename": "dex2oat/linker/oat_writer_test.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-13T18:16:52Z",
       "side": 1,
       "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 10
+      },
+      "revId": "bd3c09ad3cdc6dd9e664a6d3b7f46d8e56c2bf5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9dc6fb35_48fb7fdb",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T09:49:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "125a7729_d37ee038",
       "range": {
         "startLine": 228,
         "startChar": 4,
