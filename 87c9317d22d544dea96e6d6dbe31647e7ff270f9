@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc3c4b29_144acfbd",
+        "filename": "test/163-app-image-methods/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T10:03:19Z",
+      "side": 1,
+      "message": "This reads odd. Should you just say that getting an OOME from a class initializer would fail the test?",
+      "range": {
+        "startLine": 25,
+        "startChar": 66,
+        "endLine": 26,
+        "endChar": 56
+      },
+      "revId": "87c9317d22d544dea96e6d6dbe31647e7ff270f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
