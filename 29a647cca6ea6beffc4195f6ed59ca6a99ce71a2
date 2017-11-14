@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15e37ea6_a6f3d282",
+        "filename": "compiler/optimizing/code_generator_vector_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-14T17:10:55Z",
+      "side": 1,
+      "message": "what you had in PS4 was actually what I had in mind.\n\nSo perhaps\n\n// All conversions require at least one temporary register.\n... add temp\n// Some conversions require a second temporary register.",
+      "revId": "29a647cca6ea6beffc4195f6ed59ca6a99ce71a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "740832ef_289e26dd",
+        "filename": "compiler/optimizing/code_generator_vector_mips64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-14T17:10:55Z",
+      "side": 1,
+      "message": "same request",
+      "revId": "29a647cca6ea6beffc4195f6ed59ca6a99ce71a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
