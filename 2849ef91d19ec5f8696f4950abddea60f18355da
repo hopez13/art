@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad22ca04_c7146511",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T10:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e96b902c_c2d52a40",
+      "range": {
+        "startLine": 331,
+        "startChar": 13,
+        "endLine": 331,
+        "endChar": 16
+      },
+      "revId": "2849ef91d19ec5f8696f4950abddea60f18355da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "183fbe5a_f791aec9",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "70c19ccd_146f4d1a",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T10:22:37Z",
+      "side": 1,
+      "message": "Rephrased with: \"have at least half of the range of a uint32_t\"\n\nIs it better?",
+      "parentUuid": "183fbe5a_f791aec9",
+      "range": {
+        "startLine": 281,
+        "startChar": 75,
+        "endLine": 282,
+        "endChar": 23
+      },
+      "revId": "2849ef91d19ec5f8696f4950abddea60f18355da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8ac7f36_32c371e6",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-13T18:03:49Z",
       "side": 1,
       "message": "Nit: Trailing whitespace.",
+      "range": {
+        "startLine": 284,
+        "startChar": 1,
+        "endLine": 284,
+        "endChar": 2
+      },
+      "revId": "2849ef91d19ec5f8696f4950abddea60f18355da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cebb7b3_3abbfbe5",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-14T10:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8ac7f36_32c371e6",
       "range": {
         "startLine": 284,
         "startChar": 1,
