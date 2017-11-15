@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "fc9723ad_2535fd37",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T11:16:15Z",
+      "side": 1,
+      "message": "Making it a static on OatFile works for me, but the real issue is how do you want to deal with users of GetDebugInfoStream and GetDebugLocalInfo?\n\nWe now have two \"kinds\" of users: the tools (dexdump) and the runtime (art). The former wants to use those methods on a raw dex file, and the latter should *never* use those methods directly.",
+      "parentUuid": "c2b65544_8e310a35",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 0
+      },
+      "revId": "f98d28c4f6eeb884de69f34c4a053d7cbe01cf2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c963cd0b_494dccdf",
         "filename": "runtime/dex_file.h",
         "patchSetId": 6
