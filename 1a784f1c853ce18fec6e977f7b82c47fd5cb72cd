@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "79dfdc75_1699f153",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-15T13:54:56Z",
+      "side": 1,
+      "message": "I see; thanks for adding this.",
+      "parentUuid": "10e19e8f_79dbc1af",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "1a784f1c853ce18fec6e977f7b82c47fd5cb72cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5227c037_35283590",
         "filename": "test/626-checker-arm64-scratch-register/smali/Smali.smali",
         "patchSetId": 1
