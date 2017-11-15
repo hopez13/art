@@ -60,7 +60,8 @@ class LSEVisitor : public HGraphDelegateVisitor {
         substitute_instructions_for_loads_(allocator_.Adapter(kArenaAllocLSE)),
         possibly_removed_stores_(allocator_.Adapter(kArenaAllocLSE)),
         singleton_new_instances_(allocator_.Adapter(kArenaAllocLSE)),
-        singleton_new_arrays_(allocator_.Adapter(kArenaAllocLSE)) {
+        singleton_new_arrays_(allocator_.Adapter(kArenaAllocLSE)),
+        temporary_type_conversions_(allocator_.Adapter(kArenaAllocLSE)) {
   }
 
   void VisitBasicBlock(HBasicBlock* block) OVERRIDE {
@@ -126,6 +127,29 @@ class LSEVisitor : public HGraphDelegateVisitor {
         new_array->RemoveEnvironmentUsers();
         new_array->GetBlock()->RemoveInstruction(new_array);
       }
+    }
+
+    for (HTypeConversion* type_conversion : temporary_type_conversions_) {
+      DCHECK(!type_conversion->HasEnvironmentUses());
+      HInstruction* user = nullptr;
+      for (const HUseListNode<HInstruction*>& use : type_conversion->GetUses()) {
+        if (user != nullptr) {
+          CHECK(false) << "There should only be one user of the type conversion.";
+        }
+        user = use.GetUser();
+      }
+      if (user == nullptr) {
+        // The store has been eliminated.
+        continue;
+      }
+      if (user->IsInstanceFieldSet() || user->IsStaticFieldSet()) {
+        user->ReplaceInput(type_conversion->InputAt(0), 1);
+      } else if (user->IsArraySet()) {
+        user->ReplaceInput(type_conversion->InputAt(0), 2);
+      } else {
+        CHECK(false) << "Unexpected instruction " << user->DebugName();
+      }
+      type_conversion->GetBlock()->RemoveInstruction(type_conversion);
     }
   }
 
@@ -298,6 +322,25 @@ class LSEVisitor : public HGraphDelegateVisitor {
     }
   }
 
+  // For `value` that's to be stored by `instruction`, add a type conversion if
+  // necessary to make sure that it's compatible with `expected_type`.
+  // LSE needs to do this to make sure the heap value are tracked as if the store
+  // happens, since future loads are going to read `value` as if it's converted to
+  // `expected_type`.
+  HTypeConversion* AddTypeConversionIfNecessary(HInstruction* instruction,
+                                                HInstruction* value,
+                                                DataType::Type expected_type) {
+    HTypeConversion* type_conversion = nullptr;
+    if (expected_type != DataType::Type::kBool &&
+        !DataType::IsTypeConversionImplicit(value->GetType(), expected_type)) {
+      type_conversion = new (GetGraph()->GetAllocator())
+          HTypeConversion(expected_type, value, instruction->GetDexPc());
+      instruction->GetBlock()->InsertInstructionBefore(type_conversion, instruction);
+      temporary_type_conversions_.push_back(type_conversion);
+    }
+    return type_conversion;
+  }
+
   void VisitGetLocation(HInstruction* instruction,
                         HInstruction* ref,
                         size_t offset,
@@ -347,6 +390,14 @@ class LSEVisitor : public HGraphDelegateVisitor {
           DCHECK(instruction->IsArrayGet()) << instruction->DebugName();
         }
         return;
+      }
+      if (heap_value->IsTypeConversion()) {
+        auto idx2 = std::find(temporary_type_conversions_.begin(),
+            temporary_type_conversions_.end(), heap_value);
+        if (idx2 != temporary_type_conversions_.end()) {
+          // The converted value is loaded. Make sure the temporary type conversion stays.
+          temporary_type_conversions_.erase(idx2);
+        }
       }
       removed_loads_.push_back(instruction);
       substitute_instructions_for_loads_.push_back(heap_value);
@@ -463,6 +514,14 @@ class LSEVisitor : public HGraphDelegateVisitor {
     size_t offset = instruction->GetFieldInfo().GetFieldOffset().SizeValue();
     int16_t declaring_class_def_index = instruction->GetFieldInfo().GetDeclaringClassDefIndex();
     HInstruction* value = instruction->InputAt(1);
+    HTypeConversion* type_conversion =
+        AddTypeConversionIfNecessary(instruction,
+                                     value,
+                                     instruction->GetFieldInfo().GetFieldType());
+    if (type_conversion != nullptr) {
+      instruction->ReplaceInput(type_conversion, 1);
+      value = type_conversion;
+    }
     VisitSetLocation(instruction,
                      obj,
                      offset,
@@ -489,6 +548,14 @@ class LSEVisitor : public HGraphDelegateVisitor {
     size_t offset = instruction->GetFieldInfo().GetFieldOffset().SizeValue();
     int16_t declaring_class_def_index = instruction->GetFieldInfo().GetDeclaringClassDefIndex();
     HInstruction* value = instruction->InputAt(1);
+    HTypeConversion* type_conversion =
+        AddTypeConversionIfNecessary(instruction,
+                                     value,
+                                     instruction->GetFieldInfo().GetFieldType());
+    if (type_conversion != nullptr) {
+      instruction->ReplaceInput(type_conversion, 1);
+      value = type_conversion;
+    }
     VisitSetLocation(instruction,
                      cls,
                      offset,
@@ -513,6 +580,14 @@ class LSEVisitor : public HGraphDelegateVisitor {
     HInstruction* array = instruction->InputAt(0);
     HInstruction* index = instruction->InputAt(1);
     HInstruction* value = instruction->InputAt(2);
+    HTypeConversion* type_conversion =
+        AddTypeConversionIfNecessary(instruction,
+                                     value,
+                                     instruction->GetComponentType());
+    if (type_conversion != nullptr) {
+      instruction->ReplaceInput(type_conversion, 2);
+      value = type_conversion;
+    }
     VisitSetLocation(instruction,
                      array,
                      HeapLocation::kInvalidFieldOffset,
@@ -672,6 +747,8 @@ class LSEVisitor : public HGraphDelegateVisitor {
 
   ScopedArenaVector<HInstruction*> singleton_new_instances_;
   ScopedArenaVector<HInstruction*> singleton_new_arrays_;
+
+  ScopedArenaVector<HTypeConversion*> temporary_type_conversions_;
 
   DISALLOW_COPY_AND_ASSIGN(LSEVisitor);
 };
