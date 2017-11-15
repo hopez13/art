@@ -469,6 +469,16 @@ class HeapLocationCollector : public HGraphVisitor {
   }
 
   void VisitInstanceFieldSet(HInstanceFieldSet* instruction) OVERRIDE {
+    DataType::Type field_type = instruction->GetFieldInfo().GetFieldType();
+    HInstruction* value = instruction->InputAt(1);
+    if (field_type != DataType::Type::kBool &&
+        !DataType::IsTypeConversionImplicit(value->GetType(), field_type)) {
+      HInstruction* conv = new (GetGraph()->GetAllocator())
+          HTypeConversion(field_type, value, instruction->GetDexPc());
+      instruction->GetBlock()->InsertInstructionBefore(conv, instruction);
+      instruction->ReplaceInput(conv, 1);
+    }
+
     HeapLocation* location = VisitFieldAccess(instruction->InputAt(0), instruction->GetFieldInfo());
     has_heap_stores_ = true;
     if (location->GetReferenceInfo()->IsSingleton()) {
@@ -500,6 +510,16 @@ class HeapLocationCollector : public HGraphVisitor {
   }
 
   void VisitStaticFieldSet(HStaticFieldSet* instruction) OVERRIDE {
+    DataType::Type field_type = instruction->GetFieldInfo().GetFieldType();
+    HInstruction* value = instruction->InputAt(1);
+    if (field_type != DataType::Type::kBool &&
+        !DataType::IsTypeConversionImplicit(value->GetType(), field_type)) {
+      HInstruction* conv = new (GetGraph()->GetAllocator())
+          HTypeConversion(field_type, value, instruction->GetDexPc());
+      instruction->GetBlock()->InsertInstructionBefore(conv, instruction);
+      instruction->ReplaceInput(conv, 1);
+    }
+
     VisitFieldAccess(instruction->InputAt(0), instruction->GetFieldInfo());
     has_heap_stores_ = true;
   }
@@ -515,6 +535,16 @@ class HeapLocationCollector : public HGraphVisitor {
   }
 
   void VisitArraySet(HArraySet* instruction) OVERRIDE {
+    DataType::Type component_type = instruction->GetComponentType();
+    HInstruction* value = instruction->InputAt(2);
+    if (component_type != DataType::Type::kBool &&
+        !DataType::IsTypeConversionImplicit(value->GetType(), component_type)) {
+      HInstruction* conv = new (GetGraph()->GetAllocator())
+          HTypeConversion(component_type, value, instruction->GetDexPc());
+      instruction->GetBlock()->InsertInstructionBefore(conv, instruction);
+      instruction->ReplaceInput(conv, 2);
+    }
+
     HInstruction* array = instruction->InputAt(0);
     HInstruction* index = instruction->InputAt(1);
     VisitArrayAccess(array, index, HeapLocation::kScalar);
