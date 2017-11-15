@@ -23,10 +23,12 @@
 
 #include <android-base/logging.h>
 
+#include "base/bit_utils.h"
 #include "base/iteration_range.h"
 #include "base/macros.h"
 #include "base/value_object.h"
 #include "dex_file_types.h"
+#include "dex_hidden_access_flags.h"
 #include "dex_instruction_iterator.h"
 #include "globals.h"
 #include "jni.h"
@@ -1290,10 +1292,16 @@ class ClassDataItemIterator {
     }
   }
   uint32_t GetFieldAccessFlags() const {
-    return GetRawMemberAccessFlags() & kAccValidFieldFlags;
+    return GetMemberAccessFlags() & kAccValidFieldFlags;
   }
   uint32_t GetMethodAccessFlags() const {
-    return GetRawMemberAccessFlags() & kAccValidMethodFlags;
+    return GetMemberAccessFlags() & kAccValidMethodFlags;
+  }
+  uint32_t GetMemberAccessFlags() const {
+    return DexHiddenAccessFlags::RemoveHiddenFlags(GetRawMemberAccessFlags());
+  }
+  DexHiddenAccessFlags::ApiList GetHiddenAccessFlags() const {
+    return DexHiddenAccessFlags::Decode(GetRawMemberAccessFlags());
   }
   bool MemberIsNative() const {
     return GetRawMemberAccessFlags() & kAccNative;
@@ -1314,6 +1322,15 @@ class ClassDataItemIterator {
   const uint8_t* EndDataPointer() const {
     CHECK(!HasNext());
     return ptr_pos_;
+  }
+  uint32_t GetMemberHiddenBit() const {
+    // We cannot use MemberIsNative() because it would lead to infinite recursion.
+    static_assert((kAccValidFieldFlags & kAccNative) == 0, "Assume fields cannot have native flag");
+    if (IsAtMethod() && ((GetRawMemberAccessFlags() & kAccNative) != 0)) {
+      return kAccDexHiddenBitNative;
+    } else {
+      return kAccDexHiddenBit;
+    }
   }
 
  private:

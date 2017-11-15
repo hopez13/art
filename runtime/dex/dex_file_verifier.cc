@@ -25,6 +25,7 @@
 
 #include "code_item_accessors-no_art-inl.h"
 #include "dex_file-inl.h"
+#include "dex_hidden_access_flags.h"
 #include "experimental_flags.h"
 #include "leb128.h"
 #include "safe_map.h"
@@ -229,9 +230,10 @@ bool DexFileVerifier::Verify(const DexFile* dex_file,
                              size_t size,
                              const char* location,
                              bool verify_checksum,
+                             bool is_boot_class_path,
                              std::string* error_msg) {
   std::unique_ptr<DexFileVerifier> verifier(
-      new DexFileVerifier(dex_file, begin, size, location, verify_checksum));
+      new DexFileVerifier(dex_file, begin, size, location, verify_checksum, is_boot_class_path));
   if (!verifier->Verify()) {
     *error_msg = verifier->FailureReason();
     return false;
@@ -2972,6 +2974,10 @@ bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
                                             uint32_t field_access_flags,
                                             uint32_t class_access_flags,
                                             std::string* error_msg) {
+  if (is_boot_class_path_) {
+    field_access_flags = DexHiddenAccessFlags::RemoveHiddenFlags(field_access_flags);
+  }
+
   // Generally sort out >16-bit flags.
   if ((field_access_flags & ~kAccJavaFlagsMask) != 0) {
     *error_msg = StringPrintf("Bad field access_flags for %s: %x(%s)",
@@ -3054,6 +3060,10 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
                                              bool has_code,
                                              bool expect_direct,
                                              std::string* error_msg) {
+  if (is_boot_class_path_) {
+    method_access_flags = DexHiddenAccessFlags::RemoveHiddenFlags(method_access_flags);
+  }
+
   // Generally sort out >16-bit flags, except dex knows Constructor and DeclaredSynchronized.
   constexpr uint32_t kAllMethodFlags =
       kAccJavaFlagsMask | kAccConstructor | kAccDeclaredSynchronized;

@@ -147,7 +147,7 @@ bool DexFileLoader::GetMultiDexChecksums(const char* filename,
   }
   if (IsMagicValid(magic)) {
     std::unique_ptr<const DexFile> dex_file(
-        OpenFile(fd.Release(), filename, false, false, error_msg));
+        OpenFile(fd.Release(), filename, false, false, false, false, error_msg));
     if (dex_file == nullptr) {
       return false;
     }
@@ -203,6 +203,7 @@ std::unique_ptr<const DexFile> DexFileLoader::Open(const uint8_t* base,
                     oat_dex_file,
                     verify,
                     verify_checksum,
+                    /*is_boot_class_path*/ false,
                     error_msg,
                     /*container*/ nullptr,
                     /*verify_result*/ nullptr);
@@ -213,6 +214,7 @@ std::unique_ptr<const DexFile> DexFileLoader::Open(const std::string& location,
                                                    std::unique_ptr<MemMap> map,
                                                    bool verify,
                                                    bool verify_checksum,
+                                                   bool is_boot_class_path,
                                                    std::string* error_msg) {
   ScopedTrace trace(std::string("Open dex file from mapped-memory ") + location);
   CHECK(map.get() != nullptr);
@@ -231,6 +233,7 @@ std::unique_ptr<const DexFile> DexFileLoader::Open(const std::string& location,
                                                  kNoOatDexFile,
                                                  verify,
                                                  verify_checksum,
+                                                 is_boot_class_path,
                                                  error_msg,
                                                  new MemMapContainer(std::move(map)),
                                                  /*verify_result*/ nullptr);
@@ -259,6 +262,8 @@ bool DexFileLoader::Open(const char* filename,
                                                      location,
                                                      verify,
                                                      verify_checksum,
+                                                     /* is_boot_class_path */ false,
+                                                     /* mmap_shared */ false,
                                                      error_msg));
     if (dex_file.get() != nullptr) {
       dex_files->push_back(std::move(dex_file));
@@ -275,9 +280,12 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenDex(int fd,
                                                       const std::string& location,
                                                       bool verify,
                                                       bool verify_checksum,
+                                                      bool is_boot_class_path,
+                                                      bool mmap_shared,
                                                       std::string* error_msg) {
   ScopedTrace trace("Open dex file " + std::string(location));
-  return OpenFile(fd, location, verify, verify_checksum, error_msg);
+  return OpenFile(
+      fd, location, verify, verify_checksum, is_boot_class_path, mmap_shared, error_msg);
 }
 
 bool DexFileLoader::OpenZip(int fd,
@@ -301,6 +309,8 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenFile(int fd,
                                                        const std::string& location,
                                                        bool verify,
                                                        bool verify_checksum,
+                                                       bool is_boot_class_path,
+                                                       bool mmap_shared,
                                                        std::string* error_msg) {
   ScopedTrace trace(std::string("Open dex file ") + std::string(location));
   CHECK(!location.empty());
@@ -321,7 +331,7 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenFile(int fd,
     size_t length = sbuf.st_size;
     map.reset(MemMap::MapFile(length,
                               PROT_READ,
-                              MAP_PRIVATE,
+                              mmap_shared ? MAP_SHARED : MAP_PRIVATE,
                               fd,
                               0,
                               /*low_4gb*/false,
@@ -349,6 +359,7 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenFile(int fd,
                                                  kNoOatDexFile,
                                                  verify,
                                                  verify_checksum,
+                                                 is_boot_class_path,
                                                  error_msg,
                                                  new MemMapContainer(std::move(map)),
                                                  /*verify_result*/ nullptr);
@@ -416,6 +427,7 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenOneDexFileFromZip(
                                                  kNoOatDexFile,
                                                  verify,
                                                  verify_checksum,
+                                                 /*is_boot_class_path*/ false,
                                                  error_msg,
                                                  new MemMapContainer(std::move(map)),
                                                  &verify_result);
@@ -516,6 +528,7 @@ std::unique_ptr<DexFile> DexFileLoader::OpenCommon(const uint8_t* base,
                                                    const OatDexFile* oat_dex_file,
                                                    bool verify,
                                                    bool verify_checksum,
+                                                   bool is_boot_class_path,
                                                    std::string* error_msg,
                                                    DexFileContainer* container,
                                                    VerifyResult* verify_result) {
@@ -544,6 +557,7 @@ std::unique_ptr<DexFile> DexFileLoader::OpenCommon(const uint8_t* base,
                                          dex_file->Size(),
                                          location.c_str(),
                                          verify_checksum,
+                                         is_boot_class_path,
                                          error_msg)) {
     if (verify_result != nullptr) {
       *verify_result = VerifyResult::kVerifyFailed;

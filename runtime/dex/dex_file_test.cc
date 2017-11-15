@@ -282,6 +282,7 @@ static std::unique_ptr<const DexFile> OpenDexFileInMemoryBase64(const char* base
                                                               std::move(region),
                                                               /* verify */ true,
                                                               /* verify_checksum */ true,
+                                                              /* is_boot_class_path */ false,
                                                               &error_message));
   if (expect_success) {
     CHECK(dex_file != nullptr) << error_message;

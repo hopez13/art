@@ -335,6 +335,14 @@ class ArtMethod FINAL {
     AddAccessFlags(kAccMustCountLocks);
   }
 
+  bool IsHiddenAndBlacklisted() {
+    return (GetAccessFlags() & (kAccHiddenBlacklist | kAccIntrinsic)) == kAccHiddenBlacklist;
+  }
+
+  bool IsHiddenAndGreylisted() {
+    return (GetAccessFlags() & (kAccHiddenGreylist | kAccIntrinsic)) == kAccHiddenGreylist;
+  }
+
   // Returns true if this method could be overridden by a default method.
   bool IsOverridableByDefaultMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 

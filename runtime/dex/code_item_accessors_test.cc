@@ -50,6 +50,7 @@ std::unique_ptr<const DexFile> CreateFakeDex(bool compact_dex) {
                           std::move(map),
                           /*verify*/false,
                           /*verify_checksum*/false,
+                          /*is_boot_class_path*/false,
                           &error_msg));
   CHECK(dex != nullptr) << error_msg;
   return dex;
