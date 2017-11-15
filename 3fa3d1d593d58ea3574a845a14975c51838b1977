@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37b1490c_13c317da",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "Isn\u0027t that just the pre header?",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 53
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1143e986_b775ddb7",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "Please add some ascii art to understand the structure you\u0027re looking for.",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 42
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dead6b3_8db74950",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "This reads a bit difficult. I think a while loop would read easier.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 3
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2de14b0_d86cd072",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "How about the other conditions?",
+      "range": {
+        "startLine": 139,
+        "startChar": 17,
+        "endLine": 139,
+        "endChar": 22
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4d434e_4e5adb95",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "The method name doesn\u0027t match the comment.",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 21
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2337ae5a_309a0c97",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 163,
+        "startChar": 32,
+        "endLine": 163,
+        "endChar": 33
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ee8492b_0546b48e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "Comment on why?",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 99
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66cc6f95_ac6451a9",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "consists",
+      "range": {
+        "startLine": 1121,
+        "startChar": 10,
+        "endLine": 1121,
+        "endChar": 17
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "277d5d3d_c6b66951",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T13:35:07Z",
+      "side": 1,
+      "message": "I\u0027d prefer a function that would take a boolean, instead of a for loop with an index from 0 to 1.",
+      "range": {
+        "startLine": 1136,
+        "startChar": 0,
+        "endLine": 1155,
+        "endChar": 3
+      },
+      "revId": "3fa3d1d593d58ea3574a845a14975c51838b1977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
