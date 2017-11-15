@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa4b193b_ebbecc96",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T22:19:03Z",
+      "side": 1,
+      "message": "Isn\u0027t that already guaranteed by graph_checker?",
+      "range": {
+        "startLine": 203,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 9
+      },
+      "revId": "a82e0327c1ec53b51813be70766fcdfffb8f0d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50512554_82043da3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T22:19:03Z",
+      "side": 1,
+      "message": "Add a helper method on HaBasicBlock? eg HasOnlyReturnInstruction() ?",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 5
+      },
+      "revId": "a82e0327c1ec53b51813be70766fcdfffb8f0d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27ae90f4_c82c5cdd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T22:19:03Z",
+      "side": 1,
+      "message": "Move the definition of this closer to its use?",
+      "range": {
+        "startLine": 261,
+        "startChar": 51,
+        "endLine": 261,
+        "endChar": 67
+      },
+      "revId": "a82e0327c1ec53b51813be70766fcdfffb8f0d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
