@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bb5d7ed_9c2f6495",
+        "filename": "test/667-checker-simd-alignment/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-11-15T15:36:22Z",
+      "side": 1,
+      "message": "This test fails with gcstress option enabled.\nSo it looks like the following ConstructorFence should not be removed (by LSE) even if the NewArray doesn\u0027t escape current method and thread. What if there is a GC thread that reads the array data and moves it?\n\n  +Exception in thread \"main\" java.lang.Error: Expected: 1, found: 0\n  +\tat Main.expectEquals(Main.java:348)\n  +\tat Main.test0(Main.java:269)\n  +\tat Main.main(Main.java:337)",
+      "revId": "fc04c5df8c2c523a5a9e6d2a826eaf0e6353d82e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
