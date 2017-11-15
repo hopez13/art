@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d2972ab_11c4b27b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-15T23:15:05Z",
+      "side": 1,
+      "message": "Ok, didn\u0027t know. Just deleted the above.",
+      "parentUuid": "aa4b193b_ebbecc96",
+      "range": {
+        "startLine": 203,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 9
+      },
+      "revId": "a82e0327c1ec53b51813be70766fcdfffb8f0d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50512554_82043da3",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "295ded23_419618b3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-15T23:15:05Z",
+      "side": 1,
+      "message": "Added IsSingleReturnOrReturnVoidAllowingPhis().",
+      "parentUuid": "50512554_82043da3",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 5
+      },
+      "revId": "a82e0327c1ec53b51813be70766fcdfffb8f0d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27ae90f4_c82c5cdd",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-15T22:19:03Z",
       "side": 1,
       "message": "Move the definition of this closer to its use?",
+      "range": {
+        "startLine": 261,
+        "startChar": 51,
+        "endLine": 261,
+        "endChar": 67
+      },
+      "revId": "a82e0327c1ec53b51813be70766fcdfffb8f0d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b23fb39f_268aa556",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-15T23:15:05Z",
+      "side": 1,
+      "message": "just used IsSingleReturnOrReturnVoidAllowingPhis() in place.",
+      "parentUuid": "27ae90f4_c82c5cdd",
       "range": {
         "startLine": 261,
         "startChar": 51,
