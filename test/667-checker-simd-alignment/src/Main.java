@@ -258,6 +258,19 @@ public class Main {
   // Test drivers.
   //
 
+  private static void test0() {
+    for (int j = 0; j <= 8; j++) {
+      int[] a = new int[17];    // a[i] = 0;
+                                // ConstructorFence ?
+      for (int i = 0; i < a.length; i++) {
+        a[i] += 1;              // a[i] = 1;
+      }
+      for (int i = 0; i < a.length; i++) {
+        expectEquals(1, a[i]);  // expect a[i] = 1;
+      }
+    }
+  }
+
   private static void test1() {
     int[] a = new int[9];
     staticallyAligned(a);
@@ -321,6 +334,7 @@ public class Main {
   }
 
   public static void main(String[] args) {
+    test0();
     test1();
     test2();
     test4();
