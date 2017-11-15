@@ -22,6 +22,30 @@
       "revId": "c38e17fccea407d24749a7ccf5573f524537afd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eea3d54_033068a6",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T16:11:19Z",
+      "side": 1,
+      "message": "I see, thanks. I\u0027ve removed debuggerd, and it looks like only crash_dump is complaining, so let\u0027s just get this one first. If it doesn\u0027t work, I\u0027ll add tombstoned too.",
+      "parentUuid": "c2e3843b_8f0e6699",
+      "range": {
+        "startLine": 487,
+        "startChar": 74,
+        "endLine": 487,
+        "endChar": 83
+      },
+      "revId": "c38e17fccea407d24749a7ccf5573f524537afd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
