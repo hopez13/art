@@ -158,7 +158,7 @@ void dumpClass(const DexFile* pDexFile, u4 idx) {
     for (; pClassData.HasNextMethod(); pClassData.Next()) {
       dumpMethod(pDexFile, fileName,
                  pClassData.GetMemberIndex(),
-                 pClassData.GetRawMemberAccessFlags(),
+                 pClassData.GetMethodAccessFlags(),
                  pClassData.GetMethodCodeItem(),
                  pClassData.GetMethodCodeItemOffset());
     }
