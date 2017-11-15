@@ -35,7 +35,7 @@ namespace art {
  */
 class HInductionVarAnalysis : public HOptimization {
  public:
-  explicit HInductionVarAnalysis(HGraph* graph);
+  HInductionVarAnalysis(HGraph* graph, const char* name = kInductionPassName);
 
   void Run() OVERRIDE;
 
