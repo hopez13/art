@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "653f746e_abb688e4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-15T16:10:50Z",
+      "side": 1,
+      "message": "This really shouldn\u0027t happen... in reachable code. We can still get here if we simplified ArrayLength(NewInstance(negative_const)) to negative_const, i.e. when the NewInstance is guaranteed to throw.",
+      "range": {
+        "startLine": 3222,
+        "startChar": 8,
+        "endLine": 3222,
+        "endChar": 24
+      },
+      "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
