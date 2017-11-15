@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "750c9842_bb43754f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T11:30:23Z",
+      "side": 1,
+      "message": "say why. Shouldn\u0027t it be \"we do not need a suspend check\", as our intrinsics are leaf methods?",
+      "range": {
+        "startLine": 376,
+        "startChar": 53,
+        "endLine": 376,
+        "endChar": 97
+      },
+      "revId": "8d2fe57688c7fd5fd914973d1840f29cadaba5c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35ae9dd7_c2c0cde6",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-15T11:30:23Z",
+      "side": 1,
+      "message": "Say why this is ok.",
+      "range": {
+        "startLine": 387,
+        "startChar": 44,
+        "endLine": 388,
+        "endChar": 59
+      },
+      "revId": "8d2fe57688c7fd5fd914973d1840f29cadaba5c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
