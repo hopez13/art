@@ -1230,7 +1230,7 @@ class OatDumper {
     while (it.HasNextMethod()) {
       if (!DumpOatMethod(vios, class_def, class_method_index, oat_class, dex_file,
                          it.GetMemberIndex(), it.GetMethodCodeItem(),
-                         it.GetRawMemberAccessFlags(), &addr_found)) {
+                         it.GetMemberAccessFlags(), &addr_found)) {
         success = false;
       }
       if (addr_found) {

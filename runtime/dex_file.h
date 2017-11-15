@@ -23,6 +23,7 @@
 
 #include <android-base/logging.h>
 
+#include "base/bit_utils.h"
 #include "base/iteration_range.h"
 #include "base/macros.h"
 #include "base/value_object.h"
@@ -1304,10 +1305,31 @@ class ClassDataItemIterator {
     }
   }
   uint32_t GetFieldAccessFlags() const {
-    return GetRawMemberAccessFlags() & kAccValidFieldFlags;
+    return GetMemberAccessFlags() & kAccValidFieldFlags;
   }
   uint32_t GetMethodAccessFlags() const {
-    return GetRawMemberAccessFlags() & kAccValidMethodFlags;
+    return GetMemberAccessFlags() & kAccValidMethodFlags;
+  }
+  uint32_t GetMemberAccessFlags() const {
+    const uint32_t hidden_bit = GetMemberHiddenBit();
+    uint32_t flags = GetRawMemberAccessFlags();
+    if ((flags & hidden_bit) != 0) {
+      flags &= ~hidden_bit;
+      if (IsInvertedVisibility(flags)) {
+        flags ^= kAccVisibilityFlags;
+      }
+    }
+    return flags;
+  }
+  uint32_t GetHiddenAccessFlags() const {
+    const uint32_t flags = GetRawMemberAccessFlags();
+    if ((flags & GetMemberHiddenBit()) == 0) {
+      return 0u;
+    } else if (IsInvertedVisibility(flags)) {
+      return kAccHiddenBlacklist;
+    } else {
+      return kAccHiddenGreylist;
+    }
   }
   bool MemberIsNative() const {
     return GetRawMemberAccessFlags() & kAccNative;
@@ -1328,6 +1350,20 @@ class ClassDataItemIterator {
   const uint8_t* EndDataPointer() const {
     CHECK(!HasNext());
     return ptr_pos_;
+  }
+  uint32_t GetMemberHiddenBit() const {
+    // We cannot use MemberIsNative() because it would lead to infinite recursion.
+    static_assert((kAccValidFieldFlags & kAccNative) == 0, "Assume fields cannot have native flag");
+    if (IsAtMethod() && ((GetRawMemberAccessFlags() & kAccNative) != 0)) {
+      return kAccDexHiddenBitNative;
+    } else {
+      return kAccDexHiddenBit;
+    }
+  }
+
+  ALWAYS_INLINE static bool IsInvertedVisibility(uint32_t flags) {
+    static_assert(IsPowerOfTwo(0u), "Following statement checks if *at most* one bit is set");
+    return !IsPowerOfTwo(flags & kAccVisibilityFlags);
   }
 
  private:

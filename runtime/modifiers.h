@@ -21,26 +21,34 @@
 
 namespace art {
 
-static constexpr uint32_t kAccPublic =       0x0001;  // class, field, method, ic
-static constexpr uint32_t kAccPrivate =      0x0002;  // field, method, ic
-static constexpr uint32_t kAccProtected =    0x0004;  // field, method, ic
-static constexpr uint32_t kAccStatic =       0x0008;  // field, method, ic
-static constexpr uint32_t kAccFinal =        0x0010;  // class, field, method, ic
-static constexpr uint32_t kAccSynchronized = 0x0020;  // method (only allowed on natives)
-static constexpr uint32_t kAccSuper =        0x0020;  // class (not used in dex)
-static constexpr uint32_t kAccVolatile =     0x0040;  // field
-static constexpr uint32_t kAccBridge =       0x0040;  // method (1.5)
-static constexpr uint32_t kAccTransient =    0x0080;  // field
-static constexpr uint32_t kAccVarargs =      0x0080;  // method (1.5)
-static constexpr uint32_t kAccNative =       0x0100;  // method
-static constexpr uint32_t kAccInterface =    0x0200;  // class, ic
-static constexpr uint32_t kAccAbstract =     0x0400;  // class, method, ic
-static constexpr uint32_t kAccStrict =       0x0800;  // method
-static constexpr uint32_t kAccSynthetic =    0x1000;  // class, field, method, ic
-static constexpr uint32_t kAccAnnotation =   0x2000;  // class, ic (1.5)
-static constexpr uint32_t kAccEnum =         0x4000;  // class, field, ic (1.5)
+static constexpr uint32_t kAccPublic =          0x0001;  // class, field, method, ic
+static constexpr uint32_t kAccPrivate =         0x0002;  // field, method, ic
+static constexpr uint32_t kAccProtected =       0x0004;  // field, method, ic
+static constexpr uint32_t kAccStatic =          0x0008;  // field, method, ic
+static constexpr uint32_t kAccFinal =           0x0010;  // class, field, method, ic
+static constexpr uint32_t kAccSynchronized =    0x0020;  // method (only allowed on natives)
+static constexpr uint32_t kAccSuper =           0x0020;  // class (not used in dex)
+static constexpr uint32_t kAccVolatile =        0x0040;  // field
+static constexpr uint32_t kAccBridge =          0x0040;  // method (1.5)
+static constexpr uint32_t kAccTransient =       0x0080;  // field
+static constexpr uint32_t kAccVarargs =         0x0080;  // method (1.5)
+static constexpr uint32_t kAccNative =          0x0100;  // method
+static constexpr uint32_t kAccInterface =       0x0200;  // class, ic
+static constexpr uint32_t kAccAbstract =        0x0400;  // class, method, ic
+static constexpr uint32_t kAccStrict =          0x0800;  // method
+static constexpr uint32_t kAccSynthetic =       0x1000;  // class, field, method, ic
+static constexpr uint32_t kAccAnnotation =      0x2000;  // class, ic (1.5)
+static constexpr uint32_t kAccHiddenBlacklist = 0x2000;  // field, method
+static constexpr uint32_t kAccEnum =            0x4000;  // class, field, ic (1.5)
+static constexpr uint32_t kAccHiddenGreylist =  0x8000;  // field, method
 
 static constexpr uint32_t kAccJavaFlagsMask = 0xffff;  // bits set from Java sources (low 16)
+
+// The following flags are used to insert hidden API access flags into boot
+// class path dex files. They are decoded by DexFile::ClassDataItemIterator and
+// removed from the access flags before used by the runtime.
+static constexpr uint32_t kAccDexHiddenBit =          0x00000020;  // field, method (not native)
+static constexpr uint32_t kAccDexHiddenBitNative =    0x00000200;  // method (native)
 
 static constexpr uint32_t kAccConstructor =           0x00010000;  // method (dex only) <(cl)init>
 static constexpr uint32_t kAccDeclaredSynchronized =  0x00020000;  // method (dex only)
@@ -127,7 +135,8 @@ static constexpr uint32_t kAccValidClassFlags = kAccPublic | kAccFinal | kAccSup
 static constexpr uint32_t kAccValidInterfaceFlags = kAccPublic | kAccInterface |
     kAccAbstract | kAccSynthetic | kAccAnnotation;
 
+static constexpr uint32_t kAccVisibilityFlags = kAccPublic | kAccPrivate | kAccProtected;
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_MODIFIERS_H_
-

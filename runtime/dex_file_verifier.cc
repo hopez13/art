@@ -1126,7 +1126,7 @@ bool DexFileVerifier::CheckIntraClassDataItemFields(ClassDataItemIterator* it,
     }
     DCHECK(class_def != nullptr);
     if (!CheckClassDataItemField(curr_index,
-                                 it->GetRawMemberAccessFlags(),
+                                 it->GetMemberAccessFlags(),
                                  (*class_def)->access_flags_,
                                  *class_type_index,
                                  kStatic)) {
@@ -1160,7 +1160,7 @@ bool DexFileVerifier::CheckIntraClassDataItemMethods(
     }
     DCHECK(class_def != nullptr);
     if (!CheckClassDataItemMethod(curr_index,
-                                  it->GetRawMemberAccessFlags(),
+                                  it->GetMemberAccessFlags(),
                                   (*class_def)->access_flags_,
                                   *class_type_index,
                                   it->GetMethodCodeItemOffset(),
