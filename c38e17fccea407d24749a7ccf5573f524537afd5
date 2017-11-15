@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2e3843b_8f0e6699",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-15T16:01:08Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you require tombstoned instead? debuggerd seems to be a CLI tool to produce a tombstone (or just a backtrace) from a process, so it looks more like a dependency of libbacktrace than the opposite.",
+      "range": {
+        "startLine": 487,
+        "startChar": 74,
+        "endLine": 487,
+        "endChar": 83
+      },
+      "revId": "c38e17fccea407d24749a7ccf5573f524537afd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
