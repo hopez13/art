@@ -57,6 +57,24 @@
       "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d959016_e851588a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-15T17:24:51Z",
+      "side": 1,
+      "message": "The check is part of normal loading of the OatFile and it should be consistent whether loading as executable or non-executable. So I\u0027d limit this fix to what happens under `kIsDebugBuild`.",
+      "parentUuid": "1fe79fef_23174687",
+      "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
