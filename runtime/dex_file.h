@@ -21,6 +21,7 @@
 #include <string>
 #include <vector>
 
+#include "base/bit_utils.h"
 #include "base/iteration_range.h"
 #include "base/logging.h"
 #include "base/value_object.h"
@@ -1174,12 +1175,19 @@ class Signature : public ValueObject {
 };
 std::ostream& operator<<(std::ostream& os, const Signature& sig);
 
+enum DexMemberHiddenLevel {
+  kDexHiddenWhitelist,
+  kDexHiddenGreylist,
+  kDexHiddenBlacklist
+};
+
 // Iterate and decode class_data_item
 class ClassDataItemIterator {
  public:
   ClassDataItemIterator(const DexFile& dex_file, const uint8_t* raw_class_data_item)
       : dex_file_(dex_file), pos_(0), ptr_pos_(raw_class_data_item), last_idx_(0) {
     ReadClassDataHeader();
+    last_ptr_pos_ = ptr_pos_;
     if (EndOfInstanceFieldsPos() > 0) {
       ReadClassDataField();
     } else if (EndOfVirtualMethodsPos() > 0) {
@@ -1247,6 +1255,7 @@ class ClassDataItemIterator {
   }
   inline void Next() {
     pos_++;
+    last_ptr_pos_ = ptr_pos_;
     if (pos_ < EndOfStaticFieldsPos()) {
       last_idx_ = GetMemberIndex();
       ReadClassDataField();
@@ -1280,7 +1289,16 @@ class ClassDataItemIterator {
       return last_idx_ + method_.method_idx_delta_;
     }
   }
-  uint32_t GetRawMemberAccessFlags() const {
+  DexMemberHiddenLevel GetMemberHiddenLevel() const {
+    uint32_t flags = GetRawMemberAccessFlagsWithHiddenBits();
+    if (IsInvertedVisibility(flags)) {
+      return ((flags & GetMemberHiddenBit()) != 0)
+          ? kDexHiddenBlacklist : kDexHiddenGreylist;
+    } else {
+      return kDexHiddenWhitelist;
+    }
+  }
+  uint32_t GetRawMemberAccessFlagsWithHiddenBits() const {
     if (pos_ < EndOfInstanceFieldsPos()) {
       return field_.access_flags_;
     } else {
@@ -1293,6 +1311,14 @@ class ClassDataItemIterator {
   }
   uint32_t GetMethodAccessFlags() const {
     return GetRawMemberAccessFlags() & kAccValidMethodFlags;
+  }
+  uint32_t GetRawMemberAccessFlags() const {
+    uint32_t flags = GetRawMemberAccessFlagsWithHiddenBits();
+    if (IsInvertedVisibility(flags)) {
+      flags ^= kAccVisibilityFlags;
+    }
+    flags &= ~GetMemberHiddenBit();
+    return flags;
   }
   bool MemberIsNative() const {
     return GetRawMemberAccessFlags() & kAccNative;
@@ -1313,6 +1339,17 @@ class ClassDataItemIterator {
   const uint8_t* EndDataPointer() const {
     CHECK(!HasNext());
     return ptr_pos_;
+  }
+  const uint8_t* MemberPointer() const {
+    return last_ptr_pos_;
+  }
+  uint32_t GetMemberHiddenBit() const {
+    if (IsAtMethod()) {
+      return ((GetRawMemberAccessFlagsWithHiddenBits() & kAccNative) != 0)
+          ? kAccHiddenNativeMethod : kAccHiddenMethod;
+    } else {
+      return kAccHiddenField;
+    }
   }
 
  private:
@@ -1339,6 +1376,11 @@ class ClassDataItemIterator {
   }
   uint32_t EndOfVirtualMethodsPos() const {
     return EndOfDirectMethodsPos() + header_.virtual_methods_size_;
+  }
+
+  static bool IsInvertedVisibility(uint32_t flags) {
+    static_assert(IsPowerOfTwo(0u), "Following statement checks if *at most* one bit is set");
+    return !IsPowerOfTwo(flags & kAccVisibilityFlags);
   }
 
   // A decoded version of the field of a class_data_item
@@ -1373,6 +1415,7 @@ class ClassDataItemIterator {
   const DexFile& dex_file_;
   size_t pos_;  // integral number of items passed
   const uint8_t* ptr_pos_;  // pointer into stream of class_data_item
+  const uint8_t* last_ptr_pos_;
   uint32_t last_idx_;  // last read field or method index to apply delta to
   DISALLOW_IMPLICIT_CONSTRUCTORS(ClassDataItemIterator);
 };
