@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e8439dfe_8654a387",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-15T01:10:45Z",
+      "side": 1,
+      "message": "I\u0027m not sure. They are exactly equivalent though so done.",
+      "parentUuid": "63a292f5_9ad25fc7",
+      "range": {
+        "startLine": 70,
+        "startChar": 28,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af5e2f89_d53b2ef2",
         "filename": "openjdkjvmti/events.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-14T21:50:50Z",
       "side": 1,
       "message": "Why not make this an ArtJvmtiEvent?",
+      "range": {
+        "startLine": 76,
+        "startChar": 39,
+        "endLine": 76,
+        "endChar": 49
+      },
+      "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "135ea19b_2f6e0587",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-15T01:10:45Z",
+      "side": 1,
+      "message": "The input is a jint in the external api.",
+      "parentUuid": "af5e2f89_d53b2ef2",
       "range": {
         "startLine": 76,
         "startChar": 39,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7a710fd5_f6034217",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-15T01:10:45Z",
+      "side": 1,
+      "message": "I expect that we might add more in the future.",
+      "parentUuid": "7245a8ae_2008e6f4",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 3
+      },
+      "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a5ab429_594b4cdb",
         "filename": "openjdkjvmti/events.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2017-11-14T21:50:50Z",
       "side": 1,
       "message": "What about the DISALLOW_COPY_AND_ASSIGN?",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 25
+      },
+      "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feba60b1_7b8c7afc",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-15T01:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a5ab429_594b4cdb",
       "range": {
         "startLine": 282,
         "startChar": 0,
@@ -212,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "f31117fb_c3d52016",
+        "filename": "openjdkjvmti/ti_extension.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-15T01:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909c944e_d7fc4f7e",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 345,
+        "endChar": 63
+      },
+      "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f3babd_3f304a5b",
         "filename": "test/1940-ddms-ext/ddm_ext.cc",
         "patchSetId": 6
@@ -235,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "b3d1c80e_60b44ff2",
+        "filename": "test/1940-ddms-ext/ddm_ext.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-15T01:10:45Z",
+      "side": 1,
+      "message": "In test_env.h",
+      "parentUuid": "c3f3babd_3f304a5b",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 11
+      },
+      "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba95fbb6_bad31877",
         "filename": "test/1940-ddms-ext/src/Main.java",
         "patchSetId": 6
@@ -246,6 +390,30 @@
       "writtenOn": "2017-11-14T21:50:50Z",
       "side": 1,
       "message": "2017?  Here and elsewhere.",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "4571c80cf0efb9a9669fc47cdc97b9a95ab3dec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8609d16e_f222a394",
+        "filename": "test/1940-ddms-ext/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-15T01:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba95fbb6_bad31877",
       "range": {
         "startLine": 2,
         "startChar": 17,
