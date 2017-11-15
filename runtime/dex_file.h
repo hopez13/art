@@ -23,6 +23,7 @@
 
 #include <android-base/logging.h>
 
+#include "base/bit_utils.h"
 #include "base/iteration_range.h"
 #include "base/macros.h"
 #include "base/value_object.h"
@@ -1284,7 +1285,7 @@ class ClassDataItemIterator {
       return last_idx_ + method_.method_idx_delta_;
     }
   }
-  uint32_t GetRawMemberAccessFlags() const {
+  uint32_t GetRawMemberAccessFlagsWithHiddenBits() const {
     if (pos_ < EndOfInstanceFieldsPos()) {
       return field_.access_flags_;
     } else {
@@ -1297,6 +1298,22 @@ class ClassDataItemIterator {
   }
   uint32_t GetMethodAccessFlags() const {
     return GetRawMemberAccessFlags() & kAccValidMethodFlags;
+  }
+  uint32_t GetRawMemberAccessFlags() const {
+    uint32_t flags = GetRawMemberAccessFlagsWithHiddenBits();
+
+    // Test the second bit and remove it from access flags.
+    uint32_t hidden_bit = GetMemberHiddenBit();
+    bool is_second_bit_set = (flags & hidden_bit) != 0;
+    flags &= ~hidden_bit;
+
+    // If the first hidden bit is set (visibility flags are inverted), set access flags.
+    if (IsInvertedVisibility(flags)) {
+      flags ^= kAccVisibilityFlags;
+      flags |= (is_second_bit_set) ? kAccHiddenBlacklist : kAccHiddenGreylist;
+    }
+
+    return flags;
   }
   bool MemberIsNative() const {
     return GetRawMemberAccessFlags() & kAccNative;
@@ -1317,6 +1334,15 @@ class ClassDataItemIterator {
   const uint8_t* EndDataPointer() const {
     CHECK(!HasNext());
     return ptr_pos_;
+  }
+  uint32_t GetMemberHiddenBit() const {
+    // We cannot use MemberIsNative() because it would lead to infinite recursion.
+    static_assert((kAccValidFieldFlags & kAccNative) == 0, "Assume fields cannot have native flag");
+    if (IsAtMethod() && ((GetRawMemberAccessFlagsWithHiddenBits() & kAccNative) != 0)) {
+      return kAccDexHiddenBitNative;
+    } else {
+      return kAccDexHiddenBit;
+    }
   }
 
  private:
@@ -1343,6 +1369,11 @@ class ClassDataItemIterator {
   }
   uint32_t EndOfVirtualMethodsPos() const {
     return EndOfDirectMethodsPos() + header_.virtual_methods_size_;
+  }
+
+  static bool IsInvertedVisibility(uint32_t flags) {
+    static_assert(IsPowerOfTwo(0u), "Following statement checks if *at most* one bit is set");
+    return !IsPowerOfTwo(flags & kAccVisibilityFlags);
   }
 
   // A decoded version of the field of a class_data_item
