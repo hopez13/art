@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "51458ed8_e0c12540",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-15T15:06:51Z",
+      "side": 1,
+      "message": "I\u0027m not aware of any tests that we compile all intrinsics (or their JNI stubs) into the boot*.oat. But I\u0027d assume we actually do it (without enforcing).",
+      "parentUuid": "dc461c2a_4119c41e",
+      "range": {
+        "startLine": 1179,
+        "startChar": 36,
+        "endLine": 1179,
+        "endChar": 43
+      },
+      "revId": "8e35c675b7a1fec96b82142fdb2578ff7e81ac34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a74649b_65bbf06d",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 5
