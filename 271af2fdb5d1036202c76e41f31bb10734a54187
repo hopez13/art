@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "112b6165_b5e50871",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-15T11:03:06Z",
+      "side": 1,
+      "message": "For the reasons methioned above, I do not anticipate another user of this calculation, so splitting it out seems unnecessary.",
+      "parentUuid": "aeab9d52_9065aa3d",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 98
+      },
+      "revId": "271af2fdb5d1036202c76e41f31bb10734a54187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "281a0a21_7f9c0383",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 8
