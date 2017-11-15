@@ -76,31 +76,9 @@ class LSEVisitor : public HGraphDelegateVisitor {
 
   // Remove recorded instructions that should be eliminated.
   void RemoveInstructions() {
-    size_t size = removed_loads_.size();
-    DCHECK_EQ(size, substitute_instructions_for_loads_.size());
-    for (size_t i = 0; i < size; i++) {
-      HInstruction* load = removed_loads_[i];
-      DCHECK(load != nullptr);
-      DCHECK(load->IsInstanceFieldGet() ||
-             load->IsStaticFieldGet() ||
-             load->IsArrayGet());
-      HInstruction* substitute = substitute_instructions_for_loads_[i];
-      DCHECK(substitute != nullptr);
-      // Keep tracing substitute till one that's not removed.
-      HInstruction* sub_sub = FindSubstitute(substitute);
-      while (sub_sub != substitute) {
-        substitute = sub_sub;
-        sub_sub = FindSubstitute(substitute);
-      }
-      load->ReplaceWith(substitute);
-      load->GetBlock()->RemoveInstruction(load);
-    }
+    // Don't remove loads.
 
-    // At this point, stores in possibly_removed_stores_ can be safely removed.
-    for (HInstruction* store : possibly_removed_stores_) {
-      DCHECK(store->IsInstanceFieldSet() || store->IsStaticFieldSet() || store->IsArraySet());
-      store->GetBlock()->RemoveInstruction(store);
-    }
+    // Don't remove stores.
 
     // Eliminate singleton-classified instructions:
     //   * - Constructor fences (they never escape this thread).
@@ -686,11 +664,6 @@ void LoadStoreElimination::Run() {
   const HeapLocationCollector& heap_location_collector = lsa_.GetHeapLocationCollector();
   if (heap_location_collector.GetNumberOfHeapLocations() == 0) {
     // No HeapLocation information from LSA, skip this optimization.
-    return;
-  }
-
-  // TODO: analyze VecLoad/VecStore better.
-  if (graph_->HasSIMD()) {
     return;
   }
 
