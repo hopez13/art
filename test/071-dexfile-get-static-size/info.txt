@@ -1,0 +1,6 @@
+Test DexFile.getStaticSizeOfDexFile API.
+
+071-dexfile-get-static-size-ex.jar is an arbitrary valid dex file. Naming
+the jar file $TEST_NAME-ex.jar tricks the run scripts into copying it to the
+device when running the test on target.
+
