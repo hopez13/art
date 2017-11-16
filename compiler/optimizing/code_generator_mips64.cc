@@ -1793,11 +1793,32 @@ void LocationsBuilderMIPS64::HandleBinaryOp(HBinaryOperation* instruction) {
         int64_t imm = CodeGenerator::GetInt64ValueOf(right->AsConstant());
         if (instruction->IsAnd() || instruction->IsOr() || instruction->IsXor()) {
           can_use_imm = IsUint<16>(imm);
-        } else if (instruction->IsAdd()) {
-          can_use_imm = IsInt<16>(imm);
         } else {
-          DCHECK(instruction->IsSub());
-          can_use_imm = IsInt<16>(-imm);
+          DCHECK(instruction->IsAdd() || instruction->IsSub());
+          bool single_use = instruction->GetUses().HasExactlyOneElement();
+          if (instruction->IsSub()) {
+            imm = -imm;
+          }
+          if (type == DataType::Type::kInt32) {
+            int16_t imm_high = High16Bits(imm);
+            int16_t imm_low = Low16Bits(imm);
+            if (imm_low < 0) {
+              imm_high += 1;
+            }
+            can_use_imm = IsInt<32>(imm) && (!((imm_high != 0) && (imm_low != 0)) || single_use);
+          } else {
+            int16_t imm_low = Low16Bits(Low32Bits(imm));
+            if (imm_low < 0) {
+              imm += (INT64_C(1) << 16);
+            }
+            int16_t imm_upper = High16Bits(Low32Bits(imm));
+            if (imm_upper < 0) {
+              imm += (INT64_C(1) << 32);
+            }
+            bool single_instruction = !((imm_upper != 0) && (imm_low != 0)) &&
+                                      (High32Bits(imm) == 0);
+            can_use_imm = single_instruction || single_use;
+          }
         }
       }
       if (can_use_imm)
@@ -1855,30 +1876,87 @@ void InstructionCodeGeneratorMIPS64::HandleBinaryOp(HBinaryOperation* instructio
           __ Xori(dst, lhs, rhs_imm);
         else
           __ Xor(dst, lhs, rhs_reg);
-      } else if (instruction->IsAdd()) {
-        if (type == DataType::Type::kInt32) {
-          if (use_imm)
-            __ Addiu(dst, lhs, rhs_imm);
-          else
-            __ Addu(dst, lhs, rhs_reg);
-        } else {
-          if (use_imm)
-            __ Daddiu(dst, lhs, rhs_imm);
-          else
-            __ Daddu(dst, lhs, rhs_reg);
+      } else if (instruction->IsAdd() || instruction->IsSub()) {
+        if (instruction->IsSub()) {
+          rhs_imm = -rhs_imm;
         }
-      } else {
-        DCHECK(instruction->IsSub());
         if (type == DataType::Type::kInt32) {
-          if (use_imm)
-            __ Addiu(dst, lhs, -rhs_imm);
-          else
-            __ Subu(dst, lhs, rhs_reg);
+          if (use_imm) {
+            if (IsInt<16>(rhs_imm)) {
+              __ Addiu(dst, lhs, rhs_imm);
+            } else {
+              int16_t rhs_imm_high = High16Bits(rhs_imm);
+              int16_t rhs_imm_low = Low16Bits(rhs_imm);
+              if (rhs_imm_low < 0) {
+                rhs_imm_high += 1;
+              }
+              __ Aui(dst, lhs, rhs_imm_high);
+              if (rhs_imm_low != 0) {
+                __ Addiu(dst, dst, rhs_imm_low);
+              }
+            }
+          } else {
+            if (instruction->IsAdd()) {
+              __ Addu(dst, lhs, rhs_reg);
+            } else {
+              DCHECK(instruction->IsSub());
+              __ Subu(dst, lhs, rhs_reg);
+            }
+          }
         } else {
-          if (use_imm)
-            __ Daddiu(dst, lhs, -rhs_imm);
-          else
-            __ Dsubu(dst, lhs, rhs_reg);
+          if (use_imm) {
+            if (IsInt<16>(rhs_imm)) {
+              __ Daddiu(dst, lhs, rhs_imm);
+            } else if (IsInt<32>(rhs_imm)) {
+              int16_t rhs_imm_high = High16Bits(rhs_imm);
+              int16_t rhs_imm_low = Low16Bits(rhs_imm);
+              if (rhs_imm_low < 0) {
+                rhs_imm_high += 1;
+              }
+              __ Daui(dst, lhs, rhs_imm_high);
+              if (rhs_imm_low != 0) {
+                __ Daddiu(dst, dst, rhs_imm_low);
+              }
+            } else {
+              int16_t rhs_imm_low = Low16Bits(Low32Bits(rhs_imm));
+              if (rhs_imm_low < 0) {
+                rhs_imm += (INT64_C(1) << 16);
+              }
+              int16_t rhs_imm_upper = High16Bits(Low32Bits(rhs_imm));
+              if (rhs_imm_upper < 0) {
+                rhs_imm += (INT64_C(1) << 32);
+              }
+              int16_t rhs_imm_high = Low16Bits(High32Bits(rhs_imm));
+              if (rhs_imm_high < 0) {
+                rhs_imm += (INT64_C(1) << 48);
+              }
+              int16_t rhs_imm_top = High16Bits(High32Bits(rhs_imm));
+              GpuRegister tmp = lhs;
+              if (rhs_imm_low != 0) {
+                __ Daddiu(dst, tmp, rhs_imm_low);
+                tmp = dst;
+              }
+              // Dahi and Dati must use the same input and output register, so we have to initialize
+              // the dst register using Daddiu or Daui, even when the intermediate value is zero:
+              // Daui(dst, lhs, 0).
+              if ((rhs_imm_upper != 0) || (rhs_imm_low == 0)) {
+                __ Daui(dst, tmp, rhs_imm_upper);
+              }
+              if (rhs_imm_high != 0) {
+                __ Dahi(dst, rhs_imm_high);
+              }
+              if (rhs_imm_top != 0) {
+                __ Dati(dst, rhs_imm_top);
+              }
+            }
+          } else {
+            if (instruction->IsAdd()) {
+              __ Daddu(dst, lhs, rhs_reg);
+            } else {
+              DCHECK(instruction->IsSub());
+              __ Dsubu(dst, lhs, rhs_reg);
+            }
+          }
         }
       }
       break;
