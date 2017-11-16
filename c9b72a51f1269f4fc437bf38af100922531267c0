@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eaa5894e_9ca9a79e",
+        "filename": "compiler/optimizing/cha_guard_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-16T17:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "713ab7dd_ef70da06",
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76a056ef_48fd1687",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-11-16T11:59:31Z",
       "side": 1,
       "message": "Keep \"explicit\".",
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f735856c_d372cc35",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-16T17:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76a056ef_48fd1687",
       "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "5c1f3df2_3325bcdc",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-16T17:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d9a04a5_ba2dc5f0",
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c26f832_8ac2c633",
         "filename": "compiler/optimizing/optimization.cc",
         "patchSetId": 1
@@ -64,6 +118,30 @@
       "writtenOn": "2017-11-16T10:05:08Z",
       "side": 1,
       "message": "What does that mean?",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 18
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5676b3bc_e4dc97ba",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-16T17:55:18Z",
+      "side": 1,
+      "message": "See below, but it probably does not make sense here, so removed.",
+      "parentUuid": "8c26f832_8ac2c633",
       "range": {
         "startLine": 70,
         "startChar": 4,
@@ -123,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "034087ee_b3ee0e4d",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-16T17:55:18Z",
+      "side": 1,
+      "message": "Ad Nicolas: As stated in the TODO, I would much rather generat this automatically, yes. But since that seems very hard, I use enums over a map or string based lookup for efficiency! I don\u0027t want the regular built-in tables to use any string based lookup mechanism, since it is unclear how much the C++ compiler will optimize (for bisection search, we obviously care much less on performance).\n\nAs for adding $1, the OptimizationDef mechanism below provides the right way to define alternative names, such as \"constant_folding$after_inlining\")\n\nAd Vladimir: I don\u0027t mind using enum class, the verbosity does not bother me either :-) So done.",
+      "parentUuid": "13ea3bbe_371955ee",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3e103ba_5ab4ac8c",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -134,6 +236,30 @@
       "writtenOn": "2017-11-16T11:59:31Z",
       "side": 1,
       "message": "Add template wrapper that deduces the length of the array?",
+      "range": {
+        "startLine": 311,
+        "startChar": 24,
+        "endLine": 311,
+        "endChar": 37
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "481facce_46afea0d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-16T17:55:18Z",
+      "side": 1,
+      "message": "do you have a particular syntax in mind for this (that will be shorter than the convention used now at the caller?)",
+      "parentUuid": "f3e103ba_5ab4ac8c",
       "range": {
         "startLine": 311,
         "startChar": 24,
