@@ -2038,6 +2038,7 @@ void LocationsBuilderMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
   DCHECK_EQ(instruction->InputCount(), 2U);
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
   DataType::Type type = instruction->GetResultType();
+  bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
   switch (type) {
     case DataType::Type::kInt32: {
       locations->SetInAt(0, Location::RequiresRegister());
@@ -2048,10 +2049,10 @@ void LocationsBuilderMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
         if (instruction->IsAnd() || instruction->IsOr() || instruction->IsXor()) {
           can_use_imm = IsUint<16>(imm);
         } else if (instruction->IsAdd()) {
-          can_use_imm = IsInt<16>(imm);
+          can_use_imm = isR6 ? IsInt<32>(imm) : IsInt<16>(imm);
         } else {
           DCHECK(instruction->IsSub());
-          can_use_imm = IsInt<16>(-imm);
+          can_use_imm = isR6 ? IsInt<32>(-imm) : IsInt<16>(-imm);
         }
       }
       if (can_use_imm)
@@ -2085,6 +2086,7 @@ void LocationsBuilderMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
 void InstructionCodeGeneratorMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
   DataType::Type type = instruction->GetType();
   LocationSummary* locations = instruction->GetLocations();
+  bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
 
   switch (type) {
     case DataType::Type::kInt32: {
@@ -2117,16 +2119,44 @@ void InstructionCodeGeneratorMIPS::HandleBinaryOp(HBinaryOperation* instruction)
         else
           __ Xor(dst, lhs, rhs_reg);
       } else if (instruction->IsAdd()) {
-        if (use_imm)
-          __ Addiu(dst, lhs, rhs_imm);
-        else
+        if (use_imm) {
+          if (IsInt<16>(rhs_imm)) {
+            __ Addiu(dst, lhs, rhs_imm);
+          } else {
+            DCHECK(isR6);
+            int16_t rhs_imm_high = High16Bits(rhs_imm);
+            int16_t rhs_imm_low = Low16Bits(rhs_imm);
+            if (rhs_imm_low < 0) {
+              rhs_imm_high += 1;
+            }
+            __ Aui(dst, lhs, rhs_imm_high);
+            if (rhs_imm_low != 0) {
+              __ Addiu(dst, dst, rhs_imm_low);
+            }
+          }
+        } else {
           __ Addu(dst, lhs, rhs_reg);
+        }
       } else {
         DCHECK(instruction->IsSub());
-        if (use_imm)
-          __ Addiu(dst, lhs, -rhs_imm);
-        else
+        if (use_imm) {
+          if (IsInt<16>(-rhs_imm)) {
+            __ Addiu(dst, lhs, -rhs_imm);
+          } else {
+            DCHECK(isR6);
+            int16_t rhs_imm_high = High16Bits(-rhs_imm);
+            int16_t rhs_imm_low = Low16Bits(-rhs_imm);
+            if (rhs_imm_low < 0) {
+              rhs_imm_high += 1;
+            }
+            __ Aui(dst, lhs, rhs_imm_high);
+            if (rhs_imm_low != 0) {
+              __ Addiu(dst, dst, rhs_imm_low);
+            }
+          }
+        } else {
           __ Subu(dst, lhs, rhs_reg);
+        }
       }
       break;
     }
