@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "713ab7dd_ef70da06",
+        "filename": "compiler/optimizing/cha_guard_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-16T11:59:31Z",
+      "side": 1,
+      "message": "Keep \"explicit\". The constructor can still be called with a single argument.",
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76a056ef_48fd1687",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-16T11:59:31Z",
+      "side": 1,
+      "message": "Keep \"explicit\".",
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d9a04a5_ba2dc5f0",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-16T11:59:31Z",
+      "side": 1,
+      "message": "Keep \"explicit\".",
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c26f832_8ac2c633",
         "filename": "compiler/optimizing/optimization.cc",
         "patchSetId": 1
@@ -41,6 +92,53 @@
         "startChar": 0,
         "endLine": 102,
         "endChar": 6
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13ea3bbe_371955ee",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-16T11:59:31Z",
+      "side": 1,
+      "message": "Not a big fan of old style `enum`. I prefer `enum class` but it can sometimes get a bit too verbose.",
+      "parentUuid": "6fabadc8_e887b2fc",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3e103ba_5ab4ac8c",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-16T11:59:31Z",
+      "side": 1,
+      "message": "Add template wrapper that deduces the length of the array?",
+      "range": {
+        "startLine": 311,
+        "startChar": 24,
+        "endLine": 311,
+        "endChar": 37
       },
       "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
