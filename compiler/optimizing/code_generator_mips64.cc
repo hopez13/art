@@ -1887,10 +1887,10 @@ void LocationsBuilderMIPS64::HandleBinaryOp(HBinaryOperation* instruction) {
         if (instruction->IsAnd() || instruction->IsOr() || instruction->IsXor()) {
           can_use_imm = IsUint<16>(imm);
         } else if (instruction->IsAdd()) {
-          can_use_imm = IsInt<16>(imm);
+          can_use_imm = IsInt<64>(imm);
         } else {
           DCHECK(instruction->IsSub());
-          can_use_imm = IsInt<16>(-imm);
+          can_use_imm = (type == DataType::Type::kInt32) ? IsInt<32>(-imm) : IsInt<64>(-imm);
         }
       }
       if (can_use_imm)
@@ -1950,28 +1950,147 @@ void InstructionCodeGeneratorMIPS64::HandleBinaryOp(HBinaryOperation* instructio
           __ Xor(dst, lhs, rhs_reg);
       } else if (instruction->IsAdd()) {
         if (type == DataType::Type::kInt32) {
-          if (use_imm)
-            __ Addiu(dst, lhs, rhs_imm);
-          else
+          if (use_imm) {
+            if (IsInt<16>(rhs_imm)) {
+              __ Addiu(dst, lhs, rhs_imm);
+            } else {
+              DCHECK(IsInt<32>(rhs_imm));
+              int16_t rhs_imm_high = High16Bits(rhs_imm);
+              int16_t rhs_imm_low = Low16Bits(rhs_imm);
+              if (rhs_imm_low < 0) {
+                rhs_imm_high += 1;
+              }
+              __ Aui(dst, lhs, rhs_imm_high);
+              if (rhs_imm_low != 0) {
+                __ Addiu(dst, dst, rhs_imm_low);
+              }
+            }
+          } else {
             __ Addu(dst, lhs, rhs_reg);
+          }
         } else {
-          if (use_imm)
-            __ Daddiu(dst, lhs, rhs_imm);
-          else
+          if (use_imm) {
+            if (IsInt<16>(rhs_imm)) {
+              __ Daddiu(dst, lhs, rhs_imm);
+            } else if (IsInt<32>(rhs_imm)) {
+              int16_t rhs_imm_high = High16Bits(rhs_imm);
+              int16_t rhs_imm_low = Low16Bits(rhs_imm);
+              if (rhs_imm_low < 0) {
+                rhs_imm_high += 1;
+              }
+              __ Daui(dst, lhs, rhs_imm_high);
+              if (rhs_imm_low != 0) {
+                __ Daddiu(dst, dst, rhs_imm_low);
+              }
+            } else {
+              DCHECK(IsInt<64>(rhs_imm));
+              int16_t rhs_imm_low = Low16Bits(Low32Bits(rhs_imm));
+              if (rhs_imm_low < 0) {
+                rhs_imm += (1LL << 16);
+              }
+              int16_t rhs_imm_mid = High16Bits(Low32Bits(rhs_imm));
+              if (rhs_imm_mid < 0) {
+                rhs_imm += (1LL << 32);
+              }
+              int16_t rhs_imm_high = Low16Bits(High32Bits(rhs_imm));
+              if (rhs_imm_high < 0) {
+                rhs_imm += (1LL << 48);
+              }
+              int16_t rhs_imm_top = High16Bits(High32Bits(rhs_imm));
+              if (rhs_imm_low != 0) {
+                __ Daddiu(dst, lhs, rhs_imm_low);
+              }
+              // Dahi and Dati must use the same input and output register, so we have to initialize
+              // dst register using Daddiu or Daui, even when intermediate value is zero:
+              // Daui(dst, lhs, 0).
+              if (rhs_imm_mid != 0 && rhs_imm_low != 0) {
+                __ Daui(dst, dst, rhs_imm_mid);
+              } else if (rhs_imm_low == 0) {
+                __ Daui(dst, lhs, rhs_imm_mid);
+              }
+              if (rhs_imm_high != 0) {
+                __ Dahi(dst, rhs_imm_high);
+              }
+              if (rhs_imm_top != 0) {
+                __ Dati(dst, rhs_imm_top);
+              }
+            }
+          } else {
             __ Daddu(dst, lhs, rhs_reg);
+          }
         }
       } else {
         DCHECK(instruction->IsSub());
         if (type == DataType::Type::kInt32) {
-          if (use_imm)
-            __ Addiu(dst, lhs, -rhs_imm);
-          else
+          if (use_imm) {
+            if (IsInt<16>(-rhs_imm)) {
+              __ Addiu(dst, lhs, -rhs_imm);
+            } else {
+              DCHECK(IsInt<32>(-rhs_imm));
+              int16_t rhs_imm_high = High16Bits(-rhs_imm);
+              int16_t rhs_imm_low = Low16Bits(-rhs_imm);
+              if (rhs_imm_low < 0) {
+                rhs_imm_high += 1;
+              }
+              __ Aui(dst, lhs, rhs_imm_high);
+              if (rhs_imm_low != 0) {
+                __ Addiu(dst, dst, rhs_imm_low);
+              }
+            }
+          } else {
             __ Subu(dst, lhs, rhs_reg);
+          }
         } else {
-          if (use_imm)
-            __ Daddiu(dst, lhs, -rhs_imm);
-          else
+          if (use_imm) {
+            if (IsInt<16>(-rhs_imm)) {
+              __ Daddiu(dst, lhs, -rhs_imm);
+            } else if (IsInt<32>(-rhs_imm)) {
+              int16_t rhs_imm_high = High16Bits(-rhs_imm);
+              int16_t rhs_imm_low = Low16Bits(-rhs_imm);
+              if (rhs_imm_low < 0) {
+                rhs_imm_high += 1;
+              }
+              __ Aui(dst, lhs, rhs_imm_high);
+              if (rhs_imm_low != 0) {
+                __ Daddiu(dst, dst, rhs_imm_low);
+              }
+            } else {
+              DCHECK(IsInt<64>(-rhs_imm));
+              rhs_imm = -rhs_imm;
+              int16_t rhs_imm_low = Low16Bits(Low32Bits(rhs_imm));
+              if (rhs_imm_low < 0) {
+                rhs_imm += (1LL << 16);
+              }
+              int16_t rhs_imm_mid = High16Bits(Low32Bits(rhs_imm));
+              if (rhs_imm_mid < 0) {
+                rhs_imm += (1LL << 32);
+              }
+              int16_t rhs_imm_high = Low16Bits(High32Bits(rhs_imm));
+              if (rhs_imm_high < 0) {
+                rhs_imm += (1LL << 48);
+              }
+              int16_t rhs_imm_top = High16Bits(High32Bits(rhs_imm));
+              if (rhs_imm_low != 0) {
+                __ Daddiu(dst, lhs, rhs_imm_low);
+              }
+              // Dahi and Dati must use the same input and output register, so we have to initialize
+              // dst register using Daddiu or Daui, even when intermediate value is zero:
+              // Daui(dst, lhs, 0).
+              if (rhs_imm_mid != 0 && rhs_imm_low != 0) {
+                __ Daui(dst, dst, rhs_imm_mid);
+              } else if (rhs_imm_low == 0) {
+                __ Daui(dst, lhs, rhs_imm_mid);
+              }
+              if (rhs_imm_high != 0) {
+                __ Dahi(dst, rhs_imm_high);
+              }
+              if (rhs_imm_top != 0) {
+                __ Dati(dst, rhs_imm_top);
+              }
+            }
+          } else {
             __ Dsubu(dst, lhs, rhs_reg);
+          }
         }
       }
       break;
