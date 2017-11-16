@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c26f832_8ac2c633",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-16T10:05:08Z",
+      "side": 1,
+      "message": "What does that mean?",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 18
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fabadc8_e887b2fc",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-16T10:05:08Z",
+      "side": 1,
+      "message": "Not a big fan of having this list. Could we just map a name to an optimization, and if there are multiple passes of that same optimization, we just append \"1\", \"2\", etc?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
