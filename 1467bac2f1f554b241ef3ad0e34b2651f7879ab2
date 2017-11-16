@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74c8a166_1fa04d11",
+        "filename": "runtime/jit/jit_code_cache_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-16T14:07:16Z",
+      "side": 1,
+      "message": "The custom RWLock that you\u0027ve implemented uses \"std::memory_order_relaxed\" which only guarantees atomicity and and doesn\u0027t impose any memory order on the lock operations and other memory operations. This might result in a situation that the following loop store operations (\" *start_address++ \u003d kUndefined;\") can be observed by a worker thread BEFORE the observation of the \"WriterAcquire\".\n\nYou can refer to ARM Architecture Reference Manual, chapter \"Load-Exclusive, Store-Exclusive and barriers\" to see an example (as atomics are implemented via LDXR/STXR).\n\n\"A common use of Load-Exclusive and Store-Exclusive instructions is to claim a lock to permit entry into a critical\nregion. This is typically performed by testing a lock variable that indicates 0 for a free lock and some other value,\ncommonly 1 or an identifier of the process holding the lock, for a taken lock.\nThe lack of implicit barriers in the Load-Exclusive and Store-Exclusive instructions means that the mechanism\nrequires a DMB instruction between acquiring a lock and making the first access to the critical region, to ensure that\nall observers observe the successful claim of the lock before they observe any subsequent loads or stores to the\nregion.\"",
+      "range": {
+        "startLine": 236,
+        "startChar": 16,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "1467bac2f1f554b241ef3ad0e34b2651f7879ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
