@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9baa8ea0_1c487b00",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3490,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-17T12:53:09Z",
+      "side": 1,
+      "message": "Move this after the DexFileLoader::Open(), i.e. after the dex file has been verified.",
+      "range": {
+        "startLine": 3489,
+        "startChar": 0,
+        "endLine": 3490,
+        "endChar": 65
+      },
+      "revId": "b004a759a86f148de4351e9469c19901d7e8a27a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
