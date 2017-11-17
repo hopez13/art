@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "2f768f1d_efba2630",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T23:41:06Z",
+      "side": 1,
+      "message": "Ok, probably not worth it then.",
+      "parentUuid": "f8ad91c8_caa282d9",
+      "range": {
+        "startLine": 440,
+        "startChar": 27,
+        "endLine": 440,
+        "endChar": 51
+      },
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9feffb9d_cbb63604",
         "filename": "dexlayout/dex_writer.h",
         "patchSetId": 6
@@ -195,6 +219,24 @@
       "side": 1,
       "message": "Sort by decreasing offset since the priority queue reverses the order.",
       "parentUuid": "9feffb9d_cbb63604",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cb78786_db55525e",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T23:41:06Z",
+      "side": 1,
+      "message": "Sounds good, leave a comment?",
+      "parentUuid": "681e3a9a_0b402a51",
       "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -245,6 +287,30 @@
       "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4921f9c6_c4a67d9b",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T23:41:06Z",
+      "side": 1,
+      "message": "(Discussed offline). Ok to leave some more comments and a TODO for further cleanup.",
+      "parentUuid": "1506b87d_56518333",
+      "range": {
+        "startLine": 1588,
+        "startChar": 36,
+        "endLine": 1588,
+        "endChar": 43
+      },
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -441,6 +507,24 @@
       "side": 1,
       "message": "It only gets created if layout is enabled (currently).",
       "parentUuid": "495d5ce0_c9917340",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b23f47_b4756d60",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T23:41:06Z",
+      "side": 1,
+      "message": "Since its just a map , maybe we can just leave the map empty if layout is disabled?\n\nOtherwise I think this could just be std::optional\u003cDexLayoutHotnessInfo\u003e which avoids the pointer and dynamic memory allocation overhead ?",
+      "parentUuid": "aedb40fe_218147b3",
       "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
