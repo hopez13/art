@@ -1,0 +1,238 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad191a2c_7183c01f",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "nit: Weird syntax. Please use\n\n    EncodedArrayItem* array_item \u003d new EncodedArrayItem(values);",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e46a4427_cd6efd12",
+        "filename": "dexlayout/dex_ir_builder.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "Can you add a comment that explains what this does?",
+      "range": {
+        "startLine": 27,
+        "startChar": 59,
+        "endLine": 27,
+        "endChar": 81
+      },
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e06a6e7b_86efcc63",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "Is there a helper function for this instead?\n\n  static constexpr uint32_t kSectionAlignment(enum) {\n      case kDexTypeClassDataItem:\n      ....\n        return ???;\n      default:\n      ....\n        return ???;\n  }",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee15fc7a_c8c1c449",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "This seems to happen a lot. I think you could add overload that takes a unique_ptr ?",
+      "range": {
+        "startLine": 440,
+        "startChar": 27,
+        "endLine": 440,
+        "endChar": 51
+      },
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9feffb9d_cbb63604",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "Why is it opposite?",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b44d180d_0b2cb121",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "What? This looks like a memory leak?",
+      "range": {
+        "startLine": 1588,
+        "startChar": 36,
+        "endLine": 1588,
+        "endChar": 43
+      },
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60828db0_12d80f10",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1604,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "See above.",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad46bd09_1367d907",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1773,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "nit: \n\nfirst-\u003esecond?\n\nPlease read into temp vars?",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1214d323_b2df0396",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "nit: Please read into temp vars?",
+      "range": {
+        "startLine": 1803,
+        "startChar": 11,
+        "endLine": 1803,
+        "endChar": 23
+      },
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6a0eecb_493fedfa",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "nit: This super magic should probably be a constexpr with explanation why its 90% ?",
+      "range": {
+        "startLine": 1820,
+        "startChar": 48,
+        "endLine": 1820,
+        "endChar": 55
+      },
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "495d5ce0_c9917340",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "Why does this need to be a unique_ptr ? Seems like it could be the DexLayoutHotnessInfo itself.",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "411cf830_e37edd77",
+        "filename": "runtime/dex_file_layout.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-17T19:30:09Z",
+      "side": 1,
+      "message": "DCHECK start \u003c\u003d end?",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
