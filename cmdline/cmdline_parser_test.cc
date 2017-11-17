@@ -362,6 +362,7 @@ TEST_F(CmdlineParserTest, DISABLED_TestXGcOption) {
   EXPECT_SINGLE_PARSE_FAIL("-Xgc:blablabla", CmdlineResult::kUsage);  // invalid Xgc opt
 }  // TEST_F
 
+#if 0
 /*
  * {"-Xrunjdwp:_", "-agentlib:jdwp=_"}
  */
@@ -406,6 +407,8 @@ TEST_F(CmdlineParserTest, TestJdwpOptions) {
   EXPECT_SINGLE_PARSE_FAIL("-agentlib:jdwp=help", CmdlineResult::kUsage);  // usage for help only
   EXPECT_SINGLE_PARSE_FAIL("-agentlib:jdwp=blabla", CmdlineResult::kFailure);  // invalid subarg
 }  // TEST_F
+
+#endif
 
 /*
  * -D_ -D_ -D_ ...

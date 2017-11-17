@@ -62,6 +62,16 @@ class DdmCallback {
       REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 };
 
+class DebuggerControlCallback {
+ public:
+  virtual ~DebuggerControlCallback() {}
+
+  // Begin running the debugger.
+  virtual void StartDebugger();
+  // The debugger should begin shutting down since the runtime is ending.
+  virtual void StopDebugger();
+};
+
 class RuntimeSigQuitCallback {
  public:
   virtual ~RuntimeSigQuitCallback() {}
@@ -190,12 +200,22 @@ class RuntimeCallbacks {
   void RemoveMethodInspectionCallback(MethodInspectionCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+<<<<<<< HEAD
   // DDMS callbacks
   void DdmPublishChunk(uint32_t type, const ArrayRef<const uint8_t>& data)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void AddDdmCallback(DdmCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
   void RemoveDdmCallback(DdmCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+=======
+  void StartDebugger();
+  void StopDebugger();
+
+  void AddDebuggerControlCallback(DebuggerControlCallback* cb)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  void RemoveDebuggerControlCallback(DebuggerControlCallback* cb)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+>>>>>>> WIP: Add support for alternate jdwp default impls.
 
  private:
   std::vector<ThreadLifecycleCallback*> thread_callbacks_
@@ -212,7 +232,11 @@ class RuntimeCallbacks {
       GUARDED_BY(Locks::mutator_lock_);
   std::vector<MethodInspectionCallback*> method_inspection_callbacks_
       GUARDED_BY(Locks::mutator_lock_);
+<<<<<<< HEAD
   std::vector<DdmCallback*> ddm_callbacks_
+=======
+  std::vector<DebuggerControlCallback*> debugger_control_callbacks_
+>>>>>>> WIP: Add support for alternate jdwp default impls.
       GUARDED_BY(Locks::mutator_lock_);
 };
 

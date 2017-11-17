@@ -30,6 +30,7 @@
 #include "arch/instruction_set.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "debugger.h"
 #include "deoptimization_kind.h"
 #include "dex_file_types.h"
 #include "experimental_flags.h"
@@ -688,6 +689,14 @@ class Runtime {
     return madvise_random_access_;
   }
 
+  const std::string& GetJdwpOptions() {
+    return jdwp_options_;
+  }
+
+  const JdwpProvider& GetJdwpProvider() {
+    return jdwp_provider_;
+  }
+
  private:
   static void InitPlatformSignalHandlers();
 
@@ -940,6 +949,12 @@ class Runtime {
 
   // Whether zygote code is in a section that should not start threads.
   bool zygote_no_threads_;
+
+  // The string containing requested jdwp options
+  std::string jdwp_options_;
+
+  // The jdwp provider we were configured with.
+  JdwpProvider jdwp_provider_;
 
   // Saved environment.
   class EnvSnapshot {

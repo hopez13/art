@@ -58,12 +58,42 @@ struct DebuggerDdmCallback : public DdmCallback {
       OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_);
 };
 
+class JdwpProvider {
+ public:
+  // TODO Remove the kInternal type when old jdwp implementation is removed and make it default to
+  // libjdwp.so
+  enum class Type {
+    kInternal,
+    kAgent,
+  };
+
+  JdwpProvider() : type_(Type::kInternal), agent_("") {}
+  explicit JdwpProvider(const std::string& agent) : type_(Type::kAgent), agent_(agent) {}
+
+  bool IsInternal() {
+    return type_ == Type::kInternal;
+  }
+
+  const std::string& GetAgent() {
+    DCHECK(!IsInternal());
+    return agent_;
+  }
+
+ private:
+  Type type_;
+  std::string agent_;
+};
+
 struct DebuggerActiveMethodInspectionCallback : public MethodInspectionCallback {
   bool IsMethodBeingInspected(ArtMethod* m ATTRIBUTE_UNUSED)
       OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsMethodSafeToJit(ArtMethod* m) OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_);
 };
 
+struct InternalDebuggerControlCallback : public DebuggerControlCallback {
+  void StartDebugger();
+  void StopDebugger();
+};
 
 /*
  * Invoke-during-breakpoint support.
@@ -797,6 +827,7 @@ class Dbg {
 
   static DebuggerActiveMethodInspectionCallback gDebugActiveCallback;
   static DebuggerDdmCallback gDebugDdmCallback;
+  static InternalDebuggerControlCallback gDebuggerControlCallback;
 
   // Indicates whether we should drop the JDWP connection because the runtime stops or the
   // debugger called VirtualMachine.Dispose.
