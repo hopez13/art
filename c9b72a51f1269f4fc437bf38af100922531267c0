@@ -269,6 +269,30 @@
       "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61dfc7d8_8dc0c459",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-17T10:53:43Z",
+      "side": 1,
+      "message": "template \u003csize_t size\u003e\nvoid RunOptimizations(...,\n                      const OptimizationDef (\u0026definitions)[size]) {\n  RunOptimizations(...,\n                   definitions,\n                   size);\n}\n\nAnd take the definitions as const, please.\n\nAn alternative proposal would be to pass ArrayRef\u003cconst OptimizationDef\u003e.",
+      "parentUuid": "481facce_46afea0d",
+      "range": {
+        "startLine": 311,
+        "startChar": 24,
+        "endLine": 311,
+        "endChar": 37
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
