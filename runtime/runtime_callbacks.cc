@@ -49,6 +49,26 @@ void RuntimeCallbacks::DdmPublishChunk(uint32_t type, const ArrayRef<const uint8
   }
 }
 
+void RuntimeCallbacks::AddDebuggerControlCallback(DebuggerControlCallback* cb) {
+  debugger_control_callbacks_.push_back(cb);
+}
+
+void RuntimeCallbacks::RemoveDebuggerControlCallback(DebuggerControlCallback* cb) {
+  Remove(cb, &debugger_control_callbacks_);
+}
+
+void RuntimeCallbacks::StartDebugger() {
+  for (DebuggerControlCallback* cb : debugger_control_callbacks_) {
+    cb->StartDebugger();
+  }
+}
+
+void RuntimeCallbacks::StopDebugger() {
+  for (DebuggerControlCallback* cb : debugger_control_callbacks_) {
+    cb->StopDebugger();
+  }
+}
+
 void RuntimeCallbacks::AddMethodInspectionCallback(MethodInspectionCallback* cb) {
   method_inspection_callbacks_.push_back(cb);
 }

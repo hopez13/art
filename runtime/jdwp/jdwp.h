@@ -113,6 +113,8 @@ struct JdwpOptions {
 
 bool operator==(const JdwpOptions& lhs, const JdwpOptions& rhs);
 
+bool ParseJdwpOptions(const std::string& options, JdwpOptions* jdwp_options);
+
 struct JdwpEvent;
 class JdwpNetStateBase;
 struct ModBasket;
