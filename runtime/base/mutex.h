@@ -122,6 +122,10 @@ enum LockLevel {
   kInstrumentEntrypointsLock,
   kZygoteCreationLock,
 
+  // The highest valid lock level. Use this if there is code that should only be called with no
+  // other locks held.
+  kTopLockLevel,
+
   kLockLevelCount  // Must come last.
 };
 std::ostream& operator<<(std::ostream& os, const LockLevel& rhs);
