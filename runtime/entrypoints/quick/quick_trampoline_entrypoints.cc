@@ -783,8 +783,6 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
   DCHECK(!method->IsNative()) << method->PrettyMethod();
   uint32_t shorty_len = 0;
   ArtMethod* non_proxy_method = method->GetInterfaceMethodIfProxy(kRuntimePointerSize);
-  const DexFile::CodeItem* code_item = non_proxy_method->GetCodeItem();
-  DCHECK(code_item != nullptr) << method->PrettyMethod();
   const char* shorty = non_proxy_method->GetShorty(&shorty_len);
 
   JValue result;
@@ -792,14 +790,17 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
   if (UNLIKELY(deopt_frame != nullptr)) {
     HandleDeoptimization(&result, method, deopt_frame, &fragment);
   } else {
+    DCHECK(non_proxy_method->GetCodeItem() != nullptr) << method->PrettyMethod();
+    CodeItemDataAccessor accessor(non_proxy_method);
+
     const char* old_cause = self->StartAssertNoThreadSuspension(
         "Building interpreter shadow frame");
-    uint16_t num_regs = code_item->registers_size_;
+    uint16_t num_regs = accessor.RegistersSize();
     // No last shadow coming from quick.
     ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
         CREATE_SHADOW_FRAME(num_regs, /* link */ nullptr, method, /* dex pc */ 0);
     ShadowFrame* shadow_frame = shadow_frame_unique_ptr.get();
-    size_t first_arg_reg = code_item->registers_size_ - code_item->ins_size_;
+    size_t first_arg_reg = accessor.RegistersSize() - accessor.InsSize();
     BuildQuickShadowFrameVisitor shadow_frame_builder(sp, method->IsStatic(), shorty, shorty_len,
                                                       shadow_frame, first_arg_reg);
     shadow_frame_builder.VisitArguments();
@@ -822,7 +823,7 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
       }
     }
 
-    result = interpreter::EnterInterpreterFromEntryPoint(self, code_item, shadow_frame);
+    result = interpreter::EnterInterpreterFromEntryPoint(self, non_proxy_method->GetCodeItem(), shadow_frame);
   }
 
   // Pop transition.
