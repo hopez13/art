@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "e213db45_d6c58a7c",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-19T15:19:53Z",
+      "side": 1,
+      "message": "OK, so this is only for efficiency in the harcoded list case? I\u0027d put a comment, and yes, would really like something auto-generated :)",
+      "parentUuid": "034087ee_b3ee0e4d",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3e103ba_5ab4ac8c",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
