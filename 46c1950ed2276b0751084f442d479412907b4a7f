@@ -111,6 +111,24 @@
       "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d873bb5_0cb3e5ef",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T20:07:53Z",
+      "side": 1,
+      "message": "I prefer to boot in fallback mode, honestly. Sideloading OTAs isn\u0027t something a regular user can be expected to do (as the only way to recover a broken boot.oat if you include this check [and we fix early detection of issues, I guess]). So I\u0027d rather have a runnable system the user can get data off of (or recover through a regular OTA).",
+      "parentUuid": "912dbaac_5d4ade55",
+      "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
