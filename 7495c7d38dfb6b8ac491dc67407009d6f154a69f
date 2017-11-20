@@ -243,6 +243,24 @@
     },
     {
       "key": {
+        "uuid": "55da07bb_4aecebd2",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-20T00:00:34Z",
+      "side": 1,
+      "message": "I cleaned it up to use the ordering in the queue instead.",
+      "parentUuid": "3cb78786_db55525e",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b44d180d_0b2cb121",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 6
@@ -528,6 +546,24 @@
       "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0575d26f_b8450767",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-20T00:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99b23f47_b4756d60",
+      "revId": "7495c7d38dfb6b8ac491dc67407009d6f154a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
