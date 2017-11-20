@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b6989cb_3c8fe2f4",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "I guess not.\n\nEventFnType still does though, it\u0027s used for some static_asserts in places that I want to keep.\n\nI\u0027ll remove it.",
+      "parentUuid": "569275d1_5d158c43",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 19
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f1dd011_6041b20e",
         "filename": "openjdkjvmti/events-inl.h",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1872210_f9660e6b",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f1dd011_6041b20e",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 2
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a578e9e7_bf1af27d",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa9f19d6_9892a293",
+      "range": {
+        "startLine": 191,
+        "startChar": 43,
+        "endLine": 191,
+        "endChar": 64
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e52f588_0c9078f8",
         "filename": "openjdkjvmti/events.h",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a8f8b2b_cc1d6ad0",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e52f588_0c9078f8",
+      "range": {
+        "startLine": 217,
+        "startChar": 52,
+        "endLine": 218,
+        "endChar": 0
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e3177f85_53b9de46",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6c638cb_a43e18da",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 4
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "968232e5_ce96c75e",
         "filename": "openjdkjvmti/events.h",
         "patchSetId": 3
@@ -137,6 +257,30 @@
       "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4be4d06c_dcca7ac9",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "968232e5_ce96c75e",
+      "range": {
+        "startLine": 249,
+        "startChar": 51,
+        "endLine": 249,
+        "endChar": 72
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c9bad3ee_b20add8e",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3763328e_40136211",
+      "range": {
+        "startLine": 292,
+        "startChar": 7,
+        "endLine": 292,
+        "endChar": 11
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bb1c870_56ed4740",
         "filename": "runtime/base/mutex-inl.h",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2017-11-20T18:33:22Z",
       "side": 1,
       "message": "Mathieu? Personally, I find this *really* bad.",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 78
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e118896f_35935d10",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "The problem is we don\u0027t really have a thread during Agent_OnLoad but we want everything to still be protected.",
+      "parentUuid": "2bb1c870_56ed4740",
       "range": {
         "startLine": 84,
         "startChar": 10,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "cd17d8c7_7eef10a1",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33af2573_e151abc2",
+      "range": {
+        "startLine": 125,
+        "startChar": 88,
+        "endLine": 126,
+        "endChar": 22
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "749e7bea_d76951ee",
         "filename": "runtime/ti/agent.cc",
         "patchSetId": 3
@@ -229,6 +445,30 @@
       "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bf71381_031b9667",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-20T18:59:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "749e7bea_d76951ee",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
