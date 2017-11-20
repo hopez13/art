@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e73a7d7b_95210536",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-20T21:31:58Z",
+      "side": 1,
+      "message": "There are times when the array will temporarily contain the same pointer twice, doing the release here just makes sure there is no double free errors.",
+      "parentUuid": "298d08e1_8ee692d8",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 39
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b29feeb7_339ba5e8",
         "filename": "dexlayout/dex_ir.h",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-20T18:48:34Z",
       "side": 1,
       "message": "Why is this test duplicated?",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 36
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6046b172_139fbb26",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-20T21:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b29feeb7_339ba5e8",
       "range": {
         "startLine": 386,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8b2abfe2_2e78beb3",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-20T21:31:58Z",
+      "side": 1,
+      "message": "Agreed, I think having a template function that takes a CollectionVector\u003cT\u003e would be a good solution. We could use a visitor with overloaded() to handle the different types individually? Thoughts? Added a TODO.",
+      "parentUuid": "0a84d85b_9341622b",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 684,
+        "endChar": 1
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22692139_60db64ee",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 12
@@ -82,6 +154,30 @@
       "writtenOn": "2017-11-20T18:48:34Z",
       "side": 1,
       "message": "Do we DCHECK this is not exceeded.  10% is magical, though I agree probably enough to guarantee things.",
+      "range": {
+        "startLine": 1823,
+        "startChar": 5,
+        "endLine": 1823,
+        "endChar": 49
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73ac8311_e279e488",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-20T21:31:58Z",
+      "side": 1,
+      "message": "It\u0027s a bit difficult to check since the writing happens in Write, adding logic to check the result of each Write seems like it would be invasive. Any ideas?",
+      "parentUuid": "22692139_60db64ee",
       "range": {
         "startLine": 1823,
         "startChar": 5,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d6f0777d_687245ef",
+        "filename": "runtime/dex_file_layout.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-20T21:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8156eb32_18163165",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da110b07_18c80b71",
         "filename": "runtime/dex_file_layout.h",
         "patchSetId": 12
@@ -128,6 +248,30 @@
       "writtenOn": "2017-11-20T18:48:34Z",
       "side": 1,
       "message": "layouts.",
+      "range": {
+        "startLine": 50,
+        "startChar": 75,
+        "endLine": 50,
+        "endChar": 81
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6714cdd7_1d865dbf",
+        "filename": "runtime/dex_file_layout.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-11-20T21:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da110b07_18c80b71",
       "range": {
         "startLine": 50,
         "startChar": 75,
