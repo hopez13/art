@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "298d08e1_8ee692d8",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-11-20T18:48:34Z",
+      "side": 1,
+      "message": "Why do you need to release before you reset?  Doesn\u0027t reset release the previous contents?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 39
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b29feeb7_339ba5e8",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-11-20T18:48:34Z",
+      "side": 1,
+      "message": "Why is this test duplicated?",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 36
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a84d85b_9341622b",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-11-20T18:48:34Z",
+      "side": 1,
+      "message": "There\u0027s an enormous amount of boilerplate commonality between these methods.  I wonder if we could do some sort of template or lambda incantation to handle the\n\nconst uint32_t start \u003d offset;\nfor (...) {\n  // lambda for body?\n}\nif (compute_offsets_ \u0026\u0026 start !\u003d offset) {\n    header_-\u003eGetCollections().???(start);\n}\nreturn offset - start;\n\nparts.  Not in this CL but a TODO?",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 684,
+        "endChar": 1
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22692139_60db64ee",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-11-20T18:48:34Z",
+      "side": 1,
+      "message": "Do we DCHECK this is not exceeded.  10% is magical, though I agree probably enough to guarantee things.",
+      "range": {
+        "startLine": 1823,
+        "startChar": 5,
+        "endLine": 1823,
+        "endChar": 49
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8156eb32_18163165",
+        "filename": "runtime/dex_file_layout.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-11-20T18:48:34Z",
+      "side": 1,
+      "message": "Prexisting issue: DCHECK_LT, since we want a non-zero sized madvise?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da110b07_18c80b71",
+        "filename": "runtime/dex_file_layout.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-11-20T18:48:34Z",
+      "side": 1,
+      "message": "layouts.",
+      "range": {
+        "startLine": 50,
+        "startChar": 75,
+        "endLine": 50,
+        "endChar": 81
+      },
+      "revId": "e513e182820a1d20834fadf9d64563893814854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
