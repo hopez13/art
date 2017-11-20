@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2902b7ed_004d3643",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "Factorize this with lines 1543. Looks like MethodDebugInfo would really benefit from a constructor.",
+      "range": {
+        "startLine": 1416,
+        "startChar": 0,
+        "endLine": 1442,
+        "endChar": 5
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53a25a4b_2a831dfd",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 463,
+        "startChar": 4,
+        "endLine": 463,
+        "endChar": 44
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85bb0f8b_60bb00bb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "nit: can you add a \"\u003c\u003c\" that sort of comments where does it get set?",
+      "range": {
+        "startLine": 793,
+        "startChar": 6,
+        "endLine": 793,
+        "endChar": 41
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64dee851_d4f386e4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 795,
+        "startChar": 6,
+        "endLine": 795,
+        "endChar": 58
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f433b54_57637f34",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "Given this is only for testing, add a test for native methods? Otherwise, I\u0027m ok turning it to a CHECK(!method-\u003eIsNative()).",
+      "range": {
+        "startLine": 853,
+        "startChar": 19,
+        "endLine": 853,
+        "endChar": 31
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3dcce12_f4dde471",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "Not sure how well this is covered in our tests. Alex, can you comment and maybe write a test for it?",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 925,
+        "endChar": 56
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b556be_9b863c9b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 1193,
+        "startChar": 0,
+        "endLine": 1193,
+        "endChar": 42
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4653ce9c_4da92a5a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "I think this may have unwanted side effects in eg the logging \"Could not compile...\".\n\nInstead, could you add a method that will do exactly this, and you\u0027d call before/after NotifyCompilationOf?",
+      "range": {
+        "startLine": 1649,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 27
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "620c1912_bbda1214",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1720,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "Also add a comment who added it.",
+      "range": {
+        "startLine": 1720,
+        "startChar": 33,
+        "endLine": 1720,
+        "endChar": 52
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbfa0b5d_40ae34bb",
+        "filename": "runtime/managed_stack.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "CreateNotTagged?",
+      "range": {
+        "startLine": 130,
+        "startChar": 31,
+        "endLine": 130,
+        "endChar": 37
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf8851e5_c021cdca",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "which one?",
+      "range": {
+        "startLine": 739,
+        "startChar": 31,
+        "endLine": 739,
+        "endChar": 54
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ee8f6fd_c417861e",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "doesn\u0027t that mean it\u0027s not a generic jni?",
+      "range": {
+        "startLine": 746,
+        "startChar": 10,
+        "endLine": 748,
+        "endChar": 3
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db74daca_2b2ed6ba",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "According to line 780 in previous code, we used to be able to? Could you clarify what changed?",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 788,
+        "endChar": 48
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "545edb6a_4910e4d1",
+        "filename": "test/667-jit-jni-stub/jit_jni_stub_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-20T11:56:53Z",
+      "side": 1,
+      "message": "Could you add a comment: \"Local class so that we can access ...\".",
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
