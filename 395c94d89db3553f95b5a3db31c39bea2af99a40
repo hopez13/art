@@ -57,6 +57,30 @@
       "revId": "395c94d89db3553f95b5a3db31c39bea2af99a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3342068e_fe0907ee",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-20T15:58:31Z",
+      "side": 1,
+      "message": "Added an extra smali test covering this.",
+      "parentUuid": "c57e8b73_7f7220ec",
+      "range": {
+        "startLine": 966,
+        "startChar": 7,
+        "endLine": 966,
+        "endChar": 68
+      },
+      "revId": "395c94d89db3553f95b5a3db31c39bea2af99a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
