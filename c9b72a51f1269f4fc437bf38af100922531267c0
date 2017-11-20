@@ -249,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "a440e553_ed5bbb63",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-20T18:41:27Z",
+      "side": 1,
+      "message": "Added requested comments. I don\u0027t have bright ideas for autogen at the moment, but the TODO is there ;-)",
+      "parentUuid": "e213db45_d6c58a7c",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "c9b72a51f1269f4fc437bf38af100922531267c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3e103ba_5ab4ac8c",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
