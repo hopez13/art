@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569275d1_5d158c43",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "Does this still have to be explicit? Similarly for the FnType?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 19
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f1dd011_6041b20e",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "Move up, so that GetCallback and EventHandlerFunc are closer.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 2
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa9f19d6_9892a293",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "Own line.",
+      "range": {
+        "startLine": 191,
+        "startChar": 43,
+        "endLine": 191,
+        "endChar": 64
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e52f588_0c9078f8",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "Own line.",
+      "range": {
+        "startLine": 217,
+        "startChar": 52,
+        "endLine": 218,
+        "endChar": 0
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6c638cb_a43e18da",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "Wrong indent.",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 4
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "968232e5_ce96c75e",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "Own line.",
+      "range": {
+        "startLine": 249,
+        "startChar": 51,
+        "endLine": 249,
+        "endChar": 72
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3763328e_40136211",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "Needs a comment.",
+      "range": {
+        "startLine": 292,
+        "startChar": 7,
+        "endLine": 292,
+        "endChar": 11
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bb1c870_56ed4740",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "Mathieu? Personally, I find this *really* bad.",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 78
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33af2573_e151abc2",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "But according to the -inl change that\u0027s only half the story. Document?",
+      "range": {
+        "startLine": 125,
+        "startChar": 88,
+        "endLine": 126,
+        "endChar": 22
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "749e7bea_d76951ee",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-20T18:33:22Z",
+      "side": 1,
+      "message": "thread-current-inl",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "07ef2e884b7cb295276a0882ab9a9d9501685788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
