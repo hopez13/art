@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44e21385_73c36e48",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-20T19:54:50Z",
+      "side": 1,
+      "message": "Why not just insert the TypeConversion here if needed?\n\nAnd we could also immediately scan the remaining removed_loads_ to see if any of them should be substituted by the very same TypeConversion.",
+      "revId": "40807a825dcac160feeb6e4e2efb23d0b6cf868e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
