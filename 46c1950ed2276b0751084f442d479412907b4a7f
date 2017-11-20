@@ -93,6 +93,24 @@
       "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "912dbaac_5d4ade55",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-20T20:02:55Z",
+      "side": 1,
+      "message": "You mean a system that could boot despite a corrupted oat file (because the corruption is in a piece of data not currently used) should be allowed to do so?\n\nI prefer early abort when we detect the corruption.",
+      "parentUuid": "d390b77a_b185e457",
+      "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
