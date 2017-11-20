@@ -16,6 +16,24 @@
       "revId": "40807a825dcac160feeb6e4e2efb23d0b6cf868e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f3a64a8_26fe314c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-20T20:26:20Z",
+      "side": 1,
+      "message": "The remaining ones may not be dominated by the this load so you may need more than one type conversion. You can hoist (if you can manage to, with its complexity), but it\u0027s essentially the same as adding the type conversion at the store directly.",
+      "parentUuid": "44e21385_73c36e48",
+      "revId": "40807a825dcac160feeb6e4e2efb23d0b6cf868e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
