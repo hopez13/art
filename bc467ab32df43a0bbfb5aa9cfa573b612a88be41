@@ -22,6 +22,30 @@
       "revId": "bc467ab32df43a0bbfb5aa9cfa573b612a88be41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c53f54a0_a0aaa274",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-21T16:33:36Z",
+      "side": 1,
+      "message": "Doing that in testrunner.py would be quite difficult due to the way we store options. I support doing this in the run-test level though.",
+      "parentUuid": "afd0fd19_5ae1d905",
+      "range": {
+        "startLine": 187,
+        "startChar": 21,
+        "endLine": 187,
+        "endChar": 32
+      },
+      "revId": "bc467ab32df43a0bbfb5aa9cfa573b612a88be41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
