@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "18e01e2b_aff6ab6e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Easier said than done. We need to ensure that info.cfi stays alive.",
+      "parentUuid": "2902b7ed_004d3643",
+      "range": {
+        "startLine": 1416,
+        "startChar": 0,
+        "endLine": 1442,
+        "endChar": 5
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53a25a4b_2a831dfd",
         "filename": "runtime/art_method.h",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-20T11:56:53Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 463,
+        "startChar": 4,
+        "endLine": 463,
+        "endChar": 44
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5124f25_1900fcc7",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a25a4b_2a831dfd",
       "range": {
         "startLine": 463,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8b8d6ec6_358cb597",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85bb0f8b_60bb00bb",
+      "range": {
+        "startLine": 793,
+        "startChar": 6,
+        "endLine": 793,
+        "endChar": 41
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64dee851_d4f386e4",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "cc138703_5d911179",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64dee851_d4f386e4",
+      "range": {
+        "startLine": 795,
+        "startChar": 6,
+        "endLine": 795,
+        "endChar": 58
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f433b54_57637f34",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2017-11-20T11:56:53Z",
       "side": 1,
       "message": "Given this is only for testing, add a test for native methods? Otherwise, I\u0027m ok turning it to a CHECK(!method-\u003eIsNative()).",
+      "range": {
+        "startLine": 853,
+        "startChar": 19,
+        "endLine": 853,
+        "endChar": 31
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9828fdfe_56bbc3b5",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f433b54_57637f34",
       "range": {
         "startLine": 853,
         "startChar": 19,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "ed89ed05_8b29f5b7",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Moved to the 2 uses.",
+      "parentUuid": "48b556be_9b863c9b",
+      "range": {
+        "startLine": 1193,
+        "startChar": 0,
+        "endLine": 1193,
+        "endChar": 42
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4653ce9c_4da92a5a",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -174,6 +318,30 @@
       "writtenOn": "2017-11-20T11:56:53Z",
       "side": 1,
       "message": "I think this may have unwanted side effects in eg the logging \"Could not compile...\".\n\nInstead, could you add a method that will do exactly this, and you\u0027d call before/after NotifyCompilationOf?",
+      "range": {
+        "startLine": 1649,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 27
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0de28b84_86253a3a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "No, there are no such side effects at the moment. Jit::CompileMethod() does not log anything itself and its return value is ignored.",
+      "parentUuid": "4653ce9c_4da92a5a",
       "range": {
         "startLine": 1649,
         "startChar": 0,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "6bd82a4e_a5999503",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1720,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "620c1912_bbda1214",
+      "range": {
+        "startLine": 1720,
+        "startChar": 33,
+        "endLine": 1720,
+        "endChar": 52
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbfa0b5d_40ae34bb",
         "filename": "runtime/managed_stack.h",
         "patchSetId": 8
@@ -220,6 +412,30 @@
       "writtenOn": "2017-11-20T11:56:53Z",
       "side": 1,
       "message": "CreateNotTagged?",
+      "range": {
+        "startLine": 130,
+        "startChar": 31,
+        "endLine": 130,
+        "endChar": 37
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b54e5233_eddc2d2f",
+        "filename": "runtime/managed_stack.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbfa0b5d_40ae34bb",
       "range": {
         "startLine": 130,
         "startChar": 31,
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "d944393b_87ce761f",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Resolution or instrumentation.",
+      "parentUuid": "cf8851e5_c021cdca",
+      "range": {
+        "startLine": 739,
+        "startChar": 31,
+        "endLine": 739,
+        "endChar": 54
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ee8f6fd_c417861e",
         "filename": "runtime/stack.cc",
         "patchSetId": 8
@@ -266,6 +506,30 @@
       "writtenOn": "2017-11-20T11:56:53Z",
       "side": 1,
       "message": "doesn\u0027t that mean it\u0027s not a generic jni?",
+      "range": {
+        "startLine": 746,
+        "startChar": 10,
+        "endLine": 748,
+        "endChar": 3
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81d64dce_92a9df0b",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "No, it doesn\u0027t. The current `entry_point` may not be the same as at the time the method was called.",
+      "parentUuid": "4ee8f6fd_c417861e",
       "range": {
         "startLine": 746,
         "startChar": 10,
@@ -301,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "545ab2e9_80679fb5",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Previously, either the native method\u0027s code was AOT-compiled or it was the GenericJNI.\n\nWith this CL, we can still recognize AOT-compiled stub but there is no way to tell between the GenericJNI and JIT-compiled stub without looking at the \"tag\".",
+      "parentUuid": "db74daca_2b2ed6ba",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 788,
+        "endChar": 48
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "545edb6a_4910e4d1",
         "filename": "test/667-jit-jni-stub/jit_jni_stub_test.cc",
         "patchSetId": 8
@@ -312,6 +600,24 @@
       "writtenOn": "2017-11-20T11:56:53Z",
       "side": 1,
       "message": "Could you add a comment: \"Local class so that we can access ...\".",
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fe5b2ab_04431c86",
+        "filename": "test/667-jit-jni-stub/jit_jni_stub_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T18:22:21Z",
+      "side": 1,
+      "message": "Done. I also made ShouldDoFullCollection() private as it makes no sense to have it public when it REQUIRES(lock_) and lock_ is private.",
+      "parentUuid": "545edb6a_4910e4d1",
       "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
