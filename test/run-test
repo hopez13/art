@@ -225,6 +225,9 @@ while true; do
         run_args="${run_args} --prebuild"
         prebuild_mode="yes"
         shift;
+    elif [[ "x$1" == "x--compact-dex-level="* ]]; then
+        run_args="${run_args} $1"
+        shift;
     elif [ "x$1" = "x--strip-dex" ]; then
         run_args="${run_args} --strip-dex"
         shift;
