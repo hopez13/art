@@ -62,9 +62,9 @@
         "tests": ["116-nodex2oat",
                   "118-noimage-dex2oat",
                   "134-nodex2oat-nofallback"],
-        "variant": "prebuild",
+        "variant": "prebuild | cdex-fast",
         "description": ["Note 116-nodex2oat is not broken per-se it just",
-                        "doesn't (and isn't meant to) work with --prebuild."]
+                        "doesn't (and isn't meant to) work with --prebuild or --cdex-fast."]
     },
     {
         "tests": ["117-nopatchoat",
@@ -642,5 +642,11 @@
         "tests": "661-oat-writer-layout",
         "variant": "interp-ac | interpreter | jit | no-dex2oat | no-prebuild | no-image | trace",
         "description": ["Test is designed to only check --compiler-filter=speed"]
+    },
+    {
+        "tests": "628-vdex",
+        "variant": "cdex-fast",
+        "description": ["CompactDex doesn't yet work with input-vdex"]
     }
+
 ]

@@ -140,7 +140,7 @@ def gather_test_info():
   VARIANT_TYPE_DICT['image'] = {'picimage', 'no-image', 'multipicimage'}
   VARIANT_TYPE_DICT['debuggable'] = {'ndebuggable', 'debuggable'}
   VARIANT_TYPE_DICT['gc'] = {'gcstress', 'gcverify', 'cms'}
-  VARIANT_TYPE_DICT['prebuild'] = {'no-prebuild', 'no-dex2oat', 'prebuild'}
+  VARIANT_TYPE_DICT['prebuild'] = {'no-prebuild', 'no-dex2oat', 'prebuild', 'cdex-fast'}
   VARIANT_TYPE_DICT['relocate'] = {'relocate-npatchoat', 'relocate', 'no-relocate'}
   VARIANT_TYPE_DICT['jni'] = {'jni', 'forcecopy', 'checkjni'}
   VARIANT_TYPE_DICT['address_sizes'] = {'64', '32'}
@@ -385,6 +385,8 @@ def run_tests(tests):
         options_test += ' --no-prebuild'
       elif prebuild == 'no-dex2oat':
         options_test += ' --no-prebuild --no-dex2oat'
+      elif prebuild == 'cdex-fast':
+        options_test += ' --prebuild --cdex-fast'
 
       if compiler == 'optimizing':
         options_test += ' --optimizing'
