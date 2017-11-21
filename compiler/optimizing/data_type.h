@@ -186,6 +186,7 @@ class DataType {
   }
 
   static bool IsTypeConversionImplicit(Type input_type, Type result_type);
+  static bool IsTypeConversionImplicit(int64_t value, Type result_type);
 
   static const char* PrettyDescriptor(Type type);
 
@@ -211,6 +212,14 @@ inline bool DataType::IsTypeConversionImplicit(Type input_type, Type result_type
           IsIntegralType(result_type) &&
           MinValueOfIntegralType(input_type) >= MinValueOfIntegralType(result_type) &&
           MaxValueOfIntegralType(input_type) <= MaxValueOfIntegralType(result_type));
+}
+
+inline bool DataType::IsTypeConversionImplicit(int64_t value, Type result_type) {
+  if (IsIntegralType(result_type) && result_type != Type::kInt64) {
+    return value >= MinValueOfIntegralType(result_type) &&
+           value <= MaxValueOfIntegralType(result_type);
+  }
+  return false;
 }
 
 }  // namespace art
