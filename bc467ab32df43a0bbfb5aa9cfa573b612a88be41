@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afd0fd19_5ae1d905",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-21T09:05:45Z",
+      "side": 1,
+      "message": "Given you plan to get more cdex levels, would it make sense to make this --cdex\u003dfast, or --compact-dex-level\u003dfast? You can then still blacklist based on whethter --cdex (or --compact-dex-level) was given.",
+      "range": {
+        "startLine": 187,
+        "startChar": 21,
+        "endLine": 187,
+        "endChar": 32
+      },
+      "revId": "bc467ab32df43a0bbfb5aa9cfa573b612a88be41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
