@@ -88,6 +88,30 @@
     },
     {
       "key": {
+        "uuid": "6b58b0e3_9783b7e4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-21T17:02:20Z",
+      "side": 1,
+      "message": "I see. The original code in the location builder was using\n\ncan_use_imm \u003d isR6 ? IsInt\u003c32\u003e(imm) : IsInt\u003c16\u003e(imm);\n\nusing the same GetInt32Value mechanism, so I wanted to use the same test here for sanity (since it seems to suggest can_use_imm could be false for !R6). But I see that you suggested to change L2052 as well to remove the redundant check. If that is done, then I agree we don\u0027t need this check anymore.",
+      "parentUuid": "16c5c04e_8209d0d8",
+      "range": {
+        "startLine": 2127,
+        "startChar": 0,
+        "endLine": 2127,
+        "endChar": 35
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca13aca6_03b0f108",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
