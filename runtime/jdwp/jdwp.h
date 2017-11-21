@@ -97,7 +97,8 @@ bool operator!=(const JdwpLocation& lhs, const JdwpLocation& rhs);
  * How we talk to the debugger.
  */
 enum JdwpTransportType {
-  kJdwpTransportUnknown = 0,
+  kJdwpTransportNone = 0,
+  kJdwpTransportUnknown,      // Unknown tranpsort
   kJdwpTransportSocket,       // transport=dt_socket
   kJdwpTransportAndroidAdb,   // transport=dt_android_adb
 };

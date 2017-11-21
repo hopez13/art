@@ -30,28 +30,28 @@ class JdwpProvider {
   // libjdwp.so
   enum class Type {
     kInternal,
-    kAgent,
+    kPlugin,
   };
 
-  JdwpProvider() : type_(Type::kInternal), agent_("") {}
-  explicit JdwpProvider(const std::string& agent) : type_(Type::kAgent), agent_(agent) {}
+  JdwpProvider() : type_(Type::kInternal), plugin_("") {}
+  explicit JdwpProvider(const std::string& plugin) : type_(Type::kPlugin), plugin_(plugin) {}
 
   bool IsInternal() {
     return type_ == Type::kInternal;
   }
 
-  const std::string& GetAgent() {
+  const std::string& GetPlugin() {
     DCHECK(!IsInternal());
-    return agent_;
+    return plugin_;
   }
 
   bool Equals(const JdwpProvider& rhs) const {
-    return type_ == rhs.type_ && agent_ == rhs.agent_;
+    return type_ == rhs.type_ && plugin_ == rhs.plugin_;
   }
 
  private:
   Type type_;
-  std::string agent_;
+  std::string plugin_;
 };
 
 bool operator==(const JdwpProvider& lhs, const JdwpProvider& rhs);

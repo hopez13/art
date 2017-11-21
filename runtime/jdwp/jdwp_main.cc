@@ -47,6 +47,7 @@ static bool ParseJdwpOption(const std::string& name,
     } else if (value == "dt_android_adb") {
       jdwp_options->transport = JDWP::kJdwpTransportAndroidAdb;
     } else {
+      jdwp_options->transport = JDWP::kJdwpTransportUnknown;
       LOG(ERROR) << "JDWP transport not supported: " << value;
       return false;
     }
@@ -135,6 +136,12 @@ bool ParseJdwpOptions(const std::string& options, JdwpOptions* jdwp_options) {
     LOG(ERROR) << s << "Must specify JDWP transport: " << options;
     return false;
   }
+#if ART_TARGET_ANDROID
+  if (jdwp_options->transport == JDWP::kJdwpTransportNone) {
+    jdwp_options->transport = JDWP::kJdwpTransportAndroidAdb;
+    LOG(WARNING) << "no JDWP transport specified. Defaulting to dt_android_adb";
+  }
+#endif
   if (!jdwp_options->server && (jdwp_options->host.empty() || jdwp_options->port == 0)) {
     LOG(ERROR) << s << "Must specify JDWP host and port when server=n: " << options;
     return false;

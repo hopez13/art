@@ -67,9 +67,9 @@ class DebuggerControlCallback {
   virtual ~DebuggerControlCallback() {}
 
   // Begin running the debugger.
-  virtual void StartDebugger();
+  virtual void StartDebugger() = 0;
   // The debugger should begin shutting down since the runtime is ending.
-  virtual void StopDebugger();
+  virtual void StopDebugger() = 0;
 };
 
 class RuntimeSigQuitCallback {

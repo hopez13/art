@@ -100,7 +100,7 @@ jdwpTransportError FdForwardTransport::PerformAttach(int listen_fd) {
 }
 
 static void SendListenMessage(int fd) {
-  TEMP_FAILURE_RETRY(send(fd, kListenStartMessage, sizeof(kListenStartMessage), 0));
+  TEMP_FAILURE_RETRY(send(fd, kListenStartMessage, sizeof(kListenStartMessage), MSG_EOR));
 }
 
 jdwpTransportError FdForwardTransport::SetupListen(int listen_fd) {
@@ -116,7 +116,7 @@ jdwpTransportError FdForwardTransport::SetupListen(int listen_fd) {
 }
 
 static void SendListenEndMessage(int fd) {
-  TEMP_FAILURE_RETRY(send(fd, kListenEndMessage, sizeof(kListenEndMessage), 0));
+  TEMP_FAILURE_RETRY(send(fd, kListenEndMessage, sizeof(kListenEndMessage), MSG_EOR));
 }
 
 jdwpTransportError FdForwardTransport::StopListening() {
@@ -278,7 +278,7 @@ IOResult FdForwardTransport::WriteFully(const void* data, size_t ndata) {
 }
 
 static void SendAcceptMessage(int fd) {
-  TEMP_FAILURE_RETRY(send(fd, kAcceptMessage, sizeof(kAcceptMessage), 0));
+  TEMP_FAILURE_RETRY(send(fd, kAcceptMessage, sizeof(kAcceptMessage), MSG_EOR));
 }
 
 IOResult FdForwardTransport::RecieveFdsFromSocket() {
@@ -311,14 +311,14 @@ IOResult FdForwardTransport::RecieveFdsFromSocket() {
     DT_IO_ERROR("Failed to receive fds!");
     return IOResult::kError;
   }
-  FdSet* out_fds = reinterpret_cast<FdSet*>(CMSG_DATA(cmsg));
-  if (out_fds->read_fd_ < 0 || out_fds->write_fd_ < 0 || out_fds->write_lock_fd_ < 0) {
+  FdSet out_fds = FdSet::ReadData(CMSG_DATA(cmsg));
+  if (out_fds.read_fd_ < 0 || out_fds.write_fd_ < 0 || out_fds.write_lock_fd_ < 0) {
     DT_IO_ERROR("Received fds were invalid!");
     return IOResult::kError;
   }
-  read_fd_ = out_fds->read_fd_;
-  write_fd_ = out_fds->write_fd_;
-  write_lock_fd_ = out_fds->write_lock_fd_;
+  read_fd_ = out_fds.read_fd_;
+  write_fd_ = out_fds.write_fd_;
+  write_lock_fd_ = out_fds.write_lock_fd_;
 
   // We got the fds. Send ack.
   close_notify_fd_ = dup(listen_fd_);
@@ -377,7 +377,7 @@ jdwpTransportError FdForwardTransport::Accept() {
 
 void SendClosingMessage(int fd) {
   if (fd >= 0) {
-    TEMP_FAILURE_RETRY(send(fd, kCloseMessage, sizeof(kCloseMessage), 0));
+    TEMP_FAILURE_RETRY(send(fd, kCloseMessage, sizeof(kCloseMessage), MSG_EOR));
   }
 }
 

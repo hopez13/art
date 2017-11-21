@@ -1223,6 +1223,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   jdwp_options_ = runtime_options.GetOrDefault(Opt::JdwpOptions);
   jdwp_provider_ = runtime_options.GetOrDefault(Opt::JdwpProvider);
   if (jdwp_provider_.IsInternal()) {
+    LOG(ERROR) << "Jdwp is being configured for internal.";
     if (runtime_options.Exists(Opt::JdwpOptions)) {
       JDWP::JdwpOptions ops;
       if (!JDWP::ParseJdwpOptions(runtime_options.GetOrDefault(Opt::JdwpOptions), &ops)) {
@@ -1231,6 +1232,8 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       }
       Dbg::ConfigureJdwp(ops);
     }
+  } else {
+    plugins_.push_back(Plugin::Create(jdwp_provider_.GetPlugin()));
   }
   callbacks_->AddThreadLifecycleCallback(Dbg::GetThreadLifecycleCallback());
   callbacks_->AddClassLoadCallback(Dbg::GetClassLoadCallback());
@@ -1517,6 +1520,7 @@ static bool EnsureJvmtiPlugin(Runtime* runtime,
   }
 
   // Is the process debuggable? Otherwise, do not attempt to load the plugin.
+  // TODO Support a crimped jvmti for non-debuggable runtimes.
   if (!runtime->IsJavaDebuggable()) {
     *error_msg = "Process is not debuggable.";
     return false;

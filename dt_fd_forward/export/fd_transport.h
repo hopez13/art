@@ -32,6 +32,19 @@ struct FdSet {
   // when writing to write_fd_. This allows the proxy to insert packets into the response stream
   // without having to parse it.
   int write_lock_fd_;
+
+  static constexpr size_t kDataLength = sizeof(int) * 3;
+  void WriteData(void* buf) {
+    int* ibuf = reinterpret_cast<int*>(buf);
+    ibuf[0] = read_fd_;
+    ibuf[1] = write_fd_;
+    ibuf[2] = write_lock_fd_;
+  }
+
+  static FdSet ReadData(void* buf) {
+    int* ibuf = reinterpret_cast<int*>(buf);
+    return FdSet { ibuf[0], ibuf[1], ibuf[2] };
+  }
 };
 
 // This message is sent over the fd associated with the transport when we are listening for fds.
