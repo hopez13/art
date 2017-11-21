@@ -147,6 +147,24 @@
       "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8213d8cc_4e31d17a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T13:47:02Z",
+      "side": 1,
+      "message": "And another reason to do it this way is to allow oatdump to list .bss entries. Bug: 65737953",
+      "parentUuid": "9796359a_0006241c",
+      "revId": "46c1950ed2276b0751084f442d479412907b4a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
