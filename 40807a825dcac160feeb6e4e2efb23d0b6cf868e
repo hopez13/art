@@ -34,6 +34,24 @@
       "revId": "40807a825dcac160feeb6e4e2efb23d0b6cf868e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1836bfd0_9ac1a42c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-21T15:53:13Z",
+      "side": 1,
+      "message": "If you find multiple loads that need the same TypeConversion, you can insert it right after the `substitute` to make sure it dominates all uses. Or you can indeed hoist it to a better place; we\u0027ve done that before, see pc_relative_fixups.cc .",
+      "parentUuid": "2f3a64a8_26fe314c",
+      "revId": "40807a825dcac160feeb6e4e2efb23d0b6cf868e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
