@@ -16,6 +16,24 @@
       "revId": "081bb6a7ee52234567346b52188b30e8daa1166d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eed248b2_a5195996",
+        "filename": "dexlist/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-21T21:56:03Z",
+      "side": 1,
+      "message": "Because of CHECKs. By \"chance\" none of the methods from dex_file.h dexlist was using were doing CHECKs, so it didn\u0027t need that dependency.",
+      "parentUuid": "af4e6d60_071c6461",
+      "revId": "081bb6a7ee52234567346b52188b30e8daa1166d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
