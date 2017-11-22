@@ -46,6 +46,30 @@
       "revId": "554c16b7022eee06aa2b0685c6d73775e3a5a9b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a4dab15_2b57740e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-22T10:35:56Z",
+      "side": 1,
+      "message": "Maybe the Sharpening and IntrinsicsRecognizer should be simple helper classes with static functions instead of actual passes? Then the HInstructionBuilder and HInliner can use them directly.\n\nSee also HSharpening::ComputeLoadClassKind() that\u0027s already a static function.",
+      "parentUuid": "cd499d4e_a6738648",
+      "range": {
+        "startLine": 650,
+        "startChar": 4,
+        "endLine": 651,
+        "endChar": 94
+      },
+      "revId": "554c16b7022eee06aa2b0685c6d73775e3a5a9b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
