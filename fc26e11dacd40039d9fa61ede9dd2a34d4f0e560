@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "13f2694f_4ece74be",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-22T10:21:59Z",
+      "side": 1,
+      "message": "Then how about a constructor?",
+      "parentUuid": "18e01e2b_aff6ab6e",
+      "range": {
+        "startLine": 1416,
+        "startChar": 0,
+        "endLine": 1442,
+        "endChar": 5
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53a25a4b_2a831dfd",
         "filename": "runtime/art_method.h",
         "patchSetId": 8
@@ -354,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "740142e4_c88b8e6b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-22T10:21:59Z",
+      "side": 1,
+      "message": "OK, but I\u0027d still prefer another method, eg:\n\nif (method-\u003eIsNative()) CheckIfStubExists()\n\nOr something. It\u0027d be nice to keep NotifyCompilationOf sort of \"read-only\".",
+      "parentUuid": "0de28b84_86253a3a",
+      "range": {
+        "startLine": 1649,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 27
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620c1912_bbda1214",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -542,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "dee05944_4c88f4d7",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-22T10:21:59Z",
+      "side": 1,
+      "message": "Oh, so this CHECK is mostly making sure we don\u0027t have an oat entry point or something funky.\n\nCould you add a comment eg: \"At this point, the entry point can only either be the generic or a JIT-generated stub. We sanity check it even though we are not going to use it.\"",
+      "parentUuid": "81d64dce_92a9df0b",
+      "range": {
+        "startLine": 746,
+        "startChar": 10,
+        "endLine": 748,
+        "endChar": 3
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db74daca_2b2ed6ba",
         "filename": "runtime/stack.cc",
         "patchSetId": 8
@@ -577,6 +649,30 @@
       "side": 1,
       "message": "Previously, either the native method\u0027s code was AOT-compiled or it was the GenericJNI.\n\nWith this CL, we can still recognize AOT-compiled stub but there is no way to tell between the GenericJNI and JIT-compiled stub without looking at the \"tag\".",
       "parentUuid": "db74daca_2b2ed6ba",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 788,
+        "endChar": 48
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a62b801_b0f1f83f",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-22T10:21:59Z",
+      "side": 1,
+      "message": "Could you add that as a comment, eg:\n\n\"We need to special case the first frame of a fragment as only in that case can we have either a generic JNI or JIT-compiled stub. We can only differentiate based on the tag, which GetOatQuickMethodHeader doesn\u0027t have access to\".",
+      "parentUuid": "545ab2e9_80679fb5",
       "range": {
         "startLine": 787,
         "startChar": 0,
