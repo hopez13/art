@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "317066f4_221abd48",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-22T00:59:52Z",
+      "side": 1,
+      "message": "Should this be part of the inliner optimization list, instead? In fact, should the inliner optimization list be reordered to first run sharpening and then intrinsic recognition?\n\n(Same in optimizations1, I guess?)",
+      "range": {
+        "startLine": 650,
+        "startChar": 4,
+        "endLine": 651,
+        "endChar": 94
+      },
+      "revId": "554c16b7022eee06aa2b0685c6d73775e3a5a9b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
