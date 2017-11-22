@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef2f2493_fcb1feea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "Perhaps also add a device boot test here?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde9a2f8_e812bad5",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 1788,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "Maybe add a comment that we cannot directly ADD with SP as destination register, as the result is \"unpredictable, according to the ARMv7 specification?",
+      "range": {
+        "startLine": 1787,
+        "startChar": 0,
+        "endLine": 1788,
+        "endChar": 14
+      },
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bf98f1f_357a70cc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(!(is_fast_native_ \u0026\u0026 is_critical_native_));\n\n?",
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bae5de9a_002a43d7",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "Isn\u0027t this always false, as per lines 856—857?",
+      "range": {
+        "startLine": 870,
+        "startChar": 14,
+        "endLine": 870,
+        "endChar": 32
+      },
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98d364c5_93e82361",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "GetMethods().front()",
+      "range": {
+        "startLine": 900,
+        "startChar": 42,
+        "endLine": 900,
+        "endChar": 57
+      },
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a801906_47059c9d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "{}\n\n(To be tested, but I think that the new (upstream) cpplint that ART is now using should allow that.)",
+      "range": {
+        "startLine": 1659,
+        "startChar": 35,
+        "endLine": 1659,
+        "endChar": 48
+      },
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b654796_10a56f41",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1662,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "What about\n\n  JniStubData\u0026 data \u003d it-\u003esecond;\n\ninstead?",
+      "range": {
+        "startLine": 1662,
+        "startChar": 4,
+        "endLine": 1662,
+        "endChar": 36
+      },
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e2c0d62_7fd4222f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1715,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "Add\n\n  DCHECK_EQ(self, Thread::Current());\n\nat the beginning of this method?",
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f01f2e95_46a49333",
+        "filename": "test/667-jit-jni-stub/run",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-22T15:05:51Z",
+      "side": 1,
+      "message": "2017?",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
