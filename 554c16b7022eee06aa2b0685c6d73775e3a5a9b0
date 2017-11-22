@@ -70,6 +70,30 @@
       "revId": "554c16b7022eee06aa2b0685c6d73775e3a5a9b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c832d353_8125791d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-22T18:30:56Z",
+      "side": 1,
+      "message": "I remember I previously saw inline cache changes invoke-interface CharSequence.charAt() into String.charAt() and inlines the code instead of using intrinsic. Not clear if you are seeing the same. Maybe inliner should try intrinsic first as vmarko pointed out since if the inlining succeeds, we lose track of the call and intrinsic pass won\u0027t help.",
+      "parentUuid": "2a4dab15_2b57740e",
+      "range": {
+        "startLine": 650,
+        "startChar": 4,
+        "endLine": 651,
+        "endChar": 94
+      },
+      "revId": "554c16b7022eee06aa2b0685c6d73775e3a5a9b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
