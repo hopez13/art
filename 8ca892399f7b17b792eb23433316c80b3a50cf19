@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a438298_9085b639",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-22T01:08:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "889802b0_e6f269fc",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a532b8c7_aa457601",
         "filename": "runtime/debugger.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2941fdd6_b440b019",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-22T01:08:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a532b8c7_aa457601",
+      "range": {
+        "startLine": 841,
+        "startChar": 2,
+        "endLine": 841,
+        "endChar": 68
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67a73e71_d1dfd5e5",
         "filename": "runtime/trace.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-22T00:51:43Z",
       "side": 1,
       "message": "Requires an explanation why this move was necessary.",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 5
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b3faadf_1415bd40",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-22T01:08:19Z",
+      "side": 1,
+      "message": "The code was holding incorrect locks over this code. It didn\u0027t matter with the old version since no checks were done but the jvmti events actually check those things.",
+      "parentUuid": "67a73e71_d1dfd5e5",
       "range": {
         "startLine": 417,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c4983e26_87903720",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-22T01:08:19Z",
+      "side": 1,
+      "message": "yeah that was my impression.\n\nThis shouldn\u0027t be called too often so I think it\u0027s fine.",
+      "parentUuid": "af0c19a3_db5b7817",
+      "range": {
+        "startLine": 720,
+        "startChar": 6,
+        "endLine": 721,
+        "endChar": 70
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03deec94_2209bd03",
         "filename": "test/knownfailures.json",
         "patchSetId": 4
@@ -114,6 +210,30 @@
       "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "575828e5_434adf6b",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-22T01:08:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03deec94_2209bd03",
+      "range": {
+        "startLine": 206,
+        "startChar": 24,
+        "endLine": 207,
+        "endChar": 63
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
