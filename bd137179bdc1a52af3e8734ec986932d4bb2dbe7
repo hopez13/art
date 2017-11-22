@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "21d4394f_121bc806",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7fad1ef_4f91ef8a",
+      "range": {
+        "startLine": 2052,
+        "startChar": 0,
+        "endLine": 2052,
+        "endChar": 63
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3c51f41_4b16de6c",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-20T23:33:41Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2055,
+        "startChar": 0,
+        "endLine": 2055,
+        "endChar": 65
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34270ef8_1ad28920",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3c51f41_4b16de6c",
       "range": {
         "startLine": 2055,
         "startChar": 0,
@@ -152,6 +200,30 @@
     },
     {
       "key": {
+        "uuid": "85371e92_9a13fd6f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c23ecda1_33d010d2",
+      "range": {
+        "startLine": 1890,
+        "startChar": 0,
+        "endLine": 1890,
+        "endChar": 39
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5901412_e702a2a5",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -163,6 +235,30 @@
       "writtenOn": "2017-11-20T23:33:41Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1893,
+        "startChar": 0,
+        "endLine": 1893,
+        "endChar": 93
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0eecab8_21f82ea1",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5901412_e702a2a5",
       "range": {
         "startLine": 1893,
         "startChar": 0,
@@ -198,6 +294,30 @@
     },
     {
       "key": {
+        "uuid": "03db07fd_eccedd34",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1986,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9d0bd10_d323fc3b",
+      "range": {
+        "startLine": 1986,
+        "startChar": 0,
+        "endLine": 1986,
+        "endChar": 41
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d7c3512_40de7141",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -209,6 +329,30 @@
       "writtenOn": "2017-11-20T23:33:41Z",
       "side": 1,
       "message": "For consistency with our other code, use `[U]INT64_C(1)` instead of `1[U]LL`.",
+      "range": {
+        "startLine": 1989,
+        "startChar": 28,
+        "endLine": 1989,
+        "endChar": 31
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4372ca3_7e3a773f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d7c3512_40de7141",
       "range": {
         "startLine": 1989,
         "startChar": 28,
@@ -244,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "b2d03893_7c6d2e0a",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1991,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2d8f277_e3a85a7a",
+      "range": {
+        "startLine": 1991,
+        "startChar": 22,
+        "endLine": 1991,
+        "endChar": 33
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "308b4300_f28238ae",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -267,6 +435,30 @@
     },
     {
       "key": {
+        "uuid": "a83a25d5_d9589d68",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1993,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "308b4300_f28238ae",
+      "range": {
+        "startLine": 1993,
+        "startChar": 28,
+        "endLine": 1993,
+        "endChar": 31
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e28268c6_4a0bd0c7",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -278,6 +470,30 @@
       "writtenOn": "2017-11-20T23:33:41Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1997,
+        "startChar": 28,
+        "endLine": 1997,
+        "endChar": 31
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80c8bd56_dd28ff5d",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1997,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e28268c6_4a0bd0c7",
       "range": {
         "startLine": 1997,
         "startChar": 28,
@@ -336,6 +552,54 @@
     },
     {
       "key": {
+        "uuid": "099c8a62_ce54addd",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2004,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0394cfd_78bbbd69",
+      "range": {
+        "startLine": 2004,
+        "startChar": 17,
+        "endLine": 2004,
+        "endChar": 20
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e85b00c_0a96a910",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2004,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a928a8b_056d48fa",
+      "range": {
+        "startLine": 2004,
+        "startChar": 62,
+        "endLine": 2004,
+        "endChar": 74
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "626ea243_a7df3a50",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -347,6 +611,30 @@
       "writtenOn": "2017-11-20T23:33:41Z",
       "side": 1,
       "message": "The below part for subtraction is almost identical to the above part for addition. Which makes the code unnecessarily long. I\u0027d handle both with the same code, only negating the constant in the beginning if it\u0027s subtraction.",
+      "range": {
+        "startLine": 2022,
+        "startChar": 0,
+        "endLine": 2022,
+        "endChar": 14
+      },
+      "revId": "bd137179bdc1a52af3e8734ec986932d4bb2dbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1423fcf_85a6fe40",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2022,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-11-22T12:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "626ea243_a7df3a50",
       "range": {
         "startLine": 2022,
         "startChar": 0,
