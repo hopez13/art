@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "889802b0_e6f269fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-22T00:51:43Z",
+      "side": 1,
+      "message": "Mention that you refactor the underlying dispatch code to ensure the callback is the only communication method available.",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a532b8c7_aa457601",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-22T00:51:43Z",
+      "side": 1,
+      "message": "Is this required? It doesn\u0027t look that way.",
+      "range": {
+        "startLine": 841,
+        "startChar": 2,
+        "endLine": 841,
+        "endChar": 68
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a73e71_d1dfd5e5",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-22T00:51:43Z",
+      "side": 1,
+      "message": "Requires an explanation why this move was necessary.",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 5
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af0c19a3_db5b7817",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-22T00:51:43Z",
+      "side": 1,
+      "message": "Hm. This is potentially yucky for large buffers, but not sure it\u0027s worth a more complicated API.",
+      "range": {
+        "startLine": 720,
+        "startChar": 6,
+        "endLine": 721,
+        "endChar": 70
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03deec94_2209bd03",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-22T00:51:43Z",
+      "side": 1,
+      "message": "Grammar",
+      "range": {
+        "startLine": 206,
+        "startChar": 24,
+        "endLine": 207,
+        "endChar": 63
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
