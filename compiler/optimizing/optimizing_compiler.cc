@@ -647,6 +647,8 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     // SelectGenerator depends on the InstructionSimplifier removing
     // redundant suspend checks to recognize empty blocks.
     OptDef(OptimizationPass::kSelectGenerator),
+    // TODO: if inliner does not introduce new calls, we could skip intrinsics2.
+    OptDef(OptimizationPass::kIntrinsicsRecognizer,  "intrinsics_recognition$after_inlining"),
     // TODO: if we don't inline we can also skip fold2.
     OptDef(OptimizationPass::kConstantFolding,       "constant_folding$after_inlining"),
     OptDef(OptimizationPass::kInstructionSimplifier, "instruction_simplifier$after_inlining"),
