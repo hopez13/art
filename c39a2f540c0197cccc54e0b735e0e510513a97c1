@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb9a450b_bdce7961",
+        "filename": "runtime/interpreter/mterp/cfi_asm_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-11-22T15:54:47Z",
+      "side": 1,
+      "message": "That is still fairly \"low\" register number and it might still collide - for example on ARM32 it is defined as wR15 (Intel wireless MMX data register 15).\n\nWhat about going fairly high?  Say translating ASCII \"DEX\" to uint32?",
+      "revId": "c39a2f540c0197cccc54e0b735e0e510513a97c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bdb6408_36ad4480",
+        "filename": "runtime/interpreter/mterp/out/mterp_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-11-22T15:54:47Z",
+      "side": 1,
+      "message": "I don\u0027t quite follow what is going on here.\ncfi_val_offset doesn\u0027t adjust the value of the pseudo reg,\nval_offset is defined as \"The previous value of this register is the value CFA+N where CFA is thecurrent CFA value and N is a signed offset.\"\nThat does not sound like what we want.\n\nMy first impression is that you can just remove all of the CFI_VAL_OFFSET lines",
+      "revId": "c39a2f540c0197cccc54e0b735e0e510513a97c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04aacd10_74939d02",
+        "filename": "runtime/interpreter/mterp/out/mterp_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-11-22T15:54:47Z",
+      "side": 1,
+      "message": "Left over from merge?",
+      "revId": "c39a2f540c0197cccc54e0b735e0e510513a97c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
