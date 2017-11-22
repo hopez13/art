@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "a4428bce_fac56ea2",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-22T01:45:01Z",
+      "side": 1,
+      "message": "Is it possible to annotate FinishTracing to track this correctly?",
+      "parentUuid": "3b3faadf_1415bd40",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 5
+      },
+      "revId": "8ca892399f7b17b792eb23433316c80b3a50cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "af0c19a3_db5b7817",
         "filename": "runtime/trace.cc",
         "patchSetId": 4
