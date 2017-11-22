@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b55d723f_820b455e",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-22T18:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7132b84_d2cf2028",
+      "revId": "31944b155bada75c49597ee33330919e1aefc331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e5e4d45_85be9ba8",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "a76c9377_384ed5b9",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-22T18:47:13Z",
+      "side": 1,
+      "message": "Added:\n    // Try to eliminate type conversion on int constant whose value falls into\n    // the range of the result type.",
+      "parentUuid": "1e5e4d45_85be9ba8",
+      "range": {
+        "startLine": 1163,
+        "startChar": 0,
+        "endLine": 1169,
+        "endChar": 5
+      },
+      "revId": "31944b155bada75c49597ee33330919e1aefc331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcd6fee8_6f5fd1be",
         "filename": "test/711-checker-type-conversion/src/Main.java",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2017-11-22T10:20:07Z",
       "side": 1,
       "message": "Remove?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 30
+      },
+      "revId": "31944b155bada75c49597ee33330919e1aefc331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c8648bf_4ec623f6",
+        "filename": "test/711-checker-type-conversion/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-22T18:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcd6fee8_6f5fd1be",
       "range": {
         "startLine": 17,
         "startChar": 0,
