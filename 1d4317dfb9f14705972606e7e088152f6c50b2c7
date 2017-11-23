@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "c1c53002_08ce6db0",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-23T13:59:29Z",
+      "side": 1,
+      "message": "This is what happens. We first devirtualize invoke-interface Intf.foo() to A.foo() via CHA or inline cache, then try to inline A.foo(), if that fails, we try to change invoke-interface Intf.foo() into invoke-virtual A.foo. But A.foo() could be an intrinsic. If we don\u0027t check intrinsic first, we end up either inline A.foo(), or change invoke-interface Intf.foo() into invoke-virtual A.foo(), both are slower than using the intrinsic version of A.foo(). It\u0027s straightforward to check intrinsics right before the attempt to inline/changing invoke-interface to invoke-virtual, then we don\u0027t need the added code below. I don\u0027t really see the need for a separate CL.\n\nI\u0027m also kind of skeptical of the whole value of changing invoke-interface into invoke-virtual, since devirtualization has its cost (CHA guard or inline cache type guard) which (at least the inline cache type guard) is higher than the difference between the cost of invoke-interface and invoke-virtual. Well you can argue invoke-interface can hit the conflict, then it\u0027s still a good thing to do.",
+      "parentUuid": "b42ca7bf_6c96a75b",
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb9e202_6a39bbfa",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
