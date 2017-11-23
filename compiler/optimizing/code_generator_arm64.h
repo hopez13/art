@@ -18,6 +18,7 @@
 #define ART_COMPILER_OPTIMIZING_CODE_GENERATOR_ARM64_H_
 
 #include "arch/arm64/quick_method_frame_info_arm64.h"
+#include "base/bit_field.h"
 #include "code_generator.h"
 #include "common_arm64.h"
 #include "dex/dex_file_types.h"
@@ -36,6 +37,11 @@
 #pragma GCC diagnostic pop
 
 namespace art {
+
+namespace linker {
+class Arm64RelativePatcherTest;
+}  // namespace linker
+
 namespace arm64 {
 
 class CodeGeneratorARM64;
@@ -309,17 +315,6 @@ class InstructionCodeGeneratorARM64 : public InstructionCodeGenerator {
                                          uint32_t offset,
                                          Location maybe_temp,
                                          ReadBarrierOption read_barrier_option);
-  // Generate a GC root reference load:
-  //
-  //   root <- *(obj + offset)
-  //
-  // while honoring read barriers based on read_barrier_option.
-  void GenerateGcRootFieldLoad(HInstruction* instruction,
-                               Location root,
-                               vixl::aarch64::Register obj,
-                               uint32_t offset,
-                               vixl::aarch64::Label* fixup_label,
-                               ReadBarrierOption read_barrier_option);
 
   // Generate a floating-point comparison.
   void GenerateFcmp(HInstruction* instruction);
@@ -641,9 +636,24 @@ class CodeGeneratorARM64 : public CodeGenerator {
                                 vixl::aarch64::Register base);
 
   void EmitLinkerPatches(ArenaVector<linker::LinkerPatch>* linker_patches) OVERRIDE;
+  bool NeedsThunkCode(const linker::LinkerPatch& patch) const OVERRIDE;
+  void EmitThunkCode(const linker::LinkerPatch& patch,
+                     /*out*/ ArenaVector<uint8_t>* code,
+                     /*out*/ std::string* debug_name) OVERRIDE;
 
   void EmitJitRootPatches(uint8_t* code, const uint8_t* roots_data) OVERRIDE;
 
+  // Generate a GC root reference load:
+  //
+  //   root <- *(obj + offset)
+  //
+  // while honoring read barriers based on read_barrier_option.
+  void GenerateGcRootFieldLoad(HInstruction* instruction,
+                               Location root,
+                               vixl::aarch64::Register obj,
+                               uint32_t offset,
+                               vixl::aarch64::Label* fixup_label,
+                               ReadBarrierOption read_barrier_option);
   // Fast path implementation of ReadBarrier::Barrier for a heap
   // reference field load when Baker's read barriers are used.
   void GenerateFieldLoadWithBakerReadBarrier(HInstruction* instruction,
@@ -778,6 +788,10 @@ class CodeGeneratorARM64 : public CodeGenerator {
   void GenerateExplicitNullCheck(HNullCheck* instruction) OVERRIDE;
 
  private:
+  void CompileBakerReadBarrierThunk(Arm64Assembler& assembler,
+                                    uint32_t encoded_data,
+                                    /*out*/ std::string* debug_name);
+
   using Uint64ToLiteralMap = ArenaSafeMap<uint64_t, vixl::aarch64::Literal<uint64_t>*>;
   using Uint32ToLiteralMap = ArenaSafeMap<uint32_t, vixl::aarch64::Literal<uint32_t>*>;
   using StringToLiteralMap = ArenaSafeMap<StringReference,
@@ -854,6 +868,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
   // Patches for class literals in JIT compiled code.
   TypeToLiteralMap jit_class_patches_;
 
+  friend class linker::Arm64RelativePatcherTest;
   DISALLOW_COPY_AND_ASSIGN(CodeGeneratorARM64);
 };
 
