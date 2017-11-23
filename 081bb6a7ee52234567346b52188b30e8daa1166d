@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "279f02c2_bcaa0f34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-23T09:52:30Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 74
+      },
+      "revId": "081bb6a7ee52234567346b52188b30e8daa1166d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af4e6d60_071c6461",
         "filename": "dexlist/Android.bp",
         "patchSetId": 2
@@ -31,6 +54,29 @@
       "side": 1,
       "message": "Because of CHECKs. By \"chance\" none of the methods from dex_file.h dexlist was using were doing CHECKs, so it didn\u0027t need that dependency.",
       "parentUuid": "af4e6d60_071c6461",
+      "revId": "081bb6a7ee52234567346b52188b30e8daa1166d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75cdf51a_10b2aa4d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-23T09:52:30Z",
+      "side": 1,
+      "message": "Why this argument? Maybe it is intended for some future use?",
+      "range": {
+        "startLine": 1458,
+        "startChar": 37,
+        "endLine": 1458,
+        "endChar": 78
+      },
       "revId": "081bb6a7ee52234567346b52188b30e8daa1166d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
