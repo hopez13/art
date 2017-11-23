@@ -44,14 +44,14 @@ public abstract class AhatInstance implements Diffable<AhatInstance>,
   // Bit vector of the root types of this object.
   private int mRootTypes;
 
-  // Field initialized via addRegisterednativeSize.
-  private long mRegisteredNativeSize = 0;
+  // Field initialized via addExternalModel.
+  private long mModeledExternalSize;
 
   // Fields initialized in computeReverseReferences().
   private AhatInstance mNextInstanceToGcRoot;
   private String mNextInstanceToGcRootField;
-  private ArrayList<AhatInstance> mHardReverseReferences;
-  private ArrayList<AhatInstance> mSoftReverseReferences;
+  private List<AhatInstance> mHardReverseReferences;
+  private List<AhatInstance> mSoftReverseReferences;
 
   // Fields initialized in DominatorsComputation.computeDominators().
   // mDominated - the list of instances immediately dominated by this instance.
@@ -101,7 +101,7 @@ public abstract class AhatInstance implements Diffable<AhatInstance>,
    * @return the shallow size of the object
    */
   public Size getSize() {
-    return new Size(mClassObj.getInstanceSize() + getExtraJavaSize(), mRegisteredNativeSize);
+    return new Size(mClassObj.getInstanceSize() + getExtraJavaSize(), mModeledExternalSize);
   }
 
   /**
@@ -149,10 +149,10 @@ public abstract class AhatInstance implements Diffable<AhatInstance>,
   }
 
   /**
-   * Increment the number of registered native bytes tied to this object.
+   * Add an external model for this instance.
    */
-  void addRegisteredNativeSize(long size) {
-    mRegisteredNativeSize += size;
+  void addExternalModel(long size) {
+    mModeledExternalSize += size;
   }
 
   /**

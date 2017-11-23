@@ -27,12 +27,10 @@ package com.android.ahat.heapdump {
     method public int getLength();
     method public com.android.ahat.heapdump.Value getValue(int);
     method public java.util.List<com.android.ahat.heapdump.Value> getValues();
-    method public java.lang.String toString();
   }
 
   public class AhatClassInstance extends com.android.ahat.heapdump.AhatInstance {
     method public java.lang.Iterable<com.android.ahat.heapdump.FieldValue> getInstanceFields();
-    method public java.lang.String toString();
   }
 
   public class AhatClassObj extends com.android.ahat.heapdump.AhatInstance {
@@ -42,7 +40,6 @@ package com.android.ahat.heapdump {
     method public java.lang.String getName();
     method public java.util.List<com.android.ahat.heapdump.FieldValue> getStaticFieldValues();
     method public com.android.ahat.heapdump.AhatClassObj getSuperClassObj();
-    method public java.lang.String toString();
   }
 
   public class AhatHeap implements com.android.ahat.heapdump.Diffable {
@@ -219,11 +216,11 @@ package com.android.ahat.heapdump {
   public class Size {
     ctor public Size(long, long);
     method public long getJavaSize();
-    method public long getRegisteredNativeSize();
+    method public long getModeledExternalSize();
+    method public deprecated long getRegisteredNativeSize();
     method public long getSize();
     method public boolean isZero();
     method public com.android.ahat.heapdump.Size plus(com.android.ahat.heapdump.Size);
-    method public com.android.ahat.heapdump.Size plusRegisteredNativeSize(long);
     field public static com.android.ahat.heapdump.Size ZERO;
   }
 

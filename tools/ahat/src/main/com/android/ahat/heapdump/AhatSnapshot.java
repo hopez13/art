@@ -45,11 +45,12 @@ public class AhatSnapshot implements Diffable<AhatSnapshot> {
     mHeaps = heaps;
     mRootSite = rootSite;
 
-    // Update registered native allocation size.
+    // Update the externel modeled size based on native allocation registry
+    // use.
     for (AhatInstance cleaner : mInstances) {
       AhatInstance.RegisteredNativeAllocation nra = cleaner.asRegisteredNativeAllocation();
       if (nra != null) {
-        nra.referent.addRegisteredNativeSize(nra.size);
+        nra.referent.addExternalModel(nra.size);
       }
     }
 

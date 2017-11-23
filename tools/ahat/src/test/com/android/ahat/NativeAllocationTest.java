@@ -31,7 +31,7 @@ public class NativeAllocationTest {
 
     AhatSnapshot snapshot = dump.getAhatSnapshot();
     AhatInstance referent = dump.getDumpedAhatInstance("anObject");
-    assertEquals(50000, referent.getSize().getRegisteredNativeSize());
+    assertEquals(50000, referent.getSize().getModeledExternalSize());
   }
 }
 
