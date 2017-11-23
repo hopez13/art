@@ -57,6 +57,7 @@ bool HBasicBlockBuilder::CreateBranchTargets() {
         // The TryItem spans until the very end of the CodeItem and therefore
         // cannot have any code afterwards.
       } else {
+        VLOG(compiler) << "TryItem spans beyond the end of the CodeItem";
         // The TryItem spans beyond the end of the CodeItem. This is invalid code.
         return false;
       }
@@ -110,6 +111,7 @@ bool HBasicBlockBuilder::CreateBranchTargets() {
       if (next == instructions.end()) {
         // In the normal case we should never hit this but someone can artificially forge a dex
         // file to fall-through out the method code. In this case we bail out compilation.
+        VLOG(compiler) << "Fall-through beyond the CodeItem";
         return false;
       }
       MaybeCreateBlockAt(next.DexPc());
