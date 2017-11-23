@@ -48,6 +48,69 @@
     },
     {
       "key": {
+        "uuid": "ce0f70e5_5535eadb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-23T13:46:53Z",
+      "side": 1,
+      "message": "Given the insertion order of removed_loads_, this search could just go backwards through removed_loads_[0..i-1] rather than going potentially multiple times from the beginning of the removed_loads_[] in FindSubstitute().\n\nAnd if we were to store the found substitute in substitute_instructions_for_loads_[i], the next search could stop on first hit and it wouldn\u0027t matter if we\u0027re searching removed_loads_[0..i-1] forward or backward.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 7
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "babb92a6_62bd0caf",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-23T13:46:53Z",
+      "side": 1,
+      "message": "Do we also need to store the type_conversion in substitute_instructions_for_loads_[i] for the substitute search in lines 106-111?\n\n  // v0 is initially \"int\"\n  sput-byte v0, byteField\n  sget-byte v0, byteField\n  sput v0, intField\n  sget v0, intField  // I assume that the substitute is the sget-byte?",
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5722e5bf_75373666",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-23T13:46:53Z",
+      "side": 1,
+      "message": "If this is not true, should we move the `type_conversion` right after `substitute` to guarantee the dominance?",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 71
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "396e68ca_5573824a",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -64,6 +127,29 @@
         "startChar": 0,
         "endLine": 156,
         "endChar": 9
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8860280f_31b43f45",
+        "filename": "test/530-checker-lse3/smali/StoreLoad.smali",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-23T13:46:53Z",
+      "side": 1,
+      "message": "Remove extra whitespace.",
+      "range": {
+        "startLine": 49,
+        "startChar": 34,
+        "endLine": 49,
+        "endChar": 46
       },
       "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
