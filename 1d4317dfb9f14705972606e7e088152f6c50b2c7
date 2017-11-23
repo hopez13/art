@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83dfa661_39b30044",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-23T00:25:15Z",
+      "side": 1,
+      "message": "It looks to me an attempt should be made before TryBuildAndInline() to match intrinsics. You don\u0027t want method to be inlined before it gets a chance to be replaced by an intrinsic.",
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
