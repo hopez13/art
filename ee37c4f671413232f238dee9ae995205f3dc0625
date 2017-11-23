@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57887fee_5bcd4216",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T10:49:53Z",
+      "side": 1,
+      "message": "Why this special case? Please add a comment.",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 46
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97140e6c_616ea716",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T10:49:53Z",
+      "side": 1,
+      "message": "nit: class name on the line above.",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "396e68ca_5573824a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T10:49:53Z",
+      "side": 1,
+      "message": "Move this to line 128?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 9
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
