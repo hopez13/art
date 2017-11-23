@@ -447,6 +447,13 @@ void CodeGenerator::EmitLinkerPatches(
   // No linker patches by default.
 }
 
+void CodeGenerator::EmitThunkCode(const linker::LinkerPatch& patch ATTRIBUTE_UNUSED,
+                                  /*out*/ ArenaVector<uint8_t>* code ATTRIBUTE_UNUSED,
+                                  /*out*/ std::string* debug_name ATTRIBUTE_UNUSED) {
+  // Code generators that create patches requiring thunk compilation should override this function.
+  LOG(FATAL) << "Unexpected call to EmitThunkCode().";
+}
+
 void CodeGenerator::InitializeCodeGeneration(size_t number_of_spill_slots,
                                              size_t maximum_safepoint_spill_size,
                                              size_t number_of_out_slots,
