@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "558183f7_5e1f5f47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T10:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "279f02c2_bcaa0f34",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 74
+      },
+      "revId": "081bb6a7ee52234567346b52188b30e8daa1166d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af4e6d60_071c6461",
         "filename": "dexlist/Android.bp",
         "patchSetId": 2
@@ -71,6 +95,30 @@
       "writtenOn": "2017-11-23T09:52:30Z",
       "side": 1,
       "message": "Why this argument? Maybe it is intended for some future use?",
+      "range": {
+        "startLine": 1458,
+        "startChar": 37,
+        "endLine": 1458,
+        "endChar": 78
+      },
+      "revId": "081bb6a7ee52234567346b52188b30e8daa1166d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c132d8b_b109e250",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T10:46:43Z",
+      "side": 1,
+      "message": "Yes, as soon as this CL lands, https://android-review.googlesource.com/#/c/platform/art/+/534116/ will make use of it.",
+      "parentUuid": "75cdf51a_10b2aa4d",
       "range": {
         "startLine": 1458,
         "startChar": 37,
