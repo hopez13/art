@@ -16,6 +16,93 @@
       "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff51f2ce_fc51bc77",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T11:05:42Z",
+      "side": 1,
+      "message": "Matching intrinsics has already been done in the intrinsics recognizer, so that would sound like duplicating the work.",
+      "parentUuid": "83dfa661_39b30044",
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb9e202_6a39bbfa",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T11:05:42Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 1261,
+        "startChar": 26,
+        "endLine": 1261,
+        "endChar": 27
+      },
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb5b811_52603d14",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T11:05:42Z",
+      "side": 1,
+      "message": "misplaced.",
+      "range": {
+        "startLine": 148,
+        "startChar": 67,
+        "endLine": 148,
+        "endChar": 68
+      },
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa730d21_19c9d487",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T11:05:42Z",
+      "side": 1,
+      "message": "Maybe pass stats_ to Recognize, and avoid having to call MaybeRecordStats in two different places?",
+      "range": {
+        "startLine": 174,
+        "startChar": 9,
+        "endLine": 174,
+        "endChar": 79
+      },
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
