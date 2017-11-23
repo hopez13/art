@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0456c592_add7c3cc",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-23T18:25:32Z",
+      "side": 1,
+      "message": "ArraySets are not visited during RTP so I guess this is a good place to process the case (not in the worklist processing).",
+      "revId": "b4c653640e02f346dfb31d9b57adcc3469fcf7d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
