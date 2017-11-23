@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e0490bf_153b0d8a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2035,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T11:11:19Z",
+      "side": 1,
+      "message": "Do you want to drop this? Or add a comment that we *always* preopt the boot image with dex2oatd?",
+      "range": {
+        "startLine": 2035,
+        "startChar": 10,
+        "endLine": 2035,
+        "endChar": 23
+      },
+      "revId": "d278cb48e91bf06f325663a14f026608cc904355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
