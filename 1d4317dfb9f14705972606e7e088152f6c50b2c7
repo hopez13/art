@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b5b56949_7a9c14a4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-23T13:07:49Z",
+      "side": 1,
+      "message": "But we devirtualize first with inline cache/cha first before inlining attempt, that\u0027s after the previous intrinsics matching. Changing invoke-interface into invoke-virtual is a result of devirtualization also, only if inlining the devirtualized method fails. We should cover all cases.",
+      "parentUuid": "ff51f2ce_fc51bc77",
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb9e202_6a39bbfa",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
