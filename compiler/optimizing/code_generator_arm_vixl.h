@@ -36,6 +36,11 @@
 #pragma GCC diagnostic pop
 
 namespace art {
+
+namespace linker {
+class Thumb2RelativePatcherTest;
+}  // namespace linker
+
 namespace arm {
 
 // This constant is used as an approximate margin when emission of veneer and literal pools
@@ -388,16 +393,6 @@ class InstructionCodeGeneratorARMVIXL : public InstructionCodeGenerator {
                                          uint32_t offset,
                                          Location maybe_temp,
                                          ReadBarrierOption read_barrier_option);
-  // Generate a GC root reference load:
-  //
-  //   root <- *(obj + offset)
-  //
-  // while honoring read barriers based on read_barrier_option.
-  void GenerateGcRootFieldLoad(HInstruction* instruction,
-                               Location root,
-                               vixl::aarch32::Register obj,
-                               uint32_t offset,
-                               ReadBarrierOption read_barrier_option);
   void GenerateTestAndBranch(HInstruction* instruction,
                              size_t condition_input_index,
                              vixl::aarch32::Label* true_target,
@@ -606,6 +601,10 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
                                                 Handle<mirror::Class> handle);
 
   void EmitLinkerPatches(ArenaVector<linker::LinkerPatch>* linker_patches) OVERRIDE;
+  bool NeedsThunkCode(const linker::LinkerPatch& patch) const OVERRIDE;
+  void EmitThunkCode(const linker::LinkerPatch& patch,
+                     /*out*/ ArenaVector<uint8_t>* code,
+                     /*out*/ std::string* debug_name) OVERRIDE;
 
   void EmitJitRootPatches(uint8_t* code, const uint8_t* roots_data) OVERRIDE;
 
@@ -613,6 +612,16 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
   // is added only for AOT compilation if link-time generated thunks for fields are enabled.
   void MaybeAddBakerCcEntrypointTempForFields(LocationSummary* locations);
 
+  // Generate a GC root reference load:
+  //
+  //   root <- *(obj + offset)
+  //
+  // while honoring read barriers based on read_barrier_option.
+  void GenerateGcRootFieldLoad(HInstruction* instruction,
+                               Location root,
+                               vixl::aarch32::Register obj,
+                               uint32_t offset,
+                               ReadBarrierOption read_barrier_option);
   // Fast path implementation of ReadBarrier::Barrier for a heap
   // reference field load when Baker's read barriers are used.
   void GenerateFieldLoadWithBakerReadBarrier(HInstruction* instruction,
@@ -767,6 +776,10 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
                                  vixl::aarch32::Register temp = vixl32::Register());
 
  private:
+  void CompileBakerReadBarrierThunk(ArmVIXLAssembler& assembler,
+                                    uint32_t encoded_data,
+                                    /*out*/ std::string* debug_name);
+
   vixl::aarch32::Register GetInvokeStaticOrDirectExtraParameter(HInvokeStaticOrDirect* invoke,
                                                                 vixl::aarch32::Register temp);
 
@@ -829,6 +842,7 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
   // Patches for class literals in JIT compiled code.
   TypeToLiteralMap jit_class_patches_;
 
+  friend class linker::Thumb2RelativePatcherTest;
   DISALLOW_COPY_AND_ASSIGN(CodeGeneratorARMVIXL);
 };
 
