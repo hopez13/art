@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "b42ca7bf_6c96a75b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-23T13:16:40Z",
+      "side": 1,
+      "message": "Ah right, you\u0027re saying it could be the invoke-virtual/invoke-interface was not recognized by the intrinsic recognizer?\n\nThen maybe you\u0027re right, we should check beforehand if we have an intrinsic. (doesn\u0027t need to be in this CL really, so up to Aart if he wants to do this here or in another CL).",
+      "parentUuid": "b5b56949_7a9c14a4",
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb9e202_6a39bbfa",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
