@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "abe0424c_434fdbe1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-24T16:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5adb9698_c4e52440",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 81
+      },
+      "revId": "f78c3a2bbb6066e4c34ba441780c722b02234648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "570d42b0_4ce91271",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-24T15:53:01Z",
       "side": 1,
       "message": "Make this function static?",
+      "range": {
+        "startLine": 438,
+        "startChar": 5,
+        "endLine": 438,
+        "endChar": 26
+      },
+      "revId": "f78c3a2bbb6066e4c34ba441780c722b02234648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0fec2c6_3a0f161c",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-24T16:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "570d42b0_4ce91271",
       "range": {
         "startLine": 438,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3fcc6b29_3f6cf90c",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-24T16:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "859cf8a9_cbb00b22",
+      "range": {
+        "startLine": 457,
+        "startChar": 30,
+        "endLine": 457,
+        "endChar": 46
+      },
+      "revId": "f78c3a2bbb6066e4c34ba441780c722b02234648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ce7001b_9635d756",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-11-24T15:53:01Z",
       "side": 1,
       "message": "How about putting this comment on its own line? (And likewise for similar comments below.)",
+      "range": {
+        "startLine": 492,
+        "startChar": 32,
+        "endLine": 492,
+        "endChar": 48
+      },
+      "revId": "f78c3a2bbb6066e4c34ba441780c722b02234648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b46f8c75_9a2a6878",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-24T16:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ce7001b_9635d756",
       "range": {
         "startLine": 492,
         "startChar": 32,
