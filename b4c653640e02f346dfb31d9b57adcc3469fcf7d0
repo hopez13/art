@@ -34,6 +34,24 @@
       "revId": "b4c653640e02f346dfb31d9b57adcc3469fcf7d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ecc3b0a_0d7d75a9",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-11-24T18:50:18Z",
+      "side": 1,
+      "message": "What do you think about the solution in PS6 (to log \"ambiguous\" ArraySets in the visitor to a special vector and at the end process them)?\n1. No extra graph traversal is required (in comparison with the previous solution.\n2. The code is clear and called in a single place - we don\u0027t interfere with the reference type propagation algorithm.\n3. ArraySets are visited exactly once.",
+      "parentUuid": "84c6a3c8_1014efcd",
+      "revId": "b4c653640e02f346dfb31d9b57adcc3469fcf7d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
