@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "26b112d2_6677a9a8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-24T23:02:27Z",
+      "side": 1,
+      "message": "The case I optimized is not due to CHA or inline cache, but simply resolving the interface call into virtual as a result of better receiver type information. I am not seeing the scenario you described, so if you have a particular example that would help me understand the discussion better. Even for that case, the refactoring of this CL seems useful, even if we call the new method at other places, so happy to look into that with more information.",
+      "parentUuid": "c1c53002_08ce6db0",
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb9e202_6a39bbfa",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
@@ -102,6 +120,30 @@
       "writtenOn": "2017-11-23T11:05:42Z",
       "side": 1,
       "message": "the",
+      "range": {
+        "startLine": 1261,
+        "startChar": 26,
+        "endLine": 1261,
+        "endChar": 27
+      },
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00d0702c_780da70b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-24T23:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cb9e202_6a39bbfa",
       "range": {
         "startLine": 1261,
         "startChar": 26,
@@ -137,6 +179,30 @@
     },
     {
       "key": {
+        "uuid": "3e165c17_e030dce6",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-24T23:02:27Z",
+      "side": 1,
+      "message": "That was a one point the style guideline. But removed.",
+      "parentUuid": "54e47ad5_b3280365",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 10
+      },
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb5b811_52603d14",
         "filename": "compiler/optimizing/intrinsics.cc",
         "patchSetId": 2
@@ -160,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "2a30acfb_90e02834",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-24T23:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb5b811_52603d14",
+      "range": {
+        "startLine": 148,
+        "startChar": 67,
+        "endLine": 148,
+        "endChar": 68
+      },
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa730d21_19c9d487",
         "filename": "compiler/optimizing/intrinsics.cc",
         "patchSetId": 2
@@ -171,6 +261,30 @@
       "writtenOn": "2017-11-23T11:05:42Z",
       "side": 1,
       "message": "Maybe pass stats_ to Recognize, and avoid having to call MaybeRecordStats in two different places?",
+      "range": {
+        "startLine": 174,
+        "startChar": 9,
+        "endLine": 174,
+        "endChar": 79
+      },
+      "revId": "1d4317dfb9f14705972606e7e088152f6c50b2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "165f3148_8b753ab7",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-24T23:02:27Z",
+      "side": 1,
+      "message": "Leaving like this, perhaps we want to make this another stat to see the difference.",
+      "parentUuid": "fa730d21_19c9d487",
       "range": {
         "startLine": 174,
         "startChar": 9,
