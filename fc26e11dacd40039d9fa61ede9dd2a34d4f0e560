@@ -450,6 +450,30 @@
     },
     {
       "key": {
+        "uuid": "d71aaf29_24651090",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-27T15:11:16Z",
+      "side": 1,
+      "message": "Hmm, ok I guess what bugs me here is the fact you\u0027re doing 1) lines 1665 to 1667 and 2) lines 1668 and 1670.\n\nFor 1) Why is that?\nFor 2) A bit annoying but that\u0027s indeed what we do for regular entrypoints updates. So I agree we have to keep it.",
+      "parentUuid": "618cc720_c0c3142f",
+      "range": {
+        "startLine": 1649,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 27
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620c1912_bbda1214",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
