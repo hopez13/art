@@ -139,9 +139,14 @@ static bool CheckInvokeType(Intrinsics intrinsic, HInvoke* invoke) {
       // Call might be devirtualized.
       return (invoke_type == kVirtual || invoke_type == kDirect);
 
-    default:
+    case kSuper:
+    case kInterface:
       return false;
+
+    case kPolymorphic:
+      return invoke_type == kPolymorphic;
   }
+  return false;
 }
 
 void IntrinsicsRecognizer::Run() {
