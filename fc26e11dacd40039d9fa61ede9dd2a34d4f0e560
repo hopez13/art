@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "660059a2_246d82b4",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-27T11:24:35Z",
+      "side": 1,
+      "message": "I don\u0027t like the idea of a 17-argument constructor where you can easily mess up the order of arguments.",
+      "parentUuid": "13f2694f_4ece74be",
+      "range": {
+        "startLine": 1416,
+        "startChar": 0,
+        "endLine": 1442,
+        "endChar": 5
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53a25a4b_2a831dfd",
         "filename": "runtime/art_method.h",
         "patchSetId": 8
@@ -402,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "618cc720_c0c3142f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-27T11:24:35Z",
+      "side": 1,
+      "message": "Your notion of \"read-only\" seems rather inconsistent. The data that is updated here is essentially the same as the ProfilingInfo::is_method_being_compiled_ which is updated for non-native methods below. It\u0027s just that we do not have a ProfilingInfo for native methods.",
+      "parentUuid": "740142e4_c88b8e6b",
+      "range": {
+        "startLine": 1649,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 27
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620c1912_bbda1214",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -614,6 +662,30 @@
     },
     {
       "key": {
+        "uuid": "0a4195a4_a2cfe5a4",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-27T11:24:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dee05944_4c88f4d7",
+      "range": {
+        "startLine": 746,
+        "startChar": 10,
+        "endLine": 748,
+        "endChar": 3
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db74daca_2b2ed6ba",
         "filename": "runtime/stack.cc",
         "patchSetId": 8
@@ -673,6 +745,30 @@
       "side": 1,
       "message": "Could you add that as a comment, eg:\n\n\"We need to special case the first frame of a fragment as only in that case can we have either a generic JNI or JIT-compiled stub. We can only differentiate based on the tag, which GetOatQuickMethodHeader doesn\u0027t have access to\".",
       "parentUuid": "545ab2e9_80679fb5",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 788,
+        "endChar": 48
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbeaa5c4_b774b082",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-27T11:24:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a62b801_b0f1f83f",
       "range": {
         "startLine": 787,
         "startChar": 0,
