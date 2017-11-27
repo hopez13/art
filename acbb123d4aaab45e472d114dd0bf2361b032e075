@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d31b18ab_892d39dd",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-27T09:59:47Z",
+      "side": 1,
+      "message": "I think there\u0027s some state-free assumptions from RTPVisitor (see for example ReferenceTypePropagation::Visit).\n\nHow about you add a case in ReferenceTypePropagation::RTPVisitor::AddDependentInstructionsToWorklist:\n\nif (GetGraph()-\u003eHasAmbiguousFillArrayData() \u0026\u0026 user-\u003eIsArraySet() \u0026\u0026 user-\u003eAsArraySet()-\u003eGetArray() \u003d\u003d instruction \u0026\u0026 ....) {\n  AddToWorklist(...);\n}",
+      "range": {
+        "startLine": 960,
+        "startChar": 0,
+        "endLine": 960,
+        "endChar": 38
+      },
+      "revId": "acbb123d4aaab45e472d114dd0bf2361b032e075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
