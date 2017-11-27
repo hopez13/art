@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dddc1d4b_7f408d37",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-27T09:49:32Z",
+      "side": 1,
+      "message": "Can you record that at the call site? Seems cleaner, as this method is already not dealing with stats when it fails.",
+      "range": {
+        "startLine": 977,
+        "startChar": 2,
+        "endLine": 977,
+        "endChar": 87
+      },
+      "revId": "b322aea9be48d39fe34aed60388f30f1f9e21413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
