@@ -474,6 +474,30 @@
     },
     {
       "key": {
+        "uuid": "b426ac55_93972c1c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-27T16:34:21Z",
+      "side": 1,
+      "message": "1) The lines 1663-1667 are necessary because of the sharing of the stubs for multiple methods. If we have already compiled an identical stub, we want to reuse it straight away. We could simply update the entrypoint in `method`, the choice to update entrypoints of other methods referenced by JniStubData is arbitrary, compare with PS7. This is related to JIT GC\u0027s rewriting of entrypoints to GenericJNI before a full GC - if we\u0027re keeping this stub, make sure it\u0027s used as much as possible.",
+      "parentUuid": "d71aaf29_24651090",
+      "range": {
+        "startLine": 1649,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 27
+      },
+      "revId": "fc26e11dacd40039d9fa61ede9dd2a34d4f0e560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620c1912_bbda1214",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
