@@ -70,6 +70,30 @@
       "revId": "986005c955860a69d788f7ff7d7f28964eb684ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa4809c4_392a27cf",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-27T11:10:46Z",
+      "side": 0,
+      "message": "That\u0027s WAI, kJitOutOfMemoryForCommit can happen only for kCompiledBytecode. \"Compilation successful but failed to commit.\"",
+      "parentUuid": "8ca544d4_657d0613",
+      "range": {
+        "startLine": 1258,
+        "startChar": 0,
+        "endLine": 1258,
+        "endChar": 78
+      },
+      "revId": "986005c955860a69d788f7ff7d7f28964eb684ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
