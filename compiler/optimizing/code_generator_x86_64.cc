@@ -2399,12 +2399,21 @@ void InstructionCodeGeneratorX86_64::VisitInvokeVirtual(HInvokeVirtual* invoke) 
 }
 
 void LocationsBuilderX86_64::VisitInvokeInterface(HInvokeInterface* invoke) {
+  IntrinsicLocationsBuilderX86_64 intrinsic(codegen_);
+  if (intrinsic.TryDispatch(invoke)) {
+    return;
+  }
+
   HandleInvoke(invoke);
   // Add the hidden argument.
   invoke->GetLocations()->AddTemp(Location::RegisterLocation(RAX));
 }
 
 void InstructionCodeGeneratorX86_64::VisitInvokeInterface(HInvokeInterface* invoke) {
+  if (TryGenerateIntrinsicCode(invoke, codegen_)) {
+    return;
+  }
+
   // TODO: b/18116999, our IMTs can miss an IncompatibleClassChangeError.
   LocationSummary* locations = invoke->GetLocations();
   CpuRegister temp = locations->GetTemp(0).AsRegister<CpuRegister>();

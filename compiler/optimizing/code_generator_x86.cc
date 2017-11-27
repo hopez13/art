@@ -2221,6 +2221,11 @@ void InstructionCodeGeneratorX86::VisitInvokeVirtual(HInvokeVirtual* invoke) {
 }
 
 void LocationsBuilderX86::VisitInvokeInterface(HInvokeInterface* invoke) {
+  IntrinsicLocationsBuilderX86 intrinsic(codegen_);
+  if (intrinsic.TryDispatch(invoke)) {
+    return;
+  }
+
   // This call to HandleInvoke allocates a temporary (core) register
   // which is also used to transfer the hidden argument from FP to
   // core register.
@@ -2230,6 +2235,10 @@ void LocationsBuilderX86::VisitInvokeInterface(HInvokeInterface* invoke) {
 }
 
 void InstructionCodeGeneratorX86::VisitInvokeInterface(HInvokeInterface* invoke) {
+  if (TryGenerateIntrinsicCode(invoke, codegen_)) {
+    return;
+  }
+
   // TODO: b/18116999, our IMTs can miss an IncompatibleClassChangeError.
   LocationSummary* locations = invoke->GetLocations();
   Register temp = locations->GetTemp(0).AsRegister<Register>();

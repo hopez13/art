@@ -1211,73 +1211,79 @@ bool HInliner::TryInlineAndReplace(HInvoke* invoke_instruction,
                                    ReferenceTypeInfo receiver_type,
                                    bool do_rtp,
                                    bool cha_devirtualize) {
+  DCHECK(!invoke_instruction->IsIntrinsic());
   HInstruction* return_replacement = nullptr;
   uint32_t dex_pc = invoke_instruction->GetDexPc();
   HInstruction* cursor = invoke_instruction->GetPrevious();
   HBasicBlock* bb_cursor = invoke_instruction->GetBlock();
-  if (!TryBuildAndInline(invoke_instruction, method, receiver_type, &return_replacement)) {
-    if (invoke_instruction->IsInvokeInterface()) {
-      DCHECK(!method->IsProxyMethod());
-      // Turn an invoke-interface into an invoke-virtual. An invoke-virtual is always
-      // better than an invoke-interface because:
-      // 1) In the best case, the interface call has one more indirection (to fetch the IMT).
-      // 2) We will not go to the conflict trampoline with an invoke-virtual.
-      // TODO: Consider sharpening once it is not dependent on the compiler driver.
 
-      if (method->IsDefault() && !method->IsCopied()) {
-        // Changing to invoke-virtual cannot be done on an original default method
-        // since it's not in any vtable. Devirtualization by exact type/inline-cache
-        // always uses a method in the iftable which is never an original default
-        // method.
-        // On the other hand, inlining an original default method by CHA is fine.
-        DCHECK(cha_devirtualize);
+  // If invoke_instruction is devirtualized to a different method, give intrinsics
+  // another chance before we try to inline it.
+  bool wrong_invoke_type = false;
+  if (invoke_instruction->GetResolvedMethod() != method &&
+      IntrinsicsRecognizer::Recognize(invoke_instruction, method, &wrong_invoke_type)) {
+    MaybeRecordStat(stats_, kIntrinsicRecognized);
+  } else {
+    if (!TryBuildAndInline(invoke_instruction, method, receiver_type, &return_replacement)) {
+      if (invoke_instruction->IsInvokeInterface()) {
+        DCHECK(!method->IsProxyMethod());
+        // Turn an invoke-interface into an invoke-virtual. An invoke-virtual is always
+        // better than an invoke-interface because:
+        // 1) In the best case, the interface call has one more indirection (to fetch the IMT).
+        // 2) We will not go to the conflict trampoline with an invoke-virtual.
+        // TODO: Consider sharpening once it is not dependent on the compiler driver.
+
+        if (method->IsDefault() && !method->IsCopied()) {
+          // Changing to invoke-virtual cannot be done on an original default method
+          // since it's not in any vtable. Devirtualization by exact type/inline-cache
+          // always uses a method in the iftable which is never an original default
+          // method.
+          // On the other hand, inlining an original default method by CHA is fine.
+          DCHECK(cha_devirtualize);
+          return false;
+        }
+
+        const DexFile& caller_dex_file = *caller_compilation_unit_.GetDexFile();
+        uint32_t dex_method_index = FindMethodIndexIn(
+            method, caller_dex_file, invoke_instruction->GetDexMethodIndex());
+        if (dex_method_index == dex::kDexNoIndex) {
+          return false;
+        }
+        HInvokeVirtual* new_invoke = new (graph_->GetAllocator()) HInvokeVirtual(
+            graph_->GetAllocator(),
+            invoke_instruction->GetNumberOfArguments(),
+            invoke_instruction->GetType(),
+            invoke_instruction->GetDexPc(),
+            dex_method_index,
+            method,
+            method->GetMethodIndex());
+        HInputsRef inputs = invoke_instruction->GetInputs();
+        for (size_t index = 0; index != inputs.size(); ++index) {
+          new_invoke->SetArgumentAt(index, inputs[index]);
+        }
+        invoke_instruction->GetBlock()->InsertInstructionBefore(new_invoke, invoke_instruction);
+        new_invoke->CopyEnvironmentFrom(invoke_instruction->GetEnvironment());
+        if (invoke_instruction->GetType() == DataType::Type::kReference) {
+          new_invoke->SetReferenceTypeInfo(invoke_instruction->GetReferenceTypeInfo());
+        }
+        return_replacement = new_invoke;
+      } else {
+        // TODO: Consider sharpening an invoke virtual once it is not dependent on the
+        // compiler driver.
         return false;
       }
-
-      const DexFile& caller_dex_file = *caller_compilation_unit_.GetDexFile();
-      uint32_t dex_method_index = FindMethodIndexIn(
-          method, caller_dex_file, invoke_instruction->GetDexMethodIndex());
-      if (dex_method_index == dex::kDexNoIndex) {
-        return false;
-      }
-      HInvokeVirtual* new_invoke = new (graph_->GetAllocator()) HInvokeVirtual(
-          graph_->GetAllocator(),
-          invoke_instruction->GetNumberOfArguments(),
-          invoke_instruction->GetType(),
-          invoke_instruction->GetDexPc(),
-          dex_method_index,
-          method,
-          method->GetMethodIndex());
-      HInputsRef inputs = invoke_instruction->GetInputs();
-      for (size_t index = 0; index != inputs.size(); ++index) {
-        new_invoke->SetArgumentAt(index, inputs[index]);
-      }
-      invoke_instruction->GetBlock()->InsertInstructionBefore(new_invoke, invoke_instruction);
-      new_invoke->CopyEnvironmentFrom(invoke_instruction->GetEnvironment());
-      if (invoke_instruction->GetType() == DataType::Type::kReference) {
-        new_invoke->SetReferenceTypeInfo(invoke_instruction->GetReferenceTypeInfo());
-      }
-      return_replacement = new_invoke;
-      // Directly check if the new virtual can be recognized as an intrinsic.
-      // This way, we avoid running a full recognition pass just to detect
-      // these relative rare cases.
-      bool wrong_invoke_type = false;
-      if (IntrinsicsRecognizer::Recognize(new_invoke, &wrong_invoke_type)) {
-        MaybeRecordStat(stats_, kIntrinsicRecognized);
-      }
-    } else {
-      // TODO: Consider sharpening an invoke virtual once it is not dependent on the
-      // compiler driver.
-      return false;
     }
   }
+
   if (cha_devirtualize) {
     AddCHAGuard(invoke_instruction, dex_pc, cursor, bb_cursor);
   }
   if (return_replacement != nullptr) {
     invoke_instruction->ReplaceWith(return_replacement);
   }
-  invoke_instruction->GetBlock()->RemoveInstruction(invoke_instruction);
+  if (!invoke_instruction->IsIntrinsic()) {
+    invoke_instruction->GetBlock()->RemoveInstruction(invoke_instruction);
+  }
   FixUpReturnReferenceType(method, return_replacement);
   if (do_rtp && ReturnTypeMoreSpecific(invoke_instruction, return_replacement)) {
     // Actual return value has a more specific type than the method's declared

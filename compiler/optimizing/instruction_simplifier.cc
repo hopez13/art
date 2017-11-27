@@ -2035,7 +2035,6 @@ void InstructionSimplifierVisitor::SimplifyStringEquals(HInvoke* instruction) {
       optimizations.SetArgumentIsString();
     } else if (kUseReadBarrier) {
       DCHECK(instruction->GetResolvedMethod() != nullptr);
-      DCHECK(instruction->GetResolvedMethod()->GetDeclaringClass()->IsStringClass());
       Runtime* runtime = Runtime::Current();
       // For AOT, we always assume that the boot image shall contain the String.class and
       // we do not need a read barrier for boot image classes as they are non-moveable.

@@ -4309,16 +4309,35 @@ void InstructionCodeGeneratorARM64::VisitInvokeUnresolved(HInvokeUnresolved* inv
   codegen_->MaybeGenerateMarkingRegisterCheck(/* code */ __LINE__);
 }
 
+static bool TryGenerateIntrinsicCode(HInvoke* invoke, CodeGeneratorARM64* codegen) {
+  if (invoke->GetLocations()->Intrinsified()) {
+    IntrinsicCodeGeneratorARM64 intrinsic(codegen);
+    intrinsic.Dispatch(invoke);
+    return true;
+  }
+  return false;
+}
+
 void LocationsBuilderARM64::HandleInvoke(HInvoke* invoke) {
   InvokeDexCallingConventionVisitorARM64 calling_convention_visitor;
   CodeGenerator::CreateCommonInvokeLocationSummary(invoke, &calling_convention_visitor);
 }
 
 void LocationsBuilderARM64::VisitInvokeInterface(HInvokeInterface* invoke) {
+  IntrinsicLocationsBuilderARM64 intrinsic(GetGraph()->GetAllocator(), codegen_);
+  if (intrinsic.TryDispatch(invoke)) {
+    return;
+  }
+
   HandleInvoke(invoke);
 }
 
 void InstructionCodeGeneratorARM64::VisitInvokeInterface(HInvokeInterface* invoke) {
+  if (TryGenerateIntrinsicCode(invoke, codegen_)) {
+    codegen_->MaybeGenerateMarkingRegisterCheck(/* code */ __LINE__);
+    return;
+  }
+
   // TODO: b/18116999, our IMTs can miss an IncompatibleClassChangeError.
   LocationSummary* locations = invoke->GetLocations();
   Register temp = XRegisterFrom(locations->GetTemp(0));
@@ -4399,15 +4418,6 @@ void LocationsBuilderARM64::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* inv
   }
 
   HandleInvoke(invoke);
-}
-
-static bool TryGenerateIntrinsicCode(HInvoke* invoke, CodeGeneratorARM64* codegen) {
-  if (invoke->GetLocations()->Intrinsified()) {
-    IntrinsicCodeGeneratorARM64 intrinsic(codegen);
-    intrinsic.Dispatch(invoke);
-    return true;
-  }
-  return false;
 }
 
 HInvokeStaticOrDirect::DispatchInfo CodeGeneratorARM64::GetSupportedInvokeStaticOrDirectDispatch(

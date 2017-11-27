@@ -137,15 +137,19 @@ static bool CheckInvokeType(Intrinsics intrinsic, HInvoke* invoke) {
 
     case kVirtual:
       // Call might be devirtualized.
-      return (invoke_type == kVirtual || invoke_type == kDirect);
+      return (invoke_type == kVirtual || invoke_type == kDirect || invoke_type == kInterface);
 
     default:
       return false;
   }
 }
 
-bool IntrinsicsRecognizer::Recognize(HInvoke* invoke, /*out*/ bool* wrong_invoke_type) {
-  ArtMethod* art_method = invoke->GetResolvedMethod();
+bool IntrinsicsRecognizer::Recognize(HInvoke* invoke,
+                                     ArtMethod* art_method,
+                                     /*out*/ bool* wrong_invoke_type) {
+  if (art_method == nullptr) {
+    art_method = invoke->GetResolvedMethod();
+  }
   if (art_method != nullptr && art_method->IsIntrinsic()) {
     Intrinsics intrinsic = static_cast<Intrinsics>(art_method->GetIntrinsic());
     if (CheckInvokeType(intrinsic, invoke)) {
@@ -169,7 +173,7 @@ void IntrinsicsRecognizer::Run() {
       HInstruction* inst = inst_it.Current();
       if (inst->IsInvoke()) {
         bool wrong_invoke_type = false;
-        if (Recognize(inst->AsInvoke(), &wrong_invoke_type)) {
+        if (Recognize(inst->AsInvoke(), nullptr, &wrong_invoke_type)) {
           MaybeRecordStat(stats_, MethodCompilationStat::kIntrinsicRecognized);
         } else if (wrong_invoke_type) {
           LOG(WARNING)

@@ -3569,12 +3569,22 @@ void InstructionCodeGeneratorARMVIXL::VisitInvokeVirtual(HInvokeVirtual* invoke)
 }
 
 void LocationsBuilderARMVIXL::VisitInvokeInterface(HInvokeInterface* invoke) {
+  IntrinsicLocationsBuilderARMVIXL intrinsic(codegen_);
+  if (intrinsic.TryDispatch(invoke)) {
+    return;
+  }
+
   HandleInvoke(invoke);
   // Add the hidden argument.
   invoke->GetLocations()->AddTemp(LocationFrom(r12));
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitInvokeInterface(HInvokeInterface* invoke) {
+  if (TryGenerateIntrinsicCode(invoke, codegen_)) {
+    codegen_->MaybeGenerateMarkingRegisterCheck(/* code */ 6);
+    return;
+  }
+
   // TODO: b/18116999, our IMTs can miss an IncompatibleClassChangeError.
   LocationSummary* locations = invoke->GetLocations();
   vixl32::Register temp = RegisterFrom(locations->GetTemp(0));
