@@ -319,6 +319,30 @@
     },
     {
       "key": {
+        "uuid": "4ec492f0_c3d2cb6e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1662,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-27T17:03:43Z",
+      "side": 1,
+      "message": "The only case where a non-const reference is forbidden is when it is used as a formal argument. Other uses seem to be fine in the C++ style guide. Up to you.",
+      "parentUuid": "596bfb48_27e03cd7",
+      "range": {
+        "startLine": 1662,
+        "startChar": 4,
+        "endLine": 1662,
+        "endChar": 36
+      },
+      "revId": "7a5e2f26605e7ed17be08f80b50dbbcaa1914e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e2c0d62_7fd4222f",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 11
