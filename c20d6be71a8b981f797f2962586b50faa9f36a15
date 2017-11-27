@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "208ed2b5_18443f9a",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-27T09:42:06Z",
+      "side": 1,
+      "message": "/* use_is_assignable_from */",
+      "range": {
+        "startLine": 965,
+        "startChar": 66,
+        "endLine": 965,
+        "endChar": 67
+      },
+      "revId": "c20d6be71a8b981f797f2962586b50faa9f36a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e0253f9_b52fd82e",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-27T09:42:06Z",
+      "side": 1,
+      "message": "Looks to me you don\u0027t need this vector. You can work directly on the decoded_classes array.",
+      "range": {
+        "startLine": 334,
+        "startChar": 2,
+        "endLine": 334,
+        "endChar": 45
+      },
+      "revId": "c20d6be71a8b981f797f2962586b50faa9f36a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
