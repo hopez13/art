@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "255ef2ec_f8d75522",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T16:39:30Z",
+      "side": 1,
+      "message": "A53s (and even older CPUs) aren\u0027t know for particularly great branch prediction (and are in-order, so any branches are iffy), and if you have a large-heap app, there might be millions of objects. I don\u0027t think it\u0027s an issue for debugging, but for profiling purposes it might be (though the various locks that need to be acquired may already mean enough overhead to make this negligible). Maybe you could do some very simple timing and report the numbers in the commit message?",
+      "parentUuid": "d4e68cb6_213e4359",
+      "range": {
+        "startLine": 350,
+        "startChar": 7,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "c20d6be71a8b981f797f2962586b50faa9f36a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e0253f9_b52fd82e",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 1
