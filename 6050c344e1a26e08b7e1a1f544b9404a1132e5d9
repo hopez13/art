@@ -96,6 +96,46 @@
     },
     {
       "key": {
+        "uuid": "edf14f86_4a856dcf",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-28T17:09:59Z",
+      "side": 1,
+      "message": "can\u0027t this become a regular else if (and save some indentation)?",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa7ae276_b54b181f",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-28T17:09:59Z",
+      "side": 1,
+      "message": "accepting interfaces too seems a rather big change, and hopefully all cases are covered; I think we should at least extend the graph visualizer to show intrinsification",
+      "range": {
+        "startLine": 140,
+        "startChar": 78,
+        "endLine": 140,
+        "endChar": 79
+      },
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cde420d_0c00962e",
         "filename": "compiler/optimizing/intrinsics.cc",
         "patchSetId": 1
@@ -113,6 +153,23 @@
         "endLine": 176,
         "endChar": 40
       },
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb416b8f_d9f416b9",
+        "filename": "test/638-checker-inline-cache-intrinsic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-28T17:09:59Z",
+      "side": 1,
+      "message": "we should add the \"intrinsic:xxx\" to the visualizer to check it has been recognized",
       "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
