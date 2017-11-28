@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1444dc4c_e96f702b",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-28T20:00:17Z",
+      "side": 1,
+      "message": "When called from L187, we already have the soa at top level, so this gives a bit of unneeded overhead; we only need this when called from the individual places I introduced in the refactoring\n\nis this sufficient reason for a checked/unchecked version of this method?",
+      "revId": "b1b52069dcb1228f89511ffb41592beebe4d8ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
