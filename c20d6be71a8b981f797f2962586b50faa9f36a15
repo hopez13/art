@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "2c2ab84b_5239d667",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T17:24:35Z",
+      "side": 1,
+      "message": "Given we\u0027re iterating over the heap, I doubt this will show up.",
+      "parentUuid": "255ef2ec_f8d75522",
+      "range": {
+        "startLine": 350,
+        "startChar": 7,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "c20d6be71a8b981f797f2962586b50faa9f36a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e0253f9_b52fd82e",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 1
