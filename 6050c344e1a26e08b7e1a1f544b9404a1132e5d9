@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "85200966_0d953e80",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-28T13:30:30Z",
+      "side": 1,
+      "message": "Not all invoke-interface can ben rewritten to invoke-virtual since it requires a good dex_method_index. So we either need to relax that requirement, or miss some optimizations.\nSharpening doesn\u0027t cover inline-cache/CHA devirtualization.",
+      "parentUuid": "bbb9910a_bca5f90e",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa124247_776f91a6",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
