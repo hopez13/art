@@ -265,6 +265,14 @@ class CompilerOptions FINAL {
   const std::vector<std::string>* GetPassesToRun() const {
     return passes_to_run_;
   }
+ 
+  bool GetDumpTimings() const {
+    return dump_timings_;
+  }
+
+  bool GetDumpStats() const {
+    return dump_stats_;
+  }
 
  private:
   bool ParseDumpInitFailures(const std::string& option, std::string* error_msg);
@@ -303,6 +311,8 @@ class CompilerOptions FINAL {
   bool implicit_so_checks_;
   bool implicit_suspend_checks_;
   bool compile_pic_;
+  bool dump_timings_;
+  bool dump_stats_;
 
   // Vector of methods to have verbose output enabled for.
   std::vector<std::string> verbose_methods_;
