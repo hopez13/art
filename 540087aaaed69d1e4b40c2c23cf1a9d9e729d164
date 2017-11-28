@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31deac21_b11f98a0",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T16:44:12Z",
+      "side": 1,
+      "message": "As you immediately transition back to runnable, consider making the method FastNative instead? (+iam for whether that\u0027s an intended case)",
+      "range": {
+        "startLine": 326,
+        "startChar": 2,
+        "endLine": 326,
+        "endChar": 30
+      },
+      "revId": "540087aaaed69d1e4b40c2c23cf1a9d9e729d164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
