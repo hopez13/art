@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1cdf7c4b_c10a3511",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T17:52:56Z",
+      "side": 1,
+      "message": "The stack wouldn\u0027t be busted because of the developer, but because we screwed up stack info or something. And yeah, we shouldn\u0027t attempt to go on (we don\u0027t for other cases like GC etc).",
+      "parentUuid": "a933e1fd_ca125c83",
+      "range": {
+        "startLine": 1428,
+        "startChar": 4,
+        "endLine": 1428,
+        "endChar": 9
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81554136_618c156f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -154,6 +178,30 @@
       "writtenOn": "2017-11-28T17:23:02Z",
       "side": 1,
       "message": "Ah very cool.",
+      "parentUuid": "9d16140b_327b70ec",
+      "range": {
+        "startLine": 2042,
+        "startChar": 3,
+        "endLine": 2055,
+        "endChar": 5
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cf4d14b_4b9b6bca",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T17:52:56Z",
+      "side": 1,
+      "message": "(I extended the test with a more dead registers [I had one before] just to make it more obvious that the loop in monitor.cc should be hit.)",
       "parentUuid": "9d16140b_327b70ec",
       "range": {
         "startLine": 2042,
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "I\u0027m not sure whether I like it or hate it :) what would be the downside of removing the template and actually providing a type?",
       "parentUuid": "6a792076_77630856",
+      "range": {
+        "startLine": 357,
+        "startChar": 1,
+        "endLine": 357,
+        "endChar": 23
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "880784d1_ac42fa7c",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T17:52:56Z",
+      "side": 1,
+      "message": "Having to define that base type, and using virtuals. So infra and runtime overhead.",
+      "parentUuid": "1332be17_17bc8d8f",
       "range": {
         "startLine": 357,
         "startChar": 1,
