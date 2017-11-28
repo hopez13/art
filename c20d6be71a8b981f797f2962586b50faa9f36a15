@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "73ecead2_d29748ab",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-11-28T10:36:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "208ed2b5_18443f9a",
+      "range": {
+        "startLine": 965,
+        "startChar": 66,
+        "endLine": 965,
+        "endChar": 67
+      },
+      "revId": "c20d6be71a8b981f797f2962586b50faa9f36a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc7aaa37_65a81849",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d4e68cb6_213e4359",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-11-28T10:36:46Z",
+      "side": 1,
+      "message": "I would rather not in this CL.\n\nDo you expect this to have a significant impact on performance? Wouldn\u0027t branch prediction save us from the cost of a branch on every object? Given that this is an API for use in debugging, I don\u0027t think performance is that critical.\n\nFor the actionable memory metric use case, I think a better performance optimization would be to have GetInstances take an array of classes and collect all the instances in a single pass instead of using a separate pass for each class. I think I may want to make that change eventually, but for this CL my main goal is to get the VMDebug API in place.",
+      "parentUuid": "dc7aaa37_65a81849",
+      "range": {
+        "startLine": 350,
+        "startChar": 7,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "c20d6be71a8b981f797f2962586b50faa9f36a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e0253f9_b52fd82e",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-27T09:42:06Z",
       "side": 1,
       "message": "Looks to me you don\u0027t need this vector. You can work directly on the decoded_classes array.",
+      "range": {
+        "startLine": 334,
+        "startChar": 2,
+        "endLine": 334,
+        "endChar": 45
+      },
+      "revId": "c20d6be71a8b981f797f2962586b50faa9f36a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3af5193c_680eb943",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-11-28T10:36:46Z",
+      "side": 1,
+      "message": "I copied this from the above countInstancesOfClasses implementation, because I\u0027m not entirely confident in my ability to correctly use Handles.\n\nCan you double check that my use of handles looks okay now that I removed the superfluous vector?",
+      "parentUuid": "5e0253f9_b52fd82e",
       "range": {
         "startLine": 334,
         "startChar": 2,
