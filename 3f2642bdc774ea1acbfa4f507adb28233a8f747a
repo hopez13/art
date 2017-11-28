@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "9184fff0_99c714e3",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T16:20:58Z",
+      "side": 1,
+      "message": "See my comment in the commit message. Right now we *must* find one working, or something is seriously busted in the stack.\n\nThe only way that there\u0027s no accessible (verifier-understood) live register for a held lock is when locks aren\u0027t balanced (wrt/ verifier visibility). That\u0027s the case when:\n\n* Registers are aliased in a way the verifier doesn\u0027t understand, and the tracked register lost its status through overwriting. But then the lock won\u0027t be reported as held anymore.\n* The corresponding monitor-exit is missing, but we\u0027re still tracking the register - but the value has been optimized away. As we\u0027ll be running the interpreter for counting, the register will be held live.\n\nOnly the latter case could potentially become an issue, and that\u0027s why I asked in the commit message. In that case I would prefer to change FindLocksAtDexPc to not report any locks in case lock verification fails.",
+      "parentUuid": "31c2397e_eda9a77a",
+      "range": {
+        "startLine": 1428,
+        "startChar": 4,
+        "endLine": 1428,
+        "endChar": 9
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81554136_618c156f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "9d16140b_327b70ec",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T16:20:58Z",
+      "side": 1,
+      "message": "The verifier takes care of that (when registers are overwritten). The test does this to verify:\n\n    monitor-enter v3        \u003c\u003c track v3 as owning lock\n\n    move-object v4, v3      \u003c\u003c track v4 as owning the same lock\n    const v3, 0x3           \u003c\u003c remove lock info from v3",
+      "parentUuid": "81554136_618c156f",
+      "range": {
+        "startLine": 2042,
+        "startChar": 3,
+        "endLine": 2055,
+        "endChar": 5
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01642f7c_cd495820",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2017-11-28T14:13:48Z",
       "side": 1,
       "message": "Are you using the template as a convenience for not typing fn?",
+      "range": {
+        "startLine": 357,
+        "startChar": 1,
+        "endLine": 357,
+        "endChar": 23
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a792076_77630856",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T16:20:58Z",
+      "side": 1,
+      "message": "Using the template to be able to use a lambda instead of a callback type or similar.",
+      "parentUuid": "01642f7c_cd495820",
       "range": {
         "startLine": 357,
         "startChar": 1,
