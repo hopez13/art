@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ea9272e_4f3282a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-28T02:54:46Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether I should explicitly handle the lock-verification-fail case in monitor.cc. Right now it will work because we force the interpreter, which means there are no dead registers. Opinions?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
