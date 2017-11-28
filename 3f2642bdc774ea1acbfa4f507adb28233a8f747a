@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "1a9c3a91_ff0f530a",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T17:55:44Z",
+      "side": 1,
+      "message": "But GC isn\u0027t a developer feature. And if we are busted, GC will eventually get there too.\n\nMy point is we\u0027ve seen we can get this code wrong (current bug), and I wouldn\u0027t want to bring the system down because of our own mistakes.",
+      "parentUuid": "1cdf7c4b_c10a3511",
+      "range": {
+        "startLine": 1428,
+        "startChar": 4,
+        "endLine": 1428,
+        "endChar": 9
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81554136_618c156f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
