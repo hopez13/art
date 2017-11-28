@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31ca37f5_050bfb8c",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T10:48:20Z",
+      "side": 1,
+      "message": "This can be a MutableHandle, so you don\u0027t need to allocate one at each iteration of the loop.",
+      "range": {
+        "startLine": 350,
+        "startChar": 23,
+        "endLine": 350,
+        "endChar": 51
+      },
+      "revId": "10466d515c323d8881d063ce9bcef0c6a3dde1c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa8a1d8c_917fc34e",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T10:48:20Z",
+      "side": 1,
+      "message": "As raw_instances drop at each iteration, I think you should put the VariableSizedHandleScope inside the loop to avoid creating large amounts of handles.",
+      "range": {
+        "startLine": 353,
+        "startChar": 23,
+        "endLine": 353,
+        "endChar": 36
+      },
+      "revId": "10466d515c323d8881d063ce9bcef0c6a3dde1c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
