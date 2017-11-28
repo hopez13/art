@@ -16,6 +16,24 @@
       "revId": "72a3f1da3a300b486626b066e33280108b5ce994",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2db1066a_c7a6671b",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2038,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-28T12:43:40Z",
+      "side": 0,
+      "message": "Changing the HInvokeInterface to HInvokeVirtual should allow this DCHECK() to remain.",
+      "parentUuid": "fd7ef070_2f05c2f9",
+      "revId": "72a3f1da3a300b486626b066e33280108b5ce994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
