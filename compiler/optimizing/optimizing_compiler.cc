@@ -1139,10 +1139,19 @@ CompiledMethod* OptimizingCompiler::JniCompile(uint32_t access_flags,
     }
   }
 
-  return ArtQuickJniCompileMethod(GetCompilerDriver(),
-                                  access_flags,
-                                  method_idx,
-                                  dex_file);
+  JniCompiledMethod jni_compiled_method = ArtQuickJniCompileMethod(
+      GetCompilerDriver(), access_flags, method_idx, dex_file);
+  return CompiledMethod::SwapAllocCompiledMethod(
+      GetCompilerDriver(),
+      jni_compiled_method.GetInstructionSet(),
+      jni_compiled_method.GetCode(),
+      jni_compiled_method.GetFrameSize(),
+      jni_compiled_method.GetCoreSpillMask(),
+      jni_compiled_method.GetFpSpillMask(),
+      /* method_info */ ArrayRef<const uint8_t>(),
+      /* vmap_table */ ArrayRef<const uint8_t>(),
+      jni_compiled_method.GetCfi(),
+      /* patches */ ArrayRef<const linker::LinkerPatch>());
 }
 
 Compiler* CreateOptimizingCompiler(CompilerDriver* driver) {
