@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "c958c52e_90ac7773",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T14:08:46Z",
+      "side": 1,
+      "message": "Erf, that annoying dex_method_index.... Would be good to get rid of it on HInvokeVirtual at least.\n\nOK, then I guess I\u0027m fine having invoke-interface be intrisified.",
+      "parentUuid": "85200966_0d953e80",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa124247_776f91a6",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
