@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceddbc49_e6d00dac",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-28T11:59:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we replace the `invoke_instruction` with another HInvokeVirtual here (just like lines 1252-1268)? Otherwise we have an inconsistent invoke, for example invoke-interface CharSequence.charAt() claiming that it\u0027s kStringCharAt.\n\nAnd shouldn\u0027t this replacement happen in Sharpening anyway? The Sharpening already has the necessary type information when it runs.",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa124247_776f91a6",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-28T11:59:54Z",
+      "side": 1,
+      "message": "Needs \"MethodCompilationStat::\"; rebase across https://android-review.googlesource.com/546979 .",
+      "range": {
+        "startLine": 1225,
+        "startChar": 28,
+        "endLine": 1225,
+        "endChar": 48
+      },
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cde420d_0c00962e",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-28T11:59:54Z",
+      "side": 1,
+      "message": "/* art_method */",
+      "range": {
+        "startLine": 176,
+        "startChar": 39,
+        "endLine": 176,
+        "endChar": 40
+      },
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
