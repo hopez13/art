@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2ae1c86_1dac608f",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T13:54:32Z",
+      "side": 1,
+      "message": "This can be a regular StackHandleScope\u003c2\u003e",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 26
+      },
+      "revId": "dc5d759f8665e282447bf7beab190633ccbed6ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcec0e90_16d6c062",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T13:54:32Z",
+      "side": 1,
+      "message": "nit: I\u0027d put this one line above, to implicitly know the handles in the vector depend on it.",
+      "range": {
+        "startLine": 351,
+        "startChar": 4,
+        "endLine": 351,
+        "endChar": 45
+      },
+      "revId": "dc5d759f8665e282447bf7beab190633ccbed6ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
