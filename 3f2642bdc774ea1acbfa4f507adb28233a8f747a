@@ -22,6 +22,75 @@
       "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31c2397e_eda9a77a",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T14:13:48Z",
+      "side": 1,
+      "message": "Should that be a LOG(WARNING) ?",
+      "range": {
+        "startLine": 1428,
+        "startChar": 4,
+        "endLine": 1428,
+        "endChar": 9
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81554136_618c156f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T14:13:48Z",
+      "side": 1,
+      "message": "Does that take care of dex registers that used to alias but don\u0027t alias anymore?\n\nDo you have that as a test?",
+      "range": {
+        "startLine": 2042,
+        "startChar": 3,
+        "endLine": 2055,
+        "endChar": 5
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01642f7c_cd495820",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-28T14:13:48Z",
+      "side": 1,
+      "message": "Are you using the template as a convenience for not typing fn?",
+      "range": {
+        "startLine": 357,
+        "startChar": 1,
+        "endLine": 357,
+        "endChar": 23
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
