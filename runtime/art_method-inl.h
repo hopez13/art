@@ -95,10 +95,12 @@ inline uint16_t ArtMethod::GetMethodIndexDuringLinking() {
   return method_index_;
 }
 
+template <ReadBarrierOption kReadBarrierOption>
 inline uint32_t ArtMethod::GetDexMethodIndex() {
   if (kCheckDeclaringClassState) {
-    CHECK(IsRuntimeMethod() || GetDeclaringClass()->IsIdxLoaded() ||
-          GetDeclaringClass()->IsErroneous());
+    CHECK(IsRuntimeMethod() ||
+          GetDeclaringClass<kReadBarrierOption>()->IsIdxLoaded() ||
+          GetDeclaringClass<kReadBarrierOption>()->IsErroneous());
   }
   return GetDexMethodIndexUnchecked();
 }
@@ -202,7 +204,8 @@ inline const char* ArtMethod::GetShorty() {
 inline const char* ArtMethod::GetShorty(uint32_t* out_length) {
   DCHECK(!IsProxyMethod());
   const DexFile* dex_file = GetDexFile();
-  return dex_file->GetMethodShorty(dex_file->GetMethodId(GetDexMethodIndex()), out_length);
+  return dex_file->GetMethodShorty(dex_file->GetMethodId(GetDexMethodIndex<kWithoutReadBarrier>()),
+                                   out_length);
 }
 
 inline const Signature ArtMethod::GetSignature() {
@@ -319,7 +322,7 @@ inline mirror::ClassLoader* ArtMethod::GetClassLoader() {
 
 template <ReadBarrierOption kReadBarrierOption>
 inline mirror::DexCache* ArtMethod::GetDexCache() {
-  if (LIKELY(!IsObsolete())) {
+  if (LIKELY(!IsObsolete<kReadBarrierOption>())) {
     mirror::Class* klass = GetDeclaringClass<kReadBarrierOption>();
     return klass->GetDexCache<kDefaultVerifyFlags, kReadBarrierOption>();
   } else {
