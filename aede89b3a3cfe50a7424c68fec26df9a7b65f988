@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82499721_2a7f83a5",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-29T17:11:26Z",
+      "side": 1,
+      "message": "Can you mention what JVMS says we should do?",
+      "range": {
+        "startLine": 798,
+        "startChar": 11,
+        "endLine": 799,
+        "endChar": 17
+      },
+      "revId": "aede89b3a3cfe50a7424c68fec26df9a7b65f988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df6323ad_6333acc2",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-29T17:11:26Z",
+      "side": 1,
+      "message": "For consistency with other tests: call Runtime::Current()-\u003eGetHeap()-\u003eDecrementDisableMovingGC(soa.Self())?",
+      "revId": "aede89b3a3cfe50a7424c68fec26df9a7b65f988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
