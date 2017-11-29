@@ -789,6 +789,43 @@ mirror::Class* RegType::ClassJoin(mirror::Class* s, mirror::Class* t) {
       return nullptr;
     }
     return array_class;
+  } else if (s->IsInterface() || t->IsInterface()) {
+    // This is expensive, as we do not have good data structures to do this even halfway
+    // efficiently.
+    //
+    // We're not following JVMS for interface verification (not everything is assignable to an
+    // interface, we trade this for IMT dispatch). We also don't have set types to make up for
+    // it. So we choose one arbitrary common ancestor interface by walking the interface tables
+    // backwards.
+    mirror::IfTable* s_if = s->GetIfTable();
+    int32_t s_if_count = s->GetIfTableCount();
+    mirror::IfTable* t_if = t->GetIfTable();
+    int32_t t_if_count = t->GetIfTableCount();
+
+    // Note: we'll be using index == count to stand for the argument itself.
+    for (int32_t s_it = s_if_count; s_it >= 0; --s_it) {
+      mirror::Class* s_cl = s_it == s_if_count ? s : s_if->GetInterface(s_it);
+      if (!s_cl->IsInterface()) {
+        continue;
+      }
+
+      for (int32_t t_it = t_if_count; t_it >= 0; --t_it) {
+        mirror::Class* t_cl = t_it == t_if_count ? t : t_if->GetInterface(t_it);
+        if (!t_cl->IsInterface()) {
+          continue;
+        }
+
+        if (s_cl == t_cl) {
+          // Found something arbitrary in common.
+          return s_cl;
+        }
+      }
+    }
+
+    // Return java.lang.Object.
+    mirror::Class* obj_class = s->IsInterface() ? s->GetSuperClass() : t->GetSuperClass();
+    DCHECK(obj_class->IsObjectClass());
+    return obj_class;
   } else {
     size_t s_depth = s->Depth();
     size_t t_depth = t->Depth();
