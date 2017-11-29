@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "39860b3f_582a9ade",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-29T21:22:15Z",
+      "side": 1,
+      "message": "I\u0027ve played with it more and decided to rewrite invoke-interface into invoke-virtual if it\u0027s intrinsified. I just use the dex_method_index of the interface method for the virtual method. My audit shows all current intrinsics due to intrinsifying invoke-interface should be simplified right away in the next simplifier phase so the new invoke-virtual stays temporarily in the graph. Well, it should be fine anyway if it stays all the way till the codegen.",
+      "parentUuid": "c958c52e_90ac7773",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa124247_776f91a6",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -84,6 +102,30 @@
       "writtenOn": "2017-11-28T11:59:54Z",
       "side": 1,
       "message": "Needs \"MethodCompilationStat::\"; rebase across https://android-review.googlesource.com/546979 .",
+      "range": {
+        "startLine": 1225,
+        "startChar": 28,
+        "endLine": 1225,
+        "endChar": 48
+      },
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be05524_96c91a96",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-29T21:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa124247_776f91a6",
       "range": {
         "startLine": 1225,
         "startChar": 28,
@@ -113,6 +155,24 @@
     },
     {
       "key": {
+        "uuid": "44c0e065_c5110927",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-29T21:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edf14f86_4a856dcf",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa7ae276_b54b181f",
         "filename": "compiler/optimizing/intrinsics.cc",
         "patchSetId": 1
@@ -124,6 +184,30 @@
       "writtenOn": "2017-11-28T17:09:59Z",
       "side": 1,
       "message": "accepting interfaces too seems a rather big change, and hopefully all cases are covered; I think we should at least extend the graph visualizer to show intrinsification",
+      "range": {
+        "startLine": 140,
+        "startChar": 78,
+        "endLine": 140,
+        "endChar": 79
+      },
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e30e19cb_9da21de7",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-29T21:22:15Z",
+      "side": 1,
+      "message": "I\u0027m now rewriting invoke-interface into invoke-virtual. This is still needed though since it happens before we attempt to do the rewrite.",
+      "parentUuid": "aa7ae276_b54b181f",
       "range": {
         "startLine": 140,
         "startChar": 78,
@@ -159,6 +243,30 @@
     },
     {
       "key": {
+        "uuid": "97b2551b_2afd0e4e",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-29T21:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cde420d_0c00962e",
+      "range": {
+        "startLine": 176,
+        "startChar": 39,
+        "endLine": 176,
+        "endChar": 40
+      },
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb416b8f_d9f416b9",
         "filename": "test/638-checker-inline-cache-intrinsic/src/Main.java",
         "patchSetId": 1
@@ -170,6 +278,24 @@
       "writtenOn": "2017-11-28T17:09:59Z",
       "side": 1,
       "message": "we should add the \"intrinsic:xxx\" to the visualizer to check it has been recognized",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "243fce7b_c377b0d0",
+        "filename": "test/638-checker-inline-cache-intrinsic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-29T21:22:15Z",
+      "side": 1,
+      "message": "I\u0027m rewriting invoke-interface into invoke-virtual now if it\u0027s intrinsified.",
+      "parentUuid": "bb416b8f_d9f416b9",
       "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

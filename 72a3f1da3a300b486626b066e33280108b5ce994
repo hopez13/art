@@ -52,6 +52,24 @@
       "revId": "72a3f1da3a300b486626b066e33280108b5ce994",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a7a9d2f_eecf22ff",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2038,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-29T21:22:15Z",
+      "side": 0,
+      "message": "This actually is not related to invoke-interface. Just added IsObjectClass() check also since Object.equals() is devirtualized to String.equals().",
+      "parentUuid": "47d626ac_1dfcffe1",
+      "revId": "72a3f1da3a300b486626b066e33280108b5ce994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
