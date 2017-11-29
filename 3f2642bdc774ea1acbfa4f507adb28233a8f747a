@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "bb3da110_67ce3451",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-29T09:41:59Z",
+      "side": 1,
+      "message": "Note that I\u0027m ok if you want to submit this with a CHECK - after all that was the old behavior.\n\nMy opinion is that optional / developer features shouldn\u0027t make things fatal to the user.",
+      "parentUuid": "46d87327_8c91d680",
+      "range": {
+        "startLine": 1428,
+        "startChar": 4,
+        "endLine": 1428,
+        "endChar": 9
+      },
+      "revId": "3f2642bdc774ea1acbfa4f507adb28233a8f747a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81554136_618c156f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
