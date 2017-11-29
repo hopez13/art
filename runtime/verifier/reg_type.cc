@@ -51,6 +51,7 @@ const LongHiType* LongHiType::instance_ = nullptr;
 const DoubleLoType* DoubleLoType::instance_ = nullptr;
 const DoubleHiType* DoubleHiType::instance_ = nullptr;
 const IntegerType* IntegerType::instance_ = nullptr;
+const NullType* NullType::instance_ = nullptr;
 
 PrimitiveType::PrimitiveType(mirror::Class* klass, const StringPiece& descriptor, uint16_t cache_id)
     : RegType(klass, descriptor, cache_id) {
@@ -695,7 +696,7 @@ const RegType& RegType::Merge(const RegType& incoming_type,
       // special. They may only ever be merged with themselves (must be taken care of by the
       // caller of Merge(), see the DCHECK on entry). So mark any other merge as conflicting here.
       return conflict;
-    } else if (IsZero() || incoming_type.IsZero()) {
+    } else if (IsZeroOrNull() || incoming_type.IsZeroOrNull()) {
       return SelectNonConstant(*this, incoming_type);  // 0 MERGE ref => ref
     } else if (IsJavaLangObject() || incoming_type.IsJavaLangObject()) {
       return reg_types->JavaLangObject(false);  // Object MERGE ref => Object
@@ -965,6 +966,11 @@ bool RegType::CanAssignArray(const RegType& src,
   return cmp1.CanAssignArray(cmp2, reg_types, class_loader, verifier, soft_error);
 }
 
+const NullType* NullType::CreateInstance(uint16_t cache_id) {
+  CHECK(instance_ == nullptr);
+  instance_ = new NullType(cache_id);
+  return instance_;
+}
 
 }  // namespace verifier
 }  // namespace art

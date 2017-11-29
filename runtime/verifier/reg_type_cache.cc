@@ -63,6 +63,7 @@ void RegTypeCache::FillPrimitiveAndSmallConstantTypes() {
   entries_.push_back(FloatType::GetInstance());
   entries_.push_back(DoubleLoType::GetInstance());
   entries_.push_back(DoubleHiType::GetInstance());
+  entries_.push_back(NullType::GetInstance());
   for (int32_t value = kMinSmallConstant; value <= kMaxSmallConstant; ++value) {
     int32_t i = value - kMinSmallConstant;
     DCHECK_EQ(entries_.size(), small_precise_constants_[i]->GetId());
@@ -341,6 +342,9 @@ void RegTypeCache::CreatePrimitiveAndSmallConstantTypes() {
   CreatePrimitiveTypeInstance<FloatType>("F");
   CreatePrimitiveTypeInstance<DoubleLoType>("D");
   CreatePrimitiveTypeInstance<DoubleHiType>("D");
+  NullType::CreateInstance(RegTypeCache::primitive_count_);
+  RegTypeCache::primitive_count_++;
+
   for (int32_t value = kMinSmallConstant; value <= kMaxSmallConstant; ++value) {
     PreciseConstType* type = new PreciseConstType(value, primitive_count_);
     small_precise_constants_[value - kMinSmallConstant] = type;
