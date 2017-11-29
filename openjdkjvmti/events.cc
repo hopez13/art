@@ -1131,19 +1131,25 @@ jvmtiError EventHandler::SetEvent(ArtJvmTiEnv* env,
     return ERR(MUST_POSSESS_CAPABILITY);
   }
 
-  bool old_state = global_mask.Test(event);
+  bool old_state;
+  bool new_state;
 
-  if (mode == JVMTI_ENABLE) {
-    env->event_masks.EnableEvent(thread, event);
-    global_mask.Set(event);
-  } else {
-    DCHECK_EQ(mode, JVMTI_DISABLE);
+  {
+    // Change the event masks atomically.
+    art::MutexLock mu(art::Thread::Current(), envs_lock_);
+    old_state = global_mask.Test(event);
+    if (mode == JVMTI_ENABLE) {
+      env->event_masks.EnableEvent(thread, event);
+      global_mask.Set(event);
+      new_state = true;
+    } else {
+      DCHECK_EQ(mode, JVMTI_DISABLE);
 
-    env->event_masks.DisableEvent(thread, event);
-    RecalculateGlobalEventMask(event);
+      env->event_masks.DisableEvent(thread, event);
+      RecalculateGlobalEventMaskLocked(event);
+      new_state = global_mask.Test(event);
+    }
   }
-
-  bool new_state = global_mask.Test(event);
 
   // Handle any special work required for the event type.
   if (new_state != old_state) {
