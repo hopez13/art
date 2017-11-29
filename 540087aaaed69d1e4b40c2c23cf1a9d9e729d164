@@ -22,6 +22,30 @@
       "revId": "540087aaaed69d1e4b40c2c23cf1a9d9e729d164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5ad4730_23021c4b",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-11-29T15:48:48Z",
+      "side": 1,
+      "message": "If Igor thinks it\u0027s appropriate, I\u0027ll look into making the method FastNative. Otherwise I don\u0027t think it\u0027s worth it. This is not expected to be a fast method to execute given it has to iterate over the entire heap, and I don\u0027t want to give readers of the code a false impression that it will be especially efficient to call.",
+      "parentUuid": "31deac21_b11f98a0",
+      "range": {
+        "startLine": 326,
+        "startChar": 2,
+        "endLine": 326,
+        "endChar": 30
+      },
+      "revId": "540087aaaed69d1e4b40c2c23cf1a9d9e729d164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

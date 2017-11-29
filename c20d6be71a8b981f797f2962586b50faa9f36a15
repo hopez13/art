@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "92dc7e52_2292caf5",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-11-29T15:48:48Z",
+      "side": 1,
+      "message": "I added a benchmark to the libcore CL (https://android-review.googlesource.com/#/c/platform/libcore/+/546801/) and put the numbers in the commit message.\n\nWhen I tried hard coding use_is_assignable_from to true in the code, it saved around 4-5ms out of the 87ms to get instances of 4 classes with around half a million objects allocated on the heap.\n\nI also tried using a single heap iteration to get instances of all classes rather than a separate iteration for each class. I was surprised to find that it only saved 2-3ms out of 87ms.\n\nI would rather leave the change as is than complicate it with templates at this time.",
+      "parentUuid": "2c2ab84b_5239d667",
+      "range": {
+        "startLine": 350,
+        "startChar": 7,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "c20d6be71a8b981f797f2962586b50faa9f36a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e0253f9_b52fd82e",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 1
