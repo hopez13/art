@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09b56f90_6c9a6f82",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-29T19:02:03Z",
+      "side": 1,
+      "message": "how about giving all your new logs a common part, something like\n\nNot compiled: TryItems span ....\nNot compiled: Fall-through beyond ...\n\nso that the log becomes a bit more self explanatory when it appears in a long list of other log items",
+      "revId": "8ec1fd7d57c5e46ce80d2a5d9569655800861370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd5ad6a8_922d43cd",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1592,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-29T19:02:03Z",
+      "side": 1,
+      "message": "not needed?",
+      "revId": "8ec1fd7d57c5e46ce80d2a5d9569655800861370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
