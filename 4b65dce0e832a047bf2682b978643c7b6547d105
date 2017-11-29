@@ -94,6 +94,30 @@
       "revId": "4b65dce0e832a047bf2682b978643c7b6547d105",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53177cb6_7e637005",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-11-29T19:02:57Z",
+      "side": 1,
+      "message": "thanks, I missed the check DCHECK_STREQ(shorty_, shorty). It is worth adding an explicit comment in your revert^2 that the key does not change its comment.",
+      "parentUuid": "afb4604a_3bfebf0d",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 9
+      },
+      "revId": "4b65dce0e832a047bf2682b978643c7b6547d105",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
