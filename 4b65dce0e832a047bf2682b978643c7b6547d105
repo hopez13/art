@@ -70,6 +70,30 @@
       "revId": "4b65dce0e832a047bf2682b978643c7b6547d105",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb4604a_3bfebf0d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-29T00:35:09Z",
+      "side": 1,
+      "message": "It does not *have* to be this way, we could also _allocate_ a string. I don\u0027t like excessive allocations, so I chose this approach.\n\nThe value is very much immutable as the key is used for strcmp() and though the pointer may change, the contents of the pointed-to string shall remain the same.",
+      "parentUuid": "9a087c9b_1bcf4747",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 9
+      },
+      "revId": "4b65dce0e832a047bf2682b978643c7b6547d105",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
