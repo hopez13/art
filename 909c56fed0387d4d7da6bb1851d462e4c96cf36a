@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ba09d5c_e0d5c2c1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-29T18:59:14Z",
+      "side": 1,
+      "message": "I assume you use this layout to get the same indentation as in the if above, but I would have a slight preference for just a else if/else way of ending this block",
+      "revId": "909c56fed0387d4d7da6bb1851d462e4c96cf36a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00421e43_0650a84f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1952,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-29T18:59:14Z",
+      "side": 1,
+      "message": "same request",
+      "revId": "909c56fed0387d4d7da6bb1851d462e4c96cf36a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
