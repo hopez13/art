@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b653592_eb58aee5",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-29T13:43:40Z",
+      "side": 1,
+      "message": "Can you comment why you don\u0027t need a read barrier?",
+      "range": {
+        "startLine": 207,
+        "startChar": 75,
+        "endLine": 207,
+        "endChar": 94
+      },
+      "revId": "e19ff7f3c7eda21c600092b7a79a753f46a4da5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
