@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f522f98e_545e499f",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-30T23:56:04Z",
+      "side": 1,
+      "message": "Those functions are on different objects so we cannot annotate them like that.",
+      "parentUuid": "3387f903_5a2fa6e3",
+      "range": {
+        "startLine": 1148,
+        "startChar": 23,
+        "endLine": 1148,
+        "endChar": 35
+      },
+      "revId": "4e9642c642c696df70703302b7566e8a64508a5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb88f6cd_01df93b3",
         "filename": "openjdkjvmti/events.cc",
         "patchSetId": 1
