@@ -22,6 +22,52 @@
       "revId": "6fbc54c27aa91498d86b0483d8732ea0e3c62567",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58f49335_72168694",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-30T11:22:25Z",
+      "side": 1,
+      "message": "Pair? I see only one read.",
+      "range": {
+        "startLine": 155,
+        "startChar": 20,
+        "endLine": 155,
+        "endChar": 37
+      },
+      "revId": "6fbc54c27aa91498d86b0483d8732ea0e3c62567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3e5b811_5719fc32",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-11-30T11:22:25Z",
+      "side": 1,
+      "message": "Maybe this should be folded into MterpInvoke*() handlers where we take  \"Thread* self\" as a parameter. The mterp assembly would change from\n\n    bl      MterpInvokeVirtual\n    cbz     w0, MterpException\n\nto\n\n    bl      MterpInvokeVirtual\n    cbz     w0, MterpExceptionOrAsyncException\n\nOr we could fold the entire MterpShouldSwitchInterpreters() into invoke handlers, changing the assembly to\n\n    bl      MterpInvokeVirtual\n    cbz     w0, MterpExceptionOrShouldSwitchInterpreters\n\nand dropping the subsequent MterpShouldSwitchInterpreters() call.",
+      "range": {
+        "startLine": 159,
+        "startChar": 7,
+        "endLine": 159,
+        "endChar": 51
+      },
+      "revId": "6fbc54c27aa91498d86b0483d8732ea0e3c62567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
