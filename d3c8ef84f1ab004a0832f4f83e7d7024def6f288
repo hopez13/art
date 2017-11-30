@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72a4ff3c_cefbfd9c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1960,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-11-30T18:35:47Z",
+      "side": 1,
+      "message": "We need to check whether the constant right operand has a single use, not whether the whole addition has a single use.",
+      "range": {
+        "startLine": 1960,
+        "startChar": 30,
+        "endLine": 1960,
+        "endChar": 41
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8e8bb27_738a3cf8",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-11-30T18:35:47Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1798,
+        "startChar": 28,
+        "endLine": 1798,
+        "endChar": 39
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a414791b_d4c7dc7f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-11-30T18:35:47Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 1808,
+        "startChar": 26,
+        "endLine": 1808,
+        "endChar": 45
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
