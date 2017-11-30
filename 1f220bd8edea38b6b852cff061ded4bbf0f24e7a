@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fc17493_6e928673",
+        "filename": "test/665-checker-simd-zero/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-11-30T19:53:35Z",
+      "side": 1,
+      "message": "note: I just rewrote one test as an example to keep this CL small and easy to review; a follow up CL will clean up the many, many SIMD tests that have started to duplicate badly.",
+      "revId": "1f220bd8edea38b6b852cff061ded4bbf0f24e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
