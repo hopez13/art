@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "0670ece3_f755e455",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-30T14:19:53Z",
+      "side": 1,
+      "message": "The HInvokeVirtual with the \"bogus\" method_id is indeed gone. See InstructionSimplifierVisitor::VisitInvoke() in instruction_simplifier.cc. The added test case shows that.",
+      "parentUuid": "0fcf4cf3_c6c0003d",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa124247_776f91a6",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
