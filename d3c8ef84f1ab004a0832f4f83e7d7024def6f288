@@ -68,6 +68,52 @@
       "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0564ed18_b02084f0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-11-30T20:02:47Z",
+      "side": 1,
+      "message": "This unnecessarily limits imm to non-negative values and looks overly complicated and verbose.\n\nUse\n\n    can_use_imm \u003d IsInt\u003c16\u003e(imm) || (IsInt\u003c32\u003e(imm) \u0026\u0026 (Low16Bits(imm) \u003d\u003d 0)) || single_use;\n\nI\u0027d also use a similar expression in the kInt32 case above:\n\n    can_use_imm \u003d IsInt\u003c16\u003e(imm) || (Low16Bits(imm) \u003d\u003d 0) || single_use;",
+      "range": {
+        "startLine": 1810,
+        "startChar": 0,
+        "endLine": 1820,
+        "endChar": 59
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a4fc2f6_b3418fa8",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1914,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-11-30T20:02:47Z",
+      "side": 1,
+      "message": "We missed a possible overflow of maximum rhs_imm_high into the negative region. When that overflow happens, an additional Dahi(dst, 1) is needed to compensate for it. Mips64Assembler::AdjustBaseAndOffset() is an example of doing it.",
+      "range": {
+        "startLine": 1914,
+        "startChar": 0,
+        "endLine": 1914,
+        "endChar": 34
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
