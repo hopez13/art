@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb88f6cd_01df93b3",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-11-30T00:24:24Z",
+      "side": 1,
+      "message": "nit: maybe comment why it\u0027s not \"new_state \u003d false\" as on L1144?",
+      "revId": "4e9642c642c696df70703302b7566e8a64508a5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
