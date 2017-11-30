@@ -493,6 +493,22 @@ public class Main {
     }
   }
 
+  // Avoi bad scheduler-SIMD interaction.
+  static int doNotMoveSIMD() {
+    int sum = 0;
+    for (int j = 0; j <= 8; j++) {
+      int[] a = new int[17];    // a[i] = 0;
+                                // ConstructorFence ?
+      for (int i = 0; i < a.length; i++) {
+        a[i] += 1;              // a[i] = 1;
+      }
+      for (int i = 0; i < a.length; i++) {
+        sum += a[i];            // expect a[i] = 1;
+      }
+    }
+    return sum;
+  }
+
   public static void main(String[] args) {
     expectEquals(10, earlyExitFirst(-1));
     for (int i = 0; i <= 10; i++) {
@@ -654,6 +670,8 @@ public class Main {
     for (int i = 0; i < 259; i++) {
       expectEquals((byte)((short) cx[i] + 1), b1[i]);
     }
+
+    expectEquals(153, doNotMoveSIMD());
 
     System.out.println("passed");
   }
