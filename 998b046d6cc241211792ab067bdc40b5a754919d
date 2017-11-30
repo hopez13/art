@@ -22,6 +22,30 @@
       "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be016ed0_bb9818ff",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3222,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-11-30T20:32:53Z",
+      "side": 1,
+      "message": "Vladimir/Goran, does anything still need to be done here?",
+      "parentUuid": "653f746e_abb688e4",
+      "range": {
+        "startLine": 3222,
+        "startChar": 8,
+        "endLine": 3222,
+        "endChar": 24
+      },
+      "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
