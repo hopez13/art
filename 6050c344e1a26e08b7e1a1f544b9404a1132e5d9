@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "b299506f_9c87ed3b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-11-30T18:54:10Z",
+      "side": 1,
+      "message": "Currently my finding is that\u0027s the only one for invoke-interface. There could be more in the future that may stay. I added a test for devirtualing Object.equals() into String.equals() which is intrinsified and remains.",
+      "parentUuid": "dd0ef0e9_d58a97d4",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa124247_776f91a6",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
