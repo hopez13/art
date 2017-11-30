@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "dd0ef0e9_d58a97d4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-30T14:24:10Z",
+      "side": 1,
+      "message": "Right but that\u0027s only for charAt changed into ArrayGet, isn\u0027t it? If there are more (or when there are more) intrinsics the invoke may remain.",
+      "parentUuid": "0670ece3_f755e455",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa124247_776f91a6",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
