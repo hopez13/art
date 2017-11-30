@@ -4695,7 +4695,6 @@ void MethodVerifier::VerifyAGet(const Instruction* inst,
     if (array_type.IsZeroOrNull()) {
       // Null array class; this code path will fail at runtime. Infer a merge-able type from the
       // instruction type.
-      have_pending_runtime_throw_failure_ = true;
       if (!is_primitive) {
         work_line_->SetRegisterType<LockOp::kClear>(this, inst->VRegA_23x(), reg_types_.Null());
       } else if (insn_type.IsInteger()) {
