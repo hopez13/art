@@ -12,15 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.class public LNullArray;
+# Check that the result of aget-on-null cannot be used as a reference.
+
+.class public LNullArrayFailInt2Object;
 
 .super Ljava/lang/Object;
 
-.method public static method()B
+.method public static method()V
    .registers 2
    const/4 v0, 0
    const/4 v1, 0
-   aget-object v0, v0, v1
-   int-to-byte v0, v0
-   return v0
+   aget v0, v0, v1
+   invoke-virtual { v0 }, Ljava/lang/Object;->toString()Ljava/lang/String;
+   return-void
 .end method
