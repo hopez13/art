@@ -16,6 +16,75 @@
       "revId": "1f220bd8edea38b6b852cff061ded4bbf0f24e7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fade1115_0e80df2a",
+        "filename": "tools/checker/README",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-30T22:47:05Z",
+      "side": 1,
+      "message": "will",
+      "range": {
+        "startLine": 81,
+        "startChar": 47,
+        "endLine": 81,
+        "endChar": 50
+      },
+      "revId": "1f220bd8edea38b6b852cff061ded4bbf0f24e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "317a1f8e_fed1832d",
+        "filename": "tools/checker/file_format/checker/parser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-30T22:47:05Z",
+      "side": 1,
+      "message": "What about returning `None` here instead, and handling that case at the call site (line 80)?",
+      "range": {
+        "startLine": 63,
+        "startChar": 10,
+        "endLine": 63,
+        "endChar": 51
+      },
+      "revId": "1f220bd8edea38b6b852cff061ded4bbf0f24e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53b2ca2a_ab05936f",
+        "filename": "tools/checker/file_format/checker/parser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-30T22:47:05Z",
+      "side": 1,
+      "message": "Maybe replace with \"architecture suffix(es)\"?",
+      "range": {
+        "startLine": 78,
+        "startChar": 31,
+        "endLine": 78,
+        "endChar": 54
+      },
+      "revId": "1f220bd8edea38b6b852cff061ded4bbf0f24e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
