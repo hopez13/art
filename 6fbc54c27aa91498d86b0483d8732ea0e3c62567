@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "521b9275_eb037756",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-30T17:29:04Z",
+      "side": 1,
+      "message": "Yes. Or at least extremely close to it.",
+      "parentUuid": "3c20b888_dd5bdd32",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 17
+      },
+      "revId": "6fbc54c27aa91498d86b0483d8732ea0e3c62567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58f49335_72168694",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "076f05c7_579a5035",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-30T17:29:04Z",
+      "side": 1,
+      "message": "the async exception field is in tlsPtr_.",
+      "parentUuid": "58f49335_72168694",
+      "range": {
+        "startLine": 155,
+        "startChar": 20,
+        "endLine": 155,
+        "endChar": 37
+      },
+      "revId": "6fbc54c27aa91498d86b0483d8732ea0e3c62567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3e5b811_5719fc32",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-30T11:22:25Z",
       "side": 1,
       "message": "Maybe this should be folded into MterpInvoke*() handlers where we take  \"Thread* self\" as a parameter. The mterp assembly would change from\n\n    bl      MterpInvokeVirtual\n    cbz     w0, MterpException\n\nto\n\n    bl      MterpInvokeVirtual\n    cbz     w0, MterpExceptionOrAsyncException\n\nOr we could fold the entire MterpShouldSwitchInterpreters() into invoke handlers, changing the assembly to\n\n    bl      MterpInvokeVirtual\n    cbz     w0, MterpExceptionOrShouldSwitchInterpreters\n\nand dropping the subsequent MterpShouldSwitchInterpreters() call.",
+      "range": {
+        "startLine": 159,
+        "startChar": 7,
+        "endLine": 159,
+        "endChar": 51
+      },
+      "revId": "6fbc54c27aa91498d86b0483d8732ea0e3c62567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23eb9bc1_3a830bc4",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-11-30T17:29:04Z",
+      "side": 1,
+      "message": "We need to check in places where we don\u0027t expect throws to happen (i.e. back-edges) and other suspend points.",
+      "parentUuid": "c3e5b811_5719fc32",
       "range": {
         "startLine": 159,
         "startChar": 7,
