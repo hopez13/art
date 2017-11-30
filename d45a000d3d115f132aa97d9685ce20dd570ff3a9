@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c3572cf_5a58eff1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-30T19:13:36Z",
+      "side": 1,
+      "message": "I understand that a non-regression case would be difficult to express as a run-test, but perhaps this could be done in a gtest?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "d45a000d3d115f132aa97d9685ce20dd570ff3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6eee28_a3530de5",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-11-30T19:13:36Z",
+      "side": 1,
+      "message": "Maybe I\u0027m reading the comment incorrectly, but shouldn\u0027t this condition be:\n\n  !oat_file-\u003eIsExecutable()\n\n?",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "d45a000d3d115f132aa97d9685ce20dd570ff3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
