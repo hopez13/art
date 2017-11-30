@@ -87,6 +87,21 @@ class PcToRegisterLineTable {
   DISALLOW_COPY_AND_ASSIGN(PcToRegisterLineTable);
 };
 
+struct AppCompatWorkaroundFlags {
+  // Technically broken dead code can be accepted.
+  bool has_null_aget;
+  bool aget_null_is_runtime_throw;
+
+  bool HasPossiblyApplicableWorkarounds() const {
+    return has_null_aget;
+  }
+  void SetWorkaroundFlagsFrom(const AppCompatWorkaroundFlags& in) {
+    if (in.has_null_aget) {
+      aget_null_is_runtime_throw = true;
+    }
+  }
+};
+
 // The verifier
 class MethodVerifier {
  public:
@@ -239,6 +254,10 @@ class MethodVerifier {
     return allocator_;
   }
 
+  AppCompatWorkaroundFlags& GetAppCompatWorkaroundFlags() {
+    return workaround_flags_;
+  }
+
  private:
   MethodVerifier(Thread* self,
                  const DexFile* dex_file,
@@ -254,6 +273,26 @@ class MethodVerifier {
                  bool need_precise_constants,
                  bool verify_to_dump,
                  bool allow_thread_suspension)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template <typename Configurator, typename HandlerSuccess, typename HandlerFailure>
+  static bool VerifyWithWorkarounds(Thread* self,
+                                    const DexFile* dex_file,
+                                    Handle<mirror::DexCache> dex_cache,
+                                    Handle<mirror::ClassLoader> class_loader,
+                                    const DexFile::ClassDef& class_def,
+                                    const DexFile::CodeItem* code_item,
+                                    uint32_t method_idx,
+                                    ArtMethod* method,
+                                    uint32_t access_flags,
+                                    bool can_load_classes,
+                                    bool allow_soft_failures,
+                                    bool need_precise_constants,
+                                    bool verify_to_dump,
+                                    bool allow_thread_suspension,
+                                    Configurator configurator,
+                                    HandlerSuccess handler_success,
+                                    HandlerFailure handler_failure)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void UninstantiableError(const char* descriptor);
@@ -828,6 +867,11 @@ class MethodVerifier {
   //
   // Note: this flag is only valid once Verify() has started.
   bool is_constructor_;
+
+  // App compat workaround flags.
+
+  // Technically broken dead code can be accepted.
+  AppCompatWorkaroundFlags workaround_flags_;
 
   // Link, for the method verifier root linked list.
   MethodVerifier* link_;

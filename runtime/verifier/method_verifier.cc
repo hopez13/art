@@ -362,6 +362,113 @@ static bool IsLargeMethod(const DexFile::CodeItem* const code_item) {
   return registers_size * insns_size > 4*1024*1024;
 }
 
+template <typename Configurator, typename HandlerSuccess, typename HandlerFailure>
+bool MethodVerifier::VerifyWithWorkarounds(Thread* self,
+                                           const DexFile* dex_file,
+                                           Handle<mirror::DexCache> dex_cache,
+                                           Handle<mirror::ClassLoader> class_loader,
+                                           const DexFile::ClassDef& class_def,
+                                           const DexFile::CodeItem* code_item,
+                                           uint32_t method_idx,
+                                           ArtMethod* method,
+                                           uint32_t access_flags,
+                                           bool can_load_classes,
+                                           bool allow_soft_failures,
+                                           bool need_precise_constants,
+                                           bool verify_to_dump,
+                                           bool allow_thread_suspension,
+                                           Configurator configurator,
+                                           HandlerSuccess handler_success,
+                                           HandlerFailure handler_failure) {
+  AppCompatWorkaroundFlags workaround_flags;
+  {
+    MethodVerifier verifier(self,
+                            dex_file,
+                            dex_cache,
+                            class_loader,
+                            class_def,
+                            code_item,
+                            method_idx,
+                            method,
+                            access_flags,
+                            can_load_classes,
+                            allow_soft_failures,
+                            need_precise_constants,
+                            verify_to_dump,
+                            allow_thread_suspension);
+    configurator(verifier);
+    if (verifier.Verify()) {
+      // Verification completed, however failures may be pending that didn't cause the verification
+      // to hard fail.
+      CHECK(!verifier.have_pending_hard_failure_);
+
+      handler_success(verifier, false);
+      return true;
+    }
+
+    // Bad method data.
+    CHECK_NE(verifier.failures_.size(), 0U);
+
+    if (UNLIKELY(verifier.have_pending_experimental_failure_)) {
+      handler_failure(verifier, false);
+      return false;
+    }
+
+    CHECK(verifier.have_pending_hard_failure_);
+
+    // See if any workarounds apply, otherwise fail.
+    AppCompatWorkaroundFlags& workaround_flags_failed = verifier.GetAppCompatWorkaroundFlags();
+    if (!workaround_flags_failed.HasPossiblyApplicableWorkarounds()) {
+      handler_failure(verifier, false);
+      return false;
+    }
+    workaround_flags = workaround_flags_failed;
+    // Fall out to delete the first verifier.
+  }
+
+  {
+    MethodVerifier verifier(self,
+                            dex_file,
+                            dex_cache,
+                            class_loader,
+                            class_def,
+                            code_item,
+                            method_idx,
+                            method,
+                            access_flags,
+                            can_load_classes,
+                            allow_soft_failures,
+                            need_precise_constants,
+                            verify_to_dump,
+                            allow_thread_suspension);
+    configurator(verifier);
+
+    // Configure the workarounds to attempt.
+    verifier.GetAppCompatWorkaroundFlags().SetWorkaroundFlagsFrom(workaround_flags);
+
+    if (verifier.Verify()) {
+      // Verification completed, however failures may be pending that didn't cause the verification
+      // to hard fail.
+      CHECK(!verifier.have_pending_hard_failure_);
+
+      handler_success(verifier, true);
+      return true;
+    }
+
+    // Bad method data.
+    CHECK_NE(verifier.failures_.size(), 0U);
+
+    if (UNLIKELY(verifier.have_pending_experimental_failure_)) {
+      handler_failure(verifier, true);
+      return false;
+    }
+
+    CHECK(verifier.have_pending_hard_failure_);
+    handler_failure(verifier, true);
+    return false;
+  }
+}
+
 MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                          uint32_t method_idx,
                                                          const DexFile* dex_file,
@@ -379,25 +486,9 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
   MethodVerifier::FailureData result;
   uint64_t start_ns = kTimeVerifyMethod ? NanoTime() : 0;
 
-  MethodVerifier verifier(self,
-                          dex_file,
-                          dex_cache,
-                          class_loader,
-                          class_def,
-                          code_item,
-                          method_idx,
-                          method,
-                          method_access_flags,
-                          true /* can_load_classes */,
-                          allow_soft_failures,
-                          need_precise_constants,
-                          false /* verify to dump */,
-                          true /* allow_thread_suspension */);
-  if (verifier.Verify()) {
-    // Verification completed, however failures may be pending that didn't cause the verification
-    // to hard fail.
-    CHECK(!verifier.have_pending_hard_failure_);
-
+  auto configurator = [](MethodVerifier& verifier ATTRIBUTE_UNUSED) {};
+  auto handler_success = [&](MethodVerifier& verifier, bool with_workarounds ATTRIBUTE_UNUSED)
+     REQUIRES_SHARED(Locks::mutator_lock_) {
     if (code_item != nullptr && callbacks != nullptr) {
       // Let the interested party know that the method was verified.
       callbacks->MethodVerified(&verifier);
@@ -406,7 +497,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
     if (verifier.failures_.size() != 0) {
       if (VLOG_IS_ON(verifier)) {
         verifier.DumpFailures(VLOG_STREAM(verifier) << "Soft verification failures in "
-                                                    << dex_file->PrettyMethod(method_idx) << "\n");
+                              << dex_file->PrettyMethod(method_idx) << "\n");
       }
       result.kind = FailureKind::kSoftFailure;
       if (method != nullptr &&
@@ -435,7 +526,10 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
         method->SetMustCountLocks();
       }
     }
-  } else {
+    result.types = verifier.encountered_failure_types_;
+  };
+  auto handler_failure = [&](MethodVerifier& verifier, bool with_workarounds ATTRIBUTE_UNUSED)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     // Bad method data.
     CHECK_NE(verifier.failures_.size(), 0U);
 
@@ -465,8 +559,8 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
             UNREACHABLE();
         }
         verifier.DumpFailures(LOG_STREAM(severity) << "Verification error in "
-                                                   << dex_file->PrettyMethod(method_idx)
-                                                   << "\n");
+                              << dex_file->PrettyMethod(method_idx)
+                              << "\n");
       }
       if (hard_failure_msg != nullptr) {
         CHECK(!verifier.failure_messages_.empty());
@@ -485,7 +579,25 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
       std::cout << "\n" << verifier.info_messages_.str();
       verifier.Dump(std::cout);
     }
-  }
+    result.types = verifier.encountered_failure_types_;
+  };
+  VerifyWithWorkarounds(self,
+                        dex_file,
+                        dex_cache,
+                        class_loader,
+                        class_def,
+                        code_item,
+                        method_idx,
+                        method,
+                        method_access_flags,
+                        true /* can_load_classes */,
+                        allow_soft_failures,
+                        need_precise_constants,
+                        false /* verify to dump */,
+                        true /* allow_thread_suspension */,
+                        configurator,
+                        handler_success,
+                        handler_failure);
   if (kTimeVerifyMethod) {
     uint64_t duration_ns = NanoTime() - start_ns;
     if (duration_ns > MsToNs(100)) {
@@ -494,7 +606,6 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                    << (IsLargeMethod(code_item) ? " (large method)" : "");
     }
   }
-  result.types = verifier.encountered_failure_types_;
   return result;
 }
 
@@ -583,6 +694,7 @@ MethodVerifier::MethodVerifier(Thread* self,
       verify_to_dump_(verify_to_dump),
       allow_thread_suspension_(allow_thread_suspension),
       is_constructor_(false),
+      workaround_flags_({}),
       link_(nullptr) {
   self->PushVerifier(this);
 }
@@ -4691,12 +4803,23 @@ void MethodVerifier::VerifyAGet(const Instruction* inst,
   } else {
     const RegType& array_type = work_line_->GetRegisterType(this, inst->VRegB_23x());
     if (array_type.IsZeroOrNull()) {
-      have_pending_runtime_throw_failure_ = true;
+      workaround_flags_.has_null_aget = true;
+      if (workaround_flags_.aget_null_is_runtime_throw) {
+        have_pending_runtime_throw_failure_ = true;
+      }
       // Null array class; this code path will fail at runtime. Infer a merge-able type from the
-      // instruction type. TODO: have a proper notion of bottom here.
-      if (!is_primitive || insn_type.IsCategory1Types()) {
-        // Reference or category 1
-        work_line_->SetRegisterType<LockOp::kClear>(this, inst->VRegA_23x(), reg_types_.Zero());
+      // instruction type.
+      if (!is_primitive) {
+        work_line_->SetRegisterType<LockOp::kClear>(this, inst->VRegA_23x(), reg_types_.Null());
+      } else if (insn_type.IsInteger()) {
+        // Pick a non-zero constant (to distinguish with null) that can fit in any primitive.
+        // We cannot use 'insn_type' as it could be a float array or an int array.
+        work_line_->SetRegisterType<LockOp::kClear>(
+            this, inst->VRegA_23x(), DetermineCat1Constant(1, need_precise_constants_));
+      } else if (insn_type.IsCategory1Types()) {
+        // Category 1
+        // The 'insn_type' is exactly the type we need.
+        work_line_->SetRegisterType<LockOp::kClear>(this, inst->VRegA_23x(), insn_type);
       } else {
         // Category 2
         work_line_->SetRegisterTypeWide(this, inst->VRegA_23x(),
