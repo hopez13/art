@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b838fa35_8fd29fd5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4518,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2017-11-30T19:46:34Z",
+      "side": 0,
+      "message": "FWIW - I don\u0027t think this CHECK_EQ is serving any purpose at this point so perhaps could be removed instead of me changing it from one magic value to another.\n\nPerhaps it was useful in the past. It doesn\u0027t seem to suggest the need for an associated change elsewhere.",
+      "range": {
+        "startLine": 4518,
+        "startChar": 68,
+        "endLine": 4518,
+        "endChar": 71
+      },
+      "revId": "a602c56ba1a82d70eb40de35e7c716477a46ee28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
