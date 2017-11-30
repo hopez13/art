@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "0fcf4cf3_c6c0003d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-30T09:38:04Z",
+      "side": 1,
+      "message": "What do you mean \"simplified right away\"? The HInvokeVirtual with the \"bogus\" method_id does remain right?",
+      "parentUuid": "39860b3f_582a9ade",
+      "revId": "6050c344e1a26e08b7e1a1f544b9404a1132e5d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa124247_776f91a6",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1

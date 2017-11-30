@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7557eb37_91b2a9d5",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-30T09:38:04Z",
+      "side": 1,
+      "message": "This looks brittle, I think I\u0027d prefer doing it in each case (intrinsic / TryBuildAndInline / interface)",
+      "range": {
+        "startLine": 1306,
+        "startChar": 0,
+        "endLine": 1308,
+        "endChar": 3
+      },
+      "revId": "220575d150c14792868f05b565ddc8d28dd55d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f9726ff_8836618d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2049,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-11-30T09:38:04Z",
+      "side": 1,
+      "message": "can be?",
+      "range": {
+        "startLine": 2049,
+        "startChar": 32,
+        "endLine": 2049,
+        "endChar": 34
+      },
+      "revId": "220575d150c14792868f05b565ddc8d28dd55d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
