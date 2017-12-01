@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "24be5151_b797bee8",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-01T01:25:36Z",
+      "side": 1,
+      "message": "Should these hold event_info_mutex_?\n\nYeah, because we split these things up along the lines of \"from the spec\" vs \"implementation detail,\" getting this annotated correctly is a pain.\n\nI think a workaround is to make env an ATTRIBUTE_UNUSED parameter to EnableEvent and DisableEvent, and then an annotation can refer to the mutex it contains. What would really be necessary is templatizing annotations, so the embedded struct can inherit the enclosing jvmtiEnv\u0027s mutex (that also covers the callback list?).",
+      "parentUuid": "e61763f4_e4854168",
+      "range": {
+        "startLine": 1148,
+        "startChar": 23,
+        "endLine": 1148,
+        "endChar": 35
+      },
+      "revId": "4e9642c642c696df70703302b7566e8a64508a5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb88f6cd_01df93b3",
         "filename": "openjdkjvmti/events.cc",
         "patchSetId": 1
