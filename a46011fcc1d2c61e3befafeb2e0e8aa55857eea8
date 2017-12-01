@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb293955_e7c2bb29",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4709,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-01T05:22:42Z",
+      "side": 1,
+      "message": "Could consider moving this to the next CL. It\u0027s no-op as-is, but maybe for the test coverage it should be in the other CL.",
+      "range": {
+        "startLine": 4698,
+        "startChar": 6,
+        "endLine": 4709,
+        "endChar": 88
+      },
+      "revId": "a46011fcc1d2c61e3befafeb2e0e8aa55857eea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
