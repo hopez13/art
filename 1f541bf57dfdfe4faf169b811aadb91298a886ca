@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5516c3b_08167479",
+        "filename": "test/532-checker-nonnull-arrayset/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-01T17:56:38Z",
+      "side": 0,
+      "message": "I find the change in this checker test a bit puzzling, since it does not make the \"improvements\" you made very clear; can you please comment on why this change was necessary, and add a checker test that shows of your better lse?",
+      "revId": "1f541bf57dfdfe4faf169b811aadb91298a886ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
