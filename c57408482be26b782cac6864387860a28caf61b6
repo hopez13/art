@@ -34,6 +34,24 @@
       "revId": "c57408482be26b782cac6864387860a28caf61b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0d074b3_cd9b0ec2",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-01T23:04:39Z",
+      "side": 1,
+      "message": "These are owned by single ArtJvmTiEnvs so each call should only have one env.",
+      "parentUuid": "32080150_08e96abe",
+      "revId": "c57408482be26b782cac6864387860a28caf61b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
