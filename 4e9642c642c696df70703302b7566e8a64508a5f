@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "e61763f4_e4854168",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-01T00:35:40Z",
+      "side": 1,
+      "message": "\u003e +1, why does it matter if they are on different objects? The lock is global.\n\nIt\u0027s not. It\u0027s a member of EventHandler.\n\n\u003e OK, but can we add comments to those functions that state what prevents those calls from racing? Informally, which lock must the caller hold?\n\n\u003e I unfortunately know even less about jvmti than the reader of this code should be expected to know, but presumably each env is used with a unique EventHandler at any given point, so we can require (informally) that the caller holds the lock associated with that EventHandler?\n\nThose are just std::bitset objects. We don\u0027t actually need to worry about them racing. The problem is if they get inconsistent with the \u0027global_mask\u0027 which is the union of all of them.",
+      "parentUuid": "d3b9c548_a253619b",
+      "range": {
+        "startLine": 1148,
+        "startChar": 23,
+        "endLine": 1148,
+        "endChar": 35
+      },
+      "revId": "4e9642c642c696df70703302b7566e8a64508a5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb88f6cd_01df93b3",
         "filename": "openjdkjvmti/events.cc",
         "patchSetId": 1
