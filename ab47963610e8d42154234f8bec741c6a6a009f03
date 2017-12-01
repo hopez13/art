@@ -194,6 +194,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3d9f8bc_a5c213d0",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-12-01T18:13:01Z",
+      "side": 1,
+      "message": "1. I remember SIMD scheduling brings 4% performance improvement on Linpack, according to CL I5e728b5218fc6640ac583594ba08f69330b01e21.\n2. I also observed performance improvement after scheduling VecLoad/Store instructions in an unrolled SIMD loop on ARM64 backend, assuming we\u0027ve solved the array data alignment issue for ARM64.\n\nAt least we will lose above two performance improvements if we don\u0027t schedule SIMD instructions at all.",
+      "parentUuid": "c8549d4b_0cda01df",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
