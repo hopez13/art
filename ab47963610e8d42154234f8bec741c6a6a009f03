@@ -37,6 +37,23 @@
     },
     {
       "key": {
+        "uuid": "4aed1c07_01f1e871",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-01T17:53:02Z",
+      "side": 1,
+      "message": "Rephrase this as\n\nExtends the scheduling barrier with those ...\n\nso that is is clear that you take the original barrier instructions, and add a few for the arm64 case\n\n(otherwise it reads that this method just deals with vector instr)",
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ddbf65d_7eaf86c5",
         "filename": "compiler/optimizing/scheduler_arm64.h",
         "patchSetId": 1
@@ -144,6 +161,30 @@
       "side": 1,
       "message": "I\u0027d still feel much safer for now to just disable any vec operation to be scheduled. Diagnosing the problem wasn\u0027t trivial, and I\u0027d much prefer not opening a chance of hitting it again.\n\nAart, WDYT?",
       "parentUuid": "5595e08f_7d32918b",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8549d4b_0cda01df",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-01T17:53:02Z",
+      "side": 1,
+      "message": "Artem, what perf do we lose if we just don\u0027t schedule SIMD at all. I am on Nicolas\u0027 conservative side on this one but of course I am also sensitive to performance arguments.\n\nIf we keep a list of individual SIMD instructions, I would like this to be somehow defined in nodes_vector.h so that every time we change SIMD, we think about that again.",
+      "parentUuid": "10c84046_834a882a",
       "range": {
         "startLine": 162,
         "startChar": 0,
