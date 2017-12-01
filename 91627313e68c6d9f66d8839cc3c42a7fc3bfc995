@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e9a3e02_45efd48a",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassObj.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-12-01T10:52:23Z",
+      "side": 1,
+      "message": "As a general rule, you\u0027re welcome to leave out the @return parameter if it just duplicates the information in the method summary.",
+      "revId": "91627313e68c6d9f66d8839cc3c42a7fc3bfc995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
