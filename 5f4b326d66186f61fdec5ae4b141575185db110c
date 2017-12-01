@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9603002a_4904b979",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-01T21:39:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13dd5fc4_b01468bf",
+      "revId": "5f4b326d66186f61fdec5ae4b141575185db110c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d1b6ec6_26610ed5",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "97f72f64_0aec5e6a",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-01T21:39:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d1b6ec6_26610ed5",
+      "revId": "5f4b326d66186f61fdec5ae4b141575185db110c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b84d591c_90b9cd9c",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "5f4b326d66186f61fdec5ae4b141575185db110c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c51e0b23_85e72c3f",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-01T21:39:50Z",
+      "side": 1,
+      "message": "Surprised the new linter didn\u0027t complain, the old one wanted\n\n // namespace\n\nFor consistency, I\u0027ll add that instead of \u003canon\u003e.",
+      "parentUuid": "b84d591c_90b9cd9c",
+      "revId": "5f4b326d66186f61fdec5ae4b141575185db110c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
