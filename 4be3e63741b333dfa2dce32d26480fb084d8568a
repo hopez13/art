@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30cb8482_945231a0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1960,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-12-01T16:11:05Z",
+      "side": 1,
+      "message": "right ?",
+      "range": {
+        "startLine": 1960,
+        "startChar": 30,
+        "endLine": 1960,
+        "endChar": 53
+      },
+      "revId": "4be3e63741b333dfa2dce32d26480fb084d8568a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23902226_ef8e6f27",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-12-01T16:11:05Z",
+      "side": 1,
+      "message": "right ?",
+      "range": {
+        "startLine": 1798,
+        "startChar": 28,
+        "endLine": 1798,
+        "endChar": 51
+      },
+      "revId": "4be3e63741b333dfa2dce32d26480fb084d8568a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c6f506_db23869c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-12-01T16:11:05Z",
+      "side": 1,
+      "message": "Sorry, I still don\u0027t understand why you think this IsInt\u003c32\u003e(imm) is needed here. Aren\u0027t we expected to deal with 32-bit constants when the type is 32-bit?",
+      "range": {
+        "startLine": 1803,
+        "startChar": 26,
+        "endLine": 1803,
+        "endChar": 43
+      },
+      "revId": "4be3e63741b333dfa2dce32d26480fb084d8568a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
