@@ -52,6 +52,24 @@
       "revId": "c57408482be26b782cac6864387860a28caf61b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95f8d8c7_e6e3066e",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-01T23:37:24Z",
+      "side": 1,
+      "message": "You mean there can\u0027t be concurrent calls on the same EventMasks struct with different envs? If so, I\u0027m fine with this. Is it worth adding a comment to that effect, or should it be apparent to a better jvmti-informed reader?",
+      "parentUuid": "a0d074b3_cd9b0ec2",
+      "revId": "c57408482be26b782cac6864387860a28caf61b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
