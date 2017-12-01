@@ -105,6 +105,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5595e08f_7d32918b",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-01T11:19:15Z",
+      "side": 1,
+      "message": "It is safe to schedule those VecInstructions which can\u0027t be live across an invoke or a slowpath other than SuspendCheckSlowPath. It is automatically true for those whose live range doesn\u0027t exceed the SIMD loop boundaries (as we don\u0027t have invokes/other slowpaths in a SIMD loop).\n\n(for SuspendCheck we do:\nlocations-\u003eSetCustomSlowPathCallerSaves(GetGraph()-\u003eHasSIMD() ? RegisterSet::AllFpu() : RegisterSet::Empty()); )\n\nAgain, \"if we just make all vec instructions a barrier\" that will mean that no two VecInstructions be reordered in respect to each other; thus effectively SIMD loops won\u0027t be scheduled.",
+      "parentUuid": "2affb2b7_0bea95e3",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
