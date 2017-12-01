@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5808e627_6fb9a2cb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:18:19Z",
+      "side": 1,
+      "message": "Nit: Add a comment why.",
+      "range": {
+        "startLine": 1228,
+        "startChar": 0,
+        "endLine": 1228,
+        "endChar": 61
+      },
+      "revId": "3ad55f6d790559b99230e444e8ba685bc3666055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06edf6e4_d0302e9b",
+        "filename": "test/638-checker-inline-cache-intrinsic/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:18:19Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 54,
+        "endLine": 17,
+        "endChar": 199
+      },
+      "revId": "3ad55f6d790559b99230e444e8ba685bc3666055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
