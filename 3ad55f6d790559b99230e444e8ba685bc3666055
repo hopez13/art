@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d159b9b2_9286c591",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-01T21:55:01Z",
+      "side": 1,
+      "message": "Added before line 1228:\n  // We don\u0027t intrinsify an invoke-interface directly.",
+      "parentUuid": "5808e627_6fb9a2cb",
+      "range": {
+        "startLine": 1228,
+        "startChar": 0,
+        "endLine": 1228,
+        "endChar": 61
+      },
+      "revId": "3ad55f6d790559b99230e444e8ba685bc3666055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06edf6e4_d0302e9b",
         "filename": "test/638-checker-inline-cache-intrinsic/run",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-01T10:18:19Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 54,
+        "endLine": 17,
+        "endChar": 199
+      },
+      "revId": "3ad55f6d790559b99230e444e8ba685bc3666055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb5a0992_07be09ca",
+        "filename": "test/638-checker-inline-cache-intrinsic/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-01T21:55:01Z",
+      "side": 1,
+      "message": "Removed most but kept --verbose-methods\u003dinlineMonomorphic,knownReceiverType,stringEquals.\nI\u0027m still seeing race in dump-cfg output (compiler thread and main thread doing ensureJitCompiled()). So I want a filtered output here.",
+      "parentUuid": "06edf6e4_d0302e9b",
       "range": {
         "startLine": 17,
         "startChar": 54,
