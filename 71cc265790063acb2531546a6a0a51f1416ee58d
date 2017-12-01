@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f14bcac1_56aa9cb6",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T11:08:48Z",
+      "side": 1,
+      "message": "Add a comment that this is only to optimize ShouldSwitchInterpreter and reference the comment there.",
+      "range": {
+        "startLine": 910,
+        "startChar": 0,
+        "endLine": 910,
+        "endChar": 63
+      },
+      "revId": "71cc265790063acb2531546a6a0a51f1416ee58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
