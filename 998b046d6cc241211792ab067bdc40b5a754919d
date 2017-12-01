@@ -94,6 +94,30 @@
       "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f39ab6c_a7fbead7",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-01T16:08:50Z",
+      "side": 1,
+      "message": "Looks like LSE eliminates the allocation completely, avoiding the NegativeArraySizeException.\n\nFiled a bug (internally bug 70023972). Thanks for the test case!",
+      "parentUuid": "a4476ae0_fb8a2fae",
+      "range": {
+        "startLine": 3222,
+        "startChar": 8,
+        "endLine": 3222,
+        "endChar": 24
+      },
+      "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
