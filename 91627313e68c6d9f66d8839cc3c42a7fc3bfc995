@@ -2,6 +2,80 @@
   "comments": [
     {
       "key": {
+        "uuid": "7f06899c_9fb9f0d9",
+        "filename": "tools/ahat/src/main/com/android/ahat/dominators/DominatorsComputation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1203210
+      },
+      "writtenOn": "2017-12-01T11:14:51Z",
+      "side": 1,
+      "message": "Nit: This looks like it\u0027s trying to be a paragraph break, but it\u0027s not. Do you want to either stick in the \u003cp\u003e, or else flow it as a single paragraph?\n\nThere are a few other instances of this issue in this change, too.",
+      "revId": "91627313e68c6d9f66d8839cc3c42a7fc3bfc995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fb424c8_aaeb8996",
+        "filename": "tools/ahat/src/main/com/android/ahat/dominators/DominatorsComputation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1203210
+      },
+      "writtenOn": "2017-12-01T11:14:51Z",
+      "side": 1,
+      "message": "Optional: I\u0027d skip the optional @param clause since it adds nothing to what you\u0027ve already said. (There are a few others like this, too.)",
+      "revId": "91627313e68c6d9f66d8839cc3c42a7fc3bfc995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e4a5178_1a3addbb",
+        "filename": "tools/ahat/src/main/com/android/ahat/dominators/DominatorsComputation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1203210
+      },
+      "writtenOn": "2017-12-01T11:14:51Z",
+      "side": 1,
+      "message": "Same goes for @return, this adds nothing.",
+      "revId": "91627313e68c6d9f66d8839cc3c42a7fc3bfc995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbd35d31_c670cb33",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatArrayInstance.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1203210
+      },
+      "writtenOn": "2017-12-01T11:14:51Z",
+      "side": 1,
+      "message": "Optional: Personally, I\u0027d skip the content-free @throws, too.",
+      "range": {
+        "startLine": 218,
+        "startChar": 67,
+        "endLine": 218,
+        "endChar": 0
+      },
+      "revId": "91627313e68c6d9f66d8839cc3c42a7fc3bfc995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e9a3e02_45efd48a",
         "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassObj.java",
         "patchSetId": 2
