@@ -16,6 +16,24 @@
       "revId": "c57408482be26b782cac6864387860a28caf61b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32080150_08e96abe",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-01T22:58:31Z",
+      "side": 1,
+      "message": "Agreed. But it\u0027s still unclear to me why I can\u0027t have concurrent calls with different envs and hence different locks, racing on the same unioned_thread_event_mask?",
+      "parentUuid": "78e682df_62b0b997",
+      "revId": "c57408482be26b782cac6864387860a28caf61b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
