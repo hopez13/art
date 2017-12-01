@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f6a943e6_599b7113",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T13:45:19Z",
+      "side": 1,
+      "message": "We\u0027ve also discussed with Vladimir/Richard/Andreas on removing the IsExecutable notion. And I don\u0027t think it\u0027s required anymore, so we might as well remove it and take the rare occasions when we will have to fallback to the APK.",
+      "parentUuid": "f7f4e2ee_d3e10440",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "d45a000d3d115f132aa97d9685ce20dd570ff3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea6eee28_a3530de5",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 1
