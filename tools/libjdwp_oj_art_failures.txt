@@ -73,5 +73,10 @@
   result: EXEC_FAILED,
   bug: 69169846,
   name: "org.apache.harmony.jpda.tests.jdwp.DDM.DDMTest#testChunk001"
+},
+{
+  description: "Tests for VMDebug functionality not implemented in the upstream libjdwp",
+  result: EXEC_FAILED,
+  name: "org.apache.harmony.jpda.tests.jdwp.VMDebug.VMDebugTest#testVMDebug"
 }
 ]
