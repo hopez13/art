@@ -68,6 +68,30 @@
       "revId": "4be3e63741b333dfa2dce32d26480fb084d8568a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bdb0709_71785a9e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-12-01T17:54:30Z",
+      "side": 1,
+      "message": "Oh, I now see what you mean. If imm is -0x80000000LL, after negation it becomes 0x80000000LL, which doesn\u0027t fit into a signed 32-bit type. But then the use of the subcondition IsInt\u003c32\u003e(imm) would simply exclude this constant value, even though it can be handled by the rest of the code.\n\nWe should handle this case appropriately.\n\nI\u0027d remove this IsInt\u003c32\u003e(imm) and change the negation part to:\n\n  if (instruction-\u003eIsSub()) {\n    if (!(type \u003d\u003d DataType::Type::kInt32 \u0026\u0026 imm \u003d\u003d INT32_MIN)) {\n      imm \u003d -imm;\n    }\n  }",
+      "parentUuid": "42c6f506_db23869c",
+      "range": {
+        "startLine": 1803,
+        "startChar": 26,
+        "endLine": 1803,
+        "endChar": 43
+      },
+      "revId": "4be3e63741b333dfa2dce32d26480fb084d8568a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
