@@ -46,6 +46,30 @@
       "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd57a00d_44596fb4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-01T14:53:05Z",
+      "side": 1,
+      "message": "If you want this weird case handled here anyway, I\u0027m OK with submitting as is. Just give it +1, Alexey, and I\u0027ll submit.",
+      "parentUuid": "be016ed0_bb9818ff",
+      "range": {
+        "startLine": 3222,
+        "startChar": 8,
+        "endLine": 3222,
+        "endChar": 24
+      },
+      "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
