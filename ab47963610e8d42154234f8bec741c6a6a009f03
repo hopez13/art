@@ -81,6 +81,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2affb2b7_0bea95e3",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:58:24Z",
+      "side": 1,
+      "message": "... and also add it to this list. I\u0027d feel much better if we just make all vec instructions a barrier.\n\nRight now, what kind of vec instructions are safe to schedule?",
+      "parentUuid": "446c2b06_389f2353",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
