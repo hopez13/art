@@ -22,6 +22,30 @@
       "revId": "61fb8a7e69491e28c686731ce7e17fa1b743da19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07568894_81b15958",
+        "filename": "tools/libjdwp_oj_art_failures.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-01T16:49:48Z",
+      "side": 1,
+      "message": "No this isn\u0027t expected to work on the prebuilt libjdwp since that is the same one the RI uses which doesn\u0027t have dalvik.system.VMDebug.\n\nAlthough this is the wrong file actually. :P",
+      "parentUuid": "b885daea_76b38102",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 22
+      },
+      "revId": "61fb8a7e69491e28c686731ce7e17fa1b743da19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
