@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7cf4774_e3903c83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:34:13Z",
+      "side": 1,
+      "message": "Add bug: 69667779.",
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ddbf65d_7eaf86c5",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:34:13Z",
+      "side": 1,
+      "message": "Please make this a instr-\u003eIsVecOperation for being extra secure.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
