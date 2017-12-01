@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a7fc292_0070e2b4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1960,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-12-01T13:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72a4ff3c_cefbfd9c",
+      "range": {
+        "startLine": 1960,
+        "startChar": 30,
+        "endLine": 1960,
+        "endChar": 41
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8e8bb27_738a3cf8",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-30T18:35:47Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1798,
+        "startChar": 28,
+        "endLine": 1798,
+        "endChar": 39
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e74b2d2_c5fbac0c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-12-01T13:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8e8bb27_738a3cf8",
       "range": {
         "startLine": 1798,
         "startChar": 28,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a900b062_c1f0707e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-12-01T13:10:15Z",
+      "side": 1,
+      "message": "Our idea was to cover a case when subtraction is done with minimum integer value of the constant.",
+      "parentUuid": "a414791b_d4c7dc7f",
+      "range": {
+        "startLine": 1808,
+        "startChar": 26,
+        "endLine": 1808,
+        "endChar": 45
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0564ed18_b02084f0",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 6
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "de7acc8d_1c0426a2",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-12-01T13:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0564ed18_b02084f0",
+      "range": {
+        "startLine": 1810,
+        "startChar": 0,
+        "endLine": 1820,
+        "endChar": 59
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a4fc2f6_b3418fa8",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 6
@@ -105,6 +201,30 @@
       "writtenOn": "2017-11-30T20:02:47Z",
       "side": 1,
       "message": "We missed a possible overflow of maximum rhs_imm_high into the negative region. When that overflow happens, an additional Dahi(dst, 1) is needed to compensate for it. Mips64Assembler::AdjustBaseAndOffset() is an example of doing it.",
+      "range": {
+        "startLine": 1914,
+        "startChar": 0,
+        "endLine": 1914,
+        "endChar": 34
+      },
+      "revId": "d3c8ef84f1ab004a0832f4f83e7d7024def6f288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3af6211_24fb9a2c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1914,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-12-01T13:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a4fc2f6_b3418fa8",
       "range": {
         "startLine": 1914,
         "startChar": 0,
