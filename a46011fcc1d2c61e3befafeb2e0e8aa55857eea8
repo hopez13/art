@@ -22,6 +22,99 @@
       "revId": "a46011fcc1d2c61e3befafeb2e0e8aa55857eea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50a4d414_4ac473ce",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4709,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:55:58Z",
+      "side": 1,
+      "message": "Yeah, getting in the null type CL on its own is nice. So I agree better to change this code in another one.",
+      "parentUuid": "eb293955_e7c2bb29",
+      "range": {
+        "startLine": 4698,
+        "startChar": 6,
+        "endLine": 4709,
+        "endChar": 88
+      },
+      "revId": "a46011fcc1d2c61e3befafeb2e0e8aa55857eea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c76652_a2c6ebca",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:55:58Z",
+      "side": 1,
+      "message": "Why was there no IsZero check before?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 3
+      },
+      "revId": "a46011fcc1d2c61e3befafeb2e0e8aa55857eea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d235b91_e1e67046",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:55:58Z",
+      "side": 1,
+      "message": "Add a comment about why you need to increment the primitive count. (and why does Null to be created in CreatePrimitiveAndSmallConstantTypes).",
+      "range": {
+        "startLine": 346,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 35
+      },
+      "revId": "a46011fcc1d2c61e3befafeb2e0e8aa55857eea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33edc152_2c3e9cc5",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T10:55:58Z",
+      "side": 1,
+      "message": "woot :)",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 693,
+        "endChar": 68
+      },
+      "revId": "a46011fcc1d2c61e3befafeb2e0e8aa55857eea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
