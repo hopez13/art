@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "97b08403_5171b2ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-01T10:52:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7cf4774_e3903c83",
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ddbf65d_7eaf86c5",
         "filename": "compiler/optimizing/scheduler_arm64.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-12-01T10:34:13Z",
       "side": 1,
       "message": "Please make this a instr-\u003eIsVecOperation for being extra secure.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446c2b06_389f2353",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-01T10:52:33Z",
+      "side": 1,
+      "message": "If we do that, VecInstructions within simd loops won\u0027t be scheduled.\n\nNote, now it\u0027s secure in terms of scheduling as when a new vec instruction is introduced one will have to add it to  FOR_EACH_SCHEDULED_COMMON_INSTRUCTION (in this file) otherwise the whole instruction\u0027s block will not be scheduled.",
+      "parentUuid": "6ddbf65d_7eaf86c5",
       "range": {
         "startLine": 162,
         "startChar": 0,
