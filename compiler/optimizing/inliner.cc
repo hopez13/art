@@ -1556,9 +1556,7 @@ HInstanceFieldGet* HInliner::CreateInstanceFieldGet(uint32_t field_index,
       field_index,
       resolved_field->GetDeclaringClass()->GetDexClassDefIndex(),
       *referrer->GetDexFile(),
-      // Read barrier generates a runtime call in slow path and we need a valid
-      // dex pc for the associated stack map. 0 is bogus but valid. Bug: 26854537.
-      /* dex_pc */ 0);
+      kNoDexPc);
   if (iget->GetType() == DataType::Type::kReference) {
     // Use the same dex_cache that we used for field lookup as the hint_dex_cache.
     Handle<mirror::DexCache> dex_cache = handles_->NewHandle(referrer->GetDexCache());
@@ -1597,9 +1595,7 @@ HInstanceFieldSet* HInliner::CreateInstanceFieldSet(uint32_t field_index,
       field_index,
       resolved_field->GetDeclaringClass()->GetDexClassDefIndex(),
       *referrer->GetDexFile(),
-      // Read barrier generates a runtime call in slow path and we need a valid
-      // dex pc for the associated stack map. 0 is bogus but valid. Bug: 26854537.
-      /* dex_pc */ 0);
+      kNoDexPc);
   return iput;
 }
 
