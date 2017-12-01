@@ -70,6 +70,30 @@
       "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4476ae0_fb8a2fae",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3222,
+      "author": {
+        "id": 1238728
+      },
+      "writtenOn": "2017-12-01T15:27:49Z",
+      "side": 1,
+      "message": "Vladimir, I agree with your first comment, this shouldn\u0027t happen. I will remove this in PS2.\n\nOn the other hand, I tried to execute simple test to hit this case:\n\npublic class Main {\n  public static void main(String args[]) {\n    int[] x \u003d new int[-1];\n    x[args.length] \u003d args.length;\n    System.out.println(x[args.length]);\n  }\n}\n\nI get 1 as a result of optimizing test on MIPS (without this patch), ARM and on HOST. Interpreter tests give me:\nException in thread \"main\" java.lang.NegativeArraySizeException: -1\n        at Main.main(Main.java:19)\n\nAre we missing something in optimizing compiler?",
+      "parentUuid": "cd57a00d_44596fb4",
+      "range": {
+        "startLine": 3222,
+        "startChar": 8,
+        "endLine": 3222,
+        "endChar": 24
+      },
+      "revId": "998b046d6cc241211792ab067bdc40b5a754919d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
