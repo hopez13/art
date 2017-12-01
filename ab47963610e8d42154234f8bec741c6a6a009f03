@@ -129,6 +129,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10c84046_834a882a",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-01T11:36:10Z",
+      "side": 1,
+      "message": "I\u0027d still feel much safer for now to just disable any vec operation to be scheduled. Diagnosing the problem wasn\u0027t trivial, and I\u0027d much prefer not opening a chance of hitting it again.\n\nAart, WDYT?",
+      "parentUuid": "5595e08f_7d32918b",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
