@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff85e3f1_68ce222b",
+        "filename": "test/640-checker-char-simd/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-02T01:39:51Z",
+      "side": 1,
+      "message": "Nit: This does not seem related to the refactoring work done in this CL; perhaps move it to another CL?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d67c14c_880ead0b",
+        "filename": "test/640-checker-short-simd/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-02T01:39:51Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1196b819_5ed4903e",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-02T01:39:51Z",
+      "side": 1,
+      "message": "I guess you could still have a reference to a constant \u003c\u003cCons\u003e\u003e here and capture/define `Cons` this way:\n\n  /// CHECK-DAG: \u003c\u003cCons:i\\d+\u003e\u003e  IntConstant {{2|4}}                              loop:none\n\n(Likewise below.)",
+      "range": {
+        "startLine": 40,
+        "startChar": 44,
+        "endLine": 40,
+        "endChar": 52
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c02e6bbc_6765d03b",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-02T01:39:51Z",
+      "side": 1,
+      "message": "Would it be possible to have something like\n\n  {{\u003c\u003cCons2\u003e\u003e|\u003c\u003cCons4\u003e\u003e}}\n\nhere?",
+      "range": {
+        "startLine": 103,
+        "startChar": 45,
+        "endLine": 103,
+        "endChar": 53
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "726581eb_70a1fbae",
+        "filename": "tools/checker/README",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-02T01:39:51Z",
+      "side": 1,
+      "message": "Rebase this CL on top of https://android-review.googlesource.com/#/c/platform/art/+/553139/ to hide the changes under tools/checker/?",
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
