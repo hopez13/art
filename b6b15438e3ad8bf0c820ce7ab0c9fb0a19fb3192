@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ccefb9d3_63c3dd30",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-02T00:16:24Z",
+      "side": 1,
+      "message": "I would\u0027ve used is_base_of as suggested earlier, since is_convertible could hypothetically let a rogue struct in\n\n   struct RogueStruct {\n     operator RegType() {\n     ...\n     }\n   };\n\nbut I suppose it doesn\u0027t matter too much since its private to this one function anyway.",
+      "revId": "b6b15438e3ad8bf0c820ce7ab0c9fb0a19fb3192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

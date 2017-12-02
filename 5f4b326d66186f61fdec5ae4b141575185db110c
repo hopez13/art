@@ -104,6 +104,24 @@
       "revId": "5f4b326d66186f61fdec5ae4b141575185db110c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc40f7b_580c4780",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-02T00:16:24Z",
+      "side": 1,
+      "message": "I think it might be more lenient for anonymous namespaces? It should still complain for regular namespaces.",
+      "parentUuid": "c51e0b23_85e72c3f",
+      "revId": "5f4b326d66186f61fdec5ae4b141575185db110c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
