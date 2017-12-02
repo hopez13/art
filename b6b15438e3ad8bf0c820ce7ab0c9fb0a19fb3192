@@ -16,6 +16,24 @@
       "revId": "b6b15438e3ad8bf0c820ce7ab0c9fb0a19fb3192",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c6075e3_e55ca138",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-02T00:22:19Z",
+      "side": 1,
+      "message": "is_base_of docs warn that it applies to private base classes, but the expectation is that the result here is usable as a RegType. So is_convertible seemed the better choice.",
+      "parentUuid": "ccefb9d3_63c3dd30",
+      "revId": "b6b15438e3ad8bf0c820ce7ab0c9fb0a19fb3192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
