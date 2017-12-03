@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd9e0cf2_771be930",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-03T02:23:44Z",
+      "side": 1,
+      "message": "This still sounds very questionable. A big part of the problem with racing reads like this is that if this gets inlined somewhere, the compiler may decide to move the test out of a loop, effectively removing the checks.\n\nThe usual solution is to make the global flag atomic\u003cbool\u003e and consistently use memory_order_relaxed accesses. That should generate roughly the same code, and avoids misleading the compiler into thinking the flag can\u0027t change asynchronously.",
+      "range": {
+        "startLine": 159,
+        "startChar": 9,
+        "endLine": 159,
+        "endChar": 75
+      },
+      "revId": "7919db947bc41f6f5d194c50b88d0cba47319a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
