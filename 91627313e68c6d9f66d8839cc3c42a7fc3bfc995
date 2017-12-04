@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6192937a_c613c219",
+        "filename": "tools/ahat/src/main/com/android/ahat/dominators/DominatorsComputation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-12-04T10:31:54Z",
+      "side": 1,
+      "message": "In most cases I wasn\u0027t trying to cause a paragraph break. I reflowed those into a single paragraph and inserted a couple \u003cp\u003e where it was intentional.",
+      "parentUuid": "7f06899c_9fb9f0d9",
+      "revId": "91627313e68c6d9f66d8839cc3c42a7fc3bfc995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fb424c8_aaeb8996",
         "filename": "tools/ahat/src/main/com/android/ahat/dominators/DominatorsComputation.java",
         "patchSetId": 2
@@ -64,6 +82,30 @@
       "writtenOn": "2017-12-01T11:14:51Z",
       "side": 1,
       "message": "Optional: Personally, I\u0027d skip the content-free @throws, too.",
+      "range": {
+        "startLine": 218,
+        "startChar": 67,
+        "endLine": 218,
+        "endChar": 0
+      },
+      "revId": "91627313e68c6d9f66d8839cc3c42a7fc3bfc995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50d1ffa8_d67d290a",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatArrayInstance.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-12-04T10:31:54Z",
+      "side": 1,
+      "message": "This one I would like to leave in, just to be explicit that the function throws IndexOutOfBoundsException, rather than, say, return null in this case.",
+      "parentUuid": "fbd35d31_c670cb33",
       "range": {
         "startLine": 218,
         "startChar": 67,
