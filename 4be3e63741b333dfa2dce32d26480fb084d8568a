@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "94a6c76b_7e4ebdb9",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1960,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-12-04T10:49:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30cb8482_945231a0",
+      "range": {
+        "startLine": 1960,
+        "startChar": 30,
+        "endLine": 1960,
+        "endChar": 53
+      },
+      "revId": "4be3e63741b333dfa2dce32d26480fb084d8568a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23902226_ef8e6f27",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-01T16:11:05Z",
       "side": 1,
       "message": "right ?",
+      "range": {
+        "startLine": 1798,
+        "startChar": 28,
+        "endLine": 1798,
+        "endChar": 51
+      },
+      "revId": "4be3e63741b333dfa2dce32d26480fb084d8568a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20e3ed4e_1ed63eb4",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-12-04T10:49:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23902226_ef8e6f27",
       "range": {
         "startLine": 1798,
         "startChar": 28,
@@ -83,6 +131,30 @@
       "side": 1,
       "message": "Oh, I now see what you mean. If imm is -0x80000000LL, after negation it becomes 0x80000000LL, which doesn\u0027t fit into a signed 32-bit type. But then the use of the subcondition IsInt\u003c32\u003e(imm) would simply exclude this constant value, even though it can be handled by the rest of the code.\n\nWe should handle this case appropriately.\n\nI\u0027d remove this IsInt\u003c32\u003e(imm) and change the negation part to:\n\n  if (instruction-\u003eIsSub()) {\n    if (!(type \u003d\u003d DataType::Type::kInt32 \u0026\u0026 imm \u003d\u003d INT32_MIN)) {\n      imm \u003d -imm;\n    }\n  }",
       "parentUuid": "42c6f506_db23869c",
+      "range": {
+        "startLine": 1803,
+        "startChar": 26,
+        "endLine": 1803,
+        "endChar": 43
+      },
+      "revId": "4be3e63741b333dfa2dce32d26480fb084d8568a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7ee828_c84abc85",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2017-12-04T10:49:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bdb0709_71785a9e",
       "range": {
         "startLine": 1803,
         "startChar": 26,
