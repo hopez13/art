@@ -242,6 +242,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c40f117_9d96a35c",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T21:59:25Z",
+      "side": 1,
+      "message": "Are you waiting for my CL to do that or are you suggesting to include that in this CL? In the meanwhile, I would be okay to save perf and use this if needed, provided you make it more visible in the nodes_vector.h somehow",
+      "parentUuid": "b9bfa4af_9ec98764",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
