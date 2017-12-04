@@ -39,6 +39,7 @@
 #include "class_linker.h"
 #include "code_item_accessors-inl.h"
 #include "compiled_method.h"
+#include "debug/debug_info.h"
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
 #include "dex_file-inl.h"
@@ -202,8 +203,13 @@ class OatSymbolizer FINAL {
     // TODO: Try to symbolize link-time thunks?
     // This would require disassembling all methods to find branches outside the method code.
 
+    // TODO: Add symbols for dex bytecode in the .vdex section.
+
+    debug::DebugInfo debug_info{};
+    debug_info.compiled_methods = ArrayRef<const debug::MethodDebugInfo>(method_debug_infos_);
+
     debug::WriteDebugInfo(builder_.get(),
-                          ArrayRef<const debug::MethodDebugInfo>(method_debug_infos_),
+                          debug_info,
                           dwarf::DW_DEBUG_FRAME_FORMAT,
                           true /* write_oat_patches */);
 
