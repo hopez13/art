@@ -2043,7 +2043,7 @@ class Dex2Oat FINAL {
 
         // We need to mirror the layout of the ELF file in the compressed debug-info.
         // Therefore PrepareDebugInfo() relies on the SetLoadedSectionSizes() call further above.
-        elf_writer->PrepareDebugInfo(oat_writer->GetMethodDebugInfo());
+        elf_writer->PrepareDebugInfo(oat_writer->GetDebugInfo());
 
         linker::OutputStream*& rodata = rodata_[i];
         DCHECK(rodata != nullptr);
@@ -2077,7 +2077,7 @@ class Dex2Oat FINAL {
         }
 
         elf_writer->WriteDynamicSection();
-        elf_writer->WriteDebugInfo(oat_writer->GetMethodDebugInfo());
+        elf_writer->WriteDebugInfo(oat_writer->GetDebugInfo());
 
         if (!elf_writer->End()) {
           LOG(ERROR) << "Failed to write ELF file " << oat_file->GetPath();

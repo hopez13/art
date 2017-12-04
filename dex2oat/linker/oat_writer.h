@@ -25,6 +25,7 @@
 #include "base/array_ref.h"
 #include "base/dchecked_vector.h"
 #include "dex/compact_dex_level.h"
+#include "debug/debug_info.h"
 #include "linker/relative_patcher.h"  // For RelativePatcherTargetProvider.
 #include "mem_map.h"
 #include "method_reference.h"
@@ -240,8 +241,12 @@ class OatWriter {
 
   ~OatWriter();
 
-  ArrayRef<const debug::MethodDebugInfo> GetMethodDebugInfo() const {
-    return ArrayRef<const debug::MethodDebugInfo>(method_info_);
+  debug::DebugInfo GetDebugInfo() const {
+    debug::DebugInfo debug_info{};
+    debug_info.compiled_methods = ArrayRef<const debug::MethodDebugInfo>(method_info_);
+    debug_info.dex_files = dex_files_;
+    debug_info.dex_files_offset = vdex_dex_files_offset_;
+    return debug_info;
   }
 
   const CompilerDriver* GetCompilerDriver() const {
