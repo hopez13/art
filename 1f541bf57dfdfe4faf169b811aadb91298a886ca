@@ -16,6 +16,24 @@
       "revId": "1f541bf57dfdfe4faf169b811aadb91298a886ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d99df11a_b7d58d18",
+        "filename": "test/532-checker-nonnull-arrayset/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-04T07:14:22Z",
+      "side": 0,
+      "message": "The ArraySet is eliminated with the new change. I need to fetch array from a static field to keep the ArraySet necessary. I added the old test case into 530-checker-lse now.",
+      "parentUuid": "d5516c3b_08167479",
+      "revId": "1f541bf57dfdfe4faf169b811aadb91298a886ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
