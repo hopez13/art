@@ -22,6 +22,30 @@
       "revId": "844360d66cfa40c85f4fc78d5991dc8c1074b38d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "973be813_92a8dfed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-04T16:14:49Z",
+      "side": 1,
+      "message": "Actually, it looks like we still need the bogus dex pc for non-Baker read barriers. Not sure why they require a stack map.",
+      "parentUuid": "fecc5b28_6caef9dd",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "844360d66cfa40c85f4fc78d5991dc8c1074b38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
