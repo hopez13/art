@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b52b0a2_990ba7c5",
+        "filename": "test/640-checker-char-simd/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "Well, it is sort of related since I found this omission by carefully checking what is specific to what archs and what isn\u0027t. If you really insist... but seems harmless to keep in this CL to me.",
+      "parentUuid": "ff85e3f1_68ce222b",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d67c14c_880ead0b",
         "filename": "test/640-checker-short-simd/src/Main.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-02T01:39:51Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f92c88b_8773efb1",
+        "filename": "test/640-checker-short-simd/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "9d67c14c_880ead0b",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -71,6 +119,47 @@
     },
     {
       "key": {
+        "uuid": "ea61aeb1_5a28963c",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "Ah interesting. Thanks for the suggestion. Done.",
+      "parentUuid": "1196b819_5ed4903e",
+      "range": {
+        "startLine": 40,
+        "startChar": 44,
+        "endLine": 40,
+        "endChar": 52
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "893c7fe0_6d9b11d8",
+        "filename": "test/660-checker-simd-sad-int/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "I also changed this.",
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c02e6bbc_6765d03b",
         "filename": "test/661-checker-simd-reduc/src/Main.java",
         "patchSetId": 2
@@ -94,6 +183,87 @@
     },
     {
       "key": {
+        "uuid": "ed3ae99b_69b8f332",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "I have done it in all cases in this file where it was simple. Here, because we always have 2 and 4 indeed we need that syntax you suggest, except it does not work :-(",
+      "parentUuid": "c02e6bbc_6765d03b",
+      "range": {
+        "startLine": 103,
+        "startChar": 45,
+        "endLine": 103,
+        "endChar": 53
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d14edab2_0a16b34d",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "and here, although I needed to change the 4 in the code to avoid ambiguity",
+      "range": {
+        "startLine": 147,
+        "startChar": 47,
+        "endLine": 147,
+        "endChar": 48
+      },
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf04212e_02749e7b",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "changed here too",
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2c331c1_0bc6cd9f",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "and here, etc.",
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "726581eb_70a1fbae",
         "filename": "tools/checker/README",
         "patchSetId": 2
@@ -105,6 +275,24 @@
       "writtenOn": "2017-12-02T01:39:51Z",
       "side": 1,
       "message": "Rebase this CL on top of https://android-review.googlesource.com/#/c/platform/art/+/553139/ to hide the changes under tools/checker/?",
+      "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b908bdb6_7aa9e981",
+        "filename": "tools/checker/README",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-04T18:35:56Z",
+      "side": 1,
+      "message": "I thought I had done that by cherry picking the base cl first, but clearly my git handiness shows here.",
+      "parentUuid": "726581eb_70a1fbae",
       "revId": "18c8d1577b9134c02b3d3b2285b30cfd6b9625b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
