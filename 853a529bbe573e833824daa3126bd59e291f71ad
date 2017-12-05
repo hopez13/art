@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09acbbb6_333b2b40",
+        "filename": "test/ti-agent/trace_helper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-05T18:58:46Z",
+      "side": 1,
+      "message": "There won\u0027t be. It\u0027s illegal to call this on anything that isn\u0027t a valid global ref, and we would abort.",
+      "range": {
+        "startLine": 631,
+        "startChar": 2,
+        "endLine": 631,
+        "endChar": 30
+      },
+      "revId": "853a529bbe573e833824daa3126bd59e291f71ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
