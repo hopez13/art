@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "db32a2fe_6e0d2664",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2017-12-05T21:20:19Z",
+      "side": 1,
+      "message": "I left this alone since it doesn\u0027t seem like too much of a repetition.",
+      "parentUuid": "48be3924_4f5ea2a8",
+      "range": {
+        "startLine": 63,
+        "startChar": 7,
+        "endLine": 63,
+        "endChar": 32
+      },
+      "revId": "f637089b14492e5158252de1ef81e7e4373716a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21124f04_bfbd78ce",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "8914db87_aa94e2bd",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2017-12-05T21:20:19Z",
+      "side": 1,
+      "message": "Oops, I thought I fixed this with the last change. I\u0027ve fixed this now.",
+      "parentUuid": "21124f04_bfbd78ce",
+      "revId": "f637089b14492e5158252de1ef81e7e4373716a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbf14b62_cff919e4",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 2
@@ -53,6 +95,24 @@
       "writtenOn": "2017-12-05T21:07:04Z",
       "side": 1,
       "message": "nit: This should look like L175",
+      "revId": "f637089b14492e5158252de1ef81e7e4373716a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1c4d369_b234dc50",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2017-12-05T21:20:19Z",
+      "side": 1,
+      "message": "Fixed this one too.",
+      "parentUuid": "fbf14b62_cff919e4",
       "revId": "f637089b14492e5158252de1ef81e7e4373716a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
