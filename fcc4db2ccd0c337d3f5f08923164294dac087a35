@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "407a2ad7_325bd029",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-05T11:10:54Z",
+      "side": 1,
+      "message": "Do we need to add extra checks for OSR to make sure the TypeConversion isn\u0027t reused across OSR entrypoint?",
+      "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
