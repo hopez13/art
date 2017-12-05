@@ -22,6 +22,30 @@
       "revId": "21fa7cc0886aa3c4046a4c3984d4639f673d160c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0567d2a0_e63b7cc2",
+        "filename": "runtime/dexopt_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2017-12-05T19:14:46Z",
+      "side": 1,
+      "message": "Good point, I removed all of the autos since in some place references to the iterator was not an auto.",
+      "parentUuid": "e49bdf7c_5962034a",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 8
+      },
+      "revId": "21fa7cc0886aa3c4046a4c3984d4639f673d160c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
