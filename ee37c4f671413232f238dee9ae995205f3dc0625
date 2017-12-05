@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c944a60c_f86a7b82",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-05T00:37:25Z",
+      "side": 1,
+      "message": "Added this comment:\n// Should never add type conversion into boolean value.\n\nThat\u0027s what IsTypeConversionImplicit() says.",
+      "parentUuid": "57887fee_5bcd4216",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 46
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97140e6c_616ea716",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-23T10:49:53Z",
       "side": 1,
       "message": "nit: class name on the line above.",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53df3912_d97776eb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-05T00:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97140e6c_616ea716",
       "range": {
         "startLine": 84,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f67f487b_dac769de",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-05T00:37:25Z",
+      "side": 1,
+      "message": "Substitute management is now simplified/improved by this CL https://android-review.googlesource.com/c/platform/art/+/552101\nSo this loop is gone and an assert was added that there is no more substitute.",
+      "parentUuid": "ce0f70e5_5535eadb",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 7
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "babb92a6_62bd0caf",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "b510f1f8_a8877372",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-05T00:37:25Z",
+      "side": 1,
+      "message": "I added it. Probably not required for correctness but nice for bookkeeping.",
+      "parentUuid": "babb92a6_62bd0caf",
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5722e5bf_75373666",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -99,6 +189,30 @@
       "writtenOn": "2017-11-23T13:46:53Z",
       "side": 1,
       "message": "If this is not true, should we move the `type_conversion` right after `substitute` to guarantee the dominance?",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 71
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4e27b58_888d2765",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-05T00:37:25Z",
+      "side": 1,
+      "message": "I\u0027m leaning against doing that since it may punish some branch that doesn\u0027t need the type conversion. I think it\u0027s fine to have more than one type conversion if needed.",
+      "parentUuid": "5722e5bf_75373666",
       "range": {
         "startLine": 148,
         "startChar": 14,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "583a17dd_d482f352",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-05T00:37:25Z",
+      "side": 1,
+      "message": "Done and added a TryToReuseTypeConversion() method.",
+      "parentUuid": "396e68ca_5573824a",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 9
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8860280f_31b43f45",
         "filename": "test/530-checker-lse3/smali/StoreLoad.smali",
         "patchSetId": 6
@@ -145,6 +283,30 @@
       "writtenOn": "2017-11-23T13:46:53Z",
       "side": 1,
       "message": "Remove extra whitespace.",
+      "range": {
+        "startLine": 49,
+        "startChar": 34,
+        "endLine": 49,
+        "endChar": 46
+      },
+      "revId": "ee37c4f671413232f238dee9ae995205f3dc0625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e8f8f_6c669bf8",
+        "filename": "test/530-checker-lse3/smali/StoreLoad.smali",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-05T00:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8860280f_31b43f45",
       "range": {
         "startLine": 49,
         "startChar": 34,
