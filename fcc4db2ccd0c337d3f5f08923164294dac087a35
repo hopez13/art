@@ -99,6 +99,23 @@
       "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9514c16c_f2e002f8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-05T22:08:17Z",
+      "side": 1,
+      "message": "Just put The before this so it starts with a upper case\n\nThe removed_loads_ elements are added ....",
+      "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
