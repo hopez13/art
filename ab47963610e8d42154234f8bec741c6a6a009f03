@@ -314,6 +314,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f133d1b_2a5cf0fb",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-05T17:51:46Z",
+      "side": 1,
+      "message": "0) As for CanBeMoved(), well, interesting enough I had set that boolean to false for e.g. the replicate exactly for the reason of not moving this too much around. See nodes_vector.h\n\n // A replicate needs to stay in place, since SIMD registers are not\n  // kept alive across vector loop boundaries (yet).\n  bool CanBeMoved() const OVERRIDE { return false; }\n\nSame was done for the others that set values in SIMD registers that remain live into the loop.\n\nThe problem with this and other flags is that the meaning is often subtle in one context and cannot be easily moved to another, despite having a generic name. But it seems that this flag is exactly what you need here, at least as far as scheduling is concerned?\n\n1) Yes, depending on the solution (no new method), a comment would suffice near the abstract SIMD instruction def\n\n2) if you have that already, include it; if you want me to do it, I will send out CL",
+      "parentUuid": "c51d5de3_6edaa34c",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
