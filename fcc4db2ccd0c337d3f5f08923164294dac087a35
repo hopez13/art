@@ -34,6 +34,29 @@
       "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56000d3a_46dc6359",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-05T17:11:05Z",
+      "side": 1,
+      "message": "Calling Dominates here makes me think this optimization isn\u0027t done at the right place.\n\nCould you add more comments about \"reuse type_conversion\"? Re-use where?",
+      "range": {
+        "startLine": 129,
+        "startChar": 39,
+        "endLine": 129,
+        "endChar": 48
+      },
+      "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
