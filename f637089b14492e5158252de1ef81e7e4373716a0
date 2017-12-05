@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "55995ed0_4d2a9c4e",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-05T21:56:04Z",
+      "side": 1,
+      "message": "Though it pretty much depends on the person what\u0027s a non-obvious auto... :-)",
+      "parentUuid": "682da09e_716a2f90",
+      "range": {
+        "startLine": 63,
+        "startChar": 7,
+        "endLine": 63,
+        "endChar": 32
+      },
+      "revId": "f637089b14492e5158252de1ef81e7e4373716a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21124f04_bfbd78ce",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 2
