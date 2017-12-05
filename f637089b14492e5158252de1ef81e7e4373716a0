@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "682da09e_716a2f90",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-05T21:22:39Z",
+      "side": 1,
+      "message": "Yes, writing out the type is fine with the art style guide. I just wanted to say we aren\u0027t against auto, only against non-obvious auto :).",
+      "parentUuid": "db32a2fe_6e0d2664",
+      "range": {
+        "startLine": 63,
+        "startChar": 7,
+        "endLine": 63,
+        "endChar": 32
+      },
+      "revId": "f637089b14492e5158252de1ef81e7e4373716a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21124f04_bfbd78ce",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 2
