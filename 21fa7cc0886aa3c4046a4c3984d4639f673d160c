@@ -46,6 +46,30 @@
       "revId": "21fa7cc0886aa3c4046a4c3984d4639f673d160c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c33931b7_798ffcd4",
+        "filename": "runtime/dexopt_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-05T19:22:19Z",
+      "side": 1,
+      "message": "A single auto for the iterator type is fine, because the source likely explains what that type is. The auto of the \"outer\" auto\u0027s method is what makes this one style-noncompliant.",
+      "parentUuid": "0567d2a0_e63b7cc2",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 8
+      },
+      "revId": "21fa7cc0886aa3c4046a4c3984d4639f673d160c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
