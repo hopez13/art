@@ -266,6 +266,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d5de3_6edaa34c",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-05T14:39:52Z",
+      "side": 1,
+      "message": "0. BTW the situation is already a bit fragile even without scheduling as for all newly introduced vector instructions we need to specify CanBeMoved() to return true if we want to have GVN applied. In both cases the default is \"false\" (for both CanBeMoved and IsSchedulable); the only thing is that IsSchedulable resides in scheduler_* not in nodes.h.\n\n1. Would a comment in nodes_vector.h near HVecOperation declaration suffice? Another way would be to change the design of IsSchedulable() and instead of having in scheduler_* introduce yet another function (CanBeMoved, IsClonable) to the HInstruction.\n\n2. CHECK/DCHECK into register allocator - basically my question was whether you want me to implement it in this CL.",
+      "parentUuid": "6c40f117_9d96a35c",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
