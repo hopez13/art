@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6ffbaf2_ee8c6b56",
+        "filename": "test/660-checker-simd-sad-short3/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-06T18:37:03Z",
+      "side": 1,
+      "message": "Note: for the purist, while merging these cases I noticed that the last add was stripped in a few cases. I fixed that omission.",
+      "revId": "83a57108f41ad3e03c570d1d84df6bbd0dd0a14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
