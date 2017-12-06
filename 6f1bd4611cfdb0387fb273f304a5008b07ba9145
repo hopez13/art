@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbbcd12c_afc4c5e0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7920,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-06T18:31:22Z",
+      "side": 1,
+      "message": "We should really put this code into a common helper at some point...",
+      "range": {
+        "startLine": 7894,
+        "startChar": 1,
+        "endLine": 7920,
+        "endChar": 99
+      },
+      "revId": "6f1bd4611cfdb0387fb273f304a5008b07ba9145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
