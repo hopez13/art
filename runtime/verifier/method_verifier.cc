@@ -284,7 +284,8 @@ FailureKind MethodVerifier::VerifyClass(Thread* self,
                                         bool allow_soft_failures,
                                         HardFailLogMode log_level,
                                         std::string* error) {
-  ScopedTrace trace(__FUNCTION__);
+  SCOPED_TRACE(std::string("VerifyClass ") +
+                   PrettyDescriptor(dex_file->GetClassDescriptor(class_def)));
 
   // A class must not be abstract and final.
   if ((class_def.access_flags_ & (kAccAbstract | kAccFinal)) == (kAccAbstract | kAccFinal)) {
