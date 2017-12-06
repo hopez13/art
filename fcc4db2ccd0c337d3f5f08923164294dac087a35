@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "0afc7a81_a563e4bc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-06T15:29:44Z",
+      "side": 1,
+      "message": "I agree that the OSR problem in LSA is more fundamental and outside the scope of this CL.\n\nGVN is dealing with OSR by checking the `block-\u003eGetLoopInformation()-\u003eContainsIrreducibleLoop()`. LSA should do the same.",
+      "parentUuid": "e2d8557f_cf2ce199",
+      "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9514c16c_f2e002f8",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 7
