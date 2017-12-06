@@ -34,29 +34,42 @@ public class Main {
         os.close();
     }
 
-    private static long getDexFileSize(String filename) throws Exception {
+    /**
+     * @param close if true, call close() on the dex file before calling
+     * getStaticSizeOfDexFile.
+     */
+    private static long getDexFileSize(String filename, boolean close) throws Exception {
         ClassLoader loader = Main.class.getClassLoader();
         Class<?> DexFile = loader.loadClass("dalvik.system.DexFile");
         Method DexFile_loadDex = DexFile.getMethod("loadDex",
                                                    String.class,
                                                    String.class,
                                                    Integer.TYPE);
+        Method DexFile_close = DexFile.getMethod("close");
         Method DexFile_getStaticSizeOfDexFile = DexFile.getMethod("getStaticSizeOfDexFile");
         Object dexFile = DexFile_loadDex.invoke(null, filename, null, 0);
+        if (close) {
+          DexFile_close.invoke(dexFile);
+        }
         return (Long) DexFile_getStaticSizeOfDexFile.invoke(dexFile);
     }
 
-    private static void test(String resource) throws Exception {
+    /**
+     * @param close if true, call close() on the dex file before calling
+     * getStaticSizeOfDexFile.
+     */
+    private static void test(String resource, boolean close) throws Exception {
         String filename = System.getenv("DEX_LOCATION") + "/" + resource;
         extractResource(resource, filename);
-        long size = getDexFileSize(filename);
-        System.out.println("Size for " + resource + ": " + size);
+        long size = getDexFileSize(filename, close);
+        System.out.println("Size for " + (close ? "closed " : "") + resource + ": " + size);
     }
 
     public static void main(String[] args) throws Exception {
-        test("test1.dex");
-        test("test2.dex");
-        test("test-jar.jar");
-        test("multi-jar.jar");
+        test("test1.dex", /* close */ false);
+        test("test2.dex", /* close */ false);
+        test("test-jar.jar", /* close */ false);
+        test("multi-jar.jar", /* close */ false);
+        test("test1.dex", /* close */ true);
     }
 }
