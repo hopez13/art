@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "389a2f02_813c5534",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-06T23:47:38Z",
+      "side": 1,
+      "message": "LSA actually does deal with osr via IsIrreducible() test in line 244 below. I added another test for irreducible loop as:\n          // Don\u0027t share across irreducible loop headers.\n          // TODO: can be more fine-grained than this by testing each dominator.\n          (load2-\u003eGetBlock() \u003d\u003d type_conversion-\u003eGetBlock() ||\n           !GetGraph()-\u003eHasIrreducibleLoops()",
+      "parentUuid": "0afc7a81_a563e4bc",
+      "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9514c16c_f2e002f8",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 7
@@ -131,6 +149,41 @@
       "writtenOn": "2017-12-05T22:08:17Z",
       "side": 1,
       "message": "Just put The before this so it starts with a upper case\n\nThe removed_loads_ elements are added ....",
+      "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3826914_33a2ef36",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-06T23:47:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9514c16c_f2e002f8",
+      "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "457a45e1_eea27242",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-06T23:47:38Z",
+      "side": 1,
+      "message": "This is how osr safety is handled. Kind of hidden relationship between osr and irreducible loops.",
       "revId": "fcc4db2ccd0c337d3f5f08923164294dac087a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
