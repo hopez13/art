@@ -338,6 +338,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29eaaf02_d8e84a05",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-06T20:27:56Z",
+      "side": 1,
+      "message": "0) Reusing CanBeMoved() for setting IsSchedulingBarrier will only increase that ambiguity. I think that having this sorted in HScheduler${arch} is a good solution because the semantics is arch-specific: not every target has scheduling on; also on arm 32-bit we can perfectly safe schedule those VecOperations as we only use 64-bit registers.\n1) Have added a comment.\n2) I haven\u0027t touched that yet.",
+      "parentUuid": "0f133d1b_2a5cf0fb",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
