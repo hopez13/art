@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "bff4d85d_3eded5a6",
+        "filename": "runtime/base/systrace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-06T23:11:11Z",
+      "side": 1,
+      "message": "If you\u0027re really paranoid you can overload the string conversion based on the type\n\n  if (ATRACE_ENABLED()) {\n    ATRACE_BEGIN(convert_to_string(fn());\n  }\n\n  template \u003ctypename T\u003e\n  const char* convert_to_string(T\u0026\u0026 expr) {\n     // default stringstream operation\n     std::stringstream ss;\n     ss \u003c\u003c expr;\n     return ss.str().c_str();\n  }\n\n  const char* convert_to_string(const std::string\u0026 string) {\n    return string.c_str();\n  }\n\n  const char* convert_to_string(const char* c_string) {\n    return c_string;\n  }\n\nI\u0027m not sure it really matters, atrace goes to a syscall when it\u0027s enabled, so what\u0027s a little bit of string formatting?",
+      "parentUuid": "28b94c1b_c8bf2406",
+      "revId": "e8896959f2a87cbbd2177af7ac97d2617e10d1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f6e96a8_a35345aa",
         "filename": "runtime/base/systrace.h",
         "patchSetId": 1
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Yeah, expr is better.\n\nfmtstr sounds over-complicated to me, but sure.",
       "parentUuid": "9f6e96a8_a35345aa",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 23
+      },
+      "revId": "e8896959f2a87cbbd2177af7ac97d2617e10d1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5959074d_885d7534",
+        "filename": "runtime/base/systrace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-06T23:11:11Z",
+      "side": 1,
+      "message": "The fmtstr was mostly in response to the example\n\n  SCOPED_TRACE(std::string(\"foo\") + bar\n\nis ugly to have to force the std::string usage as the first thing it does.",
+      "parentUuid": "a0baf0f1_622fccca",
       "range": {
         "startLine": 47,
         "startChar": 21,
