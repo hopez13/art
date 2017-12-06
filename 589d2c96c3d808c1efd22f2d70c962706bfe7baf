@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1ed86a9_b6a4cc6e",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-06T18:52:37Z",
+      "side": 1,
+      "message": "due to the v used for arrow, the numbers don\u0027t jump out so much at first (not a big deal since eventually you get it, but see if you can improve). Also, maybe in the fixture comment, explain your conventions (2 -\u003e 2A copy, 2 remains original etc).",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb33f510_3ad4a423",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-06T18:52:37Z",
+      "side": 1,
+      "message": "use the same one line space around namespace as above",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a39bf4c_98809590",
+        "filename": "compiler/optimizing/loop_analysis.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-06T18:52:37Z",
+      "side": 1,
+      "message": "it is a bit unclear what is \"loop analysis\" about this file. You define edge classes here only?",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03ed05d4_ef2e244b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-06T18:52:37Z",
+      "side": 1,
+      "message": "it was actually my hope that the cloner module would have all the copy and fix logic, but it feels we are leaking more and more of that into nodes.cc. Can\u0027t we somehow avoid this, maybe at least with less specific and more general useful primitives in nodes.cc where access is really needed?",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b947639_081eea95",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-06T18:52:37Z",
+      "side": 1,
+      "message": "maybe drop the A for readability (MakeLoopWith...)",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
