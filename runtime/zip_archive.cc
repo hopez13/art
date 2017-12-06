@@ -233,6 +233,21 @@ ZipArchive* ZipArchive::OpenFromFd(int fd, const char* filename, std::string* er
   return new ZipArchive(handle);
 }
 
+ZipEntry* ZipArchive::OpenFind(const char* filename, const char* name, std::string* error_msg) {
+  DCHECK(filename != nullptr);
+  DCHECK(name != nullptr);
+
+  // Resist the urge to delete the space. <: is a bigraph sequence.
+  std::unique_ptr< ::ZipEntry> zip_entry(new ::ZipEntry);
+  ZipArchiveHandle* handle = new ZipArchiveHandle;
+  const int32_t error = FindOneEntry(filename, ZipString(name), handle, zip_entry.get());
+  if (error) {
+    *error_msg = std::string(ErrorCodeString(error));
+    return nullptr;
+  }
+  return new ZipEntry(*handle, zip_entry.release(), name);
+}
+
 ZipEntry* ZipArchive::Find(const char* name, std::string* error_msg) const {
   DCHECK(name != nullptr);
 

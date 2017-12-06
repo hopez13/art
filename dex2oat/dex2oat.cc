@@ -2672,11 +2672,8 @@ class Dex2Oat FINAL {
       const char* input_filename,
       std::function<std::string(const char*)>* process,
       std::string* error_msg) {
-    std::unique_ptr<ZipArchive> zip_archive(ZipArchive::Open(zip_filename, error_msg));
-    if (zip_archive.get() == nullptr) {
-      return nullptr;
-    }
-    std::unique_ptr<ZipEntry> zip_entry(zip_archive->Find(input_filename, error_msg));
+    std::unique_ptr<ZipEntry> zip_entry(
+        ZipArchive::OpenFind(zip_filename, input_filename, error_msg));
     if (zip_entry.get() == nullptr) {
       *error_msg = StringPrintf("Failed to find '%s' within '%s': %s", input_filename,
                                 zip_filename, error_msg->c_str());
