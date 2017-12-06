@@ -172,6 +172,7 @@ template <typename ElfTypes>
 void ElfWriterQuick<ElfTypes>::Start() {
   builder_->Start();
   if (compiler_options_->GetGenerateBuildId()) {
+    builder_->GetBuildId()->AllocateVirtualMemory(builder_->GetBuildId()->Size);
     builder_->WriteBuildIdSection();
   }
 }
@@ -224,9 +225,6 @@ void ElfWriterQuick<ElfTypes>::EndText(OutputStream* text) {
 
 template <typename ElfTypes>
 void ElfWriterQuick<ElfTypes>::WriteDynamicSection() {
-  if (bss_size_ != 0u) {
-    builder_->GetBss()->WriteNoBitsSection(bss_size_);
-  }
   if (builder_->GetIsa() == InstructionSet::kMips ||
       builder_->GetIsa() == InstructionSet::kMips64) {
     builder_->WriteMIPSabiflagsSection();
