@@ -362,6 +362,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "047b1670_23ca054f",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-06T21:09:07Z",
+      "side": 1,
+      "message": "0) I am okay with this solution, I was just observing that I actually thought about the problem with moving these instructions when designing the SIMD set and thought that CanBeMoved() was the right way to express that; also observing we are getting too many flags that all mean similar but slightly different things :-(\n1) Thanks\n2) Still not clear if you plan to add it, or are waiting for me :-)",
+      "parentUuid": "29eaaf02_d8e84a05",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
