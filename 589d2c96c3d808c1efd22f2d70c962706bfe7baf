@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "38ba74ed_fd7d4312",
+        "filename": "compiler/optimizing/loop_analysis.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-06T19:49:57Z",
+      "side": 1,
+      "message": "My original intent was to have a shared file with handy utils and functions (like IsLoopExit, GetAllLoopExitBlocks, ArePhiInputsTheSame, FindCommonLoop, etc) which would be useful for both SuperblockCloner and other optimizations (Vectorizer part can be extracted in a separate file for instance).\n\nIn this CL maybe it is early to introduce a new file however it could be filled with new common functionality in next ones. What do you think?",
+      "parentUuid": "0a39bf4c_98809590",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03ed05d4_ef2e244b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 10
@@ -64,6 +82,24 @@
       "writtenOn": "2017-12-06T18:52:37Z",
       "side": 1,
       "message": "it was actually my hope that the cloner module would have all the copy and fix logic, but it feels we are leaking more and more of that into nodes.cc. Can\u0027t we somehow avoid this, maybe at least with less specific and more general useful primitives in nodes.cc where access is really needed?",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53f51b75_e37cb109",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-06T19:49:57Z",
+      "side": 1,
+      "message": "Actually this particular change is not about the cloner. The issue is that the original implementation of \"Make sure the loop has only one pre header\" had an assumption that the header had no phi functions since that part of code was only executed during graph builder before ssa construction. However DCE is called not only from the graph builder; if someone implements another transformation which breaks the \"single-preheader\" invariant, the bug will be hit again.\n\nThus I still think that we probably want to have this fix; I am gonna extract this into a separate CL.",
+      "parentUuid": "03ed05d4_ef2e244b",
       "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
