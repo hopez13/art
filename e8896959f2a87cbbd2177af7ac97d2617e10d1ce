@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "28b94c1b_c8bf2406",
+        "filename": "runtime/base/systrace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-06T22:43:02Z",
+      "side": 1,
+      "message": "I\u0027m not sure that\u0027s OK unless it\u0027s rare - is Clang smart enough (and does C++ allow) optimizing the stringstream away when it\u0027s trivial?  (I\u0027m chatting with Tim about a dalvik-slow tag to separate fast and slow.)\n\nTo me it seems easiest to just assume you get a const std::string\u0026 from the Fn, and callers should format correctly...\n\nI wish there was a way to make this work like LOG, but the scope is sadly different.",
+      "parentUuid": "1709fc9d_5dfc8e89",
+      "revId": "e8896959f2a87cbbd2177af7ac97d2617e10d1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f6e96a8_a35345aa",
         "filename": "runtime/base/systrace.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-12-06T22:33:32Z",
       "side": 1,
       "message": "This is more like an expr.\n\nAlso if we\u0027re just going to use it like an fprintf like in your example, it should probably be like SCOPED_TRACE_FMT(fmtstr, ...) PrintStringf(fmtstr, ...)",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 23
+      },
+      "revId": "e8896959f2a87cbbd2177af7ac97d2617e10d1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0baf0f1_622fccca",
+        "filename": "runtime/base/systrace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-06T22:43:02Z",
+      "side": 1,
+      "message": "Yeah, expr is better.\n\nfmtstr sounds over-complicated to me, but sure.",
+      "parentUuid": "9f6e96a8_a35345aa",
       "range": {
         "startLine": 47,
         "startChar": 21,
