@@ -59,6 +59,7 @@ class ZipEntry {
 
   bool IsUncompressed();
   bool IsAlignedTo(size_t alignment);
+  void CloseArchive();
 
  private:
   ZipEntry(ZipArchiveHandle handle,
@@ -79,6 +80,7 @@ class ZipArchive {
   // return new ZipArchive instance on success, null on error.
   static ZipArchive* Open(const char* filename, std::string* error_msg);
   static ZipArchive* OpenFromFd(int fd, const char* filename, std::string* error_msg);
+  static ZipEntry* OpenFind(const char* filename, const char* name, std::string* error_msg);
 
   ZipEntry* Find(const char* name, std::string* error_msg) const;
 

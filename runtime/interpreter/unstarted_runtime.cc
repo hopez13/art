@@ -482,11 +482,7 @@ static std::unique_ptr<MemMap> FindAndExtractEntry(const std::string& jar_file,
                                                    std::string* error_msg) {
   CHECK(size != nullptr);
 
-  std::unique_ptr<ZipArchive> zip_archive(ZipArchive::Open(jar_file.c_str(), error_msg));
-  if (zip_archive == nullptr) {
-    return nullptr;
-  }
-  std::unique_ptr<ZipEntry> zip_entry(zip_archive->Find(entry_name, error_msg));
+  std::unique_ptr<ZipEntry> zip_entry(ZipArchive::OpenFind(jar_file.c_str(), entry_name, error_msg));
   if (zip_entry == nullptr) {
     return nullptr;
   }
@@ -498,6 +494,7 @@ static std::unique_ptr<MemMap> FindAndExtractEntry(const std::string& jar_file,
 
   // OK, from here everything seems fine.
   *size = zip_entry->GetUncompressedLength();
+  zip_entry->CloseArchive();
   return tmp_map;
 }
 
