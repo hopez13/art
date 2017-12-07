@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "119b5649_3bd226be",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-07T19:38:06Z",
+      "side": 1,
+      "message": "nit: /*out*/ for out parameters",
+      "range": {
+        "startLine": 683,
+        "startChar": 23,
+        "endLine": 686,
+        "endChar": 36
+      },
+      "revId": "7c6542a91988aa576a60abb9234dd550be09bf32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b7cd05d_af4cd465",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-07T19:38:06Z",
+      "side": 1,
+      "message": "Don\u0027t need the \u0026\u0026 here.",
+      "range": {
+        "startLine": 1016,
+        "startChar": 7,
+        "endLine": 1019,
+        "endChar": 47
+      },
+      "revId": "7c6542a91988aa576a60abb9234dd550be09bf32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
