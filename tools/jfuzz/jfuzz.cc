@@ -55,7 +55,7 @@ static constexpr const char* kRelOps[]     = { "==", "!=", ">", ">=", "<", "<=" 
  * to preserve the property that a given version of JFuzz yields the same
  * fuzzed program for a deterministic random seed.
  */
-const char* VERSION = "1.4";
+const char* VERSION = "1.5";
 
 /*
  * Maximum number of array dimensions, together with corresponding maximum size
@@ -78,7 +78,8 @@ class JFuzz {
         uint32_t expr_depth,
         uint32_t stmt_length,
         uint32_t if_nest,
-        uint32_t loop_nest)
+        uint32_t loop_nest,
+        uint32_t try_nest)
       : out_(out),
         fuzz_random_engine_(seed),
         fuzz_seed_(seed),
@@ -86,6 +87,7 @@ class JFuzz {
         fuzz_stmt_length_(stmt_length),
         fuzz_if_nest_(if_nest),
         fuzz_loop_nest_(loop_nest),
+        fuzz_try_nest_(try_nest),
         return_type_(randomType()),
         array_type_(randomType()),
         array_dim_(random1(kMaxDim)),
@@ -97,6 +99,7 @@ class JFuzz {
         loop_nest_(0),
         switch_nest_(0),
         do_nest_(0),
+        try_nest_(0),
         boolean_local_(0),
         int_local_(0),
         long_local_(0),
@@ -871,6 +874,73 @@ class JFuzz {
     return mayFollowTrue || mayFollowFalse;
   }
 
+  bool emitTry() {
+    fputs("try {\n", out_);
+    indentation_ += 2;
+    bool mayFollow = emitStatementList();
+    indentation_ -= 2;
+    emitIndentation();
+    fputc('}', out_);
+    return mayFollow;
+  }
+
+  bool emitCatch() {
+    static const char* exceptionTypes[] = {
+      "IllegalStateException",
+      "NullPointerException",
+      "IllegalArgumentException"
+    };
+    uint32_t count =
+        random1(static_cast<uint32_t>(sizeof(exceptionTypes) / sizeof(exceptionTypes[0])));
+    bool mayFollow = false;
+    for (uint32_t i = 0; i < count; ++i) {
+      fprintf(out_, " catch (%s ex%u_%u) {\n", exceptionTypes[i], try_nest_, i);
+      indentation_ += 2;
+      mayFollow |= emitStatementList();
+      indentation_ -= 2;
+      emitIndentation();
+      fputc('}', out_);
+    }
+    return mayFollow;
+  }
+
+  bool emitFinally() {
+    fputs(" finally {\n", out_);
+    indentation_ += 2;
+    bool mayFollow = emitStatementList();
+    indentation_ -= 2;
+    emitIndentation();
+    fputc('}', out_);
+    return mayFollow;
+  }
+
+  // Emit a try-catch block.
+  bool emitTryCatchFinally() {
+    // Continuing if nest becomes less likely as the depth grows.
+    if (random1(try_nest_ + 1) > fuzz_try_nest_) {
+      return emitAssignment();  // fall back
+    }
+
+    ++try_nest_;  // Entering try / catch
+
+    bool mayFollow = emitTry();
+    switch (random0(3)) {
+      case 0:
+        mayFollow |= emitCatch();
+        break;
+      case 1:
+        mayFollow &= emitFinally();
+        break;
+      case 2:
+        emitCatch();
+        mayFollow &= emitFinally();
+    }
+    fputc('\n', out_);
+
+    --try_nest_;  // Leaving try / catch
+    return mayFollow;
+  }
+
   // Emit a switch statement.
   bool emitSwitch() {
     // Continuing if nest becomes less likely as the depth grows.
@@ -915,6 +985,11 @@ class JFuzz {
     return mayFollow;
   }
 
+  bool emitNopCall() {
+    fputs("nop();\n", out_);
+    return true;
+  }
+
   // Emit an assignment statement.
   bool emitAssignment() {
     Type tp = randomType();
@@ -930,16 +1005,18 @@ class JFuzz {
   // Emit a single statement. Returns true if statements may follow.
   bool emitStatement() {
     switch (random1(16)) {  // favor assignments
-      case 1:  return emitReturn(false); break;
-      case 2:  return emitContinue();    break;
-      case 3:  return emitBreak();       break;
-      case 4:  return emitScope();       break;
-      case 5:  return emitArrayInit();   break;
-      case 6:  return emitForLoop();     break;
-      case 7:  return emitDoLoop();      break;
-      case 8:  return emitIfStmt();      break;
-      case 9:  return emitSwitch();      break;
-      default: return emitAssignment();  break;
+      case 1:  return emitReturn(false);     break;
+      case 2:  return emitContinue();        break;
+      case 3:  return emitBreak();           break;
+      case 4:  return emitScope();           break;
+      case 5:  return emitArrayInit();       break;
+      case 6:  return emitForLoop();         break;
+      case 7:  return emitDoLoop();          break;
+      case 8:  return emitIfStmt();          break;
+      case 9:  return emitSwitch();          break;
+      case 10: return emitTryCatchFinally(); break;
+      case 11: return emitNopCall();         break;
+      default: return emitAssignment();      break;
     }
   }
 
@@ -1109,6 +1186,12 @@ class JFuzz {
     fputs("  }\n", out_);
   }
 
+  // Emit a static void method.
+  void emitStaticNopMethod() {
+    // These are interesting to the dexer as they have no inputs or outputs.
+    fputs("  public static void nop() {}\n", out_);
+  }
+
   // Emit program header. Emit command line options in the comments.
   void emitHeader() {
     fputs("\n/**\n * AOSP JFuzz Tester.\n", out_);
@@ -1133,6 +1216,7 @@ class JFuzz {
     emitArrayDecl();
     emitTestConstructor();
     emitTestMethod();
+    emitStaticNopMethod();
     emitMainMethod();
     indentation_ -= 2;
     fputs("}\n\n", out_);
@@ -1167,6 +1251,7 @@ class JFuzz {
   const uint32_t fuzz_stmt_length_;
   const uint32_t fuzz_if_nest_;
   const uint32_t fuzz_loop_nest_;
+  const uint32_t fuzz_try_nest_;
 
   // Return and array setup.
   const Type return_type_;
@@ -1182,6 +1267,7 @@ class JFuzz {
   uint32_t loop_nest_;
   uint32_t switch_nest_;
   uint32_t do_nest_;
+  uint32_t try_nest_;
   uint32_t boolean_local_;
   uint32_t int_local_;
   uint32_t long_local_;
@@ -1203,6 +1289,7 @@ int32_t main(int32_t argc, char** argv) {
   uint32_t stmt_length = 8;
   uint32_t if_nest = 2;
   uint32_t loop_nest = 3;
+  uint32_t try_nest = 2;
 
   // Parse options.
   while (1) {
@@ -1226,6 +1313,9 @@ int32_t main(int32_t argc, char** argv) {
       case 'n':
         loop_nest = strtoul(optarg, nullptr, 0);
         break;
+      case 't':
+        try_nest = strtoul(optarg, nullptr, 0);
+        break;
       case 'v':
         fprintf(stderr, "jfuzz version %s\n", VERSION);
         return 0;
@@ -1234,7 +1324,7 @@ int32_t main(int32_t argc, char** argv) {
         fprintf(stderr,
                 "usage: %s [-s seed] "
                 "[-d expr-depth] [-l stmt-length] "
-                "[-i if-nest] [-n loop-nest] [-v] [-h]\n",
+                "[-i if-nest] [-n loop-nest] [-t try-nest] [-v] [-h]\n",
                 argv[0]);
         return 1;
     }
@@ -1244,7 +1334,7 @@ int32_t main(int32_t argc, char** argv) {
   srand(seed);
 
   // Generate fuzzed program.
-  JFuzz fuzz(stdout, seed, expr_depth, stmt_length, if_nest, loop_nest);
+  JFuzz fuzz(stdout, seed, expr_depth, stmt_length, if_nest, loop_nest, try_nest);
   fuzz.emitProgram();
   return 0;
 }
