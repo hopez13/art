@@ -22,6 +22,30 @@
       "revId": "6f1bd4611cfdb0387fb273f304a5008b07ba9145",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b52b8dfa_ad98ad34",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7920,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-07T10:30:48Z",
+      "side": 1,
+      "message": "My intent is to fix the bug and remove this code. But if we decide to keep this bit permanently, I agree that we can move it somewhere else.",
+      "parentUuid": "cbbcd12c_afc4c5e0",
+      "range": {
+        "startLine": 7894,
+        "startChar": 1,
+        "endLine": 7920,
+        "endChar": 99
+      },
+      "revId": "6f1bd4611cfdb0387fb273f304a5008b07ba9145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
