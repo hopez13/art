@@ -1962,13 +1962,13 @@ class OatWriter::WriteCodeMethodVisitor : public OrderedMethodVisitor {
 
   mirror::String* GetTargetString(const LinkerPatch& patch) REQUIRES_SHARED(Locks::mutator_lock_) {
     ClassLinker* linker = Runtime::Current()->GetClassLinker();
-    mirror::String* string = linker->LookupString(*patch.TargetStringDexFile(),
-                                                  patch.TargetStringIndex(),
-                                                  GetDexCache(patch.TargetStringDexFile()));
+    ObjPtr<mirror::String> string = linker->LookupString(*patch.TargetStringDexFile(),
+                                                         patch.TargetStringIndex(),
+                                                         GetDexCache(patch.TargetStringDexFile()));
     DCHECK(string != nullptr);
     DCHECK(writer_->HasBootImage() ||
            Runtime::Current()->GetHeap()->ObjectIsInBootImageSpace(string));
-    return string;
+    return string.Ptr();
   }
 
   uint32_t GetTargetMethodOffset(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
