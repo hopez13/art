@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3f7ac42_07f22d91",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-07T18:26:33Z",
+      "side": 1,
+      "message": "good catch, I had not noticed that even though I still run this nightly :-)",
+      "revId": "b30e80ae74a4ecf5420f5dd7465d42a95ac95c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d581ea91_dd14f440",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-07T18:26:33Z",
+      "side": 1,
+      "message": "please move this list to the top of the files, after the operator tables",
+      "revId": "b30e80ae74a4ecf5420f5dd7465d42a95ac95c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bec56cd3_d52dd970",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-07T18:26:33Z",
+      "side": 1,
+      "message": "maybe ArrayIndexOutOfBoundsException?",
+      "revId": "b30e80ae74a4ecf5420f5dd7465d42a95ac95c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2c5c261_a70ba82f",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-07T18:26:33Z",
+      "side": 1,
+      "message": "this comment was taken from the if, but please change if -\u003e  try",
+      "revId": "b30e80ae74a4ecf5420f5dd7465d42a95ac95c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0464566_f483a8bd",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-07T18:26:33Z",
+      "side": 1,
+      "message": "remove this comment (we don\u0027t explain anywhere else why we go in a particular direction)",
+      "revId": "b30e80ae74a4ecf5420f5dd7465d42a95ac95c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
