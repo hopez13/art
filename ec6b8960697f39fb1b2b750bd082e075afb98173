@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e48148a_cb1bd665",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-07T22:54:03Z",
+      "side": 1,
+      "message": "note: as stated here, switching to SIMD type system would be better, but this (1) fixes the bug and (2) centralizes the logic surrounding the issue at least at one place.",
+      "revId": "ec6b8960697f39fb1b2b750bd082e075afb98173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
