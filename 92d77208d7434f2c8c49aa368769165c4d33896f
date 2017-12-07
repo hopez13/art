@@ -22,6 +22,30 @@
       "revId": "92d77208d7434f2c8c49aa368769165c4d33896f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b377d0_4408b405",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-07T21:27:29Z",
+      "side": 1,
+      "message": "I think verifier debug was never meant to be a real runtime feature, more a tool feature. When running dex2oat on device, it\u0027s nicer to see the shell output rather than having to scrape the logcat.\n\nI\u0027ll upload a follow-up to change this and you can see if you like it.",
+      "parentUuid": "400f1064_2583e13b",
+      "range": {
+        "startLine": 410,
+        "startChar": 8,
+        "endLine": 410,
+        "endChar": 17
+      },
+      "revId": "92d77208d7434f2c8c49aa368769165c4d33896f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
