@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "24ac0d6b_caf0ebb3",
+        "filename": "runtime/base/systrace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-07T00:19:20Z",
+      "side": 1,
+      "message": "Worth it, though? c_str seems good enough, given the macro...\n\n(Out of curiosity: Is the const std::string\u0026 version guaranteed to keep the string live?)",
+      "parentUuid": "bff4d85d_3eded5a6",
+      "revId": "e8896959f2a87cbbd2177af7ac97d2617e10d1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f6e96a8_a35345aa",
         "filename": "runtime/base/systrace.h",
         "patchSetId": 1
@@ -123,6 +141,30 @@
       "revId": "e8896959f2a87cbbd2177af7ac97d2617e10d1ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff4673ee_edc4a63a",
+        "filename": "runtime/base/systrace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-07T00:19:20Z",
+      "side": 1,
+      "message": "I\u0027m fine with the fmtstr version, that\u0027s why it\u0027s in the latest PS...",
+      "parentUuid": "5959074d_885d7534",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 23
+      },
+      "revId": "e8896959f2a87cbbd2177af7ac97d2617e10d1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
