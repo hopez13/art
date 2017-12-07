@@ -16,6 +16,24 @@
       "revId": "f8a09f4bc17870a9b45ebf02e7b99031271b7828",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df823e22_513507e4",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-07T00:58:53Z",
+      "side": 1,
+      "message": "I would like that, too, but it seems like significant overhead in complexity, as you need a helper for the conditional to work correctly. Something like this:\n\n  ScopedTraceEnd end; if (ATRACE_ENABLED) ScopedTraceHelperLikeLogMessage().str()",
+      "parentUuid": "dcff787f_94ab0753",
+      "revId": "f8a09f4bc17870a9b45ebf02e7b99031271b7828",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
