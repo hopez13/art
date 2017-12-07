@@ -717,7 +717,8 @@ static void ResolveConstStrings(Handle<mirror::DexCache> dex_cache,
         dex::StringIndex string_index((inst->Opcode() == Instruction::CONST_STRING)
             ? inst->VRegB_21c()
             : inst->VRegB_31c());
-        mirror::String* string = class_linker->ResolveString(dex_file, string_index, dex_cache);
+        ObjPtr<mirror::String> string =
+            class_linker->ResolveString(dex_file, string_index, dex_cache);
         CHECK(string != nullptr) << "Could not allocate a string when forcing determinism";
         break;
       }

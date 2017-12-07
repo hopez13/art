@@ -240,9 +240,10 @@ class HInstructionBuilder : public ValueObject {
   // Builds an instruction sequence for a switch statement.
   void BuildSwitch(const Instruction& instruction, uint32_t dex_pc);
 
-  // Builds a `HLoadClass` loading the given `type_index`. If `outer` is true,
-  // this method will use the outer class's dex file to lookup the type at
-  // `type_index`.
+  // Builds a `HLoadString` loading the given `string_index`.
+  void BuildLoadString(dex::StringIndex string_index, uint32_t dex_pc);
+
+  // Builds a `HLoadClass` loading the given `type_index`.
   HLoadClass* BuildLoadClass(dex::TypeIndex type_index, uint32_t dex_pc);
 
   HLoadClass* BuildLoadClass(dex::TypeIndex type_index,

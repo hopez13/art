@@ -134,7 +134,7 @@ uint16_t ArtMethod::FindObsoleteDexClassDefIndex() {
   return dex_file->GetIndexForClassDef(*class_def);
 }
 
-mirror::String* ArtMethod::GetNameAsString(Thread* self) {
+ObjPtr<mirror::String> ArtMethod::GetNameAsString(Thread* self) {
   CHECK(!IsProxyMethod());
   StackHandleScope<1> hs(self);
   Handle<mirror::DexCache> dex_cache(hs.NewHandle(GetDexCache()));
