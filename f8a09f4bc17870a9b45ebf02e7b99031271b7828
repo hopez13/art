@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcff787f_94ab0753",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-07T00:31:11Z",
+      "side": 1,
+      "message": "I think I would still prefer this to be a stream , but maybe this is good enough...\n\n  SCOPED_TRACE \u003c\u003c \"VerifyClass \" \u003c\u003c PrettyDescriptor(dex_file-\u003eGetClassDescriptor_class_def)\n\nwould\u0027ve avoided the \"%s\" and the .c_str()",
+      "revId": "f8a09f4bc17870a9b45ebf02e7b99031271b7828",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

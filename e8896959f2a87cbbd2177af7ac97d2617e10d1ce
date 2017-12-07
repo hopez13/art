@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "7364b2ac_e77e17a5",
+        "filename": "runtime/base/systrace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-07T00:31:11Z",
+      "side": 1,
+      "message": "I would\u0027ve liked to see the ATRACE macro to work just like LOG does. Just leave it as-is for now..\n\n\u003e (Out of curiosity: Is the const std::string\u0026 version guaranteed to keep the string live?)\n\nYes, since ATRACE_BEGIN(x) is just a call to atrace_begin(x, TAG), and the temps are kept around until the end of the full-expression.",
+      "parentUuid": "24ac0d6b_caf0ebb3",
+      "revId": "e8896959f2a87cbbd2177af7ac97d2617e10d1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f6e96a8_a35345aa",
         "filename": "runtime/base/systrace.h",
         "patchSetId": 1
