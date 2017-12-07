@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55d170d1_64deb1d0",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-07T04:43:29Z",
+      "side": 1,
+      "message": "Argh! This was dump-timing before and still reports that way in the dex2oat usage info. I just had to follow the changes for ten minutes to figure this out. Please fix one... :-)",
+      "range": {
+        "startLine": 140,
+        "startChar": 29,
+        "endLine": 140,
+        "endChar": 30
+      },
+      "revId": "2d8801f7b932496d5c2606294ff8fdea60e05b30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
