@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "400f1064_2583e13b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-07T21:16:19Z",
+      "side": 1,
+      "message": "why is that not VLOG/VLOG_STREAM(verifier_debug)? (here and other uses of std::cout).",
+      "range": {
+        "startLine": 410,
+        "startChar": 8,
+        "endLine": 410,
+        "endChar": 17
+      },
+      "revId": "92d77208d7434f2c8c49aa368769165c4d33896f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
