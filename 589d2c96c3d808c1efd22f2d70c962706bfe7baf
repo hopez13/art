@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6c3b33c8_63e13e1f",
+        "filename": "compiler/optimizing/cloner_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-07T19:59:34Z",
+      "side": 1,
+      "message": "Done. Is this any better?",
+      "parentUuid": "f1ed86a9_b6a4cc6e",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb33f510_3ad4a423",
         "filename": "compiler/optimizing/loop_analysis.cc",
         "patchSetId": 10
@@ -30,6 +48,24 @@
       "writtenOn": "2017-12-06T18:52:37Z",
       "side": 1,
       "message": "use the same one line space around namespace as above",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b07e132_251da2e8",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-07T19:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb33f510_3ad4a423",
       "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +153,24 @@
       "writtenOn": "2017-12-06T18:52:37Z",
       "side": 1,
       "message": "maybe drop the A for readability (MakeLoopWith...)",
+      "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3b27b26_9a70ffd3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-07T19:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b947639_081eea95",
       "revId": "589d2c96c3d808c1efd22f2d70c962706bfe7baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
