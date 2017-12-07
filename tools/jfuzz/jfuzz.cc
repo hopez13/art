@@ -51,11 +51,22 @@ static constexpr const char* kBoolRelOps[] = { "==", "!=" };
 static constexpr const char* kRelOps[]     = { "==", "!=", ">", ">=", "<", "<=" };
 
 /*
+ * Exceptions.
+ */
+
+static const char* kExceptionTypes[] = {
+  "IllegalStateException",
+  "NullPointerException",
+  "IllegalArgumentException",
+  "ArrayIndexOutOfBoundsException"
+  };
+
+/*
  * Version of JFuzz. Increase this each time changes are made to the program
  * to preserve the property that a given version of JFuzz yields the same
  * fuzzed program for a deterministic random seed.
  */
-const char* VERSION = "1.4";
+const char* VERSION = "1.5";
 
 /*
  * Maximum number of array dimensions, together with corresponding maximum size
@@ -63,6 +74,14 @@ const char* VERSION = "1.4";
  */
 static const uint32_t kMaxDim = 10;
 static const uint32_t kMaxDimSize[kMaxDim + 1] = { 0, 1000, 32, 10, 6, 4, 3, 3, 2, 2, 2 };
+
+/*
+ * Utility function to return the number of elements in an array.
+ */
+template <typename T, uint32_t N>
+constexpr uint32_t countof(T const (&)[N]) {
+  return N;
+}
 
 /**
  * A class that generates a random program that compiles correctly. The program
@@ -78,7 +97,8 @@ class JFuzz {
         uint32_t expr_depth,
         uint32_t stmt_length,
         uint32_t if_nest,
-        uint32_t loop_nest)
+        uint32_t loop_nest,
+        uint32_t try_nest)
       : out_(out),
         fuzz_random_engine_(seed),
         fuzz_seed_(seed),
@@ -86,6 +106,7 @@ class JFuzz {
         fuzz_stmt_length_(stmt_length),
         fuzz_if_nest_(if_nest),
         fuzz_loop_nest_(loop_nest),
+        fuzz_try_nest_(try_nest),
         return_type_(randomType()),
         array_type_(randomType()),
         array_dim_(random1(kMaxDim)),
@@ -97,6 +118,7 @@ class JFuzz {
         loop_nest_(0),
         switch_nest_(0),
         do_nest_(0),
+        try_nest_(0),
         boolean_local_(0),
         int_local_(0),
         long_local_(0),
@@ -808,7 +830,7 @@ class JFuzz {
     fputs("{\n", out_);
     indentation_ += 2;
     emitIndentation();
-    fprintf(out_, "int i%u = %d;", loop_nest_, isWhile ? -1 : 0);
+    fprintf(out_, "int i%u = %d;\n", loop_nest_, isWhile ? -1 : 0);
     emitIndentation();
     if (isWhile) {
       fprintf(out_, "while (++i%u < ", loop_nest_);
@@ -871,6 +893,73 @@ class JFuzz {
     return mayFollowTrue || mayFollowFalse;
   }
 
+  bool emitTry() {
+    fputs("try {\n", out_);
+    indentation_ += 2;
+    bool mayFollow = emitStatementList();
+    indentation_ -= 2;
+    emitIndentation();
+    fputc('}', out_);
+    return mayFollow;
+  }
+
+  bool emitCatch() {
+    uint32_t count = random1(countof(kExceptionTypes));
+    bool mayFollow = false;
+    for (uint32_t i = 0; i < count; ++i) {
+      fprintf(out_, " catch (%s ex%u_%u) {\n", kExceptionTypes[i], try_nest_, i);
+      indentation_ += 2;
+      mayFollow |= emitStatementList();
+      indentation_ -= 2;
+      emitIndentation();
+      fputc('}', out_);
+    }
+    return mayFollow;
+  }
+
+  bool emitFinally() {
+    fputs(" finally {\n", out_);
+    indentation_ += 2;
+    bool mayFollow = emitStatementList();
+    indentation_ -= 2;
+    emitIndentation();
+    fputc('}', out_);
+    return mayFollow;
+  }
+
+  // Emit a try-catch-finally block.
+  bool emitTryCatchFinally() {
+    // Apply a hard limit on the number of catch blocks. This is for
+    // javac which fails if blocks within try-catch-finally are too
+    // large (much less than you'd expect).
+    if (try_nest_ > fuzz_try_nest_) {
+      return emitAssignment();  // fall back
+    }
+
+    ++try_nest_;  // Entering try-catch-finally
+
+    bool mayFollow = emitTry();
+    switch (random0(3)) {
+      case 0:  // try..catch
+        mayFollow |= emitCatch();
+        break;
+      case 1:  // try..finally
+        mayFollow &= emitFinally();
+        break;
+      case 2:  // try..catch..finally
+        // When determining whether code may follow, we observe that a
+        // finally block always follows after try and catch
+        // block. Code may only follow if the finally block permits
+        // and either the try or catch block allows code to follow.
+        mayFollow = (mayFollow | emitCatch()) & emitFinally();
+        break;
+    }
+    fputc('\n', out_);
+
+    --try_nest_;  // Leaving try-catch-finally
+    return mayFollow;
+  }
+
   // Emit a switch statement.
   bool emitSwitch() {
     // Continuing if nest becomes less likely as the depth grows.
@@ -915,6 +1004,11 @@ class JFuzz {
     return mayFollow;
   }
 
+  bool emitNopCall() {
+    fputs("nop();\n", out_);
+    return true;
+  }
+
   // Emit an assignment statement.
   bool emitAssignment() {
     Type tp = randomType();
@@ -930,16 +1024,18 @@ class JFuzz {
   // Emit a single statement. Returns true if statements may follow.
   bool emitStatement() {
     switch (random1(16)) {  // favor assignments
-      case 1:  return emitReturn(false); break;
-      case 2:  return emitContinue();    break;
-      case 3:  return emitBreak();       break;
-      case 4:  return emitScope();       break;
-      case 5:  return emitArrayInit();   break;
-      case 6:  return emitForLoop();     break;
-      case 7:  return emitDoLoop();      break;
-      case 8:  return emitIfStmt();      break;
-      case 9:  return emitSwitch();      break;
-      default: return emitAssignment();  break;
+      case 1:  return emitReturn(false);     break;
+      case 2:  return emitContinue();        break;
+      case 3:  return emitBreak();           break;
+      case 4:  return emitScope();           break;
+      case 5:  return emitArrayInit();       break;
+      case 6:  return emitForLoop();         break;
+      case 7:  return emitDoLoop();          break;
+      case 8:  return emitIfStmt();          break;
+      case 9:  return emitSwitch();          break;
+      case 10: return emitTryCatchFinally(); break;
+      case 11: return emitNopCall();         break;
+      default: return emitAssignment();      break;
     }
   }
 
@@ -1109,6 +1205,11 @@ class JFuzz {
     fputs("  }\n", out_);
   }
 
+  // Emit a static void method.
+  void emitStaticNopMethod() {
+    fputs("  public static void nop() {}\n", out_);
+  }
+
   // Emit program header. Emit command line options in the comments.
   void emitHeader() {
     fputs("\n/**\n * AOSP JFuzz Tester.\n", out_);
@@ -1133,6 +1234,7 @@ class JFuzz {
     emitArrayDecl();
     emitTestConstructor();
     emitTestMethod();
+    emitStaticNopMethod();
     emitMainMethod();
     indentation_ -= 2;
     fputs("}\n\n", out_);
@@ -1167,6 +1269,7 @@ class JFuzz {
   const uint32_t fuzz_stmt_length_;
   const uint32_t fuzz_if_nest_;
   const uint32_t fuzz_loop_nest_;
+  const uint32_t fuzz_try_nest_;
 
   // Return and array setup.
   const Type return_type_;
@@ -1182,6 +1285,7 @@ class JFuzz {
   uint32_t loop_nest_;
   uint32_t switch_nest_;
   uint32_t do_nest_;
+  uint32_t try_nest_;
   uint32_t boolean_local_;
   uint32_t int_local_;
   uint32_t long_local_;
@@ -1203,6 +1307,7 @@ int32_t main(int32_t argc, char** argv) {
   uint32_t stmt_length = 8;
   uint32_t if_nest = 2;
   uint32_t loop_nest = 3;
+  uint32_t try_nest = 2;
 
   // Parse options.
   while (1) {
@@ -1226,6 +1331,9 @@ int32_t main(int32_t argc, char** argv) {
       case 'n':
         loop_nest = strtoul(optarg, nullptr, 0);
         break;
+      case 't':
+        try_nest = strtoul(optarg, nullptr, 0);
+        break;
       case 'v':
         fprintf(stderr, "jfuzz version %s\n", VERSION);
         return 0;
@@ -1234,7 +1342,7 @@ int32_t main(int32_t argc, char** argv) {
         fprintf(stderr,
                 "usage: %s [-s seed] "
                 "[-d expr-depth] [-l stmt-length] "
-                "[-i if-nest] [-n loop-nest] [-v] [-h]\n",
+                "[-i if-nest] [-n loop-nest] [-t try-nest] [-v] [-h]\n",
                 argv[0]);
         return 1;
     }
@@ -1244,7 +1352,7 @@ int32_t main(int32_t argc, char** argv) {
   srand(seed);
 
   // Generate fuzzed program.
-  JFuzz fuzz(stdout, seed, expr_depth, stmt_length, if_nest, loop_nest);
+  JFuzz fuzz(stdout, seed, expr_depth, stmt_length, if_nest, loop_nest, try_nest);
   fuzz.emitProgram();
   return 0;
 }
