@@ -186,7 +186,7 @@ class Dumper {
     const dex_ir::CodeItem* code_item = method->GetCodeItem();
     if (code_item != nullptr) {
       DumpAddressRange(code_item, class_index);
-      const dex_ir::CodeFixups* fixups = code_item->GetCodeFixups();
+      dex_ir::CodeFixups* fixups = code_item->GetCodeFixups();
       if (fixups != nullptr) {
         std::vector<dex_ir::TypeId*>* type_ids = fixups->TypeIds();
         for (dex_ir::TypeId* type_id : *type_ids) {
