@@ -386,6 +386,30 @@
       "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f859ccb_9333741e",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-07T19:25:40Z",
+      "side": 1,
+      "message": "0) Yes, good point, someday we could probably rethink/properly define/add comments for CanBeMoved in terms of GVN, LICM, Scheduling and other transformations.\n2) I can work on that in separate CL.",
+      "parentUuid": "047b1670_23ca054f",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "ab47963610e8d42154234f8bec741c6a6a009f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
