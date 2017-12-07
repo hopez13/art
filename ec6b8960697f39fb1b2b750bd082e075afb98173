@@ -16,6 +16,52 @@
       "revId": "ec6b8960697f39fb1b2b750bd082e075afb98173",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "852ecfbf_fe43201e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-07T23:39:43Z",
+      "side": 1,
+      "message": "That\u0027s guaranteed.",
+      "range": {
+        "startLine": 161,
+        "startChar": 10,
+        "endLine": 161,
+        "endChar": 40
+      },
+      "revId": "ec6b8960697f39fb1b2b750bd082e075afb98173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4806f09e_0d3f41ba",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-07T23:39:43Z",
+      "side": 1,
+      "message": "Add a comment about the \"1\".",
+      "range": {
+        "startLine": 479,
+        "startChar": 6,
+        "endLine": 479,
+        "endChar": 42
+      },
+      "revId": "ec6b8960697f39fb1b2b750bd082e075afb98173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
