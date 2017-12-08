@@ -37,6 +37,7 @@
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "base/mutex-inl.h"
+#include "code_item_accessors-inl.h"
 #include "dex_file_annotations.h"
 #include "dex_file_types.h"
 #include "events-inl.h"
@@ -462,7 +463,7 @@ jvmtiError MethodUtil::GetLineNumberTable(jvmtiEnv* env,
   art::ArtMethod* art_method = art::jni::DecodeArtMethod(method);
   DCHECK(!art_method->IsRuntimeMethod());
 
-  const art::DexFile::CodeItem* code_item;
+  art::CodeItemDebugInfoAccessor accessor;
   const art::DexFile* dex_file;
   {
     art::ScopedObjectAccess soa(art::Thread::Current());
@@ -477,15 +478,14 @@ jvmtiError MethodUtil::GetLineNumberTable(jvmtiEnv* env,
       return ERR(NULL_POINTER);
     }
 
-    code_item = art_method->GetCodeItem();
+    accessor = art::CodeItemDebugInfoAccessor(art_method);
     dex_file = art_method->GetDexFile();
-    DCHECK(code_item != nullptr) << art_method->PrettyMethod() << " " << dex_file->GetLocation();
+    DCHECK(accessor.HasCodeItem()) << art_method->PrettyMethod() << " " << dex_file->GetLocation();
   }
 
   LineNumberContext context;
-  uint32_t debug_info_offset = art::OatFile::GetDebugInfoOffset(*dex_file, code_item);
   bool success = dex_file->DecodeDebugPositionInfo(
-      code_item, debug_info_offset, CollectLineNumbers, &context);
+      accessor.DebugInfoOffset(), CollectLineNumbers, &context);
   if (!success) {
     return ERR(ABSENT_INFORMATION);
   }

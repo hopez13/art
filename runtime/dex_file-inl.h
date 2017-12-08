@@ -488,13 +488,9 @@ bool DexFile::DecodeDebugPositionInfo(const uint8_t* stream,
 }
 
 template<typename DexDebugNewPosition>
-bool DexFile::DecodeDebugPositionInfo(const CodeItem* code_item,
-                                      uint32_t debug_info_offset,
+bool DexFile::DecodeDebugPositionInfo(uint32_t debug_info_offset,
                                       DexDebugNewPosition position_functor,
                                       void* context) const {
-  if (code_item == nullptr) {
-    return false;
-  }
   return DecodeDebugPositionInfo(GetDebugInfoStream(debug_info_offset),
                                  [this](uint32_t idx) {
                                    return StringDataByIdx(dex::StringIndex(idx));
