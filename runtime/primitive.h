@@ -146,7 +146,7 @@ class Primitive {
       case Primitive::Type::kPrimNot: return false;
       case Primitive::Type::kPrimBoolean: return false;
       case Primitive::Type::kPrimByte: return true;
-      case Primitive::Type::kPrimChar: return false;
+      case Primitive::Type::kPrimChar: return true;
       case Primitive::Type::kPrimShort: return true;
       case Primitive::Type::kPrimInt: return true;
       case Primitive::Type::kPrimLong: return true;
@@ -166,9 +166,18 @@ class Primitive {
     static_assert(Primitive::Type::kPrimInt < Primitive::Type::kPrimLong, "Bad ordering");
     static_assert(Primitive::Type::kPrimLong < Primitive::Type::kPrimFloat, "Bad ordering");
     static_assert(Primitive::Type::kPrimFloat < Primitive::Type::kPrimDouble, "Bad ordering");
-    // Widening is only applicable between numeric types, like byte
-    // and int. Non-numeric types, such as boolean, cannot be widened.
-    return IsNumericType(from) && IsNumericType(to) && from <= to;
+    if (from > to) {
+      return false;
+    }
+    // Widening is only applicable between numeric types.
+    if (!IsNumericType(from) || !IsNumericType(to)) {
+      return false;
+    }
+    // Char is the only unsigned numeric type. Signed values cannot be widened to unsigned.
+    if (to == Primitive::Type::kPrimChar) {
+      return false;
+    }
+    return true;
   }
 
   static bool Is64BitType(Type type) {
