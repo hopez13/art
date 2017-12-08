@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "81cf4420_a03260fc",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-08T14:44:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe9bc429_e89c968d",
+      "range": {
+        "startLine": 349,
+        "startChar": 52,
+        "endLine": 349,
+        "endChar": 85
+      },
+      "revId": "ae0ade95177b0783f428d9754508684de6138532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8920b682_2da57753",
         "filename": "runtime/dex_file_annotations.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-08T14:38:18Z",
       "side": 1,
       "message": "Should those be references?",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 50
+      },
+      "revId": "ae0ade95177b0783f428d9754508684de6138532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca7e8c23_e29fdf2e",
+        "filename": "runtime/dex_file_annotations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-08T14:44:02Z",
+      "side": 1,
+      "message": "Handles are pointers (StackReference\u003c\u003e*) and I prefer passing them by value rather than creating unnecessary indirections.",
+      "parentUuid": "8920b682_2da57753",
       "range": {
         "startLine": 134,
         "startChar": 2,
