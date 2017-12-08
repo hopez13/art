@@ -146,7 +146,7 @@ class Primitive {
       case Primitive::Type::kPrimNot: return false;
       case Primitive::Type::kPrimBoolean: return false;
       case Primitive::Type::kPrimByte: return true;
-      case Primitive::Type::kPrimChar: return false;
+      case Primitive::Type::kPrimChar: return true;
       case Primitive::Type::kPrimShort: return true;
       case Primitive::Type::kPrimInt: return true;
       case Primitive::Type::kPrimLong: return true;
