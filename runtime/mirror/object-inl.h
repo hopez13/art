@@ -935,6 +935,250 @@ inline bool Object::CasFieldWeakReleaseObjectWithoutWriteBarrier(
   return success;
 }
 
+template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags>
+inline ObjPtr<Object> Object::CompareAndExchangeFieldObject(MemberOffset field_offset,
+                                                            ObjPtr<Object> old_value,
+                                                            ObjPtr<Object> new_value) {
+  if (kCheckTransaction) {
+    DCHECK_EQ(kTransactionActive, Runtime::Current()->IsActiveTransaction());
+  }
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  if (kVerifyFlags & kVerifyWrites) {
+    VerifyObject(new_value);
+  }
+  if (kVerifyFlags & kVerifyReads) {
+    VerifyObject(old_value);
+  }
+
+  // Caller should do read barrier first on this and offset.
+  // Read barrier on this and offset. See sun_misc_Unsafe.cc.
+
+  uint32_t old_ref(PtrCompression<kPoisonHeapReferences, Object>::Compress(old_value));
+  uint32_t new_ref(PtrCompression<kPoisonHeapReferences, Object>::Compress(new_value));
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  Atomic<uint32_t>* atomic_addr = reinterpret_cast<Atomic<uint32_t>*>(raw_addr);
+  bool success = atomic_addr->CompareAndExchangeStrongSequentiallyConsistent(&old_ref, new_ref);
+  ObjPtr<Object> witness_value(PtrCompression<kPoisonHeapReferences, Object>::Decompress(old_ref));
+  if (kTransactionActive && success) {
+    Runtime::Current()->RecordWriteFieldReference(this, field_offset, witness_value, true);
+  }
+  if (kVerifyFlags & kVerifyReads) {
+    VerifyObject(witness_value);
+  }
+  return witness_value;
+}
+
+template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags>
+inline ObjPtr<Object> Object::ExchangeFieldObject(MemberOffset field_offset,
+                                                  ObjPtr<Object> new_value) {
+  if (kCheckTransaction) {
+    DCHECK_EQ(kTransactionActive, Runtime::Current()->IsActiveTransaction());
+  }
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  if (kVerifyFlags & kVerifyWrites) {
+    VerifyObject(new_value);
+  }
+
+  // Caller should do read barrier first on this and offset.
+  // Read barrier on this and offset. See sun_misc_Unsafe.cc.
+
+  uint32_t new_ref(PtrCompression<kPoisonHeapReferences, Object>::Compress(new_value));
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  Atomic<uint32_t>* atomic_addr = reinterpret_cast<Atomic<uint32_t>*>(raw_addr);
+  uint32_t old_ref = atomic_addr->ExchangeSequentiallyConsistent(new_ref);
+  ObjPtr<Object> old_value(PtrCompression<kPoisonHeapReferences, Object>::Decompress(old_ref));
+  if (kTransactionActive) {
+    Runtime::Current()->RecordWriteFieldReference(this, field_offset, old_value, true);
+  }
+  if (kVerifyFlags & kVerifyReads) {
+    VerifyObject(old_value);
+  }
+  return old_value;
+}
+
+template<VerifyObjectFlags kVerifyFlags>
+inline void Object::GetFieldBooleanViaAccessor(MemberOffset field_offset,
+                                               Accessor<uint8_t>* accessor) {
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  accessor->Access(raw_addr);
+}
+
+template<VerifyObjectFlags kVerifyFlags>
+inline void Object::GetFieldByteViaAccessor(MemberOffset field_offset,
+                                            Accessor<int8_t>* accessor) {
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  int8_t* addr = reinterpret_cast<int8_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<VerifyObjectFlags kVerifyFlags>
+inline void Object::GetFieldCharViaAccessor(MemberOffset field_offset,
+                                            Accessor<uint16_t>* accessor) {
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  uint16_t* addr = reinterpret_cast<uint16_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<VerifyObjectFlags kVerifyFlags>
+inline void Object::GetFieldShortViaAccessor(MemberOffset field_offset,
+                                             Accessor<int16_t>* accessor) {
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  int16_t* addr = reinterpret_cast<int16_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<VerifyObjectFlags kVerifyFlags>
+inline void Object::GetField32ViaAccessor(MemberOffset field_offset,
+                                          Accessor<int32_t>* accessor) {
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  int32_t* addr = reinterpret_cast<int32_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<VerifyObjectFlags kVerifyFlags>
+inline void Object::GetField64ViaAccessor(MemberOffset field_offset,
+                                          Accessor<int64_t>* accessor) {
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  int64_t* addr = reinterpret_cast<int64_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags>
+inline void Object::UpdateFieldBooleanViaAccessor(MemberOffset field_offset,
+                                                  Accessor<uint8_t>* accessor) {
+  if (kCheckTransaction) {
+    DCHECK_EQ(kTransactionActive, Runtime::Current()->IsActiveTransaction());
+  }
+  if (kTransactionActive) {
+    static const bool kIsVolatile = true;
+    uint8_t old_value = GetFieldBoolean<kVerifyFlags, kIsVolatile>(field_offset);
+    Runtime::Current()->RecordWriteFieldBoolean(this, field_offset, old_value, kIsVolatile);
+  }
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  uint8_t* addr = raw_addr;
+  accessor->Access(addr);
+}
+
+template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags>
+inline void Object::UpdateFieldByteViaAccessor(MemberOffset field_offset,
+                                               Accessor<int8_t>* accessor) {
+  if (kCheckTransaction) {
+    DCHECK_EQ(kTransactionActive, Runtime::Current()->IsActiveTransaction());
+  }
+  if (kTransactionActive) {
+    static const bool kIsVolatile = true;
+    int8_t old_value = GetFieldByte<kVerifyFlags, kIsVolatile>(field_offset);
+    Runtime::Current()->RecordWriteFieldByte(this, field_offset, old_value, kIsVolatile);
+  }
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  int8_t* addr = reinterpret_cast<int8_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags>
+inline void Object::UpdateFieldCharViaAccessor(MemberOffset field_offset,
+                                               Accessor<uint16_t>* accessor) {
+  if (kCheckTransaction) {
+    DCHECK_EQ(kTransactionActive, Runtime::Current()->IsActiveTransaction());
+  }
+  if (kTransactionActive) {
+    static const bool kIsVolatile = true;
+    uint16_t old_value = GetFieldChar<kVerifyFlags, kIsVolatile>(field_offset);
+    Runtime::Current()->RecordWriteFieldChar(this, field_offset, old_value, kIsVolatile);
+  }
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  uint16_t* addr = reinterpret_cast<uint16_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags>
+inline void Object::UpdateFieldShortViaAccessor(MemberOffset field_offset,
+                                                Accessor<int16_t>* accessor) {
+  if (kCheckTransaction) {
+    DCHECK_EQ(kTransactionActive, Runtime::Current()->IsActiveTransaction());
+  }
+  if (kTransactionActive) {
+    static const bool kIsVolatile = true;
+    int16_t old_value = GetFieldShort<kVerifyFlags, kIsVolatile>(field_offset);
+    Runtime::Current()->RecordWriteFieldShort(this, field_offset, old_value, kIsVolatile);
+  }
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  int16_t* addr = reinterpret_cast<int16_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags>
+inline void Object::UpdateField32ViaAccessor(MemberOffset field_offset,
+                                             Accessor<int32_t>* accessor) {
+  if (kCheckTransaction) {
+    DCHECK_EQ(kTransactionActive, Runtime::Current()->IsActiveTransaction());
+  }
+  if (kTransactionActive) {
+    static const bool kIsVolatile = true;
+    int32_t old_value = GetField32<kVerifyFlags, kIsVolatile>(field_offset);
+    Runtime::Current()->RecordWriteField32(this, field_offset, old_value, kIsVolatile);
+  }
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  int32_t* addr = reinterpret_cast<int32_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
+template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags>
+inline void Object::UpdateField64ViaAccessor(MemberOffset field_offset,
+                                             Accessor<int64_t>* accessor) {
+  if (kCheckTransaction) {
+    DCHECK_EQ(kTransactionActive, Runtime::Current()->IsActiveTransaction());
+  }
+  if (kTransactionActive) {
+    static const bool kIsVolatile = true;
+    int64_t old_value = GetField64<kVerifyFlags, kIsVolatile>(field_offset);
+    Runtime::Current()->RecordWriteField64(this, field_offset, old_value, kIsVolatile);
+  }
+  if (kVerifyFlags & kVerifyThis) {
+    VerifyObject(this);
+  }
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
+  int64_t* addr = reinterpret_cast<int64_t*>(raw_addr);
+  accessor->Access(addr);
+}
+
 template<bool kIsStatic,
          VerifyObjectFlags kVerifyFlags,
          ReadBarrierOption kReadBarrierOption,
