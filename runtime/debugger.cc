@@ -278,11 +278,8 @@ class DebugInstrumentationListener FINAL : public instrumentation::Instrumentati
   }
 
  private:
-  static bool IsReturn(ArtMethod* method, uint32_t dex_pc)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    const DexFile::CodeItem* code_item = method->GetCodeItem();
-    const Instruction* instruction = Instruction::At(&code_item->insns_[dex_pc]);
-    return instruction->IsReturn();
+  static bool IsReturn(ArtMethod* method, uint32_t dex_pc) REQUIRES_SHARED(Locks::mutator_lock_) {
+    return CodeItemInstructionAccessor(method).InstructionAt(dex_pc).IsReturn();
   }
 
   static bool IsListeningToDexPcMoved() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1519,15 +1516,15 @@ static uint32_t MangleAccessFlags(uint32_t accessFlags) {
  */
 static uint16_t MangleSlot(uint16_t slot, ArtMethod* m)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  const DexFile::CodeItem* code_item = m->GetCodeItem();
-  if (code_item == nullptr) {
+  CodeItemDataAccessor accessor(CodeItemDataAccessor::CreateNullable(m));
+  if (!accessor.HasCodeItem()) {
     // We should not get here for a method without code (native, proxy or abstract). Log it and
     // return the slot as is since all registers are arguments.
     LOG(WARNING) << "Trying to mangle slot for method without code " << m->PrettyMethod();
     return slot;
   }
-  uint16_t ins_size = code_item->ins_size_;
-  uint16_t locals_size = code_item->registers_size_ - ins_size;
+  uint16_t ins_size = accessor.InsSize();
+  uint16_t locals_size = accessor.RegistersSize() - ins_size;
   if (slot >= locals_size) {
     return slot - locals_size;
   } else {
@@ -1550,8 +1547,8 @@ static size_t GetMethodNumArgRegistersIncludingThis(ArtMethod* method)
  */
 static uint16_t DemangleSlot(uint16_t slot, ArtMethod* m, JDWP::JdwpError* error)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  const DexFile::CodeItem* code_item = m->GetCodeItem();
-  if (code_item == nullptr) {
+  CodeItemDataAccessor accessor(CodeItemDataAccessor::CreateNullable(m));
+  if (!accessor.HasCodeItem()) {
     // We should not get here for a method without code (native, proxy or abstract). Log it and
     // return the slot as is since all registers are arguments.
     LOG(WARNING) << "Trying to demangle slot for method without code "
@@ -1561,13 +1558,11 @@ static uint16_t DemangleSlot(uint16_t slot, ArtMethod* m, JDWP::JdwpError* error
       *error = JDWP::ERR_NONE;
       return slot;
     }
-  } else {
-    if (slot < code_item->registers_size_) {
-      uint16_t ins_size = code_item->ins_size_;
-      uint16_t locals_size = code_item->registers_size_ - ins_size;
-      *error = JDWP::ERR_NONE;
-      return (slot < ins_size) ? slot + locals_size : slot - ins_size;
-    }
+  } else if (slot < accessor.RegistersSize()) {
+    uint16_t ins_size = accessor.InsSize();
+    uint16_t locals_size = accessor.RegistersSize() - ins_size;
+    *error = JDWP::ERR_NONE;
+    return (slot < ins_size) ? slot + locals_size : slot - ins_size;
   }
 
   // Slot is invalid in the method.
@@ -1773,13 +1768,11 @@ JDWP::JdwpError Dbg::GetBytecodes(JDWP::RefTypeId, JDWP::MethodId method_id,
   if (m == nullptr) {
     return JDWP::ERR_INVALID_METHODID;
   }
-  const DexFile::CodeItem* code_item = m->GetCodeItem();
-  size_t byte_count = code_item->insns_size_in_code_units_ * 2;
-  const uint8_t* begin = reinterpret_cast<const uint8_t*>(code_item->insns_);
-  const uint8_t* end = begin + byte_count;
-  for (const uint8_t* p = begin; p != end; ++p) {
-    bytecodes->push_back(*p);
-  }
+  CodeItemInstructionAccessor accessor(m);
+  bytecodes->insert(bytecodes->end(),
+                    reinterpret_cast<const uint8_t*>(accessor.Insns()),
+                    reinterpret_cast<const uint8_t*>(accessor.Insns() +
+                        accessor.InsnsSizeInCodeUnits()));
   return JDWP::ERR_NONE;
 }
 
@@ -2958,9 +2951,9 @@ void Dbg::PostLocationEvent(ArtMethod* m, int dex_pc, mirror::Object* this_objec
   Handle<mirror::Throwable> pending_exception(hs.NewHandle(self->GetException()));
   self->ClearException();
   if (kIsDebugBuild && pending_exception != nullptr) {
-    const DexFile::CodeItem* code_item = location.method->GetCodeItem();
-    const Instruction* instr = Instruction::At(&code_item->insns_[location.dex_pc]);
-    CHECK_EQ(Instruction::MOVE_EXCEPTION, instr->Opcode());
+    const Instruction& instr =
+        CodeItemInstructionAccessor(location.method).InstructionAt(location.dex_pc);
+    CHECK_EQ(Instruction::MOVE_EXCEPTION, instr.Opcode());
   }
 
   gJdwpState->PostLocationEvent(&location, this_object, event_flags, return_value);
@@ -3836,9 +3829,9 @@ JDWP::JdwpError Dbg::ConfigureStep(JDWP::ObjectId thread_id, JDWP::JdwpStepSize 
   // Find the dex_pc values that correspond to the current line, for line-based single-stepping.
   struct DebugCallbackContext {
     DebugCallbackContext(SingleStepControl* single_step_control_cb,
-                         int32_t line_number_cb, const DexFile::CodeItem* code_item)
+                         int32_t line_number_cb, uint32_t end_dex_pc)
         : single_step_control_(single_step_control_cb), line_number_(line_number_cb),
-          code_item_(code_item), last_pc_valid(false), last_pc(0) {
+          end_dex_pc_(end_dex_pc), last_pc_valid(false), last_pc(0) {
     }
 
     static bool Callback(void* raw_context, const DexFile::PositionInfo& entry) {
@@ -3864,8 +3857,7 @@ JDWP::JdwpError Dbg::ConfigureStep(JDWP::ObjectId thread_id, JDWP::JdwpStepSize 
     ~DebugCallbackContext() {
       // If the line number was the last in the position table...
       if (last_pc_valid) {
-        size_t end = code_item_->insns_size_in_code_units_;
-        for (uint32_t dex_pc = last_pc; dex_pc < end; ++dex_pc) {
+        for (uint32_t dex_pc = last_pc; dex_pc < end_dex_pc_; ++dex_pc) {
           single_step_control_->AddDexPc(dex_pc);
         }
       }
@@ -3873,7 +3865,7 @@ JDWP::JdwpError Dbg::ConfigureStep(JDWP::ObjectId thread_id, JDWP::JdwpStepSize 
 
     SingleStepControl* const single_step_control_;
     const int32_t line_number_;
-    const DexFile::CodeItem* const code_item_;
+    const uint32_t end_dex_pc_;
     bool last_pc_valid;
     uint32_t last_pc;
   };
@@ -3893,7 +3885,9 @@ JDWP::JdwpError Dbg::ConfigureStep(JDWP::ObjectId thread_id, JDWP::JdwpStepSize 
   // method on the stack (and no line number either).
   if (m != nullptr && !m->IsNative()) {
     const DexFile::CodeItem* const code_item = m->GetCodeItem();
-    DebugCallbackContext context(single_step_control, line_number, code_item);
+    DebugCallbackContext context(single_step_control,
+                                 line_number,
+                                 code_item->insns_size_in_code_units_);
     uint32_t debug_info_offset = OatFile::GetDebugInfoOffset(*(m->GetDexFile()), code_item);
     m->GetDexFile()->DecodeDebugPositionInfo(
         code_item, debug_info_offset, DebugCallbackContext::Callback, &context);
