@@ -170,10 +170,13 @@ bool JitCompiler::CompileMethod(Thread* self, ArtMethod* method, bool osr) {
   self->AssertNoPendingException();
   Runtime* runtime = Runtime::Current();
 
+  // Method name.
+  std::string method_name("Compiling " + method->PrettyMethod());
+
   // Do the compilation.
   bool success = false;
   {
-    TimingLogger::ScopedTiming t2("Compiling", &logger);
+    TimingLogger::ScopedTiming t2(method_name.c_str(), &logger);
     JitCodeCache* const code_cache = runtime->GetJit()->GetCodeCache();
     success = compiler_driver_->GetCompiler()->JitCompile(
         self, code_cache, method, osr, jit_logger_.get());
