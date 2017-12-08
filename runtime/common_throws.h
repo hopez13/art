@@ -244,6 +244,10 @@ void ThrowStackOverflowError(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_)
 void ThrowStringIndexOutOfBoundsException(int index, int length)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
+// UnsupportedOperationException
+void ThrowUnsupportedOperationException()
+    REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
+
 // VerifyError
 
 void ThrowVerifyError(ObjPtr<mirror::Class> referrer, const char* fmt, ...)
