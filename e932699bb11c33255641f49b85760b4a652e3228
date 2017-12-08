@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b6683500_0a861dfd",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-08T17:33:09Z",
+      "side": 1,
+      "message": "This was following the pattern for the \"Operators.\" section above :(\n\nI\u0027ve replaced EMIT(x) whose presence maybe why this didn\u0027t meet your coding style.",
+      "parentUuid": "1fe3bd0d_b7721a3f",
+      "revId": "e932699bb11c33255641f49b85760b4a652e3228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a6f28856_fa7118ea",
         "filename": "tools/jfuzz/jfuzz.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2017-12-08T17:03:09Z",
       "side": 1,
       "message": "indentation, move to beginning of line",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 2
+      },
+      "revId": "e932699bb11c33255641f49b85760b4a652e3228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0594a88c_65c45865",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-08T17:33:09Z",
+      "side": 1,
+      "message": "Sorry, upgraded to gLinux and new editor version is incorrectly indenting trailing brace :\\",
+      "parentUuid": "a6f28856_fa7118ea",
       "range": {
         "startLine": 62,
         "startChar": 0,
@@ -56,6 +98,24 @@
       "revId": "e932699bb11c33255641f49b85760b4a652e3228",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1371635_773a1557",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-08T17:33:09Z",
+      "side": 1,
+      "message": "This was my initial wild guess and and javac would complain. For example:\n\n  try {\n    return;\n  } finally {\n    foo();\n  }\n  bar();  // Not reachable via try, appears reachable if only considering finally\n          // Need not to emit this.\n\nAnd it extends to catch blocks.\n\nWhat javac did sometimes complain about was the size of the try block. So there is a hard limit at the start of this function. I\u0027ve avoided hardcoding constants to deal with this javac behavior. The defaults work well locally.",
+      "parentUuid": "52b06bcc_8b896a8d",
+      "revId": "e932699bb11c33255641f49b85760b4a652e3228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
