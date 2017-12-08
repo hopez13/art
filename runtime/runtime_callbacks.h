@@ -68,8 +68,11 @@ class DebuggerControlCallback {
 
   // Begin running the debugger.
   virtual void StartDebugger() = 0;
-  // The debugger should begin shutting down since the runtime is ending.
+  // The debugger should begin shutting down since the runtime is ending. This is just advisory
   virtual void StopDebugger() = 0;
+
+  // This allows the debugger to tell the runtime if it is configured.
+  virtual bool IsDebuggerConfigured() = 0;
 };
 
 class RuntimeSigQuitCallback {
@@ -211,6 +214,7 @@ class RuntimeCallbacks {
   // NO_THREAD_SAFETY_ANALYSIS since this is only called when we are in the middle of shutting down
   // and the mutator_lock_ is no longer acquirable.
   void StopDebugger() NO_THREAD_SAFETY_ANALYSIS;
+  bool IsDebuggerConfigured() REQUIRES_SHARED(Locks::mutator_lock_);
 
   void AddDebuggerControlCallback(DebuggerControlCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);

@@ -1225,7 +1225,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
 
   jdwp_options_ = runtime_options.GetOrDefault(Opt::JdwpOptions);
   jdwp_provider_ = runtime_options.GetOrDefault(Opt::JdwpProvider);
-  if (jdwp_provider_.IsInternal()) {
+  if (jdwp_provider_ == JdwpProvider::kInternal) {
     if (runtime_options.Exists(Opt::JdwpOptions)) {
       JDWP::JdwpOptions ops;
       if (!JDWP::ParseJdwpOptions(runtime_options.GetOrDefault(Opt::JdwpOptions), &ops)) {
@@ -1234,8 +1234,10 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       }
       Dbg::ConfigureJdwp(ops);
     }
-  } else {
-    plugins_.push_back(Plugin::Create(jdwp_provider_.GetPlugin()));
+  } else if (jdwp_provider_ == JdwpProvider::kAdbConnection) {
+    constexpr const char* plugin_name = kIsDebugBuild ? "libadbconnectiond.so"
+                                                      : "libadbconnection.so";
+    plugins_.push_back(Plugin::Create(plugin_name));
   }
   callbacks_->AddThreadLifecycleCallback(Dbg::GetThreadLifecycleCallback());
   callbacks_->AddClassLoadCallback(Dbg::GetClassLoadCallback());

@@ -375,6 +375,10 @@ void InternalDebuggerControlCallback::StopDebugger() {
   Dbg::StopJdwp();
 }
 
+bool InternalDebuggerControlCallback::IsDebuggerConfigured() {
+  return Dbg::IsJdwpConfigured();
+}
+
 // Breakpoints.
 static std::vector<Breakpoint> gBreakpoints GUARDED_BY(Locks::breakpoint_lock_);
 
@@ -4359,6 +4363,12 @@ bool Dbg::DdmHandleChunk(JNIEnv* env,
   }
 
   if (chunk.get() == nullptr) {
+    LOG(INFO) << "Chunk for dispatcher returned was null! "
+                 << StringPrintf("%c%c%c%c",
+                                 static_cast<char>(type >> 24),
+                                 static_cast<char>(type >> 16),
+                                 static_cast<char>(type >> 8),
+                                 static_cast<char>(type));
     return false;
   }
 

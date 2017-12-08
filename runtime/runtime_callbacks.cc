@@ -57,6 +57,15 @@ void RuntimeCallbacks::RemoveDebuggerControlCallback(DebuggerControlCallback* cb
   Remove(cb, &debugger_control_callbacks_);
 }
 
+bool RuntimeCallbacks::IsDebuggerConfigured() {
+  for (DebuggerControlCallback* cb : debugger_control_callbacks_) {
+    if (cb->IsDebuggerConfigured()) {
+      return true;
+    }
+  }
+  return false;
+}
+
 void RuntimeCallbacks::StartDebugger() {
   for (DebuggerControlCallback* cb : debugger_control_callbacks_) {
     cb->StartDebugger();

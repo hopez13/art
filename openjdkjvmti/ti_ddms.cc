@@ -64,6 +64,11 @@ jvmtiError DDMSUtil::HandleChunk(jvmtiEnv* env,
 
   art::ArrayRef<const jbyte> data_arr(data_in, length_in);
   std::vector<uint8_t> out_data;
+  LOG(INFO) << "Got ddms chunk request "
+            << static_cast<char>(type_in >> 24)
+            << static_cast<char>(type_in >> 16)
+            << static_cast<char>(type_in >> 8)
+            << static_cast<char>(type_in);
   if (!art::Dbg::DdmHandleChunk(self->GetJniEnv(),
                                 type_in,
                                 data_arr,
