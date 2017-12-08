@@ -448,8 +448,12 @@ class PacketReader {
       return false;
     }
     pkt_->type.cmd.len = len;
-    pkt_->type.cmd.id = ReadInt32();    // read id
-    pkt_->type.cmd.flags = ReadByte();  // read flags
+    pkt_->type.cmd.id = ReadInt32();
+    pkt_->type.cmd.flags = ReadByte();
+    LOG(INFO) << "Got packet len=" << len << " id=0x" << std::hex << pkt_->type.cmd.id
+              << " flags="
+              << (((pkt_->type.reply.flags & JDWPTRANSPORT_FLAGS_REPLY) ==
+                    JDWPTRANSPORT_FLAGS_REPLY) ? "REPLY" : "CMD");
     if (is_err_) {
       return false;
     } else if (is_eof_) {
@@ -535,7 +539,7 @@ class PacketReader {
     return HandleResult(res, NetworkToHost(out), static_cast<jshort>(-1));
   }
 
-  jshort ReadInt32() {
+  jint ReadInt32() {
     if (is_eof_ || is_err_) {
       return -1;
     }

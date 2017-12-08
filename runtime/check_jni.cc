@@ -373,7 +373,7 @@ class ScopedCheck {
       return false;
     }
     if (c != f->GetDeclaringClass()) {
-      AbortF("static jfieldID %p not valid for class %s", fid,
+      AbortF("static jfieldID %p (%s) not valid for class %s", fid, f->PrettyField(true).c_str(),
              mirror::Class::PrettyClass(c).c_str());
       return false;
     }

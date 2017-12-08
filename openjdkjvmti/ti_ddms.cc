@@ -49,10 +49,9 @@ jvmtiError DDMSUtil::HandleChunk(jvmtiEnv* env,
                                  /*out*/jint* type_out,
                                  /*out*/jint* data_length_out,
                                  /*out*/jbyte** data_out) {
-  constexpr uint32_t kDdmHeaderSize = sizeof(uint32_t) * 2;
-  if (env == nullptr || data_in == nullptr || data_out == nullptr || data_length_out == nullptr) {
+  if (env == nullptr || data_out == nullptr || data_length_out == nullptr) {
     return ERR(NULL_POINTER);
-  } else if (length_in < static_cast<jint>(kDdmHeaderSize)) {
+  } else if (data_in == nullptr && length_in != 0) {
     // need to get type and length at least.
     return ERR(ILLEGAL_ARGUMENT);
   }
@@ -62,6 +61,11 @@ jvmtiError DDMSUtil::HandleChunk(jvmtiEnv* env,
 
   art::ArrayRef<const jbyte> data_arr(data_in, length_in);
   std::vector<uint8_t> out_data;
+  LOG(INFO) << "Got ddms chunk request "
+            << static_cast<char>(type_in >> 24)
+            << static_cast<char>(type_in >> 16)
+            << static_cast<char>(type_in >> 8)
+            << static_cast<char>(type_in);
   if (!art::Dbg::DdmHandleChunk(self->GetJniEnv(),
                                 type_in,
                                 data_arr,

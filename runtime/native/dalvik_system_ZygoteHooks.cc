@@ -173,8 +173,10 @@ enum {
 };
 
 static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
+  LOG(ERROR) << "runtime flags are " << runtime_flags;
   Runtime* const runtime = Runtime::Current();
   if ((runtime_flags & DEBUG_ENABLE_CHECKJNI) != 0) {
+    LOG(INFO) << "DEBUG_ENABLE_CHECKJNI enabled";
     JavaVMExt* vm = runtime->GetJavaVM();
     if (!vm->IsCheckJniEnabled()) {
       LOG(INFO) << "Late-enabling -Xcheck:jni";
@@ -188,18 +190,21 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
   }
 
   if ((runtime_flags & DEBUG_ENABLE_JNI_LOGGING) != 0) {
+    LOG(INFO) << "DEBUG_ENABLE_JNI_LOGGING enabled";
     gLogVerbosity.third_party_jni = true;
     runtime_flags &= ~DEBUG_ENABLE_JNI_LOGGING;
   }
 
   Dbg::SetJdwpAllowed((runtime_flags & DEBUG_ENABLE_JDWP) != 0);
   if ((runtime_flags & DEBUG_ENABLE_JDWP) != 0) {
+    LOG(INFO) << "DEBUG_ENABLE_JDWP enabled";
     EnableDebugger();
   }
   runtime_flags &= ~DEBUG_ENABLE_JDWP;
 
   const bool safe_mode = (runtime_flags & DEBUG_ENABLE_SAFEMODE) != 0;
   if (safe_mode) {
+    LOG(INFO) << "DEBUG_ENABLE_SAFEMODE enabled";
     // Only quicken oat files.
     runtime->AddCompilerOption("--compiler-filter=quicken");
     runtime->SetSafeMode(true);
@@ -208,6 +213,7 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
 
   const bool generate_debug_info = (runtime_flags & DEBUG_GENERATE_DEBUG_INFO) != 0;
   if (generate_debug_info) {
+    LOG(INFO) << "DEBUG_GENERATE_DEBUG_INFO enabled";
     runtime->AddCompilerOption("--generate-debug-info");
     runtime_flags &= ~DEBUG_GENERATE_DEBUG_INFO;
   }
@@ -216,6 +222,7 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
   runtime_flags &= ~DEBUG_ENABLE_ASSERT;
 
   if ((runtime_flags & DEBUG_ALWAYS_JIT) != 0) {
+    LOG(INFO) << "DEBUG_ALWAYS_JIT enabled";
     jit::JitOptions* jit_options = runtime->GetJITOptions();
     CHECK(jit_options != nullptr);
     jit_options->SetJitAtFirstUse();
@@ -224,6 +231,7 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
 
   bool needs_non_debuggable_classes = false;
   if ((runtime_flags & DEBUG_JAVA_DEBUGGABLE) != 0) {
+    LOG(INFO) << "DEBUG_JAVA_DEBUGGABLE enabled";
     runtime->AddCompilerOption("--debuggable");
     runtime->SetJavaDebuggable(true);
     // Deoptimize the boot image as it may be non-debuggable.
@@ -236,6 +244,7 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
   }
 
   if ((runtime_flags & DEBUG_NATIVE_DEBUGGABLE) != 0) {
+    LOG(INFO) << "DEBUG_NATIVE_DEBUGGABLE enabled";
     runtime->AddCompilerOption("--debuggable");
     runtime->AddCompilerOption("--generate-debug-info");
     runtime->SetNativeDebuggable(true);

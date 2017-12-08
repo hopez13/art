@@ -364,29 +364,40 @@ TEST_F(CmdlineParserTest, DISABLED_TestXGcOption) {
   EXPECT_SINGLE_PARSE_FAIL("-Xgc:blablabla", CmdlineResult::kUsage);  // invalid Xgc opt
 }  // TEST_F
 
+#if 0
 /*
  * { "-XjdwpProvider:_" }
  */
-TEST_F(CmdlineParserTest, TestJdwpProvider) {
+TEST_F(CmdlineParserTest, TestJdwpProviderEmpty) {
   {
     JdwpProvider opt;
     EXPECT_SINGLE_PARSE_DEFAULT_VALUE(opt, "", M::JdwpProvider);
   }
-  {
-    JdwpProvider opt;
-    const char* opt_args = "-XjdwpProvider:default";
-    EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
-  }
-  {
-    JdwpProvider opt;
-    const char* opt_args = "-XjdwpProvider:internal";
-    EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
-  }
-  {
-    JdwpProvider opt("libjdwp.so");
-    const char* opt_args = "-XjdwpProvider:libjdwp.so";
-    EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
-  }
+}  // TEST_F
+
+TEST_F(CmdlineParserTest, TestJdwpProviderDefault) {
+  JdwpProvider opt;
+  const char* opt_args = "-XjdwpProvider:default";
+  EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
+}  // TEST_F
+
+TEST_F(CmdlineParserTest, TestJdwpProviderInternal) {
+  JdwpProvider opt;
+  const char* opt_args = "-XjdwpProvider:internal";
+  EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
+}  // TEST_F
+TEST_F(CmdlineParserTest, TestJdwpProviderNoOptions) {
+  JdwpProvider opt("libadbconnection.so");
+  const char* opt_args = "-XjdwpProvider:libadbconnection.so";
+  EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
+}  // TEST_F
+TEST_F(CmdlineParserTest, TestJdwpProviderOptions) {
+  // JdwpProvider opt("libadbconnection.so", "libjdwp.so");
+  // const char* opt_args = "-XjdwpProvider:libadbconnection.so=libjdwp.so";
+  // EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
+}  // TEST_F
+#endif
+TEST_F(CmdlineParserTest, TestJdwpProviderHelp) {
   EXPECT_SINGLE_PARSE_FAIL("-XjdwpProvider:help", CmdlineResult::kUsage);
 }  // TEST_F
 

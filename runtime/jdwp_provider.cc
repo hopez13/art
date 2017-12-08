@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#if 0
 #include "jdwp_provider.h"
 
 namespace art {
@@ -22,4 +23,15 @@ bool operator==(const JdwpProvider& lhs, const JdwpProvider& rhs) {
   return lhs.Equals(rhs);
 }
 
+JdwpProvider::Type JdwpProvider::StrToType(const std::string& val) {
+  if (val == "internal" || val == "default") {
+    return JdwpProvider::Type::kInternal;
+  } else if (val == "AdbConnection") {
+    return JdwpProvider::Type::kAdbConnection;
+  } else {
+    return JdwpProvider::Type::kUnknown;
+  }
+}
+
 }  // namespace art
+#endif

@@ -66,6 +66,7 @@ struct DebuggerDdmCallback : public DdmCallback {
 struct InternalDebuggerControlCallback : public DebuggerControlCallback {
   void StartDebugger();
   void StopDebugger();
+  bool IsDebuggerConfigured();
 };
 
 /*

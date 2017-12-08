@@ -74,14 +74,15 @@ struct CmdlineType<JdwpProvider> : CmdlineTypeParser<JdwpProvider> {
     if (option == "help") {
       return Result::Usage(
           "Example: -XjdwpProvider:internal for internal jdwp implementation\n"
-          "Example: -XjdwpProvider:default for the default jdwp implementation (currently internal)\n"
-          "Example: -XjdwpProvider:<file>.so for using a file to provide jdwp\n");
+          "Example: -XjdwpProvider:adbconnection for adb connection mediated jdwp implementation\n"
+          "Example: -XjdwpProvider:default for the default jdwp implementation"
+          " (currently internal)\n");
     } else if (option == "internal" || option == "default") {
-      JdwpProvider res;
-      return Result::Success(std::move(res));
+      return Result::Success(JdwpProvider::kInternal);
+    } else if (option == "adbconnection") {
+      return Result::Success(JdwpProvider::kAdbConnection);
     } else {
-      JdwpProvider res(option);
-      return Result::Success(std::move(res));
+      return Result::Failure(std::string("not a valid jdwp provider: ") + option);
     }
   }
   static const char* Name() { return "JdwpProvider"; }

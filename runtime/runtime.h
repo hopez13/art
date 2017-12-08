@@ -701,7 +701,7 @@ class Runtime {
     return jdwp_options_;
   }
 
-  const JdwpProvider& GetJdwpProvider() {
+  JdwpProvider GetJdwpProvider() const {
     return jdwp_provider_;
   }
 

@@ -24,37 +24,13 @@
 
 namespace art {
 
-class JdwpProvider {
- public:
-  // TODO Remove the kInternal type when old jdwp implementation is removed and make it default to
-  // libjdwp.so
-  enum class Type {
-    kInternal,
-    kPlugin,
-  };
-
-  JdwpProvider() : type_(Type::kInternal), plugin_("") {}
-  explicit JdwpProvider(const std::string& plugin) : type_(Type::kPlugin), plugin_(plugin) {}
-
-  bool IsInternal() {
-    return type_ == Type::kInternal;
-  }
-
-  const std::string& GetPlugin() {
-    DCHECK(!IsInternal());
-    return plugin_;
-  }
-
-  bool Equals(const JdwpProvider& rhs) const {
-    return type_ == rhs.type_ && plugin_ == rhs.plugin_;
-  }
-
- private:
-  Type type_;
-  std::string plugin_;
+enum class JdwpProvider {
+  kInternal,
+  kAdbConnection,
 };
 
-bool operator==(const JdwpProvider& lhs, const JdwpProvider& rhs);
+// TODO
+// std::ostream& operator<<(std::ostream& os, const JdwpProvider& rhs);
 
 }  // namespace art
 #endif  // ART_RUNTIME_JDWP_PROVIDER_H_

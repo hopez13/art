@@ -212,11 +212,12 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       "Handles a single ddms chunk request and returns a response. The reply data is in the ddms"
       " chunk format. It returns the processed chunk. This is provided for backwards compatibility"
       " reasons only. Agents should avoid making use of this extension when possible and instead"
-      " use the other JVMTI entrypoints explicitly.",
+      " use the other JVMTI entrypoints explicitly. Will return JVMTI_ERROR_ILLEGAL_ARGUMENT if"
+      " data is null and length is not 0.",
       {
         { "type_in", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
         { "length_in", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
-        { "data_in", JVMTI_KIND_IN_BUF, JVMTI_TYPE_JBYTE, false },
+        { "data_in", JVMTI_KIND_IN_BUF, JVMTI_TYPE_JBYTE, true },
         { "type_out", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, false },
         { "data_len_out", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, false },
         { "data_out", JVMTI_KIND_ALLOC_BUF, JVMTI_TYPE_JBYTE, false }

@@ -375,6 +375,10 @@ void InternalDebuggerControlCallback::StopDebugger() {
   Dbg::StopJdwp();
 }
 
+bool InternalDebuggerControlCallback::IsDebuggerConfigured() {
+  return Dbg::IsJdwpConfigured();
+}
+
 // Breakpoints.
 static std::vector<Breakpoint> gBreakpoints GUARDED_BY(Locks::breakpoint_lock_);
 
@@ -4356,6 +4360,12 @@ bool Dbg::DdmHandleChunk(JNIEnv* env,
   }
 
   if (chunk.get() == nullptr) {
+    LOG(INFO) << "Chunk for dispatcher returned was null! "
+                 << StringPrintf("%c%c%c%c",
+                                 static_cast<char>(type >> 24),
+                                 static_cast<char>(type >> 16),
+                                 static_cast<char>(type >> 8),
+                                 static_cast<char>(type));
     return false;
   }
 
@@ -4383,20 +4393,25 @@ bool Dbg::DdmHandleChunk(JNIEnv* env,
   *out_type = env->GetIntField(chunk.get(),
                                WellKnownClasses::org_apache_harmony_dalvik_ddmc_Chunk_type);
 
-  VLOG(jdwp) << StringPrintf("DDM reply: type=0x%08x data=%p offset=%d length=%d",
-                             type,
-                             replyData.get(),
-                             offset,
-                             length);
-  if (length == 0 || replyData.get() == nullptr) {
-    return false;
-  }
-
+  LOG(INFO) << StringPrintf("DDM reply: type=%c%c%c%c reply_type=%c%c%c%c data=%p offset=%d length=%d",
+                            static_cast<char>(type >> 24),
+                            static_cast<char>(type >> 16),
+                            static_cast<char>(type >> 8),
+                            static_cast<char>(type),
+                            static_cast<char>(*out_type >> 24),
+                            static_cast<char>(*out_type >> 16),
+                            static_cast<char>(*out_type >> 8),
+                            static_cast<char>(*out_type),
+                            replyData.get(),
+                            offset,
+                            length);
   out_data->resize(length);
-  env->GetByteArrayRegion(replyData.get(),
-                          offset,
-                          length,
-                          reinterpret_cast<jbyte*>(out_data->data()));
+  if (length != 0) {
+    env->GetByteArrayRegion(replyData.get(),
+                            offset,
+                            length,
+                            reinterpret_cast<jbyte*>(out_data->data()));
+  }
   return true;
 }
 
@@ -4430,7 +4445,7 @@ bool Dbg::DdmHandlePacket(JDWP::Request* request, uint8_t** pReplyBuf, int* pRep
   std::vector<uint8_t> out_data;
   uint32_t out_type = 0;
   request->Skip(request_length);
-  if (!DdmHandleChunk(env, type, data, &out_type, &out_data)) {
+  if (!DdmHandleChunk(env, type, data, &out_type, &out_data) || out_data.size() == 0) {
     return false;
   }
   const uint32_t kDdmHeaderSize = 8;

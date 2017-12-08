@@ -158,7 +158,9 @@ static jboolean VMDebug_isDebuggerConnected(JNIEnv*, jclass) {
 }
 
 static jboolean VMDebug_isDebuggingEnabled(JNIEnv*, jclass) {
-  return Dbg::IsJdwpConfigured();
+  // TODO This is terrible.
+  return Dbg::IsJdwpConfigured() ||
+      (art::Runtime::Current()->IsJavaDebuggable() && art::Dbg::IsJdwpAllowed());
 }
 
 static jlong VMDebug_lastDebuggerActivity(JNIEnv*, jclass) {
