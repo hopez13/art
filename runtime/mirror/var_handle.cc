@@ -16,9 +16,13 @@
 
 #include "var_handle.h"
 
+#include "array-inl.h"
+#include "art_field-inl.h"
 #include "class-inl.h"
 #include "class_linker.h"
 #include "gc_root-inl.h"
+#include "jvalue-inl.h"
+#include "method_handles.h"  // For type conversion helpers.
 #include "method_type.h"
 
 namespace art {
@@ -158,30 +162,33 @@ AccessModeTemplate GetAccessModeTemplate(VarHandle::AccessMode access_mode) {
   }
 }
 
+size_t GetNumberOfVarTypeParameters(AccessModeTemplate access_mode_template) {
+  switch (access_mode_template) {
+    case AccessModeTemplate::kGet:
+      return 0u;
+    case AccessModeTemplate::kSet:
+    case AccessModeTemplate::kGetAndUpdate:
+      return 1u;
+    case AccessModeTemplate::kCompareAndSet:
+    case AccessModeTemplate::kCompareAndExchange:
+      return 2u;
+  }
+  UNREACHABLE();
+}
+
 // Returns the number of parameters associated with an
 // AccessModeTemplate and the supplied coordinate types.
 int32_t GetParameterCount(AccessModeTemplate access_mode_template,
                           ObjPtr<Class> coordinateType0,
                           ObjPtr<Class> coordinateType1) {
-  int32_t index = 0;
+  int32_t count = 0;
   if (!coordinateType0.IsNull()) {
-    index++;
+    count++;
     if (!coordinateType1.IsNull()) {
-      index++;
+      count++;
     }
   }
-
-  switch (access_mode_template) {
-    case AccessModeTemplate::kGet:
-      return index;
-    case AccessModeTemplate::kSet:
-    case AccessModeTemplate::kGetAndUpdate:
-      return index + 1;
-    case AccessModeTemplate::kCompareAndSet:
-    case AccessModeTemplate::kCompareAndExchange:
-      return index + 2;
-  }
-  UNREACHABLE();
+  return count + static_cast<int32_t>(GetNumberOfVarTypeParameters(access_mode_template));
 }
 
 // Writes the parameter types associated with the AccessModeTemplate
@@ -248,6 +255,1195 @@ ObjectArray<Class>* NewArrayOfClasses(Thread* self, int count)
   return ObjectArray<Class>::Alloc(Thread::Current(), array_of_class, count);
 }
 
+// Method to insert a read barrier for accessors to reference fields.
+inline void ReadBarrierForVarHandleAccess(ObjPtr<Object> obj, MemberOffset field_offset)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (kUseReadBarrier) {
+    // We need ensure that the reference stored in the field is a to-space one before attempting
+    // the CompareAndSet/CompareAndExchange/Exchange operation otherwise it will fail incorrectly
+    // if obj is in the process of being moved.
+    uint8_t* raw_field_addr = reinterpret_cast<uint8_t*>(obj.Ptr()) + field_offset.SizeValue();
+    auto field_addr = reinterpret_cast<mirror::HeapReference<mirror::Object>*>(raw_field_addr);
+    // Note that the read barrier load does NOT need to be volatile.
+    static constexpr bool kIsVolatile = false;
+    static constexpr bool kAlwaysUpdateField = true;
+    ReadBarrier::Barrier<mirror::Object, kIsVolatile, kWithReadBarrier, kAlwaysUpdateField>(
+        obj.Ptr(),
+        MemberOffset(field_offset),
+        field_addr);
+  }
+}
+
+//
+// Helper methods for storing results from atomic operations into
+// JValue instances.
+//
+
+inline void StoreResult(uint8_t value, JValue* result) {
+  result->SetZ(value);
+}
+
+inline void StoreResult(int8_t value, JValue* result) {
+  result->SetB(value);
+}
+
+inline void StoreResult(uint16_t value, JValue* result) {
+  result->SetC(value);
+}
+
+inline void StoreResult(int16_t value, JValue* result) {
+  result->SetS(value);
+}
+
+inline void StoreResult(int32_t value, JValue* result) {
+  result->SetI(value);
+}
+
+inline void StoreResult(int64_t value, JValue* result) {
+  result->SetJ(value);
+}
+
+inline void StoreResult(float value, JValue* result) {
+  result->SetF(value);
+}
+
+inline void StoreResult(double value, JValue* result) {
+  result->SetD(value);
+}
+
+inline void StoreResult(ObjPtr<Object> value, JValue* result)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  result->SetL(value);
+}
+
+//
+// Accessor implementations, shared across all VarHandle types.
+//
+
+template <typename T, std::memory_order MO>
+class AtomicGetAccessor : public Object::Accessor<T> {
+ public:
+  explicit AtomicGetAccessor(JValue* result) : result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    StoreResult(atom->load(MO), result_);
+  }
+ private:
+  JValue* result_;
+};
+
+template <typename T, std::memory_order MO>
+class AtomicSetAccessor : public Object::Accessor<T> {
+ public:
+  explicit AtomicSetAccessor(T new_value) : new_value_(new_value) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    atom->store(new_value_, MO);
+  }
+ private:
+  T new_value_;
+};
+
+template <typename T> using GetAccessor = AtomicGetAccessor<T, std::memory_order_relaxed>;
+
+template <typename T> using SetAccessor = AtomicSetAccessor<T, std::memory_order_relaxed>;
+
+template <typename T>
+using GetVolatileAccessor = AtomicGetAccessor<T, std::memory_order_seq_cst>;
+
+template <typename T>
+using SetVolatileAccessor = AtomicSetAccessor<T, std::memory_order_seq_cst>;
+
+template <typename T>
+using GetAcquireAccessor = AtomicGetAccessor<T, std::memory_order_acquire>;
+
+template <typename T>
+using SetReleaseAccessor = AtomicSetAccessor<T, std::memory_order_release>;
+
+template <typename T>
+using GetOpaqueAccessor = AtomicGetAccessor<T, std::memory_order_relaxed>;
+
+template <typename T>
+using SetOpaqueAccessor = AtomicSetAccessor<T, std::memory_order_relaxed>;
+
+template <typename T, std::memory_order MOS, std::memory_order MOF>
+class AtomicStrongCompareAndSetAccessor : public Object::Accessor<T> {
+ public:
+  AtomicStrongCompareAndSetAccessor(T expected_value, T desired_value, JValue* result)
+      : expected_value_(expected_value), desired_value_(desired_value), result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    bool success = atom->compare_exchange_strong(expected_value_, desired_value_, MOS, MOF);
+    StoreResult(static_cast<uint8_t>(success), result_);
+  }
+ private:
+  T expected_value_;
+  T desired_value_;
+  JValue* result_;
+};
+
+template<typename T>
+using CompareAndSetAccessor =
+    AtomicStrongCompareAndSetAccessor<T, std::memory_order_seq_cst, std::memory_order_seq_cst>;
+
+template <typename T, std::memory_order MOS, std::memory_order MOF>
+class AtomicStrongCompareAndExchangeAccessor : public Object::Accessor<T> {
+ public:
+  AtomicStrongCompareAndExchangeAccessor(T expected_value, T desired_value, JValue* result)
+      : expected_value_(expected_value), desired_value_(desired_value), result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    atom->compare_exchange_strong(expected_value_, desired_value_, MOS, MOF);
+    StoreResult(expected_value_, result_);
+  }
+ private:
+  T expected_value_;
+  T desired_value_;
+  JValue* result_;
+};
+
+template <typename T>
+using CompareAndExchangeAccessor =
+    AtomicStrongCompareAndExchangeAccessor<T, std::memory_order_seq_cst, std::memory_order_seq_cst>;
+
+template <typename T>
+using CompareAndExchangeAcquireAccessor =
+    AtomicStrongCompareAndExchangeAccessor<T, std::memory_order_acquire, std::memory_order_acquire>;
+
+template <typename T>
+using CompareAndExchangeReleaseAccessor =
+    AtomicStrongCompareAndExchangeAccessor<T, std::memory_order_release, std::memory_order_relaxed>;
+
+template <typename T, std::memory_order MOS, std::memory_order MOF>
+class AtomicWeakCompareAndSetAccessor : public Object::Accessor<T> {
+ public:
+  AtomicWeakCompareAndSetAccessor(T expected_value, T desired_value, JValue* result)
+      : expected_value_(expected_value), desired_value_(desired_value), result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    bool success = atom->compare_exchange_weak(expected_value_, desired_value_, MOS, MOF);
+    StoreResult(static_cast<uint8_t>(success), result_);
+  }
+ private:
+  T expected_value_;
+  T desired_value_;
+  JValue* result_;
+};
+
+template <typename T>
+using WeakCompareAndSetPlainAccessor =
+    AtomicWeakCompareAndSetAccessor<T, std::memory_order_relaxed, std::memory_order_relaxed>;
+
+template <typename T>
+using WeakCompareAndSetAccessor =
+    AtomicWeakCompareAndSetAccessor<T, std::memory_order_seq_cst, std::memory_order_seq_cst>;
+
+template <typename T>
+using WeakCompareAndSetAcquireAccessor =
+    AtomicWeakCompareAndSetAccessor<T, std::memory_order_acquire, std::memory_order_acquire>;
+
+template <typename T>
+using WeakCompareAndSetReleaseAccessor =
+    AtomicWeakCompareAndSetAccessor<T, std::memory_order_release, std::memory_order_relaxed>;
+
+template <typename T, std::memory_order MO>
+class AtomicGetAndSetAccessor : public Object::Accessor<T> {
+ public:
+  explicit AtomicGetAndSetAccessor(T new_value, JValue* result)
+      : new_value_(new_value), result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    T old_value = atom->exchange(new_value_, MO);
+    StoreResult(old_value, result_);
+  }
+ private:
+  T new_value_;
+  JValue* result_;
+};
+
+template <typename T>
+using GetAndSetAccessor = AtomicGetAndSetAccessor<T, std::memory_order_seq_cst>;
+
+template <typename T>
+using GetAndSetAcquireAccessor = AtomicGetAndSetAccessor<T, std::memory_order_acquire>;
+
+template <typename T>
+using GetAndSetReleaseAccessor = AtomicGetAndSetAccessor<T, std::memory_order_release>;
+
+template <typename T, std::memory_order MO>
+class AtomicGetAndAddAccessor : public Object::Accessor<T> {
+ public:
+  explicit AtomicGetAndAddAccessor(T value, JValue* result)
+      : value_(value), result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    T old_value = atom->fetch_add(value_, MO);
+    StoreResult(old_value, result_);
+  }
+ private:
+  T value_;
+  JValue* result_;
+};
+
+template <typename T>
+using GetAndAddAccessor = AtomicGetAndAddAccessor<T, std::memory_order_seq_cst>;
+
+template <typename T>
+using GetAndAddAcquireAccessor = AtomicGetAndAddAccessor<T, std::memory_order_acquire>;
+
+template <typename T>
+using GetAndAddReleaseAccessor = AtomicGetAndAddAccessor<T, std::memory_order_release>;
+
+template <typename T, std::memory_order MO>
+class AtomicGetAndBitwiseOrAccessor : public Object::Accessor<T> {
+ public:
+  explicit AtomicGetAndBitwiseOrAccessor(T value, JValue* result)
+      : value_(value), result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    T old_value = atom->fetch_or(value_, MO);
+    StoreResult(old_value, result_);
+  }
+ private:
+  T value_;
+  JValue* result_;
+};
+
+template <typename T>
+using GetAndBitwiseOrAccessor = AtomicGetAndBitwiseOrAccessor<T, std::memory_order_seq_cst>;
+
+template <typename T>
+using GetAndBitwiseOrAcquireAccessor = AtomicGetAndBitwiseOrAccessor<T, std::memory_order_acquire>;
+
+template <typename T>
+using GetAndBitwiseOrReleaseAccessor = AtomicGetAndBitwiseOrAccessor<T, std::memory_order_release>;
+
+template <typename T, std::memory_order MO>
+class AtomicGetAndBitwiseAndAccessor : public Object::Accessor<T> {
+ public:
+  explicit AtomicGetAndBitwiseAndAccessor(T value, JValue* result)
+      : value_(value), result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    T old_value = atom->fetch_and(value_, MO);
+    StoreResult(old_value, result_);
+  }
+ private:
+  T value_;
+  JValue* result_;
+};
+
+template <typename T>
+using GetAndBitwiseAndAccessor =
+    AtomicGetAndBitwiseAndAccessor<T, std::memory_order_seq_cst>;
+
+template <typename T>
+using GetAndBitwiseAndAcquireAccessor =
+    AtomicGetAndBitwiseAndAccessor<T, std::memory_order_acquire>;
+
+template <typename T>
+using GetAndBitwiseAndReleaseAccessor =
+    AtomicGetAndBitwiseAndAccessor<T, std::memory_order_release>;
+
+template <typename T, std::memory_order MO>
+class AtomicGetAndBitwiseXorAccessor : public Object::Accessor<T> {
+ public:
+  explicit AtomicGetAndBitwiseXorAccessor(T value, JValue* result)
+      : value_(value), result_(result) {}
+  void Access(T* addr) OVERRIDE {
+    std::atomic<T>* atom = reinterpret_cast<std::atomic<T>*>(addr);
+    T old_value = atom->fetch_xor(value_, MO);
+    StoreResult(old_value, result_);
+  }
+ private:
+  T value_;
+  JValue* result_;
+};
+
+template <typename T>
+using GetAndBitwiseXorAccessor = AtomicGetAndBitwiseXorAccessor<T, std::memory_order_seq_cst>;
+
+template <typename T>
+using GetAndBitwiseXorAcquireAccessor =
+    AtomicGetAndBitwiseXorAccessor<T, std::memory_order_acquire>;
+
+template <typename T>
+using GetAndBitwiseXorReleaseAccessor =
+    AtomicGetAndBitwiseXorAccessor<T, std::memory_order_release>;
+
+//
+// Unreachable access modes.
+//
+
+NO_RETURN void UnreachableAccessMode(const char* access_mode, const char* type_name) {
+  LOG(FATAL) << "Unreachable access mode :" << access_mode << " for type " << type_name;
+  UNREACHABLE();
+}
+
+#define UNREACHABLE_ACCESS_MODE(ACCESS_MODE, TYPE)             \
+template<> void ACCESS_MODE ## Accessor<TYPE>::Access(TYPE*) { \
+  UnreachableAccessMode(#ACCESS_MODE, #TYPE);                  \
+}
+
+UNREACHABLE_ACCESS_MODE(GetAndAdd, float);
+UNREACHABLE_ACCESS_MODE(GetAndAddAcquire, float);
+UNREACHABLE_ACCESS_MODE(GetAndAddRelease, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseOr, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseOrAcquire, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseOrRelease, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseAnd, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseAndAcquire, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseAndRelease, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseXor, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseXorAcquire, float);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseXorRelease, float);
+
+UNREACHABLE_ACCESS_MODE(GetAndAdd, double);
+UNREACHABLE_ACCESS_MODE(GetAndAddAcquire, double);
+UNREACHABLE_ACCESS_MODE(GetAndAddRelease, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseOr, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseOrAcquire, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseOrRelease, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseAnd, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseAndAcquire, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseAndRelease, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseXor, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseXorAcquire, double);
+UNREACHABLE_ACCESS_MODE(GetAndBitwiseXorRelease, double);
+
+// A helper class for object field accesses for floats and
+// doubles. The object interface deals with Field32 and Field64. The
+// former is used for both integers and floats, the latter for longs
+// and doubles. This class provides the necessary coercion.
+template <typename T, typename U>
+class TypeAdaptorAccessor : public Object::Accessor<T> {
+ public:
+  explicit TypeAdaptorAccessor(Object::Accessor<U>* inner_accessor)
+      : inner_accessor_(inner_accessor) {}
+  virtual void Access(T* addr) {
+    static_assert(sizeof(T) == sizeof(U), "bad conversion");
+    inner_accessor_->Access(reinterpret_cast<U*>(addr));
+  }
+ private:
+  Object::Accessor<U>* inner_accessor_;
+};
+
+template <typename T>
+class FieldAccessViaAccessor {
+ public:
+  typedef Object::Accessor<T> Accessor;
+
+  // Apply an Accessor to get a field in an object.
+  static void Get(ObjPtr<Object> obj,
+                  MemberOffset field_offset,
+                  Accessor* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Apply an Accessor to update a field in an object.
+  static void Update(ObjPtr<Object> obj,
+                     MemberOffset field_offset,
+                     Accessor* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+};
+
+template <>
+void FieldAccessViaAccessor<uint8_t>::Get(ObjPtr<Object> obj,
+                                          MemberOffset field_offset,
+                                          Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  obj->GetFieldBooleanViaAccessor(field_offset, accessor);
+}
+
+template <>
+inline void FieldAccessViaAccessor<int8_t>::Get(ObjPtr<Object> obj,
+                                                MemberOffset field_offset,
+                                                Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  obj->GetFieldByteViaAccessor(field_offset, accessor);
+}
+
+template <>
+inline void FieldAccessViaAccessor<uint16_t>::Get(ObjPtr<Object> obj,
+                                                  MemberOffset field_offset,
+                                                  Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  obj->GetFieldCharViaAccessor(field_offset, accessor);
+}
+
+template <>
+inline void FieldAccessViaAccessor<int16_t>::Get(ObjPtr<Object> obj,
+                                                 MemberOffset field_offset,
+                                                 Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  obj->GetFieldShortViaAccessor(field_offset, accessor);
+}
+
+template <>
+inline void FieldAccessViaAccessor<int32_t>::Get(ObjPtr<Object> obj,
+                                                 MemberOffset field_offset,
+                                                 Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  obj->GetField32ViaAccessor(field_offset, accessor);
+}
+
+template <>
+inline void FieldAccessViaAccessor<int64_t>::Get(ObjPtr<Object> obj,
+                                                 MemberOffset field_offset,
+                                                 Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  obj->GetField64ViaAccessor(field_offset, accessor);
+}
+
+template <>
+inline void FieldAccessViaAccessor<float>::Get(ObjPtr<Object> obj,
+                                               MemberOffset field_offset,
+                                               Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  TypeAdaptorAccessor<int32_t, float> float_to_int_accessor(accessor);
+  obj->GetField32ViaAccessor(field_offset, &float_to_int_accessor);
+}
+
+template <>
+inline void FieldAccessViaAccessor<double>::Get(ObjPtr<Object> obj,
+                                                MemberOffset field_offset,
+                                                Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  TypeAdaptorAccessor<int64_t, double> double_to_int_accessor(accessor);
+  obj->GetField64ViaAccessor(field_offset, &double_to_int_accessor);
+}
+
+template <>
+void FieldAccessViaAccessor<uint8_t>::Update(ObjPtr<Object> obj,
+                                             MemberOffset field_offset,
+                                             Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    obj->UpdateFieldBooleanViaAccessor</*kTransactionActive*/true>(field_offset, accessor);
+  } else {
+    obj->UpdateFieldBooleanViaAccessor</*kTransactionActive*/false>(field_offset, accessor);
+  }
+}
+
+template <>
+void FieldAccessViaAccessor<int8_t>::Update(ObjPtr<Object> obj,
+                                            MemberOffset field_offset,
+                                            Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    obj->UpdateFieldByteViaAccessor</*kTransactionActive*/true>(field_offset, accessor);
+  } else {
+    obj->UpdateFieldByteViaAccessor</*kTransactionActive*/false>(field_offset, accessor);
+  }
+}
+
+template <>
+void FieldAccessViaAccessor<uint16_t>::Update(ObjPtr<Object> obj,
+                                              MemberOffset field_offset,
+                                              Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    obj->UpdateFieldCharViaAccessor</*kTransactionActive*/true>(field_offset, accessor);
+  } else {
+    obj->UpdateFieldCharViaAccessor</*kTransactionActive*/false>(field_offset, accessor);
+  }
+}
+
+template <>
+void FieldAccessViaAccessor<int16_t>::Update(ObjPtr<Object> obj,
+                                              MemberOffset field_offset,
+                                              Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    obj->UpdateFieldShortViaAccessor</*kTransactionActive*/true>(field_offset, accessor);
+  } else {
+    obj->UpdateFieldShortViaAccessor</*kTransactionActive*/false>(field_offset, accessor);
+  }
+}
+
+template <>
+void FieldAccessViaAccessor<int32_t>::Update(ObjPtr<Object> obj,
+                                             MemberOffset field_offset,
+                                             Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    obj->UpdateField32ViaAccessor</*kTransactionActive*/true>(field_offset, accessor);
+  } else {
+    obj->UpdateField32ViaAccessor</*kTransactionActive*/false>(field_offset, accessor);
+  }
+}
+
+template <>
+void FieldAccessViaAccessor<int64_t>::Update(ObjPtr<Object> obj,
+                                             MemberOffset field_offset,
+                                             Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    obj->UpdateField64ViaAccessor</*kTransactionActive*/true>(field_offset, accessor);
+  } else {
+    obj->UpdateField64ViaAccessor</*kTransactionActive*/false>(field_offset, accessor);
+  }
+}
+
+template <>
+void FieldAccessViaAccessor<float>::Update(ObjPtr<Object> obj,
+                                           MemberOffset field_offset,
+                                           Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  TypeAdaptorAccessor<int32_t, float> float_to_int_accessor(accessor);
+  if (Runtime::Current()->IsActiveTransaction()) {
+    obj->UpdateField32ViaAccessor</*kTransactionActive*/true>(field_offset,
+                                                               &float_to_int_accessor);
+  } else {
+    obj->UpdateField32ViaAccessor</*kTransactionActive*/false>(field_offset,
+                                                                &float_to_int_accessor);
+  }
+}
+
+template <>
+void FieldAccessViaAccessor<double>::Update(ObjPtr<Object> obj,
+                                            MemberOffset field_offset,
+                                            Accessor* accessor)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  TypeAdaptorAccessor<int64_t, double> double_to_int_accessor(accessor);
+  if (Runtime::Current()->IsActiveTransaction()) {
+    obj->UpdateField64ViaAccessor</*kTransactionActive*/true>(field_offset,
+                                                               &double_to_int_accessor);
+  } else {
+    obj->UpdateField64ViaAccessor</*kTransactionActive*/false>(field_offset,
+                                                                &double_to_int_accessor);
+  }
+}
+
+// Helper class that gets values from a shadow frame with appropriate type coercion.
+template <typename T>
+class ValueGetter {
+ public:
+  static T Get(ShadowFrameGetter* getter) REQUIRES_SHARED(Locks::mutator_lock_);
+};
+
+template <>
+int8_t ValueGetter<int8_t>::Get(ShadowFrameGetter* getter) {
+  uint32_t raw_value = getter->Get();
+  return static_cast<int8_t>(raw_value);
+}
+
+template <>
+uint8_t ValueGetter<uint8_t>::Get(ShadowFrameGetter* getter) {
+  uint32_t raw_value = getter->Get();
+  return static_cast<uint8_t>(raw_value);
+}
+
+template <>
+int16_t ValueGetter<int16_t>::Get(ShadowFrameGetter* getter) {
+  uint32_t raw_value = getter->Get();
+  return static_cast<int16_t>(raw_value);
+}
+
+template <>
+uint16_t ValueGetter<uint16_t>::Get(ShadowFrameGetter* getter) {
+  uint32_t raw_value = getter->Get();
+  return static_cast<uint16_t>(raw_value);
+}
+
+template <>
+int32_t ValueGetter<int32_t>::Get(ShadowFrameGetter* getter) {
+  uint32_t raw_value = getter->Get();
+  return static_cast<int32_t>(raw_value);
+}
+
+template <>
+uint32_t ValueGetter<uint32_t>::Get(ShadowFrameGetter* getter) {
+  return getter->Get();
+}
+
+template <>
+int64_t ValueGetter<int64_t>::Get(ShadowFrameGetter* getter) {
+  return getter->GetLong();
+}
+
+template <>
+float ValueGetter<float>::Get(ShadowFrameGetter* getter) {
+  uint32_t raw_value = getter->Get();
+  return *reinterpret_cast<float*>(&raw_value);
+}
+
+template <>
+double ValueGetter<double>::Get(ShadowFrameGetter* getter) {
+  int64_t raw_value = getter->GetLong();
+  return *reinterpret_cast<double*>(&raw_value);
+}
+
+template <>
+ObjPtr<Object> ValueGetter<ObjPtr<Object>>::Get(ShadowFrameGetter* getter) {
+  return getter->GetReference();
+}
+
+// Class for accessing fields of Object instances
+template <typename T>
+class ObjectAccessor {
+ public:
+  static bool Dispatch(VarHandle::AccessMode access_mode,
+                       ObjPtr<Object> obj,
+                       MemberOffset field_offset,
+                       ShadowFrameGetter* getter,
+                       JValue* result)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+};
+
+// Dispatch implementation for primitive fields.
+template <typename T>
+bool ObjectAccessor<T>::Dispatch(VarHandle::AccessMode access_mode,
+                                 ObjPtr<Object> obj,
+                                 MemberOffset field_offset,
+                                 ShadowFrameGetter* getter,
+                                 JValue* result) {
+  switch (access_mode) {
+    case VarHandle::AccessMode::kGet: {
+      GetAccessor<T> accessor(result);
+      FieldAccessViaAccessor<T>::Get(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kSet: {
+      T new_value = ValueGetter<T>::Get(getter);
+      SetAccessor<T> accessor(new_value);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetVolatile: {
+      GetVolatileAccessor<T> accessor(result);
+      FieldAccessViaAccessor<T>::Get(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kSetVolatile: {
+      T new_value = ValueGetter<T>::Get(getter);
+      SetVolatileAccessor<T> accessor(new_value);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAcquire: {
+      GetAcquireAccessor<T> accessor(result);
+      FieldAccessViaAccessor<T>::Get(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kSetRelease: {
+      T new_value = ValueGetter<T>::Get(getter);
+      SetReleaseAccessor<T> accessor(new_value);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetOpaque: {
+      GetOpaqueAccessor<T> accessor(result);
+      FieldAccessViaAccessor<T>::Get(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kSetOpaque: {
+      T new_value = ValueGetter<T>::Get(getter);
+      SetOpaqueAccessor<T> accessor(new_value);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kCompareAndSet: {
+      T expected_value = ValueGetter<T>::Get(getter);
+      T desired_value = ValueGetter<T>::Get(getter);
+      CompareAndSetAccessor<T> accessor(expected_value, desired_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kCompareAndExchange: {
+      T expected_value = ValueGetter<T>::Get(getter);
+      T desired_value = ValueGetter<T>::Get(getter);
+      CompareAndExchangeAccessor<T> accessor(expected_value, desired_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kCompareAndExchangeAcquire: {
+      T expected_value = ValueGetter<T>::Get(getter);
+      T desired_value = ValueGetter<T>::Get(getter);
+      CompareAndExchangeAcquireAccessor<T> accessor(expected_value, desired_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kCompareAndExchangeRelease: {
+      T expected_value = ValueGetter<T>::Get(getter);
+      T desired_value = ValueGetter<T>::Get(getter);
+      CompareAndExchangeReleaseAccessor<T> accessor(expected_value, desired_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kWeakCompareAndSetPlain: {
+      T expected_value = ValueGetter<T>::Get(getter);
+      T desired_value = ValueGetter<T>::Get(getter);
+      WeakCompareAndSetPlainAccessor<T> accessor(expected_value, desired_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kWeakCompareAndSet: {
+      T expected_value = ValueGetter<T>::Get(getter);
+      T desired_value = ValueGetter<T>::Get(getter);
+      WeakCompareAndSetAccessor<T> accessor(expected_value, desired_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kWeakCompareAndSetAcquire: {
+      T expected_value = ValueGetter<T>::Get(getter);
+      T desired_value = ValueGetter<T>::Get(getter);
+      WeakCompareAndSetAcquireAccessor<T> accessor(expected_value, desired_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kWeakCompareAndSetRelease: {
+      T expected_value = ValueGetter<T>::Get(getter);
+      T desired_value = ValueGetter<T>::Get(getter);
+      WeakCompareAndSetReleaseAccessor<T> accessor(expected_value, desired_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndSet: {
+      T new_value = ValueGetter<T>::Get(getter);
+      GetAndSetAccessor<T> accessor(new_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndSetAcquire: {
+      T new_value = ValueGetter<T>::Get(getter);
+      GetAndSetAcquireAccessor<T> accessor(new_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndSetRelease: {
+      T new_value = ValueGetter<T>::Get(getter);
+      GetAndSetReleaseAccessor<T> accessor(new_value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndAdd: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndAddAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndAddAcquire: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndAddAcquireAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndAddRelease: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndAddReleaseAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseOr: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseOrAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseOrAcquire: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseOrAcquireAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseOrRelease: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseOrReleaseAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseAnd: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseAndAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseAndAcquire: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseAndAcquireAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseAndRelease: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseAndReleaseAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseXor: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseXorAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseXorAcquire: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseXorAcquireAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndBitwiseXorRelease: {
+      T value = ValueGetter<T>::Get(getter);
+      GetAndBitwiseXorReleaseAccessor<T> accessor(value, result);
+      FieldAccessViaAccessor<T>::Update(obj, field_offset, &accessor);
+      break;
+    }
+  }
+  return true;
+}
+
+// Dispatch implementation for reference fields.
+template <>
+bool ObjectAccessor<ObjPtr<Object>>::Dispatch(VarHandle::AccessMode access_mode,
+                                              ObjPtr<Object> obj,
+                                              MemberOffset field_offset,
+                                              ShadowFrameGetter* getter,
+                                              JValue* result)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // To keep things simple, use the minimum strongest existing
+  // field accessor for Object fields. This may be the most
+  // straightforward strategy in general for the interpreter.
+  switch (access_mode) {
+    case VarHandle::AccessMode::kGet: {
+      StoreResult(obj->GetFieldObject<Object>(field_offset), result);
+      break;
+    }
+    case VarHandle::AccessMode::kSet: {
+      ObjPtr<Object> new_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      if (Runtime::Current()->IsActiveTransaction()) {
+        obj->SetFieldObject</*kTransactionActive*/true>(field_offset, new_value);
+      } else {
+        obj->SetFieldObject</*kTransactionActive*/false>(field_offset, new_value);
+      }
+      break;
+    }
+    case VarHandle::AccessMode::kGetAcquire:
+    case VarHandle::AccessMode::kGetOpaque:
+    case VarHandle::AccessMode::kGetVolatile: {
+      StoreResult(obj->GetFieldObjectVolatile<Object>(field_offset), result);
+      break;
+    }
+    case VarHandle::AccessMode::kSetOpaque:
+    case VarHandle::AccessMode::kSetRelease:
+    case VarHandle::AccessMode::kSetVolatile: {
+      ObjPtr<Object> new_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      if (Runtime::Current()->IsActiveTransaction()) {
+        obj->SetFieldObjectVolatile</*kTransactionActive*/true>(field_offset, new_value);
+      } else {
+        obj->SetFieldObjectVolatile</*kTransactionActive*/false>(field_offset, new_value);
+      }
+      break;
+    }
+    case VarHandle::AccessMode::kCompareAndSet: {
+      ReadBarrierForVarHandleAccess(obj, field_offset);
+      ObjPtr<Object> expected_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      ObjPtr<Object> desired_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      bool cas_result;
+      if (Runtime::Current()->IsActiveTransaction()) {
+        cas_result = obj->CasFieldStrongSequentiallyConsistentObject</*kTransactionActive*/true>(
+            field_offset,
+            expected_value,
+            desired_value);
+      } else {
+        cas_result = obj->CasFieldStrongSequentiallyConsistentObject</*kTransactionActive*/false>(
+            field_offset,
+            expected_value,
+            desired_value);
+      }
+      StoreResult(cas_result, result);
+      break;
+    }
+    case VarHandle::AccessMode::kWeakCompareAndSet:
+    case VarHandle::AccessMode::kWeakCompareAndSetAcquire:
+    case VarHandle::AccessMode::kWeakCompareAndSetPlain:
+    case VarHandle::AccessMode::kWeakCompareAndSetRelease: {
+      ReadBarrierForVarHandleAccess(obj, field_offset);
+      ObjPtr<Object> expected_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      ObjPtr<Object> desired_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      bool cas_result;
+      if (Runtime::Current()->IsActiveTransaction()) {
+        cas_result = obj->CasFieldWeakSequentiallyConsistentObject</*kTransactionActive*/true>(
+            field_offset,
+            expected_value,
+            desired_value);
+      } else {
+        cas_result = obj->CasFieldWeakSequentiallyConsistentObject</*kTransactionActive*/false>(
+            field_offset,
+            expected_value,
+            desired_value);
+      }
+      StoreResult(cas_result, result);
+      break;
+    }
+    case VarHandle::AccessMode::kCompareAndExchange:
+    case VarHandle::AccessMode::kCompareAndExchangeAcquire:
+    case VarHandle::AccessMode::kCompareAndExchangeRelease: {
+      ReadBarrierForVarHandleAccess(obj, field_offset);
+      ObjPtr<Object> expected_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      ObjPtr<Object> desired_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      ObjPtr<Object> witness_value;
+      if (Runtime::Current()->IsActiveTransaction()) {
+        witness_value = obj->CompareAndExchangeFieldObject</*kTransactionActive*/true>(
+            field_offset,
+            expected_value,
+            desired_value);
+      } else {
+        witness_value = obj->CompareAndExchangeFieldObject</*kTransactionActive*/false>(
+            field_offset,
+            expected_value,
+            desired_value);
+      }
+      StoreResult(witness_value, result);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndSet:
+    case VarHandle::AccessMode::kGetAndSetAcquire:
+    case VarHandle::AccessMode::kGetAndSetRelease: {
+      ReadBarrierForVarHandleAccess(obj, field_offset);
+      ObjPtr<Object> new_value = ValueGetter<ObjPtr<Object>>::Get(getter);
+      ObjPtr<Object> old_value;
+      if (Runtime::Current()->IsActiveTransaction()) {
+        old_value = obj->ExchangeFieldObject</*kTransactionActive*/true>(field_offset, new_value);
+      } else {
+        old_value = obj->ExchangeFieldObject</*kTransactionActive*/false>(field_offset, new_value);
+      }
+      StoreResult(old_value, result);
+      break;
+    }
+    case VarHandle::AccessMode::kGetAndAdd:
+    case VarHandle::AccessMode::kGetAndAddAcquire:
+    case VarHandle::AccessMode::kGetAndAddRelease:
+    case VarHandle::AccessMode::kGetAndBitwiseOr:
+    case VarHandle::AccessMode::kGetAndBitwiseOrAcquire:
+    case VarHandle::AccessMode::kGetAndBitwiseOrRelease:
+    case VarHandle::AccessMode::kGetAndBitwiseAnd:
+    case VarHandle::AccessMode::kGetAndBitwiseAndAcquire:
+    case VarHandle::AccessMode::kGetAndBitwiseAndRelease:
+    case VarHandle::AccessMode::kGetAndBitwiseXor:
+    case VarHandle::AccessMode::kGetAndBitwiseXorAcquire:
+    case VarHandle::AccessMode::kGetAndBitwiseXorRelease: {
+      size_t index = static_cast<size_t>(access_mode);
+      const char* access_mode_name = kAccessorToAccessMode[index].method_name;
+      UnreachableAccessMode(access_mode_name, "Object");
+    }
+  }
+  return true;
+}
+
+// Class for accessing primitive array elements.
+template <typename T>
+class PrimitiveArrayElementAccessor {
+ public:
+  static T* GetElementAddress(ObjPtr<Array> target_array, int target_element)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    auto primitive_array = ObjPtr<PrimitiveArray<T>>::DownCast(target_array);
+    DCHECK(primitive_array->CheckIsValidIndex(target_element));
+    return &primitive_array->GetData()[target_element];
+  }
+
+  static bool Dispatch(VarHandle::AccessMode access_mode,
+                       ObjPtr<Array> target_array,
+                       int target_element,
+                       ShadowFrameGetter* getter,
+                       JValue* result)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    T* element_address = GetElementAddress(target_array, target_element);
+    switch (access_mode) {
+      case VarHandle::AccessMode::kGet: {
+        GetAccessor<T> accessor(result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kSet: {
+        T new_value = ValueGetter<T>::Get(getter);
+        SetAccessor<T> accessor(new_value);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetVolatile: {
+        GetVolatileAccessor<T> accessor(result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kSetVolatile: {
+        T new_value = ValueGetter<T>::Get(getter);
+        SetVolatileAccessor<T> accessor(new_value);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAcquire: {
+        GetAcquireAccessor<T> accessor(result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kSetRelease: {
+        T new_value = ValueGetter<T>::Get(getter);
+        SetReleaseAccessor<T> accessor(new_value);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetOpaque: {
+        GetOpaqueAccessor<T> accessor(result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kSetOpaque: {
+        T new_value = ValueGetter<T>::Get(getter);
+        SetOpaqueAccessor<T> accessor(new_value);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kCompareAndSet: {
+        T expected_value = ValueGetter<T>::Get(getter);
+        T desired_value = ValueGetter<T>::Get(getter);
+        CompareAndSetAccessor<T> accessor(expected_value, desired_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kCompareAndExchange: {
+        T expected_value = ValueGetter<T>::Get(getter);
+        T desired_value = ValueGetter<T>::Get(getter);
+        CompareAndExchangeAccessor<T> accessor(expected_value, desired_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kCompareAndExchangeAcquire: {
+        T expected_value = ValueGetter<T>::Get(getter);
+        T desired_value = ValueGetter<T>::Get(getter);
+        CompareAndExchangeAcquireAccessor<T> accessor(expected_value, desired_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kCompareAndExchangeRelease: {
+        T expected_value = ValueGetter<T>::Get(getter);
+        T desired_value = ValueGetter<T>::Get(getter);
+        CompareAndExchangeReleaseAccessor<T> accessor(expected_value, desired_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kWeakCompareAndSetPlain: {
+        T expected_value = ValueGetter<T>::Get(getter);
+        T desired_value = ValueGetter<T>::Get(getter);
+        WeakCompareAndSetPlainAccessor<T> accessor(expected_value, desired_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kWeakCompareAndSet: {
+        T expected_value = ValueGetter<T>::Get(getter);
+        T desired_value = ValueGetter<T>::Get(getter);
+        WeakCompareAndSetAccessor<T> accessor(expected_value, desired_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kWeakCompareAndSetAcquire: {
+        T expected_value = ValueGetter<T>::Get(getter);
+        T desired_value = ValueGetter<T>::Get(getter);
+        WeakCompareAndSetAcquireAccessor<T> accessor(expected_value, desired_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kWeakCompareAndSetRelease: {
+        T expected_value = ValueGetter<T>::Get(getter);
+        T desired_value = ValueGetter<T>::Get(getter);
+        WeakCompareAndSetReleaseAccessor<T> accessor(expected_value, desired_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndSet: {
+        T new_value = ValueGetter<T>::Get(getter);
+        GetAndSetAccessor<T> accessor(new_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndSetAcquire: {
+        T new_value = ValueGetter<T>::Get(getter);
+        GetAndSetAcquireAccessor<T> accessor(new_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndSetRelease: {
+        T new_value = ValueGetter<T>::Get(getter);
+        GetAndSetReleaseAccessor<T> accessor(new_value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndAdd: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndAddAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndAddAcquire: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndAddAcquireAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndAddRelease: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndAddReleaseAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseOr: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseOrAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseOrAcquire: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseOrAcquireAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseOrRelease: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseOrReleaseAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseAnd: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseAndAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseAndAcquire: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseAndAcquireAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseAndRelease: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseAndReleaseAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseXor: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseXorAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseXorAcquire: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseXorAcquireAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+      case VarHandle::AccessMode::kGetAndBitwiseXorRelease: {
+        T value = ValueGetter<T>::Get(getter);
+        GetAndBitwiseXorReleaseAccessor<T> accessor(value, result);
+        accessor.Access(element_address);
+        break;
+      }
+    }
+    return true;
+  }
+};
+
 }  // namespace
 
 Class* VarHandle::GetVarType() {
@@ -267,35 +1463,38 @@ int32_t VarHandle::GetAccessModesBitMask() {
 }
 
 bool VarHandle::IsMethodTypeCompatible(AccessMode access_mode, MethodType* method_type) {
-  ScopedAssertNoThreadSuspension ants(__FUNCTION__);
-
+  StackHandleScope<3> hs(Thread::Current());
+  Handle<Class> mt_rtype(hs.NewHandle(method_type->GetRType()));
+  Handle<VarHandle> vh(hs.NewHandle(this));
+  Handle<Class> var_type(hs.NewHandle(vh->GetVarType()));
   AccessModeTemplate access_mode_template = GetAccessModeTemplate(access_mode);
-  // Check return types first.
-  ObjPtr<Class> var_type = GetVarType();
-  ObjPtr<Class> vh_rtype = GetReturnType(access_mode_template, var_type);
-  ObjPtr<Class> void_type = Runtime::Current()->GetClassLinker()->FindPrimitiveClass('V');
-  ObjPtr<Class> mt_rtype = method_type->GetRType();
 
-  // If the mt_rtype is void, the result of the operation will be discarded (okay).
-  if (mt_rtype != void_type && mt_rtype != vh_rtype) {
-    return false;
+  // Check return type first.
+  if (mt_rtype->GetPrimitiveType() == Primitive::Type::kPrimVoid) {
+    // The result of the operation will be discarded. The return type
+    // of the VarHandle is immaterial.
+  } else {
+    ObjPtr<Class> vh_rtype(GetReturnType(access_mode_template, var_type.Get()));
+    if (!IsReturnTypeConvertible(vh_rtype, mt_rtype.Get())) {
+      return false;
+    }
   }
 
   // Check the number of parameters matches.
   ObjPtr<Class> vh_ptypes[VarHandle::kMaxAccessorParameters];
   const int32_t vh_ptypes_count = BuildParameterArray(vh_ptypes,
                                                       access_mode_template,
-                                                      var_type,
+                                                      var_type.Get(),
                                                       GetCoordinateType0(),
                                                       GetCoordinateType1());
   if (vh_ptypes_count != method_type->GetPTypes()->GetLength()) {
     return false;
   }
 
-  // Check the parameter types match.
+  // Check the parameter types are compatible.
   ObjPtr<ObjectArray<Class>> mt_ptypes = method_type->GetPTypes();
   for (int32_t i = 0; i < vh_ptypes_count; ++i) {
-    if (mt_ptypes->Get(i) != vh_ptypes[i].Ptr()) {
+    if (!IsParameterTypeConvertible(mt_ptypes->Get(i), vh_ptypes[i])) {
       return false;
     }
   }
@@ -334,6 +1533,44 @@ MethodType* VarHandle::GetMethodTypeForAccessMode(Thread* self, AccessMode acces
   return GetMethodTypeForAccessMode(self, this, access_mode);
 }
 
+size_t VarHandle::GetNumberOfCoordinateTypes() {
+  if (GetCoordinateType0() == nullptr) {
+    DCHECK(GetClass() == FieldVarHandle::StaticClass());
+    return 0u;
+  }
+  if (GetCoordinateType1() == nullptr) {
+    DCHECK(GetClass() == FieldVarHandle::StaticClass());
+    return 1u;
+  }
+  DCHECK(GetClass() == ArrayElementVarHandle::StaticClass() ||
+         GetClass() == ByteArrayViewVarHandle::StaticClass() ||
+         GetClass() == ByteBufferViewVarHandle::StaticClass());
+  return 2u;
+}
+
+bool VarHandle::Access(AccessMode access_mode,
+                       ShadowFrame* shadow_frame,
+                       InstructionOperands* operands,
+                       JValue* result) {
+  Class* klass = GetClass();
+  if (klass == FieldVarHandle::StaticClass()) {
+    auto vh = reinterpret_cast<FieldVarHandle*>(this);
+    return vh->Access(access_mode, shadow_frame, operands, result);
+  } else if (klass == ArrayElementVarHandle::StaticClass()) {
+    auto vh = reinterpret_cast<ArrayElementVarHandle*>(this);
+    return vh->Access(access_mode, shadow_frame, operands, result);
+  } else if (klass == ByteArrayViewVarHandle::StaticClass()) {
+    auto vh = reinterpret_cast<ByteArrayViewVarHandle*>(this);
+    return vh->Access(access_mode, shadow_frame, operands, result);
+  } else if (klass == ByteBufferViewVarHandle::StaticClass()) {
+    auto vh = reinterpret_cast<ByteBufferViewVarHandle*>(this);
+    return vh->Access(access_mode, shadow_frame, operands, result);
+  } else {
+    LOG(FATAL) << "Unknown varhandle kind";
+    UNREACHABLE();
+  }
+}
+
 const char* VarHandle::GetReturnTypeDescriptor(const char* accessor_name) {
   AccessMode access_mode;
   if (!GetAccessModeByMethodName(accessor_name, &access_mode)) {
@@ -369,6 +1606,10 @@ bool VarHandle::GetAccessModeByMethodName(const char* method_name, AccessMode* a
   return true;
 }
 
+Class* VarHandle::StaticClass() REQUIRES_SHARED(Locks::mutator_lock_) {
+  return static_class_.Read();
+}
+
 void VarHandle::SetClass(Class* klass) {
   CHECK(static_class_.IsNull()) << static_class_.Read() << " " << klass;
   CHECK(klass != nullptr);
@@ -391,6 +1632,51 @@ ArtField* FieldVarHandle::GetField() {
   return reinterpret_cast<ArtField*>(opaque_field);
 }
 
+bool FieldVarHandle::Access(AccessMode access_mode,
+                            ShadowFrame* shadow_frame,
+                            InstructionOperands* operands,
+                            JValue* result) {
+  ShadowFrameGetter getter(*shadow_frame, operands);
+  ArtField* field = GetField();
+  ObjPtr<Object> ct0;
+  if (field->IsStatic()) {
+    DCHECK_LE(operands->GetNumberOfOperands(), 2u);
+    ct0 = field->GetDeclaringClass();
+  } else {
+    DCHECK_GE(operands->GetNumberOfOperands(), 1u);
+    DCHECK_LE(operands->GetNumberOfOperands(), 3u);
+    ct0 = getter.GetReference();
+  }
+  DCHECK(!ct0.IsNull());
+
+  const MemberOffset offset = field->GetOffset();
+  const Primitive::Type primitive_type = GetVarType()->GetPrimitiveType();
+  switch (primitive_type) {
+    case Primitive::Type::kPrimNot:
+      return ObjectAccessor<ObjPtr<Object>>::Dispatch(access_mode, ct0, offset, &getter, result);
+    case Primitive::kPrimBoolean:
+      return ObjectAccessor<uint8_t>::Dispatch(access_mode, ct0, offset, &getter, result);
+    case Primitive::kPrimByte:
+      return ObjectAccessor<int8_t>::Dispatch(access_mode, ct0, offset, &getter, result);
+    case Primitive::kPrimChar:
+      return ObjectAccessor<uint16_t>::Dispatch(access_mode, ct0, offset, &getter, result);
+    case Primitive::kPrimShort:
+      return ObjectAccessor<int16_t>::Dispatch(access_mode, ct0, offset, &getter, result);
+    case Primitive::kPrimInt:
+      return ObjectAccessor<int32_t>::Dispatch(access_mode, ct0, offset, &getter, result);
+    case Primitive::kPrimFloat:
+      return ObjectAccessor<float>::Dispatch(access_mode,  ct0, offset, &getter, result);
+    case Primitive::kPrimLong:
+      return ObjectAccessor<int64_t>::Dispatch(access_mode, ct0, offset, &getter, result);
+    case Primitive::kPrimDouble:
+      return ObjectAccessor<double>::Dispatch(access_mode, ct0, offset, &getter, result);
+    case Primitive::kPrimVoid:
+      break;
+  }
+  LOG(FATAL) << "Unreachable: Unexpected primitive " << primitive_type;
+  UNREACHABLE();
+}
+
 Class* FieldVarHandle::StaticClass() REQUIRES_SHARED(Locks::mutator_lock_) {
   return static_class_.Read();
 }
@@ -411,6 +1697,95 @@ void FieldVarHandle::VisitRoots(RootVisitor* visitor) {
 }
 
 GcRoot<Class> FieldVarHandle::static_class_;
+
+bool ArrayElementVarHandle::Access(AccessMode access_mode,
+                                   ShadowFrame* shadow_frame,
+                                   InstructionOperands* operands,
+                                   JValue* result) {
+  ShadowFrameGetter getter(*shadow_frame, operands);
+
+  DCHECK_GE(operands->GetNumberOfOperands(), 2u);
+  DCHECK_GE(operands->GetNumberOfOperands(), 4u);
+
+  // The target array is the first co-ordinate type preceeding var type arguments.
+  ObjPtr<Array> target_array(getter.GetReference()->AsArray());
+  if (target_array == nullptr) {
+    ThrowNullPointerException("target array is null");
+    return false;
+  }
+
+  // The target array element is the second co-ordinate type preceeding var type arguments.
+  const int target_element = getter.Get();
+  if (!target_array->CheckIsValidIndex(target_element)) {
+    DCHECK(Thread::Current()->IsExceptionPending());
+    return false;
+  }
+
+  const Primitive::Type primitive_type = GetVarType()->GetPrimitiveType();
+  switch (primitive_type) {
+    case Primitive::Type::kPrimNot: {
+      MemberOffset target_element_offset =
+          target_array->AsObjectArray<Object>()->OffsetOfElement(target_element);
+      return ObjectAccessor<ObjPtr<Object>>::Dispatch(access_mode,
+                                                      target_array,
+                                                      target_element_offset,
+                                                      &getter,
+                                                      result);
+    }
+    case Primitive::Type::kPrimBoolean:
+      return PrimitiveArrayElementAccessor<uint8_t>::Dispatch(access_mode,
+                                                              target_array,
+                                                              target_element,
+                                                              &getter,
+                                                              result);
+    case Primitive::Type::kPrimByte:
+      return PrimitiveArrayElementAccessor<int8_t>::Dispatch(access_mode,
+                                                             target_array,
+                                                             target_element,
+                                                             &getter,
+                                                             result);
+    case Primitive::Type::kPrimChar:
+      return PrimitiveArrayElementAccessor<uint16_t>::Dispatch(access_mode,
+                                                               target_array,
+                                                               target_element,
+                                                               &getter,
+                                                               result);
+    case Primitive::Type::kPrimShort:
+      return PrimitiveArrayElementAccessor<int16_t>::Dispatch(access_mode,
+                                                              target_array,
+                                                              target_element,
+                                                              &getter,
+                                                              result);
+    case Primitive::Type::kPrimInt:
+      return PrimitiveArrayElementAccessor<int32_t>::Dispatch(access_mode,
+                                                              target_array,
+                                                              target_element,
+                                                              &getter,
+                                                              result);
+    case Primitive::Type::kPrimLong:
+      return PrimitiveArrayElementAccessor<int64_t>::Dispatch(access_mode,
+                                                              target_array,
+                                                              target_element,
+                                                              &getter,
+                                                              result);
+    case Primitive::Type::kPrimFloat:
+      return PrimitiveArrayElementAccessor<float>::Dispatch(access_mode,
+                                                            target_array,
+                                                            target_element,
+                                                            &getter,
+                                                            result);
+    case Primitive::Type::kPrimDouble:
+      return PrimitiveArrayElementAccessor<double>::Dispatch(access_mode,
+                                                             target_array,
+                                                             target_element,
+                                                             &getter,
+                                                             result);
+    case Primitive::Type::kPrimVoid:
+      break;
+  }
+  LOG(FATAL) << "Unreachable: Unexpected primitive " << primitive_type;
+  UNREACHABLE();
+}
 
 Class* ArrayElementVarHandle::StaticClass() REQUIRES_SHARED(Locks::mutator_lock_) {
   return static_class_.Read();
@@ -437,6 +1812,14 @@ bool ByteArrayViewVarHandle::GetNativeByteOrder() {
   return GetFieldBoolean(NativeByteOrderOffset());
 }
 
+bool ByteArrayViewVarHandle::Access(AccessMode access_mode ATTRIBUTE_UNUSED,
+                                    ShadowFrame* shadow_frame ATTRIBUTE_UNUSED,
+                                    InstructionOperands* operands ATTRIBUTE_UNUSED,
+                                    JValue* result ATTRIBUTE_UNUSED) {
+  UNIMPLEMENTED(FATAL) << "TODO(oth): b/65872996";
+  return false;
+}
+
 Class* ByteArrayViewVarHandle::StaticClass() REQUIRES_SHARED(Locks::mutator_lock_) {
   return static_class_.Read();
 }
@@ -460,6 +1843,14 @@ GcRoot<Class> ByteArrayViewVarHandle::static_class_;
 
 bool ByteBufferViewVarHandle::GetNativeByteOrder() {
   return GetFieldBoolean(NativeByteOrderOffset());
+}
+
+bool ByteBufferViewVarHandle::Access(AccessMode access_mode ATTRIBUTE_UNUSED,
+                                     ShadowFrame* shadow_frame ATTRIBUTE_UNUSED,
+                                     InstructionOperands* operands ATTRIBUTE_UNUSED,
+                                     JValue* result ATTRIBUTE_UNUSED) {
+  UNIMPLEMENTED(FATAL) << "TODO(oth): b/65872996";
+  return false;
 }
 
 Class* ByteBufferViewVarHandle::StaticClass() REQUIRES_SHARED(Locks::mutator_lock_) {

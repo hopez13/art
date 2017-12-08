@@ -347,6 +347,21 @@ class MANAGED LOCKABLE Object {
                                                                      ObjPtr<Object> old_value,
                                                                      ObjPtr<Object> new_value)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<bool kTransactionActive,
+           bool kCheckTransaction = true,
+           VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  ObjPtr<Object> CompareAndExchangeFieldObject(MemberOffset field_offset,
+                                               ObjPtr<Object> old_value,
+                                               ObjPtr<Object> new_value)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<bool kTransactionActive,
+           bool kCheckTransaction = true,
+           VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  ObjPtr<Object> ExchangeFieldObject(MemberOffset field_offset, ObjPtr<Object> new_value)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   template<bool kTransactionActive,
            bool kCheckTransaction = true,
            VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
@@ -592,6 +607,58 @@ class MANAGED LOCKABLE Object {
           field_offset, reinterpret_cast64<int64_t>(new_value));
     }
   }
+
+  // Generic field accessors allowing wider range of memory model options.
+  template <class V>
+  class Accessor {
+   public:
+    virtual ~Accessor() {}
+    virtual void Access(V* addr) = 0;
+  };
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void GetFieldBooleanViaAccessor(MemberOffset field_offset, Accessor<uint8_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void GetFieldByteViaAccessor(MemberOffset field_offset, Accessor<int8_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void GetFieldCharViaAccessor(MemberOffset field_offset, Accessor<uint16_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void GetFieldShortViaAccessor(MemberOffset field_offset, Accessor<int16_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void GetField32ViaAccessor(MemberOffset field_offset, Accessor<int32_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void GetField64ViaAccessor(MemberOffset field_offset, Accessor<int64_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<bool kTransactionActive, bool kCheckTransaction = true,
+      VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void UpdateFieldBooleanViaAccessor(MemberOffset field_offset, Accessor<uint8_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<bool kTransactionActive, bool kCheckTransaction = true,
+      VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void UpdateFieldByteViaAccessor(MemberOffset field_offset, Accessor<int8_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<bool kTransactionActive, bool kCheckTransaction = true,
+      VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void UpdateFieldCharViaAccessor(MemberOffset field_offset, Accessor<uint16_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<bool kTransactionActive, bool kCheckTransaction = true,
+      VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void UpdateFieldShortViaAccessor(MemberOffset field_offset, Accessor<int16_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<bool kTransactionActive, bool kCheckTransaction = true,
+      VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void UpdateField32ViaAccessor(MemberOffset field_offset, Accessor<int32_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<bool kTransactionActive, bool kCheckTransaction = true,
+      VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  void UpdateField64ViaAccessor(MemberOffset field_offset, Accessor<int64_t>* accessor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // TODO fix thread safety analysis broken by the use of template. This should be
   // REQUIRES_SHARED(Locks::mutator_lock_).
   template <bool kVisitNativeRoots = true,
