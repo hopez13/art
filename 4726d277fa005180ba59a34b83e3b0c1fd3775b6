@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4892e499_7b10392c",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-08T03:38:13Z",
+      "side": 1,
+      "message": "I didn\u0027t consider the need for being explicit here when weighing the tradeoff vs the \"\u003c\u003c\"-version complexity overhead, which would be in the same scope and thus directly \"inherit\" the locks. Should I reconsider and rewrite?",
+      "range": {
+        "startLine": 166,
+        "startChar": 20,
+        "endLine": 166,
+        "endChar": 63
+      },
+      "revId": "4726d277fa005180ba59a34b83e3b0c1fd3775b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
