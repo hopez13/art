@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da1aa0d6_794066b8",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-08T11:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "119b5649_3bd226be",
+      "range": {
+        "startLine": 683,
+        "startChar": 23,
+        "endLine": 686,
+        "endChar": 36
+      },
+      "revId": "7c6542a91988aa576a60abb9234dd550be09bf32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9b7cd05d_af4cd465",
         "filename": "dexlayout/dex_ir.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-07T19:38:06Z",
       "side": 1,
       "message": "Don\u0027t need the \u0026\u0026 here.",
+      "range": {
+        "startLine": 1016,
+        "startChar": 7,
+        "endLine": 1019,
+        "endChar": 47
+      },
+      "revId": "7c6542a91988aa576a60abb9234dd550be09bf32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fa74aaa_9c4b06e4",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-08T11:36:10Z",
+      "side": 1,
+      "message": "Done (Though I\u0027m wondering whether that will make the code perform 2 moves; hopefully the compiler can optimize one away.)",
+      "parentUuid": "9b7cd05d_af4cd465",
       "range": {
         "startLine": 1016,
         "startChar": 7,
