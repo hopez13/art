@@ -289,7 +289,7 @@ bool ConvertJValueCommon(
     }
 
     if (UNLIKELY(!ConvertPrimitiveValueNoThrow(unboxed_type, to_type, unboxed_value, value))) {
-      ThrowClassCastException(from, to);
+      ThrowWrongMethodTypeException(callee_type.Get(), callsite_type.Get());
       return false;
     }
 
@@ -339,7 +339,7 @@ inline bool ConvertAndCopyArgumentsFromCallerFrame(
     return false;
   }
 
-  ShadowFrameGetter getter(operands, caller_frame);
+  ShadowFrameGetter getter(caller_frame, operands);
   ShadowFrameSetter setter(callee_frame, first_dest_reg);
   return PerformConversions<ShadowFrameGetter, ShadowFrameSetter>(self,
                                                                   callsite_type,
