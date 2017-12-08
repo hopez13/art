@@ -20,6 +20,7 @@
 
 #include "gtest/gtest.h"
 
+#include "jdwp_provider.h"
 #include "experimental_flags.h"
 #include "parsed_options.h"
 #include "runtime.h"
@@ -364,48 +365,29 @@ TEST_F(CmdlineParserTest, DISABLED_TestXGcOption) {
 }  // TEST_F
 
 /*
- * {"-Xrunjdwp:_", "-agentlib:jdwp=_"}
+ * { "-XjdwpProvider:_" }
  */
-TEST_F(CmdlineParserTest, TestJdwpOptions) {
-  /*
-   * Test success
-   */
+TEST_F(CmdlineParserTest, TestJdwpProvider) {
   {
-    /*
-     * "Example: -Xrunjdwp:transport=dt_socket,address=8000,server=y\n"
-     */
-    JDWP::JdwpOptions opt = JDWP::JdwpOptions();
-    opt.transport = JDWP::JdwpTransportType::kJdwpTransportSocket;
-    opt.port = 8000;
-    opt.server = true;
-
-    const char *opt_args = "-Xrunjdwp:transport=dt_socket,address=8000,server=y";
-
-    EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpOptions);
+    JdwpProvider opt;
+    EXPECT_SINGLE_PARSE_DEFAULT_VALUE(opt, "", M::JdwpProvider);
   }
-
   {
-    /*
-     * "Example: -agentlib:jdwp=transport=dt_socket,address=localhost:6500,server=n\n");
-     */
-    JDWP::JdwpOptions opt = JDWP::JdwpOptions();
-    opt.transport = JDWP::JdwpTransportType::kJdwpTransportSocket;
-    opt.host = "localhost";
-    opt.port = 6500;
-    opt.server = false;
-
-    const char *opt_args = "-agentlib:jdwp=transport=dt_socket,address=localhost:6500,server=n";
-
-    EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpOptions);
+    JdwpProvider opt;
+    const char* opt_args = "-XjdwpProvider:default";
+    EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
   }
-
-  /*
-   * Test failures
-   */
-  EXPECT_SINGLE_PARSE_FAIL("-Xrunjdwp:help", CmdlineResult::kUsage);  // usage for help only
-  EXPECT_SINGLE_PARSE_FAIL("-Xrunjdwp:blabla", CmdlineResult::kFailure);  // invalid subarg
-  EXPECT_SINGLE_PARSE_FAIL("-agentlib:jdwp=help", CmdlineResult::kUsage);  // usage for help only
-  EXPECT_SINGLE_PARSE_FAIL("-agentlib:jdwp=blabla", CmdlineResult::kFailure);  // invalid subarg
+  {
+    JdwpProvider opt;
+    const char* opt_args = "-XjdwpProvider:internal";
+    EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
+  }
+  {
+    JdwpProvider opt("libjdwp.so");
+    const char* opt_args = "-XjdwpProvider:libjdwp.so";
+    EXPECT_SINGLE_PARSE_VALUE(opt, opt_args, M::JdwpProvider);
+  }
+  EXPECT_SINGLE_PARSE_FAIL("-XjdwpProvider:help", CmdlineResult::kUsage);
 }  // TEST_F
 
 /*
