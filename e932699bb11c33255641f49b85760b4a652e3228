@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fe3bd0d_b7721a3f",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-08T17:03:09Z",
+      "side": 1,
+      "message": "very nitty: remove line, if it is a single item, I usually attach the comment directly",
+      "revId": "e932699bb11c33255641f49b85760b4a652e3228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f28856_fa7118ea",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-08T17:03:09Z",
+      "side": 1,
+      "message": "indentation, move to beginning of line",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 2
+      },
+      "revId": "e932699bb11c33255641f49b85760b4a652e3228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52b06bcc_8b896a8d",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-08T17:03:09Z",
+      "side": 1,
+      "message": "I guess you based this on some experimentation with running the new code, because as a very first wild guess I would expect that the finally code alone determines if something may follow (or does javac complain about try code that cannot throw at all and has no may follow?",
+      "revId": "e932699bb11c33255641f49b85760b4a652e3228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
