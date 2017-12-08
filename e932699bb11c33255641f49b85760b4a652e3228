@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3a7c4b5f_c534e7dd",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-08T17:42:36Z",
+      "side": 1,
+      "message": "Ah, but I meant that there are many operator variables (thus line) but only one exception array (thus no line). But yes, it was very nit picky :-)",
+      "parentUuid": "b6683500_0a861dfd",
+      "revId": "e932699bb11c33255641f49b85760b4a652e3228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a6f28856_fa7118ea",
         "filename": "tools/jfuzz/jfuzz.cc",
         "patchSetId": 5
