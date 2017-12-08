@@ -173,7 +173,7 @@ bool JitCompiler::CompileMethod(Thread* self, ArtMethod* method, bool osr) {
   // Do the compilation.
   bool success = false;
   {
-    TimingLogger::ScopedTiming t2("Compiling", &logger);
+    TimingLogger::ScopedTiming t2(("Compiling " + method->PrettyMethod()).c_str(), &logger);
     JitCodeCache* const code_cache = runtime->GetJit()->GetCodeCache();
     success = compiler_driver_->GetCompiler()->JitCompile(
         self, code_cache, method, osr, jit_logger_.get());
