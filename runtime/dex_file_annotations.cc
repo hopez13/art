@@ -458,7 +458,7 @@ bool ProcessAnnotationValue(const ClassData& klass,
       } else {
         StackHandleScope<1> hs(self);
         element_object = Runtime::Current()->GetClassLinker()->ResolveString(
-            klass.GetDexFile(), dex::StringIndex(index), hs.NewHandle(klass.GetDexCache()));
+            dex::StringIndex(index), hs.NewHandle(klass.GetDexCache()));
         set_object = true;
         if (element_object == nullptr) {
           return false;
