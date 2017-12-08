@@ -31,6 +31,7 @@
 #include "mirror/class.h"
 #include "mirror/emulated_stack_frame.h"
 #include "mirror/method_handle_impl-inl.h"
+#include "mirror/var_handle.h"
 #include "reflection-inl.h"
 #include "reflection.h"
 #include "stack.h"
@@ -723,14 +724,104 @@ bool DoMethodHandleInvoke(Thread* self,
   }
 }
 
-static bool UnimplementedSignaturePolymorphicMethod(Thread* self ATTRIBUTE_UNUSED,
-                                                    ShadowFrame& shadow_frame ATTRIBUTE_UNUSED,
-                                                    const Instruction* inst ATTRIBUTE_UNUSED,
-                                                    uint16_t inst_data ATTRIBUTE_UNUSED,
-                                                    JValue* result ATTRIBUTE_UNUSED)
+static bool DoVarHandleInvokeChecked(Thread* self,
+                                     Handle<mirror::VarHandle> var_handle,
+                                     Handle<mirror::MethodType> callsite_type,
+                                     mirror::VarHandle::AccessMode access_mode,
+                                     ShadowFrame& shadow_frame,
+                                     InstructionOperands* operands,
+                                     JValue* result)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  UNIMPLEMENTED(FATAL) << "TODO(oth): b/65872996";
-  return false;
+  // TODO(oth): GetMethodTypeForAccessMode() allocates a MethodType()
+  // which is only required if we need to convert argument and/or
+  // return types.
+  StackHandleScope<1> hs(self);
+  Handle<mirror::MethodType> accessor_type(hs.NewHandle(
+      var_handle->GetMethodTypeForAccessMode(self, access_mode)));
+  const size_t num_vregs = accessor_type->NumberOfVRegs();
+  const int num_params = accessor_type->GetPTypes()->GetLength();
+  ShadowFrameAllocaUniquePtr accessor_frame =
+      CREATE_SHADOW_FRAME(num_vregs, nullptr, shadow_frame.GetMethod(), shadow_frame.GetDexPC());
+  ShadowFrameGetter getter(operands, shadow_frame);
+  static const uint32_t kFirstDestinationReg = 0;
+  ShadowFrameSetter setter(accessor_frame.get(), kFirstDestinationReg);
+  if (!PerformConversions(self, callsite_type, accessor_type, &getter, &setter, num_params)) {
+    return false;
+  }
+  RangeInstructionOperands accessor_operands(kFirstDestinationReg,
+                                             kFirstDestinationReg + num_vregs);
+  if (!var_handle->Access(access_mode, accessor_frame.get(), &accessor_operands, result)) {
+    return false;
+  }
+  return ConvertReturnValue(callsite_type, accessor_type, result);
+}
+
+static bool DoVarHandleInvokeCommon(Thread* self,
+                                    ShadowFrame& shadow_frame,
+                                    const Instruction* inst,
+                                    uint16_t inst_data,
+                                    JValue* result,
+                                    mirror::VarHandle::AccessMode access_mode)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // Make sure to check for async exceptions
+  if (UNLIKELY(self->ObserveAsyncException())) {
+    return false;
+  }
+
+  bool is_var_args = inst->HasVarArgs();
+  const uint32_t vRegC = is_var_args ? inst->VRegC_45cc() : inst->VRegC_4rcc();
+  ObjPtr<mirror::Object> receiver(shadow_frame.GetVRegReference(vRegC));
+  if (receiver.IsNull()) {
+    ThrowNullPointerExceptionFromDexPC();
+    return false;
+  }
+
+  StackHandleScope<2> hs(self);
+  Handle<mirror::VarHandle> var_handle(hs.NewHandle(down_cast<mirror::VarHandle*>(receiver.Ptr())));
+  if (!var_handle->IsAccessModeSupported(access_mode)) {
+    ThrowUnsupportedOperationException();
+    return false;
+  }
+
+  const uint32_t vRegH = is_var_args ? inst->VRegH_45cc() : inst->VRegH_4rcc();
+  ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+  Handle<mirror::MethodType> callsite_type(hs.NewHandle(
+      class_linker->ResolveMethodType(self, vRegH, shadow_frame.GetMethod())));
+  // This implies we couldn't resolve one or more types in this VarHandle.
+  if (UNLIKELY(callsite_type == nullptr)) {
+    CHECK(self->IsExceptionPending());
+    return false;
+  }
+
+  if (!var_handle->IsMethodTypeCompatible(access_mode, callsite_type.Get())) {
+    ThrowWrongMethodTypeException(var_handle->GetMethodTypeForAccessMode(self, access_mode),
+                                  callsite_type.Get());
+    return false;
+  }
+
+  if (is_var_args) {
+    uint32_t args[Instruction::kMaxVarArgRegs];
+    inst->GetVarArgs(args, inst_data);
+    VarArgsInstructionOperands all_operands(args, inst->VRegA_45cc());
+    NoReceiverInstructionOperands operands(&all_operands);
+    return DoVarHandleInvokeChecked(self,
+                                    var_handle,
+                                    callsite_type,
+                                    access_mode,
+                                    shadow_frame,
+                                    &operands,
+                                    result);
+  } else {
+    RangeInstructionOperands all_operands(inst->VRegC_3rc(), inst->VRegA_3rc());
+    NoReceiverInstructionOperands operands(&all_operands);
+    return DoVarHandleInvokeChecked(self,
+                                    var_handle,
+                                    callsite_type,
+                                    access_mode,
+                                    shadow_frame,
+                                    &operands,
+                                    result);
+  }
 }
 
 bool DoVarHandleCompareAndExchange(Thread* self,
@@ -738,7 +829,8 @@ bool DoVarHandleCompareAndExchange(Thread* self,
                                    const Instruction* inst,
                                    uint16_t inst_data,
                                    JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kCompareAndExchange;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleCompareAndExchangeAcquire(Thread* self,
@@ -746,7 +838,8 @@ bool DoVarHandleCompareAndExchangeAcquire(Thread* self,
                                           const Instruction* inst,
                                           uint16_t inst_data,
                                           JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kCompareAndExchangeAcquire;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleCompareAndExchangeRelease(Thread* self,
@@ -754,7 +847,8 @@ bool DoVarHandleCompareAndExchangeRelease(Thread* self,
                                           const Instruction* inst,
                                           uint16_t inst_data,
                                           JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kCompareAndExchangeRelease;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleCompareAndSet(Thread* self,
@@ -762,7 +856,8 @@ bool DoVarHandleCompareAndSet(Thread* self,
                               const Instruction* inst,
                               uint16_t inst_data,
                               JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kCompareAndSet;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGet(Thread* self,
@@ -770,7 +865,8 @@ bool DoVarHandleGet(Thread* self,
                     const Instruction* inst,
                     uint16_t inst_data,
                     JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGet;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAcquire(Thread* self,
@@ -778,7 +874,8 @@ bool DoVarHandleGetAcquire(Thread* self,
                            const Instruction* inst,
                            uint16_t inst_data,
                            JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAcquire;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndAdd(Thread* self,
@@ -786,7 +883,8 @@ bool DoVarHandleGetAndAdd(Thread* self,
                           const Instruction* inst,
                           uint16_t inst_data,
                           JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndAdd;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndAddAcquire(Thread* self,
@@ -794,7 +892,8 @@ bool DoVarHandleGetAndAddAcquire(Thread* self,
                                  const Instruction* inst,
                                  uint16_t inst_data,
                                  JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndAddAcquire;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndAddRelease(Thread* self,
@@ -802,7 +901,8 @@ bool DoVarHandleGetAndAddRelease(Thread* self,
                                  const Instruction* inst,
                                  uint16_t inst_data,
                                  JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndAddRelease;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseAnd(Thread* self,
@@ -810,7 +910,8 @@ bool DoVarHandleGetAndBitwiseAnd(Thread* self,
                                  const Instruction* inst,
                                  uint16_t inst_data,
                                  JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseAnd;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseAndAcquire(Thread* self,
@@ -818,7 +919,8 @@ bool DoVarHandleGetAndBitwiseAndAcquire(Thread* self,
                                         const Instruction* inst,
                                         uint16_t inst_data,
                                         JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseAndAcquire;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseAndRelease(Thread* self,
@@ -826,7 +928,8 @@ bool DoVarHandleGetAndBitwiseAndRelease(Thread* self,
                                         const Instruction* inst,
                                         uint16_t inst_data,
                                         JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseAndRelease;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseOr(Thread* self,
@@ -834,7 +937,8 @@ bool DoVarHandleGetAndBitwiseOr(Thread* self,
                                 const Instruction* inst,
                                 uint16_t inst_data,
                                 JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseOr;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseOrAcquire(Thread* self,
@@ -842,7 +946,8 @@ bool DoVarHandleGetAndBitwiseOrAcquire(Thread* self,
                                        const Instruction* inst,
                                        uint16_t inst_data,
                                        JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseOrAcquire;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseOrRelease(Thread* self,
@@ -850,7 +955,8 @@ bool DoVarHandleGetAndBitwiseOrRelease(Thread* self,
                                        const Instruction* inst,
                                        uint16_t inst_data,
                                        JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseOrRelease;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseXor(Thread* self,
@@ -858,7 +964,8 @@ bool DoVarHandleGetAndBitwiseXor(Thread* self,
                                  const Instruction* inst,
                                  uint16_t inst_data,
                                  JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseXor;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseXorAcquire(Thread* self,
@@ -866,7 +973,8 @@ bool DoVarHandleGetAndBitwiseXorAcquire(Thread* self,
                                         const Instruction* inst,
                                         uint16_t inst_data,
                                         JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseXorAcquire;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndBitwiseXorRelease(Thread* self,
@@ -874,7 +982,8 @@ bool DoVarHandleGetAndBitwiseXorRelease(Thread* self,
                                         const Instruction* inst,
                                         uint16_t inst_data,
                                         JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndBitwiseXorRelease;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndSet(Thread* self,
@@ -882,7 +991,8 @@ bool DoVarHandleGetAndSet(Thread* self,
                           const Instruction* inst,
                           uint16_t inst_data,
                           JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndSet;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndSetAcquire(Thread* self,
@@ -890,7 +1000,8 @@ bool DoVarHandleGetAndSetAcquire(Thread* self,
                                  const Instruction* inst,
                                  uint16_t inst_data,
                                  JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndSetAcquire;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetAndSetRelease(Thread* self,
@@ -898,7 +1009,8 @@ bool DoVarHandleGetAndSetRelease(Thread* self,
                                  const Instruction* inst,
                                  uint16_t inst_data,
                                  JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetAndSetRelease;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetOpaque(Thread* self,
@@ -906,7 +1018,8 @@ bool DoVarHandleGetOpaque(Thread* self,
                           const Instruction* inst,
                           uint16_t inst_data,
                           JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetOpaque;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleGetVolatile(Thread* self,
@@ -914,7 +1027,8 @@ bool DoVarHandleGetVolatile(Thread* self,
                             const Instruction* inst,
                             uint16_t inst_data,
                             JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kGetVolatile;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleSet(Thread* self,
@@ -922,7 +1036,8 @@ bool DoVarHandleSet(Thread* self,
                     const Instruction* inst,
                     uint16_t inst_data,
                     JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kSet;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleSetOpaque(Thread* self,
@@ -930,7 +1045,8 @@ bool DoVarHandleSetOpaque(Thread* self,
                           const Instruction* inst,
                           uint16_t inst_data,
                           JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kSetOpaque;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleSetRelease(Thread* self,
@@ -938,7 +1054,8 @@ bool DoVarHandleSetRelease(Thread* self,
                            const Instruction* inst,
                            uint16_t inst_data,
                            JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kSetRelease;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleSetVolatile(Thread* self,
@@ -946,7 +1063,8 @@ bool DoVarHandleSetVolatile(Thread* self,
                             const Instruction* inst,
                             uint16_t inst_data,
                             JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kSetVolatile;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleWeakCompareAndSet(Thread* self,
@@ -954,7 +1072,8 @@ bool DoVarHandleWeakCompareAndSet(Thread* self,
                                   const Instruction* inst,
                                   uint16_t inst_data,
                                   JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kWeakCompareAndSet;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleWeakCompareAndSetAcquire(Thread* self,
@@ -962,7 +1081,8 @@ bool DoVarHandleWeakCompareAndSetAcquire(Thread* self,
                                          const Instruction* inst,
                                          uint16_t inst_data,
                                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kWeakCompareAndSetAcquire;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleWeakCompareAndSetPlain(Thread* self,
@@ -970,7 +1090,8 @@ bool DoVarHandleWeakCompareAndSetPlain(Thread* self,
                                        const Instruction* inst,
                                        uint16_t inst_data,
                                        JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kWeakCompareAndSetPlain;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 bool DoVarHandleWeakCompareAndSetRelease(Thread* self,
@@ -978,7 +1099,8 @@ bool DoVarHandleWeakCompareAndSetRelease(Thread* self,
                                          const Instruction* inst,
                                          uint16_t inst_data,
                                          JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return UnimplementedSignaturePolymorphicMethod(self, shadow_frame, inst, inst_data, result);
+  const auto access_mode = mirror::VarHandle::AccessMode::kWeakCompareAndSetRelease;
+  return DoVarHandleInvokeCommon(self, shadow_frame, inst, inst_data, result, access_mode);
 }
 
 template<bool is_range>
