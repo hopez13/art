@@ -449,7 +449,7 @@ ArenaBitVector* HInstructionBuilder::FindNativeDebugInfoLocations() {
                                                      kArenaAllocGraphBuilder);
   locations->ClearAllBits();
   uint32_t debug_info_offset = OatFile::GetDebugInfoOffset(*dex_file_, code_item_);
-  dex_file_->DecodeDebugPositionInfo(code_item_, debug_info_offset, Callback::Position, locations);
+  dex_file_->DecodeDebugPositionInfo(debug_info_offset, Callback::Position, locations);
   // Instruction-specific tweaks.
   IterationRange<DexInstructionIterator> instructions = code_item_->Instructions();
   for (const DexInstructionPcPair& inst : instructions) {

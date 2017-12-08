@@ -132,6 +132,24 @@ class CodeItemDataAccessor : public CodeItemInstructionAccessor {
   uint16_t tries_size_;
 };
 
+// Not performance critical, the normal constructor handles null code items.
+class CodeItemDebugInfoAccessor : public CodeItemDataAccessor {
+ public:
+  CodeItemDebugInfoAccessor() = default;
+  ALWAYS_INLINE explicit CodeItemDebugInfoAccessor(ArtMethod* method);
+
+  uint32_t DebugInfoOffset() const {
+    return debug_info_offset_;
+  }
+
+ protected:
+  ALWAYS_INLINE void Init(const CompactDexFile::CodeItem& code_item);
+  ALWAYS_INLINE void Init(const StandardDexFile::CodeItem& code_item);
+
+ private:
+  uint32_t debug_info_offset_ = 0u;
+};
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_CODE_ITEM_ACCESSORS_H_

@@ -968,8 +968,7 @@ class DexFile {
                                       DexDebugNewPosition position_functor,
                                       void* context);
   template<typename DexDebugNewPosition>
-  bool DecodeDebugPositionInfo(const CodeItem* code_item,
-                               uint32_t debug_info_offset,
+  bool DecodeDebugPositionInfo(uint32_t debug_info_offset,
                                DexDebugNewPosition position_functor,
                                void* context) const;
 

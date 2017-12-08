@@ -160,8 +160,7 @@ class ElfDebugLineWriter {
       DCHECK(mi->dex_file != nullptr);
       const DexFile* dex = mi->dex_file;
       uint32_t debug_info_offset = OatFile::GetDebugInfoOffset(*dex, mi->code_item);
-      if (!dex->DecodeDebugPositionInfo(
-              mi->code_item, debug_info_offset, PositionInfoCallback, &dex2line_map)) {
+      if (!dex->DecodeDebugPositionInfo(debug_info_offset, PositionInfoCallback, &dex2line_map)) {
         continue;
       }
 

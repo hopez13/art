@@ -1661,16 +1661,16 @@ void Dbg::OutputLineTable(JDWP::RefTypeId, JDWP::MethodId method_id, JDWP::Expan
     }
   };
   ArtMethod* m = FromMethodId(method_id);
-  const DexFile::CodeItem* code_item = m->GetCodeItem();
+  CodeItemDebugInfoAccessor accessor(m);
   uint64_t start, end;
-  if (code_item == nullptr) {
+  if (!accessor.HasCodeItem()) {
     DCHECK(m->IsNative() || m->IsProxyMethod());
     start = -1;
     end = -1;
   } else {
     start = 0;
     // Return the index of the last instruction
-    end = code_item->insns_size_in_code_units_ - 1;
+    end = accessor.InsnsSizeInCodeUnits() - 1;
   }
 
   expandBufAdd8BE(pReply, start);
@@ -1684,10 +1684,10 @@ void Dbg::OutputLineTable(JDWP::RefTypeId, JDWP::MethodId method_id, JDWP::Expan
   context.numItems = 0;
   context.pReply = pReply;
 
-  if (code_item != nullptr) {
-    uint32_t debug_info_offset = OatFile::GetDebugInfoOffset(*(m->GetDexFile()), code_item);
-    m->GetDexFile()->DecodeDebugPositionInfo(
-        code_item, debug_info_offset, DebugCallbackContext::Callback, &context);
+  if (accessor.HasCodeItem()) {
+    m->GetDexFile()->DecodeDebugPositionInfo(accessor.DebugInfoOffset(),
+                                             DebugCallbackContext::Callback,
+                                             &context);
   }
 
   JDWP::Set4BE(expandBufGetBuffer(pReply) + numLinesOffset, context.numItems);
@@ -3895,8 +3895,9 @@ JDWP::JdwpError Dbg::ConfigureStep(JDWP::ObjectId thread_id, JDWP::JdwpStepSize 
     const DexFile::CodeItem* const code_item = m->GetCodeItem();
     DebugCallbackContext context(single_step_control, line_number, code_item);
     uint32_t debug_info_offset = OatFile::GetDebugInfoOffset(*(m->GetDexFile()), code_item);
-    m->GetDexFile()->DecodeDebugPositionInfo(
-        code_item, debug_info_offset, DebugCallbackContext::Callback, &context);
+    m->GetDexFile()->DecodeDebugPositionInfo(debug_info_offset,
+                                             DebugCallbackContext::Callback,
+                                             &context);
   }
 
   // Activate single-step in the thread.
