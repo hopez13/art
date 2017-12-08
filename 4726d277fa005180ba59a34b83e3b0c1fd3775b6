@@ -22,6 +22,53 @@
       "revId": "4726d277fa005180ba59a34b83e3b0c1fd3775b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9cb80ad_52e58885",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-08T14:49:12Z",
+      "side": 1,
+      "message": "I\u0027m fine having the REQUIRES_SHARED.",
+      "parentUuid": "4892e499_7b10392c",
+      "range": {
+        "startLine": 166,
+        "startChar": 20,
+        "endLine": 166,
+        "endChar": 63
+      },
+      "revId": "4726d277fa005180ba59a34b83e3b0c1fd3775b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1518430c_d92d5078",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-08T14:49:12Z",
+      "side": 1,
+      "message": "Won\u0027t that mess up the UI?",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 91
+      },
+      "revId": "4726d277fa005180ba59a34b83e3b0c1fd3775b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
