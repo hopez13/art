@@ -120,6 +120,11 @@ void ThrowIllegalAccessException(const char* msg)
 void ThrowIllegalArgumentException(const char* msg)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
+// IllegalAccessException
+
+void ThrowIllegalStateException(const char* msg)
+    REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
+
 // IncompatibleClassChangeError
 
 void ThrowIncompatibleClassChangeError(InvokeType expected_type,
@@ -242,6 +247,10 @@ void ThrowStackOverflowError(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_)
 // StringIndexOutOfBoundsException
 
 void ThrowStringIndexOutOfBoundsException(int index, int length)
+    REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
+
+// UnsupportedOperationException
+void ThrowUnsupportedOperationException()
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
 // VerifyError
