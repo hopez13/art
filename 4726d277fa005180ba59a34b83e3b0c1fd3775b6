@@ -117,6 +117,30 @@
       "revId": "4726d277fa005180ba59a34b83e3b0c1fd3775b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bc45a9f_14afa816",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-08T19:32:58Z",
+      "side": 1,
+      "message": "This may get annoying after a while (because of the locks), perhaps\n\n  SCOPED_TRACE \u003c\u003c \"JIT compiling \" \u003c\u003c method-\u003ePrettyMethod();\n\n?",
+      "parentUuid": "4d0ca342_e64eb5fa",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 91
+      },
+      "revId": "4726d277fa005180ba59a34b83e3b0c1fd3775b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
