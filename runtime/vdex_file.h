@@ -102,11 +102,33 @@ class VdexFile {
   explicit VdexFile(MemMap* mmap) : mmap_(mmap) {}
 
   // Returns nullptr if the vdex file cannot be opened or is not valid.
+  static std::unique_ptr<VdexFile> OpenAtAddress(uint8_t* mmap_addr,
+                                                 int64_t mmap_size,
+                                                 const std::string& vdex_filename,
+                                                 bool writable,
+                                                 bool low_4gb,
+                                                 bool unquicken,
+                                                 std::string* error_msg);
+
+  // Returns nullptr if the vdex file cannot be opened or is not valid.
+  static std::unique_ptr<VdexFile> OpenAtAddress(uint8_t* mmap_addr,
+                                                 int64_t mmap_size,
+                                                 int file_fd,
+                                                 size_t vdex_length,
+                                                 const std::string& vdex_filename,
+                                                 bool writable,
+                                                 bool low_4gb,
+                                                 bool unquicken,
+                                                 std::string* error_msg);
+
+  // Returns nullptr if the vdex file cannot be opened or is not valid.
   static std::unique_ptr<VdexFile> Open(const std::string& vdex_filename,
                                         bool writable,
                                         bool low_4gb,
                                         bool unquicken,
-                                        std::string* error_msg);
+                                        std::string* error_msg) {
+    return OpenAtAddress(nullptr, 0, vdex_filename, writable, low_4gb, unquicken, error_msg);
+  }
 
   // Returns nullptr if the vdex file cannot be opened or is not valid.
   static std::unique_ptr<VdexFile> Open(int file_fd,
@@ -115,7 +137,10 @@ class VdexFile {
                                         bool writable,
                                         bool low_4gb,
                                         bool unquicken,
-                                        std::string* error_msg);
+                                        std::string* error_msg) {
+    return OpenAtAddress(nullptr, 0, file_fd, vdex_length, vdex_filename,
+                         writable, low_4gb, unquicken, error_msg);
+  }
 
   const uint8_t* Begin() const { return mmap_->Begin(); }
   const uint8_t* End() const { return mmap_->End(); }
