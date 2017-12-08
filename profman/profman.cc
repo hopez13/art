@@ -133,7 +133,9 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("");
   UsageError("  --apk-fd=<number>: file descriptor containing an open APK to");
   UsageError("      search for dex files");
-  UsageError("  --apk-=<filename>: an APK to search for dex files");
+  UsageError("  --apk=<filename>: an APK to search for dex files");
+  UsageError("");
+  UsageError("  --ignore-checksum: ignore checksum errors in dex files");
   UsageError("");
   UsageError("  --generate-boot-image-profile: Generate a boot image profile based on input");
   UsageError("      profiles. Requires passing in dex files to inspect properties of classes.");
@@ -177,6 +179,7 @@ class ProfMan FINAL {
       reference_profile_file_fd_(kInvalidFd),
       dump_only_(false),
       dump_classes_and_methods_(false),
+      ignore_checksum_(false),
       generate_boot_image_profile_(false),
       dump_output_to_fd_(kInvalidFd),
       test_profile_num_dex_(kDefaultTestProfileNumDex),
@@ -213,6 +216,8 @@ class ProfMan FINAL {
         dump_only_ = true;
       } else if (option == "--dump-classes-and-methods") {
         dump_classes_and_methods_ = true;
+      } else if (option == "--ignore-checksum") {
+        ignore_checksum_ = true;
       } else if (option.starts_with("--create-profile-from=")) {
         create_profile_from_file_ = option.substr(strlen("--create-profile-from=")).ToString();
       } else if (option.starts_with("--dump-output-to-fd=")) {
@@ -324,7 +329,6 @@ class ProfMan FINAL {
       CHECK(dex_locations_.empty());
       return;
     }
-    static constexpr bool kVerifyChecksum = true;
     for (size_t i = 0; i < dex_locations_.size(); ++i) {
       std::string error_msg;
       std::vector<std::unique_ptr<const DexFile>> dex_files_for_location;
@@ -332,7 +336,7 @@ class ProfMan FINAL {
         if (DexFileLoader::OpenZip(apks_fd_[i],
                                    dex_locations_[i],
                                    /* verify */ true,
-                                   kVerifyChecksum,
+                                   !ignore_checksum_,
                                    &error_msg,
                                    &dex_files_for_location)) {
         } else {
@@ -343,7 +347,7 @@ class ProfMan FINAL {
         if (DexFileLoader::Open(apk_files_[i].c_str(),
                                 dex_locations_[i],
                                 /* verify */ true,
-                                kVerifyChecksum,
+                                !ignore_checksum_,
                                 &error_msg,
                                 &dex_files_for_location)) {
         } else {
@@ -1100,6 +1104,7 @@ class ProfMan FINAL {
   int reference_profile_file_fd_;
   bool dump_only_;
   bool dump_classes_and_methods_;
+  bool ignore_checksum_;
   bool generate_boot_image_profile_;
   int dump_output_to_fd_;
   BootImageOptions boot_image_options_;
