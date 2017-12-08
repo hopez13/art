@@ -22,6 +22,30 @@
       "revId": "dcd56c9116c2dc45b40b38fbb2a55c7e33a85a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d6ad3c0_d8119d74",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-08T21:10:47Z",
+      "side": 1,
+      "message": "This is easier to pass down since it gets parsed to --compact-dex-level\u003dnone by removing the cdex- prefix.",
+      "parentUuid": "b2ba8f52_347bd669",
+      "range": {
+        "startLine": 144,
+        "startChar": 38,
+        "endLine": 144,
+        "endChar": 47
+      },
+      "revId": "dcd56c9116c2dc45b40b38fbb2a55c7e33a85a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
