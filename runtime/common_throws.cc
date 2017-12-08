@@ -243,6 +243,11 @@ void ThrowIllegalArgumentException(const char* msg) {
   ThrowException("Ljava/lang/IllegalArgumentException;", nullptr, msg);
 }
 
+// IllegalStateException
+
+void ThrowIllegalStateException(const char* msg) {
+  ThrowException("Ljava/lang/IllegalStateException;", nullptr, msg);
+}
 
 // IncompatibleClassChangeError
 
@@ -312,6 +317,13 @@ void ThrowIncompatibleClassChangeErrorForMethodConflict(ArtMethod* method) {
                  /*referrer*/nullptr,
                  StringPrintf("Conflicting default method implementations %s",
                               ArtMethod::PrettyMethod(method).c_str()).c_str());
+}
+
+// IndexOutOfBoundsException
+
+void ThrowIndexOutOfBoundsException(int index, int length) {
+  ThrowException("Ljava/lang/IndexOutOfBoundsException;", nullptr,
+                 StringPrintf("length=%d; index=%d", length, index).c_str());
 }
 
 // InternalError
@@ -842,6 +854,11 @@ void ThrowStringIndexOutOfBoundsException(int index, int length) {
                  StringPrintf("length=%d; index=%d", length, index).c_str());
 }
 
+// UnsupportedOperationException
+void ThrowUnsupportedOperationException() {
+  ThrowException("Ljava/lang/UnsupportedOperationException;", nullptr, "operation not supported");
+}
+
 // VerifyError
 
 void ThrowVerifyError(ObjPtr<mirror::Class> referrer, const char* fmt, ...) {
@@ -853,13 +870,13 @@ void ThrowVerifyError(ObjPtr<mirror::Class> referrer, const char* fmt, ...) {
 
 // WrongMethodTypeException
 
-void ThrowWrongMethodTypeException(mirror::MethodType* callee_type,
-                                   mirror::MethodType* callsite_type) {
+void ThrowWrongMethodTypeException(mirror::MethodType* expected_type,
+                                   mirror::MethodType* actual_type) {
   ThrowException("Ljava/lang/invoke/WrongMethodTypeException;",
                  nullptr,
                  StringPrintf("Expected %s but was %s",
-                              callee_type->PrettyDescriptor().c_str(),
-                              callsite_type->PrettyDescriptor().c_str()).c_str());
+                              expected_type->PrettyDescriptor().c_str(),
+                              actual_type->PrettyDescriptor().c_str()).c_str());
 }
 
 }  // namespace art
