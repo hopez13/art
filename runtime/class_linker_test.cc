@@ -1541,11 +1541,7 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   // Its RType = Ljava/lang/String;
   // Its PTypes = { Ljava/lang/String; }
   Handle<mirror::MethodType> method1_type = hs.NewHandle(
-      class_linker_->ResolveMethodType(soa.Self(),
-                                       dex_file,
-                                       method1_id.proto_idx_,
-                                       dex_cache,
-                                       class_loader));
+      class_linker_->ResolveMethodType(soa.Self(), method1_id.proto_idx_, dex_cache, class_loader));
 
   // Assert that the method type was resolved successfully.
   ASSERT_TRUE(method1_type != nullptr);
@@ -1559,11 +1555,7 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
 
   // Resolve the method type again and assert that we get back the same value.
   Handle<mirror::MethodType> method1_type2 = hs.NewHandle(
-      class_linker_->ResolveMethodType(soa.Self(),
-                                       dex_file,
-                                       method1_id.proto_idx_,
-                                       dex_cache,
-                                       class_loader));
+      class_linker_->ResolveMethodType(soa.Self(), method1_id.proto_idx_, dex_cache, class_loader));
   ASSERT_EQ(method1_type.Get(), method1_type2.Get());
 
   // Resolve the MethodType associated with a different method signature
@@ -1576,11 +1568,7 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   ASSERT_FALSE(method2->IsDirect());
   const DexFile::MethodId& method2_id = dex_file.GetMethodId(method2->GetDexMethodIndex());
   Handle<mirror::MethodType> method2_type = hs.NewHandle(
-      class_linker_->ResolveMethodType(soa.Self(),
-                                       dex_file,
-                                       method2_id.proto_idx_,
-                                       dex_cache,
-                                       class_loader));
+      class_linker_->ResolveMethodType(soa.Self(), method2_id.proto_idx_, dex_cache, class_loader));
   ASSERT_TRUE(method1_type.Get() != method2_type.Get());
 }
 
