@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4baeacf_37d044fc",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-08T17:26:53Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think anything else in run-test-jar or run-test uses the --arg\u003dopt syntax.",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 54
+      },
+      "revId": "a7ac45f3ad110760ee5655c43a192380bfdf6918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2261f89b_1b845c9b",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-08T17:26:53Z",
+      "side": 1,
+      "message": "see above.",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 54
+      },
+      "revId": "a7ac45f3ad110760ee5655c43a192380bfdf6918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
