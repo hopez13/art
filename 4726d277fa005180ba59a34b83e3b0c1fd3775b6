@@ -69,6 +69,30 @@
       "revId": "4726d277fa005180ba59a34b83e3b0c1fd3775b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c19fdf1e_2376196d",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-08T16:30:35Z",
+      "side": 1,
+      "message": "Why? It will be (just like any nested synchronous atrace events):\n\n | JIT compiling a.b.c.foo(A)          |\n #-------------------------------------#\n    | Compiling        |   | TrimMaps |\n\nThat seemed OK to me, considering it doesn\u0027t look easy to turn off the hard-coded ATRACE in TimingLogger...",
+      "parentUuid": "1518430c_d92d5078",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 91
+      },
+      "revId": "4726d277fa005180ba59a34b83e3b0c1fd3775b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
