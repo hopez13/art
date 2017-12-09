@@ -22,6 +22,29 @@
       "revId": "84be70a2a108491faa5f9ab9e5140002bc9ebf22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b12de21_abb97b86",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-09T13:42:15Z",
+      "side": 1,
+      "message": "Why three classes instead of just one? Those classes are just temporary, so I wouldn\u0027t mind having just one containing all the info.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 63
+      },
+      "revId": "84be70a2a108491faa5f9ab9e5140002bc9ebf22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
