@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "200e4d21_eb0107cc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-10T15:37:26Z",
+      "side": 1,
+      "message": "Add a comment why those make it not beneficial?",
+      "range": {
+        "startLine": 518,
+        "startChar": 0,
+        "endLine": 522,
+        "endChar": 54
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb925a12_01811ff6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-10T15:37:26Z",
+      "side": 1,
+      "message": "too big as in will bloat the generated code size if peeled/unrolled? Please expand.",
+      "range": {
+        "startLine": 530,
+        "startChar": 27,
+        "endLine": 530,
+        "endChar": 37
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11948f06_e6d2ca18",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-10T15:37:26Z",
+      "side": 1,
+      "message": "IsLoopPeelingEnabled?",
+      "range": {
+        "startLine": 547,
+        "startChar": 12,
+        "endLine": 547,
+        "endChar": 29
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8af5a6cb_ffe7bc19",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-10T15:37:26Z",
+      "side": 1,
+      "message": "IsLoopUnrollingEnabled",
+      "range": {
+        "startLine": 559,
+        "startChar": 12,
+        "endLine": 559,
+        "endChar": 31
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "719d2d2d_42ca2355",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-10T15:37:26Z",
+      "side": 1,
+      "message": "at least one loop invariant exit.",
+      "range": {
+        "startLine": 578,
+        "startChar": 29,
+        "endLine": 578,
+        "endChar": 50
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95d30d5f_bd61f8f4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-10T15:37:26Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 578,
+        "startChar": 18,
+        "endLine": 578,
+        "endChar": 19
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "726c076a_ecd91ba9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-10T15:37:26Z",
+      "side": 1,
+      "message": "HasOneLoopInvariantExit?",
+      "range": {
+        "startLine": 579,
+        "startChar": 12,
+        "endLine": 579,
+        "endChar": 33
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b35cda49_7bf5b8d2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-10T15:37:26Z",
+      "side": 1,
+      "message": "(ie, running under tests)",
+      "range": {
+        "startLine": 805,
+        "startChar": 9,
+        "endLine": 805,
+        "endChar": 67
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
