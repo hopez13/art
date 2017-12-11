@@ -61,16 +61,25 @@ inline mirror::Class* ClassLinker::FindArrayClass(Thread* self,
   return array_class.Ptr();
 }
 
-inline ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(
-    dex::TypeIndex type_idx,
-    ObjPtr<mirror::DexCache> dex_cache,
-    ObjPtr<mirror::ClassLoader> class_loader) {
-  ObjPtr<mirror::Class> type = dex_cache->GetResolvedType(type_idx);
-  if (type == nullptr) {
-    type = Runtime::Current()->GetClassLinker()->LookupResolvedType(
-        *dex_cache->GetDexFile(), type_idx, dex_cache, class_loader);
+inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
+                                                      ObjPtr<mirror::Class> referrer) {
+  if (kObjPtrPoisoning) {
+    StackHandleScope<1> hs(Thread::Current());
+    HandleWrapperObjPtr<mirror::Class> referrer_wrapper = hs.NewHandleWrapper(&referrer);
+    Thread::Current()->PoisonObjectPointers();
   }
-  return type;
+  if (kIsDebugBuild) {
+    Thread::Current()->AssertNoPendingException();
+  }
+  ObjPtr<mirror::Class> resolved_type =
+      referrer->GetDexCache<kDefaultVerifyFlags, kWithoutReadBarrier>()->GetResolvedType(type_idx);
+  if (resolved_type == nullptr) {
+    StackHandleScope<2> hs(Thread::Current());
+    Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(referrer->GetDexCache()));
+    Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referrer->GetClassLoader()));
+    resolved_type = DoResolveType(type_idx, h_dex_cache, class_loader);
+  }
+  return resolved_type;
 }
 
 inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
@@ -79,16 +88,59 @@ inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
   if (kIsDebugBuild) {
     Thread::Current()->AssertNoPendingException();
   }
-  ObjPtr<mirror::Class> resolved_type = referrer->GetDexCache()->GetResolvedType(type_idx);
+  ObjPtr<mirror::Class> resolved_type =
+      referrer->GetDexCache<kWithoutReadBarrier>()->GetResolvedType(type_idx);
   if (UNLIKELY(resolved_type == nullptr)) {
     StackHandleScope<2> hs(Thread::Current());
-    ObjPtr<mirror::Class> declaring_class = referrer->GetDeclaringClass();
+    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
-    Handle<mirror::ClassLoader> class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
-    const DexFile& dex_file = *dex_cache->GetDexFile();
-    resolved_type = ResolveType(dex_file, type_idx, dex_cache, class_loader);
+    Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referring_class->GetClassLoader()));
+    resolved_type = DoResolveType(type_idx, dex_cache, class_loader);
   }
   return resolved_type;
+}
+
+inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
+                                                      Handle<mirror::DexCache> dex_cache,
+                                                      Handle<mirror::ClassLoader> class_loader) {
+  DCHECK(dex_cache != nullptr);
+  Thread::PoisonObjectPointersIfDebug();
+  ObjPtr<mirror::Class> resolved = dex_cache->GetResolvedType(type_idx);
+  if (resolved == nullptr) {
+    resolved = DoResolveType(type_idx, dex_cache, class_loader);
+  }
+  return resolved;
+}
+
+inline ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(dex::TypeIndex type_idx,
+                                                             ObjPtr<mirror::Class> referrer) {
+  ObjPtr<mirror::Class> type =
+      referrer->GetDexCache<kDefaultVerifyFlags, kWithoutReadBarrier>()->GetResolvedType(type_idx);
+  if (type == nullptr) {
+    type = DoLookupResolvedType(type_idx, referrer->GetDexCache(), referrer->GetClassLoader());
+  }
+  return type;
+}
+
+inline ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(dex::TypeIndex type_idx,
+                                                             ArtMethod* referrer) {
+  ObjPtr<mirror::Class> type =
+      referrer->GetDexCache<kWithoutReadBarrier>()->GetResolvedType(type_idx);
+  if (type == nullptr) {
+    type = DoLookupResolvedType(type_idx, referrer->GetDexCache(), referrer->GetClassLoader());
+  }
+  return type;
+}
+
+inline ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(
+    dex::TypeIndex type_idx,
+    ObjPtr<mirror::DexCache> dex_cache,
+    ObjPtr<mirror::ClassLoader> class_loader) {
+  ObjPtr<mirror::Class> type = dex_cache->GetResolvedType(type_idx);
+  if (type == nullptr) {
+    type = DoLookupResolvedType(type_idx, dex_cache, class_loader);
+  }
+  return type;
 }
 
 template <bool kThrowOnError, typename ClassGetter>
@@ -148,10 +200,9 @@ inline bool ClassLinker::CheckInvokeClassMismatch(ObjPtr<mirror::DexCache> dex_c
       dex_cache,
       type,
       [this, dex_cache, method_idx, class_loader]() REQUIRES_SHARED(Locks::mutator_lock_) {
-        const DexFile& dex_file = *dex_cache->GetDexFile();
-        const DexFile::MethodId& method_id = dex_file.GetMethodId(method_idx);
+        const DexFile::MethodId& method_id = dex_cache->GetDexFile()->GetMethodId(method_idx);
         ObjPtr<mirror::Class> klass =
-            LookupResolvedType(dex_file, method_id.class_idx_, dex_cache, class_loader);
+            LookupResolvedType(method_id.class_idx_, dex_cache, class_loader);
         DCHECK(klass != nullptr);
         return klass;
       });
@@ -278,10 +329,11 @@ inline ArtMethod* ClassLinker::ResolveMethod(Thread* self,
 inline ArtField* ClassLinker::LookupResolvedField(uint32_t field_idx,
                                                   ArtMethod* referrer,
                                                   bool is_static) {
-  ObjPtr<mirror::DexCache> dex_cache = referrer->GetDexCache();
-  ArtField* field = dex_cache->GetResolvedField(field_idx, image_pointer_size_);
+  ArtField* field = referrer->GetDexCache<kWithoutReadBarrier>()->GetResolvedField(
+      field_idx, image_pointer_size_);
   if (field == nullptr) {
-    field = LookupResolvedField(field_idx, dex_cache, referrer->GetClassLoader(), is_static);
+    ObjPtr<mirror::ClassLoader> class_loader = referrer->GetDeclaringClass()->GetClassLoader();
+    field = LookupResolvedField(field_idx, referrer->GetDexCache(), class_loader, is_static);
   }
   return field;
 }
@@ -290,13 +342,13 @@ inline ArtField* ClassLinker::ResolveField(uint32_t field_idx,
                                            ArtMethod* referrer,
                                            bool is_static) {
   Thread::PoisonObjectPointersIfDebug();
-  ObjPtr<mirror::Class> declaring_class = referrer->GetDeclaringClass();
-  ArtField* resolved_field =
-      referrer->GetDexCache()->GetResolvedField(field_idx, image_pointer_size_);
+  ArtField* resolved_field = referrer->GetDexCache<kWithoutReadBarrier>()->GetResolvedField(
+      field_idx, image_pointer_size_);
   if (UNLIKELY(resolved_field == nullptr)) {
     StackHandleScope<2> hs(Thread::Current());
+    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
-    Handle<mirror::ClassLoader> class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
+    Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referring_class->GetClassLoader()));
     resolved_field = ResolveField(field_idx, dex_cache, class_loader, is_static);
     // Note: We cannot check here to see whether we added the field to the cache. The type
     //       might be an erroneous class, which results in it being hidden from us.

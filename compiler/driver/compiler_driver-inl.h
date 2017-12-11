@@ -38,8 +38,8 @@ inline ObjPtr<mirror::Class> CompilerDriver::ResolveClass(
     const DexCompilationUnit* mUnit) {
   DCHECK_EQ(dex_cache->GetDexFile(), mUnit->GetDexFile());
   DCHECK_EQ(class_loader.Get(), mUnit->GetClassLoader().Get());
-  ObjPtr<mirror::Class> cls = mUnit->GetClassLinker()->ResolveType(
-      *mUnit->GetDexFile(), cls_index, dex_cache, class_loader);
+  ObjPtr<mirror::Class> cls =
+      mUnit->GetClassLinker()->ResolveType(cls_index, dex_cache, class_loader);
   DCHECK_EQ(cls == nullptr, soa.Self()->IsExceptionPending());
   if (UNLIKELY(cls == nullptr)) {
     // Clean up any exception left by type resolution.
