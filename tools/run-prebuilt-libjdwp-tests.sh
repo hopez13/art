@@ -27,9 +27,13 @@ if [[ `uname` != 'Linux' ]];  then
   exit 2
 fi
 
+# Path for OpenJDK 8
 jdwp_path=${ANDROID_JAVA_HOME}/jre/lib/amd64/libjdwp.so
 if [[ ! -f $jdwp_path ]];  then
-  echo "Unable to find prebuilts libjdwp.so! Did the version change from jdk8?"
+  jdwp_path=${ANDROID_JAVA_HOME}/lib/libjdwp.so  # Path for OpenJDK 9
+fi
+if [[ ! -f $jdwp_path ]];  then
+  echo "Unable to find prebuilts libjdwp.so! Did the path change from jdk8/jdk9?"
   exit 3
 fi
 
