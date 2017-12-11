@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "afd44770_e66ad56f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-11T17:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23091780_a3e7571f",
+      "range": {
+        "startLine": 407,
+        "startChar": 6,
+        "endLine": 407,
+        "endChar": 52
+      },
+      "revId": "3742d33acd4a94bc73f070a75585f408bbd950ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "872dae1a_8856b858",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-12-07T23:51:26Z",
       "side": 1,
       "message": "Add \"found \u003d true\", or assign first_nonbackedge_pred_pos to -1 and DCHECK later that first_nonbackedge_pred_pos is not -1.",
+      "revId": "3742d33acd4a94bc73f070a75585f408bbd950ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a25faafa_64196cf3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-11T17:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "872dae1a_8856b858",
       "revId": "3742d33acd4a94bc73f070a75585f408bbd950ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "13a67bd6_2d87d45d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-11T17:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d942a3e7_dcc7f831",
+      "revId": "3742d33acd4a94bc73f070a75585f408bbd950ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "949ebc97_2e9fbe53",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -70,6 +130,30 @@
       "writtenOn": "2017-12-07T23:51:26Z",
       "side": 1,
       "message": "header_phi-\u003eGetRegNumber() ?",
+      "range": {
+        "startLine": 434,
+        "startChar": 50,
+        "endLine": 434,
+        "endChar": 62
+      },
+      "revId": "3742d33acd4a94bc73f070a75585f408bbd950ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be5379af_079bb2c2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-11T17:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "949ebc97_2e9fbe53",
       "range": {
         "startLine": 434,
         "startChar": 50,
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "5169bacf_2c58b68c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-11T17:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f60ff1d9_507e3ca2",
+      "range": {
+        "startLine": 450,
+        "startChar": 31,
+        "endLine": 450,
+        "endChar": 42
+      },
+      "revId": "3742d33acd4a94bc73f070a75585f408bbd950ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "945e78d4_1805f23e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -116,6 +224,30 @@
       "writtenOn": "2017-12-07T23:51:26Z",
       "side": 1,
       "message": "multiple",
+      "range": {
+        "startLine": 431,
+        "startChar": 70,
+        "endLine": 431,
+        "endChar": 78
+      },
+      "revId": "3742d33acd4a94bc73f070a75585f408bbd950ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a25d939_744a4135",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-11T17:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "945e78d4_1805f23e",
       "range": {
         "startLine": 431,
         "startChar": 70,
