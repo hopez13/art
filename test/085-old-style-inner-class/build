@@ -17,11 +17,16 @@
 # Stop if something fails.
 set -e
 
-# We compile for a 1.4 target to suppress the use of EnclosingMethod
-# attributes.
+# The enclosed jasmin/ files were built via the following; we compiled
+# for a 1.4 target to suppress the use of EnclosingMethod attributes:
+#
+# mkdir classes
+# ${ANDROID_BUILD_TOP}/prebuilts/jdk/jdk8/linux-x86/bin/javac -source 1.4 -target 1.4 -d classes src/Main.java
+# java -jar Jasper.jar classes/*.class
+# mv *.j jasmin/
+# rm -rf classes
 mkdir classes
-${JAVAC} -source 1.4 -target 1.4 -d classes `find src -name '*.java'`
-
+jasmin -d classes jasmin/*.j
 if [ ${USE_JACK} = "true" ]; then
   jar cf classes.jill.jar -C classes .
   ${JACK} --import classes.jill.jar --output-dex .
