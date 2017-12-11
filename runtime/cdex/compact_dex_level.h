@@ -17,6 +17,9 @@
 #ifndef ART_RUNTIME_CDEX_COMPACT_DEX_LEVEL_H_
 #define ART_RUNTIME_CDEX_COMPACT_DEX_LEVEL_H_
 
+#include <string>
+
+#include "base/macros.h"
 #include "dex_file.h"
 
 namespace art {
@@ -28,6 +31,22 @@ enum class CompactDexLevel {
   // Level fast means optimizations that don't take many resources to perform.
   kCompactDexLevelFast,
 };
+
+#ifndef ART_DEFAULT_COMPACT_DEX_LEVEL
+#error ART_DEFAULT_COMPACT_DEX_LEVEL not specified.
+#endif
+
+// TODO: Use the cmdline key value pairs to avoid this boiler plate.
+static inline CompactDexLevel DefaultCompactDexLevel() {
+  if (STRINGIFY(ART_DEFAULT_COMPACT_DEX_LEVEL) == "fast") {
+    return CompactDexLevel::kCompactDexLevelFast;
+  }
+  if (STRINGIFY(ART_DEFAULT_COMPACT_DEX_LEVEL) == "none") {
+    return CompactDexLevel::kCompactDexLevelNone;
+  }
+  LOG(FATAL) << "Invalid value " << STRINGIFY(ART_DEFAULT_COMPACT_DEX_LEVEL);
+  UNREACHABLE();
+}
 
 }  // namespace art
 
