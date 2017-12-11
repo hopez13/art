@@ -129,6 +129,10 @@ class ValueSet : public ArenaObject<kArenaAllocGvn> {
   // Removes all instructions in the set affected by the given side effects.
   void Kill(SideEffects side_effects) {
     DeleteAllImpureWhich([side_effects](Node* node) {
+      if (node->GetInstruction()->IsClinitCheck()) {
+        // clinit check is always safe to reuse.
+        return false;
+      }
       return node->GetInstruction()->GetSideEffects().MayDependOn(side_effects);
     });
   }
