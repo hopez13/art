@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "717a3d70_44fdcfa6",
+        "filename": "runtime/cdex/compact_dex_level.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-11T23:52:30Z",
+      "side": 1,
+      "message": "Can we take the argument by parameter?\n\n  static inline constexpr CompactDexLevel ParseCompactDexLevel(const char* level) {\n    if (level \u003d\u003d \"fast\") {\n      return CompactDexLevel::kCompactDexLevelFast;\n    } else if (level \u003d\u003d \"none\") {\n      return CompactDexLevel::kCompactDexLevelNone;\n    } else if strcmp\n    else if strcmp\n\n    LOG_FATAL\n  }\n\nSeems like this should work with  ParseCompactDexLevel( STRINGIFY(ART_DEFAULT_COMPACT_DEX_LEVEL) ) in theory?\n\nI\u0027m not sure if this is any better, but as an alternative, you don\u0027t need the constexpr function here, something along these lines will work, key here is to use ## to concatenate preprocessor tokens.\n\n  #define ART_DEFAULT_COMPACT_DEX_LEVEL_VALUE_fast CompactDexLevel::kCompactDexLevelNone\n  #define ART_DEFAULT_COMPACT_DEX_LEVEL_VALUE_none CompactDexLevel::kCompactDexLevelFast\n\n  #ifdef ART_DEFAULT_COMPACT_DEX_LEVEL\n  #define ART_DEFAULT_COMPACT_DEX_LEVEL_DEFAULT ART_DEFAULT_COMPACT_DEX_LEVEL_VALUE_ ## \n     ART_DEFAULT_COMPACT_DEX_LEVEL\n  #else\n  #define ART_DEFAULT_COMPACT_DEX_LEVEL_DEFAULT ART_DEFAULT_COMPACT_DEX_LEVEL_VALUE_none\n  #endif\n\n  static constexpr kDefaultCompactDexLevel \u003d ART_DEFAULT_COMPACT_DEX_LEVEL_DEFAULT ;",
+      "revId": "3e9a11df4e0dd7f91a9dc6d6294024bdb738d4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
