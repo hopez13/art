@@ -1250,17 +1250,8 @@ extern "C" const void* artQuickResolutionTrampoline(
       } else {
         DCHECK_EQ(invoke_type, kSuper);
         CHECK(caller != nullptr) << invoke_type;
-        StackHandleScope<2> hs(self);
-        Handle<mirror::DexCache> dex_cache(
-            hs.NewHandle(caller->GetDeclaringClass()->GetDexCache()));
-        Handle<mirror::ClassLoader> class_loader(
-            hs.NewHandle(caller->GetDeclaringClass()->GetClassLoader()));
-        // TODO Maybe put this into a mirror::Class function.
         ObjPtr<mirror::Class> ref_class = linker->LookupResolvedType(
-            *dex_cache->GetDexFile(),
-            dex_cache->GetDexFile()->GetMethodId(called_method.index).class_idx_,
-            dex_cache.Get(),
-            class_loader.Get());
+            caller->GetDexFile()->GetMethodId(called_method.index).class_idx_, caller);
         if (ref_class->IsInterface()) {
           called = ref_class->FindVirtualMethodForInterfaceSuper(called, kRuntimePointerSize);
         } else {
