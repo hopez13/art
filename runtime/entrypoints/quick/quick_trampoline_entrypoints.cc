@@ -1257,7 +1257,6 @@ extern "C" const void* artQuickResolutionTrampoline(
             hs.NewHandle(caller->GetDeclaringClass()->GetClassLoader()));
         // TODO Maybe put this into a mirror::Class function.
         ObjPtr<mirror::Class> ref_class = linker->LookupResolvedType(
-            *dex_cache->GetDexFile(),
             dex_cache->GetDexFile()->GetMethodId(called_method.index).class_idx_,
             dex_cache.Get(),
             class_loader.Get());

@@ -830,7 +830,6 @@ ArtMethod* HInstructionBuilder::ResolveMethod(uint16_t method_idx, InvokeType in
       return nullptr;
     }
     ObjPtr<mirror::Class> referenced_class = class_linker->LookupResolvedType(
-        *dex_compilation_unit_->GetDexFile(),
         dex_compilation_unit_->GetDexFile()->GetMethodId(method_idx).class_idx_,
         dex_compilation_unit_->GetDexCache().Get(),
         class_loader.Get());
@@ -2933,7 +2932,7 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
 ObjPtr<mirror::Class> HInstructionBuilder::LookupResolvedType(
     dex::TypeIndex type_index,
     const DexCompilationUnit& compilation_unit) const {
-  return ClassLinker::LookupResolvedType(
+  return Runtime::Current()->GetClassLinker()->LookupResolvedType(
         type_index, compilation_unit.GetDexCache().Get(), compilation_unit.GetClassLoader().Get());
 }
 
