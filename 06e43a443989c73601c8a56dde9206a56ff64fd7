@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8da20ae3_25295ea9",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T15:43:50Z",
+      "side": 1,
+      "message": "Not applicable any more.",
+      "parentUuid": "c85eb093_430c4860",
+      "revId": "06e43a443989c73601c8a56dde9206a56ff64fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a084ca1_eb7625f2",
         "filename": "compiler/optimizing/dead_code_elimination.h",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4b3464e8_980308a1",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T15:43:50Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "9a084ca1_eb7625f2",
+      "revId": "06e43a443989c73601c8a56dde9206a56ff64fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ef7dea6_1156394d",
         "filename": "test/548-checker-inlining-and-dce/src/Main.java",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2017-12-07T23:08:43Z",
       "side": 1,
       "message": "you rely on checker tests alone here, how about some sanity checks on array (assign something else than 0 for example, different subscripts, and test these then)",
+      "revId": "06e43a443989c73601c8a56dde9206a56ff64fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e16713f_dc109ffb",
+        "filename": "test/548-checker-inlining-and-dce/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T15:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ef7dea6_1156394d",
       "revId": "06e43a443989c73601c8a56dde9206a56ff64fd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
