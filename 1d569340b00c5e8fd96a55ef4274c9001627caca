@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "86fbfda7_cae4efb1",
+        "filename": "compiler/optimizing/loop_optimization_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:02:14Z",
+      "side": 1,
+      "message": "Thanks, will consider this for the future. But if you want me to move it to nodes_test now I can do that.",
+      "parentUuid": "96c3a967_5db4ff78",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2304dfe_ee9b34a1",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "1d255fa1_a5c1deee",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:02:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2304dfe_ee9b34a1",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91209eb5_b3b3ad7f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-12-12T00:07:58Z",
       "side": 1,
       "message": "Adding some asci art with the variable names as instructions would help a bit here",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57a2dd31_8e56157a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:02:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91209eb5_b3b3ad7f",
       "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "22b26289_493b3a89",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:02:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a145815_1a77230f",
+      "range": {
+        "startLine": 427,
+        "startChar": 17,
+        "endLine": 427,
+        "endChar": 21
+      },
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55b60202_1a18e548",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -87,6 +165,24 @@
       "writtenOn": "2017-12-12T00:07:58Z",
       "side": 1,
       "message": "since we typically have single preheader, it would help if you comment here that this is used to \"repair\" loops that no longer have this property",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1613c96_ab44e232",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:02:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55b60202_1a18e548",
       "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
