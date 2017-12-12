@@ -102,18 +102,33 @@ static bool ComputeRelativeTimeSpec(timespec* result_ts, const timespec& lhs, co
 }
 #endif
 
+// Wait for an amount of time that roughly increases in the argument i.
+// Spin for small arguments and yield/sleep for longer ones.
+static void back_off(uint i) {
+  if (i <= 10) {
+    // TODO: Possibly skip this on a uniprocessor.
+    volatile uint32_t x = 0;
+    for (uint j = 0; j < 10 * i; ++j) {
+      ++x;
+    }
+  } else if (i <= 20) {
+    sched_yield();
+  } else {
+    NanoSleep(1000ull * (i-20));
+  }
+}
+
 class ScopedAllMutexesLock FINAL {
  public:
   explicit ScopedAllMutexesLock(const BaseMutex* mutex) : mutex_(mutex) {
-    while (!gAllMutexData->all_mutexes_guard.CompareExchangeWeakAcquire(0, mutex)) {
-      NanoSleep(100);
+    for (uint i = 0; !gAllMutexData->all_mutexes_guard.CompareExchangeWeakAcquire(0, mutex); ++i) {
+      back_off(i);
     }
   }
 
   ~ScopedAllMutexesLock() {
-    while (!gAllMutexData->all_mutexes_guard.CompareExchangeWeakRelease(mutex_, 0)) {
-      NanoSleep(100);
-    }
+    DCHECK_EQ(gAllMutexData->all_mutexes_guard.LoadRelaxed(), mutex_);
+    gAllMutexData->all_mutexes_guard.StoreRelease(0);
   }
 
  private:
@@ -123,17 +138,16 @@ class ScopedAllMutexesLock FINAL {
 class Locks::ScopedExpectedMutexesOnWeakRefAccessLock FINAL {
  public:
   explicit ScopedExpectedMutexesOnWeakRefAccessLock(const BaseMutex* mutex) : mutex_(mutex) {
-    while (!Locks::expected_mutexes_on_weak_ref_access_guard_.CompareExchangeWeakAcquire(0,
-                                                                                         mutex)) {
-      NanoSleep(100);
+    for (uint i = 0;
+         !Locks::expected_mutexes_on_weak_ref_access_guard_.CompareExchangeWeakAcquire(0, mutex);
+         ++i) {
+      back_off(i);
     }
   }
 
   ~ScopedExpectedMutexesOnWeakRefAccessLock() {
-    while (!Locks::expected_mutexes_on_weak_ref_access_guard_.CompareExchangeWeakRelease(mutex_,
-                                                                                         0)) {
-      NanoSleep(100);
-    }
+    DCHECK_EQ(Locks::expected_mutexes_on_weak_ref_access_guard_.LoadRelaxed(), mutex_);
+    Locks::expected_mutexes_on_weak_ref_access_guard_.StoreRelease(0);
   }
 
  private:
