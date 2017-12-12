@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75285ac9_3e0df2aa",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d44a3065_77fcae86",
+      "range": {
+        "startLine": 999,
+        "startChar": 92,
+        "endLine": 999,
+        "endChar": 96
+      },
+      "revId": "ea62e1667bfa29dc36dd0ade5fc2fa35951c009c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "257c5ea6_d5369b6a",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-12T17:28:34Z",
       "side": 1,
       "message": "This is guaranteed by not having critical edges. You can DCHECK this.",
+      "range": {
+        "startLine": 1008,
+        "startChar": 4,
+        "endLine": 1008,
+        "endChar": 52
+      },
+      "revId": "ea62e1667bfa29dc36dd0ade5fc2fa35951c009c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5007406_2dfb1953",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:14:35Z",
+      "side": 1,
+      "message": "Ah yes, know we are running it from instruction_simplifier, not DCE... Done.",
+      "parentUuid": "257c5ea6_d5369b6a",
       "range": {
         "startLine": 1008,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e6fc5005_13017716",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7543a539_86717555",
+      "range": {
+        "startLine": 1014,
+        "startChar": 0,
+        "endLine": 1014,
+        "endChar": 53
+      },
+      "revId": "ea62e1667bfa29dc36dd0ade5fc2fa35951c009c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1da736e0_3b9b5691",
         "filename": "test/458-checker-instruct-simplification/src/Main.java",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-12-12T17:28:34Z",
       "side": 1,
       "message": "Could instruciton simplifier get rid of this?",
+      "range": {
+        "startLine": 2629,
+        "startChar": 0,
+        "endLine": 2629,
+        "endChar": 65
+      },
+      "revId": "ea62e1667bfa29dc36dd0ade5fc2fa35951c009c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42c6d3a_28493e84",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2629,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T18:14:35Z",
+      "side": 1,
+      "message": "Constant folding is responsible for that (HConstantFoldingVisitor::VisitBinaryOperation); what would do you suggest here?\n\nIn theory we could:\n1. insert a constant folding pass after the instr_simplifier.\n2. (complicated) combine some optimizations into a single pass and loop until no changes made.",
+      "parentUuid": "1da736e0_3b9b5691",
       "range": {
         "startLine": 2629,
         "startChar": 0,
