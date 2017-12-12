@@ -47,7 +47,7 @@ def GetExecutionModeRunner(use_dx, device, mode):
   """Returns a runner for the given execution mode.
 
   Args:
-    use_dx: boolean, if True use dx rather than jack
+    use_dx: string, defines dexer
     device: string, target device serial number (or None)
     mode: string, execution mode
   Returns:
@@ -121,23 +121,26 @@ class TestRunnerWithHostCompilation(TestRunner):
     """Constructor for the runner with host compilation.
 
     Args:
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
     """
     self._jack_args = ['-cp', GetJackClassPath(), '--output-dex', '.',
                        'Test.java']
     self._use_dx = use_dx
 
   def CompileOnHost(self):
-    if self._use_dx:
+    if self._use_dx == 'dx' or self._use_dx == 'd8':
       if RunCommand(['javac', 'Test.java'],
                     out=None, err=None, timeout=30) == RetCode.SUCCESS:
-        retc = RunCommand(['dx', '--dex', '--output=classes.dex'] + glob('*.class'),
+        dx = 'dx' if self._use_dx == 'dx' else 'd8-compat-dx'
+        retc = RunCommand([dx, '--dex', '--output=classes.dex'] + glob('*.class'),
                           out=None, err='dxerr.txt', timeout=30)
       else:
         retc = RetCode.NOTCOMPILED
-    else:
+    elif self._use_dx == 'jack':
       retc = RunCommand(['jack'] + self._jack_args,
                         out=None, err='jackerr.txt', timeout=30)
+    else:
+      raise FatalError('Unknown dexer: ' + self._use_dx)
     return retc
 
 
@@ -171,7 +174,7 @@ class TestRunnerArtOnHost(TestRunnerWithHostCompilation):
     """Constructor for the Art on host tester.
 
     Args:
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
       extra_args: list of strings, extra arguments for dalvikvm
     """
     super().__init__(use_dx)
@@ -195,7 +198,7 @@ class TestRunnerArtIntOnHost(TestRunnerArtOnHost):
     """Constructor for the Art on host tester (interpreter).
 
     Args:
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
    """
     super().__init__(use_dx, ['-Xint'])
 
@@ -218,7 +221,7 @@ class TestRunnerArtOptOnHost(TestRunnerArtOnHost):
     """Constructor for the Art on host tester (optimizing).
 
     Args:
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
    """
     super().__init__(use_dx, None)
 
@@ -243,7 +246,7 @@ class TestRunnerArtOnTarget(TestRunnerWithHostCompilation):
     """Constructor for the Art on target tester.
 
     Args:
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
       device: string, target device serial number (or None)
       extra_args: list of strings, extra arguments for dalvikvm
     """
@@ -285,7 +288,7 @@ class TestRunnerArtIntOnTarget(TestRunnerArtOnTarget):
     """Constructor for the Art on target tester (interpreter).
 
     Args:
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
       device: string, target device serial number (or None)
     """
     super().__init__(use_dx, device, ['-Xint'])
@@ -309,7 +312,7 @@ class TestRunnerArtOptOnTarget(TestRunnerArtOnTarget):
     """Constructor for the Art on target tester (optimizing).
 
     Args:
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
       device: string, target device serial number (or None)
     """
     super().__init__(use_dx, device, None)
@@ -353,7 +356,7 @@ class JFuzzTester(object):
       jfuzz_args: list of strings, additional arguments for jfuzz
       report_script: string, path to script called for each divergence
       true_divergence_only: boolean, if True don't bisect timeout divergences
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
     """
     self._num_tests = num_tests
     self._device = device
@@ -405,7 +408,7 @@ class JFuzzTester(object):
     print('Directory :', self._results_dir)
     print('Exec-mode1:', self._runner1.description)
     print('Exec-mode2:', self._runner2.description)
-    print('Compiler  :', 'dx' if self._use_dx else 'jack')
+    print('Compiler  :', self._use_dx)
     print()
     self.ShowStats()
     for self._test in range(1, self._num_tests + 1):
@@ -605,8 +608,8 @@ def main():
                       action='append', help='argument for jfuzz')
   parser.add_argument('--true_divergence', default=False, action='store_true',
                       help='don\'t bisect timeout divergences')
-  parser.add_argument('--use_dx', default=False, action='store_true',
-                      help='use dx (rather than jack)')
+  parser.add_argument('--use_dx', default='dx',
+                      type=str, help='dexer (dx, d8, jack)')
   args = parser.parse_args()
   if args.mode1 == args.mode2:
     raise FatalError('Identical execution modes given')
