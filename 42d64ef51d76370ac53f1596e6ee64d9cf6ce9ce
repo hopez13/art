@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f18f55bb_b157cd3a",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-12T13:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b0fbdfd_1c8a77f2",
+      "range": {
+        "startLine": 75,
+        "startChar": 49,
+        "endLine": 75,
+        "endChar": 68
+      },
+      "revId": "42d64ef51d76370ac53f1596e6ee64d9cf6ce9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cea2a211_a51f708e",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "128f1263_aa65417b",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-12T13:26:14Z",
+      "side": 1,
+      "message": "That\u0027s just the difference between the ArtMethod::GetDexCache() and Class::GetDexCache(). ArtMethod::GetDexCache() does not take verify flags.",
+      "parentUuid": "cea2a211_a51f708e",
+      "range": {
+        "startLine": 128,
+        "startChar": 28,
+        "endLine": 128,
+        "endChar": 47
+      },
+      "revId": "42d64ef51d76370ac53f1596e6ee64d9cf6ce9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87852842_d2b57e2b",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
@@ -59,6 +107,24 @@
       "writtenOn": "2017-12-12T10:29:25Z",
       "side": 1,
       "message": "Not your bug, but looks like this code is missing a can_load_classes_ check?",
+      "revId": "42d64ef51d76370ac53f1596e6ee64d9cf6ce9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a662ebfd_f705ff4f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-12T13:26:14Z",
+      "side": 1,
+      "message": "I\u0027d rather not touch that issue in this CL.",
+      "parentUuid": "87852842_d2b57e2b",
       "revId": "42d64ef51d76370ac53f1596e6ee64d9cf6ce9ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
