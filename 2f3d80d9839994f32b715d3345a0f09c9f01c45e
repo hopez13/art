@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e7d1e96_49ab47bd",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T19:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "200e4d21_eb0107cc",
+      "range": {
+        "startLine": 518,
+        "startChar": 0,
+        "endLine": 522,
+        "endChar": 54
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb925a12_01811ff6",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-10T15:37:26Z",
       "side": 1,
       "message": "too big as in will bloat the generated code size if peeled/unrolled? Please expand.",
+      "range": {
+        "startLine": 530,
+        "startChar": 27,
+        "endLine": 530,
+        "endChar": 37
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20726c33_5036714e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T19:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb925a12_01811ff6",
       "range": {
         "startLine": 530,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2ea0b887_fd1c1bdc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T19:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11948f06_e6d2ca18",
+      "range": {
+        "startLine": 547,
+        "startChar": 12,
+        "endLine": 547,
+        "endChar": 29
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8af5a6cb_ffe7bc19",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-12-10T15:37:26Z",
       "side": 1,
       "message": "IsLoopUnrollingEnabled",
+      "range": {
+        "startLine": 559,
+        "startChar": 12,
+        "endLine": 559,
+        "endChar": 31
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdc1b5bf_2e7be620",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T19:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af5a6cb_ffe7bc19",
       "range": {
         "startLine": 559,
         "startChar": 12,
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "99e1a7c2_653d1717",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T19:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "719d2d2d_42ca2355",
+      "range": {
+        "startLine": 578,
+        "startChar": 29,
+        "endLine": 578,
+        "endChar": 50
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0c6eada_773d9885",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T19:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95d30d5f_bd61f8f4",
+      "range": {
+        "startLine": 578,
+        "startChar": 18,
+        "endLine": 578,
+        "endChar": 19
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "726c076a_ecd91ba9",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "494534a3_07ad355a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T19:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "726c076a_ecd91ba9",
+      "range": {
+        "startLine": 579,
+        "startChar": 12,
+        "endLine": 579,
+        "endChar": 33
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b35cda49_7bf5b8d2",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2017-12-10T15:37:26Z",
       "side": 1,
       "message": "(ie, running under tests)",
+      "range": {
+        "startLine": 805,
+        "startChar": 9,
+        "endLine": 805,
+        "endChar": 67
+      },
+      "revId": "2f3d80d9839994f32b715d3345a0f09c9f01c45e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1fa661d_3825bb68",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-12T19:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b35cda49_7bf5b8d2",
       "range": {
         "startLine": 805,
         "startChar": 9,
