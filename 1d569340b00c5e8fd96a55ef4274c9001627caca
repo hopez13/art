@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96c3a967_5db4ff78",
+        "filename": "compiler/optimizing/loop_optimization_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-12T00:07:58Z",
+      "side": 1,
+      "message": "note that I am okay with this, since we already did this above, but this file was originally really meant to test loop_optimization.cc. The nodes_test.cc would be a better file organizational pick....",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2304dfe_ee9b34a1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-12T00:07:58Z",
+      "side": 1,
+      "message": "Add comment:\n\nNo Phis? Just fix control flow.\n\nAlso, I feel like some of the code for fixing control flow could be shared with the similar loop below.",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91209eb5_b3b3ad7f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-12T00:07:58Z",
+      "side": 1,
+      "message": "Adding some asci art with the variable names as instructions would help a bit here",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a145815_1a77230f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-12T00:07:58Z",
+      "side": 1,
+      "message": "how about \"Transform a loop into a format with single preheader\" or something other than make it have?",
+      "range": {
+        "startLine": 427,
+        "startChar": 17,
+        "endLine": 427,
+        "endChar": 21
+      },
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55b60202_1a18e548",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-12T00:07:58Z",
+      "side": 1,
+      "message": "since we typically have single preheader, it would help if you comment here that this is used to \"repair\" loops that no longer have this property",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
