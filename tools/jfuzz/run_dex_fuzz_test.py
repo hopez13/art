@@ -48,7 +48,7 @@ class DexFuzzTester(object):
       num_tests: int, number of tests to run
       num_inputs: int, number of JFuzz programs to generate
       device: string, target device serial number (or None)
-      use_dx: boolean, if True use dx rather than jack
+      use_dx: string, defines dexer
     """
     self._num_tests = num_tests
     self._num_inputs = num_inputs
@@ -109,13 +109,14 @@ class DexFuzzTester(object):
     Raises:
       FatalError: error when compilation fails
     """
-    if self._use_dx:
+    if self._use_dx == 'dx' or self._use_dx == 'd8':
       if RunCommand(['javac', 'Test.java'],
                     out=None, err='jerr.txt', timeout=30) != RetCode.SUCCESS:
         print('Unexpected error while running javac')
         raise FatalError('Unexpected error while running javac')
       cfiles = glob('*.class')
-      if RunCommand(['dx', '--dex', '--output=classes.dex'] + cfiles,
+      dx = 'dx' if self._use_dx == 'dx' else 'd8-compat-dx'
+      if RunCommand([dx, '--dex', '--output=classes.dex'] + cfiles,
                     out=None, err='dxerr.txt', timeout=30) != RetCode.SUCCESS:
         print('Unexpected error while running dx')
         raise FatalError('Unexpected error while running dx')
@@ -124,7 +125,8 @@ class DexFuzzTester(object):
         os.unlink(cfile)
       os.unlink('jerr.txt')
       os.unlink('dxerr.txt')
-    else:
+
+    elif self._use_dx == 'jack':
       jack_args = ['-cp', GetJackClassPath(), '--output-dex', '.', 'Test.java']
       if RunCommand(['jack'] + jack_args, out=None, err='jackerr.txt',
                     timeout=30) != RetCode.SUCCESS:
@@ -132,6 +134,8 @@ class DexFuzzTester(object):
         raise FatalError('Unexpected error while running Jack')
       # Cleanup on success (nothing to see).
       os.unlink('jackerr.txt')
+    else:
+      raise FatalError('Unknown dexer: ' + self._use_dx)
 
   def GenerateJFuzzPrograms(self):
     """Generates JFuzz programs.
@@ -179,8 +183,8 @@ def main():
                       type=int, help='number of tests to run')
   parser.add_argument('--num_inputs', default=10,
                       type=int, help='number of JFuzz program to generate')
-  parser.add_argument('--use_dx', default=False, action='store_true',
-                      help='use dx (rather than jack)')
+  parser.add_argument('--use_dx', default='dx',
+                      type=str, help='dexer (dx, d8, jack)')
   parser.add_argument('--device', help='target device serial number')
   args = parser.parse_args()
   # Run the DexFuzz tester.
