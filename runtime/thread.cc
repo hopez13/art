@@ -2741,6 +2741,178 @@ jobjectArray Thread::InternalStackTraceToStackTraceElementArray(
   return result;
 }
 
+jobjectArray Thread::CreateAnnotatedStackTrace(const ScopedObjectAccessAlreadyRunnable& soa) const {
+  if (IsExceptionPending()) {
+    return nullptr;
+  }
+
+  // If flip_function is not null, it means we have run a checkpoint
+  // before the thread wakes up to execute the flip function and the
+  // thread roots haven't been forwarded.  So the following access to
+  // the roots (locks or methods in the frames) would be bad. Run it
+  // here. TODO: clean up.
+  // Note: copied from DumpJavaStack.
+  {
+    Thread* this_thread = const_cast<Thread*>(this);
+    Closure* flip_func = this_thread->GetFlipFunction();
+    if (flip_func != nullptr) {
+      flip_func->Run(this_thread);
+    }
+  }
+
+  class CollectFramesAndLocksStackVisitor : public MonitorObjectsStackVisitor {
+   public:
+    CollectFramesAndLocksStackVisitor(const ScopedObjectAccessAlreadyRunnable& soaa_,
+                                      Thread* self,
+                                      Context* context)
+        : MonitorObjectsStackVisitor(self, context),
+          wait_jobject(soaa_.Env(), nullptr),
+          block_jobject(soaa_.Env(), nullptr),
+          soaa(soaa_) {}
+
+    std::vector<ScopedLocalRef<jobject>> stack_trace_elements;
+    ScopedLocalRef<jobject> wait_jobject;
+    ScopedLocalRef<jobject> block_jobject;
+    std::vector<std::vector<ScopedLocalRef<jobject>>> lock_objects;
+
+   protected:
+    VisitMethodResult StartMethod(ArtMethod* m, size_t frame_nr ATTRIBUTE_UNUSED)
+        OVERRIDE
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      ObjPtr<mirror::StackTraceElement> obj = CreateStackTraceElement(soaa, m, GetDexPc(false));
+      if (obj == nullptr) {
+        return VisitMethodResult::kEndStackWalk;
+      }
+      stack_trace_elements.emplace_back(soaa.Env(), soaa.AddLocalReference<jobject>(obj.Ptr()));
+      return VisitMethodResult::kContinueMethod;
+    }
+
+    VisitMethodResult EndMethod(ArtMethod* m ATTRIBUTE_UNUSED) OVERRIDE {
+      lock_objects.push_back({});
+      lock_objects[lock_objects.size() - 1].swap(frame_lock_objects);
+
+      DCHECK_EQ(lock_objects.size(), stack_trace_elements.size());
+
+      return VisitMethodResult::kContinueMethod;
+    }
+
+    void VisitWaitingObject(mirror::Object* obj, ThreadState state ATTRIBUTE_UNUSED)
+        OVERRIDE
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      wait_jobject.reset(soaa.AddLocalReference<jobject>(obj));
+    }
+    void VisitSleepingObject(mirror::Object* obj)
+        OVERRIDE
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      wait_jobject.reset(soaa.AddLocalReference<jobject>(obj));
+    }
+    void VisitBlockedOnObject(mirror::Object* obj,
+                              ThreadState state ATTRIBUTE_UNUSED,
+                              uint32_t owner_tid ATTRIBUTE_UNUSED)
+        OVERRIDE
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      block_jobject.reset(soaa.AddLocalReference<jobject>(obj));
+    }
+    void VisitLockedObject(mirror::Object* obj)
+        OVERRIDE
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      frame_lock_objects.emplace_back(soaa.Env(), soaa.AddLocalReference<jobject>(obj));
+    }
+
+   private:
+    const ScopedObjectAccessAlreadyRunnable& soaa;
+
+    std::vector<ScopedLocalRef<jobject>> frame_lock_objects;
+  };
+
+  std::unique_ptr<Context> context(Context::Create());
+  CollectFramesAndLocksStackVisitor dumper(soa, const_cast<Thread*>(this), context.get());
+  dumper.WalkStack();
+
+  if (IsExceptionPending()) {
+    return nullptr;
+  }
+
+  // Now go and create Java arrays.
+
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+
+  StackHandleScope<1> hs(soa.Self());
+  using ObjArray = mirror::ObjectArray<mirror::Object>;
+  mirror::Class* o_array_class = class_linker->FindClass(soa.Self(),
+                                                         "[Ljava/lang/Object;",
+                                                         ScopedNullHandle<mirror::ClassLoader>());
+  if (o_array_class == nullptr) {
+    return nullptr;
+  }
+  Handle<mirror::Class> h_class(hs.NewHandle<mirror::Class>(o_array_class));
+
+  using ObjObjArray = mirror::ObjectArray<mirror::ObjectArray<mirror::Object>>;
+  mirror::Class* oo_array_class = class_linker->FindClass(soa.Self(),
+                                                          "[[Ljava/lang/Object;",
+                                                          ScopedNullHandle<mirror::ClassLoader>());
+  if (oo_array_class == nullptr) {
+    return nullptr;
+  }
+
+  size_t length = dumper.stack_trace_elements.size();
+  ObjObjArray* array = ObjObjArray::Alloc(soa.Self(), oo_array_class, length);
+  if (array == nullptr) {
+    return nullptr;
+  }
+
+  ScopedLocalRef<jobjectArray> result(soa.Env(), soa.Env()->AddLocalReference<jobjectArray>(array));
+
+  for (size_t i = 0; i != length; ++i) {
+    size_t row_length = (i == 0) ? 3 : 2;
+    ObjArray* row_array = ObjArray::Alloc(soa.Self(), h_class.Get(), row_length);
+    if (row_array == nullptr) {
+      return nullptr;
+    }
+    ScopedLocalRef<jobjectArray> row_result(soa.Env(),
+                                            soa.Env()->AddLocalReference<jobjectArray>(row_array));
+
+    // Set stack trace element.
+    soa.Env()->SetObjectArrayElement(row_result.get(),
+                                     0,
+                                     dumper.stack_trace_elements[i].release());
+
+    // Create locked-on array.
+    if (!dumper.lock_objects[i].empty()) {
+      ObjArray* lock_array = ObjArray::Alloc(soa.Self(),
+                                             h_class.Get(),
+                                             dumper.lock_objects[i].size());
+      if (lock_array == nullptr) {
+        return nullptr;
+      }
+      ScopedLocalRef<jobjectArray> lock_result(
+          soa.Env(), soa.Env()->AddLocalReference<jobjectArray>(lock_array));
+      size_t j = 0;
+      for (auto& scoped_local : dumper.lock_objects[i]) {
+        if (scoped_local == nullptr) {
+          continue;
+        }
+        soa.Env()->SetObjectArrayElement(lock_result.get(), j, scoped_local.release());
+        j++;
+      }
+      soa.Env()->SetObjectArrayElement(row_result.get(), 1, lock_result.release());
+    }
+
+    // Set blocked-on object.
+    if (i == 0) {
+      if (dumper.block_jobject != nullptr) {
+        soa.Env()->SetObjectArrayElement(row_result.get(),
+                                         2,
+                                         dumper.block_jobject.release());
+      }
+    }
+
+    soa.Env()->SetObjectArrayElement(result.get(), i, row_result.release());
+  }
+
+  return result.release();
+}
+
 void Thread::ThrowNewExceptionF(const char* exception_class_descriptor, const char* fmt, ...) {
   va_list args;
   va_start(args, fmt);
