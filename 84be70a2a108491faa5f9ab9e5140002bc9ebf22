@@ -141,6 +141,30 @@
       "revId": "84be70a2a108491faa5f9ab9e5140002bc9ebf22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "282960e8_c626d140",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-12T18:09:46Z",
+      "side": 1,
+      "message": "mterp is not using it, so you\u0027re worried about performance of the switch interpreter?",
+      "parentUuid": "d90cb333_96338055",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 63
+      },
+      "revId": "84be70a2a108491faa5f9ab9e5140002bc9ebf22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
