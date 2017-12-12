@@ -46,6 +46,30 @@
       "revId": "a7f6b8151ee8b8c16a11e148fea1c02ca33dc211",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2641eac7_ac17611c",
+        "filename": "runtime/base/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-12-12T20:00:18Z",
+      "side": 1,
+      "message": "I\u0027m surprised we didn\u0027t need the textbook CAT macro before this...",
+      "parentUuid": "7e141d56_903ad665",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 71
+      },
+      "revId": "a7f6b8151ee8b8c16a11e148fea1c02ca33dc211",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
