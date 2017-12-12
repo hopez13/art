@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "480e44dc_725e8e93",
+        "filename": "runtime/base/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-12T18:59:03Z",
+      "side": 1,
+      "message": "Not really sure this needs to be here with a single user, considering that macros.h is included in almost every compilation unit.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 71
+      },
+      "revId": "a7f6b8151ee8b8c16a11e148fea1c02ca33dc211",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
