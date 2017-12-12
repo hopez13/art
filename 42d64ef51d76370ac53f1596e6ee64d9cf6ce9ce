@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b0fbdfd_1c8a77f2",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-12T10:29:25Z",
+      "side": 1,
+      "message": "Please add comments when you use kWithoutReadBarrier why it is ok to do so.",
+      "range": {
+        "startLine": 75,
+        "startChar": 49,
+        "endLine": 75,
+        "endChar": 68
+      },
+      "revId": "42d64ef51d76370ac53f1596e6ee64d9cf6ce9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea2a211_a51f708e",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-12T10:29:25Z",
+      "side": 1,
+      "message": "Why is this one having only one template parameter? (others above have two).",
+      "range": {
+        "startLine": 128,
+        "startChar": 28,
+        "endLine": 128,
+        "endChar": 47
+      },
+      "revId": "42d64ef51d76370ac53f1596e6ee64d9cf6ce9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87852842_d2b57e2b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-12T10:29:25Z",
+      "side": 1,
+      "message": "Not your bug, but looks like this code is missing a can_load_classes_ check?",
+      "revId": "42d64ef51d76370ac53f1596e6ee64d9cf6ce9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf3aecf_e03d65c7",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3645,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-12T10:29:25Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3645,
+        "startChar": 20,
+        "endLine": 3645,
+        "endChar": 31
+      },
+      "revId": "42d64ef51d76370ac53f1596e6ee64d9cf6ce9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
