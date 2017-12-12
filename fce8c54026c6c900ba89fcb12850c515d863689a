@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3ec75622_79b4e680",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-12T18:28:22Z",
+      "side": 1,
+      "message": "Actually it should be needed also. Well maybe some can be relaxed (no test failure noticed) but I\u0027d be just safe here.\n\nI do need to treat clinit-check as a special case here since clinit-check is only done once in the loop header here so it shouldn\u0027t be affected by further loop side effects, given other visible instructions have already been hoisted.",
+      "parentUuid": "de1bca3b_0d0c8460",
+      "range": {
+        "startLine": 134,
+        "startChar": 14,
+        "endLine": 134,
+        "endChar": 37
+      },
+      "revId": "fce8c54026c6c900ba89fcb12850c515d863689a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cde2f874_07ad19a8",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "writtenOn": "2017-12-12T11:41:32Z",
       "side": 1,
       "message": "But this can be put on the same line as \"else\".",
+      "range": {
+        "startLine": 140,
+        "startChar": 12,
+        "endLine": 140,
+        "endChar": 14
+      },
+      "revId": "fce8c54026c6c900ba89fcb12850c515d863689a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a19d36a_b309d3b2",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-12T18:28:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c21ffabf_8f42d16b",
       "range": {
         "startLine": 140,
         "startChar": 12,
