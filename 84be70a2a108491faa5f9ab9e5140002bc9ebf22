@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b7a7377_b8d5fe1a",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-12T04:00:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51e0c9eb_a8d394e4",
+      "range": {
+        "startLine": 135,
+        "startChar": 3,
+        "endLine": 135,
+        "endChar": 76
+      },
+      "revId": "84be70a2a108491faa5f9ab9e5140002bc9ebf22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b12de21_abb97b86",
         "filename": "runtime/code_item_accessors.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-09T13:42:15Z",
       "side": 1,
       "message": "Why three classes instead of just one? Those classes are just temporary, so I wouldn\u0027t mind having just one containing all the info.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 63
+      },
+      "revId": "84be70a2a108491faa5f9ab9e5140002bc9ebf22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26624aa3_ab69815b",
+        "filename": "runtime/code_item_accessors.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-12T04:00:55Z",
+      "side": 1,
+      "message": "In the long term decoding the debug info offset might involve leb decoding, not sure if the compiler is smart enough to optimize that out if it\u0027s unused.",
+      "parentUuid": "6b12de21_abb97b86",
       "range": {
         "startLine": 136,
         "startChar": 0,
