@@ -30,6 +30,7 @@
 
 namespace art {
 
+// static constexpr bool kUpdateChecksum = true;
 static constexpr uint32_t kDataSectionAlignment = sizeof(uint32_t) * 2;
 static constexpr uint32_t kDexSectionWordAlignment = 4;
 
@@ -893,6 +894,14 @@ void DexWriter::WriteMemMap() {
     header_->SetFileSize(offset);
   }
   WriteHeader();
+  if (compute_offsets_) {
+    const uint32_t checksum = DexFile::CalculateChecksum(mem_map_->Begin(), offset);
+    LOG(ERROR) << "BEOFRE " << header_->Checksum() << " " << checksum << " " << header_->FileSize();
+    header_->SetChecksum(checksum);
+    WriteHeader();
+    const uint32_t checksum2 = DexFile::CalculateChecksum(mem_map_->Begin(), offset);
+    LOG(ERROR) << "AFTER " << header_->Checksum() << " " << checksum2 << " " << header_->FileSize();
+  }
 }
 
 void DexWriter::Output(dex_ir::Header* header,

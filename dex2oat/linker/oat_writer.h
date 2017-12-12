@@ -285,7 +285,9 @@ class OatWriter {
                     OatDexFile* oat_dex_file,
                     bool update_input_vdex);
   bool SeekToDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file);
-  bool LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_file);
+  bool LayoutAndWriteDexFile(OutputStream* out,
+                             OatDexFile* oat_dex_file,
+                             bool update_input_vdex);
   bool WriteDexFile(OutputStream* out,
                     File* file,
                     OatDexFile* oat_dex_file,
@@ -296,8 +298,7 @@ class OatWriter {
                     File* dex_file);
   bool WriteDexFile(OutputStream* out,
                     OatDexFile* oat_dex_file,
-                    const uint8_t* dex_file,
-                    bool update_input_vdex);
+                    const uint8_t* dex_file);
   bool OpenDexFiles(File* file,
                     bool verify,
                     /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,

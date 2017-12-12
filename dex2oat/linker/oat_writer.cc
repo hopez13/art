@@ -3324,8 +3324,7 @@ bool OatWriter::WriteDexFile(OutputStream* out,
   }
   if (profile_compilation_info_ != nullptr ||
           compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone) {
-    CHECK(!update_input_vdex) << "We should never update the input vdex when doing dexlayout";
-    if (!LayoutAndWriteDexFile(out, oat_dex_file)) {
+    if (!LayoutAndWriteDexFile(out, oat_dex_file, update_input_vdex)) {
       return false;
     }
   } else if (oat_dex_file->source_.IsZipEntry()) {
@@ -3340,8 +3339,12 @@ bool OatWriter::WriteDexFile(OutputStream* out,
     }
   } else {
     DCHECK(oat_dex_file->source_.IsRawData());
-    if (!WriteDexFile(out, oat_dex_file, oat_dex_file->source_.GetRawData(), update_input_vdex)) {
-      return false;
+    if (!update_input_vdex) {
+      DCHECK(ValidateDexFileHeader(oat_dex_file->source_.GetRawData(),
+                                   oat_dex_file->GetLocation()));
+      if (!WriteDexFile(out, oat_dex_file, oat_dex_file->source_.GetRawData())) {
+        return false;
+      }
     }
   }
 
@@ -3386,7 +3389,9 @@ bool OatWriter::SeekToDexFile(OutputStream* out, File* file, OatDexFile* oat_dex
   return true;
 }
 
-bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_file) {
+bool OatWriter::LayoutAndWriteDexFile(OutputStream* out,
+                                      OatDexFile* oat_dex_file,
+                                      bool update_input_vdex) {
   TimingLogger::ScopedTiming split("Dex Layout", timings_);
   std::string error_msg;
   std::string location(oat_dex_file->GetLocation());
@@ -3438,19 +3443,35 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
     LOG(ERROR) << "Failed to open dex file for layout: " << error_msg;
     return false;
   }
+  bool allow_dex_expansion = true;
   Options options;
   options.output_to_memmap_ = true;
   options.compact_dex_level_ = compact_dex_level_;
+  if (update_input_vdex) {
+    // If we are updating hte input vdex, make sure to never expand the dex file or change the
+    // class def order. Expanding the dex file will possibly corrupt following dex files or vdex
+    // metadata.
+    // Changing the class order will invaidate the dequickening data.
+    allow_dex_expansion = false;
+    options.reorder_class_defs_ = false;
+  }
   DexLayout dex_layout(options, profile_compilation_info_, nullptr);
   dex_layout.ProcessDexFile(location.c_str(), dex_file.get(), 0);
   std::unique_ptr<MemMap> mem_map(dex_layout.GetAndReleaseMemMap());
-  oat_dex_file->dex_sections_layout_ = dex_layout.GetSections();
-  // Dex layout can affect the size of the dex file, so we update here what we have set
-  // when adding the dex file as a source.
   const UnalignedDexFileHeader* header = AsUnalignedDexFileHeader(mem_map->Begin());
-  oat_dex_file->dex_file_size_ = header->file_size_;
-  if (!WriteDexFile(out, oat_dex_file, mem_map->Begin(), /* update_input_vdex */ false)) {
-    return false;
+  if (!allow_dex_expansion && header->file_size_ > dex_file->GetHeader().file_size_) {
+    // Don't need to write if input vdex.
+    if (!update_input_vdex && !WriteDexFile(out, oat_dex_file, dex_file->Begin())) {
+      return false;
+    }
+  } else {
+    oat_dex_file->dex_sections_layout_ = dex_layout.GetSections();
+    // Dex layout can affect the size of the dex file, so we update here what we have set
+    // when adding the dex file as a source.
+    oat_dex_file->dex_file_size_ = header->file_size_;
+    if (!WriteDexFile(out, oat_dex_file, mem_map->Begin())) {
+      return false;
+    }
   }
   CHECK_EQ(oat_dex_file->dex_file_location_checksum_, dex_file->GetLocationChecksum());
   return true;
@@ -3596,27 +3617,22 @@ bool OatWriter::WriteDexFile(OutputStream* out,
 
 bool OatWriter::WriteDexFile(OutputStream* out,
                              OatDexFile* oat_dex_file,
-                             const uint8_t* dex_file,
-                             bool update_input_vdex) {
+                             const uint8_t* dex_file) {
   // Note: The raw data has already been checked to contain the header
   // and all the data that the header specifies as the file size.
   DCHECK(dex_file != nullptr);
   DCHECK(ValidateDexFileHeader(dex_file, oat_dex_file->GetLocation()));
   const UnalignedDexFileHeader* header = AsUnalignedDexFileHeader(dex_file);
 
-  if (update_input_vdex) {
-    // The vdex already contains the dex code, no need to write it again.
-  } else {
-    if (!out->WriteFully(dex_file, header->file_size_)) {
-      PLOG(ERROR) << "Failed to write dex file " << oat_dex_file->GetLocation()
-                  << " to " << out->GetLocation();
-      return false;
-    }
-    if (!out->Flush()) {
-      PLOG(ERROR) << "Failed to flush stream after writing dex file."
-                  << " File: " << oat_dex_file->GetLocation();
-      return false;
-    }
+  if (!out->WriteFully(dex_file, header->file_size_)) {
+    PLOG(ERROR) << "Failed to write dex file " << oat_dex_file->GetLocation()
+                << " to " << out->GetLocation();
+    return false;
+  }
+  if (!out->Flush()) {
+    PLOG(ERROR) << "Failed to flush stream after writing dex file."
+                << " File: " << oat_dex_file->GetLocation();
+    return false;
   }
   return true;
 }

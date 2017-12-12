@@ -68,6 +68,9 @@ class Options {
   const char* output_dex_directory_ = nullptr;
   const char* output_file_name_ = nullptr;
   const char* profile_file_name_ = nullptr;
+  // Setting this to false disables class def layout entirely, which is stronger than strictly
+  // necessary to ensure the partial order w.r.t. class derivation. TODO: Re-enable (b/68317550).
+  bool reorder_class_defs_ = false;
 };
 
 // Hotness info
