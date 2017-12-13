@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46dce198_984346a6",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-13T09:26:12Z",
+      "side": 1,
+      "message": "A PAUSE (Intel) / YIELD (ARM / MIPS) instruction here would be ideal.",
+      "revId": "240ed58073adb0eff3665808542a218c2b59f0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52f73a9f_daebaf98",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-13T09:26:12Z",
+      "side": 1,
+      "message": "Given the data point in the comment of 60000ns, (i - 20) seems overly exact.",
+      "range": {
+        "startLine": 117,
+        "startChar": 22,
+        "endLine": 117,
+        "endChar": 31
+      },
+      "revId": "240ed58073adb0eff3665808542a218c2b59f0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
