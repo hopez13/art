@@ -806,7 +806,7 @@ bool Runtime::Start() {
 
   {
     ScopedObjectAccess soa(self);
-    self->GetJniEnv()->locals.AssertEmpty();
+    self->GetJniEnv()->AssertLocalsEmpty();
   }
 
   VLOG(startup) << "Runtime::Start exiting";
