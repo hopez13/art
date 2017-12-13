@@ -46,6 +46,30 @@
       "revId": "b639dc5477a10014d848a1371d99879d016137a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de9a46d3_76162d44",
+        "filename": "tools/jfuzz/run_jfuzz_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-13T18:02:47Z",
+      "side": 1,
+      "message": "Sounds good. I will rename the flag.",
+      "parentUuid": "f0ca732c_170af858",
+      "range": {
+        "startLine": 611,
+        "startChar": 25,
+        "endLine": 611,
+        "endChar": 31
+      },
+      "revId": "b639dc5477a10014d848a1371d99879d016137a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
