@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "88b7f49b_2e3d2d7d",
+        "filename": "compiler/optimizing/loop_optimization_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-13T00:22:50Z",
+      "side": 1,
+      "message": "It is okay. That would mean you need to duplicate e.g. AddLoop there too. And it is loop related, so it is not so bad.\n\nBut perhaps add a comment with both test cases stating that it really tests nodes.cc functionality, not loop opt, just for the future to be clear.",
+      "parentUuid": "86fbfda7_cae4efb1",
+      "revId": "1d569340b00c5e8fd96a55ef4274c9001627caca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2304dfe_ee9b34a1",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
