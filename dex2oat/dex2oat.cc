@@ -2236,7 +2236,8 @@ class Dex2Oat FINAL {
   bool DoEagerUnquickeningOfVdex() const {
     // DexLayout can invalidate the vdex metadata, so we need to unquicken
     // the vdex file eagerly, before passing it to dexlayout.
-    return DoDexLayoutOptimizations();
+    // Compact dex doesn't invalidate the vdex metadata.
+    return DoProfileGuidedOptimizations();
   }
 
   bool LoadProfile() {
