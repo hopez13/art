@@ -24,6 +24,7 @@
 #include "base/unix_file/fd_file.h"
 #include "cdex/compact_dex_level.h"
 #include "dex_ir.h"
+#include "dexlayout.h"
 #include "mem_map.h"
 #include "os.h"
 
@@ -91,6 +92,7 @@ class DexWriter {
 
   // Header and id section
   virtual void WriteHeader();
+
   // reserve_only means don't write, only reserve space. This is required since the string data
   // offsets must be assigned.
   uint32_t WriteStringIds(uint32_t offset, bool reserve_only);
