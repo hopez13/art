@@ -22,6 +22,29 @@
       "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24a25f30_d58ddf26",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-13T11:12:55Z",
+      "side": 1,
+      "message": "Why not use this value for all methods and fields?\n\nAnd is it wise to use any value in the low 16 bits? Doesn\u0027t dx/d8 preserve flags from .class files, so external tools that would use that flag for something else would actually produce hidden fields/methods after the conversion?",
+      "range": {
+        "startLine": 40,
+        "startChar": 54,
+        "endLine": 40,
+        "endChar": 60
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
