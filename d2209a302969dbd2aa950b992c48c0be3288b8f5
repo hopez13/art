@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "e71a2cc5_0b2984ea",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-13T09:27:26Z",
+      "side": 1,
+      "message": "Scratch this comment, I forgot to abandon it.",
+      "parentUuid": "31155948_215e9830",
+      "range": {
+        "startLine": 651,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 3
+      },
+      "revId": "d2209a302969dbd2aa950b992c48c0be3288b8f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09a4c049_8a6a9ecf",
         "filename": "test/137-cfi/run",
         "patchSetId": 2
