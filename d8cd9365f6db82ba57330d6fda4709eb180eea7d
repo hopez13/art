@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "297f69b9_c1c0246e",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-13T21:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26d3c207_bb6db013",
+      "range": {
+        "startLine": 308,
+        "startChar": 56,
+        "endLine": 308,
+        "endChar": 58
+      },
+      "revId": "d8cd9365f6db82ba57330d6fda4709eb180eea7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ced0a41_178ecce4",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 2
@@ -60,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "a8caa195_e7234705",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-13T21:00:23Z",
+      "side": 1,
+      "message": "There are many tests that caught this. I added one to 445-checker-licm anyway.",
+      "parentUuid": "b612256b_1dc62a14",
+      "revId": "d8cd9365f6db82ba57330d6fda4709eb180eea7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d7af5fc_f8b88039",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -71,6 +113,30 @@
       "writtenOn": "2017-12-13T11:05:01Z",
       "side": 1,
       "message": "The code shall now match the comment.\n\nThis CL is essentially about the unaddressed comment at https://android-review.googlesource.com/#/c/platform/art/+/160650/5/compiler/optimizing/nodes.h@4023 .",
+      "range": {
+        "startLine": 6262,
+        "startChar": 12,
+        "endLine": 6262,
+        "endChar": 93
+      },
+      "revId": "d8cd9365f6db82ba57330d6fda4709eb180eea7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f5ee00_3df4f227",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 6262,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-13T21:00:23Z",
+      "side": 1,
+      "message": "Yes the comment is right now.",
+      "parentUuid": "9d7af5fc_f8b88039",
       "range": {
         "startLine": 6262,
         "startChar": 12,
