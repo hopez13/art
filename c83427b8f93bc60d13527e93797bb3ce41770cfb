@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6be6e38e_4aaf4a8d",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-13T10:14:43Z",
+      "side": 1,
+      "message": "Please add a comment over there that returning true means you *must* look/update IsSchedulingBarrier.",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 37
+      },
+      "revId": "c83427b8f93bc60d13527e93797bb3ce41770cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
