@@ -200,7 +200,7 @@ void TemplateLoadConst64(Asm* a, Rtype rd, Vtype value) {
       // value loaded into the 32 LSBs can be loaded with a single
       // MIPS instruction.
       a->LoadConst32(rd, value);
-      a->Dinsu(rd, rd, 32, 32);
+      a->Dins(rd, rd, 32, 32);
       a->RecordLoadConst64Path(kLoadConst64PathDinsu1);
     } else if (IsInt<32>(tmp)) {
       // Loads with 3 instructions.
@@ -243,7 +243,7 @@ void TemplateLoadConst64(Asm* a, Rtype rd, Vtype value) {
         // Value being loaded has 32 LSBs equal to the 32 MSBs, and the
         // value in the 32 LSBs requires 2 MIPS instructions to load.
         a->LoadConst32(rd, value);
-        a->Dinsu(rd, rd, 32, 32);
+        a->Dins(rd, rd, 32, 32);
         a->RecordLoadConst64Path(kLoadConst64PathDinsu2);
       } else {
         // Loads with 3-4 instructions.
@@ -478,7 +478,11 @@ class Mips64Assembler FINAL : public Assembler, public JNIMacroAssembler<Pointer
   void Dsbh(GpuRegister rd, GpuRegister rt);  // MIPS64
   void Dshd(GpuRegister rd, GpuRegister rt);  // MIPS64
   void Dext(GpuRegister rs, GpuRegister rt, int pos, int size);  // MIPS64
-  void Dinsu(GpuRegister rt, GpuRegister rs, int pos, int size);  // MIPS64
+  void Ins(GpuRegister rt, GpuRegister rs, int pos, int size);
+  void Dins_instr(GpuRegister rt, GpuRegister rs, int pos, int size);  // MIPS64
+  void Dinsm_instr(GpuRegister rt, GpuRegister rs, int pos, int size);  // MIPS64
+  void Dinsu_instr(GpuRegister rt, GpuRegister rs, int pos, int size);  // MIPS64
+  void Dins(GpuRegister rt, GpuRegister rs, int pos, int size);  // MIPS64
   void Lsa(GpuRegister rd, GpuRegister rs, GpuRegister rt, int saPlusOne);
   void Dlsa(GpuRegister rd, GpuRegister rs, GpuRegister rt, int saPlusOne);  // MIPS64
   void Wsbh(GpuRegister rd, GpuRegister rt);
@@ -1147,7 +1151,7 @@ class Mips64Assembler FINAL : public Assembler, public JNIMacroAssembler<Pointer
           Lwu(reg, base, offset);
           null_checker();
           Lwu(TMP2, base, offset + kMips64WordSize);
-          Dinsu(reg, TMP2, 32, 32);
+          Dins(reg, TMP2, 32, 32);
         } else {
           Ld(reg, base, offset);
           null_checker();

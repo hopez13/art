@@ -430,11 +430,40 @@ void Mips64Assembler::Dext(GpuRegister rt, GpuRegister rs, int pos, int size) {
   EmitR(0x1f, rs, rt, static_cast<GpuRegister>(size - 1), pos, 0x3);
 }
 
-void Mips64Assembler::Dinsu(GpuRegister rt, GpuRegister rs, int pos, int size) {
+void Mips64Assembler::Ins(GpuRegister rd, GpuRegister rt, int pos, int size) {
+  CHECK(IsUint<5>(pos)) << pos;
+  CHECK(IsUint<5>(size - 1)) << size;
+  CHECK(IsUint<5>(pos + size - 1)) << pos << " + " << size;
+  EmitR(0x1f, rt, rd, static_cast<GpuRegister>(pos + size - 1), pos, 0x04);
+}
+
+void Mips64Assembler::Dinsm_instr(GpuRegister rt, GpuRegister rs, int pos, int size) {
+  CHECK(IsUint<5>(pos)) << pos;
+  CHECK(IsUint<5>(pos + size - 33)) << pos << " + " << size;
+  EmitR(0x1f, rs, rt, static_cast<GpuRegister>(pos + size - 33), pos, 0x5);
+}
+
+void Mips64Assembler::Dinsu_instr(GpuRegister rt, GpuRegister rs, int pos, int size) {
   CHECK(IsUint<5>(pos - 32)) << pos;
   CHECK(IsUint<5>(size - 1)) << size;
   CHECK(IsUint<5>(pos + size - 33)) << pos << " + " << size;
   EmitR(0x1f, rs, rt, static_cast<GpuRegister>(pos + size - 33), pos - 32, 0x6);
+}
+
+void Mips64Assembler::Dins_instr(GpuRegister rt, GpuRegister rs, int pos, int size) {
+  CHECK(IsUint<5>(pos)) << pos;
+  CHECK(IsUint<5>(pos + size - 1)) << pos << " + " << size;
+  EmitR(0x1f, rs, rt, static_cast<GpuRegister>(pos + size - 1), pos, 0x7);
+}
+
+void Mips64Assembler::Dins(GpuRegister rt, GpuRegister rs, int pos, int size) {
+  if (pos >= 32) {
+    Dinsu_instr(rt, rs, pos, size);
+  } else if ((pos + size - 1) >= 32) {
+    Dinsm_instr(rt, rs, pos, size);
+  } else {
+    Dins_instr(rt, rs, pos, size);
+  }
 }
 
 void Mips64Assembler::Lsa(GpuRegister rd, GpuRegister rs, GpuRegister rt, int saPlusOne) {

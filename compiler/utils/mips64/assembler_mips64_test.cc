@@ -1353,23 +1353,42 @@ TEST_F(AssemblerMIPS64Test, Dext) {
   DriverStr(expected.str(), "Dext");
 }
 
-TEST_F(AssemblerMIPS64Test, Dinsu) {
+TEST_F(AssemblerMIPS64Test, Ins) {
+  std::vector<mips64::GpuRegister*> regs = GetRegisters();
+  WarnOnCombinations(regs.size() * regs.size() * 33 * 16);
+  std::string expected;
+  for (mips64::GpuRegister* reg1 : regs) {
+    for (mips64::GpuRegister* reg2 : regs) {
+      for (int32_t pos = 0; pos < 32; pos++) {
+        for (int32_t size = 1; pos + size <= 32; size++) {
+          __ Ins(*reg1, *reg2, pos, size);
+          std::ostringstream instr;
+          instr << "ins $" << *reg1 << ", $" << *reg2 << ", " << pos << ", " << size << "\n";
+          expected += instr.str();
+        }
+      }
+    }
+  }
+  DriverStr(expected, "Ins");
+}
+
+TEST_F(AssemblerMIPS64Test, Dins) {
   std::vector<mips64::GpuRegister*> reg1_registers = GetRegisters();
   std::vector<mips64::GpuRegister*> reg2_registers = GetRegisters();
-  WarnOnCombinations(reg1_registers.size() * reg2_registers.size() * 33 * 16);
+  WarnOnCombinations(reg1_registers.size() * reg2_registers.size() * 65 * 32);
   std::ostringstream expected;
   for (mips64::GpuRegister* reg1 : reg1_registers) {
     for (mips64::GpuRegister* reg2 : reg2_registers) {
-      for (int32_t pos = 32; pos < 64; pos++) {
+      for (int32_t pos = 0; pos < 64; pos++) {
         for (int32_t size = 1; pos + size <= 64; size++) {
-          __ Dinsu(*reg1, *reg2, pos, size);
-          expected << "dinsu $" << *reg1 << ", $" << *reg2 << ", " << pos << ", " << size << "\n";
+          __ Dins(*reg1, *reg2, pos, size);
+          expected << "dins $" << *reg1 << ", $" << *reg2 << ", " << pos << ", " << size << "\n";
         }
       }
     }
   }
 
-  DriverStr(expected.str(), "Dinsu");
+  DriverStr(expected.str(), "Dins");
 }
 
 TEST_F(AssemblerMIPS64Test, Lsa) {
@@ -1822,26 +1841,26 @@ TEST_F(AssemblerMIPS64Test, LoadFromOffset) {
       "ld $a0, 0($a1)\n"
       "lwu $a0, 4($a1)\n"
       "lwu $t3, 8($a1)\n"
-      "dinsu $a0, $t3, 32, 32\n"
+      "dins $a0, $t3, 32, 32\n"
       "ld $a0, 256($a1)\n"
       "ld $a0, 1000($a1)\n"
       "daddiu $at, $a1, 32760\n"
       "lwu $a0, 4($at)\n"
       "lwu $t3, 8($at)\n"
-      "dinsu $a0, $t3, 32, 32\n"
+      "dins $a0, $t3, 32, 32\n"
       "daddiu $at, $a1, 32760\n"
       "ld $a0, 8($at)\n"
       "daddiu $at, $a1, 32760\n"
       "lwu $a0, 12($at)\n"
       "lwu $t3, 16($at)\n"
-      "dinsu $a0, $t3, 32, 32\n"
+      "dins $a0, $t3, 32, 32\n"
       "daui $at, $a1, 1\n"
       "ld $a0, 0($at)\n"
       "daui $at, $a1, 2\n"
       "daddiu $at, $at, 8\n"
       "lwu $a0, 0x7ff4($at)\n"
       "lwu $t3, 0x7ff8($at)\n"
-      "dinsu $a0, $t3, 32, 32\n"
+      "dins $a0, $t3, 32, 32\n"
       "daui $at, $a1, 0x1234\n"
       "ld $a0, 0x5678($at)\n"
       "ld $a0, -256($a1)\n"
@@ -1855,13 +1874,13 @@ TEST_F(AssemblerMIPS64Test, LoadFromOffset) {
       "dahi $at, $at, 1\n"
       "lwu $a0, -4($at)\n"
       "lwu $t3, 0($at)\n"
-      "dinsu $a0, $t3, 32, 32\n"
+      "dins $a0, $t3, 32, 32\n"
       "daui $at, $a1, 32768\n"
       "ld $a0, 0($at)\n"
       "daui $at, $a1, 32768\n"
       "lwu $a0, 4($at)\n"
       "lwu $t3, 8($at)\n"
-      "dinsu $a0, $t3, 32, 32\n";
+      "dins $a0, $t3, 32, 32\n";
   DriverStr(expected, "LoadFromOffset");
 }
 
@@ -2569,10 +2588,18 @@ struct LoadConst64Tester {
   void Dati(mips64::GpuRegister rd, uint16_t c) {
     regs_[rd] += SignExtend16To64(c) << 48;
   }
-  void Dinsu(mips64::GpuRegister rt, mips64::GpuRegister rs, int pos, int size) {
-    CHECK(IsUint<5>(pos - 32)) << pos;
-    CHECK(IsUint<5>(size - 1)) << size;
-    CHECK(IsUint<5>(pos + size - 33)) << pos << " + " << size;
+  void Dins(mips64::GpuRegister rt, mips64::GpuRegister rs, int pos, int size) {
+    if (pos >= 32) {
+      CHECK(IsUint<5>(pos - 32)) << pos;
+      CHECK(IsUint<5>(size - 1)) << size;
+      CHECK(IsUint<5>(pos + size - 33)) << pos << " + " << size;
+    } else if ((pos + size - 1) >= 32) {
+      CHECK(IsUint<5>(pos)) << pos;
+      CHECK(IsUint<5>(pos + size - 33)) << pos << " + " << size;
+    } else {
+      CHECK(IsUint<5>(pos)) << pos;
+      CHECK(IsUint<5>(pos + size - 1)) << pos << " + " << size;
+    }
     uint64_t src_mask = (UINT64_C(1) << size) - 1;
     uint64_t dsk_mask = ~(src_mask << pos);
 
