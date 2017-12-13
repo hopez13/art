@@ -150,6 +150,15 @@ class SuperblockCloner : public ValueObject {
   // TODO: Start from small range of graph patterns then extend it.
   bool IsSubgraphCopyable() const;
 
+  // Return whether selected subgraph satisfy the criteria for the fast data flow resolution when
+  // iterative DF algorithm is not required and dominators/instructions inputs can be trivially
+  // adjusted.
+  //
+  // TODO: formally describe the criteria.
+  //
+  // Loop peeling and unrolling satisfy the criteria.
+  bool IsFastCase() const;
+
   // Run the copy algorithm according to the description.
   void Run();
 
@@ -270,6 +279,9 @@ class SuperblockCloner : public ValueObject {
   // Debug and logging methods.
   //
   void CheckInstructionInputsRemapping(HInstruction* orig_instr);
+  bool CheckRemappingInfoIsValid();
+  void VerifyGraph();
+  void DumpInputSets();
 
   HBasicBlock* GetBlockById(uint32_t block_id) const {
     DCHECK(block_id < graph_->GetBlocks().size());
@@ -300,6 +312,68 @@ class SuperblockCloner : public ValueObject {
   DISALLOW_COPY_AND_ASSIGN(SuperblockCloner);
 };
 
+// Helper class to perform loop peeling/unrolling.
+//
+// This helper should be used when correspondence map between original and copied
+// basic blocks/instructions are demanded.
+class PeelUnrollHelper : public ValueObject {
+ public:
+  explicit PeelUnrollHelper(HLoopInformation* info,
+                            SuperblockCloner::HBasicBlockMap* bb_map,
+                            SuperblockCloner::HInstructionMap* hir_map) :
+      loop_info_(info),
+      cloner_(info->GetHeader()->GetGraph(), &info->GetBlocks(), bb_map, hir_map) {
+    // For now do peeling/unrolling only for natural loops.
+    DCHECK(!info->IsIrreducible());
+  }
+
+  // Return whether the loop can be peeled/unrolled (static function).
+  static bool IsLoopCopyable(HLoopInformation* loop_info);
+
+  // Return whether the loop can be peeled/unrolled.
+  bool IsLoopCopyable() const { return cloner_.IsSubgraphCopyable(); }
+
+  HBasicBlock* DoPeeling() { return DoPeelUnrollImpl(/* to_unroll */ false); }
+  HBasicBlock* DoUnrolling() { return DoPeelUnrollImpl(/* to_unroll */ true); }
+
+ protected:
+  // Apply loop peeling/unrolling for the loop specified by 'loop_info'.
+  //
+  // Depending on 'do_unroll' either unroll loop by 2 or peel one iteration from it.
+  HBasicBlock* DoPeelUnrollImpl(bool to_unroll);
+
+ private:
+  HLoopInformation* loop_info_;
+  SuperblockCloner cloner_;
+
+  DISALLOW_COPY_AND_ASSIGN(PeelUnrollHelper);
+};
+
+// Helper class to perform loop peeling/unrolling.
+//
+// This helper should be used when there is no need to get correspondence information between
+// original and copied basic blocks/instructions.
+class PeelUnrollSimpleHelper : public ValueObject {
+ public:
+  explicit PeelUnrollSimpleHelper(HLoopInformation* info);
+  bool IsLoopCopyable() const { return helper_.IsLoopCopyable(); }
+  HBasicBlock* DoPeeling() { return helper_.DoPeeling(); }
+  HBasicBlock* DoUnrolling() { return helper_.DoUnrolling(); }
+
+ private:
+  SuperblockCloner::HBasicBlockMap bb_map_;
+  SuperblockCloner::HInstructionMap hir_map_;
+  PeelUnrollHelper helper_;
+
+  DISALLOW_COPY_AND_ASSIGN(PeelUnrollSimpleHelper);
+};
+
+// Collect edge remapping info for loop peeling/unrolling for the loop specified by loop info.
+void CollectRemappingInfoForPeelUnroll(bool to_unroll,
+                                       HLoopInformation* loop_info,
+                                       SuperblockCloner::HEdgeSet* remap_orig_internal,
+                                       SuperblockCloner::HEdgeSet* remap_copy_internal,
+                                       SuperblockCloner::HEdgeSet* remap_incoming);
 }  // namespace art
 
 namespace std {
@@ -313,6 +387,7 @@ struct hash<art::HEdge> {
     return (a + b) * (a + b + 1) / 2 + b;
   }
 };
+ostream& operator<<(ostream& os, const art::HEdge& e);
 
 }  // namespace std
 
