@@ -22,6 +22,30 @@
       "revId": "a463b6a920a2a0bf14f9cca20a561b412b9349d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30f8f3ac_f1394e88",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-13T16:22:29Z",
+      "side": 1,
+      "message": "I\u0027d rather leave this to the caller. The intent was that this method mainly embodies the priority of different matches of /system vs /data.\n\n(I agree, the pruning at the end should then also be in the caller... :-) )",
+      "parentUuid": "530c43aa_3d50a62b",
+      "range": {
+        "startLine": 1556,
+        "startChar": 20,
+        "endLine": 1556,
+        "endChar": 65
+      },
+      "revId": "a463b6a920a2a0bf14f9cca20a561b412b9349d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
