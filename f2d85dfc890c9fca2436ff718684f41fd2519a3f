@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99d2ce4e_6b8af996",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-13T19:51:16Z",
+      "side": 1,
+      "message": "Does this seem a bit long? Can we do it more concisely?\n\n  Avoid using OpenJDK9 covariant overrides that aren\u0027t in libcore yet.\n  For example, IntBuffer#clear-\u003eIntBuffer does not exist (but Buffer#clear-\u003eBuffer does).",
+      "revId": "f2d85dfc890c9fca2436ff718684f41fd2519a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aa85eb3_0055d5ca",
+        "filename": "test/085-old-style-inner-class/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-13T19:51:16Z",
+      "side": 1,
+      "message": "You should be able to delete this entire file now.",
+      "revId": "f2d85dfc890c9fca2436ff718684f41fd2519a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c37265fa_2731a244",
+        "filename": "test/085-old-style-inner-class/jasmin/Main$1.j",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-13T19:51:16Z",
+      "side": 1,
+      "message": "Consider leaving the Java source code here as a comment?",
+      "revId": "f2d85dfc890c9fca2436ff718684f41fd2519a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eb71e68_fd39bc91",
+        "filename": "test/085-old-style-inner-class/jasmin/Main$1.j",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-13T19:51:16Z",
+      "side": 1,
+      "message": "nit: whitespace please",
+      "revId": "f2d85dfc890c9fca2436ff718684f41fd2519a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd054661_5abdca18",
+        "filename": "test/085-old-style-inner-class/jasmin/Main.j",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-13T19:51:16Z",
+      "side": 1,
+      "message": "Is there a reason for Main to be written in Jasmin?",
+      "revId": "f2d85dfc890c9fca2436ff718684f41fd2519a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
