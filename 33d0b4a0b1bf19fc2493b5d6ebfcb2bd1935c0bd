@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecd69755_284cf587",
+        "filename": "tools/libjdwp_oj_art_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-13T18:52:01Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be:\n  org.apache.harmony.jpda.tests.jdwp.VMDebug.VMDebugTest002#testVMDebug\n\n?\n\nWe may also want to disable \n\n  org.apache.harmony.jpda.tests.jdwp.VMDebug.VMDebugTest#testVMDebug\n\ntoo, as it shows similar signs of failure.",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 78
+      },
+      "revId": "33d0b4a0b1bf19fc2493b5d6ebfcb2bd1935c0bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
