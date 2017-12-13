@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "530c43aa_3d50a62b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-13T10:32:56Z",
+      "side": 1,
+      "message": "Should we handle the failure the same way here (Prune and exit?)",
+      "range": {
+        "startLine": 1556,
+        "startChar": 20,
+        "endLine": 1556,
+        "endChar": 65
+      },
+      "revId": "a463b6a920a2a0bf14f9cca20a561b412b9349d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
