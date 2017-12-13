@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b4fe1574_6abdb77f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-13T10:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b4c9d47_9d27b98f",
+      "revId": "d2209a302969dbd2aa950b992c48c0be3288b8f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efde11f3_25f5b474",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2017-12-13T09:26:51Z",
       "side": 1,
       "message": "This reads odd. Why is it not MiniDebugInfo? Also what behavior should we expect if both flags are passed?",
+      "range": {
+        "startLine": 1377,
+        "startChar": 33,
+        "endLine": 1377,
+        "endChar": 73
+      },
+      "revId": "d2209a302969dbd2aa950b992c48c0be3288b8f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44289c0d_1c1d0766",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-13T10:28:25Z",
+      "side": 1,
+      "message": "If both flags are passed, I think we should include the union of them (i.e. the full-debug-info, and ignore the mini-debug-info).\n\nThis is what this implements, and that is why it reads slightly odd. Added a comment.",
+      "parentUuid": "efde11f3_25f5b474",
       "range": {
         "startLine": 1377,
         "startChar": 33,
@@ -100,6 +142,30 @@
       "writtenOn": "2017-12-13T09:26:51Z",
       "side": 1,
       "message": "Add a comment why you need this for the test.",
+      "range": {
+        "startLine": 20,
+        "startChar": 20,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "d2209a302969dbd2aa950b992c48c0be3288b8f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40c19560_2ecd42cf",
+        "filename": "test/137-cfi/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-13T10:28:25Z",
+      "side": 1,
+      "message": "Done\n\nPS: This test is currently disabled for JIT, and that will continue to be the case until libunwind support is added. So for the time being, this just sets things up so that it is trivial to re-enable the test for libunwind development.",
+      "parentUuid": "09a4c049_8a6a9ecf",
       "range": {
         "startLine": 20,
         "startChar": 20,
