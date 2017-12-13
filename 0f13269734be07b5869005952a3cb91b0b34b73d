@@ -16,6 +16,24 @@
       "revId": "0f13269734be07b5869005952a3cb91b0b34b73d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bddbcf5a_efaee975",
+        "filename": "test/031-class-attributes/expected.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2017-12-13T23:12:32Z",
+      "side": 0,
+      "message": "Do you mean (a) Compiling with -target 1.8, or (b) compiling with OpenJDK 8 javac?\n\nI believe that (a) wouldn\u0027t fix it.\n\n(b) is not generally supported by our build toolchain, and we will want to get rid of OpenJDK 8 eventually, so making this work would both be a little messy and short-lived / more technical debt for the next person to eventually clean up.\n\nIdeally this test could accept either value (0 or 8) here but it looks like that\u0027s not possible.\n\nI plan to make this part of the change part of the same CL topic that changes the default toolchain. How does that sound?",
+      "parentUuid": "fab36f6d_9329592d",
+      "revId": "0f13269734be07b5869005952a3cb91b0b34b73d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
