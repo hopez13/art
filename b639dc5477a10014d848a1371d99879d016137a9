@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0ca732c_170af858",
+        "filename": "tools/jfuzz/run_jfuzz_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-13T08:55:48Z",
+      "side": 1,
+      "message": "\"use_dx\" is a loaded name. Could we change the command-line option and variable names throughout this CL to something like \"toolchain\" (or somesuch)? The selection is between javac+dx, javac+d8, and jack.",
+      "range": {
+        "startLine": 611,
+        "startChar": 25,
+        "endLine": 611,
+        "endChar": 31
+      },
+      "revId": "b639dc5477a10014d848a1371d99879d016137a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
