@@ -57,6 +57,29 @@
       "revId": "d8cd9365f6db82ba57330d6fda4709eb180eea7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d7af5fc_f8b88039",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 6262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-13T11:05:01Z",
+      "side": 1,
+      "message": "The code shall now match the comment.\n\nThis CL is essentially about the unaddressed comment at https://android-review.googlesource.com/#/c/platform/art/+/160650/5/compiler/optimizing/nodes.h@4023 .",
+      "range": {
+        "startLine": 6262,
+        "startChar": 12,
+        "endLine": 6262,
+        "endChar": 93
+      },
+      "revId": "d8cd9365f6db82ba57330d6fda4709eb180eea7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
