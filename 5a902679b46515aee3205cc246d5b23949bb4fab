@@ -352,6 +352,30 @@
       "revId": "5a902679b46515aee3205cc246d5b23949bb4fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e68e237_47cd0efd",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-14T14:29:57Z",
+      "side": 1,
+      "message": "The ART part is complete - running the test will JIT on first use, generate debug info, and gdb will indeed successfully backtrack through it. The missing part is adding support to libunwind.",
+      "parentUuid": "29dd9162_5422630d",
+      "range": {
+        "startLine": 652,
+        "startChar": 45,
+        "endLine": 652,
+        "endChar": 86
+      },
+      "revId": "5a902679b46515aee3205cc246d5b23949bb4fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
