@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "06679b55_c24b768c",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-14T16:32:32Z",
+      "side": 1,
+      "message": "iam \u0026 vmarko will tell you to avoid std::function like the plague.\n\nCould instead do \u003ctypename Fn, typename T\u003e, and force users to say GetThreadStack\u003cjobject\u003e.\n\nI could access the soa through a capture, instead, significantly cutting the arg type size down.\n\n(It\u0027s inconvenient I can\u0027t just hide the result_of behind a using declaration easily (I didn\u0027t want to intro yet another struct).",
+      "parentUuid": "f3f4c23f_4e033201",
+      "revId": "23b5c8c3244fa1d635a6edc57ace4a81081022b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7630020_d3b33bdf",
         "filename": "runtime/native/dalvik_system_VMStack.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-12-14T13:57:50Z",
       "side": 1,
       "message": "We\u0027re passing fn here and have specialized on the return type of this lambda, but the return type is not clear. For those of happier with training wheels, maybe have a temporary jobject result and return that. Or instantiate an explicitly typed function object.",
+      "revId": "23b5c8c3244fa1d635a6edc57ace4a81081022b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a37c51ba_23694fd2",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-14T16:32:32Z",
+      "side": 1,
+      "message": "Is noting the return type in the lambda (\"-\u003e jobject REQUIRES... {\") OK?",
+      "parentUuid": "c7630020_d3b33bdf",
       "revId": "23b5c8c3244fa1d635a6edc57ace4a81081022b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
