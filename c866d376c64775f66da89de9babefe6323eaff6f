@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5892bac6_b000009c",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-14T00:32:28Z",
+      "side": 1,
+      "message": "Not sure if we have one like this yet. You could in theory change the logger for android-base and then parse it after executing the test.\n\nWorth doing if you have the will, it would be useful elsewhere :).",
+      "parentUuid": "7a7e584a_45da8128",
+      "revId": "c866d376c64775f66da89de9babefe6323eaff6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b2e91da_3bf155b9",
         "filename": "runtime/jni_env_ext.cc",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Would a run-test be better? As its a death test, do you have a good example to follow?",
       "parentUuid": "8b2e91da_3bf155b9",
+      "revId": "c866d376c64775f66da89de9babefe6323eaff6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04244b5b_1e7fa5ff",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-14T00:32:28Z",
+      "side": 1,
+      "message": "GetMethodIdBadArgumentTest in jni_internal_test does something similar, doesn\u0027t it?",
+      "parentUuid": "9f58141b_827160e5",
       "revId": "c866d376c64775f66da89de9babefe6323eaff6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
