@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e4764aa_d64d1c77",
+        "filename": "patchoat/patchoat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T10:05:07Z",
+      "side": 1,
+      "message": "Isn\u0027t --force-determinism making things -j1 anyway? (also it would make sense that force-determinism handles which number of threads it can use and ensure determinism, though I haven\u0027t checked if we do it).",
+      "range": {
+        "startLine": 276,
+        "startChar": 41,
+        "endLine": 276,
+        "endChar": 85
+      },
+      "revId": "203010a86542b16991ede122085b07eea6c55bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
