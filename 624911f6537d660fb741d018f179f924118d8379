@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d61f500_ea818757",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-14T22:12:43Z",
+      "side": 1,
+      "message": "I don\u0027t understand the need for any of this. Why do you want to move away from RI-compliant options? Makes zero sense to me and actually needs way better arguments (basically there is no argument made for why this helps anything but tests - which is bogus, IMHO).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "624911f6537d660fb741d018f179f924118d8379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
