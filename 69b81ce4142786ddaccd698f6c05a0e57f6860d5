@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b5f477b0_91d547eb",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-14T20:34:00Z",
+      "side": 1,
+      "message": "Changed to:\nClinitCheck is treated as a pure instruction since it\u0027s only executed once.",
+      "parentUuid": "2886645d_6bbd8ab5",
+      "range": {
+        "startLine": 304,
+        "startChar": 4,
+        "endLine": 304,
+        "endChar": 76
+      },
+      "revId": "69b81ce4142786ddaccd698f6c05a0e57f6860d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41c816b9_d939b847",
         "filename": "test/445-checker-licm/src/Main.java",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2017-12-14T18:08:31Z",
       "side": 1,
       "message": "slight more strict would be:\n\nCHECK-DAG: ..... loop:\u003c\u003cLoop:B\\d+\u003e\u003e\nCHECK-DAG: ..... loop:\u003c\u003cLoop\u003e\u003e",
+      "revId": "69b81ce4142786ddaccd698f6c05a0e57f6860d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2318de9_463fdea2",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-12-14T20:34:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41c816b9_d939b847",
       "revId": "69b81ce4142786ddaccd698f6c05a0e57f6860d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
