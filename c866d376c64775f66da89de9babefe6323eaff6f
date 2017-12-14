@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7a7e584a_45da8128",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2017-12-14T00:14:44Z",
+      "side": 1,
+      "message": "Thanks, is there an equivalent of ScopedMockLog now or an example you\u0027d like me to follow?",
+      "parentUuid": "ebfac394_657a9037",
+      "revId": "c866d376c64775f66da89de9babefe6323eaff6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b2e91da_3bf155b9",
         "filename": "runtime/jni_env_ext.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-12-13T23:54:56Z",
       "side": 1,
       "message": "gtest for new behavior?",
+      "revId": "c866d376c64775f66da89de9babefe6323eaff6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f58141b_827160e5",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2017-12-14T00:14:44Z",
+      "side": 1,
+      "message": "Would a run-test be better? As its a death test, do you have a good example to follow?",
+      "parentUuid": "8b2e91da_3bf155b9",
       "revId": "c866d376c64775f66da89de9babefe6323eaff6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
