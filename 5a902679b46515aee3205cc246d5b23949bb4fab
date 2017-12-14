@@ -328,6 +328,30 @@
       "revId": "5a902679b46515aee3205cc246d5b23949bb4fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29dd9162_5422630d",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-14T14:26:57Z",
+      "side": 1,
+      "message": "If you\u0027re referencing a theoretical future feature, I\u0027d rather you dropped this bit of code from this CL.",
+      "parentUuid": "d7f058cc_5b0a747d",
+      "range": {
+        "startLine": 652,
+        "startChar": 45,
+        "endLine": 652,
+        "endChar": 86
+      },
+      "revId": "5a902679b46515aee3205cc246d5b23949bb4fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
