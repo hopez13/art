@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02f8bb72_2a1dc17f",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-14T11:21:30Z",
+      "side": 1,
+      "message": "What kind of checker test?\n\nI can only think of architecture-dependent \"dissassembly (after)\" tests. On ARM/ARM64 we could check that we don\u0027t use the marking register. On x86/x86-64 we could check that we don\u0027t use the thread selector.",
+      "parentUuid": "4937d8f9_0d99aec2",
+      "range": {
+        "startLine": 417,
+        "startChar": 4,
+        "endLine": 417,
+        "endChar": 85
+      },
+      "revId": "5d64a6374d12358025aa6e964a50f4d214dc8eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f073d98e_5866213d",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-14T10:45:58Z",
       "side": 1,
       "message": "barriers",
+      "range": {
+        "startLine": 434,
+        "startChar": 31,
+        "endLine": 434,
+        "endChar": 38
+      },
+      "revId": "5d64a6374d12358025aa6e964a50f4d214dc8eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf5c61a2_8726ad18",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-14T11:21:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f073d98e_5866213d",
       "range": {
         "startLine": 434,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d5a71c4e_8a1ebb63",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6617,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-14T11:21:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6361efb_650b7e77",
+      "range": {
+        "startLine": 6615,
+        "startChar": 0,
+        "endLine": 6617,
+        "endChar": 3
+      },
+      "revId": "5d64a6374d12358025aa6e964a50f4d214dc8eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "215e9d07_fdc2f661",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-12-14T10:45:58Z",
       "side": 1,
       "message": "No need?",
+      "range": {
+        "startLine": 6726,
+        "startChar": 0,
+        "endLine": 6728,
+        "endChar": 3
+      },
+      "revId": "5d64a6374d12358025aa6e964a50f4d214dc8eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7225702_8caf3b4c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6728,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-14T11:21:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "215e9d07_fdc2f661",
       "range": {
         "startLine": 6726,
         "startChar": 0,
