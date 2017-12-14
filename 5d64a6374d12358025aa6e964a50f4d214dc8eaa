@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5f60b952_743482fb",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-14T13:52:50Z",
+      "side": 1,
+      "message": "Done for x86/x86-64, with a comment why we do not test it on arm/arm64.",
+      "parentUuid": "7e120564_c305de2c",
+      "range": {
+        "startLine": 417,
+        "startChar": 4,
+        "endLine": 417,
+        "endChar": 85
+      },
+      "revId": "5d64a6374d12358025aa6e964a50f4d214dc8eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f073d98e_5866213d",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 1
