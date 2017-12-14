@@ -22,6 +22,30 @@
       "revId": "ee655dfdd681f2c6b50cbcc875251f56506fab2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2c8fa76_af2e9180",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-14T16:42:08Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "a96a7165_c8e3f446",
+      "range": {
+        "startLine": 178,
+        "startChar": 81,
+        "endLine": 178,
+        "endChar": 101
+      },
+      "revId": "ee655dfdd681f2c6b50cbcc875251f56506fab2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
