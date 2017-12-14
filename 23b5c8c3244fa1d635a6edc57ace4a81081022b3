@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "8089fbcf_3d2fc45c",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-14T17:49:10Z",
+      "side": 1,
+      "message": "There\u0027s a replacement for it, though...",
+      "parentUuid": "cb682468_39712f02",
+      "revId": "23b5c8c3244fa1d635a6edc57ace4a81081022b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7630020_d3b33bdf",
         "filename": "runtime/native/dalvik_system_VMStack.cc",
         "patchSetId": 2
