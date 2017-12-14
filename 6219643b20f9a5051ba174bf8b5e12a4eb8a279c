@@ -50,6 +50,24 @@
       "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aef3a82_25e142a2",
+        "filename": "test/085-old-style-inner-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-14T00:01:26Z",
+      "side": 1,
+      "message": "Actually that isn\u0027t compatible, it\u0027s a Class\u003cRunnable\u003e not a Runnable. Never mind :).",
+      "parentUuid": "8e7a84e5_9fe22534",
+      "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
