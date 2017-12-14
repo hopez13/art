@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a96a7165_c8e3f446",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T13:40:39Z",
+      "side": 1,
+      "message": "Could we introduce a proper Java object instead, eg dalvik/system/AnnotatedSthreadStack?",
+      "range": {
+        "startLine": 178,
+        "startChar": 81,
+        "endLine": 178,
+        "endChar": 101
+      },
+      "revId": "ee655dfdd681f2c6b50cbcc875251f56506fab2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
