@@ -209,6 +209,52 @@
     },
     {
       "key": {
+        "uuid": "f5d10bf7_57c99711",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "This sounds like an assertion that this is the case instead of a command. Rephrase to \"Operations in this block must not cause an unbounded pause\"?",
+      "range": {
+        "startLine": 191,
+        "startChar": 6,
+        "endLine": 191,
+        "endChar": 55
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daf05af0_b191228e",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "you\u0027re reading this without synchronization",
+      "range": {
+        "startLine": 216,
+        "startChar": 10,
+        "endLine": 216,
+        "endChar": 18
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30fe1c15_5c770d5c",
         "filename": "dt_fd_forward/dt_fd_forward.cc",
         "patchSetId": 14
@@ -255,6 +301,46 @@
     },
     {
       "key": {
+        "uuid": "6367e4df_0e082d4b",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "Is your intention actually to initialize the fd values to -2147483648 here?",
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "336cc91f_d7f12412",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "You leak the other FDs if any of these are valid.",
+      "range": {
+        "startLine": 315,
+        "startChar": 84,
+        "endLine": 317,
+        "endChar": 28
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c0d6e32f_b4d066d0",
         "filename": "dt_fd_forward/dt_fd_forward.cc",
         "patchSetId": 14
@@ -271,6 +357,98 @@
         "startChar": 58,
         "endLine": 332,
         "endChar": 49
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ef3048a_35bf4619",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "wat",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 412,
+        "endChar": 60
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f262b6e6_316cf990",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "or `return !is_err_`",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 5
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fde1f89c_345be80b",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "data_.insert(data_.end(), bytes, bytes + size)",
+      "range": {
+        "startLine": 602,
+        "startChar": 0,
+        "endLine": 604,
+        "endChar": 5
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b60f055a_bd99cd2a",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "do you have to check for allocation success here?\n\nalso, wait, does this just get permanently leaked?",
+      "range": {
+        "startLine": 761,
+        "startChar": 11,
+        "endLine": 761,
+        "endChar": 47
       },
       "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -364,6 +542,23 @@
         "endLine": 137,
         "endChar": 0
       },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c0eae6d_1129d71a",
+        "filename": "dt_fd_forward/dt_fd_forward.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T23:31:39Z",
+      "side": 1,
+      "message": "you probably want to initialize this to 0 in the constructor?",
       "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
