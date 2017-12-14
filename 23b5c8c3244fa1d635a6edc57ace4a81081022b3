@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3f4c23f_4e033201",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-14T13:57:50Z",
+      "side": 1,
+      "message": "This seems a little opaque, but it is a gnarly goal.\n\nCould something along the lines of this work?\n\ntemplate \u003ctypename T\u003e\nstatic T GetThreadStack(const ScopedFastNativeObjectAccess\u0026 soa,\n                        jobject peer,\n                        std::function\u003cT(Thread*, const ScopedFastNativeObjectAccess\u0026)\u003e fn,\n                        REQUIRES_SHARED(Locks::mutator_lock_) {\n  T trace \u003d nullptr;",
+      "revId": "23b5c8c3244fa1d635a6edc57ace4a81081022b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7630020_d3b33bdf",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-14T13:57:50Z",
+      "side": 1,
+      "message": "We\u0027re passing fn here and have specialized on the return type of this lambda, but the return type is not clear. For those of happier with training wheels, maybe have a temporary jobject result and return that. Or instantiate an explicitly typed function object.",
+      "revId": "23b5c8c3244fa1d635a6edc57ace4a81081022b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
