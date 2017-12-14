@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7e120564_c305de2c",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T11:59:42Z",
+      "side": 1,
+      "message": "Yes, they would be arch specific, and what you\u0027re suggesting sgtm.",
+      "parentUuid": "02f8bb72_2a1dc17f",
+      "range": {
+        "startLine": 417,
+        "startChar": 4,
+        "endLine": 417,
+        "endChar": 85
+      },
+      "revId": "5d64a6374d12358025aa6e964a50f4d214dc8eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f073d98e_5866213d",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 1
