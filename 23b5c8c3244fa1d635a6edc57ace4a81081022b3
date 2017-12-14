@@ -73,6 +73,41 @@
     },
     {
       "key": {
+        "uuid": "a2617f6b_efd068a3",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-14T20:04:14Z",
+      "side": 1,
+      "message": "The std::function doesn\u0027t seem to make it any less opaque, you still don\u0027t know the return type.\n\n\n-------\n\nAs an alternative,\n\n   auto GetThreadStack(args) -\u003e decltype(fn(Thread*{},soa)) {\n\nshould work just as well. But then you have to repeat it to get \"trace\".",
+      "parentUuid": "8089fbcf_3d2fc45c",
+      "revId": "23b5c8c3244fa1d635a6edc57ace4a81081022b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31b642f9_efc5758e",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-14T20:04:14Z",
+      "side": 1,
+      "message": "nit: Don\u0027t need to repeat\n\n  template \u003ctypename T, typename ReturnT \u003d std::result_of\u003cT(....)\u003e \u003e\n  ReturnT GetThreadStack(T\u0026, ...) {\n    ReturnT trace \u003d nullptr;\n  }",
+      "revId": "23b5c8c3244fa1d635a6edc57ace4a81081022b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7630020_d3b33bdf",
         "filename": "runtime/native/dalvik_system_VMStack.cc",
         "patchSetId": 2
