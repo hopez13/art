@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "851ccba9_1f561d20",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-14T01:44:48Z",
+      "side": 1,
+      "message": "Maybe. Do you have experience with them? How about a TODO to investigate?\n\nThe function of PAUSE seems to be to suppress speculation, so that when the spinlock value changes, you don\u0027t have a ton of in-flight loads you have to squash. We do enough stuff between tests that this may be less of an issue.\n\nIntel seems to recommend a test\u0026test\u0026set loop, with a PAUSE in the initial test loop. That presumably allows communication between a pair of cores with a small number of nsecs latency. We\u0027re currently doing a simple test\u0026set loop with local delays. I\u0027m not sure the comparison is completely straightforward.\n\nI\u0027m even less sure about what ARM\u0027s YIELD actually does. It seems to be mostly targeting (hypothetical?) SMT cores, encouraging the core to schedule the other thread(s)?",
+      "parentUuid": "46dce198_984346a6",
+      "revId": "240ed58073adb0eff3665808542a218c2b59f0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52f73a9f_daebaf98",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2017-12-13T09:26:12Z",
       "side": 1,
       "message": "Given the data point in the comment of 60000ns, (i - 20) seems overly exact.",
+      "range": {
+        "startLine": 117,
+        "startChar": 22,
+        "endLine": 117,
+        "endChar": 31
+      },
+      "revId": "240ed58073adb0eff3665808542a218c2b59f0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c657f19_4b27b57b",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-14T01:44:48Z",
+      "side": 1,
+      "message": "As far as I could tell, the time did seem to go up with the argument, with basically a large constant overhead, so I wanted to start at basically the smallest possible value. But I don\u0027t care much either way.",
+      "parentUuid": "52f73a9f_daebaf98",
       "range": {
         "startLine": 117,
         "startChar": 22,
