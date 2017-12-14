@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b6e1624_c31bfddb",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-12-14T19:34:01Z",
+      "side": 1,
+      "message": "move_resolver_.ExchangeQuadSlots like in MIPS64 codegen? How did this even compile?",
+      "range": {
+        "startLine": 1162,
+        "startChar": 4,
+        "endLine": 1162,
+        "endChar": 21
+      },
+      "revId": "f21bfda5bc4993b770751d7868c88f64114e024e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd86d348_a669f9d2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1814,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-12-14T19:34:01Z",
+      "side": 1,
+      "message": "I\u0027d make this conditional on MSA availability so as not to penalize pre-R5.",
+      "range": {
+        "startLine": 1814,
+        "startChar": 0,
+        "endLine": 1814,
+        "endChar": 39
+      },
+      "revId": "f21bfda5bc4993b770751d7868c88f64114e024e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d74ca531_181f1c8a",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-12-14T19:34:01Z",
+      "side": 1,
+      "message": "It wouldn\u0027t hurt making this conditional on MSA availability as well.",
+      "range": {
+        "startLine": 1681,
+        "startChar": 0,
+        "endLine": 1681,
+        "endChar": 39
+      },
+      "revId": "f21bfda5bc4993b770751d7868c88f64114e024e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
