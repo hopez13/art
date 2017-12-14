@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2886645d_6bbd8ab5",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T10:02:51Z",
+      "side": 1,
+      "message": "I think the comment should be turned around. You should explain why we can treat a HClinitCheck as pure (eg we only need to execute it once).",
+      "range": {
+        "startLine": 304,
+        "startChar": 4,
+        "endLine": 304,
+        "endChar": 76
+      },
+      "revId": "69b81ce4142786ddaccd698f6c05a0e57f6860d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
