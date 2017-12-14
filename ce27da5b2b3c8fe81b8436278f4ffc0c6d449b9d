@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "90fcc4af_d80489bc",
+        "filename": "dt_fd_forward/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "needs",
+      "range": {
+        "startLine": 25,
+        "startChar": 81,
+        "endLine": 25,
+        "endChar": 89
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e498b471_2bf1a648",
+        "filename": "dt_fd_forward/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "Do you actually want this?",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 33
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97592ec0_fa2fdb33",
         "filename": "dt_fd_forward/dt_fd_forward.cc",
         "patchSetId": 14
@@ -48,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "3aafc421_f7652cfa",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "puts",
+      "range": {
+        "startLine": 54,
+        "startChar": 15,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5c788899_342220b0",
         "filename": "dt_fd_forward/dt_fd_forward.cc",
         "patchSetId": 14
@@ -71,6 +140,75 @@
     },
     {
       "key": {
+        "uuid": "b90e011b_9eaee4f8",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "But you throw away your handle to it?\n\nIs it passed in from the outside without the expectation that this class takes over ownership?",
+      "range": {
+        "startLine": 126,
+        "startChar": 3,
+        "endLine": 127,
+        "endChar": 81
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa8d15a4_2b499f49",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "capitalize, since you seem to be doing it elsewhere",
+      "range": {
+        "startLine": 149,
+        "startChar": 19,
+        "endLine": 149,
+        "endChar": 20
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56d279c8_deb09b8d",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "errno isn\u0027t going to be meaningful for the right hand side of the condition above",
+      "range": {
+        "startLine": 175,
+        "startChar": 6,
+        "endLine": 175,
+        "endChar": 45
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30fe1c15_5c770d5c",
         "filename": "dt_fd_forward/dt_fd_forward.cc",
         "patchSetId": 14
@@ -87,6 +225,75 @@
         "startChar": 6,
         "endLine": 235,
         "endChar": 23
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c0ef75e_0c01d7aa",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "here too",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 20
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0d6e32f_b4d066d0",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "Why don\u0027t this and RecieveFdsFromSocket just take `int listen_fd` instead of storing it in the struct?",
+      "range": {
+        "startLine": 331,
+        "startChar": 58,
+        "endLine": 332,
+        "endChar": 49
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "470660c0_1645d491",
+        "filename": "dt_fd_forward/dt_fd_forward.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "include order is inconsistent with google style",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 0
       },
       "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -133,6 +340,29 @@
         "startChar": 11,
         "endLine": 106,
         "endChar": 31
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78f91503_dec1a7a8",
+        "filename": "dt_fd_forward/dt_fd_forward.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-14T22:39:21Z",
+      "side": 1,
+      "message": "These should all be unique_fds. In particular, you always leak wakeup_fd_.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 0
       },
       "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
