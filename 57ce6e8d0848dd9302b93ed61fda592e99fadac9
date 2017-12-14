@@ -25,6 +25,236 @@
     },
     {
       "key": {
+        "uuid": "b433bc80_320f4360",
+        "filename": "hiddenapi/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfccb6af_1a9cc9b9",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "What is that for? Only for logging/abort? Could you avoid it?",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bb0b41c_5796aad6",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "Instead/also, could you add a README file explaining this?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 68
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31aec227_58240705",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "Add a comment why you need this.",
+      "range": {
+        "startLine": 101,
+        "startChar": 17,
+        "endLine": 101,
+        "endChar": 27
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e5e2173_0143073c",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "nit: it should be \"* \", not \"* \". Here and below. Same for references.",
+      "range": {
+        "startLine": 105,
+        "startChar": 15,
+        "endLine": 105,
+        "endChar": 17
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d14c88_38b13c4b",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "How performance sensitive is this? Don\u0027t you want to always ensure it?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 5
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "027d9a92_b629fed1",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "Constructs",
+      "range": {
+        "startLine": 174,
+        "startChar": 5,
+        "endLine": 174,
+        "endChar": 14
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdfcd1e2_71d3ebdf",
+        "filename": "hiddenapi/hiddenapi_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c8acfda_e3d92d24",
+        "filename": "hiddenapi/hiddenapi_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "If you could avoid these (I guess that\u0027s because of CommonRuntimeTest?), that would be great.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3125d8_3d6ef1e4",
+        "filename": "runtime/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-14T22:01:48Z",
+      "side": 1,
+      "message": "Why do you need this change?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 65
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a25f30_d58ddf26",
         "filename": "runtime/modifiers.h",
         "patchSetId": 1
