@@ -46,6 +46,30 @@
       "revId": "203010a86542b16991ede122085b07eea6c55bec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79cdc486_52f36f2e",
+        "filename": "patchoat/patchoat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-14T17:56:14Z",
+      "side": 1,
+      "message": "--force-determinism only puts the phases that can\u0027t be run parallel into -j1. In theory -j1 shouldn\u0027t be required, but it doesn\u0027t really hurt...",
+      "parentUuid": "5e4764aa_d64d1c77",
+      "range": {
+        "startLine": 276,
+        "startChar": 41,
+        "endLine": 276,
+        "endChar": 85
+      },
+      "revId": "203010a86542b16991ede122085b07eea6c55bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
