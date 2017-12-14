@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1d221eab_eafe957b",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-14T10:19:44Z",
+      "side": 1,
+      "message": "TODO investigate sounds fine here.\n\nI believe ARM\u0027s YIELD is just a NOP on current hardware and can see nothing about speculation or power implications in the ref manual. It looks like they may have considered some kind of SMT support and left it open for implementer.",
+      "parentUuid": "851ccba9_1f561d20",
+      "revId": "240ed58073adb0eff3665808542a218c2b59f0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52f73a9f_daebaf98",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 2
@@ -81,6 +99,30 @@
       "revId": "240ed58073adb0eff3665808542a218c2b59f0b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ffa5377_25226fd4",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-12-14T10:19:44Z",
+      "side": 1,
+      "message": "Sounds good, fine as-is.",
+      "parentUuid": "2c657f19_4b27b57b",
+      "range": {
+        "startLine": 117,
+        "startChar": 22,
+        "endLine": 117,
+        "endChar": 31
+      },
+      "revId": "240ed58073adb0eff3665808542a218c2b59f0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
