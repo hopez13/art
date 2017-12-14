@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8439516_ebbb5706",
+        "filename": "test/085-old-style-inner-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-14T00:00:30Z",
+      "side": 1,
+      "message": "nit: // Main$1.j",
+      "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5945ea5_e5ab7430",
+        "filename": "test/085-old-style-inner-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-14T00:00:30Z",
+      "side": 1,
+      "message": "nit: // Main$2.j",
+      "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e7a84e5_9fe22534",
+        "filename": "test/085-old-style-inner-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-12-14T00:00:30Z",
+      "side": 1,
+      "message": "nit: Would it make more sense to assign\n\n   private Runnable theRunnable \u003d Class.forName(\"Main$1\");\n\ninstead, and keep this code the same?",
+      "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
