@@ -22,6 +22,30 @@
       "revId": "203010a86542b16991ede122085b07eea6c55bec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8355ad52_634dafc2",
+        "filename": "patchoat/patchoat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-12-14T17:07:46Z",
+      "side": 1,
+      "message": "I don\u0027t think --force-determinism has the additional effect of -j1. With --force-determinism but without -j1 this test runs about 3-5 times faster, then with --force-determinism and -j1. I asked several people who might know how this work and nobody could tell me off the top of their head.",
+      "parentUuid": "5e4764aa_d64d1c77",
+      "range": {
+        "startLine": 276,
+        "startChar": 41,
+        "endLine": 276,
+        "endChar": 85
+      },
+      "revId": "203010a86542b16991ede122085b07eea6c55bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
