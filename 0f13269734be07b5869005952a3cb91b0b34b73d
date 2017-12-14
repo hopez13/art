@@ -52,6 +52,24 @@
       "revId": "0f13269734be07b5869005952a3cb91b0b34b73d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c5b6239_b672f927",
+        "filename": "test/031-class-attributes/expected.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2017-12-14T16:18:29Z",
+      "side": 0,
+      "message": "I don\u0027t think that this behavior of OpenJDK 9 javac depends on -source or -target, but I\u0027m not certain.\n\nFurther, the default -source and -target *is* 1.8 for now (even after the switch to OpenJDK 9), so if art/test/run-test respects that then it will have been passed during the failed run. I haven\u0027t been able to confirm whether this is happening because I haven\u0027t gotten run-test to log the javac invocation (even when I ran it with --dev); I may have been missing something obvious since I\u0027m unfamiliar with the art test scripts.\n\nIn case I\u0027m missing something obvious and you know how to fix it, do you wanna try yourself? You can get the environment under which the test is failing by exporting:\n\nexport EXPERIMENTAL_USE_OPENJDK9\u003d1.8\n\nand then re-running lunch.\n\nI\u0027ve moved the change to this particular test into a follow-up CL so that this CL doesn\u0027t need to wait for the OpenJDK 9 switch.",
+      "parentUuid": "a23fe23d_2ba24a5a",
+      "revId": "0f13269734be07b5869005952a3cb91b0b34b73d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

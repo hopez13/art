@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "84c8ce7f_1cb7f3f3",
+        "filename": "test/085-old-style-inner-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2017-12-14T16:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8439516_ebbb5706",
+      "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5945ea5_e5ab7430",
         "filename": "test/085-old-style-inner-class/src/Main.java",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bf881bb_e117058a",
+        "filename": "test/085-old-style-inner-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2017-12-14T16:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5945ea5_e5ab7430",
+      "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +101,24 @@
       "side": 1,
       "message": "Actually that isn\u0027t compatible, it\u0027s a Class\u003cRunnable\u003e not a Runnable. Never mind :).",
       "parentUuid": "8e7a84e5_9fe22534",
+      "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb445078_12a5dc5a",
+        "filename": "test/085-old-style-inner-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2017-12-14T16:18:29Z",
+      "side": 1,
+      "message": "Yeah, I changed this bit because the fact that the test was instantiating the class only to then call .getClass() on the instance seemed superfluous / not central to the test.\n\nFurther, while it might not have been 100% obvious from the .java source, the .j representation of the two classes makes it obvious that those two classes are actually equivalent. So it\u0027s also not core to the test to instantiate both. I suggest that in a follow-up CL, we delete Main$2 (and update expected.txt accordingly). Thoughts?",
+      "parentUuid": "7aef3a82_25e142a2",
       "revId": "6219643b20f9a5051ba174bf8b5e12a4eb8a279c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
