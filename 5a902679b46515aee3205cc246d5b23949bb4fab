@@ -400,6 +400,30 @@
       "revId": "5a902679b46515aee3205cc246d5b23949bb4fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88c49bfd_7d987538",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-12-14T15:06:42Z",
+      "side": 1,
+      "message": "To answer my question properly: Yes, we did land such CL, namely https://android-review.googlesource.com/196596 .",
+      "parentUuid": "6c34c9dd_08fe2c1d",
+      "range": {
+        "startLine": 652,
+        "startChar": 45,
+        "endLine": 652,
+        "endChar": 86
+      },
+      "revId": "5a902679b46515aee3205cc246d5b23949bb4fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
