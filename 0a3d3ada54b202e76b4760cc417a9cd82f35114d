@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15e3ffe9_4a101cec",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1462,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-15T16:06:51Z",
+      "side": 1,
+      "message": "Thanks for addressing the stack frame size limit issue. I would add a comment about the `NO_INLINE` attribute, either referring to the comment on this function\u0027s definition below, or even moving that comment here.",
+      "range": {
+        "startLine": 1462,
+        "startChar": 12,
+        "endLine": 1462,
+        "endChar": 21
+      },
+      "revId": "0a3d3ada54b202e76b4760cc417a9cd82f35114d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51d40e27_2f5d71f2",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-15T16:06:51Z",
+      "side": 1,
+      "message": "\"if this function gets inlined in IntrinsicCodeGeneratorARMVIXL::VisitStringCompareTo\"",
+      "range": {
+        "startLine": 1563,
+        "startChar": 47,
+        "endLine": 1563,
+        "endChar": 76
+      },
+      "revId": "0a3d3ada54b202e76b4760cc417a9cd82f35114d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bcd042d_de75b088",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-15T16:06:51Z",
+      "side": 1,
+      "message": "Is this needed, given that the declaration of this function is already tagged NO_INLINE above?",
+      "range": {
+        "startLine": 1565,
+        "startChar": 12,
+        "endLine": 1565,
+        "endChar": 21
+      },
+      "revId": "0a3d3ada54b202e76b4760cc417a9cd82f35114d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
