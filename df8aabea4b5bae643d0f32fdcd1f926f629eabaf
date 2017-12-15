@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e969359_b9baaca4",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-15T17:41:45Z",
+      "side": 1,
+      "message": "last nit: static constexpr usually follow the kSpinMax and kYieldMax naming convention; this seems to be done pretty consistently in the base files, but up to you.",
+      "revId": "df8aabea4b5bae643d0f32fdcd1f926f629eabaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
