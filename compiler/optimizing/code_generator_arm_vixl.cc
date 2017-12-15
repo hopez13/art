@@ -1168,28 +1168,16 @@ class LoadReferenceWithBakerReadBarrierAndUpdateFieldSlowPathARMVIXL
     //   tmp = [r_ptr] - expected;
     // } while (tmp == 0 && failure([r_ptr] <- r_new_value));
 
-    vixl32::Label loop_head, exit_loop;
+    vixl32::Label loop_head, comparison_failed, exit_loop;
     __ Bind(&loop_head);
-
     __ Ldrex(tmp, MemOperand(tmp_ptr));
-
-    __ Subs(tmp, tmp, expected);
-
-    {
-      ExactAssemblyScope aas(arm_codegen->GetVIXLAssembler(),
-                             2 * kMaxInstructionSizeInBytes,
-                             CodeBufferCheckScope::kMaximumSize);
-
-      __ it(ne);
-      __ clrex(ne);
-    }
-
-    __ B(ne, &exit_loop, /* far_target */ false);
-
+    __ Cmp(tmp, expected);
+    __ B(ne, &comparison_failed, /* far_target */ false);
     __ Strex(tmp, value, MemOperand(tmp_ptr));
-    __ Cmp(tmp, 1);
-    __ B(eq, &loop_head, /* far_target */ false);
-
+    __ CompareAndBranchIfZero(tmp, &exit_loop, /* far_target */ false);
+    __ B(&loop_head);
+    __ Bind(&comparison_failed);
+    __ Clrex();
     __ Bind(&exit_loop);
 
     if (kPoisonHeapReferences) {
