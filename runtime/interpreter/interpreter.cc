@@ -240,7 +240,7 @@ static constexpr InterpreterImplKind kInterpreterImplKind = kMterpImplKind;
 
 static inline JValue Execute(
     Thread* self,
-    const DexFile::CodeItem* code_item,
+    const CodeItemDataAccessor& accessor,
     ShadowFrame& shadow_frame,
     JValue result_register,
     bool stay_in_interpreter = false) REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -254,11 +254,14 @@ static inline JValue Execute(
     ArtMethod *method = shadow_frame.GetMethod();
 
     if (UNLIKELY(instrumentation->HasMethodEntryListeners())) {
-      instrumentation->MethodEnterEvent(self, shadow_frame.GetThisObject(code_item->ins_size_),
-                                        method, 0);
+      CodeItemDataAccessor accessor(method);
+      instrumentation->MethodEnterEvent(self,
+                                        shadow_frame.GetThisObject(accessor.InsSize()),
+                                        method,
+                                        0);
       if (UNLIKELY(self->IsExceptionPending())) {
         instrumentation->MethodUnwindEvent(self,
-                                           shadow_frame.GetThisObject(code_item->ins_size_),
+                                           shadow_frame.GetThisObject(accessor.InsSize()),
                                            method,
                                            0);
         return JValue();
@@ -277,7 +280,7 @@ static inline JValue Execute(
           // Calculate the offset of the first input reg. The input registers are in the high regs.
           // It's ok to access the code item here since JIT code will have been touched by the
           // interpreter and compiler already.
-          uint16_t arg_offset = code_item->registers_size_ - code_item->ins_size_;
+          uint16_t arg_offset = accessor.RegistersSize() - accessor.InsSize();
           ArtInterpreterToCompiledCodeBridge(self, nullptr, &shadow_frame, arg_offset, &result);
           // Push the shadow frame back as the caller will expect it.
           self->PushShadowFrame(&shadow_frame);
@@ -387,12 +390,12 @@ void EnterInterpreterFromInvoke(Thread* self,
   }
 
   const char* old_cause = self->StartAssertNoThreadSuspension("EnterInterpreterFromInvoke");
-  const DexFile::CodeItem* code_item = method->GetCodeItem();
+  CodeItemDataAccessor accessor(CodeItemDataAccessor::CreateNullable(method));
   uint16_t num_regs;
   uint16_t num_ins;
   if (code_item != nullptr) {
-    num_regs =  code_item->registers_size_;
-    num_ins = code_item->ins_size_;
+    num_regs =  accessor.RegistersSize();
+    num_ins = accessor.InsSize();
   } else if (!method->IsInvokable()) {
     self->EndAssertNoThreadSuspension(old_cause);
     method->ThrowInvocationTimeError();
@@ -597,7 +600,7 @@ JValue EnterInterpreterFromEntryPoint(Thread* self, const DexFile::CodeItem* cod
 }
 
 void ArtInterpreterToInterpreterBridge(Thread* self,
-                                       const DexFile::CodeItem* code_item,
+                                       const CodeItemDataAccessor& accessor,
                                        ShadowFrame* shadow_frame,
                                        JValue* result) {
   bool implicit_check = !Runtime::Current()->ExplicitStackOverflowChecks();
@@ -626,7 +629,7 @@ void ArtInterpreterToInterpreterBridge(Thread* self,
   }
 
   if (LIKELY(!shadow_frame->GetMethod()->IsNative())) {
-    result->SetJ(Execute(self, code_item, *shadow_frame, JValue()).GetJ());
+    result->SetJ(Execute(self, accessor, *shadow_frame, JValue()).GetJ());
   } else {
     // We don't expect to be asked to interpret native code (which is entered via a JNI compiler
     // generated stub) except during testing and image writing.

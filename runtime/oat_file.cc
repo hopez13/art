@@ -1500,12 +1500,10 @@ ArrayRef<GcRoot<mirror::Object>> OatFile::GetBssGcRoots() const {
   }
 }
 
-uint32_t OatFile::GetDebugInfoOffset(const DexFile& dex_file,
-                                     const DexFile::CodeItem* code_item) {
-  if (code_item == nullptr) {
+uint32_t OatFile::GetDebugInfoOffset(const DexFile& dex_file, uint32_t debug_info_off) {
+  if (debug_info_off == 0u) {
     return 0;
   }
-  const uint32_t debug_info_off = code_item->debug_info_off_;
   // Note that although the specification says that 0 should be used if there
   // is no debug information, some applications incorrectly use 0xFFFFFFFF.
   if (debug_info_off < dex_file.Size() || debug_info_off == 0xFFFFFFFF) {

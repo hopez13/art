@@ -154,13 +154,13 @@ mirror::Object* StackVisitor::GetThisObject() const {
       return cur_shadow_frame_->GetVRegReference(0);
     }
   } else {
-    const DexFile::CodeItem* code_item = m->GetCodeItem();
-    if (code_item == nullptr) {
+    CodeItemDataAccessor accessor(CodeItemDataAccessor::CreateNullable(m));
+    if (!accessor.HasCodeItem()) {
       UNIMPLEMENTED(ERROR) << "Failed to determine this object of abstract or proxy method: "
           << ArtMethod::PrettyMethod(m);
       return nullptr;
     } else {
-      uint16_t reg = code_item->registers_size_ - code_item->ins_size_;
+      uint16_t reg = accessor.RegistersSize() - accessor.InsSize();
       uint32_t value = 0;
       bool success = GetVReg(m, reg, kReferenceVReg, &value);
       // We currently always guarantee the `this` object is live throughout the method.
@@ -223,11 +223,11 @@ bool StackVisitor::GetVReg(ArtMethod* m, uint16_t vreg, VRegKind kind, uint32_t*
 bool StackVisitor::GetVRegFromOptimizedCode(ArtMethod* m, uint16_t vreg, VRegKind kind,
                                             uint32_t* val) const {
   DCHECK_EQ(m, GetMethod());
-  const DexFile::CodeItem* code_item = m->GetCodeItem();
-  DCHECK(code_item != nullptr) << m->PrettyMethod();  // Can't be null or how would we compile
-                                                      // its instructions?
-  uint16_t number_of_dex_registers = code_item->registers_size_;
-  DCHECK_LT(vreg, code_item->registers_size_);
+  // Can't be null or how would we compile its instructions?
+  DCHECK(m->GetCodeItem() != nullptr) << m->PrettyMethod();
+  CodeItemDataAccessor accessor(m);
+  uint16_t number_of_dex_registers = accessor.RegistersSize();
+  DCHECK_LT(vreg, number_of_dex_registers);
   const OatQuickMethodHeader* method_header = GetCurrentOatQuickMethodHeader();
   CodeInfo code_info = method_header->GetOptimizedCodeInfo();
   CodeInfoEncoding encoding = code_info.ExtractEncoding();

@@ -735,7 +735,8 @@ static void dumpInterface(const DexFile* pDexFile, const DexFile::TypeItem& pTyp
  * Dumps the catches table associated with the code.
  */
 static void dumpCatches(const DexFile* pDexFile, const DexFile::CodeItem* pCode) {
-  const u4 triesSize = pCode->tries_size_;
+  CodeItemDataAccessor accessor(pDexFile, pCode);
+  const u4 triesSize = accessor.TriesSize();
 
   // No catch table.
   if (triesSize == 0) {

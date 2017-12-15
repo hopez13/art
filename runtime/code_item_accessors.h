@@ -52,6 +52,7 @@ class CodeItemInstructionAccessor {
 
   // Return the instruction for a dex pc.
   const Instruction& InstructionAt(uint32_t dex_pc) const {
+    DCHECK_LT(dex_pc, InsnsSizeInCodeUnits());
     return *Instruction::At(insns_ + dex_pc);
   }
 

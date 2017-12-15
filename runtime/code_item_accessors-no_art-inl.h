@@ -24,7 +24,6 @@
 #include "standard_dex_file.h"
 
 // The no ART version is used by binaries that don't include the whole runtime.
-
 namespace art {
 
 inline void CodeItemInstructionAccessor::Init(const CompactDexFile::CodeItem& code_item) {
@@ -162,7 +161,6 @@ inline bool CodeItemDebugInfoAccessor::DecodeDebugLocalInfo(bool is_static,
                                          new_local,
                                          context);
 }
-
 
 }  // namespace art
 

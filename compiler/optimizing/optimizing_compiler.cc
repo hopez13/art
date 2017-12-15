@@ -766,7 +766,8 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
   static constexpr size_t kSpaceFilterOptimizingThreshold = 128;
   const CompilerOptions& compiler_options = compiler_driver->GetCompilerOptions();
   if ((compiler_options.GetCompilerFilter() == CompilerFilter::kSpace)
-      && (code_item->insns_size_in_code_units_ > kSpaceFilterOptimizingThreshold)) {
+      && (CodeItemInstructionAccessor(&dex_file, code_item).InsnsSizeInCodeUnits() >
+          kSpaceFilterOptimizingThreshold)) {
     MaybeRecordStat(compilation_stats_.get(), MethodCompilationStat::kNotCompiledSpaceFilter);
     return nullptr;
   }

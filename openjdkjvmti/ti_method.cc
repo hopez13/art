@@ -123,19 +123,20 @@ jvmtiError MethodUtil::GetBytecodes(jvmtiEnv* env,
   }
 
   art::ScopedObjectAccess soa(art::Thread::Current());
-  const art::DexFile::CodeItem* code_item = art_method->GetCodeItem();
-  if (code_item == nullptr) {
+  art::CodeItemInstructionAccessor accessor(
+      art::CodeItemInstructionAccessor::CreateNullable(art_method));
+  if (!accessor.HasCodeItem()) {
     *size_ptr = 0;
     *bytecode_ptr = nullptr;
     return OK;
   }
   // 2 bytes per instruction for dex code.
-  *size_ptr = code_item->insns_size_in_code_units_ * 2;
+  *size_ptr = accessor.InsnsSizeInCodeUnits() * 2;
   jvmtiError err = env->Allocate(*size_ptr, bytecode_ptr);
   if (err != OK) {
     return err;
   }
-  memcpy(*bytecode_ptr, code_item->insns_, *size_ptr);
+  memcpy(*bytecode_ptr, accessor.Insns(), *size_ptr);
   return OK;
 }
 
@@ -266,14 +267,10 @@ jvmtiError MethodUtil::GetLocalVariableTable(jvmtiEnv* env,
   };
 
   LocalVariableContext context(env);
-  if (!dex_file->DecodeDebugLocalInfo(accessor.RegistersSize(),
-                                      accessor.InsSize(),
-                                      accessor.InsnsSizeInCodeUnits(),
-                                      accessor.DebugInfoOffset(),
-                                      art_method->IsStatic(),
-                                      art_method->GetDexMethodIndex(),
-                                      LocalVariableContext::Callback,
-                                      &context)) {
+  if (!accessor.DecodeDebugLocalInfo(art_method->IsStatic(),
+                                     art_method->GetDexMethodIndex(),
+                                     LocalVariableContext::Callback,
+                                     &context)) {
     // Something went wrong with decoding the debug information. It might as well not be there.
     return ERR(ABSENT_INFORMATION);
   } else {
