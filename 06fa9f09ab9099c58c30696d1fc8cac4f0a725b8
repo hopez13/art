@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6d5c257a_8b156810",
+        "filename": "tools/jfuzz/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1095168
+      },
+      "writtenOn": "2017-12-15T08:24:32Z",
+      "side": 1,
+      "message": "Total nit: do you want to align with the other \u0027:\u0027 here?",
+      "range": {
+        "startLine": 101,
+        "startChar": 18,
+        "endLine": 101,
+        "endChar": 22
+      },
+      "revId": "06fa9f09ab9099c58c30696d1fc8cac4f0a725b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1952bf48_037d478a",
         "filename": "tools/jfuzz/run_dex_fuzz_test.py",
         "patchSetId": 1
