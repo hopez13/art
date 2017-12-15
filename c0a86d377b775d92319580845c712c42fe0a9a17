@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce13061b_5ff6a23e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2238,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-15T16:21:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b544c61_db6835cd",
+      "range": {
+        "startLine": 2238,
+        "startChar": 50,
+        "endLine": 2238,
+        "endChar": 92
+      },
+      "revId": "c0a86d377b775d92319580845c712c42fe0a9a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "085b564f_4eb2b234",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-15T11:30:08Z",
       "side": 1,
       "message": "So I think this is saying you\u0027re passing --speed-profile or a --profile with --input-vdex, right?\n\nI guess this is to pass 628-vdex?",
+      "range": {
+        "startLine": 3325,
+        "startChar": 2,
+        "endLine": 3326,
+        "endChar": 24
+      },
+      "revId": "c0a86d377b775d92319580845c712c42fe0a9a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0f8089d_344db731",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3326,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-15T16:21:06Z",
+      "side": 1,
+      "message": "Yes, there\u0027s a few tests that do that 628, 629, and another I forget.",
+      "parentUuid": "085b564f_4eb2b234",
       "range": {
         "startLine": 3325,
         "startChar": 2,
