@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5550f9b0_abdab44a",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-15T01:52:36Z",
+      "side": 1,
+      "message": "I changed it, though I have mixed feelings about the convention. \"unsigned int\" is supposed to mean \"whatever\u0027s convenient\", which really is the intent here. But uint32_t is shorter.",
+      "parentUuid": "1c093b8f_fa749e0b",
+      "range": {
+        "startLine": 107,
+        "startChar": 20,
+        "endLine": 107,
+        "endChar": 32
+      },
+      "revId": "908a86e56fe328de5f308aa9307df7acca6bed6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fac2637_9b10099f",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "2529c7eb_d941f503",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-15T01:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fac2637_9b10099f",
+      "revId": "908a86e56fe328de5f308aa9307df7acca6bed6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef389a0b_c7f9cf47",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 3
@@ -53,6 +95,24 @@
       "writtenOn": "2017-12-15T00:26:19Z",
       "side": 1,
       "message": "document this is to avoid optimizing the loop away :-)",
+      "revId": "908a86e56fe328de5f308aa9307df7acca6bed6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38b52cdc_1758f424",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-15T01:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef389a0b_c7f9cf47",
       "revId": "908a86e56fe328de5f308aa9307df7acca6bed6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
