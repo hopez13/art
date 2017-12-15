@@ -459,16 +459,12 @@ inline void ArtMethod::UpdateEntrypoints(const Visitor& visitor, PointerSize poi
   }
 }
 
-inline IterationRange<DexInstructionIterator> ArtMethod::DexInstructions() {
-  CodeItemInstructionAccessor accessor(this);
-  return { accessor.begin(),
-           accessor.end() };
+inline CodeItemInstructionAccessor ArtMethod::DexInstructions() {
+  return CodeItemInstructionAccessor(this);
 }
 
-inline IterationRange<DexInstructionIterator> ArtMethod::NullableDexInstructions() {
-  CodeItemInstructionAccessor accessor(CodeItemInstructionAccessor::CreateNullable(this));
-  return { accessor.begin(),
-           accessor.end() };
+inline CodeItemInstructionAccessor ArtMethod::NullableDexInstructions() {
+  return CodeItemInstructionAccessor::CreateNullable(this);
 }
 
 }  // namespace art

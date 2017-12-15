@@ -24,7 +24,6 @@
 #include "standard_dex_file.h"
 
 // The no ART version is used by binaries that don't include the whole runtime.
-
 namespace art {
 
 inline void CodeItemInstructionAccessor::Init(const CompactDexFile::CodeItem& code_item) {
@@ -61,6 +60,14 @@ inline DexInstructionIterator CodeItemInstructionAccessor::begin() const {
 
 inline DexInstructionIterator CodeItemInstructionAccessor::end() const {
   return DexInstructionIterator(insns_, insns_size_in_code_units_);
+}
+
+inline IterationRange<DexInstructionIterator> CodeItemInstructionAccessor::InstructionsFrom(
+    uint32_t start_dex_pc) const {
+  DCHECK_LT(start_dex_pc, InsnsSizeInCodeUnits());
+  return {
+      DexInstructionIterator(insns_, start_dex_pc),
+      DexInstructionIterator(insns_, insns_size_in_code_units_) };
 }
 
 inline void CodeItemDataAccessor::Init(const CompactDexFile::CodeItem& code_item) {
@@ -162,7 +169,6 @@ inline bool CodeItemDebugInfoAccessor::DecodeDebugLocalInfo(bool is_static,
                                          new_local,
                                          context);
 }
-
 
 }  // namespace art
 

@@ -42,6 +42,8 @@ class CodeItemInstructionAccessor {
 
   ALWAYS_INLINE DexInstructionIterator end() const;
 
+  IterationRange<DexInstructionIterator> InstructionsFrom(uint32_t start_dex_pc) const;
+
   uint32_t InsnsSizeInCodeUnits() const {
     return insns_size_in_code_units_;
   }
@@ -52,6 +54,7 @@ class CodeItemInstructionAccessor {
 
   // Return the instruction for a dex pc.
   const Instruction& InstructionAt(uint32_t dex_pc) const {
+    DCHECK_LT(dex_pc, InsnsSizeInCodeUnits());
     return *Instruction::At(insns_ + dex_pc);
   }
 
