@@ -551,9 +551,9 @@ static bool IsValidImplicitCheck(uintptr_t addr, const Instruction& instr)
 void ThrowNullPointerExceptionFromDexPC(bool check_address, uintptr_t addr) {
   uint32_t throw_dex_pc;
   ArtMethod* method = Thread::Current()->GetCurrentMethod(&throw_dex_pc);
-  const DexFile::CodeItem* code = method->GetCodeItem();
-  CHECK_LT(throw_dex_pc, code->insns_size_in_code_units_);
-  const Instruction* instr = Instruction::At(&code->insns_[throw_dex_pc]);
+  CodeItemInstructionAccessor accessor(method);
+  CHECK_LT(throw_dex_pc, accessor.InsnsSizeInCodeUnits());
+  const Instruction* instr = &accessor.InstructionAt(throw_dex_pc);
   if (check_address && !IsValidImplicitCheck(addr, *instr)) {
     const DexFile* dex_file = method->GetDeclaringClass()->GetDexCache()->GetDexFile();
     LOG(FATAL) << "Invalid address for an implicit NullPointerException check: "

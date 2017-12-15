@@ -141,8 +141,11 @@ bool Matcher::DoMatch(const CodeItemDataAccessor* code_item, MatchFn* const* pat
 ArtMethod* GetTargetConstructor(ArtMethod* method, const Instruction* invoke_direct)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK_EQ(invoke_direct->Opcode(), Instruction::INVOKE_DIRECT);
-  DCHECK_EQ(invoke_direct->VRegC_35c(),
-            method->GetCodeItem()->registers_size_ - method->GetCodeItem()->ins_size_);
+  if (kIsDebugBuild) {
+    CodeItemDataAccessor accessor(method);
+    DCHECK_EQ(invoke_direct->VRegC_35c(),
+              accessor.RegistersSize() - accessor.InsSize());
+  }
   uint32_t method_index = invoke_direct->VRegB_35c();
   ArtMethod* target_method = Runtime::Current()->GetClassLinker()->LookupResolvedMethod(
       method_index, method->GetDexCache(), method->GetClassLoader());

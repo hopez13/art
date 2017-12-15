@@ -350,13 +350,13 @@ FailureKind MethodVerifier::VerifyClass(Thread* self,
   }
 }
 
-static bool IsLargeMethod(const DexFile::CodeItem* const code_item) {
-  if (code_item == nullptr) {
+static bool IsLargeMethod(const CodeItemDataAccessor& accessor) {
+  if (!accessor.HasCodeItem()) {
     return false;
   }
 
-  uint16_t registers_size = code_item->registers_size_;
-  uint32_t insns_size = code_item->insns_size_in_code_units_;
+  uint16_t registers_size = accessor.RegistersSize();
+  uint32_t insns_size = accessor.InsnsSizeInCodeUnits();
 
   return registers_size * insns_size > 4*1024*1024;
 }
@@ -494,7 +494,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
     if (duration_ns > MsToNs(100)) {
       LOG(WARNING) << "Verification of " << dex_file->PrettyMethod(method_idx)
                    << " took " << PrettyDuration(duration_ns)
-                   << (IsLargeMethod(code_item) ? " (large method)" : "");
+                   << (IsLargeMethod(verifier.CodeItem()) ? " (large method)" : "");
     }
   }
   result.types = verifier.encountered_failure_types_;

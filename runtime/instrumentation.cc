@@ -1246,8 +1246,7 @@ struct RuntimeMethodShortyVisitor : public StackVisitor {
         shorty = m->GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetShorty()[0];
         return false;
       }
-      const DexFile::CodeItem* code_item = m->GetCodeItem();
-      const Instruction* instr = Instruction::At(&code_item->insns_[GetDexPc()]);
+      const Instruction* instr = &m->DexInstructions().InstructionAt(GetDexPc());
       if (instr->IsInvoke()) {
         const DexFile* dex_file = m->GetDexFile();
         if (interpreter::IsStringInit(dex_file, instr->VRegB())) {
