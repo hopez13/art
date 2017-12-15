@@ -58,6 +58,12 @@ static bool ConvertJavaArrayToDexFiles(
     /*out*/ const OatFile*& oat_file) {
   jarray array = reinterpret_cast<jarray>(arrayObject);
 
+  if (array == nullptr) {
+    ScopedObjectAccess soa(env);
+    soa.Self()->ThrowNewException("Ljava/lang/IllegalStateException;", "null DexFile cookie");
+    return false;
+  }
+
   jsize array_size = env->GetArrayLength(array);
   if (env->ExceptionCheck() == JNI_TRUE) {
     return false;

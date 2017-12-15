@@ -85,31 +85,20 @@ bool ClassLoaderHelper::AddToClassLoader(art::Thread* self,
 
 void ClassLoaderHelper::UpdateJavaDexFile(art::ObjPtr<art::mirror::Object> java_dex_file,
                                           art::ObjPtr<art::mirror::LongArray> new_cookie) {
-  art::ArtField* internal_cookie_field = java_dex_file->GetClass()->FindDeclaredInstanceField(
-      "mInternalCookie", "Ljava/lang/Object;");
   art::ArtField* cookie_field = java_dex_file->GetClass()->FindDeclaredInstanceField(
       "mCookie", "Ljava/lang/Object;");
-  CHECK(internal_cookie_field != nullptr);
-  art::ObjPtr<art::mirror::LongArray> orig_internal_cookie(
-      internal_cookie_field->GetObject(java_dex_file)->AsLongArray());
+  CHECK(cookie_field != nullptr);
   art::ObjPtr<art::mirror::LongArray> orig_cookie(
       cookie_field->GetObject(java_dex_file)->AsLongArray());
-  internal_cookie_field->SetObject<false>(java_dex_file, new_cookie);
-  if (!orig_cookie.IsNull()) {
-    cookie_field->SetObject<false>(java_dex_file, new_cookie);
-  }
+  cookie_field->SetObject<false>(java_dex_file, new_cookie);
 }
 
 art::ObjPtr<art::mirror::LongArray> ClassLoaderHelper::GetDexFileCookie(
     art::Handle<art::mirror::Object> java_dex_file_obj) {
-  // mCookie is nulled out if the DexFile has been closed but mInternalCookie sticks around until
-  // the object is finalized. Since they always point to the same array if mCookie is not null we
-  // just use the mInternalCookie field. We will update one or both of these fields later.
-  art::ArtField* internal_cookie_field = java_dex_file_obj->GetClass()->FindDeclaredInstanceField(
-      "mInternalCookie", "Ljava/lang/Object;");
-  // TODO Add check that mCookie is either null or same as mInternalCookie
-  CHECK(internal_cookie_field != nullptr);
-  return internal_cookie_field->GetObject(java_dex_file_obj.Get())->AsLongArray();
+  art::ArtField* cookie_field = java_dex_file_obj->GetClass()->FindDeclaredInstanceField(
+      "mCookie", "Ljava/lang/Object;");
+  CHECK(cookie_field != nullptr);
+  return cookie_field->GetObject(java_dex_file_obj.Get())->AsLongArray();
 }
 
 art::ObjPtr<art::mirror::LongArray> ClassLoaderHelper::AllocateNewDexFileCookie(
