@@ -105,5 +105,65 @@ public class Main {
             String className = e.nextElement();
             System.out.println(className);
         }
+
+        // Make sure we don't crash if the dex file has been closed.
+        Method DexFile_close = DexFile.getMethod("close");
+        DexFile_close.invoke(dexFile);
+
+        try {
+            System.out.println("entries after close...");
+            DexFile_entries.invoke(dexFile);
+        } catch (Exception ex) {
+            System.out.println("Exception thrown.");
+        }
+
+        Method DexFile_getStaticSizeOfDexFile = DexFile.getMethod("getStaticSizeOfDexFile");
+        try {
+            System.out.println("getStaticSizeOfDexFile after close...");
+            DexFile_getStaticSizeOfDexFile.invoke(dexFile);
+        } catch (Exception ex) {
+            System.out.println("Exception thrown.");
+        }
+
+        Method DexFile_loadClass = DexFile.getMethod("loadClass", String.class, ClassLoader.class);
+        try {
+            System.out.println("loadClass after close...");
+            DexFile_loadClass.invoke(dexFile, "Another", Main.class.getClassLoader());
+        } catch (Exception ex) {
+            System.out.println("Exception thrown.");
+        }
+
+        Method DexFile_isBackedByOatFile = DexFile.getDeclaredMethod("isBackedByOatFile");
+        DexFile_isBackedByOatFile.setAccessible(true);
+        try {
+            System.out.println("isBackedByOatFile after close...");
+            DexFile_isBackedByOatFile.invoke(dexFile);
+        } catch (Exception ex) {
+            System.out.println("Exception thrown.");
+        }
+
+        // See if we can cause a crash from racing close against the DexFile
+        // methods. The following loop consistently reproduced a crash before
+        // proper synchronization was added to DexFile.
+        for (int i = 0; i < 1000; ++i) {
+          final Object dex = DexFile_loadDex.invoke(null, CLASS_PATH, null, 0);
+          Thread thread = new Thread(new Runnable() {
+              public void run() {
+                  try {
+                      while (true) {
+                          DexFile_entries.invoke(dex);
+                          DexFile_getStaticSizeOfDexFile.invoke(dex);
+                          DexFile_loadClass.invoke(dex, "Another", Main.class.getClassLoader());
+                          DexFile_isBackedByOatFile.invoke(dex);
+                      }
+                  } catch (Exception e) {
+                      // The dex file must have been closed. Done looping.
+                  }
+              }
+          });
+          thread.start();
+          DexFile_close.invoke(dex);
+          thread.join();
+        }
     }
 }
