@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0753f8fb_bd138488",
+        "filename": "runtime/base/file_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-15T11:16:02Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "fab75699_e78d88ac",
+      "range": {
+        "startLine": 356,
+        "startChar": 5,
+        "endLine": 356,
+        "endChar": 23
+      },
+      "revId": "7003b9f5b29b37db750057af8ccac08ee85b4903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b98a35ff_2b4215d8",
         "filename": "runtime/base/file_utils.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e07b4b17_850201d9",
+        "filename": "runtime/base/file_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-15T11:16:02Z",
+      "side": 1,
+      "message": "It should be only called once per oat file (OatFileAssistant::OatFileInfo::GetFile), and the other one is a CHECK, also only called once per oat file, so I don\u0027t think it will be so bad.\n\nWould you rather we pass the realpath to the oat file assistant?",
+      "parentUuid": "b98a35ff_2b4215d8",
+      "range": {
+        "startLine": 357,
+        "startChar": 2,
+        "endLine": 357,
+        "endChar": 61
+      },
+      "revId": "7003b9f5b29b37db750057af8ccac08ee85b4903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b73a44d_690b6ade",
         "filename": "runtime/base/file_utils.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2017-12-15T09:27:37Z",
       "side": 1,
       "message": "i.e.",
+      "range": {
+        "startLine": 85,
+        "startChar": 45,
+        "endLine": 85,
+        "endChar": 47
+      },
+      "revId": "7003b9f5b29b37db750057af8ccac08ee85b4903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c5e7704_590b2c05",
+        "filename": "runtime/base/file_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-15T11:16:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b73a44d_690b6ade",
       "range": {
         "startLine": 85,
         "startChar": 45,
