@@ -138,6 +138,9 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
   uint64_t GetObjectsAllocatedInUnevacFromSpace() REQUIRES(!region_lock_) {
     return GetObjectsAllocatedInternal<RegionType::kRegionTypeUnevacFromSpace>();
   }
+  size_t GetNumNonFreeRegions() REQUIRES(!region_lock_) {
+    return num_non_free_regions_;
+  }
 
   bool CanMoveObjects() const OVERRIDE {
     return true;

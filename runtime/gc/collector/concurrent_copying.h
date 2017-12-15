@@ -307,6 +307,7 @@ class ConcurrentCopying : public GarbageCollector {
   Atomic<size_t> objects_moved_;
   Atomic<uint64_t> cumulative_bytes_moved_;
   Atomic<uint64_t> cumulative_objects_moved_;
+  size_t max_peak_num_non_free_regions_;
 
   // The skipped blocks are memory blocks/chucks that were copies of
   // objects that were unused due to lost races (cas failures) at
