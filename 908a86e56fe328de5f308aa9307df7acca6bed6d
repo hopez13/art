@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c093b8f_fa749e0b",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-15T00:26:19Z",
+      "side": 1,
+      "message": "nit: the base files seem less consistent, but generally we use uint32_t for unsigned; as you did this at L113, it would seem more consistent for this change to use this everywhere, unless you have an explicit reason to use the non-sized one.",
+      "range": {
+        "startLine": 107,
+        "startChar": 20,
+        "endLine": 107,
+        "endChar": 32
+      },
+      "revId": "908a86e56fe328de5f308aa9307df7acca6bed6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fac2637_9b10099f",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-15T00:26:19Z",
+      "side": 1,
+      "message": "slightly better variable names would increase readability\n\nuint32_t spin_count \u003d 10 * i;\nfor (uint32_t spin \u003d 0; spin \u003c spin_count; ++spin) {\n  ..\n}",
+      "revId": "908a86e56fe328de5f308aa9307df7acca6bed6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef389a0b_c7f9cf47",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-15T00:26:19Z",
+      "side": 1,
+      "message": "document this is to avoid optimizing the loop away :-)",
+      "revId": "908a86e56fe328de5f308aa9307df7acca6bed6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
