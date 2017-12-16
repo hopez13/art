@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08f36e4d_e5fe9b68",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-12-16T00:18:32Z",
+      "side": 1,
+      "message": "include order.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "27d6a8ee4b39febb03b15c769b40c394222bb251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1430305c_d2196a24",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-12-16T00:18:32Z",
+      "side": 1,
+      "message": "LOG it then?",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 100
+      },
+      "revId": "27d6a8ee4b39febb03b15c769b40c394222bb251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a80ad52_08cddb50",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-12-16T00:18:32Z",
+      "side": 1,
+      "message": "magic constant.  Please use sizeof(int), I think.",
+      "range": {
+        "startLine": 465,
+        "startChar": 17,
+        "endLine": 465,
+        "endChar": 18
+      },
+      "revId": "27d6a8ee4b39febb03b15c769b40c394222bb251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ee3b9ef_95e1ba3e",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-12-16T00:18:32Z",
+      "side": 1,
+      "message": "I know the style guide hates this, but please parenthesize how this is supposed to group.",
+      "range": {
+        "startLine": 508,
+        "startChar": 10,
+        "endLine": 508,
+        "endChar": 78
+      },
+      "revId": "27d6a8ee4b39febb03b15c769b40c394222bb251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "081fe006_26f0dcbc",
+        "filename": "adbconnection/adbconnection.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-12-16T00:18:32Z",
+      "side": 1,
+      "message": "\"If so, we don\u0027t do anything to it on...\"",
+      "range": {
+        "startLine": 136,
+        "startChar": 57,
+        "endLine": 136,
+        "endChar": 92
+      },
+      "revId": "27d6a8ee4b39febb03b15c769b40c394222bb251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
