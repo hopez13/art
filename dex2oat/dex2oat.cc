@@ -2244,6 +2244,7 @@ class Dex2Oat FINAL {
 
   bool DoEagerUnquickeningOfVdex() const {
     return MayInvalidateVdexMetadata();
+    // return false;
   }
 
   bool LoadProfile() {
@@ -2822,6 +2823,7 @@ class Dex2Oat FINAL {
   std::vector<const DexFile*> dex_files_;
   std::string no_inline_from_string_;
   CompactDexLevel compact_dex_level_ = kDefaultCompactDexLevel;
+  // CompactDexLevel compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
 
   std::vector<std::unique_ptr<linker::ElfWriter>> elf_writers_;
   std::vector<std::unique_ptr<linker::OatWriter>> oat_writers_;
