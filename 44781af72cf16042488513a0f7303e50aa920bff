@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49d51c42_0f1d1471",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-16T00:52:02Z",
+      "side": 1,
+      "message": "Since each thread reserves a region, it may cause many mostly empty regions to be counted as full with the current logic. Thoughts? Should we maybe consider how full individual regions are by looking at the region Top() - Begin()?\n\nAlso the line is longer than the recommended columns of 100.",
+      "range": {
+        "startLine": 1758,
+        "startChar": 4,
+        "endLine": 1758,
+        "endChar": 117
+      },
+      "revId": "44781af72cf16042488513a0f7303e50aa920bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26954941_80359f12",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2696,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-16T00:52:02Z",
+      "side": 1,
+      "message": "There are also some other spaces that count towards heap usage, maybe it would better to rename this to \"Peak region space RAM usage?\"\n\nAlso the line is longer than the recommended columns of 100.",
+      "range": {
+        "startLine": 2696,
+        "startChar": 9,
+        "endLine": 2696,
+        "endChar": 24
+      },
+      "revId": "44781af72cf16042488513a0f7303e50aa920bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a78d57_9c55b6d7",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-16T00:52:02Z",
+      "side": 1,
+      "message": "Not necessary I think since the lock is not acquired in the function.",
+      "range": {
+        "startLine": 141,
+        "startChar": 32,
+        "endLine": 141,
+        "endChar": 55
+      },
+      "revId": "44781af72cf16042488513a0f7303e50aa920bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
