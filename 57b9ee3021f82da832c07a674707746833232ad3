@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d7c31f0b_cbd3fc97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-18T18:05:38Z",
+      "side": 1,
+      "message": "make sure you run at least:\n\ntest-art-host-dexdump            \ntest-art-host-gtest-dexdump_test \ntest-art-host-gtest-dexlist_test \n\n(and feel free to add more art/test/dexdump/*.dex,lst,txt,xml files for testing if you feel something is not covered well).",
+      "revId": "57b9ee3021f82da832c07a674707746833232ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "191e60b8_5f6a430a",
         "filename": "runtime/code_item_accessors-no_art-inl.h",
         "patchSetId": 1
