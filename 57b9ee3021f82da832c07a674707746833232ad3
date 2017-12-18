@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "191e60b8_5f6a430a",
+        "filename": "runtime/code_item_accessors-no_art-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-18T13:59:50Z",
+      "side": 1,
+      "message": "Please add a comment what this file is for (\"also to be used by non-ART binaries that don\u0027t to include runtime.h, ...\").",
+      "revId": "57b9ee3021f82da832c07a674707746833232ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
