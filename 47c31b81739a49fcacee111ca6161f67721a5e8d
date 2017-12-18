@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf94b44e_edb180f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2017-12-18T13:56:02Z",
+      "side": 1,
+      "message": "I also ran lunch after exporting EXPERIMENTAL_USE_OPENJDK9\u003d1.8 to ensure that the PATH is updated. I\u0027ve also verified that the tests still pass with EXPERIMENTAL_USE_OPENJDK9\u003dfalse.",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 37
+      },
+      "revId": "47c31b81739a49fcacee111ca6161f67721a5e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
