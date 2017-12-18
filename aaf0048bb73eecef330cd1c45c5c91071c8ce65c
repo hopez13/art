@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c11273b8_a940a529",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-12-18T15:18:01Z",
+      "side": 1,
+      "message": "either rename this field in oat_file_manager or add a doc on setter/field that this will use data oat files but not executable.",
+      "range": {
+        "startLine": 422,
+        "startChar": 38,
+        "endLine": 422,
+        "endChar": 64
+      },
+      "revId": "aaf0048bb73eecef330cd1c45c5c91071c8ce65c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
