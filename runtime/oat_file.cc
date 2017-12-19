@@ -462,7 +462,7 @@ static void DCheckIndexToBssMapping(OatFile* oat_file,
       CHECK_ALIGNED_PARAM(entry.bss_offset, slot_size);
       // When loading a non-executable ElfOatFile, .bss symbols are not even
       // looked up, so we cannot verify the offset against BssSize().
-      if (oat_file->IsExecutable()) {
+      if (oat_file->CanUseCode()) {
         CHECK_LT(entry.bss_offset, oat_file->BssSize());
       }
       uint32_t mask = entry.GetMask(index_bits);
@@ -1809,9 +1809,7 @@ const OatFile::OatMethod OatFile::OatClass::GetOatMethod(uint32_t method_index) 
   if (oat_method_offsets == nullptr) {
     return OatMethod(nullptr, 0);
   }
-  if (oat_file_->IsExecutable() ||
-      Runtime::Current() == nullptr ||        // This case applies for oatdump.
-      Runtime::Current()->IsAotCompiler()) {
+  if (oat_file_->CanUseCode()) {
     return OatMethod(oat_file_->Begin(), oat_method_offsets->code_offset_);
   }
   // We aren't allowed to use the compiled code. We just force it down the interpreted / jit
@@ -1831,6 +1829,16 @@ bool OatFile::IsPic() const {
 
 bool OatFile::IsDebuggable() const {
   return GetOatHeader().IsDebuggable();
+}
+
+bool OatFile::CanUseCode() const {
+  // If we are in oatdump or dex2oat it is always fine to use the compiled code (since it won't
+  // actually be run).
+  if (Runtime::Current() == nullptr || Runtime::Current()->IsAotCompiler()) {
+    return true;
+  }
+  // Otherwise we must be executable and either the runtime must not be debuggable or we must be.
+  return IsExecutable() && (!Runtime::Current()->IsJavaDebuggable() || IsDebuggable());
 }
 
 CompilerFilter::Filter OatFile::GetCompilerFilter() const {

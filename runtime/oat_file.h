@@ -124,6 +124,9 @@ class OatFile {
     return is_executable_;
   }
 
+  // Indicates whether the oat file was compiled and loaded in such a way as it's code is usable.
+  bool CanUseCode() const;
+
   bool IsPic() const;
 
   // Indicates whether the oat file was compiled with full debugging capability.
