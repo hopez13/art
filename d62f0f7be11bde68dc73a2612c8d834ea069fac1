@@ -46,6 +46,30 @@
       "revId": "d62f0f7be11bde68dc73a2612c8d834ea069fac1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "266cac5c_165e6d2f",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-19T17:32:38Z",
+      "side": 1,
+      "message": "I do not think it\u0027s a good idea to depend on ART logging here, honestly - especially for a VLOG that is *way* too verbose. But oh well.",
+      "parentUuid": "d5d5d95e_3585bf94",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "d62f0f7be11bde68dc73a2612c8d834ea069fac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
