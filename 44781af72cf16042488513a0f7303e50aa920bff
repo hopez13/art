@@ -116,6 +116,30 @@
       "revId": "44781af72cf16042488513a0f7303e50aa920bff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c82c54f9_149ee46a",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-19T17:06:47Z",
+      "side": 1,
+      "message": "Should be fine either way, but we should not have the \"REQUIRES(!region_lock_)\" annotation unless we acquire the lock.",
+      "parentUuid": "7c9c5020_59822632",
+      "range": {
+        "startLine": 141,
+        "startChar": 32,
+        "endLine": 141,
+        "endChar": 55
+      },
+      "revId": "44781af72cf16042488513a0f7303e50aa920bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
