@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bb2919f_94c4086d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-19T23:11:04Z",
+      "side": 1,
+      "message": "nit: Resets .... (use s form like the others)",
+      "revId": "aef0c33f04c71525b9cb0e32c2c9f306da7cf2fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2378e022_ac86d61f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-19T23:11:04Z",
+      "side": 1,
+      "message": "nit: Registers",
+      "revId": "aef0c33f04c71525b9cb0e32c2c9f306da7cf2fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b898929_40eb7650",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-12-19T23:11:04Z",
+      "side": 1,
+      "message": "last request for this CL before we move on to the others; this introduces new superblock_cloner.* files, but no superblock_cloner_test.cc. Obviously, usage later will test this in full, but do you see chance to make a few unit tests for typical methods of the new classes in such a new test file?",
+      "revId": "aef0c33f04c71525b9cb0e32c2c9f306da7cf2fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
