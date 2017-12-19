@@ -46,6 +46,30 @@
       "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b645fec_0ec49539",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-19T10:34:12Z",
+      "side": 1,
+      "message": "But the first one is a conditional jump. My intuition was that it was better for branch prediction to favor the fall-through case for a conditional branch instruction. What\u0027s the best practice here?",
+      "parentUuid": "24ff2e68_d65db2b7",
+      "range": {
+        "startLine": 1177,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 21
+      },
+      "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
