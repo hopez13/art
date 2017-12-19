@@ -22,6 +22,30 @@
       "revId": "13ec919d2ff176f086242cd78474f3b6112f92b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a2f4feb_78adedc8",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-19T22:49:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9a9155c_c976ad6c",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 93
+      },
+      "revId": "13ec919d2ff176f086242cd78474f3b6112f92b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
