@@ -464,9 +464,6 @@ if [ "$USE_JVMTI" = "y" ]; then
       plugin=libopenjdkjvmti.so
     fi
     FLAGS="${FLAGS} -Xplugin:${plugin}"
-    FLAGS="${FLAGS} -Xcompiler-option --debuggable"
-    # Always make the compilation be debuggable.
-    COMPILE_FLAGS="${COMPILE_FLAGS} --debuggable"
   fi
 fi
 
