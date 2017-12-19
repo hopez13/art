@@ -68,7 +68,9 @@ bool JvmtiMethodInspectionCallback::IsMethodSafeToJit(art::ArtMethod* method) {
 }
 
 DeoptManager::DeoptManager()
-  : deoptimization_status_lock_("JVMTI_DeoptimizationStatusLock"),
+  : deoptimization_status_lock_("JVMTI_DeoptimizationStatusLock",
+                                static_cast<art::LockLevel>(
+                                    art::LockLevel::kClassLinkerClassesLock + 1)),
     deoptimization_condition_("JVMTI_DeoptimizationCondition", deoptimization_status_lock_),
     performing_deoptimization_(false),
     global_deopt_count_(0),
@@ -89,6 +91,26 @@ void DeoptManager::Shutdown() {
   art::ScopedSuspendAll ssa("remove method Inspection Callback");
   art::RuntimeCallbacks* callbacks = art::Runtime::Current()->GetRuntimeCallbacks();
   callbacks->RemoveMethodInspectionCallback(&inspection_callback_);
+}
+
+void DeoptManager::FinishSetup() {
+  art::Thread* self = art::Thread::Current();
+  art::MutexLock mu(self, deoptimization_status_lock_);
+
+  art::Runtime* runtime = art::Runtime::Current();
+  // See if we need to do anything.
+  if (!runtime->IsJavaDebuggable() &&
+      !runtime->GetInstrumentation()->IsForcedInterpretOnly() &&
+      !runtime->IsNativeDebuggable()) {
+    // See if we can enable all JVMTI functions. If this is false only kArtTiVersion agents can be
+    // retrieved and they will all be best-effort.
+    if (PhaseUtil::GetPhaseUnchecked() == JVMTI_PHASE_ONLOAD) {
+      // We are still early enough to change the compiler options and get full JVMTI support.
+      runtime->AddCompilerOption("--debuggable");
+      runtime->SetJavaDebuggable(true);
+    }
+    runtime->DeoptimizeBootImage();
+  }
 }
 
 bool DeoptManager::MethodHasBreakpoints(art::ArtMethod* method) {
