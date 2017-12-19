@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9a9155c_c976ad6c",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-19T10:18:40Z",
+      "side": 1,
+      "message": "How can you guarantee that? Could you check eg the JIT hasn\u0027t been instantiated?",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 93
+      },
+      "revId": "13ec919d2ff176f086242cd78474f3b6112f92b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
