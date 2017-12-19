@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09e811a2_1f7f8099",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-19T21:25:00Z",
+      "side": 1,
+      "message": "this can be static_cast",
+      "range": {
+        "startLine": 251,
+        "startChar": 25,
+        "endLine": 251,
+        "endChar": 41
+      },
+      "revId": "80046dfbdb5248f5554b3e5e1988330de75f3956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ced51ce_21eb6ebd",
+        "filename": "dt_fd_forward/dt_fd_forward.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-19T21:25:00Z",
+      "side": 1,
+      "message": "or just `char dummy \u003d \u0027\\0\u0027;`",
+      "range": {
+        "startLine": 286,
+        "startChar": 2,
+        "endLine": 286,
+        "endChar": 27
+      },
+      "revId": "80046dfbdb5248f5554b3e5e1988330de75f3956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "753d5991_ddd485d9",
+        "filename": "tools/dt_fds_forward.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-19T21:25:00Z",
+      "side": 1,
+      "message": "\u0027Defaults to\u0027 or \u0027Default is\u0027",
+      "range": {
+        "startLine": 156,
+        "startChar": 63,
+        "endLine": 156,
+        "endChar": 76
+      },
+      "revId": "80046dfbdb5248f5554b3e5e1988330de75f3956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4acb43c_38ebb077",
+        "filename": "tools/dt_fds_forward.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-12-19T21:25:00Z",
+      "side": 1,
+      "message": "Are you missing some backslashes here? This is a 192 bit value...",
+      "range": {
+        "startLine": 192,
+        "startChar": 27,
+        "endLine": 192,
+        "endChar": 53
+      },
+      "revId": "80046dfbdb5248f5554b3e5e1988330de75f3956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
