@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e51109af_21ff5413",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-19T10:19:36Z",
+      "side": 1,
+      "message": "What about:\n\n    __ CompareAndBranchIfNonZero(tmp, \u0026loop_head, /* far_target */ false);\n    __ B(\u0026exit_loop);\n\nwhich favors the case where the STREX instruction succeeded (which I think is what is expected most of the time)? Also, this would make this code similar to the ARM64 implementation.",
+      "range": {
+        "startLine": 1177,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 21
+      },
+      "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
