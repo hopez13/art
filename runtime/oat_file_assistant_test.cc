@@ -31,7 +31,7 @@
 #include "class_loader_context.h"
 #include "common_runtime_test.h"
 #include "dexopt_test.h"
-#include "oat_file.h"
+#include "oat_file-inl.h"
 #include "oat_file_manager.h"
 #include "os.h"
 #include "scoped_thread_state_change-inl.h"
@@ -485,6 +485,7 @@ TEST_F(OatFileAssistantTest, MultiDexOatUpToDate) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_TRUE(oat_file->IsExecutable());
+  EXPECT_TRUE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(2u, dex_files.size());
@@ -575,6 +576,7 @@ TEST_F(OatFileAssistantTest, RelativeEncodedDexLocation) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_TRUE(oat_file->IsExecutable());
+  EXPECT_TRUE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(2u, dex_files.size());
@@ -770,6 +772,7 @@ TEST_F(OatFileAssistantTest, StrippedDexOdexNoOat) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_TRUE(oat_file->IsExecutable());
+  EXPECT_TRUE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(1u, dex_files.size());
@@ -810,6 +813,7 @@ TEST_F(OatFileAssistantTest, StrippedDexOdexOat) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_TRUE(oat_file->IsExecutable());
+  EXPECT_TRUE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(1u, dex_files.size());
@@ -888,6 +892,7 @@ TEST_F(OatFileAssistantTest, OdexOatOverlap) {
   ASSERT_TRUE(oat_file.get() != nullptr);
 
   EXPECT_FALSE(oat_file->IsExecutable());
+  EXPECT_FALSE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(1u, dex_files.size());
@@ -940,6 +945,7 @@ TEST_F(OatFileAssistantTest, LoadOatUpToDate) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_TRUE(oat_file->IsExecutable());
+  EXPECT_TRUE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(1u, dex_files.size());
@@ -968,6 +974,7 @@ TEST_F(OatFileAssistantTest, LoadExecInterpretOnlyOatUpToDate) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_TRUE(oat_file->IsExecutable());
+  EXPECT_TRUE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(1u, dex_files.size());
@@ -997,6 +1004,7 @@ TEST_F(OatFileAssistantTest, LoadNoExecOatUpToDate) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_FALSE(oat_file->IsExecutable());
+  EXPECT_FALSE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(1u, dex_files.size());
@@ -1212,6 +1220,7 @@ TEST_F(OatFileAssistantNoDex2OatTest, LoadDexOdexNoOat) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_FALSE(oat_file->IsExecutable());
+  EXPECT_FALSE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(1u, dex_files.size());
@@ -1234,6 +1243,7 @@ TEST_F(OatFileAssistantNoDex2OatTest, LoadMultiDexOdexNoOat) {
   std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
   ASSERT_TRUE(oat_file.get() != nullptr);
   EXPECT_FALSE(oat_file->IsExecutable());
+  EXPECT_FALSE(oat_file->CanUseCode());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   dex_files = oat_file_assistant.LoadDexFiles(*oat_file, dex_location.c_str());
   EXPECT_EQ(2u, dex_files.size());
