@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "35db4ab1_5bad9b63",
+        "filename": "dt_fd_forward/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-19T17:26:43Z",
+      "side": 1,
+      "message": "You should remove this. I thought this is only interesting for binaries, anyways. We need both arches, anyways, and there\u0027s no such thing as a common \"default\" to be symlinked.",
+      "parentUuid": "835adf1d_03f6a68e",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 33
+      },
+      "revId": "ce27da5b2b3c8fe81b8436278f4ffc0c6d449b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97592ec0_fa2fdb33",
         "filename": "dt_fd_forward/dt_fd_forward.cc",
         "patchSetId": 14
