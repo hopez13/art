@@ -70,6 +70,30 @@
       "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83f6e585_990d041f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-12-19T10:40:47Z",
+      "side": 1,
+      "message": "I don\u0027t have any hard data right now, but I am not sure that favoring the fall-through case applies if it is in fact another branch. There is also another issue - CBNZ is only a forward branch, and CompareAndBranchIfNonZero() generates CMP + B.NE, so in fact three instructions.",
+      "parentUuid": "8b645fec_0ec49539",
+      "range": {
+        "startLine": 1177,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 21
+      },
+      "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
