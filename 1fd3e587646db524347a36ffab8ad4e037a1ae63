@@ -22,6 +22,30 @@
       "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24ff2e68_d65db2b7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-12-19T10:22:59Z",
+      "side": 1,
+      "message": "I am not sure I understand you - if the exclusive store succeeds, then you execute two instructions instead of one. How is that favorable?",
+      "parentUuid": "e51109af_21ff5413",
+      "range": {
+        "startLine": 1177,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 21
+      },
+      "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
