@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa70b894_5d98f5f2",
+        "filename": "openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-12-19T10:00:34Z",
+      "side": 1,
+      "message": "Alex, do we need extra synchronization here to protect against the case when the dex file has been closed, or is closed at the same time as this cookie object is being used by jvmti? (See the https://android-review.googlesource.com/#/c/platform/libcore/+/561850/ for more context).",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 73
+      },
+      "revId": "61b1ab5d0288fe0ac509de2cb9a96470a6e046d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
