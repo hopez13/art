@@ -94,6 +94,30 @@
       "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d1b345a_9a22b09d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-12-19T14:48:28Z",
+      "side": 1,
+      "message": "I see; your implementation is probably best in that case.\n\nDo you think we should change the ARM64 implementation (https://android.googlesource.com/platform/art/+/master/compiler/optimizing/code_generator_arm64.cc#1067) to use CBZ instead of CBNZ?",
+      "parentUuid": "83f6e585_990d041f",
+      "range": {
+        "startLine": 1177,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 21
+      },
+      "revId": "1fd3e587646db524347a36ffab8ad4e037a1ae63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
