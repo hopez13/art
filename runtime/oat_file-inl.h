@@ -112,6 +112,20 @@ inline const void* OatFile::OatMethod::GetQuickCode() const {
   return GetOatPointer<const void*>(GetCodeOffset());
 }
 
+template <ArtMethodType kArtMethodType>
+inline const OatFile::OatMethod OatFile::OatClass::GetOatMethod(uint32_t method_index) const {
+  const OatMethodOffsets* oat_method_offsets = GetOatMethodOffsets(method_index);
+  if (oat_method_offsets == nullptr) {
+    return OatMethod(nullptr, 0);
+  }
+  if (oat_file_->CanUseCode<kArtMethodType>()) {
+    return OatMethod(oat_file_->Begin(), oat_method_offsets->code_offset_);
+  }
+  // We aren't allowed to use the compiled code. We just force it down the interpreted / jit
+  // version.
+  return OatMethod(oat_file_->Begin(), 0);
+}
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_OAT_FILE_INL_H_

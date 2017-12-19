@@ -189,6 +189,8 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
           new_quick_code = GetQuickInstrumentationEntryPoint();
         } else {
           new_quick_code = class_linker->GetQuickOatCodeFor(method);
+          LOG(INFO) << "For method " << method->PrettyMethod() << " setting to genericJNI? " <<
+                    class_linker->IsQuickGenericJniStub(new_quick_code);
         }
       } else {
         new_quick_code = GetQuickResolutionStub();

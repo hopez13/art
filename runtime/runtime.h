@@ -660,7 +660,7 @@ class Runtime {
   void AddSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
   void RemoveSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
 
-  void AttachAgent(const std::string& agent_arg);
+  void AttachAgent(const std::string& agent_arg, bool allow_non_debuggable_tooling = false);
 
   const std::list<ti::Agent>& GetAgents() const {
     return agents_;

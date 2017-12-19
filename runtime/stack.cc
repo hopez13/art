@@ -811,7 +811,7 @@ void StackVisitor::WalkStack(bool include_transitions) {
               cur_oat_quick_method_header_ = OatQuickMethodHeader::FromEntryPoint(code);
             } else {
               // This must be a JITted JNI stub frame.
-              CHECK(runtime->GetJit() != nullptr);
+              CHECK(runtime->GetJit() != nullptr) << method->PrettyMethod();
               code = runtime->GetJit()->GetCodeCache()->GetJniStubCode(method);
               CHECK(code != nullptr) << method->PrettyMethod();
               cur_oat_quick_method_header_ = OatQuickMethodHeader::FromCodePointer(code);
