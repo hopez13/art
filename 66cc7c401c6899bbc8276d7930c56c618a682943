@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aca6bde_b5085c5a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-12-19T10:04:39Z",
+      "side": 1,
+      "message": "This is a deprecated IT block.",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 15
+      },
+      "revId": "66cc7c401c6899bbc8276d7930c56c618a682943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0db4f892_590d3139",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-12-19T10:04:39Z",
+      "side": 1,
+      "message": "The code below returns the opposite, i.e. \"tmp_value \u003d\u003d 0\".",
+      "range": {
+        "startLine": 1179,
+        "startChar": 5,
+        "endLine": 1179,
+        "endChar": 29
+      },
+      "revId": "66cc7c401c6899bbc8276d7930c56c618a682943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55cd2321_816dc78d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-12-19T10:04:39Z",
+      "side": 1,
+      "message": "If the exclusive store is successful, then the instructions that are executed are a conditional branch that is not taken, and an unconditional branch. If it is not successful, then there is only a conditional branch that is taken. However, I\u0027d assume that most of the time the exclusive store succeeds, so I\u0027d reverse the condition.",
+      "range": {
+        "startLine": 1187,
+        "startChar": 0,
+        "endLine": 1188,
+        "endChar": 19
+      },
+      "revId": "66cc7c401c6899bbc8276d7930c56c618a682943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
