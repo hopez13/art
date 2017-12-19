@@ -36,6 +36,7 @@
 #include "mirror/object_array.h"
 #include "mirror/string.h"
 #include "oat.h"
+#include "oat_file-inl.h"
 #include "obj_ptr-inl.h"
 #include "primitive.h"
 #include "quick/quick_method_frame_info.h"

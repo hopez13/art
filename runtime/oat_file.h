@@ -54,6 +54,13 @@ class DummyOatFile;
 }  // namespace collector
 }  // namespace gc
 
+// The types of compiled art methods.
+enum class ArtMethodType {
+  kAll,           // We don't know or care what type the method is
+  kDexMethod,     // A method defined initially as dex bytecode
+  kNativeMethod,  // A jni bridge method
+};
+
 // Runtime representation of the OAT file format which holds compiler output.
 // The class opens an OAT file from storage and maps it to memory, typically with
 // dlopen and provides access to its internal data structures (see OatWriter for
@@ -123,6 +130,12 @@ class OatFile {
   bool IsExecutable() const {
     return is_executable_;
   }
+
+  // Indicates whether the oat file was compiled and loaded in such a way as some of its code is
+  // usable. The methodType tells it what type of method we care about since some code might only be
+  // usable for specific types of methods.
+  template<ArtMethodType kMethodType = ArtMethodType::kAll>
+  bool CanUseCode() const;
 
   bool IsPic() const;
 
@@ -208,7 +221,8 @@ class OatFile {
     // defintion. Direct methods come first, followed by virtual
     // methods. Note that runtime created methods such as miranda
     // methods are not included.
-    const OatMethod GetOatMethod(uint32_t method_index) const;
+    template<ArtMethodType kMethodType = ArtMethodType::kAll>
+    inline const OatMethod GetOatMethod(uint32_t method_index) const;
 
     // Return a pointer to the OatMethodOffsets for the requested
     // method_index, or null if none is present. Note that most
