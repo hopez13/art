@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3ffe7aae_6cb7ebe2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-19T18:43:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c31f0b_cbd3fc97",
+      "revId": "57b9ee3021f82da832c07a674707746833232ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "191e60b8_5f6a430a",
         "filename": "runtime/code_item_accessors-no_art-inl.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-12-18T13:59:50Z",
       "side": 1,
       "message": "Please add a comment what this file is for (\"also to be used by non-ART binaries that don\u0027t to include runtime.h, ...\").",
+      "revId": "57b9ee3021f82da832c07a674707746833232ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ab00fc8_740f40a9",
+        "filename": "runtime/code_item_accessors-no_art-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-12-19T18:43:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "191e60b8_5f6a430a",
       "revId": "57b9ee3021f82da832c07a674707746833232ad3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
