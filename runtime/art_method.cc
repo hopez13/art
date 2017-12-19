@@ -485,7 +485,8 @@ static const OatFile::OatMethod FindOatMethodFromDexFileFor(ArtMethod* method, b
   if (!(*found)) {
     return OatFile::OatMethod::Invalid();
   }
-  return oat_class.GetOatMethod(oat_method_index);
+  // We DCHECK'd that the method was native above so no need to check.
+  return oat_class.GetOatMethod<ArtMethodType::kNativeMethod>(oat_method_index);
 }
 
 static const OatFile::OatMethod FindOatMethodFor(ArtMethod* method,
@@ -533,7 +534,11 @@ static const OatFile::OatMethod FindOatMethodFor(ArtMethod* method,
   if (!(*found)) {
     return OatFile::OatMethod::Invalid();
   }
-  return oat_class.GetOatMethod(oat_method_index);
+  if (method->IsNative()) {
+    return oat_class.GetOatMethod<ArtMethodType::kNativeMethod>(oat_method_index);
+  } else {
+    return oat_class.GetOatMethod<ArtMethodType::kDexMethod>(oat_method_index);
+  }
 }
 
 bool ArtMethod::EqualParameters(Handle<mirror::ObjectArray<mirror::Class>> params) {

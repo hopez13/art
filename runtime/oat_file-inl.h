@@ -22,6 +22,29 @@
 
 namespace art {
 
+template<>
+inline bool OatFile::CanUseCode<ArtMethodType::kNativeMethod>() const {
+  // Since jni-bridges don't have any debuggable data attached to them we can always use it as long
+  // as we can execute it.
+  return IsExecutable();
+}
+
+template<>
+inline bool OatFile::CanUseCode<ArtMethodType::kDexMethod>() const {
+  // We must be executable and either the runtime must not be debuggable or we must be.
+  return IsExecutable() && (!Runtime::Current()->IsJavaDebuggable() || IsDebuggable());
+}
+
+template<>
+inline bool OatFile::CanUseCode<ArtMethodType::kAll>() const {
+  // If we are in oatdump or dex2oat it is always fine to use the compiled code (since it won't
+  // actually be run).
+  if (Runtime::Current() == nullptr || Runtime::Current()->IsAotCompiler()) {
+    return true;
+  }
+  return CanUseCode<ArtMethodType::kDexMethod>() && CanUseCode<ArtMethodType::kNativeMethod>();
+}
+
 inline const OatQuickMethodHeader* OatFile::OatMethod::GetOatQuickMethodHeader() const {
   const void* code = EntryPointToCodePointer(GetOatPointer<const void*>(code_offset_));
   if (code == nullptr) {
@@ -110,6 +133,20 @@ inline uint32_t OatFile::OatMethod::GetCodeOffset() const {
 
 inline const void* OatFile::OatMethod::GetQuickCode() const {
   return GetOatPointer<const void*>(GetCodeOffset());
+}
+
+template <ArtMethodType kArtMethodType>
+inline const OatFile::OatMethod OatFile::OatClass::GetOatMethod(uint32_t method_index) const {
+  const OatMethodOffsets* oat_method_offsets = GetOatMethodOffsets(method_index);
+  if (oat_method_offsets == nullptr) {
+    return OatMethod(nullptr, 0);
+  }
+  if (oat_file_->CanUseCode<kArtMethodType>()) {
+    return OatMethod(oat_file_->Begin(), oat_method_offsets->code_offset_);
+  }
+  // We aren't allowed to use the compiled code. We just force it down the interpreted / jit
+  // version.
+  return OatMethod(oat_file_->Begin(), 0);
 }
 
 }  // namespace art

@@ -2969,6 +2969,16 @@ bool ClassLinker::ShouldUseInterpreterEntrypoint(ArtMethod* method, const void* 
   return false;
 }
 
+static const OatFile::OatMethod GetOatMethodFromMethod(const OatFile::OatClass& klass,
+                                                       uint32_t idx,
+                                                       ArtMethod* method) {
+  if (method->IsNative()) {
+    return klass.GetOatMethod<ArtMethodType::kNativeMethod>(idx);
+  } else {
+    return klass.GetOatMethod<ArtMethodType::kDexMethod>(idx);
+  }
+}
+
 void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
   DCHECK(klass->IsInitialized()) << klass->PrettyDescriptor();
   if (klass->NumDirectMethods() == 0) {
@@ -3002,7 +3012,7 @@ void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
     }
     const void* quick_code = nullptr;
     if (has_oat_class) {
-      OatFile::OatMethod oat_method = oat_class.GetOatMethod(method_index);
+      OatFile::OatMethod oat_method = GetOatMethodFromMethod(oat_class, method_index, method);
       quick_code = oat_method.GetQuickCode();
     }
     // Check whether the method is native, in which case it's generic JNI.
@@ -3041,7 +3051,8 @@ static void LinkCode(ClassLinker* class_linker,
   if (oat_class != nullptr) {
     // Every kind of method should at least get an invoke stub from the oat_method.
     // non-abstract methods also get their code pointers.
-    const OatFile::OatMethod oat_method = oat_class->GetOatMethod(class_def_method_index);
+    const OatFile::OatMethod oat_method =
+        GetOatMethodFromMethod(*oat_class, class_def_method_index, method);
     oat_method.LinkMethod(method);
   }
 
