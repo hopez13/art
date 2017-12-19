@@ -526,7 +526,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   // Load the dex files from the oat file.
   if (source_oat_file != nullptr) {
     bool added_image_space = false;
-    if (source_oat_file->IsExecutable()) {
+    if (source_oat_file->CanUseCode()) {
       std::unique_ptr<gc::space::ImageSpace> image_space =
           kEnableAppImage ? oat_file_assistant.OpenImageSpace(source_oat_file) : nullptr;
       if (image_space != nullptr) {
