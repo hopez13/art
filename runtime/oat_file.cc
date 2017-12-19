@@ -405,6 +405,29 @@ static inline bool MapConstantTables(const gc::space::ImageSpace* space,
   return true;
 }
 
+template<>
+bool OatFile::CanUseCode<ArtMethodType::kNativeMethod>() const {
+  // Since jni-bridges don't have any debuggable data attached to them we can always use it as long
+  // as we can execute it.
+  return IsExecutable();
+}
+
+template<>
+bool OatFile::CanUseCode<ArtMethodType::kDexMethod>() const {
+  // We must be executable and either the runtime must not be debuggable or we must be.
+  return IsExecutable() && (!Runtime::Current()->IsJavaDebuggable() || IsDebuggable());
+}
+
+template<>
+bool OatFile::CanUseCode<ArtMethodType::kAll>() const {
+  // If we are in oatdump or dex2oat it is always fine to use the compiled code (since it won't
+  // actually be run).
+  if (Runtime::Current() == nullptr || Runtime::Current()->IsAotCompiler()) {
+    return true;
+  }
+  return CanUseCode<ArtMethodType::kDexMethod>() && CanUseCode<ArtMethodType::kNativeMethod>();
+}
+
 static bool ReadIndexBssMapping(OatFile* oat_file,
                                 /*inout*/const uint8_t** oat,
                                 size_t dex_file_index,
@@ -462,7 +485,7 @@ static void DCheckIndexToBssMapping(OatFile* oat_file,
       CHECK_ALIGNED_PARAM(entry.bss_offset, slot_size);
       // When loading a non-executable ElfOatFile, .bss symbols are not even
       // looked up, so we cannot verify the offset against BssSize().
-      if (oat_file->IsExecutable()) {
+      if (oat_file->CanUseCode<ArtMethodType::kDexMethod>()) {
         CHECK_LT(entry.bss_offset, oat_file->BssSize());
       }
       uint32_t mask = entry.GetMask(index_bits);
@@ -1802,21 +1825,6 @@ const OatMethodOffsets* OatFile::OatClass::GetOatMethodOffsets(uint32_t method_i
   }
   const OatMethodOffsets& oat_method_offsets = methods_pointer_[methods_pointer_index];
   return &oat_method_offsets;
-}
-
-const OatFile::OatMethod OatFile::OatClass::GetOatMethod(uint32_t method_index) const {
-  const OatMethodOffsets* oat_method_offsets = GetOatMethodOffsets(method_index);
-  if (oat_method_offsets == nullptr) {
-    return OatMethod(nullptr, 0);
-  }
-  if (oat_file_->IsExecutable() ||
-      Runtime::Current() == nullptr ||        // This case applies for oatdump.
-      Runtime::Current()->IsAotCompiler()) {
-    return OatMethod(oat_file_->Begin(), oat_method_offsets->code_offset_);
-  }
-  // We aren't allowed to use the compiled code. We just force it down the interpreted / jit
-  // version.
-  return OatMethod(oat_file_->Begin(), 0);
 }
 
 void OatFile::OatMethod::LinkMethod(ArtMethod* method) const {
