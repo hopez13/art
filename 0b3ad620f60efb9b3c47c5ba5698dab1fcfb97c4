@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1470a379_06736e0c",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dadcf6c1_e5096b21",
+      "range": {
+        "startLine": 1157,
+        "startChar": 7,
+        "endLine": 1157,
+        "endChar": 25
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d067dc08_264d5710",
         "filename": "openjdkjvmti/deopt_manager.cc",
         "patchSetId": 6
@@ -68,6 +92,30 @@
       "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae644116_61f7b00b",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d067dc08_264d5710",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 3
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "63fc547a_a76ec12e",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1aa5e63_c397c300",
+      "range": {
+        "startLine": 488,
+        "startChar": 47,
+        "endLine": 488,
+        "endChar": 60
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6026984_9f19ebb3",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 6
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "ab96735e_8a1f7b2e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6026984_9f19ebb3",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 193,
+        "endChar": 72
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f99ef1_5d3d19bc",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 6
@@ -128,6 +224,30 @@
       "writtenOn": "2017-12-20T20:59:49Z",
       "side": 1,
       "message": "This looks possibly expensive for something binding a lot of methods. Did you run some startup benchmarks?",
+      "range": {
+        "startLine": 418,
+        "startChar": 27,
+        "endLine": 418,
+        "endChar": 86
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9186b1_17af3c54",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "Two loads? I doubt it.\n\nAnyway ACK.",
+      "parentUuid": "f0f99ef1_5d3d19bc",
       "range": {
         "startLine": 418,
         "startChar": 27,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "b6f3529d_d4bb60a2",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "yeah jni transition methods won\u0027t be storing anything in the BSS so we can ignore them.",
+      "parentUuid": "c2a2673d_58ff0060",
+      "range": {
+        "startLine": 488,
+        "startChar": 46,
+        "endLine": 488,
+        "endChar": 56
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bea8d815_a742f7a8",
         "filename": "runtime/oat_file.h",
         "patchSetId": 6
@@ -183,6 +327,30 @@
       "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "430910e7_9a4b2232",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bea8d815_a742f7a8",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 10
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "36e4b96a_1ff92288",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d44aa0d_7d2885d8",
+      "range": {
+        "startLine": 2490,
+        "startChar": 0,
+        "endLine": 2497,
+        "endChar": 75
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd099730_9843cd39",
         "filename": "runtime/stack.cc",
         "patchSetId": 6
@@ -229,6 +421,30 @@
       "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb5d681_99160a41",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-12-20T22:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd099730_9843cd39",
+      "range": {
+        "startLine": 814,
+        "startChar": 49,
+        "endLine": 814,
+        "endChar": 75
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
