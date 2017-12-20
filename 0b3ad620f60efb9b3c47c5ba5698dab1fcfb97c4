@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc1f3955_7515ba8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "Please describe why you need the special version.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dadcf6c1_e5096b21",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "Not matching?",
+      "range": {
+        "startLine": 1157,
+        "startChar": 7,
+        "endLine": 1157,
+        "endChar": 25
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d067dc08_264d5710",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "VLOG, maybe even LOG(INFO) or WARNING.",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 3
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1aa5e63_c397c300",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "Comment why.",
+      "range": {
+        "startLine": 488,
+        "startChar": 47,
+        "endLine": 488,
+        "endChar": 60
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6026984_9f19ebb3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 193,
+        "endChar": 72
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f99ef1_5d3d19bc",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "This looks possibly expensive for something binding a lot of methods. Did you run some startup benchmarks?",
+      "range": {
+        "startLine": 418,
+        "startChar": 27,
+        "endLine": 418,
+        "endChar": 86
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2a2673d_58ff0060",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. Is this only because you know something about the implementation of \"dex\" vs \"native\" methods?",
+      "range": {
+        "startLine": 488,
+        "startChar": 46,
+        "endLine": 488,
+        "endChar": 56
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bea8d815_a742f7a8",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "\"unknown\" doesn\u0027t make a lot of sense to me. I don\u0027t want to say CanUseCode\u003cunknown\u003e. \"All\" or \"Any\" seem more fitting - considering that technically what you\u0027re doing here is a bitset...",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 10
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d44aa0d_7d2885d8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "Looks to me like an independent change?",
+      "range": {
+        "startLine": 2490,
+        "startChar": 0,
+        "endLine": 2497,
+        "endChar": 75
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd099730_9843cd39",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T20:59:49Z",
+      "side": 1,
+      "message": "Looks unrelated, so remove from the CL.",
+      "range": {
+        "startLine": 814,
+        "startChar": 49,
+        "endLine": 814,
+        "endChar": 75
+      },
+      "revId": "0b3ad620f60efb9b3c47c5ba5698dab1fcfb97c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
