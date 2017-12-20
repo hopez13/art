@@ -46,6 +46,30 @@
       "revId": "03f097903c5f72690756c249ebbcc36b27d10e69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c7b224b_30951f48",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-12-20T20:33:31Z",
+      "side": 1,
+      "message": "Argh! Missed an asterisk. Fixed in PS6",
+      "parentUuid": "7f47c66e_7c144be7",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 102
+      },
+      "revId": "03f097903c5f72690756c249ebbcc36b27d10e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
