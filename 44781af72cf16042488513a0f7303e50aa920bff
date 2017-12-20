@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1c7df578_127c12c0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2017-12-20T00:47:54Z",
+      "side": 1,
+      "message": "I believe the goal here is to see how tight things got for the allocator during entire execution. Besides, given that once a mutator acquires a TLAB, irrespective of how much free space there is in that TLAB, it is of no use to other mutators in need. Therefore, can you please suggest what purpose would the metric of max \"used\" bytes would serve?",
+      "parentUuid": "eae136ab_672afdc5",
+      "range": {
+        "startLine": 1758,
+        "startChar": 4,
+        "endLine": 1758,
+        "endChar": 117
+      },
+      "revId": "44781af72cf16042488513a0f7303e50aa920bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26954941_80359f12",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
