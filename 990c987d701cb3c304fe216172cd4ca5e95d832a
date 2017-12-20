@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92a29f8d_9d84a703",
+        "filename": "compiler/debug/debug_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T23:54:59Z",
+      "side": 1,
+      "message": "This isn\u0027t an STL container, so we usually don\u0027t prefer to copy STL style. Capitalized, please.",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 12
+      },
+      "revId": "990c987d701cb3c304fe216172cd4ca5e95d832a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7daf216e_cf6e14d2",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T23:54:59Z",
+      "side": 1,
+      "message": "Sort",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "990c987d701cb3c304fe216172cd4ca5e95d832a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6599a19f_eada5089",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-20T23:54:59Z",
+      "side": 1,
+      "message": "It\u0027s common to exclude this one if the inl is included.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "990c987d701cb3c304fe216172cd4ca5e95d832a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
