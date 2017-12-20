@@ -103,7 +103,7 @@ func globalFlags(ctx android.BaseContext) ([]string, []string) {
 		asflags = append(asflags, "-DART_MIPS32_CHECK_ALIGNMENT")
 	}
 
-	if envTrue(ctx, "USE_D8_DESUGAR") {
+	if !envFalse(ctx, "USE_D8_DESUGAR") {
 		cflags = append(cflags, "-DUSE_D8_DESUGAR=1")
 	}
 
