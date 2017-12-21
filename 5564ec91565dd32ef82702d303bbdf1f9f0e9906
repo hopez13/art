@@ -22,6 +22,282 @@
       "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e734136_9dddd2b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "Motivation",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 10
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca834fc3_b7252f31",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "Make this a reference and drop the \u0027\u0026\u0027 next line?",
+      "range": {
+        "startLine": 300,
+        "startChar": 21,
+        "endLine": 300,
+        "endChar": 22
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "997d7583_75ac93bb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "From an API PoV, you should only pass the method here. How are other members of the team know they need to call CreateNullable (which reads odd).",
+      "range": {
+        "startLine": 4320,
+        "startChar": 32,
+        "endLine": 4320,
+        "endChar": 76
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87a7138b_eed7d79f",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "ditto about dropping the pointer.",
+      "range": {
+        "startLine": 556,
+        "startChar": 19,
+        "endLine": 556,
+        "endChar": 30
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5fa65cd_7dcbba32",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2962,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2962,
+        "startChar": 21,
+        "endLine": 2962,
+        "endChar": 32
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0b53aaf_1a28aa07",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "it is",
+      "range": {
+        "startLine": 349,
+        "startChar": 57,
+        "endLine": 349,
+        "endChar": 60
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8acd6176_5a369730",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 351,
+        "startChar": 58,
+        "endLine": 351,
+        "endChar": 61
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca123949_f5c5a463",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1249,
+        "startChar": 23,
+        "endLine": 1249,
+        "endChar": 34
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ad9a1ed_6807e3dc",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "ditto about API.",
+      "range": {
+        "startLine": 1323,
+        "startChar": 32,
+        "endLine": 1323,
+        "endChar": 68
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59690704_a62d173d",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1402,
+        "startChar": 23,
+        "endLine": 1402,
+        "endChar": 54
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70a298bb_01a37eee",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "You probably don\u0027t needs this given the first check line 1509. We may want to keep it for documentation reasons, but please add a comment.",
+      "range": {
+        "startLine": 1504,
+        "startChar": 0,
+        "endLine": 1506,
+        "endChar": 3
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9dcc7cdc_bc806b30",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T17:47:38Z",
+      "side": 1,
+      "message": "Update, there\u0027s no `item` anymore.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 53
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
