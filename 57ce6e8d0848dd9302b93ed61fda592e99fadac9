@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "48fd3d32_6c136287",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "I take that as a compliment.\n\nThe size increase depends on what you call \"sane\". This will apply to ~140k and obviously more in the future as the boot class path grows. The vast majority of methods/fields have their access flags encoded with 1 byte. So if you start looking at flags in the third, fourth or fifth byte, you\u0027re looking at size increase somewhere between 300KB and 600KB.\n\nThere are multiple reasons why I want to opt for this solution:\n1) No linear dependence of cost on usage. We can use it on as many methods/fields as we please without having to worry about the impact on size, framework people can decide to start labeling more APIs, etc.\n2) All of the 32 modifier bits are assigned some kind of a meaning, so no matter what we do, the flag will have that meaning only in some contexts.\n3) It makes the tool much, *much* simpler because you don\u0027t break offsets all the other DEX items.",
+      "parentUuid": "905b11fa_1fe9a100",
+      "range": {
+        "startLine": 18,
+        "startChar": 30,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b433bc80_320f4360",
         "filename": "hiddenapi/Android.bp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-14T22:01:48Z",
       "side": 1,
       "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e76bc_87f4925e",
+        "filename": "hiddenapi/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b433bc80_320f4360",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "014d76be_8a2170dc",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfccb6af_1a9cc9b9",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bb0b41c_5796aad6",
         "filename": "hiddenapi/hiddenapi.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-12-14T22:01:48Z",
       "side": 1,
       "message": "Instead/also, could you add a README file explaining this?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 68
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "960be6e6_956dbd61",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bb0b41c_5796aad6",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f714ea94_7b6d6909",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Oh, turns out I\u0027m not using this one any more, thanks.",
+      "parentUuid": "31aec227_58240705",
+      "range": {
+        "startLine": 101,
+        "startChar": 17,
+        "endLine": 101,
+        "endChar": 27
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e5e2173_0143073c",
         "filename": "hiddenapi/hiddenapi.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2017-12-14T22:01:48Z",
       "side": 1,
       "message": "nit: it should be \"* \", not \"* \". Here and below. Same for references.",
+      "range": {
+        "startLine": 105,
+        "startChar": 15,
+        "endLine": 105,
+        "endChar": 17
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07bfb22e_744cda30",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Just for function return types or everywhere? The code base does not seem to agree with itself and the Google style guide isn\u0027t helpful either.",
+      "parentUuid": "3e5e2173_0143073c",
       "range": {
         "startLine": 105,
         "startChar": 15,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9abe557a_4ae10cd7",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "None of this is performance sensitive. It seemed like a pointer-alignment check, but you are right that it has to do with parsing of a file, so might as well run it always.",
+      "parentUuid": "a3d14c88_38b13c4b",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 5
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "027d9a92_b629fed1",
         "filename": "hiddenapi/hiddenapi.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2017-12-14T22:01:48Z",
       "side": 1,
       "message": "Constructs",
+      "range": {
+        "startLine": 174,
+        "startChar": 5,
+        "endLine": 174,
+        "endChar": 14
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2eef8b5_98f739ef",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "027d9a92_b629fed1",
       "range": {
         "startLine": 174,
         "startChar": 5,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "a0b5e76e_35a223e0",
+        "filename": "hiddenapi/hiddenapi_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdfcd1e2_71d3ebdf",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c8acfda_e3d92d24",
         "filename": "hiddenapi/hiddenapi_test.cc",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2017-12-14T22:01:48Z",
       "side": 1,
       "message": "If you could avoid these (I guess that\u0027s because of CommonRuntimeTest?), that would be great.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcc3b5b3_608b54cb",
+        "filename": "hiddenapi/hiddenapi_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c8acfda_e3d92d24",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "04c028d3_7230a46b",
+        "filename": "runtime/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "This is because the changes in memory otherwise wouldn\u0027t propagate to the underlying file, viz `man mmap`.",
+      "parentUuid": "0f3125d8_3d6ef1e4",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 65
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a25f30_d58ddf26",
         "filename": "runtime/modifiers.h",
         "patchSetId": 1
@@ -266,6 +530,30 @@
       "writtenOn": "2017-12-13T11:12:55Z",
       "side": 1,
       "message": "Why not use this value for all methods and fields?\n\nAnd is it wise to use any value in the low 16 bits? Doesn\u0027t dx/d8 preserve flags from .class files, so external tools that would use that flag for something else would actually produce hidden fields/methods after the conversion?",
+      "range": {
+        "startLine": 40,
+        "startChar": 54,
+        "endLine": 40,
+        "endChar": 60
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cfad444_f6cd828c",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-21T10:43:23Z",
+      "side": 1,
+      "message": "Because this one cannot be encoded in 1 byte with LEB128 and most methods/fields do have their access flags encoded in 1 byte. If I encode everything with 0x200, I will: (1) increase the size of the DEX files, and (2) have to start fixing offsets in the DEX file and that will make the tool much more complicated. 0x200 is only used if kAccNative is set as well, in which case the LEB128 encoding is at least 2 bytes long.",
+      "parentUuid": "24a25f30_d58ddf26",
       "range": {
         "startLine": 40,
         "startChar": 54,
