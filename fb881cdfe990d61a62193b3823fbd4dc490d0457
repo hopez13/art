@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c22eb46e_943c8963",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T18:41:56Z",
+      "side": 1,
+      "message": "whether",
+      "range": {
+        "startLine": 86,
+        "startChar": 11,
+        "endLine": 86,
+        "endChar": 18
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d761a7e8_32d313ba",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T18:41:56Z",
+      "side": 1,
+      "message": "IsFullJvmtiAvailable",
+      "range": {
+        "startLine": 87,
+        "startChar": 12,
+        "endLine": 87,
+        "endChar": 32
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7837c8a_675d6b08",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T18:41:56Z",
+      "side": 1,
+      "message": "Will that hit developers? When you debug an app on studio, do you have control of what flags get passed to dalvikvm an dex2oat?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 80
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51104afc_b23f5aa6",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T18:41:56Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 134,
+        "startChar": 85,
+        "endLine": 134,
+        "endChar": 89
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bb7fe3b_c7cd92f8",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T18:41:56Z",
+      "side": 1,
+      "message": "I\u0027d much prefer an all or nothing approach (as it is now). Why are native methods so important now?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 26
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
