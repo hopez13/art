@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a2c233b_bb225c17",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-21T00:08:46Z",
+      "side": 1,
+      "message": "No C-style casts.",
+      "range": {
+        "startLine": 107,
+        "startChar": 42,
+        "endLine": 107,
+        "endChar": 51
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fafb8c78_ef89110b",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-21T00:08:46Z",
+      "side": 1,
+      "message": "You took a missing end symbol to be an error for loading the oat file. Then this should be an error, too, instead of silently mapping it randomly.",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 24
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10208e7c_a6380e93",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-21T00:08:46Z",
+      "side": 1,
+      "message": "This is a good bit yuck, and needs a really strong comment why this hack is OK.",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 119,
+        "endChar": 38
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76d14880_2683818d",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-21T00:08:46Z",
+      "side": 1,
+      "message": "Comment that nullptr/0 is valid input?",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 71
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f8db6e_a2449a56",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-21T00:08:46Z",
+      "side": 1,
+      "message": "Why is this signed?",
+      "range": {
+        "startLine": 106,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 56
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
