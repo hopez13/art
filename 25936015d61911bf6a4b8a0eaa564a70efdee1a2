@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "228c1f03_31c77e64",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-21T21:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a2c233b_bb225c17",
+      "range": {
+        "startLine": 107,
+        "startChar": 42,
+        "endLine": 107,
+        "endChar": 51
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fafb8c78_ef89110b",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-21T00:08:46Z",
       "side": 1,
       "message": "You took a missing end symbol to be an error for loading the oat file. Then this should be an error, too, instead of silently mapping it randomly.",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 24
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b908a926_aa85090a",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-21T21:46:15Z",
+      "side": 1,
+      "message": "I would like to keep this as non-fatal fail for now.\nI still don\u0027t quite trust that dex2oat is reporting the vdex file size correctly.  David B fixed some bugs regarding that recently, but I am still not 100% convinced.",
+      "parentUuid": "fafb8c78_ef89110b",
       "range": {
         "startLine": 108,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "669caedb_5967321a",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-21T21:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10208e7c_a6380e93",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 119,
+        "endChar": 38
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76d14880_2683818d",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "edf6eccc_8001ec3b",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-21T21:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d14880_2683818d",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 71
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b0f8db6e_a2449a56",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2017-12-21T00:08:46Z",
       "side": 1,
       "message": "Why is this signed?",
+      "range": {
+        "startLine": 106,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 56
+      },
+      "revId": "25936015d61911bf6a4b8a0eaa564a70efdee1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37c13581_fea9cf49",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-21T21:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0f8db6e_a2449a56",
       "range": {
         "startLine": 106,
         "startChar": 49,
