@@ -3735,53 +3735,115 @@ void InstructionCodeGeneratorMIPS::DivRemOneOrMinusOne(HBinaryOperation* instruc
 
 void InstructionCodeGeneratorMIPS::DivRemByPowerOfTwo(HBinaryOperation* instruction) {
   DCHECK(instruction->IsDiv() || instruction->IsRem());
-  DCHECK_EQ(instruction->GetResultType(), DataType::Type::kInt32);
 
   LocationSummary* locations = instruction->GetLocations();
   Location second = locations->InAt(1);
   DCHECK(second.IsConstant());
 
-  Register out = locations->Out().AsRegister<Register>();
-  Register dividend = locations->InAt(0).AsRegister<Register>();
-  int32_t imm = second.GetConstant()->AsIntConstant()->GetValue();
-  uint32_t abs_imm = static_cast<uint32_t>(AbsOrMin(imm));
-  int ctz_imm = CTZ(abs_imm);
+  if (instruction->GetResultType() == DataType::Type::kInt32) {
+    Register out = locations->Out().AsRegister<Register>();
+    Register dividend = locations->InAt(0).AsRegister<Register>();
+    int32_t imm = second.GetConstant()->AsIntConstant()->GetValue();
+    uint32_t abs_imm = static_cast<uint32_t>(AbsOrMin(imm));
+    int ctz_imm = CTZ(abs_imm);
 
-  if (instruction->IsDiv()) {
-    if (ctz_imm == 1) {
-      // Fast path for division by +/-2, which is very common.
-      __ Srl(TMP, dividend, 31);
+    if (instruction->IsDiv()) {
+      if (ctz_imm == 1) {
+        // Fast path for division by +/-2, which is very common.
+        __ Srl(TMP, dividend, 31);
+      } else {
+        __ Sra(TMP, dividend, 31);
+        __ Srl(TMP, TMP, 32 - ctz_imm);
+      }
+      __ Addu(out, dividend, TMP);
+      __ Sra(out, out, ctz_imm);
+      if (imm < 0) {
+        __ Subu(out, ZERO, out);
+      }
     } else {
-      __ Sra(TMP, dividend, 31);
-      __ Srl(TMP, TMP, 32 - ctz_imm);
-    }
-    __ Addu(out, dividend, TMP);
-    __ Sra(out, out, ctz_imm);
-    if (imm < 0) {
-      __ Subu(out, ZERO, out);
+      if (ctz_imm == 1) {
+        // Fast path for modulo +/-2, which is very common.
+        __ Sra(TMP, dividend, 31);
+        __ Subu(out, dividend, TMP);
+        __ Andi(out, out, 1);
+        __ Addu(out, out, TMP);
+      } else {
+        __ Sra(TMP, dividend, 31);
+        __ Srl(TMP, TMP, 32 - ctz_imm);
+        __ Addu(out, dividend, TMP);
+        if (IsUint<16>(abs_imm - 1)) {
+          __ Andi(out, out, abs_imm - 1);
+        } else {
+          if (codegen_->GetInstructionSetFeatures().IsMipsIsaRevGreaterThanEqual2()) {
+            __ Ins(out, ZERO, ctz_imm, 32 - ctz_imm);
+          } else {
+            __ Sll(out, out, 32 - ctz_imm);
+            __ Srl(out, out, 32 - ctz_imm);
+          }
+        }
+        __ Subu(out, out, TMP);
+      }
     }
   } else {
-    if (ctz_imm == 1) {
-      // Fast path for modulo +/-2, which is very common.
-      __ Sra(TMP, dividend, 31);
-      __ Subu(out, dividend, TMP);
-      __ Andi(out, out, 1);
-      __ Addu(out, out, TMP);
-    } else {
-      __ Sra(TMP, dividend, 31);
-      __ Srl(TMP, TMP, 32 - ctz_imm);
-      __ Addu(out, dividend, TMP);
-      if (IsUint<16>(abs_imm - 1)) {
-        __ Andi(out, out, abs_imm - 1);
+    DCHECK_EQ(instruction->GetResultType(), DataType::Type::kInt64);
+    Location out = locations->Out();
+    Register dividend_high = locations->InAt(0).AsRegisterPairHigh<Register>();
+    Register dividend_low = locations->InAt(0).AsRegisterPairLow<Register>();
+    int64_t imm = Int64FromConstant(second.GetConstant());
+    uint64_t abs_imm = static_cast<uint64_t>(AbsOrMin(imm));
+    int ctz_imm = CTZ(abs_imm);
+
+    if (instruction->IsDiv()) {
+      if (ctz_imm == 1) {
+        // Fast path for division by +/-2, which is very common.
+        __ Srl(AT, dividend_high, 31);
+        __ Addu(out.AsRegisterPairLow<Register>(), dividend_low, AT);
+        __ Sltu(AT, out.AsRegisterPairLow<Register>(), dividend_low);
+        __ Addu(out.AsRegisterPairHigh<Register>(), dividend_high, AT);
+        __ Sll(TMP, out.AsRegisterPairHigh<Register>(), 32 - ctz_imm);
+        __ Sra(out.AsRegisterPairHigh<Register>(), out.AsRegisterPairHigh<Register>(), ctz_imm);
+        __ Srl(out.AsRegisterPairLow<Register>(), out.AsRegisterPairLow<Register>(), ctz_imm);
+        __ Or(out.AsRegisterPairLow<Register>(), out.AsRegisterPairLow<Register>(), TMP);
       } else {
-        if (codegen_->GetInstructionSetFeatures().IsMipsIsaRevGreaterThanEqual2()) {
-          __ Ins(out, ZERO, ctz_imm, 32 - ctz_imm);
+        __ Sra(AT, dividend_high, 31);
+        if (ctz_imm < 32) {
+          if (codegen_->GetInstructionSetFeatures().IsMipsIsaRevGreaterThanEqual2()) {
+            __ Ins(AT, ZERO, ctz_imm, 32 - ctz_imm);
+          } else {
+            __ Sll(AT, AT, 32 - ctz_imm);
+            __ Srl(AT, AT, 32 - ctz_imm);
+          }
+          __ Addu(out.AsRegisterPairLow<Register>(), dividend_low, AT);
+          __ Sltu(AT, out.AsRegisterPairLow<Register>(), dividend_low);
+          __ Addu(out.AsRegisterPairHigh<Register>(), dividend_high, AT);
+          __ Sll(TMP, out.AsRegisterPairHigh<Register>(), 32 - ctz_imm);
+          __ Sra(out.AsRegisterPairHigh<Register>(), out.AsRegisterPairHigh<Register>(), ctz_imm);
+          __ Srl(out.AsRegisterPairLow<Register>(), out.AsRegisterPairLow<Register>(), ctz_imm);
+          __ Or(out.AsRegisterPairLow<Register>(), out.AsRegisterPairLow<Register>(), TMP);
         } else {
-          __ Sll(out, out, 32 - ctz_imm);
-          __ Srl(out, out, 32 - ctz_imm);
+          int ctz_imm_tmp = ctz_imm - 32;
+          if (codegen_->GetInstructionSetFeatures().IsMipsIsaRevGreaterThanEqual2()) {
+            __ Move(TMP, AT);
+            __ Ins(TMP, ZERO, ctz_imm_tmp, 32 - ctz_imm_tmp);
+          } else {
+            __ Sll(TMP, AT, 32 - ctz_imm_tmp);
+            __ Srl(TMP, TMP, 32 - ctz_imm_tmp);
+          }
+          __ Addu(out.AsRegisterPairLow<Register>(), dividend_low, AT);
+          __ Sltu(AT, out.AsRegisterPairLow<Register>(), dividend_low);
+          __ Addu(out.AsRegisterPairHigh<Register>(), dividend_high, TMP);
+          __ Addu(out.AsRegisterPairHigh<Register>(), out.AsRegisterPairHigh<Register>(), AT);
+          __ Move(out.AsRegisterPairLow<Register>(), out.AsRegisterPairHigh<Register>());
+          __ Sra(out.AsRegisterPairHigh<Register>(), out.AsRegisterPairHigh<Register>(), 31);
+          __ Sra(out.AsRegisterPairLow<Register>(), out.AsRegisterPairLow<Register>(), ctz_imm - 32);
         }
       }
-      __ Subu(out, out, TMP);
+      if (imm < 0) {
+        __ Subu(out.AsRegisterPairLow<Register>(), ZERO, out.AsRegisterPairLow<Register>());
+        __ Subu(TMP, ZERO, out.AsRegisterPairHigh<Register>());
+        __ Sltu(AT, ZERO, out.AsRegisterPairLow<Register>());
+        __ Subu(out.AsRegisterPairHigh<Register>(), TMP, AT);
+      }
     }
   }
 }
@@ -3896,8 +3958,19 @@ void LocationsBuilderMIPS::VisitDiv(HDiv* div) {
       InvokeRuntimeCallingConvention calling_convention;
       locations->SetInAt(0, Location::RegisterPairLocation(
           calling_convention.GetRegisterAt(0), calling_convention.GetRegisterAt(1)));
-      locations->SetInAt(1, Location::RegisterPairLocation(
-          calling_convention.GetRegisterAt(2), calling_convention.GetRegisterAt(3)));
+      if (div->InputAt(1)->IsConstant()) {
+        // locations->SetInAt(1, Location::ConstantLocation(div->InputAt(2)->AsConstant()));
+        int64_t imm = CodeGenerator::GetInt64ValueOf(div->InputAt(1)->AsConstant());
+        if (IsPowerOfTwo(AbsOrMin(imm)) && imm != 0) {
+          locations->SetInAt(1, Location::ConstantLocation(div->InputAt(1)->AsConstant()));
+        } else {
+          locations->SetInAt(1, Location::RegisterPairLocation(
+            calling_convention.GetRegisterAt(2), calling_convention.GetRegisterAt(3)));
+        }
+      } else {
+        locations->SetInAt(1, Location::RegisterPairLocation(
+            calling_convention.GetRegisterAt(2), calling_convention.GetRegisterAt(3)));
+      }
       locations->SetOut(calling_convention.GetReturnLocation(type));
       break;
     }
@@ -3923,8 +3996,16 @@ void InstructionCodeGeneratorMIPS::VisitDiv(HDiv* instruction) {
       GenerateDivRemIntegral(instruction);
       break;
     case DataType::Type::kInt64: {
-      codegen_->InvokeRuntime(kQuickLdiv, instruction, instruction->GetDexPc());
-      CheckEntrypointTypes<kQuickLdiv, int64_t, int64_t, int64_t>();
+      if (locations->InAt(1).IsConstant()) {
+        int64_t imm = locations->InAt(1).GetConstant()->AsLongConstant()->GetValue();
+        if (IsPowerOfTwo(AbsOrMin(imm))) {
+          DivRemByPowerOfTwo(instruction);
+          break;
+        }
+      } else {
+        codegen_->InvokeRuntime(kQuickLdiv, instruction, instruction->GetDexPc());
+        CheckEntrypointTypes<kQuickLdiv, int64_t, int64_t, int64_t>();
+      }
       break;
     }
     case DataType::Type::kFloat32:
