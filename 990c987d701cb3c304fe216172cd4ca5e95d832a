@@ -68,6 +68,29 @@
       "revId": "990c987d701cb3c304fe216172cd4ca5e95d832a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a2a9e3e_a2e6f538",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-21T18:04:01Z",
+      "side": 1,
+      "message": "I wish we don\u0027t. vdex should only be about the dex code + verification data.",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 63
+      },
+      "revId": "990c987d701cb3c304fe216172cd4ca5e95d832a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
