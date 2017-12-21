@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "198f368f_b92ae84d",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-21T17:48:35Z",
+      "side": 1,
+      "message": "Why not inline? CodeItemDataAccessor(pDexFile, pCode).TriesSize()?",
+      "range": {
+        "startLine": 738,
+        "startChar": 2,
+        "endLine": 738,
+        "endChar": 48
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca834fc3_b7252f31",
         "filename": "runtime/art_method.cc",
         "patchSetId": 3
@@ -68,6 +91,29 @@
       "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b163ea6_6fd3dd36",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-21T17:48:35Z",
+      "side": 1,
+      "message": "Pretty unhappy with this, as it pulls in a lot of new stuff through this very central header.",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -229,6 +275,29 @@
       "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a31445b9_1b7c3e43",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-21T17:48:35Z",
+      "side": 1,
+      "message": "Why not pass the accessor in, save double work?",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 58
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
