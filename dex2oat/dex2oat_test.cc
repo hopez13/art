@@ -876,8 +876,6 @@ TEST_F(Dex2oatLayoutTest, TestLayoutAppImage) {
 }
 
 TEST_F(Dex2oatLayoutTest, TestVdexLayout) {
-  // Disabled until figure out running compact dex + DexLayout causes quickening errors.
-  TEST_DISABLED_FOR_COMPACT_DEX();
   RunTestVDex();
 }
 
@@ -945,7 +943,7 @@ class Dex2oatUnquickenTest : public Dex2oatTest {
             if (class_it.IsAtMethod() && class_it.GetMethodCodeItem() != nullptr) {
               for (const DexInstructionPcPair& inst :
                        CodeItemInstructionAccessor(dex_file.get(), class_it.GetMethodCodeItem())) {
-                ASSERT_FALSE(inst->IsQuickened());
+                ASSERT_FALSE(inst->IsQuickened()) << output_;
               }
             }
           }
@@ -956,8 +954,6 @@ class Dex2oatUnquickenTest : public Dex2oatTest {
 };
 
 TEST_F(Dex2oatUnquickenTest, UnquickenMultiDex) {
-  // Disabled until figure out running compact dex + DexLayout causes quickening errors.
-  TEST_DISABLED_FOR_COMPACT_DEX();
   RunUnquickenMultiDex();
 }
 
