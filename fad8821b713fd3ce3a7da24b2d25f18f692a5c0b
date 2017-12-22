@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0329f8f4_d67e4f49",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T11:36:54Z",
+      "side": 1,
+      "message": "I find these double negations hard to read. Do we have something like envTrueOrAbsent?",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 13
+      },
+      "revId": "fad8821b713fd3ce3a7da24b2d25f18f692a5c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
