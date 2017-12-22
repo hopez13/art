@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c90be8fa_08496784",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-22T05:21:24Z",
+      "side": 1,
+      "message": "Re 3) I get that and am trying to minimize the impact. In my second CL you\u0027ll see the inverting of visibility flags being completely hidden from the runtime and a higher bit being used instead. This \"magic\" is really needed only for encoding on the DEX level where LEB128 forces me to use the lower bits.",
+      "parentUuid": "62844bef_88deee65",
+      "range": {
+        "startLine": 18,
+        "startChar": 30,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b433bc80_320f4360",
         "filename": "hiddenapi/Android.bp",
         "patchSetId": 1
@@ -578,6 +602,30 @@
       "side": 1,
       "message": "Because this one cannot be encoded in 1 byte with LEB128 and most methods/fields do have their access flags encoded in 1 byte. If I encode everything with 0x200, I will: (1) increase the size of the DEX files, and (2) have to start fixing offsets in the DEX file and that will make the tool much more complicated. 0x200 is only used if kAccNative is set as well, in which case the LEB128 encoding is at least 2 bytes long.",
       "parentUuid": "24a25f30_d58ddf26",
+      "range": {
+        "startLine": 40,
+        "startChar": 54,
+        "endLine": 40,
+        "endChar": 60
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34edc52a_ad0665f5",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2017-12-22T05:21:24Z",
+      "side": 1,
+      "message": "Sorry, forgot to answer the second part of your question. It is fine to use the bottom 16 bits. dx/d8 does not preserve all Java flags, e.g. `synchronized` is split into two bits depending on whether the method is native or not. But that doesn\u0027t matter because on ART\u0027s side DexFile::ClassDataItemIterator masks out bits that should not be set for the specific kind of item - those are the bit masks at the bottom of `modifiers.h`. So using the ones which are not included in those masks is always safe. And lastly, certain combinations of flags are rejected by the verifier, again making it safe to take advantage of those forbidden combinations.",
+      "parentUuid": "1cfad444_f6cd828c",
       "range": {
         "startLine": 40,
         "startChar": 54,
