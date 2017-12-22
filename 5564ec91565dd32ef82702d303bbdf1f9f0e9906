@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "277de9ef_d16d5469",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-22T18:50:31Z",
+      "side": 1,
+      "message": "I would love it if we could hide all DexFile stuff, considering that art_method.h goes into class-inl which goes into object-inl which goes almost everywhere.\n\nBut I guess that isn\u0027t really doable with our current structure.",
+      "parentUuid": "041a1c74_de6e767b",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "5564ec91565dd32ef82702d303bbdf1f9f0e9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "997d7583_75ac93bb",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
