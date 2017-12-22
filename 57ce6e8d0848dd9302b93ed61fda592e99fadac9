@@ -332,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "6a2c5d05_2199bd99",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:56:37Z",
+      "side": 1,
+      "message": "Everywhere. Space is after the \u0027*\u0027, not before.",
+      "parentUuid": "07bfb22e_744cda30",
+      "range": {
+        "startLine": 105,
+        "startChar": 15,
+        "endLine": 105,
+        "endChar": 17
+      },
+      "revId": "57ce6e8d0848dd9302b93ed61fda592e99fadac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d14c88_38b13c4b",
         "filename": "hiddenapi/hiddenapi.cc",
         "patchSetId": 1

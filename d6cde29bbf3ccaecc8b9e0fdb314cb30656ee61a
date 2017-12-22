@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5965e7f5_c3ad60de",
+        "filename": "hiddenapi/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:56:37Z",
+      "side": 1,
+      "message": "This would read best with only 80 col :)",
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcbca51b_fac68e5b",
+        "filename": "hiddenapi/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:56:37Z",
+      "side": 1,
+      "message": "You haven\u0027t defined what that is.",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 12
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e961ec10_f2990f15",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:56:37Z",
+      "side": 1,
+      "message": "Would read better each on one line?",
+      "range": {
+        "startLine": 69,
+        "startChar": 15,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ab46520_8c410ed8",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:56:37Z",
+      "side": 1,
+      "message": "Why would you use that? Please add a comment.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 59
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e8f43b2_61e985e2",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:56:37Z",
+      "side": 1,
+      "message": "Any reason for the template? Just pass as parameters?",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962e03f8_10c42134",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:56:37Z",
+      "side": 1,
+      "message": "Explain why.",
+      "range": {
+        "startLine": 297,
+        "startChar": 26,
+        "endLine": 297,
+        "endChar": 99
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1330aeb_635509d9",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:56:37Z",
+      "side": 1,
+      "message": "Add a comment why you need this. A bit annoying that you are the only user requiring it. Could you work around it?",
+      "range": {
+        "startLine": 1422,
+        "startChar": 0,
+        "endLine": 1422,
+        "endChar": 31
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
