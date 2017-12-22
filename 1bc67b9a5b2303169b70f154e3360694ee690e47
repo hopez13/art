@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2535a56_c8035317",
+        "filename": "compiler/debug/debug_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-12-22T17:49:29Z",
+      "side": 1,
+      "message": "How would it work in that case?\ndex data in APK, further data (but not the dex) in vdex, and precompiled code in odex?",
+      "parentUuid": "77eb2496_7ac59417",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 89
+      },
+      "revId": "1bc67b9a5b2303169b70f154e3360694ee690e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13cf4ceb_dcacbacc",
         "filename": "compiler/debug/elf_symtab_writer.h",
         "patchSetId": 3
