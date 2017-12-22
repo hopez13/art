@@ -1274,6 +1274,11 @@ class Dex2Oat FINAL {
       ExpandOatAndImageFilenames();
     }
 
+    // Set update_input_vdex_ before calling DoEagerUnquickeningOfVdex. We don't want to eagerly
+    // dequicken if update_input_vdex_ is true because the dequcking results will be discarded
+    // since they are done on a private map.
+    update_input_vdex_ = output_vdex_fd_ == input_vdex_fd_ && input_vdex_fd_ != -1;
+
     // OAT and VDEX file handling
     if (oat_fd_ == -1) {
       DCHECK(!oat_filenames_.empty());
@@ -1365,9 +1370,11 @@ class Dex2Oat FINAL {
         return false;
       }
       vdex_file->DisableAutoClose();
-      if (input_vdex_file_ != nullptr && output_vdex_fd_ == input_vdex_fd_) {
-        update_input_vdex_ = true;
-      } else {
+      if (input_vdex_file_ == nullptr) {
+        // Failed to open the input vdex, set the flag to false.
+        update_input_vdex_ = false;
+      }
+      if (!update_input_vdex_) {
         if (vdex_file->SetLength(0) != 0) {
           PLOG(ERROR) << "Truncating vdex file " << vdex_location << " failed.";
           vdex_file->Erase();
@@ -2249,7 +2256,8 @@ class Dex2Oat FINAL {
   }
 
   bool DoEagerUnquickeningOfVdex() const {
-    return MayInvalidateVdexMetadata();
+    // Invalidation of vdex metadata doesn't happen when update_input_vdex_ is specified.
+    return MayInvalidateVdexMetadata() && !update_input_vdex_;
   }
 
   bool LoadProfile() {
