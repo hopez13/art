@@ -164,6 +164,30 @@
       "revId": "44781af72cf16042488513a0f7303e50aa920bff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12808fdd_a6fd9e8f",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-12-22T17:38:39Z",
+      "side": 1,
+      "message": "Why is the field not GUARDED_BY(region_lock_)?\n\nJudging from all uses, the code always holds the lock when reading or manipulating it, which makes sense.",
+      "parentUuid": "c82c54f9_149ee46a",
+      "range": {
+        "startLine": 141,
+        "startChar": 32,
+        "endLine": 141,
+        "endChar": 55
+      },
+      "revId": "44781af72cf16042488513a0f7303e50aa920bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
