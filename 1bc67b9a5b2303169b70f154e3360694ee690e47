@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77eb2496_7ac59417",
+        "filename": "compiler/debug/debug_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:26:36Z",
+      "side": 1,
+      "message": "Same comment as other change. What if the dex file is in the APK, yet we have a vdex/odex.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 89
+      },
+      "revId": "1bc67b9a5b2303169b70f154e3360694ee690e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13cf4ceb_dcacbacc",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-12-22T17:26:36Z",
+      "side": 1,
+      "message": "Add a comment what this section is for (and eg why not mini debug info).",
+      "revId": "1bc67b9a5b2303169b70f154e3360694ee690e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
