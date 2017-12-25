@@ -238,6 +238,11 @@ static jmethodID FindMethodID(ScopedObjectAccess& soa, jclass jni_class,
   } else {
     method = c->FindClassMethod(name, sig, pointer_size);
   }
+  if (method != nullptr &&
+      !IncludeInReflectiveQuery(
+          false, IsCallingClassInBootClassPath(soa.Self(), 1), method->GetAccessFlags())) {
+    method = nullptr;
+  }
   if (method == nullptr || method->IsStatic() != is_static) {
     ThrowNoSuchMethodError(soa, c, name, sig, is_static ? "static" : "non-static");
     return nullptr;
@@ -313,6 +318,11 @@ static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, con
         soa.Self(), c.Get(), name, field_type->GetDescriptor(&temp));
   } else {
     field = c->FindInstanceField(name, field_type->GetDescriptor(&temp));
+  }
+  if (field != nullptr &&
+      !IncludeInReflectiveQuery(
+          false, IsCallingClassInBootClassPath(soa.Self(), 1), field->GetAccessFlags())) {
+    field = nullptr;
   }
   if (field == nullptr) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/NoSuchFieldError;",

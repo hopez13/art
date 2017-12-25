@@ -1143,6 +1143,11 @@ inline bool Class::CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flag
   if (this == access_to) {
     return true;
   }
+  if ((member_flags & kAccHiddenBlacklist) &&
+      access_to->IsBootStrapClassLoaded() &&
+      !this->IsBootStrapClassLoaded()) {
+    return false;
+  }
   // Public members are trivially accessible
   if (member_flags & kAccPublic) {
     return true;
