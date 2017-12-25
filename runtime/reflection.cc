@@ -873,6 +873,19 @@ ObjPtr<mirror::Class> GetCallingClass(Thread* self, size_t num_frames) {
   return visitor.caller != nullptr ? visitor.caller->GetDeclaringClass() : nullptr;
 }
 
+bool IsCallingClassInBootClassPath(Thread* self, size_t num_frames) {
+  ObjPtr<mirror::Class> caller = GetCallingClass(self, num_frames);
+  if (caller == nullptr) {
+    return false;
+  }
+  return caller->IsBootStrapClassLoaded();
+}
+
+bool IncludeInReflectiveQuery(bool public_only, bool allow_hidden, uint32_t access_flags) {
+  return (!public_only || ((access_flags & kAccPublic) != 0)) &&
+         (allow_hidden || ((access_flags & kAccHiddenBlacklist) == 0));
+}
+
 bool VerifyAccess(Thread* self,
                   ObjPtr<mirror::Object> obj,
                   ObjPtr<mirror::Class> declaring_class,
