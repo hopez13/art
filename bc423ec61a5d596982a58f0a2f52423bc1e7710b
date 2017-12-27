@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f7bcdcf0_87d10beb",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee18be9a_f52cbfee",
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fc6e333_c82df5c2",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -30,6 +48,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "Please add comments here. It\u0027s not clear why there are two cases.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 3
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1100b5c1_fdbd6bdc",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fc6e333_c82df5c2",
       "range": {
         "startLine": 131,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "d12ee70f_028fd268",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59ef8300_8ddea507",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 20
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ef47faf_ca276f9b",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -76,6 +142,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "misplaced",
+      "range": {
+        "startLine": 211,
+        "startChar": 54,
+        "endLine": 211,
+        "endChar": 55
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cc0a7e6_f5fc703b",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ef47faf_ca276f9b",
       "range": {
         "startLine": 211,
         "startChar": 54,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "0f387303_fbc6a7fc",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Would you mind if I put this into the next CL (peeling and unrolling routines)? That CL imposes some restrictions on the subgraph so that the connectivity checks will make more sense there as they follow the restrictions logic (in theory superblock cloner can work with arbitrary, even disconnected subgraphs).",
+      "parentUuid": "b46a301b_2cf5b55b",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 71
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "769bbed0_d04a919f",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -122,6 +236,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "Does this apply to superblock cloner?",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 34
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69df7093_a808d111",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Yes, this function is a modified version or HGraph::AnalyzeLoops and follows the similar logic. I left it as is so in the future it will be easier to support irreducible graphs.",
+      "parentUuid": "769bbed0_d04a919f",
       "range": {
         "startLine": 304,
         "startChar": 0,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "36ebda3e_87647d3d",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84fab59e_08ed3dd7",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 35
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d635718b_344df17b",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -168,6 +330,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "Odd that you\u0027re counting when the caller can just query the length of the vector?",
+      "range": {
+        "startLine": 391,
+        "startChar": 8,
+        "endLine": 391,
+        "endChar": 13
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fe682fb_ee491987",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d635718b_344df17b",
       "range": {
         "startLine": 391,
         "startChar": 8,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "287a05b1_e32b7236",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10ba5090_bbdd23f0",
+      "range": {
+        "startLine": 409,
+        "startChar": 2,
+        "endLine": 424,
+        "endChar": 3
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "849613e4_8cdb9641",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -214,6 +424,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "Clonable?",
+      "range": {
+        "startLine": 565,
+        "startChar": 33,
+        "endLine": 565,
+        "endChar": 40
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2db9d7fe_6b2dd5b1",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "849613e4_8cdb9641",
       "range": {
         "startLine": 565,
         "startChar": 33,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "b1b0eefc_2abb92c8",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af194cc_8bb362c2",
+      "range": {
+        "startLine": 566,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 3
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e59997b_ae5acf4b",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -260,6 +518,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "Please add comments.",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 607,
+        "endChar": 20
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "104f8ac0_1a94c619",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Added short comments; all of these functions have proper comments near their declarations.",
+      "parentUuid": "3e59997b_ae5acf4b",
       "range": {
         "startLine": 603,
         "startChar": 0,
@@ -295,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "7f6de8bb_cd687fb4",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "I had to fix it here as later in loop optimizations there should be no such phis.\n\n\ndex2oatd F 12-22 21:41:36 30652 30652 nodes.cc:2237] Check failed: other-\u003eGetPhis().IsEmpty() \n\n/data/ws/aosp/out/soong/host/linux-x86/lib64/libartd-compiler.so (art::HBasicBlock::MergeWith(art::HBasicBlock*)+1858)\n  native:   art::HBasicBlock::MergeWith(art::HBasicBlock*)\n  native:    art/compiler/optimizing/nodes.cc:2237\n  native: #09 pc 00000000003508d6  /data/ws/aosp/out/soong/host/linux-x86/lib64/libartd-compiler.so (art::HLoopOptimization::SimplifyBlocks(art::HLoopOptimization::LoopNode*)+326)\n  native:   art::HLoopOptimization::SimplifyBlocks(art::HLoopOptimization::LoopNode*)\n  native:    art/compiler/optimizing/loop_optimization.cc:788\n  native: #10 pc 000000000034f9ca  /data/ws/aosp/out/soong/host/linux-x86/lib64/libartd-compiler.so (art::HLoopOptimization::TraverseLoopsInnerToOuter(art::HLoopOptimization::LoopNode*)+90)\n  native:   art::HLoopOptimization::TraverseLoopsInnerToOuter(art::HLoopOptimization::LoopNode*)",
+      "parentUuid": "64c928c6_06d19246",
+      "range": {
+        "startLine": 613,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 50
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69fcd38f_a7e25568",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -306,6 +612,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "Add a comment why you\u0027re adding it the the graph now.",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 638,
+        "endChar": 30
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3ad58ee_df319eb6",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "No particular reason, I thought it was a good place to do it right after block\u0027s creation.",
+      "parentUuid": "69fcd38f_a7e25568",
       "range": {
         "startLine": 638,
         "startChar": 0,
@@ -364,6 +694,54 @@
     },
     {
       "key": {
+        "uuid": "4b3a7934_01cb7935",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6802024c_0b773555",
+      "range": {
+        "startLine": 666,
+        "startChar": 35,
+        "endLine": 666,
+        "endChar": 41
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05e3c067_099d695f",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "The order matters, added a comment.",
+      "parentUuid": "2d3f5fa2_b08b272f",
+      "range": {
+        "startLine": 666,
+        "startChar": 18,
+        "endLine": 666,
+        "endChar": 34
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad6920a0_f4268753",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 19
@@ -375,6 +753,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "const\u0026 ?",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cd45162_06c28199",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "The HEdge class only contains two uint32_t, so I thought it is better to pass the instances by value - and was consistent with this approach within the whole file. Do you want anyway to use references?",
+      "parentUuid": "ad6920a0_f4268753",
       "range": {
         "startLine": 65,
         "startChar": 24,
@@ -410,6 +812,30 @@
     },
     {
       "key": {
+        "uuid": "5133e032_b9b7a706",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89d86215_c734796a",
+      "range": {
+        "startLine": 133,
+        "startChar": 11,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2110024_4c4b4366",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 19
@@ -421,6 +847,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "IsInOrigBBSet(block-\u003eGetBlockId())",
+      "range": {
+        "startLine": 196,
+        "startChar": 11,
+        "endLine": 196,
+        "endChar": 54
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee9a2869_efcf3ee8",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2110024_4c4b4366",
       "range": {
         "startLine": 196,
         "startChar": 11,
@@ -456,6 +906,30 @@
     },
     {
       "key": {
+        "uuid": "da400623_38a2eb8b",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "\u0027Get\u0027 will assume something quick as the exits have been already found. Replaced with \"SearchFor\"",
+      "parentUuid": "fc0d17ee_bbb49485",
+      "range": {
+        "startLine": 205,
+        "startChar": 9,
+        "endLine": 205,
+        "endChar": 13
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a51487_f5a0edad",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 19
@@ -467,6 +941,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "missing \u0027.\u0027.",
+      "range": {
+        "startLine": 250,
+        "startChar": 72,
+        "endLine": 250,
+        "endChar": 81
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c13a4e2_1976bb47",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a51487_f5a0edad",
       "range": {
         "startLine": 250,
         "startChar": 72,
@@ -502,6 +1000,30 @@
     },
     {
       "key": {
+        "uuid": "12d6f081_ef02e1a0",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "542cfd29_705e6368",
+      "range": {
+        "startLine": 254,
+        "startChar": 23,
+        "endLine": 254,
+        "endChar": 25
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ce03111_d51acab3",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 19
@@ -525,6 +1047,30 @@
     },
     {
       "key": {
+        "uuid": "61e0fc7f_a420c75c",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ce03111_d51acab3",
+      "range": {
+        "startLine": 257,
+        "startChar": 38,
+        "endLine": 257,
+        "endChar": 39
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a204e9e2_5f469e1b",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 19
@@ -536,6 +1082,30 @@
       "writtenOn": "2017-12-22T16:31:56Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 25
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95855712_5bb9ba51",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-12-27T22:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a204e9e2_5f469e1b",
       "range": {
         "startLine": 281,
         "startChar": 0,
