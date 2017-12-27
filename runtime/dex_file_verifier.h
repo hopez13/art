@@ -45,16 +45,7 @@ class DexFileVerifier {
                   const uint8_t* begin,
                   size_t size,
                   const char* location,
-                  bool verify_checksum)
-      : dex_file_(dex_file),
-        begin_(begin),
-        size_(size),
-        location_(location),
-        verify_checksum_(verify_checksum),
-        header_(&dex_file->GetHeader()),
-        ptr_(nullptr),
-        previous_item_(nullptr)  {
-  }
+                  bool verify_checksum);
 
   bool Verify();
 
@@ -203,6 +194,7 @@ class DexFileVerifier {
   const size_t size_;
   const char* const location_;
   const bool verify_checksum_;
+  const bool is_verifying_compact_dex_;
   const DexFile::Header* const header_;
 
   struct OffsetTypeMapEmptyFn {

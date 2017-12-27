@@ -138,11 +138,11 @@ TEST_F(ExceptionTest, FindCatchHandler) {
   ASSERT_NE(0u, accessor.InsnsSizeInCodeUnits());
 
   const DexFile::TryItem *t0, *t1;
-  t0 = dex_->GetTryItems(*code_item, 0);
-  t1 = dex_->GetTryItems(*code_item, 1);
+  t0 = dex_->GetTryItems(accessor.end(), 0);
+  t1 = dex_->GetTryItems(accessor.end(), 1);
   EXPECT_LE(t0->start_addr_, t1->start_addr_);
   {
-    CatchHandlerIterator iter(*code_item, 4 /* Dex PC in the first try block */);
+    CatchHandlerIterator iter(accessor.end(), 4 /* Dex PC in the first try block */);
     EXPECT_STREQ("Ljava/io/IOException;", dex_->StringByTypeIdx(iter.GetHandlerTypeIndex()));
     ASSERT_TRUE(iter.HasNext());
     iter.Next();
@@ -152,14 +152,14 @@ TEST_F(ExceptionTest, FindCatchHandler) {
     EXPECT_FALSE(iter.HasNext());
   }
   {
-    CatchHandlerIterator iter(*code_item, 8 /* Dex PC in the second try block */);
+    CatchHandlerIterator iter(accessor.end(), 8 /* Dex PC in the second try block */);
     EXPECT_STREQ("Ljava/io/IOException;", dex_->StringByTypeIdx(iter.GetHandlerTypeIndex()));
     ASSERT_TRUE(iter.HasNext());
     iter.Next();
     EXPECT_FALSE(iter.HasNext());
   }
   {
-    CatchHandlerIterator iter(*code_item, 11 /* Dex PC not in any try block */);
+    CatchHandlerIterator iter(accessor.end(), 11 /* Dex PC not in any try block */);
     EXPECT_FALSE(iter.HasNext());
   }
 }

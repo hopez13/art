@@ -263,7 +263,6 @@ uint32_t ArtMethod::FindDexMethodIndexInOtherDexFile(const DexFile& other_dexfil
 
 uint32_t ArtMethod::FindCatchBlock(Handle<mirror::Class> exception_type,
                                    uint32_t dex_pc, bool* has_no_move_exception) {
-  const DexFile::CodeItem* code_item = GetCodeItem();
   // Set aside the exception while we resolve its type.
   Thread* self = Thread::Current();
   StackHandleScope<1> hs(self);
@@ -272,7 +271,8 @@ uint32_t ArtMethod::FindCatchBlock(Handle<mirror::Class> exception_type,
   // Default to handler not found.
   uint32_t found_dex_pc = dex::kDexNoIndex;
   // Iterate over the catch handlers associated with dex_pc.
-  for (CatchHandlerIterator it(*code_item, dex_pc); it.HasNext(); it.Next()) {
+  CodeItemInstructionAccessor accessor(this);
+  for (CatchHandlerIterator it(accessor.end(), dex_pc); it.HasNext(); it.Next()) {
     dex::TypeIndex iter_type_idx = it.GetHandlerTypeIndex();
     // Catch all case
     if (!iter_type_idx.IsValid()) {
@@ -297,7 +297,7 @@ uint32_t ArtMethod::FindCatchBlock(Handle<mirror::Class> exception_type,
     }
   }
   if (found_dex_pc != dex::kDexNoIndex) {
-    const Instruction& first_catch_instr = DexInstructions().InstructionAt(found_dex_pc);
+    const Instruction& first_catch_instr = accessor.InstructionAt(found_dex_pc);
     *has_no_move_exception = (first_catch_instr.Opcode() != Instruction::MOVE_EXCEPTION);
   }
   // Put the exception back.

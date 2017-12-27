@@ -305,16 +305,6 @@ class DexFile {
 
   // Raw code_item.
   struct CodeItem {
-    IterationRange<DexInstructionIterator> Instructions(uint32_t start_dex_pc = 0u) const {
-      DCHECK_LE(start_dex_pc, insns_size_in_code_units_);
-      return { DexInstructionIterator(insns_, start_dex_pc),
-               DexInstructionIterator(insns_, insns_size_in_code_units_) };
-    }
-
-    const Instruction& InstructionAt(uint32_t dex_pc) const {
-      return *Instruction::At(insns_ + dex_pc);
-    }
-
     // Used when quickening / unquickening.
     void SetDebugInfoOffset(uint32_t new_offset) {
       debug_info_off_ = new_offset;
@@ -785,7 +775,6 @@ class DexFile {
   }
 
   static const TryItem* GetTryItems(const DexInstructionIterator& code_item_end, uint32_t offset);
-  static const TryItem* GetTryItems(const CodeItem& code_item, uint32_t offset);
 
   // Get the base of the encoded data for the given DexCode.
   static const uint8_t* GetCatchHandlerData(const DexInstructionIterator& code_item_end,
@@ -794,9 +783,6 @@ class DexFile {
     const uint8_t* handler_data =
         reinterpret_cast<const uint8_t*>(GetTryItems(code_item_end, tries_size));
     return handler_data + offset;
-  }
-  static const uint8_t* GetCatchHandlerData(const CodeItem& code_item, uint32_t offset) {
-    return GetCatchHandlerData(code_item.Instructions().end(), code_item.tries_size_, offset);
   }
 
   // Find which try region is associated with the given address (ie dex pc). Returns -1 if none.
@@ -1468,10 +1454,9 @@ std::ostream& operator<<(std::ostream& os, const CallSiteArrayValueIterator::Val
 
 class CatchHandlerIterator {
  public:
-  CatchHandlerIterator(const DexFile::CodeItem& code_item, uint32_t address);
+  CatchHandlerIterator(const DexInstructionIterator& code_item_end, uint32_t address);
 
-  CatchHandlerIterator(const DexFile::CodeItem& code_item,
-                       const DexFile::TryItem& try_item);
+  CatchHandlerIterator(const DexInstructionIterator& code_item_end, const DexFile::TryItem& try_item);
 
   explicit CatchHandlerIterator(const uint8_t* handler_data) {
     Init(handler_data);
@@ -1494,7 +1479,7 @@ class CatchHandlerIterator {
   }
 
  private:
-  void Init(const DexFile::CodeItem& code_item, int32_t offset);
+  void Init(const DexInstructionIterator&, int32_t offset);
   void Init(const uint8_t* handler_data);
 
   struct CatchHandlerItem {

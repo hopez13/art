@@ -22,6 +22,7 @@
 #include <unistd.h>
 
 #include "base/unix_file/fd_file.h"
+#include "code_item_accessors-inl.h"
 #include "common_runtime_test.h"
 #include "dex_file-inl.h"
 #include "dex_file_loader.h"
@@ -698,11 +699,11 @@ TEST_F(DexLayoutTest, CodeItemOverrun) {
       while (it.HasNextMethod()) {
         DexFile::CodeItem* item = const_cast<DexFile::CodeItem*>(it.GetMethodCodeItem());
         if (item != nullptr) {
-          IterationRange<DexInstructionIterator> instructions = item->Instructions();
+          CodeItemInstructionAccessor instructions(dex, item);
           if (instructions.begin() != instructions.end()) {
             DexInstructionIterator last_instruction = instructions.begin();
-            for (auto dex_it = instructions.begin(); dex_it != instructions.end(); ++dex_it) {
-              last_instruction = dex_it;
+            for (auto&& pair : instructions) {
+              last_instruction = DexInstructionIterator(pair);
             }
             if (last_instruction->SizeInCodeUnits() == 1) {
               // Set the opcode to something that will go past the end of the code item.
