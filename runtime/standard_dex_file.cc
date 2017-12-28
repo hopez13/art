@@ -63,4 +63,8 @@ bool StandardDexFile::IsVersionValid() const {
   return IsVersionValid(header_->magic_);
 }
 
+bool StandardDexFile::SupportsDefaultMethods() const {
+  return GetVersion() >= DexFile::kDefaultMethodsVersion;
+}
+
 }  // namespace art

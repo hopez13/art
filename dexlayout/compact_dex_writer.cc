@@ -27,7 +27,7 @@ void CompactDexWriter::WriteHeader() {
   header.checksum_ = header_->Checksum();
   std::copy_n(header_->Signature(), DexFile::kSha1DigestSize, header.signature_);
   header.file_size_ = header_->FileSize();
-  header.header_size_ = header_->GetSize();
+  header.header_size_ = GetHeaderSize();
   header.endian_tag_ = header_->EndianTag();
   header.link_size_ = header_->LinkSize();
   header.link_off_ = header_->LinkOffset();
@@ -47,7 +47,15 @@ void CompactDexWriter::WriteHeader() {
   header.class_defs_off_ = collections.ClassDefsOffset();
   header.data_size_ = header_->DataSize();
   header.data_off_ = header_->DataOffset();
+  header.feature_flags_ = 0u;
+  if (header_->SupportDefaultMethods()) {
+    header.feature_flags_ |= static_cast<uint32_t>(CompactDexFile::FeatureFlags::kDefaultMethods);
+  }
   UNUSED(Write(reinterpret_cast<uint8_t*>(&header), sizeof(header), 0u));
+}
+
+size_t CompactDexWriter::GetHeaderSize() const {
+  return sizeof(CompactDexFile::Header);
 }
 
 }  // namespace art

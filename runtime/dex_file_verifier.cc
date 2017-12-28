@@ -385,7 +385,14 @@ bool DexFileVerifier::CheckHeader() {
     return false;
   }
 
-  if (header_->header_size_ != sizeof(DexFile::Header)) {
+  bool size_matches = false;
+  if (dex_file_->IsCompactDexFile()) {
+    size_matches = header_->header_size_ == sizeof(CompactDexFile::Header);
+  } else {
+    size_matches = header_->header_size_ == sizeof(StandardDexFile::Header);
+  }
+
+  if (!size_matches) {
     ErrorStringPrintf("Bad header size: %ud", header_->header_size_);
     return false;
   }
@@ -3002,7 +3009,7 @@ bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
                                 GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
                                 field_access_flags,
                                 PrettyJavaAccessFlags(field_access_flags).c_str());
-      if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+      if (dex_file_->SupportsDefaultMethods()) {
         return false;
       } else {
         // Allow in older versions, but warn.
@@ -3017,7 +3024,7 @@ bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
                                 GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
                                 field_access_flags,
                                 PrettyJavaAccessFlags(field_access_flags).c_str());
-      if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+      if (dex_file_->SupportsDefaultMethods()) {
         return false;
       } else {
         // Allow in older versions, but warn.
@@ -3100,7 +3107,7 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
       *error_msg = StringPrintf("Constructor %" PRIu32 "(%s) is not flagged correctly wrt/ static.",
                                 method_index,
                                 GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
-      if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+      if (dex_file_->SupportsDefaultMethods()) {
         return false;
       } else {
         // Allow in older versions, but warn.
@@ -3129,14 +3136,14 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
   if ((class_access_flags & kAccInterface) != 0) {
     // Non-static interface methods must be public or private.
     uint32_t desired_flags = (kAccPublic | kAccStatic);
-    if (dex_file_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+    if (dex_file_->SupportsDefaultMethods()) {
       desired_flags |= kAccPrivate;
     }
     if ((method_access_flags & desired_flags) == 0) {
       *error_msg = StringPrintf("Interface virtual method %" PRIu32 "(%s) is not public",
           method_index,
           GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
-      if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+      if (dex_file_->SupportsDefaultMethods()) {
         return false;
       } else {
         // Allow in older versions, but warn.
@@ -3161,7 +3168,7 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
       *error_msg = StringPrintf("Constructor %u(%s) must not be abstract or native",
                                 method_index,
                                 GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
-      if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+      if (dex_file_->SupportsDefaultMethods()) {
         return false;
       } else {
         // Allow in older versions, but warn.
@@ -3195,7 +3202,7 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
         *error_msg = StringPrintf("Interface method %" PRIu32 "(%s) is not public and abstract",
             method_index,
             GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
-        if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+        if (dex_file_->SupportsDefaultMethods()) {
           return false;
         } else {
           // Allow in older versions, but warn.
