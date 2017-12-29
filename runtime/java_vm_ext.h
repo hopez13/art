@@ -101,7 +101,6 @@ class JavaVMExt : public JavaVM {
   bool LoadNativeLibrary(JNIEnv* env,
                          const std::string& path,
                          jobject class_loader,
-                         jstring library_path,
                          std::string* error_msg);
 
   // Unload native libraries with cleared class loaders.
@@ -199,6 +198,10 @@ class JavaVMExt : public JavaVM {
   void AddEnvironmentHook(GetEnvHook hook);
 
   static bool IsBadJniVersion(int version);
+
+  // Return the LD_LIBRARY_PATH for the given classloader, assuming it is well-known.
+  // The jobject will be a local reference and is expected to be managed by the caller.
+  static jstring GetLdLibraryPath(JNIEnv* env, jobject class_loader);
 
  private:
   // The constructor should not be called directly. It may leave the object in
