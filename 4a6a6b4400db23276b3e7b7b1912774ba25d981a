@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82669fb8_bf4c6940",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8811,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2017-12-29T12:05:06Z",
+      "side": 1,
+      "message": "what happens if you initialize the list?",
+      "revId": "4a6a6b4400db23276b3e7b7b1912774ba25d981a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "805412e4_3f5d0f2f",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2017-12-29T12:05:06Z",
+      "side": 1,
+      "message": "LibrarySearchPath?",
+      "range": {
+        "startLine": 1125,
+        "startChar": 19,
+        "endLine": 1125,
+        "endChar": 35
+      },
+      "revId": "4a6a6b4400db23276b3e7b7b1912774ba25d981a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
