@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f0cf54b_2e3b7f48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T12:56:32Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "a7154c32b9935fc562a0eb5aafca97ea58b18fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f4f4c58_cefb95fb",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T12:56:32Z",
+      "side": 1,
+      "message": "Are you starting to version cdex? That doesn\u0027t sound right... Could we just say cdex supports all current features?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 98
+      },
+      "revId": "a7154c32b9935fc562a0eb5aafca97ea58b18fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
