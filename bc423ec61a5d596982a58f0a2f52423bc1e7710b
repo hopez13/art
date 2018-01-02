@@ -885,6 +885,30 @@
     },
     {
       "key": {
+        "uuid": "82bf5cf7_ef570610",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-02T13:59:56Z",
+      "side": 1,
+      "message": "I generally prefer passing small objects by value as passing by reference often inhibits optimizations (must allocate space for the object in memory rather than registers; may need to reload values due to possible aliasing).",
+      "parentUuid": "404aa958_27e03bff",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89d86215_c734796a",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 19
