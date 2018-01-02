@@ -12,19 +12,19 @@
   description: "Assert.java differences between vogar and junit.",
   result: EXEC_FAILED,
   modes: [host],
-  name: "libcore.java.math.RunCSVTests#test_csv"
+  name: "test.java.math.RunCSVTests#test_csv"
 },
 {
   description: "Differences between vogar and cts in user directory",
   result: EXEC_FAILED,
   modes: [device],
-  name: "libcore.java.lang.SystemTest#testSystemProperties_mutable"
+  name: "test.java.lang.SystemTest#testSystemProperties_mutable"
 },
 {
   description: "Differences between vogar and cts. Passes with --mode activity",
   result: EXEC_FAILED,
   modes: [device],
-  names: ["libcore.java.lang.OldSystemTest#test_getProperties"]
+  names: ["test.java.lang.OldSystemTest#test_getProperties"]
 },
 {
   description: "Differences between vogar and cts. EACCESS when run with vogar.
@@ -33,23 +33,23 @@
                 777 all directories on path to socket (on device without su).",
   result: EXEC_FAILED,
   modes: [device],
-  names: ["libcore.libcore.io.OsTest#testUnixDomainSockets_in_file_system"]
+  names: ["test.libcore.io.OsTest#testUnixDomainSockets_in_file_system"]
 },
 {
   description: "TCP_USER_TIMEOUT is not defined on host's tcp.h (glibc-2.15-4.8).",
   result: EXEC_FAILED,
   modes: [host],
-  names: ["libcore.android.system.OsConstantsTest#testTcpUserTimeoutIsDefined",
-          "libcore.libcore.io.OsTest#test_socket_tcpUserTimeout_setAndGet",
-          "libcore.libcore.io.OsTest#test_socket_tcpUserTimeout_doesNotWorkOnDatagramSocket"],
+  names: ["test.android.system.OsConstantsTest#testTcpUserTimeoutIsDefined",
+          "test.libcore.io.OsTest#test_socket_tcpUserTimeout_setAndGet",
+          "test.libcore.io.OsTest#test_socket_tcpUserTimeout_doesNotWorkOnDatagramSocket"],
   bug: 30402085
 },
 {
   description: "Issue with incorrect device time (1970)",
   result: EXEC_FAILED,
   modes: [device],
-  names: ["libcore.java.util.TimeZoneTest#testDisplayNames",
-          "libcore.java.util.TimeZoneTest#test_useDaylightTime_Taiwan",
+  names: ["test.java.util.TimeZoneTest#testDisplayNames",
+          "test.java.util.TimeZoneTest#test_useDaylightTime_Taiwan",
           "org.apache.harmony.tests.java.util.TimeZoneTest#test_hasSameRules_Ljava_util_TimeZone"],
   bug: 20879084
 },
@@ -64,28 +64,28 @@
   description: "Failing due to a locale problem on hammerhead.",
   result: EXEC_FAILED,
   modes: [device],
-  names: ["libcore.icu.DateIntervalFormatTest#test10089890",
-          "libcore.icu.DateIntervalFormatTest#test10209343_when_not_this_year",
-          "libcore.icu.DateIntervalFormatTest#test10560853_for_single_day_events",
-          "libcore.icu.DateIntervalFormatTest#test10560853_when_time_not_displayed",
-          "libcore.icu.RelativeDateTimeFormatterTest#test_getRelativeDateTimeString",
-          "libcore.icu.RelativeDateTimeFormatterTest#test_getRelativeTimeSpanString",
-          "libcore.icu.RelativeDateTimeFormatterTest#test_getRelativeTimeSpanStringAbbrev",
-          "libcore.java.text.OldDateFormatTest#test_parseLString",
-          "libcore.java.text.SimpleDateFormatTest#testDstZoneNameWithNonDstTimestamp",
-          "libcore.java.text.SimpleDateFormatTest#testDstZoneWithNonDstTimestampForNonHourDstZone",
-          "libcore.java.text.SimpleDateFormatTest#testNonDstZoneNameWithDstTimestamp",
-          "libcore.java.text.SimpleDateFormatTest#testNonDstZoneWithDstTimestampForNonHourDstZone"]
+  names: ["test.icu.DateIntervalFormatTest#test10089890",
+          "test.icu.DateIntervalFormatTest#test10209343_when_not_this_year",
+          "test.icu.DateIntervalFormatTest#test10560853_for_single_day_events",
+          "test.icu.DateIntervalFormatTest#test10560853_when_time_not_displayed",
+          "test.icu.RelativeDateTimeFormatterTest#test_getRelativeDateTimeString",
+          "test.icu.RelativeDateTimeFormatterTest#test_getRelativeTimeSpanString",
+          "test.icu.RelativeDateTimeFormatterTest#test_getRelativeTimeSpanStringAbbrev",
+          "test.java.text.OldDateFormatTest#test_parseLString",
+          "test.java.text.SimpleDateFormatTest#testDstZoneNameWithNonDstTimestamp",
+          "test.java.text.SimpleDateFormatTest#testDstZoneWithNonDstTimestampForNonHourDstZone",
+          "test.java.text.SimpleDateFormatTest#testNonDstZoneNameWithDstTimestamp",
+          "test.java.text.SimpleDateFormatTest#testNonDstZoneWithDstTimestampForNonHourDstZone"]
 },
 {
   description: "Failing due to missing localhost on hammerhead and volantis.",
   result: EXEC_FAILED,
   modes: [device],
-  names: ["libcore.javax.crypto.CipherTest#testCipherInitWithCertificate",
-          "libcore.net.NetworkSecurityPolicyTest#testCleartextTrafficPolicyWithFtpURLConnection",
-          "libcore.net.NetworkSecurityPolicyTest#testCleartextTrafficPolicyWithJarFtpURLConnection",
-          "libcore.net.NetworkSecurityPolicyTest#testCleartextTrafficPolicyWithLoggingSocketHandler",
-          "libcore.net.NetworkSecurityPolicyTest#testCleartextTrafficPolicyWithHttpURLConnection",
+  names: ["test.javax.crypto.CipherTest#testCipherInitWithCertificate",
+          "test.net.NetworkSecurityPolicyTest#testCleartextTrafficPolicyWithFtpURLConnection",
+          "test.net.NetworkSecurityPolicyTest#testCleartextTrafficPolicyWithJarFtpURLConnection",
+          "test.net.NetworkSecurityPolicyTest#testCleartextTrafficPolicyWithLoggingSocketHandler",
+          "test.net.NetworkSecurityPolicyTest#testCleartextTrafficPolicyWithHttpURLConnection",
           "org.apache.harmony.luni.tests.internal.net.www.protocol.http.HttpURLConnectionTest",
           "org.apache.harmony.luni.tests.internal.net.www.protocol.https.HttpsURLConnectionTest",
           "org.apache.harmony.luni.tests.java.net.URLConnectionTest",
@@ -107,13 +107,13 @@
 {
   description: "Test sometimes timeouts on volantis, and on most modes in debug mode",
   result: EXEC_TIMEOUT,
-  names: ["libcore.java.lang.SystemTest#testArrayCopyConcurrentModification"],
+  names: ["test.java.lang.SystemTest#testArrayCopyConcurrentModification"],
   bug: 19165288
 },
 {
   description: "Needs kernel updates on host/device",
   result: EXEC_FAILED,
-  names: ["libcore.libcore.io.OsTest#test_socketPing"]
+  names: ["test.libcore.io.OsTest#test_socketPing"]
 },
 {
   description: "Linker issues in chrooted environment",
@@ -125,13 +125,13 @@
   description: "Flake when running with libartd.so or interpreter",
   result: EXEC_FAILED,
   bug:22106064,
-  name: "libcore.java.lang.OldThreadGroupTest#test_enumerateLThreadArrayLZtest_enumerateLThreadArrayLZ"
+  name: "test.java.lang.OldThreadGroupTest#test_enumerateLThreadArrayLZtest_enumerateLThreadArrayLZ"
 },
 {
   description: "test_xattr fails on arm64 on the buildbots only: needs investigation",
   result: EXEC_FAILED,
   modes: [device],
-  names: ["libcore.libcore.io.OsTest#test_xattr"],
+  names: ["test.libcore.io.OsTest#test_xattr"],
   bug: 22258911
 },
 {
@@ -143,9 +143,9 @@
 {
   description: "Lack of IPv6 on some buildbot slaves",
   result: EXEC_FAILED,
-  names: ["libcore.libcore.io.OsTest#test_byteBufferPositions_sendto_recvfrom_af_inet6",
-          "libcore.libcore.io.OsTest#test_sendtoSocketAddress_af_inet6",
-          "libcore.libcore.io.OsTest#test_recvfrom_EmptyPacket"],
+  names: ["test.libcore.io.OsTest#test_byteBufferPositions_sendto_recvfrom_af_inet6",
+          "test.libcore.io.OsTest#test_sendtoSocketAddress_af_inet6",
+          "test.libcore.io.OsTest#test_recvfrom_EmptyPacket"],
   bug: 25178637
 },
 {
@@ -158,30 +158,30 @@
   description: "Missing resource in classpath",
   result: EXEC_FAILED,
   modes: [device],
-  names: ["libcore.java.util.prefs.OldAbstractPreferencesTest#testClear",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testExportNode",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testExportSubtree",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testGet",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testGetBoolean",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testGetByteArray",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testGetDouble",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testGetFloat",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testGetInt",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testGetLong",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testKeys",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testNodeExists",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testPut",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testPutBoolean",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testPutByteArray",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testPutDouble",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testPutFloat",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testPutInt",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testPutLong",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testRemove",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testRemoveNode",
-          "libcore.java.util.prefs.OldAbstractPreferencesTest#testSync",
-          "libcore.java.util.prefs.PreferencesTest#testHtmlEncoding",
-          "libcore.java.util.prefs.PreferencesTest#testPreferencesClobbersExistingFiles",
+  names: ["test.java.util.prefs.OldAbstractPreferencesTest#testClear",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testExportNode",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testExportSubtree",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testGet",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testGetBoolean",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testGetByteArray",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testGetDouble",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testGetFloat",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testGetInt",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testGetLong",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testKeys",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testNodeExists",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testPut",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testPutBoolean",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testPutByteArray",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testPutDouble",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testPutFloat",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testPutInt",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testPutLong",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testRemove",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testRemoveNode",
+          "test.java.util.prefs.OldAbstractPreferencesTest#testSync",
+          "test.java.util.prefs.PreferencesTest#testHtmlEncoding",
+          "test.java.util.prefs.PreferencesTest#testPreferencesClobbersExistingFiles",
           "org.apache.harmony.tests.java.util.PropertiesTest#test_storeToXMLLjava_io_OutputStreamLjava_lang_StringLjava_lang_String",
           "org.apache.harmony.tests.java.util.prefs.AbstractPreferencesTest#testExportNode",
           "org.apache.harmony.tests.java.util.prefs.AbstractPreferencesTest#testExportSubtree",
@@ -192,7 +192,7 @@
 {
   description: "Only work with --mode=activity",
   result: EXEC_FAILED,
-  names: [ "libcore.java.io.FileTest#testJavaIoTmpdirMutable" ]
+  names: [ "test.java.io.FileTest#testJavaIoTmpdirMutable" ]
 },
 {
   description: "Flaky test",
@@ -207,19 +207,19 @@
   result: EXEC_FAILED,
   bug: 30657148,
   modes: [device],
-  names: ["libcore.java.lang.ProcessBuilderTest#testRedirectInherit",
-          "libcore.java.lang.ProcessBuilderTest#testRedirect_nullStreams"]
+  names: ["test.java.lang.ProcessBuilderTest#testRedirectInherit",
+          "test.java.lang.ProcessBuilderTest#testRedirect_nullStreams"]
 },
 {
   description: "java.io.IOException: Error writing ASN.1 encoding",
   result: EXEC_FAILED,
-  names: ["libcore.javax.crypto.spec.AlgorithmParametersTestGCM#testEncoding"]
+  names: ["test.javax.crypto.spec.AlgorithmParametersTestGCM#testEncoding"]
 },
 {
   description: "Failure only on device. Blacklist it temporarily",
   result: EXEC_FAILED,
   modes: [device],
   bug: 69023954,
-  names: ["libcore.libcore.io.OsTest#test_setgroups"]
+  names: ["test.libcore.io.OsTest#test_setgroups"]
 }
 ]

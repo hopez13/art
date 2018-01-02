@@ -9,13 +9,13 @@
   result: EXEC_FAILED,
   modes: [device],
   names: ["jsr166.CompletableFutureTest#testCompleteOnTimeout_completed",
-          "libcore.libcore.icu.TransliteratorTest#testAll",
-          "libcore.libcore.icu.RelativeDateTimeFormatterTest#test_bug25821045",
-          "libcore.libcore.icu.RelativeDateTimeFormatterTest#test_bug25883157",
-          "libcore.java.lang.ref.ReferenceQueueTest#testRemoveWithDelayedResultAndTimeout",
-          "libcore.java.lang.ref.ReferenceQueueTest#testRemoveWithDelayedResultAndNoTimeout",
-          "libcore.java.util.TimeZoneTest#testSetDefaultDeadlock",
-          "libcore.javax.crypto.CipherBasicsTest#testBasicEncryption",
+          "test.libcore.icu.TransliteratorTest#testAll",
+          "test.libcore.icu.RelativeDateTimeFormatterTest#test_bug25821045",
+          "test.libcore.icu.RelativeDateTimeFormatterTest#test_bug25883157",
+          "test.java.lang.ref.ReferenceQueueTest#testRemoveWithDelayedResultAndTimeout",
+          "test.java.lang.ref.ReferenceQueueTest#testRemoveWithDelayedResultAndNoTimeout",
+          "test.java.util.TimeZoneTest#testSetDefaultDeadlock",
+          "test.javax.crypto.CipherBasicsTest#testBasicEncryption",
           "org.apache.harmony.tests.java.util.TimerTest#testThrowingTaskKillsTimerThread"]
 }
 ]
