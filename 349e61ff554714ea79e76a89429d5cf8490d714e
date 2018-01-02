@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ee9f05e_7935f27a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-02T10:46:55Z",
+      "side": 1,
+      "message": "Do we need this? I vaguely remember hearing that it is unnecessary and that for example C++ atomics do not emit the CLREX.",
+      "range": {
+        "startLine": 1180,
+        "startChar": 4,
+        "endLine": 1180,
+        "endChar": 15
+      },
+      "revId": "349e61ff554714ea79e76a89429d5cf8490d714e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
