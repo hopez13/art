@@ -462,10 +462,10 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
     //
     // We take the lock here to avoid using NO_THREAD_SAFETY_ANALYSIS.
     MutexLock subtype_check_lock(Thread::Current(), *Locks::subtype_check_lock_);
-    mirror::Class* java_lang_Object_ptr = java_lang_Object.Get();
-    SubtypeCheck<mirror::Class*>::EnsureInitialized(java_lang_Object_ptr);
-    mirror::Class* java_lang_Class_ptr =  java_lang_Class.Get();
-    SubtypeCheck<mirror::Class*>::EnsureInitialized(java_lang_Class_ptr);
+    ObjPtr<mirror::Class> java_lang_Object_ptr = java_lang_Object.Get();
+    SubtypeCheck<ObjPtr<mirror::Class>>::EnsureInitialized(java_lang_Object_ptr);
+    ObjPtr<mirror::Class> java_lang_Class_ptr =  java_lang_Class.Get();
+    SubtypeCheck<ObjPtr<mirror::Class>>::EnsureInitialized(java_lang_Class_ptr);
   }
 
   // Object[] next to hold class roots.
@@ -1872,8 +1872,8 @@ bool ClassLinker::AddImageSpace(
       ScopedTrace trace("Recalculate app image SubtypeCheck bitstrings");
       MutexLock subtype_check_lock(Thread::Current(), *Locks::subtype_check_lock_);
       for (const ClassTable::TableSlot& root : temp_set) {
-        mirror::Class* root_klass = root.Read();
-        SubtypeCheck<mirror::Class*>::EnsureInitialized(root_klass);
+        ObjPtr<mirror::Class> root_klass = root.Read();
+        SubtypeCheck<ObjPtr<mirror::Class>>::EnsureInitialized(root_klass);
       }
     }
   }
