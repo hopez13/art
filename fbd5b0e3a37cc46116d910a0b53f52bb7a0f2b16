@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "220deace_41605488",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T13:00:50Z",
+      "side": 0,
+      "message": "How about renaming GetVersion() to GetDexVersion to hopefully avoid future issues like this one?",
+      "range": {
+        "startLine": 177,
+        "startChar": 35,
+        "endLine": 177,
+        "endChar": 45
+      },
+      "revId": "fbd5b0e3a37cc46116d910a0b53f52bb7a0f2b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

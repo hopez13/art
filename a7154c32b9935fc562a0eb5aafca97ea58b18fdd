@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "4bd18c56_6d55c305",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T13:00:50Z",
+      "side": 1,
+      "message": "Inconsistent with other assignments above and below. Can you add a comment?",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "a7154c32b9935fc562a0eb5aafca97ea58b18fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f4f4c58_cefb95fb",
         "filename": "dexlayout/compact_dex_writer.cc",
         "patchSetId": 1
@@ -36,6 +59,30 @@
       "writtenOn": "2018-01-02T12:56:32Z",
       "side": 1,
       "message": "Are you starting to version cdex? That doesn\u0027t sound right... Could we just say cdex supports all current features?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 98
+      },
+      "revId": "a7154c32b9935fc562a0eb5aafca97ea58b18fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1cbe2a_2c78e26a",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T13:00:50Z",
+      "side": 1,
+      "message": "Nevermind, I understand now this acts as a behavioral change.\n\nPlease add a comment, and why you need to encode this in the header.",
+      "parentUuid": "5f4f4c58_cefb95fb",
       "range": {
         "startLine": 52,
         "startChar": 0,
