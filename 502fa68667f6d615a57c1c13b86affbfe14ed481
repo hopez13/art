@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "52375ff1_415dd61d",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-02T21:22:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56e2499b_5c6ed075",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "502fa68667f6d615a57c1c13b86affbfe14ed481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e120f0b_0371cc9e",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-02T18:16:04Z",
       "side": 1,
       "message": "Why? Doesn\u0027t MemMap just ignore the low_4gb if you pass an addr!\u003dnull?",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 3
+      },
+      "revId": "502fa68667f6d615a57c1c13b86affbfe14ed481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e13a66d9_7747e3ee",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-02T21:22:12Z",
+      "side": 1,
+      "message": "It asserts that if low_4gb set, then no specific address is requested.\nMy suspicion is that, the only reason for that is that it was not needed up till now.\nI would like to remove that restriction, but that is for different CL.",
+      "parentUuid": "9e120f0b_0371cc9e",
       "range": {
         "startLine": 113,
         "startChar": 0,
