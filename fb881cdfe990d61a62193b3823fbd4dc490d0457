@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5da31461_3a68a956",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T20:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c22eb46e_943c8963",
+      "range": {
+        "startLine": 86,
+        "startChar": 11,
+        "endLine": 86,
+        "endChar": 18
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d761a7e8_32d313ba",
         "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-21T18:41:56Z",
       "side": 1,
       "message": "IsFullJvmtiAvailable",
+      "range": {
+        "startLine": 87,
+        "startChar": 12,
+        "endLine": 87,
+        "endChar": 32
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "086c3b41_5fc12a83",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T20:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d761a7e8_32d313ba",
       "range": {
         "startLine": 87,
         "startChar": 12,
@@ -106,6 +154,30 @@
       "writtenOn": "2017-12-21T18:41:56Z",
       "side": 1,
       "message": "its",
+      "range": {
+        "startLine": 134,
+        "startChar": 85,
+        "endLine": 134,
+        "endChar": 89
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65038fbd_75f96e24",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T20:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51104afc_b23f5aa6",
       "range": {
         "startLine": 134,
         "startChar": 85,
