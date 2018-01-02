@@ -22,6 +22,30 @@
       "revId": "61b1ab5d0288fe0ac509de2cb9a96470a6e046d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21c7ae29_a1630c1b",
+        "filename": "openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T15:15:32Z",
+      "side": 1,
+      "message": "Getting a writer-lock during redefinition might be a good idea. Other than during that I don\u0027t think we ever look at or modify the cookie.",
+      "parentUuid": "aa70b894_5d98f5f2",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 73
+      },
+      "revId": "61b1ab5d0288fe0ac509de2cb9a96470a6e046d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
