@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "e2e83000_45de9025",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T14:12:15Z",
+      "side": 1,
+      "message": "This will only be sent to developers if they use wrap.sh or some similar mechanism to start on a non-zygote-forked process (see the GetPhase() \u003d\u003d JVMTI_PHASE_ONLOAD)",
+      "parentUuid": "f7837c8a_675d6b08",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 80
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51104afc_b23f5aa6",
         "filename": "runtime/oat_file.h",
         "patchSetId": 7
@@ -105,6 +129,30 @@
       "writtenOn": "2017-12-21T18:41:56Z",
       "side": 1,
       "message": "I\u0027d much prefer an all or nothing approach (as it is now). Why are native methods so important now?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 26
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62eb2744_9c6f3343",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T14:12:15Z",
+      "side": 1,
+      "message": "The current approach actually also leaves JNI transitions alone so this isn\u0027t actually changing anything too big there.\n\nThis is needed because the StackWalker gets extremely confused if a native method is changed to generic-jni without the jit enabled (if jit is enabled it all works oddly). I\u0027m not entirely sure why this is to be honest. I think it might be due to the jit-compiled jni transitions cl but I\u0027m not fully sure.",
+      "parentUuid": "2bb7fe3b_c7cd92f8",
       "range": {
         "startLine": 135,
         "startChar": 0,
