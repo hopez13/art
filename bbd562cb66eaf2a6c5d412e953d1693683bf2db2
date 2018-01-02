@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7efac05_65b16884",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T14:46:11Z",
+      "side": 1,
+      "message": "Should we try to fallback to no-classloader path?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 68
+      },
+      "revId": "bbd562cb66eaf2a6c5d412e953d1693683bf2db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dea3f4b0_b1578846",
+        "filename": "test/909-attach-agent/src-art/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T14:46:11Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 45
+      },
+      "revId": "bbd562cb66eaf2a6c5d412e953d1693683bf2db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
