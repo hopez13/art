@@ -22,6 +22,30 @@
       "revId": "349e61ff554714ea79e76a89429d5cf8490d714e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9da2586a_3144efa3",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-02T18:48:18Z",
+      "side": 1,
+      "message": "I think we don\u0027t. All the documentation I could find suggests that CLREX is really intended only for (slightly unusual) context switching code.\n\nI think there was a suggestion that CLREX could improve performance, but I found nothing to back that up.",
+      "parentUuid": "8ee9f05e_7935f27a",
+      "range": {
+        "startLine": 1180,
+        "startChar": 4,
+        "endLine": 1180,
+        "endChar": 15
+      },
+      "revId": "349e61ff554714ea79e76a89429d5cf8490d714e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
