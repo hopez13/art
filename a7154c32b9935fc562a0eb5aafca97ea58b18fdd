@@ -92,6 +92,29 @@
       "revId": "a7154c32b9935fc562a0eb5aafca97ea58b18fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68be32dd_745d1eae",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3968,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T14:24:20Z",
+      "side": 1,
+      "message": "nit: Change this comment to not mention the dex version directly and instead say something about default method support.",
+      "range": {
+        "startLine": 3968,
+        "startChar": 0,
+        "endLine": 3968,
+        "endChar": 60
+      },
+      "revId": "a7154c32b9935fc562a0eb5aafca97ea58b18fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
