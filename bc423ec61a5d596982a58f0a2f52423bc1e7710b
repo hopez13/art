@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "302c70e3_30e03602",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T13:29:56Z",
+      "side": 1,
+      "message": "Could you also explain why copy_instr could have an environment or not?",
+      "parentUuid": "1100b5c1_fdbd6bdc",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 3
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59ef8300_8ddea507",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "Would you mind if I put this into the next CL (peeling and unrolling routines)? That CL imposes some restrictions on the subgraph so that the connectivity checks will make more sense there as they follow the restrictions logic (in theory superblock cloner can work with arbitrary, even disconnected subgraphs).",
       "parentUuid": "b46a301b_2cf5b55b",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 71
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6563311b_5f3380a6",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T13:29:56Z",
+      "side": 1,
+      "message": "Sure, that\u0027s ok.",
+      "parentUuid": "0f387303_fbc6a7fc",
       "range": {
         "startLine": 257,
         "startChar": 0,
@@ -601,6 +649,30 @@
     },
     {
       "key": {
+        "uuid": "e6b1ad84_926a9132",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T13:29:56Z",
+      "side": 1,
+      "message": "The failure you pasted isn\u0027t about phi inputs being the same. It\u0027s about the block not having phis. Not sure why, shouldn\u0027t the loop_optimization.cc code handle it?",
+      "parentUuid": "7f6de8bb_cd687fb4",
+      "range": {
+        "startLine": 613,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 50
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69fcd38f_a7e25568",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -777,6 +849,30 @@
       "side": 1,
       "message": "The HEdge class only contains two uint32_t, so I thought it is better to pass the instances by value - and was consistent with this approach within the whole file. Do you want anyway to use references?",
       "parentUuid": "ad6920a0_f4268753",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "404aa958_27e03bff",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-02T13:29:56Z",
+      "side": 1,
+      "message": "Why would passing it by value would be better?\n\nI don\u0027t mind passing it by value, I just find it annoying to do the mental overhead of knowing HEdge is just two uint32_t.",
+      "parentUuid": "4cd45162_06c28199",
       "range": {
         "startLine": 65,
         "startChar": 24,
