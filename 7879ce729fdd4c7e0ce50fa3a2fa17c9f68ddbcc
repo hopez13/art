@@ -22,6 +22,30 @@
       "revId": "7879ce729fdd4c7e0ce50fa3a2fa17c9f68ddbcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27e41479_e6a0d50b",
+        "filename": "test/1941-dispose-stress/src/art/Test1941.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-02T19:30:59Z",
+      "side": 1,
+      "message": "whoops that new Seamphore(1) should be 0.",
+      "parentUuid": "6bbe65e3_cdaca253",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "7879ce729fdd4c7e0ce50fa3a2fa17c9f68ddbcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
