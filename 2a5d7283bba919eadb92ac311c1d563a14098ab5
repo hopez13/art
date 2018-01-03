@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "51e93cef_79215afb",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-03T17:35:16Z",
+      "side": 1,
+      "message": "I went with it that way before, to indicate that it\u0027s kind of a flag.",
+      "parentUuid": "4104fbb1_c830a576",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86c9ce73_330aa9b2",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dea3efd_5e6d8cc0",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-03T17:35:16Z",
+      "side": 1,
+      "message": "The preopting dex2oatd command doesn\u0027t turn on slow-debug features.\n\nIf you think that we should be running slow-debug, but not this, then that\u0027s really a sign that this should be a proper argument to dex2oat, IMHO.",
+      "parentUuid": "86c9ce73_330aa9b2",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 38
+      },
+      "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
