@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c414bf23_973fda6f",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-03T17:48:40Z",
+      "side": 1,
+      "message": "Fair enough.\n\nI think we should rename those non-const flags in another CL then (maybe replacing `k` witth `f` as first character?).",
+      "parentUuid": "51e93cef_79215afb",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86c9ce73_330aa9b2",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The preopting dex2oatd command doesn\u0027t turn on slow-debug features.\n\nIf you think that we should be running slow-debug, but not this, then that\u0027s really a sign that this should be a proper argument to dex2oat, IMHO.",
       "parentUuid": "86c9ce73_330aa9b2",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 38
+      },
+      "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68175bd1_2820c548",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-03T17:48:40Z",
+      "side": 1,
+      "message": "\u003e The preopting dex2oatd command doesn\u0027t turn on slow-debug features.\n\nThanks; I wanted to make sure slow-debug was turned off by default (or when running as a background dex-opt job).\n\n \u003e If you think that we should be running slow-debug, but not this,\n \u003e then that\u0027s really a sign that this should be a proper argument to\n \u003e dex2oat, IMHO.\n\nI think it is fine to have it part of the slow-debug flags.\n\nWhen is slow-debug used at the moment? From a quick code search, it seems to be enabled in ART test, and also when running `tools/art` with `--debug`. Is it tied to an Android property as well?",
+      "parentUuid": "7dea3efd_5e6d8cc0",
       "range": {
         "startLine": 81,
         "startChar": 9,
