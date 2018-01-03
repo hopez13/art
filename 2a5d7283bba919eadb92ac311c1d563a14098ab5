@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ddc39161_7e61bc4f",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-03T19:21:13Z",
+      "side": 1,
+      "message": "Feel free to upload a CL. You can find the with the RegisterRuntimeDebugFlag call or the corresponding macro.",
+      "parentUuid": "c414bf23_973fda6f",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86c9ce73_330aa9b2",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 2
@@ -141,6 +165,30 @@
       "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "467405d8_eb246741",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-03T19:21:13Z",
+      "side": 1,
+      "message": "Enabled for testing, only, right now. Surprised that tools/art is doing it. No property as of yet, but you could use the generic dalvik.vm.extra-opts.",
+      "parentUuid": "68175bd1_2820c548",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 38
+      },
+      "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
