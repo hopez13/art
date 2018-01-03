@@ -70,6 +70,30 @@
       "revId": "349e61ff554714ea79e76a89429d5cf8490d714e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bed4474_9236981d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-03T11:33:05Z",
+      "side": 1,
+      "message": "OK then, let\u0027s submit this as is. We can change it later if we decide to get rid of the CLREX.",
+      "parentUuid": "11269ed7_70999bd7",
+      "range": {
+        "startLine": 1180,
+        "startChar": 4,
+        "endLine": 1180,
+        "endChar": 15
+      },
+      "revId": "349e61ff554714ea79e76a89429d5cf8490d714e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
