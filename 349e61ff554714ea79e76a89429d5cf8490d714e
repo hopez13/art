@@ -46,6 +46,30 @@
       "revId": "349e61ff554714ea79e76a89429d5cf8490d714e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11269ed7_70999bd7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-01-03T11:23:03Z",
+      "side": 1,
+      "message": "I am not changing behaviour here, just removing a deprecated instruction sequence. FYI, I tried compiling a simple function containing a call to std::atomic::compare_exchange_weak(), and, indeed, Clang emitted a CLREX in the code path for the failed comparison.",
+      "parentUuid": "9da2586a_3144efa3",
+      "range": {
+        "startLine": 1180,
+        "startChar": 4,
+        "endLine": 1180,
+        "endChar": 15
+      },
+      "revId": "349e61ff554714ea79e76a89429d5cf8490d714e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
