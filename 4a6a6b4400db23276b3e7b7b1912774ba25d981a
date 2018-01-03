@@ -81,6 +81,30 @@
       "revId": "4a6a6b4400db23276b3e7b7b1912774ba25d981a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "938f4968_6ae33e96",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2018-01-03T09:33:35Z",
+      "side": 1,
+      "message": "The Java name is a bit misleading, I tried to rename it once but ran into app-compat issues. I think LibrarySearchPath is better name for it.",
+      "parentUuid": "3d8c3d26_ced6e496",
+      "range": {
+        "startLine": 1125,
+        "startChar": 19,
+        "endLine": 1125,
+        "endChar": 35
+      },
+      "revId": "4a6a6b4400db23276b3e7b7b1912774ba25d981a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
