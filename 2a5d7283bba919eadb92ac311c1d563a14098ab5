@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86c9ce73_330aa9b2",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-03T16:58:59Z",
+      "side": 1,
+      "message": "Just to be sure: this won\u0027t return true for app pre-opting (performed on host with dex2oatd), right?",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 38
+      },
+      "revId": "2a5d7283bba919eadb92ac311c1d563a14098ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
