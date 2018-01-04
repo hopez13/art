@@ -37,11 +37,11 @@ namespace art {
  *  +---+---------------------+--------+           |    |
  *  |   |    |    |    | ...  |        | (0....0)  |    |
  *  +---+---------------------+--------+-----------+----+
- * MSB                                                LSB
+ * LSB (least significant bit)                         MSB
  *
  * The bitstring takes up to 23 bits; anything exceeding that is truncated:
  * - Path To Root is a list of chars, encoded as a BitString:
- *     starting at the root (in MSB), each character is a sibling index unique to the parent,
+ *     starting at the root (in LSB), each character is a sibling index unique to the parent,
  *   Paths longer than BitString::kCapacity are truncated to fit within the BitString.
  * - Next is a single BitStringChar (immediatelly following Path To Root)
  *     When new children are assigned paths, they get allocated the parent's Next value.
@@ -57,8 +57,8 @@ namespace art {
  * See subtype_check.h and subtype_check_info.h for more details.
  */
 BITSTRUCT_DEFINE_START(SubtypeCheckBits, /*size*/ BitString::BitStructSizeOf() + 1u)
-  BitStructUint</*lsb*/0, /*width*/1> overflow_;
-  BitStructField<BitString, /*lsb*/1> bitstring_;
+  BitStructField<BitString, /*lsb*/ 0> bitstring_;
+  BitStructUint</*lsb*/ BitString::BitStructSizeOf(), /*width*/ 1> overflow_;
 BITSTRUCT_DEFINE_END(SubtypeCheckBits);
 
 }  // namespace art

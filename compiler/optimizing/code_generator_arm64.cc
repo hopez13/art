@@ -2097,13 +2097,16 @@ void InstructionCodeGeneratorARM64::GenerateClassInitializationCheck(SlowPathCod
                                                                      Register class_reg) {
   UseScratchRegisterScope temps(GetVIXLAssembler());
   Register temp = temps.AcquireW();
-  size_t status_offset = mirror::Class::StatusOffset().SizeValue();
+  const size_t status_byte_offset =
+      mirror::Class::StatusOffset().SizeValue() + (SubtypeCheckBits::BitStructSizeOf() / 8u);
+  constexpr uint32_t shifted_initialized_value =
+      enum_cast<uint32_t>(ClassStatus::kInitialized) << (SubtypeCheckBits::BitStructSizeOf() % 8u);
 
   // Even if the initialized flag is set, we need to ensure consistent memory ordering.
   // TODO(vixl): Let the MacroAssembler handle MemOperand.
-  __ Add(temp, class_reg, status_offset);
+  __ Add(temp, class_reg, status_byte_offset);
   __ Ldarb(temp, HeapOperand(temp));
-  __ Cmp(temp, enum_cast<>(ClassStatus::kInitialized));
+  __ Cmp(temp, shifted_initialized_value);
   __ B(lo, slow_path->GetEntryLabel());
   __ Bind(slow_path->GetExitLabel());
 }
