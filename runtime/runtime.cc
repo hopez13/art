@@ -290,7 +290,7 @@ Runtime::~Runtime() {
   Thread* self = Thread::Current();
   const bool attach_shutdown_thread = self == nullptr;
   if (attach_shutdown_thread) {
-    CHECK(AttachCurrentThread("Shutdown thread", false, nullptr, false));
+    CHECK(AttachCurrentThread("Shutdown thread", false, GetSystemThreadGroup(), true));
     self = Thread::Current();
   } else {
     LOG(WARNING) << "Current thread not detached in Runtime shutdown";
