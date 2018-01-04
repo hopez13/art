@@ -45,6 +45,54 @@
       "revId": "27bd073896a76c247e7f60507e56b8aa25de6286",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1147061f_63730667",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-04T07:28:34Z",
+      "side": 1,
+      "message": "That\u0027s a standard term for us. Describes that the runtime understands this kind of classloader (i.e., it\u0027s a BaseDexClassLoader derivative).",
+      "parentUuid": "52d55d5f_31c7bd7d",
+      "range": {
+        "startLine": 202,
+        "startChar": 59,
+        "endLine": 202,
+        "endChar": 84
+      },
+      "revId": "27bd073896a76c247e7f60507e56b8aa25de6286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23a8be08_cb2711fe",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-04T07:28:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51585876_2ac1dee0",
+      "range": {
+        "startLine": 202,
+        "startChar": 16,
+        "endLine": 202,
+        "endChar": 31
+      },
+      "revId": "27bd073896a76c247e7f60507e56b8aa25de6286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
