@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72ac108b_90e5da6b",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-04T19:09:04Z",
+      "side": 1,
+      "message": "Add underscores, since these refer to the parameters?",
+      "range": {
+        "startLine": 259,
+        "startChar": 39,
+        "endLine": 259,
+        "endChar": 52
+      },
+      "revId": "6f867572dce3c43c2ea50398f4474ce18908193d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbb78059_919d661a",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-04T19:09:04Z",
+      "side": 1,
+      "message": "Please change this to:\n\nIf the value does not match, updates the expected_value argument with the value that was atomically read for the failed comparison.\n\nThis is a bit of a nit, but there is code that relies on expected being conditionally written.",
+      "range": {
+        "startLine": 261,
+        "startChar": 5,
+        "endLine": 261,
+        "endChar": 92
+      },
+      "revId": "6f867572dce3c43c2ea50398f4474ce18908193d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e718026_0bec99ef",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-04T19:09:04Z",
+      "side": 1,
+      "message": "CompareAndExchangeStrongAcquire",
+      "range": {
+        "startLine": 269,
+        "startChar": 7,
+        "endLine": 269,
+        "endChar": 32
+      },
+      "revId": "6f867572dce3c43c2ea50398f4474ce18908193d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
