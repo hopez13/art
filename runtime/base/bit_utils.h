@@ -46,7 +46,7 @@ template<typename T>
 constexpr int CLZ(T x) {
   static_assert(std::is_integral<T>::value, "T must be integral");
   static_assert(std::is_unsigned<T>::value, "T must be unsigned");
-  static_assert(sizeof(T) <= sizeof(long long),  // NOLINT [runtime/int] [4]
+  static_assert(sizeof(T) == sizeof(uint64_t) || sizeof(T) == sizeof(uint32_t),
                 "T too large, must be smaller than long long");
   DCHECK_NE(x, 0u);
   return (sizeof(T) == sizeof(uint32_t)) ? __builtin_clz(x) : __builtin_clzll(x);
@@ -65,7 +65,7 @@ constexpr int CTZ(T x) {
   static_assert(std::is_integral<T>::value, "T must be integral");
   // It is not unreasonable to ask for trailing zeros in a negative number. As such, do not check
   // that T is an unsigned type.
-  static_assert(sizeof(T) <= sizeof(long long),  // NOLINT [runtime/int] [4]
+  static_assert(sizeof(T) == sizeof(uint64_t) || sizeof(T) == sizeof(uint32_t),
                 "T too large, must be smaller than long long");
   DCHECK_NE(x, static_cast<T>(0));
   return (sizeof(T) == sizeof(uint32_t)) ? __builtin_ctz(x) : __builtin_ctzll(x);
@@ -103,7 +103,10 @@ constexpr ssize_t MostSignificantBit(T value) {
   static_assert(std::is_integral<T>::value, "T must be integral");
   static_assert(std::is_unsigned<T>::value, "T must be unsigned");
   static_assert(std::numeric_limits<T>::radix == 2, "Unexpected radix!");
-  return (value == 0) ? -1 : std::numeric_limits<T>::digits - 1 - CLZ(value);
+  // CLZ does not support types smaller than uint32_t.
+  using promoted_type = typename std::conditional<sizeof(T) >= sizeof(uint32_t), T, uint32_t>::type;
+  constexpr size_t digits = std::numeric_limits<promoted_type>::digits;
+  return (value == 0) ? -1 : digits - 1 - CLZ(static_cast<promoted_type>(value));
 }
 
 // Find the bit position of the least significant bit (0-based), or -1 if there were no bits set.
@@ -111,7 +114,9 @@ template <typename T>
 constexpr ssize_t LeastSignificantBit(T value) {
   static_assert(std::is_integral<T>::value, "T must be integral");
   static_assert(std::is_unsigned<T>::value, "T must be unsigned");
-  return (value == 0) ? -1 : CTZ(value);
+  // CLZ does not support types smaller than uint32_t.
+  using promoted_type = typename std::conditional<sizeof(T) >= sizeof(uint32_t), T, uint32_t>::type;
+  return (value == 0) ? -1 : CTZ(static_cast<promoted_type>(value));
 }
 
 // How many bits (minimally) does it take to store the constant 'value'? i.e. 1 for 1, 3 for 5, etc.

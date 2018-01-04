@@ -5425,8 +5425,12 @@ void ParallelMoveResolverX86_64::RestoreScratch(int reg) {
 
 void InstructionCodeGeneratorX86_64::GenerateClassInitializationCheck(
     SlowPathCode* slow_path, CpuRegister class_reg) {
-  __ cmpb(Address(class_reg,  mirror::Class::StatusOffset().Int32Value()),
-          Immediate(enum_cast<>(ClassStatus::kInitialized)));
+  size_t status_byte_offset =
+      mirror::Class::StatusOffset().SizeValue() + (SubtypeCheckBits::BitStructSizeOf() >> 3);
+  uint32_t shifted_initialized_value =
+      enum_cast<uint32_t>(ClassStatus::kInitialized) << (SubtypeCheckBits::BitStructSizeOf() & 7u);
+
+  __ cmpb(Address(class_reg,  status_byte_offset), Immediate(shifted_initialized_value));
   __ j(kBelow, slow_path->GetEntryLabel());
   __ Bind(slow_path->GetExitLabel());
   // No need for memory fence, thanks to the x86-64 memory model.

@@ -264,11 +264,7 @@ TEST_F(SubtypeCheckInfoTest, EncodedPathToRoot) {
                            /*overflow*/false,
                            /*depth*/BitString::kCapacity);
   // 0b11111...000 where MSB == 1, and leading 1s = the maximum bitstring representation.
-  EXPECT_EQ(MaxInt<StorageType>(LenForPos()) << (BitSizeOf<StorageType>() - LenForPos()),
-            io.GetEncodedPathToRoot());
-
-  EXPECT_EQ(MaxInt<StorageType>(LenForPos()) << (BitSizeOf<StorageType>() - LenForPos()),
-            io.GetEncodedPathToRootMask());
+  EXPECT_EQ(MaxInt<StorageType>(LenForPos()), io.GetEncodedPathToRoot());
 
   // 0b11111...000 where MSB == 1, and leading 1s = the maximum bitstring representation.
 
@@ -277,17 +273,20 @@ TEST_F(SubtypeCheckInfoTest, EncodedPathToRoot) {
   ASSERT_EQ(3u, BitString::kCapacity);
   ASSERT_EQ(12u, BitString::kBitSizeAtPosition[0]);
   ASSERT_EQ(3u, BitString::kBitSizeAtPosition[1]);
-  ASSERT_EQ(8u, BitString::kBitSizeAtPosition[2]);
+  ASSERT_EQ(12u, BitString::kBitSizeAtPosition[2]);
 
   SubtypeCheckInfo io2 =
       MakeSubtypeCheckInfoUnchecked(MakeBitStringMax<2u>(),
                                    /*overflow*/false,
                                    /*depth*/BitString::kCapacity);
 
-#define MAKE_ENCODED_PATH(pos0, pos1, pos2) (((pos0) << 3u << 8u << 9u) | ((pos1) << 8u << 9u) | ((pos2) << 9u))
+#define MAKE_ENCODED_PATH(pos0, pos1, pos2) \
+    (((pos0) << 0) | \
+    ((pos1) << BitString::kBitSizeAtPosition[0]) | \
+    ((pos2) << BitString::kBitSizeAtPosition[0] << BitString::kBitSizeAtPosition[1]))
 
   EXPECT_EQ(MAKE_ENCODED_PATH(MaxInt<BitString::StorageType>(12), 0b111, 0b0), io2.GetEncodedPathToRoot());
-  EXPECT_EQ(MAKE_ENCODED_PATH(MaxInt<BitString::StorageType>(12), 0b111, 0b11111111), io2.GetEncodedPathToRootMask());
+  EXPECT_EQ(MAKE_ENCODED_PATH(MaxInt<BitString::StorageType>(12), 0b111, 0b111111111111), io2.GetEncodedPathToRootMask());
 
   SubtypeCheckInfo io3 =
       MakeSubtypeCheckInfoUnchecked(MakeBitStringMax<2u>(),

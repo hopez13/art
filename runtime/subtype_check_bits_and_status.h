@@ -19,6 +19,7 @@
 
 #include "base/bit_struct.h"
 #include "base/bit_utils.h"
+#include "base/casts.h"
 #include "class_status.h"
 #include "subtype_check_bits.h"
 
@@ -36,13 +37,13 @@ static constexpr size_t NonNumericBitSizeOf() {
 }
 
 /**
- *  MSB                                                                  LSB
+ * LSB (least significant bit)                                         MSB
  *  +---------------------------------------------------+---------------+
  *  |                                                   |               |
  *  |                 SubtypeCheckBits                  |  ClassStatus  |
  *  |                                                   |               |
  *  +---------------------------------------------------+---------------+
- *            <-----     24 bits     ----->               <-- 8 bits -->
+ *            <-----     28 bits     ----->               <-- 4 bits -->
  *
  * Invariants:
  *
@@ -62,11 +63,14 @@ static constexpr size_t NonNumericBitSizeOf() {
  *
  * (This requires that path-to-root in `target` is not truncated, i.e. it is in the Assigned state).
  */
-static constexpr size_t kClassStatusBitSize = 8u;  // NonNumericBitSizeOf<ClassStatus>()
+static constexpr size_t kClassStatusBitSize = MinimumBitsToStore(enum_cast<>(ClassStatus::kLast));
+static_assert(kClassStatusBitSize == 4u, "ClassStatus should need 4 bits.");
 BITSTRUCT_DEFINE_START(SubtypeCheckBitsAndStatus, BitSizeOf<BitString::StorageType>())
-  BitStructField<ClassStatus, /*lsb*/0, /*width*/kClassStatusBitSize> status_;
-  BitStructField<SubtypeCheckBits, /*lsb*/kClassStatusBitSize> subtype_check_info_;
-  BitStructInt</*lsb*/0, /*width*/BitSizeOf<BitString::StorageType>()> int32_alias_;
+  BitStructField<SubtypeCheckBits, /*lsb*/ 0> subtype_check_info_;
+  BitStructField<ClassStatus,
+                 /*lsb*/ SubtypeCheckBits::BitStructSizeOf(),
+                 /*width*/ kClassStatusBitSize> status_;
+  BitStructInt</*lsb*/ 0, /*width*/ BitSizeOf<BitString::StorageType>()> int32_alias_;
 BITSTRUCT_DEFINE_END(SubtypeCheckBitsAndStatus);
 
 // Use the spare alignment from "ClassStatus" to store all the new SubtypeCheckInfo data.
