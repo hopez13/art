@@ -3063,7 +3063,7 @@ int main(int argc, char** argv) {
   // Everything was done, do an explicit exit here to avoid running Runtime destructors that take
   // time (bug 10645725) unless we're a debug build or running on valgrind. Note: The Dex2Oat class
   // should not destruct the runtime in this case.
-  if (!art::kIsDebugBuild && (RUNNING_ON_MEMORY_TOOL == 0)) {
+  if (!art::kIsDebugBuild && !art::kIsPGOInstrumentation && (RUNNING_ON_MEMORY_TOOL == 0)) {
     _exit(result);
   }
   return result;
