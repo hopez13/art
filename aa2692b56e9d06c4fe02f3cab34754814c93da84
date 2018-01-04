@@ -22,6 +22,52 @@
       "revId": "aa2692b56e9d06c4fe02f3cab34754814c93da84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a07e2ac9_9468e029",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-04T16:36:14Z",
+      "side": 1,
+      "message": "Do we have supportive data of why binary search (vs, say, hash map)? Can you extend the comment to say we prefer a clean page or something?\n\n(I\u0027m curious whether the simple hash-map that Mathieu has implemented could be modified to work as constexpr or so...)",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 42,
+        "endChar": 49
+      },
+      "revId": "aa2692b56e9d06c4fe02f3cab34754814c93da84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97446155_2aa18d31",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4425,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-04T16:36:14Z",
+      "side": 1,
+      "message": "Remove? Makes sure you had definitely an assignment when reaching line 4436.",
+      "range": {
+        "startLine": 4425,
+        "startChar": 40,
+        "endLine": 4425,
+        "endChar": 50
+      },
+      "revId": "aa2692b56e9d06c4fe02f3cab34754814c93da84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
