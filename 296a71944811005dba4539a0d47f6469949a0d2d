@@ -22,6 +22,30 @@
       "revId": "296a71944811005dba4539a0d47f6469949a0d2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abe7b287_4bbab85d",
+        "filename": "test/901-hello-ti-agent/basics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-04T21:40:25Z",
+      "side": 1,
+      "message": "added a DeleteLocalRef.",
+      "parentUuid": "6bb840ba_413e7894",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 17
+      },
+      "revId": "296a71944811005dba4539a0d47f6469949a0d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
