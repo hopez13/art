@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a18337de_5c366277",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3778,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-01-04T22:33:01Z",
+      "side": 0,
+      "message": "Shouldn\u0027t the definition of this function be removed from gc/heap.h file given that it is not used anywhere else?",
+      "range": {
+        "startLine": 3778,
+        "startChar": 18,
+        "endLine": 3778,
+        "endChar": 53
+      },
+      "revId": "be4ad78967890c389552031dfceecde3190f0d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
