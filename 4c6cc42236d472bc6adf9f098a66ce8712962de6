@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c4f84e_102af1a0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2106,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-04T19:22:06Z",
+      "side": 1,
+      "message": "This compare needs to be updated later when bitstring expands into the status byte?",
+      "revId": "4c6cc42236d472bc6adf9f098a66ce8712962de6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
