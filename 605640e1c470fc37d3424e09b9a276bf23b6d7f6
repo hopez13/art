@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4282563a_cdd318cb",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-04T18:11:45Z",
+      "side": 0,
+      "message": "I think the problem was that having both MAP_32BIT and MAP_FIXED was not supported on X86 32 bit kernel. Can you confirm if this works now?",
+      "range": {
+        "startLine": 931,
+        "startChar": 22,
+        "endLine": 931,
+        "endChar": 31
+      },
+      "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
