@@ -59,6 +59,9 @@ static void JNICALL VMInitCallback(jvmtiEnv *jvmti_env,
 static void JNICALL VMDeatchCallback(jvmtiEnv *jenv, JNIEnv* jni_env ATTRIBUTE_UNUSED) {
   printf("VMDeath (phase %d)\n", getPhase(jenv));
   fsync(1);
+  jthread cur_thr;
+  CHECK_EQ(jenv->GetCurrentThread(&cur_thr), JVMTI_ERROR_NONE);
+  CHECK(cur_thr != nullptr);
 }
 
 
