@@ -22,6 +22,30 @@
       "revId": "8a317f916baff6be6dc85862c1a93b61fa7d56d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e41fe1d_19482c56",
+        "filename": "test/901-hello-ti-agent/basics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-04T21:09:26Z",
+      "side": 1,
+      "message": "This seems to be a typo of VMDeathCallback.",
+      "parentUuid": "ff8ea1dd_2a3eb7dc",
+      "range": {
+        "startLine": 59,
+        "startChar": 20,
+        "endLine": 59,
+        "endChar": 36
+      },
+      "revId": "8a317f916baff6be6dc85862c1a93b61fa7d56d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
