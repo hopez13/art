@@ -1638,7 +1638,7 @@ ONE_ARG_SAVE_EVERYTHING_DOWNCALL_FOR_CLINIT art_quick_initialize_type, artInitia
 ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_initialize_type_and_verify_access, artInitializeTypeAndVerifyAccessFromCode
 ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_resolve_string, artResolveStringFromCode
 
-// Note: Functions `art{Get,Set}<Kind>{Static,Instance>FromCompiledCode` are
+// Note: Functions `art{Get,Set}<Kind>{Static,Instance}FromCompiledCode` are
 // defined by macros in runtime/entrypoints/quick/quick_field_entrypoints.cc.
 
 ONE_ARG_REF_DOWNCALL art_quick_get_boolean_static, artGetBooleanStaticFromCompiledCode, RETURN_OR_DELIVER_PENDING_EXCEPTION_X1
