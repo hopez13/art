@@ -1915,8 +1915,13 @@ void CodeGeneratorMIPS::GenerateInvokeRuntime(int32_t entry_point_offset, bool d
 
 void InstructionCodeGeneratorMIPS::GenerateClassInitializationCheck(SlowPathCodeMIPS* slow_path,
                                                                     Register class_reg) {
-  __ LoadFromOffset(kLoadSignedByte, TMP, class_reg, mirror::Class::StatusOffset().Int32Value());
-  __ LoadConst32(AT, enum_cast<>(ClassStatus::kInitialized));
+  size_t status_byte_offset =
+      mirror::Class::StatusOffset().Int32Value() + (SubtypeCheckBits::BitStructSizeOf() >> 3);
+  uint32_t shifted_initialized_value =
+      enum_cast<uint32_t>(ClassStatus::kInitialized) << (SubtypeCheckBits::BitStructSizeOf() & 7u);
+
+  __ LoadFromOffset(kLoadSignedByte, TMP, class_reg, status_byte_offset);
+  __ LoadConst32(AT, shifted_initialized_value);
   __ Bltu(TMP, AT, slow_path->GetEntryLabel());
   // Even if the initialized flag is set, we need to ensure consistent memory ordering.
   __ Sync(0);
