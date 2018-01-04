@@ -71,23 +71,23 @@ namespace art {
 // again at runtime.
 //
 // TODO: Explain the other states
-enum ClassStatus : int8_t {
-  kStatusRetired = -3,  // Retired, should not be used. Use the newly cloned one instead.
-  kStatusErrorResolved = -2,
-  kStatusErrorUnresolved = -1,
-  kStatusNotReady = 0,
-  kStatusIdx = 1,  // Loaded, DEX idx in super_class_type_idx_ and interfaces_type_idx_.
-  kStatusLoaded = 2,  // DEX idx values resolved.
-  kStatusResolving = 3,  // Just cloned from temporary class object.
-  kStatusResolved = 4,  // Part of linking.
-  kStatusVerifying = 5,  // In the process of being verified.
-  kStatusRetryVerificationAtRuntime = 6,  // Compile time verification failed, retry at runtime.
-  kStatusVerifyingAtRuntime = 7,  // Retrying verification at runtime.
-  kStatusVerified = 8,  // Logically part of linking; done pre-init.
-  kStatusSuperclassValidated = 9,  // Superclass validation part of init done.
-  kStatusInitializing = 10,  // Class init in progress.
-  kStatusInitialized = 11,  // Ready to go.
-  kStatusMax = 12,
+enum class ClassStatus : uint8_t {
+  kNotReady = 0,  // Zero-initialized Class object starts in this state.
+  kRetired = 1,  // Retired, should not be used. Use the newly cloned one instead.
+  kErrorResolved = 2,
+  kErrorUnresolved = 3,
+  kIdx = 4,  // Loaded, DEX idx in super_class_type_idx_ and interfaces_type_idx_.
+  kLoaded = 5,  // DEX idx values resolved.
+  kResolving = 6,  // Just cloned from temporary class object.
+  kResolved = 7,  // Part of linking.
+  kVerifying = 8,  // In the process of being verified.
+  kRetryVerificationAtRuntime = 9,  // Compile time verification failed, retry at runtime.
+  kVerifyingAtRuntime = 10,  // Retrying verification at runtime.
+  kVerified = 11,  // Logically part of linking; done pre-init.
+  kSuperclassValidated = 12,  // Superclass validation part of init done.
+  kInitializing = 13,  // Class init in progress.
+  kInitialized = 14,  // Ready to go.
+  kLast = kInitialized
 };
 
 std::ostream& operator<<(std::ostream& os, const ClassStatus& rhs);
