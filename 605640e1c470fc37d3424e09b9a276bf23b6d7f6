@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "587858a2_054e0799",
+        "filename": "dex2oat/linker/elf_writer_quick.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-04T15:55:54Z",
+      "side": 1,
+      "message": "as this isn\u0027t elf related, can you add a high-level comment what\u0027s vdex_size wrt dynamic sections?",
+      "range": {
+        "startLine": 103,
+        "startChar": 36,
+        "endLine": 103,
+        "endChar": 45
+      },
+      "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c14cda0b_2beb32bd",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-04T15:55:54Z",
+      "side": 1,
+      "message": "Odd that there\u0027s not return here. Why is that not fatal? If there\u0027s a valid reason, can you extend the logging by explaining what the fallback is?",
+      "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d40fe27_af49679d",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-04T15:55:54Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
