@@ -7177,8 +7177,8 @@ void InstructionCodeGeneratorARMVIXL::GenerateClassInitializationCheck(
                                  temp,
                                  class_reg,
                                  mirror::Class::StatusOffset().Int32Value());
-  __ Cmp(temp, mirror::Class::kStatusInitialized);
-  __ B(lt, slow_path->GetEntryLabel());
+  __ Cmp(temp, enum_cast<>(ClassStatus::kInitialized));
+  __ B(lo, slow_path->GetEntryLabel());
   // Even if the initialized flag is set, we may be in a situation where caches are not synced
   // properly. Therefore, we do a memory fence.
   __ Dmb(ISH);
