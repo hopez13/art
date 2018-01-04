@@ -909,6 +909,30 @@
     },
     {
       "key": {
+        "uuid": "2d8df0c1_1317dee5",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-04T15:39:31Z",
+      "side": 1,
+      "message": "What\u0027s your recommended way of somehow knowing if a type is small?",
+      "parentUuid": "82bf5cf7_ef570610",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89d86215_c734796a",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 19
