@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff93c598_ea9d98ea",
+        "filename": "dex2oat/linker/elf_writer_quick.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-04T17:22:14Z",
+      "side": 1,
+      "message": "Done.  After thinking about it for a while, would it be more clear if the method was called PrepareMemoryLayout?  But then the two bss_*_offset args might make less sense.",
+      "parentUuid": "587858a2_054e0799",
+      "range": {
+        "startLine": 103,
+        "startChar": 36,
+        "endLine": 103,
+        "endChar": 45
+      },
+      "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c14cda0b_2beb32bd",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 6
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "8b72dc05_b96d7771",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-04T17:22:14Z",
+      "side": 1,
+      "message": "I agree both of those are icky.  I removed this check in an immediate follow up CL (separated as I want to be sure it is ok).",
+      "parentUuid": "c14cda0b_2beb32bd",
+      "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d40fe27_af49679d",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 6
@@ -53,6 +95,24 @@
       "writtenOn": "2018-01-04T15:55:54Z",
       "side": 1,
       "message": "ditto",
+      "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "300a7a2b_f1aa0bac",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-04T17:22:14Z",
+      "side": 1,
+      "message": "...and this one is soft fail because dex2oat can sometimes report back different vdex size than what is actually written to disk (b/70267762).  Once that is fixed, I would like to make this hard fail as well.",
+      "parentUuid": "5d40fe27_af49679d",
       "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
