@@ -42,7 +42,7 @@
 #include "class_linker.h"
 #include "class_table-inl.h"
 #include "common_throws.h"
-#include "dex_file_annotations.h"
+#include "dex/dex_file_annotations.h"
 #include "dex_file_loader.h"
 #include "events-inl.h"
 #include "fixed_up_dex_file.h"

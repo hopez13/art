@@ -26,9 +26,9 @@
 #include <sstream>
 
 #include "code_item_accessors-no_art-inl.h"
+#include "dex/dex_instruction-inl.h"
 #include "dex_file-inl.h"
 #include "dex_file_exception_helpers.h"
-#include "dex_instruction-inl.h"
 
 namespace art {
 

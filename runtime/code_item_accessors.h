@@ -20,10 +20,10 @@
 #define ART_RUNTIME_CODE_ITEM_ACCESSORS_H_
 
 #include "base/mutex.h"
-#include "cdex/compact_dex_file.h"
+#include "dex/compact_dex_file.h"
+#include "dex/dex_instruction_iterator.h"
+#include "dex/standard_dex_file.h"
 #include "dex_file.h"
-#include "dex_instruction_iterator.h"
-#include "standard_dex_file.h"
 
 namespace art {
 

@@ -19,9 +19,9 @@
 
 #include "code_item_accessors.h"
 
-#include "cdex/compact_dex_file.h"
+#include "dex/compact_dex_file.h"
+#include "dex/standard_dex_file.h"
 #include "dex_file-inl.h"
-#include "standard_dex_file.h"
 
 // The no ART version is used by binaries that don't include the whole runtime.
 namespace art {

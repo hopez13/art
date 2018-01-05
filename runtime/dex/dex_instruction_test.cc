@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#include "dex_instruction-inl.h"
-#include "dex_instruction_iterator.h"
+#include "dex/dex_instruction-inl.h"
+#include "dex/dex_instruction_iterator.h"
 #include "gtest/gtest.h"
 
 namespace art {

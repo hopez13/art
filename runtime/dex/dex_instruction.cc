@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "dex_instruction-inl.h"
+#include "dex/dex_instruction-inl.h"
 
 #include <inttypes.h>
 
@@ -32,7 +32,7 @@ using android::base::StringPrintf;
 
 const char* const Instruction::kInstructionNames[] = {
 #define INSTRUCTION_NAME(o, c, pname, f, i, a, e, v) pname,
-#include "dex_instruction_list.h"
+#include "dex/dex_instruction_list.h"
   DEX_INSTRUCTION_LIST(INSTRUCTION_NAME)
 #undef DEX_INSTRUCTION_LIST
 #undef INSTRUCTION_NAME
@@ -67,7 +67,7 @@ Instruction::InstructionDescriptor const Instruction::kInstructionDescriptors[] 
       flags, \
       InstructionSizeInCodeUnitsByOpcode((c), (format)), \
     },
-#include "dex_instruction_list.h"
+#include "dex/dex_instruction_list.h"
   DEX_INSTRUCTION_LIST(INSTRUCTION_DESCR)
 #undef DEX_INSTRUCTION_LIST
 #undef INSTRUCTION_DESCR
@@ -521,7 +521,7 @@ struct InstructionStaticAsserts : private Instruction {
     static_assert(IMPLIES((f) == k35c || (f) == k45cc, \
                           ((v) & (kVerifyVarArg | kVerifyVarArgNonZero)) != 0), \
                   "Missing var-arg verification");
-  #include "dex_instruction_list.h"
+  #include "dex/dex_instruction_list.h"
     DEX_INSTRUCTION_LIST(VAR_ARGS_CHECK)
   #undef DEX_INSTRUCTION_LIST
   #undef VAR_ARGS_CHECK
@@ -530,7 +530,7 @@ struct InstructionStaticAsserts : private Instruction {
     static_assert(IMPLIES((f) == k3rc || (f) == k4rcc, \
                           ((v) & (kVerifyVarArgRange | kVerifyVarArgRangeNonZero)) != 0), \
                   "Missing var-arg verification");
-  #include "dex_instruction_list.h"
+  #include "dex/dex_instruction_list.h"
     DEX_INSTRUCTION_LIST(VAR_ARGS_RANGE_CHECK)
   #undef DEX_INSTRUCTION_LIST
   #undef VAR_ARGS_RANGE_CHECK
@@ -538,7 +538,7 @@ struct InstructionStaticAsserts : private Instruction {
   #define EXPERIMENTAL_CHECK(o, c, pname, f, i, a, e, v) \
     static_assert(kHaveExperimentalInstructions || (((a) & kExperimental) == 0), \
                   "Unexpected experimental instruction.");
-    #include "dex_instruction_list.h"
+    #include "dex/dex_instruction_list.h"
   DEX_INSTRUCTION_LIST(EXPERIMENTAL_CHECK)
   #undef DEX_INSTRUCTION_LIST
   #undef EXPERIMENTAL_CHECK

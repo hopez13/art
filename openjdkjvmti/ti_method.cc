@@ -38,7 +38,7 @@
 #include "base/enums.h"
 #include "base/mutex-inl.h"
 #include "code_item_accessors-inl.h"
-#include "dex_file_annotations.h"
+#include "dex/dex_file_annotations.h"
 #include "dex_file_types.h"
 #include "events-inl.h"
 #include "jit/jit.h"

@@ -20,10 +20,10 @@
 #include "code_item_accessors-no_art-inl.h"
 
 #include "art_method-inl.h"
-#include "cdex/compact_dex_file.h"
+#include "dex/compact_dex_file.h"
+#include "dex/standard_dex_file.h"
 #include "dex_file-inl.h"
 #include "oat_file.h"
-#include "standard_dex_file.h"
 
 namespace art {
 

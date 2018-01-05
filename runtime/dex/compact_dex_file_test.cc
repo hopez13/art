@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "cdex/compact_dex_file.h"
+#include "dex/compact_dex_file.h"
 #include "dex_file_loader.h"
 #include "common_runtime_test.h"
 

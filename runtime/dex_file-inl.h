@@ -20,11 +20,11 @@
 #include "base/bit_utils.h"
 #include "base/casts.h"
 #include "base/stringpiece.h"
-#include "cdex/compact_dex_file.h"
+#include "dex/compact_dex_file.h"
+#include "dex/standard_dex_file.h"
 #include "dex_file.h"
 #include "invoke_type.h"
 #include "leb128.h"
-#include "standard_dex_file.h"
 
 namespace art {
 

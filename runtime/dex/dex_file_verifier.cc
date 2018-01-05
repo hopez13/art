@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "dex_file_verifier.h"
+#include "dex/dex_file_verifier.h"
 
 #include <inttypes.h>
 

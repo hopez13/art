@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_DEX_INSTRUCTION_INL_H_
-#define ART_RUNTIME_DEX_INSTRUCTION_INL_H_
+#ifndef ART_RUNTIME_DEX_DEX_INSTRUCTION_INL_H_
+#define ART_RUNTIME_DEX_DEX_INSTRUCTION_INL_H_
 
-#include "dex_instruction.h"
+#include "dex/dex_instruction.h"
 
 namespace art {
 
@@ -555,4 +555,4 @@ inline void Instruction::GetVarArgs(uint32_t arg[kMaxVarArgRegs], uint16_t inst_
 
 }  // namespace art
 
-#endif  // ART_RUNTIME_DEX_INSTRUCTION_INL_H_
+#endif  // ART_RUNTIME_DEX_DEX_INSTRUCTION_INL_H_

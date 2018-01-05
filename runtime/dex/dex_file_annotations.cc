@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "dex_file_annotations.h"
+#include "dex/dex_file_annotations.h"
 
 #include <stdlib.h>
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "standard_dex_file.h"
+#include "dex/standard_dex_file.h"
 
 namespace art {
 

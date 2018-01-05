@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_DEX_INSTRUCTION_H_
-#define ART_RUNTIME_DEX_INSTRUCTION_H_
+#ifndef ART_RUNTIME_DEX_DEX_INSTRUCTION_H_
+#define ART_RUNTIME_DEX_DEX_INSTRUCTION_H_
 
 #include <android-base/logging.h>
 
@@ -82,7 +82,7 @@ class Instruction {
 
   enum Code {  // private marker to avoid generate-operator-out.py from processing.
 #define INSTRUCTION_ENUM(opcode, cname, p, f, i, a, e, v) cname = (opcode),
-#include "dex_instruction_list.h"
+#include "dex/dex_instruction_list.h"
     DEX_INSTRUCTION_LIST(INSTRUCTION_ENUM)
 #undef DEX_INSTRUCTION_LIST
 #undef INSTRUCTION_ENUM
@@ -739,4 +739,4 @@ class VarArgsInstructionOperands FINAL : public InstructionOperands {
 
 }  // namespace art
 
-#endif  // ART_RUNTIME_DEX_INSTRUCTION_H_
+#endif  // ART_RUNTIME_DEX_DEX_INSTRUCTION_H_
