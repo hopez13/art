@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_DEX_FILE_INL_H_
-#define ART_RUNTIME_DEX_FILE_INL_H_
+#ifndef ART_RUNTIME_DEX_DEX_FILE_INL_H_
+#define ART_RUNTIME_DEX_DEX_FILE_INL_H_
 
 #include "base/bit_utils.h"
 #include "base/casts.h"
 #include "base/stringpiece.h"
-#include "cdex/compact_dex_file.h"
+#include "compact_dex_file.h"
 #include "dex_file.h"
 #include "invoke_type.h"
 #include "leb128.h"
@@ -509,4 +509,4 @@ inline const StandardDexFile* DexFile::AsStandardDexFile() const {
 
 }  // namespace art
 
-#endif  // ART_RUNTIME_DEX_FILE_INL_H_
+#endif  // ART_RUNTIME_DEX_DEX_FILE_INL_H_

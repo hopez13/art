@@ -14,47 +14,39 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_CDEX_COMPACT_DEX_FILE_H_
-#define ART_RUNTIME_CDEX_COMPACT_DEX_FILE_H_
+#ifndef ART_RUNTIME_DEX_STANDARD_DEX_FILE_H_
+#define ART_RUNTIME_DEX_STANDARD_DEX_FILE_H_
 
-#include "base/casts.h"
+#include <iosfwd>
+
 #include "dex_file.h"
 
 namespace art {
 
-// CompactDex is a currently ART internal dex file format that aims to reduce storage/RAM usage.
-class CompactDexFile : public DexFile {
+class OatDexFile;
+
+// Standard dex file. This is the format that is packaged in APKs and produced by tools.
+class StandardDexFile : public DexFile {
  public:
-  static constexpr uint8_t kDexMagic[kDexMagicSize] = { 'c', 'd', 'e', 'x' };
-  static constexpr uint8_t kDexMagicVersion[] = {'0', '0', '1', '\0'};
-
-  enum class FeatureFlags : uint32_t {
-    kDefaultMethods = 0x1,
-  };
-
   class Header : public DexFile::Header {
-   public:
-    uint32_t GetFeatureFlags() const {
-      return feature_flags_;
-    }
-
-   private:
-    uint32_t feature_flags_ = 0u;
-
-    friend class CompactDexWriter;
+    // Same for now.
   };
 
   struct CodeItem : public DexFile::CodeItem {
    private:
-    // TODO: Insert compact dex specific fields here.
+    // TODO: Insert standard dex specific fields here.
     DISALLOW_COPY_AND_ASSIGN(CodeItem);
   };
 
-  // Write the compact dex specific magic.
+  // Write the standard dex specific magic.
   static void WriteMagic(uint8_t* magic);
 
   // Write the current version, note that the input is the address of the magic.
   static void WriteCurrentVersion(uint8_t* magic);
+
+  static const uint8_t kDexMagic[kDexMagicSize];
+  static constexpr size_t kNumDexVersions = 4;
+  static const uint8_t kDexMagicVersions[kNumDexVersions][kDexVersionLen];
 
   // Returns true if the byte string points to the magic value.
   static bool IsMagicValid(const uint8_t* magic);
@@ -64,34 +56,31 @@ class CompactDexFile : public DexFile {
   static bool IsVersionValid(const uint8_t* magic);
   virtual bool IsVersionValid() const OVERRIDE;
 
-  const Header& GetHeader() const {
-    return down_cast<const Header&>(DexFile::GetHeader());
-  }
-
   virtual bool SupportsDefaultMethods() const OVERRIDE;
 
  private:
-  // Not supported yet.
-  CompactDexFile(const uint8_t* base,
-                 size_t size,
-                 const std::string& location,
-                 uint32_t location_checksum,
-                 const OatDexFile* oat_dex_file,
-                 DexFileContainer* container)
+  StandardDexFile(const uint8_t* base,
+                  size_t size,
+                  const std::string& location,
+                  uint32_t location_checksum,
+                  const OatDexFile* oat_dex_file,
+                  DexFileContainer* container)
       : DexFile(base,
                 size,
                 location,
                 location_checksum,
                 oat_dex_file,
                 container,
-                /*is_compact_dex*/ true) {}
+                /*is_compact_dex*/ false) {}
 
-  friend class DexFile;
   friend class DexFileLoader;
+  friend class DexFileVerifierTest;
 
-  DISALLOW_COPY_AND_ASSIGN(CompactDexFile);
+  ART_FRIEND_TEST(ClassLinkerTest, RegisterDexFileName);  // for constructor
+
+  DISALLOW_COPY_AND_ASSIGN(StandardDexFile);
 };
 
 }  // namespace art
 
-#endif  // ART_RUNTIME_CDEX_COMPACT_DEX_FILE_H_
+#endif  // ART_RUNTIME_DEX_STANDARD_DEX_FILE_H_
