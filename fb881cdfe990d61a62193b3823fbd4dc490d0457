@@ -234,6 +234,30 @@
       "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1890393_870aef82",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-05T15:12:19Z",
+      "side": 1,
+      "message": "Yeah, the StackVisitor::WalkStack() is messy for native methods. If we rewrite the GenericJNI to create a frame with the same size as the compiled stub, we can simplify the stack walk and avoid the restriction. But for the moment I think this is the best we can do.",
+      "parentUuid": "62eb2744_9c6f3343",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 26
+      },
+      "revId": "fb881cdfe990d61a62193b3823fbd4dc490d0457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
