@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45ec2ba4_23369da7",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-05T14:40:14Z",
+      "side": 1,
+      "message": "I\u0027d suggest to add a helper function to ArtMethod and reuse in class_linker. But that would need an OatClass declaration in art_method.h and I\u0027m not too fond of that, so I guess it\u0027s OK to keep 2 identical snippets.",
+      "range": {
+        "startLine": 537,
+        "startChar": 0,
+        "endLine": 541,
+        "endChar": 3
+      },
+      "revId": "80b32e81252621965a85d7d62291b9906f9f82c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133e3777_c223ec3a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-05T14:40:14Z",
+      "side": 1,
+      "message": "Please move these functions to oat_file-inl.h and make them inline.",
+      "range": {
+        "startLine": 408,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 0
+      },
+      "revId": "80b32e81252621965a85d7d62291b9906f9f82c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
