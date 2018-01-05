@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "ac551aa3_4bd62d39",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-05T16:31:43Z",
+      "side": 1,
+      "message": "According to the comment, shouldn\u0027t this be done only when `young_gen_` is false?",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 31
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b39ad1d_4f3ed220",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 10
