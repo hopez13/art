@@ -3280,13 +3280,39 @@ void ClassLinker::LoadClassMembers(Thread* self,
   self->AllowThreadSuspension();
 }
 
+static uint32_t GetHiddenAccessFlags(const ClassDataItemIterator& it, Handle<mirror::Class> klass)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (!klass->IsBootStrapClassLoaded()) {
+    return 0u;
+  }
+
+  switch (it.DecodeHiddenAccessFlags()) {
+    case DexHiddenAccessFlags::kWhitelist:
+      return 0u;
+    case DexHiddenAccessFlags::kLightGreylist:
+      return kAccHiddenGreylist;
+    case DexHiddenAccessFlags::kDarkGreylist: {
+      constexpr int32_t kSdkVersion_Unset = 0;
+      constexpr int32_t kSdkVersion_P = 28;
+      const int32_t target = Runtime::Current()->GetTargetSdkVersion();
+      const bool targets_pre_P = (target != kSdkVersion_Unset) && (target < kSdkVersion_P);
+      return targets_pre_P ? kAccHiddenGreylist : kAccHiddenBlacklist;
+    }
+    case DexHiddenAccessFlags::kBlacklist:
+      return kAccHiddenBlacklist;
+  }
+}
+
 void ClassLinker::LoadField(const ClassDataItemIterator& it,
                             Handle<mirror::Class> klass,
                             ArtField* dst) {
   const uint32_t field_idx = it.GetMemberIndex();
   dst->SetDexFieldIndex(field_idx);
   dst->SetDeclaringClass(klass.Get());
-  dst->SetAccessFlags(it.GetFieldAccessFlags());
+
+  uint32_t access_flags = it.GetFieldAccessFlags();
+  access_flags |= GetHiddenAccessFlags(it, klass);
+  dst->SetAccessFlags(access_flags);
 }
 
 void ClassLinker::LoadMethod(const DexFile& dex_file,
@@ -3303,6 +3329,7 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   dst->SetCodeItemOffset(it.GetMethodCodeItemOffset());
 
   uint32_t access_flags = it.GetMethodAccessFlags();
+  access_flags |= GetHiddenAccessFlags(it, klass);
 
   if (UNLIKELY(strcmp("finalize", method_name) == 0)) {
     // Set finalizable flag on declaring class.
