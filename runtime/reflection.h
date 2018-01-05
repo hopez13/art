@@ -63,25 +63,29 @@ ALWAYS_INLINE bool ConvertPrimitiveValue(bool unbox_for_result,
 JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa,
                          jobject obj,
                          jmethodID mid,
-                         va_list args)
+                         va_list args,
+                         size_t num_frames = 1)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
                          jobject obj,
                          jmethodID mid,
-                         jvalue* args)
+                         jvalue* args,
+                         size_t num_frames = 1)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
                                            jobject obj,
                                            jmethodID mid,
-                                           jvalue* args)
+                                           jvalue* args,
+                                           size_t num_frames = 1)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa,
                                            jobject obj,
                                            jmethodID mid,
-                                           va_list args)
+                                           va_list args,
+                                           size_t num_frames = 1)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 // num_frames is number of frames we look up for access check.
@@ -112,6 +116,22 @@ bool VerifyAccess(ObjPtr<mirror::Object> obj,
 
 // Get the calling class by using a stack visitor, may return null for unattached native threads.
 ObjPtr<mirror::Class> GetCallingClass(Thread* self, size_t num_frames)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool IsCallingClassInBootClassPath(Thread* self, size_t num_frames = 1)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool IsReflectionCallerInBootClassPath(Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool IncludeInReflectiveQuery(bool public_only, bool allow_hidden, uint32_t access_flags);
+
+bool WarnAboutReflectiveQuery(bool allow_hidden, uint32_t access_flags);
+
+void MaybeWarnAboutFieldAccess(bool allow_hidden, ArtField* field)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+void MaybeWarnAboutMethodAccess(bool allow_hidden, ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 void InvalidReceiverError(ObjPtr<mirror::Object> o, ObjPtr<mirror::Class> c)

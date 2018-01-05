@@ -341,6 +341,7 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   if (is_system_server || is_system_app) {
     Runtime::Current()->EnableHiddenApi();
   }
+  Runtime::Current()->SetUsedGreylistedHiddenApi(false);
 
   if (instruction_set != nullptr && !is_system_server) {
     ScopedUtfChars isa_string(env, instruction_set);

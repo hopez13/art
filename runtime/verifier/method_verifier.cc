@@ -51,6 +51,7 @@
 #include "mirror/var_handle.h"
 #include "reg_type-inl.h"
 #include "register_line-inl.h"
+#include "reflection-inl.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
@@ -4915,6 +4916,9 @@ ArtField* MethodVerifier::GetStaticField(int field_idx) {
     Fail(VERIFY_ERROR_CLASS_CHANGE) << "expected field " << field->PrettyField() << " to be static";
     return nullptr;
   }
+
+  MaybeWarnAboutFieldAccess(GetDeclaringClass().GetClass()->IsBootStrapClassLoaded(), field);
+
   return field;
 }
 
@@ -5006,6 +5010,8 @@ ArtField* MethodVerifier::GetInstanceField(const RegType& obj_type, int field_id
                                     << " to not be static";
     return nullptr;
   }
+
+  MaybeWarnAboutFieldAccess(GetDeclaringClass().GetClass()->IsBootStrapClassLoaded(), field);
 
   return field;
 }
