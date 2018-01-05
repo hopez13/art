@@ -51,7 +51,7 @@
 #include "mirror/throwable.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "parsed_options.h"
-#include "reflection.h"
+#include "reflection-inl.h"
 #include "runtime.h"
 #include "safe_map.h"
 #include "scoped_thread_state_change-inl.h"
@@ -82,8 +82,10 @@ static constexpr bool kWarnJniAbort = false;
 // Helpers to call instrumentation functions for fields. These take jobjects so we don't need to set
 // up handles for the rare case where these actually do something. Once these functions return it is
 // possible there will be a pending exception if the instrumentation happens to throw one.
-static void NotifySetObjectField(ArtField* field, jobject obj, jobject jval)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+static void NotifySetObjectField(const ScopedObjectAccess& soa, ArtField* field, jobject obj,
+    jobject jval) REQUIRES_SHARED(Locks::mutator_lock_) {
+  MaybeWarnAboutFieldAccess(IsCallingClassInBootClassPath(soa.Self()), field);
+
   DCHECK_EQ(field->GetTypeAsPrimitiveType(), Primitive::kPrimNot);
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (UNLIKELY(instrumentation->HasFieldWriteListeners())) {
@@ -109,8 +111,10 @@ static void NotifySetObjectField(ArtField* field, jobject obj, jobject jval)
   }
 }
 
-static void NotifySetPrimitiveField(ArtField* field, jobject obj, JValue val)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+static void NotifySetPrimitiveField(const ScopedObjectAccess& soa, ArtField* field, jobject obj,
+    JValue val) REQUIRES_SHARED(Locks::mutator_lock_) {
+  MaybeWarnAboutFieldAccess(IsCallingClassInBootClassPath(soa.Self()), field);
+
   DCHECK_NE(field->GetTypeAsPrimitiveType(), Primitive::kPrimNot);
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (UNLIKELY(instrumentation->HasFieldWriteListeners())) {
@@ -134,8 +138,10 @@ static void NotifySetPrimitiveField(ArtField* field, jobject obj, JValue val)
   }
 }
 
-static void NotifyGetField(ArtField* field, jobject obj)
+static void NotifyGetField(const ScopedObjectAccess& soa, ArtField* field, jobject obj)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  MaybeWarnAboutFieldAccess(IsCallingClassInBootClassPath(soa.Self()), field);
+
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (UNLIKELY(instrumentation->HasFieldReadListeners())) {
     Thread* self = Thread::Current();
@@ -238,6 +244,13 @@ static jmethodID FindMethodID(ScopedObjectAccess& soa, jclass jni_class,
   } else {
     method = c->FindClassMethod(name, sig, pointer_size);
   }
+  if (method != nullptr) {
+    const bool allow_hidden = IsCallingClassInBootClassPath(soa.Self());
+    const uint32_t access_flags = method->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      method = nullptr;
+    }
+  }
   if (method == nullptr || method->IsStatic() != is_static) {
     ThrowNoSuchMethodError(soa, c, name, sig, is_static ? "static" : "non-static");
     return nullptr;
@@ -313,6 +326,13 @@ static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, con
         soa.Self(), c.Get(), name, field_type->GetDescriptor(&temp));
   } else {
     field = c->FindInstanceField(name, field_type->GetDescriptor(&temp));
+  }
+  if (field != nullptr) {
+    const bool allow_hidden = IsCallingClassInBootClassPath(soa.Self());
+    const uint32_t access_flags = field->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      field = nullptr;
+    }
   }
   if (field == nullptr) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/NoSuchFieldError;",
@@ -1322,7 +1342,7 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT(fid);
     ScopedObjectAccess soa(env);
     ArtField* f = jni::DecodeArtField(fid);
-    NotifyGetField(f, obj);
+    NotifyGetField(soa, f, obj);
     ObjPtr<mirror::Object> o = soa.Decode<mirror::Object>(obj);
     return soa.AddLocalReference<jobject>(f->GetObject(o));
   }
@@ -1331,7 +1351,7 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT(fid);
     ScopedObjectAccess soa(env);
     ArtField* f = jni::DecodeArtField(fid);
-    NotifyGetField(f, nullptr);
+    NotifyGetField(soa, f, nullptr);
     return soa.AddLocalReference<jobject>(f->GetObject(f->GetDeclaringClass()));
   }
 
@@ -1340,7 +1360,7 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT_RETURN_VOID(fid);
     ScopedObjectAccess soa(env);
     ArtField* f = jni::DecodeArtField(fid);
-    NotifySetObjectField(f, java_object, java_value);
+    NotifySetObjectField(soa, f, java_object, java_value);
     ObjPtr<mirror::Object> o = soa.Decode<mirror::Object>(java_object);
     ObjPtr<mirror::Object> v = soa.Decode<mirror::Object>(java_value);
     f->SetObject<false>(o, v);
@@ -1350,7 +1370,7 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT_RETURN_VOID(fid);
     ScopedObjectAccess soa(env);
     ArtField* f = jni::DecodeArtField(fid);
-    NotifySetObjectField(f, nullptr, java_value);
+    NotifySetObjectField(soa, f, nullptr, java_value);
     ObjPtr<mirror::Object> v = soa.Decode<mirror::Object>(java_value);
     f->SetObject<false>(f->GetDeclaringClass(), v);
   }
@@ -1360,7 +1380,7 @@ class JNI {
   CHECK_NON_NULL_ARGUMENT_RETURN_ZERO(fid); \
   ScopedObjectAccess soa(env); \
   ArtField* f = jni::DecodeArtField(fid); \
-  NotifyGetField(f, instance); \
+  NotifyGetField(soa, f, instance); \
   ObjPtr<mirror::Object> o = soa.Decode<mirror::Object>(instance); \
   return f->Get ##fn (o)
 
@@ -1368,7 +1388,7 @@ class JNI {
   CHECK_NON_NULL_ARGUMENT_RETURN_ZERO(fid); \
   ScopedObjectAccess soa(env); \
   ArtField* f = jni::DecodeArtField(fid); \
-  NotifyGetField(f, nullptr); \
+  NotifyGetField(soa, f, nullptr); \
   return f->Get ##fn (f->GetDeclaringClass())
 
 #define SET_PRIMITIVE_FIELD(fn, instance, value) \
@@ -1376,7 +1396,7 @@ class JNI {
   CHECK_NON_NULL_ARGUMENT_RETURN_VOID(fid); \
   ScopedObjectAccess soa(env); \
   ArtField* f = jni::DecodeArtField(fid); \
-  NotifySetPrimitiveField(f, instance, JValue::FromPrimitive<decltype(value)>(value)); \
+  NotifySetPrimitiveField(soa, f, instance, JValue::FromPrimitive<decltype(value)>(value)); \
   ObjPtr<mirror::Object> o = soa.Decode<mirror::Object>(instance); \
   f->Set ##fn <false>(o, value)
 
@@ -1384,7 +1404,7 @@ class JNI {
   CHECK_NON_NULL_ARGUMENT_RETURN_VOID(fid); \
   ScopedObjectAccess soa(env); \
   ArtField* f = jni::DecodeArtField(fid); \
-  NotifySetPrimitiveField(f, nullptr, JValue::FromPrimitive<decltype(value)>(value)); \
+  NotifySetPrimitiveField(soa, f, nullptr, JValue::FromPrimitive<decltype(value)>(value)); \
   f->Set ##fn <false>(f->GetDeclaringClass(), value)
 
   static jboolean GetBooleanField(JNIEnv* env, jobject obj, jfieldID fid) {
