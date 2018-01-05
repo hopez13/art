@@ -618,6 +618,7 @@ class Dex2Oat FINAL {
       dirty_image_objects_filename_(nullptr),
       multi_image_(false),
       is_host_(false),
+      is_system_app_(false),
       elf_writers_(),
       oat_writers_(),
       rodata_(),
@@ -1217,6 +1218,7 @@ class Dex2Oat FINAL {
     AssignTrueIfExists(args, M::Host, &is_host_);
     AssignTrueIfExists(args, M::AvoidStoringInvocation, &avoid_storing_invocation_);
     AssignTrueIfExists(args, M::MultiImage, &multi_image_);
+    AssignTrueIfExists(args, M::SystemApp, &is_system_app_);
 
     if (args.Exists(M::ForceDeterminism)) {
       if (!SupportsDeterministicCompilation()) {
@@ -1461,6 +1463,10 @@ class Dex2Oat FINAL {
     RuntimeArgumentMap runtime_options;
     if (!PrepareRuntimeOptions(&runtime_options, callbacks_.get())) {
       return dex2oat::ReturnCode::kOther;
+    }
+
+    if (!kIsTargetBuild || is_system_app_) {
+      runtime_options.Set(RuntimeArgumentMap::EnableHiddenApi, true);
     }
 
     CreateOatWriters();
@@ -2811,6 +2817,7 @@ class Dex2Oat FINAL {
   std::unique_ptr<std::vector<std::string>> passes_to_run_;
   bool multi_image_;
   bool is_host_;
+  bool is_system_app_;
   std::string android_root_;
   // Dex files we are compiling, does not include the class path dex files.
   std::vector<const DexFile*> dex_files_;

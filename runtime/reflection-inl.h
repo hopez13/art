@@ -21,11 +21,14 @@
 
 #include "android-base/stringprintf.h"
 
+#include "art_method-inl.h"
 #include "common_throws.h"
 #include "jvalue-inl.h"
 #include "mirror/object-inl.h"
+#include "nth_caller_visitor.h"
 #include "obj_ptr-inl.h"
 #include "primitive.h"
+#include "reflection_caller_visitor.h"
 #include "utils.h"
 
 namespace art {
@@ -125,6 +128,77 @@ inline bool VerifyObjectIsClass(ObjPtr<mirror::Object> o, ObjPtr<mirror::Class> 
     return false;
   }
   return true;
+}
+
+inline ObjPtr<mirror::Class> GetCallingClass(Thread* self, size_t num_frames) {
+  NthCallerVisitor visitor(self, num_frames);
+  visitor.WalkStack();
+  return visitor.caller != nullptr ? visitor.caller->GetDeclaringClass() : nullptr;
+}
+
+inline bool IsCallingClassInBootClassPath(Thread* self, size_t num_frames) {
+  ObjPtr<mirror::Class> caller = GetCallingClass(self, num_frames);
+  if (UNLIKELY(caller == nullptr)) {
+    // The caller is a native thread, we must be conservative and assume it is in boot class path.
+    return true;
+  }
+  return caller->IsBootStrapClassLoaded();
+}
+
+inline bool IsReflectionCallerInBootClassPath(Thread* self) {
+  ReflectionCallerVisitor visitor(self);
+  visitor.WalkStack();
+  if (visitor.caller == nullptr) {
+    return true;
+  } else {
+    return visitor.caller->GetDeclaringClass()->IsBootStrapClassLoaded();
+  }
+}
+
+inline bool IncludeInReflectiveQuery(bool public_only, bool allow_hidden, uint32_t access_flags) {
+  if (public_only && ((access_flags & kAccPublic) == 0)) {
+    return false;
+  }
+
+  if (!allow_hidden &&
+      UNLIKELY((access_flags & (kAccHiddenBlacklist | kAccIntrinsic)) == kAccHiddenBlacklist) &&
+      !Runtime::Current()->IsHiddenApiEnabled()) {
+    return false;
+  }
+
+  return true;
+}
+
+inline bool WarnAboutReflectiveQuery(bool allow_hidden, uint32_t access_flags) {
+  if (!allow_hidden &&
+      UNLIKELY((access_flags & (kAccHiddenGreylist | kAccIntrinsic)) == kAccHiddenGreylist) &&
+      !Runtime::Current()->IsHiddenApiEnabled()) {
+    return true;
+  }
+
+  return false;
+}
+
+inline void MaybeWarnAboutFieldAccess(bool allow_hidden, ArtField* field) {
+  DCHECK(IncludeInReflectiveQuery(/*public_only*/ false, allow_hidden, field->GetAccessFlags()));
+  if (UNLIKELY(WarnAboutReflectiveQuery(allow_hidden, field->GetAccessFlags()))) {
+    Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+    if (LIKELY(Runtime::Current()->ShouldDeduplicateGreylistedHiddenApiWarnings())) {
+      field->SetAccessFlags(field->GetAccessFlags() & ~kAccHiddenGreylist);
+    }
+    LOG(ERROR) << "Accessing hidden field " << field->PrettyField();
+  }
+}
+
+inline void MaybeWarnAboutMethodAccess(bool allow_hidden, ArtMethod* method) {
+  DCHECK(IncludeInReflectiveQuery(/*public_only*/false, allow_hidden, method->GetAccessFlags()));
+  if (WarnAboutReflectiveQuery(allow_hidden, method->GetAccessFlags())) {
+    Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+    if (LIKELY(Runtime::Current()->ShouldDeduplicateGreylistedHiddenApiWarnings())) {
+      method->SetAccessFlags(method->GetAccessFlags() & ~kAccHiddenGreylist);
+    }
+    LOG(ERROR) << "Invoking hidden method " << method->PrettyMethod();
+  }
 }
 
 }  // namespace art
