@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5704200e_3665a302",
+        "filename": "dex2oat/linker/elf_writer_quick.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-05T09:43:58Z",
+      "side": 1,
+      "message": "Is that only the dex code or does it contain the vdex metadata?",
+      "range": {
+        "startLine": 103,
+        "startChar": 36,
+        "endLine": 103,
+        "endChar": 52
+      },
+      "revId": "ec2cdf4286921131a5f9b3ed12060657ec40f636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
