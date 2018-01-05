@@ -29,7 +29,6 @@
 #include "mirror/executable.h"
 #include "mirror/object_array-inl.h"
 #include "nativehelper/scoped_local_ref.h"
-#include "nth_caller_visitor.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack_reference.h"
 #include "well_known_classes.h"
@@ -865,12 +864,6 @@ bool UnboxPrimitiveForResult(ObjPtr<mirror::Object> o,
                              ObjPtr<mirror::Class> dst_class,
                              JValue* unboxed_value) {
   return UnboxPrimitive(o, dst_class, nullptr, unboxed_value);
-}
-
-ObjPtr<mirror::Class> GetCallingClass(Thread* self, size_t num_frames) {
-  NthCallerVisitor visitor(self, num_frames);
-  visitor.WalkStack();
-  return visitor.caller != nullptr ? visitor.caller->GetDeclaringClass() : nullptr;
 }
 
 bool VerifyAccess(Thread* self,

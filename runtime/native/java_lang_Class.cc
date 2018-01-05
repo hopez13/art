@@ -39,7 +39,7 @@
 #include "nativehelper/scoped_utf_chars.h"
 #include "nth_caller_visitor.h"
 #include "obj_ptr-inl.h"
-#include "reflection.h"
+#include "reflection-inl.h"
 #include "scoped_fast_native_object_access-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "utf.h"
@@ -158,21 +158,21 @@ static jobjectArray Class_getInterfacesInternal(JNIEnv* env, jobject javaThis) {
 }
 
 static mirror::ObjectArray<mirror::Field>* GetDeclaredFields(
-    Thread* self, ObjPtr<mirror::Class> klass, bool public_only, bool force_resolve)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+    Thread* self, ObjPtr<mirror::Class> klass, bool public_only, bool allow_hidden,
+    bool force_resolve) REQUIRES_SHARED(Locks::mutator_lock_) {
   StackHandleScope<1> hs(self);
   IterationRange<StrideIterator<ArtField>> ifields = klass->GetIFields();
   IterationRange<StrideIterator<ArtField>> sfields = klass->GetSFields();
   size_t array_size = klass->NumInstanceFields() + klass->NumStaticFields();
-  if (public_only) {
-    // Lets go subtract all the non public fields.
+  if (public_only || !allow_hidden) {
+    // Lets go subtract all the non public or hidden fields.
     for (ArtField& field : ifields) {
-      if (!field.IsPublic()) {
+      if (!IncludeInReflectiveQuery(public_only, allow_hidden, field.GetAccessFlags())) {
         --array_size;
       }
     }
     for (ArtField& field : sfields) {
-      if (!field.IsPublic()) {
+      if (!IncludeInReflectiveQuery(public_only, allow_hidden, field.GetAccessFlags())) {
         --array_size;
       }
     }
@@ -184,7 +184,7 @@ static mirror::ObjectArray<mirror::Field>* GetDeclaredFields(
     return nullptr;
   }
   for (ArtField& field : ifields) {
-    if (!public_only || field.IsPublic()) {
+    if (IncludeInReflectiveQuery(public_only, allow_hidden, field.GetAccessFlags())) {
       auto* reflect_field = mirror::Field::CreateFromArtField<kRuntimePointerSize>(self,
                                                                                    &field,
                                                                                    force_resolve);
@@ -199,7 +199,7 @@ static mirror::ObjectArray<mirror::Field>* GetDeclaredFields(
     }
   }
   for (ArtField& field : sfields) {
-    if (!public_only || field.IsPublic()) {
+    if (IncludeInReflectiveQuery(public_only, allow_hidden, field.GetAccessFlags())) {
       auto* reflect_field = mirror::Field::CreateFromArtField<kRuntimePointerSize>(self,
                                                                                    &field,
                                                                                    force_resolve);
@@ -220,19 +220,23 @@ static jobjectArray Class_getDeclaredFieldsUnchecked(JNIEnv* env, jobject javaTh
                                                      jboolean publicOnly) {
   ScopedFastNativeObjectAccess soa(env);
   return soa.AddLocalReference<jobjectArray>(
-      GetDeclaredFields(soa.Self(), DecodeClass(soa, javaThis), publicOnly != JNI_FALSE, false));
+      GetDeclaredFields(soa.Self(), DecodeClass(soa, javaThis), publicOnly != JNI_FALSE,
+          IsCallingClassInBootClassPath(soa.Self(), 1), false));
 }
 
 static jobjectArray Class_getDeclaredFields(JNIEnv* env, jobject javaThis) {
   ScopedFastNativeObjectAccess soa(env);
   return soa.AddLocalReference<jobjectArray>(
-      GetDeclaredFields(soa.Self(), DecodeClass(soa, javaThis), false, true));
+      GetDeclaredFields(soa.Self(), DecodeClass(soa, javaThis), false,
+          IsCallingClassInBootClassPath(soa.Self(), 1), true));
 }
 
-static jobjectArray Class_getPublicDeclaredFields(JNIEnv* env, jobject javaThis) {
+static jobjectArray Class_getPublicDeclaredFields(JNIEnv* env, jobject javaThis,
+    jboolean callerInBootClassPath) {
   ScopedFastNativeObjectAccess soa(env);
   return soa.AddLocalReference<jobjectArray>(
-      GetDeclaredFields(soa.Self(), DecodeClass(soa, javaThis), true, true));
+      GetDeclaredFields(soa.Self(), DecodeClass(soa, javaThis), true,
+          callerInBootClassPath != JNI_FALSE, true));
 }
 
 // Performs a binary search through an array of fields, TODO: Is this fast enough if we don't use
@@ -289,17 +293,35 @@ ALWAYS_INLINE static inline mirror::Field* GetDeclaredField(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ArtField* art_field = FindFieldByName(name, c->GetIFieldsPtr());
   if (art_field != nullptr) {
+    const bool allow_hidden = IsCallingClassInBootClassPath(self, 1);
+    const uint32_t access_flags = art_field->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      // Field name is unique within each class. No need to scan other fields.
+      return nullptr;
+    } else if (WarnAboutReflectiveQuery(allow_hidden, access_flags)) {
+      Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+      LOG(ERROR) << "Reflection access to greylisted field: " << art_field->PrettyField();
+    }
     return mirror::Field::CreateFromArtField<kRuntimePointerSize>(self, art_field, true);
   }
   art_field = FindFieldByName(name, c->GetSFieldsPtr());
   if (art_field != nullptr) {
+    const bool allow_hidden = IsCallingClassInBootClassPath(self, 1);
+    const uint32_t access_flags = art_field->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      // Field name is unique within each class. No need to scan other fields.
+      return nullptr;
+    } else if (WarnAboutReflectiveQuery(allow_hidden, access_flags)) {
+      Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+      LOG(ERROR) << "Reflection access to greylisted field: " << art_field->PrettyField();
+    }
     return mirror::Field::CreateFromArtField<kRuntimePointerSize>(self, art_field, true);
   }
   return nullptr;
 }
 
 static mirror::Field* GetPublicFieldRecursive(
-    Thread* self, ObjPtr<mirror::Class> clazz, ObjPtr<mirror::String> name)
+    Thread* self, ObjPtr<mirror::Class> clazz, ObjPtr<mirror::String> name, bool allow_hidden)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(clazz != nullptr);
   DCHECK(name != nullptr);
@@ -312,11 +334,21 @@ static mirror::Field* GetPublicFieldRecursive(
   // We search the current class, its direct interfaces then its superclass.
   while (h_clazz != nullptr) {
     mirror::Field* result = GetDeclaredField(self, h_clazz.Get(), h_name.Get());
-    if ((result != nullptr) && (result->GetAccessFlags() & kAccPublic)) {
-      return result;
-    } else if (UNLIKELY(self->IsExceptionPending())) {
-      // Something went wrong. Bail out.
-      return nullptr;
+    if (result == nullptr) {
+      if (UNLIKELY(self->IsExceptionPending())) {
+        // Something went wrong. Bail out.
+        return nullptr;
+      }
+    } else {
+      const uint32_t access_flags = result->GetAccessFlags();
+      if (IncludeInReflectiveQuery(/* public_only */ true, allow_hidden, access_flags)) {
+        if (WarnAboutReflectiveQuery(allow_hidden, access_flags)) {
+          Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+          LOG(ERROR) << "Reflection access to greylisted field: "
+                       << result->GetArtField()->PrettyField();
+        }
+        return result;
+      }
     }
 
     uint32_t num_direct_interfaces = h_clazz->NumDirectInterfaces();
@@ -326,7 +358,7 @@ static mirror::Field* GetPublicFieldRecursive(
         self->AssertPendingException();
         return nullptr;
       }
-      result = GetPublicFieldRecursive(self, iface, h_name.Get());
+      result = GetPublicFieldRecursive(self, iface, h_name.Get(), allow_hidden);
       if (result != nullptr) {
         DCHECK(result->GetAccessFlags() & kAccPublic);
         return result;
@@ -347,7 +379,8 @@ static mirror::Field* GetPublicFieldRecursive(
   return nullptr;
 }
 
-static jobject Class_getPublicFieldRecursive(JNIEnv* env, jobject javaThis, jstring name) {
+static jobject Class_getPublicFieldRecursive(JNIEnv* env, jobject javaThis, jstring name,
+    jboolean callerInBootClassPath) {
   ScopedFastNativeObjectAccess soa(env);
   auto name_string = soa.Decode<mirror::String>(name);
   if (UNLIKELY(name_string == nullptr)) {
@@ -355,7 +388,8 @@ static jobject Class_getPublicFieldRecursive(JNIEnv* env, jobject javaThis, jstr
     return nullptr;
   }
   return soa.AddLocalReference<jobject>(
-      GetPublicFieldRecursive(soa.Self(), DecodeClass(soa, javaThis), name_string));
+      GetPublicFieldRecursive(soa.Self(), DecodeClass(soa, javaThis), name_string,
+          callerInBootClassPath != JNI_FALSE));
 }
 
 static jobject Class_getDeclaredField(JNIEnv* env, jobject javaThis, jstring name) {
@@ -390,7 +424,7 @@ static jobject Class_getDeclaredField(JNIEnv* env, jobject javaThis, jstring nam
 }
 
 static jobject Class_getDeclaredConstructorInternal(
-    JNIEnv* env, jobject javaThis, jobjectArray args) {
+    JNIEnv* env, jobject javaThis, jobjectArray args, jboolean callerInBootClassPath) {
   ScopedFastNativeObjectAccess soa(env);
   DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), kRuntimePointerSize);
   DCHECK(!Runtime::Current()->IsActiveTransaction());
@@ -399,24 +433,38 @@ static jobject Class_getDeclaredConstructorInternal(
       soa.Self(),
       DecodeClass(soa, javaThis),
       soa.Decode<mirror::ObjectArray<mirror::Class>>(args));
+  if (result != nullptr) {
+    const bool allow_hidden = callerInBootClassPath != JNI_FALSE;
+    const uint32_t access_flags = result->GetArtMethod()->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      result = nullptr;
+    } else if (WarnAboutReflectiveQuery(allow_hidden, access_flags)) {
+      Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+      LOG(ERROR) << "Reflection access to greylisted method: "
+                   << result->GetArtMethod()->PrettyMethod();
+    }
+  }
   return soa.AddLocalReference<jobject>(result);
 }
 
-static ALWAYS_INLINE inline bool MethodMatchesConstructor(ArtMethod* m, bool public_only)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+static ALWAYS_INLINE inline bool MethodMatchesConstructor(ArtMethod* m, bool public_only,
+    bool allow_hidden) REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(m != nullptr);
-  return (!public_only || m->IsPublic()) && !m->IsStatic() && m->IsConstructor();
+  return IncludeInReflectiveQuery(public_only, allow_hidden, m->GetAccessFlags()) &&
+         !m->IsStatic() && m->IsConstructor();
 }
 
 static jobjectArray Class_getDeclaredConstructorsInternal(
-    JNIEnv* env, jobject javaThis, jboolean publicOnly) {
+    JNIEnv* env, jobject javaThis, jboolean publicOnly, jboolean callerInBootClassPath) {
   ScopedFastNativeObjectAccess soa(env);
   StackHandleScope<2> hs(soa.Self());
   Handle<mirror::Class> h_klass = hs.NewHandle(DecodeClass(soa, javaThis));
   size_t constructor_count = 0;
   // Two pass approach for speed.
   for (auto& m : h_klass->GetDirectMethods(kRuntimePointerSize)) {
-    constructor_count += MethodMatchesConstructor(&m, publicOnly != JNI_FALSE) ? 1u : 0u;
+    if (MethodMatchesConstructor(&m, publicOnly != JNI_FALSE, callerInBootClassPath != JNI_FALSE)) {
+      constructor_count++;
+    }
   }
   auto h_constructors = hs.NewHandle(mirror::ObjectArray<mirror::Constructor>::Alloc(
       soa.Self(), mirror::Constructor::ArrayClass(), constructor_count));
@@ -426,7 +474,7 @@ static jobjectArray Class_getDeclaredConstructorsInternal(
   }
   constructor_count = 0;
   for (auto& m : h_klass->GetDirectMethods(kRuntimePointerSize)) {
-    if (MethodMatchesConstructor(&m, publicOnly != JNI_FALSE)) {
+    if (MethodMatchesConstructor(&m, publicOnly != JNI_FALSE, callerInBootClassPath != JNI_FALSE)) {
       DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), kRuntimePointerSize);
       DCHECK(!Runtime::Current()->IsActiveTransaction());
       auto* constructor = mirror::Constructor::CreateFromArtMethod<kRuntimePointerSize, false>(
@@ -442,7 +490,8 @@ static jobjectArray Class_getDeclaredConstructorsInternal(
 }
 
 static jobject Class_getDeclaredMethodInternal(JNIEnv* env, jobject javaThis,
-                                               jobject name, jobjectArray args) {
+                                               jobject name, jobjectArray args,
+                                               jboolean callerInBootClassPath) {
   ScopedFastNativeObjectAccess soa(env);
   DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), kRuntimePointerSize);
   DCHECK(!Runtime::Current()->IsActiveTransaction());
@@ -452,11 +501,23 @@ static jobject Class_getDeclaredMethodInternal(JNIEnv* env, jobject javaThis,
           DecodeClass(soa, javaThis),
           soa.Decode<mirror::String>(name),
           soa.Decode<mirror::ObjectArray<mirror::Class>>(args));
+  if (result != nullptr) {
+    const bool allow_hidden = callerInBootClassPath != JNI_FALSE;
+    const uint32_t access_flags = result->GetArtMethod()->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      result = nullptr;
+    } else if (WarnAboutReflectiveQuery(allow_hidden, access_flags)) {
+      Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+      LOG(ERROR) << "Reflection access to greylisted method: "
+                   << result->GetArtMethod()->PrettyMethod();
+    }
+  }
   return soa.AddLocalReference<jobject>(result);
 }
 
 static jobjectArray Class_getDeclaredMethodsUnchecked(JNIEnv* env, jobject javaThis,
-                                                      jboolean publicOnly) {
+                                                      jboolean publicOnly,
+                                                      jboolean callerInBootClassPath) {
   ScopedFastNativeObjectAccess soa(env);
   StackHandleScope<2> hs(soa.Self());
   Handle<mirror::Class> klass = hs.NewHandle(DecodeClass(soa, javaThis));
@@ -464,7 +525,8 @@ static jobjectArray Class_getDeclaredMethodsUnchecked(JNIEnv* env, jobject javaT
   for (auto& m : klass->GetDeclaredMethods(kRuntimePointerSize)) {
     auto modifiers = m.GetAccessFlags();
     // Add non-constructor declared methods.
-    if ((publicOnly == JNI_FALSE || (modifiers & kAccPublic) != 0) &&
+    if (IncludeInReflectiveQuery(
+            publicOnly != JNI_FALSE, callerInBootClassPath != JNI_FALSE, modifiers) &&
         (modifiers & kAccConstructor) == 0) {
       ++num_methods;
     }
@@ -478,7 +540,8 @@ static jobjectArray Class_getDeclaredMethodsUnchecked(JNIEnv* env, jobject javaT
   num_methods = 0;
   for (auto& m : klass->GetDeclaredMethods(kRuntimePointerSize)) {
     auto modifiers = m.GetAccessFlags();
-    if ((publicOnly == JNI_FALSE || (modifiers & kAccPublic) != 0) &&
+    if (IncludeInReflectiveQuery(
+            publicOnly != JNI_FALSE, callerInBootClassPath != JNI_FALSE, modifiers) &&
         (modifiers & kAccConstructor) == 0) {
       DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), kRuntimePointerSize);
       DCHECK(!Runtime::Current()->IsActiveTransaction());
@@ -697,6 +760,17 @@ static jobject Class_newInstance(JNIEnv* env, jobject javaThis) {
       soa.Self(),
       ScopedNullHandle<mirror::ObjectArray<mirror::Class>>(),
       kRuntimePointerSize);
+  if (constructor != nullptr) {
+    const bool allow_hidden = IsCallingClassInBootClassPath(soa.Self(), 1);
+    const uint32_t access_flags = constructor->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      constructor = nullptr;
+    } else if (WarnAboutReflectiveQuery(allow_hidden, access_flags)) {
+      Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+      LOG(ERROR) << "Reflection access to greylisted constructor: "
+                   << constructor->PrettyMethod();
+    }
+  }
   if (UNLIKELY(constructor == nullptr)) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/InstantiationException;",
                                    "%s has no zero argument constructor",
@@ -761,16 +835,16 @@ static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(Class, getDeclaredAnnotations, "()[Ljava/lang/annotation/Annotation;"),
   FAST_NATIVE_METHOD(Class, getDeclaredClasses, "()[Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getDeclaredConstructorInternal,
-                "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;"),
-  FAST_NATIVE_METHOD(Class, getDeclaredConstructorsInternal, "(Z)[Ljava/lang/reflect/Constructor;"),
+                "([Ljava/lang/Class;Z)Ljava/lang/reflect/Constructor;"),
+  FAST_NATIVE_METHOD(Class, getDeclaredConstructorsInternal, "(ZZ)[Ljava/lang/reflect/Constructor;"),
   FAST_NATIVE_METHOD(Class, getDeclaredField, "(Ljava/lang/String;)Ljava/lang/reflect/Field;"),
-  FAST_NATIVE_METHOD(Class, getPublicFieldRecursive, "(Ljava/lang/String;)Ljava/lang/reflect/Field;"),
+  FAST_NATIVE_METHOD(Class, getPublicFieldRecursive, "(Ljava/lang/String;Z)Ljava/lang/reflect/Field;"),
   FAST_NATIVE_METHOD(Class, getDeclaredFields, "()[Ljava/lang/reflect/Field;"),
   FAST_NATIVE_METHOD(Class, getDeclaredFieldsUnchecked, "(Z)[Ljava/lang/reflect/Field;"),
   FAST_NATIVE_METHOD(Class, getDeclaredMethodInternal,
-                "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;"),
+                "(Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/reflect/Method;"),
   FAST_NATIVE_METHOD(Class, getDeclaredMethodsUnchecked,
-                "(Z)[Ljava/lang/reflect/Method;"),
+                "(ZZ)[Ljava/lang/reflect/Method;"),
   FAST_NATIVE_METHOD(Class, getDeclaringClass, "()Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getEnclosingClass, "()Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getEnclosingConstructorNative, "()Ljava/lang/reflect/Constructor;"),
@@ -779,7 +853,7 @@ static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(Class, getInnerClassName, "()Ljava/lang/String;"),
   FAST_NATIVE_METHOD(Class, getInterfacesInternal, "()[Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getNameNative, "()Ljava/lang/String;"),
-  FAST_NATIVE_METHOD(Class, getPublicDeclaredFields, "()[Ljava/lang/reflect/Field;"),
+  FAST_NATIVE_METHOD(Class, getPublicDeclaredFields, "(Z)[Ljava/lang/reflect/Field;"),
   FAST_NATIVE_METHOD(Class, getSignatureAnnotation, "()[Ljava/lang/String;"),
   FAST_NATIVE_METHOD(Class, isAnonymousClass, "()Z"),
   FAST_NATIVE_METHOD(Class, isDeclaredAnnotationPresent, "(Ljava/lang/Class;)Z"),

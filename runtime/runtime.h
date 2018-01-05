@@ -520,6 +520,22 @@ class Runtime {
   bool IsVerificationEnabled() const;
   bool IsVerificationSoftFail() const;
 
+  void EnableHiddenApi() {
+    enable_hidden_api_ = true;
+  }
+
+  bool IsHiddenApiEnabled() const {
+    return enable_hidden_api_;
+  }
+
+  void SetUsedGreylistedHiddenApi(bool value) {
+    used_greylisted_hidden_api_ = value;
+  }
+
+  bool HasUsedGreylistedHiddenApi() const {
+    return used_greylisted_hidden_api_;
+  }
+
   bool IsDexFileFallbackEnabled() const {
     return allow_dex_file_fallback_;
   }
@@ -951,6 +967,12 @@ class Runtime {
 
   // Whether the application should run in safe mode, that is, interpreter only.
   bool safe_mode_;
+
+  // Whether using hidden API should be allowed.
+  bool enable_hidden_api_;
+
+  // Whether greylisted hidden API(s) have been used.
+  bool used_greylisted_hidden_api_;
 
   // Whether threads should dump their native stack on SIGQUIT.
   bool dump_native_stack_on_sig_quit_;

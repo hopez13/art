@@ -24,6 +24,7 @@
 #include "common_throws.h"
 #include "jvalue-inl.h"
 #include "mirror/object-inl.h"
+#include "nth_caller_visitor.h"
 #include "obj_ptr-inl.h"
 #include "primitive.h"
 #include "utils.h"
@@ -125,6 +126,45 @@ inline bool VerifyObjectIsClass(ObjPtr<mirror::Object> o, ObjPtr<mirror::Class> 
     return false;
   }
   return true;
+}
+
+inline ObjPtr<mirror::Class> GetCallingClass(Thread* self, size_t num_frames) {
+  NthCallerVisitor visitor(self, num_frames);
+  visitor.WalkStack();
+  return visitor.caller != nullptr ? visitor.caller->GetDeclaringClass() : nullptr;
+}
+
+inline bool IsCallingClassInBootClassPath(Thread* self, size_t num_frames) {
+  ObjPtr<mirror::Class> caller = GetCallingClass(self, num_frames);
+  if (UNLIKELY(caller == nullptr)) {
+    // The caller is a native thread, we must be conservative and assume it is in boot class path.
+    return true;
+  }
+  return caller->IsBootStrapClassLoaded();
+}
+
+inline bool IncludeInReflectiveQuery(bool public_only, bool allow_hidden, uint32_t access_flags) {
+  if (public_only && ((access_flags & kAccPublic) == 0)) {
+    return false;
+  }
+
+  if (!allow_hidden &&
+      UNLIKELY((access_flags & (kAccHiddenBlacklist | kAccIntrinsic)) == kAccHiddenBlacklist) &&
+      !Runtime::Current()->IsHiddenApiEnabled()) {
+    return false;
+  }
+
+  return true;
+}
+
+inline bool WarnAboutReflectiveQuery(bool allow_hidden, uint32_t access_flags) {
+  if (!allow_hidden &&
+      UNLIKELY((access_flags & (kAccHiddenGreylist | kAccIntrinsic)) == kAccHiddenGreylist) &&
+      !Runtime::Current()->IsHiddenApiEnabled()) {
+    return true;
+  }
+
+  return false;
 }
 
 }  // namespace art

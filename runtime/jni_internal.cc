@@ -51,7 +51,7 @@
 #include "mirror/throwable.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "parsed_options.h"
-#include "reflection.h"
+#include "reflection-inl.h"
 #include "runtime.h"
 #include "safe_map.h"
 #include "scoped_thread_state_change-inl.h"
@@ -238,6 +238,16 @@ static jmethodID FindMethodID(ScopedObjectAccess& soa, jclass jni_class,
   } else {
     method = c->FindClassMethod(name, sig, pointer_size);
   }
+  if (method != nullptr) {
+    const bool allow_hidden = IsCallingClassInBootClassPath(soa.Self(), 1);
+    const uint32_t access_flags = method->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      method = nullptr;
+    } else if (WarnAboutReflectiveQuery(allow_hidden, access_flags)) {
+      Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+      LOG(ERROR) << "JNI access to greylisted method: " << method->PrettyMethod();
+    }
+  }
   if (method == nullptr || method->IsStatic() != is_static) {
     ThrowNoSuchMethodError(soa, c, name, sig, is_static ? "static" : "non-static");
     return nullptr;
@@ -313,6 +323,16 @@ static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, con
         soa.Self(), c.Get(), name, field_type->GetDescriptor(&temp));
   } else {
     field = c->FindInstanceField(name, field_type->GetDescriptor(&temp));
+  }
+  if (field != nullptr) {
+    const bool allow_hidden = IsCallingClassInBootClassPath(soa.Self(), 1);
+    const uint32_t access_flags = field->GetAccessFlags();
+    if (!IncludeInReflectiveQuery(false, allow_hidden, access_flags)) {
+      field = nullptr;
+    } else if (WarnAboutReflectiveQuery(allow_hidden, access_flags)) {
+      Runtime::Current()->SetUsedGreylistedHiddenApi(true);
+      LOG(ERROR) << "JNI access to greylisted field: " << field->PrettyField();
+    }
   }
   if (field == nullptr) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/NoSuchFieldError;",

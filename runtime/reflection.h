@@ -114,6 +114,13 @@ bool VerifyAccess(ObjPtr<mirror::Object> obj,
 ObjPtr<mirror::Class> GetCallingClass(Thread* self, size_t num_frames)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+bool IsCallingClassInBootClassPath(Thread* self, size_t num_frames)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool IncludeInReflectiveQuery(bool public_only, bool allow_hidden, uint32_t access_flags);
+
+bool WarnAboutReflectiveQuery(bool allow_hidden, uint32_t access_flags);
+
 void InvalidReceiverError(ObjPtr<mirror::Object> o, ObjPtr<mirror::Class> c)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
