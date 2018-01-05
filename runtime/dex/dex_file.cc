@@ -31,8 +31,8 @@
 #include "base/enums.h"
 #include "base/stl_util.h"
 #include "dex_file-inl.h"
-#include "leb128.h"
 #include "standard_dex_file.h"
+#include "leb128.h"
 #include "utf-inl.h"
 #include "utils.h"
 
