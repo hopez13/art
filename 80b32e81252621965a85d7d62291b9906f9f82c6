@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "746307e2_ac6cbdf4",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-05T15:31:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "45ec2ba4_23369da7",
+      "range": {
+        "startLine": 537,
+        "startChar": 0,
+        "endLine": 541,
+        "endChar": 3
+      },
+      "revId": "80b32e81252621965a85d7d62291b9906f9f82c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "133e3777_c223ec3a",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-05T14:40:14Z",
       "side": 1,
       "message": "Please move these functions to oat_file-inl.h and make them inline.",
+      "range": {
+        "startLine": 408,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 0
+      },
+      "revId": "80b32e81252621965a85d7d62291b9906f9f82c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd5c1c6b_256e477d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-05T15:31:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "133e3777_c223ec3a",
       "range": {
         "startLine": 408,
         "startChar": 0,
