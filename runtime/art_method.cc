@@ -568,8 +568,9 @@ const uint8_t* ArtMethod::GetQuickenedInfo() {
   if (oat_dex_file == nullptr || (oat_dex_file->GetOatFile() == nullptr)) {
     return nullptr;
   }
-  return oat_dex_file->GetOatFile()->GetVdexFile()->GetQuickenedInfoOf(
-      dex_file, GetCodeItemOffset());
+  LOG(FATAL) << "HERE";
+  return oat_dex_file->GetOatFile()->GetVdexFile()->GetQuickenedInfoOf(dex_file,
+                                                                       GetDexMethodIndex()).data();
 }
 
 const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
