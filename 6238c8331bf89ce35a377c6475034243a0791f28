@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76dc5727_fa1b5c35",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-05T09:14:27Z",
+      "side": 1,
+      "message": "Could CodeItemInstructionAccessor take a const DexFile\u0026 ?",
+      "range": {
+        "startLine": 714,
+        "startChar": 69,
+        "endLine": 714,
+        "endChar": 71
+      },
+      "revId": "6238c8331bf89ce35a377c6475034243a0791f28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f9e0ac5_e7b9f459",
+        "filename": "runtime/cdex/compact_dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-05T09:14:27Z",
+      "side": 1,
+      "message": "You can clean this up in this CL by adding a shared helper.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 33
+      },
+      "revId": "6238c8331bf89ce35a377c6475034243a0791f28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fbf28c6_511fbc4d",
+        "filename": "runtime/cdex/compact_dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-05T09:14:27Z",
+      "side": 1,
+      "message": "Remove? Or if CompactDex has its own CodeItem type, rename it to CompactCodeItem?",
+      "range": {
+        "startLine": 61,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 63
+      },
+      "revId": "6238c8331bf89ce35a377c6475034243a0791f28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d29735_d6031218",
+        "filename": "runtime/standard_dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-05T09:14:27Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 63
+      },
+      "revId": "6238c8331bf89ce35a377c6475034243a0791f28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
