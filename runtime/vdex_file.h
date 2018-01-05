@@ -35,18 +35,17 @@ class DexFile;
 // File format:
 //   VdexFile::Header    fixed-length header
 //
-//   DEX[0]              array of the input DEX files
-//   DEX[1]              the bytecode may have been quickened
+//   DEX[0]                array of the input DEX files, the bytecode may have been quickened.
+//   quicken_table_off[0]  offset into QuickeningInfo section for offset tables.
+//   DEX[1]
+//   quicken_table_off[1]
 //   ...
 //   DEX[D]
 //   VerifierDeps
 //      uint8[D][]                 verification dependencies
 //   QuickeningInfo
 //     uint8[D][]                  quickening data
-//     unaligned_uint32_t[D][2][]  table of offsets pair:
-//                                   uint32_t[0] contains original CodeItem::debug_info_off_
-//                                   uint32_t[1] contains quickening data offset from the start
-//                                                of QuickeningInfo
+//     uint32[D][]                 quickening data offset tables
 
 class VdexFile {
  public:
@@ -169,14 +168,8 @@ class VdexFile {
                                ArrayRef<const uint8_t> quickening_info,
                                bool decompile_return_instruction);
 
-  // Return the quickening info of the given code item.
-  const uint8_t* GetQuickenedInfoOf(const DexFile& dex_file, uint32_t code_item_offset) const;
-
-  uint32_t GetDebugInfoOffset(const DexFile& dex_file, uint32_t offset_in_code_item) const;
-
-  static bool CanEncodeQuickenedData(const DexFile& dex_file);
-
-  static constexpr uint32_t kNoQuickeningInfoOffset = -1;
+  // Return the quickening info of a given method index (or null if it's empty).
+  const uint8_t* GetQuickenedInfoOf(const DexFile& dex_file, uint32_t dex_method_idx) const;
 
  private:
   bool HasDexSection() const {

@@ -89,6 +89,7 @@
 #include "oat_file.h"
 #include "oat_file_assistant.h"
 #include "os.h"
+#include "quicken_info.h"
 #include "runtime.h"
 #include "runtime_options.h"
 #include "scoped_thread_state_change-inl.h"

@@ -18,14 +18,73 @@
 #define ART_RUNTIME_QUICKEN_INFO_H_
 
 #include "dex_instruction.h"
+#include "leb128.h"
 
 namespace art {
+
+// Table for getting the offset of quicken info.
+class QuickenInfoOffsetTableAccessor {
+ public:
+  using TableType = uint32_t;
+  static constexpr uint32_t kElementsPerIndex = 16;
+
+  // The table only covers every kElementsPerIndex indices.
+  static bool IsCoveredIndex(uint32_t index) {
+    return index % kElementsPerIndex == 0;
+  }
+
+  explicit QuickenInfoOffsetTableAccessor(const uint8_t* data, uint32_t max_index)
+      : table_(reinterpret_cast<const uint32_t*>(data)),
+        num_indicies_(RoundUp(max_index, kElementsPerIndex) / kElementsPerIndex) {}
+
+  size_t SizeInBytes() const {
+    return NumIndices() * sizeof(table_[0]);
+  }
+
+  uint32_t NumIndices() const {
+    return num_indicies_;
+  }
+
+  TableType ElementOffset(uint32_t index, uint32_t* remainder) {
+    *remainder = index % kElementsPerIndex;
+    return index / kElementsPerIndex;
+  }
+
+  const uint8_t* DataEnd() const {
+    return reinterpret_cast<const uint8_t*>(table_ + NumIndices());
+  }
+
+  static uint32_t Alignment() {
+    return alignof(TableType);
+  }
+
+ private:
+  const TableType* table_;
+  uint32_t num_indicies_;
+};
 
 // QuickenInfoTable is a table of 16 bit dex indices. There is one slot fo every instruction that is
 // possibly dequickenable.
 class QuickenInfoTable {
  public:
-  explicit QuickenInfoTable(const uint8_t* data) : data_(data) {}
+  class Builder {
+   public:
+    Builder(std::vector<uint8_t>* out_data, size_t num_elements) : out_data_(out_data) {
+      EncodeUnsignedLeb128(out_data_, num_elements);
+    }
+
+    void AddIndex(uint16_t index) {
+      out_data_->push_back(static_cast<uint8_t>(index));
+      out_data_->push_back(static_cast<uint8_t>(index >> 8));
+    }
+
+   private:
+    std::vector<uint8_t>* const out_data_;
+  };
+
+  explicit QuickenInfoTable(const uint8_t* data)
+      : data_(data),
+        num_elements_(DecodeUnsignedLeb128(&data_)) {}
 
   bool IsNull() const {
     return data_ == nullptr;
@@ -44,8 +103,18 @@ class QuickenInfoTable {
     return bytes / sizeof(uint16_t);
   }
 
+  static size_t SizeInBytes(const uint8_t* start) {
+    QuickenInfoTable table(start);
+    return table.data_ + table.NumElements() * 2 - start;
+  }
+
+  uint32_t NumElements() const {
+    return num_elements_;
+  }
+
  private:
-  const uint8_t* const data_;
+  const uint8_t* data_;
+  const uint32_t num_elements_;
 
   DISALLOW_COPY_AND_ASSIGN(QuickenInfoTable);
 };
