@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d227d8f0_4e3a6731",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-05T21:53:34Z",
+      "side": 1,
+      "message": "nit: what is 3? Can you use a constexpr?",
+      "range": {
+        "startLine": 2101,
+        "startChar": 90,
+        "endLine": 2101,
+        "endChar": 91
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1c122ce_573ef9f7",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -19,6 +42,80 @@
         "endLine": 2103,
         "endChar": 97
       },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a5bd398_fe933a93",
+        "filename": "runtime/base/bit_string_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-05T21:53:34Z",
+      "side": 1,
+      "message": "Why did this test need to be updated?",
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50766d56_246c4980",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-05T21:53:34Z",
+      "side": 1,
+      "message": "Why not just fix this for arbitrary int types?",
+      "range": {
+        "startLine": 46,
+        "startChar": 14,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "843e1fc2_9aa81c35",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-05T21:53:34Z",
+      "side": 1,
+      "message": "I don\u0027t understand, why is the field order swapped?",
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e44a50b6_9e143db6",
+        "filename": "runtime/subtype_check_bits_and_status.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-05T21:53:34Z",
+      "side": 1,
+      "message": "Why are there so many changes?",
       "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
