@@ -717,7 +717,6 @@ class OatDumper {
     }
 
     vdex_file->Unquicken(MakeNonOwningPointerVector(tmp_dex_files),
-                         vdex_file->GetQuickeningInfo(),
                          /* decompile_return_instruction */ true);
 
     *dex_files = std::move(tmp_dex_files);
@@ -1076,6 +1075,17 @@ class OatDumper {
                          table_offset,
                          table_offset + table_size - 1);
     }
+
+    // Count bytes are used for quickening info and time the accessor.
+    VdexFile* vdex_file = oat_dex_file.GetOatFile()->GetVdexFile();
+    size_t quicken_info_bytes = 0;
+    const uint64_t start_time = NanoTime();
+    for (size_t i = 0; i < dex_file->NumMethodIds(); ++i) {
+      quicken_info_bytes += vdex_file->GetQuickenedInfoOf(*dex_file, i).size();
+    }
+    const uint64_t end_time = NanoTime();
+    os << "Quicken info bytes for dex " << quicken_info_bytes
+       << " counted in " << PrettyDuration(end_time - start_time) << "\n";
 
     VariableIndentationOutputStream vios(&os);
     ScopedIndentation indent1(&vios);
