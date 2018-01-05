@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "0f9b6597_ebbd27ba",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2778,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-05T16:46:57Z",
+      "side": 1,
+      "message": "Sure could, but the table resizing is more efficient for local refs nowadays, actually. It\u0027s not a linked list.",
+      "parentUuid": "27403332_ffb118fb",
+      "range": {
+        "startLine": 2775,
+        "startChar": 0,
+        "endLine": 2778,
+        "endChar": 67
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7f8fec1_8cad55f0",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -137,6 +161,30 @@
       "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ab7bdb7_92676a81",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2843,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-05T16:46:57Z",
+      "side": 1,
+      "message": "I disagree here. ObjectArray is needlessly verbose (because we don\u0027t have the generic \"it\u0027s an Object[]), and especially the allocation calls look horrible with double repetition. Unless you\u0027re OK with something like\n\n  auto instance \u003d type::Alloc(...)",
+      "parentUuid": "d0998129_1f338ee9",
+      "range": {
+        "startLine": 2843,
+        "startChar": 0,
+        "endLine": 2843,
+        "endChar": 55
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
