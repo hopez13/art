@@ -337,7 +337,6 @@ class DexFile {
     friend class CodeItemDataAccessor;
     friend class CodeItemDebugInfoAccessor;
     friend class CodeItemInstructionAccessor;
-    friend class VdexFile;  // TODO: Remove this one when it's cleaned up.
     DISALLOW_COPY_AND_ASSIGN(CodeItem);
   };
 

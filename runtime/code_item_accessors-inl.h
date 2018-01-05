@@ -41,7 +41,7 @@ inline CodeItemDebugInfoAccessor::CodeItemDebugInfoAccessor(const DexFile* dex_f
   if (code_item == nullptr) {
     return;
   }
-  Init(dex_file, code_item, OatFile::GetDebugInfoOffset(*dex_file, code_item->debug_info_off_));
+  Init(dex_file, code_item, code_item->debug_info_off_);
 }
 
 }  // namespace art
