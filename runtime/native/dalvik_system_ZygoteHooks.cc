@@ -173,6 +173,7 @@ enum {
   DEBUG_JAVA_DEBUGGABLE           = 1 << 8,
   DISABLE_VERIFIER                = 1 << 9,
   ONLY_USE_SYSTEM_OAT_FILES       = 1 << 10,
+  IS_SYSTEM_APP                   = 1 << 11,
 };
 
 static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
@@ -284,6 +285,12 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
     runtime_flags &= ~ONLY_USE_SYSTEM_OAT_FILES;
   }
 
+  bool is_system_app = false;
+  if ((runtime_flags & IS_SYSTEM_APP) != 0) {
+    is_system_app = true;
+    runtime_flags &= ~IS_SYSTEM_APP;
+  }
+
   if (runtime_flags != 0) {
     LOG(ERROR) << StringPrintf("Unknown bits set in runtime_flags: %#x", runtime_flags);
   }
@@ -330,6 +337,11 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
       }
     }
   }
+
+  if (is_system_server || is_system_app) {
+    Runtime::Current()->EnableHiddenApi();
+  }
+  Runtime::Current()->SetUsedGreylistedHiddenApi(false);
 
   if (instruction_set != nullptr && !is_system_server) {
     ScopedUtfChars isa_string(env, instruction_set);

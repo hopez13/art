@@ -89,9 +89,12 @@ static constexpr uint32_t kAccMustCountLocks =        0x04000000;  // method (ru
 // virtual call.
 static constexpr uint32_t kAccSingleImplementation =  0x08000000;  // method (runtime)
 
+static constexpr uint32_t kAccHiddenBlacklist =       0x10000000;  // field, method
+static constexpr uint32_t kAccHiddenGreylist =        0x20000000;  // field, method
+
 // Not currently used, except for intrinsic methods where these bits
 // are part of the intrinsic ordinal.
-static constexpr uint32_t kAccMayBeUnusedBits =       0x70000000;
+static constexpr uint32_t kAccMayBeUnusedBits =       0x40000000;
 
 // Set by the compiler driver when compiling boot classes with instrinsic methods.
 static constexpr uint32_t kAccIntrinsic  =            0x80000000;  // method (runtime)
@@ -106,8 +109,9 @@ static constexpr uint32_t kAccClassIsFinalizable        = 0x80000000;
 
 // Continuous sequence of bits used to hold the ordinal of an intrinsic method. Flags
 // which overlap are not valid when kAccIntrinsic is set.
-static constexpr uint32_t kAccIntrinsicBits = kAccMayBeUnusedBits | kAccSingleImplementation |
-    kAccMustCountLocks | kAccCompileDontBother | kAccDefaultConflict | kAccPreviouslyWarm;
+static constexpr uint32_t kAccIntrinsicBits = kAccMayBeUnusedBits | kAccHiddenGreylist |
+    kAccHiddenBlacklist | kAccSingleImplementation | kAccMustCountLocks | kAccCompileDontBother |
+    kAccDefaultConflict | kAccPreviouslyWarm;
 
 // Valid (meaningful) bits for a field.
 static constexpr uint32_t kAccValidFieldFlags = kAccPublic | kAccPrivate | kAccProtected |
@@ -134,6 +138,8 @@ static constexpr uint32_t kAccValidInterfaceFlags = kAccPublic | kAccInterface |
     kAccAbstract | kAccSynthetic | kAccAnnotation;
 
 static constexpr uint32_t kAccVisibilityFlags = kAccPublic | kAccPrivate | kAccProtected;
+
+static constexpr uint32_t kAccHiddenApiFlags = kAccHiddenBlacklist | kAccHiddenGreylist;
 
 }  // namespace art
 

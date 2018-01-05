@@ -126,45 +126,45 @@ class VerifierDeps {
   }
 
  private:
-  static constexpr uint16_t kUnresolvedMarker = static_cast<uint16_t>(-1);
+  static constexpr uint32_t kUnresolvedMarker = static_cast<uint32_t>(-1);
 
-  using ClassResolutionBase = std::tuple<dex::TypeIndex, uint16_t>;
+  using ClassResolutionBase = std::tuple<dex::TypeIndex, uint32_t>;
   struct ClassResolution : public ClassResolutionBase {
     ClassResolution() = default;
     ClassResolution(const ClassResolution&) = default;
-    ClassResolution(dex::TypeIndex type_idx, uint16_t access_flags)
+    ClassResolution(dex::TypeIndex type_idx, uint32_t access_flags)
         : ClassResolutionBase(type_idx, access_flags) {}
 
     bool IsResolved() const { return GetAccessFlags() != kUnresolvedMarker; }
     dex::TypeIndex GetDexTypeIndex() const { return std::get<0>(*this); }
-    uint16_t GetAccessFlags() const { return std::get<1>(*this); }
+    uint32_t GetAccessFlags() const { return std::get<1>(*this); }
   };
 
-  using FieldResolutionBase = std::tuple<uint32_t, uint16_t, dex::StringIndex>;
+  using FieldResolutionBase = std::tuple<uint32_t, uint32_t, dex::StringIndex>;
   struct FieldResolution : public FieldResolutionBase {
     FieldResolution() = default;
     FieldResolution(const FieldResolution&) = default;
-    FieldResolution(uint32_t field_idx, uint16_t access_flags, dex::StringIndex declaring_class_idx)
+    FieldResolution(uint32_t field_idx, uint32_t access_flags, dex::StringIndex declaring_class_idx)
         : FieldResolutionBase(field_idx, access_flags, declaring_class_idx) {}
 
     bool IsResolved() const { return GetAccessFlags() != kUnresolvedMarker; }
     uint32_t GetDexFieldIndex() const { return std::get<0>(*this); }
-    uint16_t GetAccessFlags() const { return std::get<1>(*this); }
+    uint32_t GetAccessFlags() const { return std::get<1>(*this); }
     dex::StringIndex GetDeclaringClassIndex() const { return std::get<2>(*this); }
   };
 
-  using MethodResolutionBase = std::tuple<uint32_t, uint16_t, dex::StringIndex>;
+  using MethodResolutionBase = std::tuple<uint32_t, uint32_t, dex::StringIndex>;
   struct MethodResolution : public MethodResolutionBase {
     MethodResolution() = default;
     MethodResolution(const MethodResolution&) = default;
     MethodResolution(uint32_t method_idx,
-                     uint16_t access_flags,
+                     uint32_t access_flags,
                      dex::StringIndex declaring_class_idx)
         : MethodResolutionBase(method_idx, access_flags, declaring_class_idx) {}
 
     bool IsResolved() const { return GetAccessFlags() != kUnresolvedMarker; }
     uint32_t GetDexMethodIndex() const { return std::get<0>(*this); }
-    uint16_t GetAccessFlags() const { return std::get<1>(*this); }
+    uint32_t GetAccessFlags() const { return std::get<1>(*this); }
     dex::StringIndex GetDeclaringClassIndex() const { return std::get<2>(*this); }
   };
 
@@ -235,7 +235,7 @@ class VerifierDeps {
   // Returns the bytecode access flags of `element` (bottom 16 bits), or
   // `kUnresolvedMarker` if `element` is null.
   template <typename T>
-  static uint16_t GetAccessFlags(T* element)
+  static uint32_t GetAccessFlags(T* element)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns a string ID of the descriptor of the declaring class of `element`,
