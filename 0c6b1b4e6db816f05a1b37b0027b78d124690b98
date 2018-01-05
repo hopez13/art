@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1c122ce_573ef9f7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-05T19:03:41Z",
+      "side": 1,
+      "message": "It seems to me % 8 is easier to understand here. Also / 8 on line 2101 if you use % 8 here.",
+      "range": {
+        "startLine": 2103,
+        "startChar": 93,
+        "endLine": 2103,
+        "endChar": 97
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "816bf7ed_29cd7434",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-05T19:03:41Z",
+      "side": 1,
+      "message": "Looks like some missing update from a previous CL. Can you rename it also?",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 21
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40953a7e_2a0d87f9",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-05T19:03:41Z",
+      "side": 1,
+      "message": "Can you update this comment also?",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 89
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0c078df_bb49e2da",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-05T19:03:41Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 269,
+        "endChar": 89
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a0c886_23aec49c",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-05T19:03:41Z",
+      "side": 1,
+      "message": "get rid of?",
+      "range": {
+        "startLine": 284,
+        "startChar": 13,
+        "endLine": 284,
+        "endChar": 17
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
