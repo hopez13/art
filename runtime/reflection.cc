@@ -29,7 +29,6 @@
 #include "mirror/executable.h"
 #include "mirror/object_array-inl.h"
 #include "nativehelper/scoped_local_ref.h"
-#include "nth_caller_visitor.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack_reference.h"
 #include "well_known_classes.h"
@@ -441,11 +440,12 @@ static ArtMethod* FindVirtualMethod(ObjPtr<mirror::Object> receiver, ArtMethod* 
   return receiver->GetClass()->FindVirtualMethodForVirtualOrInterface(method, kRuntimePointerSize);
 }
 
-
 static void InvokeWithArgArray(const ScopedObjectAccessAlreadyRunnable& soa,
                                ArtMethod* method, ArgArray* arg_array, JValue* result,
-                               const char* shorty)
+                               const char* shorty, size_t num_frames)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  MaybeWarnAboutMethodAccess(IsCallingClassInBootClassPath(soa.Self(), num_frames), method);
+
   uint32_t* args = arg_array->GetArray();
   if (UNLIKELY(soa.Env()->IsCheckJniEnabled())) {
     CheckMethodArguments(soa.Vm(), method->GetInterfaceMethodIfProxy(kRuntimePointerSize), args);
@@ -454,7 +454,7 @@ static void InvokeWithArgArray(const ScopedObjectAccessAlreadyRunnable& soa,
 }
 
 JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa, jobject obj, jmethodID mid,
-                         va_list args)
+                         va_list args, size_t num_frames)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
@@ -477,7 +477,7 @@ JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa, jobject o
   JValue result;
   ArgArray arg_array(shorty, shorty_len);
   arg_array.BuildArgArrayFromVarArgs(soa, receiver, args);
-  InvokeWithArgArray(soa, method, &arg_array, &result, shorty);
+  InvokeWithArgArray(soa, method, &arg_array, &result, shorty, num_frames);
   if (is_string_init) {
     // For string init, remap original receiver to StringFactory result.
     UpdateReference(soa.Self(), obj, result.GetL());
@@ -486,7 +486,7 @@ JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa, jobject o
 }
 
 JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa, jobject obj, jmethodID mid,
-                         jvalue* args) {
+                         jvalue* args, size_t num_frames) {
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
@@ -508,7 +508,7 @@ JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa, jobject o
   JValue result;
   ArgArray arg_array(shorty, shorty_len);
   arg_array.BuildArgArrayFromJValues(soa, receiver, args);
-  InvokeWithArgArray(soa, method, &arg_array, &result, shorty);
+  InvokeWithArgArray(soa, method, &arg_array, &result, shorty, num_frames);
   if (is_string_init) {
     // For string init, remap original receiver to StringFactory result.
     UpdateReference(soa.Self(), obj, result.GetL());
@@ -517,7 +517,8 @@ JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa, jobject o
 }
 
 JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
-                                           jobject obj, jmethodID mid, jvalue* args) {
+                                           jobject obj, jmethodID mid, jvalue* args,
+                                           size_t num_frames) {
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
@@ -540,7 +541,7 @@ JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnab
   JValue result;
   ArgArray arg_array(shorty, shorty_len);
   arg_array.BuildArgArrayFromJValues(soa, receiver, args);
-  InvokeWithArgArray(soa, method, &arg_array, &result, shorty);
+  InvokeWithArgArray(soa, method, &arg_array, &result, shorty, num_frames);
   if (is_string_init) {
     // For string init, remap original receiver to StringFactory result.
     UpdateReference(soa.Self(), obj, result.GetL());
@@ -549,7 +550,8 @@ JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnab
 }
 
 JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa,
-                                           jobject obj, jmethodID mid, va_list args) {
+                                           jobject obj, jmethodID mid, va_list args,
+                                           size_t num_frames) {
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
@@ -572,7 +574,7 @@ JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnab
   JValue result;
   ArgArray arg_array(shorty, shorty_len);
   arg_array.BuildArgArrayFromVarArgs(soa, receiver, args);
-  InvokeWithArgArray(soa, method, &arg_array, &result, shorty);
+  InvokeWithArgArray(soa, method, &arg_array, &result, shorty, num_frames);
   if (is_string_init) {
     // For string init, remap original receiver to StringFactory result.
     UpdateReference(soa.Self(), obj, result.GetL());
@@ -663,7 +665,7 @@ jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaM
     return nullptr;
   }
 
-  InvokeWithArgArray(soa, m, &arg_array, &result, shorty);
+  InvokeWithArgArray(soa, m, &arg_array, &result, shorty, num_frames);
 
   // Wrap any exception with "Ljava/lang/reflect/InvocationTargetException;" and return early.
   if (soa.Self()->IsExceptionPending()) {
@@ -865,12 +867,6 @@ bool UnboxPrimitiveForResult(ObjPtr<mirror::Object> o,
                              ObjPtr<mirror::Class> dst_class,
                              JValue* unboxed_value) {
   return UnboxPrimitive(o, dst_class, nullptr, unboxed_value);
-}
-
-ObjPtr<mirror::Class> GetCallingClass(Thread* self, size_t num_frames) {
-  NthCallerVisitor visitor(self, num_frames);
-  visitor.WalkStack();
-  return visitor.caller != nullptr ? visitor.caller->GetDeclaringClass() : nullptr;
 }
 
 bool VerifyAccess(Thread* self,
