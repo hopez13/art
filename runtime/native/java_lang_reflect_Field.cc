@@ -190,6 +190,8 @@ ALWAYS_INLINE inline static JValue GetPrimitiveField(JNIEnv* env,
     return JValue();
   }
 
+  MaybeWarnAboutFieldAccess(IsCallingClassInBootClassPath(soa.Self()), f->GetArtField());
+
   // We now don't expect suspension unless an exception is thrown.
   // Read the value.
   Primitive::Type field_type = f->GetTypeAsPrimitiveType();
@@ -248,13 +250,15 @@ static jshort Field_getShort(JNIEnv* env, jobject javaField, jobject javaObj) {
   return GetPrimitiveField<Primitive::kPrimShort>(env, javaField, javaObj).GetS();
 }
 
-ALWAYS_INLINE inline static void SetFieldValue(ObjPtr<mirror::Object> o,
+ALWAYS_INLINE inline static void SetFieldValue(const ScopedFastNativeObjectAccess& soa,
+                                               ObjPtr<mirror::Object> o,
                                                ObjPtr<mirror::Field> f,
                                                Primitive::Type field_type,
                                                bool allow_references,
                                                const JValue& new_value)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(f->GetDeclaringClass()->IsInitialized());
+  MaybeWarnAboutFieldAccess(IsCallingClassInBootClassPath(soa.Self()), f->GetArtField());
   MemberOffset offset(f->GetOffset());
   const bool is_volatile = f->IsVolatile();
   switch (field_type) {
@@ -356,7 +360,7 @@ static void Field_set(JNIEnv* env, jobject javaField, jobject javaObj, jobject j
     DCHECK(soa.Self()->IsExceptionPending());
     return;
   }
-  SetFieldValue(o, f, field_prim_type, true, unboxed_value);
+  SetFieldValue(soa, o, f, field_prim_type, true, unboxed_value);
 }
 
 template<Primitive::Type kPrimitiveType>
@@ -392,7 +396,7 @@ static void SetPrimitiveField(JNIEnv* env,
   }
 
   // Write the value.
-  SetFieldValue(o, f, field_type, false, wide_value);
+  SetFieldValue(soa, o, f, field_type, false, wide_value);
 }
 
 static void Field_setBoolean(JNIEnv* env, jobject javaField, jobject javaObj, jboolean z) {

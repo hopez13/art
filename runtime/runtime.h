@@ -528,6 +528,22 @@ class Runtime {
     return enable_hidden_api_;
   }
 
+  void SetUsedGreylistedHiddenApi(bool value) {
+    has_used_greylisted_hidden_api_ = value;
+  }
+
+  bool HasUsedGreylistedHiddenApi() const {
+    return has_used_greylisted_hidden_api_;
+  }
+
+  void SetDeduplicateGreylistedHiddenApiWarnings(bool value) {
+    deduplicate_greylisted_hidden_api_warnings_ = value;
+  }
+
+  bool ShouldDeduplicateGreylistedHiddenApiWarnings() const {
+    return deduplicate_greylisted_hidden_api_warnings_;
+  }
+
   bool IsDexFileFallbackEnabled() const {
     return allow_dex_file_fallback_;
   }
@@ -967,6 +983,12 @@ class Runtime {
 
   // Whether using hidden API should be allowed.
   bool enable_hidden_api_;
+
+  // Whether greylisted hidden API(s) have been used.
+  bool has_used_greylisted_hidden_api_;
+
+  // Whether to clear kAccHiddenGreylist access flag after first warning is printed.
+  bool deduplicate_greylisted_hidden_api_warnings_;
 
   // Whether threads should dump their native stack on SIGQUIT.
   bool dump_native_stack_on_sig_quit_;
