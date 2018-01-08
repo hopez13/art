@@ -260,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d143f147_beb83a16",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2843,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-08T22:16:15Z",
+      "side": 1,
+      "message": "leaky?\n\nDo you want to create a typedef, or macro, in mirror/object_array.h, where others who also think the name is too long can use it?",
+      "parentUuid": "5546f571_71e97777",
+      "range": {
+        "startLine": 2843,
+        "startChar": 0,
+        "endLine": 2843,
+        "endChar": 55
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "317e8c29_aedfbb76",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
