@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95000ea9_445cad64",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-08T19:10:08Z",
+      "side": 1,
+      "message": "I think the big change here is to reverse the layout [in the bit string, and in the SubtypeCheckBitsAndStatus]. And it just so happens it also makes it 28 bits.",
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b62be31c_3fc41522",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-08T19:10:08Z",
+      "side": 1,
+      "message": "I have a hard time visualizing this. Can you please provide the code sequence for arm32/arm64 and the differing code sizes?\n\nBy using a right shift (rsb-to-lsb bitstring; current) the immediates involved are very small. With a lsb-to-rsb bitstring (proposed) either it needs to mask [should be good on arm64, but on arm32?] or right shift, and compare.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eab234d_f1cae3eb",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7177,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-08T19:10:08Z",
+      "side": 1,
+      "message": "nit: kBitsPerByte",
+      "range": {
+        "startLine": 7177,
+        "startChar": 89,
+        "endLine": 7177,
+        "endChar": 91
+      },
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4fd47c3_ca9fd0b4",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-08T19:10:08Z",
+      "side": 1,
+      "message": "nit: kBitsPerByte",
+      "range": {
+        "startLine": 7179,
+        "startChar": 95,
+        "endLine": 7179,
+        "endChar": 97
+      },
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "beb49ff7_9ed65501",
+        "filename": "runtime/base/bit_string.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-08T19:10:08Z",
+      "side": 1,
+      "message": "Documentation should be MSB on the left, can you please reverse below?\n\n  CharN ... Char2 Char1 Char0\n\netc",
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47890145_a0f8640d",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-08T19:10:08Z",
+      "side": 1,
+      "message": "Same as before, please reverse this documentation so that MSB is still on the left side.",
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83ecd86_790530d5",
+        "filename": "runtime/subtype_check_bits_and_status.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-08T19:10:08Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "483c99d8_ab9a0a33",
+        "filename": "runtime/subtype_check_bits_and_status.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-08T19:10:08Z",
+      "side": 1,
+      "message": "Is this still correct?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 100
+      },
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
