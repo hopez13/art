@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1e86d576_f78c5fa8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2778,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-08T12:49:47Z",
+      "side": 1,
+      "message": "So it\u0027s a tradeoff of cost of creating a ScopedLocalRef/Handle vs cost of resizing?",
+      "parentUuid": "0f9b6597_ebbd27ba",
+      "range": {
+        "startLine": 2775,
+        "startChar": 0,
+        "endLine": 2778,
+        "endChar": 67
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7f8fec1_8cad55f0",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -176,6 +200,30 @@
       "side": 1,
       "message": "I disagree here. ObjectArray is needlessly verbose (because we don\u0027t have the generic \"it\u0027s an Object[]), and especially the allocation calls look horrible with double repetition. Unless you\u0027re OK with something like\n\n  auto instance \u003d type::Alloc(...)",
       "parentUuid": "d0998129_1f338ee9",
+      "range": {
+        "startLine": 2843,
+        "startChar": 0,
+        "endLine": 2843,
+        "endChar": 55
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa81c6e7_e039890d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2843,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-08T12:49:47Z",
+      "side": 1,
+      "message": "I\u0027d rather we don\u0027t use auto.\n\nSo how do you prevent others that can share your opinion just creating their type and ending up with multiple type names for the same thing?",
+      "parentUuid": "2ab7bdb7_92676a81",
       "range": {
         "startLine": 2843,
         "startChar": 0,
