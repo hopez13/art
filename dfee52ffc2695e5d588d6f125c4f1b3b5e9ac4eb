@@ -22,6 +22,30 @@
       "revId": "dfee52ffc2695e5d588d6f125c4f1b3b5e9ac4eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3b0e7df_d11e38bf",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-08T10:24:52Z",
+      "side": 1,
+      "message": "No, and I think that\u0027s exactly what using ANDROID_BUILD_TOP saved us from. Maybe we can replace $$PPID with $$PWD?",
+      "parentUuid": "4e545a7f_5ccf9e2d",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 86
+      },
+      "revId": "dfee52ffc2695e5d588d6f125c4f1b3b5e9ac4eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
