@@ -59,6 +59,9 @@ void GetDalvikCache(const char* subdir, bool create_if_absent, std::string* dalv
 bool GetDalvikCacheFilename(const char* file_location, const char* cache_location,
                             std::string* filename, std::string* error_msg);
 
+// Returns the directory location of the dex file, inferred from oat_filename.
+std::string GetDexLocationFromOat(const char* oat_filename);
+
 // Returns the system location for an image
 std::string GetSystemImageFilename(const char* location, InstructionSet isa);
 

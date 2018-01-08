@@ -1030,6 +1030,10 @@ class DexFile {
     return Begin() <= addr && addr < Begin() + Size();
   }
 
+  DexFileContainer* GetContainer() const {
+    return container_.get();
+  }
+
  protected:
   // First Dex format version supporting default methods.
   static const uint32_t kDefaultMethodsVersion = 37;

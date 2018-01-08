@@ -52,14 +52,6 @@ TEST_F(OatFileTest, ResolveRelativeEncodedDexLocation) {
   EXPECT_EQ(std::string("/data/app/foo/base.apk!classes11.dex"),
       OatFile::ResolveRelativeEncodedDexLocation(
         "/data/app/foo/base.apk", "base.apk!classes11.dex"));
-
-  EXPECT_EQ(std::string("base.apk"),
-      OatFile::ResolveRelativeEncodedDexLocation(
-        "/data/app/foo/sludge.apk", "base.apk"));
-
-  EXPECT_EQ(std::string("o/base.apk"),
-      OatFile::ResolveRelativeEncodedDexLocation(
-        "/data/app/foo/base.apk", "o/base.apk"));
 }
 
 }  // namespace art
