@@ -290,6 +290,30 @@ bool GetDalvikCacheFilename(const char* location, const char* cache_location,
   return true;
 }
 
+std::string GetDexLocationFromOat(const char* oat_file) {
+  UniqueCPtr<char> oat(strdup(oat_file));
+  std::string dalvik_cache = GetDalvikCache("");
+  if (android::base::StartsWith(oat.get(), dalvik_cache.c_str())) {
+    std::string result(basename(oat.get()));
+    result = result.substr(0, result.size() - strlen(DexFileLoader::kClassesDex) - 1);
+    size_t pos = result.rfind('@');
+    result = result.substr(0, pos);
+    std::replace(result.begin(), result.end(), '@', '/');
+    return "/" + result;
+  } else {
+    std::string result(dirname(oat.get()));
+    // Find the '/' before the isa.
+    size_t pos = result.rfind('/');
+    CHECK_NE(pos, std::string::npos) << result;
+    result = result.substr(0, pos);
+    if (android::base::EndsWith(result.c_str(), "/oat")) {
+      // Remove the '/oat'.
+      result = result.substr(0, result.size() - 4);
+    }
+    return result;
+  }
+}
+
 std::string GetVdexFilename(const std::string& oat_location) {
   return ReplaceFileExtension(oat_location, "vdex");
 }
