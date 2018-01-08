@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c17fdb79_2d8a9ae1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "constexpr not feasible here: mirror::Class is not a standard layout class, so offsetof() cannot be used; OFFSETOF_MEMBER uses reinterpret_cast\u003c\u003e(), not allowed in constexpr.",
+      "parentUuid": "d227d8f0_4e3a6731",
+      "range": {
+        "startLine": 2101,
+        "startChar": 90,
+        "endLine": 2101,
+        "endChar": 91
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1c122ce_573ef9f7",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-05T19:03:41Z",
       "side": 1,
       "message": "It seems to me % 8 is easier to understand here. Also / 8 on line 2101 if you use % 8 here.",
+      "range": {
+        "startLine": 2103,
+        "startChar": 93,
+        "endLine": 2103,
+        "endChar": 97
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5607661_d1ceda55",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1c122ce_573ef9f7",
       "range": {
         "startLine": 2103,
         "startChar": 93,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "8ae52fbc_0f2471f0",
+        "filename": "runtime/base/bit_string_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "See updated commit message.",
+      "parentUuid": "6a5bd398_fe933a93",
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50766d56_246c4980",
         "filename": "runtime/base/bit_utils.h",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2018-01-05T21:53:34Z",
       "side": 1,
       "message": "Why not just fix this for arbitrary int types?",
+      "range": {
+        "startLine": 46,
+        "startChar": 14,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45edc85a_fcc93395",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "Done. I initially though it is error prone to allow smaller types but I reconsidered.",
+      "parentUuid": "50766d56_246c4980",
       "range": {
         "startLine": 46,
         "startChar": 14,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "3e40f020_e9c39dc0",
+        "filename": "runtime/subtype_check_bits.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "See updated commit message.",
+      "parentUuid": "843e1fc2_9aa81c35",
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e44a50b6_9e143db6",
         "filename": "runtime/subtype_check_bits_and_status.h",
         "patchSetId": 2
@@ -122,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "a2f9426f_053a9009",
+        "filename": "runtime/subtype_check_bits_and_status.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "See updated commit message.",
+      "parentUuid": "e44a50b6_9e143db6",
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "816bf7ed_29cd7434",
         "filename": "runtime/subtype_check_info_test.cc",
         "patchSetId": 2
@@ -133,6 +259,30 @@
       "writtenOn": "2018-01-05T19:03:41Z",
       "side": 1,
       "message": "Looks like some missing update from a previous CL. Can you rename it also?",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 21
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d9528ab_16fc3be8",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "816bf7ed_29cd7434",
       "range": {
         "startLine": 261,
         "startChar": 19,
@@ -168,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "0a3a5376_4e9c6cd0",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40953a7e_2a0d87f9",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 89
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0c078df_bb49e2da",
         "filename": "runtime/subtype_check_info_test.cc",
         "patchSetId": 2
@@ -191,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "ef51cea3_82ab8d17",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "e0c078df_bb49e2da",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 269,
+        "endChar": 89
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10a0c886_23aec49c",
         "filename": "runtime/subtype_check_info_test.cc",
         "patchSetId": 2
@@ -202,6 +400,30 @@
       "writtenOn": "2018-01-05T19:03:41Z",
       "side": 1,
       "message": "get rid of?",
+      "range": {
+        "startLine": 284,
+        "startChar": 13,
+        "endLine": 284,
+        "endChar": 17
+      },
+      "revId": "0c6b1b4e6db816f05a1b37b0027b78d124690b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f43ae5a_ca66366b",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-08T13:20:52Z",
+      "side": 1,
+      "message": "Why? It fits nicely with the other two lines.",
+      "parentUuid": "10a0c886_23aec49c",
       "range": {
         "startLine": 284,
         "startChar": 13,
