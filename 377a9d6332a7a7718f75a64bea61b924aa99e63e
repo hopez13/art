@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7d9380a_306b9d01",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-01-08T20:43:56Z",
+      "side": 1,
+      "message": "Renamed the flag and added a comment.",
+      "parentUuid": "79d8bf0d_ba764ed3",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 20
+      },
+      "revId": "377a9d6332a7a7718f75a64bea61b924aa99e63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74f49623_fb6ce583",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 21
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-02T13:29:56Z",
       "side": 1,
       "message": "Did you add a regression test for this?",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 18
+      },
+      "revId": "377a9d6332a7a7718f75a64bea61b924aa99e63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd3c2c1_71c6aa83",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-01-08T20:43:56Z",
+      "side": 1,
+      "message": "As described in the comment this flag (and phi_input_count) are only used for DCHECK and validation purposes; I thought it was ok to put it here instead of having another phi traversal under \u0027if (kDebugBuild) {\u0027. Thus a regression test couldn\u0027t exist.",
+      "parentUuid": "74f49623_fb6ce583",
       "range": {
         "startLine": 168,
         "startChar": 0,

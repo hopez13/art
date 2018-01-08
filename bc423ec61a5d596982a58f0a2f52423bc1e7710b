@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "2ec21692_5dc9d11d",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-01-08T20:43:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "302c70e3_30e03602",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 3
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59ef8300_8ddea507",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -673,6 +697,30 @@
     },
     {
       "key": {
+        "uuid": "e8245c9a_39ac05d3",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-01-08T20:43:56Z",
+      "side": 1,
+      "message": "it is kind of the same thing: when the block have a single predecessor it shouldn\u0027t have any phis; after my transformation it could happen that there is such block with a phi with a single input. As this is needed to be processed I\u0027ve also simplified phis with multiple same inputs.",
+      "parentUuid": "e6b1ad84_926a9132",
+      "range": {
+        "startLine": 613,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 50
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69fcd38f_a7e25568",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -921,6 +969,30 @@
       "side": 1,
       "message": "What\u0027s your recommended way of somehow knowing if a type is small?",
       "parentUuid": "82bf5cf7_ef570610",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4483100_b0ff35db",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-01-08T20:43:56Z",
+      "side": 1,
+      "message": "I think that one can basically use \"C++ Core Guidelines\" doc for this:\n\nhttps://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rf-in",
+      "parentUuid": "2d8df0c1_1317dee5",
       "range": {
         "startLine": 65,
         "startChar": 24,
