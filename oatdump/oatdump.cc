@@ -2040,13 +2040,19 @@ class ImageDumper {
       oat_file = runtime->GetOatFileManager().FindOpenedOatFileFromOatLocation(oat_location);
     }
     if (oat_file == nullptr) {
+      UniqueCPtr<char> absolute_path(realpath(oat_location.c_str(), nullptr)); 
+      if (absolute_path.get() == nullptr) {
+        LOG(ERROR) << "Failed to find oat file " << oat_location;
+        return EXIT_FAILURE;
+      }
+      std::string dex_location = GetDexLocationFromOat(absolute_path.get());
       oat_file = OatFile::Open(oat_location,
                                oat_location,
                                nullptr,
                                nullptr,
                                false,
                                /*low_4gb*/false,
-                               nullptr,
+                               dex_location.c_str(),
                                &error_msg);
     }
     if (oat_file == nullptr) {
@@ -2926,13 +2932,19 @@ static int DumpImages(Runtime* runtime, OatDumperOptions* options, std::ostream*
     // We need to map the oat file in the low 4gb or else the fixup wont be able to fit oat file
     // pointers into 32 bit pointer sized ArtMethods.
     std::string error_msg;
+    UniqueCPtr<char> absolute_path(realpath(options->app_oat_, nullptr)); 
+    if (absolute_path.get() == nullptr) {
+      LOG(ERROR) << "Failed to find oat file " << options->app_oat_;
+      return EXIT_FAILURE;
+    }
+    std::string dex_location = GetDexLocationFromOat(absolute_path.get());
     std::unique_ptr<OatFile> oat_file(OatFile::Open(options->app_oat_,
                                                     options->app_oat_,
                                                     nullptr,
                                                     nullptr,
                                                     false,
                                                     /*low_4gb*/true,
-                                                    nullptr,
+                                                    dex_location.c_str(),
                                                     &error_msg));
     if (oat_file == nullptr) {
       LOG(ERROR) << "Failed to open oat file " << options->app_oat_ << " with error " << error_msg;
@@ -3038,13 +3050,19 @@ static int DumpOatWithoutRuntime(OatFile* oat_file, OatDumperOptions* options, s
 static int DumpOat(Runtime* runtime, const char* oat_filename, OatDumperOptions* options,
                    std::ostream* os) {
   std::string error_msg;
+  UniqueCPtr<char> absolute_path(realpath(oat_filename, nullptr)); 
+  if (absolute_path.get() == nullptr) {
+    LOG(ERROR) << "Failed to find oat file " << oat_filename;
+    return EXIT_FAILURE;
+  }
+  std::string dex_location = GetDexLocationFromOat(absolute_path.get());
   std::unique_ptr<OatFile> oat_file(OatFile::Open(oat_filename,
                                                   oat_filename,
                                                   nullptr,
                                                   nullptr,
                                                   false,
                                                   /*low_4gb*/false,
-                                                  nullptr,
+                                                  dex_location.c_str(),
                                                   &error_msg));
   if (oat_file == nullptr) {
     fprintf(stderr, "Failed to open oat file from '%s': %s\n", oat_filename, error_msg.c_str());
@@ -3060,13 +3078,19 @@ static int DumpOat(Runtime* runtime, const char* oat_filename, OatDumperOptions*
 
 static int SymbolizeOat(const char* oat_filename, std::string& output_name, bool no_bits) {
   std::string error_msg;
+  UniqueCPtr<char> absolute_path(realpath(oat_filename, nullptr)); 
+  if (absolute_path.get() == nullptr) {
+    LOG(ERROR) << "Failed to find oat file " << oat_filename;
+    return EXIT_FAILURE;
+  }
+  std::string dex_location = GetDexLocationFromOat(absolute_path.get());
   std::unique_ptr<OatFile> oat_file(OatFile::Open(oat_filename,
                                                   oat_filename,
                                                   nullptr,
                                                   nullptr,
                                                   false,
                                                   /*low_4gb*/false,
-                                                  nullptr,
+                                                  dex_location.c_str(),
                                                   &error_msg));
   if (oat_file == nullptr) {
     fprintf(stderr, "Failed to open oat file from '%s': %s\n", oat_filename, error_msg.c_str());
@@ -3106,13 +3130,19 @@ class IMTDumper {
 
     if (oat_filename != nullptr) {
       std::string error_msg;
+      UniqueCPtr<char> absolute_path(realpath(oat_filename, nullptr)); 
+      if (absolute_path.get() == nullptr) {
+        LOG(ERROR) << "Failed to find oat file " << oat_filename;
+        return EXIT_FAILURE;
+      }
+      std::string dex_location = GetDexLocationFromOat(absolute_path.get());
       std::unique_ptr<OatFile> oat_file(OatFile::Open(oat_filename,
                                                       oat_filename,
                                                       nullptr,
                                                       nullptr,
                                                       false,
                                                       /*low_4gb*/false,
-                                                      nullptr,
+                                                      dex_location.c_str(),
                                                       &error_msg));
       if (oat_file == nullptr) {
         fprintf(stderr, "Failed to open oat file from '%s': %s\n", oat_filename, error_msg.c_str());

@@ -128,6 +128,8 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
     if (expect_success) {
       ASSERT_TRUE(success) << error_msg << std::endl << output_;
 
+      fprintf(stderr, "LOCATIONS %s and %s\n", odex_location.c_str(),
+                                                       dex_location.c_str());
       // Verify the odex file was generated as expected.
       std::unique_ptr<OatFile> odex_file(OatFile::Open(odex_location.c_str(),
                                                        odex_location.c_str(),
@@ -1514,6 +1516,21 @@ TEST_F(Dex2oatDedupeCode, DedupeTest) {
                       });
 
   EXPECT_LT(dedupe_size, no_dedupe_size);
+}
+
+TEST_F(Dex2oatTest, UncompressedTest) {
+  std::unique_ptr<const DexFile> dex(OpenTestDexFile("MainUncompressed"));
+  std::string out_dir = GetScratchDir();
+  const std::string base_oat_name = out_dir + "/base.oat";
+  GenerateOdexForTest(dex->GetLocation(),
+                      base_oat_name,
+                      CompilerFilter::Filter::kQuicken,
+                      { },
+                      true,  // expect_success
+                      false,  // use_fd
+                      [](const OatFile& o) {
+                        CHECK(!o.ContainsDexCode());
+                      });
 }
 
 }  // namespace art

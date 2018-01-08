@@ -26,7 +26,7 @@ else
 # Use a BSD checksum calculated from PPID and USER as one of the path
 # components for the test output. This should allow us to run tests from
 # multiple repositories at the same time.
-ART_HOST_TEST_DIR := /tmp/test-art-$(shell echo $$PPID-${USER} | sum | cut -d ' ' -f1)
+ART_HOST_TEST_DIR := /tmp/test-art-$(shell echo ${PWD}-${USER} | sum | cut -d ' ' -f1)
 endif
 
 # List of known broken tests that we won't attempt to execute. The test name must be the full

@@ -452,4 +452,34 @@ TEST_F(UtilsTest, GetAndroidRootSafe) {
   ASSERT_EQ(0, setenv("ANDROID_ROOT", android_root_env.c_str(), 1 /* overwrite */));
 }
 
+TEST_F(UtilsTest, GetDexLocationFromOat) {
+  std::string name;
+  std::string error_msg;
+
+  name = GetDexLocationFromOat("/system/app/Foo/oat/arm64/Foo.odex");
+  EXPECT_EQ("/system/app/Foo", name);
+
+  name = GetDexLocationFromOat("/data/app/foo/oat/arm64/base.odex");
+  EXPECT_EQ("/data/app/foo", name);
+
+  name = GetDexLocationFromOat("/system/framework/arm64/boot.oat");
+  EXPECT_EQ("/system/framework", name);
+
+  name = GetDexLocationFromOat("/system/framework/oat/arm64/foo.odex");
+  EXPECT_EQ("/system/framework", name);
+  
+  std::string oat = GetDalvikCache("") + "/arm64/system@app@Foo@foo.apk@classes.dex";
+  name = GetDexLocationFromOat(oat.c_str());
+  EXPECT_EQ("/system/app/Foo", name);
+
+  std::string computed_oat;
+  std::string cache = GetDalvikCache("") + "/arm64";
+  EXPECT_TRUE(GetDalvikCacheFilename(
+      "/system/app/Foo/foo.apk", cache.c_str(), &computed_oat, &error_msg));
+  EXPECT_EQ(oat, computed_oat);
+
+  name = GetDexLocationFromOat(computed_oat.c_str());
+  EXPECT_EQ("/system/app/Foo", name);
+}
+
 }  // namespace art
