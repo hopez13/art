@@ -132,6 +132,30 @@
     },
     {
       "key": {
+        "uuid": "19be6ad2_ad07bedb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-09T17:51:21Z",
+      "side": 1,
+      "message": "I\u0027m not sure how you will use LSRS here.\n\nThe class status is now in the top bits (so it needs either LSL+LSR or UBFX or similar. That\u0027s 4 bytes either way, there is no 2 byte masking instruction in ARM32 as far as I know.\n\nAs for CMP vs SUBS, using SUBS is already in Mingyao\u0027s CL.",
+      "parentUuid": "2fea548e_eb1569c7",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9eab234d_f1cae3eb",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 5
