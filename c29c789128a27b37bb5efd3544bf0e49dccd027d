@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "0228bcc4_b737df12",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-09T14:22:12Z",
+      "side": 1,
+      "message": "Hmm, maybe that\u0027s already taken care of, as the `young_gen_` case above (lines 1603–1605) is only for large objects…",
+      "parentUuid": "ac551aa3_4bd62d39",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 31
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b39ad1d_4f3ed220",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 10
@@ -106,6 +130,30 @@
       "writtenOn": "2018-01-05T16:27:37Z",
       "side": 1,
       "message": "If I understand correctly, all the code in the block between lines 322 and 355 performs two actions on a chunk of contiguous unevac from-space regions where all allocated bytes are live:\n- 1. Clear the bits in the (live) bitmap corresponding to these regions (lines 347–350).\n- 2. Calculate/extend a range of regions to skip later in the outermost loop (lines 289–446), as their content should not be cleared, because it\u0027s live (line 354).\n\nI understand why we do #2. But I\u0027m not sure why we can do #1, and what for:\n- Why we can do it: is this because we don\u0027t care about the live/mark bitmap at this point, and we can/we want to clear it?\n- What are we doing it for: is this because this can lead to the release of some pages used by the region space bitmap? In other words, is this an early reclaim of some of the memory used by the region space bitmap?\n\nNote that #1 is disabled in this CL (at least in patch sets 1–10), because (IIUC) the live/mark bit information is needed later, in case of a young generation collection, right?",
+      "range": {
+        "startLine": 322,
+        "startChar": 10,
+        "endLine": 322,
+        "endChar": 39
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b71dacd1_10f80968",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-09T14:22:12Z",
+      "side": 1,
+      "message": "I think I now understand what this optimization is about: when we know that all allocated bytes in a region are live, we don\u0027t really need to set the corresponding live bits in the region space bitmap, as the \"liveness\" information about a region\u0027s objects can be reconstructed without the bitmap (using `Region::Begin()`, `Region::Top()`, and `RegionSpace::GetNextObject()`).\n\nThis logic is used when visiting the region space, in `RegionSpace::WalkInternal`, where the bitmap is only needed if there are potential \"gaps\" in a visited region.\n\nThis makes the region space bitmap\u0027s behavior tightly linked to the region space, as the former cannot be used without information from the latter (at least before this Generational CC CL, where we actually keep the \"superfluous\" bits for a young generation collection). I\u0027ll update the documentation to make this easier to find.",
+      "parentUuid": "d871da7f_60708209",
       "range": {
         "startLine": 322,
         "startChar": 10,
