@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1751272c_d2867474",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2801,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-01-09T01:35:46Z",
+      "side": 1,
+      "message": "A type declaration for this rather than just uint32_t, please.  E.g.,\n\nusing QuickeningTableOffset \u003d uint32_t;",
+      "range": {
+        "startLine": 2801,
+        "startChar": 67,
+        "endLine": 2801,
+        "endChar": 83
+      },
+      "revId": "a5d3f13066c42664f85fc17b8dcf4304b0e6a883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5745d62_3f4c267f",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3401,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-01-09T01:35:46Z",
+      "side": 1,
+      "message": "same type as above for these.",
+      "range": {
+        "startLine": 3401,
+        "startChar": 37,
+        "endLine": 3401,
+        "endChar": 45
+      },
+      "revId": "a5d3f13066c42664f85fc17b8dcf4304b0e6a883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48239d0c_b0076203",
+        "filename": "runtime/quicken_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-01-09T01:35:46Z",
+      "side": 1,
+      "message": "spelling?",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "a5d3f13066c42664f85fc17b8dcf4304b0e6a883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb91f7ff_9d97a653",
+        "filename": "runtime/quicken_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-01-09T01:35:46Z",
+      "side": 1,
+      "message": "is how many elements to traverse to reach the desired index\n\n(or some such).",
+      "range": {
+        "startLine": 65,
+        "startChar": 39,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "a5d3f13066c42664f85fc17b8dcf4304b0e6a883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93311cd3_84c7a7f6",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-01-09T01:35:46Z",
+      "side": 1,
+      "message": "I would prefer a constexpr function just for documentation purposes. \n\nstatic constexpr uint32_t GetDexFileQuickeningInfoTableOffset(DexFile*)\n\nor something similar.",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 189,
+        "endChar": 82
+      },
+      "revId": "a5d3f13066c42664f85fc17b8dcf4304b0e6a883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
