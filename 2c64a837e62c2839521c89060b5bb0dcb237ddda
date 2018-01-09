@@ -22,6 +22,30 @@
       "revId": "2c64a837e62c2839521c89060b5bb0dcb237ddda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "619f1ba8_c941355b",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T11:41:19Z",
+      "side": 0,
+      "message": "This is just a repeat of the comment above. And it was also misplaced as it applies to the EXPECT_EQ() above which was also a repeated check that I removed.",
+      "parentUuid": "6fd7dc2d_265a5693",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 89
+      },
+      "revId": "2c64a837e62c2839521c89060b5bb0dcb237ddda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
