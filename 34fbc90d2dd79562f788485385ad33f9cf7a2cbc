@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c4ab02d_8653e13d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T10:26:50Z",
+      "side": 1,
+      "message": "Please clarify the deduping situation in the commit message. It looked to me you do not dedupe, which makes savings unintuitive.\n\nAlso, what impact for other filters? IIUC, speed will now have an increase?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00ca1b29_35831e6b",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2622,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T10:26:50Z",
+      "side": 1,
+      "message": "I don\u0027t see much value in creating those types?",
+      "range": {
+        "startLine": 2621,
+        "startChar": 0,
+        "endLine": 2622,
+        "endChar": 86
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d58a7a9_8c146531",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T10:26:50Z",
+      "side": 1,
+      "message": "What is this for?",
+      "range": {
+        "startLine": 2632,
+        "startChar": 0,
+        "endLine": 2635,
+        "endChar": 4
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff34e021_2724c6be",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2644,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T10:26:50Z",
+      "side": 1,
+      "message": "if",
+      "range": {
+        "startLine": 2644,
+        "startChar": 41,
+        "endLine": 2644,
+        "endChar": 43
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c501e0b_e7a8f468",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2651,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T10:26:50Z",
+      "side": 1,
+      "message": "of what?",
+      "range": {
+        "startLine": 2651,
+        "startChar": 41,
+        "endLine": 2651,
+        "endChar": 54
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c5bf68e_790668cc",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2723,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T10:26:50Z",
+      "side": 1,
+      "message": "So each method gets an offset and there is no deduplication?",
+      "range": {
+        "startLine": 2722,
+        "startChar": 0,
+        "endLine": 2723,
+        "endChar": 57
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b97bf0_d9a749d8",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T10:26:50Z",
+      "side": 1,
+      "message": "So a speed compiler filter will encode quickening info, even if no method is quickened? Seems like a waste of space.",
+      "range": {
+        "startLine": 662,
+        "startChar": 7,
+        "endLine": 662,
+        "endChar": 31
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
