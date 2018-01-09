@@ -16,6 +16,29 @@
       "revId": "d8314079bfa2964caca70b1cb20d1e15f7f1e452",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cc8bed5_b6fc8ba6",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2935,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-09T16:17:52Z",
+      "side": 1,
+      "message": "Consider libbase helpers that just give you a std::string.",
+      "range": {
+        "startLine": 2935,
+        "startChar": 4,
+        "endLine": 2935,
+        "endChar": 73
+      },
+      "revId": "d8314079bfa2964caca70b1cb20d1e15f7f1e452",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
