@@ -22,6 +22,30 @@
       "revId": "f0a6a1d0536958ebb5bcaef02a0f0cda929b457b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7412589d_fe361675",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5652,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T11:25:47Z",
+      "side": 1,
+      "message": "I\u0027ll stick with the rule that the operator should be at the end of the line. We\u0027re somewhat inconsistent in whether the second line should have a 4-space indent or align the function names but I\u0027ve recently felt the pressure to align related expressions (for example, in `for` and `if` statements).",
+      "parentUuid": "2d1c1047_1763231e",
+      "range": {
+        "startLine": 5651,
+        "startChar": 0,
+        "endLine": 5652,
+        "endChar": 99
+      },
+      "revId": "f0a6a1d0536958ebb5bcaef02a0f0cda929b457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
