@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d8695a3_5d4f8127",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c4ab02d_8653e13d",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00ca1b29_35831e6b",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-09T10:26:50Z",
       "side": 1,
       "message": "I don\u0027t see much value in creating those types?",
+      "range": {
+        "startLine": 2621,
+        "startChar": 0,
+        "endLine": 2622,
+        "endChar": 86
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "762e54e6_af6b2561",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2622,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00ca1b29_35831e6b",
       "range": {
         "startLine": 2621,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "05f62541_50b616b3",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Methods that don\u0027t have a CodeItem get a 1 byte empty quicken info.",
+      "parentUuid": "2d58a7a9_8c146531",
+      "range": {
+        "startLine": 2632,
+        "startChar": 0,
+        "endLine": 2635,
+        "endChar": 4
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff34e021_2724c6be",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-09T10:26:50Z",
       "side": 1,
       "message": "if",
+      "range": {
+        "startLine": 2644,
+        "startChar": 41,
+        "endLine": 2644,
+        "endChar": 43
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b40a51e2_917a49c9",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2644,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff34e021_2724c6be",
       "range": {
         "startLine": 2644,
         "startChar": 41,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9fdccd43_4e4c6356",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2651,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c501e0b_e7a8f468",
+      "range": {
+        "startLine": 2651,
+        "startChar": 41,
+        "endLine": 2651,
+        "endChar": 54
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6388d829_87985d15",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2018-01-09T14:38:44Z",
       "side": 1,
       "message": "This would be a failure in the implementation of SafeMap\u003c\u003e::FindOrAdd(), so either drop the CHECK() or change it to DCHECK() and drop the unnecessary extra output.",
+      "range": {
+        "startLine": 2704,
+        "startChar": 0,
+        "endLine": 2705,
+        "endChar": 82
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "557be122_d39039a9",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2705,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Will change it to find, I didn\u0027t want to use the normal SafeMap::Find since it would make a copy of the array.",
+      "parentUuid": "6388d829_87985d15",
       "range": {
         "startLine": 2704,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "01fc00c6_f2046c1f",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2723,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Yes, I don\u0027t think he deduplication buys us much in this case anyways.",
+      "parentUuid": "6c5bf68e_790668cc",
+      "range": {
+        "startLine": 2722,
+        "startChar": 0,
+        "endLine": 2723,
+        "endChar": 57
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b97bf0_d9a749d8",
         "filename": "dex2oat/linker/oat_writer_test.cc",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2018-01-09T10:26:50Z",
       "side": 1,
       "message": "So a speed compiler filter will encode quickening info, even if no method is quickened? Seems like a waste of space.",
+      "range": {
+        "startLine": 662,
+        "startChar": 7,
+        "endLine": 662,
+        "endChar": 31
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5e4270c_7b42a971",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Its only 1 byte per method in that case.",
+      "parentUuid": "b7b97bf0_d9a749d8",
       "range": {
         "startLine": 662,
         "startChar": 7,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "4642c84f_4123b483",
+        "filename": "runtime/quicken_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Easier to do it this way, the lookup just uses the raw pointer to index. Do you prefer splitting into bytes?",
+      "parentUuid": "028583b5_1f69a909",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 70
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59f781f8_09bf8ceb",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 7
@@ -220,6 +436,30 @@
       "writtenOn": "2018-01-09T14:38:44Z",
       "side": 1,
       "message": "We should DCHECK() that this is inside the vdex file, so we need to pass the vdex file as an argument.",
+      "range": {
+        "startLine": 186,
+        "startChar": 70,
+        "endLine": 186,
+        "endChar": 86
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a453dd34_c8d909d2",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59f781f8_09bf8ceb",
       "range": {
         "startLine": 186,
         "startChar": 70,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "393216d5_d7c11b0a",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13353654_4180c780",
+      "range": {
+        "startLine": 192,
+        "startChar": 15,
+        "endLine": 192,
+        "endChar": 16
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3e85d0a_5521571b",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 7
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "df5b7dfa_f2048d50",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3e85d0a_5521571b",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 70
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "866272c8_15a9621a",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 7
@@ -289,6 +577,30 @@
       "writtenOn": "2018-01-09T14:38:44Z",
       "side": 1,
       "message": "I find this very wrong. All empty ArrayRef\u003c\u003es should be treated the same. We should never check if ref.data()\u003d\u003dnullptr, the correct check is whether ref.empty(). Once you start passing something around as ArrayRef\u003c\u003e, keep it wrapped as long as possible.",
+      "range": {
+        "startLine": 173,
+        "startChar": 60,
+        "endLine": 173,
+        "endChar": 64
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "264901fe_0e41d759",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-09T21:55:09Z",
+      "side": 1,
+      "message": "Good point, the problem was the ArtMethod API that returns a raw non array ref pointer. I changed all this stuff to use an ArrayRef.",
+      "parentUuid": "866272c8_15a9621a",
       "range": {
         "startLine": 173,
         "startChar": 60,
