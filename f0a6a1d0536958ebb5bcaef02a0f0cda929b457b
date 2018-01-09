@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d1c1047_1763231e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5652,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-09T11:12:18Z",
+      "side": 1,
+      "message": "Nit:\n\n    return CanEncode32BitConstantAsImmediate(codegen_, High32Bits(value), high_opcode)\n        \u0026\u0026 CanEncode32BitConstantAsImmediate(codegen_, Low32Bits(value), opcode, low_flags_update);\n\n? (To satisfy the 4-space indentation requirement.)",
+      "range": {
+        "startLine": 5651,
+        "startChar": 0,
+        "endLine": 5652,
+        "endChar": 99
+      },
+      "revId": "f0a6a1d0536958ebb5bcaef02a0f0cda929b457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
