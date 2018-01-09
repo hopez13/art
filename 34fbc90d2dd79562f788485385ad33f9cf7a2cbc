@@ -117,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "6388d829_87985d15",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2705,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T14:38:44Z",
+      "side": 1,
+      "message": "This would be a failure in the implementation of SafeMap\u003c\u003e::FindOrAdd(), so either drop the CHECK() or change it to DCHECK() and drop the unnecessary extra output.",
+      "range": {
+        "startLine": 2704,
+        "startChar": 0,
+        "endLine": 2705,
+        "endChar": 82
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c5bf68e_790668cc",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 7
@@ -156,6 +179,121 @@
         "startChar": 7,
         "endLine": 662,
         "endChar": 31
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "028583b5_1f69a909",
+        "filename": "runtime/quicken_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T14:38:44Z",
+      "side": 1,
+      "message": "Why not explicitly splitting into bytes as in QuickenInfoTable::Builder::AddIndex()?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 70
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59f781f8_09bf8ceb",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T14:38:44Z",
+      "side": 1,
+      "message": "We should DCHECK() that this is inside the vdex file, so we need to pass the vdex file as an argument.",
+      "range": {
+        "startLine": 186,
+        "startChar": 70,
+        "endLine": 186,
+        "endChar": 86
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13353654_4180c780",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T14:38:44Z",
+      "side": 1,
+      "message": "is in",
+      "range": {
+        "startLine": 192,
+        "startChar": 15,
+        "endLine": 192,
+        "endChar": 16
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3e85d0a_5521571b",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T14:38:44Z",
+      "side": 1,
+      "message": "Change vdex version.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 70
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "866272c8_15a9621a",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T14:38:44Z",
+      "side": 1,
+      "message": "I find this very wrong. All empty ArrayRef\u003c\u003es should be treated the same. We should never check if ref.data()\u003d\u003dnullptr, the correct check is whether ref.empty(). Once you start passing something around as ArrayRef\u003c\u003e, keep it wrapped as long as possible.",
+      "range": {
+        "startLine": 173,
+        "startChar": 60,
+        "endLine": 173,
+        "endChar": 64
       },
       "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
