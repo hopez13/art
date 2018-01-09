@@ -721,6 +721,30 @@
     },
     {
       "key": {
+        "uuid": "8e24f881_10bb0ac6",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T09:51:59Z",
+      "side": 1,
+      "message": "Ah, so it\u0027s the single predecessor bit that helps me understand better. Yes, superblokc_cloner should not leave this behind and you\u0027re right it should clean this up. Can you please add a comment?",
+      "parentUuid": "e8245c9a_39ac05d3",
+      "range": {
+        "startLine": 613,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 50
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69fcd38f_a7e25568",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -993,6 +1017,30 @@
       "side": 1,
       "message": "I think that one can basically use \"C++ Core Guidelines\" doc for this:\n\nhttps://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rf-in",
       "parentUuid": "2d8df0c1_1317dee5",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb2ba8c3_bce25bc6",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-09T09:51:59Z",
+      "side": 1,
+      "message": "I was more asking in terms of naming conventions (so as to avoid the overhead of looking at the declaration, figuring out its size, etc), which this does unfortunately doesn\u0027t cover.",
+      "parentUuid": "f4483100_b0ff35db",
       "range": {
         "startLine": 65,
         "startChar": 24,
