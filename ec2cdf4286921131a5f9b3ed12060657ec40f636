@@ -70,6 +70,30 @@
       "revId": "ec2cdf4286921131a5f9b3ed12060657ec40f636",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c490f21_45cbf8e7",
+        "filename": "dex2oat/linker/elf_writer_quick.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T11:07:15Z",
+      "side": 1,
+      "message": "Once you get https://android-review.googlesource.com/581324 in, we really need to update the logic to mmap the dex files from the apk instead of the vdex.",
+      "parentUuid": "4ce69975_32ae20c5",
+      "range": {
+        "startLine": 103,
+        "startChar": 36,
+        "endLine": 103,
+        "endChar": 52
+      },
+      "revId": "ec2cdf4286921131a5f9b3ed12060657ec40f636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
