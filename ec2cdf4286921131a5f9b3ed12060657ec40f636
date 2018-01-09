@@ -118,6 +118,30 @@
       "revId": "ec2cdf4286921131a5f9b3ed12060657ec40f636",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ef98428_1eb56853",
+        "filename": "dex2oat/linker/elf_writer_quick.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T11:20:10Z",
+      "side": 1,
+      "message": "The purpose of this CL is to have dex files mmapped into the oat file address range for debugging purposes. Once we avoid copying uncompressed dex files into vdex, there\u0027s no point to mmapping the vdex and we shall need to mmap those uncompressed dex files from the apk instead.",
+      "parentUuid": "0bef71b1_ab3bffa3",
+      "range": {
+        "startLine": 103,
+        "startChar": 36,
+        "endLine": 103,
+        "endChar": 52
+      },
+      "revId": "ec2cdf4286921131a5f9b3ed12060657ec40f636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
