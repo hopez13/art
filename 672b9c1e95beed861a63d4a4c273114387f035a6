@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62a4d0c9_5cf304d0",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-09T00:02:57Z",
+      "side": 1,
+      "message": "Is this breakage addresses somewhere?\n\nart/disassembler/disassembler_arm.cc:66:40: error: no member named \u0027GetImmediate\u0027 in \u0027vixl::aarch32::Disassembler::PrintLabel\u0027 \nconst int32_t offset \u003d label.GetImmediate(); \n~~~~~ ^",
+      "revId": "672b9c1e95beed861a63d4a4c273114387f035a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
