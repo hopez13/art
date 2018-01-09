@@ -745,6 +745,30 @@
     },
     {
       "key": {
+        "uuid": "a5ba634a_444fdffa",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-01-09T13:20:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e24f881_10bb0ac6",
+      "range": {
+        "startLine": 613,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 50
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69fcd38f_a7e25568",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 19
@@ -1041,6 +1065,30 @@
       "side": 1,
       "message": "I was more asking in terms of naming conventions (so as to avoid the overhead of looking at the declaration, figuring out its size, etc), which this does unfortunately doesn\u0027t cover.",
       "parentUuid": "f4483100_b0ff35db",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bc423ec61a5d596982a58f0a2f52423bc1e7710b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61a084e8_da51ecb1",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-01-09T13:20:38Z",
+      "side": 1,
+      "message": "Added a comment to the declaration.",
+      "parentUuid": "eb2ba8c3_bce25bc6",
       "range": {
         "startLine": 65,
         "startChar": 24,
