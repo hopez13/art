@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "864940c8_4539eef5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2749,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-09T02:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1699e1c0_9a502eb9",
+      "range": {
+        "startLine": 2747,
+        "startChar": 0,
+        "endLine": 2749,
+        "endChar": 3
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27403332_ffb118fb",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "4451761c_29a1c360",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2778,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-09T02:50:02Z",
+      "side": 1,
+      "message": "I think so. The IRT for local references is a rather large table.",
+      "parentUuid": "1e86d576_f78c5fa8",
+      "range": {
+        "startLine": 2775,
+        "startChar": 0,
+        "endLine": 2778,
+        "endChar": 67
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7f8fec1_8cad55f0",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -107,6 +155,30 @@
       "writtenOn": "2018-01-05T10:02:32Z",
       "side": 1,
       "message": "nit: add /* */",
+      "range": {
+        "startLine": 2784,
+        "startChar": 88,
+        "endLine": 2784,
+        "endChar": 93
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07079bb_23ffcfbe",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2784,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-09T02:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7f8fec1_8cad55f0",
       "range": {
         "startLine": 2784,
         "startChar": 88,
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "fba1ab26_f5073ddf",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2827,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-09T02:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de355199_62cc190b",
+      "range": {
+        "startLine": 2827,
+        "startChar": 0,
+        "endLine": 2827,
+        "endChar": 60
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9af56188_647d0ae7",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -153,6 +249,30 @@
       "writtenOn": "2018-01-05T10:02:32Z",
       "side": 1,
       "message": "Please add a comment.",
+      "range": {
+        "startLine": 2834,
+        "startChar": 0,
+        "endLine": 2836,
+        "endChar": 3
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9712567_0359f6b3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2836,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-09T02:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9af56188_647d0ae7",
       "range": {
         "startLine": 2834,
         "startChar": 0,
@@ -295,6 +415,30 @@
       "writtenOn": "2018-01-05T10:02:32Z",
       "side": 1,
       "message": "Please add a comment.",
+      "range": {
+        "startLine": 2856,
+        "startChar": 0,
+        "endLine": 2858,
+        "endChar": 3
+      },
+      "revId": "f066aef4aabfbc0ebbba936e57fc252ee2a8fb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d98b6d2b_5cb7cd93",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2858,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-09T02:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "317e8c29_aedfbb76",
       "range": {
         "startLine": 2856,
         "startChar": 0,
