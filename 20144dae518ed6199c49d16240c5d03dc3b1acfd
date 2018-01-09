@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "2fea548e_eb1569c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-09T17:39:21Z",
+      "side": 1,
+      "message": "We may want to use UBFX on ARM if we share it for multiple chained instanceof instructions but, if we ever implement that optimization, the additional 2 bytes of code size should be small, compared to the entire sequence (at least 2 instanceof).",
+      "parentUuid": "308117e2_ee49fd3e",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9eab234d_f1cae3eb",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 5
