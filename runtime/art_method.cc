@@ -319,6 +319,17 @@ void ArtMethod::Invoke(Thread* self, uint32_t* args, uint32_t args_size, JValue*
     self->AssertThreadSuspensionIsAllowable();
     CHECK_EQ(kRunnable, self->GetState());
     CHECK_STREQ(GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetShorty(), shorty);
+
+    if (!IsNative() && !IsObsolete() && !IsProxyMethod() && IsInvokable() &&
+        ClassLinker::ShouldUseInterpreterEntrypoint(this, GetEntryPointFromQuickCompiledCode())) {
+      ClassLinker* cl = Runtime::Current()->GetClassLinker();
+      const void* ep = GetEntryPointFromQuickCompiledCode();
+      DCHECK(cl->IsQuickToInterpreterBridge(ep) ||
+             cl->IsQuickResolutionStub(ep) ||
+             ep == GetQuickInstrumentationEntryPoint()) << PrettyMethod() << " is expected to be"
+          << " interpreted but has an unexpected entrypoint. The entrypoint is " << ep
+          << " (incorrect) oat entrypoint would be " << cl->GetQuickOatCodeFor(this);
+    }
   }
 
   // Push a transition back into managed code onto the linked list in thread.
