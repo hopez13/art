@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad453c1a_ed96fd81",
+        "filename": "runtime/dex/dex_instruction.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d46f615_2eb39194",
+      "range": {
+        "startLine": 563,
+        "startChar": 42,
+        "endLine": 563,
+        "endChar": 45
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cec71cb0_37a37124",
         "filename": "runtime/dex/dex_instruction.h",
         "patchSetId": 13
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "d48500fc_ba81c676",
+        "filename": "runtime/dex/dex_instruction.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cec71cb0_37a37124",
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24acd887_6fca620d",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 13
@@ -53,6 +95,30 @@
       "writtenOn": "2018-01-10T15:08:50Z",
       "side": 1,
       "message": "How about a macro?\n\nDO_VAR_HANDLE(method_name, access_mode)",
+      "range": {
+        "startLine": 827,
+        "startChar": 0,
+        "endLine": 1104,
+        "endChar": 1
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0729ae78_349a70ea",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24acd887_6fca620d",
       "range": {
         "startLine": 827,
         "startChar": 0,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "bf2a5567_b6f9b8c0",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fdd0b86_5cfcaaa0",
+      "range": {
+        "startLine": 955,
+        "startChar": 0,
+        "endLine": 956,
+        "endChar": 59
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c06a683_41896da2",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 13
@@ -99,6 +189,30 @@
       "writtenOn": "2018-01-10T15:08:50Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 986,
+        "startChar": 0,
+        "endLine": 987,
+        "endChar": 61
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "292bd9a4_159dc665",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c06a683_41896da2",
       "range": {
         "startLine": 986,
         "startChar": 0,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "cecc0b6b_50f8b55a",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62d480d6_f695aaff",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 1
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5549aa89_940b3a77",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 13
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "340d38d6_93c61b15",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "The code guarded by kTransaction prevents doing this directly.",
+      "parentUuid": "5549aa89_940b3a77",
+      "range": {
+        "startLine": 1068,
+        "startChar": 0,
+        "endLine": 1180,
+        "endChar": 1
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ff4dbfd_9722be1f",
         "filename": "runtime/mirror/var_handle.cc",
         "patchSetId": 13
@@ -168,6 +330,30 @@
       "writtenOn": "2018-01-10T15:08:50Z",
       "side": 1,
       "message": "Inconsistent naming and return type with GetPararameterCount (Number/Count int32_t/size_t).",
+      "range": {
+        "startLine": 170,
+        "startChar": 7,
+        "endLine": 170,
+        "endChar": 35
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8728fa0_bb6f44a4",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ff4dbfd_9722be1f",
       "range": {
         "startLine": 170,
         "startChar": 7,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "e79f00a2_2c2d9c7d",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a6035fa_6b8fd60f",
+      "range": {
+        "startLine": 274,
+        "startChar": 14,
+        "endLine": 274,
+        "endChar": 15
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d2fe206_cc6b1fdf",
         "filename": "runtime/mirror/var_handle.cc",
         "patchSetId": 13
@@ -220,6 +430,24 @@
     },
     {
       "key": {
+        "uuid": "fa88bffa_1b2378ac",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d2fe206_cc6b1fdf",
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f81709_35b72729",
         "filename": "runtime/mirror/var_handle.cc",
         "patchSetId": 13
@@ -231,6 +459,30 @@
       "writtenOn": "2018-01-10T15:08:50Z",
       "side": 1,
       "message": "Ins\u0027t explicit for constructors with only one argument?",
+      "range": {
+        "startLine": 499,
+        "startChar": 2,
+        "endLine": 499,
+        "endChar": 10
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d98b7f8_bdf5d020",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Cut-and-paste :-). Done",
+      "parentUuid": "c3f81709_35b72729",
       "range": {
         "startLine": 499,
         "startChar": 2,
@@ -266,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "05239ce3_7ab5a5c9",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "641db457_27caf597",
+      "range": {
+        "startLine": 711,
+        "startChar": 2,
+        "endLine": 711,
+        "endChar": 9
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cee9d493_aba15c37",
         "filename": "runtime/mirror/var_handle.cc",
         "patchSetId": 13
@@ -289,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "d107c08c_aa391d23",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Let\u0027s hold that thought. I\u0027d generally prefer to avoid combining macros and templates. The latter two are the irregular cases. Will look for a better approach here.",
+      "parentUuid": "cee9d493_aba15c37",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 2
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83ca3274_ba8007da",
         "filename": "runtime/mirror/var_handle.cc",
         "patchSetId": 13
@@ -300,6 +600,30 @@
       "writtenOn": "2018-01-10T15:08:50Z",
       "side": 1,
       "message": "ditto macro?",
+      "range": {
+        "startLine": 908,
+        "startChar": 0,
+        "endLine": 958,
+        "endChar": 1
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1c0f265_c05757c4",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-10T22:38:04Z",
+      "side": 1,
+      "message": "Changed so there is a common 32-bit implementation and specializations for the awkward squad here: int64_t, float, and double.",
+      "parentUuid": "83ca3274_ba8007da",
       "range": {
         "startLine": 908,
         "startChar": 0,
