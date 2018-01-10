@@ -25,6 +25,11 @@
 #include "base/bit_vector-inl.h"
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
+#include "handle.h"
+#include "mirror/class.h"
+#include "obj_ptr-inl.h"
+#include "scoped_thread_state_change-inl.h"
+#include "subtype_check.h"
 
 namespace art {
 
@@ -540,28 +545,79 @@ void GraphChecker::VisitReturnVoid(HReturnVoid* ret) {
   }
 }
 
-void GraphChecker::VisitCheckCast(HCheckCast* check) {
+void GraphChecker::HandleTypeCheckInstruction(HTypeCheckInstruction* check) {
   VisitInstruction(check);
   HInstruction* input = check->InputAt(1);
-  if (!input->IsLoadClass()) {
-    AddError(StringPrintf("%s:%d expects a HLoadClass as second input, not %s:%d.",
-                          check->DebugName(),
-                          check->GetId(),
-                          input->DebugName(),
-                          input->GetId()));
+  if (check->GetTypeCheckKind() == TypeCheckKind::kBitstringCheck) {
+    if (!input->IsNullConstant()) {
+      AddError(StringPrintf("%s:%d (bitstring) expects a HNullConstant as second input, not %s:%d.",
+                            check->DebugName(),
+                            check->GetId(),
+                            input->DebugName(),
+                            input->GetId()));
+    }
+    bool check_values = false;
+    BitString::StorageType expected_path_to_root = 0u;
+    BitString::StorageType expected_mask = 0u;
+    {
+      ScopedObjectAccess soa(Thread::Current());
+      ObjPtr<mirror::Class> klass = check->GetClass().Get();
+      MutexLock subtype_check_lock(Thread::Current(), *Locks::subtype_check_lock_);
+      SubtypeCheckInfo::State state = SubtypeCheck<ObjPtr<mirror::Class>>::GetState(klass);
+      if (state == SubtypeCheckInfo::kAssigned) {
+        expected_path_to_root =
+            SubtypeCheck<ObjPtr<mirror::Class>>::GetEncodedPathToRootForTarget(klass);
+        expected_mask = SubtypeCheck<ObjPtr<mirror::Class>>::GetEncodedPathToRootMask(klass);
+        check_values = true;
+      } else {
+        AddError(StringPrintf("%s:%d (bitstring) references a class with unassigned bitstring.",
+                              check->DebugName(),
+                              check->GetId()));
+      }
+    }
+    if (!check->InputAt(2)->IsIntConstant()) {
+      AddError(StringPrintf("%s:%d (bitstring) expects a HIntConstant as third input, not %s:%d.",
+                            check->DebugName(),
+                            check->GetId(),
+                            check->InputAt(2)->DebugName(),
+                            check->InputAt(2)->GetId()));
+    } else if (check_values && check->GetBitstringPathToRoot() != expected_path_to_root) {
+      AddError(StringPrintf("%s:%d (bitstring) has path_to_root 0x%x, not 0x%x as expected.",
+                            check->DebugName(),
+                            check->GetId(),
+                            check->GetBitstringPathToRoot(),
+                            expected_path_to_root));
+    }
+    if (!check->InputAt(3)->IsIntConstant()) {
+      AddError(StringPrintf("%s:%d (bitstring) expects a HIntConstant as fourth input, not %s:%d.",
+                            check->DebugName(),
+                            check->GetId(),
+                            check->InputAt(3)->DebugName(),
+                            check->InputAt(3)->GetId()));
+    } else if (check_values && check->GetBitstringMask() != expected_mask) {
+      AddError(StringPrintf("%s:%d (bitstring) has mask 0x%x, not 0x%x as expected.",
+                            check->DebugName(),
+                            check->GetId(),
+                            check->GetBitstringMask(),
+                            expected_mask));
+    }
+  } else {
+    if (!input->IsLoadClass()) {
+      AddError(StringPrintf("%s:%d (classic) expects a HLoadClass as second input, not %s:%d.",
+                            check->DebugName(),
+                            check->GetId(),
+                            input->DebugName(),
+                            input->GetId()));
+    }
   }
 }
 
+void GraphChecker::VisitCheckCast(HCheckCast* check) {
+  HandleTypeCheckInstruction(check);
+}
+
 void GraphChecker::VisitInstanceOf(HInstanceOf* instruction) {
-  VisitInstruction(instruction);
-  HInstruction* input = instruction->InputAt(1);
-  if (!input->IsLoadClass()) {
-    AddError(StringPrintf("%s:%d expects a HLoadClass as second input, not %s:%d.",
-                          instruction->DebugName(),
-                          instruction->GetId(),
-                          input->DebugName(),
-                          input->GetId()));
-  }
+  HandleTypeCheckInstruction(instruction);
 }
 
 void GraphChecker::HandleLoop(HBasicBlock* loop_header) {
