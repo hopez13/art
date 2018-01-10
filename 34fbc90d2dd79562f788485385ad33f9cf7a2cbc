@@ -449,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "707b3173_55e97986",
+        "filename": "runtime/quicken_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-10T17:26:52Z",
+      "side": 1,
+      "message": "The main difference is that the other place doesn\u0027t have alignment guarantees, that requires byte parsing. This table is directly accessed through an aligned uint32_t. I think in this case its OK to not be consistent since the requirements are different.",
+      "parentUuid": "596d1f43_69a5e061",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 70
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59f781f8_09bf8ceb",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 7
@@ -555,6 +579,30 @@
       "side": 1,
       "message": "Not done in PS11.",
       "parentUuid": "393216d5_d7c11b0a",
+      "range": {
+        "startLine": 192,
+        "startChar": 15,
+        "endLine": 192,
+        "endChar": 16
+      },
+      "revId": "34fbc90d2dd79562f788485385ad33f9cf7a2cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1af54ef_59565c98",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-10T17:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cce73c0_5c1247b5",
       "range": {
         "startLine": 192,
         "startChar": 15,

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "60f1c945_7f2ecf52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-10T17:26:52Z",
+      "side": 1,
+      "message": "I\u0027ll run a test on oatdump to see how long it takes to get the quicken info tables for the whole oat file. If it\u0027s only a few % of compilation, it will imply that this is not hot during JIT compilation due to being dominated by compilation time.",
+      "parentUuid": "4d2405e0_13d93c32",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70e025c4_363f0647",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "a921ce6b_fdd20ead",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-10T17:26:52Z",
+      "side": 1,
+      "message": "Boot image is \u003c50% compiled, but I can check I suppose.",
+      "parentUuid": "95b1197c_8a85a763",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b220f1e1_a8b4c474",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-10T17:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70e025c4_363f0647",
+      "range": {
+        "startLine": 33,
+        "startChar": 59,
+        "endLine": 33,
+        "endChar": 66
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3172a06e_8c1ffcd1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "6a4b7151_2d91d910",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-10T17:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3172a06e_8c1ffcd1",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 45
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ca69abe_d12eef4c",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 11
@@ -105,6 +201,30 @@
       "writtenOn": "2018-01-10T10:32:20Z",
       "side": 1,
       "message": "what does that mean?",
+      "range": {
+        "startLine": 87,
+        "startChar": 48,
+        "endLine": 87,
+        "endChar": 73
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99b0ee3f_81b09b44",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-10T17:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ca69abe_d12eef4c",
       "range": {
         "startLine": 87,
         "startChar": 48,
