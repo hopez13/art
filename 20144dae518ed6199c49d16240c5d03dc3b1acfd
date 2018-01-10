@@ -156,6 +156,30 @@
     },
     {
       "key": {
+        "uuid": "003c194c_e2722f28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-10T13:52:32Z",
+      "side": 1,
+      "message": "Sorry, should have been LSLS:\n\n    LSR+CMP(immediate,T1) -\u003e SUB(immediate,T2)+LSLS\n    LSR+CMP(immediate,T2) -\u003e SUB(immediate,T3)+LSLS\n\nIf not modified immediate:\n\n    9-12 bits: LSR+MOVW+CMP -\u003e SUB(immediate,T4)+LSLS (always -2 bytes)\n    13-16 bits: LSR+MOVW+CMP -\u003e MOVW+SUB+LSRS (sometimes +2 bytes)\n    17+ bits: LSR+MOVW+MOVT+CMP -\u003e LSL+MOVW+MOVT+CMP\n\n(If the mask is 0xffff and we use LDRH, the old and new code can be the same for 9-16 bits.)\n\n\nThe class status is explained by the previous paragraph:\n\n    LDRB tmp, [#(status_offset + /* high byte */ 3)]\n    CMP tmp, #(kInitialized \u003c\u003c 4)\n    BLO slow_path  // low 4 bits of tmp are irrelevant for BLO.\n\nSee also updated code generators.\n\n\nMingyao\u0027s CL may be using SUBS but with the new representation we can also use SUB(immediate,T4) which never sets flags and rely on the LSLS to set the flags. There is no equivalent CMP(immediate) that would compare with a zero-extended 12-bit constant.",
+      "parentUuid": "19be6ad2_ad07bedb",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "20144dae518ed6199c49d16240c5d03dc3b1acfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9eab234d_f1cae3eb",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 5
