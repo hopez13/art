@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d2405e0_13d93c32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T10:32:20Z",
+      "side": 1,
+      "message": "What JIT benchmarks?\n\nI piggy-backed on Andreas DoU benchmarks to know the impact of dequickening for the JIT. Prior to my debug_info_offset CL, getting the quickening was very hot in the simpleperf list. With a run including the debug info offset CL, getting the quickening was not hot anymore.\n\nCould you also validate it there?",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70e025c4_363f0647",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T10:32:20Z",
+      "side": 1,
+      "message": "disables",
+      "range": {
+        "startLine": 33,
+        "startChar": 59,
+        "endLine": 33,
+        "endChar": 66
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95b1197c_8a85a763",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T10:32:20Z",
+      "side": 1,
+      "message": "So 200k for gms (x2) :( How about boot image?",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3172a06e_8c1ffcd1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T10:32:20Z",
+      "side": 1,
+      "message": "like",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 45
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ca69abe_d12eef4c",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T10:32:20Z",
+      "side": 1,
+      "message": "what does that mean?",
+      "range": {
+        "startLine": 87,
+        "startChar": 48,
+        "endLine": 87,
+        "endChar": 73
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
