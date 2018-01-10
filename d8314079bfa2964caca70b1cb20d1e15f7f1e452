@@ -39,6 +39,30 @@
       "revId": "d8314079bfa2964caca70b1cb20d1e15f7f1e452",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63f1d655_5c66ab45",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2935,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:23:56Z",
+      "side": 1,
+      "message": "From what I understand, that\u0027s one more line to introduce the result std::string, so maybe not?",
+      "parentUuid": "5cc8bed5_b6fc8ba6",
+      "range": {
+        "startLine": 2935,
+        "startChar": 4,
+        "endLine": 2935,
+        "endChar": 73
+      },
+      "revId": "d8314079bfa2964caca70b1cb20d1e15f7f1e452",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
