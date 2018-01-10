@@ -211,8 +211,6 @@ void AdbConnectionState::StartDebuggerThreads() {
   }
 
   // Next start the threads.
-  art::Thread* self = art::Thread::Current();
-  art::ScopedObjectAccess soa(self);
   {
     art::Runtime* runtime = art::Runtime::Current();
     art::MutexLock mu(self, *art::Locks::runtime_shutdown_lock_);
@@ -484,7 +482,10 @@ bool AdbConnectionState::SetupAdbConnection() {
 
 void AdbConnectionState::RunPollLoop(art::Thread* self) {
   CHECK_EQ(self->GetState(), art::kNative);
-  art::Locks::mutator_lock_->AssertNotHeld(self);
+  // XXX: Clang prebuild r316199 produces bogus thread safety analysis warning for holding both
+  // exclusive and shared lock in the same scope. Remove the assertion as an temporary workaround.
+  // http://b/71769596
+  // art::Locks::mutator_lock_->AssertNotHeld(self);
   self->SetState(art::kWaitingInMainDebuggerLoop);
   // shutting_down_ set by StopDebuggerThreads
   while (!shutting_down_) {
