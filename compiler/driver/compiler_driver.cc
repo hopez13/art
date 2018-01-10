@@ -697,7 +697,8 @@ void CompilerDriver::Resolve(jobject class_loader,
 // TODO: Collect the relevant string indices in parallel, then allocate them sequentially in a
 //       stable order.
 
-static void ResolveConstStrings(Handle<mirror::DexCache> dex_cache,
+static void ResolveConstStrings(ClassLinker* class_linker,
+                                Handle<mirror::DexCache> dex_cache,
                                 const DexFile& dex_file,
                                 const DexFile::CodeItem* code_item)
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -706,7 +707,6 @@ static void ResolveConstStrings(Handle<mirror::DexCache> dex_cache,
     return;
   }
 
-  ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
   for (const DexInstructionPcPair& inst : CodeItemInstructionAccessor(dex_file, code_item)) {
     switch (inst->Opcode()) {
       case Instruction::CONST_STRING:
@@ -769,7 +769,103 @@ static void ResolveConstStrings(CompilerDriver* driver,
           continue;
         }
         previous_method_idx = method_idx;
-        ResolveConstStrings(dex_cache, *dex_file, it.GetMethodCodeItem());
+        ResolveConstStrings(class_linker, dex_cache, *dex_file, it.GetMethodCodeItem());
+        it.Next();
+      }
+      DCHECK(!it.HasNext());
+    }
+  }
+}
+
+// Initialize type check bit strings for check-cast and instance-of in the code. Done to have
+// deterministic allocation behavior. Right now this is single-threaded for simplicity.
+// TODO: Collect the relevant type indices in parallel, then process them sequentially in a
+//       stable order.
+
+static void InitializeTypeCheckBitstrings(CompilerDriver* driver,
+                                          ClassLinker* class_linker,
+                                          Handle<mirror::DexCache> dex_cache,
+                                          const DexFile& dex_file,
+                                          const DexFile::CodeItem* code_item)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (code_item == nullptr) {
+    // Abstract or native method.
+    return;
+  }
+
+  for (const DexInstructionPcPair& inst : CodeItemInstructionAccessor(dex_file, code_item)) {
+    switch (inst->Opcode()) {
+      case Instruction::CHECK_CAST:
+      case Instruction::INSTANCE_OF: {
+        dex::TypeIndex type_index(
+            (inst->Opcode() == Instruction::CHECK_CAST) ? inst->VRegB_21c() : inst->VRegC_22c());
+        const char* descriptor = dex_file.StringByTypeIdx(type_index);
+        if (descriptor[0] == 'L' && driver->IsImageClass(descriptor)) {
+          ObjPtr<mirror::Class> klass =
+              class_linker->LookupResolvedType(type_index,
+                                               dex_cache.Get(),
+                                               /* class_loader */ nullptr);
+          CHECK(klass != nullptr) << descriptor << " should have been previously resolved.";
+          if (!klass->IsFinal()) {
+            MutexLock subtype_check_lock(Thread::Current(), *Locks::subtype_check_lock_);
+            SubtypeCheck<ObjPtr<mirror::Class>>::EnsureAssigned(klass);
+          }
+        }
+        break;
+      }
+
+      default:
+        break;
+    }
+  }
+}
+
+static void InitializeTypeCheckBitstrings(CompilerDriver* driver,
+                                          const std::vector<const DexFile*>& dex_files,
+                                          TimingLogger* timings) {
+  ScopedObjectAccess soa(Thread::Current());
+  StackHandleScope<1> hs(soa.Self());
+  ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+  MutableHandle<mirror::DexCache> dex_cache(hs.NewHandle<mirror::DexCache>(nullptr));
+
+  for (const DexFile* dex_file : dex_files) {
+    dex_cache.Assign(class_linker->FindDexCache(soa.Self(), *dex_file));
+    TimingLogger::ScopedTiming t("Initialize type check bitstrings", timings);
+
+    size_t class_def_count = dex_file->NumClassDefs();
+    for (size_t class_def_index = 0; class_def_index < class_def_count; ++class_def_index) {
+      const DexFile::ClassDef& class_def = dex_file->GetClassDef(class_def_index);
+
+      const uint8_t* class_data = dex_file->GetClassData(class_def);
+      if (class_data == nullptr) {
+        // empty class, probably a marker interface
+        continue;
+      }
+
+      ClassDataItemIterator it(*dex_file, class_data);
+      it.SkipAllFields();
+
+      bool compilation_enabled = driver->IsClassToCompile(
+          dex_file->StringByTypeIdx(class_def.class_idx_));
+      if (!compilation_enabled) {
+        // Compilation is skipped, do not look for type checks in code of this class.
+        // TODO: Make sure that inlining honors this.
+        continue;
+      }
+
+      // Direct and virtual methods.
+      int64_t previous_method_idx = -1;
+      while (it.HasNextMethod()) {
+        uint32_t method_idx = it.GetMemberIndex();
+        if (method_idx == previous_method_idx) {
+          // smali can create dex files with two encoded_methods sharing the same method_idx
+          // http://code.google.com/p/smali/issues/detail?id=119
+          it.Next();
+          continue;
+        }
+        previous_method_idx = method_idx;
+        InitializeTypeCheckBitstrings(
+            driver, class_linker, dex_cache, *dex_file, it.GetMethodCodeItem());
         it.Next();
       }
       DCHECK(!it.HasNext());
@@ -859,6 +955,12 @@ void CompilerDriver::PreCompile(jobject class_loader,
                              << "verifying all classes, and was asked to abort in such situations. "
                              << "Please check the log.";
     abort();
+  }
+
+  if (GetCompilerOptions().IsForceDeterminism() && GetCompilerOptions().IsBootImage()) {
+    // Initialize type check bit string used by check-cast and instanceof.
+    // Do this now to have a deterministic image.
+    InitializeTypeCheckBitstrings(this, dex_files, timings);
   }
 
   if (compiler_options_->IsAnyCompilationEnabled()) {

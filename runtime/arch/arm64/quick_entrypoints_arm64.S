@@ -1333,6 +1333,9 @@ END art_quick_unlock_object_no_inline
     .extern artInstanceOfFromCode
     .extern artThrowClassCastExceptionForObject
 ENTRY art_quick_check_instance_of
+    // Type check using the bit string passes null as the target class. In that case just throw.
+    cbz x1, .Lthrow_class_cast_exception_for_bitstring_check
+
     // Store arguments and link register
     // Stack needs to be 16B aligned on calls.
     SAVE_TWO_REGS_INCREASE_FRAME x0, x1, 32
@@ -1341,12 +1344,14 @@ ENTRY art_quick_check_instance_of
     // Call runtime code
     bl artInstanceOfFromCode
 
+    // Restore LR.
+    RESTORE_REG xLR, 24
+
     // Check for exception
     cbz x0, .Lthrow_class_cast_exception
 
     // Restore and return
     .cfi_remember_state
-    RESTORE_REG xLR, 24
     RESTORE_TWO_REGS_DECREASE_FRAME x0, x1, 32
     ret
     .cfi_restore_state                // Reset unwind info so following code unwinds.
@@ -1354,9 +1359,9 @@ ENTRY art_quick_check_instance_of
 
 .Lthrow_class_cast_exception:
     // Restore
-    RESTORE_REG xLR, 24
     RESTORE_TWO_REGS_DECREASE_FRAME x0, x1, 32
 
+.Lthrow_class_cast_exception_for_bitstring_check:
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context
     mov x2, xSELF                     // pass Thread::Current
     bl artThrowClassCastExceptionForObject     // (Object*, Class*, Thread*)

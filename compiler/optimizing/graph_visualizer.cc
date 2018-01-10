@@ -650,18 +650,28 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
 
     if ((IsPass(HGraphBuilder::kBuilderPassName)
         || IsPass(HInliner::kInlinerPassName))
-        && (instruction->GetType() == DataType::Type::kReference)) {
-      ReferenceTypeInfo info = instruction->IsLoadClass()
-        ? instruction->AsLoadClass()->GetLoadedClassRTI()
-        : instruction->GetReferenceTypeInfo();
+        && (instruction->GetType() == DataType::Type::kReference ||
+            instruction->IsInstanceOf() ||
+            instruction->IsCheckCast())) {
+      ReferenceTypeInfo info = instruction->GetType() == DataType::Type::kReference
+          ? instruction->IsLoadClass()
+              ? instruction->AsLoadClass()->GetLoadedClassRTI()
+              : instruction->GetReferenceTypeInfo()
+          : instruction->IsInstanceOf()
+              ? instruction->AsInstanceOf()->GetTargetClassRTI()
+              : instruction->AsCheckCast()->GetTargetClassRTI();
       ScopedObjectAccess soa(Thread::Current());
       if (info.IsValid()) {
         StartAttributeStream("klass")
             << mirror::Class::PrettyDescriptor(info.GetTypeHandle().Get());
-        StartAttributeStream("can_be_null")
-            << std::boolalpha << instruction->CanBeNull() << std::noboolalpha;
+        if (instruction->GetType() == DataType::Type::kReference) {
+          StartAttributeStream("can_be_null")
+              << std::boolalpha << instruction->CanBeNull() << std::noboolalpha;
+        }
         StartAttributeStream("exact") << std::boolalpha << info.IsExact() << std::noboolalpha;
-      } else if (instruction->IsLoadClass()) {
+      } else if (instruction->IsLoadClass() ||
+                 instruction->IsInstanceOf() ||
+                 instruction->IsCheckCast()) {
         StartAttributeStream("klass") << "unresolved";
       } else {
         // The NullConstant may be added to the graph during other passes that happen between

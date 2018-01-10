@@ -305,8 +305,9 @@ struct SubtypeCheck {
   static BitString::StorageType GetEncodedPathToRootForTarget(ClassPtr klass)
       REQUIRES(Locks::subtype_check_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK_EQ(SubtypeCheckInfo::kAssigned, GetSubtypeCheckInfo(klass).GetState());
-    return GetSubtypeCheckInfo(klass).GetEncodedPathToRoot();
+    SubtypeCheckInfo sci = GetSubtypeCheckInfo(klass);
+    DCHECK_EQ(SubtypeCheckInfo::kAssigned, sci.GetState());
+    return sci.GetEncodedPathToRoot();
   }
 
   // Retrieve the path to root bitstring mask as a plain uintN_t value that is amenable to
@@ -318,8 +319,9 @@ struct SubtypeCheck {
   static BitString::StorageType GetEncodedPathToRootMask(ClassPtr klass)
       REQUIRES(Locks::subtype_check_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK_EQ(SubtypeCheckInfo::kAssigned, GetSubtypeCheckInfo(klass).GetState());
-    return GetSubtypeCheckInfo(klass).GetEncodedPathToRootMask();
+    SubtypeCheckInfo sci = GetSubtypeCheckInfo(klass);
+    DCHECK_EQ(SubtypeCheckInfo::kAssigned, sci.GetState());
+    return sci.GetEncodedPathToRootMask();
   }
 
   // Is the source class a subclass of the target?
