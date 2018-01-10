@@ -1,0 +1,314 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d46f615_2eb39194",
+        "filename": "runtime/dex/dex_instruction.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "nit: add a comment why +1?",
+      "range": {
+        "startLine": 563,
+        "startChar": 42,
+        "endLine": 563,
+        "endChar": 45
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cec71cb0_37a37124",
+        "filename": "runtime/dex/dex_instruction.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "nit: new line?",
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24acd887_6fca620d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "How about a macro?\n\nDO_VAR_HANDLE(method_name, access_mode)",
+      "range": {
+        "startLine": 827,
+        "startChar": 0,
+        "endLine": 1104,
+        "endChar": 1
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fdd0b86_5cfcaaa0",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "Duplicate info in the comment (and is a bit obscure to read)",
+      "range": {
+        "startLine": 955,
+        "startChar": 0,
+        "endLine": 956,
+        "endChar": 59
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c06a683_41896da2",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 986,
+        "startChar": 0,
+        "endLine": 987,
+        "endChar": 61
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62d480d6_f695aaff",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "Looks like this could be templatized on the accessor type?",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 1
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5549aa89_940b3a77",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "ditto about templating on the type?",
+      "range": {
+        "startLine": 1068,
+        "startChar": 0,
+        "endLine": 1180,
+        "endChar": 1
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ff4dbfd_9722be1f",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "Inconsistent naming and return type with GetPararameterCount (Number/Count int32_t/size_t).",
+      "range": {
+        "startLine": 170,
+        "startChar": 7,
+        "endLine": 170,
+        "endChar": 35
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a6035fa_6b8fd60f",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "to",
+      "range": {
+        "startLine": 274,
+        "startChar": 14,
+        "endLine": 274,
+        "endChar": 15
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d2fe206_cc6b1fdf",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "nit: newline (here and other class deifnitions below)",
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f81709_35b72729",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "Ins\u0027t explicit for constructors with only one argument?",
+      "range": {
+        "startLine": 499,
+        "startChar": 2,
+        "endLine": 499,
+        "endChar": 10
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "641db457_27caf597",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "drop and replace with OVERRIDE?",
+      "range": {
+        "startLine": 711,
+        "startChar": 2,
+        "endLine": 711,
+        "endChar": 9
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee9d493_aba15c37",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "Add a macro for these?",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 2
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83ca3274_ba8007da",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-10T15:08:50Z",
+      "side": 1,
+      "message": "ditto macro?",
+      "range": {
+        "startLine": 908,
+        "startChar": 0,
+        "endLine": 958,
+        "endChar": 1
+      },
+      "revId": "1bea9843c9869cdb792512e81849cd43e46cb46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
