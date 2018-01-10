@@ -1296,7 +1296,7 @@ extern "C" const void* artQuickResolutionTrampoline(
       } else if (invoke_type == kStatic) {
         // Class is still initializing, go to oat and grab code (trampoline must be left in place
         // until class is initialized to stop races between threads).
-        code = linker->GetQuickOatCodeFor(called);
+        code = linker->GetQuickEntrypointFor(called);
       } else {
         // No trampoline for non-static methods.
         code = called->GetEntryPointFromQuickCompiledCode();
