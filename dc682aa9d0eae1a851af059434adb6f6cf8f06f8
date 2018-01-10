@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b79ed185_33890183",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-10T17:26:47Z",
+      "side": 1,
+      "message": "The intuition is that if there will be a code size increase because of this particular case, it will be small and usually paid for by having the extra 4 bits available.",
+      "parentUuid": "a0ffc5bd_5f43f416",
+      "range": {
+        "startLine": 18,
+        "startChar": 26,
+        "endLine": 20,
+        "endChar": 55
+      },
+      "revId": "dc682aa9d0eae1a851af059434adb6f6cf8f06f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "298e6563_97372379",
         "filename": "/COMMIT_MSG",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-10T17:02:52Z",
       "side": 1,
       "message": "If I had to take a guess, it should be 13,6,remainder. Adding a 4th character is unlikely to help nearly as much as doubling the size of the 2nd level.\n\nMaps, sheets, gmail have up to 6 bits of classdepth\u003d2. I\u0027ve seen Uber app run out on overflow at classdepth\u003d1 so adding an extra bit to first level will also help.\n\nThis is based on the bitstring data we collected earlier, I shared the spreadsheet with you.\n\n(This can be changed in a follow up if you just want to submit now)",
+      "range": {
+        "startLine": 29,
+        "startChar": 43,
+        "endLine": 31,
+        "endChar": 60
+      },
+      "revId": "dc682aa9d0eae1a851af059434adb6f6cf8f06f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082d8489_17cc0b3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-10T17:26:47Z",
+      "side": 1,
+      "message": "I\u0027m going to submit and leave the determination for later.",
+      "parentUuid": "298e6563_97372379",
       "range": {
         "startLine": 29,
         "startChar": 43,
