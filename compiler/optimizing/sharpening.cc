@@ -236,6 +236,64 @@ HLoadClass::LoadKind HSharpening::ComputeLoadClassKind(
   return load_kind;
 }
 
+static inline bool CanUseTypeCheckBitstring(ObjPtr<mirror::Class> klass,
+                                            CodeGenerator* codegen,
+                                            CompilerDriver* compiler_driver)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK(!klass->IsProxyClass());
+  DCHECK(!klass->IsArrayClass());
+
+  if (codegen->GetCompilerOptions().IsBootImage()) {
+    const char* descriptor = klass->GetDexFile().StringByTypeIdx(klass->GetDexTypeIndex());
+    if (!compiler_driver->IsImageClass(descriptor)) {
+      return false;
+    }
+    // If the target is a boot image class, try to assign a type check bitstring.
+    // (If --force-determinism, this was already done; repeating is OK and yields the same result.)
+    MutexLock subtype_check_lock(Thread::Current(), *Locks::subtype_check_lock_);
+    SubtypeCheckInfo::State state = SubtypeCheck<ObjPtr<mirror::Class>>::EnsureAssigned(klass);
+    return state == SubtypeCheckInfo::kAssigned;
+  } else if (Runtime::Current()->UseJitCompilation()) {
+    // If we're JITting, try to assign a type check bitstring.
+    MutexLock subtype_check_lock(Thread::Current(), *Locks::subtype_check_lock_);
+    SubtypeCheckInfo::State state = SubtypeCheck<ObjPtr<mirror::Class>>::EnsureAssigned(klass);
+    return state == SubtypeCheckInfo::kAssigned;
+  } else {
+    // TODO: Use the bitstring also for AOT app compilation if the target class has a bitstring
+    // already assigned in the boot image.
+    return false;
+  }
+}
+
+TypeCheckKind HSharpening::ComputeTypeCheckKind(ObjPtr<mirror::Class> klass,
+                                                CodeGenerator* codegen,
+                                                CompilerDriver* compiler_driver,
+                                                bool needs_access_check) {
+  if (klass == nullptr) {
+    return TypeCheckKind::kUnresolvedCheck;
+  } else if (klass->IsInterface()) {
+    return TypeCheckKind::kInterfaceCheck;
+  } else if (klass->IsArrayClass()) {
+    if (klass->GetComponentType()->IsObjectClass()) {
+      return TypeCheckKind::kArrayObjectCheck;
+    } else if (klass->CannotBeAssignedFromOtherTypes()) {
+      return TypeCheckKind::kExactCheck;
+    } else {
+      return TypeCheckKind::kArrayCheck;
+    }
+  } else if (klass->IsFinal()) {  // TODO: Consider using bitstring for final classes.
+    return TypeCheckKind::kExactCheck;
+  } else if (!needs_access_check && CanUseTypeCheckBitstring(klass, codegen, compiler_driver)) {
+    // TODO: We should not need the `!needs_access_check` check but getting rid of that
+    // requires rewriting some optimizations in instruction simplifier.
+    return TypeCheckKind::kBitstringCheck;
+  } else if (klass->IsAbstract()) {
+    return TypeCheckKind::kAbstractClassCheck;
+  } else {
+    return TypeCheckKind::kClassHierarchyCheck;
+  }
+}
+
 void HSharpening::ProcessLoadString(
     HLoadString* load_string,
     CodeGenerator* codegen,

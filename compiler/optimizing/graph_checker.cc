@@ -540,28 +540,48 @@ void GraphChecker::VisitReturnVoid(HReturnVoid* ret) {
   }
 }
 
-void GraphChecker::VisitCheckCast(HCheckCast* check) {
+void GraphChecker::HandleTypeCheckInstruction(HTypeCheckInstruction* check) {
   VisitInstruction(check);
   HInstruction* input = check->InputAt(1);
-  if (!input->IsLoadClass()) {
-    AddError(StringPrintf("%s:%d expects a HLoadClass as second input, not %s:%d.",
-                          check->DebugName(),
-                          check->GetId(),
-                          input->DebugName(),
-                          input->GetId()));
+  if (check->GetTypeCheckKind() == TypeCheckKind::kBitstringCheck) {
+    if (!input->IsNullConstant()) {
+      AddError(StringPrintf("%s:%d (bitstring) expects a HNullConstant as second input, not %s:%d.",
+                            check->DebugName(),
+                            check->GetId(),
+                            input->DebugName(),
+                            input->GetId()));
+    }
+    if (!check->InputAt(2)->IsIntConstant()) {
+      AddError(StringPrintf("%s:%d (bitstring) expects a HIntConstant as third input, not %s:%d.",
+                            check->DebugName(),
+                            check->GetId(),
+                            check->InputAt(2)->DebugName(),
+                            check->InputAt(2)->GetId()));
+    }
+    if (!check->InputAt(3)->IsIntConstant()) {
+      AddError(StringPrintf("%s:%d (bitstring) expects a HIntConstant as fourth input, not %s:%d.",
+                            check->DebugName(),
+                            check->GetId(),
+                            check->InputAt(3)->DebugName(),
+                            check->InputAt(3)->GetId()));
+    }
+  } else {
+    if (!input->IsLoadClass()) {
+      AddError(StringPrintf("%s:%d (classic) expects a HLoadClass as second input, not %s:%d.",
+                            check->DebugName(),
+                            check->GetId(),
+                            input->DebugName(),
+                            input->GetId()));
+    }
   }
 }
 
+void GraphChecker::VisitCheckCast(HCheckCast* check) {
+  HandleTypeCheckInstruction(check);
+}
+
 void GraphChecker::VisitInstanceOf(HInstanceOf* instruction) {
-  VisitInstruction(instruction);
-  HInstruction* input = instruction->InputAt(1);
-  if (!input->IsLoadClass()) {
-    AddError(StringPrintf("%s:%d expects a HLoadClass as second input, not %s:%d.",
-                          instruction->DebugName(),
-                          instruction->GetId(),
-                          input->DebugName(),
-                          input->GetId()));
-  }
+  HandleTypeCheckInstruction(instruction);
 }
 
 void GraphChecker::HandleLoop(HBasicBlock* loop_header) {
