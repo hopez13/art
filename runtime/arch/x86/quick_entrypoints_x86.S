@@ -1431,22 +1431,28 @@ DEFINE_FUNCTION art_quick_instance_of
 END_FUNCTION art_quick_instance_of
 
 DEFINE_FUNCTION art_quick_check_instance_of
+    // Type check using the bit string passes null as the target class. In that case just throw.
+    testl %ecx, %ecx
+    jz .Lthrow_class_cast_exception_for_bitstring_check
+
     PUSH eax                              // alignment padding
     PUSH ecx                              // pass arg2 - checked class
     PUSH eax                              // pass arg1 - obj
     call SYMBOL(artInstanceOfFromCode)    // (Object* obj, Class* ref_klass)
     testl %eax, %eax
-    jz 1f                                 // jump forward if not assignable
+    jz .Lthrow_class_cast_exception       // jump forward if not assignable
     addl LITERAL(12), %esp                // pop arguments
     CFI_ADJUST_CFA_OFFSET(-12)
     ret
 
     CFI_ADJUST_CFA_OFFSET(12)             // Reset unwind info so following code unwinds.
-1:
+.Lthrow_class_cast_exception:
     POP eax                               // pop arguments
     POP ecx
     addl LITERAL(4), %esp
     CFI_ADJUST_CFA_OFFSET(-4)
+
+.Lthrow_class_cast_exception_for_bitstring_check:
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME ebx, ebx // save all registers as basis for long jump context
     // Outgoing argument set up
     PUSH eax                              // alignment padding

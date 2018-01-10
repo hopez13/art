@@ -305,8 +305,9 @@ struct SubtypeCheck {
   static BitString::StorageType GetEncodedPathToRootForTarget(ClassPtr klass)
       REQUIRES(Locks::subtype_check_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK_EQ(SubtypeCheckInfo::kAssigned, GetSubtypeCheckInfo(klass).GetState());
-    return GetSubtypeCheckInfo(klass).GetEncodedPathToRoot();
+    SubtypeCheckInfo sci = GetSubtypeCheckInfo(klass);
+    DCHECK_EQ(SubtypeCheckInfo::kAssigned, sci.GetState());
+    return sci.GetEncodedPathToRoot();
   }
 
   // Retrieve the path to root bitstring mask as a plain uintN_t value that is amenable to
@@ -318,8 +319,45 @@ struct SubtypeCheck {
   static BitString::StorageType GetEncodedPathToRootMask(ClassPtr klass)
       REQUIRES(Locks::subtype_check_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK_EQ(SubtypeCheckInfo::kAssigned, GetSubtypeCheckInfo(klass).GetState());
-    return GetSubtypeCheckInfo(klass).GetEncodedPathToRootMask();
+    SubtypeCheckInfo sci = GetSubtypeCheckInfo(klass);
+    DCHECK_EQ(SubtypeCheckInfo::kAssigned, sci.GetState());
+    return sci.GetEncodedPathToRootMask();
+  }
+
+  // Retrieve the path to root bitstring and the mask encoded as a plain uintN_t.
+  // Use DecodeRootToPath() and DecodeRootToPathMask() to get values amenable to
+  // be used by a fast check "encoded_src & mask_target == encoded_target".
+  //
+  // Cost: O(Depth(Class)).
+  //
+  // Returns an encoded value representing both encoded_target and mask_target values.
+  // Must be Assigned (EnsureAssigned).
+  static BitString::StorageType GetEncodedPathToRootAndMaskForTarget(ClassPtr klass)
+      REQUIRES(Locks::subtype_check_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    SubtypeCheckInfo sci = GetSubtypeCheckInfo(klass);
+    DCHECK_EQ(SubtypeCheckInfo::kAssigned, sci.GetState());
+    BitString::StorageType target = sci.GetEncodedPathToRoot();
+    BitString::StorageType mask = sci.GetEncodedPathToRootMask();
+    // Encode the mask which a continuous sequence of the low bits by setting the next bit.
+    DCHECK_NE(mask + 1u, 0u);
+    DCHECK(IsPowerOfTwo(mask + 1u));
+    DCHECK_LT(target, mask + 1);
+    return (mask + 1) | target;
+  }
+
+  // Decode the path to root from encoded path to root and mask.
+  static BitString::StorageType DecodePathToRoot(BitString::StorageType encoded_values) {
+    // Clear the high bit which marks the end of the mask.
+    DCHECK_NE(encoded_values, 0u);
+    return encoded_values - (kOne << MostSignificantBit(encoded_values));
+  }
+
+  // Decode the mask from encoded path to root and mask.
+  static BitString::StorageType DecodePathToRootMask(BitString::StorageType encoded_values) {
+    // Return all bits below the high bit which marks the end of the mask.
+    DCHECK_NE(encoded_values, 0u);
+    return (kOne << MostSignificantBit(encoded_values)) - kOne;
   }
 
   // Is the source class a subclass of the target?
@@ -354,6 +392,8 @@ struct SubtypeCheck {
   }
 
  private:
+  static constexpr BitString::StorageType kOne = static_cast<BitString::StorageType>(1u);
+
   static ClassPtr GetParentClass(ClassPtr klass)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(klass->HasSuperClass());
