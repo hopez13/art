@@ -22,6 +22,30 @@
       "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0d6c7c0_33ba2827",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-10T14:17:02Z",
+      "side": 0,
+      "message": "MAP_32BIT and MAP_FIXED don\u0027t make sense together, right?\n1) The man page says \"The MAP_32BIT flag is ignored when MAP_FIXED is set.\"\n2) looking at the code, it seems to me there is no code path that would set those together.\n\nNonetheless, I can move the DCHECK just above the \"flags |\u003d MAP_32BIT;\" line (or equivalently, add \"addr \u003d\u003d nullptr\" check here)",
+      "parentUuid": "4282563a_cdd318cb",
+      "range": {
+        "startLine": 931,
+        "startChar": 22,
+        "endLine": 931,
+        "endChar": 31
+      },
+      "revId": "605640e1c470fc37d3424e09b9a276bf23b6d7f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
