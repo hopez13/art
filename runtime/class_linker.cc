@@ -2899,6 +2899,15 @@ uint32_t ClassLinker::SizeOfClassWithoutEmbeddedTables(const DexFile& dex_file,
                                          image_pointer_size_);
 }
 
+const void* ClassLinker::GetQuickEntrypointFor(ArtMethod* method) {
+  const void* oat_code = GetQuickOatCodeFor(method);
+  if (ClassLinker::ShouldUseInterpreterEntrypoint(method, oat_code)) {
+    return GetQuickToInterpreterBridge();
+  } else {
+    return oat_code;
+  }
+}
+
 // Special case to get oat code without overwriting a trampoline.
 const void* ClassLinker::GetQuickOatCodeFor(ArtMethod* method) {
   CHECK(method->IsInvokable()) << method->PrettyMethod();
