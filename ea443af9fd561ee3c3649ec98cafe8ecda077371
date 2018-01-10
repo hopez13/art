@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7fd9b52_1199fa1d",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-10T01:40:55Z",
+      "side": 0,
+      "message": "Why is this removed?\n\n(Not saying that it looks wrong, all calls below don\u0027t seem to require the mutator lock. But I don\u0027t understand why it should be removed.)",
+      "range": {
+        "startLine": 215,
+        "startChar": 2,
+        "endLine": 215,
+        "endChar": 36
+      },
+      "revId": "ea443af9fd561ee3c3649ec98cafe8ecda077371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
