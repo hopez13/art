@@ -22,6 +22,30 @@
       "revId": "be4ad78967890c389552031dfceecde3190f0d22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "740c4270_8a55cebb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3778,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-01-10T12:44:52Z",
+      "side": 0,
+      "message": "Yes. Good catch. Thank you.",
+      "parentUuid": "a18337de_5c366277",
+      "range": {
+        "startLine": 3778,
+        "startChar": 18,
+        "endLine": 3778,
+        "endChar": 53
+      },
+      "revId": "be4ad78967890c389552031dfceecde3190f0d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
