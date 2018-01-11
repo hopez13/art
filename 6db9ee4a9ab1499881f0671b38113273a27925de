@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "089d1e2b_8b654aa0",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-01-11T00:42:09Z",
+      "side": 1,
+      "message": "We had a one-liner for the common stuff before.  Please define a static private utility.",
+      "range": {
+        "startLine": 115,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 5
+      },
+      "revId": "6db9ee4a9ab1499881f0671b38113273a27925de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
