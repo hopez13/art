@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f54abee6_4d4a8ddd",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T17:58:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "004a1416_6a1205df",
+      "range": {
+        "startLine": 323,
+        "startChar": 8,
+        "endLine": 324,
+        "endChar": 96
+      },
+      "revId": "cd27a4d42788555c82919f5d04f5596c2300cc44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ecc6da5_8fa74448",
         "filename": "runtime/art_method.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-11T10:59:24Z",
       "side": 1,
       "message": "entry_point",
+      "range": {
+        "startLine": 326,
+        "startChar": 18,
+        "endLine": 326,
+        "endChar": 20
+      },
+      "revId": "cd27a4d42788555c82919f5d04f5596c2300cc44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f747323d_3834d6cc",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T17:58:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ecc6da5_8fa74448",
       "range": {
         "startLine": 326,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8fc1fb48_aaef1220",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2904,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T17:58:14Z",
+      "side": 1,
+      "message": "the compiler/oat-dump and a few other things still need the original definition.",
+      "parentUuid": "7438f83a_af129454",
+      "range": {
+        "startLine": 2904,
+        "startChar": 6,
+        "endLine": 2904,
+        "endChar": 66
+      },
+      "revId": "cd27a4d42788555c82919f5d04f5596c2300cc44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6bd56a2_5715fbc0",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "1abe3319_2d75988a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T17:58:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6bd56a2_5715fbc0",
+      "range": {
+        "startLine": 1297,
+        "startChar": 0,
+        "endLine": 1298,
+        "endChar": 69
+      },
+      "revId": "cd27a4d42788555c82919f5d04f5596c2300cc44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a030788_0deb4996",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2018-01-11T10:59:24Z",
       "side": 1,
       "message": "Nice catch!",
+      "range": {
+        "startLine": 1299,
+        "startChar": 23,
+        "endLine": 1299,
+        "endChar": 44
+      },
+      "revId": "cd27a4d42788555c82919f5d04f5596c2300cc44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2518054a_07ab6872",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T17:58:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9a030788_0deb4996",
       "range": {
         "startLine": 1299,
         "startChar": 23,
