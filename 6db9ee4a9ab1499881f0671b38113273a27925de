@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6fd36a0a_31620b4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T00:55:03Z",
+      "side": 1,
+      "message": "libjdwp. It does seem to only do it in rare cases during shutdown. I haven\u0027t been able to get it to repro so I have no idea why/where it\u0027s doing this but the error message seems to indicate it\u0027s happening in b/70918330.",
+      "parentUuid": "4bdf6a5f_e4c28050",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "6db9ee4a9ab1499881f0671b38113273a27925de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "089d1e2b_8b654aa0",
         "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 1
