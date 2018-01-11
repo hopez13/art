@@ -22,6 +22,30 @@
       "revId": "f9801d8f7b24b40cab6e551aca33230cea6610a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "190554ea_ec904c82",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-11T19:55:36Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/#/c/platform/art/+/586467/3",
+      "parentUuid": "8bd04dbf_ba3d2e1f",
+      "range": {
+        "startLine": 335,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 40
+      },
+      "revId": "f9801d8f7b24b40cab6e551aca33230cea6610a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
