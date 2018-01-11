@@ -22,6 +22,46 @@
       "revId": "abad23b7689e14da38bb1e80ce1fce37281b83a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49940960_55a12f87",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-11T19:37:47Z",
+      "side": 1,
+      "message": "Clarify? Something like:\n\nBase class for accessors used to describe accesses performed by VarHandle methods.\n\nI\u0027m not sure the second sentence adds much.",
+      "range": {
+        "startLine": 611,
+        "startChar": 5,
+        "endLine": 612,
+        "endChar": 63
+      },
+      "revId": "abad23b7689e14da38bb1e80ce1fce37281b83a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1697093_8cddc816",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-11T19:37:47Z",
+      "side": 1,
+      "message": "Should be supported? Same for double. I don\u0027t think there\u0027s a fundamental problem with the CAS-based implementation in Java.\n\nC++ currently doesn\u0027t support it due to fp exception concerns, but will eventually. For the time being, this will need a different implementation.\n\nQuoting from the findVarHandle spec:\n\n\"if the field type is anything other than byte, short, char, int, long, float, or double then numeric atomic update access modes are unsupported.\"\n\nwhich could be much clearer and less convoluted by getting rid of the double negative.",
+      "revId": "abad23b7689e14da38bb1e80ce1fce37281b83a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
