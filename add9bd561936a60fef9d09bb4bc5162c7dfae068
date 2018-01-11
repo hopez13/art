@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebae22f1_f5ac54b1",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 8
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c45ea71_dfea1f1b",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": "A bit obscure without context. Is that a known thing in dexlayout?",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 43
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1bfa3b6_b9a47dee",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 8
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ca587f8_a5622e38",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": "update",
+      "range": {
+        "startLine": 686,
+        "startChar": 6,
+        "endLine": 686,
+        "endChar": 13
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fe7786_24d9f56b",
+        "filename": "runtime/dex/compact_dex_debug_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": "lookup speed?",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 8
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a9aa8f_b6974a97",
+        "filename": "runtime/dex/compact_dex_debug_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": ". That",
+      "range": {
+        "startLine": 29,
+        "startChar": 53,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21b0e740_f8b85ff3",
+        "filename": "runtime/dex/compact_dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": "Add a comment that this is like the standard codeItem, but without the debug_info_offset?",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 44
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4da2a01f_2918d98c",
+        "filename": "runtime/dex/compact_dex_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": "nit: missing high-level comment.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4091ce8f_8168d7b9",
+        "filename": "runtime/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-11T14:12:11Z",
+      "side": 1,
+      "message": "Update comment that standard and compact have different code items?",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 19
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
