@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "eaf17647_524cd527",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-11T18:51:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \"unevac\"?",
+      "range": {
+        "startLine": 278,
+        "startChar": 73,
+        "endLine": 278,
+        "endChar": 77
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6188f905_949b5966",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-11T18:51:36Z",
+      "side": 1,
+      "message": "It seem strange to do this concurrently with mutator threads running. What if a card (covering a non-evac) is dirtied again after being visited? It looks like we will miss it?\nIf so, should we revisit card again in a pause?\n\nOr maybe this does not matter, as newly allocated objects will be in a to-space, and therefore preserved from being swept/cleared by the GC?\n\nBut what about newly allocated objects in other spaces (e.g. the non-moving space) that would be referenced from an object located in the region space on an already visited dirty card? Maybe they are tracked in an alloc stack (or some other tracking data structure)?",
+      "range": {
+        "startLine": 852,
+        "startChar": 37,
+        "endLine": 852,
+        "endChar": 64
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8b22e9d_6ce74033",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 10
@@ -37,6 +83,30 @@
       "side": 1,
       "message": "This is enforced by doing the bitmap marking in Scanning. Mutator threads can also mark objects but only the GC thread currently processes mark stacks.",
       "parentUuid": "d8b22e9d_6ce74033",
+      "range": {
+        "startLine": 1597,
+        "startChar": 4,
+        "endLine": 1597,
+        "endChar": 78
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "293c8d0d_cf8ab214",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-11T18:51:36Z",
+      "side": 1,
+      "message": "I see; thanks for the explanation.",
+      "parentUuid": "138d9258_4a1c39cc",
       "range": {
         "startLine": 1597,
         "startChar": 4,
@@ -113,6 +183,53 @@
         "startChar": 0,
         "endLine": 1611,
         "endChar": 31
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378c06d0_4c3e1e37",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-11T18:51:36Z",
+      "side": 1,
+      "message": "This seems like a good idea; I\u0027ll add a check.",
+      "parentUuid": "767f7d1d_c46ff92c",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 31
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49a07004_9f8cfbb2",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2610,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-11T18:51:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `!done_scanning_.LoadRelaxed()`?",
+      "range": {
+        "startLine": 2610,
+        "startChar": 8,
+        "endLine": 2610,
+        "endChar": 23
       },
       "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
