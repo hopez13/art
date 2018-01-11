@@ -96,16 +96,28 @@ uint32_t CompactDexWriter::WriteCodeItem(dex_ir::CodeItem* code_item,
   DCHECK(code_item != nullptr);
   const uint32_t start_offset = offset;
   offset = RoundUp(offset, CompactDexFile::CodeItem::kAlignment);
-  ProcessOffset(&offset, code_item);
 
   CompactDexFile::CodeItem disk_code_item;
-  disk_code_item.registers_size_ = code_item->RegistersSize();
-  disk_code_item.ins_size_ = code_item->InsSize();
-  disk_code_item.outs_size_ = code_item->OutsSize();
-  disk_code_item.tries_size_ = code_item->TriesSize();
-  disk_code_item.insns_size_in_code_units_ = code_item->InsnsSize();
+
+  uint16_t preheader_storage[CompactDexFile::CodeItem::kMaxPreHeaderSize] = {};
+  uint16_t* preheader_end = preheader_storage + CompactDexFile::CodeItem::kMaxPreHeaderSize;
+  const uint16_t* preheader = disk_code_item.Create(
+      code_item->RegistersSize(),
+      code_item->InsSize(),
+      code_item->OutsSize(),
+      code_item->TriesSize(),
+      code_item->InsnsSize(),
+      preheader_end);
+  // Write preheader first.
+  offset += Write(reinterpret_cast<const uint8_t*>(preheader),
+                  (preheader_end - preheader) * sizeof(preheader[0]),
+                  offset);
+  // Registered offset is after the preheader.
+  ProcessOffset(&offset, code_item);
   // Avoid using sizeof so that we don't write the fake instruction array at the end of the code
   // item.
+  const uint32_t size = OFFSETOF_MEMBER(CompactDexFile::CodeItem, insns_);
+  CHECK_EQ(size, 4u);
   offset += Write(&disk_code_item,
                   OFFSETOF_MEMBER(CompactDexFile::CodeItem, insns_),
                   offset);

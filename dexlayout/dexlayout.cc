@@ -1923,12 +1923,14 @@ void DexLayout::ProcessDexFile(const char* file_name,
     if (options_.verify_output_) {
       std::string error_msg;
       std::string location = "memory mapped file for " + std::string(file_name);
+      // Dex file verifier can't handle compact dex.
+      bool verify = options_.compact_dex_level_ == CompactDexLevel::kCompactDexLevelNone;
       std::unique_ptr<const DexFile> output_dex_file(DexFileLoader::Open(mem_map_->Begin(),
                                                                          file_size,
                                                                          location,
                                                                          /* checksum */ 0,
                                                                          /*oat_dex_file*/ nullptr,
-                                                                         /*verify*/ true,
+                                                                         verify,
                                                                          /*verify_checksum*/ false,
                                                                          &error_msg));
       CHECK(output_dex_file != nullptr) << "Failed to re-open output file:" << error_msg;
