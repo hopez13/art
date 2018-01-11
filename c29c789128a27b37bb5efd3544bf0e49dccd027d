@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "138d9258_4a1c39cc",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T17:03:15Z",
+      "side": 1,
+      "message": "This is enforced by doing the bitmap marking in Scanning. Mutator threads can also mark objects but only the GC thread currently processes mark stacks.",
+      "parentUuid": "d8b22e9d_6ce74033",
+      "range": {
+        "startLine": 1597,
+        "startChar": 4,
+        "endLine": 1597,
+        "endChar": 78
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac551aa3_4bd62d39",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 10
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Hmm, maybe that\u0027s already taken care of, as the `young_gen_` case above (lines 1603–1605) is only for large objects…",
       "parentUuid": "ac551aa3_4bd62d39",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 31
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "767f7d1d_c46ff92c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T17:03:15Z",
+      "side": 1,
+      "message": "Good point, I think the idea here is that we unevac is not marked for sticky since it should be marked from the previous GC. It may be worth adding a check?",
+      "parentUuid": "0228bcc4_b737df12",
       "range": {
         "startLine": 1609,
         "startChar": 0,
