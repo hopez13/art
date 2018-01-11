@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cca7bc77_e907dfa0",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T17:52:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d991995_6de97683",
+      "range": {
+        "startLine": 103,
+        "startChar": 65,
+        "endLine": 103,
+        "endChar": 66
+      },
+      "revId": "4effc917f843c1ba62be953d7c9bc052eba58d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "090facdb_b09cdbaa",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-11T11:03:28Z",
       "side": 1,
       "message": "nit: . Otherwise ...",
+      "range": {
+        "startLine": 532,
+        "startChar": 21,
+        "endLine": 532,
+        "endChar": 27
+      },
+      "revId": "4effc917f843c1ba62be953d7c9bc052eba58d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f588deea_74231ed9",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T17:52:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "090facdb_b09cdbaa",
       "range": {
         "startLine": 532,
         "startChar": 21,
