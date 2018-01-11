@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb6491ed_01402a6c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1812,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-11T00:05:39Z",
+      "side": 1,
+      "message": "In retrospect I think that changing this here is what caused the issues that I had with the stack-walker. Actually it was only the OatFileManager that needs this type of change and doing this caused a bunch of other problems.",
+      "range": {
+        "startLine": 1812,
+        "startChar": 0,
+        "endLine": 1812,
+        "endChar": 32
+      },
+      "revId": "90029ebad80f0177294693e46220f2d16f984918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
