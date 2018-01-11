@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "e3e3be37_879d5127",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T17:43:49Z",
+      "side": 1,
+      "message": "True, this is a reasonable idea. The main annoyance is that it\u0027s difficult to go from method id -\u003e code item since it requires decoding the class data and iterating. That could have pathologically bad n^2 time if a single class has all of the methods in the dex. I\u0027ll think if we can do a more efficient approach later.",
+      "parentUuid": "856841d2_5c1c3f21",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "b46e1146a20f84711f4ecdace392b38313a1af6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3172a06e_8c1ffcd1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
