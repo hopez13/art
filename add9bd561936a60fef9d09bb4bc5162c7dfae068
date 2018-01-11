@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8c899bcf_8a87aa9b",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebae22f1_f5ac54b1",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 8
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c45ea71_dfea1f1b",
         "filename": "dexlayout/compact_dex_writer.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-11T14:12:11Z",
       "side": 1,
       "message": "A bit obscure without context. Is that a known thing in dexlayout?",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 43
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "226d1344_e2edc6f3",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c45ea71_dfea1f1b",
       "range": {
         "startLine": 88,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9d2213bc_7cd07981",
+        "filename": "dexlayout/compact_dex_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "SetMapListOffset requires non const",
+      "parentUuid": "a1bfa3b6_b9a47dee",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 8
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ca587f8_a5622e38",
         "filename": "dexlayout/dex_ir.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-11T14:12:11Z",
       "side": 1,
       "message": "update",
+      "range": {
+        "startLine": 686,
+        "startChar": 6,
+        "endLine": 686,
+        "endChar": 13
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8db05cd7_5e0826fd",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ca587f8_a5622e38",
       "range": {
         "startLine": 686,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b7b09c10_7cc5ae8c",
+        "filename": "runtime/dex/compact_dex_debug_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "Added something that verifies and times when verify is enabled:\nAverage lookup time (ns) for debug info offsets: 11 on host.",
+      "parentUuid": "90fe7786_24d9f56b",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 8
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8a9aa8f_b6974a97",
         "filename": "runtime/dex/compact_dex_debug_info.h",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2018-01-11T14:12:11Z",
       "side": 1,
       "message": ". That",
+      "range": {
+        "startLine": 29,
+        "startChar": 53,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7d27f12_4dc92ff3",
+        "filename": "runtime/dex/compact_dex_debug_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8a9aa8f_b6974a97",
       "range": {
         "startLine": 29,
         "startChar": 53,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "52f6ebb1_b4c23dad",
+        "filename": "runtime/dex/compact_dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21b0e740_f8b85ff3",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 44
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4da2a01f_2918d98c",
         "filename": "runtime/dex/compact_dex_utils.h",
         "patchSetId": 1
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "efcab831_9818caa3",
+        "filename": "runtime/dex/compact_dex_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4da2a01f_2918d98c",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4091ce8f_8168d7b9",
         "filename": "runtime/dex/dex_file.h",
         "patchSetId": 1
@@ -197,6 +389,30 @@
       "writtenOn": "2018-01-11T14:12:11Z",
       "side": 1,
       "message": "Update comment that standard and compact have different code items?",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 19
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "383cdd66_dee52fd9",
+        "filename": "runtime/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-11T21:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4091ce8f_8168d7b9",
       "range": {
         "startLine": 304,
         "startChar": 0,
