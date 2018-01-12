@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "45077e2c_cefb66d7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2904,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-12T10:33:52Z",
+      "side": 1,
+      "message": "You can guard the request by checking Runtime::Current()-\u003eIsAotCompiler?\n\nI\u0027d like to get just one method to avoid us asking ourselves \"oh I don\u0027t remember now, which one should I call\"? Or worse \"No idea which one to call, let\u0027s pick this one. Great it works\".",
+      "parentUuid": "8fc1fb48_aaef1220",
+      "range": {
+        "startLine": 2904,
+        "startChar": 6,
+        "endLine": 2904,
+        "endChar": 66
+      },
+      "revId": "cd27a4d42788555c82919f5d04f5596c2300cc44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6bd56a2_5715fbc0",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
