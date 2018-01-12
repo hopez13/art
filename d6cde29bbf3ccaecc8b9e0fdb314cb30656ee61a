@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5fd2ac2f_dfeb328f",
+        "filename": "hiddenapi/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-12T10:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5965e7f5_c3ad60de",
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcbca51b_fac68e5b",
         "filename": "hiddenapi/README.md",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2017-12-22T17:56:37Z",
       "side": 1,
       "message": "You haven\u0027t defined what that is.",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 12
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07631b74_ad6c28ed",
+        "filename": "hiddenapi/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-12T10:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcbca51b_fac68e5b",
       "range": {
         "startLine": 43,
         "startChar": 3,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "524313c5_38014786",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-12T10:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e961ec10_f2990f15",
+      "range": {
+        "startLine": 69,
+        "startChar": 15,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ab46520_8c410ed8",
         "filename": "hiddenapi/hiddenapi.cc",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2017-12-22T17:56:37Z",
       "side": 1,
       "message": "Why would you use that? Please add a comment.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 59
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0efed77_37e42707",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-12T10:02:15Z",
+      "side": 1,
+      "message": "Just for testing, removed",
+      "parentUuid": "4ab46520_8c410ed8",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "d44e0453_6751a1bc",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-12T10:02:15Z",
+      "side": 1,
+      "message": "No specific reason, I like doing that when the parameters are always constant.",
+      "parentUuid": "2e8f43b2_61e985e2",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "962e03f8_10c42134",
         "filename": "hiddenapi/hiddenapi.cc",
         "patchSetId": 4
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "e5bd395a_f0f04736",
+        "filename": "hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-12T10:02:15Z",
+      "side": 1,
+      "message": "Ah, I keep getting confused by the various verifiers. This one is actually useful. Enabled and commented.",
+      "parentUuid": "962e03f8_10c42134",
+      "range": {
+        "startLine": 297,
+        "startChar": 26,
+        "endLine": 297,
+        "endChar": 99
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1330aeb_635509d9",
         "filename": "runtime/dex_file.h",
         "patchSetId": 4
@@ -145,6 +283,30 @@
       "writtenOn": "2017-12-22T17:56:37Z",
       "side": 1,
       "message": "Add a comment why you need this. A bit annoying that you are the only user requiring it. Could you work around it?",
+      "range": {
+        "startLine": 1422,
+        "startChar": 0,
+        "endLine": 1422,
+        "endChar": 31
+      },
+      "revId": "d6cde29bbf3ccaecc8b9e0fdb314cb30656ee61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80f0ba01_20400cd8",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-12T10:02:15Z",
+      "side": 1,
+      "message": "Okay, I got rid of it and now work backwards from the pointer to the next element.",
+      "parentUuid": "b1330aeb_635509d9",
       "range": {
         "startLine": 1422,
         "startChar": 0,
