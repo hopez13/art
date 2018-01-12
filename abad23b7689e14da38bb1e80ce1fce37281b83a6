@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bb79a5ed_d94bd88b",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-12T15:14:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "193ddd01_067cab2d",
+      "range": {
+        "startLine": 955,
+        "startChar": 0,
+        "endLine": 956,
+        "endChar": 24
+      },
+      "revId": "abad23b7689e14da38bb1e80ce1fce37281b83a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49940960_55a12f87",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 17
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0e81b25f_31ec13fb",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-12T15:14:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49940960_55a12f87",
+      "range": {
+        "startLine": 611,
+        "startChar": 5,
+        "endLine": 612,
+        "endChar": 63
+      },
+      "revId": "abad23b7689e14da38bb1e80ce1fce37281b83a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1697093_8cddc816",
         "filename": "runtime/mirror/var_handle.cc",
         "patchSetId": 17
@@ -62,6 +110,24 @@
       "revId": "abad23b7689e14da38bb1e80ce1fce37281b83a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0b5987a_74b98f1e",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-12T15:14:32Z",
+      "side": 1,
+      "message": "Thanks Hans, it\u0027s now implemented with CAS. I had past this too quickly.",
+      "parentUuid": "f1697093_8cddc816",
+      "revId": "abad23b7689e14da38bb1e80ce1fce37281b83a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
