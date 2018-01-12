@@ -143,6 +143,29 @@
     },
     {
       "key": {
+        "uuid": "8aa0eee2_f8916eec",
+        "filename": "dexlayout/compact_dex_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-01-12T22:28:59Z",
+      "side": 1,
+      "message": "\"where\" rather than \"for\" sounds better IMHO.",
+      "range": {
+        "startLine": 49,
+        "startChar": 38,
+        "endLine": 49,
+        "endChar": 41
+      },
+      "revId": "add9bd561936a60fef9d09bb4bc5162c7dfae068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2ca587f8_a5622e38",
         "filename": "dexlayout/dex_ir.cc",
         "patchSetId": 1
