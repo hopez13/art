@@ -46,6 +46,30 @@
       "revId": "c70d5055b3131021af9bfec3e15562132cccad10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab6734de_9017e16d",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-12T16:59:07Z",
+      "side": 1,
+      "message": "OK, I guess the file name (elf_symtab_writer) coul,d be enough. Wouldn\u0027t be that bad to repeat \"stored in the .symtab section\" here though.\n\nAlso, you could add eg \"the start of the dex file, currently only from vdex files\".",
+      "parentUuid": "3ec6c2b0_1f490bd8",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 60
+      },
+      "revId": "c70d5055b3131021af9bfec3e15562132cccad10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
