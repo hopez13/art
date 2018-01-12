@@ -206,7 +206,7 @@ class DexFileVerifier {
   const size_t size_;
   const char* const location_;
   const bool verify_checksum_;
-  const bool is_boot_class_path_ ATTRIBUTE_UNUSED;
+  const bool is_boot_class_path_;
   const DexFile::Header* const header_;
 
   struct OffsetTypeMapEmptyFn {

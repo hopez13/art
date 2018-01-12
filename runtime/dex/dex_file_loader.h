@@ -99,6 +99,7 @@ class DexFileLoader {
                                                 bool verify,
                                                 bool verify_checksum,
                                                 bool is_boot_class_path,
+                                                bool mmap_shared,
                                                 std::string* error_msg);
 
   // Opens dex files from within a .jar, .zip, or .apk file
@@ -159,6 +160,7 @@ class DexFileLoader {
                                                  bool verify,
                                                  bool verify_checksum,
                                                  bool is_boot_class_path,
+                                                 bool mmap_shared,
                                                  std::string* error_msg);
 
   enum class ZipOpenErrorCode {

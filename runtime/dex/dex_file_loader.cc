@@ -147,7 +147,7 @@ bool DexFileLoader::GetMultiDexChecksums(const char* filename,
   }
   if (IsMagicValid(magic)) {
     std::unique_ptr<const DexFile> dex_file(
-        OpenFile(fd.Release(), filename, false, false, false, error_msg));
+        OpenFile(fd.Release(), filename, false, false, false, false, error_msg));
     if (dex_file == nullptr) {
       return false;
     }
@@ -266,6 +266,7 @@ bool DexFileLoader::Open(const char* filename,
                                                      verify,
                                                      verify_checksum,
                                                      is_boot_class_path,
+                                                     /* mmap_shared */ false,
                                                      error_msg));
     if (dex_file.get() != nullptr) {
       dex_files->push_back(std::move(dex_file));
@@ -283,10 +284,11 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenDex(int fd,
                                                       bool verify,
                                                       bool verify_checksum,
                                                       bool is_boot_class_path,
+                                                      bool mmap_shared,
                                                       std::string* error_msg) {
   ScopedTrace trace("Open dex file " + std::string(location));
   return OpenFile(
-      fd, location, verify, verify_checksum, is_boot_class_path, error_msg);
+      fd, location, verify, verify_checksum, is_boot_class_path, mmap_shared, error_msg);
 }
 
 bool DexFileLoader::OpenZip(int fd,
@@ -312,6 +314,7 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenFile(int fd,
                                                        bool verify,
                                                        bool verify_checksum,
                                                        bool is_boot_class_path,
+                                                       bool mmap_shared,
                                                        std::string* error_msg) {
   ScopedTrace trace(std::string("Open dex file ") + std::string(location));
   CHECK(!location.empty());
@@ -332,7 +335,7 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenFile(int fd,
     size_t length = sbuf.st_size;
     map.reset(MemMap::MapFile(length,
                               PROT_READ,
-                              MAP_PRIVATE,
+                              mmap_shared ? MAP_SHARED : MAP_PRIVATE,
                               fd,
                               0,
                               /*low_4gb*/false,

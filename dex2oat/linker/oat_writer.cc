@@ -3419,6 +3419,7 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
                                       /* verify */ true,
                                       /* verify_checksum */ true,
                                       compiling_boot_image_,
+                                      /* mmap_shared */ false,
                                       &error_msg);
   } else {
     // The source data is a vdex file.
