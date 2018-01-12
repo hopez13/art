@@ -25,6 +25,7 @@
 
 #include "code_item_accessors-no_art-inl.h"
 #include "dex_file-inl.h"
+#include "dex_hidden_access_flags.h"
 #include "experimental_flags.h"
 #include "leb128.h"
 #include "safe_map.h"
