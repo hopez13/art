@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e1ff4aa_6bc591cd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-12T23:29:49Z",
+      "side": 1,
+      "message": "\"treating as invocation\" is an unexpected comment in terms of IsLoad(). I would just say that an unresolved load it not a load in thix context?",
+      "revId": "dca6d255f910ad1a241c342df5a1dee5f5ef4dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71cf54a7_f4c09a3b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-12T23:29:49Z",
+      "side": 1,
+      "message": "same for store",
+      "revId": "dca6d255f910ad1a241c342df5a1dee5f5ef4dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
