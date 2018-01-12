@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f01e92fe_a8b70664",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-12T17:21:53Z",
+      "side": 1,
+      "message": "nit: add a comment that using the oat code is ok here? Or maybe it looks to me you could just call GetQuickEntrypointFor?",
+      "range": {
+        "startLine": 1299,
+        "startChar": 0,
+        "endLine": 1299,
+        "endChar": 100
+      },
+      "revId": "36a44272a389973cda9c8795d460e8345ad28620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
