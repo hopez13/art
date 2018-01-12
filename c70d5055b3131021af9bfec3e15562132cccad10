@@ -22,6 +22,30 @@
       "revId": "c70d5055b3131021af9bfec3e15562132cccad10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ec6c2b0_1f490bd8",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-12T16:32:01Z",
+      "side": 1,
+      "message": "I am not sure I understand the question.\nAll symbols are stored in the .symtab section, this one is no different.",
+      "parentUuid": "0ece3af7_57fc875a",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 60
+      },
+      "revId": "c70d5055b3131021af9bfec3e15562132cccad10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
