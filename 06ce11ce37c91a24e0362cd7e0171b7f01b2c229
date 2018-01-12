@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bbfbee57_c4b133aa",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-12T16:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc2ad804_7b4c6a50",
+      "revId": "06ce11ce37c91a24e0362cd7e0171b7f01b2c229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e73017f_4785a6ee",
         "filename": "compiler/debug/elf_symtab_writer.h",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2018-01-12T13:23:00Z",
       "side": 1,
       "message": "magic constant, please put that in a global/shared kMyMagicName.",
+      "range": {
+        "startLine": 104,
+        "startChar": 32,
+        "endLine": 104,
+        "endChar": 42
+      },
+      "revId": "06ce11ce37c91a24e0362cd7e0171b7f01b2c229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "954ce248_bc169cbd",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-12T16:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e73017f_4785a6ee",
       "range": {
         "startLine": 104,
         "startChar": 32,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "cc6a8839_efa289f9",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-12T16:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "562b428b_52598246",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 7
+      },
+      "revId": "06ce11ce37c91a24e0362cd7e0171b7f01b2c229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f075134_8f73aeb4",
         "filename": "compiler/debug/elf_symtab_writer.h",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2018-01-12T13:23:00Z",
       "side": 1,
       "message": "Add a comment why sorting.",
+      "range": {
+        "startLine": 137,
+        "startChar": 10,
+        "endLine": 137,
+        "endChar": 14
+      },
+      "revId": "06ce11ce37c91a24e0362cd7e0171b7f01b2c229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e1bc411_ff280f25",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-12T16:02:30Z",
+      "side": 1,
+      "message": "Done (removed - I was thinking ahead, it is not strictly needed just yet).",
+      "parentUuid": "1f075134_8f73aeb4",
       "range": {
         "startLine": 137,
         "startChar": 10,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "f4d66541_8f8be53d",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-12T16:02:30Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "b5e560c2_0b1a5cf3",
+      "range": {
+        "startLine": 391,
+        "startChar": 46,
+        "endLine": 391,
+        "endChar": 57
+      },
+      "revId": "06ce11ce37c91a24e0362cd7e0171b7f01b2c229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "694846be_e2b4c7e8",
         "filename": "compiler/linker/elf_builder.h",
         "patchSetId": 4
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "8a9cbd59_70a3ef86",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-12T16:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "694846be_e2b4c7e8",
+      "range": {
+        "startLine": 406,
+        "startChar": 5,
+        "endLine": 406,
+        "endChar": 31
+      },
+      "revId": "06ce11ce37c91a24e0362cd7e0171b7f01b2c229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2d6bf8f_66899776",
         "filename": "dex2oat/linker/oat_writer.h",
         "patchSetId": 4
@@ -145,6 +283,30 @@
       "writtenOn": "2018-01-12T13:23:00Z",
       "side": 1,
       "message": "Add a comment.",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 57
+      },
+      "revId": "06ce11ce37c91a24e0362cd7e0171b7f01b2c229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8dc894c_ca5ee2c0",
+        "filename": "dex2oat/linker/oat_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-12T16:02:30Z",
+      "side": 1,
+      "message": "Done + refactored.",
+      "parentUuid": "f2d6bf8f_66899776",
       "range": {
         "startLine": 248,
         "startChar": 4,
