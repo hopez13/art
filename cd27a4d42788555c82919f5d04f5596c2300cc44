@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "19a9ad04_aebb42f2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2904,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-12T17:12:55Z",
+      "side": 1,
+      "message": "Just rewrote the only bit that needs the original definition a bit. It also makes that area simpler.",
+      "parentUuid": "45077e2c_cefb66d7",
+      "range": {
+        "startLine": 2904,
+        "startChar": 6,
+        "endLine": 2904,
+        "endChar": 66
+      },
+      "revId": "cd27a4d42788555c82919f5d04f5596c2300cc44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6bd56a2_5715fbc0",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
