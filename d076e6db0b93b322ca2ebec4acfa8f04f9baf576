@@ -22,6 +22,30 @@
       "revId": "d076e6db0b93b322ca2ebec4acfa8f04f9baf576",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ea1e07b_7f36e802",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-12T11:22:56Z",
+      "side": 1,
+      "message": "Good idea; done in PS4.",
+      "parentUuid": "04a14c36_14a2ad9c",
+      "range": {
+        "startLine": 220,
+        "startChar": 6,
+        "endLine": 220,
+        "endChar": 14
+      },
+      "revId": "d076e6db0b93b322ca2ebec4acfa8f04f9baf576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
