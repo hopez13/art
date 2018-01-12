@@ -24,7 +24,7 @@ art_cc_binary {
     ],
     cflags: ["-Wall", "-Werror"],
     shared_libs: [
-        "libart",
+        "libdexfile",
         "libbase",
     ],
 }
