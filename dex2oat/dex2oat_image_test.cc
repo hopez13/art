@@ -69,6 +69,7 @@ class Dex2oatImageTest : public CommonRuntimeTest {
                                 dex,
                                 /*verify*/ true,
                                 /*verify_checksum*/ false,
+                                /*is_boot_class_path*/ true,
                                 &error_msg,
                                 &dex_files))
           << error_msg;

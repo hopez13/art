@@ -193,6 +193,7 @@ static const DexFile* CreateDexFile(JNIEnv* env, std::unique_ptr<MemMap> dex_mem
                                                               std::move(dex_mem_map),
                                                               /* verify */ true,
                                                               /* verify_location */ true,
+                                                              /* is_boot_class_path */ false,
                                                               &error_message));
   if (dex_file == nullptr) {
     ScopedObjectAccess soa(env);

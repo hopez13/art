@@ -34,6 +34,7 @@ class DexFileVerifier {
                      size_t size,
                      const char* location,
                      bool verify_checksum,
+                     bool is_boot_class_path,
                      std::string* error_msg);
 
   const std::string& FailureReason() const {
@@ -45,12 +46,14 @@ class DexFileVerifier {
                   const uint8_t* begin,
                   size_t size,
                   const char* location,
-                  bool verify_checksum)
+                  bool verify_checksum,
+                  bool is_boot_class_path)
       : dex_file_(dex_file),
         begin_(begin),
         size_(size),
         location_(location),
         verify_checksum_(verify_checksum),
+        is_boot_class_path_(is_boot_class_path),
         header_(&dex_file->GetHeader()),
         ptr_(nullptr),
         previous_item_(nullptr)  {
@@ -203,6 +206,7 @@ class DexFileVerifier {
   const size_t size_;
   const char* const location_;
   const bool verify_checksum_;
+  const bool is_boot_class_path_ ATTRIBUTE_UNUSED;
   const DexFile::Header* const header_;
 
   struct OffsetTypeMapEmptyFn {

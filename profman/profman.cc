@@ -327,6 +327,7 @@ class ProfMan FINAL {
       return;
     }
     static constexpr bool kVerifyChecksum = true;
+    static constexpr bool kIsBootClassPath = false;
     for (size_t i = 0; i < dex_locations_.size(); ++i) {
       std::string error_msg;
       std::vector<std::unique_ptr<const DexFile>> dex_files_for_location;
@@ -335,6 +336,7 @@ class ProfMan FINAL {
                                    dex_locations_[i],
                                    /* verify */ true,
                                    kVerifyChecksum,
+                                   kIsBootClassPath,
                                    &error_msg,
                                    &dex_files_for_location)) {
         } else {
@@ -346,6 +348,7 @@ class ProfMan FINAL {
                                 dex_locations_[i],
                                 /* verify */ true,
                                 kVerifyChecksum,
+                                kIsBootClassPath,
                                 &error_msg,
                                 &dex_files_for_location)) {
         } else {

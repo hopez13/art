@@ -94,7 +94,7 @@ static bool positionsCb(void* context, const DexFile::PositionInfo& entry) {
  * Dumps a method.
  */
 static void dumpMethod(const DexFile* pDexFile,
-                       const char* fileName, u4 idx, u4 flags ATTRIBUTE_UNUSED,
+                       const char* fileName, u4 idx,
                        const DexFile::CodeItem* pCode, u4 codeOffset) {
   // Abstract and native methods don't get listed.
   if (pCode == nullptr || codeOffset == 0) {
@@ -158,7 +158,6 @@ void dumpClass(const DexFile* pDexFile, u4 idx) {
     for (; pClassData.HasNextMethod(); pClassData.Next()) {
       dumpMethod(pDexFile, fileName,
                  pClassData.GetMemberIndex(),
-                 pClassData.GetRawMemberAccessFlags(),
                  pClassData.GetMethodCodeItem(),
                  pClassData.GetMethodCodeItemOffset());
     }
@@ -172,10 +171,13 @@ static int processFile(const char* fileName) {
   // If the file is not a .dex file, the function tries .zip/.jar/.apk files,
   // all of which are Zip archives with "classes.dex" inside.
   static constexpr bool kVerifyChecksum = true;
+  // Be conservative and assume this could be run on boot class path dex files.
+  // Should have no effect as dexlist does not dump access flags.
+  static constexpr bool kIsBootClassPath = true;
   std::string error_msg;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
-  if (!DexFileLoader::Open(
-        fileName, fileName, /* verify */ true, kVerifyChecksum, &error_msg, &dex_files)) {
+  if (!DexFileLoader::Open(fileName, fileName, /* verify */ true, kVerifyChecksum, kIsBootClassPath,
+          &error_msg, &dex_files)) {
     fputs(error_msg.c_str(), stderr);
     fputc('\n', stderr);
     return -1;

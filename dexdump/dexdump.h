@@ -42,6 +42,7 @@ struct Options {
   bool disassemble;
   bool exportsOnly;
   bool ignoreBadChecksum;
+  bool isBootClassPathDex;
   bool showAnnotations;
   bool showCfg;
   bool showFileHeaders;

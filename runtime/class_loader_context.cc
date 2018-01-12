@@ -219,6 +219,7 @@ bool ClassLoaderContext::OpenDexFiles(InstructionSet isa, const std::string& cla
                                location.c_str(),
                                Runtime::Current()->IsVerificationEnabled(),
                                /*verify_checksum*/ true,
+                               /*is_boot_class_path*/ false,
                                &error_msg,
                                &info.opened_dex_files)) {
         // If we fail to open the dex file because it's been stripped, try to open the dex file

@@ -82,11 +82,13 @@ class Dex2oatEnvironmentTest : public CommonRuntimeTest {
     // GetMultiDexSrc2 should have the same primary dex checksum as
     // GetMultiDexSrc1, but a different secondary dex checksum.
     static constexpr bool kVerifyChecksum = true;
+    static constexpr bool kIsBootClassPath = false;
     std::vector<std::unique_ptr<const DexFile>> multi1;
     ASSERT_TRUE(DexFileLoader::Open(GetMultiDexSrc1().c_str(),
                                     GetMultiDexSrc1().c_str(),
                                     /* verify */ true,
                                     kVerifyChecksum,
+                                    kIsBootClassPath,
                                     &error_msg,
                                     &multi1)) << error_msg;
     ASSERT_GT(multi1.size(), 1u);
@@ -96,6 +98,7 @@ class Dex2oatEnvironmentTest : public CommonRuntimeTest {
                                     GetMultiDexSrc2().c_str(),
                                     /* verify */ true,
                                     kVerifyChecksum,
+                                    kIsBootClassPath,
                                     &error_msg,
                                     &multi2)) << error_msg;
     ASSERT_GT(multi2.size(), 1u);

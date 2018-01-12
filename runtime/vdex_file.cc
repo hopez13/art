@@ -183,14 +183,18 @@ bool VdexFile::OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_
     size_t size = reinterpret_cast<const DexFile::Header*>(dex_file_start)->file_size_;
     // TODO: Supply the location information for a vdex file.
     static constexpr char kVdexLocation[] = "";
+    static constexpr bool kVerify = false;
+    static constexpr bool kVerifyChecksum = false;
+    static constexpr bool kIsBootClassPath = false;  // does not have any effect if kVerify == false
     std::string location = DexFileLoader::GetMultiDexLocation(i, kVdexLocation);
     std::unique_ptr<const DexFile> dex(DexFileLoader::Open(dex_file_start,
                                                            size,
                                                            location,
                                                            GetLocationChecksum(i),
                                                            nullptr /*oat_dex_file*/,
-                                                           false /*verify*/,
-                                                           false /*verify_checksum*/,
+                                                           kVerify,
+                                                           kVerifyChecksum,
+                                                           kIsBootClassPath,
                                                            error_msg));
     if (dex == nullptr) {
       return false;

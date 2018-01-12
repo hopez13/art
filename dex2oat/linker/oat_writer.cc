@@ -3405,6 +3405,7 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
                                    std::move(mem_map),
                                    /* verify */ true,
                                    /* verify_checksum */ true,
+                                   compiling_boot_image_,
                                    &error_msg);
   } else if (oat_dex_file->source_.IsRawFile()) {
     File* raw_file = oat_dex_file->source_.GetRawFile();
@@ -3413,8 +3414,12 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
       PLOG(ERROR) << "Failed to dup dex file descriptor (" << raw_file->Fd() << ") at " << location;
       return false;
     }
-    dex_file = DexFileLoader::OpenDex(
-        dup_fd, location, /* verify */ true, /* verify_checksum */ true, &error_msg);
+    dex_file = DexFileLoader::OpenDex(dup_fd,
+                                      location,
+                                      /* verify */ true,
+                                      /* verify_checksum */ true,
+                                      compiling_boot_image_,
+                                      &error_msg);
   } else {
     // The source data is a vdex file.
     CHECK(oat_dex_file->source_.IsRawData())
@@ -3433,6 +3438,7 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
                                    nullptr,
                                    /* verify */ false,
                                    /* verify_checksum */ false,
+                                   /* is_boot_class_path */ false,  // no effect when verify==false
                                    &error_msg);
   }
   if (dex_file == nullptr) {
@@ -3681,6 +3687,7 @@ bool OatWriter::OpenDexFiles(
                                                /* oat_dex_file */ nullptr,
                                                verify,
                                                verify,
+                                               compiling_boot_image_,
                                                &error_msg));
     if (dex_files.back() == nullptr) {
       LOG(ERROR) << "Failed to open dex file from oat file. File: " << oat_dex_file.GetLocation()

@@ -1046,6 +1046,7 @@ static size_t OpenDexFiles(const std::vector<std::string>& dex_filenames,
     const char* dex_filename = dex_filenames[i].c_str();
     const char* dex_location = dex_locations[i].c_str();
     static constexpr bool kVerifyChecksum = true;
+    static constexpr bool kIsBootClassPath = true;
     std::string error_msg;
     if (!OS::FileExists(dex_filename)) {
       LOG(WARNING) << "Skipping non-existent dex file '" << dex_filename << "'";
@@ -1055,6 +1056,7 @@ static size_t OpenDexFiles(const std::vector<std::string>& dex_filenames,
                              dex_location,
                              Runtime::Current()->IsVerificationEnabled(),
                              kVerifyChecksum,
+                             kIsBootClassPath,
                              &error_msg,
                              dex_files)) {
       LOG(WARNING) << "Failed to open .dex from file '" << dex_filename << "': " << error_msg;

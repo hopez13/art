@@ -74,6 +74,7 @@ void JNICALL CheckDexFileHook(jvmtiEnv* jvmti_env ATTRIBUTE_UNUSED,
                                                          /*oat_dex_file*/ nullptr,
                                                          /*verify*/ true,
                                                          /*verify_checksum*/ true,
+                                                         /*is_boot_class_path*/ false,
                                                          &error));
   if (dex.get() == nullptr) {
     std::cout << "Failed to verify dex file for " << name << " because " << error << std::endl;

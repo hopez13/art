@@ -82,7 +82,8 @@ static std::unique_ptr<const art::DexFile> MakeSingleDexFile(art::Thread* self,
                                                              const char* descriptor,
                                                              const std::string& orig_location,
                                                              jint final_len,
-                                                             const unsigned char* final_dex_data)
+                                                             const unsigned char* final_dex_data,
+                                                             bool is_boot_class_loader)
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
   // Make the mmap
   std::string error_msg;
@@ -112,6 +113,7 @@ static std::unique_ptr<const art::DexFile> MakeSingleDexFile(art::Thread* self,
                                                                         std::move(map),
                                                                         /*verify*/true,
                                                                         /*verify_checksum*/true,
+                                                                        is_boot_class_loader,
                                                                         &error_msg));
   if (dex_file.get() == nullptr) {
     LOG(WARNING) << "Unable to load modified dex file for " << descriptor << ": " << error_msg;
@@ -284,11 +286,9 @@ struct ClassCallback : public art::ClassLoadCallback {
         return;
       }
 
-      std::unique_ptr<const art::DexFile> dex_file(MakeSingleDexFile(self,
-                                                                     descriptor,
-                                                                     initial_dex_file.GetLocation(),
-                                                                     final_len,
-                                                                     final_dex_data));
+      std::unique_ptr<const art::DexFile> dex_file(MakeSingleDexFile(
+          self, descriptor, initial_dex_file.GetLocation(), final_len, final_dex_data,
+          art::ClassLinker::IsBootClassLoader(soa, class_loader.Get())));
       if (dex_file.get() == nullptr) {
         return;
       }

@@ -46,6 +46,7 @@ static void usage(void) {
   fprintf(stderr, "%s: [-a] [-c] [-d] [-e] [-f] [-h] [-i] [-l layout] [-o outfile]"
                   " dexfile...\n\n", gProgName);
   fprintf(stderr, " -a : display annotations\n");
+  fprintf(stderr, " -b : treat as boot class path dex\n");
   fprintf(stderr, " -c : verify checksum and exit\n");
   fprintf(stderr, " -d : disassemble code sections\n");
   fprintf(stderr, " -e : display exported items only\n");
@@ -72,13 +73,16 @@ int dexdumpDriver(int argc, char** argv) {
 
   // Parse all arguments.
   while (1) {
-    const int ic = getopt(argc, argv, "acdefghil:o:");
+    const int ic = getopt(argc, argv, "abcdefghil:o:");
     if (ic < 0) {
       break;  // done
     }
     switch (ic) {
       case 'a':  // display annotations
         gOptions.showAnnotations = true;
+        break;
+      case 'b':  // treat as boot class path dex
+        gOptions.isBootClassPathDex = true;
         break;
       case 'c':  // verify the checksum then exit
         gOptions.checksumOnly = true;

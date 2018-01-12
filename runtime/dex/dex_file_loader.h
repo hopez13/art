@@ -72,6 +72,7 @@ class DexFileLoader {
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
+                                             bool is_boot_class_path,
                                              std::string* error_msg);
 
   // Opens .dex file that has been memory-mapped by the caller.
@@ -80,6 +81,7 @@ class DexFileLoader {
                                              std::unique_ptr<MemMap> mem_map,
                                              bool verify,
                                              bool verify_checksum,
+                                             bool is_boot_class_path,
                                              std::string* error_msg);
 
   // Opens all .dex files found in the file, guessing the container format based on file extension.
@@ -87,6 +89,7 @@ class DexFileLoader {
                    const std::string& location,
                    bool verify,
                    bool verify_checksum,
+                   bool is_boot_class_path,
                    std::string* error_msg,
                    std::vector<std::unique_ptr<const DexFile>>* dex_files);
 
@@ -95,6 +98,7 @@ class DexFileLoader {
                                                 const std::string& location,
                                                 bool verify,
                                                 bool verify_checksum,
+                                                bool is_boot_class_path,
                                                 std::string* error_msg);
 
   // Opens dex files from within a .jar, .zip, or .apk file
@@ -102,6 +106,7 @@ class DexFileLoader {
                       const std::string& location,
                       bool verify,
                       bool verify_checksum,
+                      bool is_boot_class_path,
                       std::string* error_msg,
                       std::vector<std::unique_ptr<const DexFile>>* dex_files);
 
@@ -153,6 +158,7 @@ class DexFileLoader {
                                                  const std::string& location,
                                                  bool verify,
                                                  bool verify_checksum,
+                                                 bool is_boot_class_path,
                                                  std::string* error_msg);
 
   enum class ZipOpenErrorCode {
@@ -169,6 +175,7 @@ class DexFileLoader {
                                      const std::string& location,
                                      bool verify,
                                      bool verify_checksum,
+                                     bool is_boot_class_path,
                                      std::string* error_msg,
                                      std::vector<std::unique_ptr<const DexFile>>* dex_files);
 
@@ -179,6 +186,7 @@ class DexFileLoader {
                                                               const std::string& location,
                                                               bool verify,
                                                               bool verify_checksum,
+                                                              bool is_boot_class_path,
                                                               std::string* error_msg,
                                                               ZipOpenErrorCode* error_code);
 
@@ -195,6 +203,7 @@ class DexFileLoader {
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
+                                             bool is_boot_class_path,
                                              std::string* error_msg,
                                              DexFileContainer* container,
                                              VerifyResult* verify_result);

@@ -80,6 +80,7 @@ std::unique_ptr<FixedUpDexFile> FixedUpDexFile::Create(const art::DexFile& origi
       /*oat_dex_file*/nullptr,
       /*verify*/false,
       /*verify_checksum*/false,
+      /*is_boot_class_path*/false,  // no effect if verify==false
       &error));
   if (new_dex_file.get() == nullptr) {
     LOG(ERROR) << "Unable to open dex file from memory for unquickening! error: " << error;
@@ -111,6 +112,7 @@ std::unique_ptr<FixedUpDexFile> FixedUpDexFile::Create(const art::DexFile& origi
         /*oat_dex_file*/nullptr,
         /*verify*/false,
         /*verify_checksum*/false,
+        /*is_boot_class_path*/false,  // no effect if verify==false
         &error);
   }
 

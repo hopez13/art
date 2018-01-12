@@ -1923,14 +1923,9 @@ void DexLayout::ProcessDexFile(const char* file_name,
     if (options_.verify_output_) {
       std::string error_msg;
       std::string location = "memory mapped file for " + std::string(file_name);
-      std::unique_ptr<const DexFile> output_dex_file(DexFileLoader::Open(mem_map_->Begin(),
-                                                                         file_size,
-                                                                         location,
-                                                                         /* checksum */ 0,
-                                                                         /*oat_dex_file*/ nullptr,
-                                                                         /*verify*/ true,
-                                                                         /*verify_checksum*/ false,
-                                                                         &error_msg));
+      std::unique_ptr<const DexFile> output_dex_file(DexFileLoader::Open(
+          mem_map_->Begin(), file_size, location, /* checksum */ 0, /*oat_dex_file*/ nullptr,
+          /*verify*/ true, /*verify_checksum*/ false, /*is_boot_class_path*/ true, &error_msg));
       CHECK(output_dex_file != nullptr) << "Failed to re-open output file:" << error_msg;
 
       // Do IR-level comparison between input and output. This check ignores potential differences
@@ -1960,10 +1955,13 @@ int DexLayout::ProcessFile(const char* file_name) {
   // If the file is not a .dex file, the function tries .zip/.jar/.apk files,
   // all of which are Zip archives with "classes.dex" inside.
   const bool verify_checksum = !options_.ignore_bad_checksum_;
+  // Be conservative and assume that all dex files belong to boot class path.
+  // This may skip some checks in DexFileVerifier.
+  static constexpr bool kIsBootClassPath = true;
   std::string error_msg;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
-  if (!DexFileLoader::Open(
-        file_name, file_name, /* verify */ true, verify_checksum, &error_msg, &dex_files)) {
+  if (!DexFileLoader::Open(file_name, file_name, /* verify */ true, verify_checksum,
+          kIsBootClassPath, &error_msg, &dex_files)) {
     // Display returned error message to user. Note that this error behavior
     // differs from the error messages shown by the original Dalvik dexdump.
     fputs(error_msg.c_str(), stderr);

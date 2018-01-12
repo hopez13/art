@@ -229,9 +229,10 @@ bool DexFileVerifier::Verify(const DexFile* dex_file,
                              size_t size,
                              const char* location,
                              bool verify_checksum,
+                             bool is_boot_class_path,
                              std::string* error_msg) {
   std::unique_ptr<DexFileVerifier> verifier(
-      new DexFileVerifier(dex_file, begin, size, location, verify_checksum));
+      new DexFileVerifier(dex_file, begin, size, location, verify_checksum, is_boot_class_path));
   if (!verifier->Verify()) {
     *error_msg = verifier->FailureReason();
     return false;

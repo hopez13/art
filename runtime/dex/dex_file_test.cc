@@ -236,9 +236,10 @@ static bool OpenDexFilesBase64(const char* base64,
   // read dex file(s)
   ScopedObjectAccess soa(Thread::Current());
   static constexpr bool kVerifyChecksum = true;
+  static constexpr bool kIsBootClassPath = false;
   std::vector<std::unique_ptr<const DexFile>> tmp;
   bool success = DexFileLoader::Open(
-      location, location, /* verify */ true, kVerifyChecksum, error_msg, &tmp);
+      location, location, /* verify */ true, kVerifyChecksum, kIsBootClassPath, error_msg, &tmp);
   if (success) {
     for (std::unique_ptr<const DexFile>& dex_file : tmp) {
       EXPECT_EQ(PROT_READ, dex_file->GetPermissions());
@@ -282,6 +283,7 @@ static std::unique_ptr<const DexFile> OpenDexFileInMemoryBase64(const char* base
                                                               std::move(region),
                                                               /* verify */ true,
                                                               /* verify_checksum */ true,
+                                                              /* is_boot_class_path */ false,
                                                               &error_message));
   if (expect_success) {
     CHECK(dex_file != nullptr) << error_message;
@@ -366,10 +368,12 @@ TEST_F(DexFileTest, Version40Rejected) {
 
   ScopedObjectAccess soa(Thread::Current());
   static constexpr bool kVerifyChecksum = true;
+  static constexpr bool kIsBootClassPath = false;
   std::string error_msg;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   ASSERT_FALSE(DexFileLoader::Open(
-      location, location, /* verify */ true, kVerifyChecksum, &error_msg, &dex_files));
+      location, location, /* verify */ true, kVerifyChecksum, kIsBootClassPath, &error_msg,
+      &dex_files));
 }
 
 TEST_F(DexFileTest, Version41Rejected) {
@@ -379,10 +383,12 @@ TEST_F(DexFileTest, Version41Rejected) {
 
   ScopedObjectAccess soa(Thread::Current());
   static constexpr bool kVerifyChecksum = true;
+  static constexpr bool kIsBootClassPath = false;
   std::string error_msg;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   ASSERT_FALSE(DexFileLoader::Open(
-      location, location, /* verify */ true, kVerifyChecksum, &error_msg, &dex_files));
+      location, location, /* verify */ true, kVerifyChecksum, kIsBootClassPath, &error_msg,
+      &dex_files));
 }
 
 TEST_F(DexFileTest, ZeroLengthDexRejected) {
@@ -392,10 +398,12 @@ TEST_F(DexFileTest, ZeroLengthDexRejected) {
 
   ScopedObjectAccess soa(Thread::Current());
   static constexpr bool kVerifyChecksum = true;
+  static constexpr bool kIsBootClassPath = false;
   std::string error_msg;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   ASSERT_FALSE(DexFileLoader::Open(
-      location, location, /* verify */ true, kVerifyChecksum, &error_msg, &dex_files));
+      location, location, /* verify */ true, kVerifyChecksum, kIsBootClassPath, &error_msg,
+      &dex_files));
 }
 
 TEST_F(DexFileTest, GetLocationChecksum) {

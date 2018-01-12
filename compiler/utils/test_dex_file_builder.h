@@ -232,6 +232,7 @@ class TestDexFileBuilder {
 
     static constexpr bool kVerify = false;
     static constexpr bool kVerifyChecksum = false;
+    static constexpr bool kIsBootClassPath = false;  // has no effect when kVerify == false
     std::string error_msg;
     std::unique_ptr<const DexFile> dex_file(DexFileLoader::Open(
         &dex_file_data_[0],
@@ -241,6 +242,7 @@ class TestDexFileBuilder {
         nullptr,
         kVerify,
         kVerifyChecksum,
+        kIsBootClassPath,
         &error_msg));
     CHECK(dex_file != nullptr) << error_msg;
     return dex_file;

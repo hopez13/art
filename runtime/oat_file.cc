@@ -1666,6 +1666,7 @@ std::unique_ptr<const DexFile> OatFile::OatDexFile::OpenDexFile(std::string* err
   ScopedTrace trace(__PRETTY_FUNCTION__);
   static constexpr bool kVerify = false;
   static constexpr bool kVerifyChecksum = false;
+  static constexpr bool kIsBootClassPath = false;  // does not have any effect if kVerify == false
   return DexFileLoader::Open(dex_file_pointer_,
                              FileSize(),
                              dex_file_location_,
@@ -1673,6 +1674,7 @@ std::unique_ptr<const DexFile> OatFile::OatDexFile::OpenDexFile(std::string* err
                              this,
                              kVerify,
                              kVerifyChecksum,
+                             kIsBootClassPath,
                              error_msg);
 }
 

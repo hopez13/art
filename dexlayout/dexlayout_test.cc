@@ -322,6 +322,7 @@ class DexLayoutTest : public CommonRuntimeTest {
                               input_jar.c_str(),
                               /*verify*/ true,
                               /*verify_checksum*/ true,
+                              /*is_boot_class_path*/ false,
                               &error_msg,
                               &dex_files)) << error_msg;
     EXPECT_EQ(dex_files.size(), 1u) << "Only one input dex is supported";
@@ -348,6 +349,7 @@ class DexLayoutTest : public CommonRuntimeTest {
                                       input_dex,
                                       /*verify*/ true,
                                       /*verify_checksum*/ false,
+                                      /*is_boot_class_path*/ false,
                                       &error_msg,
                                       &dex_files);
 
