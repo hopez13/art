@@ -96,6 +96,57 @@
     },
     {
       "key": {
+        "uuid": "4f0041a4_e7d2d788",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-13T22:41:42Z",
+      "side": 1,
+      "message": "0s -\u003e zeros",
+      "revId": "d29e381596e86d6207b3ac6aefe3a397058d3cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2441c4bd_260f2755",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-13T22:41:42Z",
+      "side": 1,
+      "message": "might not *be* aligned\nor\nmight not be 4 byte aligned",
+      "revId": "d29e381596e86d6207b3ac6aefe3a397058d3cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55715cd4_0e7b4fe8",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-13T22:41:42Z",
+      "side": 1,
+      "message": "doc:\n\n// Test fixture.",
+      "revId": "d29e381596e86d6207b3ac6aefe3a397058d3cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65d462a8_962e152c",
         "filename": "compiler/optimizing/optimizing_unit_test.h",
         "patchSetId": 2
@@ -137,6 +188,23 @@
         "endLine": 186,
         "endChar": 8
       },
+      "revId": "d29e381596e86d6207b3ac6aefe3a397058d3cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74465bc5_11505c79",
+        "filename": "runtime/dex/standard_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-13T22:41:42Z",
+      "side": 1,
+      "message": "explicit visibility marker (not sure if we have a rule for that)?",
       "revId": "d29e381596e86d6207b3ac6aefe3a397058d3cf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
