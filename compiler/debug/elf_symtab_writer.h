@@ -108,9 +108,6 @@ static void WriteDebugSymbols(linker::ElfBuilder<ElfTypes>* builder,
       uint64_t dex_address = dex->GetAddress() + it.first /* offset within the section */;
       const DexFile* dex_file = it.second;
       symtab->Add(strtab->Write(kDexFileSymbolName), dex, dex_address, 0, STB_LOCAL, STT_NOTYPE);
-      if (mini_debug_info) {
-        continue;  // Don't add interpreter method names to mini-debug-info for now.
-      }
       for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
         const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
         const uint8_t* class_data = dex_file->GetClassData(class_def);
