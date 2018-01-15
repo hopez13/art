@@ -391,6 +391,24 @@ inline void ClassLinker::VisitClassTables(const Visitor& visitor) {
   }
 }
 
+template <typename MapType>
+inline void ClassLinker::ReplaceDexFiles(const MapType& remap) {
+  Thread* self = Thread::Current();
+  ReaderMutexLock mu(self, *Locks::dex_lock_);
+  // Search assuming unique-ness of dex file.
+  for (DexCacheData& data : dex_caches_) {
+    auto it = remap.find(data.dex_file);
+    // Avoid decoding (and read barriers) other unrelated dex caches.
+    if (it != remap.end()) {
+      data.dex_file = it->second;
+      ObjPtr<mirror::DexCache> registered_dex_cache = DecodeDexCache(self, data);
+      if (registered_dex_cache != nullptr) {
+        registered_dex_cache->SetDexFile(data.dex_file);
+      }
+    }
+  }
+}
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_CLASS_LINKER_INL_H_

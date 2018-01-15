@@ -246,6 +246,14 @@ class LinkerPatch {
     return baker_custom_value2_;
   }
 
+  template <typename MapType>
+  void FixupDexFile(const MapType& map) const {
+    auto found = map.find(target_dex_file_);
+    if (found != map.end()) {
+      target_dex_file_ = found->second;
+    }
+  }
+
  private:
   LinkerPatch(size_t literal_offset, Type patch_type, const DexFile* target_dex_file)
       : target_dex_file_(target_dex_file),
@@ -258,7 +266,7 @@ class LinkerPatch {
     DCHECK(IsUint<24>(literal_offset));
   }
 
-  const DexFile* target_dex_file_;
+  mutable const DexFile* target_dex_file_;
   // TODO: Clean up naming. Some patched locations are literals but others are not.
   uint32_t literal_offset_ : 24;  // Method code size up to 16MiB.
   Type patch_type_ : 8;

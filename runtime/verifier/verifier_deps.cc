@@ -1100,5 +1100,12 @@ bool VerifierDeps::VerifyDexFile(Handle<mirror::ClassLoader> class_loader,
   return result;
 }
 
+void VerifierDeps::ReplaceDexFiles(const std::vector<const DexFile*>& original_dex_files,
+                                   const std::vector<const DexFile*>& replacement_dex_files) {
+  for (size_t i = 0; i < original_dex_files.size(); i++) {
+    dex_deps_.ReplaceKey(original_dex_files[i], replacement_dex_files[i]);
+  }
+}
+
 }  // namespace verifier
 }  // namespace art

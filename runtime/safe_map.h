@@ -92,6 +92,14 @@ class SafeMap {
     return it->second;
   }
 
+  // Replace an existing key with a new key. Expects the key to already be inserted.
+  void ReplaceKey(const K& k, const K& replacement) {
+    iterator it = map_.find(k);
+    DCHECK(it != end());
+    Put(replacement, std::move(it->second));
+    map_.erase(it);
+  }
+
   // Used to insert a new mapping.
   iterator Put(const K& k, const V& v) {
     std::pair<iterator, bool> result = map_.emplace(k, v);

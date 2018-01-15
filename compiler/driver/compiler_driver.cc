@@ -670,6 +670,28 @@ void CompilerDriver::CompileOne(Thread* self, ArtMethod* method, TimingLogger* t
   self->GetJniEnv()->DeleteGlobalRef(jclass_loader);
 }
 
+void CompilerDriver::ReplaceDexFiles(const std::vector<const DexFile*>& original_dex_files,
+                                     const std::vector<const DexFile*>& replacement_dex_files) {
+  std::unordered_map<const DexFile*, const DexFile*> remap;
+  CHECK_EQ(original_dex_files.size(), replacement_dex_files.size());
+  for (size_t i = 0; i < original_dex_files.size(); ++i) {
+    remap.emplace(original_dex_files[i], replacement_dex_files[i]);
+    compiled_methods_.ReplaceDexFile(original_dex_files[i], replacement_dex_files[i]);
+  }
+  // TODO: Go through dedupe set to possibly reduce work here.
+  compiled_methods_.Visit([&] (const DexFileReference&, CompiledMethod* method) {
+    if (method != nullptr) {
+      for (const linker::LinkerPatch& patch : method->GetPatches()) {
+        patch.FixupDexFile(remap);
+      }
+    }
+  });
+  {
+    ScopedObjectAccess soa(Thread::Current());
+    Runtime::Current()->GetClassLinker()->ReplaceDexFiles(remap);
+  }
+}
+
 void CompilerDriver::Resolve(jobject class_loader,
                              const std::vector<const DexFile*>& dex_files,
                              TimingLogger* timings) {

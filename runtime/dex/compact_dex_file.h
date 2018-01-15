@@ -30,7 +30,11 @@ class CompactDexFile : public DexFile {
   static constexpr uint8_t kDexMagicVersion[] = {'0', '0', '1', '\0'};
 
   enum class FeatureFlags : uint32_t {
+    // True if the compact dex is based on a dex file taht supports default methods.
     kDefaultMethods = 0x1,
+    // True if the compact dex was created after quickening. If so, unquickening may require
+    // duplicating code items.
+    kQuickenedInput = 0x2,
   };
 
   class Header : public DexFile::Header {

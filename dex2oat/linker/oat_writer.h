@@ -188,6 +188,12 @@ class OatWriter {
     dex_files_ = &dex_files;
   }
 
+  bool OverwriteDexFilesWithCompactDex(
+      File* vdex_file,
+      OutputStream* vdex_out,
+      /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
+      /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
+
   // Prepare layout of remaining data.
   void PrepareLayout(MultiOatRelativePatcher* relative_patcher);
   // Write the rest of .rodata section (ClassOffsets[], OatClass[], maps).
@@ -289,6 +295,9 @@ class OatWriter {
                     bool update_input_vdex);
   bool SeekToDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file);
   bool LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_file);
+  bool LayoutAndWriteDexFile(OutputStream* out,
+                             OatDexFile* oat_dex_file,
+                             const DexFile* dex_file);
   bool WriteDexFile(OutputStream* out,
                     File* file,
                     OatDexFile* oat_dex_file,

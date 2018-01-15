@@ -3345,6 +3345,52 @@ bool OatWriter::WriteDexFiles(OutputStream* out, File* file, bool update_input_v
   return true;
 }
 
+bool OatWriter::OverwriteDexFilesWithCompactDex(
+    File* vdex_file,
+    OutputStream* vdex_out,
+    /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
+    /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files) {
+  TimingLogger::ScopedTiming split(__FUNCTION__, timings_);
+  CHECK(compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone);
+
+  if (oat_dex_files_.empty()) {
+    // Nothing to do.
+    return true;
+  }
+
+  // Reset the sizes we are going to rewrite.
+  vdex_size_ = vdex_dex_files_offset_;
+  size_dex_file_alignment_ = 0u;
+  size_dex_file_ = 0u;
+
+  // Write compact dex and update internal data structures.
+  auto current_dex = dex_files_->begin();
+  for (OatDexFile& oat_dex_file : oat_dex_files_) {
+    if (!SeekToDexFile(vdex_out, vdex_file, &oat_dex_file)) {
+      PLOG(ERROR) << "Failed to seek to dex file " << oat_dex_file.GetLocation();
+      return false;
+    }
+    if (!LayoutAndWriteDexFile(vdex_out, &oat_dex_file, *current_dex)) {
+      PLOG(ERROR) << "Failed to layout and write dex file " << oat_dex_file.GetLocation();
+    }
+    const_cast<DexFile*>(*current_dex)->Poison();
+    ++current_dex;
+
+    // Update current size and account for the written data.
+    DCHECK_EQ(vdex_size_, oat_dex_file.dex_file_offset_);
+    vdex_size_ += oat_dex_file.dex_file_size_;
+    size_dex_file_ += oat_dex_file.dex_file_size_;
+  }
+  if (vdex_file->SetLength(vdex_size_) != 0) {
+    PLOG(ERROR) << "Failed to trim vdex file after overwriting with compact dex.";
+    return false;
+  }
+
+  // Re-open the files and return the results.
+  // The opened_dex_files vector is owned by the caller, don't update it.
+  return OpenDexFiles(vdex_file, /*verify*/ false, opened_dex_files_map, opened_dex_files);
+}
+
 void OatWriter::CloseSources() {
   for (OatDexFile& oat_dex_file : oat_dex_files_) {
     oat_dex_file.source_.Clear();  // Get rid of the reference, it's about to be invalidated.
@@ -3363,7 +3409,7 @@ bool OatWriter::WriteDexFile(OutputStream* out,
   }
   // update_input_vdex disables compact dex and layout.
   if (profile_compilation_info_ != nullptr ||
-      compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone) {
+      ((false) && compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone)) {
     CHECK(!update_input_vdex)
         << "We should never update the input vdex when doing dexlayout or compact dex";
     if (!LayoutAndWriteDexFile(out, oat_dex_file)) {
@@ -3453,11 +3499,11 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
       return false;
     }
     dex_file = dex_file_loader.Open(location,
-                               zip_entry->GetCrc32(),
-                               std::move(mem_map),
-                               /* verify */ !compiling_boot_image_,
-                               /* verify_checksum */ true,
-                               &error_msg);
+                                    zip_entry->GetCrc32(),
+                                    std::move(mem_map),
+                                    /* verify */ !compiling_boot_image_,
+                                    /* verify_checksum */ true,
+                                    &error_msg);
   } else if (oat_dex_file->source_.IsRawFile()) {
     File* raw_file = oat_dex_file->source_.GetRawFile();
     int dup_fd = dup(raw_file->Fd());
@@ -3494,12 +3540,19 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
     LOG(ERROR) << "Failed to open dex file for layout: " << error_msg;
     return false;
   }
+  return LayoutAndWriteDexFile(out, oat_dex_file, dex_file.get());
+}
+
+bool OatWriter::LayoutAndWriteDexFile(OutputStream* out,
+                                      OatDexFile* oat_dex_file,
+                                      const DexFile* dex_file) {
+  DCHECK(dex_file != nullptr);
   Options options;
   options.output_to_memmap_ = true;
   options.compact_dex_level_ = compact_dex_level_;
   options.update_checksum_ = true;
   DexLayout dex_layout(options, profile_compilation_info_, nullptr);
-  dex_layout.ProcessDexFile(location.c_str(), dex_file.get(), 0);
+  dex_layout.ProcessDexFile(dex_file->GetLocation().c_str(), dex_file, 0);
   std::unique_ptr<MemMap> mem_map(dex_layout.GetAndReleaseMemMap());
   oat_dex_file->dex_sections_layout_ = dex_layout.GetSections();
   // Dex layout can affect the size of the dex file, so we update here what we have set
@@ -3773,7 +3826,7 @@ bool OatWriter::WriteTypeLookupTables(
     DCHECK_EQ(oat_dex_file->lookup_table_offset_, 0u);
 
     if (oat_dex_file->create_type_lookup_table_ != CreateTypeLookupTable::kCreate ||
-        oat_dex_file->class_offsets_.empty()) {
+        oat_dex_file->class_offsets_.empty() || (true)) {
       continue;
     }
 

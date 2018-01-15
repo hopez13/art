@@ -29,6 +29,9 @@ class DexFile;
 template <typename DexFileReferenceType, typename Value>
 class AtomicDexRefMap {
  public:
+  using ElementArray = dchecked_vector<Atomic<Value>>;
+  using DexFileArrays = SafeMap<const DexFile*, ElementArray>;
+
   AtomicDexRefMap() {}
   ~AtomicDexRefMap() {}
 
@@ -60,11 +63,11 @@ class AtomicDexRefMap {
 
   void ClearEntries();
 
- private:
-  // Verified methods. The method array is fixed to avoid needing a lock to extend it.
-  using ElementArray = dchecked_vector<Atomic<Value>>;
-  using DexFileArrays = SafeMap<const DexFile*, ElementArray>;
+  void ReplaceDexFile(const DexFile* original_dex_file, const DexFile* replacement_dex_file) {
+    arrays_.ReplaceKey(original_dex_file, replacement_dex_file);
+  }
 
+ private:
   const ElementArray* GetArray(const DexFile* dex_file) const;
   ElementArray* GetArray(const DexFile* dex_file);
 

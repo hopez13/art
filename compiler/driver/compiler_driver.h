@@ -381,6 +381,10 @@ class CompilerDriver {
         || android::base::EndsWith(boot_image_filename, "core-optimizing.art");
   }
 
+  // Replace dex file pointers with updated versions.
+  void ReplaceDexFiles(const std::vector<const DexFile*>& original_dex_files,
+                       const std::vector<const DexFile*>& replacement_dex_files);
+
  private:
   void PreCompile(jobject class_loader,
                   const std::vector<const DexFile*>& dex_files,

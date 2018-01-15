@@ -26,6 +26,7 @@
 #include "dex/dex_file_types.h"
 #include "handle.h"
 #include "obj_ptr.h"
+#include "safe_map.h"
 #include "thread.h"
 #include "verifier_enums.h"  // For MethodVerifier::FailureKind.
 
@@ -124,6 +125,9 @@ class VerifierDeps {
   bool OutputOnly() const {
     return output_only_;
   }
+
+  void ReplaceDexFiles(const std::vector<const DexFile*>& original_dex_files,
+                       const std::vector<const DexFile*>& replacement_dex_files);
 
  private:
   static constexpr uint16_t kUnresolvedMarker = static_cast<uint16_t>(-1);
@@ -325,7 +329,7 @@ class VerifierDeps {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Map from DexFiles into dependencies collected from verification of their methods.
-  std::map<const DexFile*, std::unique_ptr<DexFileDeps>> dex_deps_;
+  SafeMap<const DexFile*, std::unique_ptr<DexFileDeps>> dex_deps_;
 
   // Output only signifies if we are using the verifier deps to verify or just to generate them.
   const bool output_only_;

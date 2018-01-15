@@ -105,6 +105,7 @@ using android::base::StringPrintf;
 
 static constexpr size_t kDefaultMinDexFilesForSwap = 2;
 static constexpr size_t kDefaultMinDexFileCumulativeSizeForSwap = 20 * MB;
+static constexpr bool kWriteCompactDexAfterQuickening = true;
 
 // Compiler filter override for very large apps.
 static constexpr CompilerFilter::Filter kLargeAppFilter = CompilerFilter::kVerify;
@@ -1441,6 +1442,25 @@ class Dex2Oat FINAL {
     }
   }
 
+  void RegisterOpenedDexFiles(size_t oat_index,
+                              std::unique_ptr<MemMap>&& opened_dex_files_map,
+                              std::vector<std::unique_ptr<const DexFile>>&& opened_dex_files) {
+    while (dex_files_per_oat_file_.size() <= oat_index) {
+      dex_files_per_oat_file_.push_back(std::vector<const DexFile*>());
+    }
+    dex_files_per_oat_file_[oat_index] = MakeNonOwningPointerVector(opened_dex_files);
+    if (opened_dex_files_map != nullptr) {
+      opened_dex_files_maps_.push_back(std::move(opened_dex_files_map));
+      for (std::unique_ptr<const DexFile>& dex_file : opened_dex_files) {
+        // Replace the index in case it already exists.
+        dex_file_oat_index_map_[dex_file.get()] = oat_index;
+        opened_dex_files_.push_back(std::move(dex_file));
+      }
+    } else {
+      DCHECK(opened_dex_files.empty());
+    }
+  }
+
   // Set up the environment for compilation. Includes starting the runtime and loading/opening the
   // boot class path.
   dex2oat::ReturnCode Setup() {
@@ -1567,16 +1587,9 @@ class Dex2Oat FINAL {
             &opened_dex_files)) {
           return dex2oat::ReturnCode::kOther;
         }
-        dex_files_per_oat_file_.push_back(MakeNonOwningPointerVector(opened_dex_files));
-        if (opened_dex_files_map != nullptr) {
-          opened_dex_files_maps_.push_back(std::move(opened_dex_files_map));
-          for (std::unique_ptr<const DexFile>& dex_file : opened_dex_files) {
-            dex_file_oat_index_map_.emplace(dex_file.get(), i);
-            opened_dex_files_.push_back(std::move(dex_file));
-          }
-        } else {
-          DCHECK(opened_dex_files.empty());
-        }
+        RegisterOpenedDexFiles(/*oat_index*/ i,
+                               std::move(opened_dex_files_map),
+                               std::move(opened_dex_files));
       }
     }
 
@@ -1979,6 +1992,30 @@ class Dex2Oat FINAL {
         std::unique_ptr<linker::BufferedOutputStream> vdex_out =
             std::make_unique<linker::BufferedOutputStream>(
                 std::make_unique<linker::FileOutputStream>(vdex_file));
+
+        if (kWriteCompactDexAfterQuickening && DoGenerateCompactDex()) {
+          std::unique_ptr<MemMap> opened_dex_files_map;
+          std::vector<std::unique_ptr<const DexFile>> opened_dex_files;
+          // Overwrite already loaded (c)dex files with compact dex.
+          // Doing this after quickening will have the advantage of superior dedupe.
+          if (!oat_writers_[i]->OverwriteDexFilesWithCompactDex(
+              vdex_file,
+              vdex_out.get(),
+              &opened_dex_files_map,
+              &opened_dex_files)) {
+            LOG(ERROR) << "Failed to overwrite dex with compact dex";
+            return false;
+          }
+          // Replace opened dex files.
+          driver_->ReplaceDexFiles(dex_files_per_oat_file_[i],
+                                   MakeNonOwningPointerVector(opened_dex_files));
+          verifier_deps->ReplaceDexFiles(dex_files_per_oat_file_[i],
+                                         MakeNonOwningPointerVector(opened_dex_files));
+          RegisterOpenedDexFiles(/*oat_index*/ i,
+                                 std::move(opened_dex_files_map),
+                                 std::move(opened_dex_files));
+          Runtime::Current()->GetClassLinker()->RecomputeCodeItemOffsets();
+        }
 
         if (!oat_writers_[i]->WriteVerifierDeps(vdex_out.get(), verifier_deps)) {
           LOG(ERROR) << "Failed to write verifier dependencies into VDEX " << vdex_file->GetPath();

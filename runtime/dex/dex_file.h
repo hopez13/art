@@ -947,7 +947,15 @@ class DexFile {
 
   bool DisableWrite() const;
 
+  // Poison the dex file to attempt to prevent future accesses.
+  void Poison() {
+    poisoned_ = false;
+    begin_ = nullptr;
+    header_ = nullptr;
+  }
+
   const uint8_t* Begin() const {
+    DCHECK(!poisoned_);
     return begin_;
   }
 
@@ -1017,10 +1025,13 @@ class DexFile {
   void InitializeSectionsFromMapList();
 
   // The base address of the memory mapping.
-  const uint8_t* const begin_;
+  const uint8_t* begin_;
 
   // The size of the underlying memory allocation in bytes.
   const size_t size_;
+
+  // If the dex file is poisoned (not supposed to be accessed).
+  bool poisoned_ = false;
 
   // Typically the dex file name when available, alternatively some identifying string.
   //
@@ -1031,7 +1042,7 @@ class DexFile {
   const uint32_t location_checksum_;
 
   // Points to the header section.
-  const Header* const header_;
+  const Header* header_;
 
   // Points to the base of the string identifier list.
   const StringId* const string_ids_;

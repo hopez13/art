@@ -17,6 +17,8 @@
 #ifndef ART_RUNTIME_TYPE_LOOKUP_TABLE_H_
 #define ART_RUNTIME_TYPE_LOOKUP_TABLE_H_
 
+#include <algorithm>
+
 #include "dex/dex_file_types.h"
 #include "leb128.h"
 #include "utf.h"
@@ -81,6 +83,14 @@ class TypeLookupTable {
 
   // Method returns length of binary data for the specified number of class definitions.
   static uint32_t RawDataLength(uint32_t num_class_defs);
+
+  TypeLookupTable& operator=(const TypeLookupTable& other) {
+    CHECK_EQ(raw_data_length_, other.raw_data_length_);
+    CHECK_EQ(mask_, other.mask_);
+    dex_file_begin_ = other.dex_file_begin_;
+    std::copy_n(&other.entries_[0], raw_data_length_ / sizeof(Entry), &entries_[0]);
+    return *this;
+  }
 
  private:
    /**
@@ -167,7 +177,7 @@ class TypeLookupTable {
   // owns_entries_ specifies if the lookup table owns the entries_ array.
   const bool owns_entries_;
 
-  DISALLOW_IMPLICIT_CONSTRUCTORS(TypeLookupTable);
+  // DISALLOW_IMPLICIT_CONSTRUCTORS(TypeLookupTable);
 };
 
 }  // namespace art

@@ -449,6 +449,12 @@ class ClassLinker {
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Regenerate the code item offsets for all the non boot image classes.
+  void RecomputeCodeItemOffsets();
+
+  template <typename MapType>
+  void ReplaceDexFiles(const MapType& remap) REQUIRES_SHARED(Locks::mutator_lock_);
+
   LengthPrefixedArray<ArtField>* AllocArtFieldArray(Thread* self,
                                                     LinearAlloc* allocator,
                                                     size_t length);

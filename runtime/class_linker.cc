@@ -9029,6 +9029,73 @@ mirror::IfTable* ClassLinker::AllocIfTable(Thread* self, size_t ifcount) {
                              ifcount * mirror::IfTable::kMax));
 }
 
+class RecomputeCodeItemOffsetsVisitor : public ClassVisitor {
+ public:
+  explicit RecomputeCodeItemOffsetsVisitor(ClassLinker* class_linker)
+      : ptr_size_(class_linker->GetImagePointerSize()) {}
+
+  bool operator()(ObjPtr<mirror::Class> klass) OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (klass->IsProxyClass()) {
+      return true;
+    }
+    ObjPtr<mirror::DexCache> dex_cache = klass->GetDexCache();
+    if (dex_cache == nullptr) {
+      return true;
+    }
+    const DexFile& dex_file = *dex_cache->GetDexFile();
+    const DexFile::ClassDef& class_def = *klass->GetClassDef();
+    const uint8_t* class_data = dex_file.GetClassData(class_def);
+    if (class_data != nullptr) {
+      ClassDataItemIterator it(dex_file, class_data);
+      it.SkipAllFields();
+      size_t i = 0;
+      for (i = 0; it.HasNextDirectMethod(); i++, it.Next()) {
+        ArtMethod* method = klass->GetDirectMethod(i, ptr_size_);
+        DCHECK_EQ(method->GetDexMethodIndex(), it.GetMemberIndex());
+        method->SetCodeItemOffset(it.GetMethodCodeItemOffset());
+      }
+      DCHECK_EQ(i, klass->NumDirectMethods());
+      for (i = 0; it.HasNextVirtualMethod(); i++, it.Next()) {
+        ArtMethod* method = klass->GetVirtualMethod(i, ptr_size_);
+        DCHECK_EQ(method->GetDexMethodIndex(), it.GetMemberIndex());
+        method->SetCodeItemOffset(it.GetMethodCodeItemOffset());
+      }
+      // Copied methods are last.
+      while (i < klass->NumVirtualMethods()) {
+        ArtMethod* method = klass->GetVirtualMethod(i, ptr_size_);
+        DCHECK(method->IsCopied());
+        // Push it to a work list to fix up later when all the offsets of non-copied methods are
+        // recalculated.
+        copied_methods_.push_back(method);
+        ++i;
+      }
+    }
+    return true;
+  }
+
+  const PointerSize ptr_size_;
+  std::vector<ArtMethod*> copied_methods_;
+};
+
+void ClassLinker::RecomputeCodeItemOffsets() {
+  ScopedObjectAccess soa(Thread::Current());
+  RecomputeCodeItemOffsetsVisitor visitor(this);
+  VisitClasses(&visitor);
+  for (ArtMethod* method : visitor.copied_methods_) {
+    ObjPtr<mirror::Class> declaring_class = method->GetDeclaringClass();
+    ArtMethod* found_method = nullptr;
+    for (ArtMethod& reference : declaring_class->GetMethods(GetImagePointerSize())) {
+     if (!reference.IsCopied() && reference.GetDexMethodIndex() == method->GetDexMethodIndex()) {
+        found_method = &reference;
+        break;
+      }
+    }
+    CHECK(found_method != nullptr)
+        << "Failed to find source of copied method for " << method->PrettyMethod();
+    method->SetCodeItemOffset(found_method->GetCodeItemOffset());
+  }
+}
+
 // Instantiate ResolveMethod.
 template ArtMethod* ClassLinker::ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
     uint32_t method_idx,
