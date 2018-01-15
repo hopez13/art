@@ -85,7 +85,7 @@ class VdexFile {
    private:
     static constexpr uint8_t kVdexMagic[] = { 'v', 'd', 'e', 'x' };
     // Last update: Side table for debug info offsets in compact dex.
-    static constexpr uint8_t kVdexVersion[] = { '0', '1', '4', '\0' };
+    static constexpr uint8_t kVdexVersion[] = { '0', '1', '5', '\0' };
 
     uint8_t magic_[4];
     uint8_t version_[4];
