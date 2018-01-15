@@ -3362,8 +3362,8 @@ bool OatWriter::WriteDexFile(OutputStream* out,
     return false;
   }
   // update_input_vdex disables compact dex and layout.
-  if (!update_input_vdex && (profile_compilation_info_ != nullptr ||
-      compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone)) {
+  if (profile_compilation_info_ != nullptr ||
+      compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone) {
     CHECK(!update_input_vdex) << "We should never update the input vdex when doing dexlayout";
     if (!LayoutAndWriteDexFile(out, oat_dex_file)) {
       return false;
