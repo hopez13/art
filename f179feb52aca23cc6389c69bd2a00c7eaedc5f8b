@@ -70,6 +70,30 @@
       "revId": "f179feb52aca23cc6389c69bd2a00c7eaedc5f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "239c099d_cdaac5ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-15T17:09:49Z",
+      "side": 1,
+      "message": "That seems like unnecessary extra effort, considering\n1) I will want to remove those symbols again in the near future\n2) with the libunwind changes, the 137-cfi test will cover this\n\nI did, of course, check the output manually by running readelf on the output.",
+      "parentUuid": "4f649ea1_43400ea4",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "f179feb52aca23cc6389c69bd2a00c7eaedc5f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
