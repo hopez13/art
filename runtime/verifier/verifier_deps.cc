@@ -75,17 +75,18 @@ const VerifierDeps::DexFileDeps* VerifierDeps::GetDexFileDeps(const DexFile& dex
 
 // Access flags that impact vdex verification.
 static constexpr uint32_t kAccVdexAccessFlags =
-    kAccPublic | kAccPrivate | kAccProtected | kAccStatic | kAccInterface;
+    kAccVisibilityFlags | kAccHiddenApiFlags | kAccStatic | kAccInterface;
 
 template <typename T>
-uint16_t VerifierDeps::GetAccessFlags(T* element) {
-  static_assert(kAccJavaFlagsMask == 0xFFFF, "Unexpected value of a constant");
+uint32_t VerifierDeps::GetAccessFlags(T* element) {
   if (element == nullptr) {
     return VerifierDeps::kUnresolvedMarker;
   } else {
-    uint16_t access_flags = Low16Bits(element->GetAccessFlags()) & kAccVdexAccessFlags;
-    CHECK_NE(access_flags, VerifierDeps::kUnresolvedMarker);
-    return access_flags;
+    static_assert((kAccVdexAccessFlags != kUnresolvedMarker) &&
+                  ((kAccVdexAccessFlags & kUnresolvedMarker) == kAccVdexAccessFlags),
+                  "kAccVdexAccessFlags must be a strict subset of kUnresolvedMarker, "
+                  "otherwise access_flags could equal kUnresolvedMarker");
+    return element->GetAccessFlags() & kAccVdexAccessFlags;
   }
 }
 
@@ -556,9 +557,6 @@ static inline uint32_t DecodeUint32WithOverflowCheck(const uint8_t** in, const u
 
 template<typename T> inline uint32_t Encode(T in);
 
-template<> inline uint32_t Encode<uint16_t>(uint16_t in) {
-  return in;
-}
 template<> inline uint32_t Encode<uint32_t>(uint32_t in) {
   return in;
 }
@@ -571,9 +569,6 @@ template<> inline uint32_t Encode<dex::StringIndex>(dex::StringIndex in) {
 
 template<typename T> inline T Decode(uint32_t in);
 
-template<> inline uint16_t Decode<uint16_t>(uint32_t in) {
-  return dchecked_integral_cast<uint16_t>(in);
-}
 template<> inline uint32_t Decode<uint32_t>(uint32_t in) {
   return in;
 }
