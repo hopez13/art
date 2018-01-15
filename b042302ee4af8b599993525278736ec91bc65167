@@ -16,6 +16,24 @@
       "revId": "b042302ee4af8b599993525278736ec91bc65167",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7852b53b_50ef5984",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-15T16:46:37Z",
+      "side": 1,
+      "message": "Done (these generic optimizations were not useful until this CL)",
+      "parentUuid": "5ddb1e05_7a7968e6",
+      "revId": "b042302ee4af8b599993525278736ec91bc65167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
