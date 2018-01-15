@@ -398,6 +398,8 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     bool is_default_conflict = IsDefaultConflicting();
     bool is_compilable = IsCompilable();
     bool must_count_locks = MustCountLocks();
+    bool is_hidden_blacklist = IsHiddenAndBlacklisted();
+    bool is_hidden_greylist = IsHiddenAndGreylisted();
     SetAccessFlags(new_value);
     DCHECK_EQ(java_flags, (GetAccessFlags() & kAccJavaFlagsMask));
     DCHECK_EQ(is_constructor, IsConstructor());
@@ -411,6 +413,8 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     DCHECK_EQ(is_default_conflict, IsDefaultConflicting());
     DCHECK_EQ(is_compilable, IsCompilable());
     DCHECK_EQ(must_count_locks, MustCountLocks());
+    DCHECK_EQ(is_hidden_blacklist, IsHiddenAndBlacklisted());
+    DCHECK_EQ(is_hidden_greylist, IsHiddenAndGreylisted());
   } else {
     SetAccessFlags(new_value);
   }
