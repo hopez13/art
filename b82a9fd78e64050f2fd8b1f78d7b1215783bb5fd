@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8e74c3a_5f6a975a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-01-15T14:36:03Z",
+      "side": 1,
+      "message": "Nit:\n* - Currently this LSE algorithm doesn\u0027t handle SIMD graph, e.g. with VecLoad and VecStore instructions.",
+      "revId": "b82a9fd78e64050f2fd8b1f78d7b1215783bb5fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
