@@ -88,6 +88,30 @@
     },
     {
       "key": {
+        "uuid": "cb59b882_766f40bc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3297,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-15T20:59:02Z",
+      "side": 1,
+      "message": "We do not. The only place setting it is RuntimeInit.applicationInit, through VMRuntime.setTargetSdkVersion. We don\u0027t even have a command line switch...",
+      "parentUuid": "cfba3406_13d5d4f4",
+      "range": {
+        "startLine": 3297,
+        "startChar": 29,
+        "endLine": 3297,
+        "endChar": 70
+      },
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a038301_672ad41a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
