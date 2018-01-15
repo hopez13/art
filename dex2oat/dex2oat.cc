@@ -1463,6 +1463,12 @@ class Dex2Oat FINAL {
       return dex2oat::ReturnCode::kOther;
     }
 
+    // Disable hidden API access restrictions if we are compiling on host. This
+    // is a proxy for: we are building the boot image or platform APKs.
+    if (!kIsTargetBuild) {
+      runtime_options.Set(RuntimeArgumentMap::EnableHiddenApi, true);
+    }
+
     CreateOatWriters();
     if (!AddDexFileSources()) {
       return dex2oat::ReturnCode::kOther;

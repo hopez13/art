@@ -520,6 +520,14 @@ class Runtime {
   bool IsVerificationEnabled() const;
   bool IsVerificationSoftFail() const;
 
+  void EnableHiddenApiAccessChecks(bool value) {
+    hidden_api_access_checks_ = value;
+  }
+
+  bool AreHiddenApiAccessChecksEnabled() const {
+    return hidden_api_access_checks_;
+  }
+
   bool IsDexFileFallbackEnabled() const {
     return allow_dex_file_fallback_;
   }
@@ -956,6 +964,9 @@ class Runtime {
 
   // Whether the application should run in safe mode, that is, interpreter only.
   bool safe_mode_;
+
+  // Whether access checks on hidden API should be performed.
+  bool hidden_api_access_checks_;
 
   // Whether threads should dump their native stack on SIGQUIT.
   bool dump_native_stack_on_sig_quit_;
