@@ -265,6 +265,7 @@ Runtime::Runtime()
       oat_file_manager_(nullptr),
       is_low_memory_mode_(false),
       safe_mode_(false),
+      enable_hidden_api_(false),
       dump_native_stack_on_sig_quit_(true),
       pruned_dalvik_cache_(false),
       // Initially assume we perceive jank in case the process state is never updated.
@@ -1190,6 +1191,8 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // for (auto lib : runtime_options.ReleaseOrDefault(Opt::AgentLib)) {
   //   agents_.push_back(lib);
   // }
+
+  enable_hidden_api_ = runtime_options.GetOrDefault(Opt::EnableHiddenApi);
 
   float foreground_heap_growth_multiplier;
   if (is_low_memory_mode_ && !runtime_options.Exists(Opt::ForegroundHeapGrowthMultiplier)) {

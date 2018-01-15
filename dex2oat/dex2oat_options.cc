@@ -220,6 +220,8 @@ static Parser CreateArgumentParser() {
           .IntoKey(M::Backend)
       .Define("--host")
           .IntoKey(M::Host)
+      .Define("--system-app")
+          .IntoKey(M::SystemApp)
       .Define("--avoid-storing-invocation")
           .IntoKey(M::AvoidStoringInvocation)
       .Define("--very-large-app-threshold=_")
