@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31d3b2df_63da3a6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-15T20:48:33Z",
+      "side": 1,
+      "message": "cumbersome",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d50d4c0_dd92034a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-15T20:48:33Z",
+      "side": 1,
+      "message": "Sure it can, you can just special case them :)",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 53
+      },
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f4fd1b2_b3f47b8c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-15T20:48:33Z",
+      "side": 1,
+      "message": "Why is there no class equivalent (ie you have code for fields and methods)?",
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfba3406_13d5d4f4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-15T20:48:33Z",
+      "side": 1,
+      "message": "Have you validated dex2oat passes the target sdk version?",
+      "range": {
+        "startLine": 3297,
+        "startChar": 29,
+        "endLine": 3297,
+        "endChar": 70
+      },
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a038301_672ad41a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-15T20:48:33Z",
+      "side": 1,
+      "message": "Please add some comments.",
+      "range": {
+        "startLine": 3285,
+        "startChar": 0,
+        "endLine": 3303,
+        "endChar": 3
+      },
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fe727fb_fbb7e51c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-15T20:48:33Z",
+      "side": 1,
+      "message": "Add comments.",
+      "range": {
+        "startLine": 3313,
+        "startChar": 0,
+        "endLine": 3315,
+        "endChar": 36
+      },
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a07994d_6a6d57cd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3332,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-15T20:48:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3332,
+        "startChar": 0,
+        "endLine": 3332,
+        "endChar": 50
+      },
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
