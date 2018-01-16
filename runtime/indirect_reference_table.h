@@ -187,6 +187,11 @@ class IrtIterator {
  public:
   IrtIterator(IrtEntry* table, size_t i, size_t capacity) REQUIRES_SHARED(Locks::mutator_lock_)
       : table_(table), i_(i), capacity_(capacity) {
+    // capacity_ is used in some build target, and not in others.
+    // clang compiler gives warning on unused case, and also on
+    // used case if declared as unused.
+    // So we fake use of it in some member function.
+    (void) capacity_;
   }
 
   IrtIterator& operator++() REQUIRES_SHARED(Locks::mutator_lock_) {
