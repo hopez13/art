@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "bb4ed0f6_b5cd2169",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3282,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-16T15:08:48Z",
+      "side": 1,
+      "message": "I\u0027d rather deal with them separately, if you don\u0027t mind. No reason why we can\u0027t add them, but will need patches around getSuperclass and things like that.",
+      "parentUuid": "9f4fd1b2_b3f47b8c",
+      "revId": "5a072068c7ce196ee52afda245b9262bd82e37bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfba3406_13d5d4f4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
