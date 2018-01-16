@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6027e4d_c3bb384d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-16T22:29:09Z",
+      "side": 1,
+      "message": "do you actually need this check? Why is cha_devirtualize special? I thought polymorphic inlining was the problem, but at this point you know you\u0027re not doing it.",
+      "range": {
+        "startLine": 479,
+        "startChar": 11,
+        "endLine": 479,
+        "endChar": 83
+      },
+      "revId": "7afc7f150b7ab4bebfc6c9978d50e0fcfc2d0b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
