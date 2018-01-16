@@ -187,6 +187,7 @@ class IrtIterator {
  public:
   IrtIterator(IrtEntry* table, size_t i, size_t capacity) REQUIRES_SHARED(Locks::mutator_lock_)
       : table_(table), i_(i), capacity_(capacity) {
+    UNUSED(capacity_);
   }
 
   IrtIterator& operator++() REQUIRES_SHARED(Locks::mutator_lock_) {
