@@ -464,17 +464,20 @@ bool HInliner::TryInline(HInvoke* invoke_instruction) {
                                       ReferenceTypeInfo::CreateInvalid(),
                                       /* do_rtp */ true,
                                       cha_devirtualize);
-    if (result && !invoke_instruction->IsInvokeStaticOrDirect()) {
-      if (cha_devirtualize) {
-        // Add dependency due to devirtulization. We've assumed resolved_method
-        // has single implementation.
-        outermost_graph_->AddCHASingleImplementationDependency(resolved_method);
-        MaybeRecordStat(stats_, MethodCompilationStat::kCHAInline);
-      } else {
-        MaybeRecordStat(stats_, MethodCompilationStat::kInlinedInvokeVirtualOrInterface);
+    if (result) {
+      // Successfully inlined.
+      if (!invoke_instruction->IsInvokeStaticOrDirect()) {
+        if (cha_devirtualize) {
+          // Add dependency due to devirtulization. We've assumed resolved_method
+          // has single implementation.
+          outermost_graph_->AddCHASingleImplementationDependency(resolved_method);
+          MaybeRecordStat(stats_, MethodCompilationStat::kCHAInline);
+        } else {
+          MaybeRecordStat(stats_, MethodCompilationStat::kInlinedInvokeVirtualOrInterface);
+        }
       }
-    } else if (!result && invoke_instruction->IsInvokeStaticOrDirect()) {
-      // Analyze always throws property for static/direct method call with single target.
+    } else if (invoke_instruction->IsInvokeStaticOrDirect() || !cha_devirtualize) {
+      // Analyze always throws property for method call with single target.
       if (AlwaysThrows(actual_method)) {
         invoke_instruction->SetAlwaysThrows(true);
       }
