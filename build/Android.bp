@@ -36,6 +36,9 @@ art_global_defaults {
         "-Wunused",
         "-fvisibility=protected",
 
+        // tautological-type-limit-compare should not be in -Wextra
+        "-Wno-tautological-type-limit-compare",
+
         // Warn about thread safety violations with clang.
         "-Wthread-safety",
         "-Wthread-safety-negative",

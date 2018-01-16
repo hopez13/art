@@ -482,7 +482,7 @@ bool AdbConnectionState::SetupAdbConnection() {
 
 void AdbConnectionState::RunPollLoop(art::Thread* self) {
   CHECK_EQ(self->GetState(), art::kNative);
-  art::Locks::mutator_lock_->AssertNotHeld(self);
+  // art::Locks::mutator_lock_->AssertNotHeld(self); // ???
   self->SetState(art::kWaitingInMainDebuggerLoop);
   // shutting_down_ set by StopDebuggerThreads
   while (!shutting_down_) {
