@@ -1,0 +1,294 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd3165a0_bba0ce3b",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Why volatile? This is going to skew results with LDAR/DMB.\n\nPerhaps object instance or static field instead? Another option is calling a function with $noinline ?\n\n\n  void checkCastLevel2$noinline(Object o) {\n    return o instanceof Level2;\n  }\n\nMingyao, do you remember what we ended up doing to test your prototype?",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5df4072d_f7f7b6a4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Can you elaborate on how early this happens?\n\nAll of our tuning calculations were done by allocating bitstring as late as possible, it might be enough to just do it right before method compilation but that\u0027s something that seems like we should verify and not just assume that \"it will be ok\" ?\n\nTo give you an upper bound on the worst case, if we assign a bitstring for every class in an app there won\u0027t be enough by about 10x factor for something like Maps.\n\nHere it looks like it looks at all check-cast/instance-of targets for all methods and only assigns those, so it\u0027s not nearly as bad but still unclear.",
+      "range": {
+        "startLine": 780,
+        "startChar": 81,
+        "endLine": 781,
+        "endChar": 36
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46b9ec5f_1f8f8c50",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7967,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Wasn\u0027t there some code near here that returns either 1 [true] or 0 [false] for the result? IIRC that could be optimized further by If-Then-Else but flipping the Then/Else blocks, which was in Mingyao\u0027s prototype CL.\n\nI don\u0027t see that being modified in this diff (judging from left hand side)?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e519a09_2e503fd4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Can you add either here or a DCHECK in the HTypeCheckInstruction to make sure the bitstring constants for that mirror::Class* are matching by whatever SubtypeCheck is returning?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bee860b_1ad9e183",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Any difference between doing this in the builder as opposed to the optimizer?\n\nIIRC Mingyao\u0027s CL was doing it in one of the phases of optimization passes. This \u0027feels\u0027 more like an optimization (and we even call it the bitstring subtype check \u0027optimization\u0027) but perhaps that\u0027s just quibbling over details?\n\nDoing it earlier just seems like it would introduce a lot of CHECKER test changes if it\u0027s ever done for AOT?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b3b1181_b384626f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Is it somehow printing the int constants as well to the dumped CFG for mask and target?\n\nIf not, it would be very useful to add this (preferrably as a bit string \"0b11110011010\" or at least hex)?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7bb9744_fb10b87d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 5990,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Consider adding some documentation how to use this and when \"GetLoadedClassRTI\" is actually valid?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4d4a4d4_245711dd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6606,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Nice abstraction :).",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a85d8201_45bb6dd6",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Worth adding any new stats for how many classes (that were previously only initialized) get newly assigned because they are a compilation target? Or maybe that\u0027s a separate problem since it\u0027s not directly a compiler stat.",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e32c219_60132d70",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Seems sound. \n\nnit: L253-L255 are identical to L258-L260 so maybe inverting this a bit?\n\n  if ! boot image and not jit return false\n\n  l253-l255",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6328de7_c5ce07ba",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "I\u0027m sure this is correct, just for my own understanding:\n\nWhy did we need to change the entrypoints? Is this some sort of side effect of other changes?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70f7eb23_a853fedd",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "nit: TypeCheckIns probably a bit more understandable than \"Ck\" which is unused elsewhere as an abbreviation.",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dec8413_1887ca99",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4477,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Why do we need this? Missing implementation of earlier? Is there test?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "722d6576_14717cdc",
+        "filename": "runtime/entrypoints/quick/quick_throw_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eaae481_faacb2f0",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "Why? Slightly faster for libartd builds?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b327ace7_26dcdae1",
+        "filename": "test/670-bitstring-type-check/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-16T21:25:23Z",
+      "side": 1,
+      "message": "This file is very large and choking my browser (which I guess is good since its thorough). Is there any checker tests here?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
