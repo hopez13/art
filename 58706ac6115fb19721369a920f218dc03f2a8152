@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "667fc92c_c5ea0375",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-17T21:10:43Z",
+      "side": 1,
+      "message": "Can you add a comment for the image class test also? It\u0027s important for correctness since non-image classes may not get the same bitstring assigned later.",
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82902b44_6d56088a",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 7
