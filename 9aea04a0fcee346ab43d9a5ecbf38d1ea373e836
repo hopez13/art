@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3f20afef_2f1dfd34",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-17T00:12:03Z",
+      "side": 1,
+      "message": "Here is the benchmark I used:\nhttps://googleplex-android-review.git.corp.google.com/c/platform/art/+/3347001/1/test/001-InstanceOfPerf/src/Main.java\n\nI need to defeat the optimization that hoist instanceof out of loops.",
+      "parentUuid": "cd3165a0_bba0ce3b",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5df4072d_f7f7b6a4",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
