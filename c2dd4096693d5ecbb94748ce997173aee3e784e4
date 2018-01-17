@@ -22,6 +22,52 @@
       "revId": "c2dd4096693d5ecbb94748ce997173aee3e784e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9e43c02_dafe42e9",
+        "filename": "patchoat/patchoat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-17T21:58:09Z",
+      "side": 1,
+      "message": "Use DecodeUnsignedLeb128Checked please",
+      "range": {
+        "startLine": 388,
+        "startChar": 7,
+        "endLine": 428,
+        "endChar": 5
+      },
+      "revId": "c2dd4096693d5ecbb94748ce997173aee3e784e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "598394e2_ec59bcfe",
+        "filename": "patchoat/patchoat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-17T21:58:09Z",
+      "side": 1,
+      "message": "Put a comment and a bug number please.",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 37
+      },
+      "revId": "c2dd4096693d5ecbb94748ce997173aee3e784e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
