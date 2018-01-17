@@ -19,6 +19,98 @@
     },
     {
       "key": {
+        "uuid": "09e628f1_143a984d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-17T22:11:08Z",
+      "side": 1,
+      "message": "Unwanted space.",
+      "range": {
+        "startLine": 1953,
+        "startChar": 17,
+        "endLine": 1953,
+        "endChar": 18
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee12ccf2_78335985",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3529,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-17T22:11:08Z",
+      "side": 1,
+      "message": "Bnez (and drop ZERO arg). There\u0027s a CHECK() for reg !\u003d ZERO in Bne().",
+      "range": {
+        "startLine": 3529,
+        "startChar": 9,
+        "endLine": 3529,
+        "endChar": 12
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6fa7192_3a9fda3e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-17T22:11:08Z",
+      "side": 1,
+      "message": "Unwanted space.",
+      "range": {
+        "startLine": 1799,
+        "startChar": 17,
+        "endLine": 1799,
+        "endChar": 18
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "888fc960_7e190bca",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3084,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-17T22:11:08Z",
+      "side": 1,
+      "message": "Bnezc (and drop ZERO arg). There\u0027s a CHECK() for reg !\u003d ZERO in Bne[c]().",
+      "range": {
+        "startLine": 3084,
+        "startChar": 9,
+        "endLine": 3084,
+        "endChar": 12
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82902b44_6d56088a",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 7
