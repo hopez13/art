@@ -118,6 +118,30 @@
       "revId": "7afc7f150b7ab4bebfc6c9978d50e0fcfc2d0b01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c36818_3bc668b7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-17T09:34:40Z",
+      "side": 1,
+      "message": "Out of curiosity a question about the ordering: is it worth it to inline always-throwing methods?",
+      "parentUuid": "2d146ba5_c5153672",
+      "range": {
+        "startLine": 479,
+        "startChar": 11,
+        "endLine": 479,
+        "endChar": 83
+      },
+      "revId": "7afc7f150b7ab4bebfc6c9978d50e0fcfc2d0b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
