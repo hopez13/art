@@ -83,7 +83,6 @@ class ArtDexFileLoader : public DexFileLoader {
                                          const std::string& location,
                                          bool verify,
                                          bool verify_checksum,
-                                         bool mmap_shared,
                                          std::string* error_msg) const OVERRIDE;
 
   // Opens dex files from within a .jar, .zip, or .apk file
@@ -99,7 +98,6 @@ class ArtDexFileLoader : public DexFileLoader {
                                           const std::string& location,
                                           bool verify,
                                           bool verify_checksum,
-                                          bool mmap_shared,
                                           std::string* error_msg) const OVERRIDE;
 
   // Open all classesXXX.dex files from a zip archive.

@@ -97,7 +97,6 @@ class DexFileLoader {
                                                  const std::string& location,
                                                  bool verify,
                                                  bool verify_checksum,
-                                                 bool mmap_shared,
                                                  std::string* error_msg) const;
 
   // Opens dex files from within a .jar, .zip, or .apk file
@@ -183,7 +182,6 @@ class DexFileLoader {
                                                   const std::string& location,
                                                   bool verify,
                                                   bool verify_checksum,
-                                                  bool mmap_shared,
                                                   std::string* error_msg) const;
 
   // Open all classesXXX.dex files from a zip archive.
