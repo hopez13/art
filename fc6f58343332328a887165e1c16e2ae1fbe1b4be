@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bba004cb_098c9873",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-17T03:00:09Z",
+      "side": 1,
+      "message": "explain what was the problem with the original CL and what the fix is.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "fc6f58343332328a887165e1c16e2ae1fbe1b4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e12430a_c299f83d",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-17T03:00:09Z",
+      "side": 1,
+      "message": "huh, this is actually a directory and it\u0027s being passed as a \"dex location\".\n\nIs this needed only needed to workaround the host builds? Also, the use of realpath may get you into troubles if the build layout changes.\n\nLet\u0027s have a quick chat about it. I would be more happy if we find another solution.",
+      "range": {
+        "startLine": 2048,
+        "startChar": 18,
+        "endLine": 2048,
+        "endChar": 30
+      },
+      "revId": "fc6f58343332328a887165e1c16e2ae1fbe1b4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00e8b3de_4f8f304c",
+        "filename": "runtime/base/file_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-17T03:00:09Z",
+      "side": 1,
+      "message": "rename to DexDirectory then. The DexLocation is already a fuzzy term, let\u0027s not overload it more (usually it\u0027s the path + multidex)",
+      "range": {
+        "startLine": 63,
+        "startChar": 18,
+        "endLine": 63,
+        "endChar": 26
+      },
+      "revId": "fc6f58343332328a887165e1c16e2ae1fbe1b4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "551d4f70_15dfec7c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-17T03:00:09Z",
+      "side": 1,
+      "message": "say why",
+      "range": {
+        "startLine": 616,
+        "startChar": 11,
+        "endLine": 616,
+        "endChar": 18
+      },
+      "revId": "fc6f58343332328a887165e1c16e2ae1fbe1b4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a008dc0_def7ffbd",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-17T03:00:09Z",
+      "side": 1,
+      "message": "you need to update the docs in .h",
+      "range": {
+        "startLine": 1291,
+        "startChar": 21,
+        "endLine": 1291,
+        "endChar": 54
+      },
+      "revId": "fc6f58343332328a887165e1c16e2ae1fbe1b4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ef2f55_8b7b164c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-17T03:00:09Z",
+      "side": 1,
+      "message": "I think this might affect the matching of the class loader context. Could you remind me what use cases this is targeting? See my comment in oatdump as well and maybe let\u0027s chat about it. \n\nFor the context logic, see: VerifyClassLoaderContextMatch in class_loader_context.cc:699",
+      "range": {
+        "startLine": 1306,
+        "startChar": 6,
+        "endLine": 1306,
+        "endChar": 60
+      },
+      "revId": "fc6f58343332328a887165e1c16e2ae1fbe1b4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

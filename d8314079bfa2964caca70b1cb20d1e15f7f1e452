@@ -111,6 +111,29 @@
       "revId": "d8314079bfa2964caca70b1cb20d1e15f7f1e452",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df21f622_79ef55f2",
+        "filename": "runtime/base/file_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-17T03:00:09Z",
+      "side": 1,
+      "message": "You already assume the isa directory is there. Assume the oat directory is there as well? I don\u0027t see a good reason to treat them differently.",
+      "range": {
+        "startLine": 309,
+        "startChar": 4,
+        "endLine": 309,
+        "endChar": 58
+      },
+      "revId": "d8314079bfa2964caca70b1cb20d1e15f7f1e452",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
