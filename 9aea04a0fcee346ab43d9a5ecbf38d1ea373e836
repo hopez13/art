@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ef761abc_01e00180",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "volatile should defeat any future optimization we may add. It increases the time per iteration by a constant but the relative performance difference should still be visible. (It is visible with the interpreter where the time measurably increases with the depth.)\n\n$noinline$ is useless for JIT:\n\n  const bool honor_inlining_directives \u003d\n      IsCompilingWithCoreImage() \u0026\u0026 Runtime::Current()-\u003eIsAotCompiler();",
+      "parentUuid": "3f20afef_2f1dfd34",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5df4072d_f7f7b6a4",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -60,6 +84,30 @@
       "writtenOn": "2018-01-16T21:25:23Z",
       "side": 1,
       "message": "Can you elaborate on how early this happens?\n\nAll of our tuning calculations were done by allocating bitstring as late as possible, it might be enough to just do it right before method compilation but that\u0027s something that seems like we should verify and not just assume that \"it will be ok\" ?\n\nTo give you an upper bound on the worst case, if we assign a bitstring for every class in an app there won\u0027t be enough by about 10x factor for something like Maps.\n\nHere it looks like it looks at all check-cast/instance-of targets for all methods and only assigns those, so it\u0027s not nearly as bad but still unclear.",
+      "range": {
+        "startLine": 780,
+        "startChar": 81,
+        "endLine": 781,
+        "endChar": 36
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6078de33_33fc1813",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "If you do not specify --force-determinism, we shall assign bitstrings during the compilation. If you do (the normal case for prebuilt boot image), we perform this early assignment right after finalizing the image class set (previously after verification but that was wrong), see below.\n\nNote that this assigns bitstrings only for boot*.art target classes of check-cast and instance-of instructions in code of boot*.oat classes (though we do not filter methods as rigorously as for compilation).",
+      "parentUuid": "5df4072d_f7f7b6a4",
       "range": {
         "startLine": 780,
         "startChar": 81,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "e7f00107_a8b9bdda",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Done. Also added a debug check to sharpening and that caught a problem where image classes were updated after this initialization, so I reordered the calls in PreCompile(). Unfortunately, I had to disable the debug check because it was triggered by the inliner for dex2oat_image_test, b/26687569.",
+      "parentUuid": "e6072886_f2f4fccc",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 34
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1890ed18_f0d75e02",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -106,6 +178,30 @@
       "writtenOn": "2018-01-17T12:56:22Z",
       "side": 1,
       "message": "I think it won\u0027t :(",
+      "range": {
+        "startLine": 852,
+        "startChar": 8,
+        "endLine": 852,
+        "endChar": 53
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d891f618_41c8e9b3",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "I agree. I found b/26687569 is about the deterministic boot image, so I tagged this and the line where this is copied from.",
+      "parentUuid": "1890ed18_f0d75e02",
       "range": {
         "startLine": 852,
         "startChar": 8,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "19b6a8d7_14f6f533",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2ba23c7_57b45377",
+      "range": {
+        "startLine": 860,
+        "startChar": 0,
+        "endLine": 865,
+        "endChar": 9
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b9f1e63_9abd3609",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 5
@@ -158,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "5ee63e38_b99fca74",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "No idea.\n\nWe could simplify this by removing the code size-optimized path below (lines 7220-7227), using the UBFX+CMP/SUB instead.\n\n(And I didn\u0027t even add the funky paths where we would try to replace SUB with ADD or tweak the path_to_root\u0027s irrelevant high bits to create a modified immediate.)",
+      "parentUuid": "2b9f1e63_9abd3609",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d725885f_cd19a138",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 5
@@ -169,6 +307,30 @@
       "writtenOn": "2018-01-17T12:56:22Z",
       "side": 1,
       "message": "nit: Add a comment.",
+      "range": {
+        "startLine": 7725,
+        "startChar": 58,
+        "endLine": 7725,
+        "endChar": 66
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ba67526_d4b688ee",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7725,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "I think this is self-explanatory. The CLZ below does not depend on the flags, it shall use the value of the `out` register.",
+      "parentUuid": "d725885f_cd19a138",
       "range": {
         "startLine": 7725,
         "startChar": 58,
@@ -204,6 +366,30 @@
     },
     {
       "key": {
+        "uuid": "eaf9c0ee_7435a00a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7965,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "I think this is self-explanatory. The BNE below wants flags to be set depending on the comparison result.",
+      "parentUuid": "96bba490_64e66614",
+      "range": {
+        "startLine": 7965,
+        "startChar": 59,
+        "endLine": 7965,
+        "endChar": 67
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46b9ec5f_1f8f8c50",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 5
@@ -221,6 +407,24 @@
     },
     {
       "key": {
+        "uuid": "0be0f2aa_79c42772",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "This comment is misplaced, you are clearly referring to the HInstanceOf codegen and this is HCheckCast codegen.\n\nSee comments in lines 7726-7731. See also lines 7514-7528 for HInstanceOf/kExactCheck which use another approach for generating the result which I referenced as an opportunity for low reg in lines 7729-7731 (I prefer the SUB+CLZ+SHR for high reg).",
+      "parentUuid": "46b9ec5f_1f8f8c50",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e519a09_2e503fd4",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 5
@@ -232,6 +436,24 @@
       "writtenOn": "2018-01-16T21:25:23Z",
       "side": 1,
       "message": "Can you add either here or a DCHECK in the HTypeCheckInstruction to make sure the bitstring constants for that mirror::Class* are matching by whatever SubtypeCheck is returning?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb2a5c56_996f7d24",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e519a09_2e503fd4",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -261,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "9d2d51b9_836e466d",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01974f11_b0c7d2d7",
+      "range": {
+        "startLine": 651,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 42
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bee860b_1ad9e183",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 5
@@ -272,6 +518,24 @@
       "writtenOn": "2018-01-16T21:25:23Z",
       "side": 1,
       "message": "Any difference between doing this in the builder as opposed to the optimizer?\n\nIIRC Mingyao\u0027s CL was doing it in one of the phases of optimization passes. This \u0027feels\u0027 more like an optimization (and we even call it the bitstring subtype check \u0027optimization\u0027) but perhaps that\u0027s just quibbling over details?\n\nDoing it earlier just seems like it would introduce a lot of CHECKER test changes if it\u0027s ever done for AOT?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bf5fc10_24f0e730",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Every \"sharpening\" is an optimization but we\u0027ve recently been pushing it all to the builder phase anyway. And dropping the HLoadClass here is saving a bit of memory (not much though as we already dropped the environment by \"sharpening\" the HLoadClass load kind).\n\nBut Mingyao\u0027s approach of dropping the HLoadClass input in CFRE and then having an extra DCE pass seems very odd. Though maybe we could remove the HLoadClass in the PrepareForRegisterAllocation as we do for the HClinitCheck merging.",
+      "parentUuid": "2bee860b_1ad9e183",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -301,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "9ecedb65_7738a510",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "In the long term, I would want to eliminate the HCheckCast if possible, keeping only the HLoadClass. This check should move to line 640.",
+      "parentUuid": "67195f3b_3ae5f01c",
+      "range": {
+        "startLine": 615,
+        "startChar": 6,
+        "endLine": 615,
+        "endChar": 70
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b3b1181_b384626f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -318,6 +606,24 @@
     },
     {
       "key": {
+        "uuid": "bb5d2f3f_fb765dcb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Done. Though I\u0027m not sure how useful this is for checker tests.",
+      "parentUuid": "2b3b1181_b384626f",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d7bb9744_fb10b87d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -329,6 +635,24 @@
       "writtenOn": "2018-01-16T21:25:23Z",
       "side": 1,
       "message": "Consider adding some documentation how to use this and when \"GetLoadedClassRTI\" is actually valid?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f53dc4bb_abd91e65",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 5990,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bb9744_fb10b87d",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -375,6 +699,30 @@
     },
     {
       "key": {
+        "uuid": "d1502688_8bf42e30",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "HExpression does not allow variable number of inputs. I could do something similar to HLoadClass/HLoadString with their special_input_ but I\u0027m leaving that out of this CL.",
+      "parentUuid": "fbad0613_b6cfc63d",
+      "range": {
+        "startLine": 6606,
+        "startChar": 37,
+        "endLine": 6606,
+        "endChar": 66
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d0ccf53_3f90d394",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -386,6 +734,30 @@
       "writtenOn": "2018-01-17T12:56:22Z",
       "side": 1,
       "message": "nit: add a comment on why we decided with HConstant instead of just ints in the HTypeCheckInstruction class.",
+      "range": {
+        "startLine": 6632,
+        "startChar": 0,
+        "endLine": 6633,
+        "endChar": 39
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74439c53_f2272048",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6633,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Maybe some codegen will want to get the constant(s) in a register? But I didn\u0027t think much about that, I took inspiration from Mingyao\u0027s prototype.",
+      "parentUuid": "1d0ccf53_3f90d394",
       "range": {
         "startLine": 6632,
         "startChar": 0,
@@ -415,6 +787,24 @@
     },
     {
       "key": {
+        "uuid": "c9301eb7_60d01a18",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "How would you even collect such a statistic without intrusive hooks in the runtime?",
+      "parentUuid": "a85d8201_45bb6dd6",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85e2db15_19310fd1",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 5
@@ -426,6 +816,30 @@
       "writtenOn": "2018-01-17T12:56:22Z",
       "side": 1,
       "message": "The lock is really unfortunate. Any plans on getting rid of it?",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 81
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38a392d9_a0417086",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Certainly not in this CL.\n\n(I think we really need the lock only for updating the bitstring, not for reading it.)",
+      "parentUuid": "85e2db15_19310fd1",
       "range": {
         "startLine": 258,
         "startChar": 0,
@@ -455,6 +869,24 @@
     },
     {
       "key": {
+        "uuid": "d95f28d9_c90f7bc6",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e32c219_60132d70",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6328de7_c5ce07ba",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 5
@@ -466,6 +898,24 @@
       "writtenOn": "2018-01-16T21:25:23Z",
       "side": 1,
       "message": "I\u0027m sure this is correct, just for my own understanding:\n\nWhy did we need to change the entrypoints? Is this some sort of side effect of other changes?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f5aae60_f4e96c0b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Mingyao\u0027s prototype changed the artInstanceOfFromCode() instead. As that function is used also by the instance-of slow path, I wanted to keep the DCHECK(ref_class !\u003d nullptr) there and decided to change this entrypoint.",
+      "parentUuid": "c6328de7_c5ce07ba",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -519,6 +969,30 @@
     },
     {
       "key": {
+        "uuid": "8d24e44b_bafb4f93",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeddd3db_d5580787",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8dec8413_1887ca99",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -530,6 +1004,24 @@
       "writtenOn": "2018-01-16T21:25:23Z",
       "side": 1,
       "message": "Why do we need this? Missing implementation of earlier? Is there test?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56a1f758_f0d063f4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Proxy classes are created as initialized (SetStatus() a few lines below) and do not go through EnsureInitialized().\n\nThis was caught by 044-proxy, failing the \"DCHECK(!dest_type-\u003eIsAssignableFrom(src_type))\" in artThrowClassCastException() when running compiled Proxy.getInvocationHandler():\n\n        final Proxy p \u003d (Proxy) proxy;",
+      "parentUuid": "8dec8413_1887ca99",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -553,6 +1045,24 @@
     },
     {
       "key": {
+        "uuid": "967c2f52_0b500ef3",
+        "filename": "runtime/entrypoints/quick/quick_throw_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "?",
+      "parentUuid": "722d6576_14717cdc",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4eaae481_faacb2f0",
         "filename": "runtime/subtype_check.h",
         "patchSetId": 5
@@ -570,6 +1080,24 @@
     },
     {
       "key": {
+        "uuid": "8e3aba64_ba821a31",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Yes, why not?\n\nI\u0027ve had other changes in this file, so I cleaned this up, then I removed the other changes and PS6 adds another change again.",
+      "parentUuid": "4eaae481_faacb2f0",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b327ace7_26dcdae1",
         "filename": "test/670-bitstring-type-check/src/Main.java",
         "patchSetId": 5
@@ -581,6 +1109,24 @@
       "writtenOn": "2018-01-16T21:25:23Z",
       "side": 1,
       "message": "This file is very large and choking my browser (which I guess is good since its thorough). Is there any checker tests here?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a77b7a28_13354f04",
+        "filename": "test/670-bitstring-type-check/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T16:14:05Z",
+      "side": 1,
+      "message": "Moved everything to \"build\", generating the Level1Class* and Level2Class* on the fly.\n\nNo, there are no checker tests. Those shall go to test/552-checker-sharpening in a follow-up CL when we use the bitstring type checks for AOT app compilation of type checks targetting classes with the bitstring already assigned in the boot image.",
+      "parentUuid": "b327ace7_26dcdae1",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
