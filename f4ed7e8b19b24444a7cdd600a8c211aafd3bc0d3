@@ -46,6 +46,30 @@
       "revId": "f4ed7e8b19b24444a7cdd600a8c211aafd3bc0d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8298d1da_08305bf0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-17T21:05:47Z",
+      "side": 1,
+      "message": "Yeah I\u0027m pretty sure that the non-generated only called in generated is just a mistake that was made when dealing with this comment: https://android-review.googlesource.com/c/platform/art/+/345847/2/runtime/fault_handler.cc#b152 that got passed review.\n\nPrior to that CL the HandleFaultByOtherHandlers was called where I call it here.\n\n+\n+    if (IsInGeneratedCode(info, context, true)) {\n+      VLOG(signals) \u003c\u003c \"in generated code, looking for handler\";\n+      for (const auto\u0026 handler : generated_code_handlers_) {\n+        VLOG(signals) \u003c\u003c \"invoking Action on handler \" \u003c\u003c handler;\n+        if (handler-\u003eAction(sig, info, context)) {\n+          // We have handled a signal so it\u0027s time to return from the\n+          // signal handler to the appropriate place.\n+          return;\n+        }\n       }\n-    }\n \n-    // We hit a signal we didn\u0027t handle.  This might be something for which\n-    // we can give more information about so call all registered handlers to see\n-    // if it is.\n-    if (HandleFaultByOtherHandlers(sig, info, context)) {\n+      // We hit a signal we didn\u0027t handle.  This might be something for which\n+      // we can give more information about so call all registered handlers to\n+      // see if it is.\n+      if (HandleFaultByOtherHandlers(sig, info, context)) {\n         return;\n+      }\n     }\n   }",
+      "parentUuid": "45fd1ff9_519d4f41",
+      "range": {
+        "startLine": 10,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "f4ed7e8b19b24444a7cdd600a8c211aafd3bc0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
