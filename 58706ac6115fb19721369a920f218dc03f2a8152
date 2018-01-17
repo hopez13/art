@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82902b44_6d56088a",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-17T20:51:11Z",
+      "side": 1,
+      "message": "beqz ?",
+      "range": {
+        "startLine": 1427,
+        "startChar": 4,
+        "endLine": 1427,
+        "endChar": 8
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f985ca3a_4b136015",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-17T20:51:11Z",
+      "side": 1,
+      "message": "beqzc ?",
+      "range": {
+        "startLine": 1368,
+        "startChar": 4,
+        "endLine": 1368,
+        "endChar": 9
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
