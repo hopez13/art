@@ -27,7 +27,6 @@
 #include "base/macros.h"
 #include "base/value_object.h"
 #include "dex_file_types.h"
-#include "dex_hidden_access_flags.h"
 #include "dex_instruction_iterator.h"
 #include "globals.h"
 #include "jni.h"
@@ -1253,16 +1252,10 @@ class ClassDataItemIterator {
     }
   }
   uint32_t GetFieldAccessFlags() const {
-    return GetMemberAccessFlags() & kAccValidFieldFlags;
+    return GetRawMemberAccessFlags() & kAccValidFieldFlags;
   }
   uint32_t GetMethodAccessFlags() const {
-    return GetMemberAccessFlags() & kAccValidMethodFlags;
-  }
-  uint32_t GetMemberAccessFlags() const {
-    return DexHiddenAccessFlags::RemoveHiddenFlags(GetRawMemberAccessFlags());
-  }
-  DexHiddenAccessFlags::ApiList DecodeHiddenAccessFlags() const {
-    return DexHiddenAccessFlags::Decode(GetRawMemberAccessFlags());
+    return GetRawMemberAccessFlags() & kAccValidMethodFlags;
   }
   bool MemberIsNative() const {
     return GetRawMemberAccessFlags() & kAccNative;

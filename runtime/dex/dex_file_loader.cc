@@ -132,7 +132,6 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenDex(
     const std::string& location ATTRIBUTE_UNUSED,
     bool verify ATTRIBUTE_UNUSED,
     bool verify_checksum ATTRIBUTE_UNUSED,
-    bool mmap_shared ATTRIBUTE_UNUSED,
     std::string* error_msg) const {
   *error_msg = "UNIMPLEMENTED";
   return nullptr;
@@ -154,7 +153,6 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenFile(
     const std::string& location ATTRIBUTE_UNUSED,
     bool verify ATTRIBUTE_UNUSED,
     bool verify_checksum ATTRIBUTE_UNUSED,
-    bool mmap_shared ATTRIBUTE_UNUSED,
     std::string* error_msg) const {
   *error_msg = "UNIMPLEMENTED";
   return nullptr;
