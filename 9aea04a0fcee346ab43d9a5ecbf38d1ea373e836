@@ -72,6 +72,138 @@
     },
     {
       "key": {
+        "uuid": "e6072886_f2f4fccc",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "Add a comment about the IsFinal check.",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 34
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1890ed18_f0d75e02",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "I think it won\u0027t :(",
+      "range": {
+        "startLine": 852,
+        "startChar": 8,
+        "endLine": 852,
+        "endChar": 53
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2ba23c7_57b45377",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "Isn\u0027t EnsureAssigned safe to call twice? I\u0027d drop this check if it\u0027s only for working around smali.",
+      "range": {
+        "startLine": 860,
+        "startChar": 0,
+        "endLine": 865,
+        "endChar": 9
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b9f1e63_9abd3609",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "A bit worried about our testing coverage that we execute all different paths below. How can we guarantee it?",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d725885f_cd19a138",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7725,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "nit: Add a comment.",
+      "range": {
+        "startLine": 7725,
+        "startChar": 58,
+        "endLine": 7725,
+        "endChar": 66
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96bba490_64e66614",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7965,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "nit: Add a comment.",
+      "range": {
+        "startLine": 7965,
+        "startChar": 59,
+        "endLine": 7965,
+        "endChar": 67
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46b9ec5f_1f8f8c50",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 5
@@ -106,6 +238,29 @@
     },
     {
       "key": {
+        "uuid": "01974f11_b0c7d2d7",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "Could you add a comment:\n\"For the builder and the inliner, we want to add extra information on HInstructions that have reference types, and also HInstanceOf/HCheckcast\".",
+      "range": {
+        "startLine": 651,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 42
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bee860b_1ad9e183",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 5
@@ -120,6 +275,29 @@
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67195f3b_3ae5f01c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "This looks odd. After reading the builder code, it looks like you don\u0027t need it (though you have a TODO, so maybe you can DCHECK it instead?)\n\nBut in general, it sounds to me as soon as we need an access check, we should never remove the instruction.",
+      "range": {
+        "startLine": 615,
+        "startChar": 6,
+        "endLine": 615,
+        "endChar": 70
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -174,6 +352,52 @@
     },
     {
       "key": {
+        "uuid": "fbad0613_b6cfc63d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "This has a memory cost, compared to HExpression. You\u0027re willing to take the tradeoff?",
+      "range": {
+        "startLine": 6606,
+        "startChar": 37,
+        "endLine": 6606,
+        "endChar": 66
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d0ccf53_3f90d394",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 6633,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "nit: add a comment on why we decided with HConstant instead of just ints in the HTypeCheckInstruction class.",
+      "range": {
+        "startLine": 6632,
+        "startChar": 0,
+        "endLine": 6633,
+        "endChar": 39
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a85d8201_45bb6dd6",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 5
@@ -188,6 +412,29 @@
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85e2db15_19310fd1",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "The lock is really unfortunate. Any plans on getting rid of it?",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 81
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -236,6 +483,30 @@
       "writtenOn": "2018-01-16T21:25:23Z",
       "side": 1,
       "message": "nit: TypeCheckIns probably a bit more understandable than \"Ck\" which is unused elsewhere as an abbreviation.",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeddd3db_d5580787",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T12:56:22Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "70f7eb23_a853fedd",
       "range": {
         "startLine": 59,
         "startChar": 3,
