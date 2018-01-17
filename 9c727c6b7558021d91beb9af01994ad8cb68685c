@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "33db6e8b_a05e28fb",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-17T19:19:39Z",
+      "side": 1,
+      "message": "I was thinking about something like this:\n\n  void CheckTypeCheckInstructionInput(HTypeCheckInstruction* check,\n                                      bool check_values,\n                                      size_t input_pos,\n                                      uint32_t actual_value,\n                                      uint32_t expected_value) {\n    if (!check-\u003eInputAt(input_pos)-\u003eIsIntConstant()) {\n      AddError(StringPrintf(\"%s:%d (bitstring) expects a HIntConstant as input %d, not %s:%d.\",\n                            check-\u003eDebugName(),\n                            check-\u003eGetId(),\n                            input_pos,\n                            check-\u003eInputAt(input_pos)-\u003eDebugName(),\n                            check-\u003eInputAt(input_pos)-\u003eGetId()));\n    } else if (check_values \u0026\u0026 actual_value !\u003d expected_value) {\n      AddError(StringPrintf(\"%s:%d (bitstring) has %s 0x%x, not 0x%x as expected.\",\n                            check-\u003eDebugName(),\n                            check-\u003eGetId(),\n                            input_name,\n                            actual_value,\n                            expected_value));\n    }\n  }\n\n[…]\n\n  CheckTypeCheckInstructionInput(\n      check, check_values, 2, \"path_to_root\", check-\u003eGetBitstringPathToRoot(), expected_path_to_root);\n  CheckTypeCheckInstructionInput(\n      check, check_values, 3, \"mask\", check-\u003eGetBitstringMask(), expected_mask);",
+      "parentUuid": "8be4b8a0_fea44559",
+      "range": {
+        "startLine": 591,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 5
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53445eaa_0c56a0ce",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 6
@@ -619,6 +643,24 @@
       "side": 1,
       "message": "No, that\u0027s what the \"c\" in \"bnezc\" is for.",
       "parentUuid": "b0a299aa_d21ea1d9",
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e133b8e1_3d2754f7",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-17T19:19:39Z",
+      "side": 1,
+      "message": "Right, I forgot about those \"compact\" compare-and-branch instructions.",
+      "parentUuid": "bccdc51d_fa7a649b",
       "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
