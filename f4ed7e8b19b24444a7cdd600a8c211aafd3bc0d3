@@ -22,6 +22,30 @@
       "revId": "f4ed7e8b19b24444a7cdd600a8c211aafd3bc0d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45fd1ff9_519d4f41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-17T20:46:44Z",
+      "side": 1,
+      "message": "The first line of the Java stack trade handler checks if it is in generated code but with a less restrictive check then the generated code check. I\u0027m pretty sure that it being there was just a bug",
+      "parentUuid": "f97da841_cd5baf01",
+      "range": {
+        "startLine": 10,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "f4ed7e8b19b24444a7cdd600a8c211aafd3bc0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
