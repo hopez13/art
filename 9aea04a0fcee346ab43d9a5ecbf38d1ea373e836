@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1e93907e_1f4301ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Not yet.",
+      "parentUuid": "969edc41_23461d04",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4804e02_13d2ca5e",
         "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2018-01-17T17:47:34Z",
       "side": 1,
       "message": "2018",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09c7049c_f84aa85e",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4804e02_13d2ca5e",
       "range": {
         "startLine": 2,
         "startChar": 17,

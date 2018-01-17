@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "64e63c6e_b91f5b85",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec041986_390a6c1f",
+      "range": {
+        "startLine": 2132,
+        "startChar": 15,
+        "endLine": 2132,
+        "endChar": 22
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4979893_0e4e2912",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-17T18:07:57Z",
       "side": 1,
       "message": "Nit: Or just vixl32. Same for the other places.",
+      "range": {
+        "startLine": 7192,
+        "startChar": 4,
+        "endLine": 7192,
+        "endChar": 17
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d16ef449_cbe4be51",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4979893_0e4e2912",
       "range": {
         "startLine": 7192,
         "startChar": 4,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "79307506_0176c6f0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7215,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done (removed from other places but only in this function).",
+      "parentUuid": "60d3a4f7_5f2f869e",
+      "range": {
+        "startLine": 7215,
+        "startChar": 25,
+        "endLine": 7215,
+        "endChar": 37
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f462186_4c9b361a",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 6
@@ -106,6 +178,30 @@
       "writtenOn": "2018-01-17T17:47:34Z",
       "side": 1,
       "message": "Why are we always setting the flags in that case?",
+      "range": {
+        "startLine": 7227,
+        "startChar": 11,
+        "endLine": 7227,
+        "endChar": 15
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4a9c5d3_d11f6cf9",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done.\n\nLSLS is known to be 16-bit here while LSL(KeepFlags) would be 32-bit, so the assembler shall emit LSLS even if we pass flags_update. After removing \"Operand\", I didn\u0027t need to break the line, so I\u0027ve done it.",
+      "parentUuid": "4f462186_4c9b361a",
       "range": {
         "startLine": 7227,
         "startChar": 11,
@@ -188,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "3bb89e93_f760a27a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7733,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done with codegen_-\u003eGenerateConditionWithZero() but kept the comments about CLZ+LSR.",
+      "parentUuid": "af3440e5_e597621f",
+      "range": {
+        "startLine": 7733,
+        "startChar": 23,
+        "endLine": 7733,
+        "endChar": 24
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd472250_f846a9b0",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 6
@@ -199,6 +319,30 @@
       "writtenOn": "2018-01-17T17:47:34Z",
       "side": 1,
       "message": "Most of this code is similar to lines 578–590; maybe refactor?",
+      "range": {
+        "startLine": 591,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 5
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be4b8a0_fea44559",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Any suggestion what would be less messy than this? I\u0027m not too eager to create tuples like\n\n   {2, \"third\", expected_path_to_root, \"path_to_root\"},\n   {3, \"fourth\", expected_mask, \"mask\"}\n\nand then extracting the fields from these tuples.",
+      "parentUuid": "dd472250_f846a9b0",
       "range": {
         "startLine": 591,
         "startChar": 0,
@@ -234,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "437ab84b_64f2b983",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53445eaa_0c56a0ce",
+      "range": {
+        "startLine": 665,
+        "startChar": 31,
+        "endLine": 665,
+        "endChar": 83
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33680243_ae6aac42",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
@@ -245,6 +413,30 @@
       "writtenOn": "2018-01-17T17:47:34Z",
       "side": 1,
       "message": "Nit:\n\n  /* number_of_inputs */ (check_kind \u003d\u003d TypeCheckKind::kBitstringCheck) ? 4u : 2u\n\n?",
+      "range": {
+        "startLine": 6622,
+        "startChar": 38,
+        "endLine": 6622,
+        "endChar": 92
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d9fd73_bea631df",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 6622,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33680243_ae6aac42",
       "range": {
         "startLine": 6622,
         "startChar": 38,
@@ -280,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "ffcfe424_1ba24c9d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 6666,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dd14bbf_d6512074",
+      "range": {
+        "startLine": 6666,
+        "startChar": 57,
+        "endLine": 6666,
+        "endChar": 58
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d373ff68_ab605dcd",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 6
@@ -291,6 +507,30 @@
       "writtenOn": "2018-01-17T17:47:34Z",
       "side": 1,
       "message": "This change does not seem to be needed for this CL; perhaps move it to a separate CL?",
+      "range": {
+        "startLine": 800,
+        "startChar": 0,
+        "endLine": 815,
+        "endChar": 19
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca14ce88_4f98cf23",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d373ff68_ab605dcd",
       "range": {
         "startLine": 800,
         "startChar": 0,
@@ -326,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "61103a26_bcbc30a3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1348,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3866ed7_ffca0e99",
+      "range": {
+        "startLine": 1347,
+        "startChar": 0,
+        "endLine": 1348,
+        "endChar": 23
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0a299aa_d21ea1d9",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 6
@@ -337,6 +601,24 @@
       "writtenOn": "2018-01-17T17:47:34Z",
       "side": 1,
       "message": "Don\u0027t you need to insert a `nop` here too?",
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bccdc51d_fa7a649b",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "No, that\u0027s what the \"c\" in \"bnezc\" is for.",
+      "parentUuid": "b0a299aa_d21ea1d9",
       "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -366,6 +648,30 @@
     },
     {
       "key": {
+        "uuid": "e127d79c_215e4fff",
+        "filename": "test/670-bitstring-type-check/build",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f2f6593_1c6a9cd3",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "209a0cb9_526848fd",
         "filename": "test/670-bitstring-type-check/build",
         "patchSetId": 6
@@ -377,6 +683,30 @@
       "writtenOn": "2018-01-17T17:47:34Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 25,
+        "startChar": 17,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "9c727c6b7558021d91beb9af01994ad8cb68685c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d7221a7_95181695",
+        "filename": "test/670-bitstring-type-check/build",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-17T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "209a0cb9_526848fd",
       "range": {
         "startLine": 25,
         "startChar": 17,
