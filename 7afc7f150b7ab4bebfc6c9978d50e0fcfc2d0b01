@@ -46,6 +46,30 @@
       "revId": "7afc7f150b7ab4bebfc6c9978d50e0fcfc2d0b01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e537d67b_fc2c5e5a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-17T00:36:09Z",
+      "side": 1,
+      "message": "I agree this check is needed since we are not tracking the CHA dependency (done in line 473). Another option is to track the dependency but I\u0027d rather keep the CHA dependency tracking with its single-purpose on inlining a cha-devirtualized call.",
+      "parentUuid": "cf6587e4_ef9f5aba",
+      "range": {
+        "startLine": 479,
+        "startChar": 11,
+        "endLine": 479,
+        "endChar": 83
+      },
+      "revId": "7afc7f150b7ab4bebfc6c9978d50e0fcfc2d0b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
