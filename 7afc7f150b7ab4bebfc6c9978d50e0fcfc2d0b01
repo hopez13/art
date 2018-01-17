@@ -70,6 +70,30 @@
       "revId": "7afc7f150b7ab4bebfc6c9978d50e0fcfc2d0b01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d418bf32_e116b2e9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-17T00:38:19Z",
+      "side": 1,
+      "message": "Yes, I also thought that tracking the dependency is not really worth it (and muddies the water on cha quite a bit).",
+      "parentUuid": "e537d67b_fc2c5e5a",
+      "range": {
+        "startLine": 479,
+        "startChar": 11,
+        "endLine": 479,
+        "endChar": 83
+      },
+      "revId": "7afc7f150b7ab4bebfc6c9978d50e0fcfc2d0b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
