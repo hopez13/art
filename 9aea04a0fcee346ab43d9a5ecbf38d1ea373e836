@@ -226,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "65c871c1_7f40b59e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-17T20:01:07Z",
+      "side": 1,
+      "message": "IIUC, it will use bitstring type check optimization when compiling boot.oat as well right?\n\nI may have also mentioned this in the builder section, but assigning a class if the instanceof then gets eliminated is suboptimal because we run out of bits faster (e.g. dead code, redundant instanceof, inlining backed out of, etc).\n\nHowever unless other code is changed as well (to defer bitstring assignment), I suppose this will not be \"any worse\" than doing the EnsureAssigned in the instruction builder? Am I understanding this correctly?\n\nWhat about for speed-profile boot.oat ? If it looks at all dex code items that we\u0027d never even compile this might be too much.",
+      "parentUuid": "6078de33_33fc1813",
+      "range": {
+        "startLine": 780,
+        "startChar": 81,
+        "endLine": 781,
+        "endChar": 36
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e6072886_f2f4fccc",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -905,6 +929,24 @@
       "side": 1,
       "message": "How would you even collect such a statistic without intrusive hooks in the runtime?",
       "parentUuid": "a85d8201_45bb6dd6",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f6bab2a_b4217572",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-17T20:01:07Z",
+      "side": 1,
+      "message": "Well lets say we are going to call EnsureAssigned no matter what from the compiler once we see its an instance-of/check-cast target.\n\nIf we call EnsureInitialized first it will only go up to Initialized. If EnsureInitialized returns \u003cAssigned and then EnsureAssigned returns Assigned that means we got newly assigned.\n\nIf EnsureInitialized already returns Assigned that means it was already assigned prior to the compilation.",
+      "parentUuid": "c9301eb7_60d01a18",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
