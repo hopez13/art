@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1d30e4c9_ce45a6b2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3712,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-17T09:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62785c8d_9637363f",
+      "range": {
+        "startLine": 3712,
+        "startChar": 0,
+        "endLine": 3712,
+        "endChar": 87
+      },
+      "revId": "b0be61a0cf95cd1bb833a5620757b015fde5f875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec57ddba_65685d51",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-10T07:18:29Z",
       "side": 1,
       "message": "Improve 64-bit division and add support for 64-bit remainder/modulo.\nI\u0027ll provide the expected logic privately.\n\nI\u0027ll review the patch in detail once all the logic is here.\n\nIt\u0027s possible we\u0027ll also need to expand the existing tests.",
+      "range": {
+        "startLine": 3796,
+        "startChar": 0,
+        "endLine": 3796,
+        "endChar": 31
+      },
+      "revId": "b0be61a0cf95cd1bb833a5620757b015fde5f875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704372d8_a684d226",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3796,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-17T09:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec57ddba_65685d51",
       "range": {
         "startLine": 3796,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2fe40d83_83563b76",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3804,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-17T09:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3749693_196df3f6",
+      "range": {
+        "startLine": 3804,
+        "startChar": 0,
+        "endLine": 3804,
+        "endChar": 96
+      },
+      "revId": "b0be61a0cf95cd1bb833a5620757b015fde5f875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01e52546_a0aa4c2a",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-10T07:18:29Z",
       "side": 1,
       "message": "We should handle zero similarly in the 64-bit case.",
+      "range": {
+        "startLine": 3912,
+        "startChar": 0,
+        "endLine": 3913,
+        "endChar": 86
+      },
+      "revId": "b0be61a0cf95cd1bb833a5620757b015fde5f875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b474cec2_fc10a158",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3913,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-17T09:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01e52546_a0aa4c2a",
       "range": {
         "startLine": 3912,
         "startChar": 0,
