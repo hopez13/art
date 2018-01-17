@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e7d5bcba_c86d2899",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-17T22:14:32Z",
+      "side": 1,
+      "message": "Or Revert: revert like gerrit does.\n\nAlso, would be great to have a CL whose PS1 is the original revert and PS2 contains the fix.",
+      "parentUuid": "3fe69108_7d01d0d0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "c2dd4096693d5ecbb94748ce997173aee3e784e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9e43c02_dafe42e9",
         "filename": "patchoat/patchoat_test.cc",
         "patchSetId": 1
