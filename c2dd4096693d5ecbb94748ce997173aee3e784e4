@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "63c72d74_f64326cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-01-17T23:14:35Z",
+      "side": 1,
+      "message": "I\u0027ve added the \"Reland: \" prefix. Nicolas, let me know if you want me to close this CL and open a new one with the two patchsets you requested. I can also upload 2 new ones to this CL.",
+      "parentUuid": "e7d5bcba_c86d2899",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "c2dd4096693d5ecbb94748ce997173aee3e784e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9e43c02_dafe42e9",
         "filename": "patchoat/patchoat_test.cc",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ac9d38e7_a747a618",
+        "filename": "patchoat/patchoat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-01-17T23:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9e43c02_dafe42e9",
+      "range": {
+        "startLine": 388,
+        "startChar": 7,
+        "endLine": 428,
+        "endChar": 5
+      },
+      "revId": "c2dd4096693d5ecbb94748ce997173aee3e784e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "598394e2_ec59bcfe",
         "filename": "patchoat/patchoat_test.cc",
         "patchSetId": 1
@@ -92,6 +140,30 @@
       "revId": "c2dd4096693d5ecbb94748ce997173aee3e784e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bea8972_8a2cd759",
+        "filename": "patchoat/patchoat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-01-17T23:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "598394e2_ec59bcfe",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 37
+      },
+      "revId": "c2dd4096693d5ecbb94748ce997173aee3e784e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
