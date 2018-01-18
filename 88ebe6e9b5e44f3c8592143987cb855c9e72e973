@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "95972035_d2f3056b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T14:47:54Z",
+      "side": 1,
+      "message": "This yields\n\n  UBFX out, #0, #mask_bits\n  MOVW ip, #path_to_root  // Fits into 16 bits.\n  // No MOVT here!\n  CMP/SUB out, ip  // CMP is 16-bit (T2), SUB is 32-bit (T2)\n\nThe constant \"path_to_root \u003c\u003c (32u - mask_bits)\" would require MOVW+MOVT because it would not fit into 16 bits. (\"32u - mask_bits\" is certainly at least 4 because the high 4 bits hold the status.)",
+      "parentUuid": "d447816d_db70db6b",
+      "range": {
+        "startLine": 7229,
+        "startChar": 0,
+        "endLine": 7236,
+        "endChar": 9
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2816978c_1e065e22",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-18T13:08:28Z",
       "side": 1,
       "message": "Similarly here - what is better compared to lines 7214 - 7217?",
+      "range": {
+        "startLine": 7239,
+        "startChar": 0,
+        "endLine": 7246,
+        "endChar": 7
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f7b5f09_8d0cbaf4",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T14:47:54Z",
+      "side": 1,
+      "message": "This yields\n\n  LSL(S) out, out, #(path_to_root \u003c\u003c (32u - mask_bits));  // 16-bit if out.IsLow()\n  MOVW ip, #Low16Bits(path_to_root \u003c\u003c (32u - mask_bits))\n  MOVT ip, #High16Hits(path_to_root \u003c\u003c (32u - mask_bits))\n  CMP/SUB out, ip  // CMP is 16-bit (T2), SUB is 32-bit (T2)\n\nWe can have 16-bit LSLS as opposed to 32-bit UBFX.",
+      "parentUuid": "2816978c_1e065e22",
       "range": {
         "startLine": 7239,
         "startChar": 0,
