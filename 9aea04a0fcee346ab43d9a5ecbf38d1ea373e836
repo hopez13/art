@@ -227,6 +227,30 @@
     },
     {
       "key": {
+        "uuid": "7012d453_0691a602",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-18T23:23:47Z",
+      "side": 1,
+      "message": "I\u0027m not enthusiastic about this use of volatile. But I\u0027m not sure there\u0027s a better easy solution. Add an opaque-to-the-compiler intrinsic that\u0027s just an identity function? I could probably also use it as a better reachabilityFence() implementation than my current draft :-)\n\nMy concern with using volatile here:\n1) It\u0027s not foolproof. It should be OK to CSE volatile loads, subject to constraints on intervening heap accesses. Except that as a QOI issue the loads being merged shouldn\u0027t be too far apart in time. But I think it would be OK to, say unroll a dozen iterations of the loop and merge the volatile loads into one. And in an ideal world, if we had a lot more people working on our optimizer, we should probably be doing that.\n\n2) I would hope that the cost of instanceof is usually on the same order as the volatile load, or possibly less. The volatile load cost is likely to be somewhat context-dependent, so I don\u0027t think it\u0027s safe to assume it\u0027s the same in all cases. So this probably reduces accuracy.",
+      "parentUuid": "65a300aa_51fb57ad",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5df4072d_f7f7b6a4",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
