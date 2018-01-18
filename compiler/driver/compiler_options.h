@@ -274,6 +274,10 @@ class CompilerOptions FINAL {
     return dump_stats_;
   }
 
+  bool CountHotnessInCompiledCode() const {
+    return count_hotness_in_compiled_code_;
+  }
+
  private:
   bool ParseDumpInitFailures(const std::string& option, std::string* error_msg);
   void ParseDumpCfgPasses(const StringPiece& option, UsageFn Usage);
@@ -335,6 +339,9 @@ class CompilerOptions FINAL {
 
   // Whether code should be deduplicated.
   bool deduplicate_code_;
+
+  // Whether compiled code should increment the hotness count of ArtMethod.
+  bool count_hotness_in_compiled_code_;
 
   RegisterAllocator::Strategy register_allocation_strategy_;
 

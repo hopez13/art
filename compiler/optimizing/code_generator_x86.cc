@@ -1061,6 +1061,11 @@ void CodeGeneratorX86::GenerateFrameEntry() {
       IsLeafMethod() && !FrameNeedsStackCheck(GetFrameSize(), InstructionSet::kX86);
   DCHECK(GetCompilerOptions().GetImplicitStackOverflowChecks());
 
+  if (GetCompilerOptions().CountHotnessInCompiledCode()) {
+    __ addw(Address(kMethodRegisterArgument, ArtMethod::HotnessCountOffset().Int32Value()),
+            Immediate(1));
+  }
+
   if (!skip_overflow_check) {
     size_t reserved_bytes = GetStackOverflowReservedBytes(InstructionSet::kX86);
     __ testl(EAX, Address(ESP, -static_cast<int32_t>(reserved_bytes)));
