@@ -22,6 +22,30 @@
       "revId": "08a9af0df8e7e2f478cd319aacb367db7a6d06b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2194b87_510a08c6",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-01-18T15:07:59Z",
+      "side": 1,
+      "message": "That is the main implementation - it is less at risk of being inlined.",
+      "parentUuid": "0cdde57e_38273204",
+      "range": {
+        "startLine": 132,
+        "startChar": 36,
+        "endLine": 132,
+        "endChar": 37
+      },
+      "revId": "08a9af0df8e7e2f478cd319aacb367db7a6d06b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
