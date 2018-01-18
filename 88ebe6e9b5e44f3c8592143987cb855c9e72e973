@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c2e5cd9e_d6d50537",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7236,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-01-18T15:31:05Z",
+      "side": 1,
+      "message": "Right, and I suppose you decided to add a special case instead of reusing lines 7214 - 7217 because there was one dependency less (the MOVW can issue in parallel with UBFX)?",
+      "parentUuid": "95972035_d2f3056b",
+      "range": {
+        "startLine": 7229,
+        "startChar": 0,
+        "endLine": 7236,
+        "endChar": 9
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2816978c_1e065e22",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 8
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "This yields\n\n  LSL(S) out, out, #(path_to_root \u003c\u003c (32u - mask_bits));  // 16-bit if out.IsLow()\n  MOVW ip, #Low16Bits(path_to_root \u003c\u003c (32u - mask_bits))\n  MOVT ip, #High16Hits(path_to_root \u003c\u003c (32u - mask_bits))\n  CMP/SUB out, ip  // CMP is 16-bit (T2), SUB is 32-bit (T2)\n\nWe can have 16-bit LSLS as opposed to 32-bit UBFX.",
       "parentUuid": "2816978c_1e065e22",
+      "range": {
+        "startLine": 7239,
+        "startChar": 0,
+        "endLine": 7246,
+        "endChar": 7
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fff2794c_aaf9ac49",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7246,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-01-18T15:31:05Z",
+      "side": 1,
+      "message": "I don\u0027t know the macroassembler by heart, but does it generate UBFX for lines 7214 - 7217?",
+      "parentUuid": "8f7b5f09_8d0cbaf4",
       "range": {
         "startLine": 7239,
         "startChar": 0,
