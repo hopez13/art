@@ -22,6 +22,30 @@
       "revId": "f91c5bcd1895086acb4090fd28b2cc022d4392d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0890dd40_046d7c64",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-18T13:28:52Z",
+      "side": 1,
+      "message": "Good idea. I\u0027ve put the flag in Zygote.forkSystemServer and DCHECK here.",
+      "parentUuid": "86bbb3e9_d337a39b",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 3
+      },
+      "revId": "f91c5bcd1895086acb4090fd28b2cc022d4392d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
