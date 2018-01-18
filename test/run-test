@@ -95,6 +95,9 @@ export JACK="$JACK -g -cp $JACK_CLASSPATH"
 # Allow changing DESUGAR script to something else, or to disable it with DESUGAR=false.
 if [ -z "$DESUGAR" ]; then
   export DESUGAR="$ANDROID_BUILD_TOP/art/tools/desugar.sh"
+  export DESUGAR="/usr/local/google/home/ajcbik/Repo/master/art/tools/desugar.sh"
+  echo aart
+  echo $DESUGAR
 fi
 
 # Zipalign is not on the PATH in some configs, auto-detect it.
