@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d447816d_db70db6b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7236,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-01-18T13:08:28Z",
+      "side": 1,
+      "message": "At this point we know that path_to_root does not fit in 8 bits, so CMP/SUB is going to have a 32-bit encoding, and UBFX is always 32 bits. The instructions are more or less the same, including dependencies. So, what advantages does this case have compared to lines 7239 - 7246?",
+      "range": {
+        "startLine": 7229,
+        "startChar": 0,
+        "endLine": 7236,
+        "endChar": 9
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2816978c_1e065e22",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7246,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-01-18T13:08:28Z",
+      "side": 1,
+      "message": "Similarly here - what is better compared to lines 7214 - 7217?",
+      "range": {
+        "startLine": 7239,
+        "startChar": 0,
+        "endLine": 7246,
+        "endChar": 7
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
