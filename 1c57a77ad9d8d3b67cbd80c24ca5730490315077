@@ -70,6 +70,30 @@
       "revId": "1c57a77ad9d8d3b67cbd80c24ca5730490315077",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8665d868_faefdb79",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2018-01-18T18:18:14Z",
+      "side": 1,
+      "message": "If it\u0027s doing nothing, it should be false to make things clearer for future code archaeologists. \n\nIn general, I think it\u0027s good for flag flip CLs to only flip a flag (and do nothing else). Easier to revert if reqd and easier to attribute blame (or praise) to a given change :)",
+      "parentUuid": "f8e694da_f61b8a55",
+      "range": {
+        "startLine": 268,
+        "startChar": 28,
+        "endLine": 268,
+        "endChar": 32
+      },
+      "revId": "1c57a77ad9d8d3b67cbd80c24ca5730490315077",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
