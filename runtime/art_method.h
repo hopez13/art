@@ -662,6 +662,10 @@ class ArtMethod FINAL {
   uint16_t GetCounter() const {
     return hotness_count_;
   }
+  
+  static MemberOffset HotnessCountOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(ArtMethod, hotness_count_));
+  }
 
   ArrayRef<const uint8_t> GetQuickenedInfo() REQUIRES_SHARED(Locks::mutator_lock_);
 

@@ -77,6 +77,7 @@ inline bool ReadCompilerOptions(Base& map, CompilerOptions* options, std::string
   }
   map.AssignIfExists(Base::VerboseMethods, &options->verbose_methods_);
   options->deduplicate_code_ = map.GetOrDefault(Base::DeduplicateCode);
+  options->count_hotness_in_compiled_code_ = map.GetOrDefault(Base::CountHotnessInCompiledCode);
 
   if (map.Exists(Base::DumpTimings)) {
     options->dump_timings_ = true;
@@ -136,6 +137,11 @@ inline void AddCompilerOptionsArgumentParserOptions(Builder& b) {
           .template WithType<bool>()
           .WithValueMap({{"false", false}, {"true", true}})
           .IntoKey(Map::DeduplicateCode)
+      
+      .Define({"--count-hotness-in-compiled-code=_"})
+          .template WithType<bool>()
+          .WithValueMap({{"false", false}, {"true", true}})
+          .IntoKey(Map::CountHotnessInCompiledCode)
 
       .Define({"--dump-timings"})
           .IntoKey(Map::DumpTimings)
