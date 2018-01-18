@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6ff9da54_97006d6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-18T23:52:09Z",
+      "side": 1,
+      "message": "With Mathieu\u0027s comment, could you outline how this will make profiling easier?",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "d62e09abd77717a0ca3475cdf40b01bea7c8b3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91b5af9e_bd6691c0",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 2
