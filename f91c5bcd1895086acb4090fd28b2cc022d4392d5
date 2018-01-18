@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86bbb3e9_d337a39b",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-18T11:50:38Z",
+      "side": 1,
+      "message": "Isn\u0027t this recurrent? Shouldn\u0027t you DCHECK it instead?",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 3
+      },
+      "revId": "f91c5bcd1895086acb4090fd28b2cc022d4392d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
