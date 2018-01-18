@@ -237,6 +237,30 @@
       "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c41be99d_d835d768",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T16:52:00Z",
+      "side": 1,
+      "message": "If temp is high reg, CMP (register) T2 saves 2 bytes of code compared to lines 7214-7217. The SUB path (flags_update !\u003d SetFlags) seems pretty much the same.",
+      "parentUuid": "953bfd88_2706a5d4",
+      "range": {
+        "startLine": 7239,
+        "startChar": 0,
+        "endLine": 7246,
+        "endChar": 7
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
