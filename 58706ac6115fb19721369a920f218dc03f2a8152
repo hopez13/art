@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e055bb37_c37fb289",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T11:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "667fc92c_c5ea0375",
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09e628f1_143a984d",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 7
@@ -30,6 +48,30 @@
       "writtenOn": "2018-01-17T22:11:08Z",
       "side": 1,
       "message": "Unwanted space.",
+      "range": {
+        "startLine": 1953,
+        "startChar": 17,
+        "endLine": 1953,
+        "endChar": 18
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65fd22b6_1ddaa245",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T11:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09e628f1_143a984d",
       "range": {
         "startLine": 1953,
         "startChar": 17,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "d5ce2573_6ef39cc1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3529,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T11:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee12ccf2_78335985",
+      "range": {
+        "startLine": 3529,
+        "startChar": 9,
+        "endLine": 3529,
+        "endChar": 12
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6fa7192_3a9fda3e",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 7
@@ -76,6 +142,30 @@
       "writtenOn": "2018-01-17T22:11:08Z",
       "side": 1,
       "message": "Unwanted space.",
+      "range": {
+        "startLine": 1799,
+        "startChar": 17,
+        "endLine": 1799,
+        "endChar": 18
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc5a8ba0_abb8c594",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T11:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6fa7192_3a9fda3e",
       "range": {
         "startLine": 1799,
         "startChar": 17,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "102b9e1c_023a227e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3084,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T11:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "888fc960_7e190bca",
+      "range": {
+        "startLine": 3084,
+        "startChar": 9,
+        "endLine": 3084,
+        "endChar": 12
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82902b44_6d56088a",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 7
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "9b34df59_744f5e10",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T11:59:57Z",
+      "side": 1,
+      "message": "Done. I guess I wasn\u0027t thinking clearly when I changed cbz to bnez after copy-pasting.",
+      "parentUuid": "82902b44_6d56088a",
+      "range": {
+        "startLine": 1427,
+        "startChar": 4,
+        "endLine": 1427,
+        "endChar": 8
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f985ca3a_4b136015",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 7
@@ -145,6 +283,30 @@
       "writtenOn": "2018-01-17T20:51:11Z",
       "side": 1,
       "message": "beqzc ?",
+      "range": {
+        "startLine": 1368,
+        "startChar": 4,
+        "endLine": 1368,
+        "endChar": 9
+      },
+      "revId": "58706ac6115fb19721369a920f218dc03f2a8152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0aff70ad_c0edb285",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T11:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f985ca3a_4b136015",
       "range": {
         "startLine": 1368,
         "startChar": 4,
