@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ebdf4cde_4c53b8d8",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T16:01:24Z",
+      "side": 1,
+      "message": "Yes, when the code size is the same, I favor fewer dependencies.\n\n(Note that the motivation to optimize code size comes from the CL that shifts the bitstring to the low bits. I wanted to generate no more code than we would generate if it was in the high bits. That\u0027s also why arm64 is not very optimized, all arm64 instructions are 32-bit and LSR and UBFX are both just an alias of UBFM anyway.)",
+      "parentUuid": "c2e5cd9e_d6d50537",
+      "range": {
+        "startLine": 7229,
+        "startChar": 0,
+        "endLine": 7236,
+        "endChar": 9
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2816978c_1e065e22",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 8
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I don\u0027t know the macroassembler by heart, but does it generate UBFX for lines 7214 - 7217?",
       "parentUuid": "8f7b5f09_8d0cbaf4",
+      "range": {
+        "startLine": 7239,
+        "startChar": 0,
+        "endLine": 7246,
+        "endChar": 7
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9450edd_44e0445e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T16:01:24Z",
+      "side": 1,
+      "message": "Why would it generate UBFX there?",
+      "parentUuid": "fff2794c_aaf9ac49",
       "range": {
         "startLine": 7239,
         "startChar": 0,

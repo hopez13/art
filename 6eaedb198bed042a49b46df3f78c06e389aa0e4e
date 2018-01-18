@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b2db5f1_1e44ff54",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T16:01:24Z",
+      "side": 1,
+      "message": "It looks like this benchmark is unfair to the bitstring check as the HLoadClass can be pulled out of the loop while the constants in the bitstring check cannot, so the old implementation has an edge for the {CheckCast,InstanceOf}Level1ToLevel1 benchmarks and beats the new implementation also in CheckCastLevel2ToLevel1 but loses when the distance is higher.\n\n    timeCheckCastLevel1ToLevel1: 2.66 -\u003e 4.44\n    timeCheckCastLevel2ToLevel1: 3.54 -\u003e 4.31\n    timeCheckCastLevel3ToLevel1: 5.99 -\u003e 4.39\n    timeCheckCastLevel9ToLevel1: 12.10 -\u003e 4.38\n    timeCheckCastLevel9ToLevel2: 11.67 -\u003e 4.31\n    timeCheckNull: 1.92 -\u003e 1.93\n    timeInstanceOfLevel1ToLevel1: 3.84 -\u003e 4.03\n    timeInstanceOfLevel2ToLevel1: 5.98 -\u003e 3.95\n    timeInstanceOfLevel3ToLevel1: 6.93 -\u003e 3.90\n    timeInstanceOfLevel9ToLevel1: 14.66 -\u003e 3.98\n    timeInstanceOfLevel9ToLevel2: 13.45 -\u003e 3.84\n\nNote that benchmarking this required hacking Caliper\u0027s DalvikPlatform.workerProcessArgs() to\n\n    return ImmutableSet.of(\"-Xusejit:true\",\n                           \"-Xjitthreshold:0\",\n                           \"-Xjitinitialsize:32M\",\n                           \"-Xjitmaxsize:32M\");\n\nand fixing Jit::MethodEntered() with\n\n    -    ProfilingInfo::Create(thread, method, /* retry_allocation */ true);\n    +    ProfilingInfo::Create(thread,\n    +                          method-\u003eGetInterfaceMethodIfProxy(kRuntimePointerSize),\n    +                          /* retry_allocation */ true);",
+      "range": {
+        "startLine": 29,
+        "startChar": 24,
+        "endLine": 29,
+        "endChar": 35
+      },
+      "revId": "6eaedb198bed042a49b46df3f78c06e389aa0e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

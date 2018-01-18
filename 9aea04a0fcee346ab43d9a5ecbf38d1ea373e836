@@ -203,6 +203,30 @@
     },
     {
       "key": {
+        "uuid": "65a300aa_51fb57ad",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-18T16:01:24Z",
+      "side": 1,
+      "message": "Note that without the volatile, LICM already pulls the HInstanceOf out of the loop (though HCheckCast is not moved at this time).",
+      "parentUuid": "5744b6ff_07239939",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5df4072d_f7f7b6a4",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
