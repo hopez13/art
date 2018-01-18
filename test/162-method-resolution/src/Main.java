@@ -15,6 +15,7 @@
  */
 
 import java.lang.reflect.Method;
+import java.nio.ByteBuffer;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +28,7 @@ public class Main {
         }
 
         try {
+            test0();
             test1();
             test2();
             test3();
@@ -44,6 +46,11 @@ public class Main {
         } catch (Throwable t) {
             t.printStackTrace(System.out);
         }
+    }
+
+    private static void test0() {
+        ByteBuffer buffer = ByteBuffer.allocate(8192);
+        buffer.limit(1);
     }
 
     /*
