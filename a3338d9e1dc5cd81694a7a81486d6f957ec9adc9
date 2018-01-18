@@ -22,6 +22,30 @@
       "revId": "a3338d9e1dc5cd81694a7a81486d6f957ec9adc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34fca69e_b52de56a",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-18T11:05:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "251d6e31_5e4024a9",
+      "range": {
+        "startLine": 289,
+        "startChar": 24,
+        "endLine": 289,
+        "endChar": 52
+      },
+      "revId": "a3338d9e1dc5cd81694a7a81486d6f957ec9adc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
