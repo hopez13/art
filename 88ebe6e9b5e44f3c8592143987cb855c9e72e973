@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "4d1b234a_088dec32",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7236,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-01-18T16:22:09Z",
+      "side": 1,
+      "message": "I haven\u0027t thought much about it, ARM64 does not seem to have much room for improvement, other than playing with manual scheduling when the constants need to be materialized by the macroassembler.\n\nHowever, the ARM64 implementation has not undergone the branch reduction work (which might reduce code size a bit judging by the ARM code). That\u0027s, of course, a side issue.",
+      "parentUuid": "ebdf4cde_4c53b8d8",
+      "range": {
+        "startLine": 7229,
+        "startChar": 0,
+        "endLine": 7236,
+        "endChar": 9
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2816978c_1e065e22",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 8
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Why would it generate UBFX there?",
       "parentUuid": "fff2794c_aaf9ac49",
+      "range": {
+        "startLine": 7239,
+        "startChar": 0,
+        "endLine": 7246,
+        "endChar": 7
+      },
+      "revId": "88ebe6e9b5e44f3c8592143987cb855c9e72e973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "953bfd88_2706a5d4",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 7246,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-01-18T16:22:09Z",
+      "side": 1,
+      "message": "Oh, I misunderstood you - you were comparing the block to 7229 - 7236, but I was asking about 7214 - 7217.",
+      "parentUuid": "d9450edd_44e0445e",
       "range": {
         "startLine": 7239,
         "startChar": 0,
