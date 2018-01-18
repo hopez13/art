@@ -164,6 +164,30 @@
       "revId": "b5b2db5b846c3c9c0d4c9682e59be4b15273d9e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cecf8cc_d15d0363",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1014697
+      },
+      "writtenOn": "2018-01-18T13:06:30Z",
+      "side": 1,
+      "message": "Dont check targetSdkVersion for compatible old app?",
+      "parentUuid": "b8d2ce6c_ee86bc09",
+      "range": {
+        "startLine": 342,
+        "startChar": 25,
+        "endLine": 342,
+        "endChar": 38
+      },
+      "revId": "b5b2db5b846c3c9c0d4c9682e59be4b15273d9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
