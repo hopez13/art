@@ -35,6 +35,16 @@ art_cc_library {
     defaults: ["libart-dexlayout-defaults"],
     shared_libs: ["libart"],
 
+    target: {
+        android: {
+            cflags: [
+                "-Wno-backend-plugin",
+                "-fprofile-use=art/pgo-profiles/dex2oat.profdata"
+            ],
+            ldflags: ["-fprofile-use=art/pgo-profiles/dex2oat.profdata"],
+        },
+    },
+
     pgo: {
         instrumentation: true,
         profile_file: "art/dex2oat.profdata",
