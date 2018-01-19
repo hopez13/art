@@ -1182,8 +1182,10 @@ bool Class::ProxyDescriptorEquals(const char* match) {
 }
 
 // TODO: Move this to java_lang_Class.cc?
-ArtMethod* Class::GetDeclaredConstructor(
-    Thread* self, Handle<ObjectArray<Class>> args, PointerSize pointer_size) {
+ArtMethod* Class::GetDeclaredConstructor(Thread* self,
+                                         Handle<ObjectArray<Class>> args,
+                                         PointerSize pointer_size,
+                                         bool enforce_hidden_api) {
   for (auto& m : GetDirectMethods(pointer_size)) {
     // Skip <clinit> which is a static constructor, as well as non constructors.
     if (m.IsStatic() || !m.IsConstructor()) {
@@ -1191,7 +1193,11 @@ ArtMethod* Class::GetDeclaredConstructor(
     }
     // May cause thread suspension and exceptions.
     if (m.GetInterfaceMethodIfProxy(kRuntimePointerSize)->EqualParameters(args)) {
-      return &m;
+      if (enforce_hidden_api && hiddenapi::IsMemberHidden(m.GetAccessFlags())) {
+        return nullptr;
+      } else {
+        return &m;
+      }
     }
     if (UNLIKELY(self->IsExceptionPending())) {
       return nullptr;
@@ -1219,7 +1225,8 @@ ObjPtr<Method> Class::GetDeclaredMethodInternal(
     Thread* self,
     ObjPtr<Class> klass,
     ObjPtr<String> name,
-    ObjPtr<ObjectArray<Class>> args) {
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api) {
   // Covariant return types permit the class to define multiple
   // methods with the same name and parameter types. Prefer to
   // return a non-synthetic method in such situations. We may
@@ -1246,10 +1253,10 @@ ObjPtr<Method> Class::GetDeclaredMethodInternal(
       continue;
     }
     if (!m.IsMiranda()) {
-      if (!m.IsSynthetic()) {
-        return Method::CreateFromArtMethod<kPointerSize, kTransactionActive>(self, &m);
-      }
       result = &m;  // Remember as potential result if it's not a miranda method.
+      if (!m.IsSynthetic()) {
+        break;
+      }
     }
   }
   if (result == nullptr) {
@@ -1271,12 +1278,17 @@ ObjPtr<Method> Class::GetDeclaredMethodInternal(
         }
         continue;
       }
+      result = &m;  // Remember as potential result.
       DCHECK(!m.IsMiranda());  // Direct methods cannot be miranda methods.
       if ((modifiers & kAccSynthetic) == 0) {
-        return Method::CreateFromArtMethod<kPointerSize, kTransactionActive>(self, &m);
+        break;
       }
-      result = &m;  // Remember as potential result.
     }
+  }
+  if (result != nullptr &&
+      enforce_hidden_api &&
+      hiddenapi::IsMemberHidden(result->GetAccessFlags())) {
+    result = nullptr;
   }
   return result != nullptr
       ? Method::CreateFromArtMethod<kPointerSize, kTransactionActive>(self, result)
@@ -1288,33 +1300,39 @@ ObjPtr<Method> Class::GetDeclaredMethodInternal<PointerSize::k32, false>(
     Thread* self,
     ObjPtr<Class> klass,
     ObjPtr<String> name,
-    ObjPtr<ObjectArray<Class>> args);
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api);
 template
 ObjPtr<Method> Class::GetDeclaredMethodInternal<PointerSize::k32, true>(
     Thread* self,
     ObjPtr<Class> klass,
     ObjPtr<String> name,
-    ObjPtr<ObjectArray<Class>> args);
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api);
 template
 ObjPtr<Method> Class::GetDeclaredMethodInternal<PointerSize::k64, false>(
     Thread* self,
     ObjPtr<Class> klass,
     ObjPtr<String> name,
-    ObjPtr<ObjectArray<Class>> args);
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api);
 template
 ObjPtr<Method> Class::GetDeclaredMethodInternal<PointerSize::k64, true>(
     Thread* self,
     ObjPtr<Class> klass,
     ObjPtr<String> name,
-    ObjPtr<ObjectArray<Class>> args);
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api);
 
 template <PointerSize kPointerSize, bool kTransactionActive>
 ObjPtr<Constructor> Class::GetDeclaredConstructorInternal(
     Thread* self,
     ObjPtr<Class> klass,
-    ObjPtr<ObjectArray<Class>> args) {
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api) {
   StackHandleScope<1> hs(self);
-  ArtMethod* result = klass->GetDeclaredConstructor(self, hs.NewHandle(args), kPointerSize);
+  ArtMethod* result = klass->GetDeclaredConstructor(
+      self, hs.NewHandle(args), kPointerSize, enforce_hidden_api);
   return result != nullptr
       ? Constructor::CreateFromArtMethod<kPointerSize, kTransactionActive>(self, result)
       : nullptr;
@@ -1326,22 +1344,26 @@ template
 ObjPtr<Constructor> Class::GetDeclaredConstructorInternal<PointerSize::k32, false>(
     Thread* self,
     ObjPtr<Class> klass,
-    ObjPtr<ObjectArray<Class>> args);
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api);
 template
 ObjPtr<Constructor> Class::GetDeclaredConstructorInternal<PointerSize::k32, true>(
     Thread* self,
     ObjPtr<Class> klass,
-    ObjPtr<ObjectArray<Class>> args);
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api);
 template
 ObjPtr<Constructor> Class::GetDeclaredConstructorInternal<PointerSize::k64, false>(
     Thread* self,
     ObjPtr<Class> klass,
-    ObjPtr<ObjectArray<Class>> args);
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api);
 template
 ObjPtr<Constructor> Class::GetDeclaredConstructorInternal<PointerSize::k64, true>(
     Thread* self,
     ObjPtr<Class> klass,
-    ObjPtr<ObjectArray<Class>> args);
+    ObjPtr<ObjectArray<Class>> args,
+    bool enforce_hidden_api);
 
 int32_t Class::GetInnerClassFlags(Handle<Class> h_this, int32_t default_value) {
   if (h_this->IsProxyClass() || h_this->GetDexCache() == nullptr) {
