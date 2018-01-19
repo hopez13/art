@@ -22,6 +22,30 @@
       "revId": "aec4e73779e5034b6f84032a1649023c1333bad2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e4348e_a3bc4ada",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-19T19:45:20Z",
+      "side": 1,
+      "message": "IMO you should fix the graph. graph_checker.cc explicitly calls IsAllowedToJumpToExitBlock() for exit block predecessors. The graph should be able to pass graph checker.",
+      "parentUuid": "ef5322d2_fc608d43",
+      "range": {
+        "startLine": 312,
+        "startChar": 7,
+        "endLine": 312,
+        "endChar": 20
+      },
+      "revId": "aec4e73779e5034b6f84032a1649023c1333bad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
