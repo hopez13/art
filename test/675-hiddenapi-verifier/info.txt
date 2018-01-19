@@ -1,0 +1,5 @@
+Test that dex files with hidden API flags are rejected by the DexFileVerifier.
+This is because hidden API flags use invalid combinations of flags to encode
+the information, but should only be used by boot class path. We verify boot
+class path dex files before their flags are modified and boot jars built and
+should reject any other dex files with hidden flags as invalid.
