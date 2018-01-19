@@ -470,6 +470,7 @@ bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
     INTRINSIC_CASE(MathAsin)
     INTRINSIC_CASE(MathAtan)
     UNIMPLEMENTED_CASE(MathAtan2 /* (DD)D */)
+    UNIMPLEMENTED_CASE(MathPow /* (DD)D */)
     UNIMPLEMENTED_CASE(MathCbrt /* (D)D */)
     UNIMPLEMENTED_CASE(MathCosh /* (D)D */)
     UNIMPLEMENTED_CASE(MathExp /* (D)D */)
