@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e898ee9_245cc52c",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-19T18:31:30Z",
+      "side": 1,
+      "message": "If Andreas votes against the generated code eventually, we should at the very least keep this and use the UNIMPLEMENTED_INTRINSIC() mechanism, so at least we get LICM/GVN and other advantages.",
+      "revId": "1305ce556e335e896f56fa9308c8e6978e824b45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
