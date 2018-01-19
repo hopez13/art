@@ -29,6 +29,7 @@
 #include "dex_cache.h"
 #include "dex/dex_file-inl.h"
 #include "gc/heap-inl.h"
+#include "hidden_api.h"
 #include "iftable.h"
 #include "invoke_type.h"
 #include "subtype_check.h"
@@ -1142,6 +1143,10 @@ inline bool Class::CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flag
   // Classes can access all of their own members
   if (this == access_to) {
     return true;
+  }
+  if (!IsBootStrapClassLoaded() &&  // caller not in boot class path
+      hiddenapi::IsMemberHidden(member_flags)) {
+    return false;
   }
   // Public members are trivially accessible
   if (member_flags & kAccPublic) {
