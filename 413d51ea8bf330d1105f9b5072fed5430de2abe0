@@ -1,0 +1,763 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb2c5852_50efe7e5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3724,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "int64_t imm \u003d Int64FromConstant(second.GetConstant());",
+      "range": {
+        "startLine": 3724,
+        "startChar": 0,
+        "endLine": 3724,
+        "endChar": 66
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a472c5a_c0bcf3ee",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3756,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Since we don\u0027t specify Location::kNoOutputOverlap in locations-\u003eSetOut() (and I\u0027m OK with that), in and out will never intersect. Remove the if.\n\nIf in and out are allowed to intersect, it\u0027s easy to make a mistake by changing out before consuming all of in.",
+      "range": {
+        "startLine": 3756,
+        "startChar": 13,
+        "endLine": 3756,
+        "endChar": 62
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "320a5349_6e59fa16",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3805,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Define\n\n  const bool is_r2_or_newer \u003d codegen_-\u003eGetInstructionSetFeatures().IsMipsIsaRevGreaterThanEqual2();\n\nat the beginning of the method and use is_r2_or_newer throughout.",
+      "range": {
+        "startLine": 3805,
+        "startChar": 14,
+        "endLine": 3805,
+        "endChar": 83
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a417dbbb_fe2891c0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3837,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3837,
+        "startChar": 12,
+        "endLine": 3837,
+        "endChar": 81
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46b9fdd7_6a592ebe",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Define\n\n  const bool is_r6 \u003d codegen_-\u003eGetInstructionSetFeatures().IsR6();\n\nat the beginning of the method and use is_r6 throughout.",
+      "range": {
+        "startLine": 3878,
+        "startChar": 12,
+        "endLine": 3878,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4eaf8fa_28d5ed22",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3898,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Aesthetically `abs_imm - 1` looks better.",
+      "range": {
+        "startLine": 3898,
+        "startChar": 35,
+        "endLine": 3898,
+        "endChar": 53
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21c7cfa5_d7f676f5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3899,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3899,
+        "startChar": 19,
+        "endLine": 3899,
+        "endChar": 88
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb8b08_0b60e384",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3905,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r6",
+      "range": {
+        "startLine": 3905,
+        "startChar": 12,
+        "endLine": 3905,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4ae680c_784df3aa",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3911,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3911,
+        "startChar": 12,
+        "endLine": 3911,
+        "endChar": 81
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74654a1f_fad5ad15",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3920,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r6",
+      "range": {
+        "startLine": 3920,
+        "startChar": 12,
+        "endLine": 3920,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "682aaf16_e6ac046a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3921,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Change to produce the result in out_high directly:\n\n    __ Selnez(out_high, AT, out_low);",
+      "range": {
+        "startLine": 3921,
+        "startChar": 0,
+        "endLine": 3921,
+        "endChar": 37
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09f64f5b_96c77528",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3925,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Move this Move up, into the else clause, after Movz.",
+      "range": {
+        "startLine": 3925,
+        "startChar": 0,
+        "endLine": 3925,
+        "endChar": 30
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c737c5a_e2dd9bff",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3931,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3931,
+        "startChar": 19,
+        "endLine": 3931,
+        "endChar": 88
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34e85f1d_68dc836c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3932,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Unwanted space before comma.",
+      "range": {
+        "startLine": 3932,
+        "startChar": 37,
+        "endLine": 3932,
+        "endChar": 38
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7edbdca5_8237e349",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3939,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r6",
+      "range": {
+        "startLine": 3939,
+        "startChar": 12,
+        "endLine": 3939,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd100d1_3032f1dd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3944,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3944,
+        "startChar": 12,
+        "endLine": 3944,
+        "endChar": 81
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4256dc4c_1bb19524",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3951,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "is_r6",
+      "range": {
+        "startLine": 3951,
+        "startChar": 12,
+        "endLine": 3951,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb01c50_d6e73900",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4060,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "call_kind should correctly reflect whether there\u0027s a call to the generic long division routine or not.\n\nThis means you should move some of the below logic to before setting call_kind.",
+      "range": {
+        "startLine": 4060,
+        "startChar": 28,
+        "endLine": 4060,
+        "endChar": 37
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68b51b7a_f940737c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4076,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "This should only be used in the paths that call the generic long division routine.\n\nWhen the divisor is a special constant (0, +/-1, +/-power of two) we should let the compiler choose the registers (it may find a choice better than A0 and A1):\n\n  locations-\u003eSetInAt(0, Location::RequiresRegister());",
+      "range": {
+        "startLine": 4075,
+        "startChar": 0,
+        "endLine": 4076,
+        "endChar": 85
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac48b7f_d0f130d6",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4081,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Remove the comment.\n\nHandle 0 together with +/-power of 2 and simplify a little. This could\u0027ve been written as\n\n    if (imm \u003d\u003d 0 || IsPowerOfTwo(static_cast\u003cuint64_t\u003e(AbsOrMin(imm))))\n\nAvoid feeding zero and negative values into IsPowerOfTwo(). The current implementation doesn\u0027t check for either of these cases.",
+      "range": {
+        "startLine": 4079,
+        "startChar": 0,
+        "endLine": 4081,
+        "endChar": 74
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2f79d7_861e2e73",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4091,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Again, this should only be used in the paths that call the generic long division routine.\n\nWhen the divisor is a special constant (0, +/-1, +/-power of two) we should let the compiler choose the registers (it may find a choice better than V0 and V1):\n\n  locations-\u003eSetOut(Location::RequiresRegister());",
+      "range": {
+        "startLine": 4091,
+        "startChar": 0,
+        "endLine": 4091,
+        "endChar": 68
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8b93cc8_3b7efac4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4118,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Change to:\n\n  if (imm \u003d\u003d 0) {\n    // Do not generate anything. DivZeroCheck would prevent any code to be executed.\n  } else if (imm \u003d\u003d 1 || imm \u003d\u003d -1) {",
+      "range": {
+        "startLine": 4118,
+        "startChar": 0,
+        "endLine": 4118,
+        "endChar": 36
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92dc29f5_ef8807c4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4120,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Unnecessary break.",
+      "range": {
+        "startLine": 4120,
+        "startChar": 0,
+        "endLine": 4120,
+        "endChar": 16
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36a477ec_81f4f826",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4122,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Add a cast: static_cast\u003cuint64_t\u003e(AbsOrMin(imm))",
+      "range": {
+        "startLine": 4122,
+        "startChar": 30,
+        "endLine": 4122,
+        "endChar": 44
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e0f1cf7_c98b66cd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4124,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Unnecessary break.",
+      "range": {
+        "startLine": 4124,
+        "startChar": 0,
+        "endLine": 4124,
+        "endChar": 16
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8b07046_8f2d12bb",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8688,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "call_kind should correctly reflect whether there\u0027s a call to the generic long division routine or not.\n\nThis means you should move some of the below logic to before setting call_kind.",
+      "range": {
+        "startLine": 8688,
+        "startChar": 28,
+        "endLine": 8688,
+        "endChar": 37
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0246b21_ebc188b4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8703,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "This should only be used in the paths that call the generic long division routine.\n\nWhen the divisor is a special constant (0, +/-1, +/-power of two) we should let the compiler choose the registers (it may find a choice better than A0 and A1):\n\n  locations-\u003eSetInAt(0, Location::RequiresRegister());",
+      "range": {
+        "startLine": 8702,
+        "startChar": 0,
+        "endLine": 8703,
+        "endChar": 85
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1b2ea1d_b15d12b8",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8708,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Remove the comment.\n\nHandle 0 together with +/-power of 2 and simplify a little. This could\u0027ve been written as\n\n    if (imm \u003d\u003d 0 || IsPowerOfTwo(static_cast\u003cuint64_t\u003e(AbsOrMin(imm))))\n\nAvoid feeding zero and negative values into IsPowerOfTwo(). The current implementation doesn\u0027t check for either of these cases.",
+      "range": {
+        "startLine": 8706,
+        "startChar": 0,
+        "endLine": 8708,
+        "endChar": 74
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84e00c05_f71c5584",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8718,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Again, this should only be used in the paths that call the generic long division routine.\n\nWhen the divisor is a special constant (0, +/-1, +/-power of two) we should let the compiler choose the registers (it may find a choice better than V0 and V1):\n\n  locations-\u003eSetOut(Location::RequiresRegister());",
+      "range": {
+        "startLine": 8718,
+        "startChar": 0,
+        "endLine": 8718,
+        "endChar": 68
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4792ff80_dd3ef55e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8747,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Change to:\n\n  if (imm \u003d\u003d 0) {\n    // Do not generate anything. DivZeroCheck would prevent any code to be executed.\n  } else if (imm \u003d\u003d 1 || imm \u003d\u003d -1) {",
+      "range": {
+        "startLine": 8747,
+        "startChar": 0,
+        "endLine": 8747,
+        "endChar": 36
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24053bec_8c7e86da",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8749,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Unnecessary break.",
+      "range": {
+        "startLine": 8749,
+        "startChar": 0,
+        "endLine": 8749,
+        "endChar": 16
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eea8de34_74e561b1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8751,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Add a cast: static_cast\u003cuint64_t\u003e(AbsOrMin(imm))",
+      "range": {
+        "startLine": 8751,
+        "startChar": 30,
+        "endLine": 8751,
+        "endChar": 43
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b9f97bc_e0f5d0eb",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8753,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-19T06:12:34Z",
+      "side": 1,
+      "message": "Unnecessary break.",
+      "range": {
+        "startLine": 8753,
+        "startChar": 0,
+        "endLine": 8753,
+        "endChar": 16
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
