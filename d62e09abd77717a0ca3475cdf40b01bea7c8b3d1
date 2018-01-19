@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "37ac520c_11337a4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-19T07:21:23Z",
+      "side": 1,
+      "message": "Add a note on the differences compared to the JIT counting as it\u0027s not an equivalent behaviour.",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "d62e09abd77717a0ca3475cdf40b01bea7c8b3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ff9da54_97006d6d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -13,6 +36,30 @@
       "writtenOn": "2018-01-18T23:52:09Z",
       "side": 1,
       "message": "With Mathieu\u0027s comment, could you outline how this will make profiling easier?",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "d62e09abd77717a0ca3475cdf40b01bea7c8b3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a165657_92fc88fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-19T07:21:23Z",
+      "side": 1,
+      "message": "Makes it possible to enable profiles for test devices without too much penalty on performance. \n(Or you wanted that in the commit message?)",
+      "parentUuid": "6ff9da54_97006d6d",
       "range": {
         "startLine": 9,
         "startChar": 3,
