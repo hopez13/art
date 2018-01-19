@@ -34,6 +34,7 @@
 #include "class_linker-inl.h"
 #include "dex/dex_file-inl.h"
 #include "fault_handler.h"
+#include "hidden_api.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc_root.h"
 #include "indirect_reference_table-inl.h"
@@ -51,7 +52,7 @@
 #include "mirror/throwable.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "parsed_options.h"
-#include "reflection.h"
+#include "reflection-inl.h"
 #include "runtime.h"
 #include "safe_map.h"
 #include "scoped_thread_state_change-inl.h"
@@ -224,8 +225,8 @@ static ObjPtr<mirror::Class> EnsureInitialized(Thread* self, ObjPtr<mirror::Clas
   return h_klass.Get();
 }
 
-static jmethodID FindMethodID(ScopedObjectAccess& soa, jclass jni_class,
-                              const char* name, const char* sig, bool is_static)
+static jmethodID FindMethodID(ScopedObjectAccess& soa, jclass jni_class, const char* name,
+                              const char* sig, bool is_static, bool caller_in_boot)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ObjPtr<mirror::Class> c = EnsureInitialized(soa.Self(), soa.Decode<mirror::Class>(jni_class));
   if (c == nullptr) {
@@ -237,6 +238,9 @@ static jmethodID FindMethodID(ScopedObjectAccess& soa, jclass jni_class,
     method = c->FindInterfaceMethod(name, sig, pointer_size);
   } else {
     method = c->FindClassMethod(name, sig, pointer_size);
+  }
+  if (method != nullptr && HiddenApi::IsMemberHidden(caller_in_boot, method->GetAccessFlags())) {
+    method = nullptr;
   }
   if (method == nullptr || method->IsStatic() != is_static) {
     ThrowNoSuchMethodError(soa, c, name, sig, is_static ? "static" : "non-static");
@@ -276,7 +280,7 @@ static ObjPtr<mirror::ClassLoader> GetClassLoader(const ScopedObjectAccess& soa)
 }
 
 static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, const char* name,
-                            const char* sig, bool is_static)
+                            const char* sig, bool is_static, bool caller_in_boot)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   StackHandleScope<2> hs(soa.Self());
   Handle<mirror::Class> c(
@@ -313,6 +317,9 @@ static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, con
         soa.Self(), c.Get(), name, field_type->GetDescriptor(&temp));
   } else {
     field = c->FindInstanceField(name, field_type->GetDescriptor(&temp));
+  }
+  if (field != nullptr && HiddenApi::IsMemberHidden(caller_in_boot, field->GetAccessFlags())) {
+    field = nullptr;
   }
   if (field == nullptr) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/NoSuchFieldError;",
@@ -764,7 +771,8 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT(name);
     CHECK_NON_NULL_ARGUMENT(sig);
     ScopedObjectAccess soa(env);
-    return FindMethodID(soa, java_class, name, sig, false);
+    bool caller_in_boot = IsCallerInBootClassPath(soa.Self());
+    return FindMethodID(soa, java_class, name, sig, false, caller_in_boot);
   }
 
   static jmethodID GetStaticMethodID(JNIEnv* env, jclass java_class, const char* name,
@@ -773,7 +781,8 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT(name);
     CHECK_NON_NULL_ARGUMENT(sig);
     ScopedObjectAccess soa(env);
-    return FindMethodID(soa, java_class, name, sig, true);
+    bool caller_in_boot = IsCallerInBootClassPath(soa.Self());
+    return FindMethodID(soa, java_class, name, sig, true, caller_in_boot);
   }
 
   static jobject CallObjectMethod(JNIEnv* env, jobject obj, jmethodID mid, ...) {
@@ -1305,7 +1314,8 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT(name);
     CHECK_NON_NULL_ARGUMENT(sig);
     ScopedObjectAccess soa(env);
-    return FindFieldID(soa, java_class, name, sig, false);
+    bool caller_in_boot = IsCallerInBootClassPath(soa.Self());
+    return FindFieldID(soa, java_class, name, sig, false, caller_in_boot);
   }
 
   static jfieldID GetStaticFieldID(JNIEnv* env, jclass java_class, const char* name,
@@ -1314,7 +1324,8 @@ class JNI {
     CHECK_NON_NULL_ARGUMENT(name);
     CHECK_NON_NULL_ARGUMENT(sig);
     ScopedObjectAccess soa(env);
-    return FindFieldID(soa, java_class, name, sig, true);
+    bool caller_in_boot = IsCallerInBootClassPath(soa.Self());
+    return FindFieldID(soa, java_class, name, sig, true, caller_in_boot);
   }
 
   static jobject GetObjectField(JNIEnv* env, jobject obj, jfieldID fid) {
