@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "330535f2_471e1e7e",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-19T02:58:41Z",
+      "side": 1,
+      "message": "I\u0027m a bit unhappy with this, and actually surprised. I\u0027ve tried to clean these things up before. Right now this should be only working because libart is exporting ., which will include the dex headers.\n\nIf we properly separated the dex folder (as would be indicated by it being its own library), we would get compiler errors for unexpected includes/dependencies.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 34
+      },
+      "revId": "5d11e31f8298d03a103f8c1d163a9fb1bf96b05c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
