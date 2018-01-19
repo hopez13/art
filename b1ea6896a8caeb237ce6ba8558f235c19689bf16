@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6991d9a8_f464c87a",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-19T08:48:46Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 597,
+        "startChar": 27,
+        "endLine": 597,
+        "endChar": 29
+      },
+      "revId": "b1ea6896a8caeb237ce6ba8558f235c19689bf16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc1697fd_2a13090e",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-19T08:48:46Z",
+      "side": 1,
+      "message": "Does there need to be a destructor that closes this?",
+      "range": {
+        "startLine": 621,
+        "startChar": 12,
+        "endLine": 621,
+        "endChar": 16
+      },
+      "revId": "b1ea6896a8caeb237ce6ba8558f235c19689bf16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81a97f30_10c0b8e6",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-01-19T08:48:46Z",
+      "side": 1,
+      "message": "s/Satus/Status/g",
+      "range": {
+        "startLine": 676,
+        "startChar": 13,
+        "endLine": 676,
+        "endChar": 18
+      },
+      "revId": "b1ea6896a8caeb237ce6ba8558f235c19689bf16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
