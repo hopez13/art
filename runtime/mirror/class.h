@@ -713,13 +713,15 @@ class MANAGED Class FINAL : public Object {
   static ObjPtr<Method> GetDeclaredMethodInternal(Thread* self,
                                                   ObjPtr<Class> klass,
                                                   ObjPtr<String> name,
-                                                  ObjPtr<ObjectArray<Class>> args)
+                                                  ObjPtr<ObjectArray<Class>> args,
+                                                  bool enforce_hidden_api)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <PointerSize kPointerSize, bool kTransactionActive>
   static ObjPtr<Constructor> GetDeclaredConstructorInternal(Thread* self,
                                                             ObjPtr<Class> klass,
-                                                            ObjPtr<ObjectArray<Class>> args)
+                                                            ObjPtr<ObjectArray<Class>> args,
+                                                            bool enforce_hidden_api)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
@@ -1197,7 +1199,8 @@ class MANAGED Class FINAL : public Object {
   // May cause thread suspension due to EqualParameters.
   ArtMethod* GetDeclaredConstructor(Thread* self,
                                     Handle<ObjectArray<Class>> args,
-                                    PointerSize pointer_size)
+                                    PointerSize pointer_size,
+                                    bool enforce_hidden_api)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   static int32_t GetInnerClassFlags(Handle<Class> h_this, int32_t default_value)

@@ -38,6 +38,7 @@
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "gc/reference_processor.h"
 #include "handle_scope-inl.h"
+#include "hidden_api.h"
 #include "interpreter/interpreter_common.h"
 #include "jvalue-inl.h"
 #include "mirror/array-inl.h"
@@ -265,7 +266,12 @@ void UnstartedRuntime::UnstartedClassNewInstance(
   bool ok = false;
   auto* cl = Runtime::Current()->GetClassLinker();
   if (cl->EnsureInitialized(self, h_klass, true, true)) {
-    auto* cons = h_klass->FindConstructor("()V", cl->GetImagePointerSize());
+    ArtMethod* cons = h_klass->FindConstructor("()V", cl->GetImagePointerSize());
+    if (cons != nullptr &&
+        hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()) &&
+        hiddenapi::IsMemberHidden(cons->GetAccessFlags())) {
+      cons = nullptr;
+    }
     if (cons != nullptr) {
       Handle<mirror::Object> h_obj(hs.NewHandle(klass->AllocObject(self)));
       CHECK(h_obj != nullptr);  // We don't expect OOM at compile-time.
@@ -307,6 +313,11 @@ void UnstartedRuntime::UnstartedClassGetDeclaredField(
         break;
       }
     }
+  }
+  if (found != nullptr &&
+      hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()) &&
+      hiddenapi::IsMemberHidden(found->GetAccessFlags())) {
+    found = nullptr;
   }
   if (found == nullptr) {
     AbortTransactionOrFail(self, "Failed to find field in Class.getDeclaredField in un-started "
@@ -356,18 +367,34 @@ void UnstartedRuntime::UnstartedClassGetDeclaredMethod(
   if (transaction) {
     if (pointer_size == PointerSize::k64) {
       method = mirror::Class::GetDeclaredMethodInternal<PointerSize::k64, true>(
-          self, klass, name, args);
+          self,
+          klass,
+          name,
+          args,
+          hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()));
     } else {
       method = mirror::Class::GetDeclaredMethodInternal<PointerSize::k32, true>(
-          self, klass, name, args);
+          self,
+          klass,
+          name,
+          args,
+          hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()));
     }
   } else {
     if (pointer_size == PointerSize::k64) {
       method = mirror::Class::GetDeclaredMethodInternal<PointerSize::k64, false>(
-          self, klass, name, args);
+          self,
+          klass,
+          name,
+          args,
+          hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()));
     } else {
       method = mirror::Class::GetDeclaredMethodInternal<PointerSize::k32, false>(
-          self, klass, name, args);
+          self,
+          klass,
+          name,
+          args,
+          hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()));
     }
   }
   result->SetL(method);
@@ -389,19 +416,31 @@ void UnstartedRuntime::UnstartedClassGetDeclaredConstructor(
   ObjPtr<mirror::Constructor> constructor;
   if (transaction) {
     if (pointer_size == PointerSize::k64) {
-      constructor = mirror::Class::GetDeclaredConstructorInternal<PointerSize::k64,
-                                                                  true>(self, klass, args);
+      constructor = mirror::Class::GetDeclaredConstructorInternal<PointerSize::k64, true>(
+          self,
+          klass,
+          args,
+          hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()));
     } else {
-      constructor = mirror::Class::GetDeclaredConstructorInternal<PointerSize::k32,
-                                                                  true>(self, klass, args);
+      constructor = mirror::Class::GetDeclaredConstructorInternal<PointerSize::k32, true>(
+          self,
+          klass,
+          args,
+          hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()));
     }
   } else {
     if (pointer_size == PointerSize::k64) {
-      constructor = mirror::Class::GetDeclaredConstructorInternal<PointerSize::k64,
-                                                                  false>(self, klass, args);
+      constructor = mirror::Class::GetDeclaredConstructorInternal<PointerSize::k64, false>(
+          self,
+          klass,
+          args,
+          hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()));
     } else {
-      constructor = mirror::Class::GetDeclaredConstructorInternal<PointerSize::k32,
-                                                                  false>(self, klass, args);
+      constructor = mirror::Class::GetDeclaredConstructorInternal<PointerSize::k32, false>(
+          self,
+          klass,
+          args,
+          hiddenapi::ShouldEnforceBasedOnCallerMethod(shadow_frame->GetMethod()));
     }
   }
   result->SetL(constructor);
