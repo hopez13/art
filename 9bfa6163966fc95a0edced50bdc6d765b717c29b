@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cf51821_cd432104",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-19T07:12:00Z",
+      "side": 1,
+      "message": "the alignment is off by 1.",
+      "range": {
+        "startLine": 640,
+        "startChar": 33,
+        "endLine": 640,
+        "endChar": 34
+      },
+      "revId": "9bfa6163966fc95a0edced50bdc6d765b717c29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd32fdd4_839fad1b",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-19T07:12:00Z",
+      "side": 1,
+      "message": "Maybe be more detailed here and add \"Returning a half constructed oat file [Assuming oatdump run]\"",
+      "range": {
+        "startLine": 648,
+        "startChar": 29,
+        "endLine": 648,
+        "endChar": 76
+      },
+      "revId": "9bfa6163966fc95a0edced50bdc6d765b717c29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76ce5957_a54e2cf8",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-19T07:12:00Z",
+      "side": 1,
+      "message": "Is there a unit test for this? if not please add one.",
+      "range": {
+        "startLine": 1316,
+        "startChar": 0,
+        "endLine": 1317,
+        "endChar": 56
+      },
+      "revId": "9bfa6163966fc95a0edced50bdc6d765b717c29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
