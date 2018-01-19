@@ -127,6 +127,15 @@ inline bool VerifyObjectIsClass(ObjPtr<mirror::Object> o, ObjPtr<mirror::Class> 
   return true;
 }
 
+inline bool IsCallerInBootClassPath(Thread* self, size_t num_frames) {
+  ObjPtr<mirror::Class> klass = GetCallingClass(self, num_frames);
+  if (klass == nullptr) {
+    // Unattached native thread. Assume that this is *not* boot class path.
+    return false;
+  }
+  return klass->IsBootStrapClassLoaded();
+}
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_REFLECTION_INL_H_

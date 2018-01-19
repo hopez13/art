@@ -34,6 +34,7 @@
 #include "class_linker-inl.h"
 #include "dex/dex_file-inl.h"
 #include "fault_handler.h"
+#include "hidden_api.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc_root.h"
 #include "indirect_reference_table-inl.h"
@@ -238,6 +239,11 @@ static jmethodID FindMethodID(ScopedObjectAccess& soa, jclass jni_class,
   } else {
     method = c->FindClassMethod(name, sig, pointer_size);
   }
+  if (method != nullptr &&
+      hiddenapi::ShouldEnforceBasedOnCallerFromStackWalk(soa.Self(), /* num_frames */ 1) &&
+      hiddenapi::IsMemberHidden(method->GetAccessFlags())) {
+    method = nullptr;
+  }
   if (method == nullptr || method->IsStatic() != is_static) {
     ThrowNoSuchMethodError(soa, c, name, sig, is_static ? "static" : "non-static");
     return nullptr;
@@ -275,8 +281,8 @@ static ObjPtr<mirror::ClassLoader> GetClassLoader(const ScopedObjectAccess& soa)
   return nullptr;
 }
 
-static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, const char* name,
-                            const char* sig, bool is_static)
+static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class,
+                            const char* name, const char* sig, bool is_static)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   StackHandleScope<2> hs(soa.Self());
   Handle<mirror::Class> c(
@@ -313,6 +319,11 @@ static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, con
         soa.Self(), c.Get(), name, field_type->GetDescriptor(&temp));
   } else {
     field = c->FindInstanceField(name, field_type->GetDescriptor(&temp));
+  }
+  if (field != nullptr &&
+      hiddenapi::ShouldEnforceBasedOnCallerFromStackWalk(soa.Self(), /* num_frames */ 1) &&
+      hiddenapi::IsMemberHidden(field->GetAccessFlags())) {
+    field = nullptr;
   }
   if (field == nullptr) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/NoSuchFieldError;",

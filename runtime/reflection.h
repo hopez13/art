@@ -114,6 +114,9 @@ bool VerifyAccess(ObjPtr<mirror::Object> obj,
 ObjPtr<mirror::Class> GetCallingClass(Thread* self, size_t num_frames)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+ALWAYS_INLINE bool IsCallerInBootClassPath(Thread* self, size_t num_frames)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
 void InvalidReceiverError(ObjPtr<mirror::Object> o, ObjPtr<mirror::Class> c)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
