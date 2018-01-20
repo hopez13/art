@@ -25,6 +25,7 @@
 #include "common_throws.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_annotations.h"
+#include "hidden_api.h"
 #include "jni_internal.h"
 #include "mirror/class-inl.h"
 #include "mirror/field-inl.h"
@@ -156,6 +157,9 @@ static jobject Field_get(JNIEnv* env, jobject javaField, jobject javaObj) {
     DCHECK(soa.Self()->IsExceptionPending());
     return nullptr;
   }
+
+  hiddenapi::MaybeWarnAboutFieldAccess(IsCallerInBootClassPath(soa.Self()), f->GetArtField());
+
   // If field is not set to be accessible, verify it can be accessed by the caller.
   if (!f->IsAccessible() && !VerifyFieldAccess<false>(soa.Self(), f, o)) {
     DCHECK(soa.Self()->IsExceptionPending());
@@ -183,6 +187,8 @@ ALWAYS_INLINE inline static JValue GetPrimitiveField(JNIEnv* env,
     DCHECK(soa.Self()->IsExceptionPending());
     return JValue();
   }
+
+  hiddenapi::MaybeWarnAboutFieldAccess(IsCallerInBootClassPath(soa.Self()), f->GetArtField());
 
   // If field is not set to be accessible, verify it can be accessed by the caller.
   if (!f->IsAccessible() && !VerifyFieldAccess<false>(soa.Self(), f, o)) {
@@ -351,6 +357,9 @@ static void Field_set(JNIEnv* env, jobject javaField, jobject javaObj, jobject j
     DCHECK(soa.Self()->IsExceptionPending());
     return;
   }
+
+  hiddenapi::MaybeWarnAboutFieldAccess(IsCallerInBootClassPath(soa.Self()), f->GetArtField());
+
   // If field is not set to be accessible, verify it can be accessed by the caller.
   if (!f->IsAccessible() && !VerifyFieldAccess<true>(soa.Self(), f, o)) {
     DCHECK(soa.Self()->IsExceptionPending());
@@ -384,6 +393,8 @@ static void SetPrimitiveField(JNIEnv* env,
     DCHECK(soa.Self()->IsExceptionPending());
     return;
   }
+
+  hiddenapi::MaybeWarnAboutFieldAccess(IsCallerInBootClassPath(soa.Self()), f->GetArtField());
 
   // If field is not set to be accessible, verify it can be accessed by the caller.
   if (!f->IsAccessible() && !VerifyFieldAccess<true>(soa.Self(), f, o)) {

@@ -528,6 +528,14 @@ class Runtime {
     return do_hidden_api_checks_;
   }
 
+  void SetPendingHiddenApiWarning(bool value) {
+    pending_hidden_api_warning_ = value;
+  }
+
+  bool HasPendingHiddenApiWarning() const {
+    return pending_hidden_api_warning_;
+  }
+
   bool IsDexFileFallbackEnabled() const {
     return allow_dex_file_fallback_;
   }
@@ -967,6 +975,8 @@ class Runtime {
 
   // Whether access checks on hidden API should be performed.
   bool do_hidden_api_checks_;
+
+  bool pending_hidden_api_warning_;
 
   // Whether threads should dump their native stack on SIGQUIT.
   bool dump_native_stack_on_sig_quit_;

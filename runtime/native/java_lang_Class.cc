@@ -40,7 +40,7 @@
 #include "nativehelper/scoped_utf_chars.h"
 #include "nth_caller_visitor.h"
 #include "obj_ptr-inl.h"
-#include "reflection.h"
+#include "reflection-inl.h"
 #include "scoped_fast_native_object_access-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "utf.h"
@@ -844,6 +844,7 @@ static jobject Class_newInstance(JNIEnv* env, jobject javaThis) {
       return nullptr;
     }
   }
+  hiddenapi::MaybeWarnAboutMethodInvocation(IsCallerInBootClassPath(soa.Self()), constructor);
   // Invoke the constructor.
   JValue result;
   uint32_t args[1] = { static_cast<uint32_t>(reinterpret_cast<uintptr_t>(receiver.Get())) };

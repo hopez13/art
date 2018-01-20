@@ -284,11 +284,11 @@ extern "C" JNIEXPORT jint JNICALL Java_Reflection_getHiddenApiAccessFlags(JNIEnv
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_ChildClass_hasPendingWarning(JNIEnv*, jclass) {
-  return false;
+  return Runtime::Current()->HasPendingHiddenApiWarning();
 }
 
 extern "C" JNIEXPORT void JNICALL Java_ChildClass_clearWarning(JNIEnv*, jclass) {
-  return;
+  Runtime::Current()->SetPendingHiddenApiWarning(false);
 }
 
 }  // namespace Test674HiddenApi
