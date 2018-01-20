@@ -17,6 +17,10 @@
 #include "quick_compiler_callbacks.h"
 
 #include "driver/compiler_driver.h"
+#include "mirror/class-inl.h"
+#include "mirror/object.h"
+#include "obj_ptr-inl.h"
+#include "thread-current-inl.h"
 #include "verification_results.h"
 #include "verifier/method_verifier-inl.h"
 
@@ -52,6 +56,16 @@ void QuickCompilerCallbacks::UpdateClassState(ClassReference ref, ClassStatus st
   if (compiler_driver_ != nullptr) {
     compiler_driver_->RecordClassStatus(ref, status);
   }
+}
+
+bool QuickCompilerCallbacks::CanUseOatStatusForVerification(mirror::Class* klass) {
+  // No classloader set: conservatively false. Also covers the boot image.
+  if (classloader_ == nullptr) {
+    return false;
+  }
+
+  ObjPtr<mirror::Object> classloader = Thread::Current()->DecodeJObject(classloader_);
+  return classloader.Ptr() != klass->GetClassLoader();
 }
 
 }  // namespace art

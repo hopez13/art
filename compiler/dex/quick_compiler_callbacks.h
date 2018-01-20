@@ -17,6 +17,8 @@
 #ifndef ART_COMPILER_DEX_QUICK_COMPILER_CALLBACKS_H_
 #define ART_COMPILER_DEX_QUICK_COMPILER_CALLBACKS_H_
 
+#include "jni.h"
+
 #include "compiler_callbacks.h"
 #include "verifier/verifier_deps.h"
 
@@ -28,7 +30,7 @@ class VerificationResults;
 class QuickCompilerCallbacks FINAL : public CompilerCallbacks {
  public:
   explicit QuickCompilerCallbacks(CompilerCallbacks::CallbackMode mode)
-      : CompilerCallbacks(mode) {}
+      : CompilerCallbacks(mode), classloader_(nullptr) {}
 
   ~QuickCompilerCallbacks() { }
 
@@ -65,11 +67,19 @@ class QuickCompilerCallbacks FINAL : public CompilerCallbacks {
 
   void UpdateClassState(ClassReference ref, ClassStatus state) OVERRIDE;
 
+  bool CanUseOatStatusForVerification(mirror::Class* klass) OVERRIDE
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void SetClassLoader(jobject classloader) {
+    classloader_ = classloader;
+  }
+
  private:
   VerificationResults* verification_results_ = nullptr;
   bool does_class_unloading_ = false;
   CompilerDriver* compiler_driver_ = nullptr;
   std::unique_ptr<verifier::VerifierDeps> verifier_deps_;
+  jobject classloader_;
 };
 
 }  // namespace art
