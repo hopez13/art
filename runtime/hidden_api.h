@@ -38,6 +38,39 @@ class HiddenApi {
         return true;
     }
   }
+
+  static ALWAYS_INLINE bool ShouldWarnAboutMember(bool caller_in_boot, uint32_t access_flags) {
+    if (caller_in_boot) {
+      return false;
+    }
+
+    switch (HiddenApiAccessFlags::DecodeFromRuntime(access_flags)) {
+      case HiddenApiAccessFlags::kWhitelist:
+        return false;
+      case HiddenApiAccessFlags::kLightGreylist:
+      case HiddenApiAccessFlags::kDarkGreylist:
+        return true;
+      case HiddenApiAccessFlags::kBlacklist:
+        LOG(FATAL) << "Should not be allowed to access member";
+        UNREACHABLE();
+    }
+  }
+
+  static ALWAYS_INLINE void MaybeWarnAboutFieldAccess(bool caller_in_boot, ArtField* field)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (field != nullptr && ShouldWarnAboutMember(caller_in_boot, field->GetAccessFlags())) {
+      Runtime::Current()->SetPendingHiddenApiWarning(true);
+      LOG(ERROR) << "Access to hidden field " << field->PrettyField();
+    }
+  }
+
+  static ALWAYS_INLINE void MaybeWarnAboutMethodInvocation(bool caller_in_boot, ArtMethod* method)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (method != nullptr && ShouldWarnAboutMember(caller_in_boot, method->GetAccessFlags())) {
+      Runtime::Current()->SetPendingHiddenApiWarning(true);
+      LOG(ERROR) << "Access to hidden method " << method->PrettyMethod();
+    }
+  }
 };
 
 }  // namespace art
