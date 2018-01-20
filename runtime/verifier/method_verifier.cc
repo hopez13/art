@@ -38,6 +38,7 @@
 #include "experimental_flags.h"
 #include "gc/accounting/card_table-inl.h"
 #include "handle_scope-inl.h"
+#include "hidden_api.h"
 #include "indenter.h"
 #include "intern_table.h"
 #include "leb128.h"
