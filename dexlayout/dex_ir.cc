@@ -373,6 +373,7 @@ void Collections::CreateClassDef(const DexFile& dex_file, uint32_t i) {
   const DexFile::AnnotationsDirectoryItem* disk_annotations_directory_item =
       dex_file.GetAnnotationsDirectory(disk_class_def);
   if (disk_annotations_directory_item != nullptr) {
+    LOG(ERROR) << disk_annotations_directory_item;
     annotations = CreateAnnotationsDirectoryItem(
         dex_file, disk_annotations_directory_item, disk_class_def.annotations_off_);
   }

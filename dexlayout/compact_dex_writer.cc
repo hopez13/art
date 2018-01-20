@@ -287,9 +287,13 @@ void CompactDexWriter::Write(DexContainer* output)  {
   CHECK(output->IsCompactDexContainer());
   Container* const container = down_cast<Container*>(output);
   // For now, use the same stream for both data and metadata.
-  Stream stream(output->GetMainSection());
-  Stream* main_stream = &stream;
-  Stream* data_stream = &stream;
+  Stream temp_main_stream(output->GetMainSection());
+  Stream temp_data_stream(output->GetDataSection());
+  Stream* main_stream = &temp_main_stream;
+  Stream* data_stream = &temp_data_stream;
+
+  // We want offset 0 to be reserved for null, seek to the data section alignment.
+  data_stream->Seek(kDataSectionAlignment);
   code_item_dedupe_ = &container->code_item_dedupe_;
 
   // Starting offset is right after the header.
@@ -370,7 +374,9 @@ void CompactDexWriter::Write(DexContainer* output)  {
     header_->SetDataSize(data_stream->Tell() - data_offset_);
     if (header_->DataSize() != 0) {
       // Offset must be zero when the size is zero.
-      header_->SetDataOffset(data_offset_);
+      main_stream->AlignTo(kDataSectionAlignment);
+      // For now, default to saying the data is right after the main stream.
+      header_->SetDataOffset(main_stream->Tell());
     } else {
       header_->SetDataOffset(0u);
     }
@@ -402,8 +408,9 @@ void CompactDexWriter::Write(DexContainer* output)  {
     // Rewrite the header with the calculated checksum.
     WriteHeader(main_stream);
   }
-  // Trim the map to make it sized as large as the dex file.
+  // Trim sections to make sure they are sized properly.
   output->GetMainSection()->Resize(header_->FileSize());
+  output->GetDataSection()->Resize(data_stream->Tell());
 }
 
 std::unique_ptr<DexContainer> CompactDexWriter::CreateDexContainer() const {

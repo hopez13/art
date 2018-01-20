@@ -3507,6 +3507,7 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
   // when adding the dex file as a source.
   const UnalignedDexFileHeader* header =
       AsUnalignedDexFileHeader(out_data->GetMainSection()->Begin());
+  LOG(ERROR) << "SECTIONS " << header->file_size_ << " " << out_data->GetMainSection()->Size() << " " << out_data->GetDataSection()->Size();
   oat_dex_file->dex_file_size_ = header->file_size_;
   if (!WriteDexFile(out,
                     oat_dex_file,
@@ -3514,6 +3515,14 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
                     /* update_input_vdex */ false)) {
     return false;
   }
+  oat_dex_file->dex_file_size_ = out_data->GetDataSection()->Size();
+  if (!WriteDexFile(out,
+                    oat_dex_file,
+                    out_data->GetDataSection()->Begin(),
+                    /* update_input_vdex */ false)) {
+    return false;
+  }
+  oat_dex_file->dex_file_size_ += header->file_size_;
   CHECK_EQ(oat_dex_file->dex_file_location_checksum_, dex_file->GetLocationChecksum());
   return true;
 }

@@ -65,12 +65,16 @@ uint32_t CompactDexFile::GetCodeItemSize(const DexFile::CodeItem& item) const {
 
 CompactDexFile::CompactDexFile(const uint8_t* base,
                                size_t size,
+                               const uint8_t* data_begin,
+                               size_t data_size,
                                const std::string& location,
                                uint32_t location_checksum,
                                const OatDexFile* oat_dex_file,
                                DexFileContainer* container)
     : DexFile(base,
               size,
+              data_begin,
+              data_size,
               location,
               location_checksum,
               oat_dex_file,
