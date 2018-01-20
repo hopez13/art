@@ -285,10 +285,14 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
     runtime_flags &= ~ONLY_USE_SYSTEM_OAT_FILES;
   }
 
+  LOG(ERROR) << StringPrintf("Bits before: %#x", runtime_flags);
+
   if ((runtime_flags & DISABLE_HIDDEN_API_CHECKS) != 0) {
     Runtime::Current()->DisableHiddenApiChecks();
     runtime_flags &= ~DISABLE_HIDDEN_API_CHECKS;
   }
+
+  LOG(ERROR) << StringPrintf("Bits after: %#x", runtime_flags);
 
   if (runtime_flags != 0) {
     LOG(ERROR) << StringPrintf("Unknown bits set in runtime_flags: %#x", runtime_flags);

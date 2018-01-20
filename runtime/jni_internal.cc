@@ -86,9 +86,10 @@ static constexpr bool kWarnJniAbort = false;
 static void NotifySetObjectField(ArtField* field, jobject obj, jobject jval)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK_EQ(field->GetTypeAsPrimitiveType(), Primitive::kPrimNot);
+  Thread* self = Thread::Current();
+  HiddenApi::MaybeWarnAboutFieldAccess(IsCallerInBootClassPath(self), field);
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (UNLIKELY(instrumentation->HasFieldWriteListeners())) {
-    Thread* self = Thread::Current();
     ArtMethod* cur_method = self->GetCurrentMethod(/*dex_pc*/ nullptr,
                                                    /*check_suspended*/ true,
                                                    /*abort_on_error*/ false);
@@ -113,9 +114,10 @@ static void NotifySetObjectField(ArtField* field, jobject obj, jobject jval)
 static void NotifySetPrimitiveField(ArtField* field, jobject obj, JValue val)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK_NE(field->GetTypeAsPrimitiveType(), Primitive::kPrimNot);
+  Thread* self = Thread::Current();
+  HiddenApi::MaybeWarnAboutFieldAccess(IsCallerInBootClassPath(self), field);
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (UNLIKELY(instrumentation->HasFieldWriteListeners())) {
-    Thread* self = Thread::Current();
     ArtMethod* cur_method = self->GetCurrentMethod(/*dex_pc*/ nullptr,
                                                    /*check_suspended*/ true,
                                                    /*abort_on_error*/ false);
@@ -137,9 +139,10 @@ static void NotifySetPrimitiveField(ArtField* field, jobject obj, JValue val)
 
 static void NotifyGetField(ArtField* field, jobject obj)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  Thread* self = Thread::Current();
+  HiddenApi::MaybeWarnAboutFieldAccess(IsCallerInBootClassPath(self), field);
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (UNLIKELY(instrumentation->HasFieldReadListeners())) {
-    Thread* self = Thread::Current();
     ArtMethod* cur_method = self->GetCurrentMethod(/*dex_pc*/ nullptr,
                                                    /*check_suspended*/ true,
                                                    /*abort_on_error*/ false);
