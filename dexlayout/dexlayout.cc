@@ -1813,21 +1813,11 @@ void DexLayout::LayoutOutputFile(const DexFile* dex_file) {
   LayoutCodeItems(dex_file);
 }
 
-void DexLayout::OutputDexFile(const DexFile* dex_file, bool compute_offsets) {
-  const std::string& dex_file_location = dex_file->GetLocation();
+void DexLayout::OutputDexFile(const DexFile* input_dex_file, bool compute_offsets) {
+  const std::string& dex_file_location = input_dex_file->GetLocation();
   std::string error_msg;
   std::unique_ptr<File> new_file;
-  // Since we allow dex growth, we need to size the map larger than the original input to be safe.
-  // Reserve an extra 10% to add some buffer room. Note that this is probably more than
-  // necessary.
-  static constexpr size_t kReserveFraction = 10;
-  // Add an extra constant amount since the compact dex header and extra tables may cause more
-  // expansion than fits in the reserve fraction for small dex files.
-  // TODO: Move to using a resizable buffer like a vector.
-  static constexpr size_t kExtraReserve = 128 * KB;
-  const size_t max_size = header_->FileSize() + kExtraReserve +
-      header_->FileSize() / kReserveFraction;
-  if (!options_.output_to_memmap_) {
+  if (!options_.output_to_container_) {
     std::string output_location(options_.output_dex_directory_);
     size_t last_slash = dex_file_location.rfind('/');
     std::string dex_file_directory = dex_file_location.substr(0, last_slash + 1);
@@ -1861,14 +1851,14 @@ void DexLayout::OutputDexFile(const DexFile* dex_file, bool compute_offsets) {
     }
     return;
   }
-  DexWriter::Output(header_, mem_map_.get(), this, compute_offsets, options_.compact_dex_level_);
+  std::vector<uint8_t> out_data;
+  DexWriter::Stream out_stream(&out_data);
+  std::unique_ptr<DexWriter> dex_writer(DexWriter::Create(this,
+                                                          compute_offsets,
+                                                          options_.compact_dex_level_));
+  dex_writer->Write();
   if (new_file != nullptr) {
-    // Since we make the memmap larger than needed, shrink the file back down to not leave extra
-    // padding.
-    int res = new_file->SetLength(header_->FileSize());
-    if (res != 0) {
-      LOG(ERROR) << "Truncating file resulted in " << res;
-    }
+    new_file->WriteFully(&out_data[0], out_data.size() * sizeof(out_data.front()));
     UNUSED(new_file->FlushCloseOrErase());
   }
 }
@@ -1879,7 +1869,9 @@ void DexLayout::OutputDexFile(const DexFile* dex_file, bool compute_offsets) {
 void DexLayout::ProcessDexFile(const char* file_name,
                                const DexFile* dex_file,
                                size_t dex_file_index) {
-  const bool output = options_.output_dex_directory_ != nullptr || options_.output_to_memmap_;
+  const bool has_output_container = output_container_ != nullptr;
+  const bool output = options_.output_dex_directory_ != nullptr || has_output_container;
+
   // Try to avoid eagerly assigning offsets to find bugs since GetOffset will abort if the offset
   // is unassigned.
   bool eagerly_assign_offsets = false;
@@ -1926,14 +1918,14 @@ void DexLayout::ProcessDexFile(const char* file_name,
     header.reset();
 
     // Verify the output dex file's structure, only enabled by default for debug builds.
-    if (options_.verify_output_) {
+    if (options_.verify_output_ && has_output_container) {
       std::string error_msg;
       std::string location = "memory mapped file for " + std::string(file_name);
       // Dex file verifier cannot handle compact dex.
       bool verify = options_.compact_dex_level_ == CompactDexLevel::kCompactDexLevelNone;
       const ArtDexFileLoader dex_file_loader;
       std::unique_ptr<const DexFile> output_dex_file(
-          dex_file_loader.Open(mem_map_->Begin(),
+          dex_file_loader.Open(output_container_->Begin(),
                                file_size,
                                location,
                                /* checksum */ 0,

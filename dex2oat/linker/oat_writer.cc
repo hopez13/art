@@ -3495,18 +3495,21 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
     return false;
   }
   Options options;
-  options.output_to_memmap_ = true;
   options.compact_dex_level_ = compact_dex_level_;
   options.update_checksum_ = true;
-  DexLayout dex_layout(options, profile_compilation_info_, nullptr);
+  DexLayout::VectorOutputContainer output_container;
+  DexLayout dex_layout(options
+                       profile_compilation_info_,
+                       /*file*/ nullptr,
+                       &output_container,
+                       /*header*/ nullptr);
   dex_layout.ProcessDexFile(location.c_str(), dex_file.get(), 0);
-  std::unique_ptr<MemMap> mem_map(dex_layout.GetAndReleaseMemMap());
   oat_dex_file->dex_sections_layout_ = dex_layout.GetSections();
   // Dex layout can affect the size of the dex file, so we update here what we have set
   // when adding the dex file as a source.
-  const UnalignedDexFileHeader* header = AsUnalignedDexFileHeader(mem_map->Begin());
+  const UnalignedDexFileHeader* header = AsUnalignedDexFileHeader(output_container->Begin());
   oat_dex_file->dex_file_size_ = header->file_size_;
-  if (!WriteDexFile(out, oat_dex_file, mem_map->Begin(), /* update_input_vdex */ false)) {
+  if (!WriteDexFile(out, oat_dex_file, output_container->Begin(), /* update_input_vdex */ false)) {
     return false;
   }
   CHECK_EQ(oat_dex_file->dex_file_location_checksum_, dex_file->GetLocationChecksum());
