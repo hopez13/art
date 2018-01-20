@@ -183,14 +183,17 @@ bool VdexFile::OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_
     // TODO: Supply the location information for a vdex file.
     static constexpr char kVdexLocation[] = "";
     std::string location = DexFileLoader::GetMultiDexLocation(i, kVdexLocation);
-    std::unique_ptr<const DexFile> dex(dex_file_loader.Open(dex_file_start,
-                                                            size,
-                                                            location,
-                                                            GetLocationChecksum(i),
-                                                            nullptr /*oat_dex_file*/,
-                                                            false /*verify*/,
-                                                            false /*verify_checksum*/,
-                                                            error_msg));
+    std::unique_ptr<const DexFile> dex(dex_file_loader.OpenWithDataSection(
+        dex_file_start,
+        size,
+        /*data_base*/ nullptr,
+        /*data_size*/ 0u,
+        location,
+        GetLocationChecksum(i),
+        nullptr /*oat_dex_file*/,
+        false /*verify*/,
+        false /*verify_checksum*/,
+        error_msg));
     if (dex == nullptr) {
       return false;
     }
