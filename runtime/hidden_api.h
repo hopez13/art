@@ -37,12 +37,6 @@ inline bool ShouldEnforceBasedOnCallerMethod(ArtMethod* caller)
          !caller->GetDeclaringClass()->IsBootStrapClassLoaded();
 }
 
-inline bool ShouldEnforce(Thread* self, size_t num_frames)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  return Runtime::Current()->AreHiddenApiChecksEnabled() &&
-         !IsCallerInBootClassPath(self, num_frames);
-}
-
 inline bool IsMemberHidden(uint32_t access_flags) {
   switch (HiddenApiAccessFlags::DecodeFromRuntime(access_flags)) {
     case HiddenApiAccessFlags::kWhitelist:
@@ -51,6 +45,39 @@ inline bool IsMemberHidden(uint32_t access_flags) {
       return false;
     case HiddenApiAccessFlags::kBlacklist:
       return true;
+  }
+}
+
+inline bool ShouldWarnAboutMember(uint32_t access_flags) {
+  switch (HiddenApiAccessFlags::DecodeFromRuntime(access_flags)) {
+    case HiddenApiAccessFlags::kWhitelist:
+      return false;
+    case HiddenApiAccessFlags::kLightGreylist:
+    case HiddenApiAccessFlags::kDarkGreylist:
+      return true;
+    case HiddenApiAccessFlags::kBlacklist:
+      LOG(FATAL) << "Should not be allowed to access member";
+      UNREACHABLE();
+  }
+}
+
+inline void MaybeWarnAboutFieldAccess(ArtField* field, bool should_enforce)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (should_enforce &&
+      field != nullptr &&
+      ShouldWarnAboutMember(field->GetAccessFlags())) {
+    Runtime::Current()->SetPendingHiddenApiWarning(true);
+    LOG(ERROR) << "Access to hidden field " << field->PrettyField();
+  }
+}
+
+inline void MaybeWarnAboutMethodInvocation(ArtMethod* method, bool should_enforce)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (should_enforce &&
+      method != nullptr &&
+      ShouldWarnAboutMember(method->GetAccessFlags())) {
+    Runtime::Current()->SetPendingHiddenApiWarning(true);
+    LOG(ERROR) << "Access to hidden method " << method->PrettyMethod();
   }
 }
 
