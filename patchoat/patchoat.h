@@ -53,6 +53,10 @@ class PatchOat {
                     const std::string& output_image_relocation_directory,
                     InstructionSet isa,
                     TimingLogger* timings);
+  static bool Verify(const std::string& image_location,
+                     const std::string& output_image_filename,
+                     InstructionSet isa,
+                     TimingLogger* timings);
 
   // Generates a patch which can be used to efficiently relocate the original file or to check that
   // a relocated file matches the original. The patch is generated from the difference of the
@@ -87,10 +91,10 @@ class PatchOat {
   // Was the .oat image at oat_in made with --compile-pic ?
   static MaybePic IsOatPic(const ElfFile* oat_in);
 
-  // Attempt to replace the file with a symlink
-  // Returns false if it fails
-  static bool ReplaceOatFileWithSymlink(const std::string& input_oat_filename,
-                                        const std::string& output_oat_filename);
+  static bool CreateVdexAndOatSymlinks(const std::string& image_location,
+                                       const std::string& output_image_directory,
+                                       InstructionSet isa);
+
 
   void VisitObject(mirror::Object* obj)
       REQUIRES_SHARED(Locks::mutator_lock_);
