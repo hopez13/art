@@ -465,7 +465,10 @@ bool DexFileVerifier::CheckMap() {
   // Check the items listed in the map.
   for (uint32_t i = 0; i < count; i++) {
     if (UNLIKELY(last_offset >= item->offset_ && i != 0)) {
-      ErrorStringPrintf("Out of order map item: %x then %x", last_offset, item->offset_);
+      ErrorStringPrintf("Out of order map item: %x then %x for type %x",
+                        last_offset,
+                        item->offset_,
+                        static_cast<uint32_t>(item->type_));
       return false;
     }
     if (UNLIKELY(item->offset_ >= header_->file_size_)) {
