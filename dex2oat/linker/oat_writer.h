@@ -41,6 +41,7 @@ namespace art {
 class BitVector;
 class CompiledMethod;
 class CompilerDriver;
+class DexContainer;
 class ProfileCompilationInfo;
 class TimingLogger;
 class TypeLookupTable;
@@ -517,6 +518,9 @@ class OatWriter {
   // Methods can be inserted more than once in case of duplicated methods.
   // This pointer is only non-null after InitOatCodeDexFiles succeeds.
   std::unique_ptr<OrderedMethodList> ordered_methods_;
+
+  // Container of shared dex data.
+  std::unique_ptr<DexContainer> dex_container_;
 
   DISALLOW_COPY_AND_ASSIGN(OatWriter);
 };
