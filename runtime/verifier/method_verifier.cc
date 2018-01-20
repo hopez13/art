@@ -38,6 +38,7 @@
 #include "experimental_flags.h"
 #include "gc/accounting/card_table-inl.h"
 #include "handle_scope-inl.h"
+#include "hidden_api.h"
 #include "indenter.h"
 #include "intern_table.h"
 #include "leb128.h"
@@ -4407,6 +4408,13 @@ ArtMethod* MethodVerifier::VerifyInvocationArgs(
     }
   }
 
+  // TODO: Why do we not return nullptr from ResolveMethodAndCheckAccess when cannot access?
+  bool caller_in_boot = GetDeclaringClass().HasClass() &&
+                        GetDeclaringClass().GetClass()->IsBootStrapClassLoaded();
+  if (!HiddenApi::IsMemberHidden(caller_in_boot, res_method->GetAccessFlags())) {
+    HiddenApi::MaybeWarnAboutMethodInvocation(caller_in_boot, res_method);
+  }
+
   if (UNLIKELY(method_type == METHOD_POLYMORPHIC)) {
     // Process the signature of the calling site that is invoking the method handle.
     DexFileParameterIterator it(*dex_file_, dex_file_->GetProtoId(inst->VRegH()));
@@ -5050,6 +5058,9 @@ void MethodVerifier::VerifyISFieldAccess(const Instruction* inst, const RegType&
   }
   const RegType* field_type = nullptr;
   if (field != nullptr) {
+    HiddenApi::MaybeWarnAboutFieldAccess(
+        GetDeclaringClass().GetClass()->IsBootStrapClassLoaded(), field);
+
     if (kAccType == FieldAccessType::kAccPut) {
       if (field->IsFinal() && field->GetDeclaringClass() != GetDeclaringClass().GetClass()) {
         Fail(VERIFY_ERROR_ACCESS_FIELD) << "cannot modify final field " << field->PrettyField()
