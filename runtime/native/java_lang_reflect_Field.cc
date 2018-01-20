@@ -25,6 +25,7 @@
 #include "common_throws.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_annotations.h"
+#include "hidden_api.h"
 #include "jni_internal.h"
 #include "mirror/class-inl.h"
 #include "mirror/field-inl.h"
@@ -156,6 +157,9 @@ static jobject Field_get(JNIEnv* env, jobject javaField, jobject javaObj) {
     DCHECK(soa.Self()->IsExceptionPending());
     return nullptr;
   }
+
+  hiddenapi::MaybeWarnAboutMemberAccess(f->GetArtField(), soa.Self(), /* num_frames */ 1);
+
   // If field is not set to be accessible, verify it can be accessed by the caller.
   if (!f->IsAccessible() && !VerifyFieldAccess<false>(soa.Self(), f, o)) {
     DCHECK(soa.Self()->IsExceptionPending());
@@ -183,6 +187,8 @@ ALWAYS_INLINE inline static JValue GetPrimitiveField(JNIEnv* env,
     DCHECK(soa.Self()->IsExceptionPending());
     return JValue();
   }
+
+  hiddenapi::MaybeWarnAboutMemberAccess(f->GetArtField(), soa.Self(), /* num_frames */ 1);
 
   // If field is not set to be accessible, verify it can be accessed by the caller.
   if (!f->IsAccessible() && !VerifyFieldAccess<false>(soa.Self(), f, o)) {
@@ -351,11 +357,14 @@ static void Field_set(JNIEnv* env, jobject javaField, jobject javaObj, jobject j
     DCHECK(soa.Self()->IsExceptionPending());
     return;
   }
+
   // If field is not set to be accessible, verify it can be accessed by the caller.
   if (!f->IsAccessible() && !VerifyFieldAccess<true>(soa.Self(), f, o)) {
     DCHECK(soa.Self()->IsExceptionPending());
     return;
   }
+
+  hiddenapi::MaybeWarnAboutMemberAccess(f->GetArtField(), soa.Self(), /* num_frames */ 1);
   SetFieldValue(o, f, field_prim_type, true, unboxed_value);
 }
 
@@ -390,6 +399,8 @@ static void SetPrimitiveField(JNIEnv* env,
     DCHECK(soa.Self()->IsExceptionPending());
     return;
   }
+
+  hiddenapi::MaybeWarnAboutMemberAccess(f->GetArtField(), soa.Self(), /* num_frames */ 1);
 
   // Write the value.
   SetFieldValue(o, f, field_type, false, wide_value);
