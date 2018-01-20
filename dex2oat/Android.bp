@@ -118,6 +118,13 @@ art_cc_binary {
     defaults: [
         "dex2oat-defaults",
     ],
+    target: {
+        android: {
+            lto: {
+                 thin: true,
+            },
+        },
+    },
     shared_libs: [
         "libart-compiler",
         "libart-dexlayout",
