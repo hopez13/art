@@ -56,6 +56,45 @@ inline bool IsMemberHidden(uint32_t access_flags) {
   }
 }
 
+inline bool ShouldWarnAboutMember(uint32_t access_flags) {
+  switch (HiddenApiAccessFlags::DecodeFromRuntime(access_flags)) {
+    case HiddenApiAccessFlags::kWhitelist:
+      return false;
+    case HiddenApiAccessFlags::kLightGreylist:
+    case HiddenApiAccessFlags::kDarkGreylist:
+      return true;
+    case HiddenApiAccessFlags::kBlacklist:
+      LOG(FATAL) << "Should not be allowed to access member";
+      UNREACHABLE();
+  }
+}
+
+// Print a warning and set the warning flag if this field is greylisted.
+// Note that this function will abort if the field is blacklisted because non-
+// boot class path code should not be able to acquire a handle to the field.
+inline void MaybeWarnAboutFieldAccess(ArtField* field, bool should_enforce)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (should_enforce &&
+      field != nullptr &&
+      ShouldWarnAboutMember(field->GetAccessFlags())) {
+    Runtime::Current()->SetPendingHiddenApiWarning(true);
+    LOG(WARNING) << "Access to hidden field " << field->PrettyField();
+  }
+}
+
+// Print a warning and set the warning flag if this method is greylisted.
+// Note that this function will abort if the method is blacklisted because non-
+// boot class path code should not be able to acquire a handle to the method.
+inline void MaybeWarnAboutMethodInvocation(ArtMethod* method, bool should_enforce)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (should_enforce &&
+      method != nullptr &&
+      ShouldWarnAboutMember(method->GetAccessFlags())) {
+    Runtime::Current()->SetPendingHiddenApiWarning(true);
+    LOG(WARNING) << "Access to hidden method " << method->PrettyMethod();
+  }
+}
+
 }  // namespace hiddenapi
 }  // namespace art
 
