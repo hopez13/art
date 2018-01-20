@@ -1002,7 +1002,7 @@ TEST_F(ProfileCompilationInfoTest, LoadFromZipFailBadZipEntry) {
   TestProfileLoadFromZip("invalid.profile.entry",
                          0,
                          /*should_succeed*/true,
-                         /**/true);
+                         /*should_succeed_with_empty_profile*/true);
 }
 
 TEST_F(ProfileCompilationInfoTest, LoadFromZipFailBadProfile) {
