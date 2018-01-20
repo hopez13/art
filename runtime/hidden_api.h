@@ -56,6 +56,39 @@ inline bool IsMemberHidden(uint32_t access_flags) {
   }
 }
 
+inline bool ShouldWarnAboutMember(uint32_t access_flags) {
+  switch (HiddenApiAccessFlags::DecodeFromRuntime(access_flags)) {
+    case HiddenApiAccessFlags::kWhitelist:
+      return false;
+    case HiddenApiAccessFlags::kLightGreylist:
+    case HiddenApiAccessFlags::kDarkGreylist:
+      return true;
+    case HiddenApiAccessFlags::kBlacklist:
+      LOG(FATAL) << "Should not be allowed to access member";
+      UNREACHABLE();
+  }
+}
+
+inline void MaybeWarnAboutFieldAccess(ArtField* field, bool should_enforce)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (should_enforce &&
+      field != nullptr &&
+      ShouldWarnAboutMember(field->GetAccessFlags())) {
+    Runtime::Current()->SetPendingHiddenApiWarning(true);
+    LOG(ERROR) << "Access to hidden field " << field->PrettyField();
+  }
+}
+
+inline void MaybeWarnAboutMethodInvocation(ArtMethod* method, bool should_enforce)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (should_enforce &&
+      method != nullptr &&
+      ShouldWarnAboutMember(method->GetAccessFlags())) {
+    Runtime::Current()->SetPendingHiddenApiWarning(true);
+    LOG(ERROR) << "Access to hidden method " << method->PrettyMethod();
+  }
+}
+
 }  // namespace hiddenapi
 }  // namespace art
 
