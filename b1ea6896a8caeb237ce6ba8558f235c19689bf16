@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a798989f_e185c1d3",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-20T01:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6991d9a8_f464c87a",
+      "range": {
+        "startLine": 597,
+        "startChar": 27,
+        "endLine": 597,
+        "endChar": 29
+      },
+      "revId": "b1ea6896a8caeb237ce6ba8558f235c19689bf16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc1697fd_2a13090e",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7eda832a_e58e3668",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-20T01:47:21Z",
+      "side": 1,
+      "message": "the ownership is with the caller. I added a comment.",
+      "parentUuid": "cc1697fd_2a13090e",
+      "range": {
+        "startLine": 621,
+        "startChar": 12,
+        "endLine": 621,
+        "endChar": 16
+      },
+      "revId": "b1ea6896a8caeb237ce6ba8558f235c19689bf16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81a97f30_10c0b8e6",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-01-19T08:48:46Z",
       "side": 1,
       "message": "s/Satus/Status/g",
+      "range": {
+        "startLine": 676,
+        "startChar": 13,
+        "endLine": 676,
+        "endChar": 18
+      },
+      "revId": "b1ea6896a8caeb237ce6ba8558f235c19689bf16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31214e2c_e3dd28b8",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-20T01:47:21Z",
+      "side": 1,
+      "message": "I will do it in a follow, as pure refactoring CL.",
+      "parentUuid": "81a97f30_10c0b8e6",
       "range": {
         "startLine": 676,
         "startChar": 13,
