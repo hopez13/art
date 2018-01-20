@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dc549a5_d187360c",
+        "filename": "runtime/compiler_callbacks.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-20T06:16:28Z",
+      "side": 1,
+      "message": "Could be debated whether we should pass the dex file. Class gives us better granularity, but might be overkill.",
+      "range": {
+        "startLine": 77,
+        "startChar": 46,
+        "endLine": 77,
+        "endChar": 60
+      },
+      "revId": "e993458e8192b24621cb88a6ebcdbfd66f01da45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
