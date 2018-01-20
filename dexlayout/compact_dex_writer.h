@@ -62,13 +62,13 @@ class CompactDexWriter : public DexWriter {
  protected:
   void WriteMemMap() OVERRIDE;
 
-  void WriteHeader() OVERRIDE;
+  void WriteHeader(Stream* stream) OVERRIDE;
 
   size_t GetHeaderSize() const OVERRIDE;
 
-  uint32_t WriteDebugInfoOffsetTable(uint32_t offset);
+  uint32_t WriteDebugInfoOffsetTable(Stream* stream);
 
-  uint32_t WriteCodeItem(dex_ir::CodeItem* code_item, uint32_t offset, bool reserve_only) OVERRIDE;
+  uint32_t WriteCodeItem(Stream* stream, dex_ir::CodeItem* code_item, bool reserve_only) OVERRIDE;
 
   void SortDebugInfosByMethodIndex();
 

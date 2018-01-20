@@ -39,7 +39,7 @@ struct MapItem {
   // Not using DexFile::MapItemType since compact dex and standard dex file may have different
   // sections.
   MapItem() = default;
-  MapItem(uint32_t type, uint32_t size, uint32_t offset)
+  MapItem(uint32_t type, uint32_t size, size_t offset)
       : type_(type), size_(size), offset_(offset) { }
 
   // Sort by decreasing order since the priority_queue puts largest elements first.
@@ -62,6 +62,59 @@ class DexWriter {
  public:
   static constexpr uint32_t kDataSectionAlignment = sizeof(uint32_t) * 2;
   static constexpr uint32_t kDexSectionWordAlignment = 4;
+
+  class Stream {
+   public:
+    // Functions are not virtual (yet) for speed.
+
+    size_t Tell() const {
+      return position_;
+    }
+
+    void Seek(size_t position) {
+      position_ = position;
+    }
+
+    ALWAYS_INLINE size_t Write(const void* buffer, size_t length) {
+      EnsureStorage(length);
+      memcpy(&data_[position_], buffer, length);
+      return length;
+    }
+
+    ALWAYS_INLINE size_t WriteSleb128(int32_t value) {
+      EnsureStorage(8);
+      uint8_t* ptr = &data_[position_];
+      const size_t len = EncodeSignedLeb128(ptr, value) - ptr;
+      position_ += len;
+      return len;
+    }
+
+    ALWAYS_INLINE size_t WriteUleb128(uint32_t value) {
+      EnsureStorage(8);
+      uint8_t* ptr = &data_[position_];
+      const size_t len = EncodeUnsignedLeb128(ptr, value) - ptr;
+      position_ += len;
+      return len;
+    }
+
+    ALWAYS_INLINE void AlignTo(const size_t alignment) {
+      position_ = RoundUp(position_, alignment);
+    }
+
+    ALWAYS_INLINE void Skip(const size_t count) {
+      position_ += count;
+    }
+
+   private:
+    ALWAYS_INLINE void EnsureStorage(size_t length) {
+      size_t end = position_ + length;
+      while (UNLIKELY(end < data_.size())) {
+        data_.resize(data_.size() * 3 / 2 + 1);
+      }
+    }
+    size_t position_;
+    std::vector<uint8_t> data_;
+  };
 
   static inline constexpr uint32_t SectionAlignment(DexFile::MapItemType type) {
     switch (type) {
@@ -98,60 +151,50 @@ class DexWriter {
  protected:
   virtual void WriteMemMap();
 
-  size_t Write(const void* buffer, size_t length, size_t offset) WARN_UNUSED;
-  size_t WriteSleb128(uint32_t value, size_t offset) WARN_UNUSED;
-  size_t WriteUleb128(uint32_t value, size_t offset) WARN_UNUSED;
-  size_t WriteEncodedValue(dex_ir::EncodedValue* encoded_value, size_t offset) WARN_UNUSED;
-  size_t WriteEncodedValueHeader(int8_t value_type, size_t value_arg, size_t offset) WARN_UNUSED;
-  size_t WriteEncodedArray(dex_ir::EncodedValueVector* values, size_t offset) WARN_UNUSED;
-  size_t WriteEncodedAnnotation(dex_ir::EncodedAnnotation* annotation, size_t offset) WARN_UNUSED;
-  size_t WriteEncodedFields(dex_ir::FieldItemVector* fields, size_t offset) WARN_UNUSED;
-  size_t WriteEncodedMethods(dex_ir::MethodItemVector* methods, size_t offset) WARN_UNUSED;
+  size_t WriteEncodedValue(Stream* stream, dex_ir::EncodedValue* encoded_value);
+  size_t WriteEncodedValueHeader(Stream* stream, int8_t value_type, size_t value_arg);
+  size_t WriteEncodedArray(Stream* stream, dex_ir::EncodedValueVector* values);
+  size_t WriteEncodedAnnotation(Stream* stream, dex_ir::EncodedAnnotation* annotation);
+  size_t WriteEncodedFields(Stream* stream, dex_ir::FieldItemVector* fields);
+  size_t WriteEncodedMethods(Stream* stream, dex_ir::MethodItemVector* methods);
 
   // Header and id section
-  virtual void WriteHeader();
+  virtual void WriteHeader(Stream* stream);
   virtual size_t GetHeaderSize() const;
   // reserve_only means don't write, only reserve space. This is required since the string data
   // offsets must be assigned.
-  uint32_t WriteStringIds(uint32_t offset, bool reserve_only);
-  uint32_t WriteTypeIds(uint32_t offset);
-  uint32_t WriteProtoIds(uint32_t offset, bool reserve_only);
-  uint32_t WriteFieldIds(uint32_t offset);
-  uint32_t WriteMethodIds(uint32_t offset);
-  uint32_t WriteClassDefs(uint32_t offset, bool reserve_only);
-  uint32_t WriteCallSiteIds(uint32_t offset, bool reserve_only);
+  uint32_t WriteStringIds(Stream* stream, bool reserve_only);
+  uint32_t WriteTypeIds(Stream* stream);
+  uint32_t WriteProtoIds(Stream* stream, bool reserve_only);
+  uint32_t WriteFieldIds(Stream* stream);
+  uint32_t WriteMethodIds(Stream* stream);
+  uint32_t WriteClassDefs(Stream* stream, bool reserve_only);
+  uint32_t WriteCallSiteIds(Stream* stream, bool reserve_only);
 
-  uint32_t WriteEncodedArrays(uint32_t offset);
-  uint32_t WriteAnnotations(uint32_t offset);
-  uint32_t WriteAnnotationSets(uint32_t offset);
-  uint32_t WriteAnnotationSetRefs(uint32_t offset);
-  uint32_t WriteAnnotationsDirectories(uint32_t offset);
+  uint32_t WriteEncodedArrays(Stream* stream);
+  uint32_t WriteAnnotations(Stream* stream);
+  uint32_t WriteAnnotationSets(Stream* stream);
+  uint32_t WriteAnnotationSetRefs(Stream* stream);
+  uint32_t WriteAnnotationsDirectories(Stream* stream);
 
   // Data section.
-  uint32_t WriteDebugInfoItems(uint32_t offset);
-  uint32_t WriteCodeItems(uint32_t offset, bool reserve_only);
-  uint32_t WriteTypeLists(uint32_t offset);
-  uint32_t WriteStringDatas(uint32_t offset);
-  uint32_t WriteClassDatas(uint32_t offset);
-  uint32_t WriteMethodHandles(uint32_t offset);
-  uint32_t WriteMapItems(uint32_t offset, MapItemQueue* queue);
-  uint32_t GenerateAndWriteMapItems(uint32_t offset);
+  uint32_t WriteDebugInfoItems(Stream* stream);
+  uint32_t WriteCodeItems(Stream* stream, bool reserve_only);
+  uint32_t WriteTypeLists(Stream* stream);
+  uint32_t WriteStringDatas(Stream* stream);
+  uint32_t WriteClassDatas(Stream* stream);
+  uint32_t WriteMethodHandles(Stream* stream);
+  uint32_t WriteMapItems(Stream* stream, MapItemQueue* queue);
+  uint32_t GenerateAndWriteMapItems(Stream* stream);
 
-  virtual uint32_t WriteCodeItemPostInstructionData(dex_ir::CodeItem* item,
-                                                    uint32_t offset,
+  virtual uint32_t WriteCodeItemPostInstructionData(Stream* stream,
+                                                    dex_ir::CodeItem* item,
                                                     bool reserve_only);
-  virtual uint32_t WriteCodeItem(dex_ir::CodeItem* item, uint32_t offset, bool reserve_only);
+  virtual uint32_t WriteCodeItem(Stream* stream, dex_ir::CodeItem* item, bool reserve_only);
 
   // Process an offset, if compute_offset is set, write into the dex ir item, otherwise read the
   // existing offset and use that for writing.
-  void ProcessOffset(uint32_t* const offset, dex_ir::Item* item) {
-    if (compute_offsets_) {
-      item->SetOffset(*offset);
-    } else {
-      // Not computing offsets, just use the one in the item.
-      *offset = item->GetOffset();
-    }
-  }
+  void ProcessOffset(Stream* stream, dex_ir::Item* item);
 
   dex_ir::Header* const header_;
   MemMap* const mem_map_;
