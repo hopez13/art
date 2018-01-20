@@ -127,8 +127,8 @@ inline bool VerifyObjectIsClass(ObjPtr<mirror::Object> o, ObjPtr<mirror::Class> 
   return true;
 }
 
-inline bool IsCallerInBootClassPath(Thread* self) {
-  ObjPtr<mirror::Class> klass = GetCallingClass(self, 1);
+inline bool IsCallerInBootClassPath(Thread* self, size_t num_frames) {
+  ObjPtr<mirror::Class> klass = GetCallingClass(self, num_frames);
   if (klass == nullptr) {
     // Unattached native thread. Conservatively assume that this is boot class path.
     return true;

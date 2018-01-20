@@ -103,7 +103,7 @@ public class ChildClass {
       } else if (hiddenness == Hiddenness.Blacklist) {
         expected = Behaviour.Denied;
       } else {
-        expected = Behaviour.Granted;
+        expected = Behaviour.Warning;
       }
 
       for (boolean isStatic : booleanValues) {
