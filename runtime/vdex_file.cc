@@ -30,7 +30,11 @@
 #include "dex/dex_file.h"
 #include "dex/dex_file_loader.h"
 #include "dex_to_dex_decompiler.h"
+#include "elf_builder.h"
 #include "quicken_info.h"
+#include "runtime.h"
+#include "stream/vector_output_stream.h"
+#include "thread-current-inl.h"
 
 namespace art {
 
@@ -58,6 +62,48 @@ VdexFile::Header::Header(uint32_t number_of_dex_files,
   memcpy(version_, kVdexVersion, sizeof(kVdexVersion));
   DCHECK(IsMagicValid());
   DCHECK(IsVersionValid());
+}
+
+VdexFile::~VdexFile() {
+  if (gdb_jit_entry_ != nullptr) {
+    MutexLock mu(Thread::Current(), g_jit_debug_mutex);
+    DeleteJITCodeEntry(gdb_jit_entry_);
+  }
+}
+
+// Generate gdb-style JIT code entry with symbols covering the dex files.
+// This does not make gdb work, we are just reusing the already established
+// interface for communication with libunwind. When libunwind encounters this
+// symbol with magic name, it may read the dex file to resolve function names.
+template<typename ElfTypes>
+void VdexFile::CreateGdbJitCodeEntry() {
+  std::vector<uint8_t> buffer;
+  buffer.reserve(KB);
+  VectorOutputStream out("ELF file for vdex", &buffer);
+  auto isaFeatures = InstructionSetFeatures::FromCppDefines();
+  std::unique_ptr<ElfBuilder<ElfTypes>> builder(
+      new ElfBuilder<ElfTypes>(kRuntimeISA, isaFeatures.get(), &out));
+  builder->Start(false /* write_program_headers */);
+  auto* dex = builder->GetDex();
+  auto* strtab = builder->GetStrTab();
+  auto* symtab = builder->GetSymTab();
+  dex->AllocateVirtualMemory(reinterpret_cast<uintptr_t>(Begin()), Size());
+  strtab->Start();
+  strtab->Write("");  // strtab should start with empty string.
+  for (const uint8_t* dex_file_start = GetNextDexFileData(nullptr);
+       dex_file_start != nullptr;
+       dex_file_start = GetNextDexFileData(dex_file_start)) {
+    typename ElfTypes::Word name = strtab->Write(ElfBuilder<ElfTypes>::kDexFileSymbolName);
+    typename ElfTypes::Addr addr = reinterpret_cast<uintptr_t>(dex_file_start);
+    size_t size = reinterpret_cast<const DexFile::Header*>(dex_file_start)->file_size_;
+    symtab->Add(name, dex, addr, size, STB_GLOBAL, STT_FUNC);
+  }
+  strtab->End();
+  symtab->WriteCachedSection();
+  builder->End();
+  CHECK(builder->Good());
+  MutexLock mu(Thread::Current(), g_jit_debug_mutex);
+  gdb_jit_entry_ = CreateJITCodeEntry(buffer);
 }
 
 std::unique_ptr<VdexFile> VdexFile::OpenAtAddress(uint8_t* mmap_addr,
@@ -150,6 +196,12 @@ std::unique_ptr<VdexFile> VdexFile::OpenAtAddress(uint8_t* mmap_addr,
                     /* decompile_return_instruction */ false);
     // Update the quickening info size to pretend there isn't any.
     reinterpret_cast<Header*>(vdex->mmap_->Begin())->quickening_info_size_ = 0;
+  }
+
+  if (Is64BitInstructionSet(kRuntimeISA)) {
+    vdex->CreateGdbJitCodeEntry<ElfTypes64>();
+  } else {
+    vdex->CreateGdbJitCodeEntry<ElfTypes32>();
   }
 
   *error_msg = "Success";

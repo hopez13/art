@@ -39,10 +39,6 @@ namespace debug {
 // one symbol which marks the whole .text section as code.
 constexpr bool kGenerateSingleArmMappingSymbol = true;
 
-// Magic name for .symtab symbols which enumerate dex files used
-// by this ELF file (currently mmapped inside the .dex section).
-constexpr const char* kDexFileSymbolName = "$dexfile";
-
 template <typename ElfTypes>
 static void WriteDebugSymbols(ElfBuilder<ElfTypes>* builder,
                               bool mini_debug_info,
@@ -107,7 +103,7 @@ static void WriteDebugSymbols(ElfBuilder<ElfTypes>* builder,
     for (auto it : debug_info.dex_files) {
       uint64_t dex_address = dex->GetAddress() + it.first /* offset within the section */;
       const DexFile* dex_file = it.second;
-      typename ElfTypes::Word dex_name = strtab->Write(kDexFileSymbolName);
+      typename ElfTypes::Word dex_name = strtab->Write(ElfBuilder<ElfTypes>::kDexFileSymbolName);
       symtab->Add(dex_name, dex, dex_address, dex_file->Size(), STB_GLOBAL, STT_FUNC);
       if (mini_debug_info) {
         continue;  // Don't add interpreter method names to mini-debug-info for now.

@@ -22,6 +22,7 @@
 
 #include "base/array_ref.h"
 #include "base/macros.h"
+#include "jit/debugger_interface.h"
 #include "mem_map.h"
 #include "os.h"
 #include "quicken_info.h"
@@ -100,7 +101,9 @@ class VdexFile {
   typedef uint32_t VdexChecksum;
   using QuickeningTableOffsetType = uint32_t;
 
-  explicit VdexFile(MemMap* mmap) : mmap_(mmap) {}
+  explicit VdexFile(MemMap* mmap) : mmap_(mmap), gdb_jit_entry_(nullptr) {}
+
+  ~VdexFile();
 
   // Returns nullptr if the vdex file cannot be opened or is not valid.
   // The mmap_* parameters can be left empty (nullptr/0/false) to allocate at random address.
@@ -249,7 +252,12 @@ class VdexFile {
     return DexBegin() + GetHeader().GetDexSize();
   }
 
+  template<typename ElfTypes>
+  void CreateGdbJitCodeEntry();
+
   std::unique_ptr<MemMap> mmap_;
+
+  JITCodeEntry* gdb_jit_entry_;
 
   DISALLOW_COPY_AND_ASSIGN(VdexFile);
 };
