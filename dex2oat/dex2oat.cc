@@ -75,10 +75,10 @@
 #include "java_vm_ext.h"
 #include "jit/profile_compilation_info.h"
 #include "leb128.h"
-#include "linker/buffered_output_stream.h"
+#include "stream/buffered_output_stream.h"
 #include "linker/elf_writer.h"
 #include "linker/elf_writer_quick.h"
-#include "linker/file_output_stream.h"
+#include "stream/file_output_stream.h"
 #include "linker/image_writer.h"
 #include "linker/multi_oat_relative_patcher.h"
 #include "linker/oat_writer.h"
@@ -1373,9 +1373,9 @@ class Dex2Oat FINAL {
     // Note: we're only invalidating the magic data in the file, as dex2oat needs the rest of
     // the information to remain valid.
     if (update_input_vdex_) {
-      std::unique_ptr<linker::BufferedOutputStream> vdex_out =
-          std::make_unique<linker::BufferedOutputStream>(
-              std::make_unique<linker::FileOutputStream>(vdex_files_.back().get()));
+      std::unique_ptr<BufferedOutputStream> vdex_out =
+          std::make_unique<BufferedOutputStream>(
+              std::make_unique<FileOutputStream>(vdex_files_.back().get()));
       if (!vdex_out->WriteFully(&VdexFile::Header::kVdexInvalidMagic,
                                 arraysize(VdexFile::Header::kVdexInvalidMagic))) {
         PLOG(ERROR) << "Failed to invalidate vdex header. File: " << vdex_out->GetLocation();
@@ -1976,9 +1976,9 @@ class Dex2Oat FINAL {
       verifier::VerifierDeps* verifier_deps = callbacks_->GetVerifierDeps();
       for (size_t i = 0, size = oat_files_.size(); i != size; ++i) {
         File* vdex_file = vdex_files_[i].get();
-        std::unique_ptr<linker::BufferedOutputStream> vdex_out =
-            std::make_unique<linker::BufferedOutputStream>(
-                std::make_unique<linker::FileOutputStream>(vdex_file));
+        std::unique_ptr<BufferedOutputStream> vdex_out =
+            std::make_unique<BufferedOutputStream>(
+                std::make_unique<FileOutputStream>(vdex_file));
 
         if (!oat_writers_[i]->WriteVerifierDeps(vdex_out.get(), verifier_deps)) {
           LOG(ERROR) << "Failed to write verifier dependencies into VDEX " << vdex_file->GetPath();
@@ -2044,7 +2044,7 @@ class Dex2Oat FINAL {
         debug::DebugInfo debug_info = oat_writer->GetDebugInfo();  // Keep the variable alive.
         elf_writer->PrepareDebugInfo(debug_info);  // Processes the data on background thread.
 
-        linker::OutputStream*& rodata = rodata_[i];
+        OutputStream*& rodata = rodata_[i];
         DCHECK(rodata != nullptr);
         if (!oat_writer->WriteRodata(rodata)) {
           LOG(ERROR) << "Failed to write .rodata section to the ELF file " << oat_file->GetPath();
@@ -2053,7 +2053,7 @@ class Dex2Oat FINAL {
         elf_writer->EndRoData(rodata);
         rodata = nullptr;
 
-        linker::OutputStream* text = elf_writer->StartText();
+        OutputStream* text = elf_writer->StartText();
         if (!oat_writer->WriteCode(text)) {
           LOG(ERROR) << "Failed to write .text section to the ELF file " << oat_file->GetPath();
           return false;
@@ -2819,8 +2819,8 @@ class Dex2Oat FINAL {
 
   std::vector<std::unique_ptr<linker::ElfWriter>> elf_writers_;
   std::vector<std::unique_ptr<linker::OatWriter>> oat_writers_;
-  std::vector<linker::OutputStream*> rodata_;
-  std::vector<std::unique_ptr<linker::OutputStream>> vdex_out_;
+  std::vector<OutputStream*> rodata_;
+  std::vector<std::unique_ptr<OutputStream>> vdex_out_;
   std::unique_ptr<linker::ImageWriter> image_writer_;
   std::unique_ptr<CompilerDriver> driver_;
 

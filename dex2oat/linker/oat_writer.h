@@ -41,6 +41,7 @@ namespace art {
 class BitVector;
 class CompiledMethod;
 class CompilerDriver;
+class OutputStream;
 class ProfileCompilationInfo;
 class TimingLogger;
 class TypeLookupTable;
@@ -59,7 +60,6 @@ namespace linker {
 
 class ImageWriter;
 class MultiOatRelativePatcher;
-class OutputStream;
 
 // OatHeader         variable length with count of D OatDexFiles
 //

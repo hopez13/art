@@ -22,7 +22,7 @@
 #include "elf_file.h"
 #include "elf_file_impl.h"
 #include "elf_writer_quick.h"
-#include "linker/elf_builder.h"
+#include "elf_builder.h"
 #include "oat.h"
 #include "utils.h"
 

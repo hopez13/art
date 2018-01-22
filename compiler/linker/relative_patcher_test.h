@@ -32,7 +32,7 @@
 #include "oat.h"
 #include "oat_quick_method_header.h"
 #include "string_reference.h"
-#include "vector_output_stream.h"
+#include "stream/vector_output_stream.h"
 
 namespace art {
 namespace linker {

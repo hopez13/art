@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ART_COMPILER_LINKER_ELF_BUILDER_H_
-#define ART_COMPILER_LINKER_ELF_BUILDER_H_
+#ifndef ART_RUNTIME_ELF_BUILDER_H_
+#define ART_RUNTIME_ELF_BUILDER_H_
 
 #include <vector>
 #include <unordered_map>
@@ -28,10 +28,9 @@
 #include "base/unix_file/fd_file.h"
 #include "elf_utils.h"
 #include "leb128.h"
-#include "linker/error_delaying_output_stream.h"
+#include "stream/error_delaying_output_stream.h"
 
 namespace art {
-namespace linker {
 
 // Writes ELF file.
 //
@@ -1035,7 +1034,6 @@ class ElfBuilder FINAL {
   DISALLOW_COPY_AND_ASSIGN(ElfBuilder);
 };
 
-}  // namespace linker
 }  // namespace art
 
-#endif  // ART_COMPILER_LINKER_ELF_BUILDER_H_
+#endif  // ART_RUNTIME_ELF_BUILDER_H_

@@ -20,8 +20,8 @@
 #include <vector>
 
 #include "arch/instruction_set.h"
-#include "linker/elf_builder.h"
-#include "linker/vector_output_stream.h"
+#include "elf_builder.h"
+#include "stream/vector_output_stream.h"
 
 // liblzma.
 #include "7zCrc.h"
@@ -87,9 +87,9 @@ static std::vector<uint8_t> MakeMiniDebugInfoInternal(
     const DebugInfo& debug_info) {
   std::vector<uint8_t> buffer;
   buffer.reserve(KB);
-  linker::VectorOutputStream out("Mini-debug-info ELF file", &buffer);
-  std::unique_ptr<linker::ElfBuilder<ElfTypes>> builder(
-      new linker::ElfBuilder<ElfTypes>(isa, features, &out));
+  VectorOutputStream out("Mini-debug-info ELF file", &buffer);
+  std::unique_ptr<ElfBuilder<ElfTypes>> builder(
+      new ElfBuilder<ElfTypes>(isa, features, &out));
   builder->Start(false /* write_program_headers */);
   // Mirror ELF sections as NOBITS since the added symbols will reference them.
   builder->GetText()->AllocateVirtualMemory(text_section_address, text_section_size);
