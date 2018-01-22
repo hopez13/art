@@ -22,6 +22,30 @@
       "revId": "a95a5cc888e61e3a2ae7abecc00be770c6297267",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2ee35b5_5b5a70fb",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-22T22:15:25Z",
+      "side": 1,
+      "message": "No, I really meant index. This is in the \"non-constant index\" section, but in this case the index has a constant range. Comparing this with symbolic [0, array_length) will always fail, unless we make another attempt to refine array_lenght.",
+      "parentUuid": "508b68a9_e16f0490",
+      "range": {
+        "startLine": 844,
+        "startChar": 33,
+        "endLine": 844,
+        "endChar": 38
+      },
+      "revId": "a95a5cc888e61e3a2ae7abecc00be770c6297267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
