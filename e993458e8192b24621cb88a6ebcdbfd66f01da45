@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "be06d047_31b20b83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-22T19:47:19Z",
+      "side": 1,
+      "message": "Nope. Because we don\u0027t have any stripping setup for any of the tests. If you have an idea how to do that, please feel free to take over the CL. :-)",
+      "parentUuid": "9272c074_0500059d",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "e993458e8192b24621cb88a6ebcdbfd66f01da45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3dc549a5_d187360c",
         "filename": "runtime/compiler_callbacks.h",
         "patchSetId": 2
