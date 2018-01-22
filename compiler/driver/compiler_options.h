@@ -160,6 +160,9 @@ class CompilerOptions FINAL {
   bool GetGenerateMiniDebugInfo() const {
     return generate_mini_debug_info_;
   }
+  void SetGenerateMiniDebugInfo(bool enable) {
+    generate_mini_debug_info_ = enable;
+  }
 
   // Should run-time checks be emitted in debug mode?
   bool EmitRunTimeChecksInDebugMode() const;

@@ -39,6 +39,10 @@
 #include "optimizing/register_allocator.h"
 #include "thread_list.h"
 
+#ifdef ART_TARGET_ANDROID
+#include "cutils/properties.h"
+#endif
+
 namespace art {
 namespace jit {
 
@@ -85,6 +89,13 @@ JitCompiler::JitCompiler() {
   // Special case max code units for inlining, whose default is "unset" (implictly
   // meaning no limit). Do this before parsing the actuall passed options.
   compiler_options_->SetInlineMaxCodeUnits(CompilerOptions::kDefaultInlineMaxCodeUnits);
+
+#ifdef ART_TARGET_ANDROID
+  // Set the default value of --generate-mini-debug-info based on system property.
+  bool minidebuginfo = property_get_bool("dalvik.vm.jit-minidebuginfo", 0) != 0;
+  compiler_options_->SetGenerateMiniDebugInfo(minidebuginfo);
+#endif
+
   {
     std::string error_msg;
     if (!compiler_options_->ParseCompilerOptions(Runtime::Current()->GetCompilerOptions(),
