@@ -448,13 +448,6 @@ class CompilerDriver {
   void Compile(jobject class_loader,
                const std::vector<const DexFile*>& dex_files,
                TimingLogger* timings) REQUIRES(!dex_to_dex_references_lock_);
-  void CompileDexFile(jobject class_loader,
-                      const DexFile& dex_file,
-                      const std::vector<const DexFile*>& dex_files,
-                      ThreadPool* thread_pool,
-                      size_t thread_count,
-                      TimingLogger* timings)
-      REQUIRES(!Locks::mutator_lock_);
 
   bool MayInlineInternal(const DexFile* inlined_from, const DexFile* inlined_into) const;
 
