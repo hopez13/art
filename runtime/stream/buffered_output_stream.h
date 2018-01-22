@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ART_COMPILER_LINKER_BUFFERED_OUTPUT_STREAM_H_
-#define ART_COMPILER_LINKER_BUFFERED_OUTPUT_STREAM_H_
+#ifndef ART_RUNTIME_STREAM_BUFFERED_OUTPUT_STREAM_H_
+#define ART_RUNTIME_STREAM_BUFFERED_OUTPUT_STREAM_H_
 
 #include <memory>
 
@@ -24,7 +24,6 @@
 #include "globals.h"
 
 namespace art {
-namespace linker {
 
 class BufferedOutputStream FINAL : public OutputStream {
  public:
@@ -50,7 +49,6 @@ class BufferedOutputStream FINAL : public OutputStream {
   DISALLOW_COPY_AND_ASSIGN(BufferedOutputStream);
 };
 
-}  // namespace linker
 }  // namespace art
 
-#endif  // ART_COMPILER_LINKER_BUFFERED_OUTPUT_STREAM_H_
+#endif  // ART_RUNTIME_STREAM_BUFFERED_OUTPUT_STREAM_H_

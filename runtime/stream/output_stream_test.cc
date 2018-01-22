@@ -25,7 +25,6 @@
 #include "common_runtime_test.h"
 
 namespace art {
-namespace linker {
 
 class OutputStreamTest : public CommonRuntimeTest {
  protected:
@@ -136,5 +135,4 @@ TEST_F(OutputStreamTest, BufferedFlush) {
   ASSERT_TRUE(checking_output_stream->flush_called);
 }
 
-}  // namespace linker
 }  // namespace art

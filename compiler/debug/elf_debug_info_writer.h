@@ -30,9 +30,9 @@
 #include "dex/code_item_accessors-inl.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file.h"
+#include "elf_builder.h"
 #include "heap_poisoning.h"
 #include "linear_alloc.h"
-#include "linker/elf_builder.h"
 #include "mirror/array.h"
 #include "mirror/class-inl.h"
 #include "mirror/class.h"
@@ -71,7 +71,7 @@ class ElfDebugInfoWriter {
   using Elf_Addr = typename ElfTypes::Addr;
 
  public:
-  explicit ElfDebugInfoWriter(linker::ElfBuilder<ElfTypes>* builder)
+  explicit ElfDebugInfoWriter(ElfBuilder<ElfTypes>* builder)
       : builder_(builder),
         debug_abbrev_(&debug_abbrev_buffer_) {
   }
@@ -96,7 +96,7 @@ class ElfDebugInfoWriter {
   }
 
  private:
-  linker::ElfBuilder<ElfTypes>* builder_;
+  ElfBuilder<ElfTypes>* builder_;
   std::vector<uintptr_t> debug_info_patches_;
   std::vector<uint8_t> debug_abbrev_buffer_;
   dwarf::DebugAbbrevWriter<> debug_abbrev_;
