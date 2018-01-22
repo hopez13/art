@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "050a2061_fa0cc657",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:38:14Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 16,
+        "startChar": 37,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "915138cd94c9bfcffdd26adbb814addba5dda3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c3c3ac6_d875a00b",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:38:14Z",
+      "side": 1,
+      "message": "nit: please add CHECK here for HLoadClass load_kind boot image. the InstanceOf should use result of HLoadClass.",
+      "range": {
+        "startLine": 210,
+        "startChar": 17,
+        "endLine": 210,
+        "endChar": 51
+      },
+      "revId": "915138cd94c9bfcffdd26adbb814addba5dda3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
