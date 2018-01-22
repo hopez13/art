@@ -61,6 +61,10 @@ JITCodeEntry* GetJITCodeEntry(uintptr_t code_address)
 size_t GetJITCodeEntryMemUsage()
     REQUIRES(g_jit_debug_mutex);
 
+// Helper method to create an entry describing the memory range of a dex file.
+JITCodeEntry* CreateJITCodeEntryForDexFile(uintptr_t addr, size_t size)
+    REQUIRES(g_jit_debug_mutex);
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_JIT_DEBUGGER_INTERFACE_H_

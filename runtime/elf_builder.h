@@ -81,6 +81,9 @@ class ElfBuilder FINAL {
   // SHA-1 digest.  Not using SHA_DIGEST_LENGTH from openssl/sha.h to avoid
   // spreading this header dependency for just this single constant.
   static constexpr size_t kBuildIdLen = 20;
+  // Magic name for .symtab symbols which enumerate dex files used
+  // by this ELF file (currently mmapped inside the .dex section).
+  static constexpr const char* kDexFileSymbolName = "$dexfile";
 
   using Elf_Addr = typename ElfTypes::Addr;
   using Elf_Off = typename ElfTypes::Off;

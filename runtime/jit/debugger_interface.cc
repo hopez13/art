@@ -18,7 +18,10 @@
 
 #include <android-base/logging.h>
 
+#include "arch/instruction_set_features.h"
 #include "base/mutex.h"
+#include "elf_builder.h"
+#include "stream/vector_output_stream.h"
 #include "thread-current-inl.h"
 #include "thread.h"
 
@@ -146,6 +149,44 @@ JITCodeEntry* GetJITCodeEntry(uintptr_t code_address) {
 
 size_t GetJITCodeEntryMemUsage() {
   return g_jit_debug_mem_usage + g_jit_code_entries.size() * 2 * sizeof(void*);
+}
+
+// Generate gdb-style JIT code entry with symbol covering the dex file.
+// This does not make gdb work, we are just reusing the already established
+// interface for communication with libunwind. When libunwind encounters this
+// symbol with magic name, it will read the dex file to resolve function names.
+template<typename ElfTypes>
+static JITCodeEntry* CreateJITCodeEntryForDexFile0(uintptr_t addr, size_t size)
+    REQUIRES(g_jit_debug_mutex) {
+  std::vector<uint8_t> buffer;
+  buffer.reserve(KB);
+  VectorOutputStream out("JIT ELF entry for dex file", &buffer);
+  auto isaFeatures = InstructionSetFeatures::FromCppDefines();
+  std::unique_ptr<ElfBuilder<ElfTypes>> builder(
+      new ElfBuilder<ElfTypes>(kRuntimeISA, isaFeatures.get(), &out));
+  builder->Start(false /* write_program_headers */);
+  auto* dex = builder->GetDex();
+  auto* strtab = builder->GetStrTab();
+  auto* symtab = builder->GetSymTab();
+  dex->AllocateVirtualMemory(addr, size);
+  strtab->Start();
+  strtab->Write("");  // strtab should start with empty string.
+  typename ElfTypes::Word name = strtab->Write(ElfBuilder<ElfTypes>::kDexFileSymbolName);
+  symtab->Add(name, dex, addr, size, STB_GLOBAL, STT_FUNC);
+  strtab->End();
+  symtab->WriteCachedSection();
+  builder->End();
+  CHECK(builder->Good());
+  return CreateJITCodeEntry(buffer);
+}
+
+// Helper method to create an entry describing the memory range of a dex file.
+JITCodeEntry* CreateJITCodeEntryForDexFile(uintptr_t addr, size_t size) {
+  if (Is64BitInstructionSet(kRuntimeISA)) {
+    return CreateJITCodeEntryForDexFile0<ElfTypes64>(addr, size);
+  } else {
+    return CreateJITCodeEntryForDexFile0<ElfTypes32>(addr, size);
+  }
 }
 
 }  // namespace art

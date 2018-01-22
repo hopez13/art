@@ -72,6 +72,7 @@
 #include "intern_table.h"
 #include "interpreter/interpreter.h"
 #include "java_vm_ext.h"
+#include "jit/debugger_interface.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/profile_compilation_info.h"
@@ -3410,6 +3411,11 @@ void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
     if (self->IsJWeakCleared(data.weak_root)) {
       vm->DeleteWeakGlobalRef(self, data.weak_root);
       it = dex_caches_.erase(it);
+      MutexLock mu(Thread::Current(), g_jit_debug_mutex);
+      JITCodeEntry* entry = GetJITCodeEntry(reinterpret_cast<uintptr_t>(data.dex_file));
+      if (entry != nullptr) {
+        DeleteJITCodeEntry(entry);
+      }
     } else {
       if (initialize_oat_file_bss &&
           it->dex_file->GetOatDexFile() != nullptr &&
@@ -3442,6 +3448,9 @@ void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
     Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(class_loader);
   }
   dex_caches_.push_back(data);
+  MutexLock mu(Thread::Current(), g_jit_debug_mutex);
+  CreateJITCodeEntryForDexFile(reinterpret_cast<uintptr_t>(data.dex_file),
+                               data.dex_file->Size());
 }
 
 ObjPtr<mirror::DexCache> ClassLinker::DecodeDexCache(Thread* self, const DexCacheData& data) {
