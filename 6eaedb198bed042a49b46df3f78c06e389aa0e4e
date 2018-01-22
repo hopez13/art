@@ -46,6 +46,30 @@
       "revId": "6eaedb198bed042a49b46df3f78c06e389aa0e4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbca1bbf_ef4eb342",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-22T20:19:49Z",
+      "side": 1,
+      "message": "I played with the CL on the benchmark I used before. I just used run-test.\nhttps://googleplex-android-review.git.corp.google.com/c/platform/art/+/3347001/1/test/001-InstanceOfPerf/src/Main.java\nI bumped sleep(5000) to sleep(8000) and added two more runInstanceOf(1) and two more runCheckCast(1).\n\nThe data is very consistent. There is no regression even for the same level. Tried both x32 and x64.\n\nIf you want to try it on target, need to disable MaybeGenerateMarkingRegisterCheck() somehow since run-test enables kIsDebugBuild. But other than that the generated code should not be affected so run-test should be telling the true story.",
+      "parentUuid": "f69afd6a_9153344f",
+      "range": {
+        "startLine": 29,
+        "startChar": 24,
+        "endLine": 29,
+        "endChar": 35
+      },
+      "revId": "6eaedb198bed042a49b46df3f78c06e389aa0e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
