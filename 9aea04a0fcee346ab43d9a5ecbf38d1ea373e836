@@ -251,6 +251,30 @@
     },
     {
       "key": {
+        "uuid": "c43648fe_347e4297",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:34:56Z",
+      "side": 1,
+      "message": "Given that we know what the compiler is doing pretty well and we\u0027re also writing benchmarks I\u0027m inclined to ask if we shouldn\u0027t simply write our benchmarks in a way to avoid optimizations unless/until we come up with a plan to have \"compiler fences\" (as Hans suggests in #1) ?\n\nAt least that\u0027s what I did before to measure e.g. constructor fences, and there were no volatiles there. Currently using static stores is sufficient to defeat most optimizations (Mingyao would know the exact details).",
+      "parentUuid": "7012d453_0691a602",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5df4072d_f7f7b6a4",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -343,6 +367,30 @@
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24cae3c3_54df7627",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:34:56Z",
+      "side": 1,
+      "message": "SGTM thanks for explaining.",
+      "parentUuid": "9a687718_10d45679",
+      "range": {
+        "startLine": 780,
+        "startChar": 81,
+        "endLine": 781,
+        "endChar": 36
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -651,6 +699,24 @@
     },
     {
       "key": {
+        "uuid": "5b6a7bbd_4062c0ca",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7967,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:34:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0be0f2aa_79c42772",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e519a09_2e503fd4",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 5
@@ -762,6 +828,24 @@
       "side": 1,
       "message": "Every \"sharpening\" is an optimization but we\u0027ve recently been pushing it all to the builder phase anyway. And dropping the HLoadClass here is saving a bit of memory (not much though as we already dropped the environment by \"sharpening\" the HLoadClass load kind).\n\nBut Mingyao\u0027s approach of dropping the HLoadClass input in CFRE and then having an extra DCE pass seems very odd. Though maybe we could remove the HLoadClass in the PrepareForRegisterAllocation as we do for the HClinitCheck merging.",
       "parentUuid": "2bee860b_1ad9e183",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66828423_23f96f51",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:34:56Z",
+      "side": 1,
+      "message": "If Nicolas is ok with this, then I\u0027m ok with this?",
+      "parentUuid": "5bf5fc10_24f0e730",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -1067,6 +1151,24 @@
     },
     {
       "key": {
+        "uuid": "ebfab519_4acbe51f",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:34:56Z",
+      "side": 1,
+      "message": "\u003e We would have to collect the old state of the entire parent chain before doing the EnsureAssigned/EnsureInitialized, otherwise we could miss some assignments taking place.\n\n\u003e And for the deterministic compilation we would have to collect the statistic in the compiler driver.\n\nYes, that does seem a bit more complicated than I anticipated. Sounds good [to not implement anything beyond this].",
+      "parentUuid": "1c67979f_a192118c",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85e2db15_19310fd1",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 5
@@ -1290,6 +1392,24 @@
     },
     {
       "key": {
+        "uuid": "f502c807_78f83ff5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4477,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:34:56Z",
+      "side": 1,
+      "message": "Interesting, missing test? Or was it not flowing through that code path before adding compiler changes?",
+      "parentUuid": "56a1f758_f0d063f4",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "722d6576_14717cdc",
         "filename": "runtime/entrypoints/quick/quick_throw_entrypoints.cc",
         "patchSetId": 5
@@ -1357,6 +1477,24 @@
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef6d01a7_3bfb2e7c",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-01-22T23:34:56Z",
+      "side": 1,
+      "message": "SGTM, just making sure its not a subtle correctness fix.",
+      "parentUuid": "8e3aba64_ba821a31",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
