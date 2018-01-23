@@ -151,6 +151,24 @@
     },
     {
       "key": {
+        "uuid": "0f8df965_70724e81",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T22:09:10Z",
+      "side": 1,
+      "message": "OK, scratch this comment, I have now read your commit message.",
+      "parentUuid": "3d22aa09_5d52e051",
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24389553_59424e70",
         "filename": "runtime/reflection.cc",
         "patchSetId": 8
@@ -162,6 +180,30 @@
       "writtenOn": "2018-01-23T22:06:26Z",
       "side": 1,
       "message": "The warning should have happened at the point you\u0027re getting the jmethodID, not here.",
+      "range": {
+        "startLine": 469,
+        "startChar": 2,
+        "endLine": 470,
+        "endChar": 98
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab339b67_ac4cd4c4",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T22:09:10Z",
+      "side": 1,
+      "message": "Scratch that too.",
+      "parentUuid": "24389553_59424e70",
       "range": {
         "startLine": 469,
         "startChar": 2,
