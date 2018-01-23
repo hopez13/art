@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "026d49a3_a1cb42c1",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T21:18:44Z",
+      "side": 1,
+      "message": "This shows we need another name for IsBootStrapClassLoaded (which I agree is unintuitive).",
+      "range": {
+        "startLine": 1147,
+        "startChar": 36,
+        "endLine": 1147,
+        "endChar": 68
+      },
+      "revId": "b790e26f7359924770e6819829e32d0aa0785ecf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb616b09_04d8db5f",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T21:18:44Z",
+      "side": 1,
+      "message": "Make the two checks a helper method in hiddenapi?",
+      "range": {
+        "startLine": 1147,
+        "startChar": 6,
+        "endLine": 1148,
+        "endChar": 53
+      },
+      "revId": "b790e26f7359924770e6819829e32d0aa0785ecf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "714d75c6_b1ef3fb0",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T21:18:44Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 64,
+        "startChar": 16,
+        "endLine": 64,
+        "endChar": 17
+      },
+      "revId": "b790e26f7359924770e6819829e32d0aa0785ecf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37ee2d87_63cb0e9f",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T21:18:44Z",
+      "side": 1,
+      "message": "what criteria?",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 15
+      },
+      "revId": "b790e26f7359924770e6819829e32d0aa0785ecf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
