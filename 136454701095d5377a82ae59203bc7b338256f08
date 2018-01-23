@@ -199,6 +199,30 @@
       "revId": "136454701095d5377a82ae59203bc7b338256f08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9e28e7d_069322a8",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-23T18:14:40Z",
+      "side": 1,
+      "message": "Ah, found the VectorOutputStream there. The functionality differs a bit but maybe I could unify the streams in a follow up CL.",
+      "parentUuid": "9394d84c_ca933032",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 14
+      },
+      "revId": "136454701095d5377a82ae59203bc7b338256f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
