@@ -470,6 +470,30 @@
       "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4f66f1c_dd0e6c0e",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T13:16:32Z",
+      "side": 1,
+      "message": "OK, after discussions, b/26687569 shall deal on making things fully deterministic.",
+      "parentUuid": "492358c1_61a105fd",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 56
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
