@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42bf7ffe_c4bfb521",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-23T22:33:50Z",
+      "side": 1,
+      "message": "Is this the right criterion, or should this be tied to the Android lifecycle in some more deterministic way? I think we really want this to be the case until the app has \"started\", e.g. for an ordinary app, perhaps until the first call to onResume() finishes?\n\nIt seems to me that doing this by wall clock time means that if the device is somehow ridiculously overloaded (e.g. because it\u0027s a cheap device configured with way too little memory), we\u0027d probably be aggravating the problem.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 58
+      },
+      "revId": "f68c339ed46f0e195f8d762a3448d35f699cab44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
