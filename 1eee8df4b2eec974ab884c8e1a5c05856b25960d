@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "0a857a69_3205be6d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d032487_239e310a",
+      "range": {
+        "startLine": 794,
+        "startChar": 92,
+        "endLine": 794,
+        "endChar": 99
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7c6a33a_105618af",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1126e6dc_41d447b3",
+      "range": {
+        "startLine": 794,
+        "startChar": 13,
+        "endLine": 794,
+        "endChar": 14
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26515148_c0711f81",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 14
@@ -59,6 +107,30 @@
       "writtenOn": "2018-01-23T10:42:41Z",
       "side": 1,
       "message": "Does this say yes for app images? Do you want to be stricter and have a IsBootImageClass ?",
+      "range": {
+        "startLine": 797,
+        "startChar": 36,
+        "endLine": 797,
+        "endChar": 56
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e2da033_ea6f3602",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "This code is executed only when compiling the boot image.",
+      "parentUuid": "26515148_c0711f81",
       "range": {
         "startLine": 797,
         "startChar": 36,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "04a1a0c5_23630901",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "\"this\" \u003d assigning the bitstring only if the class is not final (i.e. referencing the previous sentence).",
+      "parentUuid": "9d0c064f_6a0ae512",
+      "range": {
+        "startLine": 803,
+        "startChar": 70,
+        "endLine": 803,
+        "endChar": 74
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97d6a407_f7c303bb",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 14
@@ -105,6 +201,30 @@
       "writtenOn": "2018-01-23T10:42:41Z",
       "side": 1,
       "message": "Indentation is off.",
+      "range": {
+        "startLine": 573,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 3
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad56338e_936c6703",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97d6a407_f7c303bb",
       "range": {
         "startLine": 573,
         "startChar": 0,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "2b46d817_3ee21c75",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec7f0f91_49eb8961",
+      "range": {
+        "startLine": 613,
+        "startChar": 39,
+        "endLine": 613,
+        "endChar": 40
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84454185_020d1e6a",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 14
@@ -151,6 +295,30 @@
       "writtenOn": "2018-01-23T10:42:41Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 614,
+        "startChar": 40,
+        "endLine": 614,
+        "endChar": 41
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "143978b9_c8fbe215",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84454185_020d1e6a",
       "range": {
         "startLine": 614,
         "startChar": 40,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "00f4f072_ff9b3788",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "This is already guarded at line 155.",
+      "parentUuid": "dbd4c0e5_140ee3ae",
+      "range": {
+        "startLine": 175,
+        "startChar": 18,
+        "endLine": 175,
+        "endChar": 19
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c277c4bc_e67ae051",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 14
@@ -197,6 +389,30 @@
       "writtenOn": "2018-01-23T10:42:41Z",
       "side": 1,
       "message": "Don\u0027t you want to return false here then?",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 56
+      },
+      "revId": "1eee8df4b2eec974ab884c8e1a5c05856b25960d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f467e1e_3d423608",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "No, this shall still compile correct code even if not necessarily deterministic. This should be fixed by making the inliner respect IsClassToCompile() rather than adding two workarounds - here and similarly for strings.",
+      "parentUuid": "c277c4bc_e67ae051",
       "range": {
         "startLine": 263,
         "startChar": 0,

@@ -70,6 +70,30 @@
       "revId": "6eaedb198bed042a49b46df3f78c06e389aa0e4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e785c28_a254f874",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "There may be subtle differences between your benchmark and mine but I tested your benchmark with the following results:\n\n  Default cores and frequencies:\n                   32-bit      64-bit\n    instance-of 1   472-\u003e 384   384-\u003e 320\n    instance-of 2   684-\u003e 390   666-\u003e 322\n    instance-of 3   900-\u003e 387   821-\u003e 319\n    instance-of 4  1112-\u003e 386  1028-\u003e 322\n    instance-of 5  1326-\u003e 383  1204-\u003e 325\n    instance-of 6  1544-\u003e 388  1371-\u003e 319\n    instance-of 7  1759-\u003e 390  1542-\u003e 326\n    check-cast 1    258-\u003e 302   233-\u003e 282\n    check-cast 2    386-\u003e 300   322-\u003e 280\n    check-cast 3    521-\u003e 301   556-\u003e 281\n    check-cast 4    643-\u003e 300   642-\u003e 277\n    check-cast 5    772-\u003e 298   724-\u003e 279\n    check-cast 6    901-\u003e 301   817-\u003e 282\n    check-cast 7   1030-\u003e 301   900-\u003e 280\n\n  Small cores @1401600:\n                   32-bit      64-bit\n    instance-of 1  1174-\u003e1220  1226-\u003e1150\n    instance-of 2  1939-\u003e1222  2153-\u003e1150\n    instance-of 3  2627-\u003e1220  2904-\u003e1150\n    instance-of 4  3714-\u003e1220  3928-\u003e1148\n    instance-of 5  4154-\u003e1219  4468-\u003e1150\n    instance-of 6  4675-\u003e1220  5050-\u003e1151\n    instance-of 7  5202-\u003e1220  5623-\u003e1150\n    check-cast 1    577-\u003e 935   574-\u003e1005\n    check-cast 2   1005-\u003e 933   933-\u003e1005\n    check-cast 3   1919-\u003e 933  1458-\u003e1005\n    check-cast 4   2376-\u003e 933  2001-\u003e1005\n    check-cast 5   2678-\u003e 933  1981-\u003e1005\n    check-cast 6   2960-\u003e 934  2818-\u003e1005\n    check-cast 7   3262-\u003e 933  3004-\u003e1006\n\nThere are subtle differences in our benchmarks but this shows that there are some performance hits even with your benchmark. Note that the commit message lists only \"Small cores @1401600\" where your benchmark still loses badly for check-cast on the same level. Therefore I would recommend against using the bitstring type checks to replace kExactCheck unless substantial benefits can be proved.",
+      "parentUuid": "fbca1bbf_ef4eb342",
+      "range": {
+        "startLine": 29,
+        "startChar": 24,
+        "endLine": 29,
+        "endChar": 35
+      },
+      "revId": "6eaedb198bed042a49b46df3f78c06e389aa0e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

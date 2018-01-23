@@ -275,6 +275,30 @@
     },
     {
       "key": {
+        "uuid": "ba46e48c_28a807e2",
+        "filename": "benchmark/type-check/src/TypeCheckBenchmark.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "If you have volatile so much, I changed it to read objects from an array.",
+      "parentUuid": "c43648fe_347e4297",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5df4072d_f7f7b6a4",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -870,6 +894,24 @@
     },
     {
       "key": {
+        "uuid": "22cf6247_ea189a3c",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "We can change it later (I\u0027d be OK with eliminating in PrepareForRegisterAllocation) but I\u0027m not rewriting it in this CL.",
+      "parentUuid": "7a368873_5902f095",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67195f3b_3ae5f01c",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 5
@@ -1422,6 +1464,24 @@
       "side": 1,
       "message": "Interesting, missing test? Or was it not flowing through that code path before adding compiler changes?",
       "parentUuid": "56a1f758_f0d063f4",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22ed30f3_e89d2909",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T13:07:48Z",
+      "side": 1,
+      "message": "I\u0027d guess that previously java.lang.reflect.Proxy didn\u0027t have its bitstring assigned. Now that we force assign it for targets of instance-of/check-cast (in HSharpening/CompilerDriver) it shall get a bitstring and we need to initialize subclasses.",
+      "parentUuid": "f502c807_78f83ff5",
       "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
