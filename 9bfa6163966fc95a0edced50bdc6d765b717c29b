@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8f06b07f_0733320e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T14:18:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cf51821_cd432104",
+      "range": {
+        "startLine": 640,
+        "startChar": 33,
+        "endLine": 640,
+        "endChar": 34
+      },
+      "revId": "9bfa6163966fc95a0edced50bdc6d765b717c29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd32fdd4_839fad1b",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 13
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c8bbde9d_8f415632",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T14:18:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd32fdd4_839fad1b",
+      "range": {
+        "startLine": 648,
+        "startChar": 29,
+        "endLine": 648,
+        "endChar": 76
+      },
+      "revId": "9bfa6163966fc95a0edced50bdc6d765b717c29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76ce5957_a54e2cf8",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 13
@@ -59,6 +107,30 @@
       "writtenOn": "2018-01-19T07:12:00Z",
       "side": 1,
       "message": "Is there a unit test for this? if not please add one.",
+      "range": {
+        "startLine": 1316,
+        "startChar": 0,
+        "endLine": 1317,
+        "endChar": 56
+      },
+      "revId": "9bfa6163966fc95a0edced50bdc6d765b717c29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0db1c934_08a73686",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T14:18:20Z",
+      "side": 1,
+      "message": "That\u0027s host oatdump trying to dump target oat file. Unfortunately we don\u0027t have any infrastructure for this. I\u0027ll follow-up on another CL.",
+      "parentUuid": "76ce5957_a54e2cf8",
       "range": {
         "startLine": 1316,
         "startChar": 0,
