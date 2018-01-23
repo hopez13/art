@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6f2a7ff_11ce3173",
+        "filename": "test/675-hiddenapi-verifier/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:32:11Z",
+      "side": 1,
+      "message": "same comment as in other test CL.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 6
+      },
+      "revId": "787c33e8e5bbe7050b3bc2fefd6da2409bd86453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dfbbdbd_b5198390",
+        "filename": "test/675-hiddenapi-verifier/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:32:11Z",
+      "side": 1,
+      "message": "How does that make it a boot classpath file?",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 93
+      },
+      "revId": "787c33e8e5bbe7050b3bc2fefd6da2409bd86453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
