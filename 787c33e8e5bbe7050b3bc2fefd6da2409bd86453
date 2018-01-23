@@ -45,6 +45,30 @@
       "revId": "787c33e8e5bbe7050b3bc2fefd6da2409bd86453",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9983c2a3_cf1da2b9",
+        "filename": "test/675-hiddenapi-verifier/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T11:33:35Z",
+      "side": 1,
+      "message": "It has hidden api flags set. Maybe I should rename this to DEX_WITH_HIDDENAPI_FLAGS",
+      "parentUuid": "4dfbbdbd_b5198390",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 93
+      },
+      "revId": "787c33e8e5bbe7050b3bc2fefd6da2409bd86453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
