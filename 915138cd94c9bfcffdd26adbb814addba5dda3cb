@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3353ffd_1a3d7705",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T15:02:36Z",
+      "side": 1,
+      "message": "Because we need only one version of the services.odex on the device. It cannot be loaded by arbitrary processes.",
+      "parentUuid": "050a2061_fa0cc657",
+      "range": {
+        "startLine": 16,
+        "startChar": 37,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "915138cd94c9bfcffdd26adbb814addba5dda3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c3c3ac6_d875a00b",
         "filename": "test/552-checker-sharpening/src/Main.java",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "I may have spoken too soon. Doesn\u0027t the builder elide HLoadClass for bitstring types? Then it should be CHECK-NOT HLoadClass InputStream.\n\nI think this just highlights why it\u0027s counter-intuitive for optimizations to be in the builder since it makes reasoning harder about the CFG transformations.",
       "parentUuid": "7c3c3ac6_d875a00b",
+      "range": {
+        "startLine": 210,
+        "startChar": 17,
+        "endLine": 210,
+        "endChar": 51
+      },
+      "revId": "915138cd94c9bfcffdd26adbb814addba5dda3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6daa748b_43d7ab64",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-01-23T15:02:36Z",
+      "side": 1,
+      "message": "Yes, the builder elides the HLoadClass. We may change it later but for the moment I\u0027m keeping it that way.\n\nDone: CHECK-NOT: LoadClass",
+      "parentUuid": "b774122b_e57cb546",
       "range": {
         "startLine": 210,
         "startChar": 17,
