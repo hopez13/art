@@ -39,6 +39,52 @@
       "revId": "136454701095d5377a82ae59203bc7b338256f08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eea475c8_0782a3ba",
+        "filename": "dexlayout/compact_dex_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-23T02:51:27Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 44,
+        "startChar": 51,
+        "endLine": 44,
+        "endChar": 86
+      },
+      "revId": "136454701095d5377a82ae59203bc7b338256f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94c58bdf_474bd083",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-23T02:51:27Z",
+      "side": 1,
+      "message": "There\u0027s already a stream abstraction in the compiler. Can we maybe unify those? It\u0027s cognitive load to have different cases.",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 14
+      },
+      "revId": "136454701095d5377a82ae59203bc7b338256f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
