@@ -260,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "fcf79a14_45591ea0",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T21:53:25Z",
+      "side": 1,
+      "message": "More like saying why you\u0027re making the default true.",
+      "parentUuid": "94d2d1cd_51a4b5eb",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 2
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "012e6b12_9c54056d",
         "filename": "test/etc/default-build",
         "patchSetId": 1

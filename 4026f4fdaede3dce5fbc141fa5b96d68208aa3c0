@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "575d3268_5960b64c",
+        "filename": "test/674-hiddenapi/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T21:53:25Z",
+      "side": 1,
+      "message": "By the way, if this build file ends up being copied in multiple places, maybe move its logic to default-build and pattern match the test name (eg it contains hiddenapi).",
+      "revId": "4026f4fdaede3dce5fbc141fa5b96d68208aa3c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54543ba6_30d9ae74",
+        "filename": "test/674-hiddenapi/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T21:53:25Z",
+      "side": 1,
+      "message": "creating",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "4026f4fdaede3dce5fbc141fa5b96d68208aa3c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
