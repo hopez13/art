@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f801bd2e_8f1e96e7",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T16:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de71ca11_337e31c8",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 17
+      },
+      "revId": "c7b4716dd3a0628205ef0cbe17b577c9154249bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6baf9bdc_9c8f2b0c",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-23T11:54:31Z",
       "side": 1,
       "message": "What about what vmarko@ raised yesterday?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 15
+      },
+      "revId": "c7b4716dd3a0628205ef0cbe17b577c9154249bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c010ef09_56392f4c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T16:42:33Z",
+      "side": 1,
+      "message": "Looks like it boots. Awesome",
+      "parentUuid": "6baf9bdc_9c8f2b0c",
       "range": {
         "startLine": 80,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "75013fcd_e276c421",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T16:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6fb5aa8_1d5f858f",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 58
+      },
+      "revId": "c7b4716dd3a0628205ef0cbe17b577c9154249bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a654d14_b796b213",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-23T11:54:31Z",
       "side": 1,
       "message": "Looks inconsistent with the way you handle fields. Why don\u0027t you pass IsFirstNonClassClassCallerInBootClassPath to GetDeclaredConstructorInternal?",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 3
+      },
+      "revId": "c7b4716dd3a0628205ef0cbe17b577c9154249bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b080b1e_52aa4bb6",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T16:42:33Z",
+      "side": 1,
+      "message": "Tried it, it gets messy. I\u0027d keep it like this. It also keeps the decision logic in this file.",
+      "parentUuid": "4a654d14_b796b213",
       "range": {
         "startLine": 477,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "be93d263_50a5fe0e",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T16:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13ce1890_2dcf98cd",
+      "range": {
+        "startLine": 489,
+        "startChar": 9,
+        "endLine": 490,
+        "endChar": 73
+      },
+      "revId": "c7b4716dd3a0628205ef0cbe17b577c9154249bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "409f6d4d_5f621516",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "dc0c3d3f_40b52842",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T16:42:33Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "409f6d4d_5f621516",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 3
+      },
+      "revId": "c7b4716dd3a0628205ef0cbe17b577c9154249bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99b6e21c_0d9dcf08",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2018-01-23T11:54:31Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 796,
+        "startChar": 0,
+        "endLine": 801,
+        "endChar": 3
+      },
+      "revId": "c7b4716dd3a0628205ef0cbe17b577c9154249bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "180a764e_6f512266",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T16:42:33Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "99b6e21c_0d9dcf08",
       "range": {
         "startLine": 796,
         "startChar": 0,

@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "eed5a30b_216a8061",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T16:42:33Z",
+      "side": 1,
+      "message": "Good point about the stack walk not being necessary when disabled. Means turning the caller_in_boot flag into should_enforce_hidden_api flag, but makes sense.\n\nI know one could put the stack walk inside, but I opted to keep them in the top JNI functions because it makes it more obvious we\u0027re checking their callers. But I don\u0027t mind changing it.",
+      "parentUuid": "afc19d7c_4383e0db",
+      "range": {
+        "startLine": 229,
+        "startChar": 63,
+        "endLine": 229,
+        "endChar": 82
+      },
+      "revId": "d7eb0089656e18748ba5e146159a7cf5d011b845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "50fc7418_d3927878",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 5
