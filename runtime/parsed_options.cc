@@ -285,6 +285,10 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
           .WithType<std::vector<std::string>>()
           .AppendValues()
           .IntoKey(M::ImageCompilerOptions)
+      .Define("-Xjit-compiler-option _")
+          .WithType<std::vector<std::string>>()
+          .AppendValues()
+          .IntoKey(M::JitCompilerOptions)
       .Define("-Xverify:_")
           .WithType<verifier::VerifyMode>()
           .WithValueMap({{"none",     verifier::VerifyMode::kNone},
@@ -748,6 +752,7 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -Xcompiler:filename\n");
   UsageMessage(stream, "  -Xcompiler-option dex2oat-option\n");
   UsageMessage(stream, "  -Ximage-compiler-option dex2oat-option\n");
+  UsageMessage(stream, "  -Xjit-compiler-option JIT-compile-option\n");
   UsageMessage(stream, "  -Xpatchoat:filename\n");
   UsageMessage(stream, "  -Xusejit:booleanvalue\n");
   UsageMessage(stream, "  -Xjitinitialsize:N\n");

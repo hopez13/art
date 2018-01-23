@@ -94,6 +94,12 @@ JitCompiler::JitCompiler() {
       LOG(FATAL) << error_msg;
       UNREACHABLE();
     }
+    if (!compiler_options_->ParseCompilerOptions(Runtime::Current()->GetJitCompilerOptions(),
+                                                 true /* ignore_unrecognized */,
+                                                 &error_msg)) {
+      LOG(FATAL) << error_msg;
+      UNREACHABLE();
+    }
   }
   // JIT is never PIC, no matter what the runtime compiler options specify.
   compiler_options_->SetNonPic();

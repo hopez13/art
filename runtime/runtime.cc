@@ -1154,6 +1154,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     }
   }
   image_compiler_options_ = runtime_options.ReleaseOrDefault(Opt::ImageCompilerOptions);
+  jit_compiler_options_ = runtime_options.ReleaseOrDefault(Opt::JitCompilerOptions);
   image_location_ = runtime_options.GetOrDefault(Opt::Image);
 
   max_spins_before_thin_lock_inflation_ =
