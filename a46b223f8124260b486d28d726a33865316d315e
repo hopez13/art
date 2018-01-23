@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8299a9e_c710d210",
+        "filename": "test/674-hiddenapi/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:01:27Z",
+      "side": 1,
+      "message": "Maybe add this just after \"set -e\"?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d22657a_9c865903",
+        "filename": "test/674-hiddenapi/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:01:27Z",
+      "side": 1,
+      "message": "Can you explain why you need all this?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c889c2_0bf94374",
+        "filename": "test/674-hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:01:27Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c917dd89_3c8cb39c",
+        "filename": "test/674-hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:01:27Z",
+      "side": 1,
+      "message": "return env-\u003eNewObject(klass, constructor); ?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f1a18db_064d93fb",
+        "filename": "test/674-hiddenapi/src-ex/ChildClass.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:01:27Z",
+      "side": 1,
+      "message": "Looks odd to see this here. Can\u0027t you clear it in places you expect to see it?",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 19
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da72123f_6cf2a487",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:01:27Z",
+      "side": 1,
+      "message": "nit: Add comment",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 2
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "012e6b12_9c54056d",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:01:27Z",
+      "side": 1,
+      "message": "what is that for?",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 42
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d53e6e8d_c8f951fa",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T11:01:27Z",
+      "side": 1,
+      "message": "Make this a function to share with line 543?",
+      "range": {
+        "startLine": 534,
+        "startChar": 5,
+        "endLine": 534,
+        "endChar": 114
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
