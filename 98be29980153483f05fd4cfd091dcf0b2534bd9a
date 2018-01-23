@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef382eb6_c048718e",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-23T13:08:58Z",
+      "side": 1,
+      "message": "Not sure that\u0027s the place you want this to happen. Don\u0027t you want it whenever we create a DexFile?",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 3
+      },
+      "revId": "98be29980153483f05fd4cfd091dcf0b2534bd9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
