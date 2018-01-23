@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "58d91820_efe02597",
+        "filename": "test/674-hiddenapi/src-ex/ChildClass.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T12:49:15Z",
+      "side": 1,
+      "message": "I could but the idea here is to isolate that single invocation. It basically says that the test starts here and we don\u0027t care what happened before. I could instead check that the warning flag is not set, which is even stricter. If I remove this, we could get false positives.",
+      "parentUuid": "8f1a18db_064d93fb",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 19
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da72123f_6cf2a487",
         "filename": "test/etc/default-build",
         "patchSetId": 1
@@ -200,6 +224,30 @@
       "writtenOn": "2018-01-23T11:01:27Z",
       "side": 1,
       "message": "nit: Add comment",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 2
+      },
+      "revId": "a46b223f8124260b486d28d726a33865316d315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94d2d1cd_51a4b5eb",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-23T12:49:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da72123f_6cf2a487",
       "range": {
         "startLine": 90,
         "startChar": 0,
