@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c1ed4d3e_a73aeb31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-23T18:05:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b77c663_1c133a65",
+      "range": {
+        "startLine": 12,
+        "startChar": 30,
+        "endLine": 12,
+        "endChar": 36
+      },
+      "revId": "136454701095d5377a82ae59203bc7b338256f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d4a1a29_4fd485b2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -39,6 +63,24 @@
       "revId": "136454701095d5377a82ae59203bc7b338256f08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b12b98_4330ca2f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-23T18:05:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d4a1a29_4fd485b2",
+      "revId": "136454701095d5377a82ae59203bc7b338256f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "aa2b4128_b7b5328d",
+        "filename": "dexlayout/compact_dex_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-23T18:05:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eea475c8_0782a3ba",
+      "range": {
+        "startLine": 44,
+        "startChar": 51,
+        "endLine": 44,
+        "endChar": 86
+      },
+      "revId": "136454701095d5377a82ae59203bc7b338256f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94c58bdf_474bd083",
         "filename": "dexlayout/dex_writer.h",
         "patchSetId": 5
@@ -85,6 +151,30 @@
       "revId": "136454701095d5377a82ae59203bc7b338256f08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5478ce6_ce0a70c9",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-23T18:05:05Z",
+      "side": 1,
+      "message": "Can you clarify what stream you are referring to.",
+      "parentUuid": "94c58bdf_474bd083",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 14
+      },
+      "revId": "136454701095d5377a82ae59203bc7b338256f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
