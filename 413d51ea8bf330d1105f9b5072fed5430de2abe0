@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "de24dcd2_6f642155",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3724,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb2c5852_50efe7e5",
+      "range": {
+        "startLine": 3724,
+        "startChar": 0,
+        "endLine": 3724,
+        "endChar": 66
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a472c5a_c0bcf3ee",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "Since we don\u0027t specify Location::kNoOutputOverlap in locations-\u003eSetOut() (and I\u0027m OK with that), in and out will never intersect. Remove the if.\n\nIf in and out are allowed to intersect, it\u0027s easy to make a mistake by changing out before consuming all of in.",
+      "range": {
+        "startLine": 3756,
+        "startChar": 13,
+        "endLine": 3756,
+        "endChar": 62
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fa497c6_d5e8e243",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3756,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a472c5a_c0bcf3ee",
       "range": {
         "startLine": 3756,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4656c789_868e73f2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3805,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "320a5349_6e59fa16",
+      "range": {
+        "startLine": 3805,
+        "startChar": 14,
+        "endLine": 3805,
+        "endChar": 83
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a417dbbb_fe2891c0",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3837,
+        "startChar": 12,
+        "endLine": 3837,
+        "endChar": 81
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "172fe706_c0f40355",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3837,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a417dbbb_fe2891c0",
       "range": {
         "startLine": 3837,
         "startChar": 12,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7bea4199_5eeb0c1f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46b9fdd7_6a592ebe",
+      "range": {
+        "startLine": 3878,
+        "startChar": 12,
+        "endLine": 3878,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d45734eb_b203a39e",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2018-01-22T02:54:20Z",
       "side": 1,
       "message": "To save an instruction on R6 change the if to\n\n      if ((ctz_imm \u003d\u003d 1) \u0026\u0026 !is_r6) {",
+      "range": {
+        "startLine": 3889,
+        "startChar": 0,
+        "endLine": 3889,
+        "endChar": 25
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e612e412_b159f12d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3889,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d45734eb_b203a39e",
       "range": {
         "startLine": 3889,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "967717c8_41df3e5e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3898,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4eaf8fa_28d5ed22",
+      "range": {
+        "startLine": 3898,
+        "startChar": 35,
+        "endLine": 3898,
+        "endChar": 53
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21c7cfa5_d7f676f5",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3899,
+        "startChar": 19,
+        "endLine": 3899,
+        "endChar": 88
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cef1cac_af96ceec",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3899,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21c7cfa5_d7f676f5",
       "range": {
         "startLine": 3899,
         "startChar": 19,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "e94a8974_7e3e366d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3905,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4bb8b08_0b60e384",
+      "range": {
+        "startLine": 3905,
+        "startChar": 12,
+        "endLine": 3905,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fd9a9f8_11ad69a5",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2018-01-22T02:54:20Z",
       "side": 1,
       "message": "Change to produce the result in out_high directly:\n\n    __ Selnez(out_high, AT, out_low);",
+      "range": {
+        "startLine": 3906,
+        "startChar": 0,
+        "endLine": 3906,
+        "endChar": 37
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e58ffcf8_c31c046f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3906,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fd9a9f8_11ad69a5",
       "range": {
         "startLine": 3906,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "c1457861_67adcf97",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3910,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c23552d_4cb2ce3a",
+      "range": {
+        "startLine": 3910,
+        "startChar": 0,
+        "endLine": 3910,
+        "endChar": 30
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4ae680c_784df3aa",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -266,6 +530,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3911,
+        "startChar": 12,
+        "endLine": 3911,
+        "endChar": 81
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d3e17a_c3478f5a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3911,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4ae680c_784df3aa",
       "range": {
         "startLine": 3911,
         "startChar": 12,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "57aae191_0d3fe1d2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3912,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e0a1883_1a3121ff",
+      "range": {
+        "startLine": 3912,
+        "startChar": 0,
+        "endLine": 3912,
+        "endChar": 53
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6922f063_cbab6312",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -312,6 +624,30 @@
       "writtenOn": "2018-01-22T02:54:20Z",
       "side": 1,
       "message": "Change AT to out_high:\n\n  __ Sll(AT, out_high, ctz_imm);",
+      "range": {
+        "startLine": 3914,
+        "startChar": 0,
+        "endLine": 3914,
+        "endChar": 34
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "681cb9de_caf7be43",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3914,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6922f063_cbab6312",
       "range": {
         "startLine": 3914,
         "startChar": 0,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "197b7626_fa5950ad",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3920,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74654a1f_fad5ad15",
+      "range": {
+        "startLine": 3920,
+        "startChar": 12,
+        "endLine": 3920,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "682aaf16_e6ac046a",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -358,6 +718,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "Change to produce the result in out_high directly:\n\n    __ Selnez(out_high, AT, out_low);",
+      "range": {
+        "startLine": 3921,
+        "startChar": 0,
+        "endLine": 3921,
+        "endChar": 37
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7daa09b_c67af715",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3921,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "682aaf16_e6ac046a",
       "range": {
         "startLine": 3921,
         "startChar": 0,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "bb7b761c_d77e7d8d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3925,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09f64f5b_96c77528",
+      "range": {
+        "startLine": 3925,
+        "startChar": 0,
+        "endLine": 3925,
+        "endChar": 30
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c737c5a_e2dd9bff",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -404,6 +812,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "is_r2_or_newer",
+      "range": {
+        "startLine": 3931,
+        "startChar": 19,
+        "endLine": 3931,
+        "endChar": 88
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351abea4_fd2474be",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3931,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c737c5a_e2dd9bff",
       "range": {
         "startLine": 3931,
         "startChar": 19,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "430d9bd9_a7e9e507",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3932,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34e85f1d_68dc836c",
+      "range": {
+        "startLine": 3932,
+        "startChar": 37,
+        "endLine": 3932,
+        "endChar": 38
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7edbdca5_8237e349",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -450,6 +906,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "is_r6",
+      "range": {
+        "startLine": 3939,
+        "startChar": 12,
+        "endLine": 3939,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e44805fa_dce6d552",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3939,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7edbdca5_8237e349",
       "range": {
         "startLine": 3939,
         "startChar": 12,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "c054ce4e_859a200e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3944,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bd100d1_3032f1dd",
+      "range": {
+        "startLine": 3944,
+        "startChar": 12,
+        "endLine": 3944,
+        "endChar": 81
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4256dc4c_1bb19524",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -496,6 +1000,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "is_r6",
+      "range": {
+        "startLine": 3951,
+        "startChar": 12,
+        "endLine": 3951,
+        "endChar": 56
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6113a99_7756fa4c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3951,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4256dc4c_1bb19524",
       "range": {
         "startLine": 3951,
         "startChar": 12,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "10f6e3bb_6d0f2fd0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4060,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cb01c50_d6e73900",
+      "range": {
+        "startLine": 4060,
+        "startChar": 28,
+        "endLine": 4060,
+        "endChar": 37
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68b51b7a_f940737c",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -542,6 +1094,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "This should only be used in the paths that call the generic long division routine.\n\nWhen the divisor is a special constant (0, +/-1, +/-power of two) we should let the compiler choose the registers (it may find a choice better than A0 and A1):\n\n  locations-\u003eSetInAt(0, Location::RequiresRegister());",
+      "range": {
+        "startLine": 4075,
+        "startChar": 0,
+        "endLine": 4076,
+        "endChar": 85
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0755d38_ca94f45f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4076,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68b51b7a_f940737c",
       "range": {
         "startLine": 4075,
         "startChar": 0,
@@ -577,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "da42285a_b56fb1e6",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4081,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ac48b7f_d0f130d6",
+      "range": {
+        "startLine": 4079,
+        "startChar": 0,
+        "endLine": 4081,
+        "endChar": 74
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b2f79d7_861e2e73",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -588,6 +1188,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "Again, this should only be used in the paths that call the generic long division routine.\n\nWhen the divisor is a special constant (0, +/-1, +/-power of two) we should let the compiler choose the registers (it may find a choice better than V0 and V1):\n\n  locations-\u003eSetOut(Location::RequiresRegister());",
+      "range": {
+        "startLine": 4091,
+        "startChar": 0,
+        "endLine": 4091,
+        "endChar": 68
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2227088f_d58345b0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4091,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b2f79d7_861e2e73",
       "range": {
         "startLine": 4091,
         "startChar": 0,
@@ -623,6 +1247,30 @@
     },
     {
       "key": {
+        "uuid": "40e6c052_d6371fa5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4118,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8b93cc8_3b7efac4",
+      "range": {
+        "startLine": 4118,
+        "startChar": 0,
+        "endLine": 4118,
+        "endChar": 36
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92dc29f5_ef8807c4",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -634,6 +1282,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "Unnecessary break.",
+      "range": {
+        "startLine": 4120,
+        "startChar": 0,
+        "endLine": 4120,
+        "endChar": 16
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3efb767_2d42de91",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4120,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92dc29f5_ef8807c4",
       "range": {
         "startLine": 4120,
         "startChar": 0,
@@ -669,6 +1341,30 @@
     },
     {
       "key": {
+        "uuid": "040abef5_d3e11186",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4122,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36a477ec_81f4f826",
+      "range": {
+        "startLine": 4122,
+        "startChar": 30,
+        "endLine": 4122,
+        "endChar": 44
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e0f1cf7_c98b66cd",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -680,6 +1376,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "Unnecessary break.",
+      "range": {
+        "startLine": 4124,
+        "startChar": 0,
+        "endLine": 4124,
+        "endChar": 16
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50e33237_ca03e3db",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4124,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e0f1cf7_c98b66cd",
       "range": {
         "startLine": 4124,
         "startChar": 0,
@@ -715,6 +1435,30 @@
     },
     {
       "key": {
+        "uuid": "dac53b40_d236da06",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8688,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8b07046_8f2d12bb",
+      "range": {
+        "startLine": 8688,
+        "startChar": 28,
+        "endLine": 8688,
+        "endChar": 37
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0246b21_ebc188b4",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -726,6 +1470,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "This should only be used in the paths that call the generic long division routine.\n\nWhen the divisor is a special constant (0, +/-1, +/-power of two) we should let the compiler choose the registers (it may find a choice better than A0 and A1):\n\n  locations-\u003eSetInAt(0, Location::RequiresRegister());",
+      "range": {
+        "startLine": 8702,
+        "startChar": 0,
+        "endLine": 8703,
+        "endChar": 85
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a490b2df_9c7429e4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8703,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0246b21_ebc188b4",
       "range": {
         "startLine": 8702,
         "startChar": 0,
@@ -761,6 +1529,30 @@
     },
     {
       "key": {
+        "uuid": "d3f766b8_67e59d1c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8708,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1b2ea1d_b15d12b8",
+      "range": {
+        "startLine": 8706,
+        "startChar": 0,
+        "endLine": 8708,
+        "endChar": 74
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84e00c05_f71c5584",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -772,6 +1564,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "Again, this should only be used in the paths that call the generic long division routine.\n\nWhen the divisor is a special constant (0, +/-1, +/-power of two) we should let the compiler choose the registers (it may find a choice better than V0 and V1):\n\n  locations-\u003eSetOut(Location::RequiresRegister());",
+      "range": {
+        "startLine": 8718,
+        "startChar": 0,
+        "endLine": 8718,
+        "endChar": 68
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a80eb10f_a3403af6",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8718,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84e00c05_f71c5584",
       "range": {
         "startLine": 8718,
         "startChar": 0,
@@ -807,6 +1623,30 @@
     },
     {
       "key": {
+        "uuid": "936c7b01_546755d7",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8747,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4792ff80_dd3ef55e",
+      "range": {
+        "startLine": 8747,
+        "startChar": 0,
+        "endLine": 8747,
+        "endChar": 36
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24053bec_8c7e86da",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -818,6 +1658,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "Unnecessary break.",
+      "range": {
+        "startLine": 8749,
+        "startChar": 0,
+        "endLine": 8749,
+        "endChar": 16
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3310ee68_19bef4c6",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8749,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24053bec_8c7e86da",
       "range": {
         "startLine": 8749,
         "startChar": 0,
@@ -853,6 +1717,30 @@
     },
     {
       "key": {
+        "uuid": "65df067c_59bea9a1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8751,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eea8de34_74e561b1",
+      "range": {
+        "startLine": 8751,
+        "startChar": 30,
+        "endLine": 8751,
+        "endChar": 43
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b9f97bc_e0f5d0eb",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -864,6 +1752,30 @@
       "writtenOn": "2018-01-19T06:12:34Z",
       "side": 1,
       "message": "Unnecessary break.",
+      "range": {
+        "startLine": 8753,
+        "startChar": 0,
+        "endLine": 8753,
+        "endChar": 16
+      },
+      "revId": "413d51ea8bf330d1105f9b5072fed5430de2abe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df519385_936b6e6d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8753,
+      "author": {
+        "id": 1246545
+      },
+      "writtenOn": "2018-01-23T11:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b9f97bc_e0f5d0eb",
       "range": {
         "startLine": 8753,
         "startChar": 0,
