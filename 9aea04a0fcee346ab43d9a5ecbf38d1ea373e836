@@ -852,6 +852,24 @@
     },
     {
       "key": {
+        "uuid": "7a368873_5902f095",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-23T00:50:13Z",
+      "side": 1,
+      "message": "My CL also added the inputs in the builder. And it didn\u0027t eliminate the HLoadClass and depended on a later pass to eliminate it, which was a hacky way.",
+      "parentUuid": "66828423_23f96f51",
+      "revId": "9aea04a0fcee346ab43d9a5ecbf38d1ea373e836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67195f3b_3ae5f01c",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 5
