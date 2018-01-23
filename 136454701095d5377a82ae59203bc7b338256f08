@@ -175,6 +175,30 @@
       "revId": "136454701095d5377a82ae59203bc7b338256f08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9394d84c_ca933032",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-23T18:08:22Z",
+      "side": 1,
+      "message": "There\u0027s a stream abstraction and implementing classes in compiler/utils.",
+      "parentUuid": "d5478ce6_ce0a70c9",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 14
+      },
+      "revId": "136454701095d5377a82ae59203bc7b338256f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
