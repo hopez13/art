@@ -1806,27 +1806,79 @@ void ConcurrentCopying::ReclaimPhase() {
   }
 }
 
-// Assert the to-space invariant.
+void ConcurrentCopying::DumpReferenceInfo(mirror::Object* ref,
+                                          const char* ref_name,
+                                          std::string indent,
+                                          android::base::LogSeverity severity) {
+  LOG(severity) << heap_->GetVerification()->DumpObjectInfo(ref, ref_name);
+  if (ref != nullptr) {
+    if (kUseBakerReadBarrier) {
+      LOG(severity) << indent << ref_name << "->GetMarkBit()=" << ref->GetMarkBit();
+      LOG(severity)
+          << indent << ref_name << "->GetReadBarrierState()=" << ref->GetReadBarrierState();
+    }
+  }
+  if (region_space_->HasAddress(ref)) {
+    LOG(severity) << indent << "Region containing " << ref_name << ":";
+    region_space_->DumpRegionForObject(LOG_STREAM(severity), ref);
+    LOG(severity) << indent << "region_space_bitmap_->Test(" << ref_name << ")="
+                  << std::boolalpha << region_space_bitmap_->Test(ref) << std::noboolalpha;
+  }
+}
+
+void ConcurrentCopying::DumpHeapReference(mirror::Object* obj,
+                                          MemberOffset offset,
+                                          mirror::Object* ref) {
+  android::base::LogSeverity severity = android::base::FATAL_WITHOUT_ABORT;
+  std::string indent = "  ";
+  LOG(severity) << indent << "Invalid reference: ref=" << ref
+                << " referenced from: object=" << obj << " offset= " << offset;
+  // Information about `obj`.
+  DumpReferenceInfo(obj, "obj", indent, severity);
+  // Information about `ref`.
+  DumpReferenceInfo(ref, "ref", indent, severity);
+}
+
 void ConcurrentCopying::AssertToSpaceInvariant(mirror::Object* obj,
                                                MemberOffset offset,
                                                mirror::Object* ref) {
-  CHECK_EQ(heap_->collector_type_, kCollectorTypeCC);
+  CHECK_EQ(heap_->collector_type_, kCollectorTypeCC) << static_cast<size_t>(heap_->collector_type_);
   if (is_asserting_to_space_invariant_) {
-    using RegionType = space::RegionSpace::RegionType;
-    space::RegionSpace::RegionType type = region_space_->GetRegionType(ref);
-    if (type == RegionType::kRegionTypeToSpace) {
-      // OK.
-      return;
-    } else if (type == RegionType::kRegionTypeUnevacFromSpace) {
-      CHECK(IsMarkedInUnevacFromSpace(ref)) << ref;
-    } else if (UNLIKELY(type == RegionType::kRegionTypeFromSpace)) {
-      // Not OK. Do extra logging.
-      if (obj != nullptr) {
-        LogFromSpaceRefHolder(obj, offset);
+    if (region_space_->HasAddress(ref)) {
+      // Check to-space invariant in region space (moving space).
+      using RegionType = space::RegionSpace::RegionType;
+      space::RegionSpace::RegionType type = region_space_->GetRegionType(ref);
+      if (type == RegionType::kRegionTypeToSpace) {
+        // OK.
+        return;
+      } else if (type == RegionType::kRegionTypeUnevacFromSpace) {
+        if (!IsMarkedInUnevacFromSpace(ref)) {
+          LOG(FATAL_WITHOUT_ABORT) << "Found unmarked reference in unevac from-space:";
+          DumpHeapReference(obj, offset, ref);
+        }
+        CHECK(IsMarkedInUnevacFromSpace(ref)) << ref;
+     } else {
+        // Not OK: either a from-space ref or a reference in an unused region.
+        // Do extra logging.
+        if (type == RegionType::kRegionTypeFromSpace) {
+          LOG(FATAL_WITHOUT_ABORT) << "Found from-space reference:";
+        } else {
+          LOG(FATAL_WITHOUT_ABORT) << "Found reference in region with type " << type << ":";
+        }
+        DumpHeapReference(obj, offset, ref);
+        if (obj != nullptr) {
+          LogFromSpaceRefHolder(obj, offset);
+        }
+        ref->GetLockWord(false).Dump(LOG_STREAM(FATAL_WITHOUT_ABORT));
+        LOG(FATAL_WITHOUT_ABORT) << "Non-free regions:";
+        region_space_->DumpNonFreeRegions(LOG_STREAM(FATAL_WITHOUT_ABORT));
+        PrintFileToLog("/proc/self/maps", LogSeverity::FATAL_WITHOUT_ABORT);
+        MemMap::DumpMaps(LOG_STREAM(FATAL_WITHOUT_ABORT), true);
+        LOG(FATAL) << "Invalid reference " << ref
+                   << " referenced from object " << obj << " at offset " << offset;
       }
-      ref->GetLockWord(false).Dump(LOG_STREAM(FATAL_WITHOUT_ABORT));
-      CHECK(false) << "Found from-space ref " << ref << " " << ref->PrettyTypeOf();
     } else {
+      // Check to-space invariant in non-moving space.
       AssertToSpaceInvariantInNonMovingSpace(obj, ref);
     }
   }
@@ -1857,39 +1909,65 @@ class RootPrinter {
   }
 };
 
+void ConcurrentCopying::DumpGcRoot(mirror::Object* ref) {
+  android::base::LogSeverity severity = android::base::FATAL_WITHOUT_ABORT;
+  std::string indent = "  ";
+  LOG(severity) << indent << "Invalid GC root: ref=" << ref;
+  // Information about `ref`.
+  DumpReferenceInfo(ref, "ref", indent, severity);
+}
+
 void ConcurrentCopying::AssertToSpaceInvariant(GcRootSource* gc_root_source,
                                                mirror::Object* ref) {
-  CHECK(heap_->collector_type_ == kCollectorTypeCC) << static_cast<size_t>(heap_->collector_type_);
+  CHECK_EQ(heap_->collector_type_, kCollectorTypeCC) << static_cast<size_t>(heap_->collector_type_);
   if (is_asserting_to_space_invariant_) {
-    if (region_space_->IsInToSpace(ref)) {
-      // OK.
-      return;
-    } else if (region_space_->IsInUnevacFromSpace(ref)) {
-      CHECK(IsMarkedInUnevacFromSpace(ref)) << ref;
-    } else if (region_space_->IsInFromSpace(ref)) {
-      // Not OK. Do extra logging.
-      if (gc_root_source == nullptr) {
-        // No info.
-      } else if (gc_root_source->HasArtField()) {
-        ArtField* field = gc_root_source->GetArtField();
-        LOG(FATAL_WITHOUT_ABORT) << "gc root in field " << field << " "
-                                 << ArtField::PrettyField(field);
-        RootPrinter root_printer;
-        field->VisitRoots(root_printer);
-      } else if (gc_root_source->HasArtMethod()) {
-        ArtMethod* method = gc_root_source->GetArtMethod();
-        LOG(FATAL_WITHOUT_ABORT) << "gc root in method " << method << " "
-                                 << ArtMethod::PrettyMethod(method);
-        RootPrinter root_printer;
-        method->VisitRoots(root_printer, kRuntimePointerSize);
+    if (region_space_->HasAddress(ref)) {
+      // Check to-space invariant in region space (moving space).
+      using RegionType = space::RegionSpace::RegionType;
+      space::RegionSpace::RegionType type = region_space_->GetRegionType(ref);
+      if (type == RegionType::kRegionTypeToSpace) {
+        // OK.
+        return;
+      } else if (type == RegionType::kRegionTypeUnevacFromSpace) {
+        if (!IsMarkedInUnevacFromSpace(ref)) {
+          LOG(FATAL_WITHOUT_ABORT) << "Found unmarked reference in unevac from-space:";
+          DumpGcRoot(ref);
+        }
+        CHECK(IsMarkedInUnevacFromSpace(ref)) << ref;
+      } else {
+        // Not OK: either a from-space ref or a reference in an unused region.
+        // Do extra logging.
+        if (type == RegionType::kRegionTypeFromSpace) {
+          LOG(FATAL_WITHOUT_ABORT) << "Found from-space reference:";
+        } else {
+          LOG(FATAL_WITHOUT_ABORT) << "Found reference in region with type " << type << ":";
+        }
+        DumpGcRoot(ref);
+        if (gc_root_source == nullptr) {
+          // No info.
+        } else if (gc_root_source->HasArtField()) {
+          ArtField* field = gc_root_source->GetArtField();
+          LOG(FATAL_WITHOUT_ABORT) << "gc root in field " << field << " "
+                                   << ArtField::PrettyField(field);
+          RootPrinter root_printer;
+          field->VisitRoots(root_printer);
+        } else if (gc_root_source->HasArtMethod()) {
+          ArtMethod* method = gc_root_source->GetArtMethod();
+          LOG(FATAL_WITHOUT_ABORT) << "gc root in method " << method << " "
+                                   << ArtMethod::PrettyMethod(method);
+          RootPrinter root_printer;
+          method->VisitRoots(root_printer, kRuntimePointerSize);
+        }
+        ref->GetLockWord(false).Dump(LOG_STREAM(FATAL_WITHOUT_ABORT));
+        LOG(FATAL_WITHOUT_ABORT) << "Non-free regions:";
+        region_space_->DumpNonFreeRegions(LOG_STREAM(FATAL_WITHOUT_ABORT));
+        PrintFileToLog("/proc/self/maps", LogSeverity::FATAL_WITHOUT_ABORT);
+        MemMap::DumpMaps(LOG_STREAM(FATAL_WITHOUT_ABORT), true);
+        LOG(FATAL) << "Invalid reference " << ref;
       }
-      ref->GetLockWord(false).Dump(LOG_STREAM(FATAL_WITHOUT_ABORT));
-      region_space_->DumpNonFreeRegions(LOG_STREAM(FATAL_WITHOUT_ABORT));
-      PrintFileToLog("/proc/self/maps", LogSeverity::FATAL_WITHOUT_ABORT);
-      MemMap::DumpMaps(LOG_STREAM(FATAL_WITHOUT_ABORT), true);
-      CHECK(false) << "Found from-space ref " << ref << " " << ref->PrettyTypeOf();
     } else {
-      AssertToSpaceInvariantInNonMovingSpace(nullptr, ref);
+      // Check to-space invariant in non-moving space.
+      AssertToSpaceInvariantInNonMovingSpace(/* obj */ nullptr, ref);
     }
   }
 }
@@ -1944,6 +2022,7 @@ void ConcurrentCopying::LogFromSpaceRefHolder(mirror::Object* obj, MemberOffset 
 
 void ConcurrentCopying::AssertToSpaceInvariantInNonMovingSpace(mirror::Object* obj,
                                                                mirror::Object* ref) {
+  CHECK(!region_space_->HasAddress(ref)) << "obj=" << obj << " ref=" << ref;
   // In a non-moving spaces. Check that the ref is marked.
   if (immune_spaces_.ContainsObject(ref)) {
     if (kUseBakerReadBarrier) {
@@ -2428,6 +2507,9 @@ mirror::Object* ConcurrentCopying::IsMarked(mirror::Object* from_ref) {
       to_ref = nullptr;
     }
   } else {
+    // At this point, `from_ref` should not be in the region space
+    // (i.e. within an "unused" region).
+    DCHECK(!region_space_->HasAddress(from_ref)) << from_ref;
     // from_ref is in a non-moving space.
     if (immune_spaces_.ContainsObject(from_ref)) {
       // An immune object is alive.
