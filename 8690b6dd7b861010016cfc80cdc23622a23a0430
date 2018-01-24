@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2b90d4_db9cf1dd",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-24T14:53:40Z",
+      "side": 1,
+      "message": "Update this comment to highlight it\u0027s not just about instrumentation functions.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 56
+      },
+      "revId": "8690b6dd7b861010016cfc80cdc23622a23a0430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c32d120_99684c30",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-24T14:53:40Z",
+      "side": 1,
+      "message": "You should do that only if the field/method/class is greylist.",
+      "range": {
+        "startLine": 91,
+        "startChar": 13,
+        "endLine": 91,
+        "endChar": 89
+      },
+      "revId": "8690b6dd7b861010016cfc80cdc23622a23a0430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

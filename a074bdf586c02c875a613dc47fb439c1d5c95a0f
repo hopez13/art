@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "c2323a18_5562eeb7",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-24T14:53:40Z",
+      "side": 1,
+      "message": "Right, please add a comment line 67 that the LOG(FATAL) would be for an ART bug.",
+      "parentUuid": "bc0d98e7_89532ac6",
+      "range": {
+        "startLine": 72,
+        "startChar": 12,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35a1db5c_04a960f6",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 8
