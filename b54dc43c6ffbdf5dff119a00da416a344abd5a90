@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2fa2a0ec_5316af75",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4110,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-24T16:32:14Z",
+      "side": 1,
+      "message": "Style nit: We don\u0027t add `virtual` if a method has an `OVERRIDE` qualifier.",
+      "range": {
+        "startLine": 4110,
+        "startChar": 2,
+        "endLine": 4110,
+        "endChar": 9
+      },
+      "revId": "b54dc43c6ffbdf5dff119a00da416a344abd5a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b4819aa_959342f2",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
