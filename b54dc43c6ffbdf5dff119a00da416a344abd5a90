@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b4819aa_959342f2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-24T16:18:33Z",
+      "side": 1,
+      "message": "Doesn\u0027t look like the right bug. Do you have numbers there?",
+      "range": {
+        "startLine": 4121,
+        "startChar": 74,
+        "endLine": 4121,
+        "endChar": 83
+      },
+      "revId": "b54dc43c6ffbdf5dff119a00da416a344abd5a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd1f5deb_d2cd9e36",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-24T16:18:33Z",
+      "side": 1,
+      "message": "nit: move both arguments on a new line, 4 spaces after the GetTaskProcessor alignment.",
+      "range": {
+        "startLine": 4130,
+        "startChar": 30,
+        "endLine": 4132,
+        "endChar": 95
+      },
+      "revId": "b54dc43c6ffbdf5dff119a00da416a344abd5a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
