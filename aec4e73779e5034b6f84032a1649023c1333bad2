@@ -46,6 +46,30 @@
       "revId": "aec4e73779e5034b6f84032a1649023c1333bad2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58438506_6210a927",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-01-24T15:29:41Z",
+      "side": 1,
+      "message": "I see. I\u0027ll fix the graph in my test.\nThanks for the answer, Mingyao.",
+      "parentUuid": "94e4348e_a3bc4ada",
+      "range": {
+        "startLine": 312,
+        "startChar": 7,
+        "endLine": 312,
+        "endChar": 20
+      },
+      "revId": "aec4e73779e5034b6f84032a1649023c1333bad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
