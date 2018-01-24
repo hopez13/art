@@ -265,7 +265,13 @@ Runtime::Runtime()
       oat_file_manager_(nullptr),
       is_low_memory_mode_(false),
       safe_mode_(false),
+<<<<<<< Updated upstream
       do_hidden_api_checks_(false),
+=======
+      do_hidden_api_checks_(true),
+      pending_hidden_api_warning_(false),
+      dedup_hidden_api_warnings_(true),
+>>>>>>> Stashed changes
       dump_native_stack_on_sig_quit_(true),
       pruned_dalvik_cache_(false),
       // Initially assume we perceive jank in case the process state is never updated.
@@ -1169,7 +1175,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
 
   target_sdk_version_ = runtime_options.GetOrDefault(Opt::TargetSdkVersion);
 
-  if (runtime_options.Exists(Opt::NoHiddenApiChecks)) {
+  if (is_zygote_ || runtime_options.Exists(Opt::NoHiddenApiChecks)) {
     do_hidden_api_checks_ = false;
   }
 
