@@ -100,8 +100,10 @@ class ConcurrentCopying : public GarbageCollector {
   space::RegionSpace* RegionSpace() {
     return region_space_;
   }
+  // Assert the to-space invariant for a heap reference `ref` held in `obj` at offset `offset`.
   void AssertToSpaceInvariant(mirror::Object* obj, MemberOffset offset, mirror::Object* ref)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  // Assert the to-space invariant for a GC root reference `ref`.
   void AssertToSpaceInvariant(GcRootSource* gc_root_source, mirror::Object* ref)
       REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsInToSpace(mirror::Object* ref) REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -232,6 +234,18 @@ class ConcurrentCopying : public GarbageCollector {
   void ComputeUnevacFromSpaceLiveRatio();
   void LogFromSpaceRefHolder(mirror::Object* obj, MemberOffset offset)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  // Dump information about reference `ref` using log severity `severity`.
+  // Use `ref_name` to name the reference in messages. Each message is prefixed with `ident`.
+  void DumpReferenceInfo(mirror::Object* ref,
+                         const std::string& ref_name,
+                         std::string indent,
+                         android::base::LogSeverity severity)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  // Dump information about heap reference `ref`, referenced from object `obj` at offset `offset`.
+  void DumpHeapReference(mirror::Object* obj, MemberOffset offset, mirror::Object* ref)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  // Dump information about GC root `ref`.
+  void DumpGcRoot(mirror::Object* ref) REQUIRES_SHARED(Locks::mutator_lock_);
   void AssertToSpaceInvariantInNonMovingSpace(mirror::Object* obj, mirror::Object* ref)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void ReenableWeakRefAccess(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
