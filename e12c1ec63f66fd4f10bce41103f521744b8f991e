@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4052e34a_4b553026",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-01-24T23:44:23Z",
+      "side": 1,
+      "message": "ssize_t",
+      "range": {
+        "startLine": 678,
+        "startChar": 2,
+        "endLine": 678,
+        "endChar": 5
+      },
+      "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "849876d2_178376a6",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-01-24T23:44:23Z",
+      "side": 1,
+      "message": "Huh? Does it make sense to load the agent if the socket closed, for example?",
+      "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fff719e1_cbb8bdea",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-01-24T23:44:23Z",
+      "side": 1,
+      "message": "Is this expected to actually happen?\n\nAlso, in the res \u003c 0 case, you probably don\u0027t want this error message.",
+      "range": {
+        "startLine": 703,
+        "startChar": 0,
+        "endLine": 705,
+        "endChar": 60
+      },
+      "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73ea540c_2f6b53e0",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-01-24T23:44:23Z",
+      "side": 1,
+      "message": "Is this actually what you want to output? It looks pretty weird...",
+      "range": {
+        "startLine": 761,
+        "startChar": 31,
+        "endLine": 761,
+        "endChar": 50
+      },
+      "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
