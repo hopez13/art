@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9d05419f_6bf01634",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2018-01-24T09:57:53Z",
+      "side": 1,
+      "message": "Yes the toast displaying dlwarning is done pretty much the same way (with check on Activity start).",
+      "parentUuid": "58b93465_bb96f70f",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b142f95_81f51f2e",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 8
