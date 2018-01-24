@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df246296_c9a3b7d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-24T00:03:09Z",
+      "side": 1,
+      "message": "Include information on what was tested: (e.g. booted MIPS32R2, MIPS64R6, ran \u0027testrunner.py --target --optimizing --32\u0027). See e.g. my commits.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "3befc25e301560455a0f89cafc21c584ce720af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0989bd83_9cdcfbe5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4062,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-24T00:03:09Z",
+      "side": 1,
+      "message": "Rename to call_long_div for better consistency with the similar remainder code.",
+      "range": {
+        "startLine": 4062,
+        "startChar": 7,
+        "endLine": 4062,
+        "endChar": 23
+      },
+      "revId": "3befc25e301560455a0f89cafc21c584ce720af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9872637f_483cc93d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4088,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-24T00:03:09Z",
+      "side": 1,
+      "message": "Insert 2 more leading spaces.",
+      "range": {
+        "startLine": 4088,
+        "startChar": 0,
+        "endLine": 4088,
+        "endChar": 85
+      },
+      "revId": "3befc25e301560455a0f89cafc21c584ce720af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15f2d7aa_6b0432b5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8693,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-24T00:03:09Z",
+      "side": 1,
+      "message": "Rename to call_rem since the call is not just for longs but also for floats.",
+      "range": {
+        "startLine": 8693,
+        "startChar": 7,
+        "endLine": 8693,
+        "endChar": 23
+      },
+      "revId": "3befc25e301560455a0f89cafc21c584ce720af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc10a9aa_f261e7bf",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8716,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-01-24T00:03:09Z",
+      "side": 1,
+      "message": "Insert 2 more leading spaces.",
+      "range": {
+        "startLine": 8716,
+        "startChar": 0,
+        "endLine": 8716,
+        "endChar": 85
+      },
+      "revId": "3befc25e301560455a0f89cafc21c584ce720af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
