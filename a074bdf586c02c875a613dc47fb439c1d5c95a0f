@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "58b93465_bb96f70f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-24T04:32:34Z",
+      "side": 1,
+      "message": "Is that how Dimitry did the linker toasts? It seems rather inefficient to have the framework pull, instead of using a push mechanism.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b142f95_81f51f2e",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 8
