@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "8e2f844a_786c4359",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-24T18:45:08Z",
+      "side": 1,
+      "message": "Removed the LOG(FATAL) because this is now called early. Comment added",
+      "parentUuid": "c2323a18_5562eeb7",
+      "range": {
+        "startLine": 72,
+        "startChar": 12,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35a1db5c_04a960f6",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 8
