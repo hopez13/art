@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bc0d98e7_89532ac6",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-24T14:38:30Z",
+      "side": 1,
+      "message": "Why abort?",
+      "parentUuid": "6b142f95_81f51f2e",
+      "range": {
+        "startLine": 72,
+        "startChar": 12,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35a1db5c_04a960f6",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 8
@@ -83,6 +107,30 @@
       "writtenOn": "2018-01-23T22:06:26Z",
       "side": 1,
       "message": "WARNING",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 13
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d699fbb2_ed3d72e8",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-24T14:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35a1db5c_04a960f6",
       "range": {
         "startLine": 78,
         "startChar": 8,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "1a2e15fe_0211a212",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-24T14:38:30Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "a7afcbc8_86d33cfd",
+      "range": {
+        "startLine": 82,
+        "startChar": 12,
+        "endLine": 82,
+        "endChar": 21
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e27c75c5_88ae9748",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 8
@@ -129,6 +201,30 @@
       "writtenOn": "2018-01-23T22:06:26Z",
       "side": 1,
       "message": "WARNING",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 13
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01cd060a_12af22d5",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-24T14:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e27c75c5_88ae9748",
       "range": {
         "startLine": 88,
         "startChar": 8,
@@ -158,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "84d8da31_4f6f7d29",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-24T14:38:30Z",
+      "side": 1,
+      "message": "Is that a problem? This is a form of instrumentation and they are already in the right place. If I wanted to add my own, I would have to insert them at exactly the same locations. And this \"notifies\" the user?",
+      "parentUuid": "c41e204a_e3549cf1",
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "be09d3db_8473a7b2",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 8
@@ -169,6 +283,30 @@
       "writtenOn": "2018-01-23T22:06:26Z",
       "side": 1,
       "message": "This should have been caught in the verifier.",
+      "range": {
+        "startLine": 835,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 90
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "573bfa40_21fb28ee",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-24T14:38:30Z",
+      "side": 1,
+      "message": "I\u0027m assuming this should be scratched too",
+      "parentUuid": "be09d3db_8473a7b2",
       "range": {
         "startLine": 835,
         "startChar": 0,
@@ -274,6 +412,30 @@
       "writtenOn": "2018-01-23T22:06:26Z",
       "side": 1,
       "message": "Add a comment.",
+      "range": {
+        "startLine": 979,
+        "startChar": 0,
+        "endLine": 979,
+        "endChar": 35
+      },
+      "revId": "a074bdf586c02c875a613dc47fb439c1d5c95a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14e3b3da_c9e7432f",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-24T14:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15013a82_567bb99e",
       "range": {
         "startLine": 979,
         "startChar": 0,
