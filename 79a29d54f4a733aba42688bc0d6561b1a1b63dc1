@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da0f12be_ad22200b",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-01-24T13:06:22Z",
+      "side": 1,
+      "message": "If we are adding an Android.bp to ahat, would now be a good time for me to learn enough about .bp files to replace ahat\u0027s Android.mk entirely with Android.bp?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 50
+      },
+      "revId": "79a29d54f4a733aba42688bc0d6561b1a1b63dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5eacc8ac_a46c8409",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-01-24T13:06:22Z",
+      "side": 1,
+      "message": "Is there documentation anywhere for this that I can read to understand what it means and how to use it?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "79a29d54f4a733aba42688bc0d6561b1a1b63dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a4b6ee0_6c62d8e9",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-01-24T13:06:22Z",
+      "side": 1,
+      "message": "Does this mean ahat gets its own special rules in the build system? I would rather not have ahat built into the build system. I\u0027m happy to chat about what I\u0027m trying to accomplish here and what more general solution in the build system would work well for ahat.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "79a29d54f4a733aba42688bc0d6561b1a1b63dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
