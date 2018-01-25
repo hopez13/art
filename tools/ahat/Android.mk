@@ -117,7 +117,7 @@ AHAT_TEST_DUMP_BASE_ANDROID_DATA := $(intermediates.COMMON)/test-dump-base-andro
 # Generate the proguard map in the desired location by copying it from
 # wherever the build system generates it by default.
 $(AHAT_TEST_DUMP_PROGUARD_MAP): PRIVATE_AHAT_SOURCE_PROGUARD_MAP := $(proguard_dictionary)
-$(AHAT_TEST_DUMP_PROGUARD_MAP): $(proguard_dictionary)
+$(AHAT_TEST_DUMP_PROGUARD_MAP): ahat-test-dump
 	cp $(PRIVATE_AHAT_SOURCE_PROGUARD_MAP) $@
 
 # Run ahat-test-dump.jar to generate test-dump.hprof and test-dump-base.hprof
