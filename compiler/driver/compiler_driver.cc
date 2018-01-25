@@ -2731,6 +2731,12 @@ void CompilerDriver::AddCompiledMethod(const MethodReference& method_ref,
   DCHECK(GetCompiledMethod(method_ref) != nullptr) << method_ref.PrettyMethod();
 }
 
+CompiledMethod* CompilerDriver::RemoveCompiledMethod(const MethodReference& method_ref) {
+  CompiledMethod* ret = nullptr;
+  CHECK(compiled_methods_.Remove(method_ref, &ret));
+  return ret;
+}
+
 bool CompilerDriver::GetCompiledClass(const ClassReference& ref, ClassStatus* status) const {
   DCHECK(status != nullptr);
   // The table doesn't know if something wasn't inserted. For this case it will return
