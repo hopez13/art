@@ -22,6 +22,30 @@
       "revId": "c3a22aa19bbe35ff8447460b29e07d42937a39de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27d8275f_43286d72",
+        "filename": "runtime/dex/compact_dex_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-25T21:19:49Z",
+      "side": 1,
+      "message": "Right now I just update the vdex version when I do breaking changes. There is not yet anything that tests the versions of the files in the vdex, presumably dex version changes are assumed to be backwards compatible.",
+      "parentUuid": "d3643894_f4460efe",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 70
+      },
+      "revId": "c3a22aa19bbe35ff8447460b29e07d42937a39de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
