@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e8576923_12411cc8",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3372,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-25T00:26:28Z",
+      "side": 1,
+      "message": "This type of stream doesn\u0027t support Tell :(",
+      "parentUuid": "1633d003_f0d127da",
+      "range": {
+        "startLine": 3372,
+        "startChar": 38,
+        "endLine": 3372,
+        "endChar": 64
+      },
+      "revId": "4a640b4ea953fce0fb9252c08c9082f0b556dbe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66432bfb_723cf832",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3319d592_40458e77",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3384,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-25T00:26:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66432bfb_723cf832",
+      "range": {
+        "startLine": 3384,
+        "startChar": 13,
+        "endLine": 3384,
+        "endChar": 36
+      },
+      "revId": "4a640b4ea953fce0fb9252c08c9082f0b556dbe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a62c0d4a_158d280e",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "4a640b4ea953fce0fb9252c08c9082f0b556dbe3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01b9f981_20a35c76",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3583,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-25T00:26:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a62c0d4a_158d280e",
+      "range": {
+        "startLine": 3583,
+        "startChar": 7,
+        "endLine": 3583,
+        "endChar": 12
+      },
+      "revId": "4a640b4ea953fce0fb9252c08c9082f0b556dbe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
