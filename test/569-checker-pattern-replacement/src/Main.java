@@ -255,8 +255,7 @@ public class Main {
   /// CHECK-DAG:  <<Arg2:i\d+>>       ParameterValue
   /// CHECK-DAG:  <<NullCk:l\d+>>     NullCheck [<<Second>>]
   /// CHECK-DAG:                      InstanceFieldSet [<<NullCk>>,<<Value>>]
-  /// CHECK-DAG:  <<NullCk2:l\d+>>    NullCheck [<<Second>>]
-  /// CHECK-DAG:  <<IGet:j\d+>>       InstanceFieldGet [<<NullCk2>>]
+  /// CHECK-DAG:  <<IGet:j\d+>>       InstanceFieldGet [<<NullCk>>]
   /// CHECK-DAG:  <<Conv:j\d+>>       TypeConversion [<<Arg2>>]
   /// CHECK-DAG:  <<Add:j\d+>>        Add [<<IGet>>,<<Conv>>]
   /// CHECK-DAG:                      Return [<<Add>>]

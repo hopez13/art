@@ -106,7 +106,9 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
   void VisitDeoptimize(HDeoptimize* deoptimize) OVERRIDE;
   void VisitVecMul(HVecMul* instruction) OVERRIDE;
 
-  bool CanEnsureNotNullAt(HInstruction* instr, HInstruction* at) const;
+  bool CanEnsureNotNullAt(HInstruction* input,
+                          HInstruction* at,
+                          HInstruction** replacement = nullptr) const;
 
   void SimplifyRotate(HInvoke* invoke, bool is_left, DataType::Type type);
   void SimplifySystemArrayCopy(HInvoke* invoke);
@@ -549,9 +551,10 @@ bool InstructionSimplifierVisitor::TryReplaceWithRotateRegisterSubPattern(HBinar
 }
 
 void InstructionSimplifierVisitor::VisitNullCheck(HNullCheck* null_check) {
-  HInstruction* obj = null_check->InputAt(0);
-  if (!obj->CanBeNull()) {
-    null_check->ReplaceWith(obj);
+  HInstruction* object = null_check->InputAt(0);
+  HInstruction* replacement = object;
+  if (CanEnsureNotNullAt(object, null_check, /*out*/ &replacement)) {
+    null_check->ReplaceWith(replacement);
     null_check->GetBlock()->RemoveInstruction(null_check);
     if (stats_ != nullptr) {
       stats_->RecordStat(MethodCompilationStat::kRemovedNullCheck);
@@ -559,7 +562,47 @@ void InstructionSimplifierVisitor::VisitNullCheck(HNullCheck* null_check) {
   }
 }
 
-bool InstructionSimplifierVisitor::CanEnsureNotNullAt(HInstruction* input, HInstruction* at) const {
+// Returns true if there is a non-zero control dependence.
+//   cond: if (object != null) {
+//           basic_block
+//         }
+static bool HasNonNullControlDependence(HInstruction* condition,
+                                        HInstruction* object,
+                                        HBasicBlock* basic_block) {
+  // Controling != or == condition?
+  bool test_eq = true;
+  HBasicBlock* control_block = condition->GetBlock();
+  if (control_block == basic_block || !control_block->Dominates(basic_block)) {
+    return false;
+  } else if (condition->IsNotEqual()) {
+    test_eq = false;
+  } else if (!condition->IsEqual()) {
+    return false;
+  }
+  // Controling object != null or object == null condition?
+  HInstruction* i0 = condition->InputAt(0);
+  HInstruction* i1 = condition->InputAt(1);
+  if ((i0 == object && i1->IsNullConstant()) ||
+      (i1 == object && i0->IsNullConstant())) {
+    // Usage is along the non-null branch.
+    HInstruction* last = control_block->GetLastInstruction();
+    if (last->IsIf() && last->InputAt(0) == condition) {
+      HIf* ifs = last->AsIf();
+      HBasicBlock* y = ifs->IfTrueSuccessor();
+      HBasicBlock* n = ifs->IfFalseSuccessor();
+      if (test_eq) {
+        return n->Dominates(basic_block) && !y->Dominates(basic_block);
+      } else {
+        return y->Dominates(basic_block) && !n->Dominates(basic_block);
+      }
+    }
+  }
+  return false;
+}
+
+bool InstructionSimplifierVisitor::CanEnsureNotNullAt(HInstruction* input,
+                                                      HInstruction* at,
+                                                      HInstruction** replacement) const {
   if (!input->CanBeNull()) {
     return true;
   }
@@ -567,6 +610,14 @@ bool InstructionSimplifierVisitor::CanEnsureNotNullAt(HInstruction* input, HInst
   for (const HUseListNode<HInstruction*>& use : input->GetUses()) {
     HInstruction* user = use.GetUser();
     if (user->IsNullCheck() && user->StrictlyDominates(at)) {
+      if (replacement != nullptr) {
+        // Even though though we could replace the calling null check
+        // directly by the input object, replacing it with the
+        // dominating null check ensures better GVN later.
+        *replacement = user;
+      }
+      return true;
+    } else if (HasNonNullControlDependence(user, input, at->GetBlock())) {
       return true;
     }
   }
