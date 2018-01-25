@@ -146,6 +146,42 @@ static HConstant* Evaluate(HCondition* condition, HInstruction* left, HInstructi
   }
 }
 
+static bool RemoveNonNullControlDependences(HBasicBlock* block, HBasicBlock* throws) {
+  // Find obj != null or obj == null where non-throwing path sees non-null.
+  if (!block->EndsWithIf()) {
+    return false;
+  }
+  HIf* ifs = block->GetLastInstruction()->AsIf();
+  HInstruction* cond = ifs->InputAt(0);
+  if ((throws != ifs->IfTrueSuccessor() || !cond->IsEqual()) &&
+      (throws != ifs->IfFalseSuccessor() || !cond->IsNotEqual())) {
+    return false;
+  }
+  DCHECK(cond->IsEqual() || cond->IsNotEqual());
+  HInstruction* obj = cond->InputAt(1);
+  if (obj->IsNullConstant()) {
+    obj = cond->InputAt(0);
+  } else if (!cond->InputAt(0)->IsNullConstant()) {
+    return false;
+  }
+  // Scan all uses of obj and find null check under control dependence.
+  bool removed = false;
+  const HUseList<HInstruction*>& uses = obj->GetUses();
+  for (auto it = uses.begin(), end = uses.end(); it != end;) {
+    HInstruction* user = it->GetUser();
+    ++it;  // increment before possibly replacing
+    if (user->IsNullCheck()) {
+      HBasicBlock* user_block = user->GetBlock();
+      if (user_block != throws && block->Dominates(user_block)) {
+        user->ReplaceWith(obj);
+        user_block->RemoveInstruction(user);
+        removed = true;
+      }
+    }
+  }
+  return removed;
+}
+
 // Simplify the pattern:
 //
 //           B1
@@ -203,6 +239,11 @@ bool HDeadCodeElimination::SimplifyAlwaysThrows() {
         block->ReplaceSuccessor(succ, exit);
         rerun_dominance_and_loop_analysis = true;
         MaybeRecordStat(stats_, MethodCompilationStat::kSimplifyThrowingInvoke);
+        // Perform a quick follow up optimization on object != null control dependences
+        // that is much cheaper to perform now than in a later phase.
+        if (RemoveNonNullControlDependences(pred, block)) {
+          MaybeRecordStat(stats_, MethodCompilationStat::kRemovedNullCheck);
+        }
       }
     }
   }
