@@ -79,7 +79,7 @@ static constexpr off_t kPacketCommandOff = 10;
 static constexpr uint8_t kDdmCommandSet = 199;
 static constexpr uint8_t kDdmChunkCommand = 1;
 
-static AdbConnectionState* gState;
+static AdbConnectionState gState;
 
 static bool IsDebuggingPossible() {
   return art::Dbg::IsJdwpAllowed();
@@ -122,8 +122,8 @@ class ScopedEventFdLock {
   uint64_t data_;
 };
 
-AdbConnectionState::AdbConnectionState(const std::string& agent_name)
-  : agent_name_(agent_name),
+AdbConnectionState::AdbConnectionState()
+  : agent_name_(),
     controller_(this),
     ddm_callback_(this),
     sleep_event_fd_(-1),
@@ -140,6 +140,11 @@ AdbConnectionState::AdbConnectionState(const std::string& agent_name)
     performed_handshake_(false),
     notified_ddm_active_(false),
     next_ddm_id_(1) {
+}
+
+void AdbConnectionState::Initialize(const std::string& agent_name) {
+  agent_name_ = agent_name;
+
   // Setup the addr.
   control_addr_.controlAddrUn.sun_family = AF_UNIX;
   control_addr_len_ = sizeof(control_addr_.controlAddrUn.sun_family) + sizeof(kJdwpControlName) - 1;
@@ -545,6 +550,7 @@ bool AdbConnectionState::SetupAdbConnection() {
 }
 
 void AdbConnectionState::RunPollLoop(art::Thread* self) {
+  CHECK_NE(agent_name_, "");
   CHECK_EQ(self->GetState(), art::kNative);
   art::Locks::mutator_lock_->AssertNotHeld(self);
   self->SetState(art::kWaitingInMainDebuggerLoop);
@@ -847,17 +853,12 @@ void AdbConnectionState::StopDebuggerThreads() {
 extern "C" bool ArtPlugin_Initialize() REQUIRES_SHARED(art::Locks::mutator_lock_) {
   DCHECK(art::Runtime::Current()->GetJdwpProvider() == art::JdwpProvider::kAdbConnection);
   // TODO Provide some way for apps to set this maybe?
-  gState = new AdbConnectionState(kDefaultJdwpAgentName);
-  CHECK(gState != nullptr);
+  gState.Initialize(kDefaultJdwpAgentName);
   return true;
 }
 
 extern "C" bool ArtPlugin_Deinitialize() {
-  CHECK(gState != nullptr);
-  // Just do this a second time?
-  // TODO I don't think this should be needed.
-  gState->StopDebuggerThreads();
-  delete gState;
+  gState.StopDebuggerThreads();
   return true;
 }
 

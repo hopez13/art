@@ -72,7 +72,9 @@ struct AdbConnectionDdmCallback : public art::DdmCallback {
 
 class AdbConnectionState {
  public:
-  explicit AdbConnectionState(const std::string& agent_name);
+  AdbConnectionState();
+
+  void Initialize(const std::string& name);
 
   // Called on the listening thread to start dealing with new input. thr is used to attach the new
   // thread to the runtime.
