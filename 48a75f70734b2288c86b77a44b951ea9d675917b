@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de95e7d1_af1e0478",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-25T10:17:39Z",
+      "side": 1,
+      "message": "\"... just say we don\u0027t need to warn in case the accesser is boot classpath?\"",
+      "range": {
+        "startLine": 60,
+        "startChar": 12,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "48a75f70734b2288c86b77a44b951ea9d675917b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6941fe71_ff40db44",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-25T10:17:39Z",
+      "side": 1,
+      "message": "ShouldDedupeHiddenApiWarnings (missing \u0027e\u0027 on Dedup).",
+      "range": {
+        "startLine": 118,
+        "startChar": 26,
+        "endLine": 118,
+        "endChar": 54
+      },
+      "revId": "48a75f70734b2288c86b77a44b951ea9d675917b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca40d971_240426d9",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-25T10:17:39Z",
+      "side": 1,
+      "message": "Add that this is only used for testing.",
+      "range": {
+        "startLine": 991,
+        "startChar": 2,
+        "endLine": 991,
+        "endChar": 65
+      },
+      "revId": "48a75f70734b2288c86b77a44b951ea9d675917b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
