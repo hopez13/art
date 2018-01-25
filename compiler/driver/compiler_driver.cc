@@ -540,7 +540,7 @@ static void CompileMethod(Thread* self,
       DCHECK(!Runtime::Current()->UseJitCompilation());
       DCHECK(!driver->GetCompilingDexToDex());
       // TODO: add a command-line option to disable DEX-to-DEX compilation ?
-      driver->GetDexToDexCompiler().MarkForCompilation(self, method_ref, code_item);
+      driver->GetDexToDexCompiler().MarkForCompilation(self, method_ref);
     }
   }
   if (kTimeCompileMethod) {
@@ -628,7 +628,7 @@ void CompilerDriver::CompileOne(Thread* self, ArtMethod* method, TimingLogger* t
                 true,
                 dex_cache);
 
-  const size_t num_methods = dex_to_dex_compiler_.NumUniqueCodeItems(self);
+  const size_t num_methods = dex_to_dex_compiler_.NumCodeItemsToQuicken(self);
   if (num_methods != 0) {
     DCHECK_EQ(num_methods, 1u);
     compiling_dex_to_dex_ = true;
@@ -2600,7 +2600,7 @@ void CompilerDriver::Compile(jobject class_loader,
     Runtime::Current()->ReclaimArenaPoolMemory();
   }
 
-  if (dex_to_dex_compiler_.NumUniqueCodeItems(Thread::Current()) > 0u) {
+  if (dex_to_dex_compiler_.NumCodeItemsToQuicken(Thread::Current()) > 0u) {
     compiling_dex_to_dex_ = true;
     // TODO: Not visit all of the dex files, its probably rare that only one would have quickened
     // methods though.
@@ -2614,6 +2614,7 @@ void CompilerDriver::Compile(jobject class_loader,
     }
     dex_to_dex_compiler_.ClearState();
     compiling_dex_to_dex_ = false;
+    dex_to_dex_compiler_.UnquickenConflictingMethods();
   }
 
   VLOG(compiler) << "Compile: " << GetMemoryUsageString(false);
@@ -2729,6 +2730,12 @@ void CompilerDriver::AddCompiledMethod(const MethodReference& method_ref,
   CHECK(result == MethodTable::kInsertResultSuccess);
   non_relative_linker_patch_count_.FetchAndAddRelaxed(non_relative_linker_patch_count);
   DCHECK(GetCompiledMethod(method_ref) != nullptr) << method_ref.PrettyMethod();
+}
+
+CompiledMethod* CompilerDriver::RemoveCompiledMethod(const MethodReference& method_ref) {
+  CompiledMethod* ret = nullptr;
+  CHECK(compiled_methods_.Remove(method_ref, &ret));
+  return ret;
 }
 
 bool CompilerDriver::GetCompiledClass(const ClassReference& ref, ClassStatus* status) const {
@@ -2904,6 +2911,7 @@ void CompilerDriver::FreeThreadPools() {
 void CompilerDriver::SetDexFilesForOatFile(const std::vector<const DexFile*>& dex_files) {
   dex_files_for_oat_file_ = dex_files;
   compiled_classes_.AddDexFiles(dex_files);
+  dex_to_dex_compiler_.SetDexFiles(dex_files);
 }
 
 void CompilerDriver::SetClasspathDexFiles(const std::vector<const DexFile*>& dex_files) {
