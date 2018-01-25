@@ -64,6 +64,10 @@ class DexToDexCompiler {
 
   void ClearState();
 
+  // Unquicken all methods that ahve conflicting quicken info. This is not done during the
+  // quickening process to avoid race conditions.
+  void UnquickenConflictingMethods();
+
   CompilerDriver* GetDriver() {
     return driver_;
   }
@@ -141,6 +145,9 @@ class DexToDexCompiler {
     // opcodes.
     std::vector<QuickenedInfo> quickened_info_;
 
+    // True if we optimized a return void to a return void no barrier.
+    bool optimized_return_void_ = false;
+
     // If the code item was already quickened previously.
     const bool already_quickened_;
     const QuickenInfoTable existing_quicken_info_;
@@ -149,9 +156,12 @@ class DexToDexCompiler {
     DISALLOW_COPY_AND_ASSIGN(CompilationState);
   };
 
+  // Quicken state for a code item, may be referenced by multiple methods.
   struct QuickenState {
     std::vector<MethodReference> methods_;
     std::vector<uint8_t> quicken_data_;
+    bool optimized_return_void_ = false;
+    bool conflict_ = false;
   };
 
   BitVector* GetOrAddBitVectorForDex(const DexFile* dex_file) REQUIRES(lock_);
@@ -172,7 +182,7 @@ class DexToDexCompiler {
   // Guarded by lock_ during writing, accessed without a lock during quickening.
   // This is safe because no thread is adding to the shared code items during the quickening phase.
   std::unordered_set<const DexFile::CodeItem*> shared_code_items_;
-  std::unordered_set<const DexFile::CodeItem*> blacklisted_code_items_ GUARDED_BY(lock_);
+  // Blacklisted code items are unquickened in UnquickenConflictingMethods.
   std::unordered_map<const DexFile::CodeItem*, QuickenState> shared_code_item_quicken_info_
       GUARDED_BY(lock_);
 };
