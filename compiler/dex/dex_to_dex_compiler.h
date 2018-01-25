@@ -141,6 +141,9 @@ class DexToDexCompiler {
     // opcodes.
     std::vector<QuickenedInfo> quickened_info_;
 
+    // True if we optimized a return void to a return void no barrier.
+    bool optimized_return_void_ = false;
+
     // If the code item was already quickened previously.
     const bool already_quickened_;
     const QuickenInfoTable existing_quicken_info_;
@@ -152,6 +155,7 @@ class DexToDexCompiler {
   struct QuickenState {
     std::vector<MethodReference> methods_;
     std::vector<uint8_t> quicken_data_;
+    bool optimized_return_void_ = false;
   };
 
   BitVector* GetOrAddBitVectorForDex(const DexFile* dex_file) REQUIRES(lock_);

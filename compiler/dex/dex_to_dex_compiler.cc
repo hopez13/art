@@ -316,6 +316,7 @@ void DexToDexCompiler::CompilationState::CompileReturnVoid(Instruction* inst, ui
                  << " at dex pc " << StringPrintf("0x%x", dex_pc) << " in method "
                  << GetDexFile().PrettyMethod(unit_.GetDexMethodIndex(), true);
   inst->SetOpcode(Instruction::RETURN_VOID_NO_BARRIER);
+  optimized_return_void_ = true;
 }
 
 Instruction* DexToDexCompiler::CompilationState::CompileCheckCast(Instruction* inst,
@@ -472,19 +473,22 @@ CompiledMethod* DexToDexCompiler::CompileMethod(
     }
     auto existing = shared_code_item_quicken_info_.find(code_item);
     const bool already_quickened = existing != shared_code_item_quicken_info_.end();
+    bool optimized_return_void;
     {
       CompilationState state(this,
                              unit,
                              compilation_level,
                              already_quickened ? &existing->second.quicken_data_ : nullptr);
       quicken_data = state.Compile();
+      optimized_return_void = state.optimized_return_void_;
     }
 
     // Already quickened, check that the data matches what was previously seen.
     MethodReference method_ref(&dex_file, method_idx);
     if (already_quickened) {
       QuickenState* const existing_data = &existing->second;
-      if (existing_data->quicken_data_ != quicken_data) {
+      if (existing_data->quicken_data_ != quicken_data ||
+          existing_data->optimized_return_void_ != optimized_return_void) {
         VLOG(compiler) << "Quicken data mismatch, dequickening method "
                        << dex_file.PrettyMethod(method_idx);
         // Unquicken using the existing quicken data.
@@ -495,20 +499,28 @@ CompiledMethod* DexToDexCompiler::CompileMethod(
         // Go clear the vmaps for all the methods that were already quickened to avoid writing them
         // out during oat writing.
         for (const MethodReference& ref : existing_data->methods_) {
-          CompiledMethod* method = driver_->GetCompiledMethod(ref);
-          DCHECK(method != nullptr);
-          method->ReleaseVMapTable();
+          CompiledMethod* method = driver_->RemoveCompiledMethod(ref);
+          CHECK(method != nullptr);
+          // There is up to one compiled methdo for each method ref. Releasing it leaves the
+          // deduped data intact, this means its safe to do even when other threads might be
+          // compiling.
+          CompiledMethod::ReleaseSwapAllocatedCompiledMethod(driver_, method);
         }
         // Blacklist the method to never attempt to quicken it in the future.
         blacklisted_code_items_.insert(code_item);
         shared_code_item_quicken_info_.erase(existing);
         return nullptr;
       }
-      existing_data->methods_.push_back(method_ref);
+      if (!quicken_data.empty()) {
+        existing_data->methods_.push_back(method_ref);
+      }
     } else {
       QuickenState new_state;
-      new_state.methods_.push_back(method_ref);
+      if (!quicken_data.empty()) {
+        new_state.methods_.push_back(method_ref);
+      }
       new_state.quicken_data_ = quicken_data;
+      new_state.optimized_return_void_ = optimized_return_void;
       bool inserted = shared_code_item_quicken_info_.emplace(code_item, new_state).second;
       CHECK(inserted) << "Failed to insert " << dex_file.PrettyMethod(method_idx);
     }
