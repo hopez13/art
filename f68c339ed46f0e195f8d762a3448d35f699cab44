@@ -22,6 +22,30 @@
       "revId": "f68c339ed46f0e195f8d762a3448d35f699cab44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d67ebd2_c0532686",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-01-25T17:59:58Z",
+      "side": 1,
+      "message": "Since it seems to show benefit, I would go ahead and leave it as is for now.\n\nThinking about this more, I would still greatly prefer to tie this to something else, but I\u0027m not sure there\u0027s anything good to tie it to. I think a lot of apps start background tasks early on that build up significant data structures, e.g. sqlite CursorWindows, probably without generating much garbage. I think the app would really have to tell us when it\u0027s done.\n\nWith the CC collector, it seems reasonably safe to let the app have some control over GC triggering? With CMS that would probably have risked fragmentation. It might make sense to provide a more general \"start growth spurt/ end growth spurt\" API, internally for now, and then declare the first two seconds a \"growth spurt\" by default?",
+      "parentUuid": "42bf7ffe_c4bfb521",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 58
+      },
+      "revId": "f68c339ed46f0e195f8d762a3448d35f699cab44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
