@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf432aff_16f0b9cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-01-25T21:40:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is the right explanation and if this is the right fix because when I observed the build breaking, make started running the \"cp\" command which then failed with:\n\ncp: cannot stat ‘out/target/common/obj/JAVA_LIBRARIES/ahat-test-dump_intermediates/proguard_dictionary’: No such file or directory\n\nBut if the problem was that $(proguard_dictionary) couldn\u0027t be made, I would have expected an error message along the lines of:\n\n‘out/target/common/obj/JAVA_LIBRARIES/ahat-test-dump_intermediates/proguard_dictionary’ doesn\u0027t exist and no rule to make it\n\nor similar.\n\nAny idea?",
+      "range": {
+        "startLine": 11,
+        "startChar": 11,
+        "endLine": 12,
+        "endChar": 63
+      },
+      "revId": "d702005f5417aecc9c48459d9798d1254dc61852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
