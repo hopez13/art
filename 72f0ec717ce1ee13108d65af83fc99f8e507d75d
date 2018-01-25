@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28cb0ceb_19e6cac8",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-01-25T21:30:14Z",
+      "side": 1,
+      "message": "I don\u0027t know why this doesn\u0027t break 100% of the time because I don\u0027t see any rule for making this dependency $(proguard_dictionary)\n\nMy suspicion is that if that file happens to exist by the time make gets here, it doesn\u0027t complain even though it wouldn\u0027t have known how to make that dependency if it didn\u0027t happen to exist right now.\n\nThis line probably needs to be:\n\n$(AHAT_TEST_DUMP_PROGUARD_MAP): ahat-test-dump\n\nor similar in order to ensure that $(proguard_dictionary) exists (eg. by ensuring, as here, that the ahat-test-dump target is made first, which will result in $(proguard_dictionary) being created as a side effect?\n\nSee http://b/71710349#comment5\n\nI\u0027ll test this some more and then send you a CL for review.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 54
+      },
+      "revId": "72f0ec717ce1ee13108d65af83fc99f8e507d75d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
