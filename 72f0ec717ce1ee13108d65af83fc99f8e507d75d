@@ -22,6 +22,30 @@
       "revId": "72f0ec717ce1ee13108d65af83fc99f8e507d75d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb03c394_00d10e40",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-25T21:34:10Z",
+      "side": 1,
+      "message": "proguard_dictionary is set / built in build/make/core/java.mk: it\u0027s an extra output specified by .KATI_IMPLICIT_OUTPUTS, so it\u0027s considered a side effect of R8 or proguard.\n\nahat-test-dump would be incorrect, this doesn\u0027t need to depend on the installed version.",
+      "parentUuid": "28cb0ceb_19e6cac8",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 54
+      },
+      "revId": "72f0ec717ce1ee13108d65af83fc99f8e507d75d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
