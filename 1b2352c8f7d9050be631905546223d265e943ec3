@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "6ef5bb18_49223349",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-25T18:07:07Z",
+      "side": 1,
+      "message": "Should we increase this? I wonder if 2000ms is too low for low end devices.",
+      "range": {
+        "startLine": 148,
+        "startChar": 24,
+        "endLine": 148,
+        "endChar": 50
+      },
+      "revId": "1b2352c8f7d9050be631905546223d265e943ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf344ce0_3581ff7f",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 6
