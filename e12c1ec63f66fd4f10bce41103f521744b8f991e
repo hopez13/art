@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a156f3f4_e183c4b9",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-25T00:02:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4052e34a_4b553026",
+      "range": {
+        "startLine": 678,
+        "startChar": 2,
+        "endLine": 678,
+        "endChar": 5
+      },
+      "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "849876d2_178376a6",
         "filename": "adbconnection/adbconnection.cc",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "06715244_c1baf9d3",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-25T00:02:41Z",
+      "side": 1,
+      "message": "This function will only be entered if the socket has data waiting on it according to \u0027poll\u0027. This is just a fallback in the unlikely event that we get a weirdly short packet. It\u0027s probably an error but it would be better to have the agent handle it.",
+      "parentUuid": "849876d2_178376a6",
+      "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fff719e1_cbb8bdea",
         "filename": "adbconnection/adbconnection.cc",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2018-01-24T23:44:23Z",
       "side": 1,
       "message": "Is this expected to actually happen?\n\nAlso, in the res \u003c 0 case, you probably don\u0027t want this error message.",
+      "range": {
+        "startLine": 703,
+        "startChar": 0,
+        "endLine": 705,
+        "endChar": 60
+      },
+      "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b4fe643_ea0bda43",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-25T00:02:41Z",
+      "side": 1,
+      "message": "Not really but it is possible. (for example a massive packet that gets split up or something).\n\nSince it\u0027s not expected to ever really happen and handling it correctly is difficult I figure we might as well perform the fallback so we don\u0027t need to wait around for the data here.",
+      "parentUuid": "fff719e1_cbb8bdea",
       "range": {
         "startLine": 703,
         "startChar": 0,
@@ -85,6 +151,30 @@
       "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "530b6949_633314b7",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-25T00:02:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73ea540c_2f6b53e0",
+      "range": {
+        "startLine": 761,
+        "startChar": 31,
+        "endLine": 761,
+        "endChar": 50
+      },
+      "revId": "e12c1ec63f66fd4f10bce41103f521744b8f991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
