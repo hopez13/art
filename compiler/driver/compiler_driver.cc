@@ -540,7 +540,7 @@ static void CompileMethod(Thread* self,
       DCHECK(!Runtime::Current()->UseJitCompilation());
       DCHECK(!driver->GetCompilingDexToDex());
       // TODO: add a command-line option to disable DEX-to-DEX compilation ?
-      driver->GetDexToDexCompiler().MarkForCompilation(self, method_ref, code_item);
+      driver->GetDexToDexCompiler().MarkForCompilation(self, method_ref);
     }
   }
   if (kTimeCompileMethod) {
@@ -2614,6 +2614,7 @@ void CompilerDriver::Compile(jobject class_loader,
     }
     dex_to_dex_compiler_.ClearState();
     compiling_dex_to_dex_ = false;
+    dex_to_dex_compiler_.UnquickenConflictingMethods();
   }
 
   VLOG(compiler) << "Compile: " << GetMemoryUsageString(false);
@@ -2729,6 +2730,12 @@ void CompilerDriver::AddCompiledMethod(const MethodReference& method_ref,
   CHECK(result == MethodTable::kInsertResultSuccess);
   non_relative_linker_patch_count_.FetchAndAddRelaxed(non_relative_linker_patch_count);
   DCHECK(GetCompiledMethod(method_ref) != nullptr) << method_ref.PrettyMethod();
+}
+
+CompiledMethod* CompilerDriver::RemoveCompiledMethod(const MethodReference& method_ref) {
+  CompiledMethod* ret = nullptr;
+  CHECK(compiled_methods_.Remove(method_ref, &ret));
+  return ret;
 }
 
 bool CompilerDriver::GetCompiledClass(const ClassReference& ref, ClassStatus* status) const {
@@ -2904,6 +2911,7 @@ void CompilerDriver::FreeThreadPools() {
 void CompilerDriver::SetDexFilesForOatFile(const std::vector<const DexFile*>& dex_files) {
   dex_files_for_oat_file_ = dex_files;
   compiled_classes_.AddDexFiles(dex_files);
+  dex_to_dex_compiler_.SetDexFiles(dex_files);
 }
 
 void CompilerDriver::SetClasspathDexFiles(const std::vector<const DexFile*>& dex_files) {

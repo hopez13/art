@@ -55,16 +55,14 @@ void DexToDexCompiler::ClearState() {
   MutexLock lock(Thread::Current(), lock_);
   active_dex_file_ = nullptr;
   active_bit_vector_ = nullptr;
-  seen_code_items_.clear();
   should_quicken_.clear();
   shared_code_items_.clear();
-  blacklisted_code_items_.clear();
   shared_code_item_quicken_info_.clear();
 }
 
 size_t DexToDexCompiler::NumUniqueCodeItems(Thread* self) const {
   MutexLock lock(self, lock_);
-  return seen_code_items_.size();
+  return 1u;
 }
 
 BitVector* DexToDexCompiler::GetOrAddBitVectorForDex(const DexFile* dex_file) {
@@ -80,17 +78,13 @@ BitVector* DexToDexCompiler::GetOrAddBitVectorForDex(const DexFile* dex_file) {
 }
 
 void DexToDexCompiler::MarkForCompilation(Thread* self,
-                                          const MethodReference& method_ref,
-                                          const DexFile::CodeItem* code_item) {
+                                          const MethodReference& method_ref) {
   MutexLock lock(self, lock_);
   BitVector* const bitmap = GetOrAddBitVectorForDex(method_ref.dex_file);
   DCHECK(bitmap != nullptr);
   DCHECK(!bitmap->IsBitSet(method_ref.index));
   bitmap->SetBit(method_ref.index);
-  // Detect the shared code items.
-  if (!seen_code_items_.insert(code_item).second) {
-    shared_code_items_.insert(code_item);
-  }
+  ++num_code_items_;
 }
 
 DexToDexCompiler::CompilationState::CompilationState(DexToDexCompiler* compiler,
@@ -316,6 +310,7 @@ void DexToDexCompiler::CompilationState::CompileReturnVoid(Instruction* inst, ui
                  << " at dex pc " << StringPrintf("0x%x", dex_pc) << " in method "
                  << GetDexFile().PrettyMethod(unit_.GetDexMethodIndex(), true);
   inst->SetOpcode(Instruction::RETURN_VOID_NO_BARRIER);
+  optimized_return_void_ = true;
 }
 
 Instruction* DexToDexCompiler::CompilationState::CompileCheckCast(Instruction* inst,
@@ -464,51 +459,48 @@ CompiledMethod* DexToDexCompiler::CompileMethod(
   // If the code item is shared with multiple different method ids, make sure that we quicken only
   // once and verify that all the dequicken maps match.
   if (UNLIKELY(shared_code_items_.find(code_item) != shared_code_items_.end())) {
-    // For shared code items, use a lock to prevent races.
-    MutexLock mu(soa.Self(), lock_);
-    // Blacklisted means there was a quickening conflict previously, bail early.
-    if (blacklisted_code_items_.find(code_item) != blacklisted_code_items_.end()) {
+    // Avoid quickening the shared code items for now because the existing conflict detection logic
+    // does not currently handle cases where the a shared code item is quickened in one place but
+    // compiled in another.
+    static constexpr bool kAvoidQuickeningSharedCodeItems = true;
+    if (kAvoidQuickeningSharedCodeItems) {
       return nullptr;
     }
+    // For shared code items, use a lock to prevent races.
+    MutexLock mu(soa.Self(), lock_);
     auto existing = shared_code_item_quicken_info_.find(code_item);
-    const bool already_quickened = existing != shared_code_item_quicken_info_.end();
+    QuickenState* existing_data = nullptr;
+    std::vector<uint8_t>* existing_quicken_data = nullptr;
+    if (existing != shared_code_item_quicken_info_.end()) {
+      existing_data = &existing->second;
+      if (existing_data->conflict_) {
+        return nullptr;
+      }
+      existing_quicken_data = &existing_data->quicken_data_;
+    }
+    bool optimized_return_void;
     {
-      CompilationState state(this,
-                             unit,
-                             compilation_level,
-                             already_quickened ? &existing->second.quicken_data_ : nullptr);
+      CompilationState state(this, unit, compilation_level, existing_quicken_data);
       quicken_data = state.Compile();
+      optimized_return_void = state.optimized_return_void_;
     }
 
     // Already quickened, check that the data matches what was previously seen.
     MethodReference method_ref(&dex_file, method_idx);
-    if (already_quickened) {
-      QuickenState* const existing_data = &existing->second;
-      if (existing_data->quicken_data_ != quicken_data) {
-        VLOG(compiler) << "Quicken data mismatch, dequickening method "
+    if (existing_data != nullptr) {
+      if (*existing_quicken_data != quicken_data ||
+          existing_data->optimized_return_void_ != optimized_return_void) {
+        VLOG(compiler) << "Quicken data mismatch, for method "
                        << dex_file.PrettyMethod(method_idx);
-        // Unquicken using the existing quicken data.
-        optimizer::ArtDecompileDEX(dex_file,
-                                   *code_item,
-                                   ArrayRef<const uint8_t>(existing_data->quicken_data_),
-                                   /* decompile_return_instruction*/ false);
-        // Go clear the vmaps for all the methods that were already quickened to avoid writing them
-        // out during oat writing.
-        for (const MethodReference& ref : existing_data->methods_) {
-          CompiledMethod* method = driver_->GetCompiledMethod(ref);
-          DCHECK(method != nullptr);
-          method->ReleaseVMapTable();
-        }
-        // Blacklist the method to never attempt to quicken it in the future.
-        blacklisted_code_items_.insert(code_item);
-        shared_code_item_quicken_info_.erase(existing);
-        return nullptr;
+        // Mark the method as a conflict to never attempt to quicken it in the future.
+        existing_data->conflict_ = true;
       }
       existing_data->methods_.push_back(method_ref);
     } else {
       QuickenState new_state;
       new_state.methods_.push_back(method_ref);
       new_state.quicken_data_ = quicken_data;
+      new_state.optimized_return_void_ = optimized_return_void;
       bool inserted = shared_code_item_quicken_info_.emplace(code_item, new_state).second;
       CHECK(inserted) << "Failed to insert " << dex_file.PrettyMethod(method_idx);
     }
@@ -556,7 +548,62 @@ CompiledMethod* DexToDexCompiler::CompileMethod(
       ArrayRef<const uint8_t>(quicken_data),       // vmap_table
       ArrayRef<const uint8_t>(),                   // cfi data
       ArrayRef<const linker::LinkerPatch>());
+  DCHECK(ret != nullptr);
   return ret;
+}
+
+void DexToDexCompiler::SetDexFiles(const std::vector<const DexFile*>& dex_files) {
+  // Record what code items are already seen to detect when multiple methods have the same code
+  // item.
+  std::unordered_set<const DexFile::CodeItem*> seen_code_items;
+  for (const DexFile* dex_file : dex_files) {
+    for (size_t i = 0; i < dex_file->NumClassDefs(); ++i) {
+      const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
+      const uint8_t* class_data = dex_file->GetClassData(class_def);
+      if (class_data == nullptr) {
+        continue;
+      }
+      ClassDataItemIterator it(*dex_file, class_data);
+      for (; it.HasNextStaticField(); it.Next()) {
+        const DexFile::CodeItem* code_item = it.GetMethodCodeItem();
+        // Detect the shared code items.
+        if (!seen_code_items.insert(code_item).second) {
+          shared_code_items_.insert(code_item);
+        }
+      }
+    }
+  }
+}
+
+void DexToDexCompiler::UnquickenConflictingMethods() {
+  MutexLock mu(Thread::Current(), lock_);
+  size_t unquicken_count = 0;
+  for (auto&& pair : shared_code_item_quicken_info_) {
+    const DexFile::CodeItem* code_item = pair.first;
+    const QuickenState& state = pair.second;
+    CHECK_GE(state.methods_.size(), 1u);
+    if (state.conflict_) {
+      // Unquicken using the existing quicken data.
+      // TODO: Do we really need to pass a dex file in?
+      optimizer::ArtDecompileDEX(*state.methods_[0].dex_file,
+                                 *code_item,
+                                 ArrayRef<const uint8_t>(state.quicken_data_),
+                                 /* decompile_return_instruction*/ true);
+      ++unquicken_count;
+      // Go clear the vmaps for all the methods that were already quickened to avoid writing them
+      // out during oat writing.
+      for (const MethodReference& ref : state.methods_) {
+        CompiledMethod* method = driver_->RemoveCompiledMethod(ref);
+        if (method != nullptr) {
+          // There is up to one compiled method for each method ref. Releasing it leaves the
+          // deduped data intact, this means its safe to do even when other threads might be
+          // compiling.
+          CompiledMethod::ReleaseSwapAllocatedCompiledMethod(driver_, method);
+        }
+      }
+    }
+  }
+  VLOG(compiler) << "Unquickened " << unquicken_count;
 }
 
 }  // namespace optimizer
