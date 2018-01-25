@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d76995b8_fb46c809",
+        "filename": "dexdump/dexdump_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-25T03:24:32Z",
+      "side": 1,
+      "message": "It seemed superfluous. Do you want it back?",
+      "parentUuid": "536d018d_b00334b6",
+      "revId": "221d9810aa8af1ceab4626620a81baf0fd8377d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "704e6865_b2eedf6b",
         "filename": "dexdump/dexdump_main.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "bea6077b_0f29328c",
+        "filename": "dexdump/dexdump_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-25T03:24:32Z",
+      "side": 1,
+      "message": "PLOG adds strerror to the end. So it will give the explanation why the fopen failed.",
+      "parentUuid": "704e6865_b2eedf6b",
+      "revId": "221d9810aa8af1ceab4626620a81baf0fd8377d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93e7688c_ff77be5b",
         "filename": "dexlist/dexlist.cc",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2018-01-24T18:18:23Z",
       "side": 1,
       "message": "same question",
+      "revId": "221d9810aa8af1ceab4626620a81baf0fd8377d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71e264b4_d24249ea",
+        "filename": "dexlist/dexlist.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-25T03:24:32Z",
+      "side": 1,
+      "message": "It seemed superfluous. Do you want it back?",
+      "parentUuid": "93e7688c_ff77be5b",
       "revId": "221d9810aa8af1ceab4626620a81baf0fd8377d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
