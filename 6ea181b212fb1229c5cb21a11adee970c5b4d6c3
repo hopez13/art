@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "939e4075_a695d244",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-26T14:06:53Z",
+      "side": 1,
+      "message": "I just saw the crash that this CL is addressing; I guess the read barrier would be for the ArtMethod\u0027s declaring class, right?",
+      "parentUuid": "4e64afa2_d1edccd1",
+      "range": {
+        "startLine": 780,
+        "startChar": 5,
+        "endLine": 780,
+        "endChar": 46
+      },
+      "revId": "6ea181b212fb1229c5cb21a11adee970c5b4d6c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69bc99db_6dd52568",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 2
