@@ -109,6 +109,7 @@ class ConcurrentCopying : public GarbageCollector {
     return IsMarked(ref) == ref;
   }
   template<bool kGrayImmuneObject = true, bool kFromGCThread = false>
+  // Mark object `from_ref`, copying it to the to-space if needed.
   ALWAYS_INLINE mirror::Object* Mark(mirror::Object* from_ref,
                                      mirror::Object* holder = nullptr,
                                      MemberOffset offset = MemberOffset(0))
@@ -148,8 +149,10 @@ class ConcurrentCopying : public GarbageCollector {
                        MemberOffset offset)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_, !skipped_blocks_lock_, !immune_gray_stack_lock_);
+  // Scan the reference fields of object `to_ref`.
   void Scan(mirror::Object* to_ref) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
+  // Process a field.
   void Process(mirror::Object* obj, MemberOffset offset)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_ , !skipped_blocks_lock_, !immune_gray_stack_lock_);
