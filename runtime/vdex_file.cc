@@ -30,6 +30,8 @@
 #include "dex/dex_file.h"
 #include "dex/dex_file_loader.h"
 #include "dex_to_dex_decompiler.h"
+#include "hidden_api_access_flags.h"
+#include "leb128.h"
 #include "quicken_info.h"
 
 namespace art {
@@ -262,6 +264,51 @@ void VdexFile::UnquickenDexFile(const DexFile& target_dex_file,
   UnquickenDexFile(target_dex_file, source_dex_file.Begin(), decompile_return_instruction);
 }
 
+// Updates data to point at the start of the previous uleb128 encoded number. Returns the number of
+// bytes that number took up.
+static size_t Uleb128Reverse(uint8_t** data) {
+  size_t cnt = 0;
+  // All uleb encodings are at least 1 byte long.
+  do {
+    cnt++;
+    (*data)--;
+    // Continue so long as the byte before the current one is a continue byte.
+  } while ((*(*data - 1) & 0x80) != 0);
+  return cnt;
+}
+
+static void EncodeUlebInSpace(uint8_t* buf, uint32_t data, size_t space) {
+  size_t req_space = UnsignedLeb128Size(data);
+  CHECK_LE(req_space, space);
+  EncodeUnsignedLeb128(buf, data);
+  for (size_t i = req_space; i < space; i++) {
+    buf[i - 1] |= 0x80;
+    buf[i] = 0;
+  }
+  if (kIsDebugBuild) {
+    const uint8_t* orig_buf = buf;
+    DCHECK_EQ(DecodeUnsignedLeb128(&orig_buf), data);
+    DCHECK_EQ(orig_buf, buf + space);
+  }
+}
+
+static void UpdateAccessFlags(uint8_t* data, uint32_t new_flag, bool is_method) {
+  // Go back 1 uleb to start.
+  uint8_t* end_ptr = data;
+  size_t space = Uleb128Reverse(&data);
+  if (is_method) {
+    // Methods have another uleb field before the access flags
+    end_ptr = data;
+    space = Uleb128Reverse(&data);
+  }
+  if (kIsDebugBuild) {
+    const uint8_t* tmp = data;
+    DCHECK_EQ(HiddenApiAccessFlags::RemoveFromDex(DecodeUnsignedLeb128(&tmp)), new_flag);
+  }
+  DCHECK_LE(UnsignedLeb128Size(new_flag), space);
+  EncodeUlebInSpace(data, new_flag, space);
+}
+
 void VdexFile::UnquickenDexFile(const DexFile& target_dex_file,
                                 const uint8_t* source_dex_begin,
                                 bool decompile_return_instruction) const {
@@ -280,27 +327,32 @@ void VdexFile::UnquickenDexFile(const DexFile& target_dex_file,
       for (ClassDataItemIterator class_it(target_dex_file, class_data);
            class_it.HasNext();
            class_it.Next()) {
-        if (class_it.IsAtMethod() && class_it.GetMethodCodeItem() != nullptr) {
+        if (class_it.IsAtMethod()) {
           const DexFile::CodeItem* code_item = class_it.GetMethodCodeItem();
-          if (!unquickened_code_item.emplace(code_item).second) {
-            // Already unquickened this code item, do not do it again.
-            continue;
+          if (code_item != nullptr && unquickened_code_item.emplace(code_item).second) {
+            ArrayRef<const uint8_t> quicken_data;
+            if (!quickening_info.empty()) {
+              const uint32_t quickening_offset = GetQuickeningInfoOffset(
+                  GetQuickenInfoOffsetTable(source_dex_begin,
+                                            target_dex_file.NumMethodIds(),
+                                            quickening_info),
+                  class_it.GetMemberIndex(),
+                  quickening_info);
+              quicken_data = GetQuickeningInfoAt(quickening_info, quickening_offset);
+            }
+            optimizer::ArtDecompileDEX(
+                target_dex_file,
+                *code_item,
+                quicken_data,
+                decompile_return_instruction);
           }
-          ArrayRef<const uint8_t> quicken_data;
-          if (!quickening_info.empty()) {
-            const uint32_t quickening_offset = GetQuickeningInfoOffset(
-                GetQuickenInfoOffsetTable(source_dex_begin,
-                                          target_dex_file.NumMethodIds(),
-                                          quickening_info),
-                class_it.GetMemberIndex(),
-                quickening_info);
-            quicken_data = GetQuickeningInfoAt(quickening_info, quickening_offset);
-          }
-          optimizer::ArtDecompileDEX(
-              target_dex_file,
-              *code_item,
-              quicken_data,
-              decompile_return_instruction);
+          UpdateAccessFlags(const_cast<uint8_t*>(class_it.DataPointer()),
+                            class_it.GetMemberAccessFlags(),
+                            /*is_method*/ true);
+        } else {
+          UpdateAccessFlags(const_cast<uint8_t*>(class_it.DataPointer()),
+                            class_it.GetMemberAccessFlags(),
+                            /*is_method*/ false);
         }
       }
     }

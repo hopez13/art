@@ -17,6 +17,8 @@
 package art;
 
 import java.util.Base64;
+import java.nio.ByteBuffer;
+
 public class Test983 {
   static class Transform {
     public void sayHi() {
@@ -24,15 +26,16 @@ public class Test983 {
     }
   }
 
-  public static void run() {
+  public static void run() throws Exception {
     doTest();
   }
 
-  public static void doTest() {
-    Transform abc = new Transform();
+  public static void doTest() throws Exception {
     Redefinition.enableCommonRetransformation(true);
     Redefinition.doCommonClassRetransformation(Transform.class);
     Redefinition.doCommonClassRetransformation(Object.class);
+    // NB java.lang.ClassLoader has hidden fields.
+    Redefinition.doCommonClassRetransformation(ClassLoader.class);
     Redefinition.enableCommonRetransformation(false);
   }
 }
