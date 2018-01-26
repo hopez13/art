@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e64afa2_d1edccd1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-26T14:04:03Z",
+      "side": 1,
+      "message": "Could you explain what the read barrier would be for (if there was one)?",
+      "range": {
+        "startLine": 780,
+        "startChar": 5,
+        "endLine": 780,
+        "endChar": 46
+      },
+      "revId": "6ea181b212fb1229c5cb21a11adee970c5b4d6c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69bc99db_6dd52568",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-26T14:04:03Z",
+      "side": 1,
+      "message": "Add a comment to this method?",
+      "range": {
+        "startLine": 283,
+        "startChar": 7,
+        "endLine": 283,
+        "endChar": 39
+      },
+      "revId": "6ea181b212fb1229c5cb21a11adee970c5b4d6c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
