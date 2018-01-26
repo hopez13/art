@@ -33,6 +33,7 @@
 #include "dex/art_dex_file_loader.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_loader.h"
+#include "dex/dex_file_verifier.h"
 
 // Runtime includes.
 #include "dex_container.h"
@@ -65,6 +66,16 @@ static void DoDexUnquicken(const art::DexFile& new_dex_file, const art::DexFile&
     return;
   }
   vdex->UnquickenDexFile(new_dex_file, original_dex_file, /* decompile_return_instruction */true);
+}
+
+static bool VerifyDexFile(const art::DexFile& dex) {
+  std::string error;
+  return art::DexFileVerifier::Verify(&dex,
+                                      dex.Begin(),
+                                      dex.Size(),
+                                      "FixedUpDexFile_Verification.dex",
+                                      /*verify_checksum*/ true,
+                                      &error);
 }
 
 std::unique_ptr<FixedUpDexFile> FixedUpDexFile::Create(const art::DexFile& original,
@@ -121,6 +132,7 @@ std::unique_ptr<FixedUpDexFile> FixedUpDexFile::Create(const art::DexFile& origi
   DoDexUnquicken(*new_dex_file, original);
 
   RecomputeDexChecksum(const_cast<art::DexFile*>(new_dex_file.get()));
+  DCHECK(VerifyDexFile(*new_dex_file));
   std::unique_ptr<FixedUpDexFile> ret(new FixedUpDexFile(std::move(new_dex_file), std::move(data)));
   return ret;
 }
