@@ -59,7 +59,7 @@ class Monitor;
  *  |11|0| ForwardingAddress           |
  *
  * The `r` bit stores the read barrier state.
- * The `m` bit stores the mark state.
+ * The `m` bit stores the mark bit state.
  */
 class LockWord {
  public:
