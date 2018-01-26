@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "a970464a_6397c63a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-26T11:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91b5af9e_bd6691c0",
+      "range": {
+        "startLine": 2491,
+        "startChar": 4,
+        "endLine": 2493,
+        "endChar": 93
+      },
+      "revId": "d62e09abd77717a0ca3475cdf40b01bea7c8b3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9dc13808_dce9dc3c",
         "filename": "compiler/utils/x86/assembler_x86_test.cc",
         "patchSetId": 2
@@ -123,6 +147,30 @@
       "writtenOn": "2018-01-18T23:53:18Z",
       "side": 1,
       "message": "Stale?",
+      "range": {
+        "startLine": 756,
+        "startChar": 44,
+        "endLine": 756,
+        "endChar": 73
+      },
+      "revId": "d62e09abd77717a0ca3475cdf40b01bea7c8b3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "586f9b90_1eaf319b",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-26T11:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bb83f27_4b5e5482",
       "range": {
         "startLine": 756,
         "startChar": 44,
