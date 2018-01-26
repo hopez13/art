@@ -292,6 +292,7 @@ bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
   // If we get a request to compile a proxy method, we pass the actual Java method
   // of that proxy method, as the compiler does not expect a proxy method.
   ArtMethod* method_to_compile = method->GetInterfaceMethodIfProxy(kRuntimePointerSize);
+  CHECK(method_to_compile == method) << method_to_compile->PrettyMethod() << " " << method->PrettyMethod();
   if (!code_cache_->NotifyCompilationOf(method_to_compile, self, osr)) {
     return false;
   }
