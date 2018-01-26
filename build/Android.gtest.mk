@@ -72,8 +72,19 @@ $(foreach dir,$(GTEST_DEX_DIRECTORIES), $(eval $(call build-art-test-dex,art-gte
 # for the oat file assistant tests.
 ART_TEST_HOST_GTEST_MainStripped_DEX := $(basename $(ART_TEST_HOST_GTEST_Main_DEX))Stripped$(suffix $(ART_TEST_HOST_GTEST_Main_DEX))
 ART_TEST_TARGET_GTEST_MainStripped_DEX := $(basename $(ART_TEST_TARGET_GTEST_Main_DEX))Stripped$(suffix $(ART_TEST_TARGET_GTEST_Main_DEX))
+ART_TEST_HOST_GTEST_Main_OAT := $(basename $(ART_TEST_HOST_GTEST_Main_DEX)).oat
+ART_TEST_TARGET_GTEST_Main_OAT := $(basename $(ART_TEST_TARGET_GTEST_Main_DEX)).oat
 
 $(ART_TEST_HOST_GTEST_MainStripped_DEX): $(ART_TEST_HOST_GTEST_Main_DEX)
+	$(hide) $(DEX2OAT) --dex-location=$< --oat-file=$@ --android-root=$(PRODUCT_OUT)/system
+	cp $< $@
+	$(call dexpreopt-remove-classes.dex,$@)
+
+$(ART_TEST_TARGET_GTEST_MainStripped_DEX): $(ART_TEST_TARGET_GTEST_Main_DEX)
+	cp $< $@
+	$(call dexpreopt-remove-classes.dex,$@)
+
+$(ART_TEST_HOST_GTEST_MainDm_DEX): $(ART_TEST_HOST_GTEST_Main_DEX)
 	cp $< $@
 	$(call dexpreopt-remove-classes.dex,$@)
 
