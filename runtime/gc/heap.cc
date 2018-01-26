@@ -434,6 +434,7 @@ Heap::Heap(size_t initial_size,
   // Create other spaces based on whether or not we have a moving GC.
   if (foreground_collector_type_ == kCollectorTypeCC) {
     CHECK(separate_non_moving_space);
+    // Reserve twice the capacity, for the from-space and the to-space.
     MemMap* region_space_mem_map = space::RegionSpace::CreateMemMap(kRegionSpaceName,
                                                                     capacity_ * 2,
                                                                     request_begin);
@@ -517,7 +518,7 @@ Heap::Heap(size_t initial_size,
   // Since we don't know where in the low_4gb the app image will be located, make the card table
   // cover the whole low_4gb. TODO: Extend the card table in AddSpace.
   UNUSED(heap_capacity);
-  // Start at 64 KB, we can be sure there are no spaces mapped this low since the address range is
+  // Start at 4 KB, we can be sure there are no spaces mapped this low since the address range is
   // reserved by the kernel.
   static constexpr size_t kMinHeapAddress = 4 * KB;
   card_table_.reset(accounting::CardTable::Create(reinterpret_cast<uint8_t*>(kMinHeapAddress),
@@ -3445,8 +3446,8 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
   TraceHeapSize(bytes_allocated);
   uint64_t target_size;
   collector::GcType gc_type = collector_ran->GetGcType();
-  const double multiplier = HeapGrowthMultiplier();  // Use the multiplier to grow more for
-  // foreground.
+  // Use the multiplier to grow more for foreground.
+  const double multiplier = HeapGrowthMultiplier();
   const uint64_t adjusted_min_free = static_cast<uint64_t>(min_free_ * multiplier);
   const uint64_t adjusted_max_free = static_cast<uint64_t>(max_free_ * multiplier);
   if (gc_type != collector::kGcTypeSticky) {
