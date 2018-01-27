@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/file.h>
+#include <sys/param.h>
 #include <sys/stat.h>
 #include <unistd.h>
 
@@ -293,62 +294,136 @@ class ProfMan FINAL {
     }
   }
 
+  struct ProfileFilterKey {
+    ProfileFilterKey(const std::string& dex_location, uint32_t checksum)
+        : dex_location_(dex_location), checksum_(checksum) {}
+    const std::string dex_location_;
+    uint32_t checksum_;
+
+    bool operator==(const ProfileFilterKey& other) const {
+      return checksum_ == other.checksum_ && dex_location_ == other.dex_location_;
+    }
+    bool operator<(const ProfileFilterKey& other) const {
+      return checksum_ == other.checksum_ || dex_location_ == other.dex_location_;
+    }
+  };
+
   ProfileAssistant::ProcessingResult ProcessProfiles() {
+    LOG(ERROR) << "CALINABC";
     // Validate that at least one profile file was passed, as well as a reference profile.
     if (profile_files_.empty() && profile_files_fd_.empty()) {
+      LOG(ERROR) << "CALIN1";
       Usage("No profile files specified.");
     }
     if (reference_profile_file_.empty() && !FdIsValid(reference_profile_file_fd_)) {
+      LOG(ERROR) << "CALIN2";
       Usage("No reference profile file specified.");
     }
     if ((!profile_files_.empty() && FdIsValid(reference_profile_file_fd_)) ||
         (!profile_files_fd_.empty() && !FdIsValid(reference_profile_file_fd_))) {
+      LOG(ERROR) << "CALIN3";
       Usage("Options --profile-file-fd and --reference-profile-file-fd "
             "should only be used together");
     }
+    LOG(ERROR) << "CALIN WTFFF?";
+    std::set<ProfileFilterKey> profile_filter_keys;
+    if (!GetProfileFilterKeyFromApks(&profile_filter_keys)) {
+      LOG(ERROR) << "CALIN ERRR?";
+      return ProfileAssistant::kErrorIO;
+    }
+    LOG(ERROR) << "CALIN CALIN aga?";
+    const ProfileCompilationInfo::ProfileLoadFilterFn& filter_fn =
+        [profile_filter_keys](const std::string& dex_location, uint32_t checksum) {
+            if (profile_filter_keys.empty()) {
+              // No --apk was specified. Accept all dex files.
+              return true;
+            } else {
+              return profile_filter_keys.find(ProfileFilterKey(dex_location, checksum)) !=
+                  profile_filter_keys.end();
+            }
+        };
+
     ProfileAssistant::ProcessingResult result;
 
     if (profile_files_.empty()) {
       // The file doesn't need to be flushed here (ProcessProfiles will do it)
       // so don't check the usage.
+      LOG(ERROR) << "CALIN LOGIC?";
       File file(reference_profile_file_fd_, false);
       result = ProfileAssistant::ProcessProfiles(profile_files_fd_,
-                                                 reference_profile_file_fd_);
+                                                 reference_profile_file_fd_,
+                                                 filter_fn);
       CloseAllFds(profile_files_fd_, "profile_files_fd_");
+      CloseAllFds(apks_fd_, "profile_files_fd_");
     } else {
-      result = ProfileAssistant::ProcessProfiles(profile_files_, reference_profile_file_);
+      LOG(ERROR) << "CALIN ERRR?";
+      result = ProfileAssistant::ProcessProfiles(profile_files_,
+                                                 reference_profile_file_,
+                                                 filter_fn);
     }
+    LOG(ERROR) << "CALIN RESULT" << static_cast<int>(result);
     return result;
   }
 
-  void OpenApkFilesFromLocations(std::vector<std::unique_ptr<const DexFile>>* dex_files) const {
+  bool GetProfileFilterKeyFromApks(std::set<ProfileFilterKey>* profile_filter_keys) {
+    auto process_fn = [profile_filter_keys](std::unique_ptr<const DexFile>&& dex_file) {
+      profile_filter_keys->emplace(dex_file->GetLocation(), dex_file->GetLocationChecksum());
+    };
+    return OpenApkFilesFromLocations(process_fn);
+  }
+
+  bool OpenApkFilesFromLocations(std::vector<std::unique_ptr<const DexFile>>* dex_files) {
+    auto process_fn = [dex_files](std::unique_ptr<const DexFile>&& dex_file) {
+      dex_files->emplace_back(std::move(dex_file));
+    };
+    return OpenApkFilesFromLocations(process_fn);
+  }
+
+  bool OpenApkFilesFromLocations(
+      std::function<void(std::unique_ptr<const DexFile>&&)> process_fn) {
     bool use_apk_fd_list = !apks_fd_.empty();
     if (use_apk_fd_list) {
       // Get the APKs from the collection of FDs.
-      CHECK_EQ(dex_locations_.size(), apks_fd_.size());
+      if (dex_locations_.empty()) {
+        // Try to compute the dex locations from the file paths of the descriptions.
+        // This will make it easier to invoke profman with --apk-fd and without
+        // being force to pass --dex-location when the location would be the apk path.
+        if (!ComputeDexLocationsFromApkFds()) {
+          LOG(ERROR) << "CALIN WTF COMPUYTE";
+          return false;
+        }
+      } else {
+        if (dex_locations_.size() != apks_fd_.size()) {
+            Usage("The number of apk-fds must match the number of dex-locations.");
+        }
+      }
     } else if (!apk_files_.empty()) {
-      // Get the APKs from the collection of filenames.
-      CHECK_EQ(dex_locations_.size(), apk_files_.size());
+        if (dex_locations_.size() != apk_files_.size()) {
+            Usage("The number of apk-fds must match the number of dex-locations.");
+        }
     } else {
       // No APKs were specified.
       CHECK(dex_locations_.empty());
-      return;
+      return true;
     }
+    LOG(ERROR) << "CALIN FDS err ret true START OPEN";
     static constexpr bool kVerifyChecksum = true;
     for (size_t i = 0; i < dex_locations_.size(); ++i) {
       std::string error_msg;
       const ArtDexFileLoader dex_file_loader;
       std::vector<std::unique_ptr<const DexFile>> dex_files_for_location;
       if (use_apk_fd_list) {
+        LOG(ERROR) << "CALIN FDS err ret true FINISH LOCATION" << dex_locations_[i] << " " << apks_fd_[i];
         if (dex_file_loader.OpenZip(apks_fd_[i],
                                     dex_locations_[i],
                                     /* verify */ true,
                                     kVerifyChecksum,
                                     &error_msg,
                                     &dex_files_for_location)) {
+          LOG(ERROR) << "CALIN FDS err ret true FINISH OpenZip" << dex_locations_[i];
         } else {
-          LOG(WARNING) << "OpenZip failed for '" << dex_locations_[i] << "' " << error_msg;
-          continue;
+          LOG(ERROR) << "OpenZip failed for '" << dex_locations_[i] << "' " << error_msg;
+          return false;
         }
       } else {
         if (dex_file_loader.Open(apk_files_[i].c_str(),
@@ -358,14 +433,42 @@ class ProfMan FINAL {
                                  &error_msg,
                                  &dex_files_for_location)) {
         } else {
-          LOG(WARNING) << "Open failed for '" << dex_locations_[i] << "' " << error_msg;
-          continue;
+          LOG(ERROR) << "Open failed for '" << dex_locations_[i] << "' " << error_msg;
+          return false;
         }
       }
       for (std::unique_ptr<const DexFile>& dex_file : dex_files_for_location) {
-        dex_files->emplace_back(std::move(dex_file));
+        process_fn(std::move(dex_file));
       }
     }
+    LOG(ERROR) << "CALIN FDS err ret true FINISH OPEN";
+    return true;
+  }
+
+  // Get the dex locations from the apk fds.
+  // The methods read the links from /proc/self/fd/ to find the original apk paths
+  // and puts them in the dex_locations_ vector.
+  bool ComputeDexLocationsFromApkFds() {
+    // We can't use a char array of PATH_MAX size without exceeding the frame size.
+    // So we use a vector as the buffer for the path.
+    LOG(ERROR) << "CALIN FDS";
+    std::vector<char> buffer(PATH_MAX, 0);
+    for (size_t i = 0; i < apks_fd_.size(); ++i) {
+      std::string fd_path = "/proc/self/fd/" + std::to_string(apks_fd_[i]);
+      LOG(ERROR) << "CALIN FDS112121";
+      ssize_t len = readlink(fd_path.c_str(), buffer.data(), buffer.size() - 1);
+      LOG(ERROR) << "CALIN FDS err";
+      if (len == -1) {
+        PLOG(ERROR) << "Could not open path from fd";
+        return false;
+      }
+
+      buffer[len] = '\0';
+      dex_locations_.push_back("abc");
+      LOG(ERROR) << "CALIN FDS VALUE " << std::string(buffer.data());
+    }
+    LOG(ERROR) << "CALIN FDS err ret true";
+    return true;
   }
 
   std::unique_ptr<const ProfileCompilationInfo> LoadProfile(const std::string& filename, int fd) {
@@ -1081,7 +1184,7 @@ class ProfMan FINAL {
     return copy_and_update_profile_key_;
   }
 
-  bool CopyAndUpdateProfileKey() const {
+  bool CopyAndUpdateProfileKey() {
     // Validate that at least one profile file was passed, as well as a reference profile.
     if (!(profile_files_.size() == 1 ^ profile_files_fd_.size() == 1)) {
       Usage("Only one profile file should be specified.");
