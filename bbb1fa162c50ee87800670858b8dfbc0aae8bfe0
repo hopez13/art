@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9ae9b33_99329d95",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-27T11:17:44Z",
+      "side": 1,
+      "message": "I already implemented all of this in art/tools/hiddenapi/hiddenapi.cc. It was the only user but if there are two, might be worth moving it to leb128.h and sharing it.",
+      "range": {
+        "startLine": 269,
+        "startChar": 14,
+        "endLine": 269,
+        "endChar": 28
+      },
+      "revId": "bbb1fa162c50ee87800670858b8dfbc0aae8bfe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
