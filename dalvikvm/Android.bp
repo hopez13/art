@@ -30,11 +30,6 @@ art_cc_binary {
     ],
     whole_static_libs: ["libsigchain"],
     target: {
-        android: {
-            shared_libs: [
-                "liblog",
-            ],
-        },
         linux: {
             ldflags: ["-Wl,--export-dynamic"],
         },

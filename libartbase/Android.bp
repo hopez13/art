@@ -51,10 +51,11 @@ cc_defaults {
                 "libziparchive",
                 "libz",
             ],
-	    shared_libs: [
-	        // For android::FileMap used by libziparchive.
+            shared_libs: [
+                // For android::FileMap used by libziparchive.
                 "libutils",
-	    ],
+                "liblog",  // For LogLineLowStack.
+            ],
         },
         host: {
             shared_libs: [
@@ -66,8 +67,7 @@ cc_defaults {
     generated_sources: ["art_libartbase_operator_srcs"],
     cflags: ["-DBUILDING_LIBART=1"],
     shared_libs: [
-        "liblog",
-	// For ashmem.
+        // For ashmem.
         "libcutils",
         // For common macros.
         "libbase",

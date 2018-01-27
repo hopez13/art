@@ -337,6 +337,7 @@ libart_cc_defaults {
                 "thread_android.cc",
             ],
             shared_libs: [
+                "liblog",  // For monitor_android.
                 "libtombstoned_client",
             ],
             static_libs: [
@@ -388,7 +389,6 @@ libart_cc_defaults {
         "libnativeloader",
         "libbacktrace",
         "liblz4",
-        "liblog",
         // For atrace, properties, ashmem, set_sched_policy and socket_peer_is_trusted.
         "libcutils",
         // For common macros.
