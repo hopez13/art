@@ -318,7 +318,7 @@ class HiddenApi FINAL {
         return false;
       }
 
-      if (!dex_file->IsStandardDexFile()) {
+      if (!dex_file->IsStandardDexFile() && !dex_file->IsCompactDexFile()) {
         LOG(ERROR) << "Expected a standard dex file '" << filename << "'";
         return false;
       }
