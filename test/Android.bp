@@ -98,11 +98,6 @@ art_cc_defaults {
                 "libziparchive",
             ],
         },
-        android: {
-            shared_libs: [
-                "liblog",
-            ],
-        },
     },
 }
 
