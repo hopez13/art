@@ -68,11 +68,59 @@ extern "C" {
   // Static initialization is necessary to prevent GDB from seeing
   // uninitialized descriptor.
   JITDescriptor __jit_debug_descriptor = { 1, JIT_NOACTION, nullptr, nullptr };
+
+  // Incremented whenever __jit_debug_descriptor is modified.
+  uintptr_t __jit_debug_descriptor_timestamp = 0;
+
+  struct DEXFileEntry {
+    DEXFileEntry* next_;
+    DEXFileEntry* prev_;
+    const void* dexfile_;
+  };
+
+  DEXFileEntry* __art_debug_dexfiles = nullptr;
+
+  // Incremented whenever __art_debug_dexfiles is modified.
+  uintptr_t __art_debug_dexfiles_timestamp = 0;
 }
 
 Mutex g_jit_debug_mutex("JIT debug interface lock", kJitDebugInterfaceLock);
 
 static size_t g_jit_debug_mem_usage = 0;
+
+static Mutex g_art_debug_mutex("ART debug interface lock", kJitDebugInterfaceLock);
+
+DEXFileEntry* RegiterDexFileForNative(const void* dexfile) {
+  MutexLock mu(Thread::Current(), g_art_debug_mutex);
+  DEXFileEntry* entry = new DEXFileEntry();
+  CHECK(entry != nullptr);
+  entry->dexfile_ = dexfile;
+  entry->prev_ = nullptr;
+  entry->next_ = __art_debug_dexfiles;
+  if (entry->next_ != nullptr) {
+    entry->next_->prev_ = entry;
+  }
+  __art_debug_dexfiles = entry;
+  __art_debug_dexfiles_timestamp++;
+  return entry;
+}
+
+void DeregisterDexFileForNative(DEXFileEntry* entry) {
+  MutexLock mu(Thread::Current(), g_art_debug_mutex);
+  if (entry == nullptr) {
+    return;
+  }
+  if (entry->prev_ != nullptr) {
+    entry->prev_->next_ = entry->next_;
+  } else {
+    __art_debug_dexfiles = entry->next_;
+  }
+  if (entry->next_ != nullptr) {
+    entry->next_->prev_ = entry->prev_;
+  }
+  __art_debug_dexfiles_timestamp++;
+  delete entry;
+}
 
 JITCodeEntry* CreateJITCodeEntry(const std::vector<uint8_t>& symfile) {
   DCHECK_NE(symfile.size(), 0u);
@@ -96,6 +144,7 @@ JITCodeEntry* CreateJITCodeEntry(const std::vector<uint8_t>& symfile) {
   __jit_debug_descriptor.first_entry_ = entry;
   __jit_debug_descriptor.relevant_entry_ = entry;
   __jit_debug_descriptor.action_flag_ = JIT_REGISTER_FN;
+  __jit_debug_descriptor_timestamp++;
   (*__jit_debug_register_code_ptr)();
   return entry;
 }
@@ -114,6 +163,7 @@ void DeleteJITCodeEntry(JITCodeEntry* entry) {
   g_jit_debug_mem_usage -= sizeof(JITCodeEntry) + entry->symfile_size_;
   __jit_debug_descriptor.relevant_entry_ = entry;
   __jit_debug_descriptor.action_flag_ = JIT_UNREGISTER_FN;
+  __jit_debug_descriptor_timestamp++;
   (*__jit_debug_register_code_ptr)();
   delete[] entry->symfile_addr_;
   delete entry;

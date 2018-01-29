@@ -33,6 +33,7 @@
 #include "gc_root.h"
 #include "handle.h"
 #include "jni.h"
+#include "jit/debugger_interface.h"
 #include "mirror/class.h"
 #include "verifier/verifier_enums.h"
 
@@ -693,7 +694,8 @@ class ClassLinker {
     DexCacheData()
         : weak_root(nullptr),
           dex_file(nullptr),
-          class_table(nullptr) { }
+          class_table(nullptr),
+          native_debug_entry(nullptr) { }
 
     // Check if the data is valid.
     bool IsValid() const {
@@ -711,6 +713,9 @@ class ClassLinker {
     // class table. It is also used to make sure we don't register the same dex cache with
     // multiple class loaders.
     ClassTable* class_table;
+    // Entry in a linked-list of all open dex files, which can be used by native tools
+    // to enumerate open dex files and thus resolve DEX PC into function name.
+    DEXFileEntry* native_debug_entry;
   };
 
  protected:

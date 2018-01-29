@@ -27,10 +27,17 @@
 namespace art {
 
 extern "C" {
+  struct DEXFileEntry;
   struct JITCodeEntry;
 }
 
 extern Mutex g_jit_debug_mutex;
+
+// Notify native tools (e.g. libunwind) that DEX file has been opened.
+DEXFileEntry* RegiterDexFileForNative(const void* dexfile);
+
+// Notify native tools (e.g. libunwind) that DEX file has been closed.
+void DeregisterDexFileForNative(DEXFileEntry* entry);
 
 // Notify native debugger about new JITed code by passing in-memory ELF.
 // It takes ownership of the in-memory ELF file.
