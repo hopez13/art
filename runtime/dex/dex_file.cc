@@ -105,6 +105,7 @@ DexFile::DexFile(const uint8_t* base,
       call_site_ids_(nullptr),
       num_call_site_ids_(0),
       oat_dex_file_(oat_dex_file),
+      debug_entry_(nullptr),
       container_(container),
       is_compact_dex_(is_compact_dex) {
   CHECK(begin_ != nullptr) << GetLocation();
@@ -122,6 +123,16 @@ DexFile::~DexFile() {
   // that's only called after DetachCurrentThread, which means there's no JNIEnv. We could
   // re-attach, but cleaning up these global references is not obviously useful. It's not as if
   // the global reference table is otherwise empty!
+
+  if (debug_entry_ != nullptr) {
+    DeregisterDexFileForNative(debug_entry_);
+  }
+}
+
+void DexFile::RegisterForNativeTools() const {
+  if (debug_entry_ == nullptr) {
+    debug_entry_ = RegiterDexFileForNative(Begin());
+  }
 }
 
 bool DexFile::Init(std::string* error_msg) {
