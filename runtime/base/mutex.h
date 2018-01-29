@@ -58,6 +58,7 @@ class Thread;
 // [1] http://www.drdobbs.com/parallel/use-lock-hierarchies-to-avoid-deadlock/204801163
 enum LockLevel {
   kLoggingLock = 0,
+  kNativeDebugInterfaceLock,
   kSwapMutexesLock,
   kUnexpectedSignalLock,
   kThreadSuspendCountLock,
@@ -744,6 +745,9 @@ class Locks {
 
   // One unexpected signal at a time lock.
   static Mutex* unexpected_signal_lock_ ACQUIRED_AFTER(thread_suspend_count_lock_);
+
+  // Guards the magic global variables used by native tools (e.g. libunwind).
+  static Mutex* native_debug_interface_lock_ ACQUIRED_AFTER(unexpected_signal_lock_);
 
   // Have an exclusive logging thread.
   static Mutex* logging_lock_ ACQUIRED_AFTER(unexpected_signal_lock_);
