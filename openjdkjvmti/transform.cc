@@ -29,6 +29,9 @@
  * questions.
  */
 
+#include <stddef.h>
+#include <sys/types.h>
+
 #include <unordered_map>
 #include <unordered_set>
 
@@ -40,6 +43,7 @@
 #include "dex/dex_file.h"
 #include "dex/dex_file_types.h"
 #include "events-inl.h"
+#include "fault_handler.h"
 #include "gc_root-inl.h"
 #include "globals.h"
 #include "jni_env_ext-inl.h"
@@ -63,27 +67,138 @@
 
 namespace openjdkjvmti {
 
+// A FaultHandler that will deal with initializing ClassDefinitions when they are actually needed.
+class TransformationFaultHandler FINAL : public art::FaultHandler {
+ public:
+  explicit TransformationFaultHandler(art::FaultManager* manager)
+      : art::FaultHandler(manager),
+        uninitialized_class_definitions_lock_("JVMTI Initialized class definitions lock",
+                                              art::LockLevel::kSignalHandlingLock) {
+    manager->AddHandler(this, /* generated_code */ false);
+  }
+
+  ~TransformationFaultHandler() {
+    art::MutexLock mu(art::Thread::Current(), uninitialized_class_definitions_lock_);
+    uninitialized_class_definitions_.clear();
+  }
+
+  bool Action(int sig, siginfo_t* siginfo, void* context ATTRIBUTE_UNUSED) OVERRIDE {
+    DCHECK_EQ(sig, SIGSEGV);
+    uintptr_t ptr = reinterpret_cast<uintptr_t>(siginfo->si_addr);
+    ArtClassDefinition* res = nullptr;
+    {
+      art::MutexLock mu(art::Thread::Current(), uninitialized_class_definitions_lock_);
+      auto it = std::find_if(uninitialized_class_definitions_.begin(),
+                             uninitialized_class_definitions_.end(),
+                             [&](const auto op) { return op->ContainsAddress(ptr); });
+      if (it == uninitialized_class_definitions_.end()) {
+        // The segv wasn't in any known lazy class definition.
+        return false;
+      } else {
+        res = *it;
+        // Remove the class definition.
+        uninitialized_class_definitions_.erase(it);
+      }
+    }
+    art::ScopedObjectAccess soa(art::Thread::Current());
+    LOG(INFO) << "Lazy initialization of dex file for transformation of " << res->GetName()
+              << " during SEGV";
+    res->InitializeMemory();
+    return true;
+  }
+
+  void RemoveDefinition(ArtClassDefinition* def) REQUIRES(!uninitialized_class_definitions_lock_) {
+    art::MutexLock mu(art::Thread::Current(), uninitialized_class_definitions_lock_);
+    auto it = std::find(uninitialized_class_definitions_.begin(),
+                        uninitialized_class_definitions_.end(),
+                        def);
+    if (it != uninitialized_class_definitions_.end()) {
+      uninitialized_class_definitions_.erase(it);
+    }
+  }
+
+  void AddArtDefinition(ArtClassDefinition* def) REQUIRES(!uninitialized_class_definitions_lock_) {
+    DCHECK(def->IsLazyDefinition());
+    art::MutexLock mu(art::Thread::Current(), uninitialized_class_definitions_lock_);
+    uninitialized_class_definitions_.push_back(def);
+  }
+
+ private:
+  art::Mutex uninitialized_class_definitions_lock_ ACQUIRED_BEFORE(art::Locks::abort_lock_);
+  std::vector<ArtClassDefinition*> uninitialized_class_definitions_
+      GUARDED_BY(uninitialized_class_definitions_lock_);
+};
+
+static TransformationFaultHandler* gTransformFaultHandler = nullptr;
+
+void Transformer::Setup() {
+  // Although we create this the fault handler is actually owned by the 'art::fault_manager' which
+  // will take care of destroying it.
+  gTransformFaultHandler = new TransformationFaultHandler(&art::fault_manager);
+}
+
+// Simple helper to add and remove the class definition from the fault handler.
+class ScopedDefinitionHandler {
+ public:
+  explicit ScopedDefinitionHandler(ArtClassDefinition* def)
+      : def_(def), is_lazy_(def_->IsLazyDefinition()) {
+    if (is_lazy_) {
+      gTransformFaultHandler->AddArtDefinition(def_);
+    }
+  }
+
+  ~ScopedDefinitionHandler() {
+    if (is_lazy_) {
+      gTransformFaultHandler->RemoveDefinition(def_);
+    }
+  }
+
+ private:
+  ArtClassDefinition* def_;
+  bool is_lazy_;
+};
+
+// Initialize templates.
+template
+void Transformer::TransformSingleClassDirect<ArtJvmtiEvent::kClassFileLoadHookNonRetransformable>(
+    EventHandler* event_handler, art::Thread* self, /*in-out*/ArtClassDefinition* def);
+template
+void Transformer::TransformSingleClassDirect<ArtJvmtiEvent::kClassFileLoadHookRetransformable>(
+    EventHandler* event_handler, art::Thread* self, /*in-out*/ArtClassDefinition* def);
+
+template<ArtJvmtiEvent kEvent>
+void Transformer::TransformSingleClassDirect(EventHandler* event_handler,
+                                             art::Thread* self,
+                                             /*in-out*/ArtClassDefinition* def) {
+  static_assert(kEvent == ArtJvmtiEvent::kClassFileLoadHookNonRetransformable ||
+                kEvent == ArtJvmtiEvent::kClassFileLoadHookRetransformable,
+                "bad event type");
+  ScopedDefinitionHandler handler(def);
+  jint new_len = -1;
+  unsigned char* new_data = nullptr;
+  art::ArrayRef<const unsigned char> dex_data = def->GetDexData();
+  event_handler->DispatchEvent<ArtJvmtiEvent::kClassFileLoadHookRetransformable>(
+      self,
+      static_cast<JNIEnv*>(self->GetJniEnv()),
+      def->GetClass(),
+      def->GetLoader(),
+      def->GetName().c_str(),
+      def->GetProtectionDomain(),
+      static_cast<jint>(dex_data.size()),
+      dex_data.data(),
+      /*out*/&new_len,
+      /*out*/&new_data);
+  def->SetNewDexData(new_len, new_data);
+}
+
 jvmtiError Transformer::RetransformClassesDirect(
-      ArtJvmTiEnv* env,
       EventHandler* event_handler,
       art::Thread* self,
       /*in-out*/std::vector<ArtClassDefinition>* definitions) {
   for (ArtClassDefinition& def : *definitions) {
-    jint new_len = -1;
-    unsigned char* new_data = nullptr;
-    art::ArrayRef<const unsigned char> dex_data = def.GetDexData();
-    event_handler->DispatchEvent<ArtJvmtiEvent::kClassFileLoadHookRetransformable>(
-        self,
-        GetJniEnv(env),
-        def.GetClass(),
-        def.GetLoader(),
-        def.GetName().c_str(),
-        def.GetProtectionDomain(),
-        static_cast<jint>(dex_data.size()),
-        dex_data.data(),
-        /*out*/&new_len,
-        /*out*/&new_data);
-    def.SetNewDexData(env, new_len, new_data);
+    TransformSingleClassDirect<ArtJvmtiEvent::kClassFileLoadHookRetransformable>(event_handler,
+                                                                                 self,
+                                                                                 &def);
   }
   return OK;
 }
@@ -120,13 +235,13 @@ jvmtiError Transformer::RetransformClasses(ArtJvmTiEnv* env,
       return ERR(UNMODIFIABLE_CLASS);
     }
     ArtClassDefinition def;
-    res = def.Init(env, classes[i]);
+    res = def.Init(self, classes[i]);
     if (res != OK) {
       return res;
     }
     definitions.push_back(std::move(def));
   }
-  res = RetransformClassesDirect(env, event_handler, self, &definitions);
+  res = RetransformClassesDirect(event_handler, self, &definitions);
   if (res != OK) {
     return res;
   }
