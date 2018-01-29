@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f01c3aaf_0736e26d",
+        "filename": "dexlayout/dex_ir_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-29T13:25:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ea950d5_2189fed7",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "7517555480074dcbd5c6d9472d5a394ce0e88023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7735f734_d0680217",
         "filename": "dexlayout/dex_ir_builder.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-29T09:50:58Z",
       "side": 1,
       "message": "this is",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 31,
+        "endChar": 7
+      },
+      "revId": "7517555480074dcbd5c6d9472d5a394ce0e88023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81d7f8a0_f9a449f2",
+        "filename": "dexlayout/dex_ir_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-29T13:25:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7735f734_d0680217",
       "range": {
         "startLine": 31,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3a61a35a_009788e3",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-29T13:25:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8be03b38_3891ba60",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 38
+      },
+      "revId": "7517555480074dcbd5c6d9472d5a394ce0e88023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc41b6d4_833f09cd",
         "filename": "dexlayout/dexlayout_test.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-29T09:50:58Z",
       "side": 1,
       "message": "This reads odd. Drop the for loop, and update the comment saying \"Check that the only class in the out dex file is \"LManyMethods$Strings;?",
+      "range": {
+        "startLine": 827,
+        "startChar": 4,
+        "endLine": 832,
+        "endChar": 5
+      },
+      "revId": "7517555480074dcbd5c6d9472d5a394ce0e88023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d5ba57_a649202c",
+        "filename": "dexlayout/dexlayout_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-29T13:25:00Z",
+      "side": 1,
+      "message": "Why not just leave the for loop in case we want to add multiple class filter test later? I will add a comment though.",
+      "parentUuid": "bc41b6d4_833f09cd",
       "range": {
         "startLine": 827,
         "startChar": 4,
