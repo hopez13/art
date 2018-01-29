@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb664b76_b24d2b40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-29T15:10:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12b82217_162726af",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 15
+      },
+      "revId": "3f6458bd0e09b14a012734f9fb0d3352e63f1ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a30af162_5156fb77",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-29T15:00:20Z",
       "side": 1,
       "message": "constant?\n\nwe have one for classes.dex in dex_file_loader.h\n\nstatic constexpr const char* kClassesDex \u003d \"classes.dex\";\n\nOne suggestion is global.h.",
+      "range": {
+        "startLine": 1416,
+        "startChar": 38,
+        "endLine": 1416,
+        "endChar": 51
+      },
+      "revId": "3f6458bd0e09b14a012734f9fb0d3352e63f1ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26faf1ec_69f3a7ed",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-29T15:10:32Z",
+      "side": 1,
+      "message": "Done in vdex_file.h.",
+      "parentUuid": "a30af162_5156fb77",
       "range": {
         "startLine": 1416,
         "startChar": 38,
