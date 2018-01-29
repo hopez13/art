@@ -1834,11 +1834,59 @@ void LocationsBuilderMIPS64::HandleBinaryOp(HBinaryOperation* instruction) {
       bool can_use_imm = false;
       if (right->IsConstant()) {
         int64_t imm = CodeGenerator::GetInt64ValueOf(right->AsConstant());
-        if (instruction->IsAnd() || instruction->IsOr() || instruction->IsXor()) {
+        bool single_use = right->GetUses().HasExactlyOneElement();
+        if (instruction->IsAnd()) {
+          if (IsUint<16>(imm)) {
+            can_use_imm = true;
+          } else if (single_use) {
+            if (type == DataType::Type::kInt32) {
+              if (imm > 0) {
+                uint32_t imm_unsigned = static_cast<uint32_t>(imm);
+                int clz_imm = CLZ(imm_unsigned);
+                if ((32 - clz_imm) == POPCOUNT(imm)) {
+                  can_use_imm = true;
+                }
+              } else {
+                int ctz_imm = CTZ(imm);
+                if ((32 - ctz_imm) == POPCOUNT(imm)) {
+                  can_use_imm = true;
+                } else {
+                  int imm_flipped = ~imm;
+                  uint32_t imm_flipped_unsigned = static_cast<uint32_t>(imm_flipped);
+                  int clz_imm = CLZ(imm_flipped_unsigned);
+                  ctz_imm = CTZ(imm_flipped);
+                  if ((32 - clz_imm - ctz_imm) == POPCOUNT(imm_flipped)) {
+                    can_use_imm = true;
+                  }
+                }
+              }
+            } else {
+              if (imm > 0) {
+                uint64_t imm_unsigned = static_cast<uint64_t>(imm);
+                int clz_imm = CLZ(imm_unsigned);
+                if ((64 - clz_imm) == POPCOUNT(imm)) {
+                  can_use_imm = true;
+                }
+              } else {
+                int ctz_imm = CTZ(imm);
+                if ((64 - ctz_imm) == POPCOUNT(imm)) {
+                  can_use_imm = true;
+                } else {
+                  int imm_flipped = ~imm;
+                  uint64_t imm_flipped_unsigned = static_cast<uint64_t>(imm_flipped);
+                  int clz_imm = CLZ(imm_flipped_unsigned);
+                  ctz_imm = CTZ(imm_flipped);
+                  if ((64 - clz_imm - ctz_imm) == POPCOUNT(imm_flipped)) {
+                    can_use_imm = true;
+                  }
+                }
+              }
+            }
+          }
+        } else if (instruction->IsOr() || instruction->IsXor()) {
           can_use_imm = IsUint<16>(imm);
         } else {
           DCHECK(instruction->IsAdd() || instruction->IsSub());
-          bool single_use = right->GetUses().HasExactlyOneElement();
           if (instruction->IsSub()) {
             if (!(type == DataType::Type::kInt32 && imm == INT32_MIN)) {
               imm = -imm;
@@ -1892,10 +1940,58 @@ void InstructionCodeGeneratorMIPS64::HandleBinaryOp(HBinaryOperation* instructio
       }
 
       if (instruction->IsAnd()) {
-        if (use_imm)
-          __ Andi(dst, lhs, rhs_imm);
-        else
+        if (use_imm) {
+          if (IsUint<16>(rhs_imm)) {
+            __ Andi(dst, lhs, rhs_imm);
+          } else {
+            if (dst != lhs) {
+              __ Move(dst, lhs);
+            }
+            if (type == DataType::Type::kInt32) {
+              if (rhs_imm > 0) {
+                uint32_t rhs_imm_unsigned = static_cast<uint32_t>(rhs_imm);
+                int clz_imm = CLZ(rhs_imm_unsigned);
+                if ((32 - clz_imm) == POPCOUNT(rhs_imm)) {
+                  __ Ins(dst, ZERO, 32 - clz_imm, clz_imm);
+                }
+              } else {
+                int ctz_imm = CTZ(rhs_imm);
+                if ((32 - ctz_imm) == POPCOUNT(rhs_imm)) {
+                  __ Ins(dst, ZERO, 0, ctz_imm);
+                } else {
+                  int imm_flipped = ~rhs_imm;
+                  uint32_t imm_flipped_unsigned = static_cast<uint32_t>(imm_flipped);
+                  int clz_imm = CLZ(imm_flipped_unsigned);
+                  ctz_imm = CTZ(imm_flipped);
+                  DCHECK_EQ((32 - clz_imm - ctz_imm), POPCOUNT(imm_flipped));
+                  __ Ins(dst, ZERO, ctz_imm, 32 - clz_imm - ctz_imm);
+                }
+              }
+            } else {
+              if (rhs_imm > 0) {
+                uint64_t rhs_imm_unsigned = static_cast<uint64_t>(rhs_imm);
+                int clz_imm = CLZ(rhs_imm_unsigned);
+                if ((64 - clz_imm) == POPCOUNT(rhs_imm)) {
+                  __ DblIns(dst, ZERO, 64 - clz_imm, clz_imm);
+                }
+              } else {
+                int ctz_imm = CTZ(rhs_imm);
+                if ((64 - ctz_imm) == POPCOUNT(rhs_imm)) {
+                  __ DblIns(dst, ZERO, 0, ctz_imm);
+                } else {
+                  int imm_flipped = ~rhs_imm;
+                  uint64_t imm_flipped_unsigned = static_cast<uint64_t>(imm_flipped);
+                  int clz_imm = CLZ(imm_flipped_unsigned);
+                  ctz_imm = CTZ(imm_flipped);
+                  DCHECK_EQ((64 - clz_imm - ctz_imm), POPCOUNT(imm_flipped));
+                  __ DblIns(dst, ZERO, ctz_imm, 64 - clz_imm - ctz_imm);
+                }
+              }
+            }
+          }
+        } else {
           __ And(dst, lhs, rhs_reg);
+        }
       } else if (instruction->IsOr()) {
         if (use_imm)
           __ Ori(dst, lhs, rhs_imm);

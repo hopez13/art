@@ -1982,7 +1982,8 @@ void LocationsBuilderMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
   DCHECK_EQ(instruction->InputCount(), 2U);
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
   DataType::Type type = instruction->GetResultType();
-  bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
+  const bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
+  const bool is_r2_or_newer = codegen_->GetInstructionSetFeatures().IsMipsIsaRevGreaterThanEqual2();
   switch (type) {
     case DataType::Type::kInt32: {
       locations->SetInAt(0, Location::RequiresRegister());
@@ -1990,7 +1991,33 @@ void LocationsBuilderMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
       bool can_use_imm = false;
       if (right->IsConstant()) {
         int32_t imm = CodeGenerator::GetInt32ValueOf(right->AsConstant());
-        if (instruction->IsAnd() || instruction->IsOr() || instruction->IsXor()) {
+        bool single_use = right->GetUses().HasExactlyOneElement();
+        if (instruction->IsAnd()) {
+          if (IsUint<16>(imm)) {
+            can_use_imm = true;
+          } else if (is_r2_or_newer && single_use) {
+            if (imm > 0) {
+              uint32_t imm_unsigned = static_cast<uint32_t>(imm);
+              int clz_imm = CLZ(imm_unsigned);
+              if ((32 - clz_imm) == POPCOUNT(imm)) {
+                can_use_imm = true;
+              }
+            } else {
+              int ctz_imm = CTZ(imm);
+              if ((32 - ctz_imm) == POPCOUNT(imm)) {
+                can_use_imm = true;
+              } else {
+                int imm_flipped = ~imm;
+                uint32_t imm_flipped_unsigned = static_cast<uint32_t>(imm_flipped);
+                int clz_imm = CLZ(imm_flipped_unsigned);
+                ctz_imm = CTZ(imm_flipped);
+                if ((32 - clz_imm - ctz_imm) == POPCOUNT(imm_flipped)) {
+                  can_use_imm = true;
+                }
+              }
+            }
+          }
+        } else if (instruction->IsOr() || instruction->IsXor()) {
           can_use_imm = IsUint<16>(imm);
         } else {
           DCHECK(instruction->IsSub() || instruction->IsAdd());
@@ -1998,7 +2025,6 @@ void LocationsBuilderMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
             imm = -imm;
           }
           if (isR6) {
-            bool single_use = right->GetUses().HasExactlyOneElement();
             int16_t imm_high = High16Bits(imm);
             int16_t imm_low = Low16Bits(imm);
             if (imm_low < 0) {
@@ -2041,7 +2067,8 @@ void LocationsBuilderMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
 void InstructionCodeGeneratorMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
   DataType::Type type = instruction->GetType();
   LocationSummary* locations = instruction->GetLocations();
-  bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
+  const bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
+  const bool is_r2_or_newer = codegen_->GetInstructionSetFeatures().IsMipsIsaRevGreaterThanEqual2();
 
   switch (type) {
     case DataType::Type::kInt32: {
@@ -2059,10 +2086,37 @@ void InstructionCodeGeneratorMIPS::HandleBinaryOp(HBinaryOperation* instruction)
       }
 
       if (instruction->IsAnd()) {
-        if (use_imm)
-          __ Andi(dst, lhs, rhs_imm);
-        else
+        if (use_imm) {
+          if (IsUint<16>(rhs_imm)) {
+            __ Andi(dst, lhs, rhs_imm);
+          } else {
+            DCHECK(is_r2_or_newer);
+            if (dst != lhs) {
+              __ Move(dst, lhs);
+            }
+            if (rhs_imm > 0) {
+              uint32_t rhs_imm_unsigned = static_cast<uint32_t>(rhs_imm);
+              int clz_imm = CLZ(rhs_imm_unsigned);
+              if ((32 - clz_imm) == POPCOUNT(rhs_imm)) {
+                __ Ins(dst, ZERO, 32 - clz_imm, clz_imm);
+              }
+            } else {
+              int ctz_imm = CTZ(rhs_imm);
+              if ((32 - ctz_imm) == POPCOUNT(rhs_imm)) {
+                __ Ins(dst, ZERO, 0, ctz_imm);
+              } else {
+                int imm_flipped = ~rhs_imm;
+                uint32_t imm_flipped_unsigned = static_cast<uint32_t>(imm_flipped);
+                int clz_imm = CLZ(imm_flipped_unsigned);
+                ctz_imm = CTZ(imm_flipped);
+                DCHECK_EQ((32 - clz_imm - ctz_imm), POPCOUNT(imm_flipped));
+                __ Ins(dst, ZERO, ctz_imm, 32 - clz_imm - ctz_imm);
+              }
+            }
+          }
+        } else {
           __ And(dst, lhs, rhs_reg);
+        }
       } else if (instruction->IsOr()) {
         if (use_imm)
           __ Ori(dst, lhs, rhs_imm);
