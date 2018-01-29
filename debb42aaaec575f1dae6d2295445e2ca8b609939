@@ -46,6 +46,30 @@
       "revId": "debb42aaaec575f1dae6d2295445e2ca8b609939",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5bb7fc5_a7d903de",
+        "filename": "runtime/leb128.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-29T19:35:12Z",
+      "side": 1,
+      "message": "I wasn\u0027t really concerned with performance, but now that\u0027s used outside the build too, I guess that makes sense. Update the comment above the function then.",
+      "parentUuid": "4fd524bf_65c217cb",
+      "range": {
+        "startLine": 234,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 13
+      },
+      "revId": "debb42aaaec575f1dae6d2295445e2ca8b609939",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
