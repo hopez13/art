@@ -68,6 +68,9 @@ extern "C" {
   // Static initialization is necessary to prevent GDB from seeing
   // uninitialized descriptor.
   JITDescriptor __jit_debug_descriptor = { 1, JIT_NOACTION, nullptr, nullptr };
+
+  // Incremented whenever __jit_debug_descriptor is modified.
+  uint32_t __jit_debug_descriptor_timestamp = 0;
 }
 
 Mutex g_jit_debug_mutex("JIT debug interface lock", kJitDebugInterfaceLock);
@@ -96,6 +99,7 @@ JITCodeEntry* CreateJITCodeEntry(const std::vector<uint8_t>& symfile) {
   __jit_debug_descriptor.first_entry_ = entry;
   __jit_debug_descriptor.relevant_entry_ = entry;
   __jit_debug_descriptor.action_flag_ = JIT_REGISTER_FN;
+  __jit_debug_descriptor_timestamp++;
   (*__jit_debug_register_code_ptr)();
   return entry;
 }
@@ -114,6 +118,7 @@ void DeleteJITCodeEntry(JITCodeEntry* entry) {
   g_jit_debug_mem_usage -= sizeof(JITCodeEntry) + entry->symfile_size_;
   __jit_debug_descriptor.relevant_entry_ = entry;
   __jit_debug_descriptor.action_flag_ = JIT_UNREGISTER_FN;
+  __jit_debug_descriptor_timestamp++;
   (*__jit_debug_register_code_ptr)();
   delete[] entry->symfile_addr_;
   delete entry;
