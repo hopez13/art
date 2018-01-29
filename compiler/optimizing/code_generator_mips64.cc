@@ -1847,11 +1847,42 @@ void LocationsBuilderMIPS64::HandleBinaryOp(HBinaryOperation* instruction) {
       bool can_use_imm = false;
       if (right->IsConstant()) {
         int64_t imm = CodeGenerator::GetInt64ValueOf(right->AsConstant());
-        if (instruction->IsAnd() || instruction->IsOr() || instruction->IsXor()) {
+        bool single_use = right->GetUses().HasExactlyOneElement();
+        if (instruction->IsAnd()) {
+          if (IsUint<16>(imm)) {
+            can_use_imm = true;
+          } else if (single_use) {
+            // Detect the three following bit patterns:
+            // - all zeroes followed by all ones,
+            // - all ones followed by all zeroes,
+            // - all ones followed by all zeroes followed by all ones.
+            // In these cases we can use the ins instruction to clear a contiguous group of bits.
+            if (type == DataType::Type::kInt32) {
+              DCHECK_NE(imm, 0);
+              uint32_t imm_unsigned = static_cast<uint32_t>(imm);
+              uint32_t imm_unsigned_flipped = ~imm_unsigned;
+              int total_ones = POPCOUNT(imm_unsigned);
+              int leading_ones = JAVASTYLE_CLZ(imm_unsigned_flipped);
+              int trailing_ones = JAVASTYLE_CTZ(imm_unsigned_flipped);
+              if (leading_ones + trailing_ones == total_ones) {
+                can_use_imm = true;
+              }
+            } else {
+              DCHECK_NE(imm, 0);
+              uint64_t imm_unsigned = static_cast<uint64_t>(imm);
+              uint64_t imm_unsigned_flipped = ~imm_unsigned;
+              int total_ones = POPCOUNT(imm_unsigned);
+              int leading_ones = JAVASTYLE_CLZ(imm_unsigned_flipped);
+              int trailing_ones = JAVASTYLE_CTZ(imm_unsigned_flipped);
+              if (leading_ones + trailing_ones == total_ones) {
+                can_use_imm = true;
+              }
+            }
+          }
+        } else if (instruction->IsOr() || instruction->IsXor()) {
           can_use_imm = IsUint<16>(imm);
         } else {
           DCHECK(instruction->IsAdd() || instruction->IsSub());
-          bool single_use = right->GetUses().HasExactlyOneElement();
           if (instruction->IsSub()) {
             if (!(type == DataType::Type::kInt32 && imm == INT32_MIN)) {
               imm = -imm;
@@ -1905,10 +1936,40 @@ void InstructionCodeGeneratorMIPS64::HandleBinaryOp(HBinaryOperation* instructio
       }
 
       if (instruction->IsAnd()) {
-        if (use_imm)
-          __ Andi(dst, lhs, rhs_imm);
-        else
+        if (use_imm) {
+          if (IsUint<16>(rhs_imm)) {
+            __ Andi(dst, lhs, rhs_imm);
+          } else {
+            if (dst != lhs) {
+              __ Move(dst, lhs);
+            }
+            if (type == DataType::Type::kInt32) {
+              uint32_t imm_unsigned = static_cast<uint32_t>(rhs_imm);
+              uint32_t imm_unsigned_flipped = ~imm_unsigned;
+              int total_ones = POPCOUNT(imm_unsigned);
+              DCHECK((0 < total_ones) && (total_ones < 32)) << total_ones;
+              int leading_ones = JAVASTYLE_CLZ(imm_unsigned_flipped);
+              int trailing_ones = JAVASTYLE_CTZ(imm_unsigned_flipped);
+              DCHECK_EQ(leading_ones + trailing_ones, total_ones)
+                  << leading_ones << " + " << trailing_ones;
+              int zeroes = 32 - leading_ones - trailing_ones;
+              __ Ins(dst, ZERO, trailing_ones, zeroes);
+            } else {
+              uint64_t imm_unsigned = static_cast<uint64_t>(rhs_imm);
+              uint64_t imm_unsigned_flipped = ~imm_unsigned;
+              int total_ones = POPCOUNT(imm_unsigned);
+              DCHECK((0 < total_ones) && (total_ones < 64)) << total_ones;
+              int leading_ones = JAVASTYLE_CLZ(imm_unsigned_flipped);
+              int trailing_ones = JAVASTYLE_CTZ(imm_unsigned_flipped);
+              DCHECK_EQ(leading_ones + trailing_ones, total_ones)
+                  << leading_ones << " + " << trailing_ones;
+              int zeroes = 64 - leading_ones - trailing_ones;
+              __ DblIns(dst, ZERO, trailing_ones, zeroes);
+            }
+          }
+        } else {
           __ And(dst, lhs, rhs_reg);
+        }
       } else if (instruction->IsOr()) {
         if (use_imm)
           __ Ori(dst, lhs, rhs_imm);
