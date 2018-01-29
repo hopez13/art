@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea950d5_2189fed7",
+        "filename": "dexlayout/dex_ir_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-29T09:50:58Z",
+      "side": 1,
+      "message": "Drop second \"assigns offsets\".",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "7517555480074dcbd5c6d9472d5a394ce0e88023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7735f734_d0680217",
+        "filename": "dexlayout/dex_ir_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-29T09:50:58Z",
+      "side": 1,
+      "message": "this is",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 31,
+        "endChar": 7
+      },
+      "revId": "7517555480074dcbd5c6d9472d5a394ce0e88023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be03b38_3891ba60",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-29T09:50:58Z",
+      "side": 1,
+      "message": "nit: add comment.",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 38
+      },
+      "revId": "7517555480074dcbd5c6d9472d5a394ce0e88023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc41b6d4_833f09cd",
+        "filename": "dexlayout/dexlayout_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-29T09:50:58Z",
+      "side": 1,
+      "message": "This reads odd. Drop the for loop, and update the comment saying \"Check that the only class in the out dex file is \"LManyMethods$Strings;?",
+      "range": {
+        "startLine": 827,
+        "startChar": 4,
+        "endLine": 832,
+        "endChar": 5
+      },
+      "revId": "7517555480074dcbd5c6d9472d5a394ce0e88023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
