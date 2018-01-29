@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d1051b8_19aeb35f",
+        "filename": "runtime/leb128.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-01-29T19:25:20Z",
+      "side": 1,
+      "message": "Why DCHECK now? This seems useful in production too.",
+      "range": {
+        "startLine": 234,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 13
+      },
+      "revId": "debb42aaaec575f1dae6d2295445e2ca8b609939",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
