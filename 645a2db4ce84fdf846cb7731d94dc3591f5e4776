@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da19f319_50c0d0b9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-29T13:52:33Z",
+      "side": 1,
+      "message": "Naming issue, as usual. I named the profile \"primary.prof\" and I think we should be consistent. \nI am happy with both \"base\" or \"primary\". One thing is that \"base\" does not match well for splits as only one of the application\u0027s apks will be named \"base\". Preferences?\n\nAlso, let\u0027s introduce a constant for this. Maybe to some common place, so that I can move the profile name there as well.",
+      "range": {
+        "startLine": 1415,
+        "startChar": 38,
+        "endLine": 1415,
+        "endChar": 47
+      },
+      "revId": "645a2db4ce84fdf846cb7731d94dc3591f5e4776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b66abf1_059cab48",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-29T13:52:33Z",
+      "side": 1,
+      "message": "add zip-mapping if it\u0027s not compressed?",
+      "range": {
+        "startLine": 1422,
+        "startChar": 54,
+        "endLine": 1422,
+        "endChar": 69
+      },
+      "revId": "645a2db4ce84fdf846cb7731d94dc3591f5e4776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
