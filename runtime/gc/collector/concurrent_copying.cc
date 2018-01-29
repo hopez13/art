@@ -2551,10 +2551,6 @@ mirror::Object* ConcurrentCopying::IsMarked(mirror::Object* from_ref) {
       to_ref = nullptr;
     }
   } else {
-    if (young_gen_) {
-      // Only sweeps the from space.
-      return from_ref;
-    }
     // from_ref is in a non-moving space.
     if (immune_spaces_.ContainsObject(from_ref)) {
       // An immune object is alive.
