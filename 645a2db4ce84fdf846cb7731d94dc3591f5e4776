@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "01fefece_0f689282",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-29T14:12:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da19f319_50c0d0b9",
+      "range": {
+        "startLine": 1415,
+        "startChar": 38,
+        "endLine": 1415,
+        "endChar": 47
+      },
+      "revId": "645a2db4ce84fdf846cb7731d94dc3591f5e4776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b66abf1_059cab48",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-29T13:52:33Z",
       "side": 1,
       "message": "add zip-mapping if it\u0027s not compressed?",
+      "range": {
+        "startLine": 1422,
+        "startChar": 54,
+        "endLine": 1422,
+        "endChar": 69
+      },
+      "revId": "645a2db4ce84fdf846cb7731d94dc3591f5e4776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bda152e_c120c169",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-01-29T14:12:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b66abf1_059cab48",
       "range": {
         "startLine": 1422,
         "startChar": 54,
