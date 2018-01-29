@@ -3428,6 +3428,7 @@ void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
   }
   jweak dex_cache_jweak = vm->AddWeakGlobalRef(self, dex_cache);
   dex_cache->SetDexFile(&dex_file);
+  dex_file.RegisterForNativeTools();
   DexCacheData data;
   data.weak_root = dex_cache_jweak;
   data.dex_file = dex_cache->GetDexFile();

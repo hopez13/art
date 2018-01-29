@@ -21,6 +21,7 @@ cc_defaults {
     srcs: [
         "dex/compact_dex_debug_info.cc",
         "dex/compact_dex_file.cc",
+        "dex/dex_debugger_interface.cc",
         "dex/dex_file.cc",
         "dex/dex_file_exception_helpers.cc",
         "dex/dex_file_loader.cc",

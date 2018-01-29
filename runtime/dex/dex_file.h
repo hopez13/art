@@ -28,6 +28,7 @@
 #include "base/value_object.h"
 #include "dex_file_types.h"
 #include "dex_instruction_iterator.h"
+#include "dex_debugger_interface.h"
 #include "globals.h"
 #include "hidden_api_access_flags.h"
 #include "jni.h"
@@ -993,6 +994,8 @@ class DexFile {
     return container_.get();
   }
 
+  void RegisterForNativeTools() const;
+
  protected:
   // First Dex format version supporting default methods.
   static const uint32_t kDefaultMethodsVersion = 37;
@@ -1073,6 +1076,9 @@ class DexFile {
   // pointer to the OatDexFile it was loaded from. Otherwise oat_dex_file_ is
   // null.
   mutable const OatDexFile* oat_dex_file_;
+
+  // Entry in linked-list of open dex files for use in native tools (e.g. libunwind).
+  mutable DexFileDebugEntry* debug_entry_;
 
   // Manages the underlying memory allocation.
   std::unique_ptr<DexFileContainer> container_;
