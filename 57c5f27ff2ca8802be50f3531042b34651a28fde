@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb966159_1ed7bd61",
+        "filename": "openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-29T18:53:15Z",
+      "side": 1,
+      "message": "Not very helpful if you don\u0027t print the error message. Rather rewrite it to DCheckVerifyDexFile or so.",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 39
+      },
+      "revId": "57c5f27ff2ca8802be50f3531042b34651a28fde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
