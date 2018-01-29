@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "80ec1b36_3d400395",
+        "filename": "openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-29T19:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb966159_1ed7bd61",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 39
+      },
+      "revId": "57c5f27ff2ca8802be50f3531042b34651a28fde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e3c156e_af9616a0",
         "filename": "runtime/leb128.h",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "57c5f27ff2ca8802be50f3531042b34651a28fde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e1511b2_94762ac7",
+        "filename": "runtime/leb128.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-29T19:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e3c156e_af9616a0",
+      "range": {
+        "startLine": 58,
+        "startChar": 23,
+        "endLine": 58,
+        "endChar": 49
+      },
+      "revId": "57c5f27ff2ca8802be50f3531042b34651a28fde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
