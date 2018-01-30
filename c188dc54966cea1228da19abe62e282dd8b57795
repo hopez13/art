@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3329732_b2d08c23",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8589,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-30T14:47:29Z",
+      "side": 1,
+      "message": "I\u0027d store the current thread pointer in a variable to avoid this second call to Thread::Current().",
+      "range": {
+        "startLine": 8589,
+        "startChar": 34,
+        "endLine": 8589,
+        "endChar": 51
+      },
+      "revId": "c188dc54966cea1228da19abe62e282dd8b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
