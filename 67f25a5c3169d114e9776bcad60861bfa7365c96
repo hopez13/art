@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "04ce4fb4_0b77a177",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-30T18:18:24Z",
+      "side": 1,
+      "message": "My thought is for those intrinsics that don\u0027t do any read or write (kNoSideEffects such as those math intrinsics), we don\u0027t need to keep the store/invalidate the heap value.",
+      "parentUuid": "6daf95a3_43bae06b",
+      "range": {
+        "startLine": 836,
+        "startChar": 0,
+        "endLine": 839,
+        "endChar": 9
+      },
+      "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa8de747_0bd3ed15",
         "filename": "test/530-regression-lse/src/Main.java",
         "patchSetId": 2
