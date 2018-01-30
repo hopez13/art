@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2c87a9d_d8684792",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-30T23:15:36Z",
+      "side": 1,
+      "message": "note sure I am happy about fragmentation general purpose optimizer this way more and more, why not use the GetScalarUnrollingFactor for this and have less of such methods?",
+      "revId": "7f1308568c924778619e9a1a6b695cf0f471b8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cdcda13_8be1418c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-30T23:15:36Z",
+      "side": 1,
+      "message": "is there any way we could make this a more general routines elsewhere, it takes a lot of real estate to traverse the loop first for just this? same for methods below. Perhaps we can put them in some general loop utility header instead?",
+      "revId": "7f1308568c924778619e9a1a6b695cf0f471b8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a210dbb_ee331152",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-30T23:15:36Z",
+      "side": 1,
+      "message": "we talked about this earlier, but I would really like to keep inner loop optimizations inside OptimizeInnerLoop rather than adding this complexity in the driver. (1) under what circumstances can we have !inner_loop_optimized \u0026\u0026 node-\u003einner \u003d\u003d nullptr (2) if having driver matters, why not push that test into TryUnrollingForBranchPenaltyReduction rather than here at the caller where it is less clear?\n\nYou probably want to try this even when the OptimizeInnerLoop() pre-code returns false on some conditions, but then we should split this up in a \n\nOptimizeInnerLoop() {\n  if (TryOptimizeInnerLoopFinite())\n     return true\n   TryUnrollingForBranchPenaltyReduction \n\nat that place rather than here",
+      "revId": "7f1308568c924778619e9a1a6b695cf0f471b8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
