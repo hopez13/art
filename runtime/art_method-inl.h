@@ -377,6 +377,22 @@ inline bool ArtMethod::HasSingleImplementation() {
   return (GetAccessFlags() & kAccSingleImplementation) != 0;
 }
 
+inline bool ArtMethod::IsHiddenIntrinsic(uint32_t ordinal) {
+  switch (static_cast<Intrinsics>(ordinal)) {
+    case Intrinsics::kReferenceGetReferent:
+    case Intrinsics::kSystemArrayCopyChar:
+    case Intrinsics::kStringGetCharsNoCheck:
+    case Intrinsics::kVarHandleFullFence:
+    case Intrinsics::kVarHandleAcquireFence:
+    case Intrinsics::kVarHandleReleaseFence:
+    case Intrinsics::kVarHandleLoadLoadFence:
+    case Intrinsics::kVarHandleStoreStoreFence:
+      return true;
+    default:
+      return false;
+  }
+}
+
 inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
   // Currently we only do intrinsics for static/final methods or methods of final
   // classes. We don't set kHasSingleImplementation for those methods.
@@ -415,8 +431,12 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     DCHECK_EQ(must_count_locks, MustCountLocks());
     // We need to special case java.lang.ref.Reference.getRefererent. The Java method
     // is hidden but we do not yet have a way of making intrinsics hidden.
-    if (intrinsic != static_cast<uint32_t>(Intrinsics::kReferenceGetReferent)) {
-      DCHECK_EQ(hidden_api_list, GetHiddenApiAccessFlags());
+    if (kIsDebugBuild) {
+      if (IsHiddenIntrinsic(intrinsic)) {
+        DCHECK_EQ(HiddenApiAccessFlags::kWhitelist, GetHiddenApiAccessFlags());
+      } else {
+        DCHECK_EQ(hidden_api_list, GetHiddenApiAccessFlags());
+      }
     }
   } else {
     SetAccessFlags(new_value);
