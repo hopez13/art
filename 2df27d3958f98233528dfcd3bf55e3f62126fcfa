@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f5279f9b_5f941206",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-30T00:57:10Z",
+      "side": 1,
+      "message": "Done\n\nnow VLOG(signals)",
+      "parentUuid": "84974664_c340c903",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 11
+      },
+      "revId": "2df27d3958f98233528dfcd3bf55e3f62126fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaa88eb8_7a053ea0",
         "filename": "openjdkjvmti/ti_class_definition.cc",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "3f252337_43b0f399",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-30T00:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaa88eb8_7a053ea0",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "2df27d3958f98233528dfcd3bf55e3f62126fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24740fcb_06292551",
         "filename": "openjdkjvmti/ti_class_definition.cc",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2018-01-29T21:50:38Z",
       "side": 1,
       "message": "Why?",
+      "range": {
+        "startLine": 241,
+        "startChar": 49,
+        "endLine": 241,
+        "endChar": 69
+      },
+      "revId": "2df27d3958f98233528dfcd3bf55e3f62126fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d8e4a5a_dd060092",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-30T00:57:10Z",
+      "side": 1,
+      "message": "Couldn\u0027t see any reason to use it.\n\nI can remove this if you want.",
+      "parentUuid": "24740fcb_06292551",
       "range": {
         "startLine": 241,
         "startChar": 49,
