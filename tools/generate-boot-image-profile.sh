@@ -46,7 +46,7 @@ for file in "$@"; do
   fi
 done
 
-jar_args=()
+jar_args=("--skip-apk-verification")
 boot_jars=$("$ANDROID_BUILD_TOP"/art/tools/bootjars.sh --target)
 jar_dir=$ANDROID_BUILD_TOP/$(get_build_var TARGET_OUT_JAVA_LIBRARIES)
 for file in $boot_jars; do
