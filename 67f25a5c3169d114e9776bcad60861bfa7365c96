@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6daf95a3_43bae06b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-01-30T14:50:25Z",
+      "side": 1,
+      "message": "Since with both read and write side effects, the store needs to keep anyway, I suggest remove such check \"if (side_effects.DoesAnyRead())\".",
+      "range": {
+        "startLine": 836,
+        "startChar": 0,
+        "endLine": 839,
+        "endChar": 9
+      },
+      "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa8de747_0bd3ed15",
         "filename": "test/530-regression-lse/src/Main.java",
         "patchSetId": 2
