@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f220ed94_acf90981",
+        "filename": "openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-30T10:53:59Z",
+      "side": 1,
+      "message": "Is it also worth ensuring that there are no quickened opcodes in any method?",
+      "range": {
+        "startLine": 71,
+        "startChar": 12,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "1a824a5c1070648971ce9593a1dd71cdd8cf2f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
