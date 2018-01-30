@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa8de747_0bd3ed15",
+        "filename": "test/530-regression-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-30T01:02:35Z",
+      "side": 1,
+      "message": "this is of course a great regression test (and I was bitten by something very similar that same day while migrating golem to java 8 builds). can you also make an even smaller regression test that showed the original problem in more detail, without going into the libcore parts, or do you really need the bytebuffer class?",
+      "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
