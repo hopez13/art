@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80117ea0_6201938f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-30T22:53:33Z",
+      "side": 1,
+      "message": "The major reason for this peeling was vectorization of \"for (int i \u003d 0; a !\u003d null \u0026\u0026 i \u003c a.length; i++)\" flavored loops. The CL, as is, won\u0027t do that yet, due to a phase ordering issue. So two questions, (1) how hard would it be to do the peeling as part of a prior phase? and (2) if (1) is too hard, then we should think of breaking up the loop optimizer into smaller parts, with SIMD running a bit more downstream.",
+      "revId": "a0991844256ad59ea048d9e04498ea181a853512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
