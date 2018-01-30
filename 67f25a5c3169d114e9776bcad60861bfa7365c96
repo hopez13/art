@@ -81,6 +81,24 @@
       "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2f0609b_3b4204e5",
+        "filename": "test/530-regression-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-30T18:44:22Z",
+      "side": 1,
+      "message": "Fair enough, I was hoping we could reduce this to even simpler code to simplify future debugging, but if this is the bare minimum, than that is good too. \n\nNote I also tested your patch against the java8 compiled ExoPlayerAudioBench (which is currently still failing on golem until Jonas/Nicolas restart the system with the submitted java8 fix), and it passes.",
+      "parentUuid": "0de9175f_cc4e7d21",
+      "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
