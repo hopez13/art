@@ -16,6 +16,24 @@
       "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0de9175f_cc4e7d21",
+        "filename": "test/530-regression-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-01-30T05:36:40Z",
+      "side": 1,
+      "message": "I need an invocation that only has write side effects which only occurs to a few intrinsics, and those are not public. A general invocation has all side effects. So that seems the best I can do.",
+      "parentUuid": "aa8de747_0bd3ed15",
+      "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
