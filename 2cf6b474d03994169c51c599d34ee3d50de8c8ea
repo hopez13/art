@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3f5c0485_67e8b0c9",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-30T23:54:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "265fcc9c_c584e90d",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 142,
+        "endChar": 46
+      },
+      "revId": "2cf6b474d03994169c51c599d34ee3d50de8c8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "495108a9_78b8b7ce",
         "filename": "openjdkjvmti/ti_class_definition.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "2cf6b474d03994169c51c599d34ee3d50de8c8ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb9dee72_f2a9e1de",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-01-30T23:54:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "495108a9_78b8b7ce",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 145,
+        "endChar": 15
+      },
+      "revId": "2cf6b474d03994169c51c599d34ee3d50de8c8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
