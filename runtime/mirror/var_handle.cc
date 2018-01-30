@@ -21,6 +21,7 @@
 #include "class-inl.h"
 #include "class_linker.h"
 #include "gc_root-inl.h"
+#include "intrinsics_enum.h"
 #include "jni_internal.h"
 #include "jvalue-inl.h"
 #include "method_handles.h"
@@ -1463,6 +1464,47 @@ bool VarHandle::IsMethodTypeCompatible(AccessMode access_mode, MethodType* metho
   return true;
 }
 
+bool VarHandle::IsInvokerMethodTypeCompatible(AccessMode access_mode,
+                                              MethodType* method_type) {
+  StackHandleScope<3> hs(Thread::Current());
+  Handle<Class> mt_rtype(hs.NewHandle(method_type->GetRType()));
+  Handle<VarHandle> vh(hs.NewHandle(this));
+  Handle<Class> var_type(hs.NewHandle(vh->GetVarType()));
+  AccessModeTemplate access_mode_template = GetAccessModeTemplate(access_mode);
+
+  // Check return type first.
+  if (mt_rtype->GetPrimitiveType() == Primitive::Type::kPrimVoid) {
+    // The result of the operation will be discarded. The return type
+    // of the VarHandle is immaterial.
+  } else {
+    ObjPtr<Class> vh_rtype(GetReturnType(access_mode_template, var_type.Get()));
+    if (!IsReturnTypeConvertible(vh_rtype, mt_rtype.Get())) {
+      return false;
+    }
+  }
+
+  // Check the number of parameters matches (ignoring the VarHandle parameter).
+  static const int32_t kVarHandleParameters = 1;
+  ObjPtr<Class> vh_ptypes[VarHandle::kMaxAccessorParameters];
+  const int32_t vh_ptypes_count = BuildParameterArray(vh_ptypes,
+                                                      access_mode_template,
+                                                      var_type.Get(),
+                                                      GetCoordinateType0(),
+                                                      GetCoordinateType1());
+  if (vh_ptypes_count != method_type->GetPTypes()->GetLength() - kVarHandleParameters) {
+    return false;
+  }
+
+  // Check the parameter types are compatible (ignoring the VarHandle parameter).
+  ObjPtr<ObjectArray<Class>> mt_ptypes = method_type->GetPTypes();
+  for (int32_t i = 0; i < vh_ptypes_count; ++i) {
+    if (!IsParameterTypeConvertible(mt_ptypes->Get(i + kVarHandleParameters), vh_ptypes[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 MethodType* VarHandle::GetMethodTypeForAccessMode(Thread* self,
                                                   ObjPtr<VarHandle> var_handle,
                                                   AccessMode access_mode) {
@@ -1535,6 +1577,75 @@ const char* VarHandle::GetReturnTypeDescriptor(const char* accessor_name) {
     case AccessModeTemplate::kSet:
       return "V";
   }
+}
+
+VarHandle::AccessMode VarHandle::GetAccessModeByIntrinsic(Intrinsics intrinsic) {
+  switch (intrinsic) {
+    case Intrinsics::kVarHandleCompareAndExchangeAcquire:
+      return VarHandle::AccessMode::kCompareAndExchangeAcquire;
+    case Intrinsics::kVarHandleCompareAndExchangeRelease:
+      return VarHandle::AccessMode::kCompareAndExchangeRelease;
+    case Intrinsics::kVarHandleCompareAndSet:
+      return VarHandle::AccessMode::kCompareAndSet;
+    case Intrinsics::kVarHandleGet:
+      return VarHandle::AccessMode::kGet;
+    case Intrinsics::kVarHandleGetAcquire:
+      return VarHandle::AccessMode::kGetAcquire;
+    case Intrinsics::kVarHandleGetAndAdd:
+      return VarHandle::AccessMode::kGetAndAdd;
+    case Intrinsics::kVarHandleGetAndAddAcquire:
+      return VarHandle::AccessMode::kGetAndAddAcquire;
+    case Intrinsics::kVarHandleGetAndAddRelease:
+      return VarHandle::AccessMode::kGetAndAddRelease;
+    case Intrinsics::kVarHandleGetAndBitwiseAnd:
+      return VarHandle::AccessMode::kGetAndBitwiseAnd;
+    case Intrinsics::kVarHandleGetAndBitwiseAndAcquire:
+      return VarHandle::AccessMode::kGetAndBitwiseAndAcquire;
+    case Intrinsics::kVarHandleGetAndBitwiseAndRelease:
+      return VarHandle::AccessMode::kGetAndBitwiseAndRelease;
+    case Intrinsics::kVarHandleGetAndBitwiseOr:
+      return VarHandle::AccessMode::kGetAndBitwiseOr;
+    case Intrinsics::kVarHandleGetAndBitwiseOrAcquire:
+      return VarHandle::AccessMode::kGetAndBitwiseOrAcquire;
+    case Intrinsics::kVarHandleGetAndBitwiseOrRelease:
+      return VarHandle::AccessMode::kGetAndBitwiseOrRelease;
+    case Intrinsics::kVarHandleGetAndBitwiseXor:
+      return VarHandle::AccessMode::kGetAndBitwiseXor;
+    case Intrinsics::kVarHandleGetAndBitwiseXorAcquire:
+      return VarHandle::AccessMode::kGetAndBitwiseXorAcquire;
+    case Intrinsics::kVarHandleGetAndBitwiseXorRelease:
+      return VarHandle::AccessMode::kGetAndBitwiseXorRelease;
+    case Intrinsics::kVarHandleGetAndSet:
+      return VarHandle::AccessMode::kGetAndSet;
+    case Intrinsics::kVarHandleGetAndSetAcquire:
+      return VarHandle::AccessMode::kGetAndSetAcquire;
+    case Intrinsics::kVarHandleGetAndSetRelease:
+      return VarHandle::AccessMode::kGetAndSetRelease;
+    case Intrinsics::kVarHandleGetOpaque:
+      return VarHandle::AccessMode::kGetOpaque;
+    case Intrinsics::kVarHandleGetVolatile:
+      return VarHandle::AccessMode::kGetVolatile;
+    case Intrinsics::kVarHandleSet:
+      return VarHandle::AccessMode::kSet;
+    case Intrinsics::kVarHandleSetOpaque:
+      return VarHandle::AccessMode::kSetOpaque;
+    case Intrinsics::kVarHandleSetRelease:
+      return VarHandle::AccessMode::kSetRelease;
+    case Intrinsics::kVarHandleSetVolatile:
+      return VarHandle::AccessMode::kSetVolatile;
+    case Intrinsics::kVarHandleWeakCompareAndSet:
+      return VarHandle::AccessMode::kWeakCompareAndSet;
+    case Intrinsics::kVarHandleWeakCompareAndSetAcquire:
+      return VarHandle::AccessMode::kWeakCompareAndSetAcquire;
+    case Intrinsics::kVarHandleWeakCompareAndSetPlain:
+      return VarHandle::AccessMode::kWeakCompareAndSetPlain;
+    case Intrinsics::kVarHandleWeakCompareAndSetRelease:
+      return VarHandle::AccessMode::kWeakCompareAndSetRelease;
+    default:
+      break;
+  }
+  LOG(FATAL) << "Unknown VarHandle instrinsic: " << static_cast<int>(intrinsic);
+  UNREACHABLE();
 }
 
 bool VarHandle::GetAccessModeByMethodName(const char* method_name, AccessMode* access_mode) {

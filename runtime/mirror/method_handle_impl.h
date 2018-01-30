@@ -37,9 +37,6 @@ class MANAGED MethodHandle : public Object {
   // Defines the behaviour of a given method handle. The behaviour
   // of a handle of a given kind is identical to the dex bytecode behaviour
   // of the equivalent instruction.
-  //
-  // NOTE: These must be kept in sync with the constants defined in
-  // java.lang.invoke.MethodHandle.
   enum Kind {
     kInvokeVirtual = 0,
     kInvokeSuper,
@@ -48,6 +45,7 @@ class MANAGED MethodHandle : public Object {
     kInvokeInterface,
     kInvokeTransform,
     kInvokeCallSiteTransform,
+    kInvokeVarHandle,
     kInstanceGet,
     kInstancePut,
     kStaticGet,
@@ -55,7 +53,7 @@ class MANAGED MethodHandle : public Object {
     kLastValidKind = kStaticPut,
     kFirstAccessorKind = kInstanceGet,
     kLastAccessorKind = kStaticPut,
-    kLastInvokeKind = kInvokeCallSiteTransform
+    kLastInvokeKind = kInvokeVarHandle
   };
 
   Kind GetHandleKind() REQUIRES_SHARED(Locks::mutator_lock_) {
