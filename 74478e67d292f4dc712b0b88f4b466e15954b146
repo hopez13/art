@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "debc9a79_d6ce57b4",
+        "filename": "tools/jfuzz/run_jfuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-01-30T18:11:37Z",
+      "side": 1,
+      "message": "NOTE: we added it here earlier to avoid issues with running with a different libcore version, but that of course means we also need it at L172 to keep RI run consistent.",
+      "revId": "74478e67d292f4dc712b0b88f4b466e15954b146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
