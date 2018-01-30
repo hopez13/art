@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23a772cd_b05d289b",
+        "filename": "profman/profman.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-01-30T14:49:19Z",
+      "side": 1,
+      "message": "Looking at this I think I prefer to generalize as \"--skip-dex-verification\". It doesn\u0027t really matter if it\u0027s boot or not after all.\n\nIt may come in handy for other cases as well.",
+      "range": {
+        "startLine": 1159,
+        "startChar": 7,
+        "endLine": 1159,
+        "endChar": 30
+      },
+      "revId": "d06c37a3179c2258981f20a5a286f74510ad580b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
