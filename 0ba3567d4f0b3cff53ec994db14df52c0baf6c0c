@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "43068759_4f7f2317",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-30T19:33:44Z",
+      "side": 1,
+      "message": "This should work from any directory, as long as `ART_TEST_CHROOT` is an absolute path (see below).",
+      "parentUuid": "2c74b23c_6d4a6df9",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b6a12a96_7c80b664",
         "filename": "tools/cleanup-buildbot-device.sh",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2017-11-06T17:56:22Z",
       "side": 1,
       "message": "nit: write out on multiple lines instead of using || {}",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2380b00_f394cb0f",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-30T19:33:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6a12a96_7c80b664",
       "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "882742e2_b22f0708",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-30T19:33:44Z",
+      "side": 1,
+      "message": "I\u0027m not sure this would bring much benefit, as these lists contain different elements, and we\u0027d essentially just factor out the `adb shell rm -rf` part.",
+      "parentUuid": "b79b38b3_b60be3a2",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b82a4e5_b2ee4540",
         "filename": "tools/run-jdwp-tests.sh",
         "patchSetId": 4
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "1ac31133_0480bce6",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-30T19:33:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b82a4e5_b2ee4540",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f34457f_3511674f",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 4
@@ -81,6 +153,24 @@
       "writtenOn": "2017-11-06T17:56:22Z",
       "side": 1,
       "message": "nit: would be good to disallow this with --host",
+      "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f1533b7_2fcce561",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-01-30T19:33:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f34457f_3511674f",
       "revId": "0ba3567d4f0b3cff53ec994db14df52c0baf6c0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
