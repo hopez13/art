@@ -48,12 +48,8 @@
 
 namespace art {
 
-ALWAYS_INLINE static bool ShouldEnforceHiddenApi(Thread* self)
+ALWAYS_INLINE static bool IsCallerInBootClassPath(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (!Runtime::Current()->AreHiddenApiChecksEnabled()) {
-    return false;
-  }
-
   // Walk the stack and find the first frame not from java.lang.Class.
   // This is very expensive. Save this till the last.
   struct FirstNonClassClassCallerVisitor : public StackVisitor {
@@ -84,8 +80,14 @@ ALWAYS_INLINE static bool ShouldEnforceHiddenApi(Thread* self)
 
   FirstNonClassClassCallerVisitor visitor(self);
   visitor.WalkStack();
-  return visitor.caller == nullptr ||
-         !visitor.caller->GetDeclaringClass()->IsBootStrapClassLoaded();
+  return visitor.caller != nullptr &&
+         visitor.caller->GetDeclaringClass()->IsBootStrapClassLoaded();
+}
+
+ALWAYS_INLINE static bool ShouldEnforceHiddenApi(Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return Runtime::Current()->AreHiddenApiChecksEnabled() &&
+         !IsCallerInBootClassPath(self);
 }
 
 // Returns true if the first non-ClassClass caller up the stack should not be
@@ -93,9 +95,7 @@ ALWAYS_INLINE static bool ShouldEnforceHiddenApi(Thread* self)
 template<typename T>
 ALWAYS_INLINE static bool ShouldBlockAccessToMember(T* member, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  DCHECK(member != nullptr);
-  return hiddenapi::IsMemberHidden(member->GetAccessFlags()) &&
-         ShouldEnforceHiddenApi(self);
+  return hiddenapi::ShouldBlockAccessToMember(member, self, IsCallerInBootClassPath);
 }
 
 // Returns true if a class member should be discoverable with reflection given
@@ -109,13 +109,12 @@ ALWAYS_INLINE static bool IsDiscoverable(bool public_only,
     return false;
   }
 
-  if (enforce_hidden_api && hiddenapi::IsMemberHidden(access_flags)) {
+  if (enforce_hidden_api && hiddenapi::GetMemberAction(access_flags) == hiddenapi::kDeny) {
     return false;
   }
 
   return true;
 }
-
 
 ALWAYS_INLINE static inline ObjPtr<mirror::Class> DecodeClass(
     const ScopedFastNativeObjectAccess& soa, jobject java_class)
@@ -831,7 +830,6 @@ static jobject Class_newInstance(JNIEnv* env, jobject javaThis) {
       return nullptr;
     }
   }
-  hiddenapi::MaybeWarnAboutMemberAccess(constructor, soa.Self(), /* num_frames */ 1);
   // Invoke the constructor.
   JValue result;
   uint32_t args[1] = { static_cast<uint32_t>(reinterpret_cast<uintptr_t>(receiver.Get())) };
