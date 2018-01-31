@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bcff2f9_7031a683",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-01-31T02:14:57Z",
+      "side": 1,
+      "message": "Are there any issues with both being enabled at the same time?",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 3
+      },
+      "revId": "8f99e0be3c036ec4db252d0adccdfcdce4b134c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
