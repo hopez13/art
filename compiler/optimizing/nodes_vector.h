@@ -160,6 +160,12 @@ class HVecOperation : public HVariableInputSizeInstruction {
     }
   }
 
+  // Maps an integral type to the same-size (un)signed type. Fails for all other types.
+  static DataType::Type ToProperType(DataType::Type type, bool is_unsigned) {
+    DCHECK(DataType::IsIntegralType(type));
+    return is_unsigned ? ToUnsignedType(type) : ToSignedType(type);
+  }
+
   // Helper method to determine if an instruction returns a SIMD value.
   // TODO: This method is needed until we introduce SIMD as proper type.
   static bool ReturnsSIMDValue(HInstruction* instruction) {
@@ -518,7 +524,7 @@ class HVecAdd FINAL : public HVecBinaryOperation {
 // Performs halving add on every component in the two vectors, viz.
 // rounded   [ x1, .. , xn ] hradd [ y1, .. , yn ] = [ (x1 + y1 + 1) >> 1, .. , (xn + yn + 1) >> 1 ]
 // truncated [ x1, .. , xn ] hadd  [ y1, .. , yn ] = [ (x1 + y1)     >> 1, .. , (xn + yn )    >> 1 ]
-// for either both signed or both unsigned operands x, y.
+// for either both signed or both unsigned operands x, y (reflected in packed_type).
 class HVecHalvingAdd FINAL : public HVecBinaryOperation {
  public:
   HVecHalvingAdd(ArenaAllocator* allocator,
@@ -527,21 +533,13 @@ class HVecHalvingAdd FINAL : public HVecBinaryOperation {
                  DataType::Type packed_type,
                  size_t vector_length,
                  bool is_rounded,
-                 bool is_unsigned,
                  uint32_t dex_pc)
       : HVecBinaryOperation(allocator, left, right, packed_type, vector_length, dex_pc) {
-    // The `is_unsigned` flag should be used exclusively with the Int32 or Int64.
-    // This flag is a temporary measure while we do not have the Uint32 and Uint64 data types.
-    DCHECK(!is_unsigned ||
-           packed_type == DataType::Type::kInt32 ||
-           packed_type == DataType::Type::kInt64) << packed_type;
     DCHECK(HasConsistentPackedTypes(left, packed_type));
     DCHECK(HasConsistentPackedTypes(right, packed_type));
-    SetPackedFlag<kFieldHAddIsUnsigned>(is_unsigned);
     SetPackedFlag<kFieldHAddIsRounded>(is_rounded);
   }
 
-  bool IsUnsigned() const { return GetPackedFlag<kFieldHAddIsUnsigned>(); }
   bool IsRounded() const { return GetPackedFlag<kFieldHAddIsRounded>(); }
 
   bool CanBeMoved() const OVERRIDE { return true; }
@@ -549,9 +547,7 @@ class HVecHalvingAdd FINAL : public HVecBinaryOperation {
   bool InstructionDataEquals(const HInstruction* other) const OVERRIDE {
     DCHECK(other->IsVecHalvingAdd());
     const HVecHalvingAdd* o = other->AsVecHalvingAdd();
-    return HVecOperation::InstructionDataEquals(o) &&
-        IsUnsigned() == o->IsUnsigned() &&
-        IsRounded() == o->IsRounded();
+    return HVecOperation::InstructionDataEquals(o) && IsRounded() == o->IsRounded();
   }
 
   DECLARE_INSTRUCTION(VecHalvingAdd);
@@ -561,8 +557,7 @@ class HVecHalvingAdd FINAL : public HVecBinaryOperation {
 
  private:
   // Additional packed bits.
-  static constexpr size_t kFieldHAddIsUnsigned = HVecOperation::kNumberOfVectorOpPackedBits;
-  static constexpr size_t kFieldHAddIsRounded = kFieldHAddIsUnsigned + 1;
+  static constexpr size_t kFieldHAddIsRounded = HVecOperation::kNumberOfVectorOpPackedBits;
   static constexpr size_t kNumberOfHAddPackedBits = kFieldHAddIsRounded + 1;
   static_assert(kNumberOfHAddPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
 };
@@ -638,7 +633,7 @@ class HVecDiv FINAL : public HVecBinaryOperation {
 
 // Takes minimum of every component in the two vectors,
 // viz. MIN( [ x1, .. , xn ] , [ y1, .. , yn ]) = [ min(x1, y1), .. , min(xn, yn) ]
-// for either both signed or both unsigned operands x, y.
+// for either both signed or both unsigned operands x, y (reflected in packed_type).
 class HVecMin FINAL : public HVecBinaryOperation {
  public:
   HVecMin(ArenaAllocator* allocator,
@@ -646,44 +641,23 @@ class HVecMin FINAL : public HVecBinaryOperation {
           HInstruction* right,
           DataType::Type packed_type,
           size_t vector_length,
-          bool is_unsigned,
           uint32_t dex_pc)
       : HVecBinaryOperation(allocator, left, right, packed_type, vector_length, dex_pc) {
-    // The `is_unsigned` flag should be used exclusively with the Int32 or Int64.
-    // This flag is a temporary measure while we do not have the Uint32 and Uint64 data types.
-    DCHECK(!is_unsigned ||
-           packed_type == DataType::Type::kInt32 ||
-           packed_type == DataType::Type::kInt64) << packed_type;
     DCHECK(HasConsistentPackedTypes(left, packed_type));
     DCHECK(HasConsistentPackedTypes(right, packed_type));
-    SetPackedFlag<kFieldMinOpIsUnsigned>(is_unsigned);
   }
-
-  bool IsUnsigned() const { return GetPackedFlag<kFieldMinOpIsUnsigned>(); }
 
   bool CanBeMoved() const OVERRIDE { return true; }
-
-  bool InstructionDataEquals(const HInstruction* other) const OVERRIDE {
-    DCHECK(other->IsVecMin());
-    const HVecMin* o = other->AsVecMin();
-    return HVecOperation::InstructionDataEquals(o) && IsUnsigned() == o->IsUnsigned();
-  }
 
   DECLARE_INSTRUCTION(VecMin);
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(VecMin);
-
- private:
-  // Additional packed bits.
-  static constexpr size_t kFieldMinOpIsUnsigned = HVecOperation::kNumberOfVectorOpPackedBits;
-  static constexpr size_t kNumberOfMinOpPackedBits = kFieldMinOpIsUnsigned + 1;
-  static_assert(kNumberOfMinOpPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
 };
 
 // Takes maximum of every component in the two vectors,
 // viz. MAX( [ x1, .. , xn ] , [ y1, .. , yn ]) = [ max(x1, y1), .. , max(xn, yn) ]
-// for either both signed or both unsigned operands x, y.
+// for either both signed or both unsigned operands x, y (reflected in packed_type).
 class HVecMax FINAL : public HVecBinaryOperation {
  public:
   HVecMax(ArenaAllocator* allocator,
@@ -691,39 +665,18 @@ class HVecMax FINAL : public HVecBinaryOperation {
           HInstruction* right,
           DataType::Type packed_type,
           size_t vector_length,
-          bool is_unsigned,
           uint32_t dex_pc)
       : HVecBinaryOperation(allocator, left, right, packed_type, vector_length, dex_pc) {
-    // The `is_unsigned` flag should be used exclusively with the Int32 or Int64.
-    // This flag is a temporary measure while we do not have the Uint32 and Uint64 data types.
-    DCHECK(!is_unsigned ||
-           packed_type == DataType::Type::kInt32 ||
-           packed_type == DataType::Type::kInt64) << packed_type;
     DCHECK(HasConsistentPackedTypes(left, packed_type));
     DCHECK(HasConsistentPackedTypes(right, packed_type));
-    SetPackedFlag<kFieldMaxOpIsUnsigned>(is_unsigned);
   }
-
-  bool IsUnsigned() const { return GetPackedFlag<kFieldMaxOpIsUnsigned>(); }
 
   bool CanBeMoved() const OVERRIDE { return true; }
-
-  bool InstructionDataEquals(const HInstruction* other) const OVERRIDE {
-    DCHECK(other->IsVecMax());
-    const HVecMax* o = other->AsVecMax();
-    return HVecOperation::InstructionDataEquals(o) && IsUnsigned() == o->IsUnsigned();
-  }
 
   DECLARE_INSTRUCTION(VecMax);
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(VecMax);
-
- private:
-  // Additional packed bits.
-  static constexpr size_t kFieldMaxOpIsUnsigned = HVecOperation::kNumberOfVectorOpPackedBits;
-  static constexpr size_t kNumberOfMaxOpPackedBits = kFieldMaxOpIsUnsigned + 1;
-  static_assert(kNumberOfMaxOpPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
 };
 
 // Bitwise-ands every component in the two vectors,
