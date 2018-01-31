@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e4beab7_facc07fa",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4123,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-01-31T12:17:54Z",
+      "side": 1,
+      "message": "Maybe we want to also avoid this optimization for low RAM devices? If there is a spike in RAM usage it can result in the device becoming slow. Possible to fix that in a follow up CL though.",
+      "range": {
+        "startLine": 4123,
+        "startChar": 6,
+        "endLine": 4123,
+        "endChar": 41
+      },
+      "revId": "b50f7d5fde6d8b2916b9ba9c2bc6485c62c51c07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
