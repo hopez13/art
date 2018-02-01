@@ -77,6 +77,78 @@ void ClassHierarchyAnalysis::RemoveDependentsWithMethodHeaders(
   }
 }
 
+// LinearAlloc argument is the one allocation that is going to be deleted.
+void ClassHierarchyAnalysis::ResetSIInHierarchyByDeletedAllocation(ObjPtr<mirror::Class> klass,
+                                                                   LinearAlloc* alloc) {
+  // Presumably called from some sort of class visitor, no null pointers expected.
+  DCHECK(klass != nullptr);
+  DCHECK(alloc != nullptr);
+
+  // Skip interfaces since they cannot provide SingleImplementations to work with.
+  if (klass->IsInterface()) {
+    return;
+  }
+
+  // Skip classes that do not belong to the specified allocation.
+  if (!alloc->ContainsUnsafe(klass->GetMethodsPtr())) {
+    return;
+  }
+
+  mirror::Class* super = klass->GetSuperClass<kDefaultVerifyFlags, kWithoutReadBarrier>();
+
+  // Skip Object class and primitive classes.
+  if (super == nullptr) {
+    return;
+  }
+
+  PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  int32_t vtbl_size = super->GetVTableLength();
+
+  // Check each entry in vtbl if it's a single implementation.
+  for (int vtbl_index = 0; vtbl_index < vtbl_size; ++vtbl_index) {
+    ArtMethod* method = klass->GetVTableEntry(vtbl_index, pointer_size);
+    if (!alloc->ContainsUnsafe(method)) {
+      continue;
+    }
+
+    // Find all occurences of virtual methods in parents' SingleImplementations fields
+    // and reset them.
+    // No need to reset SingleImplementations for the method itself (it will be cleared anyways),
+    // so start with a superclass and move up looking into a corresponding vtbl slot.
+    mirror::Class* super_it = super;
+    while (super_it != nullptr && super_it->GetVTableLength() > vtbl_index) {
+      ArtMethod* super_method = super_it->GetVTableEntry(vtbl_index, pointer_size);
+      if (super_method->IsAbstract<kWithoutReadBarrier>() &&
+          super_method->HasSingleImplementation<kWithoutReadBarrier>() &&
+          super_method->GetSingleImplementation(pointer_size) == method) {
+        // Do like there was no single implementation defined previously
+        // for this method of the superclass.
+        super_method->SetSingleImplementation(nullptr, pointer_size);
+      } else {
+        // Seems like a superclass has its own method implementation.
+        // No related SingleImplementations could possibly be found any further.
+        break;
+      }
+      super_it = super_it->GetSuperClass<kDefaultVerifyFlags, kWithoutReadBarrier>();
+    }
+  }
+
+  // Check all possible interface methods too.
+  mirror::IfTable* iftable = klass->GetIfTable<kDefaultVerifyFlags, kWithoutReadBarrier>();
+  const size_t ifcount = klass->GetIfTableCount<kDefaultVerifyFlags, kWithoutReadBarrier>();
+  for (size_t i = 0; i < ifcount; ++i) {
+    mirror::Class* interface = iftable->GetInterface<kDefaultVerifyFlags, kWithoutReadBarrier>(i);
+    for (size_t j = 0, count = iftable->GetMethodArrayCount<kDefaultVerifyFlags, kWithoutReadBarrier>(i); j < count; ++j) {
+      ArtMethod* method = interface->GetVirtualMethod(j, pointer_size);
+      if (method->HasSingleImplementation<kWithoutReadBarrier>() &&
+          alloc->ContainsUnsafe(method->GetSingleImplementation(pointer_size))) {
+        // Do like there was no single implementation define previously for this method.
+        method->SetSingleImplementation(nullptr, pointer_size);
+      }
+    }
+  }
+}
+
 // This stack visitor walks the stack and for compiled code with certain method
 // headers, sets the should_deoptimize flag on stack to 1.
 // TODO: also set the register value to 1 when should_deoptimize is allocated in

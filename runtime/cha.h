@@ -110,6 +110,12 @@ class ClassHierarchyAnalysis {
       const std::unordered_set<OatQuickMethodHeader*>& method_headers)
       REQUIRES(Locks::cha_lock_);
 
+  // If a class belongs to a linear allocation that is about to be deleted,
+  // for each virtual and interface method in the class check if they represent
+  // a SingleImplementation for something, then update this "something" if any.
+  void ResetSIInHierarchyByDeletedAllocation(ObjPtr<mirror::Class> klass, LinearAlloc* alloc)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Update CHA info for methods that `klass` overrides, after loading `klass`.
   void UpdateAfterLoadingOf(Handle<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
 

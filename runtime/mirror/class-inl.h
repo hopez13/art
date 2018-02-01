@@ -627,8 +627,10 @@ inline IfTable* Class::GetIfTable() {
   return ret.Ptr();
 }
 
+template<VerifyObjectFlags kVerifyFlags,
+         ReadBarrierOption kReadBarrierOption>
 inline int32_t Class::GetIfTableCount() {
-  return GetIfTable()->Count();
+  return GetIfTable<kVerifyFlags, kReadBarrierOption>()->Count();
 }
 
 inline void Class::SetIfTable(ObjPtr<IfTable> new_iftable) {

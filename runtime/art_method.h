@@ -172,8 +172,9 @@ class ArtMethod FINAL {
     return (GetAccessFlags() & synchonized) != 0;
   }
 
+  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   bool IsFinal() {
-    return (GetAccessFlags() & kAccFinal) != 0;
+    return (GetAccessFlags<kReadBarrierOption>() & kAccFinal) != 0;
   }
 
   bool IsIntrinsic() {
@@ -279,8 +280,9 @@ class ArtMethod FINAL {
     return (GetAccessFlags() & mask) == mask;
   }
 
+  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   bool IsAbstract() {
-    return (GetAccessFlags() & kAccAbstract) != 0;
+    return (GetAccessFlags<kReadBarrierOption>() & kAccAbstract) != 0;
   }
 
   bool IsSynthetic() {
@@ -494,6 +496,7 @@ class ArtMethod FINAL {
     return DataOffset(kRuntimePointerSize);
   }
 
+  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ALWAYS_INLINE bool HasSingleImplementation() REQUIRES_SHARED(Locks::mutator_lock_);
 
   ALWAYS_INLINE void SetHasSingleImplementation(bool single_impl) {
