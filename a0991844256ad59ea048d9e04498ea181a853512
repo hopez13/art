@@ -16,6 +16,24 @@
       "revId": "a0991844256ad59ea048d9e04498ea181a853512",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d39a271f_0af06722",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-01T17:42:46Z",
+      "side": 1,
+      "message": "To enable vectorization for such types of loop except for this CL peeling (as you\u0027ve correctly mentioned) we will also need the following passes to be applied to the target loop: GVN, DCE, Constant Folding and BCE (lets call them AUX_PASSES). I think there are two ways to do that (*if we stick to the current loop_optimization design*):\n\n1. (Proper way) Tweak the mentioned above optimizations to make it possible to apply them locally to a particular loop. This will take some quite noticeable effort to implement, test and verify.\n\n2. Use existing global version of those AUX_PASSES. We don\u0027t want to run those global passes after each single peeled loop so I have the folling idea:\n\n - Run HLoopOptimization::LocalRun once and record whether we have created new opportunities for vectorization (\u0027need_rerun\u0027). In this case after the whole \u0027LocalRun\u0027 apply AUX_PASSES globally and run \u0027LocalRun\u0027 one more time (maybe only for particular loops, this can be optimized).\n\nWhat do you think on that?\n\nP.S.: I think that anyway this type of improvements could be in a separate CL at least because the current CL give some perf improvements on its own; also to make it easier to review.",
+      "parentUuid": "80117ea0_6201938f",
+      "revId": "a0991844256ad59ea048d9e04498ea181a853512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
