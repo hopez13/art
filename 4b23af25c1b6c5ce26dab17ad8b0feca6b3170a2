@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c9130afc_39c8e517",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-02-01T14:02:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61c8204f_70bd5465",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "4b23af25c1b6c5ce26dab17ad8b0feca6b3170a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5972cbbb_ee67988d",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-01T13:01:19Z",
       "side": 1,
       "message": "This reads odd on something you plan on passing as parameter.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 13
+      },
+      "revId": "4b23af25c1b6c5ce26dab17ad8b0feca6b3170a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "657734f1_20ffe669",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-02-01T14:02:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5972cbbb_ee67988d",
       "range": {
         "startLine": 83,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2036817d_ce05aa24",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-02-01T14:02:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "979d3422_4dd8a782",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "4b23af25c1b6c5ce26dab17ad8b0feca6b3170a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e2bb20_91015053",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2018-02-01T13:01:19Z",
       "side": 1,
       "message": "I\u0027d also add a comment here and that this is expensive, so shouldn\u0027t be called in a loop.",
+      "range": {
+        "startLine": 90,
+        "startChar": 26,
+        "endLine": 90,
+        "endChar": 48
+      },
+      "revId": "4b23af25c1b6c5ce26dab17ad8b0feca6b3170a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a508b2c_e6eb5944",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-02-01T14:02:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e2bb20_91015053",
       "range": {
         "startLine": 90,
         "startChar": 26,
