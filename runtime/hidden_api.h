@@ -30,13 +30,28 @@ enum Action {
   kDeny
 };
 
+inline bool IsLegacyApp() {
+  static constexpr int32_t kTargetSdkP = 28;
+  int32_t sdk_version = Runtime::Current()->GetTargetSdkVersion();
+  return sdk_version > 0 && sdk_version < kTargetSdkP;
+}
+
 inline Action GetMemberAction(uint32_t access_flags) {
   switch (HiddenApiAccessFlags::DecodeFromRuntime(access_flags)) {
     case HiddenApiAccessFlags::kWhitelist:
       return kAllow;
     case HiddenApiAccessFlags::kLightGreylist:
+      if (IsLegacyApp()) {
+        return kAllow;
+      } else {
+        return kAllowButWarn;
+      }
     case HiddenApiAccessFlags::kDarkGreylist:
-      return kAllowButWarn;
+      if (IsLegacyApp()) {
+        return kAllowButWarn;
+      } else {
+        return kDeny;
+      }
     case HiddenApiAccessFlags::kBlacklist:
       return kDeny;
   }
