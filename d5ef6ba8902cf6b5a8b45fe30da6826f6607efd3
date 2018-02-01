@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69fa1427_5bcd252e",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-01T22:34:00Z",
+      "side": 1,
+      "message": "nit: can you add a comment?",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 3
+      },
+      "revId": "d5ef6ba8902cf6b5a8b45fe30da6826f6607efd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82ef10d7_7e8b20ef",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-01T22:34:00Z",
+      "side": 1,
+      "message": "Don\u0027t you  also want to follow what reference_type_propagation.cc:BoundTypeIn is doing, ie create a HBoundType in the branch and replacing all dominated uses to use the HBoundType?\n\nThis will make sure every user of the instruction knows the object is not null.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 3
+      },
+      "revId": "d5ef6ba8902cf6b5a8b45fe30da6826f6607efd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
