@@ -22,6 +22,30 @@
       "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5f7894c_ecbe49f6",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-01T23:30:13Z",
+      "side": 1,
+      "message": "if source is after destination and the new end of dest (dest + source-size) is after source begin we have a problem.",
+      "parentUuid": "905d8c61_45e88b83",
+      "range": {
+        "startLine": 433,
+        "startChar": 6,
+        "endLine": 435,
+        "endChar": 53
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
