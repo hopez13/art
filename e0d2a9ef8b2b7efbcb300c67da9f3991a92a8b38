@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a769e3eb_2c616738",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-01T18:05:00Z",
+      "side": 1,
+      "message": "This is my interpretation of the CMS code. Could you take a look and let me know if that looks correct to you?\n\nOne thing I was wondering is whether we need some sort of fence between the call to Heap::ProcessCard (line 275–278) and the calls to MarkSweep::MarkRoot/MarkSweep::MarkReachableObjects (lines 280–281) to make sure write operations in the card table clearing the alloc space\u0027s dirty cards (during the call to Heap::ProcessCard) are not reordered *after* marking actually starts.",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 64
+      },
+      "revId": "e0d2a9ef8b2b7efbcb300c67da9f3991a92a8b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
