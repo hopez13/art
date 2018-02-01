@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "193b2f1d_aa3ada10",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-01T16:03:53Z",
+      "side": 1,
+      "message": "IS there a way to avoid non trivially destructible globals?",
+      "revId": "bdb4757be393ddc39c1128cacd1cd6bfa0e907b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fec7ee8e_27ce4b1a",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-01T16:03:53Z",
+      "side": 1,
+      "message": "Doesn\u0027t need to be defined here?",
+      "revId": "bdb4757be393ddc39c1128cacd1cd6bfa0e907b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
