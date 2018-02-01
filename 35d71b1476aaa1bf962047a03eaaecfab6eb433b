@@ -2,6 +2,167 @@
   "comments": [
     {
       "key": {
+        "uuid": "784f8fb4_88981478",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-01T23:49:37Z",
+      "side": 1,
+      "message": "DCHECK(kCanReplaceMapping)",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 80
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9c39cc8_6384b4c3",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-01T23:49:37Z",
+      "side": 1,
+      "message": "Indent.",
+      "range": {
+        "startLine": 258,
+        "startChar": 46,
+        "endLine": 263,
+        "endChar": 52
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bfba83f_2722647a",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-01T23:49:37Z",
+      "side": 1,
+      "message": "bdc dislikes big if-else. Move the else block into the conditional above. Remove conditional here. (Can consider adding helper methods, but not really necessary.)",
+      "range": {
+        "startLine": 265,
+        "startChar": 2,
+        "endLine": 265,
+        "endChar": 69
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dd0308b_d9006ea1",
+        "filename": "openjdkjvmti/transform.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-01T23:49:37Z",
+      "side": 1,
+      "message": "Consider not doing this if !kCanReplaceMapping || !LazyStuffEnabled ?",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 58
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8deb8805_92d92f1a",
+        "filename": "openjdkjvmti/transform.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-01T23:49:37Z",
+      "side": 1,
+      "message": "Someone handing the buffers to unattached threads could trigger this through parallel classloading.",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 5
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd6b5a71_f76f45c8",
+        "filename": "openjdkjvmti/transform.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-01T23:49:37Z",
+      "side": 1,
+      "message": "Remove. Non of the annotated functions in FixedUpDexFile need the mutator lock, so remove those gratuitous annotations.\n\n(The dex file cannot be unloaded here, as the classloader is live.)",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 56
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5ad77c9_caf089f4",
+        "filename": "runtime/dex/compact_dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-01T23:49:37Z",
+      "side": 1,
+      "message": "There\u0027s MB in one of the headers. Maybe globals.h",
+      "range": {
+        "startLine": 251,
+        "startChar": 16,
+        "endLine": 251,
+        "endChar": 24
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "905d8c61_45e88b83",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 5
@@ -66,6 +227,29 @@
         "startChar": 6,
         "endLine": 435,
         "endChar": 53
+      },
+      "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96d09695_3412244a",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-01T23:49:37Z",
+      "side": 1,
+      "message": "Is this necessary? You could set begin+size to 0 to signal the same thing.",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 280,
+        "endChar": 25
       },
       "revId": "35d71b1476aaa1bf962047a03eaaecfab6eb433b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
