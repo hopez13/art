@@ -579,6 +579,7 @@ art_cc_library {
     name: "libart-runtime-gtest",
     defaults: ["libart-gtest-defaults"],
     srcs: [
+        "dex/base64_test_util.cc",
         "common_runtime_test.cc",
         "dexopt_test.cc",
     ],

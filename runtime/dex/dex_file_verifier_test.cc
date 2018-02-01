@@ -26,17 +26,20 @@
 #include "base/bit_utils.h"
 #include "base/macros.h"
 #include "base/unix_file/fd_file.h"
-#include "common_runtime_test.h"
+#include "base64_test_util.h"
 #include "descriptors_names.h"
 #include "dex_file-inl.h"
 #include "dex_file_loader.h"
 #include "dex_file_types.h"
+#include "gtest/gtest.h"
 #include "leb128.h"
 #include "scoped_thread_state_change-inl.h"
 #include "standard_dex_file.h"
 #include "thread-current-inl.h"
 
 namespace art {
+
+static constexpr char kLocationString[] = "dex_file_location";
 
 // Make the Dex file version 37.
 static void MakeDexVersion37(DexFile* dex_file) {
@@ -55,7 +58,7 @@ static void FixUpChecksum(uint8_t* dex_file) {
   header->checksum_ = adler_checksum;
 }
 
-class DexFileVerifierTest : public CommonRuntimeTest {
+class DexFileVerifierTest : public testing::Test {
  protected:
   DexFile* GetDexFile(const uint8_t* dex_bytes, size_t length) {
     return new StandardDexFile(dex_bytes, length, "tmp", 0, nullptr, nullptr);
@@ -101,28 +104,19 @@ static std::unique_ptr<const DexFile> OpenDexFileBase64(const char* base64,
   std::unique_ptr<uint8_t[]> dex_bytes(DecodeBase64(base64, &length));
   CHECK(dex_bytes.get() != nullptr);
 
-  // write to provided file
-  std::unique_ptr<File> file(OS::CreateEmptyFile(location));
-  CHECK(file.get() != nullptr);
-  if (!file->WriteFully(dex_bytes.get(), length)) {
-    PLOG(FATAL) << "Failed to write base64 as dex file";
-  }
-  if (file->FlushCloseOrErase() != 0) {
-    PLOG(FATAL) << "Could not flush and close test file.";
-  }
-  file.reset();
-
-  // read dex file
-  ScopedObjectAccess soa(Thread::Current());
+  // read dex
   std::vector<std::unique_ptr<const DexFile>> tmp;
-  const ArtDexFileLoader dex_file_loader;
-  bool success = dex_file_loader.Open(
-      location, location, /* verify */ true, /* verify_checksum */ true, error_msg, &tmp);
+  const DexFileLoader dex_file_loader;
+  bool success = dex_file_loader.OpenAll(dex_bytes.get(),
+                                         length,
+                                         location,
+                                         /* verify */ true,
+                                         /* verify_checksum */ true,
+                                         error_msg,
+                                         &tmp);
   CHECK(success) << *error_msg;
   EXPECT_EQ(1U, tmp.size());
   std::unique_ptr<const DexFile> dex_file = std::move(tmp[0]);
-  EXPECT_EQ(PROT_READ, dex_file->GetPermissions());
-  EXPECT_TRUE(dex_file->IsReadOnly());
   return dex_file;
 }
 
@@ -148,9 +142,9 @@ static const char kGoodTestDex[] =
     "AAIgAAANAAAAWgEAAAMgAAACAAAA6AEAAAAgAAABAAAA8wEAAAAQAAABAAAABAIAAA==";
 
 TEST_F(DexFileVerifierTest, GoodDex) {
-  ScratchFile tmp;
   std::string error_msg;
-  std::unique_ptr<const DexFile> raw(OpenDexFileBase64(kGoodTestDex, tmp.GetFilename().c_str(),
+  std::unique_ptr<const DexFile> raw(OpenDexFileBase64(kGoodTestDex,
+                                                       kLocationString,
                                                        &error_msg));
   ASSERT_TRUE(raw.get() != nullptr) << error_msg;
 }
@@ -1311,10 +1305,9 @@ static const char kDebugInfoTestDex[] =
 TEST_F(DexFileVerifierTest, DebugInfoTypeIdxTest) {
   {
     // The input dex file should be good before modification.
-    ScratchFile tmp;
     std::string error_msg;
     std::unique_ptr<const DexFile> raw(OpenDexFileBase64(kDebugInfoTestDex,
-                                                         tmp.GetFilename().c_str(),
+                                                         kLocationString,
                                                          &error_msg));
     ASSERT_TRUE(raw.get() != nullptr) << error_msg;
   }
@@ -1333,10 +1326,9 @@ TEST_F(DexFileVerifierTest, SectionAlignment) {
   {
     // The input dex file should be good before modification. Any file is fine, as long as it
     // uses all sections.
-    ScratchFile tmp;
     std::string error_msg;
     std::unique_ptr<const DexFile> raw(OpenDexFileBase64(kGoodTestDex,
-                                                         tmp.GetFilename().c_str(),
+                                                         kLocationString,
                                                          &error_msg));
     ASSERT_TRUE(raw.get() != nullptr) << error_msg;
   }
@@ -1417,10 +1409,9 @@ static const char kProtoOrderingTestDex[] =
 TEST_F(DexFileVerifierTest, ProtoOrdering) {
   {
     // The input dex file should be good before modification.
-    ScratchFile tmp;
     std::string error_msg;
     std::unique_ptr<const DexFile> raw(OpenDexFileBase64(kProtoOrderingTestDex,
-                                                         tmp.GetFilename().c_str(),
+                                                         kLocationString,
                                                          &error_msg));
     ASSERT_TRUE(raw.get() != nullptr) << error_msg;
   }
