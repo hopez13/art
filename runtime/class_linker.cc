@@ -1165,6 +1165,23 @@ static bool FlattenPathClassLoader(ObjPtr<mirror::ClassLoader> class_loader,
   return true;
 }
 
+class CHAOnDeleteUpdateClassVisitor {
+ public:
+  explicit CHAOnDeleteUpdateClassVisitor(LinearAlloc* alloc)
+      : allocator_(alloc), self_(Thread::Current()) {}
+
+  bool operator()(ObjPtr<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_) {
+    // This class is going to be unloaded. Tell CHA about it.
+    Runtime::Current()->GetClassLinker()->GetClassHierarchyAnalysis()
+        ->ResetSIInHierarchyByDeletedAllocation(klass, allocator_);
+
+    return true;
+  }
+ private:
+  LinearAlloc* allocator_;
+  Thread* self_;
+};
+
 class VerifyDeclaringClassVisitor : public ArtMethodVisitor {
  public:
   VerifyDeclaringClassVisitor() REQUIRES_SHARED(Locks::mutator_lock_, Locks::heap_bitmap_lock_)
@@ -2184,6 +2201,12 @@ void ClassLinker::DeleteClassLoader(Thread* self, const ClassLoaderData& data) {
     // If we don't have a JIT, we need to manually remove the CHA dependencies manually.
     cha_->RemoveDependenciesForLinearAlloc(data.allocator);
   }
+  // Cleanup references to single implementation ArtMethods that are going to be deleted.
+  if (self != nullptr || !Runtime::Current()->IsAotCompiler()) {
+    CHAOnDeleteUpdateClassVisitor visitor(data.allocator);
+    data.class_table->Visit<CHAOnDeleteUpdateClassVisitor, kWithoutReadBarrier>(visitor);
+  }
+
   delete data.allocator;
   delete data.class_table;
 }
