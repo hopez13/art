@@ -22,6 +22,30 @@
       "revId": "e8848b4ff4bfc2cb8af35ea725dbdd8922e1ea37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd7f5f8e_9c491562",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2496,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-02-01T13:25:16Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct Roland. We actually have such comments in class TestCodeGeneratorARMVIXL, explaining why R4 is blocked in a limited ART code generation environment for testing purpose.",
+      "parentUuid": "b469ae87_98ff0310",
+      "range": {
+        "startLine": 2496,
+        "startChar": 4,
+        "endLine": 2496,
+        "endChar": 37
+      },
+      "revId": "e8848b4ff4bfc2cb8af35ea725dbdd8922e1ea37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
