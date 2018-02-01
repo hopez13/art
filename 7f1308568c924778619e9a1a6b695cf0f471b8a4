@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "276a9829_75e1bb81",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-01T19:52:46Z",
+      "side": 1,
+      "message": "Ok, I will extract this functionality (single pass to collect all the data) to new loop_analysis.* files. One of the drawback however is that we won\u0027t be able to shortcut the checks: in this PS if the loop is big we will return immediately after counting the number of blocks/instructions without traversing each instruction for the purpose of \u0027HasUnwantedInstructionForUnrolling\u0027.\n\nOn the other hand this information could be cached and reused in scalar peeling without the necessity of having an extra traversal (if the loop was not changed).",
+      "parentUuid": "7cdcda13_8be1418c",
+      "revId": "7f1308568c924778619e9a1a6b695cf0f471b8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2a210dbb_ee331152",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 13
