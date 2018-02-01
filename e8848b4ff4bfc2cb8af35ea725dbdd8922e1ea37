@@ -46,6 +46,30 @@
       "revId": "e8848b4ff4bfc2cb8af35ea725dbdd8922e1ea37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64d1fbec_a08c4538",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2496,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-01T13:51:12Z",
+      "side": 1,
+      "message": "Thanks Xueliang.\n\nCould you add a TODO here:\n\n  // TODO: Remove this check when R4 is made a callee-save\n  // register in ART compiled code.\n\n?",
+      "parentUuid": "dd7f5f8e_9c491562",
+      "range": {
+        "startLine": 2496,
+        "startChar": 4,
+        "endLine": 2496,
+        "endChar": 37
+      },
+      "revId": "e8848b4ff4bfc2cb8af35ea725dbdd8922e1ea37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
