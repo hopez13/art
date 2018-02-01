@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61c8204f_70bd5465",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-01T13:01:19Z",
+      "side": 1,
+      "message": "nit: put this in an if, with a comment.",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "4b23af25c1b6c5ce26dab17ad8b0feca6b3170a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5972cbbb_ee67988d",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-01T13:01:19Z",
+      "side": 1,
+      "message": "This reads odd on something you plan on passing as parameter.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 13
+      },
+      "revId": "4b23af25c1b6c5ce26dab17ad8b0feca6b3170a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "979d3422_4dd8a782",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-01T13:01:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "4b23af25c1b6c5ce26dab17ad8b0feca6b3170a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e2bb20_91015053",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-01T13:01:19Z",
+      "side": 1,
+      "message": "I\u0027d also add a comment here and that this is expensive, so shouldn\u0027t be called in a loop.",
+      "range": {
+        "startLine": 90,
+        "startChar": 26,
+        "endLine": 90,
+        "endChar": 48
+      },
+      "revId": "4b23af25c1b6c5ce26dab17ad8b0feca6b3170a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
