@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d5da78f_40ce8f80",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-01T17:49:40Z",
+      "side": 1,
+      "message": "Nit: Could you move this TODO above the check (i.e. before line 2496)?",
+      "range": {
+        "startLine": 2497,
+        "startChar": 9,
+        "endLine": 2497,
+        "endChar": 14
+      },
+      "revId": "c5e6b75bff3040f343f83768a0621bb1ec5dff8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c261d11b_73e29b14",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2501,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-01T17:49:40Z",
+      "side": 1,
+      "message": "Could you also add\n\n  b/72801708\n\nat the end of this comment? (This is our internal reference for the \"make R4 a callee-save register\" issue.)",
+      "revId": "c5e6b75bff3040f343f83768a0621bb1ec5dff8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
