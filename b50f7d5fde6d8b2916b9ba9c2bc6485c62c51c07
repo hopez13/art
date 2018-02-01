@@ -22,6 +22,30 @@
       "revId": "b50f7d5fde6d8b2916b9ba9c2bc6485c62c51c07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba7d4e3d_e9813d70",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4123,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-02-01T00:20:08Z",
+      "side": 1,
+      "message": "I have made this change. Please have a quick look in new patch.",
+      "parentUuid": "8e4beab7_facc07fa",
+      "range": {
+        "startLine": 4123,
+        "startChar": 6,
+        "endLine": 4123,
+        "endChar": 41
+      },
+      "revId": "b50f7d5fde6d8b2916b9ba9c2bc6485c62c51c07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
