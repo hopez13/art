@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb03ccb4_33e4bb34",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-02-01T00:39:39Z",
+      "side": 1,
+      "message": "I don\u0027t see why this new local variable is needed. Am I missing something?",
+      "range": {
+        "startLine": 157,
+        "startChar": 11,
+        "endLine": 157,
+        "endChar": 37
+      },
+      "revId": "9b869ea9a0c65a3c4860768fae00f937ad969153",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
