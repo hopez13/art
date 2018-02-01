@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9edc36e7_c1862d85",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-01T23:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69fa1427_5bcd252e",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 3
+      },
+      "revId": "d5ef6ba8902cf6b5a8b45fe30da6826f6607efd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82ef10d7_7e8b20ef",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-01T22:34:00Z",
       "side": 1,
       "message": "Don\u0027t you  also want to follow what reference_type_propagation.cc:BoundTypeIn is doing, ie create a HBoundType in the branch and replacing all dominated uses to use the HBoundType?\n\nThis will make sure every user of the instruction knows the object is not null.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 3
+      },
+      "revId": "d5ef6ba8902cf6b5a8b45fe30da6826f6607efd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d956b3a_28168d63",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-01T23:48:15Z",
+      "side": 1,
+      "message": "Isn\u0027t that overkill? Nothing that takes an explicit NullCheck as input will later exploit that property. Nevertheless, I tried to do what you said, but it seems that at this stage we cannot even assign a proper reference type to the new BoundType. So I propose we just leave it as is?",
+      "parentUuid": "82ef10d7_7e8b20ef",
       "range": {
         "startLine": 169,
         "startChar": 0,
