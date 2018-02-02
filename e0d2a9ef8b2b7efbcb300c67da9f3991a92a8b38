@@ -22,6 +22,98 @@
       "revId": "e0d2a9ef8b2b7efbcb300c67da9f3991a92a8b38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4f8fa3b_18cd7ea8",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-02T13:02:17Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 162,
+        "startChar": 7,
+        "endLine": 162,
+        "endChar": 10
+      },
+      "revId": "e0d2a9ef8b2b7efbcb300c67da9f3991a92a8b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca54cc15_5966bf80",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-02T13:02:17Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 163,
+        "startChar": 7,
+        "endLine": 163,
+        "endChar": 9
+      },
+      "revId": "e0d2a9ef8b2b7efbcb300c67da9f3991a92a8b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e53a0cf_bbbdd498",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-02T13:02:17Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 392,
+        "startChar": 49,
+        "endLine": 392,
+        "endChar": 55
+      },
+      "revId": "e0d2a9ef8b2b7efbcb300c67da9f3991a92a8b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fba7c8_47191953",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-02T13:02:17Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 401,
+        "startChar": 39,
+        "endLine": 401,
+        "endChar": 45
+      },
+      "revId": "e0d2a9ef8b2b7efbcb300c67da9f3991a92a8b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
