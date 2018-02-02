@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bd677ec_16893406",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-02T13:57:48Z",
+      "side": 1,
+      "message": "You can use soa.Self()",
+      "range": {
+        "startLine": 335,
+        "startChar": 35,
+        "endLine": 335,
+        "endChar": 52
+      },
+      "revId": "89c4330d3eba9636e45e179ba5b0520b7d322257",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
