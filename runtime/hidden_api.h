@@ -27,6 +27,7 @@ namespace hiddenapi {
 enum Action {
   kAllow,
   kAllowButWarn,
+  kAllowButWarnAndToast,
   kDeny
 };
 
@@ -35,8 +36,9 @@ inline Action GetMemberAction(uint32_t access_flags) {
     case HiddenApiAccessFlags::kWhitelist:
       return kAllow;
     case HiddenApiAccessFlags::kLightGreylist:
-    case HiddenApiAccessFlags::kDarkGreylist:
       return kAllowButWarn;
+    case HiddenApiAccessFlags::kDarkGreylist:
+      return kAllowButWarnAndToast;
     case HiddenApiAccessFlags::kBlacklist:
       return kDeny;
   }
@@ -90,20 +92,23 @@ inline bool ShouldBlockAccessToMember(T* member,
   }
 
   // Member is hidden and we are not in the boot class path. Act accordingly.
-  if (action == kAllowButWarn) {
+  if (action == kDeny) {
+    return true;
+  } else {
+    DCHECK(action == kAllowButWarn || action == kAllowButWarnAndToast);
+
     // Allow access to this member but print a warning. Depending on a runtime
     // flag, we might move the member into whitelist and skip the warning the
     // next time the member is used.
-    Runtime::Current()->SetPendingHiddenApiWarning(true);
     if (Runtime::Current()->ShouldDedupeHiddenApiWarnings()) {
       member->SetAccessFlags(HiddenApiAccessFlags::EncodeForRuntime(
           member->GetAccessFlags(), HiddenApiAccessFlags::kWhitelist));
     }
     WarnAboutMemberAccess(member);
+    if (action == kAllowButWarnAndToast) {
+      Runtime::Current()->SetPendingHiddenApiWarning(true);
+    }
     return false;
-  } else {
-    DCHECK_EQ(action, hiddenapi::kDeny);
-    return true;
   }
 }
 
