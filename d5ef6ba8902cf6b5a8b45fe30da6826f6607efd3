@@ -93,6 +93,30 @@
       "revId": "d5ef6ba8902cf6b5a8b45fe30da6826f6607efd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "338f09de_7eb85c7d",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-02T13:25:46Z",
+      "side": 1,
+      "message": "There\u0027s lots of code in the compiler that queries whether the value can be null. So this new optimization will now prevent the other code / optimization of doing their own.\n\nSeems a bit unfair to them? :)",
+      "parentUuid": "1d956b3a_28168d63",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 3
+      },
+      "revId": "d5ef6ba8902cf6b5a8b45fe30da6826f6607efd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
