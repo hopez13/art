@@ -82,20 +82,8 @@ public class Main {
   /// CHECK-DAG:                    ArrayGet                              loop:none
   /// CHECK-DAG:                    ArraySet                              loop:none
   /// CHECK-DAG: <<Phi:i\d+>>       Phi                                   loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<BoundT:l\d+>>    BoundType [<<Param>>]                 loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArrayLength [<<BoundT>>]              loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArrayGet                              loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArraySet                              loop:<<Loop>>      outer_loop:none
-
-  /// CHECK-START: void Main.boundTypeInLoop(int[]) GVN$after_arch (after)
-  /// CHECK-DAG: <<Param:l\d+>>     ParameterValue                        loop:none
-  /// CHECK-DAG: <<BoundTA:l\d+>>   BoundType [<<Param>>]                 loop:none
-  /// CHECK-DAG:                    ArrayLength [<<BoundTA>>]             loop:none
-  /// CHECK-DAG:                    ArrayGet                              loop:none
-  /// CHECK-DAG:                    ArraySet                              loop:none
-  /// CHECK-DAG: <<Phi:i\d+>>       Phi                                   loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG:                    ArrayGet                              loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArraySet                              loop:<<Loop>>      outer_loop:none
+  //
+  //  The loop is vectorized.
   //
   /// CHECK-NOT:                    BoundType
   /// CHECK-NOT:                    ArrayLength

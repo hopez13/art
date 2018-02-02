@@ -28,6 +28,12 @@
 #include "mirror/array-inl.h"
 #include "mirror/string.h"
 
+#include "constant_folding.h"
+#include "dead_code_elimination.h"
+#include "side_effects_analysis.h"
+#include "gvn.h"
+#include "bounds_check_elimination.h"
+
 namespace art {
 
 // Enables vectorization (SIMDization) in the loop optimizer.
@@ -457,7 +463,31 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       arch_loop_helper_(ArchNoOptsLoopHelper::Create(compiler_driver_ != nullptr
                                                           ? compiler_driver_->GetInstructionSet()
                                                           : InstructionSet::kNone,
-                                                      global_allocator_)) {
+                                                      global_allocator_)),
+      rerun_loop_optimizations_(false),
+      repeated_run_(false) {
+}
+
+void HLoopOptimization::RunExtraOptimizations() {
+  HConstantFolding fold(graph_, "constant_folding$loop_optimization");
+  HDeadCodeElimination dce(graph_, stats_, "dead_code_elimination$loop_optimization");
+  SideEffectsAnalysis side_effects(graph_, "side_effects$loop_optimization");
+  GVNOptimization gvn(graph_, side_effects, "gvn$loop_optimization");
+  HInductionVarAnalysis induction(graph_);
+  BoundsCheckElimination bce(graph_, side_effects, &induction);
+
+  HOptimization* optimizations[] = {
+    &fold,
+    &dce,
+    &side_effects,
+    &gvn,
+    &induction,
+    &bce,
+  };
+
+  for (HOptimization* optimization : optimizations) {
+    optimization->Run();
+  }
 }
 
 bool HLoopOptimization::Run() {
@@ -472,7 +502,18 @@ bool HLoopOptimization::Run() {
   loop_allocator_ = &allocator;
 
   // Perform loop optimizations.
+  repeated_run_ = false;
   bool didLoopOpt = LocalRun();
+
+  while (rerun_loop_optimizations_) {
+    RunExtraOptimizations();
+    rerun_loop_optimizations_ = false;
+    last_loop_ = top_loop_ = nullptr;
+    repeated_run_ = true;
+    LocalRun();
+    repeated_run_ = false;
+  }
+
   if (top_loop_ == nullptr) {
     graph_->SetHasLoops(false);  // no more loops
   }
@@ -584,7 +625,7 @@ bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
   for ( ; node != nullptr; node = node->next) {
     // Visit inner loops first. Recompute induction information for this
     // loop if the induction of any inner loop has changed.
-    if (TraverseLoopsInnerToOuter(node->inner)) {
+    if (TraverseLoopsInnerToOuter(node->inner) || repeated_run_) {
       induction_range_.ReVisit(node->loop_info);
       changed = true;
     }
@@ -744,12 +785,17 @@ bool HLoopOptimization::TryOptimizeInnerLoopFinite(LoopNode* node) {
 }
 
 bool HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
-  return TryOptimizeInnerLoopFinite(node) ||
-         TryPeelingForLoopInvariantExitsElimination(node) ||
-         TryUnrollingForBranchPenaltyReduction(node);
+  if (TryOptimizeInnerLoopFinite(node)) {
+    return true;
+  }
+
+  if (TryPeelingForLoopInvariantExitsElimination(node)) {
+    rerun_loop_optimizations_ = true;
+    return true;
+  }
+
+  return TryUnrollingForBranchPenaltyReduction(node);
 }
-
-
 
 //
 // Loop unrolling: generic part methods.

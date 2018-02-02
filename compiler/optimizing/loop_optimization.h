@@ -44,6 +44,7 @@ class HLoopOptimization : public HOptimization {
                     const char* name = kLoopOptimizationPassName);
 
   bool Run() OVERRIDE;
+  void RunExtraOptimizations();
 
   static constexpr const char* kLoopOptimizationPassName = "loop_optimization";
 
@@ -309,6 +310,9 @@ class HLoopOptimization : public HOptimization {
 
   // Helper for target-specific behaviour for loop optimizations.
   ArchNoOptsLoopHelper* arch_loop_helper_;
+
+  bool rerun_loop_optimizations_;
+  bool repeated_run_;
 
   friend class LoopOptimizationTest;
 
