@@ -312,8 +312,9 @@ class StubTest : public CommonRuntimeTest {
           // -fstack-protector-strong. According to AAPCS64 registers x9-x15 are caller-saved,
           // which means we should unclobber one of the callee-saved registers that are unused.
           // Here we use x20.
+          // http://b/72613441, Clang 7.0 asks for one more register, so we do not reserve x30.
         : "x8", "x9", "x10", "x11", "x12", "x13", "x14", "x15", "x16", "x17", "x18", "x19",
-          "x21", "x22", "x23", "x24", "x25", "x26", "x27", "x28", "x30",
+          "x21", "x22", "x23", "x24", "x25", "x26", "x27", "x28",
           "d0", "d1", "d2", "d3", "d4", "d5", "d6", "d7",
           "d8", "d9", "d10", "d11", "d12", "d13", "d14", "d15",
           "d16", "d17", "d18", "d19", "d20", "d21", "d22", "d23",
