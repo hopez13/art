@@ -99,6 +99,24 @@
       "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09d6ba2b_2c76a528",
+        "filename": "test/530-regression-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-02T13:21:51Z",
+      "side": 1,
+      "message": "It would be good still to know which method lead to the bug. It\u0027s not really clear from the code.",
+      "parentUuid": "f2f0609b_3b4204e5",
+      "revId": "67f25a5c3169d114e9776bcad60861bfa7365c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
