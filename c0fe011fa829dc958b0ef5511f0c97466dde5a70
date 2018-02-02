@@ -22,6 +22,30 @@
       "revId": "c0fe011fa829dc958b0ef5511f0c97466dde5a70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b547ecb5_2a7cb2b5",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-02T17:32:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef45fd1d_1734175c",
+      "range": {
+        "startLine": 266,
+        "startChar": 100,
+        "endLine": 266,
+        "endChar": 102
+      },
+      "revId": "c0fe011fa829dc958b0ef5511f0c97466dde5a70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
