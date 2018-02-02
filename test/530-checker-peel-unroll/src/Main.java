@@ -756,7 +756,7 @@ public class Main {
   /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                            loop:none
   /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
   /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                             loop:none
-  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                          loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 129                           loop:none
   /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<Const0>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,<<Limit>>]    loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                    If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
@@ -772,45 +772,26 @@ public class Main {
   /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                            loop:none
   /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
   /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                             loop:none
-  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                          loop:none
-  /// CHECK-DAG: <<CheckA:z\d+>>    GreaterThanOrEqual [<<Const0>>,<<Limit>>] loop:none
-  /// CHECK-DAG:                    If [<<CheckA>>]                           loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 129                           loop:none
   /// CHECK-DAG:                    If [<<Param>>]                            loop:none
   /// CHECK-DAG:                    ArrayGet                                  loop:none
   /// CHECK-DAG:                    ArraySet                                  loop:none
+  /// CHECK-DAG:                    Sub [<<Limit>>,<<Const1>>]                loop:none
+  /// CHECK-DAG: <<Sub:i\d+>>       Sub [<<Limit>>,<<Const1>>]                loop:none
   /// CHECK-DAG: <<IndAddA:i\d+>>   Add [<<Const0>>,<<Const1>>]               loop:none
-  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<IndAddA>>,{{i\d+}}]                loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,<<Limit>>]    loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    If [<<Const0>>]                           loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArrayGet                                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArraySet                                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<IndAdd:i\d+>>    Add [<<Phi>>,<<Const1>>]                  loop:<<Loop>>      outer_loop:none
-  //
-  /// CHECK-NOT:                    If
-  /// CHECK-NOT:                    ArraySet
 
-  /// CHECK-START: void Main.peelingSimple(int[], boolean) dead_code_elimination$final (after)
-  /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                            loop:none
-  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                             loop:none
-  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                             loop:none
-  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                          loop:none
-  /// CHECK-DAG:                    If [<<Param>>]                            loop:none
-  /// CHECK-DAG:                    ArrayGet                                  loop:none
-  /// CHECK-DAG:                    ArraySet                                  loop:none
-  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<Const1>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,<<Limit>>]    loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArrayGet                                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArraySet                                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<IndAdd:i\d+>>    Add [<<Phi>>,<<Const1>>]                  loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<Const0>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     AboveOrEqual [<<Phi>>,<<Sub>>]            loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    Add [<<Phi>>,<<Const1>>]                  loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    VecLoad                                   loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    VecAdd                                    loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    VecStore                                  loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-NOT:                    GreaterThanOrEqual
   /// CHECK-NOT:                    If
   /// CHECK-NOT:                    ArrayGet
   /// CHECK-NOT:                    ArraySet
   private static final void peelingSimple(int[] a, boolean f) {
-    for (int i = 0; i < LENGTH; i++) {
+    for (int i = 0; i < 129; i++) {
       if (f) {
         break;
       }
@@ -835,13 +816,25 @@ public class Main {
   /// CHECK-DAG: <<ConstNull:l\d+>> NullConstant                          loop:none
   /// CHECK-DAG: <<Eq:z\d+>>        Equal [<<Param>>,<<ConstNull>>]       loop:none
   /// CHECK-DAG:                    If [<<Eq>>]                           loop:none
+  /// CHECK-DAG:                    ArrayGet                              loop:none
+  /// CHECK-DAG:                    Add                                   loop:none
   /// CHECK-DAG:                    ArraySet                              loop:none
-  /// CHECK-DAG: <<Phi:i\d+>>       Phi                                   loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,{{i\d+}}] loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    If [<<Check>>]                        loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                    ArraySet                              loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-NOT:                    If [<<Eq>>]                           loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<PhiVec:i\d+>>    Phi                                   loop:<<VecLoop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<CheckVec:z\d+>>  AboveOrEqual [<<PhiVec>>,{{i\d+}}]    loop:<<VecLoop>>      outer_loop:none
+  /// CHECK-DAG:                    VecLoad                               loop:<<VecLoop>>      outer_loop:none
+  /// CHECK-DAG:                    VecAdd                                loop:<<VecLoop>>      outer_loop:none
+  /// CHECK-DAG:                    VecStore                              loop:<<VecLoop>>      outer_loop:none
+  //
+  /// CHECK-DAG: <<PhiSc:i\d+>>     Phi                                   loop:<<ScLoop:B\d+>>  outer_loop:none
+  /// CHECK-DAG: <<CheckSc:z\d+>>   AboveOrEqual [<<PhiSc>>,{{i\d+}}]     loop:<<ScLoop>>       outer_loop:none
+  /// CHECK-DAG:                    ArrayGet                              loop:<<ScLoop>>       outer_loop:none
+  /// CHECK-DAG:                    Add                                   loop:<<ScLoop>>       outer_loop:none
+  /// CHECK-DAG:                    ArraySet                              loop:<<ScLoop>>       outer_loop:none
+  //
+  /// CHECK-NOT:                    If [<<Eq>>]
+  /// CHECK-NOT:                    ArrayGet
+  /// CHECK-NOT:                    ArraySet
   private static final void peelingAddInts(int[] a) {
     for (int i = 0; a != null && i < a.length; i++) {
       a[i] += 1;
@@ -852,7 +845,7 @@ public class Main {
   /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                          loop:none
   /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                           loop:none
   /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                           loop:none
-  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                        loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 129                         loop:none
   /// CHECK-DAG: <<Phi0:i\d+>>      Phi [<<Const1>>,{{i\d+}}]               loop:<<Loop0:B\d+>> outer_loop:none
   /// CHECK-DAG: <<Phi1:i\d+>>      Phi [<<Const0>>,{{i\d+}}]               loop:<<Loop1:B\d+>> outer_loop:<<Loop0>>
   /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi1>>,<<Limit>>] loop:<<Loop1>>      outer_loop:<<Loop0>>
@@ -866,20 +859,24 @@ public class Main {
   /// CHECK-NOT:                    If
   /// CHECK-NOT:                    ArraySet
 
-  /// CHECK-START: void Main.peelingBreakFromNest(int[], boolean) dead_code_elimination$final (after)
+  /// CHECK-START: void Main.peelingBreakFromNest(int[], boolean) loop_optimization (after)
   /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                          loop:none
   /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                           loop:none
   /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                           loop:none
-  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 4096                        loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 129                         loop:none
   /// CHECK-DAG: <<Phi0:i\d+>>      Phi [<<Const1>>,{{i\d+}}]               loop:<<Loop0:B\d+>> outer_loop:none
   /// CHECK-DAG:                    If [<<Param>>]                          loop:<<Loop0>>      outer_loop:none
   /// CHECK-DAG:                    ArrayGet                                loop:<<Loop0>>      outer_loop:none
   /// CHECK-DAG:                    ArraySet                                loop:<<Loop0>>      outer_loop:none
-  /// CHECK-DAG: <<Phi1:i\d+>>      Phi [<<Const1>>,{{i\d+}}]               loop:<<Loop1:B\d+>> outer_loop:<<Loop0>>
-  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi1>>,<<Limit>>] loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    Sub [<<Limit>>,<<Const1>>]              loop:<<Loop0>>      outer_loop:none
+  /// CHECK-DAG: <<Sub:i\d+>>       Sub [<<Limit>>,<<Const1>>]              loop:<<Loop0>>      outer_loop:none
+  //
+  /// CHECK-DAG: <<Phi1:i\d+>>      Phi [<<Const0>>,{{i\d+}}]               loop:<<Loop1:B\d+>> outer_loop:<<Loop0>>
+  /// CHECK-DAG: <<Check:z\d+>>     AboveOrEqual [<<Phi1>>,<<Sub>>]         loop:<<Loop1>>      outer_loop:<<Loop0>>
   /// CHECK-DAG:                    If [<<Check>>]                          loop:<<Loop1>>      outer_loop:<<Loop0>>
-  /// CHECK-DAG:                    ArrayGet                                loop:<<Loop1>>      outer_loop:<<Loop0>>
-  /// CHECK-DAG:                    ArraySet                                loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    VecLoad                                 loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    VecAdd                                  loop:<<Loop1>>      outer_loop:<<Loop0>>
+  /// CHECK-DAG:                    VecStore                                loop:<<Loop1>>      outer_loop:<<Loop0>>
   /// CHECK-DAG: <<IndAdd1:i\d+>>   Add [<<Phi1>>,<<Const1>>]               loop:<<Loop1>>      outer_loop:<<Loop0>>
   /// CHECK-DAG: <<IndAdd0:i\d+>>   Add [<<Phi0>>,<<Const1>>]               loop:<<Loop0>>      outer_loop:none
   //
@@ -888,7 +885,7 @@ public class Main {
   private static final void peelingBreakFromNest(int[] a, boolean f) {
     outer:
     for (int i = 1; i < 32; i++) {
-      for (int j = 0; j < LENGTH; j++) {
+      for (int j = 0; j < 129; j++) {
         if (f) {
           break outer;
         }
@@ -971,6 +968,59 @@ public class Main {
     }
   }
 
+  /// CHECK-START: void Main.peelingPlusUnrolling(int[], boolean) loop_optimization (before)
+  /// CHECK-DAG: <<Array:l\d+>>     ParameterValue                              loop:none
+  /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                              loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                               loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                               loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 129                             loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<Const0>>,{{i\d+}}]                   loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,<<Limit>>]      loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                              loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Param>>]                              loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    Add [<<Phi>>,<<Const1>>]                    loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArrayGet                                    loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet                                    loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If
+  /// CHECK-NOT:                    ArraySet
+
+  /// CHECK-START: void Main.peelingPlusUnrolling(int[], boolean) loop_optimization (after)
+  /// CHECK-DAG: <<Array:l\d+>>     ParameterValue                              loop:none
+  /// CHECK-DAG: <<Param:z\d+>>     ParameterValue                              loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>    IntConstant 0                               loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>    IntConstant 1                               loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>     IntConstant 129                             loop:none
+  /// CHECK-DAG:                    If [<<Param>>]                              loop:none
+  /// CHECK-DAG: <<NullChk:l\d+>>   NullCheck [<<Array>>]                       loop:none
+  /// CHECK-DAG:                    ArrayGet                                    loop:none
+  /// CHECK-DAG:                    ArraySet                                    loop:none
+  //
+  /// CHECK-DAG: <<Phi:i\d+>>       Phi [<<Const1>>,{{i\d+}}]                   loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>     GreaterThanOrEqual [<<Phi>>,<<Limit>>]      loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Check>>]                              loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<IndAdd:i\d+>>    Add [<<Phi>>,<<Const1>>]                    loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<Get:i\d+>>       ArrayGet [<<NullChk>>,<<IndAdd>>]           loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet [<<NullChk>>,<<Phi>>,<<Get>>]      loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-DAG:                    GreaterThanOrEqual [<<IndAdd>>,<<Limit>>]   loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    If [<<Const0>>]                             loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<IndAddA:i\d+>>   Add [<<IndAdd>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<GetA:i\d+>>      ArrayGet [<<NullChk>>,<<IndAddA>>]          loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                    ArraySet [<<NullChk>>,<<IndAdd>>,<<GetA>>]  loop:<<Loop>>      outer_loop:none
+  //
+  /// CHECK-NOT:                    If
+  /// CHECK-NOT:                    ArraySet
+  private static void peelingPlusUnrolling(int[] a, boolean f) {
+    for (int i = 0; i < 129; i++) {
+      if (f) {
+        return;
+      }
+      // The loop is not vectorizable.
+      a[i] = a[i + 1];
+    }
+  }
+
   private static void expectEquals(int expected, int result) {
     if (expected != result) {
       throw new Error("Expected: " + expected + ", found: " + result);
@@ -1035,7 +1085,7 @@ public class Main {
     unrollingWhileLiveOuts(a);
     unrollingLiveOutsNested(a);
 
-    int expected = 51565978;
+    int expected = 420160090;
     int found = 0;
     for (int i = 0; i < a.length; i++) {
       found += a[i];

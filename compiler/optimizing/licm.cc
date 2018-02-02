@@ -131,7 +131,9 @@ bool LICM::Run() {
            inst_it.Advance()) {
         HInstruction* instruction = inst_it.Current();
         bool can_move = false;
-        if (instruction->CanBeMoved() && InputsAreDefinedBeforeLoop(instruction)) {
+        if (instruction->CanBeMoved() &&
+            !instruction->IsBoundType() &&   // TODO: remove this workaround.
+            InputsAreDefinedBeforeLoop(instruction)) {
           if (instruction->CanThrow()) {
             if (!found_first_non_hoisted_visible_instruction_in_loop) {
               DCHECK(instruction->GetBlock()->IsLoopHeader());

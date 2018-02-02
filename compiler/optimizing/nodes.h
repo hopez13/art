@@ -7109,6 +7109,10 @@ class HBoundType FINAL : public HExpression<1> {
     SetRawInputAt(0, input);
   }
 
+  bool CanBeMoved() const OVERRIDE { return true; }
+
+  bool InstructionDataEquals(const HInstruction* other) const OVERRIDE;
+
   bool IsClonable() const OVERRIDE { return true; }
 
   // {Get,Set}Upper* should only be used in reference type propagation.
