@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "302694ce_737849e4",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-02-02T13:32:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd0ecaed_632e3325",
+      "range": {
+        "startLine": 1235,
+        "startChar": 0,
+        "endLine": 1235,
+        "endChar": 102
+      },
+      "revId": "b048724e35fecfeed72529c8802874d3a69a3ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "449c9a42_c5b40ca3",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-02T12:49:12Z",
       "side": 1,
       "message": "nit: Pass this as an argument.",
+      "range": {
+        "startLine": 94,
+        "startChar": 15,
+        "endLine": 94,
+        "endChar": 31
+      },
+      "revId": "b048724e35fecfeed72529c8802874d3a69a3ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40af1ec6_0443b09e",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-02-02T13:32:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "449c9a42_c5b40ca3",
       "range": {
         "startLine": 94,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0951d359_b0d2b9a4",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-02-02T13:32:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "897014bd_dc1a5727",
+      "range": {
+        "startLine": 111,
+        "startChar": 15,
+        "endLine": 111,
+        "endChar": 32
+      },
+      "revId": "b048724e35fecfeed72529c8802874d3a69a3ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "370fa4c9_7bdc496b",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2018-02-02T12:49:12Z",
       "side": 1,
       "message": "Add a comment why you can end up not being in the list.",
+      "range": {
+        "startLine": 113,
+        "startChar": 2,
+        "endLine": 113,
+        "endChar": 38
+      },
+      "revId": "b048724e35fecfeed72529c8802874d3a69a3ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "626e252e_24088566",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-02-02T13:32:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "370fa4c9_7bdc496b",
       "range": {
         "startLine": 113,
         "startChar": 2,
