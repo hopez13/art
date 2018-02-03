@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "faaa4c2e_d8175404",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-03T01:22:49Z",
+      "side": 1,
+      "message": "Ok, I will add that (but it seems a bit of overkill given where it is called from).",
+      "parentUuid": "f9a5f786_04be9e43",
+      "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ae5b61e_a65f2790",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2018-02-03T01:16:29Z",
       "side": 1,
       "message": "bound may not dominate user if uses after block are not linear.",
+      "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e644374e_64fd82f5",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-03T01:22:49Z",
+      "side": 1,
+      "message": "How? Keep in mind that this is only done after the pattern below is simplified, so that the throw -\u003e B2 edge is always removed and the if statement cannot have a diamond back into B2 anymore. Did I miss something?",
+      "parentUuid": "7ae5b61e_a65f2790",
       "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
