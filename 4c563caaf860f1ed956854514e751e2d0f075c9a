@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9a5f786_04be9e43",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-03T01:16:29Z",
+      "side": 1,
+      "message": "Can we also assert throws actually throws?",
+      "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ae5b61e_a65f2790",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-03T01:16:29Z",
+      "side": 1,
+      "message": "bound may not dominate user if uses after block are not linear.",
+      "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
