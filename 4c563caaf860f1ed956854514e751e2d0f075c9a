@@ -69,6 +69,24 @@
       "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0145369b_ddfb571f",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-04T00:30:33Z",
+      "side": 1,
+      "message": "Oh, I misread. bound is inserted in not_throws. That should be fine then. Line 189-191 can be simplified as not_throws-\u003eDominates(user_block)?",
+      "parentUuid": "e644374e_64fd82f5",
+      "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
