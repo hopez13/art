@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "3db6a79c_7b93699e",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-05T16:26:28Z",
+      "side": 1,
+      "message": "I\u0027d avoid using tabs in definitions.",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 3
+      },
+      "revId": "5a072b213724bb642ceeb9ac8fecc4e89c108e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c582574_fb933cb3",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-05T16:26:28Z",
+      "side": 1,
+      "message": "What about putting this in a (phony) target and make it a dependency of build-art-target?",
+      "range": {
+        "startLine": 453,
+        "startChar": 8,
+        "endLine": 456,
+        "endChar": 7
+      },
+      "revId": "5a072b213724bb642ceeb9ac8fecc4e89c108e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b45302e6_4a6ba621",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
