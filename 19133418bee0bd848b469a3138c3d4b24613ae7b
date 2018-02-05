@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "24ce2d26_3627beb8",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-05T13:44:28Z",
+      "side": 1,
+      "message": "Null pointer dereference if loop1 and loop2 are both null. This code was never tested because if loop1 or loop2 is non-null then FindCommonLoop just returns null. I think the above statement should be changed to \"if (loop1 \u003d\u003d nullptr || loop2 \u003d\u003d nullptr) return nullptr;\"",
+      "revId": "19133418bee0bd848b469a3138c3d4b24613ae7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3bd9e4c_5fc8a4c4",
         "filename": "compiler/optimizing/superblock_cloner.cc",
         "patchSetId": 23
