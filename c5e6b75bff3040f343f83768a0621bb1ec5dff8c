@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "91b2ab23_7c5f6398",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-02-05T16:59:09Z",
+      "side": 1,
+      "message": "Hi Roland, I was out of office last Friday. Looks like you\u0027ve already addressed your comment on this line. I\u0027m OK with these changes on comments.",
+      "parentUuid": "899d38a7_b7823f73",
+      "range": {
+        "startLine": 2497,
+        "startChar": 9,
+        "endLine": 2497,
+        "endChar": 14
+      },
+      "revId": "c5e6b75bff3040f343f83768a0621bb1ec5dff8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c261d11b_73e29b14",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 3
