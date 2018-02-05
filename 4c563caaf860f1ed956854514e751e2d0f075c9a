@@ -87,6 +87,24 @@
       "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5980cfb_6d61c3c0",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-05T16:55:06Z",
+      "side": 1,
+      "message": "That would be the right test, but at this point we have not updated dominator relation yet from cutting the edge to B2. So this is the next best thing :-)",
+      "parentUuid": "0145369b_ddfb571f",
+      "revId": "4c563caaf860f1ed956854514e751e2d0f075c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
