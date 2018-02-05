@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "697bb305_61313966",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-05T17:52:29Z",
+      "side": 1,
+      "message": "If you return 1, why acquire a lock?\n\nAnd why 1?",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 12
+      },
+      "revId": "f127b7168b1ea4a1cff8491bd2ad8ce45ad2ddcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34f95e58_5508e0ad",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-05T17:52:29Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 462,
+        "startChar": 49,
+        "endLine": 462,
+        "endChar": 50
+      },
+      "revId": "f127b7168b1ea4a1cff8491bd2ad8ce45ad2ddcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b415c52b_b2fc5eae",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-05T17:52:29Z",
+      "side": 1,
+      "message": "Why? Please document.",
+      "range": {
+        "startLine": 582,
+        "startChar": 11,
+        "endLine": 582,
+        "endChar": 13
+      },
+      "revId": "f127b7168b1ea4a1cff8491bd2ad8ce45ad2ddcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9577785_4347d4cf",
+        "filename": "compiler/dex/dex_to_dex_compiler.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-05T17:52:29Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 66,
+        "startChar": 32,
+        "endLine": 66,
+        "endChar": 36
+      },
+      "revId": "f127b7168b1ea4a1cff8491bd2ad8ce45ad2ddcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b12ed7d_542820c8",
+        "filename": "compiler/dex/dex_to_dex_compiler.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-05T17:52:29Z",
+      "side": 1,
+      "message": "Why is this in the header? Hide, so that changes don\u0027t make me recompile everything.",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 27
+      },
+      "revId": "f127b7168b1ea4a1cff8491bd2ad8ce45ad2ddcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c90002_5e2b4aa3",
+        "filename": "compiler/utils/atomic_dex_ref_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-05T17:52:29Z",
+      "side": 1,
+      "message": "What does the return value mean? Document.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "f127b7168b1ea4a1cff8491bd2ad8ce45ad2ddcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
