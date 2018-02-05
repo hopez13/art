@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f89e3604_0f57a33d",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-05T16:29:42Z",
+      "side": 1,
+      "message": "Any recommendation welcome :)",
+      "parentUuid": "ada0fce7_9840911f",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 4
+      },
+      "revId": "5a072b213724bb642ceeb9ac8fecc4e89c108e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3db6a79c_7b93699e",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-05T16:26:28Z",
       "side": 1,
       "message": "I\u0027d avoid using tabs in definitions.",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 3
+      },
+      "revId": "5a072b213724bb642ceeb9ac8fecc4e89c108e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46468f17_9d2cb26d",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-05T16:29:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3db6a79c_7b93699e",
       "range": {
         "startLine": 455,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6c2e227d_37d6c6d5",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-05T16:29:42Z",
+      "side": 1,
+      "message": "You cannot (that actually was my first attempt). The dependencies are being built before executed.",
+      "parentUuid": "4c582574_fb933cb3",
+      "range": {
+        "startLine": 453,
+        "startChar": 8,
+        "endLine": 456,
+        "endChar": 7
+      },
+      "revId": "5a072b213724bb642ceeb9ac8fecc4e89c108e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b45302e6_4a6ba621",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-02-05T16:23:26Z",
       "side": 1,
       "message": "This should now be just \"\u003d\"",
+      "range": {
+        "startLine": 77,
+        "startChar": 14,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "5a072b213724bb642ceeb9ac8fecc4e89c108e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa31b197_6310ffda",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-05T16:29:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b45302e6_4a6ba621",
       "range": {
         "startLine": 77,
         "startChar": 14,
