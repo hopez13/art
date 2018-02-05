@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "fc0f8a4a_00676140",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-05T17:26:58Z",
+      "side": 1,
+      "message": "I see. At first I didn\u0027t get that the `hiddenapi-*.txt` files were explicitly listed as dependencies elsewhere.\n\nI\u0027d add a comment saying that this is a trick to get this code executed before anything else. AIUI, this is brittle, as the order of execution of multiple independent top-level `eval` statements might be dependent on the order of declaration or inclusion of Makefiles.",
+      "parentUuid": "6c2e227d_37d6c6d5",
+      "range": {
+        "startLine": 453,
+        "startChar": 8,
+        "endLine": 456,
+        "endChar": 7
+      },
+      "revId": "5a072b213724bb642ceeb9ac8fecc4e89c108e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b45302e6_4a6ba621",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
