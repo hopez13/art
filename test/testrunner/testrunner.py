@@ -361,7 +361,6 @@ def run_tests(tests):
       test_name += target + '-run-test-'
       test_name += run + '-'
       test_name += prebuild + '-'
-      test_name += cdex_level + '-'
       test_name += compiler + '-'
       test_name += relocate + '-'
       test_name += trace + '-'
@@ -371,6 +370,7 @@ def run_tests(tests):
       test_name += pictest + '-'
       test_name += debuggable + '-'
       test_name += jvmti + '-'
+      test_name += cdex_level + '-'
       test_name += test
       test_name += address_size
 
