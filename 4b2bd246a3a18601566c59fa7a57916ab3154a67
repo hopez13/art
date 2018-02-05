@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f81716f_e48d3877",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-05T13:54:52Z",
+      "side": 1,
+      "message": "Good catch; fixed in PS2.",
+      "parentUuid": "ea8daf6c_dffbb89a",
+      "range": {
+        "startLine": 1824,
+        "startChar": 64,
+        "endLine": 1824,
+        "endChar": 74
+      },
+      "revId": "4b2bd246a3a18601566c59fa7a57916ab3154a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc75a0e4_74e37f61",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-04T22:32:06Z",
       "side": 1,
       "message": "Another helper function that might prove useful for debugging is Verification::DumpObjectInfo, this dumps various information about heap objects.",
+      "range": {
+        "startLine": 2030,
+        "startChar": 41,
+        "endLine": 2030,
+        "endChar": 76
+      },
+      "revId": "4b2bd246a3a18601566c59fa7a57916ab3154a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74f0ed2f_1f414c4c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2030,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-05T13:54:52Z",
+      "side": 1,
+      "message": "Thanks for the tip; I\u0027ve used it in ConcurrentCopying::DumpReferenceInfo in PS2.",
+      "parentUuid": "cc75a0e4_74e37f61",
       "range": {
         "startLine": 2030,
         "startChar": 41,
