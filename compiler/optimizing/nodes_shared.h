@@ -33,6 +33,7 @@ class HMultiplyAccumulate FINAL : public HExpression<3> {
                       HInstruction* mul_right,
                       uint32_t dex_pc = kNoDexPc)
       : HExpression(type, SideEffects::None(), dex_pc), op_kind_(op) {
+    ASSIGN_INSTRUCTION_KIND(MultiplyAccumulate);
     SetRawInputAt(kInputAccumulatorIndex, accumulator);
     SetRawInputAt(kInputMulLeftIndex, mul_left);
     SetRawInputAt(kInputMulRightIndex, mul_right);
@@ -70,6 +71,7 @@ class HBitwiseNegatedRight FINAL : public HBinaryOperation {
                        uint32_t dex_pc = kNoDexPc)
     : HBinaryOperation(result_type, left, right, SideEffects::None(), dex_pc),
       op_kind_(op) {
+    ASSIGN_INSTRUCTION_KIND(BitwiseNegatedRight);
     DCHECK(op == HInstruction::kAnd || op == HInstruction::kOr || op == HInstruction::kXor) << op;
   }
 
@@ -144,6 +146,7 @@ class HIntermediateAddressIndex FINAL : public HExpression<3> {
   HIntermediateAddressIndex(
       HInstruction* index, HInstruction* offset, HInstruction* shift, uint32_t dex_pc)
       : HExpression(DataType::Type::kInt32, SideEffects::None(), dex_pc) {
+    ASSIGN_INSTRUCTION_KIND(IntermediateAddressIndex);
     SetRawInputAt(0, index);
     SetRawInputAt(1, offset);
     SetRawInputAt(2, shift);
@@ -198,6 +201,7 @@ class HDataProcWithShifterOp FINAL : public HExpression<2> {
         shift_amount_(shift & (instr->GetType() == DataType::Type::kInt32
             ? kMaxIntShiftDistance
             : kMaxLongShiftDistance)) {
+    ASSIGN_INSTRUCTION_KIND(DataProcWithShifterOp);
     DCHECK(!instr->HasSideEffects());
     SetRawInputAt(0, left);
     SetRawInputAt(1, right);

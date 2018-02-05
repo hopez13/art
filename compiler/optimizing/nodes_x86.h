@@ -24,7 +24,9 @@ class HX86ComputeBaseMethodAddress FINAL : public HExpression<0> {
  public:
   // Treat the value as an int32_t, but it is really a 32 bit native pointer.
   HX86ComputeBaseMethodAddress()
-      : HExpression(DataType::Type::kInt32, SideEffects::None(), kNoDexPc) {}
+      : HExpression(DataType::Type::kInt32, SideEffects::None(), kNoDexPc) {
+    ASSIGN_INSTRUCTION_KIND(X86ComputeBaseMethodAddress);
+  }
 
   bool CanBeMoved() const OVERRIDE { return true; }
 
@@ -40,6 +42,7 @@ class HX86LoadFromConstantTable FINAL : public HExpression<2> {
   HX86LoadFromConstantTable(HX86ComputeBaseMethodAddress* method_base,
                             HConstant* constant)
       : HExpression(constant->GetType(), SideEffects::None(), kNoDexPc) {
+    ASSIGN_INSTRUCTION_KIND(X86LoadFromConstantTable);
     SetRawInputAt(0, method_base);
     SetRawInputAt(1, constant);
   }
@@ -66,6 +69,7 @@ class HX86FPNeg FINAL : public HExpression<2> {
             HX86ComputeBaseMethodAddress* method_base,
             uint32_t dex_pc)
       : HExpression(result_type, SideEffects::None(), dex_pc) {
+    ASSIGN_INSTRUCTION_KIND(X86FPNeg);
     DCHECK(DataType::IsFloatingPointType(result_type));
     SetRawInputAt(0, input);
     SetRawInputAt(1, method_base);
@@ -92,6 +96,7 @@ class HX86PackedSwitch FINAL : public HTemplateInstruction<2> {
     : HTemplateInstruction(SideEffects::None(), dex_pc),
       start_value_(start_value),
       num_entries_(num_entries) {
+    ASSIGN_INSTRUCTION_KIND(X86PackedSwitch);
     SetRawInputAt(0, input);
     SetRawInputAt(1, method_base);
   }
