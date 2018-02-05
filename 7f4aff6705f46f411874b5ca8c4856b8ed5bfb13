@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b79cf22_d8daa28f",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-05T14:30:25Z",
+      "side": 1,
+      "message": "The hash function result always contains zeros in the 32 most significant bits (on a 64-bit target). This might lead to a higher collision rate.\nI guess a and b should be of size_t.",
+      "revId": "7f4aff6705f46f411874b5ca8c4856b8ed5bfb13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
