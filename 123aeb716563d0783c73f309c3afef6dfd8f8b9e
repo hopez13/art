@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a098654_b2084c0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-06T23:47:43Z",
+      "side": 1,
+      "message": "because libjdwp does in our test suite.",
+      "parentUuid": "7df2f1bd_4f344aff",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "123aeb716563d0783c73f309c3afef6dfd8f8b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dbb3988_924e8e8a",
         "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-06T23:46:18Z",
       "side": 1,
       "message": "You may get an ASAN/Valgrind leak here.",
+      "range": {
+        "startLine": 1570,
+        "startChar": 0,
+        "endLine": 1573,
+        "endChar": 32
+      },
+      "revId": "123aeb716563d0783c73f309c3afef6dfd8f8b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87ad7c44_f871bdfb",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-06T23:47:43Z",
+      "side": 1,
+      "message": "Every art::Locks::* is leaked in the same way so I doubt it.",
+      "parentUuid": "2dbb3988_924e8e8a",
       "range": {
         "startLine": 1570,
         "startChar": 0,
