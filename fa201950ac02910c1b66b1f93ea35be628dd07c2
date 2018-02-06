@@ -45,6 +45,30 @@
       "revId": "fa201950ac02910c1b66b1f93ea35be628dd07c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea2cb9c_c3bbfcce",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4375,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-02-06T13:01:00Z",
+      "side": 1,
+      "message": "I don\u0027t. Just being defensive. For example, it would apply if only part of the dex files were uncompressed.",
+      "parentUuid": "dd7bfc23_0f512e1e",
+      "range": {
+        "startLine": 4372,
+        "startChar": 0,
+        "endLine": 4375,
+        "endChar": 7
+      },
+      "revId": "fa201950ac02910c1b66b1f93ea35be628dd07c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
