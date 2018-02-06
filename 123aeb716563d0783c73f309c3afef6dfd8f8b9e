@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7df2f1bd_4f344aff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-06T23:46:18Z",
+      "side": 1,
+      "message": "Why do we care?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "123aeb716563d0783c73f309c3afef6dfd8f8b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dbb3988_924e8e8a",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-06T23:46:18Z",
+      "side": 1,
+      "message": "You may get an ASAN/Valgrind leak here.",
+      "range": {
+        "startLine": 1570,
+        "startChar": 0,
+        "endLine": 1573,
+        "endChar": 32
+      },
+      "revId": "123aeb716563d0783c73f309c3afef6dfd8f8b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
