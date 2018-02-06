@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1a0e4fa_0408ad6c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-06T20:55:16Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. I thought you need the enforcement in dex2oat to not incorrectly pass verification?",
+      "range": {
+        "startLine": 1181,
+        "startChar": 26,
+        "endLine": 1181,
+        "endChar": 42
+      },
+      "revId": "f1d61acafe0317de91347340f984f6f0f8a36cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
