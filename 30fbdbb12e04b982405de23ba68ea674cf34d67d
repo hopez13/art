@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24c0e66d_9595e252",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-06T10:55:52Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "30fbdbb12e04b982405de23ba68ea674cf34d67d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2236aaa_cd4f1165",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2665,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-06T10:55:52Z",
+      "side": 1,
+      "message": "This could be really easy to forget. Can we change the constructors instead to always take an instruction kind, so that only HInstruction assigns it?",
+      "range": {
+        "startLine": 2665,
+        "startChar": 4,
+        "endLine": 2665,
+        "endChar": 27
+      },
+      "revId": "30fbdbb12e04b982405de23ba68ea674cf34d67d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
