@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ec87c895_77284775",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-06T23:51:30Z",
+      "side": 1,
+      "message": "Then remove that. Why does an agent need to exit()? There are zero guarantees in the spec that we need to humor that crap.",
+      "parentUuid": "7a098654_b2084c0e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "123aeb716563d0783c73f309c3afef6dfd8f8b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dbb3988_924e8e8a",
         "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Every art::Locks::* is leaked in the same way so I doubt it.",
       "parentUuid": "2dbb3988_924e8e8a",
+      "range": {
+        "startLine": 1570,
+        "startChar": 0,
+        "endLine": 1573,
+        "endChar": 32
+      },
+      "revId": "123aeb716563d0783c73f309c3afef6dfd8f8b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1abc74a_1dfd95fd",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-06T23:51:30Z",
+      "side": 1,
+      "message": "We may clean this up in the future. I\u0027d rather you didn\u0027t humor shitty agents and do the clean thing, period.",
+      "parentUuid": "87ad7c44_f871bdfb",
       "range": {
         "startLine": 1570,
         "startChar": 0,
