@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1d33b4b_ba83ec4a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3529,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-07T02:39:09Z",
+      "side": 1,
+      "message": "Comment about why this is 2x?",
+      "range": {
+        "startLine": 3529,
+        "startChar": 36,
+        "endLine": 3529,
+        "endChar": 49
+      },
+      "revId": "78ac987bce5e513fed405784353e63543a2ec0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f95269a_aa51be62",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-07T02:39:09Z",
+      "side": 1,
+      "message": "Other than aborting, we could just not clamp if this check fails. Thoughts?",
+      "revId": "78ac987bce5e513fed405784353e63543a2ec0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
