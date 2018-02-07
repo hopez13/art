@@ -413,6 +413,20 @@ void RegionSpace::Clear() {
   evac_region_ = &full_region_;
 }
 
+void RegionSpace::ClampGrowthLimit(size_t new_capacity) {
+  CHECK_LE(new_capacity, NonGrowthLimitCapacity());
+  MutexLock mu(Thread::Current(), region_lock_);
+  size_t new_num_regions = new_capacity / kRegionSize;
+  CHECK_LE(non_free_region_index_limit_, new_num_regions);
+  num_regions_ = new_num_regions;
+  SetLimit(Begin() + new_capacity);
+  if (Size() > new_capacity) {
+    SetEnd(Limit());
+  }
+  GetMarkBitmap()->SetHeapSize(new_capacity);
+  GetMemMap()->SetSize(new_capacity);
+}
+
 void RegionSpace::Dump(std::ostream& os) const {
   os << GetName() << " "
       << reinterpret_cast<void*>(Begin()) << "-" << reinterpret_cast<void*>(Limit());
