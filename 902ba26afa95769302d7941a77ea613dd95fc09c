@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7aad6708_aa3b4e77",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3530,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-02-07T21:54:54Z",
+      "side": 1,
+      "message": "Rephrased it in latest patch. Thanks.",
+      "parentUuid": "b3e91084_0b0f604e",
+      "range": {
+        "startLine": 3530,
+        "startChar": 32,
+        "endLine": 3530,
+        "endChar": 50
+      },
+      "revId": "902ba26afa95769302d7941a77ea613dd95fc09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d660eb6_b79ed62c",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "902ba26afa95769302d7941a77ea613dd95fc09c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f18f01b_434127ec",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-02-07T21:54:54Z",
+      "side": 1,
+      "message": "As of now ClampGrowthLimit is called during zygote fork, so I don\u0027t think there is any concurrency issue. Anyways, I have moved the region lock to the beginning of function.",
+      "parentUuid": "9d660eb6_b79ed62c",
+      "range": {
+        "startLine": 417,
+        "startChar": 2,
+        "endLine": 418,
+        "endChar": 54
+      },
+      "revId": "902ba26afa95769302d7941a77ea613dd95fc09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

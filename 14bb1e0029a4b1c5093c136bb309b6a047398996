@@ -22,6 +22,30 @@
       "revId": "14bb1e0029a4b1c5093c136bb309b6a047398996",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "972d8b09_23c5527f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3530,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-02-07T21:54:54Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "821c6d6c_23e8432c",
+      "range": {
+        "startLine": 3530,
+        "startChar": 13,
+        "endLine": 3530,
+        "endChar": 15
+      },
+      "revId": "14bb1e0029a4b1c5093c136bb309b6a047398996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
