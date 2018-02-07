@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d660eb6_b79ed62c",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-02-07T19:51:06Z",
+      "side": 1,
+      "message": "Is there enough locking here to guard against concurrent changes to any of these? It looks a bit odd, but I\u0027m not at all sure there\u0027s a problem.",
+      "range": {
+        "startLine": 417,
+        "startChar": 2,
+        "endLine": 418,
+        "endChar": 54
+      },
+      "revId": "902ba26afa95769302d7941a77ea613dd95fc09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
