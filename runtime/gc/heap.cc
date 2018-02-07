@@ -3525,6 +3525,11 @@ void Heap::ClampGrowthLimit() {
       malloc_space->ClampGrowthLimit();
     }
   }
+  if (collector_type_ == kCollectorTypeCC) {
+    DCHECK(region_space_ != nullptr);
+    // Twice the capacity as CC uses that big heap.
+    region_space_->ClampGrowthLimit(2 * capacity_);
+  }
   // This space isn't added for performance reasons.
   if (main_space_backup_.get() != nullptr) {
     main_space_backup_->ClampGrowthLimit();
