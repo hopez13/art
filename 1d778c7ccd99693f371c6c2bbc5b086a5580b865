@@ -93,6 +93,30 @@
       "revId": "1d778c7ccd99693f371c6c2bbc5b086a5580b865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75bec969_dc2038f1",
+        "filename": "runtime/dex/base64_test_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-07T00:10:15Z",
+      "side": 1,
+      "message": "Substantially derived from existing code is supposed to retain the old one.\n\nMy question: why not put everything into the header? Makes reuse across libraries easier as no code needs to be linked.",
+      "parentUuid": "07fd14ab_3baf0f7f",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1d778c7ccd99693f371c6c2bbc5b086a5580b865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
