@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b3e91084_0b0f604e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3530,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-07T20:43:15Z",
+      "side": 1,
+      "message": "Awkward phrasing.  \"uses that much heap\" or ...?",
+      "range": {
+        "startLine": 3530,
+        "startChar": 32,
+        "endLine": 3530,
+        "endChar": 50
+      },
+      "revId": "902ba26afa95769302d7941a77ea613dd95fc09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d660eb6_b79ed62c",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 3
