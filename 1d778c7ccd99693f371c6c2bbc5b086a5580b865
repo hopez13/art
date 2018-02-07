@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c81fd39f_6086e60f",
+        "filename": "runtime/dex/base64_test_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-07T00:03:48Z",
+      "side": 1,
+      "message": "Same question.",
+      "parentUuid": "09398d6a_b1e304f9",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1d778c7ccd99693f371c6c2bbc5b086a5580b865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83696c8d_237c4ebe",
         "filename": "runtime/dex/base64_test_util.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-06T23:50:49Z",
       "side": 1,
       "message": "2018?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1d778c7ccd99693f371c6c2bbc5b086a5580b865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07fd14ab_3baf0f7f",
+        "filename": "runtime/dex/base64_test_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-07T00:03:48Z",
+      "side": 1,
+      "message": "This code was moved from common_runtime_test.h.  New copyright or previous?",
+      "parentUuid": "83696c8d_237c4ebe",
       "range": {
         "startLine": 2,
         "startChar": 17,
