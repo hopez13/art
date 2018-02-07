@@ -45,6 +45,54 @@
       "revId": "1e15d36b7c23dff500167677bd9cbe2e5bee470c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44b7ab5c_eb718325",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-02-07T01:24:28Z",
+      "side": 1,
+      "message": "It will always be the /system path when called from zygote.",
+      "parentUuid": "51af2d9f_4d75b0f3",
+      "range": {
+        "startLine": 1538,
+        "startChar": 51,
+        "endLine": 1540,
+        "endChar": 61
+      },
+      "revId": "1e15d36b7c23dff500167677bd9cbe2e5bee470c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b602407a_f59823c1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-02-07T01:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97927d2e_a1680150",
+      "range": {
+        "startLine": 1540,
+        "startChar": 62,
+        "endLine": 1540,
+        "endChar": 78
+      },
+      "revId": "1e15d36b7c23dff500167677bd9cbe2e5bee470c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
