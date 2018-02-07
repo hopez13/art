@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c26e9ece_09480d80",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-07T18:51:09Z",
+      "side": 1,
+      "message": "32-bit apps?",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "ab88abf2485732a568f5b8a455c284528e0860c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c3a408c_76fce3c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-07T18:51:09Z",
+      "side": 1,
+      "message": "One bug per line please:\n\n  Bug: 72383501\n  Bug: 72297706",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 23
+      },
+      "revId": "ab88abf2485732a568f5b8a455c284528e0860c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d908679_d0d3066c",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-07T18:51:09Z",
+      "side": 1,
+      "message": "Remove (LOG already outputs a newline).",
+      "range": {
+        "startLine": 421,
+        "startChar": 96,
+        "endLine": 421,
+        "endChar": 99
+      },
+      "revId": "ab88abf2485732a568f5b8a455c284528e0860c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
