@@ -22,6 +22,30 @@
       "revId": "c8762a8b1ad0218b9c3b103cfe7fa178c5ec4765",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acb62edf_f998568a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-02-07T19:00:34Z",
+      "side": 1,
+      "message": "Oh, I thought that adding a newline was a strange request.\nThe google C++ style guide says to \"use the minimum number of lines, including placing multiple arguments on each line where appropriate\" https://google.github.io/styleguide/cppguide.html#Function_Calls\n\nDoes android have a different style guide? I actually prefer putting each on their own line, but I was told before that I should be following the style guide.",
+      "parentUuid": "ab85251d_794a4883",
+      "range": {
+        "startLine": 1540,
+        "startChar": 61,
+        "endLine": 1540,
+        "endChar": 78
+      },
+      "revId": "c8762a8b1ad0218b9c3b103cfe7fa178c5ec4765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
