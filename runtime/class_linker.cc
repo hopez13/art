@@ -3861,6 +3861,7 @@ mirror::Class* ClassLinker::InsertClass(const char* descriptor, ObjPtr<mirror::C
     VerifyObject(klass);
     class_table->InsertWithHash(klass, hash);
     if (class_loader != nullptr) {
+      LOG(INFO) << "INSERT " << descriptor;
       // This is necessary because we need to have the card dirtied for remembered sets.
       Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(class_loader);
     }

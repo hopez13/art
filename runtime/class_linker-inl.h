@@ -219,6 +219,9 @@ inline bool ClassLinker::CheckInvokeClassMismatch(ObjPtr<mirror::DexCache> dex_c
 inline ArtMethod* ClassLinker::LookupResolvedMethod(uint32_t method_idx,
                                                     ObjPtr<mirror::DexCache> dex_cache,
                                                     ObjPtr<mirror::ClassLoader> class_loader) {
+  if (!Runtime::Current()->IsAotCompiler() && class_loader != nullptr) {
+    CHECK(false);
+  }
   PointerSize pointer_size = image_pointer_size_;
   ArtMethod* resolved = dex_cache->GetResolvedMethod(method_idx, pointer_size);
   if (resolved == nullptr) {
