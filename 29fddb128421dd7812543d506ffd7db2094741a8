@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ff1da64_8310a2df",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-08T19:08:00Z",
+      "side": 1,
+      "message": "not needed.",
+      "range": {
+        "startLine": 80,
+        "startChar": 31,
+        "endLine": 80,
+        "endChar": 34
+      },
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a42a53d_f816fcbd",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-08T19:08:00Z",
+      "side": 1,
+      "message": "We should DCHECK here that super_method doesn\u0027t have single implementation. \"Seems like\" is too fuzzy.",
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b44c4847_e971aa53",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-08T19:08:00Z",
+      "side": 1,
+      "message": "defined",
+      "range": {
+        "startLine": 145,
+        "startChar": 54,
+        "endLine": 145,
+        "endChar": 60
+      },
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839f4f35_67152dcd",
+        "filename": "runtime/cha.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-08T19:08:00Z",
+      "side": 1,
+      "message": "\"interface method\" here is kind of misleading. I\u0027d just say:\nreset the single-implementation methods in all its superclasses and superinterfaces if the single-implementation methods are in `alloc`.",
+      "range": {
+        "startLine": 114,
+        "startChar": 22,
+        "endLine": 114,
+        "endChar": 42
+      },
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
