@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6f62f8a4_9bdb68ce",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2510,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-08T13:12:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0e0ba6c_4ad80105",
+      "range": {
+        "startLine": 2510,
+        "startChar": 10,
+        "endLine": 2510,
+        "endChar": 14
+      },
+      "revId": "d12aea030c504b964779e7b6cb3aff35d7207f06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b6b31e57_57aa3ce1",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-08T02:47:26Z",
       "side": 1,
       "message": "Typo -\u003e Should be \u0027indent\u0027 as per argument name?",
+      "range": {
+        "startLine": 238,
+        "startChar": 86,
+        "endLine": 238,
+        "endChar": 91
+      },
+      "revId": "d12aea030c504b964779e7b6cb3aff35d7207f06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0786b8dc_eea47926",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-08T13:12:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6b31e57_57aa3ce1",
       "range": {
         "startLine": 238,
         "startChar": 86,
