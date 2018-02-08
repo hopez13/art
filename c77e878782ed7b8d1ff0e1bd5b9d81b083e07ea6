@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b87f24d2_4c74df19",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-02-08T03:42:08Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is true any more, I definitely see this in the stack traces. But I didn\u0027t want to make that change in this CL because I didn\u0027t test every possible situation.",
+      "range": {
+        "startLine": 231,
+        "startChar": 12,
+        "endLine": 231,
+        "endChar": 26
+      },
+      "revId": "c77e878782ed7b8d1ff0e1bd5b9d81b083e07ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
