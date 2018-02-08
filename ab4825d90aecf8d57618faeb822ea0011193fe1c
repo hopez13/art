@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3042f66b_930cf356",
+        "filename": "Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-02-08T23:17:10Z",
+      "side": 1,
+      "message": "Why is this a shell command and not a non-phony rule to build these files?  shell commands are expensive, we have to rerun them on every incremental build.",
+      "revId": "ab4825d90aecf8d57618faeb822ea0011193fe1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
