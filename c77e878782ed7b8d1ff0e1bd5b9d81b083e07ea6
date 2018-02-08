@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8d0f8269_17bddc13",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-02-08T21:48:39Z",
+      "side": 1,
+      "message": "I\u0027ve been looking at this and now I\u0027m wondering if there might be a bug in the new unwinder. I couldn\u0027t see any way that the unwind information is wrong for libc-2.24.so. So if you saw a crash, I\u0027m a little worried. I think a sleep of 1000 is still a good idea, but I\u0027m going to try and provoke the crash to verify if this is really a problem.\n\nSo for this I\u0027ll change this to a sleep of 1000, and still try to provoke a failure.",
+      "parentUuid": "c154225f_07801c12",
+      "range": {
+        "startLine": 62,
+        "startChar": 26,
+        "endLine": 62,
+        "endChar": 32
+      },
+      "revId": "c77e878782ed7b8d1ff0e1bd5b9d81b083e07ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b87f24d2_4c74df19",
         "filename": "test/137-cfi/cfi.cc",
         "patchSetId": 3
