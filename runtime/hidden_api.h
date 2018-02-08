@@ -17,7 +17,10 @@
 #ifndef ART_RUNTIME_HIDDEN_API_H_
 #define ART_RUNTIME_HIDDEN_API_H_
 
+#include "art_field.h"
+#include "art_method.h"
 #include "hidden_api_access_flags.h"
+#include "mirror/class.h"
 #include "reflection.h"
 #include "runtime.h"
 
@@ -135,6 +138,29 @@ inline bool ShouldBlockAccessToMember(uint32_t access_flags, mirror::Class* call
 
   return !caller->IsBootStrapClassLoaded();
 }
+
+// Class which queries Runtime on whether hidden API checks are enabled,
+// remembers the value and then disables the checks for the duration of its
+// lifetime. In the destructor it restores the original configuration.
+// Note that the exemption applies to all running threads.
+class ScopedHiddenApiExemption {
+ public:
+  ScopedHiddenApiExemption()
+    : initially_enabled_(Runtime::Current()->AreHiddenApiChecksEnabled()) {
+    Runtime::Current()->SetHiddenApiChecksEnabled(false);
+  }
+
+  ~ScopedHiddenApiExemption() {
+    Runtime::Current()->SetHiddenApiChecksEnabled(initially_enabled_);
+  }
+
+ private:
+  // True if hidden API checks were enabled at the beginning of the lifetime of
+  // this instance.
+  bool initially_enabled_;
+
+  DISALLOW_COPY_AND_ASSIGN(ScopedHiddenApiExemption);
+};
 
 }  // namespace hiddenapi
 }  // namespace art
