@@ -100,13 +100,23 @@ public class Main extends Base implements Comparator<Main> {
               throw new RuntimeException("Couldn't parse process");
           }
 
-          // Wait until the forked process had time to run until its sleep phase.
+          // Wait until the forked process had time to run until its wait phase.
           BufferedReader lineReader;
           try {
               InputStreamReader stdout = new InputStreamReader(p.getInputStream(), "UTF-8");
               lineReader = new BufferedReader(stdout);
-              while (!lineReader.readLine().contains("Going to sleep")) {
+              String line;
+              while ((line = lineReader.readLine()) != null) {
+                if (line.contains("Going to wait forever")) {
+                  break;
+                }
               }
+              if (line == null) {
+                System.out.println("Process never got into unwind state.");
+                return;
+              }
+              //while (!lineReader.readLine().contains("Going into busy wait")) {
+              //}
           } catch (Exception e) {
               throw new RuntimeException(e);
           }
@@ -187,7 +197,7 @@ public class Main extends Base implements Comparator<Main> {
 
   public boolean bar(boolean b) {
       if (b) {
-          return sleep(2, b, 1.0);
+          return wait(2, b, 1.0);
       } else {
           return unwindInProcess(fullSignatures, 1, b);
       }
@@ -195,7 +205,7 @@ public class Main extends Base implements Comparator<Main> {
 
   // Native functions. Note: to avoid deduping, they must all have different signatures.
 
-  public native boolean sleep(int i, boolean b, double dummy);
+  public native boolean wait(int i, boolean b, double dummy);
 
   public native boolean unwindInProcess(boolean fullSignatures, int i, boolean b);
   public native boolean unwindOtherProcess(boolean fullSignatures, int pid);
