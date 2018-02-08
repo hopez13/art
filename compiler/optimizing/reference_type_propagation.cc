@@ -533,18 +533,9 @@ void ReferenceTypePropagation::RTPVisitor::SetClassAsTypeInfo(HInstruction* inst
     // Calls to String.<init> are replaced with a StringFactory.
     if (kIsDebugBuild) {
       HInvokeStaticOrDirect* invoke = instr->AsInvokeStaticOrDirect();
-      ClassLinker* cl = Runtime::Current()->GetClassLinker();
       Thread* self = Thread::Current();
-      StackHandleScope<2> hs(self);
-      const DexFile& dex_file = *invoke->GetTargetMethod().dex_file;
-      Handle<mirror::DexCache> dex_cache(
-          hs.NewHandle(FindDexCacheWithHint(self, dex_file, hint_dex_cache_)));
-      // Use a null loader. We should probably use the compiling method's class loader,
-      // but then we would need to pass it to RTPVisitor just for this debug check. Since
-      // the method is from the String class, the null loader is good enough.
-      Handle<mirror::ClassLoader> loader(hs.NewHandle<mirror::ClassLoader>(nullptr));
-      ArtMethod* method = cl->ResolveMethod<ClassLinker::ResolveMode::kNoChecks>(
-          invoke->GetDexMethodIndex(), dex_cache, loader, /* referrer */ nullptr, kDirect);
+      StackHandleScope<1> hs(self);
+      ArtMethod* method = invoke->GetResolvedMethod();
       DCHECK(method != nullptr);
       mirror::Class* declaring_class = method->GetDeclaringClass();
       DCHECK(declaring_class != nullptr);
