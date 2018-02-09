@@ -19,6 +19,47 @@
     },
     {
       "key": {
+        "uuid": "39c8d013_45b37ef9",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-02-09T07:35:24Z",
+      "side": 1,
+      "message": "I was considering it, but I\u0027m not sure if it\u0027d be useful. The code that populates that in native_bridge_art_interface.cc has a filled sigset_t, and we might want to make bionic filter out __SIGRTMIN to SIGRTMIN before we make that change? (I\u0027m under the assumption that native bridge only really gets used for 32-bit arm to 32-bit intel)",
+      "parentUuid": "16e4caec_205c9e8f",
+      "revId": "949e62379a0b5cbf4e54454733f3ef19d51578dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0e63c00_b8924ea0",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-02-09T07:35:24Z",
+      "side": 1,
+      "message": "maybe we should have extern \"C++\" overloads or type-generic macros for these in signal.h?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 1
+      },
+      "revId": "949e62379a0b5cbf4e54454733f3ef19d51578dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f707aa3d_c78daaf3",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 1
