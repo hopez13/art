@@ -31,12 +31,6 @@ ifneq (,$(filter clean-oat%,$(MAKECMDGOALS)))
   art_dont_bother := true
 endif
 
-# Don't bother with tests unless there is a test-art*, build-art*, or related target.
-art_test_bother := false
-ifneq (,$(filter tests test-art% valgrind-test-art% build-art% checkbuild,$(MAKECMDGOALS)))
-  art_test_bother := true
-endif
-
 .PHONY: clean-oat
 clean-oat: clean-oat-host clean-oat-target
 
@@ -102,8 +96,6 @@ endif
 
 ########################################################################
 # test rules
-
-ifeq ($(art_test_bother),true)
 
 # All the dependencies that must be built ahead of sync-ing them onto the target device.
 TEST_ART_TARGET_SYNC_DEPS :=
@@ -348,7 +340,6 @@ valgrind-test-art-target32: valgrind-test-art-target-gtest32
 valgrind-test-art-target64: valgrind-test-art-target-gtest64
 	$(hide) $(call ART_TEST_PREREQ_FINISHED,$@)
 
-endif  # art_test_bother
 
 #######################
 # Fake packages for ART
@@ -607,7 +598,6 @@ endif # !art_dont_bother
 
 # Clear locally used variables.
 art_dont_bother :=
-art_test_bother :=
 TEST_ART_TARGET_SYNC_DEPS :=
 
 # Helper target that depends on boot image creation.
