@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "763177a0_082a5bae",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-09T16:55:35Z",
+      "side": 1,
+      "message": "Should we do something here to let memory tools know that this is a known/accepted memory leak?",
+      "range": {
+        "startLine": 1570,
+        "startChar": 10,
+        "endLine": 1570,
+        "endChar": 77
+      },
+      "revId": "e062faf21cc16e6efda02cabbcec5f35622f6996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
