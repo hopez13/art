@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "99f5030a_8950808a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-09T14:29:57Z",
+      "side": 1,
+      "message": "Well, I have some concerns about how a test shall be written.\nFrom this thread:\nhttps://groups.google.com/forum/#!topic/android-art/ruYhOes2BVU\n\u003eI\u0027m not quite sure, how to rewrite my reproducer as a gtest/java test (and do I need to?). The thing is, the test shall fail in case of a specific chain of events. If, for example, a classloader is not unloaded, there would be no crash so the test will pass. But that would not mean that the problem is actually fixed. And it\u0027s also not cool to force a test fail if a classloader for some reason is not unloaded, because it\u0027s another subsystem that can have its logic changed.",
+      "parentUuid": "85dc6a18_c744c9e5",
+      "range": {
+        "startLine": 9,
+        "startChar": 25,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2ff1da64_8310a2df",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
@@ -59,6 +83,24 @@
       "writtenOn": "2018-02-09T11:12:07Z",
       "side": 1,
       "message": "Please add a high level comment on why you can use kWithoutReadBarrier for the accessors below.",
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c7d96fb_42dd5ecb",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-09T14:29:57Z",
+      "side": 1,
+      "message": "Done.\nIn .h",
+      "parentUuid": "2009147f_f9f6b349",
       "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -116,6 +158,24 @@
       "writtenOn": "2018-02-08T19:08:00Z",
       "side": 1,
       "message": "We should DCHECK here that super_method doesn\u0027t have single implementation. \"Seems like\" is too fuzzy.",
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5affb24_67bffdcc",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-09T14:29:57Z",
+      "side": 1,
+      "message": "I don\u0027t think we should DCHECK it. \"if\" condition already assumes it.",
+      "parentUuid": "0a42a53d_f816fcbd",
       "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
