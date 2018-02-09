@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebed1336_1569e25f",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T19:04:25Z",
+      "side": 1,
+      "message": "is_constant_unused",
+      "revId": "78f83727c3a7d0674d86517610c132567944894b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c18f499d_1d1c9589",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T19:04:25Z",
+      "side": 1,
+      "message": "while you are here, can you please replace all tc -\u003e trip_count\n(I have had that cleanup in my local workspace for months, so we might as well do it as part of this)",
+      "revId": "78f83727c3a7d0674d86517610c132567944894b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e281a829_adccb639",
+        "filename": "compiler/optimizing/loop_analysis.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T19:04:25Z",
+      "side": 1,
+      "message": "yes, I like having this file with this information much better, thanks!",
+      "revId": "78f83727c3a7d0674d86517610c132567944894b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

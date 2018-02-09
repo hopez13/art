@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "492e40bf_b471bbb3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T19:04:25Z",
+      "side": 1,
+      "message": "is\n\nreturn TryOptimizeInnerLoopFinite(node) || \n       TryUnrollingForBranchPenaltyReduction(node);\n\nto clever?",
+      "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a3b308d_65f7eaf9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T19:04:25Z",
+      "side": 1,
+      "message": "move these up to the arm heuristics, and just change the comment to read general arm values",
+      "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e019cb1_f5777686",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T19:04:25Z",
+      "side": 1,
+      "message": "This method feels like it should just be integrated in TryUnrollingForBranchPenaltyReduction(() where we have a lot of heuristic decisions anyway. Or perhaps moved to analysis (you will need to pass isa or driver then in that case)",
+      "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "849551b3_a8063f9a",
+        "filename": "test/530-checker-peel-unroll/src/Main.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T19:04:25Z",
+      "side": 1,
+      "message": "what do you mean by that, where can the reader find this contant.\nalso, I am not a big fan of these of-time tests, having functionality tests is good, but if you also want to check the unrolling part, we should checker test them too?",
+      "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
