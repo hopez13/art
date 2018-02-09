@@ -46,6 +46,30 @@
       "revId": "fa854e4834c383daafd240902ecb291ecfdad7b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4051f90_ae60631e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3589,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-09T14:36:29Z",
+      "side": 1,
+      "message": "I filed a new bug for this (73149739).",
+      "parentUuid": "782014f9_e758f3a5",
+      "range": {
+        "startLine": 3589,
+        "startChar": 10,
+        "endLine": 3589,
+        "endChar": 45
+      },
+      "revId": "fa854e4834c383daafd240902ecb291ecfdad7b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
