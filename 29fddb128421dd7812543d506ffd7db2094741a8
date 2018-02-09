@@ -182,6 +182,24 @@
     },
     {
       "key": {
+        "uuid": "519ffb22_6d4ca66f",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-09T19:59:55Z",
+      "side": 1,
+      "message": "The if condition has multiple tests. Even when it falls to the else branch due to failing other tests, super_method should not have single implementation here.",
+      "parentUuid": "b5affb24_67bffdcc",
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b44c4847_e971aa53",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
