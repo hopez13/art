@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f90dd723_37428e61",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T21:05:41Z",
+      "side": 1,
+      "message": "remaining question: why is this bad for unrolling and not for peeling?",
+      "revId": "5c00220c5b654894aa01da359316b5f5104ba18d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67719afc_e9f4ce8d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-09T21:05:41Z",
+      "side": 1,
+      "message": "both these helpers to analysis?",
+      "revId": "5c00220c5b654894aa01da359316b5f5104ba18d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
