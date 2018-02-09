@@ -22,6 +22,30 @@
       "revId": "e062faf21cc16e6efda02cabbcec5f35622f6996",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4d88566_1f7c8c8a",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-09T17:28:46Z",
+      "side": 1,
+      "message": "Since there is a pointer to it (in the static) the memory tools generally leave it as a low warning IIRC and won\u0027t flag it by default.",
+      "parentUuid": "763177a0_082a5bae",
+      "range": {
+        "startLine": 1570,
+        "startChar": 10,
+        "endLine": 1570,
+        "endChar": 77
+      },
+      "revId": "e062faf21cc16e6efda02cabbcec5f35622f6996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
