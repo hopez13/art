@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16e4caec_205c9e8f",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-02-09T06:06:14Z",
+      "side": 1,
+      "message": "do we need to do anything about\n\n  struct SigchainAction {\n    bool (*sc_sigaction)(int, siginfo_t*, void*);\n    sigset_t sc_mask;\n    uint64_t sc_flags;\n  };\n\n?",
+      "revId": "949e62379a0b5cbf4e54454733f3ef19d51578dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f707aa3d_c78daaf3",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-02-09T06:06:14Z",
+      "side": 1,
+      "message": "(interesting.)",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 21
+      },
+      "revId": "949e62379a0b5cbf4e54454733f3ef19d51578dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdda7bea_85ab9c14",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-02-09T06:06:14Z",
+      "side": 1,
+      "message": "hmm. maybe we should have an anonymous union of uc_sigmask and uc_sigmask64 there after all?",
+      "revId": "949e62379a0b5cbf4e54454733f3ef19d51578dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
