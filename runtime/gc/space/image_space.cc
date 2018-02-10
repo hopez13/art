@@ -128,7 +128,7 @@ static bool GenerateImage(const std::string& image_filename,
   }
 
   std::string oat_file_option_string("--oat-file=");
-  oat_file_option_string += ImageHeader::GetOatLocationFromImageLocation(image_filename);
+  oat_file_option_string += GetOatLocationFromImageLocation(image_filename);
   arg_vector.push_back(oat_file_option_string);
 
   // Note: we do not generate a fully debuggable boot image so we do not pass the
@@ -1414,7 +1414,7 @@ class ImageSpaceLoader {
                                               const char* image_path,
                                               std::string* error_msg) {
     const ImageHeader& image_header = image.GetImageHeader();
-    std::string oat_filename = ImageHeader::GetOatLocationFromImageLocation(image_path);
+    std::string oat_filename = GetOatLocationFromImageLocation(image_path);
 
     CHECK(image_header.GetOatDataBegin() != nullptr);
 

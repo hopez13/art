@@ -2048,7 +2048,7 @@ class ImageDumper {
     Runtime* const runtime = Runtime::Current();
     ClassLinker* class_linker = runtime->GetClassLinker();
     std::string image_filename = image_space_.GetImageFilename();
-    std::string oat_location = ImageHeader::GetOatLocationFromImageLocation(image_filename);
+    std::string oat_location = GetOatLocationFromImageLocation(image_filename);
     os << "OAT LOCATION: " << oat_location;
     os << "\n";
     std::string error_msg;

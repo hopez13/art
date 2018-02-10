@@ -963,11 +963,11 @@ static bool OpenDexFilesFromImage(const std::string& image_location,
     // We are falling back to non-executable use of the oat file because patching failed, presumably
     // due to lack of space.
     std::string vdex_filename =
-        ImageHeader::GetVdexLocationFromImageLocation(system_filename.c_str());
+        GetVdexLocationFromImageLocation(system_filename.c_str());
     std::string oat_filename =
-        ImageHeader::GetOatLocationFromImageLocation(system_filename.c_str());
+        GetOatLocationFromImageLocation(system_filename.c_str());
     std::string oat_location =
-        ImageHeader::GetOatLocationFromImageLocation(image_locations[index].c_str());
+        GetOatLocationFromImageLocation(image_locations[index].c_str());
     // Note: in the multi-image case, the image location may end in ".jar," and not ".art." Handle
     //       that here.
     if (android::base::EndsWith(oat_location, ".jar")) {
