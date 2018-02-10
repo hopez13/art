@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49a53436_0882f96d",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-10T02:23:03Z",
+      "side": 1,
+      "message": "aging",
+      "revId": "539059d812ef54c224fb07309ffec52f5d639150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62b09f2c_44359f67",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-10T02:23:03Z",
+      "side": 1,
+      "message": "I think it would be clearer to say that we allocate twice the capacity to allow evacuating every region for explicit GCs.",
+      "range": {
+        "startLine": 437,
+        "startChar": 34,
+        "endLine": 437,
+        "endChar": 71
+      },
+      "revId": "539059d812ef54c224fb07309ffec52f5d639150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dffd950_7019a1e5",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-10T02:23:03Z",
+      "side": 1,
+      "message": "Allocated into? The region itself is already allocated.",
+      "revId": "539059d812ef54c224fb07309ffec52f5d639150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23844b79_9aa41c38",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-10T02:23:03Z",
+      "side": 1,
+      "message": "One line per arg?",
+      "revId": "539059d812ef54c224fb07309ffec52f5d639150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
