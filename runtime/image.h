@@ -183,14 +183,6 @@ class PACKED(4) ImageHeader {
     patch_delta_ = patch_delta;
   }
 
-  static std::string GetOatLocationFromImageLocation(const std::string& image) {
-    return GetLocationFromImageLocation(image, "oat");
-  }
-
-  static std::string GetVdexLocationFromImageLocation(const std::string& image) {
-    return GetLocationFromImageLocation(image, "vdex");
-  }
-
   enum ImageMethod {
     kResolutionMethod,
     kImtConflictMethod,
@@ -374,17 +366,6 @@ class PACKED(4) ImageHeader {
   static const uint8_t kImageMagic[4];
   static const uint8_t kImageVersion[4];
 
-  static std::string GetLocationFromImageLocation(const std::string& image,
-                                                  const std::string& extension) {
-    std::string filename = image;
-    if (filename.length() <= 3) {
-      filename += "." + extension;
-    } else {
-      filename.replace(filename.length() - 3, 3, extension);
-    }
-    return filename;
-  }
-
   uint8_t magic_[4];
   uint8_t version_[4];
 
@@ -452,6 +433,25 @@ class PACKED(4) ImageHeader {
 
   friend class linker::ImageWriter;
 };
+
+static std::string GetLocationFromImageLocation(const std::string& image,
+                                                const std::string& extension) {
+  std::string filename = image;
+  if (filename.length() <= 3) {
+    filename += "." + extension;
+  } else {
+    filename.replace(filename.length() - 3, 3, extension);
+  }
+  return filename;
+}
+
+inline std::string GetOatLocationFromImageLocation(const std::string& image) {
+  return GetLocationFromImageLocation(image, "oat");
+}
+
+inline std::string GetVdexLocationFromImageLocation(const std::string& image) {
+  return GetLocationFromImageLocation(image, "vdex");
+}
 
 std::ostream& operator<<(std::ostream& os, const ImageHeader::ImageMethod& policy);
 std::ostream& operator<<(std::ostream& os, const ImageHeader::ImageRoot& policy);
