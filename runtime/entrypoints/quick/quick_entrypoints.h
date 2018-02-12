@@ -38,6 +38,7 @@ class Object;
 
 class ArtMethod;
 template<class MirrorType> class GcRoot;
+template<class MirrorType> class StackReference;
 class Thread;
 
 // Pointers to functions that are called by quick compiler generated code via thread-local storage.
@@ -105,6 +106,13 @@ extern "C" mirror::Object* artReadBarrierSlow(mirror::Object* ref,
 // Read barrier entrypoint for GC roots.
 extern "C" mirror::Object* artReadBarrierForRootSlow(GcRoot<mirror::Object>* root)
     REQUIRES_SHARED(Locks::mutator_lock_) HOT_ATTR;
+
+
+// Proxy method Quick frame entrypoints.
+
+// Returning all reference arguments in Quick stack frame at address `sp`.
+extern std::vector<StackReference<mirror::Object>*> GetProxyReferenceArguments(ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_);
 
 }  // namespace art
 
