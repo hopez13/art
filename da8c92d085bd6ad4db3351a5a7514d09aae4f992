@@ -22,6 +22,30 @@
       "revId": "da8c92d085bd6ad4db3351a5a7514d09aae4f992",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5689d8f4_ed7dc4ca",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-02-12T22:29:09Z",
+      "side": 1,
+      "message": "I thought DCHECK had some macro around this, but that\u0027s probably just a fabrication of my mind. Changed these to const chars.",
+      "parentUuid": "8d7394ea_bcda1193",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 46
+      },
+      "revId": "da8c92d085bd6ad4db3351a5a7514d09aae4f992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
