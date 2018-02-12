@@ -200,6 +200,24 @@
     },
     {
       "key": {
+        "uuid": "248dc62f_f1558589",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-12T11:18:53Z",
+      "side": 1,
+      "message": "\u003esuper_method should not have single implementation here\nNot necessarily - if super_method is not abstract - it still shall have a single implementation which is the method itself. In here, the idea is to traverse the hierarchy as little as possible - that\u0027s why the condition is a combination of multiple barely related tests.\n\nProbably, I don\u0027t understand something. Can you please give an example when DCHECK can be helpful in this situation?",
+      "parentUuid": "519ffb22_6d4ca66f",
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b44c4847_e971aa53",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
