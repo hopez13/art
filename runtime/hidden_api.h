@@ -45,19 +45,27 @@ inline Action GetMemberAction(uint32_t access_flags) {
 }
 
 // Issue a warning about field access.
-inline void WarnAboutMemberAccess(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
+inline void WarnAboutMemberAccess(ArtField* field, const char* access_method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   std::string tmp;
+  const char* api_list_name = HiddenApiAccessFlags::ApiListToString(
+      HiddenApiAccessFlags::DecodeFromRuntime(field->GetAccessFlags()));
   LOG(WARNING) << "Accessing hidden field "
                << field->GetDeclaringClass()->GetDescriptor(&tmp) << "->"
-               << field->GetName() << ":" << field->GetTypeDescriptor();
+               << field->GetName() << ":" << field->GetTypeDescriptor()
+               << " (" << api_list_name << ", " << access_method << ")";
 }
 
 // Issue a warning about method access.
-inline void WarnAboutMemberAccess(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
+inline void WarnAboutMemberAccess(ArtMethod* method, const char* access_method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   std::string tmp;
+  const char* api_list_name = HiddenApiAccessFlags::ApiListToString(
+      HiddenApiAccessFlags::DecodeFromRuntime(method->GetAccessFlags()));
   LOG(WARNING) << "Accessing hidden method "
                << method->GetDeclaringClass()->GetDescriptor(&tmp) << "->"
-               << method->GetName() << method->GetSignature().ToString();
+               << method->GetName() << method->GetSignature().ToString()
+               << " (" << api_list_name << ", " << access_method << ")";
 }
 
 // Returns true if access to `member` should be denied to the caller of the
@@ -69,7 +77,8 @@ inline void WarnAboutMemberAccess(ArtMethod* method) REQUIRES_SHARED(Locks::muta
 template<typename T>
 inline bool ShouldBlockAccessToMember(T* member,
                                       Thread* self,
-                                      std::function<bool(Thread*)> fn_caller_in_boot)
+                                      std::function<bool(Thread*)> fn_caller_in_boot,
+                                      const char* access_method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(member != nullptr);
   Runtime* runtime = Runtime::Current();
@@ -92,25 +101,33 @@ inline bool ShouldBlockAccessToMember(T* member,
     return false;
   }
 
-  // Member is hidden and we are not in the boot class path. Act accordingly.
+  // Member is hidden and we are not in the boot class path.
+
+  // Print a log message with information about this class member access.
+  // We do this regardless of whether we block the access or not.
+  WarnAboutMemberAccess(member, access_method);
+
+  // Block access if on blacklist.
   if (action == kDeny) {
     return true;
-  } else {
-    DCHECK(action == kAllowButWarn || action == kAllowButWarnAndToast);
-
-    // Allow access to this member but print a warning. Depending on a runtime
-    // flag, we might move the member into whitelist and skip the warning the
-    // next time the member is used.
-    if (runtime->ShouldDedupeHiddenApiWarnings()) {
-      member->SetAccessFlags(HiddenApiAccessFlags::EncodeForRuntime(
-          member->GetAccessFlags(), HiddenApiAccessFlags::kWhitelist));
-    }
-    WarnAboutMemberAccess(member);
-    if (action == kAllowButWarnAndToast || runtime->ShouldAlwaysSetHiddenApiWarningFlag()) {
-      Runtime::Current()->SetPendingHiddenApiWarning(true);
-    }
-    return false;
   }
+
+  // Allow access to this member but print a warning.
+  DCHECK(action == kAllowButWarn || action == kAllowButWarnAndToast);
+
+  // Depending on a runtime flag, we might move the member into whitelist and
+  // skip the warning the next time the member is accessed.
+  if (runtime->ShouldDedupeHiddenApiWarnings()) {
+    member->SetAccessFlags(HiddenApiAccessFlags::EncodeForRuntime(
+        member->GetAccessFlags(), HiddenApiAccessFlags::kWhitelist));
+  }
+
+  // If this action requires a UI warning, set the appropriate flag.
+  if (action == kAllowButWarnAndToast || runtime->ShouldAlwaysSetHiddenApiWarningFlag()) {
+    Runtime::Current()->SetPendingHiddenApiWarning(true);
+  }
+
+  return false;
 }
 
 // Returns true if access to member with `access_flags` should be denied to `caller`.

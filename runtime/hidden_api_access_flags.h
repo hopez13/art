@@ -63,6 +63,19 @@ class HiddenApiAccessFlags {
     kBlacklist,
   };
 
+  static ALWAYS_INLINE const char* ApiListToString(ApiList value) {
+    switch (value) {
+      case kWhitelist:
+        return "whitelist";
+      case kLightGreylist:
+        return "light greylist";
+      case kDarkGreylist:
+        return "dark greylist";
+      case kBlacklist:
+        return "blacklist";
+    }
+  }
+
   static ALWAYS_INLINE ApiList DecodeFromDex(uint32_t dex_access_flags) {
     DexHiddenAccessFlags flags(dex_access_flags);
     uint32_t int_value = (flags.IsFirstBitSet() ? 1 : 0) + (flags.IsSecondBitSet() ? 2 : 0);
