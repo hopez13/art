@@ -46,6 +46,30 @@
       "revId": "4b49bb7e02c6dd70ce6c3f2036a5bce902ff233a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9abaf73b_6db7fadd",
+        "filename": "runtime/jdwp/jdwp_adb.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-02-12T23:48:35Z",
+      "side": 1,
+      "message": "I was planning to make this int64_t, but then I noticed how many \u0027%d\u0027s I would have to change, and gave up.",
+      "parentUuid": "4985d965_7944037b",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "4b49bb7e02c6dd70ce6c3f2036a5bce902ff233a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
