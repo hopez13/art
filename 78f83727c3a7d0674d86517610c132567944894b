@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e1e7d983_4eed9c5f",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-12T23:20:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebed1336_1569e25f",
+      "revId": "78f83727c3a7d0674d86517610c132567944894b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c18f499d_1d1c9589",
         "filename": "compiler/optimizing/induction_var_range.h",
         "patchSetId": 16
@@ -30,6 +48,24 @@
       "writtenOn": "2018-02-09T19:04:25Z",
       "side": 1,
       "message": "while you are here, can you please replace all tc -\u003e trip_count\n(I have had that cleanup in my local workspace for months, so we might as well do it as part of this)",
+      "revId": "78f83727c3a7d0674d86517610c132567944894b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4812ac3b_e5d2e785",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-12T23:20:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c18f499d_1d1c9589",
       "revId": "78f83727c3a7d0674d86517610c132567944894b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

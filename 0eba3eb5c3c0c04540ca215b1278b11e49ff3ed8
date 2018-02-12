@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f23ce2ec_21638cfc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-12T23:20:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "492e40bf_b471bbb3",
+      "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a3b308d_65f7eaf9",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2018-02-09T19:04:25Z",
       "side": 1,
       "message": "move these up to the arm heuristics, and just change the comment to read general arm values",
+      "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "056c9a58_d8e82607",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-12T23:20:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a3b308d_65f7eaf9",
       "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d489a8ce_59b0e252",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-12T23:20:00Z",
+      "side": 1,
+      "message": "what about changing it to a static function within loop_optimization.cc? it uses some heuristic values defined there and so far loop_analysis.* are target independent.",
+      "parentUuid": "2e019cb1_f5777686",
+      "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "849551b3_a8063f9a",
         "filename": "test/530-checker-peel-unroll/src/Main.java",
         "patchSetId": 15
@@ -64,6 +118,24 @@
       "writtenOn": "2018-02-09T19:04:25Z",
       "side": 1,
       "message": "what do you mean by that, where can the reader find this contant.\nalso, I am not a big fan of these of-time tests, having functionality tests is good, but if you also want to check the unrolling part, we should checker test them too?",
+      "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe3dd20f_3f315917",
+        "filename": "test/530-checker-peel-unroll/src/Main.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-12T23:20:00Z",
+      "side": 1,
+      "message": "The original point of having those examples was to ensure, that when unrolling/peeling is forced on every loop (this constant kForceLoopUnrolling has been removed already), there are no failures.\n\nSo I will leave only those meaningful not-duplicate tests for which unrolling/peeling IS happening in the regular opts pipeline.",
+      "parentUuid": "849551b3_a8063f9a",
       "revId": "0eba3eb5c3c0c04540ca215b1278b11e49ff3ed8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
