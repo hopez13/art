@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0644b96b_7c01335a",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-12T23:22:00Z",
+      "side": 1,
+      "message": "Because PrepareForRegisterAllocation::CanMoveClinitCheck is only failing for loop unrolling.\n\nBut it\u0027s a fair point, I guess it would be better to address the issue with a ClinitCheck for both peeling and unrolling at the same time. So I have returned IsClinitCheck() to MakesScalarPeelingUnrollingNonBeneficial.\n\nHowever I would prefer to keep the following flags separate:\n\nhas_instructions_preventing_scalar_peeling \u003d true;\nhas_instructions_preventing_scalar_unrolling \u003d true;",
+      "parentUuid": "f90dd723_37428e61",
+      "revId": "5c00220c5b654894aa01da359316b5f5104ba18d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67719afc_e9f4ce8d",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2018-02-09T21:05:41Z",
       "side": 1,
       "message": "both these helpers to analysis?",
+      "revId": "5c00220c5b654894aa01da359316b5f5104ba18d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f20684_9cd3db89",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-12T23:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67719afc_e9f4ce8d",
       "revId": "5c00220c5b654894aa01da359316b5f5104ba18d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
