@@ -22,6 +22,30 @@
       "revId": "4b49bb7e02c6dd70ce6c3f2036a5bce902ff233a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4985d965_7944037b",
+        "filename": "runtime/jdwp/jdwp_adb.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-02-12T23:47:36Z",
+      "side": 1,
+      "message": "(it\u0027s `int` in all kernels.)",
+      "parentUuid": "0582a87a_06263dab",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "4b49bb7e02c6dd70ce6c3f2036a5bce902ff233a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
