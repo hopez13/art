@@ -218,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "53840c40_4fbb3549",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-12T19:05:50Z",
+      "side": 1,
+      "message": "If super_method is not abstract, it can\u0027t have a single implementation which is the method itself since it\u0027s overridden by \u0027method\u0027, which is different from super_method due to the comparison on line 123.\n\nDCHECK that super_method is non-single-implementation here gives a stronger condition on why we can stop the traversal since all supers from this point on can\u0027t even have single-implementation. Your code/comment seem to imply supers can still have single-implementation but different from \u0027method\u0027.",
+      "parentUuid": "248dc62f_f1558589",
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b44c4847_e971aa53",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
