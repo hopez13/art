@@ -70,6 +70,30 @@
       "revId": "4b49bb7e02c6dd70ce6c3f2036a5bce902ff233a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6744b3fa_6cf307bc",
+        "filename": "runtime/jdwp/jdwp_adb.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-02-12T23:54:06Z",
+      "side": 1,
+      "message": "if the kernel ever changes that bit of ABI, we have much bigger worries than fixing the JDWP protocol :-)",
+      "parentUuid": "9abaf73b_6db7fadd",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "4b49bb7e02c6dd70ce6c3f2036a5bce902ff233a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
