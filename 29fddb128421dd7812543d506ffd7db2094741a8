@@ -236,6 +236,24 @@
     },
     {
       "key": {
+        "uuid": "5269f8a9_1662aac2",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-13T09:13:18Z",
+      "side": 1,
+      "message": "In general, you\u0027re correct. But there\u0027s also a case when a non-abstract super_method is not overridden. Then, it still has single implementation. And this is also a stop-the-traversal condition. But DCHECK would wrongfully assert.",
+      "parentUuid": "53840c40_4fbb3549",
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b44c4847_e971aa53",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
