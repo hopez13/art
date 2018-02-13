@@ -360,18 +360,25 @@ ifneq ($(ART_TEST_ANDROID_ROOT),)
   ART_GTEST_TARGET_ANDROID_ROOT := $(ART_TEST_ANDROID_ROOT)
 endif
 
-ART_VALGRIND_TARGET_DEPENDENCIES := \
+ART_VALGRIND_TARGET_DEPENDENCIES :=
+
+# Valgrind is not supported for x86
+ifneq ($(TARGET_ARCH),x86)
+ART_VALGRIND_TARGET_DEPENDENCIES += \
   $(TARGET_OUT_EXECUTABLES)/valgrind \
   $(TARGET_OUT_SHARED_LIBRARIES)/valgrind/memcheck-$(TARGET_ARCH)-linux \
   $(TARGET_OUT_SHARED_LIBRARIES)/valgrind/vgpreload_core-$(TARGET_ARCH)-linux.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/valgrind/vgpreload_memcheck-$(TARGET_ARCH)-linux.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/valgrind/default.supp
+endif
 
 ifdef TARGET_2ND_ARCH
+ifneq ($(TARGET_2ND_ARCH),x86)
 ART_VALGRIND_TARGET_DEPENDENCIES += \
   $(TARGET_OUT_SHARED_LIBRARIES)/valgrind/memcheck-$(TARGET_2ND_ARCH)-linux \
   $(TARGET_OUT_SHARED_LIBRARIES)/valgrind/vgpreload_core-$(TARGET_2ND_ARCH)-linux.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/valgrind/vgpreload_memcheck-$(TARGET_2ND_ARCH)-linux.so
+endif
 endif
 
 include $(CLEAR_VARS)
