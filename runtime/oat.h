@@ -32,8 +32,8 @@ class InstructionSetFeatures;
 class PACKED(4) OatHeader {
  public:
   static constexpr uint8_t kOatMagic[] = { 'o', 'a', 't', '\n' };
-  // Last oat version changed reason: Math.pow() intrinsic.
-  static constexpr uint8_t kOatVersion[] = { '1', '3', '8', '\0' };
+  // Last oat version changed reason: add compilation-reason in the key-value store.
+  static constexpr uint8_t kOatVersion[] = { '1', '3', '9', '\0' };
 
   static constexpr const char* kImageLocationKey = "image-location";
   static constexpr const char* kDex2OatCmdLineKey = "dex2oat-cmdline";
@@ -45,6 +45,7 @@ class PACKED(4) OatHeader {
   static constexpr const char* kClassPathKey = "classpath";
   static constexpr const char* kBootClassPathKey = "bootclasspath";
   static constexpr const char* kConcurrentCopying = "concurrent-copying";
+  static constexpr const char* kCompilationReasonKey = "compilation-reason";
 
   static constexpr const char kTrueValue[] = "true";
   static constexpr const char kFalseValue[] = "false";
