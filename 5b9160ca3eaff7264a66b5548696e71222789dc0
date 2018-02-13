@@ -16,6 +16,24 @@
       "revId": "5b9160ca3eaff7264a66b5548696e71222789dc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c555a01_44c38c5d",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-02-13T01:20:18Z",
+      "side": 1,
+      "message": "32-bit arm is being built, which is all that matters for the build system to not fail on these dependencies.",
+      "parentUuid": "9b61c950_05e203e6",
+      "revId": "5b9160ca3eaff7264a66b5548696e71222789dc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
