@@ -254,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "6233c4f5_4393b09c",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-13T18:37:13Z",
+      "side": 1,
+      "message": "Ok the DCHECK should include the non-overridden case or the super_method is non-single-implementation. If the assert fails, it means we did something wrong earlier when setting the single-implementation flag.",
+      "parentUuid": "5269f8a9_1662aac2",
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b44c4847_e971aa53",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
