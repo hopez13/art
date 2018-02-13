@@ -34,6 +34,24 @@
       "revId": "5b9160ca3eaff7264a66b5548696e71222789dc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5ae95ed_da20db70",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-02-13T01:22:56Z",
+      "side": 1,
+      "message": "i see.\n\nuse `arm arm64 x86_64` here too and add a comment in external/valgrind\u0027s makefile saying \"if you change this, change art/build/Android.gtest.mk too\"?",
+      "parentUuid": "3c555a01_44c38c5d",
+      "revId": "5b9160ca3eaff7264a66b5548696e71222789dc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
