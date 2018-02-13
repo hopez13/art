@@ -1262,4 +1262,32 @@ std::unique_ptr<OatFile> OatFileAssistant::OatFileInfo::ReleaseFileForUse() {
   }
   return std::unique_ptr<OatFile>();
 }
+
+// TODO(calin): we could provide a more refined status here
+// (e.g. run from uncompressed apk, run with vdex but not oat etc). It will allow us to
+// track more experiments but adds extra complexity.
+std::vector<std::string> OatFileAssistant::GetOptimizationStatus(const std::string& filename,
+                                                                 InstructionSet isa) {
+  // Try to load the oat file as we would do at runtime.
+  OatFileAssistant oat_file_assistant(filename.c_str(), isa, true /* load_executable */);
+  std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
+
+  std::string compilation_filter;
+  std::string compilation_reason;
+
+  if (oat_file == nullptr) {
+    compilation_filter = "run-from-apk";
+    compilation_reason = "unknown";
+  } else  {
+    compilation_filter = CompilerFilter::NameOfFilter(oat_file->GetCompilerFilter());
+    const char* reason = oat_file->GetCompilationReason();
+    compilation_reason = reason == nullptr ? "unknown" : reason;
+  }
+
+  std::vector<std::string> result;
+  result.push_back(compilation_filter);
+  result.push_back(compilation_reason);
+  return result;
+}
+
 }  // namespace art
