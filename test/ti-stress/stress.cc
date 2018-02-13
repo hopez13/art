@@ -25,6 +25,7 @@
 #include <jni.h>
 
 #include "exec_utils.h"
+#include "instrumentation.h"
 #include "jvmti.h"
 #include "utils.h"
 
@@ -40,7 +41,6 @@
 #include "control_flow_graph.h"
 #include "dex_ir.h"
 #include "dex_ir_builder.h"
-#include "instrumentation.h"
 #include "reader.h"
 #include "writer.h"
 
