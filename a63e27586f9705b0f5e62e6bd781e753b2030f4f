@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73e3cdb5_30d8a798",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 7954,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-13T14:49:59Z",
+      "side": 1,
+      "message": "Change to \"DexFile referrer\" in line with the other CHECK()s.",
+      "range": {
+        "startLine": 7954,
+        "startChar": 12,
+        "endLine": 7954,
+        "endChar": 20
+      },
+      "revId": "a63e27586f9705b0f5e62e6bd781e753b2030f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
