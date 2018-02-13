@@ -70,6 +70,24 @@
       "revId": "548a255b49ff39a71da4466482f37a53d925e91d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca1d57c4_f98bbefe",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-13T13:29:46Z",
+      "side": 1,
+      "message": "Yeah, I read the code incorrectly, we actually pass null for the resolved method for string init. Debugging...",
+      "parentUuid": "2439c570_bcefb38e",
+      "revId": "548a255b49ff39a71da4466482f37a53d925e91d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
