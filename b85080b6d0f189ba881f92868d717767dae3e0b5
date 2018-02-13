@@ -94,6 +94,30 @@
       "revId": "b85080b6d0f189ba881f92868d717767dae3e0b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05edefc9_489f124a",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-13T21:45:02Z",
+      "side": 1,
+      "message": "I\u0027d argue a std::vector isn\u0027t really a Java array....and sort of odd to return.",
+      "parentUuid": "9c8e6bcf_68935397",
+      "range": {
+        "startLine": 238,
+        "startChar": 10,
+        "endLine": 238,
+        "endChar": 33
+      },
+      "revId": "b85080b6d0f189ba881f92868d717767dae3e0b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
