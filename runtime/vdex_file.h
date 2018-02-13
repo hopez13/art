@@ -107,7 +107,7 @@ class VdexFile {
   typedef uint32_t VdexChecksum;
   using QuickeningTableOffsetType = uint32_t;
 
-  explicit VdexFile(MemMap* mmap) : mmap_(mmap) {}
+  explicit VdexFile(std::unique_ptr<MemMap>&& mmap) : mmap_(std::move(mmap)) {}
 
   // Returns nullptr if the vdex file cannot be opened or is not valid.
   // The mmap_* parameters can be left empty (nullptr/0/false) to allocate at random address.
@@ -169,6 +169,10 @@ class VdexFile {
                          error_msg);
   }
 
+  static std::unique_ptr<VdexFile> OpenFromMemMap(std::unique_ptr<MemMap>&& mem_map,
+                                                  bool unquicken,
+                                                  std::string* error_msg);
+
   const uint8_t* Begin() const { return mmap_->Begin(); }
   const uint8_t* End() const { return mmap_->End(); }
   size_t Size() const { return mmap_->Size(); }
@@ -207,7 +211,7 @@ class VdexFile {
 
   // Open all the dex files contained in this vdex file.
   bool OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_files,
-                       std::string* error_msg);
+                       std::string* error_msg) const;
 
   // In-place unquicken the given `dex_files` based on `quickening_info`.
   // `decompile_return_instruction` controls if RETURN_VOID_BARRIER instructions are

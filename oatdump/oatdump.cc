@@ -712,7 +712,7 @@ class OatDumper {
       return nullptr;
     }
 
-    std::unique_ptr<VdexFile> vdex_file(new VdexFile(mmap.release()));
+    std::unique_ptr<VdexFile> vdex_file(new VdexFile(std::move(mmap)));
     if (!vdex_file->IsValid()) {
       *error_msg = "Vdex file is not valid";
       return nullptr;

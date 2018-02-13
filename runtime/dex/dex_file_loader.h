@@ -26,10 +26,11 @@ namespace art {
 
 class DexFile;
 class DexFileContainer;
+class DexZipArchive;
 class MemMap;
 class OatDexFile;
-
-class DexZipArchive;
+class ZipArchive;
+class ZipEntry;
 
 // Class that is used to open dex files and deal with corresponding multidex and location logic.
 class DexFileLoader {

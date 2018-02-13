@@ -41,6 +41,8 @@
 #include "oat.h"
 #include "oat_file.h"
 #include "utils.h"
+#include "vdex_file.h"
+#include "ziparchive/zip_writer.h"
 
 namespace art {
 
@@ -1729,6 +1731,113 @@ TEST_F(Dex2oatTest, StderrLoggerOutput) {
   // Look for some random part of dex2oat logging. With the stderr logger this should be captured,
   // even on device.
   EXPECT_NE(std::string::npos, output_.find("dex2oat took"));
+}
+
+class Dex2oatExtractTest : public Dex2oatTest {
+ public:
+  // Check against what we expect instead of what was passed to dex2oat.
+  void CheckFilter(CompilerFilter::Filter expected ATTRIBUTE_UNUSED,
+                   CompilerFilter::Filter actual) OVERRIDE {
+    EXPECT_EQ(actual, expected_filter_);
+  }
+
+ public:
+  const CompilerFilter::Filter expected_filter_ = CompilerFilter::Filter::kQuicken;
+};
+
+TEST_F(Dex2oatExtractTest, ExtractArtifacts) {
+  std::string out_dir = GetScratchDir();
+  const std::string odex_name = out_dir + "/generated.odex";
+  const std::string vdex_name = out_dir + "/generated.vdex";
+  std::string error_msg;
+  GenerateOdexForTest(GetTestDexFileName("MultiDex"),
+                      odex_name,
+                      expected_filter_,
+                      {},
+                      true,  // expect_success
+                      false,  // use_fd
+                      [&](const OatFile&) {});
+  std::unique_ptr<File> odex_file(OS::OpenFileForReading(odex_name.c_str()));
+  ASSERT_TRUE(odex_file != nullptr);
+  ASSERT_GE(odex_file->GetLength(), 0u);
+  std::unique_ptr<File> vdex_file(OS::OpenFileForReading(vdex_name.c_str()));
+  ASSERT_TRUE(vdex_file != nullptr);
+  ASSERT_GE(vdex_file->GetLength(), 0u);
+
+  // Need to open vdex after dex2oat in case quickening and cdex conversion happened. Unquicken
+  // is true to match the fallback mode opening.
+  std::unique_ptr<VdexFile> vdex(VdexFile::Open(vdex_name.c_str(),
+                                                /*writable*/ false,
+                                                /*low_4gb*/ false,
+                                                /*unquicken*/ true,
+                                                &error_msg));
+  ASSERT_TRUE(vdex != nullptr);
+  std::vector<std::unique_ptr<const DexFile>> reference_dex_files;
+  ASSERT_TRUE(vdex->OpenAllDexFiles(&reference_dex_files, &error_msg)) << error_msg;
+
+
+  // Add produced artifacts to a zip file that doesn't contain the classes.dex.
+  ScratchFile zip_file;
+  {
+    FILE* file = fdopen(zip_file.GetFd(), "w+b");
+    ZipWriter writer(file);
+    auto write_all_bytes = [&](File* file) {
+      std::unique_ptr<uint8_t[]> bytes(new uint8_t[file->GetLength()]);
+      ASSERT_TRUE(file->ReadFully(&bytes[0], file->GetLength()));
+      ASSERT_GE(writer.WriteBytes(&bytes[0], file->GetLength()), 0);
+    };
+    // Add odex to zip.
+    writer.StartEntry(ArtDexFileLoader::kOdexFileName, ZipWriter::kCompress);
+    write_all_bytes(odex_file.get());
+    writer.FinishEntry();
+    // Add vdex to zip.
+    writer.StartEntry(ArtDexFileLoader::kVdexFileName, ZipWriter::kCompress);
+    write_all_bytes(vdex_file.get());
+    writer.FinishEntry();
+    writer.Finish();
+    ASSERT_EQ(zip_file.GetFile()->Flush(), 0);
+  }
+
+  // Extract the artifacts from ZIP using dex2oat and make sure they match.
+  const std::string odex_extracted = out_dir + "/extracted.odex";
+  const std::string vdex_extracted = out_dir + "/extracted.vdex";
+  EXPECT_NE(CompilerFilter::Filter::kVerify, expected_filter_);
+  GenerateOdexForTest(zip_file.GetFilename(),
+                      odex_extracted,
+                      // Pass in another filter to detect incorrect recompilation.
+                      CompilerFilter::Filter::kVerify,
+                      {"--extract-artifacts-from-zip"},
+                      true,  // expect_success
+                      false,  // use_fd
+                      [&](const OatFile&) {});
+  std::unique_ptr<File> extracted_odex_file(OS::OpenFileForReading(odex_extracted.c_str()));
+  ASSERT_TRUE(extracted_odex_file != nullptr);
+  ASSERT_EQ(extracted_odex_file->Compare(odex_file.get()), 0);
+  std::unique_ptr<File> extracted_vdex_file(OS::OpenFileForReading(vdex_extracted.c_str()));
+  ASSERT_TRUE(extracted_vdex_file != nullptr);
+  ASSERT_EQ(extracted_vdex_file->Compare(vdex_file.get()), 0);
+
+  // Test that we can load the dex files out of the ZIP (for fallback mode).
+  ArtDexFileLoader loader;
+  std::vector<std::unique_ptr<const DexFile>> dex_files;
+  bool result = loader.OpenZip(zip_file.GetFd(),
+                               "location",
+                               /*verify*/ false,
+                               /*verify_checksum*/ false,
+                               &error_msg,
+                               &dex_files);
+  ASSERT_TRUE(result) << error_msg;
+
+  // Verify reference files are the same than ones extracted out of the APK.
+  ASSERT_GT(dex_files.size(), 1u);
+  size_t index = 0;
+  for (const std::unique_ptr<const DexFile>& dex_file : dex_files) {
+    const DexFile* reference = reference_dex_files[index].get();
+    ASSERT_EQ(dex_file->IsCompactDexFile(), reference->IsCompactDexFile());
+    ASSERT_EQ(dex_file->Size(), reference->Size());
+    ASSERT_EQ(memcmp(dex_file->Begin(), reference->Begin(), dex_file->Size()), 0);
+    ++index;
+  }
 }
 
 }  // namespace art

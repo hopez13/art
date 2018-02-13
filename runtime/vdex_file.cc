@@ -139,7 +139,13 @@ std::unique_ptr<VdexFile> VdexFile::OpenAtAddress(uint8_t* mmap_addr,
     return nullptr;
   }
 
-  std::unique_ptr<VdexFile> vdex(new VdexFile(mmap.release()));
+  return OpenFromMemMap(std::move(mmap), unquicken, error_msg);
+}
+
+std::unique_ptr<VdexFile> VdexFile::OpenFromMemMap(std::unique_ptr<MemMap>&& mem_map,
+                                                   bool unquicken,
+                                                   std::string* error_msg) {
+  std::unique_ptr<VdexFile> vdex(new VdexFile(std::move(mem_map)));
   if (!vdex->IsValid()) {
     *error_msg = "Vdex file is not valid";
     return nullptr;
@@ -177,7 +183,7 @@ const uint8_t* VdexFile::GetNextDexFileData(const uint8_t* cursor) const {
 }
 
 bool VdexFile::OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_files,
-                               std::string* error_msg) {
+                               std::string* error_msg) const {
   const ArtDexFileLoader dex_file_loader;
   size_t i = 0;
   for (const uint8_t* dex_file_start = GetNextDexFileData(nullptr);

@@ -59,6 +59,7 @@
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
 #include "dexlayout.h"
+#include "dex/art_dex_file_loader.h"
 #include "dex/dex_file-inl.h"
 #include "dex/quick_compiler_callbacks.h"
 #include "dex/verification_results.h"
@@ -455,6 +456,8 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("");
   UsageError("  --deduplicate-code=true|false: enable|disable code deduplication. Deduplicated");
   UsageError("      code will have an arbitrary symbol tagged with [DEDUPED].");
+  UsageError("");
+  UsageError("  --extract-artifacts-from-zip: Causes vdex/odex to get extracted from input ZIP");
   UsageError("");
   std::cerr << "See log for usage error information\n";
   exit(EXIT_FAILURE);
@@ -1212,6 +1215,7 @@ class Dex2Oat FINAL {
     AssignIfExists(args, M::ClasspathDir, &classpath_dir_);
     AssignIfExists(args, M::DirtyImageObjects, &dirty_image_objects_filename_);
     AssignIfExists(args, M::ImageFormat, &image_storage_mode_);
+    AssignIfExists(args, M::ExtractArtifactsFromZIP, &extract_artifacts_from_zip_);
 
     AssignIfExists(args, M::Backend, &compiler_kind_);
     parser_options->requested_specific_compiler = args.Exists(M::Backend);
@@ -1428,7 +1432,7 @@ class Dex2Oat FINAL {
         if (input_file == nullptr) {
           LOG(WARNING) << "Could not open vdex file in DexMetadata archive: " << error_msg;
         } else {
-          input_vdex_file_ = std::make_unique<VdexFile>(input_file.release());
+          input_vdex_file_ = std::make_unique<VdexFile>(std::move(input_file));
         }
       }
     }
@@ -1485,6 +1489,67 @@ class Dex2Oat FINAL {
     }
   }
 
+  // Extract already compiled artifacts from ZIP.
+  dex2oat::ReturnCode ExtractArtifactsFromZIP() {
+    std::unique_ptr<ZipArchive> zip_entry;
+    std::string error_msg;
+    std::string zip_filename;
+    if (zip_fd_ != -1) {
+      zip_entry.reset(ZipArchive::OpenFromFd(zip_fd_, zip_location_.c_str(), &error_msg));
+      zip_filename = zip_location_;
+    } else {
+      if (dex_locations_.size() != 1) {
+        LOG(ERROR) << "Expected exactly one dex location but got " << dex_locations_.size();
+        return dex2oat::ReturnCode::kOther;
+      }
+      zip_filename = dex_locations_[0];
+      zip_entry.reset(ZipArchive::Open(zip_filename.c_str(), &error_msg));
+    }
+    if (zip_entry == nullptr) {
+      return dex2oat::ReturnCode::kOther;
+    }
+    CHECK_EQ(oat_files_.size(), 1u);
+    CHECK_EQ(vdex_files_.size(), 1u);
+    std::unique_ptr<ZipEntry> vdex_entry(zip_entry->Find(ArtDexFileLoader::kVdexFileName,
+                                                         &error_msg));
+    if (vdex_entry == nullptr) {
+      LOG(ERROR) << StringPrintf("Failed to find '%s' within '%s': %s",
+                                 ArtDexFileLoader::kVdexFileName,
+                                 zip_filename.c_str(),
+                                 error_msg.c_str());
+      return dex2oat::ReturnCode::kOther;
+    }
+    std::unique_ptr<ZipEntry> odex_entry(zip_entry->Find(ArtDexFileLoader::kOdexFileName,
+                                                         &error_msg));
+    if (odex_entry == nullptr) {
+      LOG(ERROR) << StringPrintf("Failed to find '%s' within '%s': %s",
+                                 ArtDexFileLoader::kOdexFileName,
+                                 zip_filename.c_str(),
+                                 error_msg.c_str());
+      return dex2oat::ReturnCode::kOther;
+    }
+
+    if (!vdex_entry->ExtractToFile(*vdex_files_[0], &error_msg)) {
+      LOG(ERROR) << "Failed to extract vdex to " << vdex_files_[0]->GetPath() << " "
+                 << error_msg;
+      return dex2oat::ReturnCode::kOther;
+    }
+    if (!odex_entry->ExtractToFile(*oat_files_[0], &error_msg)) {
+      LOG(ERROR) << "Failed to extract odex to " << oat_files_[0]->GetPath() << " "
+                 << error_msg;
+      return dex2oat::ReturnCode::kOther;
+    }
+    if (vdex_files_[0]->FlushCloseOrErase() != 0) {
+      LOG(ERROR) << "Failed to close vdex file";
+      return dex2oat::ReturnCode::kOther;
+    }
+    if (oat_files_[0]->FlushCloseOrErase() != 0) {
+      LOG(ERROR) << "Failed to close oat file";
+      return dex2oat::ReturnCode::kOther;
+    }
+    return dex2oat::ReturnCode::kNoFailure;
+  }
+
   // Set up the environment for compilation. Includes starting the runtime and loading/opening the
   // boot class path.
   dex2oat::ReturnCode Setup() {
@@ -1495,7 +1560,7 @@ class Dex2Oat FINAL {
       return dex2oat::ReturnCode::kOther;
     }
 
-    // Verification results are null since we don't know if we will need them yet as the compler
+    // Verification results are null since we don't know if we will need them yet as the compiler
     // filter may change.
     callbacks_.reset(new QuickCompilerCallbacks(
         IsBootImage() ?
@@ -2277,6 +2342,10 @@ class Dex2Oat FINAL {
     return DoProfileGuidedOptimizations();
   }
 
+  bool DoExtractArtifactsFromZIP() const {
+    return extract_artifacts_from_zip_;
+  }
+
   bool MayInvalidateVdexMetadata() const {
     // DexLayout can invalidate the vdex metadata if changing the class def order is enabled, so
     // we need to unquicken the vdex file eagerly, before passing it to dexlayout.
@@ -2907,6 +2976,9 @@ class Dex2Oat FINAL {
   // Whether the given input vdex is also the output.
   bool update_input_vdex_ = false;
 
+  // If we are extracting artifacts from ZIP instead of compiling.
+  bool extract_artifacts_from_zip_ = false;
+
   DISALLOW_IMPLICIT_CONSTRUCTORS(Dex2Oat);
 };
 
@@ -3073,6 +3145,11 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
     LOG(INFO) << CommandLine();
   } else {
     LOG(INFO) << StrippedCommandLine();
+  }
+
+  if (dex2oat->DoExtractArtifactsFromZIP()) {
+    // Extracting already compiled artifacts from ZIP instead of compiling.
+    return dex2oat->ExtractArtifactsFromZIP();
   }
 
   dex2oat::ReturnCode setup_code = dex2oat->Setup();

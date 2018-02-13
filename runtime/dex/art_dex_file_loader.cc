@@ -29,6 +29,7 @@
 #include "dex_file.h"
 #include "dex_file_verifier.h"
 #include "standard_dex_file.h"
+#include "vdex_file.h"
 #include "zip_archive.h"
 
 namespace art {
@@ -408,6 +409,37 @@ std::unique_ptr<const DexFile> ArtDexFileLoader::OpenOneDexFileFromZip(
   return dex_file;
 }
 
+std::unique_ptr<VdexFile> ArtDexFileLoader::OpenVdexFileFromZip(
+    const ZipArchive& zip_archive,
+    const char* entry_name,
+    const std::string& location,
+    std::string* error_msg,
+    ZipOpenErrorCode* error_code) const {
+  ScopedTrace trace("Dex file open from Zip Archive " + std::string(location));
+  CHECK(!location.empty());
+  std::unique_ptr<ZipEntry> zip_entry(zip_archive.Find(entry_name, error_msg));
+  if (zip_entry == nullptr) {
+    *error_code = ZipOpenErrorCode::kEntryNotFound;
+    return nullptr;
+  }
+  if (zip_entry->GetUncompressedLength() == 0) {
+    *error_msg = StringPrintf("File '%s' has zero length", entry_name);
+    *error_code = ZipOpenErrorCode::kDexFileError;
+    return nullptr;
+  }
+
+  std::unique_ptr<MemMap> map(zip_entry->ExtractToMemMap(location.c_str(), entry_name, error_msg));
+  if (map == nullptr) {
+    *error_msg = StringPrintf("Failed to extract '%s' from '%s': %s",
+                              entry_name,
+                              location.c_str(),
+                              error_msg->c_str());
+    *error_code = ZipOpenErrorCode::kExtractToMemoryError;
+    return nullptr;
+  }
+  return VdexFile::OpenFromMemMap(std::move(map), /*unquicken*/ true, error_msg);
+}
+
 // Technically we do not have a limitation with respect to the number of dex files that can be in a
 // multidex APK. However, it's bad practice, as each dex file requires its own tables for symbols
 // (types, classes, methods, ...) and dex caches. So warn the user that we open a zip with what
@@ -431,50 +463,63 @@ bool ArtDexFileLoader::OpenAllDexFilesFromZip(
                                                                 verify_checksum,
                                                                 error_msg,
                                                                 &error_code));
-  if (dex_file.get() == nullptr) {
-    return false;
-  } else {
-    // Had at least classes.dex.
-    dex_files->push_back(std::move(dex_file));
-
-    // Now try some more.
-
-    // We could try to avoid std::string allocations by working on a char array directly. As we
-    // do not expect a lot of iterations, this seems too involved and brittle.
-
-    for (size_t i = 1; ; ++i) {
-      std::string name = GetMultiDexClassesDexName(i);
-      std::string fake_location = GetMultiDexLocation(i, location.c_str());
-      std::unique_ptr<const DexFile> next_dex_file(OpenOneDexFileFromZip(zip_archive,
-                                                                         name.c_str(),
-                                                                         fake_location,
-                                                                         verify,
-                                                                         verify_checksum,
-                                                                         error_msg,
-                                                                         &error_code));
-      if (next_dex_file.get() == nullptr) {
-        if (error_code != ZipOpenErrorCode::kEntryNotFound) {
-          LOG(WARNING) << "Zip open failed: " << *error_msg;
-        }
-        break;
-      } else {
-        dex_files->push_back(std::move(next_dex_file));
-      }
-
-      if (i == kWarnOnManyDexFilesThreshold) {
-        LOG(WARNING) << location << " has in excess of " << kWarnOnManyDexFilesThreshold
-                     << " dex files. Please consider coalescing and shrinking the number to "
-                        " avoid runtime overhead.";
-      }
-
-      if (i == std::numeric_limits<size_t>::max()) {
-        LOG(ERROR) << "Overflow in number of dex files!";
-        break;
-      }
+  if (dex_file == nullptr) {
+    // Check for vdex file.
+    std::unique_ptr<const VdexFile> vdex_file =
+        OpenVdexFileFromZip(zip_archive,
+                            kVdexFileName,
+                            location,
+                            error_msg,
+                            &error_code);
+    if (vdex_file != nullptr && vdex_file->OpenAllDexFiles(dex_files, error_msg)) {
+      // Dex files were already verified.
+      // TODO: Need to somehow grant ownership of memmap to the dex files.
+      vdex_file.release();
+      return true;
     }
 
-    return true;
+    return false;
   }
+
+  // Had at least classes.dex.
+  dex_files->push_back(std::move(dex_file));
+
+  // Now try some more.
+
+  // We could try to avoid std::string allocations by working on a char array directly. As we
+  // do not expect a lot of iterations, this seems too involved and brittle.
+
+  for (size_t i = 1; ; ++i) {
+    std::string name = GetMultiDexClassesDexName(i);
+    std::string fake_location = GetMultiDexLocation(i, location.c_str());
+    std::unique_ptr<const DexFile> next_dex_file(OpenOneDexFileFromZip(zip_archive,
+                                                                       name.c_str(),
+                                                                       fake_location,
+                                                                       verify,
+                                                                       verify_checksum,
+                                                                       error_msg,
+                                                                       &error_code));
+    if (next_dex_file.get() == nullptr) {
+      if (error_code != ZipOpenErrorCode::kEntryNotFound) {
+        LOG(WARNING) << "Zip open failed: " << *error_msg;
+      }
+      break;
+    } else {
+      dex_files->push_back(std::move(next_dex_file));
+    }
+
+    if (i == kWarnOnManyDexFilesThreshold) {
+      LOG(WARNING) << location << " has in excess of " << kWarnOnManyDexFilesThreshold
+                   << " dex files. Please consider coalescing and shrinking the number to "
+                      " avoid runtime overhead.";
+    }
+
+    if (i == std::numeric_limits<size_t>::max()) {
+      LOG(ERROR) << "Overflow in number of dex files!";
+      break;
+    }
+  }
+  return true;
 }
 
 }  // namespace art

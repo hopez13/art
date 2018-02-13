@@ -244,6 +244,9 @@ static Parser CreateArgumentParser() {
           .WithValueMap({{"none", CompactDexLevel::kCompactDexLevelNone},
                          {"fast", CompactDexLevel::kCompactDexLevelFast}})
           .IntoKey(M::CompactDexLevel)
+      .Define({"--extract-artifacts-from-zip"})
+          .WithValue(true)
+          .IntoKey(M::ExtractArtifactsFromZIP)
       .Define("--runtime-arg _")
           .WithType<std::vector<std::string>>().AppendValues()
           .IntoKey(M::RuntimeOptions);

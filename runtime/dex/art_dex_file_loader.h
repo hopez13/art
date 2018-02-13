@@ -31,11 +31,16 @@ class DexFile;
 class DexFileContainer;
 class MemMap;
 class OatDexFile;
+class VdexFile;
 class ZipArchive;
+class ZipEntry;
 
 // Class that is used to open dex files and deal with corresponding multidex and location logic.
 class ArtDexFileLoader : public DexFileLoader {
  public:
+  static constexpr const char* kVdexFileName = "base.vdex";
+  static constexpr const char* kOdexFileName = "base.odex";
+
   virtual ~ArtDexFileLoader() { }
 
   // Returns the checksums of a file for comparison with GetLocationChecksum().
@@ -119,6 +124,14 @@ class ArtDexFileLoader : public DexFileLoader {
                                                        bool verify_checksum,
                                                        std::string* error_msg,
                                                        ZipOpenErrorCode* error_code) const;
+
+  // Opens vdex file from the entry_name in a zip archive. error_code is undefined when non-null
+  // return.
+  std::unique_ptr<VdexFile> OpenVdexFileFromZip(const ZipArchive& zip_archive,
+                                                const char* entry_name,
+                                                const std::string& location,
+                                                std::string* error_msg,
+                                                ZipOpenErrorCode* error_code) const;
 };
 
 }  // namespace art
