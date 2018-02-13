@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64991129_2b5d374b",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1101490
+      },
+      "writtenOn": "2018-02-13T23:45:37Z",
+      "side": 1,
+      "message": "DCHECK(!is_system_server || !is_zygote)?",
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7420d058_d0e5a06e",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1101490
+      },
+      "writtenOn": "2018-02-13T23:45:37Z",
+      "side": 1,
+      "message": "Isn\u0027t this always true, because is_zygote implies !do_hidden_api_checks given line 286?",
+      "range": {
+        "startLine": 352,
+        "startChar": 9,
+        "endLine": 352,
+        "endChar": 44
+      },
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
