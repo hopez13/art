@@ -34,6 +34,24 @@
       "revId": "548a255b49ff39a71da4466482f37a53d925e91d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2998085_a43d07a4",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-13T10:50:20Z",
+      "side": 1,
+      "message": "Actually, we don\u0027t need this resolution anymore, as the instruction builder passes the ArtMethod already.",
+      "parentUuid": "e5fa4c70_3fdfa5e1",
+      "revId": "548a255b49ff39a71da4466482f37a53d925e91d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
