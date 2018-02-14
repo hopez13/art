@@ -16,6 +16,24 @@
       "revId": "d3a73163b7518a92c6c1b407e4eea0f2149d87c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4638b8ff_b40165a2",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-14T15:26:39Z",
+      "side": 1,
+      "message": "No, that would allow setting the flag inconsistently across dex2oat/dalvikvm invocations.",
+      "parentUuid": "c168505a_aa4869ae",
+      "revId": "d3a73163b7518a92c6c1b407e4eea0f2149d87c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
