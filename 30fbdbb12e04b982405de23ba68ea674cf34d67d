@@ -39,6 +39,30 @@
       "revId": "30fbdbb12e04b982405de23ba68ea674cf34d67d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41850a48_518a0988",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2665,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-14T19:01:53Z",
+      "side": 1,
+      "message": "Agreed. I am fine with this optimization in itself, but now we have besides DECLARE_INSTRUCTION and DEFAULT_COPY_CONSTRUCTOR yet a third required macro. It would be nice if we could combine all that macro magic a bit more or, failing that, do what Nicolas suggest so that new instructions are forced to pass in the right kind.",
+      "parentUuid": "c2236aaa_cd4f1165",
+      "range": {
+        "startLine": 2665,
+        "startChar": 4,
+        "endLine": 2665,
+        "endChar": 27
+      },
+      "revId": "30fbdbb12e04b982405de23ba68ea674cf34d67d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
