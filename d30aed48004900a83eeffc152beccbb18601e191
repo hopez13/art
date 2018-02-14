@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "5d9f5b9f_ff5dc9d3",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-14T11:29:54Z",
+      "side": 1,
+      "message": "This isn\u0027t an entrypoint, so shouldn\u0027t be here (I guess you can keep the extern \"C\" \"hack\" in thread.cc to access it).",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "934ce6b1_c1c9b033",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-14T11:29:54Z",
+      "side": 1,
+      "message": "Mention that this is only used for testing purposes.",
+      "range": {
+        "startLine": 983,
+        "startChar": 6,
+        "endLine": 983,
+        "endChar": 40
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09153786_e8c89b6b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-14T11:29:54Z",
+      "side": 1,
+      "message": "I\u0027d drop this, and add a \"NOTE:\" to make it clear it\u0027s only a testing method to whoever reads the code.",
+      "range": {
+        "startLine": 1021,
+        "startChar": 33,
+        "endLine": 1021,
+        "endChar": 47
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feaa1360_540b05f7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-14T11:29:54Z",
+      "side": 1,
+      "message": "nit: pass this as a parameter, avoiding copying.",
+      "range": {
+        "startLine": 1066,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 44
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7c3bb9_dc47da11",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3583,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-14T11:29:54Z",
+      "side": 1,
+      "message": "What about static proxy methods (if there is such a thing).",
+      "range": {
+        "startLine": 3583,
+        "startChar": 16,
+        "endLine": 3583,
+        "endChar": 27
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99a4064e_9632232c",
         "filename": "test/999-proxy-method-arguments/expected.txt",
         "patchSetId": 2
