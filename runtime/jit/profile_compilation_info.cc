@@ -168,9 +168,10 @@ bool ProfileCompilationInfo::AddMethodIndex(MethodHotness::Flag flags,
   return data->AddMethod(flags, method_idx);
 }
 
-bool ProfileCompilationInfo::AddMethods(const std::vector<ProfileMethodInfo>& methods) {
+bool ProfileCompilationInfo::AddMethods(const std::vector<ProfileMethodInfo>& methods,
+                                        MethodHotness::Flag flags) {
   for (const ProfileMethodInfo& method : methods) {
-    if (!AddMethod(method)) {
+    if (!AddMethod(method, flags)) {
       return false;
     }
   }
@@ -644,7 +645,8 @@ bool ProfileCompilationInfo::AddMethod(const std::string& dex_location,
                                        uint32_t dex_checksum,
                                        uint16_t method_index,
                                        uint32_t num_method_ids,
-                                       const OfflineProfileMethodInfo& pmi) {
+                                       const OfflineProfileMethodInfo& pmi,
+                                       MethodHotness::Flag flags) {
   DexFileData* const data = GetOrAddDexFileData(GetProfileDexFileKey(dex_location),
                                                 dex_checksum,
                                                 num_method_ids);
@@ -653,6 +655,11 @@ bool ProfileCompilationInfo::AddMethod(const std::string& dex_location,
   }
   // Add the method.
   InlineCacheMap* inline_cache = data->FindOrAddMethod(method_index);
+  if (inline_cache == nullptr) {
+    return false;  // happens if the method index is outside the range.
+  }
+
+  data->SetMethodHotness(method_index, flags);
 
   if (pmi.inline_caches == nullptr) {
     // If we don't have inline caches return success right away.
@@ -691,12 +698,16 @@ bool ProfileCompilationInfo::AddMethod(const std::string& dex_location,
   return true;
 }
 
-bool ProfileCompilationInfo::AddMethod(const ProfileMethodInfo& pmi) {
+bool ProfileCompilationInfo::AddMethod(const ProfileMethodInfo& pmi, MethodHotness::Flag flags) {
   DexFileData* const data = GetOrAddDexFileData(pmi.ref.dex_file);
   if (data == nullptr) {  // checksum mismatch
     return false;
   }
   InlineCacheMap* inline_cache = data->FindOrAddMethod(pmi.ref.index);
+  if (inline_cache == nullptr) {
+    return false;
+  }
+  data->SetMethodHotness(pmi.ref.index, flags);
 
   for (const ProfileMethodInfo::ProfileInlineCache& cache : pmi.inline_caches) {
     if (cache.is_missing_types) {
@@ -811,6 +822,9 @@ bool ProfileCompilationInfo::ReadMethods(SafeBuffer& buffer,
     uint16_t method_index = last_method_index + diff_with_last_method_index;
     last_method_index = method_index;
     InlineCacheMap* inline_cache = data->FindOrAddMethod(method_index);
+    if (inline_cache == nullptr) {
+      return false;
+    }
     if (!ReadInlineCache(buffer,
                          number_of_dex_files,
                          dex_profile_index_remap,
@@ -1521,6 +1535,9 @@ bool ProfileCompilationInfo::MergeWith(const ProfileCompilationInfo& other,
     for (const auto& other_method_it : other_dex_data->method_map) {
       uint16_t other_method_index = other_method_it.first;
       InlineCacheMap* inline_cache = dex_data->FindOrAddMethod(other_method_index);
+      if (inline_cache == nullptr) {
+        return false;
+      }
       const auto& other_inline_cache = other_method_it.second;
       for (const auto& other_ic_it : other_inline_cache) {
         uint16_t other_dex_pc = other_ic_it.first;
@@ -1955,6 +1972,10 @@ bool ProfileCompilationInfo::IsEmpty() const {
 
 ProfileCompilationInfo::InlineCacheMap*
 ProfileCompilationInfo::DexFileData::FindOrAddMethod(uint16_t method_index) {
+  if (method_index >= num_method_ids) {
+    LOG(ERROR) << "Invalid method index " << method_index << ". num_method_ids=" << num_method_ids;
+    return nullptr;
+  }
   return &(method_map.FindOrAdd(
       method_index,
       InlineCacheMap(std::less<uint16_t>(), allocator_->Adapter(kArenaAllocProfile)))->second);
@@ -1967,18 +1988,25 @@ bool ProfileCompilationInfo::DexFileData::AddMethod(MethodHotness::Flag flags, s
     return false;
   }
 
-  if ((flags & MethodHotness::kFlagStartup) != 0) {
-    method_bitmap.StoreBit(MethodBitIndex(/*startup*/ true, index), /*value*/ true);
-  }
-  if ((flags & MethodHotness::kFlagPostStartup) != 0) {
-    method_bitmap.StoreBit(MethodBitIndex(/*startup*/ false, index), /*value*/ true);
-  }
+  SetMethodHotness(index, flags);
+
   if ((flags & MethodHotness::kFlagHot) != 0) {
     method_map.FindOrAdd(
         index,
         InlineCacheMap(std::less<uint16_t>(), allocator_->Adapter(kArenaAllocProfile)));
   }
   return true;
+}
+
+void ProfileCompilationInfo::DexFileData::SetMethodHotness(size_t index,
+                                                           MethodHotness::Flag flags) {
+  DCHECK_LT(index, num_method_ids);
+  if ((flags & MethodHotness::kFlagStartup) != 0) {
+    method_bitmap.StoreBit(MethodBitIndex(/*startup*/ true, index), /*value*/ true);
+  }
+  if ((flags & MethodHotness::kFlagPostStartup) != 0) {
+    method_bitmap.StoreBit(MethodBitIndex(/*startup*/ false, index), /*value*/ true);
+  }
 }
 
 ProfileCompilationInfo::MethodHotness ProfileCompilationInfo::DexFileData::GetHotnessInfo(
