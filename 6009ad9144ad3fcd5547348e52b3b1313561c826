@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a81aff3f_12818204",
+        "filename": "profman/profman.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-02-14T23:19:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df530b36_64f6d8ee",
+      "range": {
+        "startLine": 898,
+        "startChar": 20,
+        "endLine": 898,
+        "endChar": 42
+      },
+      "revId": "6009ad9144ad3fcd5547348e52b3b1313561c826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "086dbada_5a7f940d",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-14T11:12:00Z",
       "side": 1,
       "message": "Please add a comment.",
+      "range": {
+        "startLine": 658,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 3
+      },
+      "revId": "6009ad9144ad3fcd5547348e52b3b1313561c826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c42f2c_16807fbc",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-02-14T23:19:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "086dbada_5a7f940d",
       "range": {
         "startLine": 658,
         "startChar": 0,
