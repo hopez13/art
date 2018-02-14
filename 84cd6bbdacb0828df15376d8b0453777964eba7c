@@ -22,6 +22,30 @@
       "revId": "84cd6bbdacb0828df15376d8b0453777964eba7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d97dce_8cb47e10",
+        "filename": "test/ti-stress/stress.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-14T19:00:17Z",
+      "side": 1,
+      "message": "I had to move it back to get things built.  Thanks.",
+      "parentUuid": "b861a32d_6edb2daa",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "84cd6bbdacb0828df15376d8b0453777964eba7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
