@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "750cc2fa_77137e3d",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1101490
+      },
+      "writtenOn": "2018-02-14T10:15:43Z",
+      "side": 1,
+      "message": "I can\u0027t see in the other CL where the DISABLE_HIDDEN_API_CHECKS bit is set for child zygotes, so it feels kind of like either l286 should stay as is, and that flag bit should be set, or this DCHECK should be changed.",
+      "parentUuid": "c9d3e227_1b168bca",
+      "range": {
+        "startLine": 352,
+        "startChar": 9,
+        "endLine": 352,
+        "endChar": 44
+      },
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03f2bac2_de87ddc2",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 1
