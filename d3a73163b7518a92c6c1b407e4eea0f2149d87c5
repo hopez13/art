@@ -88,6 +88,24 @@
       "revId": "d3a73163b7518a92c6c1b407e4eea0f2149d87c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30ddf597_4e5b48a9",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-14T15:35:07Z",
+      "side": 1,
+      "message": "The internet seems to disagree with your use of constexpr. See below, what\u0027s in common in all of these is that it says the code doesn\u0027t need to be changed:\n\n\nhttps://en.wikipedia.org/wiki/Feature_toggle\n\n\u003e A feature toggle[1] (also feature switch, feature flag, etc).... Feature toggle is used to hide, enable or disable the feature during run time. \n\nAsking Google, under \"People also ask\"\n\n\u003e Feature Toggles (often also refered to as Feature Flags) are a powerful technique, allowing teams to modify system behavior without changing code. \n\nhttps://martinfowler.com/articles/feature-toggles.html\n\nFirst Google result:\n\n\u003e Feature Flag is a technique to turn some functionality of your application off, via configuration, without deploying new code.\n\nhttps://stackoverflow.com/questions/7707383/what-is-a-feature-flag",
+      "parentUuid": "296a0a28_8fc56a47",
+      "revId": "d3a73163b7518a92c6c1b407e4eea0f2149d87c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
