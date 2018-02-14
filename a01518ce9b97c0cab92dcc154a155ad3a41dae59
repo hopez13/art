@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1cac2b1_90d042f0",
+        "filename": "tools/amm/AmmTest/src/com/android/amm/test/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-14T15:27:15Z",
+      "side": 1,
+      "message": "it\u0027s more conventional to use layout XML",
+      "range": {
+        "startLine": 38,
+        "startChar": 26,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "a01518ce9b97c0cab92dcc154a155ad3a41dae59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3f24b9b_591ca5a6",
+        "filename": "tools/amm/AmmTest/src/com/android/amm/test/ThreadedRendererUse.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-14T15:27:15Z",
+      "side": 1,
+      "message": "based on this code, I guess TextView uses ThreadedRenderer under the hood? Might be worth a comment stating as much.",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "a01518ce9b97c0cab92dcc154a155ad3a41dae59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a65cd113_879e8185",
+        "filename": "tools/amm/AmmTest/src/com/android/amm/test/ThreadedRendererUse.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-14T15:27:15Z",
+      "side": 1,
+      "message": "this would be a lot easier if you used layout xml",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "a01518ce9b97c0cab92dcc154a155ad3a41dae59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
