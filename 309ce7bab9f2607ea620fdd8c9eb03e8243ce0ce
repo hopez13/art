@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "149a283e_aa466306",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-14T11:13:43Z",
+      "side": 1,
+      "message": "sounds good, though I\u0027d write it (!(... \u0026\u0026 ...)) for easier reading?",
+      "parentUuid": "64991129_2b5d374b",
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7420d058_d0e5a06e",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 1
