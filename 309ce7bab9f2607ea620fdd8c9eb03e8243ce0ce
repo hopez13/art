@@ -39,6 +39,53 @@
       "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9d3e227_1b168bca",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-14T04:11:08Z",
+      "side": 1,
+      "message": "Still fine to have the DCHECK. The compiler should optimize it away, worst case.",
+      "parentUuid": "7420d058_d0e5a06e",
+      "range": {
+        "startLine": 352,
+        "startChar": 9,
+        "endLine": 352,
+        "endChar": 44
+      },
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f2bac2_de87ddc2",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-14T04:11:08Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to support native bridge in child zygotes. It was explicitly designed to not apply to zygotes, just to be preloaded. Together with us preferring early exits, simply preface the old code with:\n\n  if (is_zygote) {\n     return;\n  }",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 371,
+        "endChar": 3
+      },
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
