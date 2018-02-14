@@ -34,6 +34,24 @@
       "revId": "d3a73163b7518a92c6c1b407e4eea0f2149d87c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbe3b56_81982eb4",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-14T15:27:28Z",
+      "side": 1,
+      "message": "A constexpr is not a feature flag...",
+      "parentUuid": "4638b8ff_b40165a2",
+      "revId": "d3a73163b7518a92c6c1b407e4eea0f2149d87c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
