@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c168505a_aa4869ae",
+        "filename": "runtime/subtype_check.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-14T15:21:20Z",
+      "side": 1,
+      "message": "Please, can we make this a runtime flag?, -Xexperimental:subtypecheck would be very easy to add, or whatever you want to call it.\n\nIt will be much easier to fix bugs without having to recompile.\n\nThere will be no performance penalty since the cost of a load is trivial compared to where it gets used (class initialization, app image loading, image writer).",
+      "revId": "d3a73163b7518a92c6c1b407e4eea0f2149d87c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
