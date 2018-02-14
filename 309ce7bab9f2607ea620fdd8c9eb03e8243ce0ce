@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3f4a0478_f711e3a8",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2018-02-14T22:51:58Z",
+      "side": 1,
+      "message": "Done, and DeMorgan\u0027s-ed.",
+      "parentUuid": "149a283e_aa466306",
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7420d058_d0e5a06e",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 1
@@ -108,6 +126,30 @@
     },
     {
       "key": {
+        "uuid": "e6b2ac52_5e1d1a35",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2018-02-14T22:51:58Z",
+      "side": 1,
+      "message": "After rebasing, do_hidden_api_checks switched from default-enabled to default-disabled, so line 286 is now unconditionally false. I left in the DCHECK since it was requested by dbrazdil@.",
+      "parentUuid": "750cc2fa_77137e3d",
+      "range": {
+        "startLine": 352,
+        "startChar": 9,
+        "endLine": 352,
+        "endChar": 44
+      },
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03f2bac2_de87ddc2",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 1
@@ -128,6 +170,30 @@
       "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8aa6aba_ce224a16",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2018-02-14T22:51:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03f2bac2_de87ddc2",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 371,
+        "endChar": 3
+      },
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
