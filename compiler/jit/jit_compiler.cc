@@ -77,7 +77,7 @@ extern "C" void jit_types_loaded(void* handle, mirror::Class** types, size_t cou
     std::vector<uint8_t> elf_file = debug::WriteDebugElfFileForClasses(
         kRuntimeISA, jit_compiler->GetCompilerDriver()->GetInstructionSetFeatures(), types_array);
     MutexLock mu(Thread::Current(), *Locks::native_debug_interface_lock_);
-    CreateJITCodeEntry(std::move(elf_file));
+    AddNativeDebugInfoForJit(nullptr /* handle */, elf_file);
   }
 }
 
