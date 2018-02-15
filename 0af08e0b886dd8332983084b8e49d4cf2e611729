@@ -46,6 +46,30 @@
       "revId": "0af08e0b886dd8332983084b8e49d4cf2e611729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60c46e92_fb9d255d",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-15T18:49:45Z",
+      "side": 1,
+      "message": "libart already depends on libdexfile. So I was wondering why the explicit mention is necessary, and my guess is because Soong doesn\u0027t put transitive dependencies onto the link line?",
+      "parentUuid": "7f419b84_670c613d",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 21
+      },
+      "revId": "0af08e0b886dd8332983084b8e49d4cf2e611729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
