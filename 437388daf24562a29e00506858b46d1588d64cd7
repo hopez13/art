@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "00349106_67912481",
+        "filename": "tools/amm/models/DexCode.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-02-15T11:39:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "654351ab_33a87461",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "437388daf24562a29e00506858b46d1588d64cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37d5d71d_8159c1a0",
         "filename": "tools/amm/models/DexCode.md",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-14T15:17:26Z",
       "side": 1,
       "message": "`DexFile` ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 33,
+        "endLine": 15,
+        "endChar": 40
+      },
+      "revId": "437388daf24562a29e00506858b46d1588d64cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "336b9a92_7e4094a8",
+        "filename": "tools/amm/models/DexCode.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-02-15T11:39:01Z",
+      "side": 1,
+      "message": "Done.\n\nAmmTest.apk and classes.dex too?\n\nMy choice of what to mark as code is somewhat arbitrary at this point. Any other guidelines or suggestions you have are welcome.",
+      "parentUuid": "37d5d71d_8159c1a0",
       "range": {
         "startLine": 15,
         "startChar": 33,
