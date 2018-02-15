@@ -34,6 +34,24 @@
       "revId": "810200f2d5c73ef3669fbbbd979c8b9c074c2bec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f01e9a5d_5e88f50d",
+        "filename": "runtime/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-15T23:37:35Z",
+      "side": 1,
+      "message": "It\u0027s a superfluous file layout change that should be in a separate CL, as it makes the CL more noisy than it has to be...",
+      "parentUuid": "87565393_477b2d30",
+      "revId": "810200f2d5c73ef3669fbbbd979c8b9c074c2bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
