@@ -22,6 +22,30 @@
       "revId": "d1db4bc96e19dcbf407a5a0a4032fbb38072900c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e78bae3_b51ce431",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T14:16:14Z",
+      "side": 1,
+      "message": "Yes, we could. But we wouldn\u0027t have the nice table-like switch below anymore. (Personal style preference.)",
+      "parentUuid": "639e157a_3d495755",
+      "range": {
+        "startLine": 80,
+        "startChar": 66,
+        "endLine": 80,
+        "endChar": 67
+      },
+      "revId": "d1db4bc96e19dcbf407a5a0a4032fbb38072900c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
