@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59e72488_1cb8d747",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-15T18:37:02Z",
+      "side": 1,
+      "message": "We probably no longer need that, now that a proxy method\u0027s reference arguments are visited as roots with this CL. I\u0027ll check that it is not needed and upload a new patch set if that works.",
+      "range": {
+        "startLine": 977,
+        "startChar": 0,
+        "endLine": 978,
+        "endChar": 38
+      },
+      "revId": "1844cbe871be644ffee0be943f3119e0a93846fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
