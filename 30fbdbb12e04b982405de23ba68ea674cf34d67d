@@ -63,6 +63,30 @@
       "revId": "30fbdbb12e04b982405de23ba68ea674cf34d67d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a918bc82_cab9fa1e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2665,
+      "author": {
+        "id": 1176264
+      },
+      "writtenOn": "2018-02-15T03:59:38Z",
+      "side": 1,
+      "message": "I\u0027ve done that it is uploaded as Patchset 4 of this review. Every instantiated instruction will need to pass its kind.",
+      "parentUuid": "41850a48_518a0988",
+      "range": {
+        "startLine": 2665,
+        "startChar": 4,
+        "endLine": 2665,
+        "endChar": 27
+      },
+      "revId": "30fbdbb12e04b982405de23ba68ea674cf34d67d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
