@@ -16,6 +16,24 @@
       "revId": "810200f2d5c73ef3669fbbbd979c8b9c074c2bec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87565393_477b2d30",
+        "filename": "runtime/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-02-15T23:36:32Z",
+      "side": 1,
+      "message": "I felt the whole name (ImageHeader::GetOatLocationFromImageLocation) was just too long, and there was no reason for it to be a static member function (though this is subjective).",
+      "parentUuid": "716dd894_cef2e12f",
+      "revId": "810200f2d5c73ef3669fbbbd979c8b9c074c2bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
