@@ -70,6 +70,29 @@
       "revId": "d1db4bc96e19dcbf407a5a0a4032fbb38072900c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "108d0247_cc0679c3",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-15T15:01:09Z",
+      "side": 1,
+      "message": "Please throw:\n - NullPointerException when name is null\n - ClassNotFoundException when name is not null but invalid",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 33
+      },
+      "revId": "d1db4bc96e19dcbf407a5a0a4032fbb38072900c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
