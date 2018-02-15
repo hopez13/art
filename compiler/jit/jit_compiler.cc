@@ -72,12 +72,17 @@ extern "C" void jit_types_loaded(void* handle, mirror::Class** types, size_t cou
     REQUIRES_SHARED(Locks::mutator_lock_) {
   auto* jit_compiler = reinterpret_cast<JitCompiler*>(handle);
   DCHECK(jit_compiler != nullptr);
-  if (jit_compiler->GetCompilerOptions()->GetGenerateDebugInfo()) {
+  if (jit_compiler->GetCompilerOptions()->GetGenerateDebugInfo() && count > 0) {
     const ArrayRef<mirror::Class*> types_array(types, count);
     std::vector<uint8_t> elf_file = debug::WriteDebugElfFileForClasses(
         kRuntimeISA, jit_compiler->GetCompilerDriver()->GetInstructionSetFeatures(), types_array);
+    // We need some unique stable handle to identify the native debug entry
+    // (it can be used to free the data but we don't do that for types now).
+    // Any address that will not collide with other native debug entries
+    // will do - e.g. the methods pointer of one of the types in the set.
+    const void* debug_info_handle = types[0]->GetMethodsPtr();
     MutexLock mu(Thread::Current(), *Locks::native_debug_interface_lock_);
-    CreateJITCodeEntry(std::move(elf_file));
+    AddNativeDebugInfoForJit(debug_info_handle, elf_file);
   }
 }
 
