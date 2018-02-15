@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "48032c33_757b252b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-15T18:42:17Z",
+      "side": 1,
+      "message": "Can you add a bit more detail about what cases didn\u0027t set the hotness before?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "a6513f47bc3c250ba94bb4ffd59372c9348a171b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4289c8a6_9e9d532c",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 2
