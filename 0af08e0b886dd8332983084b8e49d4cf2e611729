@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af4fa3f9_f01e70ae",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-15T18:03:19Z",
+      "side": 1,
+      "message": "Out of curiosity: is this necessary because Soong doesn\u0027t add transitive dependencies during linking?",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 21
+      },
+      "revId": "0af08e0b886dd8332983084b8e49d4cf2e611729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
