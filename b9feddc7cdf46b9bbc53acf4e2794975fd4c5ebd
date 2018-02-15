@@ -1,0 +1,1683 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fb47cfb_13f40f3b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2400,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Unnecessary, packed_fields_ are copied above.",
+      "range": {
+        "startLine": 2400,
+        "startChar": 4,
+        "endLine": 2400,
+        "endChar": 58
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f0a9bb8_a5976926",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2404,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Should be private.",
+      "range": {
+        "startLine": 2403,
+        "startChar": 0,
+        "endLine": 2404,
+        "endChar": 79
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0889fbf4_ffa23dcb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Unnecessary, nothing hides it in this class.",
+      "range": {
+        "startLine": 2567,
+        "startChar": 2,
+        "endLine": 2567,
+        "endChar": 38
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c3ad524_cb373aab",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2644,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "This one is actually necessary because the base class is template-parameter-dependent.",
+      "range": {
+        "startLine": 2644,
+        "startChar": 2,
+        "endLine": 2644,
+        "endChar": 38
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3027fe6c_641d28cd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2810,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Two more spaces.\n\n(So, you chose to split \"{}\" across two lines? I\u0027m fine with that if done consistently.)",
+      "range": {
+        "startLine": 2810,
+        "startChar": 2,
+        "endLine": 2810,
+        "endChar": 4
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ccc1227_dbf94357",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2825,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Two more spaces.",
+      "range": {
+        "startLine": 2825,
+        "startChar": 2,
+        "endLine": 2825,
+        "endChar": 4
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caad7558_05ae0a90",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2844,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Should fit on one line. Otherwise break also between \"kind\" and \"type\".",
+      "range": {
+        "startLine": 2843,
+        "startChar": 21,
+        "endLine": 2844,
+        "endChar": 47
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38a2c780_f78b63fe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3406,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break after each parameter.",
+      "range": {
+        "startLine": 3405,
+        "startChar": 18,
+        "endLine": 3406,
+        "endChar": 65
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01554732_02550f38",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Line break.",
+      "range": {
+        "startLine": 3441,
+        "startChar": 40,
+        "endLine": 3441,
+        "endChar": 41
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "745fa043_e6cb511b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break after each parameter.",
+      "range": {
+        "startLine": 3545,
+        "startChar": 13,
+        "endLine": 3546,
+        "endChar": 39
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9dc5cf92_d6856cf0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3548,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before \"kind\" and put on a single line, or break after each parameter.",
+      "range": {
+        "startLine": 3547,
+        "startChar": 25,
+        "endLine": 3548,
+        "endChar": 52
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "419acf48_48a13b49",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3552,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "range": {
+        "startLine": 3552,
+        "startChar": 0,
+        "endLine": 3552,
+        "endChar": 0
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e710966_108a2676",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Wrong indentation. HExpression parameters end with the \"dex_pc\". Either break before \"kNewInstance\" and put them on one line or break before \"dex_pc\". Starting from type_index_, align with HExpression.",
+      "range": {
+        "startLine": 4143,
+        "startChar": 0,
+        "endLine": 4148,
+        "endChar": 45
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c577e7ce_cca80925",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4775,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 4774,
+        "startChar": 20,
+        "endLine": 4775,
+        "endChar": 55
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccddf3db_3800408b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4812,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 4811,
+        "startChar": 25,
+        "endLine": 4812,
+        "endChar": 31
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9e8c7fb_91f53d09",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4849,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 4848,
+        "startChar": 25,
+        "endLine": 4849,
+        "endChar": 31
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24d9a912_c08a75f6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4884,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 4883,
+        "startChar": 25,
+        "endLine": 4884,
+        "endChar": 31
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "287049e6_4228fc4e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4921,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 4920,
+        "startChar": 26,
+        "endLine": 4921,
+        "endChar": 31
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d1a71ec_c6379bc3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4970,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 4969,
+        "startChar": 25,
+        "endLine": 4970,
+        "endChar": 31
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8178f2eb_8203b47b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5018,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5017,
+        "startChar": 20,
+        "endLine": 5018,
+        "endChar": 55
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "994dbad6_8c0af72d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5046,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5045,
+        "startChar": 25,
+        "endLine": 5046,
+        "endChar": 52
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4deb8b81_8d79707a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5093,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5092,
+        "startChar": 25,
+        "endLine": 5093,
+        "endChar": 52
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4ca2ec8_ee28029d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5139,
+        "startChar": 25,
+        "endLine": 5140,
+        "endChar": 52
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4d1ec2f_0a297e9a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5188,
+        "startChar": 25,
+        "endLine": 5189,
+        "endChar": 52
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf6e7e0_b268a02b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5228,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5227,
+        "startChar": 25,
+        "endLine": 5228,
+        "endChar": 31
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "464524a0_7ca92489",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5267,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5266,
+        "startChar": 25,
+        "endLine": 5267,
+        "endChar": 31
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5eeaf529_0c001c58",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Two more spaces.",
+      "range": {
+        "startLine": 5302,
+        "startChar": 2,
+        "endLine": 5302,
+        "endChar": 4
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2468abba_1b5cf0a1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5360,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5359,
+        "startChar": 20,
+        "endLine": 5360,
+        "endChar": 28
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ff1a4ec_d1cae5fd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5505,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5504,
+        "startChar": 20,
+        "endLine": 5505,
+        "endChar": 26
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f199868_2eae41c1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5585,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Bad indentation. Align field_info_ with HExpression and its parameters accordingly.",
+      "range": {
+        "startLine": 5579,
+        "startChar": 0,
+        "endLine": 5585,
+        "endChar": 31
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e637979a_3ae3664c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5639,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before kInstanceFieldSet and put on one line or break after each parameter; SideEffects is misaligned.",
+      "range": {
+        "startLine": 5638,
+        "startChar": 29,
+        "endLine": 5639,
+        "endChar": 70
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bac5ea6_531a81cf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5894,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5893,
+        "startChar": 20,
+        "endLine": 5894,
+        "endChar": 26
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afe45f58_04d2364d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5938,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 5937,
+        "startChar": 20,
+        "endLine": 5938,
+        "endChar": 55
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9566ddbf_df0aedbd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5971,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Line break.",
+      "range": {
+        "startLine": 5971,
+        "startChar": 43,
+        "endLine": 5971,
+        "endChar": 44
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c720b4c_47a5b5f9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5973,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Align with HTemplateInstruction.",
+      "range": {
+        "startLine": 5973,
+        "startChar": 29,
+        "endLine": 5973,
+        "endChar": 39
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71f4b587_f9fadf4e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6456,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Line break.",
+      "range": {
+        "startLine": 6456,
+        "startChar": 36,
+        "endLine": 6456,
+        "endChar": 37
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42848904_cbd69dda",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 6516,
+        "startChar": 59,
+        "endLine": 6517,
+        "endChar": 70
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28a631be_31f493bf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before kUnresolvedInstanceFieldGet and put all on one line or break after each parameter.",
+      "range": {
+        "startLine": 6561,
+        "startChar": 20,
+        "endLine": 6562,
+        "endChar": 76
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28880562_bb106878",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6591,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before kUnresolvedInstanceFieldSet and put all on one line or break after each parameter.",
+      "range": {
+        "startLine": 6590,
+        "startChar": 29,
+        "endLine": 6591,
+        "endChar": 73
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "473a19f6_6835e7e7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6630,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before kUnresolvedStaticFieldGet and put all on one line or break after each parameter.",
+      "range": {
+        "startLine": 6629,
+        "startChar": 20,
+        "endLine": 6630,
+        "endChar": 64
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b31a0511_79255ea5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6657,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before kUnresolvedStaticFieldSet and put all on one line or break after each parameter.",
+      "range": {
+        "startLine": 6656,
+        "startChar": 29,
+        "endLine": 6657,
+        "endChar": 73
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e986d503_ab0dcb09",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6694,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 6693,
+        "startChar": 20,
+        "endLine": 6694,
+        "endChar": 47
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91d47081_58f831f8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6711,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 6710,
+        "startChar": 29,
+        "endLine": 6711,
+        "endChar": 61
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "555e0488_70349ab3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6764,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Line break.",
+      "range": {
+        "startLine": 6764,
+        "startChar": 32,
+        "endLine": 6764,
+        "endChar": 33
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd5111cf_06a1549a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 6823,
+        "startChar": 20,
+        "endLine": 6824,
+        "endChar": 47
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81fb2ed6_4bb61679",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6951,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before kMemoryBarrier and dex_pc and move the comment to the SideEffects line.",
+      "range": {
+        "startLine": 6950,
+        "startChar": 29,
+        "endLine": 6951,
+        "endChar": 52
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baf904a2_4529a1c6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Line break.",
+      "range": {
+        "startLine": 7137,
+        "startChar": 27,
+        "endLine": 7137,
+        "endChar": 28
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "274b98fc_54b54154",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 7179,
+        "startChar": 20,
+        "endLine": 7180,
+        "endChar": 47
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "646ed874_8ebdc11d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7356,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before kIntermediateAddress and put on one line or break after each parameter.",
+      "range": {
+        "startLine": 7355,
+        "startChar": 20,
+        "endLine": 7356,
+        "endChar": 54
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aecfbb2a_58617505",
+        "filename": "compiler/optimizing/nodes_mips.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break after each parameter.",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b0167e3_92c642f1",
+        "filename": "compiler/optimizing/nodes_mips.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break after each parameter.",
+      "range": {
+        "startLine": 95,
+        "startChar": 21,
+        "endLine": 96,
+        "endChar": 47
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78fa2df3_97e570fe",
+        "filename": "compiler/optimizing/nodes_shared.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break before kBitwiseNegateRight and put on one line or break after each parameter.",
+      "range": {
+        "startLine": 72,
+        "startChar": 23,
+        "endLine": 73,
+        "endChar": 50
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a0a32e4_6b2bc37b",
+        "filename": "compiler/optimizing/nodes_shared.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 148,
+        "startChar": 20,
+        "endLine": 149,
+        "endChar": 47
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb235ff2_a0adf99d",
+        "filename": "compiler/optimizing/nodes_shared.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 199,
+        "startChar": 20,
+        "endLine": 200,
+        "endChar": 47
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75eddd0c_536f83fa",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Line breaks.",
+      "range": {
+        "startLine": 326,
+        "startChar": 27,
+        "endLine": 327,
+        "endChar": 61
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73168d09_19ce7c71",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line?",
+      "range": {
+        "startLine": 353,
+        "startChar": 27,
+        "endLine": 354,
+        "endChar": 48
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29a8a72d_7828d412",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 392,
+        "startChar": 27,
+        "endLine": 393,
+        "endChar": 48
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ffe5c2d_c1b00f46",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 426,
+        "startChar": 27,
+        "endLine": 427,
+        "endChar": 48
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97f245ae_231da927",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 452,
+        "startChar": 27,
+        "endLine": 453,
+        "endChar": 48
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81a80a01_317f4b72",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 475,
+        "startChar": 27,
+        "endLine": 476,
+        "endChar": 48
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0de5890c_a027692e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 498,
+        "startChar": 27,
+        "endLine": 499,
+        "endChar": 48
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e6465e3_0e69c6be",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 525,
+        "startChar": 28,
+        "endLine": 526,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c39828fc_452a8ac9",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Break line before kVecHalvingAdd or break after each parameter.",
+      "range": {
+        "startLine": 552,
+        "startChar": 28,
+        "endLine": 552,
+        "endChar": 102
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0126908f_97fc974d",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 590,
+        "startChar": 28,
+        "endLine": 591,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49b9021c_a91a9391",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 614,
+        "startChar": 28,
+        "endLine": 615,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d1676a1_f05904dd",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 638,
+        "startChar": 28,
+        "endLine": 639,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f7bfbc0_69232c08",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 755,
+        "startChar": 28,
+        "endLine": 756,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1520094e_e506e306",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 778,
+        "startChar": 28,
+        "endLine": 779,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e10b45f_1aad012a",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 801,
+        "startChar": 28,
+        "endLine": 802,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73d17e33_a4fe6c9c",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 824,
+        "startChar": 28,
+        "endLine": 825,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9110ae39_b6eddc0e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 847,
+        "startChar": 28,
+        "endLine": 848,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cfa4e52_37e3c290",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Line breaks.",
+      "range": {
+        "startLine": 27,
+        "startChar": 20,
+        "endLine": 28,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7af3424_60d4edcd",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-15T13:32:34Z",
+      "side": 1,
+      "message": "Line breaks.",
+      "range": {
+        "startLine": 44,
+        "startChar": 20,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "b9feddc7cdf46b9bbc53acf4e2794975fd4c5ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
