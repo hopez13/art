@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a899c361_96337fdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-02-15T23:35:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48032c33_757b252b",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "a6513f47bc3c250ba94bb4ffd59372c9348a171b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4289c8a6_9e9d532c",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-15T12:37:52Z",
       "side": 1,
       "message": "Consistency: line 653 comments the if, line 665 is a new line. Can we make this consistent?\n\nAlso, explain why it could be outside the range?",
+      "range": {
+        "startLine": 659,
+        "startChar": 19,
+        "endLine": 659,
+        "endChar": 71
+      },
+      "revId": "a6513f47bc3c250ba94bb4ffd59372c9348a171b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "398cfb4d_a47dcc2a",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-02-15T23:35:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4289c8a6_9e9d532c",
       "range": {
         "startLine": 659,
         "startChar": 19,
