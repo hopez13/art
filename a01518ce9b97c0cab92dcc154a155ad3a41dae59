@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "efaa77be_570fdd97",
+        "filename": "tools/amm/AmmTest/src/com/android/amm/test/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-02-15T11:40:13Z",
+      "side": 1,
+      "message": "I have visions of adding another activity or mode for AmmTest.apk that creates instances of TextureViewUse and SurfaceViewUse of various sizes programatically to evaluate the actual memory impact on device. As a sort of test for how well the modeled memory use matches reality for a particular platform. That\u0027s why I would rather build the view hierarchy programatically rather than introduce layout XML here.\n\nI expect I\u0027ll add some sort of explicit resource or layout XML use to the app when I get around to modeling the memory cost of resources, but that\u0027s not my goal here and now.",
+      "parentUuid": "fae777fb_a834ec79",
+      "range": {
+        "startLine": 38,
+        "startChar": 26,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "a01518ce9b97c0cab92dcc154a155ad3a41dae59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3f24b9b_591ca5a6",
         "filename": "tools/amm/AmmTest/src/com/android/amm/test/ThreadedRendererUse.java",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "64046a82_555403d3",
+        "filename": "tools/amm/AmmTest/src/com/android/amm/test/ThreadedRendererUse.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-02-15T11:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3f24b9b_591ca5a6",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "a01518ce9b97c0cab92dcc154a155ad3a41dae59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a65cd113_879e8185",
         "filename": "tools/amm/AmmTest/src/com/android/amm/test/ThreadedRendererUse.java",
         "patchSetId": 1
@@ -83,6 +131,30 @@
       "writtenOn": "2018-02-14T15:27:15Z",
       "side": 1,
       "message": "this would be a lot easier if you used layout xml",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "a01518ce9b97c0cab92dcc154a155ad3a41dae59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d035868c_8ac7d99f",
+        "filename": "tools/amm/AmmTest/src/com/android/amm/test/ThreadedRendererUse.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-02-15T11:40:13Z",
+      "side": 1,
+      "message": "See my previous comment. Also, it\u0027s important here that the view be added to WindowManager not the app\u0027s root view hierarchy. I don\u0027t know how to do that with layout xml.",
+      "parentUuid": "a65cd113_879e8185",
       "range": {
         "startLine": 36,
         "startChar": 3,
