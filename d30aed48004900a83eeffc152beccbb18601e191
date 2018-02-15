@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d28c8d09_4bb127ef",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-15T18:30:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d9f5b9f_ff5dc9d3",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "934ce6b1_c1c9b033",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-14T11:29:54Z",
       "side": 1,
       "message": "Mention that this is only used for testing purposes.",
+      "range": {
+        "startLine": 983,
+        "startChar": 6,
+        "endLine": 983,
+        "endChar": 40
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa9e026_2133e0ed",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-15T18:30:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "934ce6b1_c1c9b033",
       "range": {
         "startLine": 983,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "beb34086_4dd5aab5",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-15T18:30:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09153786_e8c89b6b",
+      "range": {
+        "startLine": 1021,
+        "startChar": 33,
+        "endLine": 1021,
+        "endChar": 47
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "feaa1360_540b05f7",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d9147a34_af439c82",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-15T18:30:34Z",
+      "side": 1,
+      "message": "I would assume that the C++ compiler applies the Return Value Optimization here, thus eliding the copy.",
+      "parentUuid": "feaa1360_540b05f7",
+      "range": {
+        "startLine": 1066,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 44
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7c3bb9_dc47da11",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2018-02-14T11:29:54Z",
       "side": 1,
       "message": "What about static proxy methods (if there is such a thing).",
+      "range": {
+        "startLine": 3583,
+        "startChar": 16,
+        "endLine": 3583,
+        "endChar": 27
+      },
+      "revId": "d30aed48004900a83eeffc152beccbb18601e191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c11495e_605c1552",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3583,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-15T18:30:34Z",
+      "side": 1,
+      "message": "They don\u0027t seem to exist (in the sense of \"dynamically generated proxy methods\"). I turned the condition into an assertion.",
+      "parentUuid": "5a7c3bb9_dc47da11",
       "range": {
         "startLine": 3583,
         "startChar": 16,
