@@ -70,6 +70,30 @@
       "revId": "0af08e0b886dd8332983084b8e49d4cf2e611729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bb89ba6_1f9a7246",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-15T19:38:50Z",
+      "side": 1,
+      "message": "It definitely does not resolve the libdexfile symbols if I remove these lines.",
+      "parentUuid": "60c46e92_fb9d255d",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 21
+      },
+      "revId": "0af08e0b886dd8332983084b8e49d4cf2e611729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
