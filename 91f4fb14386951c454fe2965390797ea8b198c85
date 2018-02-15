@@ -22,6 +22,29 @@
       "revId": "91f4fb14386951c454fe2965390797ea8b198c85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7bcfd2e_a44ed403",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-15T18:40:44Z",
+      "side": 1,
+      "message": "Is there a reason to not do this? I think it should save RAM to have the same zygote space heap for both the main and child zygotes.",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 362,
+        "endChar": 82
+      },
+      "revId": "91f4fb14386951c454fe2965390797ea8b198c85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
