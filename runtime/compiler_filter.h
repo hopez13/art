@@ -32,7 +32,8 @@ class CompilerFilter FINAL {
   enum Filter {
     kAssumeVerified,      // Skip verification but mark all classes as verified anyway.
     kExtract,             // Delay verication to runtime, do not compile anything.
-    kVerify,              // Only verify classes.
+    kVerifyDontExtract,   // Verify classes without extracting the dex file into the vdex.
+    kVerify,              // Extract verify classes.
     kQuicken,             // Verify, quicken, and compile JNI stubs.
     kSpaceProfile,        // Maximize space savings based on profile.
     kSpace,               // Maximize space savings.
@@ -63,6 +64,9 @@ class CompilerFilter FINAL {
 
   // Returns true if this compiler filter requires running verification.
   static bool IsVerificationEnabled(Filter filter);
+
+  // Returns true if this compiler filter extracts the dex into the produced output.
+  static bool IsExtractionEnabled(Filter filter);
 
   // Returns true if an oat file with this compiler filter depends on the
   // boot image checksum.

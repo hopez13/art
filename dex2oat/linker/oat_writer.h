@@ -175,6 +175,7 @@ class OatWriter {
                             SafeMap<std::string, std::string>* key_value_store,
                             bool verify,
                             bool update_input_vdex,
+                            CompilerFilter::Filter compiler_filter,
                             /*out*/ std::vector<std::unique_ptr<MemMap>>* opened_dex_files_map,
                             /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
   bool WriteQuickeningInfo(OutputStream* vdex_out);
@@ -283,7 +284,10 @@ class OatWriter {
 
   // If `update_input_vdex` is true, then this method won't actually write the dex files,
   // and the compiler will just re-use the existing vdex file.
-  bool WriteDexFiles(OutputStream* out, File* file, bool update_input_vdex);
+  bool WriteDexFiles(OutputStream* out,
+                     File* file,
+                     bool update_input_vdex,
+                     CompilerFilter::Filter filter);
   bool WriteDexFile(OutputStream* out,
                     File* file,
                     OatDexFile* oat_dex_file,
@@ -341,7 +345,7 @@ class OatWriter {
   bool MayHaveCompiledMethods() const;
 
   bool VdexWillContainDexFiles() const {
-    return dex_files_ != nullptr && !only_contains_uncompressed_zip_entries_;
+    return dex_files_ != nullptr && extract_dex_files_into_vdex_;
   }
 
   // Find the address of the GcRoot<String> in the InternTable for a boot image string.
@@ -375,8 +379,8 @@ class OatWriter {
   const CompilerDriver* compiler_driver_;
   ImageWriter* image_writer_;
   const bool compiling_boot_image_;
-  // Whether the dex files being compiled are all uncompressed in the APK.
-  bool only_contains_uncompressed_zip_entries_;
+  // Whether the dex files being compiled are going to be extracted to the vdex.
+  bool extract_dex_files_into_vdex_;
 
   // note OatFile does not take ownership of the DexFiles
   const std::vector<const DexFile*>* dex_files_;

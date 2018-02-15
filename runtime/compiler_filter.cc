@@ -24,6 +24,7 @@ bool CompilerFilter::IsAotCompilationEnabled(Filter filter) {
   switch (filter) {
     case CompilerFilter::kAssumeVerified:
     case CompilerFilter::kExtract:
+    case CompilerFilter::kVerifyDontExtract:
     case CompilerFilter::kVerify:
     case CompilerFilter::kQuicken: return false;
 
@@ -41,6 +42,7 @@ bool CompilerFilter::IsJniCompilationEnabled(Filter filter) {
   switch (filter) {
     case CompilerFilter::kAssumeVerified:
     case CompilerFilter::kExtract:
+    case CompilerFilter::kVerifyDontExtract:
     case CompilerFilter::kVerify: return false;
 
     case CompilerFilter::kQuicken:
@@ -58,6 +60,7 @@ bool CompilerFilter::IsQuickeningCompilationEnabled(Filter filter) {
   switch (filter) {
     case CompilerFilter::kAssumeVerified:
     case CompilerFilter::kExtract:
+    case CompilerFilter::kVerifyDontExtract:
     case CompilerFilter::kVerify: return false;
 
     case CompilerFilter::kQuicken:
@@ -82,6 +85,7 @@ bool CompilerFilter::IsVerificationEnabled(Filter filter) {
     case CompilerFilter::kAssumeVerified:
     case CompilerFilter::kExtract: return false;
 
+    case CompilerFilter::kVerifyDontExtract:
     case CompilerFilter::kVerify:
     case CompilerFilter::kQuicken:
     case CompilerFilter::kSpaceProfile:
@@ -104,6 +108,7 @@ bool CompilerFilter::DependsOnProfile(Filter filter) {
   switch (filter) {
     case CompilerFilter::kAssumeVerified:
     case CompilerFilter::kExtract:
+    case CompilerFilter::kVerifyDontExtract:
     case CompilerFilter::kVerify:
     case CompilerFilter::kQuicken:
     case CompilerFilter::kSpace:
@@ -121,6 +126,7 @@ CompilerFilter::Filter CompilerFilter::GetNonProfileDependentFilterFrom(Filter f
   switch (filter) {
     case CompilerFilter::kAssumeVerified:
     case CompilerFilter::kExtract:
+    case CompilerFilter::kVerifyDontExtract:
     case CompilerFilter::kVerify:
     case CompilerFilter::kQuicken:
     case CompilerFilter::kSpace:
@@ -146,6 +152,7 @@ CompilerFilter::Filter CompilerFilter::GetSafeModeFilterFrom(Filter filter) {
   switch (filter) {
     case CompilerFilter::kAssumeVerified:
     case CompilerFilter::kExtract:
+    case CompilerFilter::kVerifyDontExtract:
     case CompilerFilter::kVerify:
     case CompilerFilter::kQuicken:
       return filter;
@@ -169,10 +176,15 @@ bool CompilerFilter::IsBetter(Filter current, Filter target) {
   return current > target;
 }
 
+bool CompilerFilter::IsExtractionEnabled(Filter filter) {
+  return filter != CompilerFilter::kVerifyDontExtract;
+}
+
 std::string CompilerFilter::NameOfFilter(Filter filter) {
   switch (filter) {
     case CompilerFilter::kAssumeVerified: return "assume-verified";
     case CompilerFilter::kExtract: return "extract";
+    case CompilerFilter::kVerifyDontExtract: return "verify-dont-extract";
     case CompilerFilter::kVerify: return "verify";
     case CompilerFilter::kQuicken: return "quicken";
     case CompilerFilter::kSpaceProfile: return "space-profile";
@@ -212,27 +224,13 @@ bool CompilerFilter::ParseCompilerFilter(const char* option, Filter* filter) {
     LOG(WARNING) << "'time' is an obsolete compiler filter name that will be "
                  << "removed in future releases, please use 'space' instead.";
     *filter = kSpace;
-  } else if (strcmp(option, "assume-verified") == 0) {
-    *filter = kAssumeVerified;
-  } else if (strcmp(option, "extract") == 0) {
-    *filter = kExtract;
-  } else if (strcmp(option, "verify") == 0) {
-    *filter = kVerify;
-  } else if (strcmp(option, "quicken") == 0) {
-    *filter = kQuicken;
-  } else if (strcmp(option, "space") == 0) {
-    *filter = kSpace;
-  } else if (strcmp(option, "space-profile") == 0) {
-    *filter = kSpaceProfile;
-  } else if (strcmp(option, "speed") == 0) {
-    *filter = kSpeed;
-  } else if (strcmp(option, "speed-profile") == 0) {
-    *filter = kSpeedProfile;
-  } else if (strcmp(option, "everything") == 0) {
-    *filter = kEverything;
-  } else if (strcmp(option, "everything-profile") == 0) {
-    *filter = kEverythingProfile;
   } else {
+    for (size_t idx = 0; idx < kEverything; ++idx) {
+      *filter = static_cast<Filter>(idx);
+      if (NameOfFilter(*filter) == option) {
+        return true;
+      }
+    }
     return false;
   }
   return true;

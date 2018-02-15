@@ -1425,13 +1425,10 @@ class Dex2Oat FINAL {
         LOG(INFO) << "No " << VdexFile::kVdexNameInDmFile << " file in DexMetadata archive. "
                   << "Not doing fast verification.";
       } else {
-        std::unique_ptr<MemMap> input_file;
-        if (zip_entry->IsUncompressed()) {
-          input_file.reset(zip_entry->MapDirectlyFromFile(VdexFile::kVdexNameInDmFile, &error_msg));
-        } else {
-          input_file.reset(zip_entry->ExtractToMemMap(
-              kDexMetadata, VdexFile::kVdexNameInDmFile, &error_msg));
-        }
+        std::unique_ptr<MemMap> input_file(zip_entry->MapDirectlyOrExtract(
+            VdexFile::kVdexNameInDmFile,
+            kDexMetadata,
+            &error_msg));
         if (input_file == nullptr) {
           LOG(WARNING) << "Could not open vdex file in DexMetadata archive: " << error_msg;
         } else {
@@ -1618,6 +1615,7 @@ class Dex2Oat FINAL {
             key_value_store_.get(),
             verify,
             update_input_vdex_,
+            compiler_options_->GetCompilerFilter(),
             &opened_dex_files_map,
             &opened_dex_files)) {
           return dex2oat::ReturnCode::kOther;
