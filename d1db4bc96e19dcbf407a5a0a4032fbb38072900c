@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "639e157a_3d495755",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-02-15T14:08:15Z",
+      "side": 1,
+      "message": "Presumably we could also just check the first character and have the \u0027b\u0027 case look at the second char to disambiguate.",
+      "range": {
+        "startLine": 80,
+        "startChar": 66,
+        "endLine": 80,
+        "endChar": 67
+      },
+      "revId": "d1db4bc96e19dcbf407a5a0a4032fbb38072900c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
