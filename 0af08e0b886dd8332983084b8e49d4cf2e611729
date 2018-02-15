@@ -22,6 +22,30 @@
       "revId": "0af08e0b886dd8332983084b8e49d4cf2e611729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f419b84_670c613d",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-15T18:15:36Z",
+      "side": 1,
+      "message": "I removed it from the defaults and moved it to the two specific uses because the names differ between non-debug and debug.  Was this unnecessary?",
+      "parentUuid": "af4fa3f9_f01e70ae",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 21
+      },
+      "revId": "0af08e0b886dd8332983084b8e49d4cf2e611729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
