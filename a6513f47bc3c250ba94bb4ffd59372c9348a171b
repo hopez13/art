@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4289c8a6_9e9d532c",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-15T12:37:52Z",
+      "side": 1,
+      "message": "Consistency: line 653 comments the if, line 665 is a new line. Can we make this consistent?\n\nAlso, explain why it could be outside the range?",
+      "range": {
+        "startLine": 659,
+        "startChar": 19,
+        "endLine": 659,
+        "endChar": 71
+      },
+      "revId": "a6513f47bc3c250ba94bb4ffd59372c9348a171b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
