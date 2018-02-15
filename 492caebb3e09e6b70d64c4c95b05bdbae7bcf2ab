@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "592ac6fa_2f786c22",
+        "filename": "tools/amm/AmmTest/jni/ammtest.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-02-15T11:39:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24059b1d_ff446d51",
+      "revId": "492caebb3e09e6b70d64c4c95b05bdbae7bcf2ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68a23d2c_05d34eb3",
         "filename": "tools/amm/models/SoCode.md",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2018-02-14T15:22:19Z",
       "side": 1,
       "message": "`/proc/self/maps`\n\n(and for other filenames in here, makes it more readable to me)",
+      "range": {
+        "startLine": 4,
+        "startChar": 59,
+        "endLine": 4,
+        "endChar": 74
+      },
+      "revId": "492caebb3e09e6b70d64c4c95b05bdbae7bcf2ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "025ab62a_635c735b",
+        "filename": "tools/amm/models/SoCode.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-02-15T11:39:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68a23d2c_05d34eb3",
       "range": {
         "startLine": 4,
         "startChar": 59,
