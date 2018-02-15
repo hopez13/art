@@ -63,6 +63,12 @@ cc_defaults {
         // TODO: move those headers to art/ rather than under runtime.
         "libart_runtime_headers",
     ],
+    export_header_lib_headers: [
+        // This is needed to resolve the base/ header file inclusions in other targets that use the
+        // headers.
+        // TODO: move those headers to art/ rather than under runtime.
+        "libart_runtime_headers",
+    ],
     export_include_dirs: ["."],
     export_shared_lib_headers: [
         "libbase",
