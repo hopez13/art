@@ -46,6 +46,30 @@
       "revId": "d1db4bc96e19dcbf407a5a0a4032fbb38072900c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23f55121_dcf4f1c3",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-02-15T14:19:26Z",
+      "side": 1,
+      "message": "I was secretly wondering if there was some performance / pipeline / branch prediction reason why it worked out faster to do the XOR / \u0026 / shift in all cases.\n\nI\u0027m not going to cramp your style.",
+      "parentUuid": "7e78bae3_b51ce431",
+      "range": {
+        "startLine": 80,
+        "startChar": 66,
+        "endLine": 80,
+        "endChar": 67
+      },
+      "revId": "d1db4bc96e19dcbf407a5a0a4032fbb38072900c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
