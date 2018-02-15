@@ -218,6 +218,30 @@
       "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d02f62ce_75bf6ef8",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2018-02-15T18:06:52Z",
+      "side": 1,
+      "message": "Sorry, lost that when rebasing.",
+      "parentUuid": "fc78f688_434080dc",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 371,
+        "endChar": 3
+      },
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
