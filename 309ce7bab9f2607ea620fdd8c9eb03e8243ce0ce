@@ -194,6 +194,30 @@
       "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc78f688_434080dc",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-15T06:24:32Z",
+      "side": 1,
+      "message": "Am I missing the \"if (is_zygote) return?\"",
+      "parentUuid": "d8aa6aba_ce224a16",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 371,
+        "endChar": 3
+      },
+      "revId": "309ce7bab9f2607ea620fdd8c9eb03e8243ce0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
