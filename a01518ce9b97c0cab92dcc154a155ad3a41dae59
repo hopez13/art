@@ -212,6 +212,30 @@
       "revId": "a01518ce9b97c0cab92dcc154a155ad3a41dae59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d4c24d8_10f7384f",
+        "filename": "tools/amm/AmmTest/src/com/android/amm/test/ThreadedRendererUse.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-15T12:39:18Z",
+      "side": 1,
+      "message": "Maybe better to move the comment down here instead? (the comment itself lgtm)",
+      "parentUuid": "ec226b50_3b2cb93e",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "a01518ce9b97c0cab92dcc154a155ad3a41dae59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
