@@ -233,6 +233,8 @@ static Parser CreateArgumentParser() {
           .IntoKey(M::VeryLargeAppThreshold)
       .Define("--force-determinism")
           .IntoKey(M::ForceDeterminism)
+      .Define("--avoid-copying-dex")
+          .IntoKey(M::AvoidCopyingDex)
       .Define("--classpath-dir=_")
           .WithType<std::string>()
           .IntoKey(M::ClasspathDir)

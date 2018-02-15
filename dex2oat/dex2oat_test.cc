@@ -1781,4 +1781,19 @@ TEST_F(Dex2oatTest, VerifyNoCompilationReason) {
   ASSERT_EQ(nullptr, odex_file->GetCompilationReason());
 }
 
+TEST_F(Dex2oatTest, DontExtract) {
+  std::unique_ptr<const DexFile> dex(OpenTestDexFile("ManyMethods"));
+  std::string out_dir = GetScratchDir();
+  const std::string base_oat_name = out_dir + "/base.oat";
+  GenerateOdexForTest(dex->GetLocation(),
+                      base_oat_name,
+                      CompilerFilter::Filter::kVerify,
+                      { "--avoid-copying-dex" },
+                      true,  // expect_success
+                      false,  // use_fd
+                      [](const OatFile& o) {
+                        CHECK(!o.ContainsDexCode());
+                      });
+}
+
 }  // namespace art
