@@ -16,6 +16,24 @@
       "revId": "d26af3d57732da819cfb52e2670db46856d19f06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c5a37b4_1393a1bd",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1897,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-16T20:46:33Z",
+      "side": 1,
+      "message": "IMO it\u0027s a bit gross to use strings for holding non string data.",
+      "parentUuid": "4a47ebd6_c7dece3a",
+      "revId": "d26af3d57732da819cfb52e2670db46856d19f06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
