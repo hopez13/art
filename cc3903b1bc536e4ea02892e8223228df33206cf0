@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f40ef4bf_9083e7fe",
+        "filename": "runtime/dex/art_dex_file_loader.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-02-16T20:34:19Z",
+      "side": 1,
+      "message": "Why is the parameter name different here? In the parent class, it\u0027s \"zip_file_only_contains_uncompress_dex\", whereas here, the prefix \"zip_file_\" is missing.",
+      "revId": "cc3903b1bc536e4ea02892e8223228df33206cf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
