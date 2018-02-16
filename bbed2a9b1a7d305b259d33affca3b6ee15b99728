@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "230d6262_33e93cbd",
+        "filename": "compiler/optimizing/loop_optimization_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-16T22:32:13Z",
+      "side": 1,
+      "message": "Fixed the comment, now it should be more clear.",
+      "parentUuid": "e4c4f5ef_efb45596",
+      "revId": "bbed2a9b1a7d305b259d33affca3b6ee15b99728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5afdb3aa_4d164a91",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2018-02-16T21:38:51Z",
       "side": 1,
       "message": "what is this change for? I have a hard time relaying this back to the CL?",
+      "revId": "bbed2a9b1a7d305b259d33affca3b6ee15b99728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccd275bf_7c37766d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-02-16T22:32:13Z",
+      "side": 1,
+      "message": "Sorry, this was a debug helper. Removed.",
+      "parentUuid": "5afdb3aa_4d164a91",
       "revId": "bbed2a9b1a7d305b259d33affca3b6ee15b99728",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
