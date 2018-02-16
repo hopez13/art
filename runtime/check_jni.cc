@@ -61,6 +61,10 @@ using android::base::StringPrintf;
 static constexpr uint64_t kCriticalWarnTimeUs = MsToUs(16);
 static_assert(kCriticalWarnTimeUs > 0, "No JNI critical warn time set");
 
+// True if primitives within specific ranges cause a fatal error,
+// otherwise just warn.
+static constexpr bool kBrokenPrimitivesAreFatal = kIsDebugBuild;
+
 // Flags passed into ScopedCheck.
 static constexpr uint16_t kFlag_Default = 0x0000;
 
@@ -206,10 +210,11 @@ class VarArgs {
     JniValueType o;
     if (type_ == kTypeVaList) {
       switch (fmt) {
-        case 'Z': o.Z = static_cast<jboolean>(va_arg(vargs_, jint)); break;
-        case 'B': o.B = static_cast<jbyte>(va_arg(vargs_, jint)); break;
-        case 'C': o.C = static_cast<jchar>(va_arg(vargs_, jint)); break;
-        case 'S': o.S = static_cast<jshort>(va_arg(vargs_, jint)); break;
+        // Assign a full int for va_list values as this is what is done in reflection.cc.
+        case 'Z': FALLTHROUGH_INTENDED;
+        case 'B': FALLTHROUGH_INTENDED;
+        case 'C': FALLTHROUGH_INTENDED;
+        case 'S': FALLTHROUGH_INTENDED;
         case 'I': o.I = va_arg(vargs_, jint); break;
         case 'J': o.J = va_arg(vargs_, jlong); break;
         case 'F': o.F = static_cast<jfloat>(va_arg(vargs_, jdouble)); break;
@@ -224,6 +229,7 @@ class VarArgs {
       jvalue v = ptr_[cnt_];
       cnt_++;
       switch (fmt) {
+        // Copy just the amount of the jvalue necessary, as done in reflection.cc.
         case 'Z': o.Z = v.z; break;
         case 'B': o.B = v.b; break;
         case 'C': o.C = v.c; break;
@@ -911,17 +917,20 @@ class ScopedCheck {
     switch (fmt) {
       case 'p':  // TODO: pointer - null or readable?
       case 'v':  // JavaVM*
-      case 'B':  // jbyte
-      case 'C':  // jchar
       case 'D':  // jdouble
       case 'F':  // jfloat
-      case 'I':  // jint
       case 'J':  // jlong
-      case 'S':  // jshort
+      case 'I':  // jint
         break;  // Ignored.
       case 'b':  // jboolean, why two? Fall-through.
       case 'Z':
-        return CheckBoolean(arg.Z);
+        return CheckBoolean(arg.I);
+      case 'B':  // jbyte
+        return CheckByte(arg.I);
+      case 'C':  // jchar
+        return CheckChar(arg.I);
+      case 'S':  // jshort
+        return CheckShort(arg.I);
       case 'u':  // utf8
         if ((flags_ & kFlag_Release) != 0) {
           return CheckNonNull(arg.u);
@@ -1152,10 +1161,50 @@ class ScopedCheck {
     return true;
   }
 
-  bool CheckBoolean(jboolean z) {
+  bool CheckBoolean(jint z) {
     if (z != JNI_TRUE && z != JNI_FALSE) {
+      // Note, broken booleans are always fatal.
       AbortF("unexpected jboolean value: %d", z);
       return false;
+    }
+    return true;
+  }
+
+  bool CheckByte(jint b) {
+    if (b < std::numeric_limits<jbyte>::min() ||
+        b > std::numeric_limits<jbyte>::max()) {
+      if (kBrokenPrimitivesAreFatal) {
+        AbortF("unexpected jbyte value: %d", b);
+        return false;
+      } else {
+        LOG(WARNING) << "Unexpected jbyte value: " << b;
+      }
+    }
+    return true;
+  }
+
+  bool CheckShort(jint s) {
+    if (s < std::numeric_limits<jshort>::min() ||
+        s > std::numeric_limits<jshort>::max()) {
+      if (kBrokenPrimitivesAreFatal) {
+        AbortF("unexpected jshort value: %d", s);
+        return false;
+      } else {
+        LOG(WARNING) << "Unexpected jshort value: " << s;
+      }
+    }
+    return true;
+  }
+
+  bool CheckChar(jint c) {
+    if (c < std::numeric_limits<jchar>::min() ||
+        c > std::numeric_limits<jchar>::max()) {
+      if (kBrokenPrimitivesAreFatal) {
+        AbortF("unexpected jchar value: %d", c);
+        return false;
+      } else {
+        LOG(WARNING) << "Unexpected jchar value: " << c;
+      }
     }
     return true;
   }
