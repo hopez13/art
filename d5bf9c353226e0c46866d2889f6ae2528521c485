@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc8ae419_9a67ce8f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-16T19:03:00Z",
+      "side": 1,
+      "message": "We use skip for this pretty much everywhere except the name knownfailures.json.\n\nThe option right above this is --skip that does the opposite of this new one.\n\nAlso generally I think options should be short when possible.",
+      "parentUuid": "c06c8778_c5007e86",
+      "range": {
+        "startLine": 904,
+        "startChar": 25,
+        "endLine": 904,
+        "endChar": 34
+      },
+      "revId": "d5bf9c353226e0c46866d2889f6ae2528521c485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4edf11bc_2fc3ba14",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-16T18:46:28Z",
       "side": 1,
       "message": "and this should say \"Don\u0027t skip running any tests listed in knownfailures.json\"",
+      "range": {
+        "startLine": 905,
+        "startChar": 34,
+        "endLine": 905,
+        "endChar": 66
+      },
+      "revId": "d5bf9c353226e0c46866d2889f6ae2528521c485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "684feafb_16269614",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-16T19:03:00Z",
+      "side": 1,
+      "message": "I think the current help text more accurately captures what it does. This makes it seem like there is some other place that skips can be configured.",
+      "parentUuid": "4edf11bc_2fc3ba14",
       "range": {
         "startLine": 905,
         "startChar": 34,
