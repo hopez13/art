@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5308fc41_09811212",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-16T13:17:05Z",
+      "side": 1,
+      "message": "I think the vtable has been suggested before.\n\nBut what about the other types?",
+      "parentUuid": "85baae7c_72442817",
+      "range": {
+        "startLine": 80,
+        "startChar": 29,
+        "endLine": 80,
+        "endChar": 66
+      },
+      "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfb933ca_4b85970f",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I don\u0027t think there is any issue.\n1) I would be impressed if we ever overflowed\n2) For the most part the field is used to detect change. So as long as the profiler pools the field, we are fine.\n3) If the counter is used as actual counter for optimizations, the overflow is trivial to handle.",
       "parentUuid": "a3cbac78_8f8f6563",
+      "range": {
+        "startLine": 126,
+        "startChar": 35,
+        "endLine": 126,
+        "endChar": 54
+      },
+      "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4acb5f_2056d959",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-16T13:17:05Z",
+      "side": 1,
+      "message": "OK, please add that as a comment around the declaration of action_counter_.",
+      "parentUuid": "ba3ffa6f_9fcf24f0",
       "range": {
         "startLine": 126,
         "startChar": 35,
@@ -284,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "afbbb876_999a9325",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-16T13:17:05Z",
+      "side": 1,
+      "message": "Confirmed with Vladimir that no. Though it\u0027s ok if you want to be defensive, but please add that as a comment.",
+      "parentUuid": "1f85ab39_a7ca4d51",
+      "range": {
+        "startLine": 163,
+        "startChar": 1,
+        "endLine": 163,
+        "endChar": 55
+      },
+      "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b189ea73_731398ba",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 1
@@ -366,6 +438,30 @@
       "side": 1,
       "message": "No strong reason, it felt like a little better API.\n1) The previous version might make it seem like the caller should keep the vector alive (when contrasted with the dex file).\n2) This passes the ownership, and let\u0027s this methods deal with the implementation details.  For example, future implementation might be avoid the copy without changing the callers.",
       "parentUuid": "8f08ecaf_aad09228",
+      "range": {
+        "startLine": 191,
+        "startChar": 78,
+        "endLine": 191,
+        "endChar": 81
+      },
+      "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5ca94e3_b25af758",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-16T13:17:05Z",
+      "side": 1,
+      "message": "We don\u0027t use \u0027\u0026\u0026\u0027 much, and TBH I dislike the overhead of remembering what it does. So if you can avoid it, great :)",
+      "parentUuid": "dd8ef6a1_f9497ba9",
       "range": {
         "startLine": 191,
         "startChar": 78,
