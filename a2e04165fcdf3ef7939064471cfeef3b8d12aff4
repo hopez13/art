@@ -542,6 +542,30 @@
       "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d185de7_6ef3ec92",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-16T13:54:20Z",
+      "side": 1,
+      "message": "As this is for debug info and won\u0027t affect app correctness, turning a CHECK in DCHECK is fine.",
+      "parentUuid": "6b54b5aa_087ee177",
+      "range": {
+        "startLine": 193,
+        "startChar": 2,
+        "endLine": 193,
+        "endChar": 10
+      },
+      "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
