@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "75366f9b_934cec01",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2018-02-16T22:10:03Z",
+      "side": 1,
+      "message": "Not sure I follow an aliasing issue with a union. Fwiw, the code already relies on float/int aliasing. The code in reflection.cc could truncate/sign-extend based on the shorty but the var arg convention will pass values smaller than 32-bit as 32-bit, so the caller should already do this extension (ie a 2nd round of truncation/extension is redundant). This CL is adding checks to verify that.",
+      "parentUuid": "3b4c3494_37ff9ee5",
+      "revId": "748087efb915483ddaaf8d4f4d667927e143c582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cefcabf_1232d1fb",
         "filename": "runtime/check_jni.cc",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "748087efb915483ddaaf8d4f4d667927e143c582",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "428169c9_4869c218",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2018-02-16T22:10:03Z",
+      "side": 1,
+      "message": "Ack. For 3 cases I\u0027m not sure its worth template/macro magic.",
+      "parentUuid": "3cefcabf_1232d1fb",
+      "revId": "748087efb915483ddaaf8d4f4d667927e143c582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
