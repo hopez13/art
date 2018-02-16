@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "db4e19c6_daee28eb",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-16T23:06:27Z",
+      "side": 1,
+      "message": "I\u0027m hoping you can tell me \"No, it\u0027s not UB and here\u0027s why...\"\n\n----------\n\nMaybe this code never reads B/C/S with your new change, but then they should be removed from JniValueType.\n\nExample of UB code:\n\n union any {\n   int i;\n   float f;\n };\n\n  any x;\n  x.i \u003d 5;\n  float f \u003d x.f;\n\nThe read type must match the last write type, but it does not.\n\nThere\u0027s a trick with structs to allow safe aliasing but this code isn\u0027t using it, nor is it worth it since it\u0027s so obscure.\n\n\n\u003e Fwiw, the code already relies on float/int aliasing.\n\nShould probably be using memcpy instead?",
+      "parentUuid": "75366f9b_934cec01",
+      "revId": "748087efb915483ddaaf8d4f4d667927e143c582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cefcabf_1232d1fb",
         "filename": "runtime/check_jni.cc",
         "patchSetId": 3
