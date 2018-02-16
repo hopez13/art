@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b4c3494_37ff9ee5",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-16T22:00:40Z",
+      "side": 1,
+      "message": "This seems like it\u0027s breaking aliasing rules which is undefined behavior. reflection.cc sounds broken and should be fixed.\n\nAm I missing something ?",
+      "revId": "748087efb915483ddaaf8d4f4d667927e143c582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cefcabf_1232d1fb",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-16T22:00:40Z",
+      "side": 1,
+      "message": "nit: seems a bit repetitive",
+      "revId": "748087efb915483ddaaf8d4f4d667927e143c582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
