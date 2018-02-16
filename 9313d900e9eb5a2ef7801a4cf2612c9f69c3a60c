@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f28e9892_52f9b75f",
+        "filename": "openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-16T12:47:32Z",
+      "side": 1,
+      "message": "Please share a common helper with vdex_file.cc:UpdateAccessFlags.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 1
+      },
+      "revId": "9313d900e9eb5a2ef7801a4cf2612c9f69c3a60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "950cfb8a_54ce08d9",
         "filename": "openjdkjvmti/fixed_up_dex_file.cc",
         "patchSetId": 1
