@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6d5a3b3f_05f3cfef",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-02-16T13:40:55Z",
+      "side": 1,
+      "message": "It just needs a unique stable handle to identify the JIT entry in case we want to free it later (which we don\u0027t to for types anyway).",
+      "parentUuid": "5308fc41_09811212",
+      "range": {
+        "startLine": 80,
+        "startChar": 29,
+        "endLine": 80,
+        "endChar": 66
+      },
+      "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfb933ca_4b85970f",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 1
@@ -467,6 +491,53 @@
         "startChar": 78,
         "endLine": 191,
         "endChar": 81
+      },
+      "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23f65d4e_b2f33c81",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-02-16T13:40:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5ca94e3_b25af758",
+      "range": {
+        "startLine": 191,
+        "startChar": 78,
+        "endLine": 191,
+        "endChar": 81
+      },
+      "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b54b5aa_087ee177",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-02-16T13:40:55Z",
+      "side": 1,
+      "message": "I am kind of tempted to be defensive here as well.\nDo we have a \"soft fail\" policy?\nCan I DCHECK_EQ and but still early-return for release?",
+      "range": {
+        "startLine": 193,
+        "startChar": 2,
+        "endLine": 193,
+        "endChar": 10
       },
       "revId": "a2e04165fcdf3ef7939064471cfeef3b8d12aff4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
