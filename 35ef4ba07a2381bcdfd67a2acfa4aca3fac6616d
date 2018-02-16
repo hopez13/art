@@ -46,6 +46,30 @@
       "revId": "35ef4ba07a2381bcdfd67a2acfa4aca3fac6616d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d3728a1_2968d6b9",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-16T14:56:44Z",
+      "side": 1,
+      "message": "Ah right, and we even inline it in mirror::Class anyway :)\n\nGetMethodsPtr is better indeed.",
+      "parentUuid": "de842c02_1c4265fe",
+      "range": {
+        "startLine": 80,
+        "startChar": 28,
+        "endLine": 80,
+        "endChar": 50
+      },
+      "revId": "35ef4ba07a2381bcdfd67a2acfa4aca3fac6616d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
