@@ -40,6 +40,7 @@
 #include "dex/compact_dex_level.h"
 #include "dex_to_dex_decompiler.h"
 #include "dexlayout.h"
+#include "leb128.h"
 #include "oat_file.h"
 #include "vdex_file.h"
 
@@ -50,21 +51,56 @@ static void RecomputeDexChecksum(art::DexFile* dex_file) {
       dex_file->CalculateChecksum();
 }
 
-static void DoDexUnquicken(const art::DexFile& new_dex_file,
-                           const art::DexFile& original_dex_file) {
+static void UpdateAccessFlags(uint8_t* data, uint32_t new_flag, bool is_method) {
+  // Go back 1 uleb to start.
+  data = art::ReverseSearchUnsignedLeb128(data);
+  if (is_method) {
+    // Methods have another uleb field before the access flags
+    data = art::ReverseSearchUnsignedLeb128(data);
+  }
+  DCHECK_EQ(
+      art::HiddenApiAccessFlags::RemoveFromDex(art::DecodeUnsignedLeb128WithoutMovingCursor(data)),
+      new_flag);
+  art::UpdateUnsignedLeb128(data, new_flag);
+}
+
+static void UnhideApis(const art::DexFile& target_dex_file) {
+  for (uint32_t i = 0; i < target_dex_file.NumClassDefs(); ++i) {
+    const uint8_t* class_data = target_dex_file.GetClassData(target_dex_file.GetClassDef(i));
+    if (class_data != nullptr) {
+      for (art::ClassDataItemIterator class_it(target_dex_file, class_data);
+           class_it.HasNext();
+           class_it.Next()) {
+        UpdateAccessFlags(const_cast<uint8_t*>(class_it.DataPointer()),
+                          class_it.GetMemberAccessFlags(),
+                          class_it.IsAtMethod());
+      }
+    }
+  }
+}
+
+static const art::VdexFile* GetVdex(const art::DexFile& original_dex_file) {
   const art::OatDexFile* oat_dex = original_dex_file.GetOatDexFile();
   if (oat_dex == nullptr) {
-    return;
+    return nullptr;
   }
   const art::OatFile* oat_file = oat_dex->GetOatFile();
   if (oat_file == nullptr) {
-    return;
+    return nullptr;
   }
-  const art::VdexFile* vdex = oat_file->GetVdexFile();
-  if (vdex == nullptr) {
-    return;
+  return oat_file->GetVdexFile();
+}
+
+static void DoDexUnquicken(const art::DexFile& new_dex_file,
+                           const art::DexFile& original_dex_file) {
+  const art::VdexFile* vdex = GetVdex(original_dex_file);
+  if (vdex != nullptr) {
+    vdex->UnquickenDexFile(new_dex_file, original_dex_file, /* decompile_return_instruction */true);
+  } else {
+    // The dex file isn't quickened since it is being used directly. We might still have hiddenapis
+    // so we need to get rid fo those.
+    UnhideApis(new_dex_file);
   }
-  vdex->UnquickenDexFile(new_dex_file, original_dex_file, /* decompile_return_instruction */true);
 }
 
 static void DCheckVerifyDexFile(const art::DexFile& dex) {
