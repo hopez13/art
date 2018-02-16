@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "c6ba9a16_b1deff28",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-02-16T23:08:16Z",
+      "side": 1,
+      "message": "super nit: doesn\u0027t the name copy_dex_files with default true make more sense, so L1621 becomes more self-documenting; I always find it hard to trace through a program where you have to make those mental negations; of course it needs to be a true/false flags then",
+      "revId": "b24ede9376980815c0b0e82610723959fed9da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23b92a0a_9e29b6d6",
         "filename": "dex2oat/dex2oat_test.cc",
         "patchSetId": 3
