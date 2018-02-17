@@ -16,6 +16,24 @@
       "revId": "1d894d90634b3d685a5a1143dd84f0272b4a7dcd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48527fd9_cfbfe212",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1087625
+      },
+      "writtenOn": "2018-02-17T02:47:03Z",
+      "side": 1,
+      "message": "This is blocked by host binutils missing plugin support.",
+      "parentUuid": "4f95f38a_42bdae59",
+      "revId": "1d894d90634b3d685a5a1143dd84f0272b4a7dcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
