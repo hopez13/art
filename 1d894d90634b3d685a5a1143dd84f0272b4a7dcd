@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f95f38a_42bdae59",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-02-17T02:28:07Z",
+      "side": 1,
+      "message": "This got me wondering whether we support lto on the host too. We clearly should, and dex2oat is definitely run there as well.",
+      "revId": "1d894d90634b3d685a5a1143dd84f0272b4a7dcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
