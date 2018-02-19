@@ -102,6 +102,7 @@ inline bool ShouldBlockAccessToMember(T* member,
     // Exit early. Nothing to enforce.
     return false;
   }
+  Runtime::ApiEnforcementPolicy policy = runtime->GetHiddenApiEnforcementPolicy();
 
   Action action = GetMemberAction(member->GetAccessFlags());
   if (action == kAllow) {
@@ -122,8 +123,13 @@ inline bool ShouldBlockAccessToMember(T* member,
   // We do this regardless of whether we block the access or not.
   WarnAboutMemberAccess(member, access_method);
 
-  // Block access if on blacklist.
-  if (action == kDeny) {
+  // Block access if on blacklist, or enforcing light greylist
+  if (action == kDeny || policy == Runtime::ApiEnforcementPolicy::kLightGrey) {
+    return true;
+  }
+  // Block if member is on dark greylist, and we're enforcing that
+  if (action == kAllowButWarnAndToast
+      && policy == Runtime::ApiEnforcementPolicy::kDarkGreyAndBlackList) {
     return true;
   }
 
