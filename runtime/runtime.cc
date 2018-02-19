@@ -265,7 +265,7 @@ Runtime::Runtime()
       oat_file_manager_(nullptr),
       is_low_memory_mode_(false),
       safe_mode_(false),
-      do_hidden_api_checks_(false),
+      do_hidden_api_checks_(Runtime::ApiEnforcementPolicy::kDisable),
       pending_hidden_api_warning_(false),
       dedupe_hidden_api_warnings_(true),
       always_set_hidden_api_warning_flag_(false),
@@ -1193,8 +1193,10 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // by default and we only enable them if:
   // (a) runtime was started with a flag that enables the checks, or
   // (b) Zygote forked a new process that is not exempt (see ZygoteHooks).
-  do_hidden_api_checks_ = runtime_options.Exists(Opt::HiddenApiChecks);
-  DCHECK(!is_zygote_ || !do_hidden_api_checks_)
+  do_hidden_api_checks_ = runtime_options.Exists(Opt::HiddenApiChecks)
+      ? Runtime::ApiEnforcementPolicy::kBlacklistOnly
+      : Runtime::ApiEnforcementPolicy::kDisable;
+  DCHECK(!is_zygote_ || do_hidden_api_checks_ == Runtime::ApiEnforcementPolicy::kDisable)
       << "Zygote should not be started with hidden API checks";
 
   no_sig_chain_ = runtime_options.Exists(Opt::NoSigChain);

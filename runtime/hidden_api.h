@@ -102,6 +102,7 @@ inline bool ShouldBlockAccessToMember(T* member,
     // Exit early. Nothing to enforce.
     return false;
   }
+  Runtime::ApiEnforcementPolicy policy = runtime->GetHiddenApiEnforcementPolicy();
 
   Action action = GetMemberAction(member->GetAccessFlags());
   if (action == kAllow) {
@@ -122,13 +123,14 @@ inline bool ShouldBlockAccessToMember(T* member,
   // We do this regardless of whether we block the access or not.
   WarnAboutMemberAccess(member, access_method);
 
-  // Block access if on blacklist.
-  if (action == kDeny) {
+  // Block access if on blacklist and not warning only for blacklist
+  if (action == kDeny && policy != Runtime::ApiEnforcementPolicy::kWarnOnly) {
     return true;
   }
 
   // Allow access to this member but print a warning.
-  DCHECK(action == kAllowButWarn || action == kAllowButWarnAndToast);
+  DCHECK(action == kAllowButWarn || action == kAllowButWarnAndToast
+      || policy == Runtime::ApiEnforcementPolicy::kWarnOnly);
 
   // Depending on a runtime flag, we might move the member into whitelist and
   // skip the warning the next time the member is accessed.
@@ -138,7 +140,8 @@ inline bool ShouldBlockAccessToMember(T* member,
   }
 
   // If this action requires a UI warning, set the appropriate flag.
-  if (action == kAllowButWarnAndToast || runtime->ShouldAlwaysSetHiddenApiWarningFlag()) {
+  if (action == kAllowButWarnAndToast || action == kDeny
+      || runtime->ShouldAlwaysSetHiddenApiWarningFlag()) {
     Runtime::Current()->SetPendingHiddenApiWarning(true);
   }
 
