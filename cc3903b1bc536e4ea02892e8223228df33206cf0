@@ -16,6 +16,29 @@
       "revId": "cc3903b1bc536e4ea02892e8223228df33206cf0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1428bac8_c2fef4c2",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-02-19T20:06:02Z",
+      "side": 1,
+      "message": ":( this is so annoying. I don\u0027t have a better suggestion. We should probably think coming up some generic Setup* method or similar which will compute everything we need.",
+      "range": {
+        "startLine": 518,
+        "startChar": 2,
+        "endLine": 518,
+        "endChar": 92
+      },
+      "revId": "cc3903b1bc536e4ea02892e8223228df33206cf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
