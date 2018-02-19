@@ -287,17 +287,17 @@ class ScopedHiddenApiExemption {
  public:
   explicit ScopedHiddenApiExemption(Runtime* runtime)
       : runtime_(runtime),
-        initially_enabled_(runtime_->AreHiddenApiChecksEnabled()) {
-    runtime_->SetHiddenApiChecksEnabled(false);
+        initial_policy_(runtime_->GetHiddenApiEnforcementPolicy()) {
+    runtime_->SetHiddenApiEnforcementPolicy(Runtime::ApiEnforcementPolicy::kDisable);
   }
 
   ~ScopedHiddenApiExemption() {
-    runtime_->SetHiddenApiChecksEnabled(initially_enabled_);
+    runtime_->SetHiddenApiEnforcementPolicy(initial_policy_);
   }
 
  private:
   Runtime* runtime_;
-  const bool initially_enabled_;
+  const Runtime::ApiEnforcementPolicy initial_policy_;
   DISALLOW_COPY_AND_ASSIGN(ScopedHiddenApiExemption);
 };
 
