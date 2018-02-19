@@ -520,11 +520,22 @@ class Runtime {
   bool IsVerificationEnabled() const;
   bool IsVerificationSoftFail() const;
 
-  void SetHiddenApiChecksEnabled(bool value) {
-    do_hidden_api_checks_ = value;
+  // Hidden API enforcement policy
+  enum class ApiEnforcementPolicy {
+    kDisable,
+    kBlacklistOnly,  // default - crash on blacklist violation only
+    kWarnOnly,  // Warn only for blacklist violations
+  };
+
+  void SetHiddenApiEnforcementPolicy(ApiEnforcementPolicy policy) {
+    do_hidden_api_checks_ = policy;
   }
 
   bool AreHiddenApiChecksEnabled() const {
+    return do_hidden_api_checks_ != ApiEnforcementPolicy::kDisable;
+  }
+
+  ApiEnforcementPolicy GetHiddenApiEnforcementPolicy() const {
     return do_hidden_api_checks_;
   }
 
@@ -990,7 +1001,7 @@ class Runtime {
   bool safe_mode_;
 
   // Whether access checks on hidden API should be performed.
-  bool do_hidden_api_checks_;
+  ApiEnforcementPolicy do_hidden_api_checks_;
 
   // Whether the application has used an API which is not restricted but we
   // should issue a warning about it.

@@ -173,9 +173,15 @@ enum {
   DEBUG_JAVA_DEBUGGABLE           = 1 << 8,
   DISABLE_VERIFIER                = 1 << 9,
   ONLY_USE_SYSTEM_OAT_FILES       = 1 << 10,
-  ENABLE_HIDDEN_API_CHECKS        = 1 << 11,
-  DEBUG_GENERATE_MINI_DEBUG_INFO  = 1 << 12,
+  DEBUG_GENERATE_MINI_DEBUG_INFO  = 1 << 11,
+  ENABLE_HIDDEN_API_CHECKS        = (1 << 12)
+                                  | (1 << 13),
+
+  API_LIST_ENFORCEMENT_NONE       = 0 << 12,
+  API_LIST_ENFORCEMENT_BLACK      = 1 << 12,
+  API_LIST_ENFORCEMENT_WARN       = 2 << 12,
 };
+
 
 static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
   Runtime* const runtime = Runtime::Current();
@@ -285,7 +291,8 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   // Our system thread ID, etc, has changed so reset Thread state.
   thread->InitAfterFork();
   runtime_flags = EnableDebugFeatures(runtime_flags);
-  bool do_hidden_api_checks = false;
+  Runtime::ApiEnforcementPolicy api_enforcement_policy = Runtime::ApiEnforcementPolicy::kDisable;
+  bool dedupe_hidden_api_warnings = true;
 
   if ((runtime_flags & DISABLE_VERIFIER) != 0) {
     Runtime::Current()->DisableVerifier();
@@ -298,7 +305,19 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   }
 
   if ((runtime_flags & ENABLE_HIDDEN_API_CHECKS) != 0) {
-    do_hidden_api_checks = true;
+    switch (runtime_flags & ENABLE_HIDDEN_API_CHECKS) {
+      case API_LIST_ENFORCEMENT_NONE:
+        api_enforcement_policy = Runtime::ApiEnforcementPolicy::kDisable;
+        break;
+      case API_LIST_ENFORCEMENT_BLACK:
+        api_enforcement_policy = Runtime::ApiEnforcementPolicy::kBlacklistOnly;
+        break;
+      case API_LIST_ENFORCEMENT_WARN:
+        api_enforcement_policy = Runtime::ApiEnforcementPolicy::kWarnOnly;
+        // don't dupe warnings so they don't get missed.
+        dedupe_hidden_api_warnings = false;
+        break;
+    }
     runtime_flags &= ~ENABLE_HIDDEN_API_CHECKS;
   }
 
@@ -349,11 +368,13 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
     }
   }
 
+  bool do_hidden_api_checks = api_enforcement_policy != Runtime::ApiEnforcementPolicy::kDisable;
   DCHECK(!(is_system_server && do_hidden_api_checks))
       << "SystemServer should be forked with ENABLE_HIDDEN_API_CHECKS";
   DCHECK(!(is_zygote && do_hidden_api_checks))
       << "Child zygote processes should be forked with ENABLE_HIDDEN_API_CHECKS";
-  Runtime::Current()->SetHiddenApiChecksEnabled(do_hidden_api_checks);
+  Runtime::Current()->SetHiddenApiEnforcementPolicy(api_enforcement_policy);
+  Runtime::Current()->SetDedupeHiddenApiWarnings(dedupe_hidden_api_warnings);
 
   // Clear the hidden API warning flag, in case it was set.
   Runtime::Current()->SetPendingHiddenApiWarning(false);
