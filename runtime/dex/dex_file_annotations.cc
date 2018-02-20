@@ -705,13 +705,15 @@ mirror::Object* CreateAnnotationMember(const ClassData& klass,
   Handle<mirror::String> string_name(
       hs.NewHandle(mirror::String::AllocFromModifiedUtf8(self, name)));
 
-  PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  PointerSize pointer_size = class_linker->GetImagePointerSize();
   ArtMethod* annotation_method =
       annotation_class->FindDeclaredVirtualMethodByName(name, pointer_size);
   if (annotation_method == nullptr) {
     return nullptr;
   }
-  Handle<mirror::Class> method_return(hs.NewHandle(annotation_method->ResolveReturnType()));
+  Handle<mirror::Class> method_return(hs.NewHandle(
+      class_linker->ResolveType(annotation_method->GetReturnTypeIndex(), annotation_method)));
 
   DexFile::AnnotationValue annotation_value;
   if (!ProcessAnnotationValue<false>(klass,
@@ -1070,7 +1072,8 @@ mirror::Object* GetAnnotationDefaultValue(ArtMethod* method) {
   }
   DexFile::AnnotationValue annotation_value;
   StackHandleScope<1> hs(Thread::Current());
-  Handle<mirror::Class> return_type(hs.NewHandle(method->ResolveReturnType()));
+  Handle<mirror::Class> return_type(hs.NewHandle(Runtime::Current()->GetClassLinker()->ResolveType(
+      method->GetReturnTypeIndex(), method)));
   if (!ProcessAnnotationValue<false>(klass,
                                      &annotation,
                                      &annotation_value,

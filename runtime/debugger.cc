@@ -3984,6 +3984,7 @@ JDWP::JdwpError Dbg::PrepareInvokeMethod(uint32_t request_id, JDWP::ObjectId thr
 
   ThreadList* thread_list = Runtime::Current()->GetThreadList();
   Thread* targetThread = nullptr;
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   {
     ScopedObjectAccessUnchecked soa(self);
     JDWP::JdwpError error;
@@ -4081,7 +4082,7 @@ JDWP::JdwpError Dbg::PrepareInvokeMethod(uint32_t request_id, JDWP::ObjectId thr
         if (shorty[i + 1] == 'L') {
           // Did we really get an argument of an appropriate reference type?
           ObjPtr<mirror::Class> parameter_type =
-              m->ResolveClassFromTypeIndex(types->GetTypeItem(i).type_idx_);
+              class_linker->ResolveType(types->GetTypeItem(i).type_idx_, m);
           mirror::Object* argument = gRegistry->Get<mirror::Object*>(arg_values[i], &error);
           if (error != JDWP::ERR_NONE) {
             return JDWP::ERR_INVALID_OBJECT;

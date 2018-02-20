@@ -45,7 +45,8 @@ void CheckReferenceResult(Handle<mirror::Object> o, Thread* self) {
   }
   // Make sure that the result is an instance of the type this method was expected to return.
   ArtMethod* method = self->GetCurrentMethod(nullptr);
-  ObjPtr<mirror::Class> return_type = method->ResolveReturnType();
+  ObjPtr<mirror::Class> return_type = Runtime::Current()->GetClassLinker()->ResolveType(
+      method->GetReturnTypeIndex(), method);
 
   if (!o->InstanceOf(return_type)) {
     Runtime::Current()->GetJavaVM()->JniAbortF(nullptr,
@@ -108,7 +109,8 @@ JValue InvokeProxyInvocationHandler(ScopedObjectAccessAlreadyRunnable& soa, cons
       ArtMethod* interface_method =
           soa.Decode<mirror::Method>(interface_method_jobj)->GetArtMethod();
       // This can cause thread suspension.
-      ObjPtr<mirror::Class> result_type = interface_method->ResolveReturnType();
+      ObjPtr<mirror::Class> result_type = Runtime::Current()->GetClassLinker()->ResolveType(
+          interface_method->GetReturnTypeIndex(), interface_method);
       ObjPtr<mirror::Object> result_ref = soa.Decode<mirror::Object>(result);
       JValue result_unboxed;
       if (!UnboxPrimitiveForResult(result_ref.Ptr(), result_type, &result_unboxed)) {

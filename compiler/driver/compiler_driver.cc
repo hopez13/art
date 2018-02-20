@@ -1038,6 +1038,7 @@ class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
     }
     const uint8_t* encoded_catch_handler_list = accessor.GetCatchHandlerData();
     size_t num_encoded_catch_handlers = DecodeUnsignedLeb128(&encoded_catch_handler_list);
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
     for (size_t i = 0; i < num_encoded_catch_handlers; i++) {
       int32_t encoded_catch_handler_size = DecodeSignedLeb128(&encoded_catch_handler_list);
       bool has_catch_all = false;
@@ -1049,7 +1050,8 @@ class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
         dex::TypeIndex encoded_catch_handler_handlers_type_idx =
             dex::TypeIndex(DecodeUnsignedLeb128(&encoded_catch_handler_list));
         // Add to set of types to resolve if not already in the dex cache resolved types
-        if (!method->IsResolvedTypeIdx(encoded_catch_handler_handlers_type_idx)) {
+        if (class_linker->LookupResolvedType(encoded_catch_handler_handlers_type_idx, method)
+                == nullptr) {
           exceptions_to_resolve->emplace(encoded_catch_handler_handlers_type_idx,
                                          method->GetDexFile());
         }
@@ -2445,7 +2447,8 @@ class InitializeClassVisitor : public CompilationVisitor {
   bool ResolveTypesOfMethods(Thread* self, ArtMethod* m)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     // Return value of ResolveReturnType() is discarded because resolve will be done internally.
-    ObjPtr<mirror::Class> rtn_type = m->ResolveReturnType();
+    ObjPtr<mirror::Class> rtn_type = manager_->GetClassLinker()->ResolveType(
+        m->GetReturnTypeIndex(), m);
     if (rtn_type == nullptr) {
       self->ClearException();
       return false;
@@ -2454,7 +2457,7 @@ class InitializeClassVisitor : public CompilationVisitor {
     if (types != nullptr) {
       for (uint32_t i = 0; i < types->Size(); ++i) {
         dex::TypeIndex param_type_idx = types->GetTypeItem(i).type_idx_;
-        ObjPtr<mirror::Class> param_type = m->ResolveClassFromTypeIndex(param_type_idx);
+        ObjPtr<mirror::Class> param_type = manager_->GetClassLinker()->ResolveType(param_type_idx, m);
         if (param_type == nullptr) {
           self->ClearException();
           return false;

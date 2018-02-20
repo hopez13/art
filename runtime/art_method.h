@@ -394,13 +394,6 @@ class ArtMethod FINAL {
     dex_method_index_ = new_idx;
   }
 
-  // Lookup the Class* from the type index into this method's dex cache.
-  ObjPtr<mirror::Class> LookupResolvedClassFromTypeIndex(dex::TypeIndex type_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  // Resolve the Class* from the type index into this method's dex cache.
-  ObjPtr<mirror::Class> ResolveClassFromTypeIndex(dex::TypeIndex type_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
   // Returns true if this method has the same name and signature of the other method.
   bool HasSameNameAndSignature(ArtMethod* other) REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -588,8 +581,6 @@ class ArtMethod FINAL {
 
   const DexFile::CodeItem* GetCodeItem() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool IsResolvedTypeIdx(dex::TypeIndex type_idx) REQUIRES_SHARED(Locks::mutator_lock_);
-
   int32_t GetLineNumFromDexPC(uint32_t dex_pc) REQUIRES_SHARED(Locks::mutator_lock_);
 
   const DexFile::ProtoId& GetPrototype() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -606,14 +597,10 @@ class ArtMethod FINAL {
 
   ALWAYS_INLINE Primitive::Type GetReturnTypePrimitive() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  dex::TypeIndex GetReturnTypeIndex() REQUIRES_SHARED(Locks::mutator_lock_);
+
   const char* GetTypeDescriptorFromTypeIdx(dex::TypeIndex type_idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
-
-  // Lookup return type.
-  ObjPtr<mirror::Class> LookupResolvedReturnType() REQUIRES_SHARED(Locks::mutator_lock_);
-  // Resolve return type. May cause thread suspension due to GetClassFromTypeIdx
-  // calling ResolveType this caused a large number of bugs at call sites.
-  ObjPtr<mirror::Class> ResolveReturnType() REQUIRES_SHARED(Locks::mutator_lock_);
 
   mirror::ClassLoader* GetClassLoader() REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -798,8 +785,6 @@ class ArtMethod FINAL {
 
   // Compare given pointer size to the image pointer size.
   static bool IsImagePointerSize(PointerSize pointer_size);
-
-  dex::TypeIndex GetReturnTypeIndex() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<typename T>
   ALWAYS_INLINE T GetNativePointer(MemberOffset offset, PointerSize pointer_size) const {

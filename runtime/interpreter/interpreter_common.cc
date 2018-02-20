@@ -1317,6 +1317,7 @@ static inline bool DoCallCommon(ArtMethod* called_method,
       DCHECK(!string_init);  // All StringFactory methods are static.
     }
 
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
     // Copy the caller's invoke-* arguments into the callee's parameter registers.
     for (uint32_t shorty_pos = 0; dest_reg < num_regs; ++shorty_pos, ++dest_reg, ++arg_offset) {
       // Skip the 0th 'shorty' type since it represents the return type.
@@ -1331,10 +1332,10 @@ static inline bool DoCallCommon(ArtMethod* called_method,
             ObjPtr<mirror::Class> arg_type = method->GetDexCache()->GetResolvedType(type_idx);
             if (arg_type == nullptr) {
               StackHandleScope<1> hs(self);
-              // Preserve o since it is used below and GetClassFromTypeIndex may cause thread
+              // Preserve o since it is used below and ResolveType may cause thread
               // suspension.
               HandleWrapperObjPtr<mirror::Object> h = hs.NewHandleWrapper(&o);
-              arg_type = method->ResolveClassFromTypeIndex(type_idx);
+              arg_type = class_linker->ResolveType(type_idx, method);
               if (arg_type == nullptr) {
                 CHECK(self->IsExceptionPending());
                 return false;

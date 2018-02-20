@@ -2074,6 +2074,7 @@ bool HInliner::ArgumentTypesMoreSpecific(HInvoke* invoke_instruction, ArtMethod*
   // Iterate over the list of parameter types and test whether any of the
   // actual inputs has a more specific reference type than the type declared in
   // the signature.
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   const DexFile::TypeList* param_list = resolved_method->GetParameterTypeList();
   for (size_t param_idx = 0,
               input_idx = resolved_method->IsStatic() ? 0 : 1,
@@ -2082,8 +2083,8 @@ bool HInliner::ArgumentTypesMoreSpecific(HInvoke* invoke_instruction, ArtMethod*
        ++param_idx, ++input_idx) {
     HInstruction* input = invoke_instruction->InputAt(input_idx);
     if (input->GetType() == DataType::Type::kReference) {
-      ObjPtr<mirror::Class> param_cls = resolved_method->LookupResolvedClassFromTypeIndex(
-          param_list->GetTypeItem(param_idx).type_idx_);
+      ObjPtr<mirror::Class> param_cls = class_linker->ResolveType(
+          param_list->GetTypeItem(param_idx).type_idx_, resolved_method);
       if (IsReferenceTypeRefinement(GetClassRTI(param_cls),
                                     /* declared_can_be_null */ true,
                                     input)) {
@@ -2132,7 +2133,9 @@ void HInliner::FixUpReturnReferenceType(ArtMethod* resolved_method,
         // TODO: we could be more precise by merging the phi inputs but that requires
         // some functionality from the reference type propagation.
         DCHECK(return_replacement->IsPhi());
-        ObjPtr<mirror::Class> cls = resolved_method->LookupResolvedReturnType();
+        // TODO: Use the caller's class loader as referrer.
+        ObjPtr<mirror::Class> cls = Runtime::Current()->GetClassLinker()->ResolveType(
+            resolved_method->GetReturnTypeIndex(), resolved_method);
         return_replacement->SetReferenceTypeInfo(GetClassRTI(cls));
       }
     }

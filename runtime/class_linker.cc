@@ -5081,26 +5081,28 @@ static void ThrowSignatureMismatch(Handle<mirror::Class> klass,
                     error_msg.c_str());
 }
 
-static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
-                                                      Handle<mirror::Class> klass,
-                                                      Handle<mirror::Class> super_klass,
-                                                      ArtMethod* method1,
-                                                      ArtMethod* method2)
+bool ClassLinker::HasSameSignatureWithDifferentClassLoaders(Thread* self,
+                                                            Handle<mirror::Class> klass,
+                                                            Handle<mirror::Class> super_klass,
+                                                            ArtMethod* method,
+                                                            ArtMethod* super_method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   {
     StackHandleScope<1> hs(self);
-    Handle<mirror::Class> return_type(hs.NewHandle(method1->ResolveReturnType()));
+    Handle<mirror::Class> return_type(
+        hs.NewHandle(ResolveType(method->GetReturnTypeIndex(), klass.Get())));
     if (UNLIKELY(return_type == nullptr)) {
-      ThrowSignatureCheckResolveReturnTypeException(klass, super_klass, method1, method1);
+      ThrowSignatureCheckResolveReturnTypeException(klass, super_klass, method, super_method);
       return false;
     }
-    ObjPtr<mirror::Class> other_return_type = method2->ResolveReturnType();
+    ObjPtr<mirror::Class> other_return_type =
+        ResolveType(super_method->GetReturnTypeIndex(), super_klass.Get());
     if (UNLIKELY(other_return_type == nullptr)) {
-      ThrowSignatureCheckResolveReturnTypeException(klass, super_klass, method1, method2);
+      ThrowSignatureCheckResolveReturnTypeException(klass, super_klass, method, super_method);
       return false;
     }
     if (UNLIKELY(other_return_type != return_type.Get())) {
-      ThrowSignatureMismatch(klass, super_klass, method1,
+      ThrowSignatureMismatch(klass, super_klass, method,
                              StringPrintf("Return types mismatch: %s(%p) vs %s(%p)",
                                           return_type->PrettyClassAndClassLoader().c_str(),
                                           return_type.Get(),
@@ -5109,52 +5111,50 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
       return false;
     }
   }
-  const DexFile::TypeList* types1 = method1->GetParameterTypeList();
-  const DexFile::TypeList* types2 = method2->GetParameterTypeList();
+  const DexFile::TypeList* types1 = method->GetParameterTypeList();
+  const DexFile::TypeList* types2 = super_method->GetParameterTypeList();
   if (types1 == nullptr) {
     if (types2 != nullptr && types2->Size() != 0) {
-      ThrowSignatureMismatch(klass, super_klass, method1,
+      ThrowSignatureMismatch(klass, super_klass, method,
                              StringPrintf("Type list mismatch with %s",
-                                          method2->PrettyMethod(true).c_str()));
+                                          super_method->PrettyMethod(true).c_str()));
       return false;
     }
     return true;
   } else if (UNLIKELY(types2 == nullptr)) {
     if (types1->Size() != 0) {
-      ThrowSignatureMismatch(klass, super_klass, method1,
+      ThrowSignatureMismatch(klass, super_klass, method,
                              StringPrintf("Type list mismatch with %s",
-                                          method2->PrettyMethod(true).c_str()));
+                                          super_method->PrettyMethod(true).c_str()));
       return false;
     }
     return true;
   }
   uint32_t num_types = types1->Size();
   if (UNLIKELY(num_types != types2->Size())) {
-    ThrowSignatureMismatch(klass, super_klass, method1,
+    ThrowSignatureMismatch(klass, super_klass, method,
                            StringPrintf("Type list mismatch with %s",
-                                        method2->PrettyMethod(true).c_str()));
+                                        super_method->PrettyMethod(true).c_str()));
     return false;
   }
   for (uint32_t i = 0; i < num_types; ++i) {
     StackHandleScope<1> hs(self);
     dex::TypeIndex param_type_idx = types1->GetTypeItem(i).type_idx_;
-    Handle<mirror::Class> param_type(hs.NewHandle(
-        method1->ResolveClassFromTypeIndex(param_type_idx)));
+    Handle<mirror::Class> param_type(hs.NewHandle(ResolveType(param_type_idx, klass.Get())));
     if (UNLIKELY(param_type == nullptr)) {
-      ThrowSignatureCheckResolveArgException(klass, super_klass, method1,
-                                             method1, i, param_type_idx);
+      ThrowSignatureCheckResolveArgException(klass, super_klass, method,
+                                             method, i, param_type_idx);
       return false;
     }
     dex::TypeIndex other_param_type_idx = types2->GetTypeItem(i).type_idx_;
-    ObjPtr<mirror::Class> other_param_type =
-        method2->ResolveClassFromTypeIndex(other_param_type_idx);
+    ObjPtr<mirror::Class> other_param_type = ResolveType(other_param_type_idx, super_klass.Get());
     if (UNLIKELY(other_param_type == nullptr)) {
-      ThrowSignatureCheckResolveArgException(klass, super_klass, method1,
-                                             method2, i, other_param_type_idx);
+      ThrowSignatureCheckResolveArgException(klass, super_klass, method,
+                                             method, i, other_param_type_idx);
       return false;
     }
     if (UNLIKELY(param_type.Get() != other_param_type)) {
-      ThrowSignatureMismatch(klass, super_klass, method1,
+      ThrowSignatureMismatch(klass, super_klass, method,
                              StringPrintf("Parameter %u type mismatch: %s(%p) vs %s(%p)",
                                           i,
                                           param_type->PrettyClassAndClassLoader().c_str(),
@@ -8545,7 +8545,9 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandleForMethod(
     it.Next();
   }
 
-  Handle<mirror::Class> return_type = hs.NewHandle(target_method->ResolveReturnType());
+  Handle<mirror::Class> return_type = hs.NewHandle(ResolveType(target_method->GetReturnTypeIndex(),
+                                                               target_method_dex_cache,
+                                                               target_method_class_loader));
   if (UNLIKELY(return_type.IsNull())) {
     DCHECK(self->IsExceptionPending());
     return nullptr;

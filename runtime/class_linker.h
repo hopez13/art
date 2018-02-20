@@ -743,6 +743,13 @@ class ClassLinker {
     LinearAlloc* allocator;
   };
 
+  bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
+                                                 Handle<mirror::Class> klass,
+                                                 Handle<mirror::Class> super_klass,
+                                                 ArtMethod* method,
+                                                 ArtMethod* super_method)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Ensures that the supertype of 'klass' ('supertype') is verified. Returns false and throws
   // appropriate exceptions if verification failed hard. Returns true for successful verification or
   // soft-failures.

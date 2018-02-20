@@ -104,20 +104,6 @@ inline uint32_t ArtMethod::GetDexMethodIndex() {
   return GetDexMethodIndexUnchecked();
 }
 
-inline ObjPtr<mirror::Class> ArtMethod::LookupResolvedClassFromTypeIndex(dex::TypeIndex type_idx) {
-  ScopedAssertNoThreadSuspension ants(__FUNCTION__);
-  ObjPtr<mirror::Class> type =
-      Runtime::Current()->GetClassLinker()->LookupResolvedType(type_idx, this);
-  DCHECK(!Thread::Current()->IsExceptionPending());
-  return type;
-}
-
-inline ObjPtr<mirror::Class> ArtMethod::ResolveClassFromTypeIndex(dex::TypeIndex type_idx) {
-  ObjPtr<mirror::Class> type = Runtime::Current()->GetClassLinker()->ResolveType(type_idx, this);
-  DCHECK_EQ(type == nullptr, Thread::Current()->IsExceptionPending());
-  return type;
-}
-
 inline bool ArtMethod::CheckIncompatibleClassChange(InvokeType type) {
   switch (type) {
     case kStatic:
@@ -249,11 +235,6 @@ inline const DexFile::CodeItem* ArtMethod::GetCodeItem() {
   return GetDexFile()->GetCodeItem(GetCodeItemOffset());
 }
 
-inline bool ArtMethod::IsResolvedTypeIdx(dex::TypeIndex type_idx) {
-  DCHECK(!IsProxyMethod());
-  return LookupResolvedClassFromTypeIndex(type_idx) != nullptr;
-}
-
 inline int32_t ArtMethod::GetLineNumFromDexPC(uint32_t dex_pc) {
   DCHECK(!IsProxyMethod());
   if (dex_pc == dex::kDexNoIndex) {
@@ -359,14 +340,6 @@ inline dex::TypeIndex ArtMethod::GetReturnTypeIndex() {
   const DexFile::MethodId& method_id = dex_file->GetMethodId(GetDexMethodIndex());
   const DexFile::ProtoId& proto_id = dex_file->GetMethodPrototype(method_id);
   return proto_id.return_type_idx_;
-}
-
-inline ObjPtr<mirror::Class> ArtMethod::LookupResolvedReturnType() {
-  return LookupResolvedClassFromTypeIndex(GetReturnTypeIndex());
-}
-
-inline ObjPtr<mirror::Class> ArtMethod::ResolveReturnType() {
-  return ResolveClassFromTypeIndex(GetReturnTypeIndex());
 }
 
 inline bool ArtMethod::HasSingleImplementation() {
