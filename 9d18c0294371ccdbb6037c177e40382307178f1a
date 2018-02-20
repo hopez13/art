@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1347f007_45bfada4",
+        "filename": "runtime/dex/art_dex_file_loader.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2018-02-20T17:54:02Z",
+      "side": 1,
+      "message": "Would it be better to explicitly set for the else case, too?  Then perhaps change to something like this?\n  if (zip_file_only_contains_uncompressed_dex !\u003d nullptr) {\n    *zip_file_only_contains_uncompressed_dex \u003d zip_entry-\u003eIsAlignedToDexHeader() \u0026\u0026 zip_entry-\u003eIsUncompressed());\n  }",
+      "range": {
+        "startLine": 126,
+        "startChar": 8,
+        "endLine": 126,
+        "endChar": 57
+      },
+      "revId": "9d18c0294371ccdbb6037c177e40382307178f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6d351a9_ddd38e48",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2018-02-20T17:54:02Z",
+      "side": 1,
+      "message": "Just checking if true is a safe default.  Should the value always be set before use?",
+      "range": {
+        "startLine": 513,
+        "startChar": 50,
+        "endLine": 513,
+        "endChar": 54
+      },
+      "revId": "9d18c0294371ccdbb6037c177e40382307178f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
