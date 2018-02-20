@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "699df62c_68d8d116",
+        "filename": "runtime/dex/art_dex_file_loader.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-20T18:07:24Z",
+      "side": 1,
+      "message": "I\u0027m setting the value before the loop now for the else case.",
+      "parentUuid": "1347f007_45bfada4",
+      "range": {
+        "startLine": 126,
+        "startChar": 8,
+        "endLine": 126,
+        "endChar": 57
+      },
+      "revId": "9d18c0294371ccdbb6037c177e40382307178f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6d351a9_ddd38e48",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 5
