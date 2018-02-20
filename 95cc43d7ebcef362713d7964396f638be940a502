@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "debcb755_b1a3718b",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-20T13:26:01Z",
+      "side": 1,
+      "message": "nit: magic number, needs a kConstant and explanation.",
+      "range": {
+        "startLine": 721,
+        "startChar": 55,
+        "endLine": 721,
+        "endChar": 56
+      },
+      "revId": "95cc43d7ebcef362713d7964396f638be940a502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
