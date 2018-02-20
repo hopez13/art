@@ -22,6 +22,30 @@
       "revId": "1844cbe871be644ffee0be943f3119e0a93846fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6330588_c1806c44",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-20T13:50:13Z",
+      "side": 1,
+      "message": "Actually, I\u0027ll submit this CL as-is and implement that extra change in another CL.",
+      "parentUuid": "59e72488_1cb8d747",
+      "range": {
+        "startLine": 977,
+        "startChar": 0,
+        "endLine": 978,
+        "endChar": 38
+      },
+      "revId": "1844cbe871be644ffee0be943f3119e0a93846fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
