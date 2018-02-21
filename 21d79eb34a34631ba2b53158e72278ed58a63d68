@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0786fac3_8bfb8650",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-02-21T22:16:47Z",
+      "side": 1,
+      "message": "b/36808726 seems to have removed templates-sac, but the AOSP versions were abandoned for some reason.\ntemplates-google doesn\u0027t seem to exist.",
+      "parentUuid": "057b557f_2013b94f",
+      "revId": "21d79eb34a34631ba2b53158e72278ed58a63d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75094dc9_246262c3",
         "filename": "tools/ahat/Android.bp",
         "patchSetId": 2
