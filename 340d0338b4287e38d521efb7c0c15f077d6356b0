@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f909bc1_89fdf077",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1874,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-21T23:36:44Z",
+      "side": 1,
+      "message": "are correctly would be nicer.",
+      "range": {
+        "startLine": 1874,
+        "startChar": 46,
+        "endLine": 1874,
+        "endChar": 64
+      },
+      "revId": "340d0338b4287e38d521efb7c0c15f077d6356b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a29667bf_b28f988a",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-21T23:36:44Z",
+      "side": 1,
+      "message": "I think this should be \u003c ?",
+      "range": {
+        "startLine": 1893,
+        "startChar": 14,
+        "endLine": 1893,
+        "endChar": 53
+      },
+      "revId": "340d0338b4287e38d521efb7c0c15f077d6356b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a0c01b0_799f1ab7",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-21T23:36:44Z",
+      "side": 1,
+      "message": "This seems to contradict the comment that it \"doesn\u0027t have dex\"?",
+      "range": {
+        "startLine": 1950,
+        "startChar": 4,
+        "endLine": 1950,
+        "endChar": 49
+      },
+      "revId": "340d0338b4287e38d521efb7c0c15f077d6356b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff9b03c3_9e30ec3b",
+        "filename": "libdexfile/dex/compact_offset_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-21T23:36:44Z",
+      "side": 1,
+      "message": "table",
+      "range": {
+        "startLine": 40,
+        "startChar": 28,
+        "endLine": 40,
+        "endChar": 33
+      },
+      "revId": "340d0338b4287e38d521efb7c0c15f077d6356b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ea9305_900de813",
+        "filename": "libdexfile/dex/compact_offset_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-21T23:36:44Z",
+      "side": 1,
+      "message": "also?  Or is it really high pitched?",
+      "range": {
+        "startLine": 54,
+        "startChar": 18,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "340d0338b4287e38d521efb7c0c15f077d6356b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26fa4429_dc125843",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-21T23:36:44Z",
+      "side": 1,
+      "message": "I don\u0027t understand this change.  It should be completely equivalent, I think...",
+      "range": {
+        "startLine": 462,
+        "startChar": 2,
+        "endLine": 476,
+        "endChar": 18
+      },
+      "revId": "340d0338b4287e38d521efb7c0c15f077d6356b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc271b0c_03ed79ec",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-21T23:36:44Z",
+      "side": 1,
+      "message": "why iterate over a set of one element?",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 65
+      },
+      "revId": "340d0338b4287e38d521efb7c0c15f077d6356b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
