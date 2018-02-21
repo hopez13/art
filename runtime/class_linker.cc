@@ -1812,8 +1812,6 @@ bool ClassLinker::AddImageSpace(
 
   if (!app_image) {
     // Make the string intern table and class table immutable for boot image.
-    // PIC app oat files may mmap a read-only copy into their own .bss section,
-    // so enforce that the data in the boot image tables remains unchanged.
     //
     // We cannot do that for app image even after the fixup as some interned
     // String references may actually end up pointing to moveable Strings.
