@@ -828,6 +828,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
   // Deduplication map for 64-bit literals, used for non-patchable method address or method code.
   Uint64ToLiteralMap uint64_literals_;
   // PC-relative method patch info for kBootImageLinkTimePcRelative/BootImageRelRo.
+  // Also used for type/string patches for kBootImageRelRo (same linker patch as for methods).
   ArenaDeque<PcRelativePatchInfo> boot_image_method_patches_;
   // PC-relative method patch info for kBssEntry.
   ArenaDeque<PcRelativePatchInfo> method_bss_entry_patches_;

@@ -606,6 +606,7 @@ class CodeGeneratorX86_64 : public CodeGenerator {
   int constant_area_start_;
 
   // PC-relative method patch info for kBootImageLinkTimePcRelative/kBootImageRelRo.
+  // Also used for type/string patches for kBootImageRelRo (same linker patch as for methods).
   ArenaDeque<PatchInfo<Label>> boot_image_method_patches_;
   // PC-relative method patch info for kBssEntry.
   ArenaDeque<PatchInfo<Label>> method_bss_entry_patches_;

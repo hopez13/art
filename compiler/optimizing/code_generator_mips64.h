@@ -658,6 +658,7 @@ class CodeGeneratorMIPS64 : public CodeGenerator {
   // address.
   Uint64ToLiteralMap uint64_literals_;
   // PC-relative method patch info for kBootImageLinkTimePcRelative/kBootImageRelRo.
+  // Also used for type/string patches for kBootImageRelRo (same linker patch as for methods).
   ArenaDeque<PcRelativePatchInfo> boot_image_method_patches_;
   // PC-relative method patch info for kBssEntry.
   ArenaDeque<PcRelativePatchInfo> method_bss_entry_patches_;
