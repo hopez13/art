@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "018cb52d_73a630e2",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-21T10:55:05Z",
+      "side": 1,
+      "message": "We should try to lookup/resolve the class (depending on `can_load_classes_`) and use the FromDescriptor() only if that fails.\n\nIt would be inconsistent not to lookup/resolve the class here while we\u0027re still doing the lookup/resolution in other contexts in the verifier. Such inconsistencies could lead to subtle errors.",
+      "revId": "07ba1a7266337f5bfd5daf8f3e820e15b818a3d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
