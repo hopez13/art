@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d7d751d_da3bac02",
+        "filename": "test/1946-list-descriptors/src/art/Test1946.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2018-02-21T11:11:15Z",
+      "side": 1,
+      "message": "On Android yes, but that is an implementation detail. On some systems, the system classloader is not the same as the boot classloader and we want to be able to change that.\n\nObject.class.getClassLoader() is the most precise (and idiomatic) way of requesting the boot classloader.",
+      "parentUuid": "6e05097d_aea0835a",
+      "range": {
+        "startLine": 77,
+        "startChar": 34,
+        "endLine": 77,
+        "endChar": 63
+      },
+      "revId": "29ccb417a2ffb66b50a921152a65cb56675860d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b75cff25_74cf263f",
         "filename": "test/1946-list-descriptors/src/art/Test1946.java",
         "patchSetId": 3
