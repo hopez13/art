@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "91b05854_4cbbac2d",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1136354
+      },
+      "writtenOn": "2018-02-21T22:39:24Z",
+      "side": 1,
+      "message": "I see. I re-checked the Droiddoc.mk that they use ALLOW_MISSING_DEPENDENCIES to suppress the errors.\nhttps://cs.corp.google.com/aosp-master/build/make/core/droiddoc.mk?rcl\u003d5ef78033d5cc5790f4efd75769dd7fba4ccf477a\u0026l\u003d145\n\nFor libcore, and ahat, they both use templates-sdk as template dir. I can add that ALLOW_MISSING_DEPENDENCIES later.",
+      "parentUuid": "0786fac3_8bfb8650",
+      "revId": "21d79eb34a34631ba2b53158e72278ed58a63d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75094dc9_246262c3",
         "filename": "tools/ahat/Android.bp",
         "patchSetId": 2
