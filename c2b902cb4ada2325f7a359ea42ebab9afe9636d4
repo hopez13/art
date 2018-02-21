@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "aacc978f_84b33a12",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-21T15:42:25Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e7c2411_822cb4fa",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-21T15:42:25Z",
+      "side": 1,
+      "message": "nit: add comments",
+      "range": {
+        "startLine": 1020,
+        "startChar": 0,
+        "endLine": 1021,
+        "endChar": 61
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25727ade_1d71ee88",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
