@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0dff57b5_9ed0dfe3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2623,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-21T10:37:19Z",
+      "side": 1,
+      "message": "With a one day turnaround for every requested change, I think we can keep the \u0027explicit\u0027 for the moment and submit as is.",
+      "parentUuid": "97c0b990_62241e10",
+      "range": {
+        "startLine": 2623,
+        "startChar": 2,
+        "endLine": 2623,
+        "endChar": 10
+      },
+      "revId": "d9e4d73b20d68aa387f5837e1535b6fc26b2859a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "949bf47b_8a3f80d7",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-21T09:44:16Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 2643,
+        "startChar": 2,
+        "endLine": 2643,
+        "endChar": 38
+      },
+      "revId": "d9e4d73b20d68aa387f5837e1535b6fc26b2859a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c351656_b16e1547",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-21T10:37:19Z",
+      "side": 1,
+      "message": "No, this needs to remain. As I pointed out on PS4, the base class HTemplateInstruction\u003cN\u003e is template-parameter-dependent, so the compiler does not look at its superclass in this context and we need this using declaration here for the use at the next line.",
+      "parentUuid": "949bf47b_8a3f80d7",
       "range": {
         "startLine": 2643,
         "startChar": 2,
