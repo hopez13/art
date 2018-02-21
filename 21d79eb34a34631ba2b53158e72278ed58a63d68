@@ -39,6 +39,30 @@
       "revId": "21d79eb34a34631ba2b53158e72278ed58a63d68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b5cc85c_20de8eda",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1136354
+      },
+      "writtenOn": "2018-02-21T21:09:37Z",
+      "side": 1,
+      "message": "I made a mistake. these two files are to actually generated not the input file. I will fix it.",
+      "parentUuid": "75094dc9_246262c3",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 6
+      },
+      "revId": "21d79eb34a34631ba2b53158e72278ed58a63d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
