@@ -40,6 +40,7 @@
 #include "base/array_ref.h"
 #include "base/macros.h"
 #include "class_linker.h"
+#include "class_loader_utils.h"
 #include "class_table-inl.h"
 #include "common_throws.h"
 #include "dex/art_dex_file_loader.h"
@@ -942,22 +943,11 @@ jvmtiError ClassUtil::GetClassLoaderClassDescriptors(jvmtiEnv* env,
   art::Handle<art::mirror::ClassLoader> class_loader(
       hs.NewHandle(soa.Decode<art::mirror::ClassLoader>(loader)));
   std::vector<const art::DexFile*> dex_files;
-  ClassLoaderHelper::VisitDexFileObjects(
-      self,
+  art::VisitClassLoaderDexFiles(
+      soa,
       class_loader,
-      [&] (art::ObjPtr<art::mirror::Object> dex_file) REQUIRES_SHARED(art::Locks::mutator_lock_) {
-        art::StackHandleScope<2> hs(self);
-        art::Handle<art::mirror::Object> h_dex_file(hs.NewHandle(dex_file));
-        art::Handle<art::mirror::LongArray> cookie(
-            hs.NewHandle(ClassLoaderHelper::GetDexFileCookie(h_dex_file)));
-        size_t num_elements = cookie->GetLength();
-        // We need to skip over the oat_file that's the first element. The other elements are all
-        // dex files.
-        for (size_t i = 1; i < num_elements; i++) {
-          dex_files.push_back(
-              reinterpret_cast<const art::DexFile*>(static_cast<uintptr_t>(cookie->Get(i))));
-        }
-        // Iterate over all dex files.
+      [&](art::Thread* self ATTRIBUTE_UNUSED, const art::DexFile* dex_file) {
+        dex_files.push_back(dex_file);
         return true;
       });
   // We hold the loader so the dex files won't go away until after this call at worst.
