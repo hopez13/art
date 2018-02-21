@@ -22,6 +22,30 @@
       "revId": "5e3cfa295a44d4f1a0eb26134c6f866b27245a9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43eec03e_6380d4ca",
+        "filename": "libdexfile/dex/compact_offset_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-02-21T22:32:33Z",
+      "side": 1,
+      "message": "We can\u0027t have libdexfile depend on runtime/base because that is part of libart.  For now, leave it here.  I hope to factor some of runtime/base out into a separate library in the future.  A TODO would be nice.",
+      "parentUuid": "e007f1c9_45f2e57a",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "5e3cfa295a44d4f1a0eb26134c6f866b27245a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
