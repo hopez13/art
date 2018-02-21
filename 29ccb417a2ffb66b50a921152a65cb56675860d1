@@ -22,6 +22,29 @@
       "revId": "29ccb417a2ffb66b50a921152a65cb56675860d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b75cff25_74cf263f",
+        "filename": "test/1946-list-descriptors/src/art/Test1946.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-21T11:07:41Z",
+      "side": 1,
+      "message": "this is a public API, no need to use reflection?",
+      "range": {
+        "startLine": 120,
+        "startChar": 39,
+        "endLine": 120,
+        "endChar": 75
+      },
+      "revId": "29ccb417a2ffb66b50a921152a65cb56675860d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
