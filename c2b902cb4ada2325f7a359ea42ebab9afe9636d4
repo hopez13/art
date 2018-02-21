@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25727ade_1d71ee88",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "How about AssertionError? That way, you also don\u0027t need to declare the \"throws Throwable\" all over the place.\n\nOn a more general note, should we just use org.junit.Assert.{fail,assertEquals} here rather than writing our own, even if this is not a JUnit test?",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53e85d4c_da40f521",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 5
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "310cfe6e_b7f638ae",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "AssertionError?",
+      "range": {
+        "startLine": 72,
+        "startChar": 26,
+        "endLine": 72,
+        "endChar": 42
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae28257e_bad9b2f4",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "naming suggestion:\n\nvhField -\u003e fieldHandle\nmhField -\u003e fieldInvoker\n\n? (Or even value, valueHandle, valueInvoker).",
+      "range": {
+        "startLine": 79,
+        "startChar": 25,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "329d3b23_3bc07a9d",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "Am I understanding right that because this is an ExactInvoker, invoke() and invokeExact() will do the same thing (throw if the types don\u0027t match)?",
+      "range": {
+        "startLine": 80,
+        "startChar": 34,
+        "endLine": 80,
+        "endChar": 55
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f397be4a_c0c0f641",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "Perhaps mention that these are expected to fail because of the mismatching argument/return type. Eg.:\n\n// Check that invokeExact() fails when argument and return type are different/require conversion.\n\nIt\u0027d be nice to have some comments on the expected differences between exact / regular invoke; It seems that the exact version will fail for widening conversions (eg. byte to int; what about int to byte?) and both will fail for other type mismatches (eg. String vs. Integer) or for null values?",
+      "range": {
+        "startLine": 90,
+        "startChar": 15,
+        "endLine": 90,
+        "endChar": 64
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9521ead5_8d642894",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "The message \"Unreachable\" is redundant because if this code was expected to be reached then it wouldn\u0027t be fail()ing the test. Consider dropping the message - up to you.",
+      "range": {
+        "startLine": 95,
+        "startChar": 16,
+        "endLine": 95,
+        "endChar": 36
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d08df70_e6ae04f3",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "nit:\n\n   \"e\" -\u003e \"expected\"\n\nSame in lots of places below.",
+      "range": {
+        "startLine": 96,
+        "startChar": 46,
+        "endLine": 96,
+        "endChar": 47
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66aaa463_b7c7b645",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "Stupid question, is the choice of void return type here implemented by the compiler, and is it documented?\n\nAs far as I can see, this .java code here can\u0027t distinguish a void return type from a discarded return value here. (It\u0027s not possible to write .java code for overloaded methods that only differ in their return type, butthe compiler can generate synthetic overloads of this sort).",
+      "range": {
+        "startLine": 107,
+        "startChar": 42,
+        "endLine": 107,
+        "endChar": 59
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b3ba10b_eda1af69",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "The \"fail()\" occurring in the catch block is too easy to misread as it occuring in the try block (like elsewhere).\n\nWhy not just drop the catch blocks in the case where no exception is expected, and let the test runner deal with the uncaught (and unexpected) exception if/when it happens?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 36
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69277570_dc9c0433",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "These sort of invocations are expected to fail regardless of whether the invoker (mhField) is exact or inexact, right? Perhaps this would be easier to see if the two tests were delegating to the same static helper method that accepts the mhField as a parameter?",
+      "range": {
+        "startLine": 251,
+        "startChar": 15,
+        "endLine": 251,
+        "endChar": 64
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c7fe0a_7027cd5e",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "consider adding a test that attempts to pass or return a non-integral type, eg. a double or a String?",
+      "range": {
+        "startLine": 289,
+        "startChar": 8,
+        "endLine": 289,
+        "endChar": 9
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "305831ee_bd752536",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "naming: how about array -\u003e floats, vhArray -\u003e vhFloats or floatsVarHandle?\n\nMost usages below use array together with [] so it\u0027s clear that it\u0027s an array, but it\u0027s not clear that its compontent type is float.",
+      "range": {
+        "startLine": 305,
+        "startChar": 20,
+        "endLine": 305,
+        "endChar": 25
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "424343da_6f369022",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "Consider adding a comment:\n\n// float method(float[] argA, int argB, Float argC, float argD);",
+      "range": {
+        "startLine": 306,
+        "startChar": 12,
+        "endLine": 306,
+        "endChar": 36
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "530a08d5_83913467",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-02-21T14:29:37Z",
+      "side": 1,
+      "message": "Could be easier to understand with a comment, eg.:\n// short is not convertible to Float\n\nand below:\n// int is not convertible to Float",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 83
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
