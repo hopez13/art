@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2904d51a_04ffd425",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2018-02-21T18:54:31Z",
+      "side": 1,
+      "message": "super_method might be abstract and the same as method, then this DCHECK will fail. Just test super_method \u003d\u003d method is enough.",
+      "range": {
+        "startLine": 135,
+        "startChar": 16,
+        "endLine": 135,
+        "endChar": 40
+      },
+      "revId": "4de00a9139b53b9048f1228b87b8ae8327225532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
