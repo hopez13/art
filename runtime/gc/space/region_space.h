@@ -31,6 +31,13 @@ class ReadBarrierTable;
 
 namespace space {
 
+// Cyclic region allocation strategy. If `true`, region allocation
+// will not try to allocate a new region from the beginning of the
+// region space, but from the last allocated region. This allocation
+// strategy reduces region reuse and should help catch some GC bugs
+// earlier.
+static constexpr bool kCyclicRegionAllocation = kIsDebugBuild;
+
 // A space that consists of equal-sized regions.
 class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
  public:
@@ -599,6 +606,11 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
   Region* current_region_;         // The region currently used for allocation.
   Region* evac_region_;            // The region currently used for evacuation.
   Region full_region_;             // The dummy/sentinel region that looks full.
+
+  // Index into the region array pointing to the starting region when
+  // trying to allocate a new region. Only used when
+  // `kCyclicRegionAllocation` is true.
+  size_t cyclic_alloc_region_index_ GUARDED_BY(region_lock_);
 
   // Mark bitmap used by the GC.
   std::unique_ptr<accounting::ContinuousSpaceBitmap> mark_bitmap_;
