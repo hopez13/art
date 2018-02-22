@@ -16,7 +16,17 @@
 
 # Enable lock contention logging.
 ${RUN} --runtime-option -Xlockprofthreshold:10 "${@}"
+return_status1=$?
 
 # Run locks-only mode with stack-dump lock profiling. Reduce the number of total operations from
 # the default 1000 to 100.
-${RUN} --runtime-option -Xlockprofthreshold:10 --runtime-option -Xstackdumplockprofthreshold:20 "${@}" Main --locks-only -o 100
+${RUN} --runtime-option -Xlockprofthreshold:10 --runtime-option -Xstackdumplockprofthreshold:20 \
+  "${@}" Main --locks-only -o 100
+return_status2=$?
+
+# Make sure we don't silently ignore a failure from the first command.
+if [ x$return_status1 != x0 ]; then
+  exit $return_status1
+else
+  exit $return_status2
+fi
