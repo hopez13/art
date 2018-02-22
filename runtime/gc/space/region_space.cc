@@ -311,6 +311,9 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
       *cleared_objects += r->ObjectsAllocated();
       --num_non_free_regions_;
       clear_region(r);
+      VLOG(gc) << "Cleared from-space region " << r->Idx()
+               << " [" << reinterpret_cast<void*>(r->Begin())
+               << ", " << reinterpret_cast<void*>(r->End()) << ")";
     } else if (r->IsInUnevacFromSpace()) {
       if (r->LiveBytes() == 0) {
         DCHECK(!r->IsLargeTail());
@@ -330,6 +333,21 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
         *cleared_bytes += r->BytesAllocated();
         *cleared_objects += r->ObjectsAllocated();
         num_non_free_regions_ -= free_regions;
+        // This logging code needs to be before the `clear_region(r)`
+        // statement below to distinguish large and non-large regions.
+        if (VLOG_IS_ON(gc)) {
+          if (r->IsLarge()) {
+            VLOG(gc) << "Cleared unevac from-space large region "
+                     << i << "-" << i + free_regions - 1
+                     << " [" << reinterpret_cast<void*>(r->Begin())
+                     << ", " << reinterpret_cast<void*>(r->Begin() + free_regions * kRegionSize)
+                     << ")";
+          } else {
+            VLOG(gc) << "Cleared unevac from-space region " << r->Idx()
+                     << " [" << reinterpret_cast<void*>(r->Begin())
+                     << ", " << reinterpret_cast<void*>(r->End()) << ")";
+          }
+        }
         clear_region(r);
         GetLiveBitmap()->ClearRange(
             reinterpret_cast<mirror::Object*>(r->Begin()),
@@ -439,6 +457,9 @@ void RegionSpace::Clear() {
   SetNonFreeRegionLimit(0);
   current_region_ = &full_region_;
   evac_region_ = &full_region_;
+  VLOG(gc) << "Cleared whole region space " << GetName()
+           << " [" << reinterpret_cast<void*>(Begin())
+           << ", " << reinterpret_cast<void*>(Limit()) << ")";
 }
 
 void RegionSpace::ClampGrowthLimit(size_t new_capacity) {
@@ -618,9 +639,18 @@ RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
         r->SetNewlyAllocated();
         ++num_non_free_regions_;
       }
+      VLOG(gc) << "Allocated region " << r->Idx()
+               << " [" << reinterpret_cast<void*>(r->Begin())
+               << ", " << reinterpret_cast<void*>(r->End()) << ")"
+               << " for_evac=" << std::boolalpha << for_evac << std::noboolalpha;
       return r;
     }
   }
+  VLOG(gc) << "Failed to allocate a region:"
+           << " for_evac=" << std::boolalpha << for_evac << std::noboolalpha
+           << " num_non_free_regions_=" << num_non_free_regions_
+           << " num_evac_regions_=" << num_evac_regions_
+           << " num_regions_=" << num_regions_;
   return nullptr;
 }
 

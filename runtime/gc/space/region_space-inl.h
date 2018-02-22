@@ -18,6 +18,8 @@
 #define ART_RUNTIME_GC_SPACE_REGION_SPACE_INL_H_
 
 #include "region_space.h"
+
+#include "base/logging.h"  // For VLOG.
 #include "thread-current-inl.h"
 
 namespace art {
@@ -303,12 +305,25 @@ inline mirror::Object* RegionSpace::AllocLarge(size_t num_bytes,
         *usable_size = allocated;
       }
       *bytes_tl_bulk_allocated = allocated;
+      VLOG(gc) << "Allocated large region " << left << "-" << right - 1
+               << " [" << reinterpret_cast<void*>(regions_[left].Begin())
+               << ", " << reinterpret_cast<void*>(regions_[right].End()) << ")"
+               << " kForEvac=" << std::boolalpha << kForEvac << std::noboolalpha
+               << " num_bytes=" << num_bytes
+               << " num_regs=" << num_regs;
       return reinterpret_cast<mirror::Object*>(first_reg->Begin());
     } else {
       // right points to the non-free region. Start with the one after it.
       left = right + 1;
     }
   }
+  VLOG(gc) << "Failed to allocate a large region:"
+           << " kForEvac=" << std::boolalpha << kForEvac << std::noboolalpha
+           << " num_bytes=" << num_bytes
+           << " num_regs=" << num_regs
+           << " num_non_free_regions_=" << num_non_free_regions_
+           << " num_evac_regions_=" << num_evac_regions_
+           << " num_regions_=" << num_regions_;
   return nullptr;
 }
 
@@ -338,6 +353,14 @@ inline void RegionSpace::FreeLarge(mirror::Object* large_obj, size_t bytes_alloc
     // If we aren't at the end of the space, check that the next region is not a large tail.
     Region* following_reg = RefToRegionLocked(reinterpret_cast<mirror::Object*>(end_addr));
     DCHECK(!following_reg->IsLargeTail());
+  }
+  if (VLOG_IS_ON(gc)) {
+    Region* begin_region = RefToRegionLocked(reinterpret_cast<mirror::Object*>(begin_addr));
+    Region* end_region = RefToRegionLocked(reinterpret_cast<mirror::Object*>(end_addr - 1));
+    DCHECK_LT(begin_region, end_region);
+    VLOG(gc) << "Cleared large region " << begin_region->Idx() << "-" << end_region->Idx()
+             << " [" << reinterpret_cast<void*>(begin_addr)
+             << ", " << reinterpret_cast<void*>(end_addr) << ")";
   }
 }
 
