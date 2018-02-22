@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "f3fcf951_abc85bb9",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T14:04:48Z",
+      "side": 1,
+      "message": "This check happens inside the calls to IsConvertible() and IsExactMatch() on lines 1053 and 1059.",
+      "parentUuid": "c403a6fa_38765288",
+      "range": {
+        "startLine": 1020,
+        "startChar": 0,
+        "endLine": 1021,
+        "endChar": 61
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25727ade_1d71ee88",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
