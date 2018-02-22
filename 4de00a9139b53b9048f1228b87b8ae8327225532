@@ -22,6 +22,30 @@
       "revId": "4de00a9139b53b9048f1228b87b8ae8327225532",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b249fc8_208a0909",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-22T14:32:16Z",
+      "side": 1,
+      "message": "My bad. Fixed it.",
+      "parentUuid": "2904d51a_04ffd425",
+      "range": {
+        "startLine": 135,
+        "startChar": 16,
+        "endLine": 135,
+        "endChar": 40
+      },
+      "revId": "4de00a9139b53b9048f1228b87b8ae8327225532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

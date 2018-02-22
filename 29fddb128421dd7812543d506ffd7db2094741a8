@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "aab83856_2bb716ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-22T14:32:16Z",
+      "side": 1,
+      "message": "The test is added.",
+      "parentUuid": "99f5030a_8950808a",
+      "range": {
+        "startLine": 9,
+        "startChar": 25,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "29fddb128421dd7812543d506ffd7db2094741a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ff1da64_8310a2df",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
