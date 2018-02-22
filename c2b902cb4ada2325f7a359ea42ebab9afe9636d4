@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5902c03b_dbe616f1",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Good spot, editor indentation engine does not like this declaration, but is okay with the next (which is quitevery similar).",
+      "parentUuid": "aacc978f_84b33a12",
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e7c2411_822cb4fa",
         "filename": "runtime/method_handles.cc",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2018-02-21T15:42:25Z",
       "side": 1,
       "message": "nit: add comments",
+      "range": {
+        "startLine": 1020,
+        "startChar": 0,
+        "endLine": 1021,
+        "endChar": 61
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "909567d9_b31f29f3",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Moved the the \u003c1 check to the VarHandle conversion test where it\u0027s more apparent and added a comment. Removed the length check here as that\u0027s strictly a quick bailout that\u0027ll be handled later anyway.",
+      "parentUuid": "2e7c2411_822cb4fa",
       "range": {
         "startLine": 1020,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "bee6196b_2863d554",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done.\n\nART does not use JUnit for it\u0027s run-tests. It\u0027s perhaps doable, but we have a gnarly tangle of scripts and scenarios so I\u0027d prefer not to introduce it here.",
+      "parentUuid": "25727ade_1d71ee88",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53e85d4c_da40f521",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2018-02-21T14:29:37Z",
       "side": 1,
       "message": "unused?",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 5
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e191b5aa_bbd164fd",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Renamed assertUnreachble() and replaced the the fail(\"Unreachable\") invocations.",
+      "parentUuid": "53e85d4c_da40f521",
       "range": {
         "startLine": 31,
         "startChar": 2,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "8736935e_6e413784",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Added TestSetupError.",
+      "parentUuid": "310cfe6e_b7f638ae",
+      "range": {
+        "startLine": 72,
+        "startChar": 26,
+        "endLine": 72,
+        "endChar": 42
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae28257e_bad9b2f4",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "542268ce_1b8ca44f",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae28257e_bad9b2f4",
+      "range": {
+        "startLine": 79,
+        "startChar": 25,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "329d3b23_3bc07a9d",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
@@ -145,6 +283,30 @@
       "writtenOn": "2018-02-21T14:29:37Z",
       "side": 1,
       "message": "Am I understanding right that because this is an ExactInvoker, invoke() and invokeExact() will do the same thing (throw if the types don\u0027t match)?",
+      "range": {
+        "startLine": 80,
+        "startChar": 34,
+        "endLine": 80,
+        "endChar": 55
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf0cc966_c53a9100",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "As far as I understand:\n\n- the invoke() vs invokeExact() is whether the method type of the call site has to match the method handle method type (exact) or whether permitted Java conversions can take place to coerce the argument types or whether no such conversion is possible. In either failure mode a WrongMethodTypeException is thrown.\n\n- the exactInvoker vs invoker is whether the method handle method type has to exactly match the types expected by the VarHandle method type for the accessor passed to the invoke()/invokeExact() or whether conversions can take place. The VarHandle instance is late bound (only supplied at point of invocation) and the invoker is created for an accessor type without reference to any specific VarHandle instance.",
+      "parentUuid": "329d3b23_3bc07a9d",
       "range": {
         "startLine": 80,
         "startChar": 34,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "f9a94fc6_82935e45",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Every test has a comment or intro that explains what is being tested, e.g. \"check for unboxing\". I think this sufficient.\n\nIf any of these tests fail, there will be an associated change with ART that points to why as these are all ART runtime behaviour tests.\n\nI appreciate this doesn\u0027t hit the higher bar being advocated, but this is consistent with how ART runtime tests are.",
+      "parentUuid": "f397be4a_c0c0f641",
+      "range": {
+        "startLine": 90,
+        "startChar": 15,
+        "endLine": 90,
+        "endChar": 64
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9521ead5_8d642894",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
@@ -200,6 +386,30 @@
       "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f2f179_7b143939",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9521ead5_8d642894",
+      "range": {
+        "startLine": 95,
+        "startChar": 16,
+        "endLine": 95,
+        "endChar": 36
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "1f3faa02_be233bdb",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d08df70_e6ae04f3",
+      "range": {
+        "startLine": 96,
+        "startChar": 46,
+        "endLine": 96,
+        "endChar": 47
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66aaa463_b7c7b645",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
@@ -237,6 +471,30 @@
       "writtenOn": "2018-02-21T14:29:37Z",
       "side": 1,
       "message": "Stupid question, is the choice of void return type here implemented by the compiler, and is it documented?\n\nAs far as I can see, this .java code here can\u0027t distinguish a void return type from a discarded return value here. (It\u0027s not possible to write .java code for overloaded methods that only differ in their return type, butthe compiler can generate synthetic overloads of this sort).",
+      "range": {
+        "startLine": 107,
+        "startChar": 42,
+        "endLine": 107,
+        "endChar": 59
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f0a2908_f75c6007",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "For signature polymorphic methods the dexer knows the callsite\u0027s method type and the emitted bytecode has this.\n\nIf the there is no assignment of the returned result the callsite method type\u0027s return value is treated as void.\n\nSignature polymorphic methods get their own treatment in the JVMS.",
+      "parentUuid": "66aaa463_b7c7b645",
       "range": {
         "startLine": 107,
         "startChar": 42,
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "5d46ddd2_07d3c1e8",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b3ba10b_eda1af69",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 36
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69277570_dc9c0433",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
@@ -283,6 +565,30 @@
       "writtenOn": "2018-02-21T14:29:37Z",
       "side": 1,
       "message": "These sort of invocations are expected to fail regardless of whether the invoker (mhField) is exact or inexact, right? Perhaps this would be easier to see if the two tests were delegating to the same static helper method that accepts the mhField as a parameter?",
+      "range": {
+        "startLine": 251,
+        "startChar": 15,
+        "endLine": 251,
+        "endChar": 64
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d32c0cb8_0da795c1",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Not sure I follow what the static helper method would look like?",
+      "parentUuid": "69277570_dc9c0433",
       "range": {
         "startLine": 251,
         "startChar": 15,
@@ -318,6 +624,30 @@
     },
     {
       "key": {
+        "uuid": "55016478_fb5f6f13",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0c7fe0a_7027cd5e",
+      "range": {
+        "startLine": 289,
+        "startChar": 8,
+        "endLine": 289,
+        "endChar": 9
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305831ee_bd752536",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
@@ -338,6 +668,30 @@
       "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d368137f_3f79170b",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305831ee_bd752536",
+      "range": {
+        "startLine": 305,
+        "startChar": 20,
+        "endLine": 305,
+        "endChar": 25
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -364,6 +718,30 @@
     },
     {
       "key": {
+        "uuid": "f4f4a8c3_c6b5f7a3",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "424343da_6f369022",
+      "range": {
+        "startLine": 306,
+        "startChar": 12,
+        "endLine": 306,
+        "endChar": 36
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "530a08d5_83913467",
         "filename": "test/713-varhandle-invokers/src/Main.java",
         "patchSetId": 4
@@ -384,6 +762,30 @@
       "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8def041c_20cff2a9",
+        "filename": "test/713-varhandle-invokers/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-22T12:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "530a08d5_83913467",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 83
+      },
+      "revId": "c2b902cb4ada2325f7a359ea42ebab9afe9636d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
