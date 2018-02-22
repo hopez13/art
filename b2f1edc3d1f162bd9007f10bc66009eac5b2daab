@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bd5ee82_ccde035d",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-22T18:43:49Z",
+      "side": 0,
+      "message": "Regression is caused by removing this, it might be possible to get savings back.",
+      "range": {
+        "startLine": 344,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 3
+      },
+      "revId": "b2f1edc3d1f162bd9007f10bc66009eac5b2daab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
