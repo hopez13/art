@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f10ec58a_703c2c23",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-23T17:52:24Z",
+      "side": 1,
+      "message": "Thanks for cleaning up the option.",
+      "range": {
+        "startLine": 459,
+        "startChar": 18,
+        "endLine": 459,
+        "endChar": 33
+      },
+      "revId": "116cd8a70960ee4dc882f21d97f1e46ce91d16b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f50a52c1_d04f0702",
+        "filename": "dex2oat/linker/oat_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-23T17:52:24Z",
+      "side": 1,
+      "message": "Sorting?",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "116cd8a70960ee4dc882f21d97f1e46ce91d16b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b56c4856_16608733",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-02-23T17:52:24Z",
+      "side": 1,
+      "message": "This also covers non priv apps I think?",
+      "revId": "116cd8a70960ee4dc882f21d97f1e46ce91d16b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
