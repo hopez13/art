@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5113275c_d3a59abd",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-23T10:34:57Z",
+      "side": 1,
+      "message": "This should be `right - 1`.",
+      "range": {
+        "startLine": 310,
+        "startChar": 59,
+        "endLine": 310,
+        "endChar": 64
+      },
+      "revId": "1ea0aa0ce52a1e0d4652ad52c05146ae23d7f102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
