@@ -827,8 +827,7 @@ void AdbConnectionState::AttachJdwpAgent(art::Thread* self) {
   self->AssertNoPendingException();
   art::Runtime::Current()->AttachAgent(/* JNIEnv */ nullptr,
                                        MakeAgentArg(),
-                                       /* classloader */ nullptr,
-                                       /*allow_non_debuggable_tooling*/ true);
+                                       /* classloader */ nullptr);
   if (self->IsExceptionPending()) {
     LOG(ERROR) << "Failed to load agent " << agent_name_;
     art::ScopedObjectAccess soa(self);
