@@ -36,23 +36,20 @@ public class AhatSnapshot implements Diffable<AhatSnapshot> {
 
   private AhatSnapshot mBaseline = this;
 
+  private ExternalModelSource mExternalModelSource;
+
   AhatSnapshot(SuperRoot root,
                Instances<AhatInstance> instances,
                List<AhatHeap> heaps,
-               Site rootSite) {
+               Site rootSite,
+               ExternalModelSource externalModelSource) {
     mSuperRoot = root;
     mInstances = instances;
     mHeaps = heaps;
     mRootSite = rootSite;
+    mExternalModelSource = externalModelSource;
 
-    // Update the externel modeled size based on native allocation registry
-    // use.
-    for (AhatInstance cleaner : mInstances) {
-      AhatInstance.RegisteredNativeAllocation nra = cleaner.asRegisteredNativeAllocation();
-      if (nra != null) {
-        nra.referent.addExternalModel(nra.size);
-      }
-    }
+    ExternalModelImpl.applyExternalModel(externalModelSource, mInstances);
 
     AhatInstance.computeReverseReferences(mSuperRoot);
     DominatorsComputation.computeDominators(mSuperRoot);
@@ -167,6 +164,15 @@ public class AhatSnapshot implements Diffable<AhatSnapshot> {
    */
   public boolean isDiffed() {
     return mBaseline != this;
+  }
+
+  /**
+   * Returns the source used for external models in this snapshot.
+   *
+   * @return the external model source.
+   */
+  public ExternalModelSource getExternalModelSource() {
+    return mExternalModelSource;
   }
 
   @Override public AhatSnapshot getBaseline() {

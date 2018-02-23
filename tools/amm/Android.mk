@@ -26,7 +26,7 @@ include $(CLEAR_VARS)
 LOCAL_PACKAGE_NAME := AmmTest
 LOCAL_MODULE_TAGS := samples tests
 LOCAL_SRC_FILES := $(call all-java-files-under, AmmTest/src)
-LOCAL_SDK_VERSION := current
+LOCAL_SDK_VERSION := 26
 LOCAL_JNI_SHARED_LIBRARIES := libammtestjni
 LOCAL_JAVA_RESOURCE_FILES := $(LOCAL_PATH)/AmmTest/aahat.png
 LOCAL_MANIFEST_FILE := AmmTest/AndroidManifest.xml

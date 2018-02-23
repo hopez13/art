@@ -18,6 +18,7 @@ package com.android.ahat;
 
 import com.android.ahat.heapdump.AhatSnapshot;
 import com.android.ahat.heapdump.Diff;
+import com.android.ahat.heapdump.ExternalModelSource;
 import com.android.ahat.heapdump.HprofFormatException;
 import com.android.ahat.heapdump.Parser;
 import com.android.ahat.proguard.ProguardMap;
@@ -50,6 +51,8 @@ public class Main {
     out.println("     Diff the heap dump against the given baseline heap dump FILE.");
     out.println("  --baseline-proguard-map FILE");
     out.println("     Use the proguard map FILE to deobfuscate the baseline heap dump.");
+    out.println("  --amm");
+    out.println("     Use the actionable memory metric for external models.");
     out.println("");
   }
 
@@ -58,10 +61,12 @@ public class Main {
    * Prints an error message and exits the application on failure to load the
    * heap dump.
    */
-  private static AhatSnapshot loadHeapDump(File hprof, ProguardMap map) {
+  private static AhatSnapshot loadHeapDump(File hprof,
+                                           ProguardMap map,
+                                           ExternalModelSource externalModelSource) {
     System.out.println("Processing '" + hprof + "' ...");
     try {
-      return Parser.parseHeapDump(hprof, map);
+      return Parser.parseHeapDump(hprof, map, externalModelSource);
     } catch (IOException e) {
       System.err.println("Unable to load '" + hprof + "':");
       e.printStackTrace();
@@ -94,6 +99,7 @@ public class Main {
     File hprofbase = null;
     ProguardMap map = new ProguardMap();
     ProguardMap mapbase = new ProguardMap();
+    ExternalModelSource externalModelSource = ExternalModelSource.NATIVE_ALLOCATION_REGISTRY;
     for (int i = 0; i < args.length; i++) {
       if ("-p".equals(args[i]) && i + 1 < args.length) {
         i++;
@@ -122,6 +128,8 @@ public class Main {
           return;
         }
         hprofbase = new File(args[i]);
+      } else if ("--amm".equals(args[i])) {
+        externalModelSource = ExternalModelSource.ACTIONABLE_MEMORY_METRIC;
       } else {
         if (hprof != null) {
           System.err.println("multiple input files.");
@@ -152,9 +160,9 @@ public class Main {
       System.exit(1);
     }
 
-    AhatSnapshot ahat = loadHeapDump(hprof, map);
+    AhatSnapshot ahat = loadHeapDump(hprof, map, externalModelSource);
     if (hprofbase != null) {
-      AhatSnapshot base = loadHeapDump(hprofbase, mapbase);
+      AhatSnapshot base = loadHeapDump(hprofbase, mapbase, externalModelSource);
 
       System.out.println("Diffing heap dumps ...");
       Diff.snapshots(ahat, base);

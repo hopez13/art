@@ -65,17 +65,87 @@ public class Parser {
    *
    * @param hprof the hprof file to parse
    * @param map the proguard map for deobfuscation
+   * @param externalModelSource the method for computing external models
+   * @return the parsed heap dump
+   * @throws IOException if the heap dump could not be read
+   * @throws HprofFormatException if the heap dump is not properly formatted
+   */
+  public static AhatSnapshot parseHeapDump(File hprof,
+                                           ProguardMap map,
+                                           ExternalModelSource externalModelSource)
+    throws IOException, HprofFormatException {
+    return parseHeapDump(new HprofBuffer(hprof), map, externalModelSource);
+  }
+
+  /**
+   * Parses a heap dump from a File.
+   * <p>
+   * The heap dump should be a heap dump in the J2SE HPROF format optionally
+   * with Android extensions and satisfying the following additional
+   * constraints:
+   * <ul>
+   * <li>
+   * Class serial numbers, stack frames, and stack traces individually satisfy
+   * the following:
+   * <ul>
+   *   <li> All elements are defined before they are referenced.
+   *   <li> Ids are densely packed in some range [a, b] where a is not necessarily 0.
+   *   <li> There are not more than 2^31 elements defined.
+   * </ul>
+   * <li> All classes are defined via a LOAD CLASS record before the first
+   * heap dump segment.
+   * <li> The ID size used in the heap dump is 4 bytes.
+   * </ul>
+   * <p>
+   * The given proguard map will be used to deobfuscate class names, field
+   * names, and stack traces in the heap dump.
+   *
+   * @param hprof the hprof file to parse
+   * @param map the proguard map for deobfuscation
    * @return the parsed heap dump
    * @throws IOException if the heap dump could not be read
    * @throws HprofFormatException if the heap dump is not properly formatted
    */
   public static AhatSnapshot parseHeapDump(File hprof, ProguardMap map)
     throws IOException, HprofFormatException {
-    try {
-      return parseHeapDump(new HprofBuffer(hprof), map);
-    } catch (BufferUnderflowException e) {
-      throw new HprofFormatException("Unexpected end of file", e);
-    }
+    return parseHeapDump(new HprofBuffer(hprof), map);
+  }
+
+  /**
+   * Parses a heap dump from a byte buffer.
+   * <p>
+   * The heap dump should be a heap dump in the J2SE HPROF format optionally
+   * with Android extensions and satisfying the following additional
+   * constraints:
+   * <ul>
+   * <li>
+   * Class serial numbers, stack frames, and stack traces individually satisfy
+   * the following:
+   * <ul>
+   *   <li> All elements are defined before they are referenced.
+   *   <li> Ids are densely packed in some range [a, b] where a is not necessarily 0.
+   *   <li> There are not more than 2^31 elements defined.
+   * </ul>
+   * <li> All classes are defined via a LOAD CLASS record before the first
+   * heap dump segment.
+   * <li> The ID size used in the heap dump is 4 bytes.
+   * </ul>
+   * <p>
+   * The given proguard map will be used to deobfuscate class names, field
+   * names, and stack traces in the heap dump.
+   *
+   * @param hprof the bytes of the hprof file to parse
+   * @param map the proguard map for deobfuscation
+   * @param externalModelSource the method for computing external models
+   * @return the parsed heap dump
+   * @throws IOException if the heap dump could not be read
+   * @throws HprofFormatException if the heap dump is not properly formatted
+   */
+  public static AhatSnapshot parseHeapDump(ByteBuffer hprof,
+                                           ProguardMap map,
+                                           ExternalModelSource externalModelSource)
+    throws IOException, HprofFormatException {
+    return parseHeapDump(new HprofBuffer(hprof), map, externalModelSource);
   }
 
   /**
@@ -109,14 +179,29 @@ public class Parser {
    */
   public static AhatSnapshot parseHeapDump(ByteBuffer hprof, ProguardMap map)
     throws IOException, HprofFormatException {
+    return parseHeapDump(new HprofBuffer(hprof), map);
+  }
+
+  // Adds default external model source.
+  private static AhatSnapshot parseHeapDump(HprofBuffer hprof, ProguardMap map)
+    throws IOException, HprofFormatException {
+    return parseHeapDump(hprof, map, ExternalModelSource.getDefaultSource());
+  }
+
+  // Converts BufferUnderflowExceptions to HprofFormatExceptions.
+  private static AhatSnapshot parseHeapDump(HprofBuffer hprof,
+                                            ProguardMap map,
+                                            ExternalModelSource externalModelSource)
+    throws IOException, HprofFormatException {
     try {
-      return parseHeapDump(new HprofBuffer(hprof), map);
+      return parseHeapDumpMayBufferUnderflow(hprof, map, externalModelSource);
     } catch (BufferUnderflowException e) {
       throw new HprofFormatException("Unexpected end of file", e);
     }
   }
 
-  private static AhatSnapshot parseHeapDump(HprofBuffer hprof, ProguardMap map)
+  private static AhatSnapshot parseHeapDumpMayBufferUnderflow(
+    HprofBuffer hprof, ProguardMap map, ExternalModelSource externalModelSource)
     throws IOException, HprofFormatException, BufferUnderflowException {
     // Read, and mostly ignore, the hprof header info.
     {
@@ -617,7 +702,7 @@ public class Parser {
 
     hprof = null;
     roots = null;
-    return new AhatSnapshot(superRoot, mInstances, heaps.heaps, rootSite);
+    return new AhatSnapshot(superRoot, mInstances, heaps.heaps, rootSite, externalModelSource);
   }
 
   private static boolean isEndOfHeapDumpSegment(int subtag) {
