@@ -153,6 +153,7 @@ LOCAL_JAVA_RESOURCE_FILES := \
   $(AHAT_TEST_DUMP_HPROF) \
   $(AHAT_TEST_DUMP_BASE_HPROF) \
   $(AHAT_TEST_DUMP_PROGUARD_MAP) \
+  $(LOCAL_PATH)/etc/AmmTest.hprof \
   $(LOCAL_PATH)/etc/L.hprof \
   $(LOCAL_PATH)/etc/O.hprof \
   $(LOCAL_PATH)/etc/RI.hprof

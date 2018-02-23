@@ -20,6 +20,7 @@ import com.android.ahat.heapdump.AhatClassObj;
 import com.android.ahat.heapdump.AhatInstance;
 import com.android.ahat.heapdump.AhatSnapshot;
 import com.android.ahat.heapdump.Diff;
+import com.android.ahat.heapdump.ExternalModelSource;
 import com.android.ahat.heapdump.FieldValue;
 import com.android.ahat.heapdump.HprofFormatException;
 import com.android.ahat.heapdump.Parser;
@@ -55,6 +56,9 @@ public class TestDump {
   private String mHprofBaseResource;
   private String mMapResource;
 
+  // The external model source to use for the loaded test dump.
+  private ExternalModelSource mExternalModelSource;
+
   // If the test dump fails to load the first time, it will likely fail every
   // other test we try. Rather than having to wait a potentially very long
   // time for test dump loading to fail over and over again, record when it
@@ -64,11 +68,6 @@ public class TestDump {
   // The loaded heap dumps.
   private AhatSnapshot mSnapshot;
   private AhatSnapshot mBaseline;
-
-  // Cached reference to the 'Main' class object in the snapshot and baseline
-  // heap dumps.
-  private AhatClassObj mMain;
-  private AhatClassObj mBaselineMain;
 
   /**
    * Read the named resource into a ByteBuffer.
@@ -92,12 +91,21 @@ public class TestDump {
    * The baseline resouce may be null to indicate that no diffing should be
    * performed.
    * The map resource may be null to indicate no proguard map will be used.
+   * The externalModelSource may be null to indicate the default external
+   * model source will be used.
    *
    */
-  private TestDump(String hprofResource, String hprofBaseResource, String mapResource) {
+  private TestDump(String hprofResource,
+                   String hprofBaseResource,
+                   String mapResource,
+                   ExternalModelSource externalModelSource) {
     mHprofResource = hprofResource;
     mHprofBaseResource = hprofBaseResource;
     mMapResource = mapResource;
+    mExternalModelSource = externalModelSource;
+    if (mExternalModelSource == null) {
+      mExternalModelSource = ExternalModelSource.getDefaultSource();
+    }
   }
 
   /**
@@ -119,9 +127,7 @@ public class TestDump {
 
     try {
       ByteBuffer hprof = dataBufferFromResource(mHprofResource);
-      mSnapshot = Parser.parseHeapDump(hprof, map);
-      mMain = findClass(mSnapshot, "Main");
-      assert(mMain != null);
+      mSnapshot = Parser.parseHeapDump(hprof, map, mExternalModelSource);
     } catch (HprofFormatException e) {
       throw new IOException("Unable to parse heap dump", e);
     }
@@ -129,9 +135,7 @@ public class TestDump {
     if (mHprofBaseResource != null) {
       try {
         ByteBuffer hprofBase = dataBufferFromResource(mHprofBaseResource);
-        mBaseline = Parser.parseHeapDump(hprofBase, map);
-        mBaselineMain = findClass(mBaseline, "Main");
-        assert(mBaselineMain != null);
+        mBaseline = Parser.parseHeapDump(hprofBase, map, mExternalModelSource);
       } catch (HprofFormatException e) {
         throw new IOException("Unable to parse base heap dump", e);
       }
@@ -160,7 +164,7 @@ public class TestDump {
    * snapshot for the test-dump program.
    */
   public Value getDumpedValue(String name) {
-    return getDumpedValue(name, mMain);
+    return getDumpedValue(name, findClass(mSnapshot, "Main"));
   }
 
   /**
@@ -168,7 +172,7 @@ public class TestDump {
    * baseline snapshot for the test-dump program.
    */
   public Value getBaselineDumpedValue(String name) {
-    return getDumpedValue(name, mBaselineMain);
+    return getDumpedValue(name, findClass(mBaseline, "Main"));
   }
 
   /**
@@ -238,7 +242,7 @@ public class TestDump {
    * when possible.
    */
   public static synchronized TestDump getTestDump() throws IOException {
-    return getTestDump("test-dump.hprof", "test-dump-base.hprof", "test-dump.map");
+    return getTestDump("test-dump.hprof", "test-dump-base.hprof", "test-dump.map", null);
   }
 
   /**
@@ -246,17 +250,22 @@ public class TestDump {
    * @param hprof - The string resouce name of the hprof file.
    * @param base - The string resouce name of the baseline hprof, may be null.
    * @param map - The string resouce name of the proguard map, may be null.
+   * @param externalModelSource - The external model source to use, may be null.
    * An IOException is thrown if there is an error reading the test dump hprof
    * file.
    * To improve performance, this returns a cached instance of the TestDump
    * when possible.
    */
-  public static synchronized TestDump getTestDump(String hprof, String base, String map)
+  public static synchronized TestDump getTestDump(String hprof,
+                                                  String base,
+                                                  String map,
+                                                  ExternalModelSource externalModelSource)
     throws IOException {
     for (TestDump loaded : mCachedTestDumps) {
       if (Objects.equals(loaded.mHprofResource, hprof)
           && Objects.equals(loaded.mHprofBaseResource, base)
-          && Objects.equals(loaded.mMapResource, map)) {
+          && Objects.equals(loaded.mMapResource, map)
+          && Objects.equals(loaded.mExternalModelSource, externalModelSource)) {
         if (loaded.mTestDumpFailed) {
           throw new IOException("Test dump failed before, assuming it will again");
         }
@@ -264,7 +273,7 @@ public class TestDump {
       }
     }
 
-    TestDump dump = new TestDump(hprof, base, map);
+    TestDump dump = new TestDump(hprof, base, map, externalModelSource);
     mCachedTestDumps.add(dump);
     dump.load();
     return dump;

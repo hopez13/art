@@ -75,7 +75,7 @@ public class DiffTest {
 
   @Test
   public void diffClassRemoved() throws IOException {
-    TestDump dump = TestDump.getTestDump("O.hprof", "L.hprof", null);
+    TestDump dump = TestDump.getTestDump("O.hprof", "L.hprof", null, null);
     AhatHandler handler = new ObjectsHandler(dump.getAhatSnapshot());
     TestHandler.testNoCrash(handler, "http://localhost:7100/objects?class=java.lang.Class");
   }

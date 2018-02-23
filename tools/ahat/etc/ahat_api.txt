@@ -139,6 +139,7 @@ package com.android.ahat.heapdump {
   }
 
   public final class ExternalModelSource extends java.lang.Enum {
+    method public static com.android.ahat.heapdump.ExternalModelSource getDefaultSource();
     method public static com.android.ahat.heapdump.ExternalModelSource valueOf(java.lang.String);
     method public static final com.android.ahat.heapdump.ExternalModelSource[] values();
     enum_constant public static final com.android.ahat.heapdump.ExternalModelSource ACTIONABLE_MEMORY_METRIC;

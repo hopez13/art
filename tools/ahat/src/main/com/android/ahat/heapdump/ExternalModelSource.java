@@ -32,7 +32,12 @@ public enum ExternalModelSource {
    */
   ACTIONABLE_MEMORY_METRIC;
 
-  static ExternalModelSource getDefaultSource() {
+  /**
+   * Returns a default source to use for external models.
+   *
+   * @return default source to use for external models.
+   */
+  public static ExternalModelSource getDefaultSource() {
     return NATIVE_ALLOCATION_REGISTRY;
   }
 }

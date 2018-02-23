@@ -425,7 +425,7 @@ public class InstanceTest {
     // On Android L, image strings were backed by a single big char array.
     // Verify we show just the relative part of the string, not the entire
     // char array.
-    TestDump dump = TestDump.getTestDump("L.hprof", null, null);
+    TestDump dump = TestDump.getTestDump("L.hprof", null, null, null);
     AhatSnapshot snapshot = dump.getAhatSnapshot();
 
     // java.lang.String@0x6fe17050 is an image string "char" backed by a
@@ -436,7 +436,7 @@ public class InstanceTest {
 
   @Test
   public void nonDefaultHeapRoot() throws IOException {
-    TestDump dump = TestDump.getTestDump("O.hprof", null, null);
+    TestDump dump = TestDump.getTestDump("O.hprof", null, null, null);
     AhatSnapshot snapshot = dump.getAhatSnapshot();
 
     // java.util.HashMap@6004fdb8 is marked as a VM INTERNAL root.
@@ -449,7 +449,7 @@ public class InstanceTest {
 
   @Test
   public void threadRoot() throws IOException {
-    TestDump dump = TestDump.getTestDump("O.hprof", null, null);
+    TestDump dump = TestDump.getTestDump("O.hprof", null, null, null);
     AhatSnapshot snapshot = dump.getAhatSnapshot();
 
     // java.lang.Thread@12c03470 is marked as a thread root.
@@ -472,7 +472,7 @@ public class InstanceTest {
 
   @Test
   public void nullValueString() throws IOException {
-    TestDump dump = TestDump.getTestDump("RI.hprof", null, null);
+    TestDump dump = TestDump.getTestDump("RI.hprof", null, null, null);
     AhatSnapshot snapshot = dump.getAhatSnapshot();
 
     // java.lang.String@500001a8 has a null 'value' field, which should not
