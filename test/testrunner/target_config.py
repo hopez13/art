@@ -31,11 +31,8 @@ target_config = {
     },
 
     'art-test-javac' : {
-        'make' : 'test-art-host-gtest',
-        'run-test' : [],
+        'run-test' : ['--jvm'],
         'env' : {
-            'ANDROID_COMPILE_WITH_JACK' : 'false',
-            'ART_USE_READ_BARRIER' : 'true'
         }
     },
 
