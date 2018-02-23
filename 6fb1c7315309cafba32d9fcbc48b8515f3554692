@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea4a4e1_32129396",
+        "filename": "test/1948-obsolete-const-method-handle/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-23T09:19:26Z",
+      "side": 1,
+      "message": "nit: s/2017/2018/ here and throughout the CL",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 17
+      },
+      "revId": "6fb1c7315309cafba32d9fcbc48b8515f3554692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "186dbf97_c3c684bf",
+        "filename": "test/1948-obsolete-const-method-handle/util-src/src/art/Test1948.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-23T09:19:26Z",
+      "side": 1,
+      "message": "s/lambda/capturing-lambda/\n\nFWIW, adding LMF isn\u0027t a huge amount of work. The downside is that it\u0027s likely to be slow. Currently, we have to interpret invoke-custom whereas desugar produces easily compilable code.",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "6fb1c7315309cafba32d9fcbc48b8515f3554692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0295006e_a2f63ff2",
+        "filename": "test/1948-obsolete-const-method-handle/util-src/src/art/constmethodhandle/TestGenerator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-23T09:19:26Z",
+      "side": 1,
+      "message": "nit: Modify",
+      "range": {
+        "startLine": 67,
+        "startChar": 5,
+        "endLine": 67,
+        "endChar": 12
+      },
+      "revId": "6fb1c7315309cafba32d9fcbc48b8515f3554692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71b1c31d_0d72b8a3",
+        "filename": "test/1948-obsolete-const-method-handle/util-src/src/art/constmethodhandle/TestGenerator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-23T09:19:26Z",
+      "side": 1,
+      "message": "Not required here and below. COMPUTE_FRAMES implies COMPUTE_MAXS.",
+      "range": {
+        "startLine": 72,
+        "startChar": 37,
+        "endLine": 72,
+        "endChar": 63
+      },
+      "revId": "6fb1c7315309cafba32d9fcbc48b8515f3554692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7491aefd_b8512b9b",
+        "filename": "test/1948-obsolete-const-method-handle/util-src/src/art/constmethodhandle/TestGenerator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-23T09:19:26Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem very onerous and it\u0027s more flexible to use the dexer externally. Not a fan of this approach, but completely appreciate the pain and am okay with it.",
+      "range": {
+        "startLine": 97,
+        "startChar": 64,
+        "endLine": 98,
+        "endChar": 75
+      },
+      "revId": "6fb1c7315309cafba32d9fcbc48b8515f3554692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7206dbc_f2dfd5a6",
+        "filename": "test/1948-obsolete-const-method-handle/util-src/src/art/constmethodhandle/TestGenerator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-23T09:19:26Z",
+      "side": 1,
+      "message": "// mh.invokeExact...",
+      "range": {
+        "startLine": 159,
+        "startChar": 1,
+        "endLine": 159,
+        "endChar": 8
+      },
+      "revId": "6fb1c7315309cafba32d9fcbc48b8515f3554692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
