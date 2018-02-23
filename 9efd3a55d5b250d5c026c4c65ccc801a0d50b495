@@ -2,6 +2,120 @@
   "comments": [
     {
       "key": {
+        "uuid": "763d7d18_3821f141",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "nit: this would read more cleanly with 4 space line wrap\n\n  art::VisitClassLoaderDexFiles(\n      soa,\n      class_loader,\n      [\u0026](art::Thread* self, const art::DexFile* dex_file) {\n        dex_files.push_back(dex_file);\n        return false;\n      }\n  );\n\nallowing you to fit the lambda args on one line.",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79c497ae_286987da",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "nit: this seems wrong and I missed the lambda the first time I read this code, the way the } matching should work for lambdas is\n\n1) Find the line with [. \n2) Then go all the way to the left before hitting whitespace. \n3) The } should match that spot horizontally.\n\nso in this case it would match the [\n     \n      call(x,\n           y,\n           []{ ...\n           });\n\nbut with something else you might have\n     \n     auto x \u003d [] {...\n     };",
+      "range": {
+        "startLine": 952,
+        "startChar": 2,
+        "endLine": 952,
+        "endChar": 3
+      },
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32a1ae61_42d835dc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "nit: can you fit on one line?\n\n auto add_element_names \u003d\n     [\u0026](Thread* self, ObjPtr\u003cmirror::Object\u003e element, bool* error) {\n     ..............\n     };",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d113a4be_37d0e070",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "nit: /* parameter name */",
+      "range": {
+        "startLine": 1153,
+        "startChar": 77,
+        "endLine": 1153,
+        "endChar": 82
+      },
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d9645b1_7e192eb2",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "Why are there static functions in a header?",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39bd5ff7_01f7102e",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "Cant you just make another SOA? This doesn\u0027t seem so lightweight that reusing the SOA would be a big win.",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f52c1fda_b20142c2",
         "filename": "runtime/class_loader_utils.h",
         "patchSetId": 1
@@ -22,6 +136,92 @@
       "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "324b5077_fcc5b87e",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "nit: this indentation its wrong , \n   \n    x-\u003e\n        y\n\n4 space indentation as usual",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 6
+      },
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5057e5cf_520c40c8",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "nit: /*out*/",
+      "range": {
+        "startLine": 81,
+        "startChar": 29,
+        "endLine": 81,
+        "endChar": 30
+      },
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dfe3b26_41301a0f",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "I think if you just have a defaultReturn\u003d{} then it will work for void?",
+      "range": {
+        "startLine": 96,
+        "startChar": 55,
+        "endLine": 96,
+        "endChar": 68
+      },
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ed5eacc_bee95c34",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-23T21:12:17Z",
+      "side": 1,
+      "message": "Could\u0027ve been handled with a ReturnType\u003dstd::void_t in C++17. oh well.",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
