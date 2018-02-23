@@ -712,8 +712,7 @@ class Runtime {
 
   void AttachAgent(JNIEnv* env,
                    const std::string& agent_arg,
-                   jobject class_loader,
-                   bool allow_non_debuggable_tooling = false);
+                   jobject class_loader);
 
   const std::list<std::unique_ptr<ti::Agent>>& GetAgents() const {
     return agents_;
