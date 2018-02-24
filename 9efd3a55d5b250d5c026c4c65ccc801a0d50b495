@@ -99,6 +99,24 @@
     },
     {
       "key": {
+        "uuid": "f0ee5adf_4042d8af",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-24T01:13:49Z",
+      "side": 1,
+      "message": "Imports into two compilation units, I assume?",
+      "parentUuid": "9d9645b1_7e192eb2",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39bd5ff7_01f7102e",
         "filename": "runtime/class_loader_utils.h",
         "patchSetId": 1
@@ -110,6 +128,24 @@
       "writtenOn": "2018-02-23T21:12:17Z",
       "side": 1,
       "message": "Cant you just make another SOA? This doesn\u0027t seem so lightweight that reusing the SOA would be a big win.",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db987af1_4ce994fe",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-24T01:13:49Z",
+      "side": 1,
+      "message": "Most callers, but especially the important class-loading part, already have a SOA. So it seemed valuable to pass it along.",
+      "parentUuid": "39bd5ff7_01f7102e",
       "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -196,6 +232,30 @@
       "writtenOn": "2018-02-23T21:12:17Z",
       "side": 1,
       "message": "I think if you just have a defaultReturn\u003d{} then it will work for void?",
+      "range": {
+        "startLine": 96,
+        "startChar": 55,
+        "endLine": 96,
+        "endChar": 68
+      },
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f1080ab_f3185323",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-24T01:13:49Z",
+      "side": 1,
+      "message": "Haven\u0027t tried. Would certainly be nice to replace the special case below.",
+      "parentUuid": "5dfe3b26_41301a0f",
       "range": {
         "startLine": 96,
         "startChar": 55,
