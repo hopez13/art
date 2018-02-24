@@ -117,6 +117,24 @@
     },
     {
       "key": {
+        "uuid": "7b4a86b3_10392d75",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-24T01:44:31Z",
+      "side": 1,
+      "message": "That seems like undesirable behavior.\n\nAnother way of phrasing what you said: this will end up duplicating the definition across every translation unit that it\u0027s used in [and if it\u0027s not inlined].\n-----\nOTOH, if it\u0027s just \"inline\" but not \"static\" then the compiler has to assume it\u0027s callable from other .o files,  it compiles code anyway?\n\nHowever since the linker will anyway remove dead functions, this seems quite pointless that can do more harm than good.\n-----\n\nPerhaps while you\u0027re cleaning this up we can remove the \"static\" keywords from header functions [unless they are in a class]?",
+      "parentUuid": "f0ee5adf_4042d8af",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39bd5ff7_01f7102e",
         "filename": "runtime/class_loader_utils.h",
         "patchSetId": 1
@@ -146,6 +164,24 @@
       "side": 1,
       "message": "Most callers, but especially the important class-loading part, already have a SOA. So it seemed valuable to pass it along.",
       "parentUuid": "39bd5ff7_01f7102e",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ff1538a_b962b088",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-24T01:44:31Z",
+      "side": 1,
+      "message": "Just in terms of \"API niceness\" it\u0027s not adding any value. The mutator lock already provides the contract guarantees.",
+      "parentUuid": "db987af1_4ce994fe",
       "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -198,6 +234,23 @@
     },
     {
       "key": {
+        "uuid": "1b5d1f23_74be1c40",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-24T01:44:31Z",
+      "side": 1,
+      "message": "Why isn\u0027t this a CHECK/DCHECK?",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5057e5cf_520c40c8",
         "filename": "runtime/class_loader_utils.h",
         "patchSetId": 1
@@ -218,6 +271,23 @@
       "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b14849d9_42a2dc9c",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-24T01:44:31Z",
+      "side": 1,
+      "message": "I would \"break\" when fn returns false. That way it\u0027s modeling the while() idiom.\n\n   while(fn(self, elements)) {\n      ....\n   }\n\nif this function was a macro you would\u0027ve expected to break when the while condition becomes false.\n\nIt reminds me that in multicast event libraries that use the observer pattern -- \"return true\" means continue chaining the event (visiting the event listeners) and \"return false\" means stop and break out early (don\u0027t deliver event to other listeners).",
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +325,30 @@
       "writtenOn": "2018-02-24T01:13:49Z",
       "side": 1,
       "message": "Haven\u0027t tried. Would certainly be nice to replace the special case below.",
+      "parentUuid": "5dfe3b26_41301a0f",
+      "range": {
+        "startLine": 96,
+        "startChar": 55,
+        "endLine": 96,
+        "endChar": 68
+      },
+      "revId": "9efd3a55d5b250d5c026c4c65ccc801a0d50b495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e2aca5d_48d3b458",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-24T01:44:31Z",
+      "side": 1,
+      "message": "Sorry, I forgot to remove this comment. This only works with std::void_t\u003d{} which is C++17 (or you can define your own, not worth it).",
       "parentUuid": "5dfe3b26_41301a0f",
       "range": {
         "startLine": 96,
