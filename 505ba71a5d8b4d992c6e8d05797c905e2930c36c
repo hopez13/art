@@ -34,6 +34,24 @@
       "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "710292c6_daa5810d",
+        "filename": "test/004-JniTest/expected_jvm.diff",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-26T23:21:59Z",
+      "side": 0,
+      "message": "filed b/73899151\n\nIt\u0027s mostly just that we are starting to have a lot of these and it is extremely annoying to update them.\n\nI think a good api might be ./run-test --update-diff (jvm|d8|dx|...) \u003coptions\u003e \u003ctest num\u003e generates \u003ctest-num\u003e/expected-\u003cjvm|d8|dx|...\u003e.diff from output and expected.txt",
+      "parentUuid": "c9e8ebe2_a44a7f17",
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
