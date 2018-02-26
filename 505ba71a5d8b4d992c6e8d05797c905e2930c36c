@@ -91,6 +91,30 @@
       "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3201fce_0d16640f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T17:56:03Z",
+      "side": 1,
+      "message": "\"config\" ends up being a tuple of those values. except for uncombinated_config it ends up being a much smaller tuple because it only varies over the test.\n\nCan you be a bit more specific in what your question here about \"Why do you need all this?\"\n\nthe --jvm config needs to run with minimal flags passed to run-test because otherwise it would blindly pass down flags to the jvm command and it would fail every single test being ran.\n\nI also wanted to minimize refactoring because there\u0027s no test for the testrunner and breaking existing functionality seems like a bad idea?\n\nPlease let me know how you\u0027d like to proceed so I can make the appropriate changes.",
+      "parentUuid": "553a3cbc_4cf79420",
+      "range": {
+        "startLine": 362,
+        "startChar": 2,
+        "endLine": 376,
+        "endChar": 95
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
