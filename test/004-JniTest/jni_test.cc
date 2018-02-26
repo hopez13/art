@@ -44,6 +44,12 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void*) {
   jvm = vm;
   std::cout << "JNI_OnLoad called" << std::endl;
 
+  if (Runtime::Current() == nullptr) {
+    // Restore line buffering to stdout.
+    // Without this printf/println will not interleave as expected on some VMs.
+    setvbuf(stdout, /*buf*/nullptr, _IOLBF, BUFSIZ);
+  }
+
   return JNI_VERSION_1_6;
 }
 

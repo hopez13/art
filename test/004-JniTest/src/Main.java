@@ -26,10 +26,12 @@ import dalvik.annotation.optimization.CriticalNative;
 import dalvik.annotation.optimization.FastNative;
 
 public class Main {
+    private final static boolean isDalvik = System.getProperty("java.vm.name").equals("Dalvik");
+
     public static void main(String[] args) {
         System.loadLibrary(args[0]);
 
-        if (!isSlowDebug()) {
+        if (!isSlowDebug() && isDalvik) {
           throw new RuntimeException("Slow-debug flags unexpectedly off.");
         }
 
@@ -45,22 +47,36 @@ public class Main {
         testBooleanMethod();
         testCharMethod();
         testIsAssignableFromOnPrimitiveTypes();
-        testShallowGetCallingClassLoader();
-        testShallowGetStackClass2();
+        if (isDalvik) {
+          // Looks up dalvik.* classes which are only available in libcore.
+          testShallowGetCallingClassLoader();
+          testShallowGetStackClass2();
+        }
         testCallNonvirtual();
         testNewStringObject();
         testRemoveLocalObject();
         testProxyGetMethodID();
+
         testJniCriticalSectionAndGc();
-        testCallDefaultMethods();
+
+        if (isDalvik) {
+          // disabled on jvm because this uses smali classes.
+          // TODO: b/73892911
+          testCallDefaultMethods();
+        }
+
         String lambda = "λ";
         testInvokeLambdaMethod(() -> { System.out.println("hi-lambda: " + lambda); });
         String def = "δ";
         testInvokeLambdaDefaultMethod(() -> { System.out.println("hi-default " + def + lambda); });
 
         registerNativesJniTest();
-        testFastNativeMethods();
-        testCriticalNativeMethods();
+
+        if (isDalvik) {
+          // @FastNative and @CriticalNative only exist on Dalvik.
+          testFastNativeMethods();
+          testCriticalNativeMethods();
+        }
 
         testClinitMethodLookup();
 
