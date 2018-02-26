@@ -709,8 +709,14 @@
     },
     {
         "tests": [
-          "020-string",
-          "021-string2",
+          "020-string"
+        ],
+        "variant": "jvm",
+        "bug": "b/73898476",
+        "description": ["Inconsistency in exception thrown between libcore and RI."]
+    },
+    {
+        "tests": [
           "030-bad-finalizer",
           "031-class-attributes",
           "034-call-null",
