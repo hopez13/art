@@ -16,6 +16,24 @@
       "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9e8ebe2_a44a7f17",
+        "filename": "test/004-JniTest/expected_jvm.diff",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:12:36Z",
+      "side": 0,
+      "message": "Yes, I agree, what do you want the command line interface to look like and what do you want it to do?\n\n-------\nSo a slightly longer answer, we did this before for DX/D8 and it was fine as just manually-created .diff files.\n\nProbably the default-check script itself should also be smart enough to see an expected_jvm.diff and not have a custom check script for every folder that needs this functionality.\n\nIt seems like a much larger discussion to be had, outside of this scope, can you file a separate bug requesting this?",
+      "parentUuid": "f0432ded_3f5414b3",
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
