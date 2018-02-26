@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99abfc40_f7de0d96",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: document reason its returning true, e.g. or similar // do not break",
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da513824_b97de5ac",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: document the return true/false/true",
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "231af375_1f56c46f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2459,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: ditto",
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b13cc866_88251349",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: /*argname*/",
+      "range": {
+        "startLine": 2465,
+        "startChar": 39,
+        "endLine": 2465,
+        "endChar": 46
+      },
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7baab2d_b22d99f5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7868,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: ditto",
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b27ff0e_71a617b4",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: consider mentioning that \u0027returning a false-like value from fn will terminate visitation early\u0027",
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc41c0c3_24eb96cd",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: consider mentioning that \u0027returning a false-like value from fn will terminate visitation early\u0027",
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02813386_8c666466",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: [\u0026fn]",
+      "range": {
+        "startLine": 140,
+        "startChar": 17,
+        "endLine": 140,
+        "endChar": 18
+      },
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7910a1ee_37c0db98",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-26T23:22:08Z",
+      "side": 1,
+      "message": "nit: /*argname*/",
+      "range": {
+        "startLine": 144,
+        "startChar": 79,
+        "endLine": 144,
+        "endChar": 86
+      },
+      "revId": "fa4f0771255b23ac9eb4195be5812c75042c50d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
