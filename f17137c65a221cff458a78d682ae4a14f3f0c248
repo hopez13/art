@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "53a6591b_d2b0dc01",
+        "filename": "test/952-invoke-custom/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-26T14:42:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f97a1ce_c30d9b29",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "f17137c65a221cff458a78d682ae4a14f3f0c248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76e135cf_bb57f398",
         "filename": "test/952-invoke-custom/src/transformer/IndyTransformer.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-26T13:48:09Z",
       "side": 1,
       "message": "Nit: add high-level comment.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "f17137c65a221cff458a78d682ae4a14f3f0c248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a8f6ffd_b86139cf",
+        "filename": "test/952-invoke-custom/src/transformer/IndyTransformer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-02-26T14:42:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76e135cf_bb57f398",
       "range": {
         "startLine": 43,
         "startChar": 0,
