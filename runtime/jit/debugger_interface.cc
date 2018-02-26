@@ -37,13 +37,21 @@
 //    method, which is called after every modification of the linked list.
 //    GDB does this, but it is complex to set up and it stops the process.
 //
-// 2) Asynchronously, by monitoring the action_counter_, which is incremented
-//    on every modification of the linked list and kept at -1 during updates.
-//    Therefore, if the tool process reads the counter both before and after
-//    iterating over the linked list, and the counters match and are not -1,
-//    the tool process can be sure the list was not modified during the read.
-//    Obviously, it can also cache the data and use the counter to determine
-//    if the cache is up to date, or to intelligently update it if needed.
+// 2) Asynchronously, by monitoring the action_counter_.
+//   * The least signifiant bit of the action counter is set whenever the
+//     data is being modified.  If possible, the tool should retry later.
+//   * The higher bits of the counter are incremented when the linked list
+//     is modified.  This can be used to intelligently cache the data.
+//   * Mind the possible overflow of the counter.  It is intentionally
+//     32-bit, since 64-bit atomics can be tricky on some architectures.
+//   * The tool should read the value of the counter both before and after
+//     reading the linked list.  If the counter values match and LSB is 0,
+//     the copy is guaranteed to be a complete and consistent snapshot.
+//   * The timestamps on the entry and in the descriptor define range of
+//     time when the debug data is known to be valid.  This is relevant
+//     if the unwinding is not live and is postponed until much later.
+//   * Memory barriers are used to make it possible to reason about
+//     the data even when it is being modified.
 //
 
 namespace art {
@@ -75,14 +83,14 @@ extern "C" {
     uint32_t flags_ = 0;                   // Reserved for future use. Must be 0.
     uint32_t sizeof_descriptor = sizeof(JITDescriptor);
     uint32_t sizeof_entry = sizeof(JITCodeEntry);
-    std::atomic_int32_t action_counter_;   // Number of actions, or -1 if locked.
-                                           // It can overflow from INT32_MAX to 0.
+    std::atomic_uint32_t action_counter_;  // Incremented by 2 after every action.
+                                           // The LSB is set during modifications.
     uint64_t action_timestamp_ = 1;        // CLOCK_MONOTONIC time of last action.
   };
 
-  // Check that std::atomic_int32_t has the same layout as int32_t.
-  static_assert(alignof(std::atomic_int32_t) == alignof(int32_t), "Weird alignment");
-  static_assert(sizeof(std::atomic_int32_t) == sizeof(int32_t), "Weird size");
+  // Check that std::atomic_uint32_t has the same layout as uint32_t.
+  static_assert(alignof(std::atomic_uint32_t) == alignof(uint32_t), "Weird alignment");
+  static_assert(sizeof(std::atomic_uint32_t) == sizeof(uint32_t), "Weird size");
 
   // GDB may set breakpoint here. We must ensure it is not removed or deduplicated.
   void __attribute__((noinline)) __jit_debug_register_code() {
@@ -103,17 +111,18 @@ extern "C" {
   JITDescriptor __dex_debug_descriptor {};
 }
 
-// Mark the descriptor as "locked", so native tools know the data is unstable.
-// Returns the old value of the counter.
-static int32_t LockActionCounter(JITDescriptor& descriptor) {
-  return descriptor.action_counter_.exchange(-1);
+// Mark the descriptor as "locked", so native tools know the data is being modified.
+static void LockActionCounter(JITDescriptor& descriptor) {
+  uint32_t old = descriptor.action_counter_.fetch_or(1u);  // Set LSB.
+  DCHECK_EQ(old & 1, 0u) << "The counter was already locked";
+  std::atomic_thread_fence(std::memory_order_release);
 }
 
 // Mark the descriptor as "unlocked", so native tools know the data is safe to read.
-// It will also increment the value so that the tools know the data has changed.
-static void UnlockActionCounter(JITDescriptor& descriptor, int32_t old_value) {
-  int32_t new_value = (old_value + 1) & 0x7FFFFFFF;  // Handle overflow to avoid -1.
-  descriptor.action_counter_.store(new_value);
+static void UnlockAndIncrementActionCounter(JITDescriptor& descriptor) {
+  uint32_t old = descriptor.action_counter_.fetch_add(1u);  // Clear LSB and increment higher bits.
+  DCHECK_EQ(old & 1, 1u) << "The counter was already unlocked";
+  std::atomic_thread_fence(std::memory_order_release);
 }
 
 static JITCodeEntry* CreateJITCodeEntryInternal(
@@ -121,7 +130,11 @@ static JITCodeEntry* CreateJITCodeEntryInternal(
     void (*register_code_ptr)(),
     const ArrayRef<const uint8_t>& symfile)
     REQUIRES(Locks::native_debug_interface_lock_) {
-  int32_t old_action_counter = LockActionCounter(descriptor);
+  LockActionCounter(descriptor);
+
+  // Ensure the timestamp is monotonically increasing even in presence of low
+  // granularity system timer.  This ensures each entry has unique timestamp.
+  uint64_t timestamp = std::max(descriptor.action_timestamp_ + 1, NanoTime());
 
   JITCodeEntry* entry = new JITCodeEntry;
   CHECK(entry != nullptr);
@@ -129,15 +142,18 @@ static JITCodeEntry* CreateJITCodeEntryInternal(
   entry->symfile_size_ = symfile.size();
   entry->prev_ = nullptr;
   entry->next_ = descriptor.first_entry_;
-  entry->register_timestamp_ = NanoTime();
+  entry->register_timestamp_ = timestamp;
   if (entry->next_ != nullptr) {
     entry->next_->prev_ = entry;
   }
+
+  // Memory barrier to ensure the entry is fully written before the descriptor.
+  std::atomic_thread_fence(std::memory_order_release);
   descriptor.first_entry_ = entry;
   descriptor.relevant_entry_ = entry;
   descriptor.action_flag_ = JIT_REGISTER_FN;
-  descriptor.action_timestamp_ = entry->register_timestamp_;
-  UnlockActionCounter(descriptor, old_action_counter);
+  descriptor.action_timestamp_ = timestamp;
+  UnlockAndIncrementActionCounter(descriptor);
 
   (*register_code_ptr)();
   return entry;
@@ -149,7 +165,7 @@ static void DeleteJITCodeEntryInternal(
     JITCodeEntry* entry)
     REQUIRES(Locks::native_debug_interface_lock_) {
   CHECK(entry != nullptr);
-  int32_t old_action_counter = LockActionCounter(descriptor);
+  LockActionCounter(descriptor);
 
   if (entry->prev_ != nullptr) {
     entry->prev_->next_ = entry->next_;
@@ -163,9 +179,12 @@ static void DeleteJITCodeEntryInternal(
   descriptor.relevant_entry_ = entry;
   descriptor.action_flag_ = JIT_UNREGISTER_FN;
   descriptor.action_timestamp_ = NanoTime();
-  UnlockActionCounter(descriptor, old_action_counter);
+  UnlockAndIncrementActionCounter(descriptor);
 
   (*register_code_ptr)();
+
+  // Free the memory last. This ensures the action counter can be used to detect races
+  // where the entry is being read from another thread/process while being freed here.
   delete entry;
 }
 
