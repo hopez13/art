@@ -85,6 +85,7 @@ public class Main extends TestBase {
         TestUninitializedCallSite();
         TestLinkerMethodMinimalArguments();
         TestLinkerMethodMultipleArgumentTypes();
+        TestLinkerUnrelatedBSM.test();
         TestInvokeCustomWithConcurrentThreads();
     }
 }
