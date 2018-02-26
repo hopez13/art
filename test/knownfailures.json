@@ -685,9 +685,22 @@
           "004-NativeAllocations",
           "004-ReferenceMap",
           "004-SignalTest",
-          "004-StackWalk",
-          "004-ThreadStress",
-          "004-UnsafeTest",
+          "004-StackWalk"
+        ],
+        "variant": "jvm",
+        "bug": "TODO",
+        "description": ["Not supported on --jvm: uses ART internals from JNI."]
+    },
+    {
+        "tests": [
+          "004-ThreadStress"
+        ],
+        "variant": "jvm",
+        "bug": "TODO",
+        "description": ["Not supported on --jvm: uses dalvik APIs that are not available with --jvm."]
+    },
+    {
+        "tests": [
           "005-annotations",
           "008-exceptions",
           "020-string",

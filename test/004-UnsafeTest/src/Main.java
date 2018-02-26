@@ -18,6 +18,8 @@ import java.lang.reflect.Field;
 import sun.misc.Unsafe;
 
 public class Main {
+  private final static boolean isDalvik = System.getProperty("java.vm.name").equals("Dalvik");
+
   private static void check(int actual, int expected, String msg) {
     if (actual != expected) {
       System.out.println(msg + " : " + actual + " != " + expected);
@@ -50,8 +52,11 @@ public class Main {
     System.loadLibrary(args[0]);
     Unsafe unsafe = getUnsafe();
 
-    testArrayBaseOffset(unsafe);
-    testArrayIndexScale(unsafe);
+    if (isDalvik) {
+      // This reaches into ART internals, not available on other VMs.
+      testArrayBaseOffset(unsafe);
+      testArrayIndexScale(unsafe);
+    }
     testGetAndPutAndCAS(unsafe);
     testGetAndPutVolatile(unsafe);
   }
