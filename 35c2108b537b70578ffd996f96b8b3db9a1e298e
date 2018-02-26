@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b25a80b_81bb3532",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "Do you need to pass this? Can you get it from the passed \u0027klass\u0027 instead?",
+      "range": {
+        "startLine": 81,
+        "startChar": 67,
+        "endLine": 81,
+        "endChar": 91
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb80dd0c_e178456c",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "Do you need to pass this? Can you get this from the class linker instead?",
+      "range": {
+        "startLine": 82,
+        "startChar": 68,
+        "endLine": 82,
+        "endChar": 97
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "470dae25_86dbaa1d",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "superclass",
+      "range": {
+        "startLine": 105,
+        "startChar": 79,
+        "endLine": 105,
+        "endChar": 90
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68d0ce52_e528eccd",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "do not override methods from super classes",
+      "range": {
+        "startLine": 107,
+        "startChar": 35,
+        "endLine": 107,
+        "endChar": 72
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21de10c8_29a6b667",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "Why don\u0027t you check super_it comes from the same class loader, in which case you don\u0027t need to do anything?",
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a95e827d_e96a61af",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 148,
+        "startChar": 8,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52937e61_efa910a5",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "nit: ResetSingleImplementationInHierarchy ?",
+      "range": {
+        "startLine": 119,
+        "startChar": 7,
+        "endLine": 119,
+        "endChar": 44
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "225573fe_f9749f6d",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "Nit: one per line",
+      "range": {
+        "startLine": 119,
+        "startChar": 45,
+        "endLine": 120,
+        "endChar": 96
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8215afa2_56a01495",
+        "filename": "test/616-cha-unloading/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T14:58:25Z",
+      "side": 1,
+      "message": "Missing copyright",
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
