@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b4060c5_82503725",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T13:04:11Z",
+      "side": 1,
+      "message": "Please file this.",
+      "range": {
+        "startLine": 965,
+        "startChar": 16,
+        "endLine": 965,
+        "endChar": 20
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fa7af00_f7268fbb",
+        "filename": "test/testrunner/run_build_test_target.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T13:04:11Z",
+      "side": 1,
+      "message": "This looks odd, please add a comment.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 34
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d69ea82_8df987a6",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T13:04:11Z",
+      "side": 1,
+      "message": "What\u0027s this magic value?",
+      "range": {
+        "startLine": 376,
+        "startChar": 88,
+        "endLine": 376,
+        "endChar": 90
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "553a3cbc_4cf79420",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T13:04:11Z",
+      "side": 1,
+      "message": "Why do you need all this?",
+      "range": {
+        "startLine": 362,
+        "startChar": 2,
+        "endLine": 376,
+        "endChar": 95
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
