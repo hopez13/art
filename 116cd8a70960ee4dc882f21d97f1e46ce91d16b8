@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "abab3ac4_88d14e61",
+        "filename": "dex2oat/linker/oat_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T10:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f50a52c1_d04f0702",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "116cd8a70960ee4dc882f21d97f1e46ce91d16b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b56c4856_16608733",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 8
@@ -59,6 +83,24 @@
       "writtenOn": "2018-02-23T17:52:24Z",
       "side": 1,
       "message": "This also covers non priv apps I think?",
+      "revId": "116cd8a70960ee4dc882f21d97f1e46ce91d16b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbce9023_5486d16e",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T10:11:58Z",
+      "side": 1,
+      "message": "No, only_load_system_executable_ is passed by AM, and that\u0027s only set for priv-apps.",
+      "parentUuid": "b56c4856_16608733",
       "revId": "116cd8a70960ee4dc882f21d97f1e46ce91d16b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
