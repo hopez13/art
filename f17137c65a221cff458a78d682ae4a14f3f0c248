@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f97a1ce_c30d9b29",
+        "filename": "test/952-invoke-custom/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T13:48:09Z",
+      "side": 1,
+      "message": "missing \u0027.\u0027.",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "f17137c65a221cff458a78d682ae4a14f3f0c248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76e135cf_bb57f398",
+        "filename": "test/952-invoke-custom/src/transformer/IndyTransformer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-26T13:48:09Z",
+      "side": 1,
+      "message": "Nit: add high-level comment.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "f17137c65a221cff458a78d682ae4a14f3f0c248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
