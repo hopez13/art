@@ -701,8 +701,14 @@
     },
     {
         "tests": [
-          "005-annotations",
-          "008-exceptions",
+          "005-annotations"
+        ],
+        "variant": "jvm",
+        "bug": "b/73897123",
+        "description": ["Inconsistency in exception thrown between libcore and RI."]
+    },
+    {
+        "tests": [
           "020-string",
           "021-string2",
           "030-bad-finalizer",

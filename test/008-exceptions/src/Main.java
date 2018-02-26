@@ -171,7 +171,11 @@ public class Main {
             throw new IllegalStateException("Should not reach here.");
         } catch (NoClassDefFoundError ncdfe) {
             if (!(ncdfe.getCause() instanceof BadError)) {
-                ncdfe.getCause().printStackTrace(System.out);
+                if (ncdfe.getCause() != null) {
+                  ncdfe.getCause().printStackTrace(System.out);
+                } else {
+                  ncdfe.printStackTrace(System.out);
+                }
             }
         } catch (VerifyError e) {
         } catch (Throwable t) {

@@ -1,0 +1,26 @@
+12,13c12,13
+< java.lang.NoClassDefFoundError: BadInit
+< BadError: This is bad by convention: BadInit
+---
+> java.lang.NoClassDefFoundError: Could not initialize class BadInit
+> null
+16,17c16,17
+< java.lang.NoClassDefFoundError: BadInitNoStringInit
+< BadErrorNoStringInit: This is bad by convention
+---
+> java.lang.NoClassDefFoundError: Could not initialize class BadInitNoStringInit
+> null
+19a20,22
+> java.lang.NoClassDefFoundError: Could not initialize class BadSuperClass
+> 	at Main.exceptionsForSuperClassInitFailure(Main.java:170)
+> 	at Main.main(Main.java:85)
+22,25c25,28
+< java.lang.NoClassDefFoundError: MultiDexBadInit
+<   cause: java.lang.Error: MultiDexBadInit
+< java.lang.NoClassDefFoundError: MultiDexBadInit
+<   cause: java.lang.Error: MultiDexBadInit
+---
+> java.lang.NoClassDefFoundError: Could not initialize class MultiDexBadInit
+>   cause: null
+> java.lang.NoClassDefFoundError: Could not initialize class MultiDexBadInit
+>   cause: null
