@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eed87037_7767b3d6",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-27T14:03:53Z",
+      "side": 1,
+      "message": "Yes. \u0027klass\u0027 comes from CL\u0027s class table. Which might and most certainly does contain classes, located in different linear allocs.",
+      "parentUuid": "9b25a80b_81bb3532",
+      "range": {
+        "startLine": 81,
+        "startChar": 67,
+        "endLine": 81,
+        "endChar": 91
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb80dd0c_e178456c",
         "filename": "runtime/cha.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c7ca05f_f70b774a",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-27T14:03:53Z",
+      "side": 1,
+      "message": "Followed the same idea, as you suggested in class_linker.cc\u0027s CHAOnDeleteUpdateClassVisitor and its cha_ field.\nI\u0027m not sure if there\u0027s a reason to not pass pointer_size.",
+      "parentUuid": "eb80dd0c_e178456c",
+      "range": {
+        "startLine": 82,
+        "startChar": 68,
+        "endLine": 82,
+        "endChar": 97
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -108,6 +156,24 @@
       "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4b03ebc_f0ca3d12",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-02-27T14:03:53Z",
+      "side": 1,
+      "message": "Initially I was thinking that the only way to check is a super class is going to be deleted is via LinearAlloc\u0027s Contains method, which might proceed even longer than the whole loop\u0027s body itself.\nIndeed, comparing the classloaders is the way to go.",
+      "parentUuid": "21de10c8_29a6b667",
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
