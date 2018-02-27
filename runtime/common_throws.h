@@ -270,9 +270,11 @@ void ThrowVerifyError(ObjPtr<mirror::Class> referrer, const char* fmt, ...)
 
 // WrongMethodTypeException
 
-void ThrowWrongMethodTypeException(mirror::MethodType* callee_type,
-                                   mirror::MethodType* callsite_type)
+void ThrowWrongMethodTypeException(ObjPtr<mirror::MethodType> callee_type,
+                                   ObjPtr<mirror::MethodType> callsite_type)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
+
+void ThrowWrongMethodTypeException(const char* msg) REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
 }  // namespace art
 
