@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "03290cd9_7d585cfd",
+        "filename": "oatdump/oatdump_app_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-27T17:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d327236_5ab30913",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "98d0f8302050ac41775290c57cf39810cbfe9fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a15ea619_0fee2204",
         "filename": "oatdump/oatdump_image_test.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-27T17:40:45Z",
       "side": 1,
       "message": "2017? (This file seems to have been added in https://android-review.googlesource.com/386752.)",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "98d0f8302050ac41775290c57cf39810cbfe9fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cb083dc_858b7eeb",
+        "filename": "oatdump/oatdump_image_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-27T17:59:54Z",
+      "side": 1,
+      "message": "Done.\n\n(I didn\u0027t mean to change this file in this CL, PS2 was supposed to fix the oatdump_app_test.cc .)",
+      "parentUuid": "a15ea619_0fee2204",
       "range": {
         "startLine": 2,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0fec1893_fdbe6298",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-27T17:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37c1b095_9047703c",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 51
+      },
+      "revId": "98d0f8302050ac41775290c57cf39810cbfe9fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c6b0d3_46bd90ae",
         "filename": "oatdump/oatdump_test.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2018-02-27T17:40:45Z",
       "side": 1,
       "message": "Nit:\n\n  /* out */ pid_t* pid,\n  /* out */ int* pipe_fd,\n  /* out */ std::string* error_msg",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 41
+      },
+      "revId": "98d0f8302050ac41775290c57cf39810cbfe9fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32e27526_758d1e5e",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-27T17:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c6b0d3_46bd90ae",
       "range": {
         "startLine": 257,
         "startChar": 0,
