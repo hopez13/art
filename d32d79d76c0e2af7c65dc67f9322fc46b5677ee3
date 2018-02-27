@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d490065c_a71a61d9",
+        "filename": "test/004-SignalTest/signaltest.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-02-27T02:36:09Z",
+      "side": 1,
+      "message": "PS2 fixes this (there\u0027s 4 bytes of padding in struct sigaction on LP64 bionic, which we were previously blindly memcpying)",
+      "revId": "d32d79d76c0e2af7c65dc67f9322fc46b5677ee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
